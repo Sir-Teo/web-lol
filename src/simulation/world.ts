@@ -581,6 +581,15 @@ export class World {
         this.setOrder(u, { type: 'move', point: home });
       return;
     }
+    if (distance(u, this.battlefield.spawns[u.team]) <= 400) {
+      const state = this.championState(u.id)!;
+      // Local plan for the limited practice shop. Save toward the next item;
+      // never buy repeated components merely to empty the gold balance.
+      const next = ['blade', 'boots', 'pickaxe', 'sword'].find(
+        (id) => !state.inventory.includes(id)
+      );
+      if (next) this.buy(next, u.id);
+    }
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
     const target = this.nearest(u, 1150);
@@ -1302,22 +1311,24 @@ export class World {
       });
     }
   }
-  buy(itemId: string): string | null {
+  buy(itemId: string, championId = this.player.id): string | null {
     if (this.winner) return 'The game has ended';
+    const state = this.championState(championId);
+    const champion = this.unit(championId);
+    if (!state || !champion) return 'Unknown champion';
     const item = ITEMS.find((i) => i.id === itemId);
     if (!item) return 'Unknown item';
-    if (distance(this.hero, this.battlefield.spawns.blue) > 400 && this.hero.hp > 0)
+    if (distance(champion, this.battlefield.spawns[champion.team]) > 400 && champion.hp > 0)
       return 'Return to your fountain to purchase items';
-    if (this.player.inventory.length >= 6) return 'Inventory is full';
-    if (this.player.gold < item.price) return 'Not enough gold';
-    if (item.id === 'boots' && this.player.inventory.includes('boots'))
-      return 'You already own boots';
-    this.player.gold -= item.price;
-    this.player.inventory.push(item.id);
-    this.hero.damage += item.damage;
-    this.hero.maxHp += item.hp;
-    this.hero.hp += item.hp;
-    this.hero.speed += item.speed;
+    if (state.inventory.length >= 6) return 'Inventory is full';
+    if (state.gold < item.price) return 'Not enough gold';
+    if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
+    state.gold -= item.price;
+    state.inventory.push(item.id);
+    champion.damage += item.damage;
+    champion.maxHp += item.hp;
+    if (this.alive(champion)) champion.hp += item.hp;
+    champion.speed += item.speed;
     return null;
   }
   static fromSnapshot(text: string, battlefield: Battlefield): World {

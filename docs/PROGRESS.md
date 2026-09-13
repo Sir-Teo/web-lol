@@ -900,3 +900,11 @@ The held scoreboard now renders one row per actual champion, grouped by team, us
 All 331 source/simulation checks pass. Eleven existing game browser checks and the new scoreboard ownership scenario pass. The first new-test attempt kept gameplay paused, where Tab is intentionally disabled; resuming the fixture before the real Tab key fixed the test setup. The scenario uses actual minion-caused and champion-caused deaths, verifies four distinct rows and team/personal totals, checks literal name rendering, and observes CS updates while held. `artifacts/scoreboard-ownership.png` was inspected. Production build and nested-host smoke pass; the full browser suite was not repeated after this change.
 
 Assists remain the existing zero placeholder until participation tracking exists. The scoreboard does not yet provide the full native inventory/level/timer/team layout. This corrects attribution and roster rendering, not complete scoreboard parity.
+
+## Shared purchasing and bot fountain plan
+
+`buy` now accepts a champion ID, resolves its team fountain and applies gold/inventory/stat changes to that owner. The default remains the human shop API. Buying a health item while dead no longer adds current HP, preventing accidental revival while retaining maximum-health growth for respawn. Bots at their own shop radius, after retreat handling, attempt one item per decision from the finite local Blade → Boots → Pickaxe → Long Sword plan. They save toward the next missing item and stop when the plan is owned.
+
+Five new simulation cases cover independent changes, rejection rules, dead purchases/respawn for both owners, deterministic automatic purchase continuation and saving/fountain restrictions. All 336 source/simulation checks pass. Thirteen focused Chrome scenarios pass, including automatic enemy purchase/checkpoint identity with unchanged human inventory/balance, economy/shop and existing gameplay. The production build and nested-host smoke pass. Full browser/performance suites were not repeated.
+
+The four-item catalog and fixed purchase plan remain practice approximations; recipes, complete itemization, selling and adaptive builds are unfinished. This enables spending independently earned bot gold without claiming a native shop or build policy.
