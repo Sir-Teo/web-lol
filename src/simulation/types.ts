@@ -99,7 +99,8 @@ export interface Projectile extends Vec2 {
   id: number;
   source: number;
   team: Team;
-  type: 'attack' | 'volley' | 'ultimate' | 'hawkshot';
+  type: 'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding';
+  bindingHits?: number[];
   previous: Vec2;
   direction: Vec2;
   target: number | null;

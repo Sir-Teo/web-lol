@@ -1,4 +1,5 @@
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
+import { LUX_BINDING } from '../content/lux-binding';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
@@ -1240,6 +1241,40 @@ export class World {
     target.rootUntil = Math.max(target.rootUntil, this.tick + durationTicks);
     return true;
   }
+  /** Spell-resolution primitive; Lux input, resources and windup are not wired yet. */
+  releaseLightBinding(source: Unit, point: Vec2, damage: number): boolean {
+    if (
+      this.winner ||
+      source.kind !== 'champion' ||
+      !this.units.includes(source) ||
+      !this.alive(source) ||
+      ![point.x, point.y, damage].every(Number.isFinite) ||
+      damage < 0
+    )
+      return false;
+    const dir = direction(source, point);
+    if (!dir.x && !dir.y) return false;
+    this.projectiles.push({
+      id: this.nextId++,
+      source: source.id,
+      team: source.team,
+      type: 'binding',
+      x: source.x,
+      y: source.y,
+      previous: { x: source.x, y: source.y },
+      origin: { x: source.x, y: source.y },
+      launchTick: this.tick,
+      direction: dir,
+      target: null,
+      damage,
+      speed: LUX_BINDING.speed,
+      radius: LUX_BINDING.radius,
+      remaining: LUX_BINDING.range,
+      volleyId: null,
+      bindingHits: [],
+    });
+    return true;
+  }
   private unseenBeforeHawkshot(): Map<Team, Set<number>> {
     const unseen = new Map<Team, Set<number>>();
     for (const team of ['blue', 'red'] as const) {
@@ -1379,6 +1414,35 @@ export class World {
           this.emit('scout-arrival', p, { unit: p.source, team: p.team });
         }
         this.creditHawkshotReveals(unseen);
+        continue;
+      }
+      if (p.type === 'binding') {
+        const hits = this.units
+          .flatMap((u) => {
+            if (
+              !this.alive(u) ||
+              u.team === p.team ||
+              isStructureKind(u.kind) ||
+              p.bindingHits!.includes(u.id)
+            )
+              return [];
+            const t = sweepCircle(p, end, u, p.radius + u.radius);
+            return t === null ? [] : [{ unit: u, t }];
+          })
+          .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id);
+        for (const { unit } of hits) {
+          p.bindingHits!.push(unit.id);
+          if (source) {
+            this.damage(source, unit, p.damage, 'magic', 'area');
+            this.applyRoot(unit, LUX_BINDING.rootSeconds * TICK_RATE);
+          }
+          if (p.bindingHits!.length === LUX_BINDING.maximumTargets) break;
+        }
+        p.x = end.x;
+        p.y = end.y;
+        p.remaining = Math.max(0, p.remaining - travel);
+        if (p.bindingHits!.length < LUX_BINDING.maximumTargets && p.remaining > 1e-8)
+          survivors.push(p);
         continue;
       }
       let contact: Unit | undefined,

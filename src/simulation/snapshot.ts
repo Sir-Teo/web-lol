@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 35;
+export const SNAPSHOT_VERSION = 36;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -202,7 +202,8 @@ const projectile: z.ZodType<Projectile> = z
     id,
     source: id,
     team,
-    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot']),
+    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot', 'binding']),
+    bindingHits: z.array(id).max(1).optional(),
     x: z.number(),
     y: z.number(),
     previous: point,
@@ -218,6 +219,13 @@ const projectile: z.ZodType<Projectile> = z
     launchTick: tick.optional(),
     origin: point.optional(),
   })
+  .refine(
+    (p) =>
+      p.type === 'binding'
+        ? p.bindingHits !== undefined && p.target === null && p.volleyId === null
+        : p.bindingHits === undefined,
+    'Invalid binding hit history'
+  )
   .refine(
     (p) => p.type !== 'hawkshot' || (p.launchTick !== undefined && p.origin !== undefined),
     'Hawkshot lacks launch state'
@@ -351,6 +359,24 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved match contains an invalid pending flurry.');
   }
   for (const projectile of [...state.projectiles, ...state.pendingAttackProjectiles]) {
+    if (
+      projectile.type === 'binding' &&
+      (!state.units.some(
+        (u) => u.id === projectile.source && u.kind === 'champion' && u.team === projectile.team
+      ) ||
+        projectile.bindingHits!.some(
+          (hit) =>
+            hit >= state.nextId ||
+            [...state.projectiles, ...state.pendingAttackProjectiles].some((p) => p.id === hit) ||
+            hit === projectile.source ||
+            state.units.some(
+              (u) =>
+                u.id === hit &&
+                (u.team === projectile.team || ['turret', 'nexus', 'inhibitor'].includes(u.kind))
+            )
+        ))
+    )
+      throw new Error('Saved binding contains invalid participants.');
     if (
       projectile.empowered &&
       state.units.find((unit) => unit.id === projectile.source)?.kind !== 'champion'

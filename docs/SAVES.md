@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 36 adds binding projectiles with a required prior-hit list of length zero or one. A second contact retires the projectile. The decoder checks source team/ownership and rejects impossible retained participants while permitting a removed victim's allocated ID. This allows saving between Light Binding contacts without hitting the first victim twice.
+
 Version 35 adds the required per-unit `rootUntil` deadline. Roots retain movement orders and can expire identically after restoration; respawn clears them. Earlier versions are incompatible, consistent with the existing conservative ruleset policy.
 
 Full-Rift navigation now returns position-only waypoints even when a caller passes a complete unit as its destination. Previously the walkable-endpoint fast path spread the whole unit into the returned point. Chases consequently embedded combat fields in `path` and `pathDestination`, making otherwise valid live matches fail the strict save decoder. This was reproduced in a five-minute ten-champion simulation and two focused regressions. Navigation now explicitly copies `x` and `y`; schema validation remains strict. A browser scenario saves an active Rift chase, reloads through IndexedDB, and matches uninterrupted continuation through an actual attack.

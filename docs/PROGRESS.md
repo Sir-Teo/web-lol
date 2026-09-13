@@ -1416,3 +1416,9 @@ The Lux browser case checks every skinned vertex at three samples per clip, and 
 Pinned Lux Q and Flash records, preserving conflicting child/parent range and cooldown metadata rather than treating all fields as final gameplay values. Added a root deadline distinct from stun: walking/Flash are blocked, attacks and non-movement spells remain possible, and expiry resumes retained movement. Flash rejects newly rooted queued casts without consuming cooldown. Snapshot 35 preserves the deadline and respawn clears it; health bars show ROOTED.
 
 All 517 source/simulation checks, seven focused root/Flash/save Chrome scenarios and production smoke pass. Lux's actual two-target projectile, champion identity, damage/passive effects, full kit and CC exceptions remain unfinished. This is shared combat groundwork; no existing playable spell applies root yet. See `LUX-BINDING.md` for source fields and limits.
+
+## Light Binding projectile resolution
+
+Added a fixed-direction two-contact projectile primitive with swept travel-order hits, once-only magic damage/root, caster-death continuation and saved first-hit history. Allies/structures do not consume contacts; lane minions do. Snapshot 36 validates participants and retained hit history. Source child range/width interpretations remain provisional.
+
+All 522 source/simulation checks, three focused binding/root/ultimate Chrome scenarios and production smoke pass. Initial test corrections isolated an otherwise active turret and respected rounded combat-text values. Lux input, resource/windup handling, passive application and native missile effects remain unfinished; the release method is a combat integration primitive, not a selectable Lux or a completed Q cast. Full match and performance suites were not repeated.
