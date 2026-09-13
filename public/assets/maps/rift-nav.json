@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "source": {
+    "path": "assets/maps/navgrid/map11/aipath_srx_3.aimesh_ngrid",
+    "wadPathHash": "9d67b1c0b806e23e",
+    "sha256": "28f6738003e01a0c13fa8a2f859d2947a8743606465b42139a24c423dd311bd9",
+    "bytes": 9361843
+  },
+  "referenceVersion": "16.18.8175716",
+  "format": "Little endian: uint16 flags, 4 uint8 region fields per cell, float32 height samples",
+  "minimum": [
+    -1.1048965454101562,
+    -71.2406005859375,
+    32.75579833984375
+  ],
+  "maximum": [
+    14718.400390625,
+    184.5200958251953,
+    14792.2109375
+  ],
+  "cellSize": 50.0,
+  "width": 295,
+  "height": 296,
+  "heightWidth": 591,
+  "heightHeight": 593,
+  "heightSpacing": [
+    24.948312759399414,
+    24.9315128326416
+  ],
+  "sections": {
+    "flags": [
+      0,
+      174640
+    ],
+    "regions": [
+      174640,
+      349280
+    ],
+    "heights": [
+      523920,
+      1401852
+    ]
+  },
+  "heightRange": [
+    -150.35012817382812,
+    186.88710021972656
+  ],
+  "flagCounts": {
+    "0": 35045,
+    "1": 1193,
+    "2": 25609,
+    "3": 150,
+    "66": 1122,
+    "70": 1093,
+    "128": 17743,
+    "129": 708,
+    "130": 3955,
+    "131": 51,
+    "194": 515,
+    "1088": 27,
+    "1216": 5,
+    "2112": 14,
+    "2240": 14,
+    "5184": 31,
+    "5312": 7,
+    "6208": 13,
+    "6336": 25
+  },
+  "limitations": [
+    "Base grid only; terrain overlays require separate application.",
+    "Unknown flag 128 is preserved; its semantics are not assumed.",
+    "Team gates and visibility flags need simulation-specific handling."
+  ],
+  "output": {
+    "bytes": 1925772,
+    "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+  }
+}

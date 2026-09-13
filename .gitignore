@@ -6,4 +6,4 @@ playwright-report/
 .tools/
 .cache/
 artifacts/
-
+__pycache__/
