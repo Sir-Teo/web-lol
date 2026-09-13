@@ -492,6 +492,11 @@ export class GameView {
           death.time = Math.min(death.getClip().duration, deathAge);
           death.paused = true;
         }
+        if (clip === 'run' && model.actions.run) {
+          const nominalSpeed = world.battlefield.unitStats?.[u.kind]?.[u.team]?.speed ?? 325;
+          model.actions.run.timeScale =
+            nominalSpeed > 0 ? world.movementSpeed(u) / nominalSpeed : 1;
+        }
         model.mixer.update(animationDelta);
       }
       this.updateBar(u, world, { x, y });

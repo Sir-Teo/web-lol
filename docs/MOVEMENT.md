@@ -1,0 +1,9 @@
+# Movement distance and run playback
+
+Movement consumes its effective speed times the fixed simulation interval along the navigation path. Reaching a waypoint now spends only that segment's distance and carries the remainder into the next segment, including around a turn. Repeated points are skipped. The unit stops at the final reachable endpoint instead of spending remaining distance beyond the path. This removes an artificial slowdown caused by routes containing short segments. Navigation generation, reachability, and the existing arrival tolerance remain separate policies.
+
+One `World.movementSpeed` function supplies the existing movement modifiers to both travel and run playback: the current slow factor and the player's Heal haste compose, and their integer-tick deadlines use the same rules. Base stats remain unchanged. This does not implement additional reference movement-speed caps, stacking rules, or missing crowd-control effects.
+
+Run playback scales relative to the battlefield's unmodified unit speed, falling back to the current practice baseline of 325 when no source speed is configured. Thus a Rift minion's 350-to-450 speed progression changes its run rate proportionally, as do existing slows and haste. This is relative rate consistency; the authored nominal stride and exact foot contacts still require controlled reference capture. Run-cycle phase is not saved.
+
+Four simulation scenarios compare sparse and dense straight paths, exercise zero-length segments and corners, enforce endpoint stopping, and verify slow/haste composition and exact expiration. A browser scenario covers 36 combinations across Ashe and all eight imported lane-minion rigs, comparing actual per-tick displacement and source run playback rate. It uses a controlled unobstructed path to isolate speed; existing navigation and full-map movement tests remain required.
