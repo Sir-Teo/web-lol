@@ -145,3 +145,26 @@ The adapter starts births at the first flight interval, using the same launchTic
 A maximum of four reusable rig/material slots per flight prevents continuous GPU-resource churn. Each visible particle adds one 642-triangle draw. Geometry and textures remain shared; each slot has private bones, mixer and fading material. Slots become hidden between births and are released when no particle remains, including after arrival, removed flights or match reset. Enemy particles use the existing visibility query.
 
 Simulation/source tests cover binding, descent, fade, bounded counts, stateless restoration, stopping births and tail expiry. Browser coverage checks independent poses, pause, fresh-rig restoration, bounded pooling, disposal, and tail cleanup. Existing graphics-loss pixel comparison, glow, wind and Fresnel cases also pass. The inspected capture is `artifacts/browser-hawkshot-echo.png`. Dust, smoke, endpoint effects and audio remain unfinished.
+
+## Dust and smoke sprite preparation
+
+`PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-hawkshot-sprites.py` now verifies and decodes the remaining flight sprite sources. The export checks every TEX against its extracted archive hash and byte size, preserves decoded RGBA exactly through PNG, and records each top-left row-major atlas cell's rectangle and pixel hash. All four cells in each atlas are distinct. The source emitters, selected authored parameters and output hashes are preserved in `docs/reference/hawkshot-sprites.json`.
+
+| Output | Size | PNG bytes | Intended sampling |
+|---|---:|---:|---|
+| hawkshot-dust.png | 128×128 | 10,401 | sRGB artwork, 2×2 atlas |
+| hawkshot-smoke.png | 256×256 | 65,502 | sRGB artwork, 2×2 atlas |
+| hawkshot-smoke-erosion.png | 256×256 | 30,511 | Linear data, authored red channel |
+
+These are prepared assets, not integrated emitters. They add 106,414 bytes to the built static files but no runtime requests yet. All three decoded images were visually inspected. Existing flight rendering remains unchanged in this preparation step.
+
+Dust authors 60 births/second, randomized 0.5–1-second lives, downward velocity, drag, randomized three-axis orbital velocity, a 100-unit box Size, uniform randomized 4-unit birth scale, growth, and a fading ice-blue color. Smoke authors 30 births/second, randomized approximately 0.3–0.6-second lives, separate 195/250-unit birth scales, growth, a fade-in/out color curve, red-channel erosion and a 35-unit soft-particle intersection parameter. Both author four frames and random start, with frameRate and bindWeight absent. Missing fields remain null in the profile; no default or animation cadence is invented by the exporter.
+
+Playback still needs the following work before these layers can be described as implemented:
+
+- A camera-facing instanced quad path with independent per-particle atlas cell, rotation, size and alpha. Atlas selection must not mutate a shared texture offset between particles.
+- Stable birth sampling and arrival-tail reconstruction from the existing saved flight trajectory, independent of rendering frequency. Native birth phase and random-stream agreement remain unverified.
+- Dust box/orbital integration with documented space and units. The pinned ReyEngine shape reader explicitly calls half- versus full-extents unknown; its simulator also rotates around a changing emitter origin. Those interpretations need calibration rather than a stationary-position shortcut.
+- Smoke's red-channel erosion with its authored feather-out value, plus explicitly sourced defaults for omitted erosion fields. The reference quad shader samples erosion at its transformed vUv; do not assume an independent full-image erosion UV without checking native behavior.
+- Smoke intersection fading that accounts for scene depth and the source deltaIn value, with graphics-loss recovery and a defined quality fallback.
+- Pixel checks for distinct atlas cells, erosion progression, soft intersections and blending, followed by source capture comparison. Asset hashes and passing code tests alone cannot establish visual parity.

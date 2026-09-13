@@ -636,3 +636,11 @@ The scout now emits the pinned Owl3 mesh particles: 10 per second, approximately
 All 253 source/simulation checks, nine focused Chrome scenarios, production build and production smoke pass. New coverage checks bound motion, source identity, lifetime, stateless pose restoration, independent animation, pooling, disposal and arrival cleanup. Existing Hawkshot graphics-loss pixel checks and neighboring glow/wind/Fresnel scenarios pass. The screenshot was inspected and source parameter regeneration is byte-identical. The full browser suite and unchanged GLB validation were not repeated.
 
 Native emission phase, particle animation phase, binding/shutdown semantics and exact pixel calibration remain unresolved. Dust, smoke, endpoint effects, audio and the broader production scope remain unfinished. The production goal remains active. See [Owl3 source values and adapter policies](ASHE-E.md#owl3-bound-mesh-particles).
+
+## Hawkshot dust/smoke source preparation milestone
+
+Prepared the original four-cell dust and smoke atlases and the red-channel smoke erosion texture. The exporter verifies archive-source hashes, preserves decoded RGBA exactly, records individual atlas-cell pixel hashes and retains missing source fields as null. The three PNGs total 106,414 bytes; no renderer requests or visual behavior change yet.
+
+All 254 source/simulation checks and the production build pass. The three images were inspected; source export is byte-identical, and the built static files match the verified outputs. Browser gameplay and unchanged GLB checks were not repeated for this asset-only step.
+
+Playback requirements now explicitly include instanced atlas quads, dust orbital/box-space calibration, source erosion UV/default semantics, smoke depth intersection fading and saved deterministic particle reconstruction. These emitters remain unimplemented; this preparation is not a claim of completed effects or native pixel parity. The full production goal remains active. See [sprite preparation and required playback](ASHE-E.md#dust-and-smoke-sprite-preparation).
