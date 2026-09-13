@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 31;
+export const SNAPSHOT_VERSION = 32;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -126,6 +126,9 @@ const player: z.ZodType<PlayerState> = z
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
     damageContributors: z.array(z.strictObject({ sourceId: id, lastDamageTick: tick })).max(10000),
+    supportContributors: z
+      .array(z.strictObject({ sourceId: id, lastSupportTick: tick }))
+      .max(10000),
     skillPoints: z.number().int().min(0).max(18),
     spellRanks: z.strictObject({
       q: z.number().int().min(0).max(5),
@@ -368,6 +371,20 @@ export function decodeSnapshot(text: string) {
       previousDamageTick = contribution.lastDamageTick;
     }
     const revealers = new Set<number>();
+    const supporters = new Set<number>();
+    for (const entry of owner.supportContributors) {
+      const source = champions.find((u) => u.id === entry.sourceId);
+      if (
+        !source ||
+        source.id === champion.id ||
+        source.team !== champion.team ||
+        supporters.has(source.id) ||
+        entry.lastSupportTick > state.tick ||
+        (champion.deadAt !== null && entry.lastSupportTick > champion.deadAt)
+      )
+        throw new Error('Saved match contains invalid support contributions.');
+      supporters.add(source.id);
+    }
     for (const entry of owner.revealContributors) {
       const source = champions.find((u) => u.id === entry.sourceId);
       if (

@@ -31,3 +31,15 @@ The F key passes the picked unit’s coordinates or the ground cursor location. 
 Center-distance boundaries, interpreting “most wounded” as lowest health percentage, cursor-distance ranking, self-target handling, and tie-breaking are explicit runtime policies pending reference-client comparison. The source establishes range/tolerance values and fallback intent, but not every selection detail. Walls do not add a line-of-sight requirement in this implementation.
 
 Five added simulation cases cover cursor preference, fallback percentage, range/tolerance boundaries, excluded recipients, independent reduction, caster-level scaling, speed expiry, and saved continuation. A browser case hovers the healthier ally and presses F, verifying that ally receives healing and haste while the more wounded ally does not. Existing Heal, save, and run-speed checks remain in the affected test set.
+
+## Support assists
+
+Accepted Heal casts now record the caster on the allied recipient. Self-healing, regeneration and rejected casts add no support entry. Receiving Heal again refreshes the same caster's timestamp. Full-health recipients still receive the speed buff and count under this policy.
+
+When an enemy champion dies, the reward transaction first collects the credited killer and eligible damage/Hawkshot contributors. It then adds their recent Heal supporters, once per champion. This shared set feeds assist counters and takedown XP; it does not change execution killer selection. A supporter can be dead or distant. A nearby non-contributor receiving proximity XP does not pass an assist to its healer. Support chains are not recursively expanded. Respawning a supported ally clears contributions from its previous life.
+
+The community description identifies supporting a contributing ally, including healing, as a way to assist. Its historical ten-second statement does not establish the current duration. [Community description](https://leagueoflegends.fandom.com/es/wiki/Asistencia)
+
+**Implementation interpretation:** use the pinned standard-mode 15-second assist window, inclusive at the death tick, independently for support and direct contribution. A Heal may precede or follow that ally's direct contribution; both must remain eligible at death. Full-health haste credit, one-hop expansion, respawn clearing and these exact timing rules need controlled reference comparison. The source `AssistDurationOverride` alone does not prove that it applies to support. Shield and other buff systems remain absent. Assist gold remains unimplemented.
+
+Snapshot 32 preserves support entries and rejects duplicate, self, enemy, missing-source, future and post-death contributions. Tests cover both teams, distant/posthumous XP, repeated and mixed credit, supported assistants, expiry, full-health recipients, rejected casts, executions, respawn clearing and saved continuation. Browser coverage uses the F key and checks the resulting assist HUD.

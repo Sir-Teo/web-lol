@@ -142,6 +142,8 @@ export interface ChampionState {
   revealContributors: { sourceId: number; lastRevealTick: number }[];
   assists: number;
   damageContributors: { sourceId: number; lastDamageTick: number }[];
+  /** Allied Heal casters; support attribution is resolved when a victim dies. */
+  supportContributors: { sourceId: number; lastSupportTick: number }[];
   id: number;
   gold: number;
   cs: number;

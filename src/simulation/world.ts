@@ -1131,6 +1131,26 @@ export class World {
     // Sample at impact, before this hit changes HP. Ranged attacks retain release AD.
     this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
   }
+  /** One support hop from direct contributors; see docs/SUMMONER-HEAL.md. */
+  private takedownContributors(victim: ChampionState, killerId?: number): Set<number> {
+    const direct = new Set([
+      ...victim.damageContributors
+        .filter((entry) => this.tick - entry.lastDamageTick <= ASSIST_WINDOW_SECONDS * TICK_RATE)
+        .map((entry) => entry.sourceId),
+      ...victim.revealContributors
+        .filter((entry) => this.tick - entry.lastRevealTick <= HAWKSHOT_ASSIST_SECONDS * TICK_RATE)
+        .map((entry) => entry.sourceId),
+    ]);
+    if (killerId !== undefined) direct.add(killerId);
+    const contributors = new Set(direct);
+    for (const id of direct) {
+      for (const support of this.championState(id)?.supportContributors ?? []) {
+        if (this.tick - support.lastSupportTick <= ASSIST_WINDOW_SECONDS * TICK_RATE)
+          contributors.add(support.sourceId);
+      }
+    }
+    return contributors;
+  }
   damage(
     source: Unit,
     target: Unit,
@@ -1235,6 +1255,9 @@ export class World {
             ? this.unit(lastDamage.sourceId)
             : undefined;
       const sourceState = rewardSource ? this.championState(rewardSource.id) : undefined;
+      const takedownContributors = targetState
+        ? this.takedownContributors(targetState, rewardSource?.id)
+        : new Set<number>();
       if (sourceState && rewardSource && rewardSource.team !== target.team) {
         let gold =
           target.goldBounty ??
@@ -1264,19 +1287,7 @@ export class World {
           });
         if (target.kind === 'champion') {
           sourceState.kills++;
-          const assistantIds = new Set([
-            ...targetState!.damageContributors
-              .filter(
-                (entry) => this.tick - entry.lastDamageTick <= ASSIST_WINDOW_SECONDS * TICK_RATE
-              )
-              .map((entry) => entry.sourceId),
-            ...targetState!.revealContributors
-              .filter(
-                (entry) => this.tick - entry.lastRevealTick <= HAWKSHOT_ASSIST_SECONDS * TICK_RATE
-              )
-              .map((entry) => entry.sourceId),
-          ]);
-          for (const id of assistantIds) {
+          for (const id of takedownContributors) {
             if (id === rewardSource.id) continue;
             const contributor = this.unit(id);
             const record = this.championState(id);
@@ -1300,25 +1311,11 @@ export class World {
         const amount = (target.experienceBounty ?? 60) * share;
         for (const recipient of recipients) this.gainExperience(amount, recipient.id);
       } else if (targetState) {
-        const contributors = new Set([
-          ...targetState.damageContributors
-            .filter(
-              (entry) => this.tick - entry.lastDamageTick <= ASSIST_WINDOW_SECONDS * TICK_RATE
-            )
-            .map((entry) => entry.sourceId),
-          ...targetState.revealContributors
-            .filter(
-              (entry) => this.tick - entry.lastRevealTick <= HAWKSHOT_ASSIST_SECONDS * TICK_RATE
-            )
-            .map((entry) => entry.sourceId),
-        ]);
-        if (this.championState(source.id) && source.team !== target.team)
-          contributors.add(source.id);
         const recipients = this.units.filter(
           (unit) =>
             unit.kind === 'champion' &&
             unit.team !== target.team &&
-            (contributors.has(unit.id) ||
+            (takedownContributors.has(unit.id) ||
               ((this.alive(unit) ||
                 (unit.deadAt !== null &&
                   this.tick - unit.deadAt <= CHAMPION_KILL_XP.posthumousSeconds * TICK_RATE)) &&
@@ -1371,6 +1368,7 @@ export class World {
     const state = this.championState(u.id);
     if (state) {
       state.damageContributors = [];
+      state.supportContributors = [];
       state.revealContributors = [];
     }
     const point =
@@ -1539,6 +1537,12 @@ export class World {
           this.tick + SUMMONER_HEAL.repeatHealWindowSeconds * TICK_RATE;
         recipient.summonerHealSpeedUntil =
           this.tick + SUMMONER_HEAL.speedDurationSeconds * TICK_RATE;
+        if (recipient.id !== u.id) {
+          const supporters = this.championState(recipient.id)!.supportContributors;
+          const entry = supporters.find((entry) => entry.sourceId === u.id);
+          if (entry) entry.lastSupportTick = this.tick;
+          else supporters.push({ sourceId: u.id, lastSupportTick: this.tick });
+        }
         this.emit('heal', recipient, { value: Math.round(amount) });
       }
     }

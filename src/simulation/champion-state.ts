@@ -9,6 +9,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     revealContributors: [],
     assists: 0,
     damageContributors: [],
+    supportContributors: [],
     id,
     gold: 500,
     cs: 0,
