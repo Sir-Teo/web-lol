@@ -163,6 +163,16 @@ export class World {
     const stats = this.battlefield.unitStats?.[kind]?.[team];
     if (stats) {
       Object.assign(u, stats);
+      const health = isLaneMinionKind(kind)
+        ? this.battlefield.unitHealthGrowth?.[kind]?.[team]
+        : undefined;
+      if (health && stats.maxHp !== undefined) {
+        const upgrades = Math.max(
+          0,
+          Math.floor(this.tick / Math.round(health.intervalSeconds * TICK_RATE))
+        );
+        u.maxHp += Math.min(health.maxBonus, upgrades * health.increment);
+      }
       u.hp = u.maxHp;
       const growth = this.battlefield.waves.moveSpeed;
       if (growth && stats.speed !== undefined) {

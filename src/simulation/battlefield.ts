@@ -41,6 +41,19 @@ export interface Battlefield extends TerrainQueries {
     };
   };
   waveKinds(wave: number, seconds: number, context?: WaveContext): UnitKind[];
+  unitHealthGrowth?: Partial<
+    Record<
+      LaneMinionKind,
+      Record<
+        Team,
+        {
+          intervalSeconds: number;
+          increment: number;
+          maxBonus: number;
+        }
+      >
+    >
+  >;
   minionTurretDamage?: Record<LaneMinionKind, number>;
   unitStats?: Partial<Record<UnitKind, Record<Team, UnitStats>>>;
   initialUnits: {

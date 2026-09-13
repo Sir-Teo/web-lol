@@ -1614,12 +1614,14 @@
       "blue": {
         "speed": 350.0,
         "goldBounty": 20.0,
-        "experienceBounty": 62.0
+        "experienceBounty": 62.0,
+        "maxHp": 430.0
       },
       "red": {
         "speed": 350.0,
         "goldBounty": 20.0,
-        "experienceBounty": 62.0
+        "experienceBounty": 62.0,
+        "maxHp": 430.0
       }
     },
     "siege": {
@@ -1644,6 +1646,20 @@
         "speed": 350.0,
         "goldBounty": 14.0,
         "experienceBounty": 31.0
+      }
+    }
+  },
+  "unitHealthGrowth": {
+    "melee": {
+      "blue": {
+        "intervalSeconds": 90.0,
+        "increment": 35.0,
+        "maxBonus": 1120.0
+      },
+      "red": {
+        "intervalSeconds": 90.0,
+        "increment": 35.0,
+        "maxBonus": 1120.0
       }
     }
   },

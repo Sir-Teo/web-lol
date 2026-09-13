@@ -126,6 +126,7 @@ lane_records = json.loads(lane_bytes)
 override_bytes = Path('docs/reference/lane-rule-overrides.json').read_bytes()
 overrides = json.loads(override_bytes)
 unit_stats = {'super': super_stats}
+unit_health_growth = {'melee': {}}
 lane_templates = {}
 for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
     lane_templates[team] = {}
@@ -143,9 +144,16 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
             'goldBounty': overrides['initialSiegeGold'] if kind == 'siege' else record['goldGivenOnDeath'],
             'experienceBounty': record['expGivenOnDeath'],
         }
+        if kind == 'melee':
+            unit_stats[kind][team]['maxHp'] = record['baseHPModifiable']['baseValue']
+            upgrade = minion['MinionUpgradeStats']
+            unit_health_growth[kind][team] = {
+                'intervalSeconds': definitions[barracks_key]['UpgradeIntervalSecs'],
+                'increment': upgrade['HPUpgrade'], 'maxBonus': upgrade['HpMaxBonus'],
+            }
 layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawns": spawns,
           "lanes": lanes, "turrets": turrets, "structures": base_structures,
-          "unitStats": unit_stats, "minionTurretDamage": overrides["minionTurretDamage"],
+          "unitStats": unit_stats, "unitHealthGrowth": unit_health_growth, "minionTurretDamage": overrides["minionTurretDamage"],
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
                     "intervalChanges": overrides['waveIntervals'],

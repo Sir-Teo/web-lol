@@ -82,3 +82,58 @@ describe('versioned lane cadence and starting rewards', () => {
     }
   });
 });
+
+describe('source melee-minion health progression', () => {
+  for (const team of ['blue', 'red'] as const)
+    it(`applies ${team} base health, exact upgrade boundaries and capped bonus on creation`, () => {
+      const w = new World(false, battlefield);
+      const cases = [
+        [0, 430],
+        [30 * 60, 430],
+        [90 * 60 - 1, 430],
+        [90 * 60, 465],
+        [180 * 60 - 1, 465],
+        [180 * 60, 500],
+        [450 * 60, 605],
+        [48 * 60 * 60 - 1, 1515],
+        [48 * 60 * 60, 1550],
+        [90 * 60 * 60, 1550],
+      ];
+      for (const [tick, hp] of cases) {
+        w.tick = tick;
+        const unit = w.spawn('melee', team, battlefield.spawns[team]);
+        expect(unit.maxHp).toBe(hp);
+        expect(unit.hp).toBe(hp);
+      }
+    });
+  it('does not heal or upgrade already-living minions at a spawn-stat deadline', () => {
+    const w = new World(false, battlefield);
+    w.nextWaveTick = Infinity;
+    w.tick = 90 * 60 - 1;
+    const existing = w.spawn('melee', 'blue', battlefield.spawns.blue);
+    existing.ai = false;
+    existing.hp -= 100;
+    w.step();
+    expect(existing.maxHp).toBe(430);
+    expect(existing.hp).toBe(330);
+    const next = w.spawn('melee', 'blue', battlefield.spawns.blue);
+    expect(next.maxHp).toBe(465);
+    expect(next.hp).toBe(465);
+    expect(battlefield.unitStats?.melee?.blue?.maxHp).toBe(430);
+  });
+  it('applies the upgrade to actual queued wave units on every lane for both teams', () => {
+    const w = new World(false, battlefield);
+    w.wave = 2;
+    w.tick = 90 * 60 - 1;
+    w.nextWaveTick = 90 * 60;
+    w.step();
+    w.nextWaveTick = Infinity;
+    w.step(5 * 60);
+    const melee = w.units.filter((u) => u.kind === 'melee');
+    expect(melee).toHaveLength(18);
+    for (const u of melee) expect(u.maxHp).toBe(465);
+    for (const team of ['blue', 'red'] as const)
+      for (let lane = 0; lane < 3; lane++)
+        expect(melee.filter((u) => u.team === team && u.lane === lane)).toHaveLength(3);
+  });
+});
