@@ -99,4 +99,4 @@ Both icons ship locally with provenance and hashes in the reference manifest. [F
 
 Data Dragon 16.18.1 pins Null-Magic Mantle (1033) at 400 gold, 280 sell and 20 flat magic resistance; Negatron Cloak (1057) at 850 gold, 595 sell and 45 flat magic resistance. Cloak consumes one Mantle, leaving 450 gold to pay. Full source records are in `reference/magic-resist-items.json`; the source JSON digest and shipped icon hashes are checked by `tools/assets/verify-magic-resist-items.py`.
 
-Transactions apply net component resistance and remove the item's resistance on sale, preserving champion growth. Existing magic mitigation uses the updated stat. The compact combat HUD still lacks a magic-resistance readout; full stat-panel fidelity and adaptive defensive bot builds remain unfinished.
+Transactions apply net component resistance and remove the item's resistance on sale, preserving champion growth. Existing magic mitigation uses the updated stat. The compact combat HUD displays rounded current magic resistance beside armor. Full stat-panel/icon fidelity and adaptive defensive bot builds remain unfinished.

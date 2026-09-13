@@ -1056,3 +1056,9 @@ All 390 source/simulation checks, seven focused Chrome scenarios and the nested-
 Added pinned magic-resistance components, their source icons and the Mantle-to-Cloak recipe. Purchases apply net resistance after consuming components; sales preserve unrelated stats and champion level growth. This adds a defensive response to magic damage alongside the existing armor purchases.
 
 All 393 source/simulation checks, five focused Chrome scenarios, resistance/sell source verifiers and the nested-path production smoke pass. Both teams cover mitigation, true damage, sale and saved continuation; browser input covers buying, upgrading and selling, and the larger catalog retains the three viewport layout checks. Inspected the new icon/description/owned-item screenshot. Full-suite/performance checks were not repeated. The compact HUD still needs a magic-resistance readout; adaptive builds, full item effects and native match fidelity remain unfinished.
+
+## Magic resistance in the combat HUD
+
+Added current rounded magic resistance beside armor in the compact stat column. The column retains its width, permits native title tooltips, and distinguishes the MR abbreviation from neighboring symbols. Extended the real shop scenario to assert the visible 33→53→78→33 resistance sequence through purchase, upgrade and sale, then verify all five stats are in the viewport after closing the shop.
+
+All 393 source/simulation checks, the focused Chrome scenario and nested-path production smoke pass. Inspected the captured combat HUD: the fifth row fits inside the existing panel. Full-suite/performance checks were not repeated. The MR abbreviation is a local presentation choice; authentic stat icon assets, full stat details and overall production fidelity remain unfinished.

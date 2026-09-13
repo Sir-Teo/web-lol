@@ -49,7 +49,7 @@ export class Hud {
       <div class="practice-corner"><button class="quiet-button" id="practice-button">◇ <span>Practice tools</span></button><button class="quiet-button" id="help-button">? <span>Controls</span></button><small>REFERENCE BUILD 0.1</small></div>
       <section class="champion-hud" aria-label="Champion controls">
         <div class="champion-portrait"><img src="assets/icons/ashe.png" alt="Ashe"><span id="level">1</span><div class="portrait-frame"></div></div>
-        <div class="champion-stats"><span title="Attack damage"><i>⚔</i><b id="ad">59</b></span><span title="Armor"><i>◈</i><b id="armor">26</b></span><span title="Attack speed"><i>⌁</i><b id="as">0.66</b></span><span title="Movement speed"><i>➤</i><b id="ms">325</b></span></div>
+        <div class="champion-stats"><span title="Attack damage"><i>⚔</i><b id="ad">59</b></span><span title="Armor"><i>◈</i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-abbreviation" aria-hidden="true">MR</i><b id="mr">33</b></span><span title="Attack speed"><i>⌁</i><b id="as">0.66</b></span><span title="Movement speed"><i>➤</i><b id="ms">325</b></span></div>
         <div class="champion-core"><div class="champion-title"><strong>ASHE</strong><span>THE FROST ARCHER</span><div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div></div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
@@ -525,6 +525,7 @@ export class Hud {
       shopBalance.textContent = balanceLabel;
     text('ad', Math.round(h.damage));
     text('armor', Math.round(h.armor));
+    text('mr', Math.round(h.magicResist));
     text('ms', Math.round(statPrecision(w.movementSpeed(h))));
     text('as', ((60 / h.attackPeriod) * w.attackSpeedMultiplier(h, undefined)).toFixed(2));
     const champions = w.units.filter((u) => u.kind === 'champion');

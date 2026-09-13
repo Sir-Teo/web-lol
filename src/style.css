@@ -349,6 +349,8 @@ button {
 }
 .champion-stats {
   width: 48px;
+  flex-shrink: 0;
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -366,6 +368,11 @@ button {
   font-style: normal;
   color: #b8a779;
   width: 12px;
+  flex-shrink: 0;
+}
+.champion-stats .stat-abbreviation {
+  font-size: 9px;
+  color: #a5c7d5;
 }
 .champion-stats b {
   font-weight: 500;
