@@ -1,5 +1,5 @@
 /** Convert matching patch 16.18 base minions to compact, animated GLB assets. */
-import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, copyFile, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { NodeIO } from '@gltf-transform/core';
@@ -7,24 +7,51 @@ import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { dedup, prune, resample } from '@gltf-transform/functions';
 
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
-const root = '.cache/minion-sources/assets/characters';
-const provenance = JSON.parse(await readFile('.cache/minion-sources/provenance.json', 'utf8'));
+const supers = process.argv.includes('--super');
+const family = supers ? 'super-minion' : 'minion';
+const sourceRoot = `.cache/${family}-sources`;
+const converted = `.cache/${family}-converted`;
+const root = `${sourceRoot}/assets/characters`;
+const provenance = JSON.parse(await readFile(`${sourceRoot}/provenance.json`, 'utf8'));
+const definitionsPath = supers
+  ? 'docs/reference/super-minion-definitions.json'
+  : 'docs/reference/minion-skins.json';
+const definitionBytes = await readFile(definitionsPath);
+if (supers && hash(definitionBytes) !== provenance.definitionsSha256)
+  throw new Error('Super-minion definitions differ from pinned provenance');
 for (const source of provenance.files) {
-  const bytes = await readFile(`.cache/minion-sources/${source.path}`);
+  const bytes = await readFile(`${sourceRoot}/${source.path}`);
   if (hash(bytes) !== source.sha256 || bytes.length !== source.bytes)
     throw new Error(`Extracted source differs from recorded provenance: ${source.path}`);
 }
-const skinDefinitions = JSON.parse(await readFile('docs/reference/minion-skins.json', 'utf8'));
+const skinDefinitions = JSON.parse(definitionBytes);
 const io = new NodeIO().registerExtensions(ALL_EXTENSIONS);
-const definitions = [
-  ['blue', 'melee', 'sru_orderminionmelee', 'order_minion_melee', 'orderminion_melee_tx_cm'],
-  ['red', 'melee', 'sru_chaosminionmelee', 'chaos_minion_melee', 'chaosminion_melee_tx_cm'],
-  ['blue', 'caster', 'sru_orderminionranged', 'order_minion_caster', 'orderminion_caster_tx_cm'],
-  ['red', 'caster', 'sru_chaosminionranged', 'chaos_minion_caster', 'red_caster_tx_cm'],
-  ['blue', 'siege', 'sru_orderminionsiege', 'order_minion_siege', 'order_minion_siege_tx_cm'],
-  ['red', 'siege', 'sru_chaosminionsiege', 'chaos_minion_siege', 'chaos_minion_siege_tx_cm'],
-];
-await mkdir('.cache/minion-converted', { recursive: true });
+const definitions = supers
+  ? [
+      [
+        'blue',
+        'super',
+        'sru_orderminionsuper',
+        'blue_minion_superminion',
+        'blue_superminion_tx_cm',
+      ],
+      ['red', 'super', 'sru_chaosminionsuper', 'red_minion_superminion', 'red_superminion_tx_cm'],
+    ]
+  : [
+      ['blue', 'melee', 'sru_orderminionmelee', 'order_minion_melee', 'orderminion_melee_tx_cm'],
+      ['red', 'melee', 'sru_chaosminionmelee', 'chaos_minion_melee', 'chaosminion_melee_tx_cm'],
+      [
+        'blue',
+        'caster',
+        'sru_orderminionranged',
+        'order_minion_caster',
+        'orderminion_caster_tx_cm',
+      ],
+      ['red', 'caster', 'sru_chaosminionranged', 'chaos_minion_caster', 'red_caster_tx_cm'],
+      ['blue', 'siege', 'sru_orderminionsiege', 'order_minion_siege', 'order_minion_siege_tx_cm'],
+      ['red', 'siege', 'sru_chaosminionsiege', 'chaos_minion_siege', 'chaos_minion_siege_tx_cm'],
+    ];
+await mkdir(converted, { recursive: true });
 await mkdir('public/assets/models', { recursive: true });
 for (const [team, kind, character, mesh, texture] of definitions) {
   const name = `${team}-${kind}`;
@@ -33,21 +60,23 @@ for (const [team, kind, character, mesh, texture] of definitions) {
   const skin = Object.values(metadata.skins.data)[0].skinMeshProperties;
   const graph = Object.values(metadata.animations.data)[0].mClipDataMap;
   const clips = [];
-  const animationsPath = `.cache/minion-converted/${name}-animations`;
+  const animationsPath = `${converted}/${name}-animations`;
+  await rm(animationsPath, { recursive: true, force: true });
   await mkdir(animationsPath, { recursive: true });
   for (const [canonical, state] of Object.entries({
     idle1: 'Idle1',
     run: 'Run',
     attack1: 'Attack1',
     death: 'Death',
+    ...(supers ? { attack2: 'Attack2', death2: '{bd31845b}' } : {}),
   })) {
     let entry = graph[state];
     if (entry.mSelectorPairDataList) entry = graph[entry.mSelectorPairDataList[0].mClipName];
     const source = entry.mAnimationResourceData.mAnimationFilePath.toLowerCase();
-    await copyFile(`.cache/minion-sources/${source}`, `${animationsPath}/${canonical}.anm`);
+    await copyFile(`${sourceRoot}/${source}`, `${animationsPath}/${canonical}.anm`);
     clips.push({ name: canonical, source });
   }
-  const rawPath = `.cache/minion-converted/${name}.glb`;
+  const rawPath = `${converted}/${name}.glb`;
   const meshBytes = await readFile(`${base}/${mesh}.skn`);
   const materialNames = Array.from(
     { length: meshBytes.readUInt32LE(8) },
@@ -141,6 +170,6 @@ for (const [team, kind, character, mesh, texture] of definitions) {
   );
 }
 await writeFile(
-  'docs/reference/minion-extraction.json',
+  `docs/reference/${family}-extraction.json`,
   JSON.stringify(provenance, null, 2) + '\n'
 );

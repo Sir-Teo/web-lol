@@ -1,0 +1,103 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching patch 16.18 base minion sources. Reference presentation still requires gameplay capture calibration.",
+  "output": {
+    "path": "/assets/models/red-super.glb",
+    "bytes": 730752,
+    "sha256": "d3fc25fd36ef7f53ed0b77c9d500e7d9035468bb7068d2e644a90529725b9c90"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack1.anm",
+      "wadPathHash": "cdfdbad921086961",
+      "sha256": "9125e56417c0ab6c49bef5b88cc1ecbef13332889d72046933eae9e57923e688",
+      "bytes": 19992
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack2.anm",
+      "wadPathHash": "28ba9023372aea85",
+      "sha256": "3a8452f2656ad6ec849fd00161194bbfd0b9e51efd962919816b5d5d2d38b58e",
+      "bytes": 17818
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death.anm",
+      "wadPathHash": "0cd8ee15832af20c",
+      "sha256": "f506389ed9b678c9554fe735067cf7eb0ac9da11d5c3e348b6de69460309f1c9",
+      "bytes": 43798
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death2.anm",
+      "wadPathHash": "789ecfa9dabac019",
+      "sha256": "8f581f6efbefeeca39837140d7200ecf6d8c5c47964672c7eb42e2ce285d8c5f",
+      "bytes": 37078
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_run.anm",
+      "wadPathHash": "d6b604a4e53a2401",
+      "sha256": "e69270d70f038ec307a85b0c6948bcb41cce34b6b7322002b494455046d669f0",
+      "bytes": 31984
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/red_minion_superminion.skl",
+      "wadPathHash": "1a07f911f35aa833",
+      "sha256": "33ce03641c5d6978ec49c611dd3733f107d7716747cdc0488e1d3acedcc7a5c8",
+      "bytes": 7668
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/red_minion_superminion.skn",
+      "wadPathHash": "84374d585e0c6452",
+      "sha256": "c69be79f1638a9bd0c26bfeb9e394ba2840a677ed3b33c17e3a0e4c817563b44",
+      "bytes": 133884
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsuper/skins/base/red_superminion_tx_cm.tex",
+      "wadPathHash": "de2d0090c723aa64",
+      "sha256": "10b6fae0f198ddc8e0b12e22095843bd748bbf06f8036fbb60170e8a7030cff4",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_idle.anm",
+      "wadPathHash": "5dfec408cd565e9c",
+      "sha256": "b275c2a82c85b71e17f9d3584bde794ef3e1d10cb28f8e338cc2c0814bc1a9d0",
+      "bytes": 6144
+    }
+  ],
+  "skinScale": 1.0499999523162842,
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionsuper/skins/skin0.bin.json",
+    "animations": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionsuper/animations/skin0.bin.json"
+  },
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_idle.anm"
+    },
+    {
+      "name": "run",
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_run.anm"
+    },
+    {
+      "name": "attack1",
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack1.anm"
+    },
+    {
+      "name": "death",
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death.anm"
+    },
+    {
+      "name": "attack2",
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack2.anm"
+    },
+    {
+      "name": "death2",
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death2.anm"
+    }
+  ],
+  "triangles": 2856,
+  "bones": 62
+}

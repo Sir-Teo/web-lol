@@ -1,0 +1,103 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching patch 16.18 base minion sources. Reference presentation still requires gameplay capture calibration.",
+  "output": {
+    "path": "/assets/models/blue-super.glb",
+    "bytes": 739140,
+    "sha256": "0ad412436a18756a4e08f9ade8789192cbb5932cd97c04fe814d36cc867b859e"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_attack1.anm",
+      "wadPathHash": "f1528bfbd03c8c9b",
+      "sha256": "6f638a6b4fd9c5bcfd80a7eeb3a8c25b1855955c61ab6d343e0a6239b9b51902",
+      "bytes": 17550
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_attack2.anm",
+      "wadPathHash": "a2fd5cfab754cd16",
+      "sha256": "0ade21192f775eb6960b3c50c069457a6f7a6e8587a6aef6206aeb0eb2310ac7",
+      "bytes": 17130
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_death.anm",
+      "wadPathHash": "f16066d29d4c66e5",
+      "sha256": "b642b82198a8e367b404893e83aa6691b52c26f84035a4e8cba8b0b620e1022a",
+      "bytes": 51120
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_death2.anm",
+      "wadPathHash": "b1a833f12b52c3d9",
+      "sha256": "f5a2f54275fec4fa7cf1bc1e849a0902c86fb417ce9da9446a8240bbfbae8804",
+      "bytes": 42468
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_idle.anm",
+      "wadPathHash": "5dfec408cd565e9c",
+      "sha256": "b275c2a82c85b71e17f9d3584bde794ef3e1d10cb28f8e338cc2c0814bc1a9d0",
+      "bytes": 6144
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_run.anm",
+      "wadPathHash": "5f9599703325d6fb",
+      "sha256": "f77ec337b45ce761255fc4652030c1e90d3e72504e764fa8a997a634764d8221",
+      "bytes": 30810
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/blue_minion_superminion.skl",
+      "wadPathHash": "afb54b0b40b0d944",
+      "sha256": "0d50e47a1de92b18891d2b00033f139ac591967993a3feef2a69c65942ef6bac",
+      "bytes": 7168
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/blue_minion_superminion.skn",
+      "wadPathHash": "0e570de3fa1c5a6b",
+      "sha256": "a1ce974e3a8045a972e3182a22825f0c7d4c1430564135946a6dce19afc513ff",
+      "bytes": 160548
+    },
+    {
+      "path": "assets/characters/sru_orderminionsuper/skins/base/blue_superminion_tx_cm.tex",
+      "wadPathHash": "7dea9ae6142692bb",
+      "sha256": "cb9e737666f2ff373bb9813b247f04adbfe7cffc7b2e0776e9167c4531aed821",
+      "bytes": 174788
+    }
+  ],
+  "skinScale": 1.0499999523162842,
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionsuper/skins/skin0.bin.json",
+    "animations": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionsuper/animations/skin0.bin.json"
+  },
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_idle.anm"
+    },
+    {
+      "name": "run",
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_run.anm"
+    },
+    {
+      "name": "attack1",
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_attack1.anm"
+    },
+    {
+      "name": "death",
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_death.anm"
+    },
+    {
+      "name": "attack2",
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_attack2.anm"
+    },
+    {
+      "name": "death2",
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_death2.anm"
+    }
+  ],
+  "triangles": 3322,
+  "bones": 58
+}
