@@ -1326,3 +1326,9 @@ All 461 source/simulation checks, six focused bot/recall Chrome scenarios and ne
 Bots now prioritize an in-range, visible lane minion that the next attack impact can kill, considering armor, bounty and distance. Immediate champion threats retain priority and valid windups remain committed. Q estimates use the first arrow rather than the entire delayed burst. Shared damage arithmetic keeps the estimate consistent with current mitigation rules.
 
 All 466 source/simulation checks, five focused bot Chrome scenarios and nested-path production smoke pass. New coverage includes both teams' actual kill/CS with exact saved continuation, visibility/range/armor exclusions, valuable targets, windup commitment, close threats and Q. The browser scenario verifies actual target selection, kill, CS/gold and preservation of the closer healthy minion. Incoming-damage prediction, wave management, role assignments and full 5v5 remain unfinished.
+
+## Bot tower safety
+
+Added visible-tower danger checks before combat commitment and target pursuit. Unsupported bots move out and hold outside danger instead of repeatedly re-entering; living minion cover permits tower pressure, while tower focus and protected champion aggression override it. New danger can cancel a windup. Hidden/destroyed towers do not affect the decision, and saved continuation remains deterministic.
+
+All 472 source/simulation checks, six focused bot Chrome scenarios and nested-path production smoke pass. Coverage includes support loss, tower focus, newly visible protection, stable holding and pursuit rejection. The browser fixture isolates decisions by delaying tower shots. Whole-route danger avoidance, threat memory, alternate safe target selection and coordinated team play remain unfinished; the full-match completion gate remains open.

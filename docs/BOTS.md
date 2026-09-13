@@ -1,5 +1,15 @@
 # Local bot combat and remaining match work
 
+## Tower safety during combat and farming
+
+Before preserving a windup or choosing a combat target, bots now check nearby visible living enemy turrets. A turret is treated as dangerous when it is targeting the bot, when the bot is about to attack a protected champion, or when no living allied lane minion is inside that turret's attack range. The local safety boundary is turret range plus champion radius plus 100 units. A bot inside it moves radially out to an additional 100 units of clearance; tower danger may interrupt a committed windup.
+
+Before chasing a selected target, the bot also estimates the position at which its basic attack would enter range. If that position is protected, it holds instead of walking back into danger. Allied minion cover permits tower pressure, but champion aggression does not receive that exemption because it draws retaliation. Hidden and destroyed towers do not drive this decision. All state remains derived from current observations, so no new save fields are required.
+
+This is an intentionally cautious local tactic, not a native AI reconstruction or a complete danger-aware navigation system. It does not forecast the remaining lifetime of the minion wave, score dives, use last-seen tower knowledge, search around overlapping danger circles, or validate an entire retreat path against tower zones. The pre-existing low-health fountain retreat remains separate. Protected target selection currently holds rather than searching for a different safe target or taking a safe ranged poke. Those limitations remain team-planner work.
+
+Six simulation cases cover stable unsupported disengagement with saved continuation, pushing behind minions and reacting to their death, tower focus interrupting a windup, newly revealed protection interrupting champion aggression, hidden/destroyed towers, and refusing a chase. A browser case exercises unsupported retreat and holding outside range. That fixture delays tower shots to isolate decisions; it does not certify survival against every tower attack sequence.
+
 ## Visible last-hit choices
 
 When a basic attack is ready and no valid windup is already committed, the champion bot now considers visible, vulnerable enemy lane minions within its current attack range whose present HP can be removed by the next attack impact after armor. Selection prioritizes their current gold bounty, then shorter travel distance. The damage estimate and actual damage resolution share the same resistance function. During Q, the estimate uses only the first arrow's damage; it does not assume the full staggered burst lands immediately.

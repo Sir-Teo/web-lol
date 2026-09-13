@@ -683,6 +683,30 @@ export class World {
     }
     return best;
   }
+  private threateningTower(u: Unit, point: Vec2, attackingChampion = false): Unit | undefined {
+    return this.units.find((tower) => {
+      if (
+        tower.kind !== 'turret' ||
+        tower.team === u.team ||
+        !this.alive(tower) ||
+        !this.visible(tower, u.team) ||
+        distance(tower, point) > tower.range + u.radius + 100
+      )
+        return false;
+      const targetingUs =
+        (tower.order.type === 'attack' && tower.order.target === u.id) ||
+        (tower.releaseTick !== null && tower.attackTarget === u.id);
+      const cover = this.units.some(
+        (ally) =>
+          ally.team === u.team &&
+          isLaneMinionKind(ally.kind) &&
+          this.alive(ally) &&
+          distance(tower, ally) <= tower.range + ally.radius &&
+          this.visible(ally, u.team)
+      );
+      return targetingUs || attackingChampion || !cover;
+    });
+  }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
     if (u.hp < u.maxHp * 0.22) u.aiRetreating = true;
@@ -731,6 +755,20 @@ export class World {
       );
       if (next) this.buy(next, u.id);
     }
+    const tower = this.threateningTower(
+      u,
+      u,
+      u.releaseTick !== null && this.unit(u.attackTarget ?? -1)?.kind === 'champion'
+    );
+    if (tower) {
+      let away = direction(tower, u);
+      if (away.x === 0 && away.y === 0) away = direction(tower, this.battlefield.spawns[u.team]);
+      const clearance = tower.range + u.radius + 200;
+      const point = { x: tower.x + away.x * clearance, y: tower.y + away.y * clearance };
+      if (u.order.type !== 'move' || distance(u.order.point, point) > 25)
+        this.setOrder(u, { type: 'move', point });
+      return;
+    }
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
     const nearest = this.nearest(u, 1150);
@@ -742,6 +780,18 @@ export class World {
         : (this.lastHitTarget(u) ?? nearest);
     if (target) {
       const d = distance(u, target);
+      const away = direction(target, u);
+      const approach =
+        d <= u.range + target.radius
+          ? u
+          : {
+              x: target.x + away.x * (u.range + target.radius),
+              y: target.y + away.y * (u.range + target.radius),
+            };
+      if (this.threateningTower(u, approach, target.kind === 'champion')) {
+        if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+        return;
+      }
       const state = this.championState(u.id)!;
       // Spend Focus against a visible champion during recovery, preserving a
       // committed windup above. The queued cast is validated next tick like input.
