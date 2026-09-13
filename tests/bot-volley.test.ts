@@ -44,7 +44,10 @@ test('Volley decision does not use hidden targets or bypass mana, cooldown, atta
     if (condition === 'close') bot.x = 300;
     if (condition === 'retreat') bot.hp = 100;
     w.step();
-    expect(w.commands, condition).toHaveLength(0);
+    expect(
+      w.commands.filter((c) => c.type === 'cast' && c.ability === 'w'),
+      condition
+    ).toHaveLength(0);
   }
 });
 

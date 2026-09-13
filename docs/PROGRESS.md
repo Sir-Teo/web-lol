@@ -908,3 +908,11 @@ Assists remain the existing zero placeholder until participation tracking exists
 Five new simulation cases cover independent changes, rejection rules, dead purchases/respawn for both owners, deterministic automatic purchase continuation and saving/fountain restrictions. All 336 source/simulation checks pass. Thirteen focused Chrome scenarios pass, including automatic enemy purchase/checkpoint identity with unchanged human inventory/balance, economy/shop and existing gameplay. The production build and nested-host smoke pass. Full browser/performance suites were not repeated.
 
 The four-item catalog and fixed purchase plan remain practice approximations; recipes, complete itemization, selling and adaptive builds are unfinished. This enables spending independently earned bot gold without claiming a native shop or build policy.
+
+## Defensive bot Heal
+
+Bots below 22% health outside their own shop radius now queue available Heal when an enemy champion is visible within 1,150 units. The normal command path owns effects, ally selection, cooldown and next-tick validation; retreat continues. Defensive planning runs before stun/pending-cast handling so Heal can be chosen while disabled or winding up. AI deadlines advance on the existing 18-tick cadence in those states, while offensive/movement decisions remain gated.
+
+Four new simulation scenarios cover retreat Heal and saved continuation, stunned activation without movement, preservation of pending Volley, and eligibility exclusions. The Volley retreat assertion now checks absence of W specifically because defensive F is allowed. All 340 source/simulation checks, five focused browser scenarios and the production nested-host smoke pass. The new Chrome case observes actual Heal, independent cooldown, haste deadline and unchanged stunned position. Full browser/performance suites were not repeated.
+
+The health/threat distances are local bot policy; incoming damage estimates, coordinated healing, R/E/Flash decisions and complete native behavior remain unfinished.

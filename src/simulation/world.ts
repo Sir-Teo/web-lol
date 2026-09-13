@@ -340,6 +340,11 @@ export class World {
       }
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
+      const thinkNow = u.ai && this.tick >= u.nextThink;
+      if (thinkNow) {
+        this.planDefensiveHeal(u);
+        u.nextThink = this.tick + 18;
+      }
       const state = this.championState(u.id);
       if (state?.pendingCast) {
         const cast = state.pendingCast;
@@ -358,10 +363,7 @@ export class World {
         }
         continue;
       }
-      if (u.ai && this.tick >= u.nextThink) {
-        this.think(u);
-        u.nextThink = this.tick + 18;
-      }
+      if (thinkNow) this.think(u);
       this.advanceUnit(u);
       if (this.winner) return;
     }
@@ -568,6 +570,25 @@ export class World {
         }
       }
     return best;
+  }
+  private planDefensiveHeal(u: Unit): void {
+    if (
+      u.kind !== 'champion' ||
+      u.hp >= u.maxHp * 0.22 ||
+      distance(u, this.battlefield.spawns[u.team]) <= 400 ||
+      this.abilityCooldownTicks('f', u.id) > 0
+    )
+      return;
+    const threatened = this.units.some(
+      (enemy) =>
+        enemy.kind === 'champion' &&
+        enemy.team !== u.team &&
+        this.alive(enemy) &&
+        distance(u, enemy) <= 1150 &&
+        this.visible(enemy, u.team)
+    );
+    if (threatened)
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'f', point: { x: u.x, y: u.y } });
   }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
