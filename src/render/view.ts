@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
 import { ASHE_Q } from '../content/ashe-q';
+import { ASHE_SELECTION } from '../content/ashe-selection';
+import { intersectsSelectionCylinder } from './selection-cylinder';
 import { flurryFlight } from './flurry-flight';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
@@ -357,14 +359,36 @@ export class GameView {
     };
   }
   pick(world: World, x: number, y: number): Unit | undefined {
+    this.ray.setFromCamera(
+      new THREE.Vector2((x / this.width) * 2 - 1, 1 - (y / this.height) * 2),
+      this.camera
+    );
     let target: Unit | undefined,
       best = Infinity;
     for (const u of world.units) {
       if (!world.alive(u) || !world.visible(u)) continue;
-      const p = this.screenPoint(u, isStructureKind(u.kind) ? 1.8 : 0.65);
+      const champion = u.kind === 'champion';
+      const p = this.screenPoint(
+        u,
+        isStructureKind(u.kind) ? 1.8 : champion ? (ASHE_SELECTION.height * SCALE) / 2 : 0.65
+      );
       const d = Math.hypot(p.x - x, p.y - y);
-      const radius = isStructureKind(u.kind) ? 35 : u.kind === 'champion' ? 26 : 19;
-      if (d < radius && d < best) {
+      const base = champion
+        ? (this.models.get(u.id)?.root.position ?? {
+            x: u.x * SCALE,
+            y: this.ground(u),
+            z: u.y * SCALE,
+          })
+        : null;
+      const inside = base
+        ? intersectsSelectionCylinder(
+            this.ray.ray,
+            base,
+            ASHE_SELECTION.radius * SCALE,
+            ASHE_SELECTION.height * SCALE
+          )
+        : d < (isStructureKind(u.kind) ? 35 : 19);
+      if (inside && d < best) {
         best = d;
         target = u;
       }
