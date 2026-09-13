@@ -9,3 +9,9 @@ The current tactical bot starts retreating below 22% health and remains in that 
 `aiRetreating` persists in snapshot version 9 and clears on respawn. This state is independent of current movement orders, so arrival, an idle order, or checkpoint restoration cannot accidentally end recovery. Full team strategy, safe retreat-route selection, enemy-fountain danger, recall decisions, mana-driven retreats, purchases, role assignments, and independent bot progression remain unfinished.
 
 Four new simulation cases cover each team's recovery, waiting until healthy, saved continuation, replacing unrelated move orders, ordinary regeneration at an opposing fountain, and death exclusion. Existing damage tests now distinguish damage from subsequent champion regeneration; the ally-Heal browser test accounts for elapsed regeneration while still requiring the intended 80-point heal.
+
+## Respawn placement
+
+Champion respawn placement now uses the unit's team, including non-player blue champions. Previously only the player used the blue spawn and every other champion used red. Structures and practice dummies continue respawning in place. Position and interpolation history both reset to the chosen spawn, resources refill, and combat orders, navigation, stun, slow, and retreat state clear through the existing respawn path.
+
+Three additional simulation cases cover both champion teams at the exact deadline, checkpoint continuation immediately before respawn, cleared state, and unchanged dummy placement. The browser case checks both authored Rift fountains and confirms an enemy respawn remains hidden from the blue player's live vision. Champion death timers are still a fixed ten-second approximation; level/time scaling, role rules, fountain protection, and respawn presentation remain unfinished.

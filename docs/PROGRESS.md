@@ -353,3 +353,9 @@ Living allied and enemy champion prototypes now regenerate health and mana, with
 All 172 simulation checks, all 55 Chrome scenarios, the static build, and production smoke pass. Four new scenarios cover both teams' fountain recovery and restored continuation, redirection to the correct home, ordinary regeneration at an enemy fountain, and dead-champion exclusion. Existing damage and ally-Heal checks were updated to account for newly active non-player regeneration without obscuring the damage/heal amount being tested.
 
 Role assignments, team strategy, safe retreats, recall and shopping decisions, mana-driven recovery, independent bot progression, source fountain calibration, full-match completion, and pixel-level fidelity remain unfinished. The production goal remains active.
+
+## Team-correct champion respawn milestone
+
+Champion respawns now use each unit's team spawn. This fixes non-player blue champions incorrectly returning to the red fountain. Structures and dummies retain their in-place behavior. Three new simulation cases verify both teams, exact timing, resources, cleared combat/navigation/retreat state, pre-respawn checkpoint continuation, and unchanged dummy placement. The blue case reproduced the placement failure before the fix.
+
+All 175 simulation checks, four affected Chrome scenarios, the static build, and production smoke pass. The new full-Rift browser case verifies both authored fountains and live-vision/health-bar visibility after respawn; all three save cases remain green. The full browser suite was not repeated. Source death-timer scaling, fountain protection, complete bot strategy, full-match systems, and pixel-level fidelity remain unfinished. See [respawn scope](CHAMPION-RECOVERY.md#respawn-placement). The production goal remains active.

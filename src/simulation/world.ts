@@ -843,13 +843,10 @@ export class World {
     if (this.player.level === MAX_LEVEL) this.player.xp = 0;
   }
   private respawn(u: Unit): void {
-    const point = isStructureKind(u.kind)
-      ? { x: u.x, y: u.y }
-      : u.id === this.player.id
-        ? this.battlefield.spawns.blue
-        : u.kind === 'dummy'
-          ? { x: u.x, y: u.y }
-          : this.battlefield.spawns.red;
+    const point =
+      isStructureKind(u.kind) || u.kind === 'dummy'
+        ? { x: u.x, y: u.y }
+        : this.battlefield.spawns[u.team];
     u.x = point.x;
     u.y = point.y;
     u.previous = { ...point };
