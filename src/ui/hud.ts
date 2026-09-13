@@ -201,7 +201,7 @@ export class Hud {
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
-      content = `<div class="shop-balance">Available gold <b>◆ ${this.world.player.gold}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="/assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><p class="shop-message" role="status">Purchases are available at the blue fountain.</p>`;
+      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="/assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><p class="shop-message" role="status">Purchases are available at the blue fountain.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
@@ -272,7 +272,8 @@ export class Hud {
         const message = backdrop.querySelector<HTMLElement>('.shop-message')!;
         message.textContent = result ?? 'Item purchased';
         message.classList.toggle('error', !!result);
-        backdrop.querySelector('.shop-balance b')!.textContent = `◆ ${this.world.player.gold}`;
+        backdrop.querySelector('.shop-balance b')!.textContent =
+          `◆ ${Math.floor(this.world.player.gold)}`;
       })
     );
     const initialFocus =
@@ -329,7 +330,11 @@ export class Hud {
     width('mana-fill', h.mana / h.maxMana);
     width('xp-fill', p.level === MAX_LEVEL ? 1 : p.xp / experienceToNextLevel(p.level));
     text('level', p.level);
-    text('gold', p.gold);
+    text('gold', Math.floor(p.gold));
+    const shopBalance = this.root.querySelector('.shop-balance b');
+    const balanceLabel = `◆ ${Math.floor(p.gold)}`;
+    if (shopBalance && shopBalance.textContent !== balanceLabel)
+      shopBalance.textContent = balanceLabel;
     text('ad', Math.round(h.damage));
     text('armor', Math.round(h.armor));
     text('ms', h.speed);

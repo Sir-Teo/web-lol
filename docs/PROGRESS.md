@@ -271,3 +271,11 @@ Rift minion XP now uses each victim team's pinned barracks radius of 1,500 units
 All 137 unit/scenario checks, all 45 Chrome scenarios, the static build, and the production preview smoke check pass. Layout, provenance, and minimap reproduce byte-identically. Seven new scenarios verify both source radii, all four minion classes inside/on/outside the boundary, sight and last-hit independence, dead-player and victim exclusions, distant last-hit gold/CS, and automatic leveling from proximity XP.
 
 Experience sharing, full champion-kill and assist rewards, role modifiers, enemy progression, the remaining full-match systems, and pixel-level reference comparison remain unfinished. No new performance claim is made. The production goal remains active.
+
+## Ambient gold milestone
+
+Standard Rift passive income now starts after the 65-second boundary and accrues at 2.04 gold per second, replacing the immediate two-gold-per-second practice grant. The pinned map's CLASSIC mode link supplies the start, amount, and interval; the start agrees with the official 26.1 game-start change. Fractional balances survive purchases and checkpoints. HUD and shop show whole spendable gold, and an open shop refreshes as income arrives. Death permits income; pause and victory freeze it. See [economy evidence and cadence policy](ECONOMY.md).
+
+All 142 unit/scenario checks and all 46 Chrome scenarios pass. After adding the open-shop refresh, the affected browser scenario, all unit checks, and static build passed again. The production preview smoke check also passes. Tests cover the exact start boundary, sustained rate, fractional saves/change, purchase affordability, death, victory, debug time jumps, and both balance displays. The exporter verifies the selected fields against the pinned map SHA.
+
+Continuous per-tick credit is an explicit policy pending a matched reference capture of payout cadence. Role income, reward scaling/sharing, complete items, independent bot economies, full-match systems, and pixel-level reference comparisons remain unfinished. No new performance claim is made. The production goal remains active.

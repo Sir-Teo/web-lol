@@ -241,6 +241,8 @@ After the full match passes its quality gates, expand to ten distinct champions 
 
 ## 10. Match systems and economy
 
+**Ambient income reference:** standard Rift's pinned mode data and the 2026 game-start notes agree on a 65-second start, with 10.2 gold per five seconds. Preserve fractional balances separately from whole-gold display. The precise credit cadence still requires a matched reference observation; see the [economy specification and evidence](ECONOMY.md) for the implemented policy and remaining rewards audit.
+
 **Minions:** melee, ranged, siege, and super variants; patch-specific wave composition/scaling; target priority, leash and reacquisition; last-hit gold; experience eligibility and sharing; champion aggression response. Wave timing, movement, and attack cadence must be coherent enough for slow pushes and stacked waves to emerge.
 
 **Structures:** target priority, champion-attack retaliation, shot escalation if applicable, range feedback, projectile handling, plates, defenses, backdoor rules, inhibitor destruction/regrowth, super-wave consequences, and base exposure. Encode structural dependencies explicitly and test a full lane-to-base sequence.

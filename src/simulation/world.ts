@@ -3,6 +3,7 @@ import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
+import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
@@ -315,7 +316,11 @@ export class World {
         h.mana + (fountain ? h.maxMana * 0.12 : ASHE.manaRegen + ASHE.manaRegenGrowth * growth) * DT
       );
     }
-    if (this.tick % 60 === 0) this.player.gold += 2;
+    // Continuous fractional accrual is our cadence policy; see docs/ECONOMY.md.
+    if (this.tick > AMBIENT_GOLD.startSeconds * TICK_RATE)
+      this.player.gold = statPrecision(
+        this.player.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
+      );
     if (this.tick > this.player.qStackExpiry && this.tick > this.player.qUntil)
       this.player.qStacks = 0;
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
