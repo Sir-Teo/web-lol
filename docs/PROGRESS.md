@@ -1362,3 +1362,9 @@ Inspected the fresh full-Rift fountain, river-aiming and live Q-flurry captures 
 Healthy bots now queue safe recalls for an affordable unfinished purchase when banked gold reaches the local 900-gold trip threshold. Purchase planning and recall safety are shared with existing fountain/retreat behavior. Channels persist while safe, cancel for visible danger, and do not override committed attacks. No new save state is required.
 
 All 489 source/simulation checks, five focused bot Chrome scenarios and nested-path production smoke pass. Coverage includes both teams' saved round trips, actual inventory/gold/stat changes, capacity/completed-plan/affordability exclusions, danger visibility and attack commitment. The full browser/performance suites were not repeated. Adaptive builds, wave/objective timing and complete team strategy remain unfinished.
+
+## Bot finishing ultimates
+
+Added a visible-target finishing tactic for R. Bots check current post-resistance damage, rank, resources, cooldown, range and visible blockers before queuing a fixed observed aim through normal cast validation. Prediction shares the existing projectile radius; hidden blockers remain unknown. Retreat, committed windups and tower danger retain priority.
+
+All 494 source/simulation checks, five focused bot Chrome scenarios and nested-path production smoke pass. Coverage includes actual kills, both teams' ownership, queued save continuation, source cast animation, projectile release, visibility/blockers and intervening stun. Teamfight initiation, defensive ultimates, movement prediction, full kits/roster and complete 5v5 remain open. Full browser/performance suites were not repeated.

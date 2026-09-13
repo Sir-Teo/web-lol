@@ -38,7 +38,7 @@ import {
   asheHawkshotValues,
   asheSpellResources,
 } from './ashe-spell-values';
-import { crystalArrowStunTicks } from './crystal-arrow';
+import { crystalArrowStunTicks, CRYSTAL_ARROW_RADIUS } from './crystal-arrow';
 import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
@@ -798,6 +798,45 @@ export class World {
     const id = ['blade', 'boots', 'pickaxe', 'sword'].find((id) => !state.inventory.includes(id));
     return ITEMS.find((item) => item.id === id);
   }
+  private planFinishingArrow(u: Unit): boolean {
+    const state = this.championState(u.id)!;
+    if (
+      state.spellRanks.r === 0 ||
+      this.abilityCooldownTicks('r', u.id) > 0 ||
+      u.mana < this.abilityResources('r', u.id).mana ||
+      this.threateningTower(u, u, true)
+    )
+      return false;
+    const raw = this.crystalArrowDamage(u);
+    let chosen: Unit | undefined;
+    let closest = 1150;
+    for (const target of this.units) {
+      if (target.kind !== 'champion' || !this.validTarget(u, target)) continue;
+      const d = distance(u, target);
+      if (d > closest || target.hp > damageAfterResistance(raw, target.magicResist)) continue;
+      const hit = sweepCircle(u, target, target, CRYSTAL_ARROW_RADIUS + target.radius)!;
+      const blocked = this.units.some((other) => {
+        if (
+          other.id === target.id ||
+          other.team === u.team ||
+          !this.alive(other) ||
+          (other.kind !== 'champion' && other.kind !== 'dummy') ||
+          !this.visible(other, u.team)
+        )
+          return false;
+        const contact = sweepCircle(u, target, other, CRYSTAL_ARROW_RADIUS + other.radius);
+        return contact !== null && contact <= hit;
+      });
+      if (!blocked) {
+        chosen = target;
+        closest = d;
+      }
+    }
+    if (!chosen) return false;
+    if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: { x: chosen.x, y: chosen.y } });
+    return true;
+  }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
     if (u.hp < u.maxHp * 0.22) u.aiRetreating = true;
@@ -858,6 +897,7 @@ export class World {
         return;
       }
     }
+    if (this.planFinishingArrow(u)) return;
     const safeTarget = (target: Unit) => this.safeAttackPosition(u, target);
     const nearest = this.nearest(u, 1150, false, safeTarget);
     const closeThreat = this.nearest(u, 380, true, safeTarget);
@@ -1828,7 +1868,7 @@ export class World {
         damage:
           capturedDamage ?? (ability === 'w' ? this.volleyDamage(u) : this.crystalArrowDamage(u)),
         speed: ability === 'w' ? ASHE_W.projectileSpeed : ASHE_R.initialSpeed,
-        radius: ability === 'w' ? 12 : 65,
+        radius: ability === 'w' ? 12 : CRYSTAL_ARROW_RADIUS,
         remaining: spec.range,
         volleyId,
       });

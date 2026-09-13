@@ -1,5 +1,15 @@
 # Local bot combat and remaining match work
 
+## Finishing Crystal Arrow
+
+Bots can now use R against a visible vulnerable enemy champion within the existing 1,150-unit combat decision horizon when its current HP is at or below the ultimate's rank/AP damage after magic resistance. The spell must be learned, affordable and ready. Low-health retreat, a committed attack windup and current tower danger take precedence. The nearest qualifying unobstructed target is selected; minions do not hide the opportunity merely by being closer.
+
+The decision sweeps the existing 65-unit missile radius against visible enemy champions and practice dummies, matching the current projectile's blocker categories. A nearer/equal intersection prevents the attempt; minions and structures do not block. Hidden blockers are not available to the planner and can still intercept the real missile. The shared radius constant avoids disagreement between simulation and prediction without claiming new native collision evidence.
+
+The bot queues the ordinary cast command with a copy of the observed point. Mana, cooldown, stun and pending-cast rules still validate on execution. The aim does not follow a target after sight is lost. Source animation, delayed release, projectile collision, damage and kill attribution use the existing spell implementation.
+
+Five simulation scenarios cover a saved queued cast through an actual kill, independent blue-team ownership, rank/resource/resistance/visibility/range exclusions, visible and hidden blockers, fixed aim and rejection after an intervening stun. A Chrome case verifies the `spell4` clip, pending R, actual projectile, kill and independent cooldown. This is an authored finishing tactic: it does not predict movement/regen/shields during flight, lead moving targets, consider multi-target splash value, initiate teamfights, peel for allies or perform long-distance scouting shots.
+
 ## Rift lane progression
 
 On the full Rift, a champion with no current combat target now follows its assigned lane's authored points toward the opposing base. Existing `lane` and `laneWaypoint` fields retain the assignment in saves. Unassigned champions choose mid. Blue traverses forward and red backward. During uninterrupted travel the bot retains its waypoint, advances within a 150-unit arrival margin, and holds at the final endpoint. It uses the normal navigation/movement path and does not teleport between points.
@@ -54,7 +64,7 @@ Six deterministic regression cases cover ready attacks at close range, commitmen
 
 Each champion owns an independent `ChampionState` containing cooldowns, pending casts, Focus, ammunition, recall, progression and inventory. `World.player` remains the human record. Cast execution now accepts any champion through the same command validation, using that owner's resources and deadlines. Nonchampions cannot cast. Pending casts release from the owning unit, and source model cast/recall animation reads that record. Recall returns to the caster's team fountain. Rejection and recall messages carry the caster's team audience.
 
-The sparring AI issues attack/movement orders and now queues Q, W and defensive Heal under the policies below. Other spells still require their own observation, reaction and tactical policies. Minion XP, level growth, ambient gold and last-hit gold/CS/kill credit now resolve independently; champion-kill XP and complete item builds still require further work. Full duels and 5v5 still require that progression work, jungle routes, coordinated objectives, complete kits/roster and full seeded-match completion/performance tests.
+The sparring AI issues attack/movement orders and now queues Q, W, finishing R and defensive Heal under the policies below. Other spells still require their own observation, reaction and tactical policies. Minion XP, level growth, ambient gold and last-hit gold/CS/kill credit now resolve independently; champion-kill XP and complete item builds still require further work. Full duels and 5v5 still require that progression work, jungle routes, coordinated objectives, complete kits/roster and full seeded-match completion/performance tests.
 
 ## Ownership verification
 
@@ -106,4 +116,4 @@ On an AI decision tick, a champion below the existing 22% retreat threshold, out
 
 Defensive decisions now occur before pending-cast and stun handling, allowing Heal while disabled or casting as the shared spell rules permit. The 18-tick AI deadline advances even while stunned or winding up. Offensive/movement decisions still wait until those states permit them. Commands execute next tick and retain ordinary validation.
 
-Four simulation scenarios cover defensive activation/haste with exact checkpoint continuation, stunned decisions without movement, Heal during Volley windup, and exclusion conditions. A Chrome case observes the bot's actual cast, health gain, haste deadline and independent cooldown while its stunned position remains unchanged. R, E and Flash decisions, threat damage estimation, coordinated healing and incoming-projectile anticipation remain outstanding.
+Four simulation scenarios cover defensive activation/haste with exact checkpoint continuation, stunned decisions without movement, Heal during Volley windup, and exclusion conditions. A Chrome case observes the bot's actual cast, health gain, haste deadline and independent cooldown while its stunned position remains unchanged. E and Flash decisions, broader R tactics, threat damage estimation, coordinated healing and incoming-projectile anticipation remain outstanding.
