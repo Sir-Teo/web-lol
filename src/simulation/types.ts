@@ -59,6 +59,7 @@ export interface Unit extends Vec2 {
   releaseTick: number | null;
   nextAttackTick: number;
   slowUntil: number;
+  slowMultiplier: number;
   stunUntil: number;
   summonerHealReductionUntil: number;
   summonerHealSpeedUntil: number;

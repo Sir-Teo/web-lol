@@ -6,6 +6,7 @@ import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
+import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
@@ -168,6 +169,7 @@ export class World {
       releaseTick: null,
       nextAttackTick: 0,
       slowUntil: 0,
+      slowMultiplier: 0.7,
       stunUntil: 0,
       summonerHealReductionUntil: 0,
       summonerHealSpeedUntil: 0,
@@ -685,7 +687,7 @@ export class World {
   }
   movementSpeed(u: Unit): number {
     const haste = u.summonerHealSpeedUntil > this.tick ? 1 + SUMMONER_HEAL.speedBonus : 1;
-    return u.speed * (u.slowUntil > this.tick ? 0.7 : 1) * haste;
+    return u.speed * (u.slowUntil > this.tick ? u.slowMultiplier : 1) * haste;
   }
   private advanceProjectiles(): void {
     const survivors: Projectile[] = [];
@@ -717,7 +719,14 @@ export class World {
           if (p.volleyId !== null) (this.volleyHits[p.volleyId] ??= []).push(contact.id);
           if (p.type === 'attack') this.hitBasicAttack(source, contact, p.damage);
           else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
-          if (source.kind === 'champion') contact.slowUntil = this.tick + 120;
+          if (source.kind === 'champion' && !isStructureKind(contact.kind)) {
+            const level = source.id === this.player.id ? this.player.level : 1;
+            const slow =
+              ASHE_PASSIVE.slowAtLevel1 +
+              ((ASHE_PASSIVE.slowAtLevel18 - ASHE_PASSIVE.slowAtLevel1) * (level - 1)) / 17;
+            contact.slowMultiplier = p.type === 'attack' ? 1 - slow : 0.7;
+            contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
+          }
           if (p.type === 'ultimate') contact.stunUntil = this.tick + 120;
         }
       } else if (p.remaining > travel) {
@@ -892,6 +901,7 @@ export class World {
     u.stunUntil = 0;
     u.aiRetreating = false;
     u.slowUntil = 0;
+    u.slowMultiplier = 0.7;
     this.setOrder(u, { type: 'idle' });
   }
   private cast(u: Unit, ability: Ability, point: Vec2): void {

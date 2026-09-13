@@ -1,0 +1,183 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/data/characters/ashe/ashe.bin.json",
+  "sha256": "d5aecdf76b201b075a8c77c3444abaabab3dc5a5ac0b35dc14aafaefb65d5c5d",
+  "record": "Characters/Ashe/Spells/AshePassiveAbility/AshePassive",
+  "data": {
+    "ObjectName": "AshePassive",
+    "objectPath": "Characters/Ashe/Spells/AshePassiveAbility/AshePassive",
+    "mScriptName": "AshePassive",
+    "mSpell": {
+      "DataValues": [
+        {
+          "name": "SlowDuration",
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "__type": "SpellDataValue"
+        }
+      ],
+      "DataValuesModeOverride": {
+        "cherry": {
+          "SpellDataValues": [
+            {
+              "name": "SlowDuration",
+              "values": [
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "__type": "SpellDataValueVector"
+        }
+      },
+      "mSpellCalculations": {
+        "SlowAmount": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mStartValue": 0.20000000298023224,
+              "mEndValue": 0.30000001192092896,
+              "__type": "ByCharLevelInterpolationCalculationPart"
+            }
+          ],
+          "mDisplayAsPercent": true,
+          "__type": "GameCalculation"
+        },
+        "EmpoweredSlowAmount": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mStartValue": 0.4000000059604645,
+              "mEndValue": 0.6000000238418579,
+              "__type": "ByCharLevelInterpolationCalculationPart"
+            }
+          ],
+          "mDisplayAsPercent": true,
+          "__type": "GameCalculation"
+        },
+        "DamageBonus": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mNumber": 1.0,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mStat": 8,
+              "mSubpart": {
+                "mSubparts": [
+                  {
+                    "mNumber": 1.0,
+                    "__type": "NumberCalculationPart"
+                  },
+                  {
+                    "mStat": 9,
+                    "mStatFormula": 2,
+                    "mCoefficient": 1.0,
+                    "__type": "StatByCoefficientCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "StatBySubPartCalculationPart"
+            }
+          ],
+          "mDisplayAsPercent": true,
+          "__type": "GameCalculation"
+        },
+        "{da9201cc}": {
+          "mMultiplier": {
+            "mStat": 2,
+            "mCoefficient": 1.0,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          "{72c5c2a8}": 0,
+          "mModifiedGameCalculation": "DamageBonus",
+          "__type": "GameCalculationModified"
+        }
+      },
+      "{fe87f21e}": [
+        {
+          "{6166b756}": "{da9201cc}",
+          "{7a9d64ea}": true,
+          "__type": "{fe87f21e}"
+        }
+      ],
+      "mImgIconName": [
+        "ASSETS/Characters/Ashe/HUD/Icons2D/Ashe_P.dds"
+      ],
+      "castRange": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "castRangeValues": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "{0a3e0478}": 0.0,
+        "__type": "{0a0eddc9}"
+      },
+      "mFloatVarsDecimals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mClientData": {
+        "mTooltipData": {
+          "mObjectName": "AshePassive",
+          "mFormat": "{476ec0b8}",
+          "mLocKeys": {
+            "keyName": "Spell_AshePassive_Name",
+            "keyTooltip": "Spell_AshePassive_Tooltip",
+            "keySummary": "Spell_AshePassive_Summary",
+            "keyTooltipExtended": "Spell_AshePassive_TooltipExtended"
+          },
+          "__type": "TooltipInstanceSpell"
+        },
+        "__type": "SpellDataResourceClient"
+      },
+      "__type": "SpellDataResource"
+    },
+    "mBuff": {
+      "mDescription": "game_buff_tooltip_AshePassive",
+      "__type": "BuffData"
+    },
+    "__type": "SpellObject"
+  }
+}
