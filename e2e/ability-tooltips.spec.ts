@@ -1,5 +1,49 @@
 import { expect, test } from '@playwright/test';
 
+test('tooltip ownership survives mixed pointer and keyboard interaction and clears for dialogs', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const q = page.getByRole('button', { name: 'Ranger’s Focus', exact: true });
+  const w = page.getByRole('button', { name: 'Volley', exact: true });
+  const pause = page.getByRole('button', { name: 'Pause game' });
+  const tip = page.getByRole('tooltip');
+  await q.focus();
+  await q.hover();
+  await page.mouse.move(500, 300);
+  await expect(tip).toBeVisible();
+  await expect(q).toHaveAttribute('aria-describedby', 'ability-tooltip');
+  await w.hover();
+  await expect(tip).toContainText('7 frost arrows');
+  await expect(q).not.toHaveAttribute('aria-describedby');
+  await page.mouse.move(500, 300);
+  await expect(tip).toContainText('20% attack speed');
+  await expect(q).toHaveAttribute('aria-describedby', 'ability-tooltip');
+  await expect(w).not.toHaveAttribute('aria-describedby');
+  await q.hover();
+  await pause.focus();
+  await expect(tip).toBeVisible();
+  await expect(q).toHaveAttribute('aria-describedby', 'ability-tooltip');
+  await page.mouse.move(500, 300);
+  await expect(tip).toBeHidden();
+  await expect(q).not.toHaveAttribute('aria-describedby');
+  // Opening a dialog must also clear an exclusively pointer-owned description.
+  await w.hover();
+  await page.keyboard.press('p');
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(tip).toBeHidden();
+  await expect(w).not.toHaveAttribute('aria-describedby');
+  await page.keyboard.press('Escape');
+  await expect(tip).toBeHidden();
+  await q.focus();
+  await expect(tip).toContainText('20% attack speed');
+  expect(errors).toEqual([]);
+});
+
 test('ability tooltips describe current mechanics and support keyboard focus', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));

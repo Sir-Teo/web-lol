@@ -1170,3 +1170,9 @@ All 396 source/simulation checks, the AP purchase/sale browser case, six-icon at
 Added both-team integration coverage for a real R cast with two Amplifying Tomes, selling both during flight, and restoring the pre-impact checkpoint. Tests check actual health loss: captured 248 damage becomes 124 against the primary champion's 100 MR and 248/1.5 against a splash minion's 50 MR. The champion assertion accounts for the same-tick regeneration that follows impact. A minion beyond splash range remains unharmed, the projectile is consumed, and restored state matches uninterrupted execution.
 
 All 398 source/simulation checks pass. No runtime behavior changed; browser and production smoke were not repeated for this test-only addition. This verifies the current captured-damage policy, not independent evidence of native cast-snapshot timing. Rank allocation, broader AP modifiers and production fidelity remain unfinished.
+
+## Preserve tooltip ownership across pointer and keyboard input
+
+Ability tooltips now track focus and hover separately. Leaving a focused ability keeps its description visible; hovering another ability temporarily shows that description and restores the focused ability when the pointer leaves. Moving focus away from a still-hovered ability also preserves its tooltip. Opening a dialog clears tooltip ownership and `aria-describedby` together, preventing a hidden tooltip from remaining attached to an ability control.
+
+All 398 source/simulation checks, six focused Chrome tooltip scenarios and nested-path production smoke pass. The new browser scenario exercises real mouse movement, keyboard focus, shop opening/closing and resumed tooltip use, with no page errors. Tooltip layout/content is unchanged. This is browser interaction polish; exact native input behavior and the broader production clone remain unfinished.

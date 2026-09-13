@@ -27,6 +27,8 @@ export class Hud {
   sound = true;
   private mini: HTMLCanvasElement;
   private tip: HTMLDivElement;
+  private hoveredAbility: HTMLButtonElement | null = null;
+  private focusedAbility: HTMLButtonElement | null = null;
   private floating: HTMLDivElement;
   private lastEventId = 0;
   private lastSecond = -1;
@@ -233,26 +235,22 @@ export class Hud {
     });
     this.root.querySelectorAll<HTMLButtonElement>('[data-ability]').forEach((button) => {
       const ability = button.dataset.ability as Ability;
-      const showTooltip = () => {
-        if (this.modal) return;
-        const spec = ABILITIES[ability];
-        this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${spec.cost ? `${spec.cost} MANA` : 'NO COST'} <span>·</span> ${spec.cooldown ? `${spec.cooldown}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
-        this.root
-          .querySelectorAll('[aria-describedby="ability-tooltip"]')
-          .forEach((element) => element.removeAttribute('aria-describedby'));
-        this.tip.dataset.tooltipAbility = ability;
-        this.tip.hidden = false;
-        button.setAttribute('aria-describedby', this.tip.id);
-        this.positionTooltip();
-      };
-      const hideTooltip = () => {
-        if (this.tip.dataset.tooltipAbility === ability) this.tip.hidden = true;
-        button.removeAttribute('aria-describedby');
-      };
-      button.addEventListener('pointerenter', showTooltip);
-      button.addEventListener('pointerleave', hideTooltip);
-      button.addEventListener('focus', showTooltip);
-      button.addEventListener('blur', hideTooltip);
+      button.addEventListener('pointerenter', () => {
+        this.hoveredAbility = button;
+        this.refreshTooltip(button);
+      });
+      button.addEventListener('pointerleave', () => {
+        if (this.hoveredAbility === button) this.hoveredAbility = null;
+        this.refreshTooltip();
+      });
+      button.addEventListener('focus', () => {
+        this.focusedAbility = button;
+        this.refreshTooltip(button);
+      });
+      button.addEventListener('blur', () => {
+        if (this.focusedAbility === button) this.focusedAbility = null;
+        this.refreshTooltip();
+      });
       button.addEventListener('click', () => {
         if (this.paused || this.modal) return;
         if (ability === 'q' || ability === 'f')
@@ -265,6 +263,27 @@ export class Hud {
         else this.toast(`Hold ${ability.toUpperCase()} to aim, then release to cast`);
       });
     });
+  }
+  private refreshTooltip(preferred?: HTMLButtonElement): void {
+    const current = [this.hoveredAbility, this.focusedAbility].find(
+      (button) => button && button.dataset.ability === this.tip.dataset.tooltipAbility
+    );
+    const button = preferred ?? current ?? this.hoveredAbility ?? this.focusedAbility;
+    this.root
+      .querySelectorAll('[aria-describedby="ability-tooltip"]')
+      .forEach((element) => element.removeAttribute('aria-describedby'));
+    if (this.modal || !button) {
+      this.tip.hidden = true;
+      delete this.tip.dataset.tooltipAbility;
+      return;
+    }
+    const ability = button.dataset.ability as Ability;
+    const spec = ABILITIES[ability];
+    this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${spec.cost ? `${spec.cost} MANA` : 'NO COST'} <span>·</span> ${spec.cooldown ? `${spec.cooldown}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
+    this.tip.dataset.tooltipAbility = ability;
+    this.tip.hidden = false;
+    button.setAttribute('aria-describedby', this.tip.id);
+    this.positionTooltip();
   }
   toggleCamera(): void {
     this.view.locked = !this.view.locked;
@@ -287,7 +306,9 @@ export class Hud {
       return;
     }
     this.modal = which;
-    this.tip.hidden = true;
+    this.hoveredAbility = null;
+    this.focusedAbility = null;
+    this.refreshTooltip();
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
     let content = '',
