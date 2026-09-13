@@ -6,7 +6,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 14;
+export const SNAPSHOT_VERSION = 15;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -159,8 +159,12 @@ const projectile: z.ZodType<Projectile> = z
     remaining: nonnegative,
     volleyId: id.nullable(),
     launchTick: tick.optional(),
+    origin: point.optional(),
   })
-  .refine((p) => p.type !== 'hawkshot' || p.launchTick !== undefined, 'Hawkshot lacks launch tick');
+  .refine(
+    (p) => p.type !== 'hawkshot' || (p.launchTick !== undefined && p.origin !== undefined),
+    'Hawkshot lacks launch state'
+  );
 const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
   z.strictObject({ type: z.literal('cast'), unit: id, ability, point }),
@@ -185,6 +189,18 @@ const snapshot = z.strictObject({
     .array(
       z.strictObject({
         kind: z.enum(['attack', 'scout']),
+        flight: z
+          .strictObject({
+            id,
+            origin: point,
+            direction: point,
+            speed: z.number().positive(),
+            launchTick: tick,
+            arrivalTick: tick,
+            distance: nonnegative,
+          })
+          .refine((f) => f.arrivalTick >= f.launchTick, 'Scout arrival precedes launch')
+          .optional(),
         x: z.number(),
         y: z.number(),
         radius: nonnegative,

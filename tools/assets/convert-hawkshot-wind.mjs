@@ -1,6 +1,7 @@
 /** Prepare source wind geometry and textures; emission/erosion playback is a separate runtime step. */
 import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
+import { format, resolveConfig } from 'prettier';
 import { createHash } from 'node:crypto';
 import { Document, NodeIO } from '@gltf-transform/core';
 import { KHRMaterialsUnlit } from '@gltf-transform/extensions';
@@ -81,7 +82,7 @@ if (restoredIndices.length !== decoded.triangles * 3 || restoredIndices.some((v,
 const manifest = {
   referenceVersion: pin.extraction.referenceVersion,
   status:
-    'Prepared source assets. Runtime emission, randomization, drag, erosion, lingering and visual calibration are not implemented.',
+    'Source assets for runtime wind emission and erosion. Exact timing, placement and shutdown parity remain unverified.',
   output: { path: '/assets/models/hawkshot-wind.glb', bytes: bytes.length, sha256: hash(bytes) },
   auxiliaryAssets: [
     {
@@ -116,4 +117,33 @@ console.log(
     triangles: manifest.triangles,
     exportedVertices: manifest.exportedVertices,
   })
+);
+
+const playbackBytes = await readFile('docs/reference/hawkshot-wind-playback.json');
+const playback = JSON.parse(playbackBytes);
+const wind = {
+  delay: emitter.timeBeforeFirstEmission,
+  rate: emitter.rate.constantValue,
+  lifetime: emitter.particleLifetime.dynamics.values[0],
+  lifeRange: emitter.particleLifetime.dynamics.probabilityTables[0].keyValues,
+  velocity: emitter.birthVelocity.dynamics.values[0],
+  drag: emitter.birthDrag.constantValue,
+  rotation: emitter.birthRotation0.dynamics.values[0],
+  rotationRange: emitter.birthRotation0.dynamics.probabilityTables[1].keyValues,
+  rotationalVelocity: emitter.birthRotationalVelocity0.constantValue,
+  scale: emitter.birthScale0.dynamics.values[0],
+  scaleRanges: emitter.birthScale0.dynamics.probabilityTables.map((p) => p.keyValues),
+  colorTimes: emitter.Color.dynamics.times,
+  colors: emitter.Color.dynamics.values,
+  erosionTimes: emitter.alphaErosionDefinition.erosionDriveCurve.dynamics.times,
+  erosionValues: emitter.alphaErosionDefinition.erosionDriveCurve.dynamics.values,
+  erosion: playback.erosion,
+  linger: emitter.particleLinger,
+};
+await writeFile(
+  'src/content/hawkshot-wind.ts',
+  await format(
+    `// Generated from pinned Hawkshot WindTunnel. Definitions ${decoded.definitionsSha256}; playback ${hash(playbackBytes)}.\nexport const HAWKSHOT_WIND = ${JSON.stringify(wind, null, 2)} as const;\n`,
+    { ...(await resolveConfig('src/content/hawkshot-wind.ts')), parser: 'typescript' }
+  )
 );

@@ -108,6 +108,7 @@ export interface Projectile extends Vec2 {
   volleyId: number | null;
   /** Required for Hawkshot's per-cast source animation phase. */
   launchTick?: number;
+  origin?: Vec2;
 }
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =
@@ -141,4 +142,15 @@ export interface PlayerState {
   eRechargeTick: number | null;
   recallEnd: number | null;
   inventory: string[];
+}
+
+/** Source trajectory retained for deterministic particle tails after arrival. */
+export interface ScoutFlight {
+  id: number;
+  origin: Vec2;
+  direction: Vec2;
+  speed: number;
+  launchTick: number;
+  arrivalTick?: number;
+  distance?: number;
 }

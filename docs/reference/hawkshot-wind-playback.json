@@ -1,0 +1,14 @@
+{
+  "defaultsSource": {
+    "url": "https://github.com/LeagueToolkit/LeagueToolkit/blob/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit.Meta.Classes/Classes.cs#L19529",
+    "sha256": "7019bed2520e3749762e2cc0d53e8e7612687f5619e30a56668085d03a1ff77a"
+  },
+  "erosion": {
+    "featherIn": 0.1,
+    "featherOut": 0.1,
+    "sliceWidth": 1.5,
+    "addressMode": 2
+  },
+  "interpretationSource": "https://github.com/TheKillerey/ReyEngine/blob/cdf014d0b584f65b579211b522c5ed1dfe5687a5/src/ReyEngine.Formats/Vfx/VfxSystemDefinition.cs",
+  "policy": "Probability curves multiply sampled birth values. Erosion uses the published two-linear-ramp transcription with the declared defaults. Exact engine RNG, emission phase, drag integrator, placement and shutdown behavior remain unverified."
+}

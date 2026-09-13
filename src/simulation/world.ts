@@ -768,6 +768,15 @@ export class World {
         else
           this.visionAreas.push({
             kind: 'scout',
+            flight: {
+              id: p.id,
+              origin: p.origin!,
+              direction: p.direction,
+              speed: p.speed,
+              launchTick: p.launchTick!,
+              arrivalTick: this.tick,
+              distance: distance(p.origin!, p),
+            },
             x: p.x,
             y: p.y,
             radius: 650,
@@ -1087,6 +1096,7 @@ export class World {
         team: u.team,
         type: 'hawkshot',
         launchTick: this.tick,
+        origin: { x: u.x, y: u.y },
         x: u.x,
         y: u.y,
         previous: { x: u.x, y: u.y },

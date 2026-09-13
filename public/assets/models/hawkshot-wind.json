@@ -1,6 +1,6 @@
 {
   "referenceVersion": "16.18.8175716",
-  "status": "Prepared source assets. Runtime emission, randomization, drag, erosion, lingering and visual calibration are not implemented.",
+  "status": "Source assets for runtime wind emission and erosion. Exact timing, placement and shutdown parity remain unverified.",
   "output": {
     "path": "/assets/models/hawkshot-wind.glb",
     "bytes": 41400,

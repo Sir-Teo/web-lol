@@ -7,6 +7,7 @@ import { Hud } from './ui/hud';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
 import { loadReferenceModels } from './render/models';
+import { loadHawkshotWind } from './render/hawkshot-wind';
 import { loadHawkshot } from './render/hawkshot';
 import { loadRiftBattlefield } from './content/rift';
 import { PRACTICE_FIXTURE } from './content/practice-fixture';
@@ -73,7 +74,12 @@ async function boot(): Promise<void> {
     hud.root.querySelector('.welcome')?.remove();
   }
   window.addEventListener('resize', () => view.resize());
-  const assetsReady = Promise.all([loadReferenceModels(), loadHawkshot(), view.loadEnvironment()]);
+  const assetsReady = Promise.all([
+    loadReferenceModels(),
+    loadHawkshot(),
+    loadHawkshotWind(),
+    view.loadEnvironment(),
+  ]);
   const pauseForInterruption = () => {
     if (!hud.modal) hud.toggleModal('pause');
     hud.focusModal();
