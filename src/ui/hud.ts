@@ -1,7 +1,12 @@
 import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { ASHE_E } from '../content/ashe-e';
-import { experienceToNextLevel, growthAtLevel, MAX_LEVEL } from '../simulation/progression';
+import {
+  experienceToNextLevel,
+  growthAtLevel,
+  MAX_LEVEL,
+  statPrecision,
+} from '../simulation/progression';
 import { isStructureKind, type Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
@@ -355,7 +360,7 @@ export class Hud {
       shopBalance.textContent = balanceLabel;
     text('ad', Math.round(h.damage));
     text('armor', Math.round(h.armor));
-    text('ms', h.speed);
+    text('ms', Math.round(statPrecision(w.movementSpeed(h))));
     text('as', ((60 / h.attackPeriod) * w.attackSpeedMultiplier(h, undefined)).toFixed(2));
     text('kills', p.kills);
     text('deaths', p.deaths);

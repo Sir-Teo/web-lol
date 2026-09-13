@@ -58,3 +58,10 @@ The HUD's minimap coordinate conversion is shared by spell aiming, camera clicks
 This implements the current hold-to-aim/release-to-cast input mode. Reference parity for alternate cast modes, minimap unit-target priority, modifiers and detailed pointer cancellation remains unverified. The controls panel now describes E/R minimap use.
 
 Four Chrome scenarios verify both spells on the full Rift at laptop size, projected aim/cast direction and Hawkshot endpoint, unchanged camera, transitions through HUD/minimap/battlefield, unsupported casts, Escape, and right-click cancellation. Existing control and hovered-ally Heal checks remain passing.
+
+
+## Effective movement-speed readout
+
+The champion HUD now reads `World.movementSpeed`, the same effective value used for travel and run playback, instead of displaying `hero.speed` without active modifiers. Ordinary Frost, the enhanced slow's decay and Heal haste therefore appear in the stat readout as they change and expire. The display normalizes to the existing six-decimal stat precision before rounding to a whole unit; this prevents binary floating-point noise from displaying the mathematical 227.5 midpoint as 227. This is display policy only: movement calculations and the stored base/item stat are unchanged.
+
+Two browser scenarios cover an actual enemy attack slow, a subsequent Heal, both exact expiration boundaries, and the enhanced-slow midpoint while preserving the stored 325 speed. The existing run-playback comparison also passes. This establishes consistency with the current simulation, not reference soft-cap or HUD rounding parity; the soft-cap investigation above remains unresolved.
