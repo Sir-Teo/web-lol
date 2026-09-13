@@ -13,6 +13,7 @@ for (const team of ['blue', 'red'] as const)
   test(`${team} killers receive victim-level gold at every supported level`, () => {
     for (let level = 1; level <= 18; level++) {
       const w = new World(false, PRACTICE_FIXTURE);
+      w.firstBloodClaimed = true; // Isolate the base table from the one-time bonus.
       const killer = w.spawn('champion', team, { x: 0, y: 0 });
       const victim = w.spawn('champion', team === 'blue' ? 'red' : 'blue', { x: 0, y: 0 });
       const recipient = w.championState(killer.id)!;
@@ -49,6 +50,7 @@ test('saved victim progression determines a posthumous killer reward', () => {
 
 test('fixture overrides and nonchampion final blows keep their explicit semantics', () => {
   const w = new World(false, PRACTICE_FIXTURE);
+  w.firstBloodClaimed = true;
   const victim = w.spawn('champion', 'red', { x: 0, y: 0 });
   w.gainExperience(1e6, victim.id);
   victim.goldBounty = 75;

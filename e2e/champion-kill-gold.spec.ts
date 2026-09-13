@@ -16,6 +16,6 @@ test('level-18 champion bounty reaches the player gold HUD', async ({ page }) =>
     w.damage(w.hero, victim, 10000, 'true');
     g.hud.update(60);
   });
-  await expect(page.locator('#gold')).toHaveText('920');
+  await expect(page.locator('#gold')).toHaveText('1020');
   await expect(page.locator('#personal')).toHaveText('1 / 0 / 0');
 });

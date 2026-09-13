@@ -3,3 +3,4 @@
 export const CHAMPION_BASE_KILL_GOLD = [
   300, 300, 300, 300, 300, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420,
 ] as const;
+export const FIRST_BLOOD_BONUS = 100;

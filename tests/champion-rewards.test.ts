@@ -80,7 +80,7 @@ test('ambient gold and champion kill credit belong to the enemy even through dea
   const state = w.championState(bot.id)!;
   w.damage(bot, w.hero, 10000, 'true');
   expect(state.kills).toBe(1);
-  expect(state.gold).toBe(800);
+  expect(state.gold).toBe(900);
   w.damage(w.hero, bot, 10000, 'true');
   bot.respawnTick = 10000;
   w.hero.respawnTick = 10000;
@@ -88,6 +88,6 @@ test('ambient gold and champion kill credit belong to the enemy even through dea
   w.step(60);
   expect(bot.hp).toBe(0);
   expect(w.hero.hp).toBe(0);
-  expect(state.gold).toBeCloseTo(802.04);
+  expect(state.gold).toBeCloseTo(902.04);
   expect(w.player.gold).toBeCloseTo(802.04);
 });

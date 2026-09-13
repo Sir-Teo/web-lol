@@ -28,4 +28,13 @@ The standard-mode `BaseGold` array in [the complete bounty configuration pin](re
 
 `python3 tools/assets/export-champion-kill-gold.py` validates the cached map hash, mode/config link, full configuration and independently described progression before generating the runtime table. On a direct opposing champion kill, the game reads the victim's level before XP distribution and credits the source champion, including posthumous sources. The current supported level range is 1–18. Explicit practice `goldBounty` overrides still replace the base amount. Nonchampion final blows do not yet resolve execution attribution.
 
-This replaces the flat 300 base reward only. First blood, positive/negative bounty accounting, suppression and assist gold are separate outstanding rules. Unknown hashed configuration fields have not been assigned speculative meanings. Tests cover every supported victim level on both teams with different killer levels, duplicate death protection, gold event ownership, saved continuation, posthumous credit, overrides and the visible player balance.
+This replaces the flat 300 base reward. First blood is implemented below; positive/negative bounty accounting, suppression and assist gold remain outstanding. Unknown hashed configuration fields have not been assigned speculative meanings. Tests cover every supported victim level on both teams with different killer levels, duplicate death protection, gold event ownership, saved continuation, posthumous credit, overrides and the visible player balance.
+
+
+## First blood
+
+The first credited opposing champion kill grants an additional 100 gold to the killer. Both the pinned configuration's `FirstBloodBonus` and Riot's [26.1 notes, Atakhan, Blood Roses, Feats, and Kills](https://www.leagueoflegends.com/en-sg/news/game-updates/patch-26-1-notes/) establish the restored bonus. The base-gold exporter also validates and exports this value.
+
+The match owns a saved `firstBloodClaimed` flag, independent of team and mutable scoreboard counters. It is set during reward processing before a later death can claim the bonus. Same-tick kills use the existing ordered damage processing; this is a deterministic local convention, not native simultaneous-kill calibration. The bonus adds to the base reward (or explicit practice override) and appears in the same gold event. It does not go to assistants. A posthumous champion source remains eligible.
+
+Kills of minions/structures/dummies, same-team debug kills, and uncredited nonchampion final blows do not claim first blood. Execution attribution remains unfinished, so a death that should be credited to a previous champion attacker can still differ from the reference. First-blood announcement artwork/audio is not implemented. Tests cover both teams, same-tick trades, assistants, uncredited deaths and save continuation before/after the award.

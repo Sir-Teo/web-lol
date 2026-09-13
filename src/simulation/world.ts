@@ -1,4 +1,4 @@
-import { CHAMPION_BASE_KILL_GOLD } from '../content/champion-kill-gold';
+import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
 import { ASSIST_WINDOW_SECONDS } from '../content/assist-window';
 import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
@@ -41,6 +41,7 @@ import type {
 export class World {
   tick = 0;
   winner: Team | null = null;
+  firstBloodClaimed = false;
   nextId = 1;
   units: Unit[] = [];
   projectiles: Projectile[] = [];
@@ -1142,7 +1143,7 @@ export class World {
       }
       const sourceState = this.championState(source.id);
       if (sourceState && source.team !== target.team) {
-        const gold =
+        let gold =
           target.goldBounty ??
           (target.kind === 'champion'
             ? CHAMPION_BASE_KILL_GOLD[targetState!.level - 1]
@@ -1157,6 +1158,10 @@ export class World {
                     : target.kind === 'melee'
                       ? 21
                       : 14);
+        if (targetState && !this.firstBloodClaimed) {
+          this.firstBloodClaimed = true;
+          gold += FIRST_BLOOD_BONUS;
+        }
         sourceState.gold += gold;
         if (gold) this.emit('gold', source, { value: gold, unit: source.id, team: source.team });
         if (target.kind === 'champion') {
@@ -1497,6 +1502,7 @@ export class World {
       version: SNAPSHOT_VERSION,
       ruleset: SNAPSHOT_RULESET,
       winner: this.winner,
+      firstBloodClaimed: this.firstBloodClaimed,
       battlefield: this.battlefield.id,
       pendingSpawns: this.pendingSpawns,
       tick: this.tick,

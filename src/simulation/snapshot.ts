@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 26;
+export const SNAPSHOT_VERSION = 27;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -195,6 +195,7 @@ const snapshot = z.strictObject({
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),
   winner: team.nullable(),
+  firstBloodClaimed: z.boolean(),
   tick,
   nextId: id,
   units: z.array(unit).min(1).max(10000),
