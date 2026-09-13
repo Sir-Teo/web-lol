@@ -11,14 +11,14 @@ function fixture() {
 }
 function cast(w: World, point: Vec2) {
   w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point });
-  w.step();
+  w.step(16); // Start, windup, first flight interval.
 }
 
 test('saved Hawkshot flight requires a finite launch tick for its source animation phase', () => {
   const w = fixture();
   w.step(500);
   cast(w, { x: 4200, y: 0 });
-  expect(w.projectiles[0].launchTick).toBe(501);
+  expect(w.projectiles[0].launchTick).toBe(516);
   for (const launchTick of [undefined, null, -1, 1.5, 'Infinity']) {
     const saved = JSON.parse(w.snapshot());
     saved.projectiles[0].launchTick = launchTick;
@@ -46,7 +46,7 @@ test('Hawkshot travels at 1400 through terrain and units, then reveals its endpo
   expect(w.visionAreas).toHaveLength(0);
   w.step();
   expect(w.projectiles).toHaveLength(0);
-  expect(w.visionAreas[0]).toMatchObject({ kind: 'scout', endTick: 480, team: 'blue' });
+  expect(w.visionAreas[0]).toMatchObject({ kind: 'scout', endTick: 495, team: 'blue' });
   expect(w.visionAreas[0].x).toBeCloseTo(4200);
   w.step(299);
   expect(w.pointVisible({ x: 4200, y: 0 })).toBe(true);
@@ -93,13 +93,13 @@ test('moving and endpoint sight belong to the caster team and count independentl
 test('multiple scouts and destination areas survive caster death and saved continuation independently', () => {
   const w = fixture();
   cast(w, { x: 14000, y: 0 });
-  w.step(299);
+  w.step(284); // Keep cast starts five seconds apart.
   cast(w, { x: 0, y: 7000 });
   expect(w.projectiles).toHaveLength(2);
   w.damage(w.hero, w.hero, 1e6, 'true');
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   for (const world of [w, restored]) {
-    world.step(299); // Both reach their respective endpoints at tick 600.
+    world.step(299); // Both reach their respective endpoints at tick 615.
     expect(world.hero.hp).toBe(0);
     expect(world.projectiles).toHaveLength(0);
     expect(world.visionAreas.filter((a) => a.kind === 'scout')).toHaveLength(2);

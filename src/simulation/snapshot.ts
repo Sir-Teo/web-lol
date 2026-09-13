@@ -1,14 +1,13 @@
 import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
-import { ASHE_W } from '../content/ashe-w';
-import { ASHE_R } from '../content/ashe-r';
+import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_E } from '../content/ashe-e';
 import { MAX_LEVEL } from './progression';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 18;
+export const SNAPSHOT_VERSION = 19;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -139,16 +138,14 @@ const player: z.ZodType<PlayerState> = z
     recallEnd: deadline.nullable(),
     pendingCast: z
       .strictObject({
-        ability: z.enum(['w', 'r']),
+        ability: z.enum(['w', 'e', 'r']),
         startTick: tick,
         releaseTick: tick,
         point,
         damage: nonnegative,
       })
       .refine(
-        (c) =>
-          c.releaseTick ===
-          c.startTick + (c.ability === 'w' ? ASHE_W : ASHE_R).castSeconds * TICK_RATE,
+        (c) => c.releaseTick === c.startTick + ASHE_CASTS[c.ability].castSeconds * TICK_RATE,
         'Invalid spell windup'
       )
       .nullable(),

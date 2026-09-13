@@ -7,6 +7,7 @@ import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
 import { ASHE_E } from '../content/ashe-e';
+import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
 import { crystalArrowStunTicks } from './crystal-arrow';
@@ -342,7 +343,8 @@ export class World {
         const cast = this.player.pendingCast;
         if (this.tick < cast.releaseTick) continue;
         this.player.pendingCast = null;
-        this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage);
+        if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
+        else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage);
       }
       if (u.stunUntil > this.tick) {
         u.attackCycle = null;
@@ -1076,8 +1078,8 @@ export class World {
         u.nextAttackTick = this.tick;
       }
     }
-    if (ability === 'w' || ability === 'r') {
-      const timing = ability === 'w' ? ASHE_W : ASHE_R;
+    if (ability === 'w' || ability === 'e' || ability === 'r') {
+      const timing = ASHE_CASTS[ability];
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
@@ -1089,37 +1091,21 @@ export class World {
         releaseTick: this.tick + timing.castSeconds * TICK_RATE,
         point: { ...point },
         damage:
-          ability === 'r'
-            ? 200
-            : ASHE_W.baseDamageByRank[0] +
-              Math.max(
-                0,
-                u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
-              ) *
-                ASHE_W.bonusADRatioByRank[0],
+          ability === 'e'
+            ? 0
+            : ability === 'r'
+              ? 200
+              : ASHE_W.baseDamageByRank[0] +
+                Math.max(
+                  0,
+                  u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
+                ) *
+                  ASHE_W.bonusADRatioByRank[0],
       };
     }
     if (ability === 'e') {
       this.player.eCharges--;
       this.player.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;
-      this.projectiles.push({
-        id: this.nextId++,
-        source: u.id,
-        team: u.team,
-        type: 'hawkshot',
-        launchTick: this.tick,
-        origin: { x: u.x, y: u.y },
-        x: u.x,
-        y: u.y,
-        previous: { x: u.x, y: u.y },
-        direction: dir,
-        target: null,
-        damage: 0,
-        speed: ASHE_E.projectileSpeed,
-        radius: 0,
-        remaining: Math.min(ASHE_E.range, distance(u, point)),
-        volleyId: null,
-      });
     }
     if (ability === 'd') {
       const d = Math.min(spec.range, distance(u, point));
@@ -1168,6 +1154,27 @@ export class World {
         this.emit('heal', recipient, { value: Math.round(amount) });
       }
     }
+  }
+  private releaseHawkshot(u: Unit, point: Vec2): void {
+    const dir = direction(u, point);
+    this.projectiles.push({
+      id: this.nextId++,
+      source: u.id,
+      team: u.team,
+      type: 'hawkshot',
+      launchTick: this.tick,
+      origin: { x: u.x, y: u.y },
+      x: u.x,
+      y: u.y,
+      previous: { x: u.x, y: u.y },
+      direction: dir,
+      target: null,
+      damage: 0,
+      speed: ASHE_E.projectileSpeed,
+      radius: 0,
+      remaining: Math.min(ASHE_E.range, distance(u, point)),
+      volleyId: null,
+    });
   }
   private releaseArrowSpell(
     u: Unit,

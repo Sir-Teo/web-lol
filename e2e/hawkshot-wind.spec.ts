@@ -21,7 +21,7 @@ test('wind freezes, restores through arrival and releases its active instances a
     w.nextWaveTick = Infinity;
     w.pendingSpawns = [];
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 1120, y: -840 } });
-    w.step(50);
+    w.step(65); // Windup plus 50 flight intervals.
     v.recenter(w.projectiles[0]);
     v.render(w, 1, 0);
     const mesh = v.wind.mesh;
@@ -89,7 +89,7 @@ test('wind erosion samples linear green and applies the source feather ramp', as
       w = g.world;
     g.setPaused(true);
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 0, y: 0 } });
-    w.step(20);
+    w.step(35);
     g.view.render(w, 1, 0);
     const source = g.view.wind.mesh.material;
     const erosion = new T.DataTexture(new Uint8Array([255, 128, 255, 255]), 1, 1);

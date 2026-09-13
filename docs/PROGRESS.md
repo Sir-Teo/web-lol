@@ -605,3 +605,12 @@ R now uses the saved pending-cast path, spending resources once and releasing af
 All 241 simulation checks, 15 focused Chrome scenarios, production build and production smoke pass. Shared windup coverage now exercises both spells, including no early missile, one release, saved continuation, frozen/restored bones and interruption rules. R flight fixtures use actual release as their epoch while retaining acceleration, range, splash, collision, sight and stun assertions. Minimap aiming/release passes. The source-pose screenshot was inspected and R parameter regeneration is byte-identical. The full browser suite and unchanged asset validation were not repeated after the prior 90-case full pass.
 
 Hawkshot windup, full post-release animation, general spell buffering/Flash interactions and exact native frame calibration remain unfinished. R damage still uses the prior 200 baseline pending rank/AP work. The production goal remains active. See [R windup evidence and scope](ASHE-CASTING.md#enchanted-crystal-arrow-windup).
+
+
+## Hawkshot windup milestone
+
+E now uses the saved 15-tick pending-cast path and source Spell3 pose. Charges/cooldown/recharge are committed at acceptance; the scout is created only at release, giving flight animation, moving vision and wind particles their actual launch epoch. A shared source-profile lookup serves simulation, rendering and snapshot validation. Snapshot version 19 supports all W/E/R pending casts. Death before release cancels the scout without refunding its charge.
+
+All 245 simulation checks, 18 focused Chrome scenarios, production build and production smoke pass. Shared tests cover E movement/attack lock, retained orders, stun/death, pending restoration and single charge spending. Existing flight, charge, vision, independent-rig, graphics-recovery, erosion and tail assertions pass after shifting fixtures to actual release. Tail expiry is measured relative to arrival. The source windup screenshot was inspected and E parameter generation is byte-identical. The full browser suite and unchanged asset validation were not repeated.
+
+E uses its declared cast time; its distinct source castFrame and absent animator flag remain documented rather than collapsed into a universal timing formula. Exact native animation scaling, post-release recovery, complete spell buffering/Flash interactions, refund policy and pixel parity remain unfinished. The production goal remains active. See [Hawkshot windup and flight epoch](ASHE-CASTING.md#hawkshot-windup-and-flight-epoch).

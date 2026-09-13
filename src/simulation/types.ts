@@ -143,7 +143,7 @@ export interface PlayerState {
   eRechargeTick: number | null;
   recallEnd: number | null;
   pendingCast: {
-    ability: 'w' | 'r';
+    ability: 'w' | 'e' | 'r';
     startTick: number;
     releaseTick: number;
     point: Vec2;

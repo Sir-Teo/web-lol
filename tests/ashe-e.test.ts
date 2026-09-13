@@ -21,7 +21,7 @@ test('Hawkshot spends two charges five seconds apart without restarting serial r
   w.step(298);
   cast(w); // tick 300: still one tick before the cast cooldown ends.
   expect(w.player.eCharges).toBe(1);
-  expect(w.visionAreas.find((a) => a.kind === 'scout')!.endTick).toBe(301);
+  expect(w.visionAreas.find((a) => a.kind === 'scout')!.endTick).toBe(316);
   cast(w); // tick 301: the second charge is available.
   expect(w.player.eCharges).toBe(0);
   expect(w.player.eRechargeTick).toBe(5401);

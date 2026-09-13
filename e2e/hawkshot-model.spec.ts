@@ -27,7 +27,7 @@ test('source hawks animate independently, restore their cast phase and preserve 
       ability: 'e',
       point: { x: w.hero.x, y: w.hero.y + 14000 },
     });
-    w.step();
+    w.step(16); // Windup plus first scout flight interval.
     v.render(w, 1, 0);
     const [first, second] = w.projectiles;
     const skin = (id: number) => {
@@ -117,7 +117,7 @@ test('Hawkshot adds alpha-weighted light without darkening the framebuffer', asy
     g.setPaused(true);
     const w = g.world;
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 0, y: 0 } });
-    w.step();
+    w.step(16); // Windup plus first scout flight interval.
     g.view.render(w, 1, 0);
     const flight = w.projectiles.find((p: any) => p.type === 'hawkshot');
     let source: any;
@@ -183,7 +183,7 @@ test('source Fresnel rim follows camera and object normals and fades with partic
     g.setPaused(true);
     const w = g.world;
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 0, y: 0 } });
-    w.step();
+    w.step(16); // Windup plus first scout flight interval.
     g.view.render(w, 1, 0);
     const flight = w.projectiles.find((p: any) => p.type === 'hawkshot');
     let source: any;
@@ -254,7 +254,7 @@ test('animated Hawkshot layers restore identical pixels after graphics loss', as
       v = g.view;
     g.setPaused(true);
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 0, y: 0 } });
-    w.step(20);
+    w.step(35); // Preserve 20 flight intervals after windup.
     const p = w.projectiles.find((p: any) => p.type === 'hawkshot');
     v.recenter(p);
     v.render(w, 1, v.previousElapsed);

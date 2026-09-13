@@ -2,8 +2,7 @@ import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
 import { ASHE_Q } from '../content/ashe-q';
-import { ASHE_W } from '../content/ashe-w';
-import { ASHE_R } from '../content/ashe-r';
+import { ASHE_CASTS } from '../content/ashe-casting';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
 import { loadRift } from './rift-assets';
@@ -457,7 +456,7 @@ export class GameView {
         const cast =
           u.id === world.player.id && u.deadAt === null ? world.player.pendingCast : null;
         if (cast) {
-          const name = (cast.ability === 'w' ? ASHE_W : ASHE_R).animation,
+          const name = ASHE_CASTS[cast.ability].animation,
             action = model.actions[name];
           if (model.actionName !== name) {
             model.mixer.stopAllAction();

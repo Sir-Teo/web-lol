@@ -1,9 +1,9 @@
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 
-for (const ability of ['w', 'r'] as const) {
+for (const ability of ['w', 'e', 'r'] as const) {
   const count = ability === 'w' ? 7 : 1;
-  const type = ability === 'w' ? 'volley' : 'ultimate';
+  const type = ability === 'w' ? 'volley' : ability === 'e' ? 'hawkshot' : 'ultimate';
   function start() {
     const w = new World(false);
     w.nextWaveTick = Infinity;
@@ -40,11 +40,20 @@ for (const ability of ['w', 'r'] as const) {
       expect(world.projectiles[Math.floor(count / 2)].previous).toEqual(origin);
       expect(world.projectiles[Math.floor(count / 2)].direction).toEqual({ x: 1, y: 0 });
       expect(world.projectiles[Math.floor(count / 2)].remaining).toBeCloseTo(
-        ability === 'w' ? 1175 : 25000 - (1500 / 60 + 100 / 3600)
+        ability === 'w'
+          ? 1175
+          : ability === 'e'
+            ? 1200 - 1400 / 60
+            : 25000 - (1500 / 60 + 100 / 3600)
       );
       expect(world.hero.y).not.toBe(origin.y);
       expect(world.hero.mana).toBeGreaterThanOrEqual(mana);
       expect(world.player.cooldowns[ability]).toBe(cooldown);
+      if (ability === 'e') {
+        expect(world.player.eCharges).toBe(1);
+        expect(world.player.eRechargeTick).toBe(5401);
+        expect(world.projectiles[0].launchTick).toBe(16);
+      }
     }
     expect(restored.snapshot()).toBe(w.snapshot());
   });
@@ -67,6 +76,10 @@ for (const ability of ['w', 'r'] as const) {
       expect(w.projectiles.filter((p) => p.type === type)).toHaveLength(dying ? 0 : count);
       expect(w.projectiles.some((p) => p.type === 'attack')).toBe(false);
       expect(w.player.pendingCast).toBeNull();
+      if (ability === 'e') {
+        expect(w.player.eCharges).toBe(1);
+        expect(w.player.eRechargeTick).toBe(5402);
+      }
     }
   });
 
@@ -98,7 +111,7 @@ for (const ability of ['w', 'r'] as const) {
     for (const patch of [
       { releaseTick: 15 },
       { startTick: 2, releaseTick: 17 },
-      { startTick: 0, releaseTick: 15, ability: 'e' },
+      { startTick: 0, releaseTick: 15, ability: 'q' },
     ]) {
       const saved = JSON.parse(w.snapshot());
       Object.assign(saved.player.pendingCast, patch);

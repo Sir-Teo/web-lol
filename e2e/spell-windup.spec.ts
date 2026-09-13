@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-for (const ability of ['w', 'r']) {
+for (const ability of ['w', 'e', 'r']) {
   test(`${ability} windup seeks the source pose, freezes and restores before releasing once`, async ({
     page,
   }) => {
@@ -26,7 +26,7 @@ for (const ability of ['w', 'r']) {
       v.zoom = 0.6;
       v.recenter(w.hero);
       v.resize();
-      const clipName = ability === 'w' ? 'spell2' : 'spell4';
+      const clipName = ability === 'w' ? 'spell2' : ability === 'e' ? 'spell3' : 'spell4';
       const pose = () => {
         const model = v.models.get(w.hero.id);
         let bones: number[] = [];
@@ -73,7 +73,9 @@ for (const ability of ['w', 'r']) {
         after: w.projectiles.length,
       };
     }, ability);
-    expect(result.initial.clip).toBe(ability === 'w' ? 'spell2' : 'spell4');
+    expect(result.initial.clip).toBe(
+      ability === 'w' ? 'spell2' : ability === 'e' ? 'spell3' : 'spell4'
+    );
     expect(result.initial.time).toBeCloseTo(0.15);
     expect(result.initial.bones.length).toBeGreaterThan(100);
     expect(result.paused).toEqual(result.initial);
@@ -85,11 +87,11 @@ for (const ability of ['w', 'r']) {
     expect(result.release.pending).toBeNull();
     expect(result.release.clip).toBe('idle1');
     expect(result.release.remaining).toBeCloseTo(
-      ability === 'w' ? 1175 : 25000 - (1500 / 60 + 100 / 3600)
+      ability === 'w' ? 1175 : ability === 'e' ? 1200 - 1400 / 60 : 25000 - (1500 / 60 + 100 / 3600)
     );
     expect(result.after).toBe(count);
     await page.screenshot({
-      path: `artifacts/browser-${ability === 'w' ? 'volley' : 'ultimate'}-windup.png`,
+      path: `artifacts/browser-${ability === 'w' ? 'volley' : ability === 'e' ? 'hawkshot' : 'ultimate'}-windup.png`,
     });
   });
 }

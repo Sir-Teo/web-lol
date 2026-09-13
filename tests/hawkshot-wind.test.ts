@@ -43,19 +43,26 @@ test('arrival stops wind births and saved trajectory preserves the remaining par
   w.nextWaveTick = Infinity;
   w.pendingSpawns = [];
   w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 1400, y: 0 } });
-  w.step(60);
+  w.step(75); // 15 windup ticks, then 60 flight intervals.
   expect(w.projectiles).toHaveLength(0);
   const trajectory = w.visionAreas.find((a) => a.kind === 'scout')!.flight!;
-  expect(trajectory).toMatchObject({ ...flight, id: trajectory.id, arrivalTick: 60 });
+  expect(trajectory).toMatchObject({
+    ...flight,
+    id: trajectory.id,
+    launchTick: 16,
+    arrivalTick: 75,
+  });
   expect(trajectory.distance).toBeCloseTo(1400);
   const particles = windParticles(trajectory, w.time);
   expect(particles.length).toBeGreaterThan(0);
   expect(
-    windParticles(trajectory, 1.1).every((p) => particles.some((old) => old.index === p.index))
+    windParticles(trajectory, w.time + 0.1).every((p) =>
+      particles.some((old) => old.index === p.index)
+    )
   ).toBe(true);
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   expect(windParticles(restored.visionAreas[0].flight!, restored.time)).toEqual(particles);
-  expect(windParticles(trajectory, 1.61)).toEqual([]);
+  expect(windParticles(trajectory, w.time + 0.61)).toEqual([]);
   const malformed = JSON.parse(w.snapshot());
   malformed.visionAreas[0].flight.origin.x = null;
   expect(() => World.fromSnapshot(JSON.stringify(malformed), w.battlefield)).toThrow();

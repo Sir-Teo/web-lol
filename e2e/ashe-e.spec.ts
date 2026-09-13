@@ -15,7 +15,7 @@ test('Hawkshot travels visibly, preserves its paused pose and reveals the destin
     w.hero.x = w.hero.y = 0;
     const target = w.spawn('dummy', 'red', { x: 2800, y: 0 });
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: target });
-    w.step(60);
+    w.step(75); // Windup plus the first second of flight.
     const p = w.projectiles.find((p: any) => p.type === 'hawkshot');
     v.recenter(p);
     v.render(w, 1, 0);
@@ -65,7 +65,7 @@ test('Hawkshot travels visibly, preserves its paused pose and reveals the destin
     };
   }, result);
   expect(arrival).toEqual({ projectile: false, visible: true, modelVisible: true, lifetime: 300 });
-  await expect(page.locator('[data-ability="e"] .cooldown-text')).toHaveText('4');
+  await expect(page.locator('[data-ability="e"] .cooldown-text')).toHaveText('3');
   await page.screenshot({ path: 'artifacts/browser-hawkshot-destination.png' });
   const expired = await page.evaluate((target) => {
     const g = (window as any).__GAME__;

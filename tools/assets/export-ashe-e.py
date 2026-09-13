@@ -19,7 +19,12 @@ assert spell['cooldownTime'] == spell['Cooldown']['values']
 assert len(set(spell['cooldownTime'])) == 1
 recharge = spell['mAmmoRechargeTime'][1:6]
 assert recharge == next(v['values'][1:6] for v in spell['DataValues'] if v['name'] == 'BaseCooldown')
+assert spell['spellCastTime'] == 0.25
+assert spell['mCantCancelWhileWindingUp'] is True
+assert not spell.get('useAnimatorFramerate', False)
 data = {
+    'castSeconds': spell['spellCastTime'],
+    'animation': spell['mAnimationName'].lower(),
     'maximumCharges': spell['mMaxAmmo'][1],
     'castCooldownSeconds': spell['cooldownTime'][1],
     'rechargeSecondsByRank': recharge,
