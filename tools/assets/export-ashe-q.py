@@ -20,7 +20,8 @@ assert json.loads(raw)[key] == attack
 animation = attack['mSpell']['mAnimationName'].lower()
 graph_pin = json.loads(Path('docs/reference/ashe-model.json').read_text())
 assert animation in [name.lower() for name in graph_pin['atomicClips']]
-data = {'empoweredAttackAnimation': animation}
+assert 'Trait_AttackReset' in record['mSpell']['mSpellTags']
+data = {'empoweredAttackAnimation': animation, 'resetsAttackTimer': True}
 for name, field in [('BuffDuration', 'durationSeconds'), ('StackDuration', 'stackSeconds'),
                     ('StackFalloffDuration', 'falloffSeconds'), ('MaxStacks', 'maxStacks')]:
     values = next(value['values'] for value in record['mSpell']['DataValues'] if value['name'] == name)

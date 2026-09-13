@@ -1057,6 +1057,14 @@ export class World {
       this.player.qStacks = 0;
       this.player.qStackExpiry = 0;
       this.player.qUntil = this.tick + ASHE_Q.durationSeconds * TICK_RATE;
+      if (ASHE_Q.resetsAttackTimer) {
+        // Cancel an unreleased attack or its recovery, retaining the current
+        // order/path. advanceUnit may start an empowered attack this tick.
+        u.releaseTick = null;
+        u.attackTarget = null;
+        u.attackCycle = null;
+        u.nextAttackTick = this.tick;
+      }
     }
     if (ability === 'w' || ability === 'r') {
       const volleyId = ability === 'w' ? this.nextId++ : null;

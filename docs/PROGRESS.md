@@ -571,3 +571,12 @@ Q attack cycles now select the source Spell1 clip instead of ordinary Attack1. T
 All 229 simulation/source checks, 14 distinct focused Chrome scenarios, production build and production smoke pass. Browser coverage checks normal and empowered phases, pause, exact restored bone transforms after expiry, Q behavior, recall, death, cancellation and checkpoint compatibility. Both attack screenshots were inspected after correcting the capture's loading-overlay wait. Q parameter regeneration is byte-identical. The full browser suite and unchanged asset validation were not repeated.
 
 The Q flurry still uses aggregate projectile damage. Five-arrow sequencing, source release-frame alignment, activation/reset behavior, complete spell cast timing and pixel calibration remain outstanding. This milestone does not complete the production goal. See [Q evidence and scope](ASHE-Q.md#source-empowered-attack-animation).
+
+
+## Q attack-reset milestone
+
+Successful Q activation now resets the attack timer, supported by the pinned spell tag and Riot's patch 9.19 notes. It replaces an unreleased windup or recovery while retaining the current order/path and preserving already released arrows. The next eligible attack starts empowered on the activation tick. Idle/movement and rejected casts do not acquire unintended attacks or reset valid cycles.
+
+All 233 simulation checks, nine focused Chrome scenarios, production build and production smoke pass. Coverage includes both reset phases, preserved projectile damage, exact saved continuation, rejected casts, movement, idle and the source animation restart. The reset screenshot was inspected and Q parameter regeneration is byte-identical. The full browser suite and unchanged asset validation were not repeated.
+
+Same-tick ordering and precise native release-frame alignment still need reference calibration. Q activation animation, five-arrow flurry and complete spell cast timing remain unfinished; the production goal remains active. See [the reset evidence and semantics](ASHE-Q.md#q-attack-reset).

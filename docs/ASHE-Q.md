@@ -62,3 +62,16 @@ Each attack cycle records whether the player's Q was active when that cycle bega
 Snapshot version 16 requires a boolean empowerment flag on every non-null attack cycle and rejects empowered cycles on non-champion rigs. Late rendering and fresh restored rigs seek the same pose even after Q expires. Cancellation, stun, invalid targets and death still clear the scheduled presentation. Tests cover both ordinary and empowered phases, frozen/restored bone transforms, immutable selection across buff changes, and malformed checkpoint rejection. The generated parameter file rebuilds byte-identically.
 
 This adds the original attack clip, not the complete Q flurry. Source event attachment, five-arrow timing, animation release-frame calibration, transition blending, activation/reset behavior and W/E/R cast windups remain unfinished. Inspected browser captures are `artifacts/browser-basic-attack-pose.png` and `artifacts/browser-q-attack-pose.png`.
+
+
+## Q attack reset
+
+Riot's [patch 9.19 notes](https://www.leagueoflegends.com/en-us/news/game-updates/patch-9-19-notes/) explicitly restored a full attack reset to Ranger's Focus. The pinned 16.18 Q record retains `Trait_AttackReset`; the exporter now verifies that tag before emitting `resetsAttackTimer`.
+
+A successful activation clears the pending release, target binding and presentation cycle, and makes the next attack ready on the activation tick. It retains the current order and path. Normal unit advancement then starts a new empowered attack if the ordered target is eligible and in range. An unreleased ordinary attack is replaced without emitting an arrow; an already released arrow keeps its identity and captured damage. Movement continues, and idle does not become an unsolicited attack. Failed activation changes none of these attack fields beyond effects that would occur without the cast, such as stun interruption.
+
+The existing integer-tick scheduling determines the new empowered windup and recovery. At the current level-one baseline this is a 17-tick windup and 76-tick cycle. If Q is activated during an early windup, replacing it can move the next release later; this is a fresh windup, not an immediate projectile. Commands are processed before attack release on the same simulation tick. This ordering and precise native release-frame alignment remain capture-calibration work.
+
+Four simulation tests cover recovery reset with an arrow in flight, exact saved continuation, unreleased windup replacement, rejected activation, movement and idle. A browser case verifies the ordinary-to-Spell1 transition, zero initial phase, earlier cycle start and preservation of the flying arrow; a repeated invalid Q cannot restart the clip. Q/attack/recall regressions also pass. The inspected screenshot is `artifacts/browser-ashe-q-reset.png`.
+
+Q activation's own animation, complete five-arrow flurry, native animation transition events and general spell windups remain unfinished. No snapshot fields were added; the source-hash compatibility policy applies to this gameplay change.
