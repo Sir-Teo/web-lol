@@ -1,5 +1,7 @@
 import * as THREE from 'three';
-import { MAP_HALF, SPAWN } from '../content/map';
+import { PRACTICE_FIXTURE } from '../content/practice-fixture';
+import type { Battlefield } from '../simulation/battlefield';
+import { loadRift } from './rift-assets';
 import { clamp, lerp, type Vec2 } from '../simulation/math';
 import type { Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
@@ -44,7 +46,10 @@ export class GameView {
   private bars: HTMLDivElement;
   private previousElapsed = 0;
 
-  constructor(host: HTMLElement) {
+  constructor(
+    host: HTMLElement,
+    readonly battlefield: Battlefield = PRACTICE_FIXTURE
+  ) {
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: false,
@@ -65,7 +70,8 @@ export class GameView {
     this.bars.className = 'world-labels';
     host.append(this.bars);
     this.scene.background = new THREE.Color(0x173531);
-    this.scene.fog = new THREE.Fog(0x19352e, 65, 110);
+    if (battlefield.id === 'practice-fixture') this.scene.fog = new THREE.Fog(0x19352e, 65, 110);
+    else this.camera.far = 600;
     this.scene.add(new THREE.HemisphereLight(0xc5e0e0, 0x374c31, 2.1));
     const sun = new THREE.DirectionalLight(0xffecd0, 2.4);
     sun.position.set(-20, 40, 18);
@@ -78,7 +84,11 @@ export class GameView {
     sun.shadow.bias = -0.001;
     sun.shadow.normalBias = 0.04;
     this.scene.add(sun);
-    this.mapTexture = buildTerrain(this.scene).mapTexture;
+    this.mapTexture =
+      battlefield.id === 'practice-fixture'
+        ? buildTerrain(this.scene).mapTexture
+        : new THREE.CanvasTexture(document.createElement('canvas'));
+    if (battlefield.id === 'rift') this.center = { ...battlefield.spawns.blue };
     const ring = (color: number, radius: number) => {
       const mesh = new THREE.Mesh(
         new THREE.RingGeometry(radius - 0.035, radius, 64),
@@ -136,20 +146,79 @@ export class GameView {
     }
     this.scene.add(this.moveMarker);
     const fountain = ring(0x68cbe0, 2.2);
-    fountain.position.set(SPAWN.x * SCALE, 0.08, SPAWN.y * SCALE);
+    fountain.position.set(
+      battlefield.spawns.blue.x * SCALE,
+      this.ground(battlefield.spawns.blue) + 0.08,
+      battlefield.spawns.blue.y * SCALE
+    );
+    fountain.visible = battlefield.id === 'practice-fixture';
     this.fogCanvas = document.createElement('canvas');
     this.fogCanvas.width = this.fogCanvas.height = 256;
-    this.fogMask.width = this.fogMask.height = 128;
+    if (battlefield.id === 'rift') this.fogPixels = new ImageData(256, 256);
+    this.fogMask.width = this.fogMask.height = this.fogPixels.width;
     this.fogTexture = new THREE.CanvasTexture(this.fogCanvas);
     const fog = new THREE.Mesh(
-      new THREE.PlaneGeometry(MAP_HALF * SCALE * 2, MAP_HALF * SCALE * 2),
+      new THREE.PlaneGeometry(this.battlefield.half * SCALE * 2, this.battlefield.half * SCALE * 2),
       new THREE.MeshBasicMaterial({ map: this.fogTexture, transparent: true, depthWrite: false })
     );
     fog.rotation.x = -Math.PI / 2;
     fog.position.y = 0.065;
     fog.renderOrder = 2;
-    this.scene.add(fog);
+    if (battlefield.id === 'practice-fixture') this.scene.add(fog);
     this.resize();
+  }
+  ground(point: Vec2): number {
+    return this.battlefield.heightAt(point) * SCALE;
+  }
+  async loadEnvironment(): Promise<void> {
+    if (this.battlefield.id !== 'rift') return;
+    const [terrain, image] = await Promise.all([
+      loadRift(this.renderer),
+      new Promise<HTMLImageElement>((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error('Minimap image could not be loaded'));
+        image.src = '/assets/maps/rift-minimap.webp';
+      }),
+    ]);
+    const root = new THREE.Group();
+    root.scale.set(SCALE, SCALE, -SCALE);
+    root.position.set(-74.25, 0, 74.25);
+    root.add(terrain);
+    this.scene.add(root);
+    const canvas = this.mapTexture.image;
+    canvas.width = image.width;
+    canvas.height = image.height;
+    canvas.getContext('2d')!.drawImage(image, 0, 0);
+    this.mapTexture.needsUpdate = true;
+    terrain.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      for (const material of (Array.isArray(object.material)
+        ? object.material
+        : [object.material]) as THREE.Material[]) {
+        if (material.userData.riftFog) continue;
+        material.userData.riftFog = true;
+        const previous = material.onBeforeCompile.bind(material),
+          key = material.customProgramCacheKey.bind(material);
+        material.onBeforeCompile = (shader, renderer) => {
+          previous(shader, renderer);
+          shader.uniforms.riftFog = { value: this.fogTexture };
+          shader.vertexShader = 'varying vec2 vRiftFogUV;\n' + shader.vertexShader;
+          shader.vertexShader = shader.vertexShader.replace(
+            '#include <begin_vertex>',
+            '#include <begin_vertex>\nvec3 fogWorld=(modelMatrix*vec4(transformed,1.0)).xyz;\nvRiftFogUV=vec2(fogWorld.x/148.5+0.5,0.5-fogWorld.z/148.5);'
+          );
+          shader.fragmentShader =
+            'uniform sampler2D riftFog;\nvarying vec2 vRiftFogUV;\n' + shader.fragmentShader;
+          shader.fragmentShader = shader.fragmentShader.replace(
+            '#include <opaque_fragment>',
+            '#include <opaque_fragment>\nfloat obscured=clamp(texture2D(riftFog,vRiftFogUV).a/0.73,0.0,1.0);\ngl_FragColor.rgb*=mix(1.0,0.2,obscured);'
+          );
+        };
+        material.customProgramCacheKey = () => key() + '-terrain-fog-v1';
+        material.needsUpdate = true;
+      }
+    });
   }
   resize(): void {
     this.width = window.innerWidth;
@@ -160,12 +229,22 @@ export class GameView {
     this.positionCamera();
   }
   private positionCamera(): void {
-    this.center.x = clamp(this.center.x, -MAP_HALF + 500, MAP_HALF - 500);
-    this.center.y = clamp(this.center.y, -MAP_HALF + 500, MAP_HALF - 500);
+    const padding = this.battlefield.id === 'rift' ? 100 : 500;
+    this.center.x = clamp(
+      this.center.x,
+      -this.battlefield.half + padding,
+      this.battlefield.half - padding
+    );
+    this.center.y = clamp(
+      this.center.y,
+      -this.battlefield.half + padding,
+      this.battlefield.half - padding
+    );
     const x = this.center.x * SCALE,
       z = this.center.y * SCALE;
-    this.camera.position.set(x, 34 * this.zoom, z + 27 * this.zoom);
-    this.camera.lookAt(x, 0, z);
+    const elevation = this.ground(this.center);
+    this.camera.position.set(x, elevation + 34 * this.zoom, z + 27 * this.zoom);
+    this.camera.lookAt(x, elevation, z);
     this.camera.updateMatrixWorld();
   }
   worldPoint(x: number, y: number): Vec2 | null {
@@ -173,11 +252,41 @@ export class GameView {
       new THREE.Vector2((x / this.width) * 2 - 1, 1 - (y / this.height) * 2),
       this.camera
     );
-    const hit = this.ray.ray.intersectPlane(this.plane, this.projector);
-    return hit ? { x: hit.x / SCALE, y: hit.z / SCALE } : null;
+    if (this.battlefield.id === 'practice-fixture') {
+      const hit = this.ray.ray.intersectPlane(this.plane, this.projector);
+      return hit ? { x: hit.x / SCALE, y: hit.z / SCALE } : null;
+    }
+    const ray = this.ray.ray;
+    if (ray.direction.y >= -0.0001) return null;
+    const [minimum, maximum] = this.battlefield.heightRange;
+    const near = Math.max(0, ((maximum + 1) * SCALE - ray.origin.y) / ray.direction.y);
+    const far = ((minimum - 1) * SCALE - ray.origin.y) / ray.direction.y;
+    const difference = (t: number) => {
+      ray.at(t, this.projector);
+      return (
+        this.projector.y - this.ground({ x: this.projector.x / SCALE, y: this.projector.z / SCALE })
+      );
+    };
+    let lo = near;
+    for (let step = 1; step <= 32; step++) {
+      let hi = near + ((far - near) * step) / 32;
+      if (difference(hi) <= 0) {
+        for (let i = 0; i < 18; i++) {
+          const mid = (lo + hi) / 2;
+          if (difference(mid) > 0) lo = mid;
+          else hi = mid;
+        }
+        ray.at((lo + hi) / 2, this.projector);
+        return { x: this.projector.x / SCALE, y: this.projector.z / SCALE };
+      }
+      lo = hi;
+    }
+    return null;
   }
   screenPoint(point: Vec2, elevation = 0): { x: number; y: number; visible: boolean } {
-    this.projector.set(point.x * SCALE, elevation, point.y * SCALE).project(this.camera);
+    this.projector
+      .set(point.x * SCALE, this.ground(point) + elevation, point.y * SCALE)
+      .project(this.camera);
     return {
       x: (this.projector.x + 1) * 0.5 * this.width,
       y: (1 - this.projector.y) * 0.5 * this.height,
@@ -236,7 +345,7 @@ export class GameView {
         (u.deadAt === null || world.tick - u.deadAt < (deathDuration + 0.2) * 60);
       const x = lerp(u.previous.x, u.x, alpha),
         y = lerp(u.previous.y, u.y, alpha);
-      model.root.position.set(x * SCALE, 0, y * SCALE);
+      model.root.position.set(x * SCALE, this.ground({ x, y }), y * SCALE);
       model.root.rotation.y = u.facing;
       model.root.rotation.z =
         u.deadAt === null || model.mixer ? 0 : -Math.min((world.tick - u.deadAt) / 20, Math.PI / 2);
@@ -303,6 +412,7 @@ export class GameView {
     if (selected) {
       this.selection.position.x = selected.x * SCALE;
       this.selection.position.z = selected.y * SCALE;
+      this.selection.position.y = this.ground(selected) + 0.09;
       this.selection.scale.setScalar(selected.kind === 'turret' ? 2 : 1);
     }
     const hovered = this.hovered === null ? undefined : world.unit(this.hovered);
@@ -310,10 +420,26 @@ export class GameView {
     if (hovered) {
       this.hover.position.x = hovered.x * SCALE;
       this.hover.position.z = hovered.y * SCALE;
+      this.hover.position.y = this.ground(hovered) + 0.1;
     }
     this.range.visible = this.rangeVisible && world.alive(world.hero);
-    this.range.position.set(world.hero.x * SCALE, 0.09, world.hero.y * SCALE);
-    this.range.scale.setScalar(world.hero.range * SCALE);
+    this.range.position.set(world.hero.x * SCALE, 0, world.hero.y * SCALE);
+    if (this.range.visible) {
+      const positions = this.range.geometry.attributes.position;
+      for (let i = 0; i < positions.count; i++) {
+        const angle = (i / positions.count) * Math.PI * 2;
+        const x = Math.cos(angle) * world.hero.range,
+          y = Math.sin(angle) * world.hero.range;
+        positions.setXYZ(
+          i,
+          x * SCALE,
+          this.ground({ x: world.hero.x + x, y: world.hero.y + y }) + 0.09,
+          y * SCALE
+        );
+      }
+      positions.needsUpdate = true;
+      this.range.geometry.computeBoundingSphere();
+    }
     let move;
     for (let i = world.events.length - 1; i >= 0; i--)
       if (world.events[i].type === 'move' && world.eventVisible(world.events[i])) {
@@ -323,7 +449,7 @@ export class GameView {
     if (move && move.id !== this.lastMoveEvent) {
       this.lastMoveEvent = move.id;
       this.markerTick = move.tick;
-      this.moveMarker.position.set(move.x * SCALE, 0, move.y * SCALE);
+      this.moveMarker.position.set(move.x * SCALE, this.ground(move), move.y * SCALE);
     }
     this.moveMarker.visible = world.tick - this.markerTick < 30;
     this.moveMarker.scale.setScalar(0.7 + ((world.tick - this.markerTick) / 30) * 0.6);
@@ -396,7 +522,8 @@ export class GameView {
       model.visible = world.projectileVisible(p);
       model.position.set(
         lerp(p.previous.x, p.x, alpha) * SCALE,
-        p.type === 'ultimate' ? 1.2 : 0.9,
+        this.ground({ x: lerp(p.previous.x, p.x, alpha), y: lerp(p.previous.y, p.y, alpha) }) +
+          (p.type === 'ultimate' ? 1.2 : 0.9),
         lerp(p.previous.y, p.y, alpha) * SCALE
       );
       model.rotation.y = Math.atan2(p.direction.x, p.direction.y);
@@ -432,6 +559,15 @@ export class GameView {
       positions.setXYZ(1, Math.cos(dir) * length, 0.1, Math.sin(dir) * length);
       this.aimLine.geometry.setDrawRange(0, 2);
     }
+    for (let i = 0; i < this.aimLine.geometry.drawRange.count; i++) {
+      positions.setY(
+        i,
+        this.ground({
+          x: hero.x + positions.getX(i) / SCALE,
+          y: hero.y + positions.getZ(i) / SCALE,
+        }) + 0.1
+      );
+    }
     positions.needsUpdate = true;
     this.aim.position.set(hero.x * SCALE, 0, hero.y * SCALE);
   }
@@ -441,15 +577,29 @@ export class GameView {
       pixels = this.fogPixels.data,
       size = this.fogPixels.width,
       point = { x: 0, y: 0 };
-    for (let y = 0; y < size; y++) {
-      point.y = ((y + 0.5) / size - 0.5) * MAP_HALF * 2;
-      for (let x = 0; x < size; x++) {
-        point.x = ((x + 0.5) / size - 0.5) * MAP_HALF * 2;
-        const i = (y * size + x) * 4;
-        pixels[i] = 5;
-        pixels[i + 1] = 17;
-        pixels[i + 2] = 18;
-        pixels[i + 3] = seenFrom(point, sources) ? 0 : 186;
+    for (let i = 0; i < pixels.length; i += 4) {
+      pixels[i] = 5;
+      pixels[i + 1] = 17;
+      pixels[i + 2] = 18;
+      pixels[i + 3] = 186;
+    }
+    const span = this.battlefield.half * 2;
+    // Sight is a union. Visit each observer's bounding box and skip pixels
+    // already revealed by another observer; retain the authoritative ray query.
+    for (const source of sources) {
+      const single = [source];
+      const x0 = Math.max(0, Math.floor(((source.x - source.radius) / span + 0.5) * size));
+      const y0 = Math.max(0, Math.floor(((source.y - source.radius) / span + 0.5) * size));
+      const x1 = Math.min(size - 1, Math.ceil(((source.x + source.radius) / span + 0.5) * size));
+      const y1 = Math.min(size - 1, Math.ceil(((source.y + source.radius) / span + 0.5) * size));
+      for (let y = y0; y <= y1; y++) {
+        point.y = ((y + 0.5) / size - 0.5) * span;
+        for (let x = x0; x <= x1; x++) {
+          const i = (y * size + x) * 4;
+          if (pixels[i + 3] === 0) continue;
+          point.x = ((x + 0.5) / size - 0.5) * span;
+          if (seenFrom(point, single, this.battlefield.lineOfSight)) pixels[i + 3] = 0;
+        }
       }
     }
     this.fogMask.getContext('2d')!.putImageData(this.fogPixels, 0, 0);

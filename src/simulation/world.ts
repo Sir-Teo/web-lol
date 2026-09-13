@@ -1,7 +1,7 @@
-import { LANE_END, LANE_START, SPAWN } from '../content/map';
+import { PRACTICE_FIXTURE } from '../content/practice-fixture';
+import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
-import { findPath, reachable } from './navigation';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
 import type {
   Ability,
@@ -31,8 +31,14 @@ export class World {
   volleyHits: Record<number, number[]> = {};
   visionAreas: VisionArea[] = [];
 
-  constructor(populate = true) {
-    const champion = this.spawn('champion', 'blue', SPAWN);
+  pendingSpawns: { tick: number; kind: UnitKind; team: Team; lane: number; offset: number }[] = [];
+
+  constructor(
+    populate = true,
+    readonly battlefield: Battlefield = PRACTICE_FIXTURE
+  ) {
+    this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
+    const champion = this.spawn('champion', 'blue', battlefield.spawns.blue);
     champion.name = 'Ashe';
     this.player = {
       id: champion.id,
@@ -49,15 +55,14 @@ export class World {
       recallEnd: null,
       inventory: [],
     };
-    if (populate) {
-      const enemy = this.spawn('champion', 'red', { x: 1000, y: -750 });
-      enemy.name = 'Sparring partner';
-      enemy.ai = true;
-      this.spawn('turret', 'blue', { x: -2400, y: 1800 });
-      this.spawn('turret', 'red', { x: 2400, y: -1800 });
-      this.spawn('dummy', 'red', { x: -450, y: 50 });
-    }
+    if (populate)
+      for (const initial of battlefield.initialUnits) {
+        const unit = this.spawn(initial.kind, initial.team, initial.point);
+        if (initial.name) unit.name = initial.name;
+        if (initial.ai !== undefined) unit.ai = initial.ai;
+      }
   }
+
   get time(): number {
     return this.tick / TICK_RATE;
   }
@@ -126,6 +131,10 @@ export class World {
       order: { type: 'idle' },
       path: [],
       pathTarget: null,
+      pathDestination: null,
+      nextPathTick: 0,
+      lane: null,
+      laneWaypoint: 0,
       attackTarget: null,
       releaseTick: null,
       nextAttackTick: 0,
@@ -151,6 +160,8 @@ export class World {
     }
     u.path = [];
     u.pathTarget = null;
+    u.pathDestination = null;
+    u.nextPathTick = this.tick;
     if (u.id === this.player.id) this.player.recallEnd = null;
   }
   step(count = 1): void {
@@ -177,8 +188,9 @@ export class World {
     }
     if (this.tick >= this.nextWaveTick) {
       this.spawnWave();
-      this.nextWaveTick += 30 * TICK_RATE;
+      this.nextWaveTick += Math.round(this.battlefield.waves.intervalSeconds * TICK_RATE);
     }
+    this.releaseWaveUnits();
     for (const u of this.units) {
       if (!this.alive(u)) {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
@@ -200,16 +212,16 @@ export class World {
     this.advanceProjectiles();
     const h = this.hero;
     if (this.player.recallEnd !== null && this.tick >= this.player.recallEnd) {
-      h.x = SPAWN.x;
-      h.y = SPAWN.y;
-      h.previous = { ...SPAWN };
+      h.x = this.battlefield.spawns.blue.x;
+      h.y = this.battlefield.spawns.blue.y;
+      h.previous = { ...this.battlefield.spawns.blue };
       h.hp = h.maxHp;
       h.mana = h.maxMana;
       this.player.recallEnd = null;
       this.emit('heal', h, { value: h.maxHp });
     }
     if (this.alive(h)) {
-      const fountain = distance(h, SPAWN) < 220;
+      const fountain = distance(h, this.battlefield.spawns.blue) < 220;
       h.hp = Math.min(h.maxHp, h.hp + (fountain ? h.maxHp * 0.09 : 0.7) * DT);
       h.mana = Math.min(h.maxMana, h.mana + (fountain ? h.maxMana * 0.12 : 1.4) * DT);
     }
@@ -228,19 +240,43 @@ export class World {
   }
   private spawnWave(): void {
     this.wave++;
-    for (const team of ['blue', 'red'] as const) {
-      const start = team === 'blue' ? LANE_START : LANE_END;
-      const end = team === 'blue' ? LANE_END : LANE_START;
-      const dir = direction(start, end);
-      const kinds: UnitKind[] = ['melee', 'melee', 'melee', 'caster', 'caster', 'caster'];
-      if (this.wave % 3 === 0) kinds.push('siege');
-      kinds.forEach((kind, i) => {
-        const u = this.spawn(kind, team, {
-          x: start.x - dir.x * i * 100,
-          y: start.y - dir.y * i * 100,
+    for (let lane = 0; lane < this.battlefield.lanes.length; lane++) {
+      for (const team of ['blue', 'red'] as const) {
+        this.battlefield.waveKinds(this.wave, this.time).forEach((kind, offset) => {
+          this.pendingSpawns.push({
+            tick:
+              this.tick +
+              Math.round(offset * this.battlefield.waves.unitIntervalSeconds * TICK_RATE),
+            kind,
+            team,
+            lane,
+            offset,
+          });
         });
-        u.order = { type: 'attackMove', point: end };
-      });
+      }
+    }
+  }
+  private releaseWaveUnits(): void {
+    const ready = this.pendingSpawns.filter((spawn) => spawn.tick <= this.tick);
+    this.pendingSpawns = this.pendingSpawns.filter((spawn) => spawn.tick > this.tick);
+    for (const spawn of ready) {
+      const lane = this.battlefield.lanes[spawn.lane],
+        start = lane.spawns[spawn.team];
+      const first = spawn.team === 'blue' ? 0 : lane.points.length - 1;
+      const directionPoint = lane.points[first + (spawn.team === 'blue' ? 1 : -1)];
+      const dir = direction(start, directionPoint);
+      const position =
+        this.battlefield.waves.unitIntervalSeconds === 0
+          ? { x: start.x - dir.x * spawn.offset * 100, y: start.y - dir.y * spawn.offset * 100 }
+          : start;
+      const u = this.spawn(
+        spawn.kind,
+        spawn.team,
+        this.battlefield.reachable(position, 27, spawn.team)
+      );
+      u.lane = spawn.lane;
+      u.laneWaypoint = first;
+      u.order = { type: 'attackMove', point: lane.points[first] };
     }
   }
   visible(u: Unit, team: Team = 'blue'): boolean {
@@ -257,7 +293,7 @@ export class World {
     return sources;
   }
   pointVisible(point: Vec2, team: Team = 'blue'): boolean {
-    return seenFrom(point, this.visionSources(team));
+    return seenFrom(point, this.visionSources(team), this.battlefield.lineOfSight);
   }
   projectileVisible(projectile: Projectile, team: Team = 'blue'): boolean {
     return projectile.team === team || this.pointVisible(projectile, team);
@@ -272,10 +308,10 @@ export class World {
     let best: Unit | undefined,
       bestDistance = Infinity;
     for (const target of this.units)
-      if (this.validTarget(u, target) && target.kind !== 'dummy') {
+      if (target.team !== u.team && this.alive(target) && target.kind !== 'dummy') {
         const d = distance(u, target) - target.radius;
         const score = d + (target.kind === 'champion' && u.kind !== 'champion' ? 300 : 0);
-        if (d < range && score < bestDistance) {
+        if (d < range && score < bestDistance && this.validTarget(u, target)) {
           bestDistance = score;
           best = target;
         }
@@ -285,8 +321,9 @@ export class World {
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
     if (u.hp < u.maxHp * 0.22) {
-      if (distance(u, LANE_END) < 400) u.hp = Math.min(u.maxHp, u.hp + 20);
-      if (u.order.type !== 'move') this.setOrder(u, { type: 'move', point: LANE_END });
+      if (distance(u, this.battlefield.spawns.red) < 400) u.hp = Math.min(u.maxHp, u.hp + 20);
+      if (u.order.type !== 'move')
+        this.setOrder(u, { type: 'move', point: this.battlefield.spawns.red });
       return;
     }
     const target = this.nearest(u, 1150);
@@ -298,7 +335,13 @@ export class World {
       } else if (u.order.type !== 'attack' || u.order.target !== target.id)
         this.setOrder(u, { type: 'attack', target: target.id });
     } else if (u.order.type !== 'move')
-      this.setOrder(u, { type: 'move', point: { x: 650, y: -490 } });
+      this.setOrder(u, {
+        type: 'move',
+        point:
+          this.battlefield.id === 'practice-fixture'
+            ? { x: 650, y: -490 }
+            : this.battlefield.lanes.find((lane) => lane.name === 'mid')!.points[9],
+      });
   }
   private advanceUnit(u: Unit): void {
     let target = u.attackTarget === null ? undefined : this.unit(u.attackTarget);
@@ -310,7 +353,7 @@ export class World {
         u.facing = Math.atan2(target.x - u.x, target.y - u.y);
         if (this.tick >= u.releaseTick) {
           u.releaseTick = null;
-          if (!seenFrom(u, this.visionSources(target.team, false)))
+          if (!seenFrom(u, this.visionSources(target.team, false), this.battlefield.lineOfSight))
             this.visionAreas.push({
               x: u.x,
               y: u.y,
@@ -363,14 +406,38 @@ export class World {
       if (u.kind !== 'turret') this.move(u, target);
     } else if (u.order.type === 'move' || u.order.type === 'attackMove') {
       this.move(u, u.order.point);
-      if (distance(u, reachable(u.order.point, u.radius)) < 3 && u.order.type === 'move')
-        u.order = { type: 'idle' };
+      if (u.order.type === 'move' && u.pathDestination && distance(u, u.pathDestination) < 3)
+        this.setOrder(u, { type: 'idle' });
+      else if (
+        u.order.type === 'attackMove' &&
+        u.lane !== null &&
+        u.pathDestination &&
+        distance(u, u.pathDestination) < 3 &&
+        distance(u.pathDestination, u.order.point) < 150
+      ) {
+        const lane = this.battlefield.lanes[u.lane];
+        const next = u.laneWaypoint + (u.team === 'blue' ? 1 : -1);
+        if (next >= 0 && next < lane.points.length) {
+          u.laneWaypoint = next;
+          this.setOrder(u, { type: 'attackMove', point: lane.points[next] });
+        } else if (distance(u.order.point, lane.spawns[u.team === 'blue' ? 'red' : 'blue']) > 1) {
+          this.setOrder(u, {
+            type: 'attackMove',
+            point: lane.spawns[u.team === 'blue' ? 'red' : 'blue'],
+          });
+        }
+      }
     }
   }
   private move(u: Unit, point: Vec2): void {
     if (!u.speed) return;
-    if (!u.pathTarget || distance(u.pathTarget, point) > 90 || !u.path.length) {
-      u.path = findPath(u, point, u.radius);
+    if (
+      (!u.pathTarget || distance(u.pathTarget, point) > 90 || !u.path.length) &&
+      this.tick >= u.nextPathTick
+    ) {
+      u.path = this.battlefield.findPath(u, point, u.radius, u.team);
+      u.pathDestination = u.path.at(-1) ?? { x: u.x, y: u.y };
+      u.nextPathTick = this.tick + 12;
       u.pathTarget = { x: point.x, y: point.y };
     }
     const waypoint = u.path[0];
@@ -491,7 +558,11 @@ export class World {
   }
   private respawn(u: Unit): void {
     const point =
-      u.id === this.player.id ? SPAWN : u.kind === 'dummy' ? { x: u.x, y: u.y } : LANE_END;
+      u.id === this.player.id
+        ? this.battlefield.spawns.blue
+        : u.kind === 'dummy'
+          ? { x: u.x, y: u.y }
+          : this.battlefield.spawns.red;
     u.x = point.x;
     u.y = point.y;
     u.previous = { ...point };
@@ -559,7 +630,11 @@ export class World {
     if (ability === 'e') this.reveal = { point: { ...point }, endTick: this.tick + 300 };
     if (ability === 'd') {
       const d = Math.min(spec.range, distance(u, point));
-      const end = reachable({ x: u.x + dir.x * d, y: u.y + dir.y * d }, u.radius);
+      const end = this.battlefield.reachable(
+        { x: u.x + dir.x * d, y: u.y + dir.y * d },
+        u.radius,
+        u.team
+      );
       u.x = end.x;
       u.y = end.y;
       u.previous = { ...end };
@@ -575,7 +650,7 @@ export class World {
   buy(itemId: string): string | null {
     const item = ITEMS.find((i) => i.id === itemId);
     if (!item) return 'Unknown item';
-    if (distance(this.hero, SPAWN) > 400 && this.hero.hp > 0)
+    if (distance(this.hero, this.battlefield.spawns.blue) > 400 && this.hero.hp > 0)
       return 'Return to your fountain to purchase items';
     if (this.player.inventory.length >= 6) return 'Inventory is full';
     if (this.player.gold < item.price) return 'Not enough gold';
@@ -591,7 +666,9 @@ export class World {
   }
   snapshot(): string {
     return JSON.stringify({
-      version: 1,
+      version: 2,
+      battlefield: this.battlefield.id,
+      pendingSpawns: this.pendingSpawns,
       tick: this.tick,
       nextId: this.nextId,
       units: this.units,

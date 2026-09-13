@@ -6,15 +6,20 @@ import { Hud } from './ui/hud';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
 import { loadReferenceModels } from './render/models';
+import { loadRiftBattlefield } from './content/rift';
+import { PRACTICE_FIXTURE } from './content/practice-fixture';
 
 const host = document.querySelector<HTMLElement>('#app')!;
 const loading = document.querySelector<HTMLDivElement>('#loading')!;
 
 async function boot(): Promise<void> {
-  const world = new World();
+  const fixture =
+    import.meta.env.DEV && new URLSearchParams(location.search).get('scene') === 'fixture';
+  const battlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
+  const world = new World(true, battlefield);
   let view: GameView;
   try {
-    view = new GameView(host);
+    view = new GameView(host, battlefield);
   } catch (error) {
     loading.innerHTML =
       '<span class="loading-mark">◇</span><h1>Unable to open the Rift</h1><p>This game requires WebGL 2. Enable hardware acceleration and reload.</p>';
@@ -63,7 +68,7 @@ async function boot(): Promise<void> {
     setPaused(true);
     hud.toast('Graphics restored. Resume when you’re ready.');
   });
-  await loadReferenceModels();
+  await Promise.all([loadReferenceModels(), view.loadEnvironment()]);
   // Renderer initialization and shader warmup precede dismissing the load screen.
   view.render(world, 1, 0);
   await view.renderer.compileAsync(view.scene, view.camera);

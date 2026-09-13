@@ -15,6 +15,11 @@ for (const resource of manifest.resources) {
 const navigation = JSON.parse(await fs.readFile(`${base}rift-nav.json`, 'utf8'));
 if (hash(await fs.readFile(`${base}rift-nav.bin`)) !== navigation.output.sha256)
   throw new Error('Navigation payload hash mismatch');
+const layout = JSON.parse(await fs.readFile('docs/reference/rift-layout-source.json', 'utf8'));
+for (const output of layout.outputs) {
+  if (hash(await fs.readFile(output.path)) !== output.sha256)
+    throw new Error(`Layout artifact hash mismatch: ${output.path}`);
+}
 const report = await validator.validateString(json.toString(), {
   externalResourceFunction: (uri) => fs.readFile(base + uri),
   maxIssues: 1000,

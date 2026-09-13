@@ -27,10 +27,13 @@ export function lineOfSight(from: Vec2, to: Vec2): boolean {
   );
 }
 
-export function seenFrom(point: Vec2, sources: readonly VisionSource[]): boolean {
+export function seenFrom(
+  point: Vec2,
+  sources: readonly VisionSource[],
+  sight = lineOfSight
+): boolean {
   return sources.some(
     (source) =>
-      distance(source, point) <= source.radius &&
-      (source.unobstructed || lineOfSight(source, point))
+      distance(source, point) <= source.radius && (source.unobstructed || sight(source, point))
   );
 }

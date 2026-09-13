@@ -27,6 +27,10 @@ export interface Unit extends Vec2 {
   order: Order;
   path: Vec2[];
   pathTarget: Vec2 | null;
+  pathDestination: Vec2 | null;
+  nextPathTick: number;
+  lane: number | null;
+  laneWaypoint: number;
   attackTarget: number | null;
   releaseTick: number | null;
   nextAttackTick: number;

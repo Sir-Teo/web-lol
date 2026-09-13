@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 
 async function boot(page: Page) {
-  await page.goto('/');
+  await page.goto('/?scene=fixture');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await expect(page.locator('#loading')).toHaveCount(0);
 }

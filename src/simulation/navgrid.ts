@@ -110,6 +110,7 @@ function segmentBoxDistance(a: Vec2, b: Vec2, x: number, y: number, size: number
 
 export class NavGrid implements TerrainQueries {
   readonly flags: Uint16Array;
+  readonly heightRange: [number, number] = [Infinity, -Infinity];
   private heights: Float32Array;
   private brush: Int32Array;
   private gates: Int32Array;
@@ -142,6 +143,10 @@ export class NavGrid implements TerrainQueries {
     );
     if (this.heights.some((x) => !Number.isFinite(x)))
       throw new Error('Invalid navigation elevation');
+    for (const value of this.heights) {
+      this.heightRange[0] = Math.min(this.heightRange[0], value);
+      this.heightRange[1] = Math.max(this.heightRange[1], value);
+    }
     this.brush = this.components(BRUSH);
     this.gates = this.components(NEUTRAL_VISION);
     this.costs = new Float64Array(count);

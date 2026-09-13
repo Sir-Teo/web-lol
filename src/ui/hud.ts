@@ -1,5 +1,4 @@
 import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
-import { MAP_HALF } from '../content/map';
 import type { Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
@@ -84,8 +83,8 @@ export class Hud {
       if (this.modal || this.paused) return;
       const bounds = this.mini.getBoundingClientRect();
       const point = {
-        x: ((e.clientX - bounds.left) / bounds.width - 0.5) * MAP_HALF * 2,
-        y: ((e.clientY - bounds.top) / bounds.height - 0.5) * MAP_HALF * 2,
+        x: ((e.clientX - bounds.left) / bounds.width - 0.5) * this.world.battlefield.half * 2,
+        y: ((e.clientY - bounds.top) / bounds.height - 0.5) * this.world.battlefield.half * 2,
       };
       if (e.button === 2)
         this.world.enqueue({
@@ -364,8 +363,8 @@ export class Hud {
     ctx.fillRect(0, 0, n, n);
     ctx.drawImage(this.view.fogCanvas, 0, 0, n, n);
     const xy = (p: { x: number; y: number }) => ({
-      x: (p.x / (MAP_HALF * 2) + 0.5) * n,
-      y: (p.y / (MAP_HALF * 2) + 0.5) * n,
+      x: (p.x / (this.world.battlefield.half * 2) + 0.5) * n,
+      y: (p.y / (this.world.battlefield.half * 2) + 0.5) * n,
     });
     for (const u of w.units) {
       if (!w.alive(u) || !w.visible(u)) continue;
