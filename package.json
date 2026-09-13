@@ -12,7 +12,8 @@
     "test:browser": "playwright test",
     "check": "tsc --noEmit && vitest run",
     "assets:validate": "node tools/assets/validate-glb.mjs && node tools/assets/validate-map.mjs",
-    "format": "prettier --write src tests e2e *.ts tools/assets/*.mjs"
+    "format": "prettier --write src tests e2e *.ts tools/assets/*.mjs",
+    "test:production": "npm run build && node tools/qa/production-subpath.mjs"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "5.3.0",

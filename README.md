@@ -20,6 +20,7 @@ npm run check
 npm run assets:validate
 npm run test:browser
 npm run build
+npm run test:production
 ```
 
 The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Offline reload, autosaves, export/import, other-browser certification, are not implemented yet.
@@ -27,6 +28,8 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 ## Deployment
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.
+
+`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, all nine source audio requests, a real-input Hawkshot cast, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
 
 ## Current build
 

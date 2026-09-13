@@ -66,7 +66,7 @@ test('arrival asset preserves the source master and mapped gain', () => {
   expect(audio.sha256).toBe(master.wavSha256);
   expect(
     createHash('sha256')
-      .update(readFileSync(`public${audio.url}`))
+      .update(readFileSync(`public/${audio.url}`))
       .digest('hex')
   ).toBe(master.wavSha256);
 });

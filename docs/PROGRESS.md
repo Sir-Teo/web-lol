@@ -814,3 +814,11 @@ All nine prepared Hawkshot recordings now have runtime adapters. Native audio pa
 Recovered the inherited six-point attenuation curve and positioning flags, generated a source profile and standalone evaluator, and sampled the pinned parser at 86 distances. Three focused tests compare source/profile identity and the independent parser outputs, including knots, interpolation and near-floor behavior; TypeScript checking passes and export is byte-identical.
 
 The stored values are normalized, not literal dB: source distances 2,000 and 2,300 map to approximately −12 and −24 dB in the parser. Its special −1 floor introduces a tiny-amplitude boundary discontinuity that needs native validation. No listener coordinate policy or live attenuation was invented in this step; runtime playback remains unchanged. Existing hosting work was preserved separately. See [source attenuation](ASHE-ATTENUATION.md).
+
+## Nested static-host regression coverage
+
+The hosting change exposed four audio integrity-test path failures: relative asset URLs were concatenated into `publicassets/...`. The tests now resolve them beneath `public/` correctly. The map inspector also linked back to the domain root; its Practice game link now stays within the deployment directory.
+
+Added `npm run test:production`, a reproducible production-build smoke test with a strict static server beneath `/nested/rift/` and no root fallback. It verifies map load/navigation, map-to-practice navigation, all nine source audio requests, no development hook, real keyboard/mouse aim and Hawkshot charge consumption, and zero console/request errors or requests outside the deployment prefix. Its game screenshot was inspected and confirms terrain, champion, HUD and effect rendering. The helper uses an ephemeral local port and closes its browser/server.
+
+All 292 source/simulation checks and the production build/smoke pass. The existing lightweight deployment workflow remains unchanged. This verifies local production subdirectory behavior, not the current remote deployment or a full-match/browser-performance certification. Native reference calibration and the broader production match remain unfinished.

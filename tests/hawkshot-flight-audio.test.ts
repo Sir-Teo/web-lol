@@ -31,7 +31,7 @@ test('flight audio preserves both source layers, gain, linear stops and all floa
     expect(asset.sha256).toBe(decoded.media.find((m: any) => m.id === asset.id).wavSha256);
     expect(
       createHash('sha256')
-        .update(readFileSync(`public${asset.url}`))
+        .update(readFileSync(`public/${asset.url}`))
         .digest('hex')
     ).toBe(asset.sha256);
   }

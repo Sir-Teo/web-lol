@@ -17,7 +17,7 @@ test('cast playback uses the pinned bank delay/gain and unmodified float masters
   expect(audio.delaySeconds).toBe(property(event.actions[0], 'DelayTime') / 1000);
   expect(audio.gainDb).toBe(property(3432, 'MakeUpGain'));
   for (const variant of audio.variants) {
-    const bytes = readFileSync(`public${variant.url}`);
+    const bytes = readFileSync(`public/${variant.url}`);
     const master = decoded.media.find((m: any) => m.id === variant.id);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(master.wavSha256);
     expect(variant.sha256).toBe(master.wavSha256);

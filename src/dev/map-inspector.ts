@@ -5,7 +5,7 @@ import './map-inspector.css';
 
 const host = document.querySelector<HTMLDivElement>('#map-root')!;
 host.innerHTML = `<header><div><small>REFERENCE INSPECTION · 16.18</small><h1>Summoner’s Rift</h1></div>
-<nav aria-label="Map viewpoints"><button data-view="overview">Overview</button><button data-view="blue">Blue base</button><button data-view="mid">Mid lane</button><button data-view="river">River</button><button data-view="red">Red base</button><button id="grid" aria-pressed="false">Navigation</button><a href="/">Practice game ↗</a></nav></header>
+<nav aria-label="Map viewpoints"><button data-view="overview">Overview</button><button data-view="blue">Blue base</button><button data-view="mid">Mid lane</button><button data-view="river">River</button><button data-view="red">Red base</button><button id="grid" aria-pressed="false">Navigation</button><a href="./">Practice game ↗</a></nav></header>
 <div id="status" role="status">Loading the full-resolution map…</div>
 <footer>Drag to orbit · Right-drag to pan · Scroll to zoom<span>Static terrain study · Buildings and effects pending</span></footer>`;
 const status = document.querySelector<HTMLDivElement>('#status')!;

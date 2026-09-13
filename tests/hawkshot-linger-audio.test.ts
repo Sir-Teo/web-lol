@@ -23,7 +23,7 @@ test('linger source preserves infinite looping, gain and Exp1 stop transition', 
   expect(A.loop).toBe(true);
   expect(
     createHash('sha256')
-      .update(readFileSync(`public${A.url}`))
+      .update(readFileSync(`public/${A.url}`))
       .digest('hex')
   ).toBe(A.sha256);
   expect([lingerFade(0), lingerFade(0.5), lingerFade(1)]).toEqual([1, 0.625, 0]);
