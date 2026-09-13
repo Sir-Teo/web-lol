@@ -1,5 +1,15 @@
 # Local bot combat and remaining match work
 
+## Safe retreat recalls
+
+Retreating champions now queue the shared recall command when distance to their fountain exceeds the distance they could walk at their base movement speed during the eight-second recall. The bot preserves an active safe channel across its 18-tick decisions rather than repeatedly resetting it. A visible approaching threat changes the order back to fountain movement, which cancels recall through normal order handling. Existing recall completion and fountain purchasing then let the bot recover and resume its plan.
+
+The current local safety heuristic excludes visible living enemy champions within 1,150 units, other combat units within their attack range plus the bot's radius plus a 400-unit margin, and visible enemy targeted projectiles already headed toward the bot. It also waits two seconds after recorded enemy-champion damage. These checks use the bot's team visibility and its own damage history; nearby hidden opponents do not influence the decision. Pending recall commands retain normal stun, death and cast validation.
+
+These are authored tactics, not native AI reconstruction or guaranteed safety. The travel comparison uses straight distance and base speed rather than a complete route cost. The recent-damage window uses existing champion contribution records; it does not yet track all environmental/minion damage. The current policy does not predict untargeted skillshots, remember last-seen danger zones, find cover, or choose economic recalls while healthy. Those remain part of the broader team/role planner.
+
+Six simulation cases cover both teams' completion and saved continuation, visible/hidden threat handling, shorter-walk and minion exclusions, damage interruption/retry, and visible incoming missiles after their source leaves sight. A browser case runs the autonomous channel to completion, renders the active channel, verifies arrival/recovery, and checks that the bot resumes movement. Existing recall animation and bot combat browser scenarios remain passing.
+
 The current sparring champion uses local decision rules, not a reconstruction of Riot's bot AI. It can navigate, select visible valid targets, attack, move during attack recovery and retreat to its team's fountain. Decisions run every 18 simulation ticks. The map/vision/navigation and combat state machines remain authoritative; bot logic issues normal orders.
 
 ## Close-range attack correction

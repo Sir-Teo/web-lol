@@ -659,6 +659,33 @@ export class World {
     if (u.aiRetreating && u.hp >= u.maxHp * 0.85) u.aiRetreating = false;
     if (u.aiRetreating) {
       const home = this.battlefield.spawns[u.team];
+      const state = this.championState(u.id)!;
+      // Tactical policy, not a native bot rule. Use team-visible threats only;
+      // a hidden opponent's proximity must not influence a recall decision.
+      const threatened =
+        this.units.some(
+          (enemy) =>
+            enemy.team !== u.team &&
+            enemy.kind !== 'dummy' &&
+            this.alive(enemy) &&
+            distance(u, enemy) <=
+              (enemy.kind === 'champion' ? 1150 : enemy.range + u.radius + 400) &&
+            this.visible(enemy, u.team)
+        ) ||
+        this.projectiles.some(
+          (p) => p.team !== u.team && p.target === u.id && this.projectileVisible(p, u.team)
+        );
+      const recentlyHit = state.damageContributors.some(
+        (entry) => this.tick - entry.lastDamageTick < 2 * TICK_RATE
+      );
+      if (!threatened && !recentlyHit) {
+        if (state.recallEnd !== null) return;
+        // Walking is preferable when already closer than one recall's travel.
+        if (distance(u, home) > (u.speed * RECALL_DURATION_TICKS) / TICK_RATE) {
+          this.enqueue({ type: 'recall', unit: u.id });
+          return;
+        }
+      }
       if (distance(u, home) < 100) {
         if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
       } else if (u.order.type !== 'move' || distance(u.order.point, home) > 1)

@@ -1314,3 +1314,9 @@ All 453 source/simulation checks, eight focused Q/arrow Chrome cases and nested-
 Reproduced two visual defects with failing regression cases: nonzero endpoint slope produced an approximately 17-degree facing discontinuity for the outer arrow, and moving targets were sampled at current simulation time while arrows were interpolated. The envelope now has zero endpoint slope, and target position uses the same interpolation phase as the projectile. This improves the provisional adapter without changing combat or claiming a native curve formula.
 
 All 455 source/simulation checks, four arrow Chrome cases and nested-path production smoke pass. Inspected the updated live flurry capture. The two new regressions failed before the fix and pass afterward. Full-match performance and native trajectory calibration remain open.
+
+## Bot retreat recalls
+
+Retreating champions can now recall when safe and sufficiently far from their own fountain. They preserve a safe channel, cancel it for visible approaching threats, avoid visible incoming targeted missiles, and wait after recorded champion damage before retrying. Nearby hidden enemies do not alter the decision. Recall uses the same queued command and validation as human input, and saved channels continue identically on both teams.
+
+All 461 source/simulation checks, six focused bot/recall Chrome scenarios and nested-path production smoke pass. One retry assertion initially checked before the next scheduled AI decision; it now accounts for the existing 18-tick cadence. This adds a recovery tactic, not a complete role/team planner. Travel-cost estimation, last-seen threat memory, economic recalls, nine-bot matches and full-match performance remain open; see BOTS.md for the policy's limits.
