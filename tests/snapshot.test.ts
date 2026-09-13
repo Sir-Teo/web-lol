@@ -25,6 +25,26 @@ function continueIdentically(world: World, ticks = 600) {
   return restored;
 }
 
+for (const mode of ['cast', 'move', 'attackMove'] as const)
+  test(`queued ${mode} copies only coordinates from a unit and restores before execution`, () => {
+    const w = new World(false);
+    w.nextWaveTick = Infinity;
+    const target = w.spawn('dummy', 'red', { x: w.hero.x + 300, y: w.hero.y });
+    const point = { x: target.x, y: target.y };
+    if (mode === 'cast') w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'w', point: target });
+    else w.enqueue({ type: 'order', unit: w.hero.id, order: { type: mode, point: target } });
+    target.x += 100;
+    const command = w.commands[0];
+    const queuedPoint =
+      command.type === 'cast'
+        ? command.point
+        : command.type === 'order' && 'point' in command.order
+          ? command.order.point
+          : undefined;
+    expect(queuedPoint).toEqual(point);
+    continueIdentically(w, 120);
+  });
+
 test('restores active combat, missiles, queued commands, random state and disabled deadlines exactly', () => {
   const w = new World(false);
   w.nextWaveTick = Infinity;

@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Queued commands store only their declared payload fields. When a UI or simulation caller supplies a unit as a coordinate argument, the queue captures its `x` and `y` at dispatch time rather than copying the full entity. This keeps pending casts and movement orders valid under the strict snapshot schema and prevents subsequent unit movement from changing their destinations. Regression cases restore each command type before execution and compare continued state. A browser case holds simulation steps, clicks the actual HUD Heal button, and restores the resulting pending cast before resuming.
+
 The pause menu's **Save match** action writes one checkpoint per battlefield to this browser's IndexedDB storage. After the write completes, reloading the same build restores that match and leaves it paused. The camera recenters on the saved player; the welcome banner is omitted. **Restart practice** clears that battlefield's checkpoint before starting a new match. There is no automatic save, cross-device sync, file import/export, or offline asset cache yet.
 
 ## Simulation format

@@ -339,3 +339,9 @@ Heal now affects the caster and one living allied champion within the pinned 900
 All 165 simulation checks, six affected Chrome scenarios, the static build, and production smoke pass. Five new simulation cases cover cursor preference, fallback, range/tolerance boundaries, exclusions, independent reductions, caster-level healing, expiry, and saved continuation. The new browser case hovers one ally and verifies that exactly the intended recipient gains healing and haste. Existing Heal, run-speed, and all three save cases pass. Generated data reproduces byte-identically. The full browser suite was not repeated.
 
 Exact selection geometry, fallback interpretation, tie-breaking, additional healing modifiers, bot spell inventories, complete match systems, and pixel-level fidelity remain unfinished. The production goal remains active.
+
+## Queued command snapshot milestone
+
+Command queuing now captures only the fields belonging to each command. Previously a structurally valid coordinate argument could be an entire Unit; cloning it copied all entity fields into the point and made a pending command incompatible with strict snapshot validation. The HUD Heal button still exercises this caller shape. Cast, move, and attack-move destinations now contain only copied coordinates, with attack targets and other scalar command fields copied independently.
+
+Three new regressions reproduced the oversized point payload before the fix; all 168 simulation checks now pass. Eight affected Chrome scenarios pass, including a new real HUD-click test that snapshots the pending Heal before execution and verifies identical restored continuation. Existing save and explicit attack-targeting cases remain green. Static build and production smoke pass. The full browser suite was not repeated. Complete match systems and pixel-level fidelity remain unfinished; the production goal remains active.

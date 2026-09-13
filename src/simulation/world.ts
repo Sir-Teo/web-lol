@@ -222,7 +222,28 @@ export class World {
   }
   enqueue(command: Command): void {
     if (this.winner) return;
-    this.commands.push(structuredClone(command));
+    // Vec2 is structural: a caller may supply a Unit. Store only command data,
+    // never an entity's mutable state inside its point or order.
+    if (command.type === 'cast') {
+      this.commands.push({
+        type: 'cast',
+        unit: command.unit,
+        ability: command.ability,
+        point: { x: command.point.x, y: command.point.y },
+      });
+    } else if (command.type === 'order') {
+      const order = command.order;
+      this.commands.push({
+        type: 'order',
+        unit: command.unit,
+        order:
+          order.type === 'attack'
+            ? { type: 'attack', target: order.target }
+            : order.type === 'idle'
+              ? { type: 'idle' }
+              : { type: order.type, point: { x: order.point.x, y: order.point.y } },
+      });
+    } else this.commands.push({ type: 'recall', unit: command.unit });
   }
   setOrder(u: Unit, order: Order): void {
     u.order = order;
