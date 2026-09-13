@@ -1140,3 +1140,9 @@ All 393 source/simulation checks, four focused Chrome tooltip cases and nested-p
 Pinned and normalized Q/W/E/R mana/cooldown tables against both game and client exports, and connected existing rank-one ability definitions to the generated values. The audit found different array indexing for game mana versus cooldown fields; the client coefficients confirm the normalized result. Client `maxLevel: 0` is explicitly not treated as a valid learning cap.
 
 All 393 source/simulation checks, dual-source export verification and nested-path production smoke pass. Added `SPELL-RANKS.md` with the concrete state, command, cast snapshot, recharge, bot, UI and save integration requirements. No skill allocation behavior is claimed: standard-match unlearned spells and verified level restrictions remain unfinished. This establishes validated data and integration scope for actual progression, not completion of that feature.
+
+## Verify rank counts and source skill recommendations
+
+The spell-rank exporter now derives its table lengths from the selected game spell's level-up tooltip record: five ranks for Q/W/E and three for R. Pinned those complete records and the source recommendation list. Map-11 bottom/utility recommendations are R/W/Q/E priority with W/Q/E/W early choices; map 12 has a different opening and must not be substituted.
+
+All 393 source/simulation checks and the expanded dual-source exporter pass. Runtime learning behavior is unchanged. This audit resolves the rank-count evidence gap left by unusable client `maxLevel: 0`, but recommendations and tooltip counts do not establish champion-level learning permissions. Standard unlock thresholds, allocation controls/state and actual rank-driven gameplay remain unfinished. Browser/production tests were not repeated for metadata generation with unchanged active values.

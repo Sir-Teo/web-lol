@@ -43,6 +43,26 @@
           0.0
         ],
         "maxLevel": 0
+      },
+      "levelUp": {
+        "levelCount": 5,
+        "Elements": [
+          {
+            "type": "BonusAS",
+            "nameOverride": "Spell_ListType_AttackSpeed",
+            "Style": 1,
+            "__type": "TooltipInstanceListElement"
+          },
+          {
+            "type": "DamagePerStrike",
+            "typeIndex": 6,
+            "multiplier": 100.0,
+            "nameOverride": "Spell_ListType_AsheFlurryAttackDamageratio",
+            "Style": 1,
+            "__type": "TooltipInstanceListElement"
+          }
+        ],
+        "__type": "TooltipInstanceList"
       }
     },
     "w": {
@@ -83,6 +103,31 @@
           4.0
         ],
         "maxLevel": 0
+      },
+      "levelUp": {
+        "levelCount": 5,
+        "Elements": [
+          {
+            "type": "NumberOfArrowsTooltip",
+            "nameOverride": "Spell_Volley_Arrows",
+            "__type": "TooltipInstanceListElement"
+          },
+          {
+            "type": "BaseDamage",
+            "typeIndex": 2,
+            "nameOverride": "Spell_ListType_Damage",
+            "__type": "TooltipInstanceListElement"
+          },
+          {
+            "type": "Cooldown",
+            "__type": "TooltipInstanceListElement"
+          },
+          {
+            "type": "Cost",
+            "__type": "TooltipInstanceListElement"
+          }
+        ],
+        "__type": "TooltipInstanceList"
       }
     },
     "e": {
@@ -116,6 +161,16 @@
           5.0
         ],
         "maxLevel": 0
+      },
+      "levelUp": {
+        "levelCount": 5,
+        "Elements": [
+          {
+            "type": "AmmoRechargeTime",
+            "__type": "TooltipInstanceListElement"
+          }
+        ],
+        "__type": "TooltipInstanceList"
       }
     },
     "r": {
@@ -156,7 +211,83 @@
           60.0
         ],
         "maxLevel": 0
+      },
+      "levelUp": {
+        "levelCount": 3,
+        "Elements": [
+          {
+            "type": "RBaseDamage",
+            "typeIndex": 1,
+            "nameOverride": "Spell_ListType_Damage",
+            "__type": "TooltipInstanceListElement"
+          },
+          {
+            "type": "Cooldown",
+            "__type": "TooltipInstanceListElement"
+          }
+        ],
+        "__type": "TooltipInstanceList"
       }
+    }
+  },
+  "recommendations": {
+    "record": "{2ce6586c}",
+    "data": {
+      "RecSpellRankUpInfos": [
+        {
+          "MapId": 11,
+          "Position": "bottom",
+          "IsDefaultRecommendation": true,
+          "mDefaultPriority": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "mEarlyLevelOverrides": [
+            1,
+            0,
+            2,
+            1
+          ],
+          "__type": "RecSpellRankUpInfo"
+        },
+        {
+          "MapId": 11,
+          "Position": "utility",
+          "mDefaultPriority": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "mEarlyLevelOverrides": [
+            1,
+            0,
+            2,
+            1
+          ],
+          "__type": "RecSpellRankUpInfo"
+        },
+        {
+          "MapId": 12,
+          "Position": "None",
+          "mDefaultPriority": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "mEarlyLevelOverrides": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "__type": "RecSpellRankUpInfo"
+        }
+      ],
+      "__type": "RecSpellRankUpInfoList"
     }
   }
 }
