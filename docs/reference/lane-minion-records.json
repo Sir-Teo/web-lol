@@ -1,0 +1,581 @@
+{
+  "SRU_OrderMinionMelee": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionmelee/sru_orderminionmelee.bin.json",
+    "sha256": "c82797e44c36fe58e5b076a3717f25ab181e22c72c5671af2eafc6f04a8b94e6",
+    "record": {
+      "mCharacterName": "SRU_OrderMinionMelee",
+      "baseHPModifiable": {
+        "baseValue": 430.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseStaticHPRegenModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "healthBarHeight": 47.0,
+      "primaryAbilityResource": {
+        "{726ee5cd}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "{c4ab3550}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "baseDamageModifiable": {
+        "baseValue": 11.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseArmorModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "critDamageMultiplier": 2.0,
+      "baseMoveSpeedModifiable": {
+        "baseValue": 350.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackRangeModifiable": {
+        "baseValue": 110.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedModifiable": {
+        "baseValue": 1.25,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedRatioModifiable": {
+        "baseValue": 1.25,
+        "__type": "ModifiableFloat"
+      },
+      "wakeUpRange": 450.0,
+      "firstAcquisitionRange": 1000.0,
+      "basicAttack": {
+        "mAttackTotalTime": 0.800000011920929,
+        "mAttackCastTime": 0.3930000066757202,
+        "__type": "AttackSlotData"
+      },
+      "towerTargetingPriorityBoost": 2.0,
+      "expGivenOnDeath": 62.0,
+      "goldGivenOnDeath": 20.0,
+      "experienceRadius": 1400.0,
+      "perceptionBubbleRadius": 1200.0,
+      "significance": 0.4000000059604645,
+      "friendlyTooltip": "game_character_friendlyTooltip_Blue_Minion_Basic",
+      "enemyTooltip": "game_character_enemyTooltip_Blue_Minion_Basic",
+      "name": "game_character_displayname_Blue_Minion_Basic",
+      "selectionHeight": 75.0,
+      "selectionRadius": 115.0,
+      "pathfindingCollisionRadius": 35.74369812011719,
+      "overrideGameplayCollisionRadius": 48.0,
+      "unitTagsString": "Minion | Minion_Lane | Minion_Lane_Melee",
+      "characterToolData": {
+        "mapAIPresence": {
+          "0": {
+            "__type": "ToolAiPresence"
+          },
+          "1": {
+            "__type": "ToolAiPresence"
+          },
+          "2": {
+            "__type": "ToolAiPresence"
+          }
+        },
+        "description": "game_character_description_Blue_Minion_Basic",
+        "baseAttackSpeedBonus": 60.0,
+        "attackSpeed": 1.600000023841858,
+        "__type": "CharacterToolData"
+      },
+      "flags": 9446664,
+      "mClientSideItemInventory": [
+        "Items/1509"
+      ],
+      "__type": "CharacterRecord"
+    }
+  },
+  "SRU_OrderMinionRanged": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionranged/sru_orderminionranged.bin.json",
+    "sha256": "b470986d6c8ebdfd993435a88718884239dae22c64624ca3c8826ae22dedb8d6",
+    "record": {
+      "mCharacterName": "SRU_OrderMinionRanged",
+      "baseHPModifiable": {
+        "baseValue": 275.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseStaticHPRegenModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "healthBarHeight": 48.0,
+      "primaryAbilityResource": {
+        "{726ee5cd}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "{c4ab3550}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "baseDamageModifiable": {
+        "baseValue": 19.5,
+        "__type": "ModifiableFloat"
+      },
+      "baseArmorModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "critDamageMultiplier": 2.0,
+      "baseMoveSpeedModifiable": {
+        "baseValue": 350.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackRangeModifiable": {
+        "baseValue": 550.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedModifiable": {
+        "baseValue": 0.6669999957084656,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedRatioModifiable": {
+        "baseValue": 0.6669999957084656,
+        "__type": "ModifiableFloat"
+      },
+      "acquisitionRange": 700.0,
+      "wakeUpRange": 635.0,
+      "firstAcquisitionRange": 900.0,
+      "basicAttack": {
+        "mAttackTotalTime": 1.5,
+        "mAttackCastTime": 0.4699999988079071,
+        "mAttackProbability": 0.5,
+        "__type": "AttackSlotData"
+      },
+      "extraAttacks": [
+        {
+          "mAttackProbability": 0.5,
+          "__type": "AttackSlotData"
+        }
+      ],
+      "towerTargetingPriorityBoost": 1.0,
+      "expGivenOnDeath": 31.0,
+      "goldGivenOnDeath": 14.0,
+      "experienceRadius": 1400.0,
+      "perceptionBubbleRadius": 1200.0,
+      "significance": 0.4000000059604645,
+      "name": "game_character_displayname_Blue_Minion_Wizard",
+      "selectionHeight": 75.0,
+      "selectionRadius": 115.0,
+      "pathfindingCollisionRadius": 35.74369812011719,
+      "overrideGameplayCollisionRadius": 48.0,
+      "unitTagsString": "Minion | Minion_Lane | Minion_Lane_Ranged",
+      "characterToolData": {
+        "mapAIPresence": {
+          "0": {
+            "__type": "ToolAiPresence"
+          },
+          "1": {
+            "__type": "ToolAiPresence"
+          },
+          "2": {
+            "__type": "ToolAiPresence"
+          }
+        },
+        "description": "game_character_description_Blue_Minion_Wizard",
+        "baseAttackSpeedBonus": 60.0,
+        "attackSpeed": 1.600000023841858,
+        "__type": "CharacterToolData"
+      },
+      "mClientSideItemInventory": [
+        "Items/1510"
+      ],
+      "__type": "CharacterRecord"
+    }
+  },
+  "SRU_OrderMinionSiege": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionsiege/sru_orderminionsiege.bin.json",
+    "sha256": "dd2a747737e2d62d0eeffe600f428ca1101fd667d125059c1977bf01818e439b",
+    "record": {
+      "mCharacterName": "SRU_OrderMinionSiege",
+      "mFallbackCharacterName": "SRU_OrderMinionRanged",
+      "baseHPModifiable": {
+        "baseValue": 750.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseStaticHPRegenModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "healthBarHeight": 55.0,
+      "primaryAbilityResource": {
+        "{726ee5cd}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "{c4ab3550}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "arIsShown": false,
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "secondaryAbilityResource": {
+        "arIsShown": false,
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "baseDamageModifiable": {
+        "baseValue": 36.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseArmorModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "critDamageMultiplier": 2.0,
+      "baseMoveSpeedModifiable": {
+        "baseValue": 350.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackRangeModifiable": {
+        "baseValue": 300.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedModifiable": {
+        "baseValue": 1.0,
+        "__type": "ModifiableFloat"
+      },
+      "basicAttack": {
+        "mAttackTotalTime": 1.0,
+        "mAttackCastTime": 0.30000001192092896,
+        "__type": "AttackSlotData"
+      },
+      "towerTargetingPriorityBoost": 5.0,
+      "expGivenOnDeath": 75.0,
+      "goldGivenOnDeath": 49.0,
+      "experienceRadius": 1400.0,
+      "perceptionBubbleRadius": 1200.0,
+      "significance": 0.5,
+      "name": "game_character_displayname_Blue_Minion_MechCannon",
+      "selectionHeight": 95.0,
+      "selectionRadius": 140.0,
+      "pathfindingCollisionRadius": 55.74369812011719,
+      "overrideGameplayCollisionRadius": 65.0,
+      "unitTagsString": "Minion | Minion_Lane | Minion_Lane_Siege",
+      "characterToolData": {
+        "sound": {
+          "death": "Order_Minion_Rider_Death_1.wav",
+          "__type": "ToolSoundData"
+        },
+        "mapAIPresence": {
+          "0": {
+            "__type": "ToolAiPresence"
+          },
+          "1": {
+            "__type": "ToolAiPresence"
+          },
+          "2": {
+            "__type": "ToolAiPresence"
+          }
+        },
+        "description": "game_character_description_Blue_Minion_MechCannon",
+        "baseAttackSpeedBonus": 30.0,
+        "attackSpeed": 2.0,
+        "__type": "CharacterToolData"
+      },
+      "mClientSideItemInventory": [
+        "Items/1508"
+      ],
+      "__type": "CharacterRecord"
+    }
+  },
+  "SRU_ChaosMinionMelee": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionmelee/sru_chaosminionmelee.bin.json",
+    "sha256": "b6a7a8764bd6a9f311cadbabe0b344b6d322b8d54582935ccc0da18365a4edad",
+    "record": {
+      "mCharacterName": "SRU_ChaosMinionMelee",
+      "mFallbackCharacterName": "SRU_OrderMinionMelee",
+      "baseHPModifiable": {
+        "baseValue": 430.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseStaticHPRegenModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "healthBarHeight": 40.0,
+      "primaryAbilityResource": {
+        "{726ee5cd}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "{c4ab3550}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "baseDamageModifiable": {
+        "baseValue": 11.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseArmorModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "critDamageMultiplier": 2.0,
+      "baseMoveSpeedModifiable": {
+        "baseValue": 350.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackRangeModifiable": {
+        "baseValue": 110.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedModifiable": {
+        "baseValue": 1.25,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedRatioModifiable": {
+        "baseValue": 1.25,
+        "__type": "ModifiableFloat"
+      },
+      "wakeUpRange": 450.0,
+      "firstAcquisitionRange": 1000.0,
+      "basicAttack": {
+        "mAttackTotalTime": 0.800000011920929,
+        "mAttackCastTime": 0.3930000066757202,
+        "__type": "AttackSlotData"
+      },
+      "towerTargetingPriorityBoost": 2.0,
+      "expGivenOnDeath": 62.0,
+      "goldGivenOnDeath": 20.0,
+      "experienceRadius": 1400.0,
+      "perceptionBubbleRadius": 1200.0,
+      "significance": 0.4000000059604645,
+      "friendlyTooltip": "game_character_friendlyTooltip_Red_Minion_Basic",
+      "enemyTooltip": "game_character_enemyTooltip_Red_Minion_Basic",
+      "name": "game_character_displayname_Red_Minion_Basic",
+      "selectionHeight": 68.0,
+      "selectionRadius": 115.0,
+      "pathfindingCollisionRadius": 35.74369812011719,
+      "overrideGameplayCollisionRadius": 48.0,
+      "unitTagsString": "Minion | Minion_Lane | Minion_Lane_Melee",
+      "characterToolData": {
+        "mapAIPresence": {
+          "0": {
+            "__type": "ToolAiPresence"
+          },
+          "1": {
+            "__type": "ToolAiPresence"
+          },
+          "2": {
+            "__type": "ToolAiPresence"
+          }
+        },
+        "description": "game_character_description_Red_Minion_Basic",
+        "baseAttackSpeedBonus": 60.0,
+        "attackSpeed": 1.600000023841858,
+        "__type": "CharacterToolData"
+      },
+      "flags": 9446664,
+      "mClientSideItemInventory": [
+        "Items/1509"
+      ],
+      "__type": "CharacterRecord"
+    }
+  },
+  "SRU_ChaosMinionRanged": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionranged/sru_chaosminionranged.bin.json",
+    "sha256": "e3344784acf59b81882dfdef6f8921257d75022d233a1860a0e69efb01ca6d38",
+    "record": {
+      "mCharacterName": "SRU_ChaosMinionRanged",
+      "mFallbackCharacterName": "SRU_OrderMinionRanged",
+      "baseHPModifiable": {
+        "baseValue": 275.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseStaticHPRegenModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "healthBarHeight": 38.0,
+      "primaryAbilityResource": {
+        "{726ee5cd}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "{c4ab3550}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "baseDamageModifiable": {
+        "baseValue": 19.5,
+        "__type": "ModifiableFloat"
+      },
+      "baseArmorModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "critDamageMultiplier": 2.0,
+      "baseMoveSpeedModifiable": {
+        "baseValue": 350.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackRangeModifiable": {
+        "baseValue": 550.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedModifiable": {
+        "baseValue": 0.6669999957084656,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedRatioModifiable": {
+        "baseValue": 0.6669999957084656,
+        "__type": "ModifiableFloat"
+      },
+      "acquisitionRange": 700.0,
+      "wakeUpRange": 635.0,
+      "firstAcquisitionRange": 900.0,
+      "basicAttack": {
+        "mAttackTotalTime": 1.5,
+        "mAttackCastTime": 0.4699999988079071,
+        "mAttackProbability": 0.5,
+        "__type": "AttackSlotData"
+      },
+      "extraAttacks": [
+        {
+          "mAttackProbability": 0.5,
+          "__type": "AttackSlotData"
+        }
+      ],
+      "towerTargetingPriorityBoost": 1.0,
+      "expGivenOnDeath": 31.0,
+      "goldGivenOnDeath": 14.0,
+      "experienceRadius": 1400.0,
+      "perceptionBubbleRadius": 1200.0,
+      "significance": 0.4000000059604645,
+      "name": "game_character_displayname_Red_Minion_Wizard",
+      "selectionHeight": 75.0,
+      "selectionRadius": 115.0,
+      "pathfindingCollisionRadius": 35.74369812011719,
+      "overrideGameplayCollisionRadius": 48.0,
+      "unitTagsString": "Minion | Minion_Lane | Minion_Lane_Ranged",
+      "characterToolData": {
+        "mapAIPresence": {
+          "0": {
+            "__type": "ToolAiPresence"
+          },
+          "1": {
+            "__type": "ToolAiPresence"
+          },
+          "2": {
+            "__type": "ToolAiPresence"
+          }
+        },
+        "description": "game_character_description_Red_Minion_Wizard",
+        "baseAttackSpeedBonus": 60.0,
+        "attackSpeed": 1.600000023841858,
+        "__type": "CharacterToolData"
+      },
+      "mClientSideItemInventory": [
+        "Items/1510"
+      ],
+      "__type": "CharacterRecord"
+    }
+  },
+  "SRU_ChaosMinionSiege": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionsiege/sru_chaosminionsiege.bin.json",
+    "sha256": "3c3ad09be458115f5d645b45f5ce1656f88b47ce6f723af34bbdb55d258fa8b8",
+    "record": {
+      "mCharacterName": "SRU_ChaosMinionSiege",
+      "mFallbackCharacterName": "SRU_ChaosMinionRanged",
+      "baseHPModifiable": {
+        "baseValue": 750.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseStaticHPRegenModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "healthBarHeight": 55.0,
+      "primaryAbilityResource": {
+        "{726ee5cd}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "{c4ab3550}": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "arIsShown": false,
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "secondaryAbilityResource": {
+        "arIsShown": false,
+        "__type": "AbilityResourceSlotInfo"
+      },
+      "baseDamageModifiable": {
+        "baseValue": 36.0,
+        "__type": "ModifiableFloat"
+      },
+      "baseArmorModifiable": {
+        "baseValue": 0.0,
+        "__type": "ModifiableFloat"
+      },
+      "critDamageMultiplier": 2.0,
+      "baseMoveSpeedModifiable": {
+        "baseValue": 350.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackRangeModifiable": {
+        "baseValue": 300.0,
+        "__type": "ModifiableFloat"
+      },
+      "attackSpeedModifiable": {
+        "baseValue": 1.0,
+        "__type": "ModifiableFloat"
+      },
+      "basicAttack": {
+        "mAttackTotalTime": 1.0,
+        "mAttackCastTime": 0.30000001192092896,
+        "__type": "AttackSlotData"
+      },
+      "towerTargetingPriorityBoost": 5.0,
+      "expGivenOnDeath": 75.0,
+      "goldGivenOnDeath": 49.0,
+      "perceptionBubbleRadius": 1200.0,
+      "significance": 0.5,
+      "name": "game_character_displayname_Red_Minion_MechCannon",
+      "selectionHeight": 95.0,
+      "selectionRadius": 140.0,
+      "pathfindingCollisionRadius": 55.74369812011719,
+      "overrideGameplayCollisionRadius": 65.0,
+      "unitTagsString": "Minion | Minion_Lane | Minion_Lane_Siege",
+      "characterToolData": {
+        "mapAIPresence": {
+          "0": {
+            "__type": "ToolAiPresence"
+          },
+          "1": {
+            "__type": "ToolAiPresence"
+          },
+          "2": {
+            "__type": "ToolAiPresence"
+          }
+        },
+        "description": "game_character_description_Red_Minion_MechCannon",
+        "baseAttackSpeedBonus": 30.0,
+        "attackSpeed": 2.0,
+        "__type": "CharacterToolData"
+      },
+      "mClientSideItemInventory": [
+        "Items/1508"
+      ],
+      "__type": "CharacterRecord"
+    }
+  }
+}

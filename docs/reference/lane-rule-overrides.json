@@ -1,0 +1,15 @@
+{
+  "source": "https://www.leagueoflegends.com/en-sg/news/game-updates/patch-26-1-notes/",
+  "scope": "Standard Summoner\u2019s Rift, selected explicit changes; later patch reconciliation remains tracked.",
+  "waveIntervals": [
+    {
+      "startSeconds": 840,
+      "intervalSeconds": 25
+    },
+    {
+      "startSeconds": 1800,
+      "intervalSeconds": 20
+    }
+  ],
+  "initialSiegeGold": 50
+}
