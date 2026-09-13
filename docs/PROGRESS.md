@@ -808,3 +808,9 @@ Hawkshot now plays a launch variant and separate persistent loop with source −
 All 289 source/simulation checks, eight distinct Chrome audio scenarios across the initial and focused runs, production build and real-input production Hawkshot smoke pass. New checks cover source hashes/gains/stop curves, short/long-flight deadline prediction, restore consistency, loop versus one-shot phase, natural variant ending, exact stop scheduling and cleanup. Source export is byte-identical. Full gameplay browser regression and full-match performance were not repeated.
 
 All nine prepared Hawkshot recordings now have runtime adapters. Native audio parity remains unverified: shared/spatial mixing, shuffle state, stop/fade dispatch, loop seams and listening comparison still need work. The larger full-match production goal remains unfinished. See [flight audio evidence](ASHE-AUDIO.md#flight-launch-variants-and-persistent-loop).
+
+## Source attenuation interpretation and boundary evidence
+
+Recovered the inherited six-point attenuation curve and positioning flags, generated a source profile and standalone evaluator, and sampled the pinned parser at 86 distances. Three focused tests compare source/profile identity and the independent parser outputs, including knots, interpolation and near-floor behavior; TypeScript checking passes and export is byte-identical.
+
+The stored values are normalized, not literal dB: source distances 2,000 and 2,300 map to approximately −12 and −24 dB in the parser. Its special −1 floor introduces a tiny-amplitude boundary discontinuity that needs native validation. No listener coordinate policy or live attenuation was invented in this step; runtime playback remains unchanged. Existing hosting work was preserved separately. See [source attenuation](ASHE-ATTENUATION.md).
