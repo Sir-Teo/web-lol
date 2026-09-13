@@ -449,3 +449,9 @@ All 206 simulation checks, four focused Chrome cases, static build and productio
 Direct-hit stun now follows distance × 0.00125 seconds clamped to the source-backed 1–3.5-second bounds. The coefficient comes from a first-hand technical analysis with calibrated map comparison, separately attributed in the source pin and ASHE-R.md. Consumed range and fractional sweep contact supply traveled distance, so caster movement cannot change it. Our exact 60 Hz expiry does not reproduce the report's coarse live buff expiry; observed lifetime parity remains unverified.
 
 All 208 simulation checks, seven focused Chrome cases, static build and production smoke pass. New checks cover curve breakpoints/cap, caster movement, saved flight and exact expiry; the long-range browser test verifies 210 ticks at impact. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Spellbook-selected Volley milestone
+
+Volley now uses the main spell selected by Ashe's character root: seven rank-one arrows, 60 + 100% bonus AD damage and 1,500-unit/second projectile speed. This replaces provisional nine-arrow, total-AD scaling and 1,800-speed behavior. Root selection and complete main/missile records are pinned and verified, avoiding unused older rank records. Spread geometry, hit width, casting windup, enhanced slow and rank allocation remain unfinished.
+
+All 210 simulation checks, two focused Chrome cases, static build and production smoke pass. New coverage checks level/base-AD separation, item bonus scaling, arrow count/speed, saved cast damage and one hit per target. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

@@ -1,0 +1,1098 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/data/characters/ashe/ashe.bin.json",
+  "sha256": "d5aecdf76b201b075a8c77c3444abaabab3dc5a5ac0b35dc14aafaefb65d5c5d",
+  "root": "Characters/Ashe/CharacterRecords/Root",
+  "spellIndex": 1,
+  "spell": "Characters/Ashe/Spells/VolleyAbility/Volley",
+  "records": {
+    "Characters/Ashe/Spells/VolleyAbility/Volley": {
+      "ObjectName": "Volley",
+      "objectPath": "Characters/Ashe/Spells/VolleyAbility/Volley",
+      "mScriptName": "Volley",
+      "mSpell": {
+        "mAffectsTypeFlags": 23759,
+        "mAlternateName": "Volley",
+        "mSpellTags": [
+          "Trait_DamageAbility",
+          "Trait_SignatureSpell",
+          "Trait_Ranged_StopsFirstHit",
+          "Trait_AoE"
+        ],
+        "mEffectAmount": [
+          {
+            "value": [
+              3.0,
+              5.0,
+              7.0,
+              9.0,
+              11.0,
+              13.0,
+              15.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          }
+        ],
+        "DataValues": [
+          {
+            "name": "BaseDamage",
+            "values": [
+              25.0,
+              60.0,
+              95.0,
+              130.0,
+              165.0,
+              200.0,
+              235.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "NumberOfArrowsTooltip",
+            "values": [
+              6.0,
+              7.0,
+              8.0,
+              9.0,
+              10.0,
+              11.0,
+              12.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "ADRatio",
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "__type": "SpellDataValue"
+          }
+        ],
+        "DataValuesModeOverride": {
+          "cherry": {
+            "SpellDataValues": [
+              {
+                "name": "BaseDamage",
+                "values": [
+                  25.0,
+                  65.0,
+                  105.0,
+                  145.0,
+                  185.0,
+                  225.0,
+                  265.0
+                ],
+                "__type": "SpellDataValue"
+              },
+              {
+                "name": "ADRatio",
+                "values": [
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158
+                ],
+                "__type": "SpellDataValue"
+              }
+            ],
+            "__type": "SpellDataValueVector"
+          }
+        },
+        "{f9c2333e}": {
+          "ARAM": {
+            "value": [
+              18.0,
+              18.0,
+              17.0,
+              16.0,
+              15.0,
+              14.0,
+              14.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          "cherry": {
+            "value": [
+              23.5,
+              20.0,
+              16.5,
+              13.0,
+              9.5,
+              6.0,
+              2.5
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          "{bffdf499}": {
+            "value": [
+              18.0,
+              18.0,
+              17.0,
+              16.0,
+              15.0,
+              14.0,
+              14.0
+            ],
+            "__type": "SpellEffectAmount"
+          }
+        },
+        "mSpellCalculations": {
+          "TotalDamage": {
+            "mSimpleTooltipCalculationDisplay": 6,
+            "mFormulaParts": [
+              {
+                "mDataValue": "BaseDamage",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              {
+                "mStat": 2,
+                "mStatFormula": 2,
+                "mDataValue": "ADRatio",
+                "__type": "StatByNamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          }
+        },
+        "mAnimationName": "Spell2",
+        "mImgIconName": [
+          "ASSETS/Characters/Ashe/HUD/Icons2D/Ashe_W.dds"
+        ],
+        "spellCastTime": 0.25,
+        "spellTotalTime": 1.0,
+        "cooldownTime": [
+          18.0,
+          18.0,
+          14.5,
+          11.0,
+          7.5,
+          4.0,
+          4.0
+        ],
+        "Cooldown": {
+          "values": [
+            18.0,
+            18.0,
+            14.5,
+            11.0,
+            7.5,
+            4.0,
+            4.0
+          ],
+          "__type": "{0a0eddc9}"
+        },
+        "mCantCancelWhileWindingUp": true,
+        "mSpellRevealsChampion": false,
+        "useAnimatorFramerate": true,
+        "castRange": [
+          600.0,
+          600.0,
+          600.0,
+          600.0,
+          600.0,
+          600.0,
+          600.0
+        ],
+        "castRangeValues": {
+          "values": [
+            600.0,
+            600.0,
+            600.0,
+            600.0,
+            600.0,
+            600.0,
+            600.0
+          ],
+          "{0a3e0478}": 600.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRangeDisplayOverride": [
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0
+        ],
+        "castRadius": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "castConeAngle": 20.0,
+        "castConeDistance": 1200.0,
+        "castFrame": 7.5,
+        "missileSpeed": 902.0,
+        "mFloatVarsDecimals": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "mana": [
+          75.0,
+          70.0,
+          65.0,
+          60.0,
+          55.0,
+          50.0
+        ],
+        "manaValues": {
+          "values": [
+            75.0,
+            70.0,
+            65.0,
+            60.0,
+            55.0,
+            50.0
+          ],
+          "{0a3e0478}": 75.0,
+          "__type": "{630af303}"
+        },
+        "mTargetingTypeData": {
+          "__type": "Cone"
+        },
+        "mCastingBreaksStealth": true,
+        "mClientData": {
+          "mTooltipData": {
+            "mObjectName": "Volley",
+            "mFormat": "{d7c27163}",
+            "mLocKeys": {
+              "keyName": "Spell_Volley_Name",
+              "keySummary": "Spell_Volley_Summary",
+              "keyTooltip": "Spell_Volley_Tooltip",
+              "keyTooltipExtendedBelowLine": "Spell_Volley_TooltipExtendedBelowLine"
+            },
+            "mLists": {
+              "LevelUp": {
+                "levelCount": 5,
+                "Elements": [
+                  {
+                    "type": "NumberOfArrowsTooltip",
+                    "nameOverride": "Spell_Volley_Arrows",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "BaseDamage",
+                    "typeIndex": 2,
+                    "nameOverride": "Spell_ListType_Damage",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "Cooldown",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "Cost",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceSpell"
+          },
+          "mTargeterDefinitions": [
+            {
+              "startLocator": {
+                "distanceOffset": 75.0,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "endLocator": {
+                "distanceOffset": 700.0,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "fallbackDirection": 3,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            },
+            {
+              "startLocator": {
+                "distanceOffset": 76.02999877929688,
+                "angleOffsetRadian": 0.16510814428329468,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "endLocator": {
+                "distanceOffset": 700.0,
+                "angleOffsetRadian": 0.0872664600610733,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "fallbackDirection": 3,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            },
+            {
+              "startLocator": {
+                "distanceOffset": 76.02999877929688,
+                "angleOffsetRadian": -0.16510814428329468,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "endLocator": {
+                "distanceOffset": 700.0,
+                "angleOffsetRadian": -0.0872664600610733,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "fallbackDirection": 3,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            },
+            {
+              "startLocator": {
+                "distanceOffset": 79.05999755859375,
+                "angleOffsetRadian": 0.3216641843318939,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "endLocator": {
+                "distanceOffset": 700.0,
+                "angleOffsetRadian": 0.1745329201221466,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "fallbackDirection": 3,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            },
+            {
+              "startLocator": {
+                "distanceOffset": 79.05999755859375,
+                "angleOffsetRadian": -0.3216641843318939,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "endLocator": {
+                "distanceOffset": 700.0,
+                "angleOffsetRadian": -0.1745329201221466,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "fallbackDirection": 3,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            },
+            {
+              "startLocator": {
+                "distanceOffset": 83.8499984741211,
+                "angleOffsetRadian": 0.463733971118927,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "endLocator": {
+                "distanceOffset": 700.0,
+                "angleOffsetRadian": 0.2617993950843811,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "fallbackDirection": 3,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            },
+            {
+              "startLocator": {
+                "distanceOffset": 83.8499984741211,
+                "angleOffsetRadian": -0.463733971118927,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "endLocator": {
+                "distanceOffset": 700.0,
+                "angleOffsetRadian": -0.2617993950843811,
+                "orientationType": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "fallbackDirection": 3,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0,
+                  1200.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            },
+            {
+              "hideWithLineIndicator": true,
+              "overrideBaseRange": {
+                "mPerLevelValues": [
+                  1500.0,
+                  1500.0,
+                  1500.0,
+                  1500.0,
+                  1500.0,
+                  1500.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionRange"
+            }
+          ],
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "BotData": {
+        "DamageTag": 0,
+        "{6d548702}": {
+          "mFormulaParts": [
+            {
+              "mSpellCalculationKey": "TotalDamage",
+              "__type": "{f3cbe7b2}"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "{ec17e271}": [
+          {
+            "EffectTag": 1,
+            "EffectCalculation": {
+              "__type": "GameCalculation"
+            },
+            "__type": "{b09016f6}"
+          }
+        ],
+        "{38382c53}": [
+          {
+            "{e38f54f7}": 1,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 4,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 64,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 128,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 1024,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          }
+        ],
+        "__type": "BotsSpellData"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Ashe/Spells/VolleyAbility/VolleyAttack": {
+      "ObjectName": "VolleyAttack",
+      "objectPath": "Characters/Ashe/Spells/VolleyAbility/VolleyAttack",
+      "mScriptName": "VolleyAttack",
+      "mSpell": {
+        "mAffectsTypeFlags": 6154,
+        "mAlternateName": "VolleyAttack",
+        "mAnimationName": "Attack2",
+        "cooldownTime": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Cooldown": {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "{0a3e0478}": 0.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRange": [
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0
+        ],
+        "castRangeValues": {
+          "values": [
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0
+          ],
+          "{0a3e0478}": 1200.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875
+        ],
+        "castConeDistance": 100.0,
+        "mMissileSpec": {
+          "mMissileWidth": 20.0,
+          "movementComponent": {
+            "mUseHeightOffsetAtEnd": true,
+            "mTracksTarget": false,
+            "mOffsetInitialTargetHeight": 100.0,
+            "mStartBoneName": "Bow_01",
+            "mProjectTargetToCastRange": true,
+            "mSpeed": 1500.0,
+            "__type": "FixedSpeedMovement"
+          },
+          "heightSolver": {
+            "__type": "BlendedLinearHeightSolver"
+          },
+          "verticalFacing": {
+            "__type": "VerticalFacingFaceTarget"
+          },
+          "behaviors": [
+            {
+              "__type": "CastOnHit"
+            },
+            {
+              "__type": "DestroyOnMovementComplete"
+            }
+          ],
+          "__type": "MissileSpecification"
+        },
+        "mCastType": 3,
+        "castFrame": 15.074999809265137,
+        "missileSpeed": 1500.0,
+        "mMissileEffectKey": "Ashe_W_mis",
+        "mLineWidth": 20.0,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BuffBone_Glb_Center_Loc",
+        "selectionPriority": 1,
+        "mTargetingTypeData": {
+          "__type": "Location"
+        },
+        "mClientData": {
+          "mTargeterDefinitions": [
+            {
+              "hideWithLineIndicator": true,
+              "__type": "TargeterDefinitionRange"
+            },
+            {
+              "endLocator": {
+                "basePosition": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "lineStopsAtEndPosition": false,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            }
+          ],
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Ashe/Spells/VolleyAbility/VolleyCenterAttack": {
+      "ObjectName": "VolleyCenterAttack",
+      "objectPath": "Characters/Ashe/Spells/VolleyAbility/VolleyCenterAttack",
+      "mScriptName": "VolleyCenterAttack",
+      "mSpell": {
+        "mAffectsTypeFlags": 6154,
+        "mAlternateName": "VolleyAttack",
+        "mAnimationName": "Attack2",
+        "cooldownTime": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Cooldown": {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "{0a3e0478}": 0.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRange": [
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0
+        ],
+        "castRangeValues": {
+          "values": [
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0
+          ],
+          "{0a3e0478}": 1200.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875
+        ],
+        "castConeDistance": 100.0,
+        "mMissileSpec": {
+          "mMissileWidth": 20.0,
+          "movementComponent": {
+            "mUseHeightOffsetAtEnd": true,
+            "mTracksTarget": false,
+            "mOffsetInitialTargetHeight": 100.0,
+            "mStartBoneName": "Bow_01",
+            "mProjectTargetToCastRange": true,
+            "mSpeed": 1500.0,
+            "__type": "FixedSpeedMovement"
+          },
+          "heightSolver": {
+            "__type": "BlendedLinearHeightSolver"
+          },
+          "verticalFacing": {
+            "__type": "VerticalFacingFaceTarget"
+          },
+          "behaviors": [
+            {
+              "__type": "CastOnHit"
+            },
+            {
+              "__type": "DestroyOnMovementComplete"
+            }
+          ],
+          "__type": "MissileSpecification"
+        },
+        "mCastType": 3,
+        "castFrame": 15.074999809265137,
+        "missileSpeed": 1500.0,
+        "mMissileEffectKey": "Ashe_W_Mid_Mis",
+        "mLineWidth": 20.0,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BuffBone_Glb_Center_Loc",
+        "selectionPriority": 1,
+        "mTargetingTypeData": {
+          "__type": "Location"
+        },
+        "mClientData": {
+          "mTargeterDefinitions": [
+            {
+              "hideWithLineIndicator": true,
+              "__type": "TargeterDefinitionRange"
+            },
+            {
+              "endLocator": {
+                "basePosition": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "lineStopsAtEndPosition": false,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            }
+          ],
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Ashe/Spells/VolleyAbility/VolleyAttackWithSound": {
+      "ObjectName": "VolleyAttackWithSound",
+      "objectPath": "Characters/Ashe/Spells/VolleyAbility/VolleyAttackWithSound",
+      "mScriptName": "VolleyAttackWithSound",
+      "mSpell": {
+        "mAffectsTypeFlags": 6154,
+        "mAlternateName": "VolleyAttack",
+        "mAnimationName": "Attack2",
+        "cooldownTime": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Cooldown": {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "{0a3e0478}": 0.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRange": [
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0
+        ],
+        "castRangeValues": {
+          "values": [
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0
+          ],
+          "{0a3e0478}": 1200.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875,
+          299.29998779296875
+        ],
+        "castConeDistance": 100.0,
+        "mMissileSpec": {
+          "mMissileWidth": 1.0,
+          "movementComponent": {
+            "mUseHeightOffsetAtEnd": true,
+            "mTracksTarget": false,
+            "mOffsetInitialTargetHeight": 100.0,
+            "mStartBoneName": "Bow_01",
+            "mProjectTargetToCastRange": true,
+            "mSpeed": 1500.0,
+            "__type": "FixedSpeedMovement"
+          },
+          "heightSolver": {
+            "__type": "BlendedLinearHeightSolver"
+          },
+          "verticalFacing": {
+            "__type": "VerticalFacingFaceTarget"
+          },
+          "behaviors": [
+            {
+              "__type": "CastOnHit"
+            },
+            {
+              "__type": "DestroyOnMovementComplete"
+            }
+          ],
+          "__type": "MissileSpecification"
+        },
+        "mCastType": 3,
+        "castFrame": 15.074999809265137,
+        "missileSpeed": 1500.0,
+        "mLineWidth": 1.0,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BuffBone_Glb_Center_Loc",
+        "selectionPriority": 1,
+        "mTargetingTypeData": {
+          "__type": "Location"
+        },
+        "mClientData": {
+          "mTargeterDefinitions": [
+            {
+              "hideWithLineIndicator": true,
+              "__type": "TargeterDefinitionRange"
+            },
+            {
+              "endLocator": {
+                "basePosition": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "lineStopsAtEndPosition": false,
+              "lineWidth": {
+                "mPerLevelValues": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "mValueType": 2,
+                "__type": "FloatPerSpellLevel"
+              },
+              "__type": "TargeterDefinitionLine"
+            }
+          ],
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "__type": "SpellObject"
+    }
+  },
+  "corroboration": "https://www.leagueoflegends.com/en-sg/news/game-updates/patch-26-1-notes/"
+}

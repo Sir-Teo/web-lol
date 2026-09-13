@@ -47,7 +47,7 @@ describe('skillshot collision', () => {
     target.radius = 160;
     w.enqueue({ type: 'cast', unit: hero.id, ability: 'w', point: target });
     w.step(50);
-    expect(target.maxHp - target.hp).toBeCloseTo(79);
+    expect(target.maxHp - target.hp).toBeCloseTo(60);
     expect(hero.mana).toBeLessThan(hero.maxMana - 70);
   });
   it('ultimate passes through minions and strikes a champion', () => {

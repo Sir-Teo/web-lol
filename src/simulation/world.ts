@@ -7,6 +7,7 @@ import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
 import { ASHE_R } from '../content/ashe-r';
+import { ASHE_W } from '../content/ashe-w';
 import { crystalArrowStunTicks } from './crystal-arrow';
 import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
@@ -969,7 +970,7 @@ export class World {
     }
     if (ability === 'w' || ability === 'r') {
       const volleyId = ability === 'w' ? this.nextId++ : null;
-      const number = ability === 'w' ? 9 : 1,
+      const number = ability === 'w' ? ASHE_W.arrowsByRank[0] : 1,
         angle = Math.atan2(dir.y, dir.x);
       if (volleyId !== null) this.volleyHits[volleyId] = [];
       for (let i = 0; i < number; i++) {
@@ -984,8 +985,16 @@ export class World {
           type: ability === 'w' ? 'volley' : 'ultimate',
           target: null,
           direction: { x: Math.cos(a), y: Math.sin(a) },
-          damage: ability === 'w' ? 20 + u.damage : 200,
-          speed: ability === 'w' ? 1800 : ASHE_R.initialSpeed,
+          damage:
+            ability === 'w'
+              ? ASHE_W.baseDamageByRank[0] +
+                Math.max(
+                  0,
+                  u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
+                ) *
+                  ASHE_W.bonusADRatioByRank[0]
+              : 200,
+          speed: ability === 'w' ? ASHE_W.projectileSpeed : ASHE_R.initialSpeed,
           radius: ability === 'w' ? 12 : 65,
           remaining: spec.range,
           volleyId,
