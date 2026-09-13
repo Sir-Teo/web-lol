@@ -30,6 +30,7 @@ export class Hud {
   private lastSecond = -1;
   private lastWelcomeTick = -1;
   private lastInventory = '';
+  private lastScoreboard = '';
   private toastUntil = 0;
   constructor(
     host: HTMLElement,
@@ -327,9 +328,43 @@ export class Hud {
       this.root.append(panel);
     }
     panel.hidden = !show;
-    if (show)
-      panel.innerHTML = `<div class="scoreboard-title">PRACTICE MATCH</div><div class="scoreboard-row"><img src="assets/icons/ashe.png" alt="Ashe"><strong>Ashe <small>You</small></strong><span>${this.world.player.kills} / ${this.world.player.deaths} / 0</span><span>${this.world.player.cs} CS</span></div><div class="scoreboard-row enemy"><img src="assets/icons/ashe.png" alt="Opponent"><strong>Sparring partner <small>Bot</small></strong><span>${this.world.player.deaths} / ${this.world.player.kills} / 0</span></div>`;
+    if (!show) return;
+    const rows = this.world.units
+      .filter((u) => u.kind === 'champion')
+      .sort((a, b) => Number(a.team === 'red') - Number(b.team === 'red') || a.id - b.id)
+      .map((u) => {
+        const state = this.world.championState(u.id)!;
+        return {
+          id: u.id,
+          name: u.name,
+          team: u.team,
+          kills: state.kills,
+          deaths: state.deaths,
+          cs: state.cs,
+        };
+      });
+    const signature = JSON.stringify(rows);
+    if (signature === this.lastScoreboard) return;
+    this.lastScoreboard = signature;
+    panel.innerHTML = '<div class="scoreboard-title">PRACTICE MATCH</div>';
+    for (const data of rows) {
+      const row = document.createElement('div');
+      row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;
+      row.dataset.champion = String(data.id);
+      row.innerHTML =
+        '<img src="assets/icons/ashe.png" alt="Ashe"><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span>';
+      const name = row.querySelector('strong')!;
+      name.textContent = data.name;
+      const role = document.createElement('small');
+      role.textContent =
+        data.id === this.world.player.id ? 'You' : data.team === 'blue' ? 'Ally' : 'Opponent';
+      name.append(role);
+      row.querySelector('.scoreboard-kda')!.textContent = `${data.kills} / ${data.deaths} / 0`;
+      row.querySelector('.scoreboard-cs')!.textContent = `${data.cs} CS`;
+      panel.append(row);
+    }
   }
+
   update(fps: number): void {
     if (this.world.winner && this.modal !== 'result') this.toggleModal('result');
     this.floating.hidden = !!this.world.winner;
@@ -370,8 +405,14 @@ export class Hud {
     text('armor', Math.round(h.armor));
     text('ms', Math.round(statPrecision(w.movementSpeed(h))));
     text('as', ((60 / h.attackPeriod) * w.attackSpeedMultiplier(h, undefined)).toFixed(2));
-    text('kills', p.kills);
-    text('deaths', p.deaths);
+    const champions = w.units.filter((u) => u.kind === 'champion');
+    for (const team of ['blue', 'red'] as const)
+      text(
+        team === 'blue' ? 'kills' : 'deaths',
+        champions.reduce((sum, u) => sum + (u.team === team ? w.championState(u.id)!.kills : 0), 0)
+      );
+    if (this.root.querySelector<HTMLElement>('.scoreboard')?.hidden === false)
+      this.scoreboard(true);
     text('personal', `${p.kills} / ${p.deaths} / 0`);
     text('cs', p.cs);
     this.root

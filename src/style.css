@@ -1205,6 +1205,13 @@ button {
   padding: 20px;
   z-index: 12;
 }
+.scoreboard {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.scoreboard-row + .scoreboard-row {
+  margin-top: 8px;
+}
 .scoreboard-title {
   font:
     600 12px Cinzel,
