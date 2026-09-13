@@ -67,7 +67,7 @@ Ordinary minion basic attacks add this fraction of the target lane minion's curr
 
 The modifier covers all four lane-minion victim classes. It does not apply to champions, structures, target dummies, direct non-attack damage, or attacks originating from super minions. Super minions have different source items (1511 and 1512), so they do not inherit the ordinary-minion ratios. The existing turret damage multipliers remain independently applicable when a minion attacks a turret.
 
-Eleven new simulation scenarios exercise both teams, all three source classes and four victim classes, positive/negative armor, reduced current HP, repeated attacks, intervening missile-flight damage, source death, exclusions, and one-time lethal resolution. These checks validate the implemented rule; full reference lane pacing, source initialization, turret-shot fractions and super-minion effects still need work. Mid-lane siege attack speed is implemented below.
+Eleven new simulation scenarios exercise both teams, all three source classes and four victim classes, positive/negative armor, reduced current HP, repeated attacks, intervening missile-flight damage, source death, exclusions, and one-time lethal resolution. These checks validate the implemented rule; full reference lane pacing, source initialization, super-minion aura effects still need work. Mid-lane siege attack speed and turret-shot fractions are implemented below.
 
 ## Siege attacks against mid-lane turrets
 
@@ -76,3 +76,20 @@ The pinned item 1508 `MidLaneAttackSpeedBonus` field supplies a 30% bonus, corro
 Attack timing divides the baseline tick duration by the speed multiplier and rounds to the nearest simulation tick, matching the existing combat clock. The bonus is sampled when an attack begins; changing victims does not rewrite an already-scheduled cooldown. Baseline stats remain unchanged. The source animation's playback speed follows the same multiplier and rounded period; this also connects the existing Ranger's Focus speed multiplier to champion attack playback. Exact reference windup and attack-speed stacking with future modifiers remain capture work.
 
 Four simulation scenarios cover both teams' repeated release timestamps, source/victim/lane exclusions, immutable baseline timing, and target switching. A browser scenario checks both source siege rigs against mid and top turrets, verifying that animation duration equals the scheduled combat period. The existing cancellation and full browser regressions remain required.
+
+## Turret attacks against lane minions
+
+The layout exporter now reads turret-shot percentages from the pinned English item tooltips. The reference snapshot includes item 1511 (Super Mech Armor) in addition to the three ordinary-minion items. It retains the upstream hashes and selected original records; `python3 tools/assets/verify-minion-on-hit-items.py` verifies all eight item/tooltip entries. Extraction fails if the expected tooltip phrases change instead of silently retaining stale constants.
+
+| Victim | Outer turret | Inner turret | Inhibitor/Nexus turret |
+| --- | ---: | ---: | ---: |
+| Melee | 45% | 45% | 45% |
+| Caster | 70% | 70% | 70% |
+| Siege | 14% | 11% | 8% |
+| Super | 7% | 7% | 7% |
+
+For a turret basic attack against a lane minion, the simulation replaces raw attack damage with the applicable fraction of the victim's maximum health at contact, then applies physical resistance once. Fractions do not shrink as the victim loses current health. A flying shot retains this behavior after the source turret dies. Champion victims, non-attack damage, and turrets with no matching authored role retain the ordinary damage path. The rules are configured for the Rift; a battlefield without this table retains its own existing combat rules.
+
+The primary tooltip text directly establishes the listed fractions and turret tiers, but does not specify maximum-versus-current-health sampling, server damage ordering, or armor treatment. Maximum-health sampling at impact and physical mitigation are explicit implementation policies awaiting a matched reference capture. Turret armor penetration, other turret modifiers, and super-minion aura effects remain separate unfinished work. These checks do not certify exact late-game turret durability.
+
+Eleven simulation scenarios cover both teams, all four turret roles and minion classes, multiple maximum health values, positive and negative armor, wounded targets, source death after release, ordinary-path exclusions, and one-time lethal resolution. With zero armor and no other damage, two shots leave a melee minion at 10% HP, while a caster survives the first at 30% and dies to the second. These concrete windows replace the previous behavior that depended solely on turret AD.

@@ -624,6 +624,14 @@ export class World {
     return 1;
   }
   private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
+    const turretHealthRatio =
+      source.kind === 'turret' && source.structure && isLaneMinionKind(target.kind)
+        ? this.battlefield.turretMinionHealthDamage?.[target.kind]?.[source.structure.role]
+        : undefined;
+    if (turretHealthRatio !== undefined) {
+      this.damage(source, target, target.maxHp * turretHealthRatio, 'physical');
+      return;
+    }
     const multiplier =
       target.kind === 'turret' && isLaneMinionKind(source.kind)
         ? (this.battlefield.minionTurretDamage?.[source.kind] ?? 1)
