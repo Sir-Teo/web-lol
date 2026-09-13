@@ -6,6 +6,7 @@ import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
+import { ASHE_R } from '../content/ashe-r';
 import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
@@ -699,7 +700,17 @@ export class World {
         if (!target || !this.alive(target)) continue;
         p.direction = direction(p, target);
       }
-      const travel = Math.min(p.speed * DT, p.remaining);
+      let stepDistance = p.speed * DT;
+      if (p.type === 'ultimate') {
+        const acceleratingSeconds = Math.min(
+          DT,
+          Math.max(0, (ASHE_R.maximumSpeed - p.speed) / ASHE_R.acceleration)
+        );
+        // Integrate the accelerating portion, then travel at the cap for the remainder.
+        stepDistance += ASHE_R.acceleration * acceleratingSeconds * (DT - acceleratingSeconds / 2);
+        p.speed = Math.min(ASHE_R.maximumSpeed, p.speed + ASHE_R.acceleration * DT);
+      }
+      const travel = Math.min(stepDistance, p.remaining);
       const end = { x: p.x + p.direction.x * travel, y: p.y + p.direction.y * travel };
       let contact: Unit | undefined,
         first = Infinity;
@@ -950,7 +961,7 @@ export class World {
           target: null,
           direction: { x: Math.cos(a), y: Math.sin(a) },
           damage: ability === 'w' ? 20 + u.damage : 200,
-          speed: ability === 'w' ? 1800 : 1600,
+          speed: ability === 'w' ? 1800 : ASHE_R.initialSpeed,
           radius: ability === 'w' ? 12 : 65,
           remaining: spec.range,
           volleyId,

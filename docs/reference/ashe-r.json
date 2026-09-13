@@ -1,0 +1,455 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/data/characters/ashe/ashe.bin.json",
+  "sha256": "d5aecdf76b201b075a8c77c3444abaabab3dc5a5ac0b35dc14aafaefb65d5c5d",
+  "record": "Characters/Ashe/Spells/EnchantedCrystalArrowAbility/EnchantedCrystalArrow",
+  "data": {
+    "ObjectName": "EnchantedCrystalArrow",
+    "objectPath": "Characters/Ashe/Spells/EnchantedCrystalArrowAbility/EnchantedCrystalArrow",
+    "mScriptName": "EnchantedCrystalArrow",
+    "mSpell": {
+      "mAffectsTypeFlags": 4106,
+      "mRequiredUnitTags": {
+        "mObjectTagList": [
+          "{ea595ca6}"
+        ],
+        "__type": "ObjectTags"
+      },
+      "mAlternateName": "EnchantedCrystalArrow",
+      "mSpellTags": [
+        "Trait_Ultimate",
+        "Trait_ImmobilizingCCSpell",
+        "Trait_DamageAbility",
+        "Trait_AoE"
+      ],
+      "DataValues": [
+        {
+          "name": "RBaseDamage",
+          "values": [
+            0.0,
+            200.0,
+            400.0,
+            600.0,
+            800.0,
+            1000.0,
+            1200.0
+          ],
+          "__type": "SpellDataValue"
+        },
+        {
+          "name": "MinStunDuration",
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "__type": "SpellDataValue"
+        },
+        {
+          "name": "MaxStunDuration",
+          "values": [
+            3.5,
+            3.5,
+            3.5,
+            3.5,
+            3.5,
+            3.5,
+            3.5
+          ],
+          "__type": "SpellDataValue"
+        },
+        {
+          "name": "SlowRadius",
+          "values": [
+            400.0,
+            400.0,
+            400.0,
+            400.0,
+            400.0,
+            400.0,
+            400.0
+          ],
+          "__type": "SpellDataValue"
+        },
+        {
+          "name": "AoECoefficient",
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "__type": "SpellDataValue"
+        },
+        {
+          "name": "APRatio",
+          "values": [
+            1.2000000476837158,
+            1.2000000476837158,
+            1.2000000476837158,
+            1.2000000476837158,
+            1.2000000476837158,
+            1.2000000476837158,
+            1.2000000476837158
+          ],
+          "__type": "SpellDataValue"
+        }
+      ],
+      "DataValuesModeOverride": {
+        "cherry": {
+          "SpellDataValues": [
+            {
+              "name": "MinStunDuration",
+              "values": [
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "MaxStunDuration",
+              "values": [
+                4.5,
+                4.5,
+                4.5,
+                4.5,
+                4.5,
+                4.5,
+                4.5
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "APRatio",
+              "values": [
+                2.0,
+                2.0,
+                2.0,
+                2.0,
+                2.0,
+                2.0,
+                2.0
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "__type": "SpellDataValueVector"
+        }
+      },
+      "mSpellCalculations": {
+        "RMainDamage": {
+          "mFormulaParts": [
+            {
+              "mDataValue": "RBaseDamage",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mDataValue": "APRatio",
+              "__type": "StatByNamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "{6b932875}": {
+          "mMultiplier": {
+            "mDataValue": "AoeCoefficient",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          "mModifiedGameCalculation": "RMainDamage",
+          "__type": "GameCalculationModified"
+        }
+      },
+      "mAnimationName": "Spell4",
+      "mImgIconName": [
+        "ASSETS/Characters/Ashe/HUD/Icons2D/Ashe_R.dds"
+      ],
+      "mMinimapIconName": "assets/characters/ashe/hud/icons2d/bowmaster_enchantedarrow_circle.tex",
+      "spellCastTime": 0.25,
+      "spellTotalTime": 1.0,
+      "cooldownTime": [
+        100.0,
+        100.0,
+        80.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "Cooldown": {
+        "values": [
+          100.0,
+          100.0,
+          80.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0
+        ],
+        "__type": "{0a0eddc9}"
+      },
+      "mCantCancelWhileWindingUp": true,
+      "mSpellRevealsChampion": false,
+      "mUseMinimapTargeting": true,
+      "mMinimapIconRotation": true,
+      "useAnimatorFramerate": true,
+      "castRange": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "castRangeValues": {
+        "values": [
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0
+        ],
+        "{0a3e0478}": 25000.0,
+        "__type": "{0a0eddc9}"
+      },
+      "castRadius": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "castConeDistance": 100.0,
+      "luaOnMissileUpdateDistanceInterval": 10.0,
+      "mMissileSpec": {
+        "mMissileWidth": 130.0,
+        "movementComponent": {
+          "mUseHeightOffsetAtEnd": true,
+          "mTracksTarget": false,
+          "mTargetHeightAugment": 100.0,
+          "mOffsetInitialTargetHeight": 100.0,
+          "mStartBoneName": "R_hand",
+          "mProjectTargetToCastRange": true,
+          "mAcceleration": 200.0,
+          "mMinSpeed": 1500.0,
+          "mMaxSpeed": 2100.0,
+          "mInitialSpeed": 1500.0,
+          "__type": "AcceleratingMovement"
+        },
+        "visibilityComponent": {
+          "mPerceptionBubbleRadius": 750.0,
+          "__type": "Defaultvisibility"
+        },
+        "heightSolver": {
+          "mHeightOffset": 100.0,
+          "__type": "FollowTerrainHeightSolver"
+        },
+        "verticalFacing": {
+          "__type": "VerticalFacingFaceTarget"
+        },
+        "behaviors": [
+          {
+            "__type": "CastOnHit"
+          },
+          {
+            "__type": "DestroyOnMovementComplete"
+          }
+        ],
+        "__type": "MissileSpecification"
+      },
+      "mCastType": 3,
+      "castFrame": 7.5,
+      "missileSpeed": 1600.0,
+      "mMissileEffectKey": "Ashe_R_mis",
+      "mLineWidth": 130.0,
+      "mana": [
+        100.0,
+        100.0,
+        100.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "manaValues": {
+        "values": [
+          100.0,
+          100.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "__type": "{630af303}"
+      },
+      "mTargetingTypeData": {
+        "__type": "Location"
+      },
+      "mCastingBreaksStealth": true,
+      "mClientData": {
+        "mTooltipData": {
+          "mObjectName": "EnchantedCrystalArrow",
+          "mFormat": "{d7c27163}",
+          "mLocKeys": {
+            "keyName": "Spell_EnchantedCrystalArrow_Name",
+            "keySummary": "Spell_EnchantedCrystalArrow_Summary",
+            "keyTooltip": "Spell_EnchantedCrystalArrow_Tooltip",
+            "keyTooltipExtendedBelowLine": "Spell_EnchantedCrystalArrow_TooltipExtendedBelowLine"
+          },
+          "mLists": {
+            "LevelUp": {
+              "levelCount": 3,
+              "Elements": [
+                {
+                  "type": "RBaseDamage",
+                  "typeIndex": 1,
+                  "nameOverride": "Spell_ListType_Damage",
+                  "__type": "TooltipInstanceListElement"
+                },
+                {
+                  "type": "Cooldown",
+                  "__type": "TooltipInstanceListElement"
+                }
+              ],
+              "__type": "TooltipInstanceList"
+            }
+          },
+          "__type": "TooltipInstanceSpell"
+        },
+        "mTargeterDefinitions": [
+          {
+            "hideWithLineIndicator": true,
+            "useCasterBoundingBox": false,
+            "__type": "TargeterDefinitionRange"
+          },
+          {
+            "useCasterBoundingBox": false,
+            "__type": "TargeterDefinitionMinimap"
+          },
+          {
+            "endLocator": {
+              "basePosition": 3,
+              "__type": "DrawablePositionLocator"
+            },
+            "useGlobalLineIndicator": true,
+            "lineStopsAtEndPosition": false,
+            "lineWidth": {
+              "mPerLevelValues": [
+                130.0,
+                130.0,
+                130.0,
+                130.0,
+                130.0,
+                130.0
+              ],
+              "mValueType": 2,
+              "__type": "FloatPerSpellLevel"
+            },
+            "__type": "TargeterDefinitionLine"
+          }
+        ],
+        "__type": "SpellDataResourceClient"
+      },
+      "__type": "SpellDataResource"
+    },
+    "mBuff": {
+      "mDescription": "game_buff_tooltip_EnchantedCrystalArrow",
+      "__type": "BuffData"
+    },
+    "BotData": {
+      "DamageTag": 1,
+      "{6d548702}": {
+        "mFormulaParts": [
+          {
+            "mSpellCalculationKey": "RMainDamage",
+            "__type": "{f3cbe7b2}"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{ec17e271}": [
+        {
+          "EffectTag": 4096,
+          "EffectCalculation": {
+            "mFormulaParts": [
+              {
+                "mDataValue": "MinStunDuration",
+                "__type": "NamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          },
+          "__type": "{b09016f6}"
+        },
+        {
+          "EffectTag": 2048,
+          "EffectCalculation": {
+            "mFormulaParts": [
+              {
+                "mDataValue": "MinStunDuration",
+                "__type": "NamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          },
+          "__type": "{b09016f6}"
+        },
+        {
+          "EffectTag": 16384,
+          "EffectCalculation": {
+            "mFormulaParts": [
+              {
+                "mDataValue": "MinStunDuration",
+                "__type": "NamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          },
+          "__type": "{b09016f6}"
+        },
+        {
+          "EffectTag": 1,
+          "EffectCalculation": {
+            "__type": "GameCalculation"
+          },
+          "__type": "{b09016f6}"
+        },
+        {
+          "EffectTag": 32768,
+          "EffectCalculation": {
+            "mFormulaParts": [
+              {
+                "mNumber": 130.0,
+                "__type": "NumberCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          },
+          "__type": "{b09016f6}"
+        }
+      ],
+      "{38382c53}": [
+        {
+          "{e38f54f7}": 2048,
+          "__type": "{150d1b92}"
+        }
+      ],
+      "__type": "BotsSpellData"
+    },
+    "__type": "SpellObject"
+  }
+}
