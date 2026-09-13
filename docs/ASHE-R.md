@@ -43,3 +43,8 @@ The direct hit now uses `clamp(distanceTravelled × 0.00125, 1, 3.5)` seconds in
 Distance uses consumed projectile range plus the current sweep's distance to first contact, rather than the caster's current position or a whole-step overshoot. This remains an implementation interpretation of traveled distance; reference contact-point/radius calibration is outstanding. The final duration rounds up to a 60 Hz simulation tick, with arithmetic noise removed at eight decimal places. The report describes coarse live-client buff/server expiry behavior; this implementation deliberately retains its existing exact-tick deadlines and does not reproduce that behavior. Thus the intended curve is implemented, while exact observed stun lifetime parity remains unverified.
 
 Two simulation cases cover zero/800/800.01/1,600/2,800/5,000-unit travel, caster movement, saved flight and exact expiry. The long-range browser case now verifies a 210-tick stun at impact. Existing splash checks expect the one-second minimum for the nearby direct target and no stun on surrounding targets.
+
+
+## Minimap targeting
+
+The verified source exporter now exposes `mUseMinimapTargeting: true`. Holding and releasing R over the minimap uses its world position for arrow direction without moving the camera. See [input behavior and validation](MOVEMENT.md#minimap-spell-targeting).

@@ -2,6 +2,7 @@ import type { Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 import type { Hud } from '../ui/hud';
+import { ABILITIES } from '../content/rules';
 
 export class GameInput {
   pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -16,6 +17,14 @@ export class GameInput {
     unlockAudio: () => void
   ) {
     const canvas = view.renderer.domElement;
+    window.addEventListener('pointermove', (e) => {
+      this.pointer = { x: e.clientX, y: e.clientY };
+      if (this.aiming) view.setAim(this.aiming, this.castPoint(this.aiming));
+    });
+    window.addEventListener('pointerdown', (e) => {
+      this.pointer = { x: e.clientX, y: e.clientY };
+      if (e.button === 2 && hud.minimapPoint(e.clientX, e.clientY)) this.cancelAim();
+    });
     canvas.addEventListener('contextmenu', (e) => e.preventDefault());
     canvas.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
@@ -23,7 +32,6 @@ export class GameInput {
       const target = view.pick(world, e.clientX, e.clientY);
       view.hovered = target?.id ?? null;
       canvas.classList.toggle('enemy-hover', !!target && target.team === 'red');
-      view.setAim(this.aiming, view.worldPoint(e.clientX, e.clientY));
     });
     canvas.addEventListener('pointerleave', () => {
       this.inside = false;
@@ -112,7 +120,7 @@ export class GameInput {
       if (key === 'b') world.enqueue({ type: 'recall', unit: world.player.id });
       if (['q', 'f'].includes(key)) {
         const point =
-          key === 'f'
+          key === 'f' && document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
             ? (view.pick(world, this.pointer.x, this.pointer.y) ??
               view.worldPoint(this.pointer.x, this.pointer.y) ??
               world.hero)
@@ -127,7 +135,7 @@ export class GameInput {
       if (['w', 'e', 'r', 'd'].includes(key)) {
         this.aiming = key as Ability;
         canvas.classList.add('aiming');
-        view.setAim(this.aiming, view.worldPoint(this.pointer.x, this.pointer.y));
+        view.setAim(this.aiming, this.castPoint(this.aiming));
       }
     });
     window.addEventListener('keyup', (e) => {
@@ -137,7 +145,7 @@ export class GameInput {
       if (key === 'shift' && !this.attackMove) view.rangeVisible = false;
       if (key === this.aiming) {
         if (!hud.paused && !hud.modal) {
-          const point = view.worldPoint(this.pointer.x, this.pointer.y);
+          const point = this.castPoint(this.aiming);
           if (point)
             world.enqueue({ type: 'cast', unit: world.player.id, ability: this.aiming, point });
         }
@@ -151,6 +159,13 @@ export class GameInput {
     this.inside = false;
     this.cancelAim();
     this.hud.scoreboard(false);
+  }
+  private castPoint(ability: Ability): { x: number; y: number } | null {
+    const { x, y } = this.pointer;
+    const minimap = this.hud.minimapPoint(x, y);
+    if (minimap) return ABILITIES[ability].minimapTargeting ? minimap : null;
+    if (document.elementFromPoint(x, y) !== this.view.renderer.domElement) return null;
+    return this.view.worldPoint(x, y);
   }
   cancelAim(): void {
     this.aiming = null;

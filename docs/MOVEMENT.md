@@ -47,3 +47,14 @@ Capture effective displacement over unobstructed straight paths with fixed timin
 - A save during decay, exact expiration, and matching renderer playback after restore. Caps should be derived from saved state, not introduce another independent deadline.
 
 Do not update existing tests to these candidate numbers until the rule and scope are accepted. Existing tests establish the current implementation’s consistency; they do not establish agreement with League. General strongest-slow priority, slow resistance, and arbitrary movement modifiers remain separate missing systems.
+
+
+## Minimap spell targeting
+
+Hawkshot (E) and Enchanted Crystal Arrow (R) now use minimap coordinates when aimed and released over the minimap. Both pinned standard spell records explicitly set `mUseMinimapTargeting: true`; the existing hash-verified exporters now expose that flag to ability metadata. Other targeted abilities do not inherit it. Source: [16.18 Ashe records](https://raw.communitydragon.org/16.18/game/data/characters/ashe/ashe.bin.json).
+
+The HUD's minimap coordinate conversion is shared by spell aiming, camera clicks and movement orders, using the displayed rectangle and battlefield extent. Pointer tracking spans the battlefield and HUD, allowing a held E/R to move between them. Releasing over another HUD panel, or releasing a spell without minimap support over the minimap, submits no cast; it does not reuse the last battlefield position. Actual canvas hit-testing also prevents Heal from selecting a unit behind a HUD panel. Minimap hover and spell release do not move or unlock the camera. Right-click minimap movement cancels a held cast, consistent with battlefield right-click cancellation. Escape still cancels targeting.
+
+This implements the current hold-to-aim/release-to-cast input mode. Reference parity for alternate cast modes, minimap unit-target priority, modifiers and detailed pointer cancellation remains unverified. The controls panel now describes E/R minimap use.
+
+Four Chrome scenarios verify both spells on the full Rift at laptop size, projected aim/cast direction and Hawkshot endpoint, unchanged camera, transitions through HUD/minimap/battlefield, unsupported casts, Escape, and right-click cancellation. Existing control and hovered-ally Heal checks remain passing.

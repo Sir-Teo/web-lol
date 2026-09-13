@@ -18,6 +18,7 @@ export const ABILITIES: Record<
     icon: string;
     canCastWhileDisabled?: boolean;
     preservesRecall?: boolean;
+    minimapTargeting?: boolean;
   }
 > = {
   q: {
@@ -38,6 +39,7 @@ export const ABILITIES: Record<
     icon: 'Volley',
   },
   e: {
+    minimapTargeting: ASHE_E.minimapTargeting,
     name: 'Hawkshot',
     description: `Send a hawk that reveals its route, then grants destination vision for ${ASHE_E.visionSeconds} seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${ASHE_E.rechargeSecondsByRank[0]} seconds.`,
     cooldown: ASHE_E.castCooldownSeconds,
@@ -46,6 +48,7 @@ export const ABILITIES: Record<
     icon: 'AsheSpiritOfTheHawk',
   },
   r: {
+    minimapTargeting: ASHE_R.minimapTargeting,
     name: 'Enchanted Crystal Arrow',
     description:
       'Launch an arrow that passes through minions and stuns the first enemy champion hit.',

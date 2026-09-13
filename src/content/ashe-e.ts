@@ -11,5 +11,6 @@ export const ASHE_E = {
   ],
   "projectileSpeed": 1400.0,
   "range": 25000.0,
-  "visionSeconds": 5.0
+  "visionSeconds": 5.0,
+  "minimapTargeting": true
 } as const;

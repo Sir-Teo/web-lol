@@ -86,11 +86,8 @@ export class Hud {
     this.mini.addEventListener('contextmenu', (e) => e.preventDefault());
     this.mini.addEventListener('pointerdown', (e) => {
       if (this.modal || this.paused) return;
-      const bounds = this.mini.getBoundingClientRect();
-      const point = {
-        x: ((e.clientX - bounds.left) / bounds.width - 0.5) * this.world.battlefield.half * 2,
-        y: ((e.clientY - bounds.top) / bounds.height - 0.5) * this.world.battlefield.half * 2,
-      };
+      const point = this.minimapPoint(e.clientX, e.clientY);
+      if (!point) return;
       if (e.button === 2)
         this.world.enqueue({
           type: 'order',
@@ -185,6 +182,7 @@ export class Hud {
         ['S', 'Stop'],
         ['Q', 'Activate Focus at 4 stacks'],
         ['Hold W / E / R', 'Aim, then release to cast'],
+        ['E / R over minimap', 'Aim across the map without moving the camera'],
         ['D / F', 'Flash / Heal'],
         ['B', 'Recall to fountain'],
         ['P', 'Open item shop'],
@@ -285,6 +283,23 @@ export class Hud {
       backdrop.querySelector<HTMLButtonElement>('.shop-item') ??
       backdrop.querySelector<HTMLButtonElement>('.close-button');
     initialFocus?.focus();
+  }
+  minimapPoint(clientX: number, clientY: number): { x: number; y: number } | null {
+    const bounds = this.mini.getBoundingClientRect();
+    if (
+      bounds.width <= 0 ||
+      bounds.height <= 0 ||
+      clientX < bounds.left ||
+      clientX >= bounds.right ||
+      clientY < bounds.top ||
+      clientY >= bounds.bottom ||
+      document.elementFromPoint(clientX, clientY) !== this.mini
+    )
+      return null;
+    return {
+      x: ((clientX - bounds.left) / bounds.width - 0.5) * this.world.battlefield.half * 2,
+      y: ((clientY - bounds.top) / bounds.height - 0.5) * this.world.battlefield.half * 2,
+    };
   }
   closeModal(): void {
     if (this.world.winner || this.graphicsState || document.hidden) return;

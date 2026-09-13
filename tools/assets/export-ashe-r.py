@@ -18,6 +18,7 @@ data['sightRadius'] = visibility['mPerceptionBubbleRadius']
 cast_ranges = record['mSpell']['castRange']
 assert len(set(cast_ranges)) == 1
 data['range'] = cast_ranges[0]
+data['minimapTargeting'] = record['mSpell']['mUseMinimapTargeting']
 for name, field in [('SlowRadius', 'splashRadius'), ('AoECoefficient', 'splashDamageMultiplier'),
                     ('MinStunDuration', 'minimumStunSeconds'), ('MaxStunDuration', 'maximumStunSeconds')]:
     values = next(v['values'] for v in record['mSpell']['DataValues'] if v['name'] == name)

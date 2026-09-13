@@ -5,6 +5,7 @@ export const ASHE_R = {
   "maximumSpeed": 2100.0,
   "sightRadius": 750.0,
   "range": 25000.0,
+  "minimapTargeting": true,
   "splashRadius": 400.0,
   "splashDamageMultiplier": 1.0,
   "minimumStunSeconds": 1.0,

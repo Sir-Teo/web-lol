@@ -6,7 +6,7 @@ Last updated: September 13, 2026 (America/New_York).
 
 ## Current authoritative state
 
-Latest validation: 222 simulation checks, nine focused Chrome scenarios, static build and production smoke pass at the Hawkshot flight milestone below. The last full Chrome run passed all 71 scenarios at the preceding ammunition milestone.
+Latest validation: 222 simulation checks, 16 focused Chrome scenarios, static build and production smoke pass at the minimap targeting milestone below. The last full Chrome run passed all 71 scenarios at the preceding ammunition milestone.
 
 - TypeScript/Vite/Three.js application boots directly into practice on the full reference Rift.
 - Fixed-step, renderer-independent simulation with command handling, wall-aware navigation, ranged attack windup/release, homing attacks, swept skillshots, death, and respawn.
@@ -483,3 +483,10 @@ Hawkshot now travels at the source-backed 1400 units/second toward a target clam
 All 222 simulation checks, nine focused Chrome cases, static build and production smoke pass. New cases cover flight distance, endpoint/range/expiry boundaries, collision exclusion, team sight, multiple scouts, death and saved continuation. Browser checks confirm visible flight, frozen wing pose while paused, distant enemy reveal and re-hide, model cleanup and existing charge feedback. Screenshots were inspected; the final silhouette uses indexed triangles without adding a polygon triangulation dependency. Export regeneration is byte-identical. The full Chrome suite was not repeated for this milestone.
 
 The bird is an authored temporary proxy, and sight retains the earlier provisional 650 radius. Lingering trail vision, source cast windup, reference geometry, minimap targeting and original audiovisual effects remain unfinished, as detailed in [ASHE-E.md](ASHE-E.md). Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+
+## Minimap targeting milestone
+
+E and R now aim and cast from minimap world coordinates without moving the camera, using their verified source flags. A shared conversion keeps map navigation and casting aligned. Pointer transitions no longer retain stale battlefield aim over HUD panels; unsupported minimap spells submit no cast. Right-click minimap movement and Escape cancel held targeting. Heal only picks a hovered unit on the battlefield canvas. The controls panel documents minimap spell use.
+
+All 222 simulation checks, 16 focused Chrome scenarios, static build and production smoke pass. Four new browser scenarios cover full-Rift E/R direction and endpoint, laptop geometry, unchanged camera, surface transitions, unsupported spells and cancellation; existing controls and ally Heal remain passing. Both source exports regenerate byte-identically. Full Chrome coverage was not repeated. Alternate cast modes, broader champion systems and full match/pixel fidelity remain unfinished; the production goal remains active.

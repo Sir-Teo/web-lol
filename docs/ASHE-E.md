@@ -39,4 +39,7 @@ Four simulation cases cover fixed speed, collision exclusion, exact arrival/expi
 
 ## Remaining Hawkshot fidelity work
 
-Verify and implement sight radius, lingering path vision, the source 0.25-second cast windup and its cancellation/movement rules, minimap targeting, independent rank allocation/haste, original animation, particles and audio. The current moving bubble can reveal the destination during approach before the projectile arrives; the separate five-second destination lifetime begins only at arrival. Complete spell parity remains unverified.
+Verify and implement sight radius, lingering path vision, the source 0.25-second cast windup and its cancellation/movement rules, independent rank allocation/haste, original animation, particles and audio. The current moving bubble can reveal the destination during approach before the projectile arrives; the separate five-second destination lifetime begins only at arrival. Complete spell parity remains unverified.
+
+
+Minimap aiming/release is now supported through the source `mUseMinimapTargeting` flag. See [input behavior and validation](MOVEMENT.md#minimap-spell-targeting).
