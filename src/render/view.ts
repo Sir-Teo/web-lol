@@ -20,6 +20,7 @@ import { HawkshotDarkness } from './hawkshot-darkness';
 import { HawkshotRadial } from './hawkshot-radial';
 import { HawkshotSparkle } from './hawkshot-sparkle';
 import { HawkshotSnow } from './hawkshot-snow';
+import { HawkshotLingerAurora } from './hawkshot-linger-aurora';
 import { HawkshotEchoes } from './hawkshot-echo';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
@@ -36,6 +37,7 @@ export class GameView {
   radial = new HawkshotRadial(this.scene, (p) => this.ground(p));
   sparkle = new HawkshotSparkle(this.scene, (p) => this.ground(p));
   snow = [0, 1].map((layer) => new HawkshotSnow(layer, this.scene, (p) => this.ground(p)));
+  lingerAurora = new HawkshotLingerAurora(this.scene, (p) => this.ground(p));
   echoes = new HawkshotEchoes(this.scene, (p) => this.ground(p));
   camera = new THREE.PerspectiveCamera(40, 1, 0.1, 180);
   center: Vec2 = { x: -500, y: 375 };
@@ -564,6 +566,7 @@ export class GameView {
     this.radial.update(world, this.camera);
     this.sparkle.update(world, this.camera);
     this.snow.forEach((layer) => layer.update(world, this.camera));
+    this.lingerAurora.update(world);
     const selected = world.unit(this.selected ?? world.player.id);
     this.selection.visible = !!selected && world.alive(selected) && world.visible(selected);
     if (selected) {

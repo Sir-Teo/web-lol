@@ -138,3 +138,5 @@ Lingering Hawkshot preparation adds two lossless PNGs totaling 3,501 bytes: the 
 The prepared Sparkle PNG is now loaded for sustained endpoint playback (3,128 bytes), with shared full-image UVs and source uniform X scaling. The multiplication band remains prepared but unused. `python3 tools/assets/export-hawkshot-sparkle.py` regenerates the profile. [Sparkle behavior and evidence](ASHE-E.md#lingering-sparkle-playback).
 
 Snow01 and Snow02 reuse the loaded shard atlas through two independent instanced batches, adding no images. `python3 tools/assets/export-hawkshot-snow.py` generates their distinct source profiles. [Snow playback and native-calibration limits](ASHE-E.md#lingering-snow01-and-snow02-playback).
+
+Lingering Aurora now loads the remaining 373-byte multiplication band, reusing the wispy atlas and verified erosion alias. The secondary texture uses independent repeating UVs and per-particle scroll uniforms. `python3 tools/assets/export-hawkshot-linger-aurora.py` regenerates its source profile. [Aurora playback and shader policies](ASHE-E.md#lingering-aurora-playback).

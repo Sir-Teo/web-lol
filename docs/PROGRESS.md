@@ -748,3 +748,11 @@ Snow01 and Snow02 now render through separate instanced batches sharing the exis
 All 278 source/simulation checks, four focused Chrome scenarios, production build and a real-input production Hawkshot smoke test pass. Browser evidence verifies each layer's independent pixels after reveal expiry, exact paused/restored buffers and empty batches after tail completion. Existing Dust atlas behavior passes. The source-scale fixture screenshot was inspected and both profiles regenerate byte-identically. The full browser suite and unchanged GLB validation were not repeated.
 
 Three of four lingering layers have playback adapters. Force/orbit integration, native defaults, emission phase and visual parity remain unverified as documented. Linger Aurora, source sound and the broader full-match goal remain unfinished. The goal stays active. See [snow evidence](ASHE-E.md#lingering-snow01-and-snow02-playback).
+
+## Lingering Aurora shader milestone
+
+The remaining linger Aurora now renders its single drifting arbitrary quad with source lifetime, scale, alpha curve and blue erosion. A separately scrolling RGBA multiplication band adds 373 image bytes; the primary atlas and erosion pack are shared. Independent uniforms/materials restore from saved age and are released on expiry or removal.
+
+All 280 source/simulation checks, four focused browser scenarios, production build and a real-input production Hawkshot smoke test pass. The Aurora browser scenarios were repeated after adding GPU scrolling/wrapping coverage. Tests verify source parameters, lifetime/drift/fade, pause/fresh restore, material cleanup, actual pixels, blue erosion, both RGB and alpha multiplication and repeat scrolling. The composite screenshot was inspected and profile regeneration is byte-identical. The full browser suite and unchanged GLB validation were not repeated.
+
+All eight flight, five explosion and four lingering source emitters now have adapters. This establishes source-record coverage only. Native placement/defaults, probability/phase, color/UV semantics and rendered parity remain unverified; source sound and the broader production match remain incomplete. The goal stays active. See [lingering Aurora shader evidence](ASHE-E.md#lingering-aurora-playback).
