@@ -1,5 +1,5 @@
 import type { Vec2 } from './math';
-import type { Team, UnitKind, UnitStats, StructureState } from './types';
+import type { Team, UnitKind, UnitStats, StructureState, LaneMinionKind } from './types';
 
 export interface WaveContext {
   enemyLaneInhibitorDown: boolean;
@@ -41,6 +41,7 @@ export interface Battlefield extends TerrainQueries {
     };
   };
   waveKinds(wave: number, seconds: number, context?: WaveContext): UnitKind[];
+  minionTurretDamage?: Record<LaneMinionKind, number>;
   unitStats?: Partial<Record<UnitKind, Record<Team, UnitStats>>>;
   initialUnits: {
     kind: UnitKind;

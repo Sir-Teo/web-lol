@@ -1647,6 +1647,12 @@
       }
     }
   },
+  "minionTurretDamage": {
+    "melee": 0.6,
+    "caster": 0.6,
+    "siege": 0.84,
+    "super": 0.6
+  },
   "waves": {
     "initialSeconds": 30.0,
     "intervalSeconds": 30.0,

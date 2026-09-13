@@ -11,5 +11,11 @@
       "intervalSeconds": 20
     }
   ],
-  "initialSiegeGold": 50
+  "initialSiegeGold": 50,
+  "minionTurretDamage": {
+    "melee": 0.6,
+    "caster": 0.6,
+    "siege": 0.84,
+    "super": 0.6
+  }
 }

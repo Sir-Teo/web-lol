@@ -3,7 +3,7 @@ import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
-import { isStructureKind } from './types';
+import { isStructureKind, isLaneMinionKind } from './types';
 import type {
   Ability,
   Command,
@@ -471,7 +471,7 @@ export class World {
               endTick: this.tick + 120,
             });
           this.emit('attack', u, { unit: u.id, team: u.team });
-          if (!u.missileSpeed) this.damage(u, target, u.damage, 'physical');
+          if (!u.missileSpeed) this.hitBasicAttack(u, target, u.damage);
           else
             this.projectiles.push({
               id: this.nextId++,
@@ -588,7 +588,8 @@ export class World {
       if (contact) {
         if (source && (p.volleyId === null || !this.volleyHits[p.volleyId]?.includes(contact.id))) {
           if (p.volleyId !== null) (this.volleyHits[p.volleyId] ??= []).push(contact.id);
-          this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
+          if (p.type === 'attack') this.hitBasicAttack(source, contact, p.damage);
+          else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
           if (source.kind === 'champion') contact.slowUntil = this.tick + 120;
           if (p.type === 'ultimate') contact.stunUntil = this.tick + 120;
           if (source.id === this.player.id && p.type === 'attack') {
@@ -604,6 +605,13 @@ export class World {
       }
     }
     this.projectiles = this.winner ? [] : survivors;
+  }
+  private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
+    const multiplier =
+      target.kind === 'turret' && isLaneMinionKind(source.kind)
+        ? (this.battlefield.minionTurretDamage?.[source.kind] ?? 1)
+        : 1;
+    this.damage(source, target, raw * multiplier, 'physical');
   }
   damage(source: Unit, target: Unit, raw: number, kind: 'physical' | 'magic' | 'true'): void {
     if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;

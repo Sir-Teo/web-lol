@@ -1,5 +1,8 @@
 import type { Vec2 } from './math';
 export type Team = 'blue' | 'red';
+export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
+export const isLaneMinionKind = (kind: UnitKind): kind is LaneMinionKind =>
+  kind === 'melee' || kind === 'caster' || kind === 'siege' || kind === 'super';
 export type UnitKind =
   'champion' | 'melee' | 'caster' | 'siege' | 'super' | 'turret' | 'inhibitor' | 'nexus' | 'dummy';
 export const isStructureKind = (kind: UnitKind): boolean =>

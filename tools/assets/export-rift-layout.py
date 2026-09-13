@@ -145,7 +145,7 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
         }
 layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawns": spawns,
           "lanes": lanes, "turrets": turrets, "structures": base_structures,
-          "unitStats": unit_stats,
+          "unitStats": unit_stats, "minionTurretDamage": overrides["minionTurretDamage"],
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
                     "intervalChanges": overrides['waveIntervals'],
