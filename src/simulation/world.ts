@@ -565,16 +565,30 @@ export class World {
       u.nextPathTick = this.tick + 12;
       u.pathTarget = { x: point.x, y: point.y };
     }
-    const waypoint = u.path[0];
-    if (!waypoint) return;
-    const dir = direction(u, waypoint),
-      d = distance(u, waypoint);
+    let remaining = this.movementSpeed(u) * DT;
+    while (u.path.length && remaining > 0) {
+      const waypoint = u.path[0],
+        d = distance(u, waypoint);
+      if (d === 0) {
+        u.path.shift();
+        continue;
+      }
+      const dir = direction(u, waypoint),
+        amount = Math.min(d, remaining);
+      u.x += dir.x * amount;
+      u.y += dir.y * amount;
+      u.facing = Math.atan2(dir.x, dir.y);
+      remaining -= amount;
+      if (amount === d) {
+        u.x = waypoint.x;
+        u.y = waypoint.y;
+        u.path.shift();
+      }
+    }
+  }
+  movementSpeed(u: Unit): number {
     const haste = u.id === this.player.id && this.healSpeedEnd > this.tick ? 1.3 : 1;
-    const amount = Math.min(d, u.speed * DT * (u.slowUntil > this.tick ? 0.7 : 1) * haste);
-    u.x += dir.x * amount;
-    u.y += dir.y * amount;
-    u.facing = Math.atan2(dir.x, dir.y);
-    if (d <= amount + 0.01) u.path.shift();
+    return u.speed * (u.slowUntil > this.tick ? 0.7 : 1) * haste;
   }
   private advanceProjectiles(): void {
     const survivors: Projectile[] = [];
