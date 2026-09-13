@@ -1,6 +1,6 @@
 # Summoner’s Rift reference terrain
 
-The map inspection page at `/map.html` renders the pinned full terrain, vegetation, and background geometry. It provides fixed viewpoints, orbit/pan/zoom, and an overlay of the matching navigation grid. The default playable game now uses this same terrain, navigation, elevation, and source-authored fountain, lane, barracks, and turret positions. The inspector remains an asset and alignment study; a complete match, nexus/inhibitor artwork, camps, and objective progression are still unfinished.
+The map inspection page at `/map.html` renders the pinned full terrain, vegetation, and background geometry. It provides fixed viewpoints, orbit/pan/zoom, and an overlay of the matching navigation grid. The default playable game now uses this same terrain, navigation, elevation, and source-authored fountain, lane, barracks, and turret positions. The inspector remains an asset and alignment study; a complete match, camps and complete-match behavior are still unfinished. Nexus and inhibitor models now occupy their authored placements and participate in the local building dependency chain.
 
 ## Source selection
 
@@ -83,7 +83,7 @@ The reconstructed textured intermediate GLB was rebuilt byte-for-byte after repl
 
 ## Fidelity gaps
 
-- Both teams’ source tower models now use the full authored placement matrices, with persistent rubble. Inhibitors, nexus objects, camps, and particle effects are separate from this terrain source and remain to be imported. See [tower assets](ASSETS.md#matching-tower-assets).
+- Both teams’ source tower models now use the full authored placement matrices, with persistent rubble. Both teams’ inhibitors and Nexus are now imported separately as well. Camps and particle effects remain unfinished. See [tower assets](ASSETS.md#matching-tower-assets).
 - The converter’s shader adapters approximate Riot’s shaders. Animated water, terrain transitions, glow compositing, lighting/fog, and controller-driven displacement are incomplete.
 - Brush uses the source grass tint image in a static shader approximation. Its UV fit, brightness, motion, and see-through response still require reference calibration.
 - The twelve procedural Faelights indicator meshes are explicitly omitted and listed in the artifact manifest; their shader is not implemented.

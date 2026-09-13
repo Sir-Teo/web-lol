@@ -87,3 +87,7 @@ Every submesh is an independent node with `submesh`, `initiallyHidden`, and `des
 Destroyed towers remain as records and render the source rubble parts in the initial `Destroyed` pose. This is a persistent rubble representation, not the complete destruction sequence. Damage-stage triggers, staged break animation events, ambient sparkle/glow, attack VFX and muzzle attachment, respawn rules, native texture-mip preservation, and pixel calibration remain outstanding. Source graph definitions are retained so these can be reconstructed without inventing animation timing. Enemy-building memory remains separate vision work.
 
 Browser checks cover all 22 exact placement matrices, fixed building orientation during attack states, initial visible parts, independent per-tower rigs, persistent rubble for both teams, hidden dead health bars, and GPU cleanup on explicit removal. Intact/rubble screenshots are stored under `artifacts/browser-{blue,red}-tower-{intact,rubble}.png`.
+
+## Nexus and inhibitor assets
+
+The default map now includes both teams’ source Nexus and inhibitor models, with intact/dead submeshes and retained clips. See [structure assets and gameplay](STRUCTURES.md) for provenance, rebuild commands, state handling, tests, and explicit remaining accuracy work. All thirteen current GLBs pass validation with zero errors/warnings.
