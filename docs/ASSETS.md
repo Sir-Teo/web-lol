@@ -100,3 +100,7 @@ Both team models now use the same matching 16.18 source pipeline. Their six clip
 ## Hawkshot body
 
 The base Hawkshot now uses its pinned source Owl1 body and Owl2 Fresnel rim, textures, five-bone rig and original flight clip. `node tools/assets/convert-hawkshot.mjs` rebuilds the 80,440-byte GLB with two layers of 642 shared source triangles after the source extraction described in [ASHE-E.md](ASHE-E.md#original-effect-asset-recovery). The companion manifest records source/output hashes and explicit material/transform assumptions. Animation resources are private per scout; geometry and materials remain shared. Complete particle layering and reference visual calibration remain outstanding.
+
+## Hawkshot wind assets
+
+The source WindTunnel SCB and TEX files now have a reproducible conversion through `node tools/assets/convert-hawkshot-wind.mjs`. The GLB preserves 124 triangles, per-corner UVs and eight vertex-alpha values; the separately hashed erosion texture preserves linear channel data. [Conversion evidence and remaining playback work](ASHE-E.md#windtunnel-asset-preparation). These assets are prepared but not yet loaded by gameplay. The asset validator now also checks optional auxiliary-file hashes and sizes.

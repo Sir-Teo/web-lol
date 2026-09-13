@@ -1,0 +1,74 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Prepared source assets. Runtime emission, randomization, drag, erosion, lingering and visual calibration are not implemented.",
+  "output": {
+    "path": "/assets/models/hawkshot-wind.glb",
+    "bytes": 41400,
+    "sha256": "2916712c50fbae610a67cc9df7dfe47664e7e40d19cf7fbb659b1784368f2dd2"
+  },
+  "auxiliaryAssets": [
+    {
+      "path": "/assets/effects/hawkshot-wind-erosion.png",
+      "bytes": 150143,
+      "sha256": "b995122187f1c994a398bd8958107fed03cc0fdef6cfb1eece3cfff8ea7ed245"
+    }
+  ],
+  "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "sourceArchive": "DATA/FINAL/Champions/Ashe.wad.client",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sources": [
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_base_w_swirlmesh03.scb",
+      "wadPathHash": "e14b0f91afba8bb0",
+      "sha256": "411196237a5ad177b287a835b12e6195aa984743344bcaa1ac5af894d14a8b69",
+      "bytes": 14128
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_base_w_windswirl01.tex",
+      "wadPathHash": "c2f52636160a4852",
+      "sha256": "8fd450628bdccde4f6ec371e09aae093121260ef58020098b59dd0bfcb7a834e",
+      "bytes": 87452
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_base_ba_erosionpack01.tex",
+      "wadPathHash": "0606445f2e9ef353",
+      "sha256": "ee5a16c2711867cd65725dca34835dcd251f99d2cf9c4e0db3d95fd748e49c1d",
+      "bytes": 174788
+    }
+  ],
+  "meshReaderReference": "https://github.com/LeagueToolkit/LeagueToolkit/tree/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit/Core/Mesh",
+  "unitScale": 0.01,
+  "sourceVertices": 96,
+  "exportedVertices": 372,
+  "triangles": 124,
+  "bones": 0,
+  "clips": [],
+  "textures": [
+    {
+      "name": "color",
+      "source": "assets/characters/ashe/skins/base/particles/ashe_base_w_windswirl01.tex",
+      "size": [
+        128,
+        512
+      ],
+      "rgbaSha256": "c1afe3e998cb414a2ba0eabae7f03f73856b53bc8ace5d941e3d91a88b54690c",
+      "pngSha256": "0c33c3c6fc6ffd61d1d797210ee82f0ac5c35d3ea87940303a82cd99dcde5582",
+      "output": "embedded in GLB"
+    },
+    {
+      "name": "erosion",
+      "source": "assets/characters/ashe/skins/base/particles/ashe_base_ba_erosionpack01.tex",
+      "size": [
+        512,
+        512
+      ],
+      "rgbaSha256": "395c57c28bac61169c5ed970de499c4893a76aea6ca56c5388d818ad24f387ac",
+      "pngSha256": "b995122187f1c994a398bd8958107fed03cc0fdef6cfb1eece3cfff8ea7ed245",
+      "output": "/assets/effects/hawkshot-wind-erosion.png"
+    }
+  ],
+  "policy": "Source positions scaled from centimeters, UVs and face winding preserved, per-corner UV seams expanded, BGRA vertex bytes mapped to normalized RGBA. Emitter scale/rotation remain runtime parameters. Erosion texture is linear data; runtime must sample its green channel."
+}
