@@ -7,7 +7,7 @@ import type { Vec2 } from '../simulation/math';
 let reference: { geometry: THREE.PlaneGeometry; material: THREE.MeshBasicMaterial } | undefined;
 export async function loadHawkshotArrival() {
   const map = await new THREE.TextureLoader().loadAsync(
-    '/assets/effects/hawkshot-arrival-core.png'
+    'assets/effects/hawkshot-arrival-core.png'
   );
   map.colorSpace = THREE.SRGBColorSpace;
   const material = new THREE.MeshBasicMaterial({

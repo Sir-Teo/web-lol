@@ -15,7 +15,7 @@ export async function loadRift(
   renderer: THREE.WebGLRenderer,
   forceWebP = false
 ): Promise<THREE.Group> {
-  const base = '/assets/maps/';
+  const base = 'assets/maps/';
   const response = await fetch(`${base}rift-dxt.json`);
   if (!response.ok) throw new Error('Map texture manifest could not be loaded');
   const records = (await response.json()) as Record<string, DxtRecord>;

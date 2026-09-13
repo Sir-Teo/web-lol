@@ -4,7 +4,7 @@ import { HAWKSHOT_GLOW } from '../content/hawkshot-glow';
 let reference: { geometry: THREE.PlaneGeometry; materials: THREE.MeshBasicMaterial[] } | undefined;
 
 export async function loadHawkshotGlow(): Promise<void> {
-  const map = await new THREE.TextureLoader().loadAsync('/assets/effects/hawkshot-glow.png');
+  const map = await new THREE.TextureLoader().loadAsync('assets/effects/hawkshot-glow.png');
   map.colorSpace = THREE.SRGBColorSpace;
   const materials = HAWKSHOT_GLOW.map((layer) => {
     const material = new THREE.MeshBasicMaterial({

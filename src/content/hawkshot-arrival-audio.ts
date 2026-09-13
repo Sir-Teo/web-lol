@@ -4,6 +4,6 @@ export const HAWKSHOT_ARRIVAL_AUDIO = {
   mediaId: 381540917,
   gainDb: -9.0,
   delaySeconds: 0,
-  url: '/assets/audio/hawkshot-arrival.wav',
+  url: 'assets/audio/hawkshot-arrival.wav',
   sha256: 'be61d372023b1eab08c9a1f04eaf0206182835b8f595e5ccfff4bb4727dd2fca',
 } as const;

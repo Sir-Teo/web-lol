@@ -9,7 +9,7 @@ import type { Vec2 } from '../simulation/math';
 let multiply: THREE.Texture | undefined;
 export async function loadLingerAurora() {
   multiply = await new THREE.TextureLoader().loadAsync(
-    '/assets/effects/hawkshot-linger-multiply.png'
+    'assets/effects/hawkshot-linger-multiply.png'
   );
   multiply.colorSpace = THREE.NoColorSpace;
   multiply.wrapS = multiply.wrapT = THREE.RepeatWrapping;

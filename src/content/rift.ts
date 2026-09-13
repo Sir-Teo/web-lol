@@ -119,7 +119,7 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
 export async function loadRiftBattlefield(): Promise<Battlefield> {
   const responses = await Promise.all(
     ['rift-nav.json', 'rift-nav.bin', 'rift-layout.json'].map((name) =>
-      fetch(`/assets/maps/${name}`)
+      fetch(`assets/maps/${name}`)
     )
   );
   if (responses.some((response) => !response.ok))

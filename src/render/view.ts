@@ -208,7 +208,7 @@ export class GameView {
         const image = new Image();
         image.onload = () => resolve(image);
         image.onerror = () => reject(new Error('Minimap image could not be loaded'));
-        image.src = '/assets/maps/rift-minimap.webp';
+        image.src = 'assets/maps/rift-minimap.webp';
       }),
     ]);
     const root = new THREE.Group();

@@ -45,7 +45,7 @@ export async function loadReferenceModels(): Promise<void> {
   const loader = new GLTFLoader();
   await Promise.all(
     referenceNames.map(async (name) => {
-      const gltf = await loader.loadAsync(`/assets/models/${name}.glb`);
+      const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
       for (const required of /-(turret|nexus|inhibitor)$/.test(name)
         ? ['idle1']
         : name === 'ashe-base'

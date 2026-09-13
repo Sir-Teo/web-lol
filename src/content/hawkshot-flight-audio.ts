@@ -9,23 +9,23 @@ export const HAWKSHOT_FLIGHT_AUDIO = {
   variants: [
     {
       id: 695824710,
-      url: '/assets/audio/hawkshot-flight-695824710.wav',
+      url: 'assets/audio/hawkshot-flight-695824710.wav',
       sha256: 'c2bbbf82c19bd7f8f2d86f495ed526f8b67cc118b9aa13b5b34e99cf290a646d',
     },
     {
       id: 725427454,
-      url: '/assets/audio/hawkshot-flight-725427454.wav',
+      url: 'assets/audio/hawkshot-flight-725427454.wav',
       sha256: 'c13366901965e3d7bb4ae65324abed00eff2d1d11a6c3e0431e0250e5a557bdb',
     },
     {
       id: 761127030,
-      url: '/assets/audio/hawkshot-flight-761127030.wav',
+      url: 'assets/audio/hawkshot-flight-761127030.wav',
       sha256: 'b4038992259af00b555bc529f477e44655ca46ebbb7eba529fd934ea1db0b4f7',
     },
   ],
   loop: {
     id: 61040111,
-    url: '/assets/audio/hawkshot-flight-loop.wav',
+    url: 'assets/audio/hawkshot-flight-loop.wav',
     sha256: '744ed5f6c6a0c343aaa3e447e234e415bfba71ab60a95aae1eb5410ac632b943',
   },
 } as const;

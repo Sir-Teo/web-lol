@@ -7,7 +7,7 @@ import type { Vec2 } from '../simulation/math';
 let texture: THREE.Texture | undefined;
 export async function loadHawkshotSparkle() {
   texture = await new THREE.TextureLoader().loadAsync(
-    '/assets/effects/hawkshot-linger-sparkle.png'
+    'assets/effects/hawkshot-linger-sparkle.png'
   );
   texture.colorSpace = THREE.SRGBColorSpace;
 }

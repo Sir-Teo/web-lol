@@ -46,7 +46,7 @@ export class Hud {
       <div class="target-panel" id="target-panel" hidden><span class="target-label">SELECTED TARGET</span><strong id="target-name"></strong><div class="target-health"><i></i></div><span id="target-hp"></span></div>
       <div class="practice-corner"><button class="quiet-button" id="practice-button">◇ <span>Practice tools</span></button><button class="quiet-button" id="help-button">? <span>Controls</span></button><small>REFERENCE BUILD 0.1</small></div>
       <section class="champion-hud" aria-label="Champion controls">
-        <div class="champion-portrait"><img src="/assets/icons/ashe.png" alt="Ashe"><span id="level">1</span><div class="portrait-frame"></div></div>
+        <div class="champion-portrait"><img src="assets/icons/ashe.png" alt="Ashe"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage"><i>⚔</i><b id="ad">59</b></span><span title="Armor"><i>◈</i><b id="armor">26</b></span><span title="Attack speed"><i>⌁</i><b id="as">0.66</b></span><span title="Movement speed"><i>➤</i><b id="ms">325</b></span></div>
         <div class="champion-core"><div class="champion-title"><strong>ASHE</strong><span>THE FROST ARCHER</span><div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div></div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
@@ -73,7 +73,7 @@ export class Hud {
     this.bind();
   }
   private abilityMarkup(a: Ability): string {
-    return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="/assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
   }
   private bind(): void {
     const on = (id: string, fn: () => void) =>
@@ -205,7 +205,7 @@ export class Hud {
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
-      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="/assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><p class="shop-message" role="status">Purchases are available at the blue fountain.</p>`;
+      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><p class="shop-message" role="status">Purchases are available at the blue fountain.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
@@ -327,7 +327,7 @@ export class Hud {
     }
     panel.hidden = !show;
     if (show)
-      panel.innerHTML = `<div class="scoreboard-title">PRACTICE MATCH</div><div class="scoreboard-row"><img src="/assets/icons/ashe.png" alt="Ashe"><strong>Ashe <small>You</small></strong><span>${this.world.player.kills} / ${this.world.player.deaths} / 0</span><span>${this.world.player.cs} CS</span></div><div class="scoreboard-row enemy"><img src="/assets/icons/ashe.png" alt="Opponent"><strong>Sparring partner <small>Bot</small></strong><span>${this.world.player.deaths} / ${this.world.player.kills} / 0</span></div>`;
+      panel.innerHTML = `<div class="scoreboard-title">PRACTICE MATCH</div><div class="scoreboard-row"><img src="assets/icons/ashe.png" alt="Ashe"><strong>Ashe <small>You</small></strong><span>${this.world.player.kills} / ${this.world.player.deaths} / 0</span><span>${this.world.player.cs} CS</span></div><div class="scoreboard-row enemy"><img src="assets/icons/ashe.png" alt="Opponent"><strong>Sparring partner <small>Bot</small></strong><span>${this.world.player.deaths} / ${this.world.player.kills} / 0</span></div>`;
   }
   update(fps: number): void {
     if (this.world.winner && this.modal !== 'result') this.toggleModal('result');
@@ -414,7 +414,7 @@ export class Hud {
       this.lastInventory = p.inventory.join(',');
       this.root.querySelector('#inventory')!.innerHTML = Array.from({ length: 6 }, (_, i) => {
         const item = ITEMS.find((item) => item.id === p.inventory[i]);
-        return `<div class="item-slot" title="${item?.name ?? 'Empty item slot'}">${item ? `<img src="/assets/icons/${item.icon}.png" alt="${item.name}">` : ''}<span>${i + 1}</span></div>`;
+        return `<div class="item-slot" title="${item?.name ?? 'Empty item slot'}">${item ? `<img src="assets/icons/${item.icon}.png" alt="${item.name}">` : ''}<span>${i + 1}</span></div>`;
       }).join('');
     }
     if (Math.floor(w.time) !== this.lastSecond) {

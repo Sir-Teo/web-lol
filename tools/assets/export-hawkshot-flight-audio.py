@@ -25,7 +25,7 @@ def ship(identity,name):
  raw=Path(f'.cache/hawkshot-audio-decoded/{identity}.wav').read_bytes()
  assert hashlib.sha256(raw).hexdigest()==media['wavSha256']
  target=Path(f'public/assets/audio/hawkshot-flight-{name}.wav');target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(raw)
- return dict(id=identity,url='/'+str(target.relative_to('public')),sha256=media['wavSha256'])
+ return dict(id=identity,url=str(target.relative_to('public')),sha256=media['wavSha256'])
 profile=dict(eventId=play['id'],stopEventId=stop['id'],fadeSeconds=prop(754547015,'TransitionTime')/1000,
  fadeCurve=4,variantGainDb=prop(3429,'MakeUpGain'),loopGainDb=prop(921284325,'MakeUpGain'),
  variants=[ship(i,str(i)) for i in (695824710,725427454,761127030)],loop=ship(61040111,'loop'))

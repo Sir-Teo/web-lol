@@ -13,7 +13,7 @@ const instances = new WeakMap<
 
 export async function loadHawkshot(): Promise<void> {
   const [gltf] = await Promise.all([
-    new GLTFLoader().loadAsync('/assets/models/hawkshot.glb'),
+    new GLTFLoader().loadAsync('assets/models/hawkshot.glb'),
     loadHawkshotGlow(),
   ]);
   const clip = gltf.animations.find((clip) => clip.name === 'flight');

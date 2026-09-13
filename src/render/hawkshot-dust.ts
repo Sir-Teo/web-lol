@@ -11,7 +11,7 @@ export function hawkshotDustTexture() {
   return texture;
 }
 export async function loadHawkshotDust() {
-  texture = await new THREE.TextureLoader().loadAsync('/assets/effects/hawkshot-dust.png');
+  texture = await new THREE.TextureLoader().loadAsync('assets/effects/hawkshot-dust.png');
   texture.colorSpace = THREE.SRGBColorSpace;
 }
 

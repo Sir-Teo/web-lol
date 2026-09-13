@@ -16,8 +16,8 @@ export function hawkshotWindErosion() {
 }
 export async function loadHawkshotWind(): Promise<void> {
   const [gltf, erosion] = await Promise.all([
-    new GLTFLoader().loadAsync('/assets/models/hawkshot-wind.glb'),
-    new THREE.TextureLoader().loadAsync('/assets/effects/hawkshot-wind-erosion.png'),
+    new GLTFLoader().loadAsync('assets/models/hawkshot-wind.glb'),
+    new THREE.TextureLoader().loadAsync('assets/effects/hawkshot-wind-erosion.png'),
   ]);
   let mesh: THREE.Mesh | undefined;
   gltf.scene.traverse((o) => {

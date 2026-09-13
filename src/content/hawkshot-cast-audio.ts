@@ -6,17 +6,17 @@ export const HAWKSHOT_CAST_AUDIO = {
   variants: [
     {
       id: 413100913,
-      url: '/assets/audio/hawkshot-cast-413100913.wav',
+      url: 'assets/audio/hawkshot-cast-413100913.wav',
       sha256: 'a8c7e9371b117c8c3a59b3eec80d95252fabc62ea4d0ded11b16cbda1793ea99',
     },
     {
       id: 527200740,
-      url: '/assets/audio/hawkshot-cast-527200740.wav',
+      url: 'assets/audio/hawkshot-cast-527200740.wav',
       sha256: 'dabd88f42ceb0ac619f15705a17c3d69e6e782728ee258fe11e5953201b3e2f5',
     },
     {
       id: 1048576818,
-      url: '/assets/audio/hawkshot-cast-1048576818.wav',
+      url: 'assets/audio/hawkshot-cast-1048576818.wav',
       sha256: '67ff22a44e0959d16c8c41685a1c1263baa6d5ebc821c448870b03410b918dd6',
     },
   ],

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { rulesetFingerprint, affectsRuleset } from './tools/ruleset-fingerprint.ts';
 
 export default defineConfig({
+  base: './',
   define: { __SIMULATION_HASH__: JSON.stringify(rulesetFingerprint()) },
   plugins: [
     {

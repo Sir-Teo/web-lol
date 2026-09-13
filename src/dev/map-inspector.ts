@@ -66,8 +66,8 @@ interface NavigationMetadata {
 
 async function navigationOverlay(): Promise<THREE.Mesh> {
   const [metadataResponse, bytesResponse] = await Promise.all([
-    fetch('/assets/maps/rift-nav.json'),
-    fetch('/assets/maps/rift-nav.bin'),
+    fetch('assets/maps/rift-nav.json'),
+    fetch('assets/maps/rift-nav.bin'),
   ]);
   if (!metadataResponse.ok || !bytesResponse.ok)
     throw new Error('Navigation assets could not be loaded');

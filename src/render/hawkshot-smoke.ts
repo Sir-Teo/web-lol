@@ -15,8 +15,8 @@ export function hawkshotSmokeTextures() {
 }
 export async function loadHawkshotSmoke() {
   [texture, erosion] = await Promise.all([
-    new THREE.TextureLoader().loadAsync('/assets/effects/hawkshot-smoke.png'),
-    new THREE.TextureLoader().loadAsync('/assets/effects/hawkshot-smoke-erosion.png'),
+    new THREE.TextureLoader().loadAsync('assets/effects/hawkshot-smoke.png'),
+    new THREE.TextureLoader().loadAsync('assets/effects/hawkshot-smoke-erosion.png'),
   ]);
   erosion.colorSpace = THREE.NoColorSpace;
   erosion.wrapS = erosion.wrapT = THREE.MirroredRepeatWrapping;

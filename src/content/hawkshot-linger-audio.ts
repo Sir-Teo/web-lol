@@ -7,6 +7,6 @@ export const HAWKSHOT_LINGER_AUDIO = {
   fadeSeconds: 1.25,
   fadeCurve: 6,
   loop: true,
-  url: '/assets/audio/hawkshot-linger.wav',
+  url: 'assets/audio/hawkshot-linger.wav',
   sha256: 'bd4cb654d72934c6b3d65bdf9bc53448320e47993521adb32e630b3adce528af',
 } as const;
