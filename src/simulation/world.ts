@@ -1,3 +1,4 @@
+import { createChampionState, rechargeChampion, expireChampionFocus } from './champion-state';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
@@ -24,6 +25,7 @@ import type {
   Command,
   Order,
   PlayerState,
+  ChampionState,
   Projectile,
   SimEvent,
   Team,
@@ -42,6 +44,14 @@ export class World {
   commands: Command[] = [];
   random = new Random(26018);
   player: PlayerState;
+  private championRecords = new Map<number, ChampionState>();
+  championState(id: number): ChampionState | undefined {
+    if (!this.units.some((u) => u.id === id && u.kind === 'champion')) return undefined;
+    return this.player?.id === id ? this.player : this.championRecords.get(id);
+  }
+  private activeChampionStates(): ChampionState[] {
+    return this.units.filter((u) => u.kind === 'champion').map((u) => this.championState(u.id)!);
+  }
   wave = 0;
   nextWaveTick = 5 * TICK_RATE;
   reveal: { point: Vec2; endTick: number } | null = null;
@@ -58,25 +68,7 @@ export class World {
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
     const champion = this.spawn('champion', 'blue', battlefield.spawns.blue);
     champion.name = 'Ashe';
-    this.player = {
-      id: champion.id,
-      gold: 500,
-      cs: 0,
-      kills: 0,
-      deaths: 0,
-      xp: 0,
-      level: 1,
-      cooldowns: { q: 0, w: 0, e: 0, r: 0, d: 0, f: 0 },
-      qStacks: 0,
-      qUntil: 0,
-      qStackExpiry: 0,
-      eCharges: ASHE_E.maximumCharges,
-      eRechargeTick: null,
-      recallEnd: null,
-      castAnimation: null,
-      pendingCast: null,
-      inventory: [],
-    };
+    this.player = this.championRecords.get(champion.id)!;
     if (populate)
       for (const initial of battlefield.initialUnits) {
         const unit = this.spawn(initial.kind, initial.team, initial.point);
@@ -242,6 +234,7 @@ export class World {
     }
     if (kind === 'super') u.name = 'Super minion';
     if (structure) u.structureKnowledge = { blue: false, red: false };
+    if (champion) this.championRecords.set(u.id, createChampionState(u.id));
     this.units.push(u);
     return u;
   }
@@ -294,13 +287,7 @@ export class World {
     this.tick++;
     // Serial recharge continues through death. Resolve before commands so a
     // newly restored charge can be used on its deadline tick.
-    while (this.player.eRechargeTick !== null && this.tick >= this.player.eRechargeTick) {
-      this.player.eCharges++;
-      this.player.eRechargeTick =
-        this.player.eCharges < ASHE_E.maximumCharges
-          ? this.player.eRechargeTick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE
-          : null;
-    }
+    for (const state of this.activeChampionStates()) rechargeChampion(state, this.tick);
     this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
     this.scoutVisuals = this.scoutVisuals.filter((effect) => effect.endTick > this.tick);
     for (const unit of this.units) unit.previous = { x: unit.x, y: unit.y };
@@ -406,15 +393,7 @@ export class World {
       this.player.gold = statPrecision(
         this.player.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
       );
-    while (
-      this.player.qStacks > 0 &&
-      this.tick >= this.player.qStackExpiry &&
-      this.tick >= this.player.qUntil
-    ) {
-      this.player.qStacks--;
-      this.player.qStackExpiry =
-        this.player.qStacks > 0 ? this.player.qStackExpiry + ASHE_Q.falloffSeconds * TICK_RATE : 0;
-    }
+    for (const state of this.activeChampionStates()) expireChampionFocus(state, this.tick);
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
       (u) =>
@@ -1288,9 +1267,11 @@ export class World {
       ruleset: _ruleset,
       battlefield: _battlefield,
       randomState,
+      otherChampions,
       ...fields
     } = state;
     Object.assign(world, fields);
+    world.championRecords = new Map([state.player, ...otherChampions].map((p) => [p.id, p]));
     world.random.state = randomState;
     // Presentation events are transient; replaying them would repeat sounds and combat text.
     world.events = [];
@@ -1307,6 +1288,7 @@ export class World {
       nextId: this.nextId,
       units: this.units,
       player: this.player,
+      otherChampions: this.activeChampionStates().filter((p) => p.id !== this.player.id),
       projectiles: this.projectiles,
       randomState: this.random.state,
       wave: this.wave,

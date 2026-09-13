@@ -137,7 +137,7 @@ export interface SimEvent extends Vec2 {
   text?: string;
   team?: Team;
 }
-export interface PlayerState {
+export interface ChampionState {
   id: number;
   gold: number;
   cs: number;
@@ -163,6 +163,9 @@ export interface PlayerState {
   } | null;
   inventory: string[];
 }
+
+/** Human HUD/input view of its champion-owned state. */
+export type PlayerState = ChampionState;
 
 /** Source trajectory retained for deterministic particle tails after arrival. */
 export interface ScoutFlight {

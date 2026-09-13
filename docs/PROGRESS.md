@@ -830,3 +830,11 @@ Corrected a close-range decision bug that made a ready bot retreat instead of at
 All 298 source/simulation checks, the focused Chrome pursuit/pause scenario, and the nested-path production build/smoke pass. The initial three regression scenarios failed before the correction. Additional cases protect hidden-target cancellation, emergency retreat, checkpoint determinism and overlapping-unit escape. The browser capture was repeated after adding an explicit loading-screen wait and inspected. Full browser regression and full-match performance were not repeated.
 
 Bot spellcasting remains disabled by single-human ability-state ownership. The required ownership separation and remaining 5v5 gaps are recorded in [bot combat notes](BOTS.md); this change improves the sparring bot without claiming native AI or complete matches.
+
+## Independent champion state ownership
+
+Added `ChampionState` records for every spawned champion while preserving `World.player` as the human HUD/input view. Each record owns its own mutable cooldowns, Focus, ammunition, cast state, progression and inventory. Charge regeneration and Focus expiry now advance per owner at their original before-command/after-combat phases, including recharge while dead. No bot spell command is enabled yet; execution and attribution still require owner-aware integration.
+
+Snapshot version 23 persists other champion records alongside the human record, requires exactly one owner per champion, and applies cast/animation chronology checks to every owner. Version 22 is intentionally incompatible. Restore rebuilds independent records and discards presentation-event history.
+
+All 303 source/simulation checks, six focused Chrome champion/save/bot scenarios and the nested-path production build/smoke pass. Tests verify no shared mutable state, distinct resource deadlines, exact restored continuation, ownership rejection and real IndexedDB reload with the human HUD still bound correctly. Full browser regression and full-match performance were not repeated. See [bot ownership scope](BOTS.md) and [save ownership](SAVES.md#champion-ownership).

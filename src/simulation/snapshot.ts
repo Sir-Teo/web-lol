@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 22;
+export const SNAPSHOT_VERSION = 23;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -196,6 +196,7 @@ const snapshot = z.strictObject({
   nextId: id,
   units: z.array(unit).min(1).max(10000),
   player,
+  otherChampions: z.array(player).max(10000),
   projectiles: z.array(projectile).max(10000),
   randomState: z.number().int().min(0).max(0xffffffff),
   wave: tick,
@@ -285,27 +286,41 @@ export function decodeSnapshot(text: string) {
   const hero = state.units.find((u) => u.id === state.player.id);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
-  const cast = state.player.pendingCast;
+  const owners = [state.player, ...state.otherChampions];
+  const ownerIds = new Set(owners.map((p) => p.id));
+  const champions = state.units.filter((u) => u.kind === 'champion');
   if (
-    cast &&
-    (cast.startTick > state.tick ||
-      cast.releaseTick <= state.tick ||
-      hero.deadAt !== null ||
-      state.winner !== null ||
-      state.player.recallEnd !== null)
+    ownerIds.size !== owners.length ||
+    owners.length !== champions.length ||
+    champions.some((u) => !ownerIds.has(u.id))
   )
-    throw new Error('Saved match contains an invalid pending cast.');
-  const animation = state.player.castAnimation;
-  if (
-    (animation &&
-      (animation.startTick > state.tick ||
-        hero.deadAt !== null ||
+    throw new Error('Saved match contains invalid champion ownership.');
+  for (const owner of owners) {
+    const champion = champions.find((u) => u.id === owner.id)!;
+    const cast = owner.pendingCast;
+    if (
+      cast &&
+      (cast.startTick > state.tick ||
+        cast.releaseTick <= state.tick ||
+        champion.deadAt !== null ||
         state.winner !== null ||
-        state.player.recallEnd !== null)) ||
-    (cast &&
-      (!animation || animation.ability !== cast.ability || animation.startTick !== cast.startTick))
-  )
-    throw new Error('Saved match contains an invalid cast animation.');
+        owner.recallEnd !== null)
+    )
+      throw new Error('Saved match contains an invalid pending cast.');
+    const animation = owner.castAnimation;
+    if (
+      (animation &&
+        (animation.startTick > state.tick ||
+          champion.deadAt !== null ||
+          state.winner !== null ||
+          owner.recallEnd !== null)) ||
+      (cast &&
+        (!animation ||
+          animation.ability !== cast.ability ||
+          animation.startTick !== cast.startTick))
+    )
+      throw new Error('Saved match contains an invalid cast animation.');
+  }
   return state;
 }
 
