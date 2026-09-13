@@ -147,3 +147,110 @@ test('smoke GPU erosion uses red and intersection fading follows scene depth thr
   expect(result.visible && result.released).toBe(true);
   expect(result.resized).toEqual([48, 48]);
 });
+
+test('offscreen smoke skips depth draws and re-enters at the same saved phase', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.enqueue({
+      type: 'cast',
+      unit: w.hero.id,
+      ability: 'e',
+      point: { x: w.hero.x + 14000, y: w.hero.y },
+    });
+    w.step(45);
+    const center = { ...v.center };
+    const capture = v.smoke.depth.capture.bind(v.smoke.depth);
+    let captures = 0;
+    v.smoke.depth.capture = (...args: any[]) => {
+      captures++;
+      return capture(...args);
+    };
+    v.center = { x: 5000, y: 5000 };
+    v.render(w, 1, 0);
+    const cold = { captures, allocated: !!v.smoke.depth.target, visible: v.smoke.mesh.visible };
+    v.center = center;
+    v.render(w, 1, 0);
+    const target = v.smoke.depth.target;
+    const pixels = () => {
+      const gl = v.renderer.getContext(),
+        data = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+      gl.readPixels(
+        0,
+        0,
+        gl.drawingBufferWidth,
+        gl.drawingBufferHeight,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        data
+      );
+      return data;
+    };
+    const before = pixels(),
+      first = captures;
+    v.center = { x: 5000, y: 5000 };
+    for (let i = 0; i < 4; i++) v.render(w, 1, i);
+    const away = {
+      captures,
+      retained: v.smoke.depth.target === target,
+      visible: v.smoke.mesh.visible,
+    };
+    v.center = center;
+    v.render(w, 1, 0);
+    const after = pixels();
+    const equal = before.every((x: number, i: number) => x === after[i]);
+    const returned = {
+      captures,
+      reused: v.smoke.depth.target === target,
+      visible: v.smoke.mesh.visible,
+    };
+    return { cold, first, away, returned, equal };
+  });
+  expect(result.cold).toEqual({ captures: 0, allocated: false, visible: false });
+  expect(result.first).toBe(1);
+  expect(result.away).toEqual({ captures: 1, retained: true, visible: false });
+  expect(result.returned).toEqual({ captures: 2, reused: true, visible: true });
+  expect(result.equal).toBe(true);
+});
+
+test('smoke depth culling retains a quad that overlaps the camera edge', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(async () => {
+    // @ts-expect-error Browser Vite module.
+    const T = await import('/node_modules/three/build/three.module.js');
+    // @ts-expect-error Browser Vite module.
+    const { HawkshotSmoke } = await import('/src/render/hawkshot-smoke.ts');
+    const scene = new T.Scene(),
+      smoke = new HawkshotSmoke(scene, () => 0);
+    smoke.allocate(1);
+    smoke.mesh.count = 1;
+    const renderer = new T.WebGLRenderer();
+    renderer.setSize(16, 16);
+    const camera = new T.PerspectiveCamera(40, 1, 0.1, 10);
+    camera.position.z = 2;
+    smoke.mesh.setMatrixAt(0, new T.Matrix4().makeTranslation(1, 0, 0));
+    smoke.prepareDepth(renderer, camera);
+    const edge = smoke.mesh.visible && !!smoke.depth.target;
+    smoke.mesh.setMatrixAt(0, new T.Matrix4().makeTranslation(3, 0, 0));
+    smoke.prepareDepth(renderer, camera);
+    const outside = smoke.mesh.visible;
+    smoke.depth.dispose();
+    smoke.mesh.geometry.dispose();
+    smoke.mesh.material.dispose();
+    smoke.mesh.dispose();
+    renderer.dispose();
+    renderer.forceContextLoss();
+    return { edge, outside };
+  });
+  expect(result).toEqual({ edge: true, outside: false });
+});

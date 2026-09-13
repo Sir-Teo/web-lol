@@ -21,6 +21,8 @@ export async function loadHawkshotSmoke() {
 export class HawkshotSmoke {
   mesh?: THREE.InstancedMesh;
   private capacity = 0;
+  private frustum = new THREE.Frustum();
+  private projection = new THREE.Matrix4();
   depth = new SceneDepth();
   uniforms = {
     smokeDepth: { value: null as THREE.Texture | null },
@@ -94,9 +96,21 @@ diffuseColor.a *= vSmoke.y * mask * smoothstep(0.0, ${D.softDistance}, gap);`
   }
   prepareDepth(renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera) {
     if (!this.mesh?.count) {
+      if (this.mesh) this.mesh.visible = false;
       this.depth.dispose();
       return;
     }
+    // Conservative bounds include complete rotated quads, not just particle centers.
+    camera.updateMatrixWorld(true);
+    this.mesh.updateWorldMatrix(true, false);
+    this.mesh.computeBoundingSphere();
+    this.frustum.setFromProjectionMatrix(
+      this.projection.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse),
+      camera.coordinateSystem
+    );
+    this.mesh.visible = this.frustum.intersectsObject(this.mesh);
+    // Retain an existing target for camera re-entry; allocate nothing offscreen.
+    if (!this.mesh.visible) return;
     const target = this.depth.capture(renderer, this.scene, camera);
     this.uniforms.smokeDepth.value = target.depthTexture;
     this.uniforms.smokeCamera.value.set(camera.near, camera.far, target.width, target.height);
