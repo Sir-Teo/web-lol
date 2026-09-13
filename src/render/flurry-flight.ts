@@ -7,7 +7,7 @@ const SPREAD = [0, -0.06, 0.06, -0.1, 0.1] as const;
 
 export function flurryFlight(
   p: Projectile,
-  target: (Vec2 & { radius: number }) | undefined,
+  target: (Vec2 & { radius: number; previous?: Vec2 }) | undefined,
   alpha: number
 ) {
   const position = { x: lerp(p.previous.x, p.x, alpha), y: lerp(p.previous.y, p.y, alpha) };
@@ -16,16 +16,23 @@ export function flurryFlight(
   const spread = SPREAD[p.flurryShot ?? 0] ?? 0;
   if (!spread) return straight;
   const travelled = Math.hypot(position.x - p.origin.x, position.y - p.origin.y);
+  const targetPosition = target.previous
+    ? { x: lerp(target.previous.x, target.x, alpha), y: lerp(target.previous.y, target.y, alpha) }
+    : target;
   const remaining = Math.max(
     0,
-    Math.hypot(target.x - position.x, target.y - position.y) - target.radius - p.radius
+    Math.hypot(targetPosition.x - position.x, targetPosition.y - position.y) -
+      target.radius -
+      p.radius
   );
   const length = travelled + remaining;
   if (length < 1 || remaining === 0) return straight;
   const phase = clamp(travelled / length, 0, 1);
   const amplitude = Math.min(length, 600) * spread;
-  const offset = amplitude * Math.sin(Math.PI * phase);
-  const slope = ((amplitude * Math.PI) / length) * Math.cos(Math.PI * phase);
+  // Zero value AND slope at both ends avoids snapping back to straight facing.
+  const wave = Math.sin(Math.PI * phase);
+  const offset = amplitude * wave * wave;
+  const slope = ((2 * amplitude * Math.PI) / length) * wave * Math.cos(Math.PI * phase);
   const normal = { x: -p.direction.y, y: p.direction.x };
   return {
     x: position.x + normal.x * offset,

@@ -2,6 +2,48 @@ import { expect, test } from 'vitest';
 import { flurryFlight } from '../src/render/flurry-flight';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
+import type { Projectile } from '../src/simulation/types';
+
+const referenceArrow: Projectile = {
+  id: 1,
+  source: 1,
+  team: 'blue',
+  type: 'attack',
+  x: 250,
+  y: 0,
+  previous: { x: 240, y: 0 },
+  origin: { x: 0, y: 0 },
+  direction: { x: 1, y: 0 },
+  target: 2,
+  damage: 1,
+  speed: 2500,
+  radius: 8,
+  remaining: 1000,
+  volleyId: null,
+  empowered: true,
+  flurryShot: 4,
+};
+
+test('flurry facing meets the straight path smoothly at launch and contact', () => {
+  const target = { x: 550, y: 0, radius: 30 };
+  for (const x of [0.000001, 550 - 30 - 8 - 0.000001]) {
+    const arrow = { ...referenceArrow, x, previous: { x, y: 0 } };
+    const path = flurryFlight(arrow, target, 1);
+    expect(Math.abs(path.y)).toBeLessThan(0.000001);
+    expect(Math.abs(path.facing - Math.PI / 2)).toBeLessThan(0.000001);
+  }
+});
+
+test('moving target presentation uses the same interpolation phase as the projectile', () => {
+  const arrow = { ...referenceArrow, previous: { x: referenceArrow.x, y: referenceArrow.y } };
+  const moving = { x: 600, y: 100, previous: { x: 550, y: 0 }, radius: 30 };
+  expect(flurryFlight(arrow, moving, 0)).toEqual(
+    flurryFlight(arrow, { ...moving.previous, radius: moving.radius }, 1)
+  );
+  expect(flurryFlight(arrow, moving, 0.5)).toEqual(
+    flurryFlight(arrow, { x: 575, y: 50, radius: moving.radius }, 1)
+  );
+});
 
 test('flurry presentation separates arrows, converges at contact and leaves gameplay untouched', () => {
   const w = new World(false, { ...PRACTICE_FIXTURE, initialUnits: [] });

@@ -1308,3 +1308,9 @@ All 451 source/simulation checks, nine focused Q Chrome scenarios and nested-pat
 Added bounded lateral paths for secondary flurry arrows, with tangent facing and convergence at the existing collision boundary. Saved initial origins make the presentation reproducible after restoration. Authoritative homing, damage, visibility eligibility and pending launch scheduling retain their existing behavior. The spread and sine envelope are explicitly provisional; the pinned fixed-speed missile records do not supply native curve coefficients or resolve animated hand launch positions.
 
 All 453 source/simulation checks, eight focused Q/arrow Chrome cases and nested-path production smoke pass. Inspected the updated `artifacts/ashe-q-live-flurry.png` showing separated live arrows. Tests check saved presentation equivalence, unmodified gameplay state, rotation, bounded spread and contact convergence. Full browser/performance suites and native-client comparisons were not repeated; complete Q parity and the full-match milestones remain open.
+
+## Q flight continuity fixes
+
+Reproduced two visual defects with failing regression cases: nonzero endpoint slope produced an approximately 17-degree facing discontinuity for the outer arrow, and moving targets were sampled at current simulation time while arrows were interpolated. The envelope now has zero endpoint slope, and target position uses the same interpolation phase as the projectile. This improves the provisional adapter without changing combat or claiming a native curve formula.
+
+All 455 source/simulation checks, four arrow Chrome cases and nested-path production smoke pass. Inspected the updated live flurry capture. The two new regressions failed before the fix and pass afterward. Full-match performance and native trajectory calibration remain open.
