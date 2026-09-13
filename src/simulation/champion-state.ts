@@ -5,6 +5,7 @@ import type { ChampionState } from './types';
 
 export function createChampionState(id: number): ChampionState {
   return {
+    assists: 0,
     damageContributors: [],
     id,
     gold: 500,

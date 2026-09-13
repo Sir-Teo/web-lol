@@ -1,3 +1,4 @@
+import { ASSIST_WINDOW_SECONDS } from '../content/assist-window';
 import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
 import { createChampionState, rechargeChampion, expireChampionFocus } from './champion-state';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
@@ -1078,8 +1079,19 @@ export class World {
                       : 14);
         sourceState.gold += gold;
         if (gold) this.emit('gold', source, { value: gold, unit: source.id, team: source.team });
-        if (target.kind === 'champion') sourceState.kills++;
-        else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) sourceState.cs++;
+        if (target.kind === 'champion') {
+          sourceState.kills++;
+          for (const entry of targetState!.damageContributors) {
+            if (
+              entry.sourceId === source.id ||
+              this.tick - entry.lastDamageTick > ASSIST_WINDOW_SECONDS * TICK_RATE
+            )
+              continue;
+            const contributor = this.unit(entry.sourceId);
+            const record = this.championState(entry.sourceId);
+            if (record && contributor?.team === source.team) record.assists++;
+          }
+        } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) sourceState.cs++;
       }
       if (isLaneMinionKind(target.kind)) {
         const radius = this.battlefield.minionExperienceRadius?.[target.team] ?? 1400;

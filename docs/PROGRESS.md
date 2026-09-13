@@ -930,3 +930,11 @@ Champion state now retains one latest positive-damage tick per opposing champion
 Four new simulation cases cover refresh/ownership, exclusions, lethal retention plus exact checkpoint/respawn continuation, and malformed histories. All 344 source/simulation checks and seven focused browser scenarios pass. The new Chrome case writes and reloads the real manual checkpoint, verifies contribution identity and paused restoration, and confirms no combat events replay. Production build and nested-host smoke pass. Full browser/performance sweeps were not repeated.
 
 This is provenance for the pending death-reward transaction. It does not award assists, resolve executions, choose an assist lifetime, track support/CC-only contribution or replace the legacy champion-kill XP approximation. Those remain explicit fidelity work.
+
+## Source-window damage assists
+
+The pinned standard-mode `Configs` link resolves `{4fd6b68d}` with `AssistDurationOverride = 15`, distinct from ten-second post-death XP credit. The full record/hash/link are retained and verified by `tools/assets/export-assist-window.py`. Direct champion kills now increment other recent damage contributors' independent assist counters. Repeated hits do not duplicate assists; the killer is excluded. HUD personal score and held scoreboard display those counters. Version 25 adds the counters and rejects version 24 saves.
+
+Four new simulation scenarios cover direct-kill attribution, the inclusive 900-tick boundary, dead/distant contributors through checkpoint continuation and red-team ownership/nonchampion final-blow exclusion. All 348 source/simulation checks, seven focused Chrome cases and production nested-host smoke pass. The new Chrome scenario observes a real damage assist in both score displays. Full browser/performance suites were not repeated.
+
+Boundary inclusivity is the local fixed-tick convention; support/reveal assists, execution attribution, assist gold and champion-kill XP still require work. The source configuration also contains hashed bounty fields, which remain uninterpreted rather than guessed.

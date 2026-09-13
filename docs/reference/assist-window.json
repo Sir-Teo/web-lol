@@ -1,0 +1,62 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json",
+  "sha256": "ad684528be94c3f6981daa2c1ff3e32724596a24e8c4f21ab8df8c291ca980f7",
+  "mode": "Maps/Shipping/Map11/Modes/CLASSIC",
+  "config": "{4fd6b68d}",
+  "record": {
+    "BaseGold": [
+      300.0,
+      300.0,
+      300.0,
+      300.0,
+      300.0,
+      300.0,
+      310.0,
+      320.0,
+      330.0,
+      340.0,
+      350.0,
+      360.0,
+      370.0,
+      380.0,
+      390.0,
+      400.0,
+      410.0,
+      420.0
+    ],
+    "FirstBloodBonus": 100.0,
+    "AssistDurationOverride": 15.0,
+    "{11f10a40}": 55.0,
+    "{937cc95a}": 175.0,
+    "{08c1b120}": 0.25,
+    "{1eacb90a}": 0.5,
+    "{ce073fe8}": 1.0,
+    "{fd43d59f}": 700.0,
+    "{3cf326fa}": true,
+    "{907442e7}": 100.0,
+    "{fe1b406e}": 50.0,
+    "{d1f9fb6a}": 100.0,
+    "{54ccd262}": 3.0,
+    "{c29d06b9}": 20.0,
+    "{fa93507d}": 7.0,
+    "{ec211346}": 3.5,
+    "{7c29d4b9}": 2,
+    "{40b0d0ff}": true,
+    "{a7e2cc37}": true,
+    "{a966473c}": {
+      "{00490b09}": 100.0,
+      "{4b733ea3}": 5.0,
+      "__type": "{b53e2f1a}"
+    },
+    "ObjectiveBountyConfig": {
+      "{4ec6dd3c}": 1.0,
+      "{3cb3392e}": 2.5,
+      "__type": "{6030f7c6}"
+    },
+    "NegativeBountyConfig": {
+      "{b8ee5cef}": 100.0,
+      "__type": "{24e1cb45}"
+    },
+    "__type": "{9f30b8a6}"
+  }
+}

@@ -340,6 +340,7 @@ export class Hud {
           team: u.team,
           kills: state.kills,
           deaths: state.deaths,
+          assists: state.assists,
           cs: state.cs,
         };
       });
@@ -359,7 +360,8 @@ export class Hud {
       role.textContent =
         data.id === this.world.player.id ? 'You' : data.team === 'blue' ? 'Ally' : 'Opponent';
       name.append(role);
-      row.querySelector('.scoreboard-kda')!.textContent = `${data.kills} / ${data.deaths} / 0`;
+      row.querySelector('.scoreboard-kda')!.textContent =
+        `${data.kills} / ${data.deaths} / ${data.assists}`;
       row.querySelector('.scoreboard-cs')!.textContent = `${data.cs} CS`;
       panel.append(row);
     }
@@ -413,7 +415,7 @@ export class Hud {
       );
     if (this.root.querySelector<HTMLElement>('.scoreboard')?.hidden === false)
       this.scoreboard(true);
-    text('personal', `${p.kills} / ${p.deaths} / 0`);
+    text('personal', `${p.kills} / ${p.deaths} / ${p.assists}`);
     text('cs', p.cs);
     this.root
       .querySelectorAll<HTMLElement>('.focus-pips i')
