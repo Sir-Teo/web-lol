@@ -6,7 +6,7 @@ The simulation integrates constant acceleration within each 60 Hz step and handl
 
 At one second the model travels 1,600 units and reaches speed 1,700; at three seconds it travels 5,400 units and reaches 2,100; subsequent flight stays capped. These are local integration checks using source constants, not measurements from a League client capture.
 
-The pinned record also includes minimum/maximum stun durations of 1/3.5 seconds, rank-dependent damage, splash data and visibility settings. The selected data does not expose the distance threshold needed to implement the stun curve confidently. The current fixed two-second stun remains provisional. Full distance scaling and rank/AP scaling remain unfinished. Splash behavior is described below. Missile vision is described below.
+The pinned record also includes minimum/maximum stun durations of 1/3.5 seconds, rank-dependent damage, splash data and visibility settings. The selected static data does not expose the distance coefficient; the first-hand technical report used to implement it is documented below. Full rank/AP scaling remains unfinished. Splash behavior is described below. Missile vision is described below.
 
 Two simulation cases cover launch acceleration, integrated distances, cap, range removal and saved continuation. A browser case advances and renders the arrow before and at the cap. Existing ultimate collision and save regressions remain relevant.
 
@@ -24,7 +24,7 @@ An ultimate collision now applies area damage and basic Frost Shot slow to livin
 
 [Riot's champion description](https://www.leagueoflegends.com/en-au/champions/ashe/) confirms surrounding enemies take damage and are slowed. The current spell record supplies `SlowRadius` 400 and an area calculation using `AoECoefficient` 1.0. Reusing that radius for both splash damage and slow, centering on the direct target, inclusive center-distance bounds and no additional line-of-sight test are implementation interpretations pending controlled capture. Do not replace the pinned coefficient with old secondary descriptions of half damage without reconciling patch dates.
 
-There is no final explosion audiovisual effect yet. The existing single-slot slow model still lacks priority/stacking rules. Distance-dependent primary stun, full rank/AP scaling and reference collision calibration remain unfinished.
+There is no final explosion audiovisual effect yet. The existing single-slot slow model still lacks priority/stacking rules. Full rank/AP scaling and reference collision/stun-expiry calibration remain unfinished.
 
 Two simulation cases check the radius edge/outside, exclusions, single primary damage, distinct stun/slow behavior, magic mitigation, minion splash after a lethal primary hit and pre-impact saved continuation. A browser case checks primary and nearby damage with a stun on only the direct target.
 
@@ -34,4 +34,12 @@ The exporter now verifies the uniform `castRange` array and emits its 25,000-uni
 
 With the source acceleration, an unobstructed arrow consumes its range after 740 simulation steps (12⅓ seconds). Projectile cleanup ignores residual distances of at most 1e-8 world units, avoiding an extra lifetime tick from floating-point accumulation without expanding collision travel. The full-speed endpoint and range budget remain governed by the collision sweep.
 
-The flight regression now checks survival past 10,000 units, remaining range and exact removal at the terminal step. A new simulation case saves an arrow after six seconds and confirms identical impact on a target 15,000 units from launch. A browser case confirms that long-range hit. Distance-scaled stun, full audiovisual fidelity and complete match systems remain unfinished.
+The flight regression now checks survival past 10,000 units, remaining range and exact removal at the terminal step. A new simulation case saves an arrow after six seconds and confirms identical impact on a target 15,000 units from launch. A browser case confirms that long-range hit. Full audiovisual fidelity and complete match systems remain unfinished.
+
+## Distance-scaled primary stun
+
+The direct hit now uses `clamp(distanceTravelled × 0.00125, 1, 3.5)` seconds instead of a fixed two seconds. The source record supplies the 1/3.5 bounds. The distance coefficient comes from [FrankTheBoxMonster's first-hand technical analysis](https://www.reddit.com/r/leagueoflegends/comments/1o11a33/ashe_ult_calculator_and_visualiser_website/), which includes a calibrated map comparison and explains the 800-unit lower breakpoint and 2,800-unit maximum. That report, author and coefficient are retained separately as `stunResearch` in the pin; the exporter does not claim that coefficient was found in the static spell record.
+
+Distance uses consumed projectile range plus the current sweep's distance to first contact, rather than the caster's current position or a whole-step overshoot. This remains an implementation interpretation of traveled distance; reference contact-point/radius calibration is outstanding. The final duration rounds up to a 60 Hz simulation tick, with arithmetic noise removed at eight decimal places. The report describes coarse live-client buff/server expiry behavior; this implementation deliberately retains its existing exact-tick deadlines and does not reproduce that behavior. Thus the intended curve is implemented, while exact observed stun lifetime parity remains unverified.
+
+Two simulation cases cover zero/800/800.01/1,600/2,800/5,000-unit travel, caster movement, saved flight and exact expiry. The long-range browser case now verifies a 210-tick stun at impact. Existing splash checks expect the one-second minimum for the nearby direct target and no stun on surrounding targets.

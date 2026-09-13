@@ -25,7 +25,7 @@ test('R splash damages and slows the inclusive radius without duplicating the pr
   expect(edge.slowMultiplier).toBeCloseTo(0.8);
   expect(edge.slowUntil).toBe(w.tick + 120);
   expect(edge.stunUntil).toBe(0);
-  expect(primary.stunUntil).toBe(w.tick + 120);
+  expect(primary.stunUntil).toBe(w.tick + 60);
   for (const excluded of [outside, ally, structure]) {
     expect(excluded.hp).toBe(excluded.maxHp);
     expect(excluded.slowUntil).toBe(0);

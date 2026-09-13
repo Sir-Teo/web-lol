@@ -7,6 +7,7 @@ import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
 import { ASHE_R } from '../content/ashe-r';
+import { crystalArrowStunTicks } from './crystal-arrow';
 import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
@@ -744,7 +745,8 @@ export class World {
             contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
           }
           if (p.type === 'ultimate') {
-            contact.stunUntil = this.tick + 120;
+            const distanceTravelled = ASHE_R.range - p.remaining + travel * first;
+            contact.stunUntil = this.tick + crystalArrowStunTicks(distanceTravelled);
             for (const victim of this.units) {
               if (
                 victim.id === contact.id ||

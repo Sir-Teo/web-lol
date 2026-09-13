@@ -443,3 +443,9 @@ All 205 simulation checks, three focused Chrome cases, static build and producti
 Crystal Arrow now uses its pinned 25,000-unit cast/travel range instead of 10,000. Long-range shots reach targets beyond the former cutoff and retain their remaining range through saves. A terminal-step test exposed a floating-point remainder that extended projectile lifetime by one tick; cleanup now ignores at most 1e-8 world units of residual range while preserving the collision travel bound.
 
 All 206 simulation checks, four focused Chrome cases, static build and production smoke pass. Coverage includes source acceleration through full range, exact terminal removal and saved/browser hits at 15,000 units. Export regeneration is byte-identical. The full browser suite was not repeated. Distance-scaled stun, full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Crystal arrow distance-stun milestone
+
+Direct-hit stun now follows distance × 0.00125 seconds clamped to the source-backed 1–3.5-second bounds. The coefficient comes from a first-hand technical analysis with calibrated map comparison, separately attributed in the source pin and ASHE-R.md. Consumed range and fractional sweep contact supply traveled distance, so caster movement cannot change it. Our exact 60 Hz expiry does not reproduce the report's coarse live buff expiry; observed lifetime parity remains unverified.
+
+All 208 simulation checks, seven focused Chrome cases, static build and production smoke pass. New checks cover curve breakpoints/cap, caster movement, saved flight and exact expiry; the long-range browser test verifies 210 ticks at impact. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

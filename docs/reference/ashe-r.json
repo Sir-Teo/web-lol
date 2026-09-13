@@ -451,5 +451,12 @@
       "__type": "BotsSpellData"
     },
     "__type": "SpellObject"
+  },
+  "stunResearch": {
+    "url": "https://www.reddit.com/r/leagueoflegends/comments/1o11a33/ashe_ult_calculator_and_visualiser_website/",
+    "author": "FrankTheBoxMonster",
+    "secondsPerUnit": 0.00125,
+    "reportedFormula": "distance * 0.00125 then capped to [1.0s, 3.5s]",
+    "confidence": "First-hand technical analysis with calibrated map comparison; not a Riot server script or a fresh 16.18 capture. Live buff/server rounding described by the author is not replicated."
   }
 }

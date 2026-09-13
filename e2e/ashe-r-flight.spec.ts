@@ -13,11 +13,16 @@ test('a cross-map arrow reaches a target beyond 10000 units', async ({ page }) =
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'r', point: target });
     w.step(360);
     const inFlight = w.projectiles.length;
-    w.step(100);
+    for (let i = 0; i < 100 && target.hp === target.maxHp; i++) w.step();
     g.view.render(w, 1, 0);
-    return { inFlight, hit: target.hp < target.maxHp, remaining: w.projectiles.length };
+    return {
+      inFlight,
+      hit: target.hp < target.maxHp,
+      remaining: w.projectiles.length,
+      stunTicks: target.stunUntil - w.tick,
+    };
   });
-  expect(result).toEqual({ inFlight: 1, hit: true, remaining: 0 });
+  expect(result).toEqual({ inFlight: 1, hit: true, remaining: 0, stunTicks: 210 });
 });
 
 test('crystal arrow damages a nearby enemy while stunning only its direct target', async ({

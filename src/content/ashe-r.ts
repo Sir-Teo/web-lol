@@ -6,5 +6,8 @@ export const ASHE_R = {
   "sightRadius": 750.0,
   "range": 25000.0,
   "splashRadius": 400.0,
-  "splashDamageMultiplier": 1.0
+  "splashDamageMultiplier": 1.0,
+  "minimumStunSeconds": 1.0,
+  "maximumStunSeconds": 3.5,
+  "stunSecondsPerUnit": 0.00125
 } as const;
