@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 37 adds a required identity on champions (`ashe` or `lux`) and prohibits it on other units. Lux Q windups and animations are retained with their 15-tick release timing, captured rank/aim/damage and champion ownership. The decoder rejects crossed cast identities, unavailable Lux W/E/R ranks, Ashe Focus/charge state on Lux, and empowered attacks without an Ashe source. Earlier snapshot versions are incompatible.
+
 Version 36 adds binding projectiles with a required prior-hit list of length zero or one. A second contact retires the projectile. The decoder checks source team/ownership and rejects impossible retained participants while permitting a removed victim's allocated ID. This allows saving between Light Binding contacts without hitting the first victim twice.
 
 Version 35 adds the required per-unit `rootUntil` deadline. Roots retain movement orders and can expire identically after restoration; respawn clears them. Earlier versions are incompatible, consistent with the existing conservative ruleset policy.

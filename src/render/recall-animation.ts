@@ -9,11 +9,13 @@ export const ASHE_RECALL_CLIPS = ['idle5', 'idle2'] as const;
 export function animateRecall(model: UnitModel, seconds: number): void {
   if (!model.mixer || !model.actions) return;
   let time = Math.max(0, seconds);
-  let name: string = ASHE_RECALL_CLIPS[0];
-  for (const clip of ASHE_RECALL_CLIPS) {
+  const clips =
+    model.referenceAsset === 'lux-base' ? ['idle3', 'entry_b4dcde19'] : ASHE_RECALL_CLIPS;
+  let name: string = clips[0];
+  for (const clip of clips) {
     name = clip;
     const duration = model.actions[clip].getClip().duration;
-    if (time < duration || clip === ASHE_RECALL_CLIPS.at(-1)) break;
+    if (time < duration || clip === clips.at(-1)) break;
     time -= duration;
   }
   const action = model.actions[name];

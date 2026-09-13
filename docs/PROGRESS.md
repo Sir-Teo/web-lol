@@ -1422,3 +1422,9 @@ All 517 source/simulation checks, seven focused root/Flash/save Chrome scenarios
 Added a fixed-direction two-contact projectile primitive with swept travel-order hits, once-only magic damage/root, caster-death continuation and saved first-hit history. Allies/structures do not consume contacts; lane minions do. Snapshot 36 validates participants and retained hit history. Source child range/width interpretations remain provisional.
 
 All 522 source/simulation checks, three focused binding/root/ultimate Chrome scenarios and production smoke pass. Initial test corrections isolated an otherwise active turret and respected rounded combat-text values. Lux input, resource/windup handling, passive application and native missile effects remain unfinished; the release method is a combat integration primitive, not a selectable Lux or a completed Q cast. Full match and performance suites were not repeated.
+
+## Lux champion identity and queued Q
+
+Added saved Ashe/Lux identity, Lux's pinned stats and growth/regen/selection dimensions, runtime source rig and recall sequence, and a normal resource-consuming Q windup that releases the two-contact binding. Ashe Focus and Frost Shot now apply only to Ashe. Lux's unfinished W/E/R remain unavailable. Snapshot 37 preserves and validates champion-owned cast state.
+
+All 526 source/simulation checks, five focused Chrome scenarios (Lux, binding and selection), and nested-path production smoke pass. Inspected the in-match Lux recall capture. The default human remains Ashe; this does not complete Lux's passive, full kit, AI or native effects. The additional runtime rig costs 3.86 MB in initial model loading. Full browser, full-match and performance suites were not repeated; production fidelity gates remain open.

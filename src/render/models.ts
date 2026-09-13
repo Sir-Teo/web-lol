@@ -26,6 +26,7 @@ interface ReferenceModel {
 const references = new Map<string, ReferenceModel>();
 const referenceNames = [
   'ashe-base',
+  'lux-base',
   'blue-melee',
   'red-melee',
   'blue-caster',
@@ -61,7 +62,9 @@ export async function loadReferenceModels(): Promise<void> {
               'spell3',
               'spell4',
             ]
-          : ['idle1', 'run', 'attack1', 'death'])
+          : name === 'lux-base'
+            ? ['idle1', 'run', 'attack1', 'death', 'spell1', 'idle3', 'entry_b4dcde19']
+            : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);
       if (/-(turret|nexus|inhibitor)$/.test(name))
@@ -105,7 +108,7 @@ export function makeModel(u: Unit): UnitModel {
     u.kind === 'super' ||
     isStructureKind(u.kind)
   ) {
-    const key = u.kind === 'champion' ? 'ashe-base' : `${u.team}-${u.kind}`;
+    const key = u.kind === 'champion' ? `${u.champion}-base` : `${u.team}-${u.kind}`;
     const reference = references.get(key);
     if (!reference) throw new Error(`Model not loaded: ${key}`);
     const root = new THREE.Group(),

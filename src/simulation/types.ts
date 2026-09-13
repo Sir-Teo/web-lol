@@ -19,6 +19,7 @@ export type Order =
   | { type: 'move' | 'attackMove'; point: Vec2 }
   | { type: 'attack'; target: number };
 export interface Unit extends Vec2 {
+  champion?: 'ashe' | 'lux';
   id: number;
   kind: UnitKind;
   team: Team;
@@ -167,9 +168,9 @@ export interface ChampionState {
   eRechargeDurationTicks: number;
   recallEnd: number | null;
   /** Presentation can finish after the gameplay windup, until another action takes over. */
-  castAnimation: { ability: 'w' | 'e' | 'r'; startTick: number } | null;
+  castAnimation: { ability: 'q' | 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {
-    ability: 'w' | 'e' | 'r';
+    ability: 'q' | 'w' | 'e' | 'r';
     rank: number;
     startTick: number;
     releaseTick: number;

@@ -1,5 +1,6 @@
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
+import { LUX } from '../content/lux-progression';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
@@ -143,7 +144,7 @@ export class World {
       audience,
     });
   }
-  spawn(kind: UnitKind, team: Team, point: Vec2): Unit {
+  spawn(kind: UnitKind, team: Team, point: Vec2, identity: 'ashe' | 'lux' = 'ashe'): Unit {
     const champion = kind === 'champion',
       turret = kind === 'turret',
       dummy = kind === 'dummy',
@@ -164,6 +165,7 @@ export class World {
                   ? 477
                   : 296;
     const u: Unit = {
+      ...(champion ? { champion: identity } : {}),
       id: this.nextId++,
       kind,
       team,
@@ -217,16 +219,25 @@ export class World {
     };
     const stats = this.battlefield.unitStats?.[kind]?.[team];
     if (champion) {
+      const profile = identity === 'lux' ? LUX : ASHE;
       Object.assign(u, {
-        hp: ASHE.hp,
-        maxHp: ASHE.hp,
-        mana: ASHE.mana,
-        maxMana: ASHE.mana,
-        damage: ASHE.damage,
-        armor: ASHE.armor,
-        magicResist: ASHE.magicResist,
-        attackPeriod: Math.round(TICK_RATE / ASHE.attackSpeed),
+        hp: profile.hp,
+        maxHp: profile.hp,
+        mana: profile.mana,
+        maxMana: profile.mana,
+        damage: profile.damage,
+        armor: profile.armor,
+        magicResist: profile.magicResist,
+        attackPeriod: Math.round(TICK_RATE / profile.attackSpeed),
       });
+      if (identity === 'lux')
+        Object.assign(u, {
+          name: 'Lux',
+          speed: LUX.speed,
+          range: LUX.range,
+          windupTicks: LUX.windupTicks,
+          missileSpeed: LUX.missileSpeed,
+        });
     }
     if (stats) {
       Object.assign(u, stats);
@@ -271,6 +282,11 @@ export class World {
         createChampionState(u.id, this.battlefield.id === 'practice-fixture')
       );
     this.units.push(u);
+    if (champion && identity === 'lux') {
+      const own = this.championState(u.id)!;
+      own.spellRanks.w = own.spellRanks.e = own.spellRanks.r = 0;
+      own.eCharges = 0;
+    }
     return u;
   }
   enqueue(command: Command): void {
@@ -405,7 +421,8 @@ export class World {
         const cast = state.pendingCast;
         if (this.tick < cast.releaseTick) continue;
         state.pendingCast = null;
-        if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
+        if (cast.ability === 'q') this.releaseLightBinding(u, cast.point, cast.damage);
+        else if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage, cast.rank);
       }
       if (u.stunUntil > this.tick) {
@@ -447,13 +464,17 @@ export class World {
       if (h.kind !== 'champion' || !this.alive(h)) continue;
       const fountain = distance(h, this.battlefield.spawns[h.team]) < 220;
       const growth = growthAtLevel(this.championState(h.id)?.level ?? 1);
+      const profile = h.champion === 'lux' ? LUX : ASHE;
       h.hp = Math.min(
         h.maxHp,
-        h.hp + (fountain ? h.maxHp * 0.09 : ASHE.healthRegen + ASHE.healthRegenGrowth * growth) * DT
+        h.hp +
+          (fountain ? h.maxHp * 0.09 : profile.healthRegen + profile.healthRegenGrowth * growth) *
+            DT
       );
       h.mana = Math.min(
         h.maxMana,
-        h.mana + (fountain ? h.maxMana * 0.12 : ASHE.manaRegen + ASHE.manaRegenGrowth * growth) * DT
+        h.mana +
+          (fountain ? h.maxMana * 0.12 : profile.manaRegen + profile.manaRegenGrowth * growth) * DT
       );
     }
     // Continuous fractional accrual is our cadence policy; see docs/ECONOMY.md.
@@ -1075,7 +1096,12 @@ export class World {
               endTick: this.tick + 120,
             });
           this.emit('attack', u, { unit: u.id, team: u.team });
-          if (state && state.spellRanks.q > 0 && this.tick >= state.qUntil) {
+          if (
+            u.champion === 'ashe' &&
+            state &&
+            state.spellRanks.q > 0 &&
+            this.tick >= state.qUntil
+          ) {
             state.qStacks = Math.min(ASHE_Q.maxStacks, state.qStacks + 1);
             state.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
           }
@@ -1477,7 +1503,7 @@ export class World {
               'area'
             );
           if (
-            source.kind === 'champion' &&
+            source.champion === 'ashe' &&
             !isStructureKind(contact.kind) &&
             (p.flurryShot ?? 0) === 0
           ) {
@@ -1781,20 +1807,25 @@ export class World {
       const factor = ASHE.growthFactors[state.level - 1];
       const h = this.unit(championId)!,
         living = this.alive(h);
-      const hp = statPrecision(ASHE.hpGrowth * factor),
-        mana = statPrecision(ASHE.manaGrowth * factor);
+      const profile = h.champion === 'lux' ? LUX : ASHE;
+      const hp = statPrecision(profile.hpGrowth * factor),
+        mana = statPrecision(profile.manaGrowth * factor);
       h.maxHp = statPrecision(h.maxHp + hp);
       h.maxMana = statPrecision(h.maxMana + mana);
       if (living) {
         h.hp = Math.min(h.maxHp, h.hp + hp);
         h.mana = Math.min(h.maxMana, h.mana + mana);
       }
-      h.damage = statPrecision(h.damage + ASHE.damageGrowth * factor);
-      h.armor = statPrecision(h.armor + ASHE.armorGrowth * factor);
-      h.magicResist = statPrecision(h.magicResist + ASHE.magicResistGrowth * factor);
-      const speed = 1 + ASHE.attackSpeedGrowth * growthAtLevel(state.level);
-      h.attackPeriod = Math.round(TICK_RATE / (ASHE.attackSpeed * speed));
-      h.windupTicks = Math.round(20 / speed);
+      h.damage = statPrecision(h.damage + profile.damageGrowth * factor);
+      h.armor = statPrecision(h.armor + profile.armorGrowth * factor);
+      h.magicResist = statPrecision(h.magicResist + profile.magicResistGrowth * factor);
+      const ratio = h.champion === 'lux' ? LUX.attackSpeedRatio : ASHE.attackSpeed;
+      const attackSpeed =
+        profile.attackSpeed + ratio * profile.attackSpeedGrowth * growthAtLevel(state.level);
+      h.attackPeriod = Math.round(TICK_RATE / attackSpeed);
+      h.windupTicks = Math.round(
+        ((h.champion === 'lux' ? LUX.windupTicks : 20) * profile.attackSpeed) / attackSpeed
+      );
       this.emit('level', h, { text: 'Level up!', unit: h.id, team: h.team });
     }
     if (state.level === MAX_LEVEL) state.xp = 0;
@@ -1836,6 +1867,8 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
+    if (this.unit(championId)?.champion === 'lux' && ability !== 'q')
+      return 'This Lux spell is not implemented yet';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
     if (state.skillPoints < 1) return 'No skill points available';
@@ -1860,6 +1893,11 @@ export class World {
     if (ability === 'd' || ability === 'f')
       return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'lux')
+      return {
+        mana: ability === 'q' && rank ? LUX_BINDING.mana : 0,
+        cooldownSeconds: ability === 'q' && rank ? LUX_BINDING.cooldownSeconds : 0,
+      };
     return rank ? asheSpellResources(ability, rank) : { mana: 0, cooldownSeconds: 0 };
   }
   private cast(u: Unit, ability: Ability, point: Vec2): void {
@@ -1885,12 +1923,36 @@ export class World {
       fail('Not enough mana');
       return;
     }
-    if (ability === 'q' && state.qStacks < 4) {
+    if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
       return;
     }
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
     const dir = direction(u, point);
+    if (u.champion === 'lux' && ability === 'q') {
+      if (!dir.x && !dir.y) return;
+      u.mana -= resources.mana;
+      state.cooldowns.q = this.tick + resources.cooldownSeconds * TICK_RATE;
+      state.recallEnd = null;
+      if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
+      u.releaseTick = null;
+      u.attackTarget = null;
+      u.attackCycle = null;
+      u.facing = Math.atan2(dir.x, dir.y);
+      state.castAnimation = { ability: 'q', startTick: this.tick };
+      state.pendingCast = {
+        ability: 'q',
+        rank: state.spellRanks.q,
+        startTick: this.tick,
+        releaseTick: this.tick + LUX_BINDING.castSeconds * TICK_RATE,
+        point: { x: point.x, y: point.y },
+        damage:
+          LUX_BINDING.baseDamage[state.spellRanks.q - 1] +
+          LUX_BINDING.abilityPowerRatio * this.abilityPower(u),
+      };
+      this.emit('cast', u, { unit: u.id, text: 'q', team: u.team });
+      return;
+    }
     if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
     u.mana -= resources.mana;
     state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;

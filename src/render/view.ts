@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
 import { ASHE_Q } from '../content/ashe-q';
+import { LUX } from '../content/lux-progression';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
 import { flurryFlight } from './flurry-flight';
@@ -368,6 +369,10 @@ export class GameView {
     for (const u of world.units) {
       if (!world.alive(u) || !world.visible(u)) continue;
       const champion = u.kind === 'champion';
+      const selection =
+        u.champion === 'lux'
+          ? { radius: LUX.selectionRadius, height: LUX.selectionHeight }
+          : ASHE_SELECTION;
       const base = champion
         ? (this.models.get(u.id)?.root.position ?? {
             x: u.x * SCALE,
@@ -378,7 +383,7 @@ export class GameView {
       let p: { x: number; y: number };
       if (base) {
         this.projector
-          .set(base.x, base.y + (ASHE_SELECTION.height * SCALE) / 2, base.z)
+          .set(base.x, base.y + (selection.height * SCALE) / 2, base.z)
           .project(this.camera);
         p = {
           x: (this.projector.x + 1) * 0.5 * this.width,
@@ -390,8 +395,8 @@ export class GameView {
         ? intersectsSelectionCylinder(
             this.ray.ray,
             base,
-            ASHE_SELECTION.radius * SCALE,
-            ASHE_SELECTION.height * SCALE
+            selection.radius * SCALE,
+            selection.height * SCALE
           )
         : d < (isStructureKind(u.kind) ? 35 : 19);
       if (inside && d < best) {
@@ -527,11 +532,13 @@ export class GameView {
         const recalling = u.deadAt === null && state !== undefined && state.recallEnd !== null;
         const cast = u.deadAt === null ? state?.castAnimation : null;
         const castAge = cast ? Math.max(0, world.tick - cast.startTick + alpha - 1) / TICK_RATE : 0;
-        if (
-          cast &&
-          castAge < model.actions[ASHE_CASTS[cast.ability].animation].getClip().duration
-        ) {
-          const name = ASHE_CASTS[cast.ability].animation,
+        const castName = cast
+          ? cast.ability === 'q'
+            ? 'spell1'
+            : ASHE_CASTS[cast.ability].animation
+          : null;
+        if (castName && castAge < model.actions[castName].getClip().duration) {
+          const name = castName,
             action = model.actions[name];
           if (model.actionName !== name) {
             model.mixer.stopAllAction();
@@ -728,7 +735,7 @@ export class GameView {
       let model = this.projectileModels.get(p.id);
       if (!model) {
         if (p.type === 'hawkshot') model = createHawkshot();
-        else if (p.type === 'attack' && world.unit(p.source)?.kind === 'champion')
+        else if (p.type === 'attack' && world.unit(p.source)?.champion === 'ashe')
           model = createAsheAttackArrow(p.empowered ?? false);
         else {
           model = new THREE.Group();

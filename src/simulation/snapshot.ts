@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
+import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
@@ -8,7 +9,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 36;
+export const SNAPSHOT_VERSION = 37;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -36,6 +37,7 @@ const unit: z.ZodType<Unit> = z
   .strictObject({
     id,
     kind,
+    champion: z.enum(['ashe', 'lux']).optional(),
     team,
     name: z.string().max(200),
     x: z.number(),
@@ -113,8 +115,12 @@ const unit: z.ZodType<Unit> = z
       })
       .optional(),
   })
+  .refine(
+    (u) => (u.kind === 'champion') === (u.champion !== undefined),
+    'Invalid champion identity'
+  )
   .refine((u) => u.hp <= u.maxHp && u.mana <= u.maxMana, 'Invalid unit resources')
-  .refine((u) => !u.attackCycle?.empowered || u.kind === 'champion', 'Invalid empowered attacker');
+  .refine((u) => !u.attackCycle?.empowered || u.champion === 'ashe', 'Invalid empowered attacker');
 const player: z.ZodType<PlayerState> = z
   .strictObject({
     id,
@@ -156,10 +162,12 @@ const player: z.ZodType<PlayerState> = z
         ASHE_E.rechargeSecondsByRank.some((seconds) => value === seconds * TICK_RATE)
       ),
     recallEnd: deadline.nullable(),
-    castAnimation: z.strictObject({ ability: z.enum(['w', 'e', 'r']), startTick: tick }).nullable(),
+    castAnimation: z
+      .strictObject({ ability: z.enum(['q', 'w', 'e', 'r']), startTick: tick })
+      .nullable(),
     pendingCast: z
       .strictObject({
-        ability: z.enum(['w', 'e', 'r']),
+        ability: z.enum(['q', 'w', 'e', 'r']),
         rank: z.number().int().min(1).max(5),
         startTick: tick,
         releaseTick: tick,
@@ -169,7 +177,10 @@ const player: z.ZodType<PlayerState> = z
       .refine(
         (c) =>
           (c.ability !== 'r' || c.rank <= 3) &&
-          c.releaseTick === c.startTick + ASHE_CASTS[c.ability].castSeconds * TICK_RATE,
+          c.releaseTick ===
+            c.startTick +
+              (c.ability === 'q' ? LUX_BINDING.castSeconds : ASHE_CASTS[c.ability].castSeconds) *
+                TICK_RATE,
         'Invalid spell windup'
       )
       .nullable(),
@@ -379,9 +390,9 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved binding contains invalid participants.');
     if (
       projectile.empowered &&
-      state.units.find((unit) => unit.id === projectile.source)?.kind !== 'champion'
+      state.units.find((unit) => unit.id === projectile.source)?.champion !== 'ashe'
     )
-      throw new Error('Saved empowered attack lacks a champion source.');
+      throw new Error('Saved empowered attack lacks an Ashe champion source.');
   }
   if (new Set(ids).size !== ids.length || ids.some((value) => value >= state.nextId))
     throw new Error('Saved match contains invalid entity identities.');
@@ -459,10 +470,24 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved match contains invalid reveal contributions.');
       revealers.add(source.id);
     }
+    if (
+      champion.champion === 'lux' &&
+      (owner.spellRanks.w !== 0 ||
+        owner.spellRanks.e !== 0 ||
+        owner.spellRanks.r !== 0 ||
+        owner.qStacks !== 0 ||
+        owner.qUntil !== 0 ||
+        owner.qStackExpiry !== 0 ||
+        owner.eCharges !== 0)
+    )
+      throw new Error('Saved match contains unavailable Lux spell state.');
+    const compatibleCast = (ability: string) =>
+      champion.champion === 'lux' ? ability === 'q' : ability !== 'q';
     const cast = owner.pendingCast;
     if (
       cast &&
-      (cast.rank > owner.spellRanks[cast.ability] ||
+      (!compatibleCast(cast.ability) ||
+        cast.rank > owner.spellRanks[cast.ability] ||
         cast.startTick > state.tick ||
         cast.releaseTick <= state.tick ||
         champion.deadAt !== null ||
@@ -473,7 +498,8 @@ export function decodeSnapshot(text: string) {
     const animation = owner.castAnimation;
     if (
       (animation &&
-        (animation.startTick > state.tick ||
+        (!compatibleCast(animation.ability) ||
+          animation.startTick > state.tick ||
           champion.deadAt !== null ||
           state.winner !== null ||
           owner.recallEnd !== null)) ||
