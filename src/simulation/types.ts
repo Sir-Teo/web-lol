@@ -70,7 +70,7 @@ export interface Unit extends Vec2 {
   } | null;
   stunUntil: number;
   rootUntil: number;
-  shields: { sourceId: number; amount: number; endTick: number }[];
+  shields: { sourceId: number; amount: number; endTick: number; prismaticCastTick?: number }[];
   illumination: { sourceId: number; endTick: number }[];
   summonerHealReductionUntil: number;
   summonerHealSpeedUntil: number;
@@ -110,7 +110,15 @@ export interface Projectile extends Vec2 {
   id: number;
   source: number;
   team: Team;
-  type: 'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding';
+  type: 'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding' | 'prismatic';
+  prismatic?: {
+    phase: 'out' | 'return';
+    castTick: number;
+    shield: number;
+    hitsOut: number[];
+    hitsReturn: number[];
+    returnPoint?: Vec2;
+  };
   bindingHits?: number[];
   previous: Vec2;
   direction: Vec2;
@@ -180,6 +188,7 @@ export interface ChampionState {
   /** Presentation can finish after the gameplay windup, until another action takes over. */
   castAnimation: { ability: 'q' | 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {
+    shield?: number;
     origin?: Vec2;
     ability: 'q' | 'w' | 'e' | 'r';
     rank: number;

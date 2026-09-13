@@ -79,7 +79,7 @@ test('Lux basic attacks do not build Focus or apply Frost Shot', () => {
 test('unavailable Lux spells cannot learn or cast, and saves reject crossed champion state', () => {
   const { w, lux, state } = setup();
   state.skillPoints = 1;
-  for (const ability of ['w', 'e'] as const) {
+  for (const ability of ['e'] as const) {
     expect(w.learnSpell(ability, lux.id)).toContain('not implemented');
     w.enqueue({ type: 'cast', unit: lux.id, ability, point: { x: 500, y: 0 } });
   }

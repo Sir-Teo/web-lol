@@ -538,7 +538,9 @@ export class GameView {
         const castName = cast
           ? cast.ability === 'q'
             ? 'spell1'
-            : ASHE_CASTS[cast.ability].animation
+            : u.champion === 'lux' && cast.ability === 'w'
+              ? 'spell2'
+              : ASHE_CASTS[cast.ability].animation
           : null;
         if (castName && castAge < model.actions[castName].getClip().duration) {
           const name = castName,
@@ -752,7 +754,7 @@ export class GameView {
           model = createAsheAttackArrow(p.empowered ?? false);
         else {
           model = new THREE.Group();
-          const color = p.team === 'blue' ? 0x9aefff : 0xff818d;
+          const color = p.type === 'prismatic' ? 0xffedb3 : p.team === 'blue' ? 0x9aefff : 0xff818d;
           const material = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95 });
           const tip = new THREE.Mesh(
             new THREE.ConeGeometry(

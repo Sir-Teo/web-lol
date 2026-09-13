@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
+import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
@@ -11,7 +12,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 40;
+export const SNAPSHOT_VERSION = 41;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -93,7 +94,14 @@ const unit: z.ZodType<Unit> = z
     stunUntil: deadline,
     rootUntil: deadline,
     shields: z
-      .array(z.strictObject({ sourceId: id, amount: z.number().positive(), endTick: tick }))
+      .array(
+        z.strictObject({
+          sourceId: id,
+          amount: z.number().positive(),
+          endTick: tick,
+          prismaticCastTick: tick.optional(),
+        })
+      )
       .max(10000),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
     summonerHealReductionUntil: tick,
@@ -180,6 +188,7 @@ const player: z.ZodType<PlayerState> = z
         releaseTick: tick,
         point,
         damage: nonnegative,
+        shield: z.number().positive().optional(),
       })
       .refine(
         (c) => (c.ability !== 'r' || c.rank <= 3) && c.releaseTick > c.startTick,
@@ -215,7 +224,17 @@ const projectile: z.ZodType<Projectile> = z
     id,
     source: id,
     team,
-    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot', 'binding']),
+    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot', 'binding', 'prismatic']),
+    prismatic: z
+      .strictObject({
+        phase: z.enum(['out', 'return']),
+        castTick: tick,
+        shield: z.number().positive(),
+        hitsOut: z.array(id).max(10000),
+        hitsReturn: z.array(id).max(10000),
+        returnPoint: point.optional(),
+      })
+      .optional(),
     bindingHits: z.array(id).max(1).optional(),
     x: z.number(),
     y: z.number(),
@@ -238,6 +257,19 @@ const projectile: z.ZodType<Projectile> = z
         ? p.bindingHits !== undefined && p.target === null && p.volleyId === null
         : p.bindingHits === undefined,
     'Invalid binding hit history'
+  )
+  .refine(
+    (p) =>
+      p.type === 'prismatic'
+        ? p.prismatic !== undefined &&
+          p.target === null &&
+          p.volleyId === null &&
+          p.damage === 0 &&
+          p.origin !== undefined &&
+          p.launchTick !== undefined &&
+          p.radius === LUX_W.radius
+        : p.prismatic === undefined,
+    'Invalid prismatic flight'
   )
   .refine(
     (p) => p.type !== 'hawkshot' || (p.launchTick !== undefined && p.origin !== undefined),
@@ -378,6 +410,35 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved match contains an invalid pending flurry.');
   }
   for (const projectile of [...state.projectiles, ...state.pendingAttackProjectiles]) {
+    const flight = projectile.prismatic;
+    if (flight) {
+      const source = state.units.find((u) => u.id === projectile.source);
+      const out = flight.phase === 'out';
+      if (
+        source?.champion !== 'lux' ||
+        source.team !== projectile.team ||
+        projectile.launchTick !== flight.castTick + LUX_W.castSeconds * TICK_RATE ||
+        projectile.launchTick > state.tick ||
+        projectile.remaining <= 0 ||
+        projectile.remaining > (out ? LUX_W.range : LUX_W.returnRange) ||
+        projectile.speed < (out ? LUX_W.outwardMinimumSpeed : LUX_W.returnSpeed) ||
+        projectile.speed > (out ? LUX_W.outwardSpeed : LUX_W.returnMaximumSpeed) ||
+        flight.hitsOut[0] !== source.id ||
+        flight.hitsReturn.includes(source.id) ||
+        (out && flight.hitsReturn.length !== 0) ||
+        [flight.hitsOut, flight.hitsReturn].some(
+          (hits) =>
+            new Set(hits).size !== hits.length ||
+            hits.some(
+              (hit) =>
+                !state.units.some(
+                  (u) => u.id === hit && u.kind === 'champion' && u.team === source.team
+                )
+            )
+        )
+      )
+        throw new Error('Saved prismatic flight contains invalid participants or trajectory.');
+    }
     if (
       projectile.type === 'binding' &&
       (!state.units.some(
@@ -425,7 +486,9 @@ export function decodeSnapshot(text: string) {
   for (const target of state.units) {
     if (!Number.isFinite(target.shields.reduce((sum, shield) => sum + shield.amount, 0)))
       throw new Error('Saved match contains excessive shields.');
+    const prismaticGrants = new Set<string>();
     for (const shield of target.shields) {
+      const key = `${shield.sourceId}:${shield.prismaticCastTick}`;
       const source = state.units.find((u) => u.id === shield.sourceId);
       if (
         target.kind !== 'champion' ||
@@ -433,9 +496,15 @@ export function decodeSnapshot(text: string) {
         !source ||
         source.kind !== 'champion' ||
         source.team !== target.team ||
-        shield.endTick <= state.tick
+        shield.endTick <= state.tick ||
+        (shield.prismaticCastTick !== undefined &&
+          (source.champion !== 'lux' ||
+            shield.prismaticCastTick > state.tick ||
+            shield.endTick > state.tick + LUX_W.shieldSeconds * TICK_RATE ||
+            prismaticGrants.has(key)))
       )
         throw new Error('Saved match contains an invalid shield.');
+      if (shield.prismaticCastTick !== undefined) prismaticGrants.add(key);
     }
     const sources = new Set<number>();
     for (const mark of target.illumination) {
@@ -527,8 +596,7 @@ export function decodeSnapshot(text: string) {
     }
     if (
       champion.champion === 'lux' &&
-      (owner.spellRanks.w !== 0 ||
-        owner.spellRanks.e !== 0 ||
+      (owner.spellRanks.e !== 0 ||
         owner.qStacks !== 0 ||
         owner.qUntil !== 0 ||
         owner.qStackExpiry !== 0 ||
@@ -536,18 +604,25 @@ export function decodeSnapshot(text: string) {
     )
       throw new Error('Saved match contains unavailable Lux spell state.');
     const compatibleCast = (ability: string) =>
-      champion.champion === 'lux' ? ability === 'q' || ability === 'r' : ability !== 'q';
+      champion.champion === 'lux'
+        ? ability === 'q' || ability === 'w' || ability === 'r'
+        : ability !== 'q';
     const cast = owner.pendingCast;
     if (cast) {
       const luxR = champion.champion === 'lux' && cast.ability === 'r';
+      const luxW = champion.champion === 'lux' && cast.ability === 'w';
       const seconds = luxR
         ? LUX_R.castSeconds
-        : cast.ability === 'q'
-          ? LUX_BINDING.castSeconds
-          : ASHE_CASTS[cast.ability].castSeconds;
+        : luxW
+          ? LUX_W.castSeconds
+          : cast.ability === 'q'
+            ? LUX_BINDING.castSeconds
+            : ASHE_CASTS[cast.ability].castSeconds;
       if (
         cast.releaseTick !== cast.startTick + seconds * TICK_RATE ||
         luxR !== (cast.origin !== undefined) ||
+        luxW !== (cast.shield !== undefined) ||
+        (luxW && cast.damage !== 0) ||
         (cast.origin &&
           Math.abs(
             Math.hypot(cast.point.x - cast.origin.x, cast.point.y - cast.origin.y) - LUX_R.range

@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 41 adds Prismatic Barrier cast shield payloads, outgoing/returning flight phases, per-pass hit histories, captured shield amount, launch identity and a retained dead-caster return point. Shield grants optionally identify their originating W cast for remaining-capacity refresh. The decoder validates Lux ownership, allies, unique per-pass hits, source self-hit state, flight speed/range limits and launch timing, and rejects duplicate same-cast shield grants. W ranks are now permitted; Lux E remains unavailable. Earlier formats are incompatible.
+
 Version 40 requires per-unit shield grants, preserving remaining capacity, allied champion ownership and active deadlines. Dead/nonchampion recipients, invalid owners, nonpositive amounts, expired grants and nonfinite total capacity are rejected.
 
 Version 39 adds Final Spark's retained beam visuals and required origin/endpoint on Lux R windups. Cast timing is validated per champion; beam range, lifetime, owner and entity identity are validated across save/load. Lux R ranks are now permitted while W/E remain unavailable.

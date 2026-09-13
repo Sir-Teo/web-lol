@@ -1,6 +1,7 @@
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
+import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX } from '../content/lux-progression';
 import { damageAfterResistance } from './damage-math';
@@ -290,7 +291,7 @@ export class World {
     this.units.push(u);
     if (champion && identity === 'lux') {
       const own = this.championState(u.id)!;
-      own.spellRanks.w = own.spellRanks.e = 0;
+      own.spellRanks.e = 0;
       own.eCharges = 0;
     }
     return u;
@@ -438,6 +439,8 @@ export class World {
         state.pendingCast = null;
         if (u.champion === 'lux' && cast.ability === 'r')
           this.releaseFinalSpark(u, cast.origin!, cast.point, cast.damage);
+        else if (u.champion === 'lux' && cast.ability === 'w')
+          this.releasePrismatic(u, cast.point, cast.shield!, cast.startTick);
         else if (cast.ability === 'q') this.releaseLightBinding(u, cast.point, cast.damage);
         else if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage, cast.rank);
@@ -1057,6 +1060,7 @@ export class World {
       // Poke a visible champion beyond basic-attack range. Aim at the observed
       // position; queued point data must not track the target after sight is lost.
       if (
+        u.champion === 'ashe' &&
         target.kind === 'champion' &&
         d > u.range + target.radius &&
         d <= ABILITIES.w.range &&
@@ -1286,7 +1290,7 @@ export class World {
     target.rootUntil = Math.max(target.rootUntil, this.tick + durationTicks);
     return true;
   }
-  /** Spell-resolution primitive; Lux input, resources and windup are not wired yet. */
+  /** Shared binding resolution primitive, also used by the queued Lux Q cast. */
   releaseLightBinding(source: Unit, point: Vec2, damage: number): boolean {
     if (
       this.winner ||
@@ -1318,6 +1322,110 @@ export class World {
       volleyId: null,
       bindingHits: [],
     });
+    return true;
+  }
+  private releasePrismatic(source: Unit, point: Vec2, shield: number, castTick: number): void {
+    this.projectiles.push({
+      id: this.nextId++,
+      source: source.id,
+      team: source.team,
+      type: 'prismatic',
+      x: source.x,
+      y: source.y,
+      previous: { x: source.x, y: source.y },
+      origin: { x: source.x, y: source.y },
+      launchTick: this.tick,
+      direction: direction(source, point),
+      target: null,
+      damage: 0,
+      speed: LUX_W.outwardSpeed,
+      radius: LUX_W.radius,
+      remaining: LUX_W.range,
+      volleyId: null,
+      prismatic: { phase: 'out', castTick, shield, hitsOut: [source.id], hitsReturn: [] },
+    });
+  }
+  private applyPrismaticShield(source: Unit, target: Unit, amount: number, castTick: number): void {
+    if (
+      !this.alive(target) ||
+      !Number.isFinite(amount) ||
+      amount <= 0 ||
+      !Number.isFinite(this.shieldAmount(target) + amount)
+    )
+      return;
+    const previous = target.shields.find(
+      (s) => s.sourceId === source.id && s.prismaticCastTick === castTick && s.endTick > this.tick
+    );
+    // Return adds to the unconsumed outgoing grant and refreshes it. Native comparison pending.
+    if (previous) {
+      previous.amount += amount;
+      previous.endTick = this.tick + LUX_W.shieldSeconds * TICK_RATE;
+    } else {
+      const length = target.shields.length;
+      this.applyShield(source, target, amount, LUX_W.shieldSeconds * TICK_RATE);
+      if (target.shields.length === length) return;
+      target.shields[target.shields.length - 1].prismaticCastTick = castTick;
+    }
+    if (source.id !== target.id) {
+      const supporters = this.championState(target.id)!.supportContributors;
+      const support = supporters.find((s) => s.sourceId === source.id);
+      if (support) support.lastSupportTick = this.tick;
+      else supporters.push({ sourceId: source.id, lastSupportTick: this.tick });
+    }
+  }
+  private advancePrismatic(p: Projectile, source: Unit): boolean {
+    const flight = p.prismatic!;
+    if (!this.alive(source) && !flight.returnPoint)
+      flight.returnPoint = { x: source.x, y: source.y };
+    const returning = flight.phase === 'return';
+    const destination = flight.returnPoint ?? source;
+    if (returning) p.direction = direction(p, destination);
+    const acceleration = returning ? LUX_W.returnAcceleration : LUX_W.outwardAcceleration;
+    const limit = returning ? LUX_W.returnMaximumSpeed : LUX_W.outwardMinimumSpeed;
+    const accelerating = Math.min(DT, Math.max(0, (limit - p.speed) / acceleration));
+    const acceleratedSpeed = p.speed + acceleration * accelerating;
+    const step =
+      p.speed * accelerating +
+      0.5 * acceleration * accelerating ** 2 +
+      acceleratedSpeed * (DT - accelerating);
+    p.speed = acceleratedSpeed;
+    const distanceToCaster = returning
+      ? Math.hypot(destination.x - p.x, destination.y - p.y)
+      : Infinity;
+    const travel = Math.min(step, p.remaining, distanceToCaster);
+    const end = { x: p.x + p.direction.x * travel, y: p.y + p.direction.y * travel };
+    const history = returning ? flight.hitsReturn : flight.hitsOut;
+    const hits = this.units
+      .flatMap((u) => {
+        if (
+          u.id === source.id ||
+          u.kind !== 'champion' ||
+          u.team !== p.team ||
+          !this.alive(u) ||
+          history.includes(u.id)
+        )
+          return [];
+        const t = sweepCircle(p, end, u, p.radius + u.radius);
+        return t === null ? [] : [{ unit: u, t }];
+      })
+      .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id);
+    for (const { unit } of hits) {
+      history.push(unit.id);
+      this.applyPrismaticShield(source, unit, flight.shield, flight.castTick);
+    }
+    p.x = end.x;
+    p.y = end.y;
+    p.remaining -= travel;
+    if (returning && distanceToCaster <= travel + 1e-8) {
+      if (!flight.returnPoint)
+        this.applyPrismaticShield(source, source, flight.shield, flight.castTick);
+      return false;
+    }
+    if (p.remaining > 1e-8) return true;
+    if (returning) return false;
+    flight.phase = 'return';
+    p.speed = LUX_W.returnSpeed;
+    p.remaining = LUX_W.returnRange;
     return true;
   }
   private unseenBeforeHawkshot(): Map<Team, Set<number>> {
@@ -1396,6 +1504,10 @@ export class World {
     for (const p of this.projectiles) {
       p.previous = { x: p.x, y: p.y };
       const source = this.unit(p.source);
+      if (p.type === 'prismatic') {
+        if (source && this.advancePrismatic(p, source)) survivors.push(p);
+        continue;
+      }
       const target = p.target === null ? undefined : this.unit(p.target);
       if (p.target !== null) {
         if (!target || !this.alive(target)) continue;
@@ -1995,7 +2107,7 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'lux' && ability !== 'q' && ability !== 'r')
+    if (this.unit(championId)?.champion === 'lux' && ability === 'e')
       return 'This Lux spell is not implemented yet';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
@@ -2021,6 +2133,11 @@ export class World {
     if (ability === 'd' || ability === 'f')
       return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'lux' && ability === 'w')
+      return {
+        mana: rank ? LUX_W.mana[rank - 1] : 0,
+        cooldownSeconds: rank ? LUX_W.cooldownSeconds[rank - 1] : 0,
+      };
     if (this.unit(championId)?.champion === 'lux' && ability === 'r')
       return {
         mana: rank ? LUX_R.mana : 0,
@@ -2064,7 +2181,7 @@ export class World {
     }
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
     const dir = direction(u, point);
-    if (u.champion === 'lux' && (ability === 'q' || ability === 'r')) {
+    if (u.champion === 'lux' && (ability === 'q' || ability === 'w' || ability === 'r')) {
       if (!dir.x && !dir.y) return;
       u.mana -= resources.mana;
       state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
@@ -2075,20 +2192,27 @@ export class World {
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
       const spell = ability === 'q' ? LUX_BINDING : LUX_R;
+      const shield =
+        LUX_W.baseShield[state.spellRanks.w - 1] + LUX_W.abilityPowerRatio * this.abilityPower(u);
+      if (ability === 'w') this.applyPrismaticShield(u, u, shield, this.tick);
       state.castAnimation = { ability, startTick: this.tick };
       state.pendingCast = {
         ...(ability === 'r' ? { origin: { x: u.x, y: u.y } } : {}),
         ability,
         rank: state.spellRanks[ability],
         startTick: this.tick,
-        releaseTick: this.tick + spell.castSeconds * TICK_RATE,
+        releaseTick:
+          this.tick + (ability === 'w' ? LUX_W.castSeconds : spell.castSeconds) * TICK_RATE,
+        ...(ability === 'w' ? { shield } : {}),
         point:
           ability === 'r'
             ? { x: u.x + dir.x * LUX_R.range, y: u.y + dir.y * LUX_R.range }
             : { x: point.x, y: point.y },
         damage:
-          spell.baseDamage[state.spellRanks[ability] - 1] +
-          spell.abilityPowerRatio * this.abilityPower(u),
+          ability === 'w'
+            ? 0
+            : spell.baseDamage[state.spellRanks[ability] - 1] +
+              spell.abilityPowerRatio * this.abilityPower(u),
       };
       this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
       return;
