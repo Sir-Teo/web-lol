@@ -81,6 +81,17 @@ export class Hud {
   private abilityMarkup(a: Ability): string {
     return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
   }
+  private positionTooltip(): void {
+    if (this.tip.hidden) return;
+    const button = this.root.querySelector<HTMLElement>(
+      `button[data-ability="${this.tip.dataset.tooltipAbility}"]`
+    );
+    if (!button) return;
+    const rect = button.getBoundingClientRect();
+    const margin = 12;
+    this.tip.style.left = `${Math.max(margin, Math.min(rect.left, window.innerWidth - this.tip.offsetWidth - margin))}px`;
+    this.tip.style.top = `${Math.max(margin, Math.min(rect.top - this.tip.offsetHeight - 14, window.innerHeight - this.tip.offsetHeight - margin))}px`;
+  }
   private abilityDescription(ability: Ability): string {
     if (ability === 'w')
       return `Fire ${ASHE_W.arrowsByRank[0]} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage())} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
@@ -153,6 +164,7 @@ export class Hud {
     }
   }
   private bind(): void {
+    window.addEventListener('resize', () => this.positionTooltip());
     const inventory = this.root.querySelector<HTMLElement>('#inventory')!;
     let dragged: { slot: number; item: string } | null = null;
     inventory.addEventListener('dragstart', (event) => {
@@ -230,9 +242,7 @@ export class Hud {
         this.tip.dataset.tooltipAbility = ability;
         this.tip.hidden = false;
         button.setAttribute('aria-describedby', this.tip.id);
-        const rect = button.getBoundingClientRect();
-        this.tip.style.left = `${Math.min(rect.left, window.innerWidth - 330)}px`;
-        this.tip.style.bottom = `${window.innerHeight - rect.top + 14}px`;
+        this.positionTooltip();
       };
       const hideTooltip = () => {
         if (this.tip.dataset.tooltipAbility === ability) this.tip.hidden = true;
@@ -526,7 +536,10 @@ export class Hud {
     if (!this.tip.hidden && this.tip.dataset.tooltipAbility) {
       const description = this.abilityDescription(this.tip.dataset.tooltipAbility as Ability);
       const paragraph = this.tip.querySelector('p')!;
-      if (paragraph.textContent !== description) paragraph.textContent = description;
+      if (paragraph.textContent !== description) {
+        paragraph.textContent = description;
+        this.positionTooltip();
+      }
     }
     const text = (id: string, value: string | number) => {
       const element = this.root.querySelector(`#${id}`)!;

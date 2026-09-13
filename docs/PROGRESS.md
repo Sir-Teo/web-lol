@@ -1128,3 +1128,9 @@ All 393 source/simulation checks, four focused Chrome scenarios and nested-path 
 Extracted the existing level-scaled Summoner Heal amount into a shared query, including optional per-recipient recent-Heal reduction. Casts still cap healing to each recipient's missing health. The open tooltip now displays the caster's current base amount and explicitly reports reduced self-healing while the recent-Heal penalty is active.
 
 All 393 source/simulation checks, four focused Chrome scenarios and nested-path production smoke pass. Browser coverage follows 80→318 healing through level growth, checks the actual 318-point cast event, then observes the 159-point reduced amount and its removal exactly at expiry. Existing recipient selection/reduction tests remain passing. Inspected the reduced-healing tooltip screenshot. Full-suite/performance checks were not repeated. Broader healing modifiers and exact native tooltip presentation remain unfinished.
+
+## Keep live tooltips inside resized windows
+
+Tooltip placement now measures the rendered panel and clamps its position within viewport margins. Repositioning occurs on opening, viewport resize and changed live description text; tooltip width and height are bounded to the viewport. This replaces the fixed-width, opening-only bottom offset.
+
+All 393 source/simulation checks, four focused Chrome tooltip cases and nested-path production smoke pass. The new scenario opens Heal at desktop size, resizes to 600×420, then adds the longer recent-Heal text and verifies the full panel remains visible. Inspected the small-window capture: the tooltip is readable above the ability controls. Full-suite/performance checks were not repeated. Complete mobile interaction and exact native tooltip geometry remain unfinished.

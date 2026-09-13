@@ -945,6 +945,9 @@ button {
 .tooltip {
   position: absolute;
   width: 310px;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
   background: linear-gradient(135deg, #11272bee, #071416f5);
   padding: 19px 20px;
   border: 1px solid #8c805b;

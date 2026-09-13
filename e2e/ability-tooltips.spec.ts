@@ -98,3 +98,24 @@ test('Heal tooltip tracks level and the recent-Heal penalty through expiry', asy
   });
   await expect(tip).not.toContainText('Your healing is currently reduced');
 });
+
+test('open tooltip stays inside the viewport after resize and longer live content', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.getByRole('button', { name: 'Heal', exact: true }).focus();
+  await page.setViewportSize({ width: 600, height: 420 });
+  const tip = page.getByRole('tooltip');
+  await expect(tip).toBeInViewport({ ratio: 1 });
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.setPaused(true);
+    g.world.hero.summonerHealReductionUntil = g.world.tick + 1800;
+    g.hud.update(60);
+  });
+  await expect(tip).toContainText('Your healing is currently reduced');
+  await expect(tip).toBeInViewport({ ratio: 1 });
+  await page.screenshot({ path: 'artifacts/tooltip-small-window.png' });
+});
