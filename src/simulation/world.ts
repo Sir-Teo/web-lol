@@ -621,7 +621,12 @@ export class World {
       this.visible(target, u.team)
     );
   }
-  private nearest(u: Unit, range: number, championsOnly = false): Unit | undefined {
+  private nearest(
+    u: Unit,
+    range: number,
+    championsOnly = false,
+    accept?: (target: Unit) => boolean
+  ): Unit | undefined {
     let best: Unit | undefined,
       bestDistance = Infinity;
     for (const target of this.units)
@@ -633,7 +638,12 @@ export class World {
       ) {
         const d = distance(u, target) - target.radius;
         const score = d + (target.kind === 'champion' && u.kind !== 'champion' ? 300 : 0);
-        if (d < range && score < bestDistance && this.validTarget(u, target)) {
+        if (
+          d < range &&
+          score < bestDistance &&
+          this.validTarget(u, target) &&
+          (!accept || accept(target))
+        ) {
           bestDistance = score;
           best = target;
         }
@@ -670,7 +680,12 @@ export class World {
     for (const target of this.units) {
       if (!isLaneMinionKind(target.kind) || !this.validTarget(u, target)) continue;
       const d = distance(u, target) - target.radius;
-      if (d > u.range || target.hp > damageAfterResistance(raw, target.armor)) continue;
+      if (
+        d > u.range ||
+        target.hp > damageAfterResistance(raw, target.armor) ||
+        !this.safeAttackPosition(u, target)
+      )
+        continue;
       // Preserve valuable last hits; equal-value choices prefer shorter flight.
       if (
         !best ||
@@ -706,6 +721,17 @@ export class World {
       );
       return targetingUs || attackingChampion || !cover;
     });
+  }
+  private safeAttackPosition(u: Unit, target: Unit): boolean {
+    const away = direction(target, u);
+    const approach =
+      distance(u, target) <= u.range + target.radius
+        ? u
+        : {
+            x: target.x + away.x * (u.range + target.radius),
+            y: target.y + away.y * (u.range + target.radius),
+          };
+    return !this.threateningTower(u, approach, target.kind === 'champion');
   }
   private advanceChampionLane(u: Unit): void {
     // Rejoin the assigned route after combat, recall or respawn. Route points
@@ -810,8 +836,9 @@ export class World {
     }
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
-    const nearest = this.nearest(u, 1150);
-    const closeThreat = this.nearest(u, 380, true);
+    const safeTarget = (target: Unit) => this.safeAttackPosition(u, target);
+    const nearest = this.nearest(u, 1150, false, safeTarget);
+    const closeThreat = this.nearest(u, 380, true, safeTarget);
     // An immediate champion threat keeps priority over farming.
     const target =
       closeThreat && distance(u, closeThreat) < 380
@@ -819,18 +846,6 @@ export class World {
         : (this.lastHitTarget(u) ?? nearest);
     if (target) {
       const d = distance(u, target);
-      const away = direction(target, u);
-      const approach =
-        d <= u.range + target.radius
-          ? u
-          : {
-              x: target.x + away.x * (u.range + target.radius),
-              y: target.y + away.y * (u.range + target.radius),
-            };
-      if (this.threateningTower(u, approach, target.kind === 'champion')) {
-        if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
-        return;
-      }
       const state = this.championState(u.id)!;
       // Spend Focus against a visible champion during recovery, preserving a
       // committed windup above. The queued cast is validated next tick like input.
@@ -875,6 +890,10 @@ export class World {
         this.setOrder(u, { type: 'move', point: { x: u.x + away.x * 180, y: u.y + away.y * 180 } });
       } else if (u.order.type !== 'attack' || u.order.target !== target.id)
         this.setOrder(u, { type: 'attack', target: target.id });
+    } else if (this.nearest(u, 1150)) {
+      // Visible opponents remain, but none offers a safe attack position.
+      // Hold rather than resuming the lane route into their tower protection.
+      if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
     } else if (this.battlefield.id === 'rift') this.advanceChampionLane(u);
     else if (u.order.type !== 'move')
       this.setOrder(u, {

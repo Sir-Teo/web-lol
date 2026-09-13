@@ -1344,3 +1344,9 @@ All 477 source/simulation checks and nested-path production smoke pass. Three re
 Replaced the fixed full-Rift midpoint destination with assigned-lane waypoint progression. Bots move toward the opposing base in team-relative route order, preserve their waypoint while traveling, and rejoin the assigned lane after combat or base return. Assignment uses the existing saved unit fields; unassigned bots default to mid. The practice sparring destination remains specific to that fixture.
 
 All 481 source/simulation checks, four focused bot Chrome scenarios and nested-path production smoke pass. Early route tests exposed waypoint oscillation, now corrected by retaining travel commitment. The combat-resumption fixture also postpones the defeated opponent's respawn so it measures one interruption rather than a second fight. Browser coverage confirms progression beyond the former midpoint on the actual Rift grid. Full role assignment, jungle/team planning and complete-match certification remain open.
+
+## Safe alternatives during target selection
+
+Moved tower safety into the champion bot's candidate searches. A protected opponent no longer masks a farther safe target or a covered minion last hit. When every visible candidate is unsafe, the bot retains its hold instead of advancing the lane. Existing non-bot target acquisition remains unfiltered by this tactical policy.
+
+All 484 source/simulation checks and nested-path production smoke pass. Two new simulation regressions failed before the change; hidden safe candidates remain excluded. Four related browser cases initially passed; the alternative-target case failed with fixture occlusion. Made that case's visibility precondition explicit, asserted the alternative is visible, and reran both tower-safety browser cases successfully. The full browser/performance suites were not repeated. Route-wide danger evaluation, safe poke and complete team strategy remain open.

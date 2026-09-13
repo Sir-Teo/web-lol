@@ -99,3 +99,35 @@ test('a bot outside tower range refuses a chase into its protection', () => {
   expect(bot.x).toBe(-400);
   expect(tower.hp).toBe(tower.maxHp);
 });
+
+test('a protected target does not prevent choosing a farther safe opponent', () => {
+  const { w, bot, tower } = lane();
+  tower.x = 1000;
+  w.spawn('champion', 'red', { x: 1000, y: 0 });
+  const safe = w.spawn('melee', 'red', { x: -1050, y: 0 });
+  safe.speed = 0;
+  w.step();
+  expect(bot.order).toEqual({ type: 'attack', target: safe.id });
+  expect(bot.x).toBeLessThan(0);
+});
+
+test('a hidden safe alternative cannot influence tower-safe target selection', () => {
+  const { w, bot, tower } = lane();
+  tower.x = 1000;
+  w.spawn('champion', 'red', { x: 1000, y: 0 });
+  w.spawn('melee', 'red', { x: -1050, y: 0 });
+  w.battlefield.lineOfSight = (_a, b) => b.x >= 0;
+  w.step();
+  expect(bot.order.type).toBe('idle');
+  expect(bot.x).toBe(0);
+});
+
+test('minion cover permits farming instead of idle champion aggression under a tower', () => {
+  const { w, bot } = lane();
+  w.spawn('melee', 'blue', { x: 650, y: 0 });
+  w.spawn('champion', 'red', { x: 100, y: 0 });
+  const farm = w.spawn('caster', 'red', { x: 250, y: 0 });
+  farm.hp = 20;
+  w.step();
+  expect(bot.attackTarget).toBe(farm.id);
+});
