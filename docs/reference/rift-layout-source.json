@@ -45,7 +45,7 @@
   },
   "laneMinionRecordsSha256": "e50d477e691cec02382257e67d9b501faf94a2f6f6e1be4faf000dd267f28447",
   "laneRuleOverridesSha256": "7bb0b28431436f17775d22e48d88ae8238101c21c18fbffef9094cdfb0c0dc70",
-  "minionOnHitItemsSha256": "e0b78916c8a132fadb79f864d5b68ad2056fbfaccb196595cd67596ced116daf",
+  "minionOnHitItemsSha256": "ece4a0861336267041e4760b451069007ae9456ae127614aed24ff0abc85d87a",
   "laneMinionTemplates": {
     "blue": {
       "melee": {
@@ -2632,7 +2632,7 @@
   "outputs": [
     {
       "path": "public/assets/maps/rift-layout.json",
-      "sha256": "d22268fb21459f834774fa83c2093867d6818547f4a14d3619ebee70a024599d"
+      "sha256": "976996cdbbf9f994b431437270b0c1fe23fff8f12f52068ad93975f35254c957"
     },
     {
       "path": "public/assets/maps/rift-minimap.webp",

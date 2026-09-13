@@ -140,6 +140,41 @@
             "__type": "ItemDataClient"
           },
           "__type": "ItemData"
+        },
+        "Items/1511": {
+          "mDisplayName": "game_item_displayname_1511",
+          "itemID": 1511,
+          "maxStack": 1,
+          "mItemGroups": [
+            "Items/ItemGroups/Default"
+          ],
+          "epicness": 1,
+          "mEffectAmount": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mCategories": [
+            "Armor",
+            "ManaRegen",
+            "OnHit"
+          ],
+          "mItemAttributes": [
+            1
+          ],
+          "mItemDataClient": {
+            "mDescription": "game_item_description_1511",
+            "mDynamicTooltip": "game_item_tooltip_1511",
+            "inventoryIcon": "assets/items/icons2d/1511_supermecharmor.dds",
+            "epicness": 0,
+            "__type": "ItemDataClient"
+          },
+          "__type": "ItemData"
         }
       }
     },
@@ -150,7 +185,8 @@
       "records": {
         "game_item_tooltip_1508": "<titleLeft>Anti-tower Socks</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Reinforced Armor</unique><br>Siege minions take 14% of their health per outer turret shot, 11% of their health per inner turret shot and 8% of their health per base turret shot.<br><br><unique>Minion Slayer</unique><br>Siege minions deal @MinionCurrentHealthDamage*100@% current Health damage to lane minions.<br><br><unique>Turret Slayer</unique><br>Siege minions deal @TurretDamageBonus*100@% bonus damage to turrets and gain @MidLaneAttackSpeedBonus*100@% bonus attack speed against turrets in the mid lane.<br><br><font color='#447777'>They're a little stinky, but effective.</font></mainText>",
         "game_item_tooltip_1509": "<titleLeft>Gusto</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Gusto</unique><br>This unit takes 45% of its health per turret shot. <br><br><unique>Minion Wounder</unique><br>This unit deals @MinionCurrentHealthDamage*100@% current Health damage to lane minions. <br><br><font color='#447777'>Go hard or go home.</font></mainText>",
-        "game_item_tooltip_1510": "<titleLeft>Phreakish Gusto</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Phreakish Gusto</unique><br>This unit takes 70% of its health per turret shot. <br><br><unique>Minion Damager</unique><br>This unit deals @MinionCurrentHealthDamage*100@% current Health damage to lane minions. <br><br><font color='#447777'>Maybe go a little less hard.</font></mainText>"
+        "game_item_tooltip_1510": "<titleLeft>Phreakish Gusto</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Phreakish Gusto</unique><br>This unit takes 70% of its health per turret shot. <br><br><unique>Minion Damager</unique><br>This unit deals @MinionCurrentHealthDamage*100@% current Health damage to lane minions. <br><br><font color='#447777'>Maybe go a little less hard.</font></mainText>",
+        "game_item_tooltip_1511": "<titleLeft>Super Mech Armor</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Super Mech Armor</unique><br>This unit takes 7% of its health per turret shot. <br><br><font color='#447777'>Anything can be used as armor if you pile it on.</font></mainText>"
       }
     }
   ]

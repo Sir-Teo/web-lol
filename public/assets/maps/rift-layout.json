@@ -1684,6 +1684,32 @@
     }
   },
   "siegeMidTurretAttackSpeedBonus": 0.30000001192092896,
+  "turretMinionHealthDamage": {
+    "melee": {
+      "outer-turret": 0.45,
+      "inner-turret": 0.45,
+      "inhibitor-turret": 0.45,
+      "nexus-turret": 0.45
+    },
+    "caster": {
+      "outer-turret": 0.7,
+      "inner-turret": 0.7,
+      "inhibitor-turret": 0.7,
+      "nexus-turret": 0.7
+    },
+    "siege": {
+      "outer-turret": 0.14,
+      "inner-turret": 0.11,
+      "inhibitor-turret": 0.08,
+      "nexus-turret": 0.08
+    },
+    "super": {
+      "outer-turret": 0.07,
+      "inner-turret": 0.07,
+      "inhibitor-turret": 0.07,
+      "nexus-turret": 0.07
+    }
+  },
   "waves": {
     "initialSeconds": 30.0,
     "intervalSeconds": 30.0,

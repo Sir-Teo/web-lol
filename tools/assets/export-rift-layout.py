@@ -3,6 +3,7 @@ import hashlib
 import io
 import json
 import math
+import re
 from pathlib import Path
 import struct
 import subprocess
@@ -124,8 +125,23 @@ lane_bytes = Path('docs/reference/lane-minion-records.json').read_bytes()
 assert sha(lane_bytes) == 'e50d477e691cec02382257e67d9b501faf94a2f6f6e1be4faf000dd267f28447'
 lane_records = json.loads(lane_bytes)
 on_hit_bytes = Path('docs/reference/minion-on-hit-items.json').read_bytes()
-assert sha(on_hit_bytes) == 'e0b78916c8a132fadb79f864d5b68ad2056fbfaccb196595cd67596ced116daf'
+assert sha(on_hit_bytes) == 'ece4a0861336267041e4760b451069007ae9456ae127614aed24ff0abc85d87a'
 on_hit_items = json.loads(on_hit_bytes)['sources'][0]['records']
+item_tooltips = json.loads(on_hit_bytes)['sources'][1]['records']
+turret_roles = ['outer-turret', 'inner-turret', 'inhibitor-turret', 'nexus-turret']
+turret_minion_health_damage = {}
+for kind, item in [('melee', 1509), ('caster', 1510), ('siege', 1508), ('super', 1511)]:
+    tooltip = item_tooltips[f'game_item_tooltip_{item}']
+    if kind == 'siege':
+        match = re.search(r'take (\d+)% of their health per outer turret shot, (\d+)% of their health per inner turret shot and (\d+)% of their health per base turret shot', tooltip)
+        assert match, 'Siege turret tooltip changed'
+        outer, inner, base = [int(value) / 100 for value in match.groups()]
+        ratios = [outer, inner, base, base]
+    else:
+        match = re.search(r'takes (\d+)% of its health per turret shot', tooltip)
+        assert match, f'{kind} turret tooltip changed'
+        ratios = [int(match.group(1)) / 100] * 4
+    turret_minion_health_damage[kind] = dict(zip(turret_roles, ratios))
 siege_mid_turret_attack_speed_bonus, = [value['mValue'] for value in on_hit_items['Items/1508']['mDataValues']
                                        if value['mName'] == 'MidLaneAttackSpeedBonus']
 minion_current_health_damage = {}
@@ -166,6 +182,7 @@ layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawn
           "unitStats": unit_stats, "unitHealthGrowth": unit_health_growth, "minionTurretDamage": overrides["minionTurretDamage"],
           "minionCurrentHealthDamage": minion_current_health_damage,
           "siegeMidTurretAttackSpeedBonus": siege_mid_turret_attack_speed_bonus,
+          "turretMinionHealthDamage": turret_minion_health_damage,
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
                     "intervalChanges": overrides['waveIntervals'],
