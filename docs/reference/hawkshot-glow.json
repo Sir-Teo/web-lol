@@ -1,0 +1,185 @@
+{
+  "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_mis",
+  "source": {
+    "path": "assets/characters/ashe/skins/base/particles/ashe_base_ba_glow.tex",
+    "wadPathHash": "5e034983fb55d578",
+    "sha256": "0976c09543b07b12fedbaad697c1bb82885289b48c16ba6428d5fa0ad9e54b1d",
+    "bytes": 87420
+  },
+  "emitters": [
+    {
+      "timeBeforeFirstEmission": 0.10000000149011612,
+      "rate": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 50.0,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 0.30000001192092896,
+      "isSingleParticle": 1,
+      "emitterName": "Background_Arrow",
+      "worldAcceleration": {
+        "dynamics": {
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "IntegratedValueVector3"
+      },
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "SpawnShape": {
+        "emitOffset": [
+          0.0,
+          -50.0,
+          0.0
+        ],
+        "__type": "{ee39916f}"
+      },
+      "primitive": {
+        "__type": "VfxPrimitiveArbitraryQuad"
+      },
+      "blendMode": 1,
+      "Color": {
+        "constantValue": [
+          0.0800030529499054,
+          0.5300068855285645,
+          1.0,
+          0.3000076413154602
+        ],
+        "__type": "ValueColor"
+      },
+      "pass": -6,
+      "isUniformScale": 1,
+      "isRandomStartFrame": 1,
+      "birthScale0": {
+        "constantValue": [
+          90.0,
+          70.0,
+          10.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "constantValue": [
+          2.0,
+          3.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+      "numFrames": 2,
+      "__type": "VfxEmitterDefinitionData"
+    },
+    {
+      "timeBeforeFirstEmission": 0.10000000149011612,
+      "rate": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 50.0,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 0.30000001192092896,
+      "isSingleParticle": 1,
+      "emitterName": "Background_Arrow1",
+      "worldAcceleration": {
+        "dynamics": {
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "IntegratedValueVector3"
+      },
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "SpawnShape": {
+        "emitOffset": [
+          0.0,
+          -30.0,
+          0.0
+        ],
+        "__type": "{ee39916f}"
+      },
+      "primitive": {
+        "__type": "VfxPrimitiveArbitraryQuad"
+      },
+      "blendMode": 4,
+      "Color": {
+        "constantValue": [
+          0.4899977147579193,
+          0.3499961793422699,
+          0.9300068616867065,
+          0.31000229716300964
+        ],
+        "__type": "ValueColor"
+      },
+      "pass": -5,
+      "isUniformScale": 1,
+      "isRandomStartFrame": 1,
+      "birthScale0": {
+        "constantValue": [
+          90.0,
+          70.0,
+          10.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "constantValue": [
+          2.0,
+          3.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+      "numFrames": 2,
+      "__type": "VfxEmitterDefinitionData"
+    }
+  ],
+  "adapterEvidence": [
+    {
+      "url": "https://github.com/TheKillerey/ReyEngine/blob/cdf014d0b584f65b579211b522c5ed1dfe5687a5/src/ReyEngine.Rendering/Vfx/VfxParticleRenderer.cs",
+      "sha256": "ffef22b70c71cca33b668aba1664756502ab88a55c2dfa7d8e11f046ee167782"
+    },
+    {
+      "url": "https://github.com/TheKillerey/ReyEngine/blob/cdf014d0b584f65b579211b522c5ed1dfe5687a5/src/ReyEngine.Rendering/Vfx/VfxParticleSimulator.cs",
+      "sha256": "dc7dbc899b92707f06171cbb592515049341925625d3349a0fc86ba3d002c28b"
+    }
+  ],
+  "texture": {
+    "path": "public/assets/effects/hawkshot-glow.png",
+    "size": [
+      256,
+      256
+    ],
+    "rgbaSha256": "94a89adf44b948d02be081c41ffe925540882018e3eff61e7c06e1d003926346",
+    "sha256": "cb9642cd1e5ca7dca4eda27576e21405f4e3e2ef4157cf58d6f0d32d22249bf6"
+  }
+}

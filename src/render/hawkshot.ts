@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { loadHawkshotGlow, createHawkshotGlow, animateHawkshotGlow } from './hawkshot-glow';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { configureHawkshotMaterial } from './hawkshot-material';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
@@ -6,11 +7,14 @@ import { clone } from 'three/addons/utils/SkeletonUtils.js';
 let reference: { scene: THREE.Group; clip: THREE.AnimationClip } | undefined;
 const instances = new WeakMap<
   THREE.Group,
-  { model: THREE.Object3D; mixer: THREE.AnimationMixer }
+  { model: THREE.Object3D; mixer: THREE.AnimationMixer; glow: THREE.Group }
 >();
 
 export async function loadHawkshot(): Promise<void> {
-  const gltf = await new GLTFLoader().loadAsync('/assets/models/hawkshot.glb');
+  const [gltf] = await Promise.all([
+    new GLTFLoader().loadAsync('/assets/models/hawkshot.glb'),
+    loadHawkshotGlow(),
+  ]);
   const clip = gltf.animations.find((clip) => clip.name === 'flight');
   if (!clip) throw new Error('Hawkshot lacks its source flight animation');
   gltf.scene.traverse((object) => {
@@ -22,7 +26,7 @@ export async function loadHawkshot(): Promise<void> {
   reference = { scene: gltf.scene, clip };
 }
 
-/** Source Owl1 body and Owl2 rim; remaining particle layers are still absent. */
+/** Source Owl1 body, Owl2 rim and two background quads. */
 export function createHawkshot(): THREE.Group {
   if (!reference) throw new Error('Hawkshot model is not loaded');
   const root = new THREE.Group();
@@ -39,7 +43,9 @@ export function createHawkshot(): THREE.Group {
   root.add(model);
   const mixer = new THREE.AnimationMixer(model);
   mixer.clipAction(reference.clip).play();
-  instances.set(root, { model, mixer });
+  const glow = createHawkshotGlow();
+  root.add(glow);
+  instances.set(root, { model, mixer, glow });
   animateHawkshot(root, 0);
   return root;
 }
@@ -47,6 +53,7 @@ export function createHawkshot(): THREE.Group {
 export function animateHawkshot(root: THREE.Group, seconds: number): void {
   const state = instances.get(root)!;
   state.mixer.setTime(Math.max(0, seconds));
+  animateHawkshotGlow(state.glow, Math.max(0, seconds));
   state.model.updateMatrixWorld(true);
   state.model.traverse((object) => {
     if (object instanceof THREE.SkinnedMesh) object.skeleton.update();
