@@ -6,6 +6,10 @@ import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 
 let texture: THREE.Texture | undefined;
+export function hawkshotDustTexture() {
+  if (!texture) throw new Error('Hawkshot dust atlas is not loaded');
+  return texture;
+}
 export async function loadHawkshotDust() {
   texture = await new THREE.TextureLoader().loadAsync('/assets/effects/hawkshot-dust.png');
   texture.colorSpace = THREE.SRGBColorSpace;

@@ -740,3 +740,11 @@ Sparkle now renders from the independent saved visual descriptor, using its prep
 All 276 source/simulation checks, five focused browser scenarios, production build and a real-input production Hawkshot smoke test pass. Tests cover birth/growth/shrink, final emission, tail restoration, actual rendered pixels with expired vision, material disposal and checkpoint behavior. The new browser test was repeated while refining its diagnostic capture camera. Standard framing and a close-up raised to particle height were inspected; the latter shows the small blue cross without altering source particle size. Profile regeneration is byte-identical. The full browser suite and unchanged GLB validation were not repeated.
 
 This implements one of four lingering layers. Aurora, Snow01, Snow02, source sound, native emission/orientation/color calibration and the full production match remain unfinished. The goal remains active. See [Sparkle playback](ASHE-E.md#lingering-sparkle-playback).
+
+## Both sustained snow layers milestone
+
+Snow01 and Snow02 now render through separate instanced batches sharing the existing shard atlas. Their distinct rates, heights, force/orbit parameters, nonuniform versus uniform scaling, direction orientation versus spin, frame selection and fade come from separate pinned profiles. Saved visual descriptors preserve their tails after sight expiry, with no new texture request or snapshot field.
+
+All 278 source/simulation checks, four focused Chrome scenarios, production build and a real-input production Hawkshot smoke test pass. Browser evidence verifies each layer's independent pixels after reveal expiry, exact paused/restored buffers and empty batches after tail completion. Existing Dust atlas behavior passes. The source-scale fixture screenshot was inspected and both profiles regenerate byte-identically. The full browser suite and unchanged GLB validation were not repeated.
+
+Three of four lingering layers have playback adapters. Force/orbit integration, native defaults, emission phase and visual parity remain unverified as documented. Linger Aurora, source sound and the broader full-match goal remain unfinished. The goal stays active. See [snow evidence](ASHE-E.md#lingering-snow01-and-snow02-playback).
