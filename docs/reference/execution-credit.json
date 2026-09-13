@@ -1,0 +1,12 @@
+{
+  "source": "https://leagueoflegends.fandom.com/wiki/Kill?page=1",
+  "retrieval": "Search-index content retrieved 2026-09-13; direct full-page retrieval previously unavailable.",
+  "windowSeconds": 15,
+  "evidence": "Community execution section describes damage or debuff within 15 seconds, with a separate 20-second ARAM rule.",
+  "implementation": "Recent positive damage only; inclusive tick boundary; last damage-processing order wins.",
+  "limitations": [
+    "Native constant not independently extracted.",
+    "Debuff-only attribution and special reveal-only kill credit remain unsupported.",
+    "Not inferred from the assist-window constant."
+  ]
+}

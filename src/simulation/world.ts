@@ -24,6 +24,7 @@ import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-t
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
+import { EXECUTION_CREDIT_SECONDS } from '../content/execution-credit';
 import { CHAMPION_KILL_XP } from '../content/champion-kill-xp';
 import { championKillExperience } from './champion-kill-experience';
 import { ASHE_SKILL_RECOMMENDATION } from '../content/ashe-skill-recommendation';
@@ -1223,8 +1224,18 @@ export class World {
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
       }
-      const sourceState = this.championState(source.id);
-      if (sourceState && source.team !== target.team) {
+      const lastDamage = targetState?.damageContributors
+        .slice()
+        .reverse()
+        .find((entry) => this.tick - entry.lastDamageTick <= EXECUTION_CREDIT_SECONDS * TICK_RATE);
+      const rewardSource =
+        this.championState(source.id) && source.team !== target.team
+          ? source
+          : lastDamage
+            ? this.unit(lastDamage.sourceId)
+            : undefined;
+      const sourceState = rewardSource ? this.championState(rewardSource.id) : undefined;
+      if (sourceState && rewardSource && rewardSource.team !== target.team) {
         let gold =
           target.goldBounty ??
           (target.kind === 'champion'
@@ -1245,7 +1256,12 @@ export class World {
           gold += FIRST_BLOOD_BONUS;
         }
         sourceState.gold += gold;
-        if (gold) this.emit('gold', source, { value: gold, unit: source.id, team: source.team });
+        if (gold)
+          this.emit('gold', rewardSource, {
+            value: gold,
+            unit: rewardSource.id,
+            team: rewardSource.team,
+          });
         if (target.kind === 'champion') {
           sourceState.kills++;
           const assistantIds = new Set([
@@ -1261,10 +1277,10 @@ export class World {
               .map((entry) => entry.sourceId),
           ]);
           for (const id of assistantIds) {
-            if (id === source.id) continue;
+            if (id === rewardSource.id) continue;
             const contributor = this.unit(id);
             const record = this.championState(id);
-            if (record && contributor?.team === source.team) record.assists++;
+            if (record && contributor?.team === rewardSource.team) record.assists++;
           }
         } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) sourceState.cs++;
       }
