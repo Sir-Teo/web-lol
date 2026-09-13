@@ -1206,3 +1206,9 @@ All 415 source/simulation checks, three focused bot Chrome scenarios, source exp
 Full-Rift champions now start with four unlearned spells, one skill point and no Hawkshot charges. First learning E grants its two charges. Only the explicit practice fixture retains its four free rank-one spells. Snapshot 31 enforces full-Rift rank totals plus unspent points equal champion level, rank-level gates and zero E charges before learning.
 
 All 416 source/simulation checks, 13 focused Chrome scenarios and nested-path production smoke pass. The new default-map browser case verifies the starting points, three available basic upgrades, unavailable R, unlearned tooltip and a real Hawkshot launched after clicking its upgrade. Minimap E/R tests now learn their spells first; production smoke learns E via Ctrl+E. Full-Rift checkpoint/reload tests pass, and the resulting full-map screenshot was inspected. The full browser suite was not repeated. Native gate extraction, exact upgrade timing, champion exceptions and broader production fidelity remain unfinished.
+
+## Full browser regression after spell progression
+
+Ran the complete configured Chrome suite against `87e57a4` without runtime changes during execution: all 161 scenarios passed in 5.5 minutes, with one worker and zero retries. Updated `reference/browser-regression.json` with the exact tested commit, all scenario results and the captured output hash. Coverage includes combat, spell learning, bot behavior, source effects, full-Rift rendering, shop layouts, recovery and saved continuation.
+
+This replaces the older 148-scenario browser baseline. No runtime code changed in this verification commit. Existing production smoke and 416 source/simulation results remain recorded above; performance was not remeasured. A passing regression suite does not establish complete native visual parity, full 5v5 behavior or production completion.
