@@ -30,6 +30,7 @@ The playable includes the full reference Rift terrain, an animated archived Ashe
 
 See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. The target-dummy model remains temporary; camps and full-match bot behavior are still missing. Both bases now include their Nexus and inhibitors, with protected structures, regrowth, and a local Victory/Defeat result. See the [asset pipeline](docs/ASSETS.md) for the matching minion sources and reproducible conversion. The archived champion animation is not certified against the target patch.
 
+- [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)
 - [Game and technical design](docs/DESIGN.md)

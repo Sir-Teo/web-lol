@@ -12,6 +12,7 @@ export class Hud {
   root: HTMLDivElement;
   modal: string | null = null;
   paused = false;
+  graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
   sound = true;
   private mini: HTMLCanvasElement;
   private tip: HTMLDivElement;
@@ -125,8 +126,18 @@ export class Hud {
     this.view.locked = !this.view.locked;
     if (this.view.locked) this.view.recenter(this.world.hero);
   }
+  setGraphicsState(state: Hud['graphicsState']): void {
+    this.graphicsState = state;
+    this.modal = null;
+    this.toggleModal(state ? 'graphics' : this.world.winner ? 'result' : 'pause');
+    this.focusModal();
+  }
+  focusModal(): void {
+    this.root.querySelector<HTMLElement>('.game-dialog')?.focus();
+  }
   toggleModal(which: string): void {
-    if (this.world.winner && which !== 'result') return;
+    if (this.graphicsState && which !== 'graphics') return;
+    if (this.world.winner && which !== 'result' && which !== 'graphics') return;
     if (this.modal === which) {
       this.closeModal();
       return;
@@ -138,7 +149,20 @@ export class Hud {
     let content = '',
       title = '',
       subtitle = '';
-    if (which === 'result') {
+    if (which === 'graphics') {
+      title =
+        this.graphicsState === 'failed'
+          ? 'Graphics recovery interrupted'
+          : 'Restoring the battlefield';
+      subtitle = 'The match is paused.';
+      const message =
+        this.graphicsState === 'lost'
+          ? 'Waiting for graphics to recover. Your match is kept in this tab.'
+          : this.graphicsState === 'restoring'
+            ? 'Preparing the battlefield. You can resume once it is ready.'
+            : 'Graphics could not be restored. Restart to try again.';
+      content = `<p class="practice-note" role="status">${message}</p><button class="primary-button" data-action="reset">Restart match</button><p class="practice-note">Restarting starts a new match.</p>`;
+    } else if (which === 'result') {
       title = this.world.winner === 'blue' ? 'Victory' : 'Defeat';
       subtitle =
         this.world.winner === 'blue' ? 'The enemy Nexus has fallen.' : 'Your Nexus has fallen.';
@@ -177,8 +201,8 @@ export class Hud {
       content = `<div class="shop-balance">Available gold <b>◆ ${this.world.player.gold}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="/assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><p class="shop-message" role="status">Purchases are available at the blue fountain.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
-    backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
-    if (which === 'result')
+    backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
+    if (which === 'result' || which === 'graphics')
       backdrop.querySelector<HTMLButtonElement>('.close-button')!.hidden = true;
     backdrop.querySelector('.close-button')!.addEventListener('click', () => this.closeModal());
     backdrop.onkeydown = (event) => {
@@ -237,13 +261,14 @@ export class Hud {
       })
     );
     const initialFocus =
+      (which === 'graphics' ? backdrop.querySelector<HTMLElement>('.game-dialog') : null) ??
       backdrop.querySelector<HTMLButtonElement>('.primary-button') ??
       backdrop.querySelector<HTMLButtonElement>('.shop-item') ??
       backdrop.querySelector<HTMLButtonElement>('.close-button');
     initialFocus?.focus();
   }
   closeModal(): void {
-    if (this.world.winner) return;
+    if (this.world.winner || this.graphicsState || document.hidden) return;
     this.modal = null;
     this.root.querySelector<HTMLElement>('#modal')!.hidden = true;
     this.actions.pause(false);

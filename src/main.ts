@@ -33,11 +33,11 @@ async function boot(): Promise<void> {
     elapsed = 0;
   let input: GameInput | undefined;
   const setPaused = (value: boolean) => {
-    paused = value;
-    hud.paused = value;
+    paused = value || document.hidden || !!hud.graphicsState;
+    hud.paused = paused;
     accumulator = 0;
     previous = performance.now();
-    if (value) {
+    if (paused) {
       input?.release();
       world.commands.length = 0;
     }
@@ -51,27 +51,67 @@ async function boot(): Promise<void> {
   });
   input = new GameInput(world, view, hud, () => audio.unlock());
   window.addEventListener('resize', () => view.resize());
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      input?.release();
-      if (!hud.modal) hud.toggleModal('pause');
-      else setPaused(true);
-    }
-  });
-  view.renderer.domElement.addEventListener('webglcontextlost', (e) => {
-    e.preventDefault();
+  const assetsReady = Promise.all([loadReferenceModels(), view.loadEnvironment()]);
+  const pauseForInterruption = () => {
+    if (!hud.modal) hud.toggleModal('pause');
+    hud.focusModal();
     setPaused(true);
-    hud.toast('Graphics interrupted. Restoring the battlefield…');
+  };
+  window.addEventListener('blur', pauseForInterruption);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pauseForInterruption();
+  });
+  if (document.hidden) pauseForInterruption();
+  let graphicsGeneration = 0;
+  let cancelWarmup: (() => void) | undefined;
+  const warmGraphics = async (): Promise<boolean> => {
+    const generation = graphicsGeneration;
+    if (view.renderer.getContext().isContextLost()) return false;
+    let cancel!: () => void;
+    const interrupted = new Promise<void>((resolve) => {
+      cancel = resolve;
+    });
+    cancelWarmup = cancel;
+    try {
+      view.render(world, 1, elapsed);
+      await Promise.race([view.renderer.compileAsync(view.scene, view.camera), interrupted]);
+      if (generation !== graphicsGeneration || view.renderer.getContext().isContextLost())
+        return false;
+      view.render(world, 1, elapsed);
+      return true;
+    } finally {
+      if (cancelWarmup === cancel) cancelWarmup = undefined;
+    }
+  };
+  view.renderer.domElement.addEventListener('webglcontextlost', (event) => {
+    event.preventDefault();
+    graphicsGeneration++;
+    cancelWarmup?.();
+    hud.setGraphicsState('lost');
+    setPaused(true);
   });
   view.renderer.domElement.addEventListener('webglcontextrestored', () => {
-    if (hud.modal !== 'pause') hud.toggleModal('pause');
-    setPaused(true);
-    hud.toast('Graphics restored. Resume when you’re ready.');
+    const generation = graphicsGeneration;
+    hud.setGraphicsState('restoring');
+    void (async () => {
+      try {
+        await assetsReady;
+        if (generation !== graphicsGeneration) return;
+        if (!(await warmGraphics()) || generation !== graphicsGeneration) return;
+        hud.setGraphicsState(null);
+        setPaused(true);
+        hud.toast('Graphics restored. Resume when you’re ready.');
+      } catch (error) {
+        if (generation !== graphicsGeneration) return;
+        console.error(error);
+        hud.setGraphicsState('failed');
+        setPaused(true);
+      }
+    })();
   });
-  await Promise.all([loadReferenceModels(), view.loadEnvironment()]);
-  // Renderer initialization and shader warmup precede dismissing the load screen.
-  view.render(world, 1, 0);
-  await view.renderer.compileAsync(view.scene, view.camera);
+  await assetsReady;
+  // A loss during loading hands warmup to the restoration handler.
+  if (!hud.graphicsState) await warmGraphics();
   loading.classList.add('finished');
   window.setTimeout(() => loading.remove(), 600);
   let frames = 0,
@@ -79,6 +119,10 @@ async function boot(): Promise<void> {
     fps = 60,
     uiElapsed = 0;
   view.renderer.setAnimationLoop(() => {
+    if (hud.graphicsState) {
+      previous = performance.now();
+      return;
+    }
     const now = performance.now(),
       dt = Math.min((now - previous) / 1000, 0.1);
     previous = now;

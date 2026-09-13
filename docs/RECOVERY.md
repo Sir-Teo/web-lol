@@ -1,0 +1,15 @@
+# Browser interruption and graphics recovery
+
+The match is local to the current page. Losing window focus or receiving a hidden-document event pauses simulation, clears held aim/camera input and queued commands, and resets the fixed-step accumulator. An initially hidden page also starts paused without waiting for a visibility event. Returning focus or visibility does not automatically resume. Closing a menu while the document is hidden cannot bypass this pause.
+
+Graphics recovery has explicit lost, restoring, and failed states. All three block ordinary menus, gameplay input, simulation, and the regular render loop. A DOM dialog remains available independently of the WebGL canvas. Interruption dialogs and the restored pause menu focus the dialog container, so releasing a previously held Space key cannot activate restart or resume. Restart is an explicit action that creates a new match; this is not a saved-game recovery flow.
+
+On `webglcontextlost`, the handler prevents the default event behavior to permit browser restoration. On `webglcontextrestored`, Three.js rebuilds renderer resources, then the application waits for the required assets, renders and warms shaders, and renders again before presenting the paused match. A generation token rejects stale restoration completions; a subsequent loss interrupts a pending warmup. Simulation entities, timers, pending projectiles, and match results remain in memory throughout. See [MDN context loss](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) and [loss/restoration extension](https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_lose_context).
+
+If restoration fails or the browser never restores the context, the match stays paused and the restart action remains available. Persistent checkpoints, tab-reload restoration, driver crash recovery beyond the WebGL event path, and cross-browser/device certification remain unfinished.
+
+## Current checks
+
+Chrome scenarios exercise real context loss through `WEBGL_lose_context`, repeated loss/restoration, interruption while an asset request is pending, an injected shader-warmup rejection followed by successful recovery, and a second loss that cancels pending shader warmup. A stale warmup completion cannot clear the newer loss state. They compare complete simulation snapshots while blocked, verify menu/resume input cannot bypass recovery, and compare every restored framebuffer byte against a frozen baseline. The full Rift comparison retains the same pixels after restoration. Recovery dialog and restored screenshots are inspected in `artifacts/`.
+
+Focus and hidden-document handler tests dispatch controlled events; the hidden test overrides `document.hidden` to exercise the state guard while an existing shop menu is open. Those checks establish application behavior and are not evidence of operating-system background throttling or every browser's tab-switch policy. The production preview smoke check separately exercises the built application without its development diagnostics.
