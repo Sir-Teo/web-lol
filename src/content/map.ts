@@ -1,6 +1,9 @@
 import type { Vec2 } from '../simulation/math';
 
-export interface Obstacle extends Vec2 { radius: number; height: number }
+export interface Obstacle extends Vec2 {
+  radius: number;
+  height: number;
+}
 export const MAP_HALF = 4100;
 export const LANE_START: Vec2 = { x: -3300, y: 2475 };
 export const LANE_END: Vec2 = { x: 3300, y: -2475 };
