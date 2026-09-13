@@ -41,3 +41,12 @@ Kills of minions/structures/dummies, same-team debug kills, and uncredited nonch
 
 
 See [the assist-gold reconstruction audit](ASSIST-GOLD.md) for verified cross-version/mode records, unresolved field meanings, and the death-transaction requirements for implementing assist payouts.
+
+
+## Selling owned items
+
+The shop now lists owned items with explicit sell actions and prices. Sales remove one selected inventory slot, credit its owner and remove that item's currently implemented flat stats. Duplicate copies remain independent. Selling Boots frees the unique boots restriction. Both teams use their own fountain radius (the existing local 400-unit shop boundary), and dead champions can sell without moving. Invalid slots, unknown champions, out-of-shop living champions and ended matches reject the transaction without mutation.
+
+Pinned Data Dragon 16.18.1 sell values are Doran's Blade 180, Boots 210, Long Sword 245 and Pickaxe 613. Use the explicit integer amounts rather than a generic percentage: starter items and rounding differ. [Source](https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json), [pin](reference/item-selling.json). `python3 tools/assets/verify-item-selling.py` validates the cached source hash, version and complete selected gold records; scenario tests compare the runtime table against the pin.
+
+**Local health-removal policy pending native calibration:** subtract the removed flat health from maximum and current health, retaining at least one HP for a living champion and zero for a dead champion. Selling cannot revive or kill the owner or reset its respawn deadline. Existing purchase health behavior and the incomplete Doran's Blade passive remain separate fidelity gaps. Inventory arrays compact after removal; drag/reorder and native slot retention remain unfinished. Undo, component recipes and full native shop layout also remain unfinished. Checkpoints already serialize the resulting inventory, gold and unit stats, so this changes the simulation fingerprint without adding snapshot fields.

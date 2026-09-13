@@ -207,7 +207,7 @@ export class Hud {
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
-      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><p class="shop-message" role="status">Purchases are available at the blue fountain.</p>`;
+      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><h3>Owned items</h3><div class="shop-owned shop-items"></div><p class="shop-message" role="status">Buy and sell at your fountain, or while dead.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
@@ -274,14 +274,34 @@ export class Hud {
         }
       })
     );
+    const renderOwnedItems = () => {
+      const owned = backdrop.querySelector<HTMLElement>('.shop-owned');
+      if (!owned) return;
+      owned.innerHTML =
+        this.world.player.inventory
+          .map((id, slot) => {
+            const item = ITEMS.find((entry) => entry.id === id)!;
+            return `<button class="shop-item" data-sell="${slot}" aria-label="Sell ${item.name}, slot ${slot + 1}, for ${item.sell} gold"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>Sell · slot ${slot + 1}</small></span><b>◆ ${item.sell}</b></button>`;
+          })
+          .join('') || '<p>No items owned.</p>';
+    };
+    const showShopResult = (result: string | null, success: string) => {
+      const message = backdrop.querySelector<HTMLElement>('.shop-message')!;
+      message.textContent = result ?? success;
+      message.classList.toggle('error', !!result);
+      backdrop.querySelector('.shop-balance b')!.textContent =
+        `◆ ${Math.floor(this.world.player.gold)}`;
+      renderOwnedItems();
+    };
+    renderOwnedItems();
+    backdrop.querySelector('.shop-owned')?.addEventListener('click', (event) => {
+      const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-sell]');
+      if (button) showShopResult(this.world.sell(Number(button.dataset.sell)), 'Item sold');
+    });
     backdrop.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) =>
       button.addEventListener('click', () => {
         const result = this.world.buy(button.dataset.buy!);
-        const message = backdrop.querySelector<HTMLElement>('.shop-message')!;
-        message.textContent = result ?? 'Item purchased';
-        message.classList.toggle('error', !!result);
-        backdrop.querySelector('.shop-balance b')!.textContent =
-          `◆ ${Math.floor(this.world.player.gold)}`;
+        showShopResult(result, 'Item purchased');
       })
     );
     const initialFocus =

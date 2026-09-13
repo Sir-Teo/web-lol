@@ -1472,6 +1472,27 @@ export class World {
     champion.speed += item.speed;
     return null;
   }
+  sell(slot: number, championId = this.player.id): string | null {
+    if (this.winner) return 'The game has ended';
+    const state = this.championState(championId);
+    const champion = this.unit(championId);
+    if (!state || !champion) return 'Unknown champion';
+    if (!Number.isInteger(slot) || slot < 0 || slot >= state.inventory.length)
+      return 'Choose an owned item';
+    if (distance(champion, this.battlefield.spawns[champion.team]) > 400 && this.alive(champion))
+      return 'Return to your fountain to sell items';
+    const item = ITEMS.find((entry) => entry.id === state.inventory[slot]);
+    if (!item) return 'Unknown item';
+    state.inventory.splice(slot, 1);
+    state.gold += item.sell;
+    champion.damage -= item.damage;
+    champion.speed -= item.speed;
+    champion.maxHp -= item.hp;
+    // Local health-removal policy; native missing-health behavior needs calibration.
+    if (this.alive(champion))
+      champion.hp = Math.min(champion.maxHp, Math.max(1, champion.hp - item.hp));
+    return null;
+  }
   static fromSnapshot(text: string, battlefield: Battlefield): World {
     const state = decodeSnapshot(text);
     if (state.battlefield !== battlefield.id)

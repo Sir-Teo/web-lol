@@ -1,0 +1,43 @@
+{
+  "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+  "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+  "version": "16.18.1",
+  "items": {
+    "1055": {
+      "name": "Doran's Blade",
+      "gold": {
+        "base": 450,
+        "purchasable": true,
+        "total": 450,
+        "sell": 180
+      }
+    },
+    "1001": {
+      "name": "Boots",
+      "gold": {
+        "base": 300,
+        "purchasable": true,
+        "total": 300,
+        "sell": 210
+      }
+    },
+    "1036": {
+      "name": "Long Sword",
+      "gold": {
+        "base": 350,
+        "purchasable": true,
+        "total": 350,
+        "sell": 245
+      }
+    },
+    "1037": {
+      "name": "Pickaxe",
+      "gold": {
+        "base": 875,
+        "purchasable": true,
+        "total": 875,
+        "sell": 613
+      }
+    }
+  }
+}
