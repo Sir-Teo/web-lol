@@ -57,6 +57,8 @@ export type Command =
   | { type: 'cast'; unit: number; ability: Ability; point: Vec2 }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
+  /** Fixed when emitted: later vision must never expose an earlier hidden event. */
+  audience: Team[];
   id: number;
   tick: number;
   type: 'damage' | 'gold' | 'attack' | 'cast' | 'death' | 'move' | 'level' | 'heal' | 'message';

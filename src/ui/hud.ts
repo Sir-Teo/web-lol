@@ -307,7 +307,7 @@ export class Hud {
     const target = this.view.selected === null ? undefined : w.unit(this.view.selected);
     const panel = this.root.querySelector<HTMLElement>('#target-panel')!;
     panel.hidden = !target || target.id === p.id || !w.visible(target) || !w.alive(target);
-    if (target) {
+    if (target && !panel.hidden) {
       text('target-name', target.name);
       text('target-hp', `${Math.ceil(target.hp)} / ${target.maxHp}`);
       (panel.querySelector('.target-health i') as HTMLElement).style.width =
@@ -333,10 +333,9 @@ export class Hud {
     for (const event of w.events)
       if (event.id > this.lastEventId) {
         this.lastEventId = event.id;
+        if (!w.eventVisible(event)) continue;
         if (event.type === 'message') this.toast(event.text ?? '');
         if (['damage', 'gold', 'heal', 'level'].includes(event.type)) {
-          const unit = event.unit === undefined ? undefined : w.unit(event.unit);
-          if (unit && !w.visible(unit)) continue;
           const screen = this.view.screenPoint(event, 1.6);
           const element = document.createElement('span');
           element.className = `combat-text ${event.type}`;
@@ -363,6 +362,7 @@ export class Hud {
     ctx.drawImage(this.view.mapTexture.image as HTMLCanvasElement, 0, 0, n, n);
     ctx.fillStyle = 'rgba(4,16,18,.38)';
     ctx.fillRect(0, 0, n, n);
+    ctx.drawImage(this.view.fogCanvas, 0, 0, n, n);
     const xy = (p: { x: number; y: number }) => ({
       x: (p.x / (MAP_HALF * 2) + 0.5) * n,
       y: (p.y / (MAP_HALF * 2) + 0.5) * n,

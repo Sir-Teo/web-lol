@@ -3,6 +3,7 @@ import { MAP_HALF, SPAWN } from '../content/map';
 import { clamp, lerp, type Vec2 } from '../simulation/math';
 import type { Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
+import { seenFrom } from '../simulation/vision';
 import { buildTerrain, SCALE } from './terrain';
 import { makeModel, type UnitModel } from './models';
 
@@ -35,7 +36,9 @@ export class GameView {
   private moveMarker: THREE.Group;
   private lastMoveEvent = -1;
   private markerTick = -1000;
-  private fogCanvas: HTMLCanvasElement;
+  readonly fogCanvas: HTMLCanvasElement;
+  private fogMask = document.createElement('canvas');
+  private fogPixels = new ImageData(128, 128);
   private fogTexture: THREE.CanvasTexture;
   private lastFogTick = -100;
   private bars: HTMLDivElement;
@@ -136,6 +139,7 @@ export class GameView {
     fountain.position.set(SPAWN.x * SCALE, 0.08, SPAWN.y * SCALE);
     this.fogCanvas = document.createElement('canvas');
     this.fogCanvas.width = this.fogCanvas.height = 256;
+    this.fogMask.width = this.fogMask.height = 128;
     this.fogTexture = new THREE.CanvasTexture(this.fogCanvas);
     const fog = new THREE.Mesh(
       new THREE.PlaneGeometry(MAP_HALF * SCALE * 2, MAP_HALF * SCALE * 2),
@@ -325,7 +329,7 @@ export class GameView {
     this.range.scale.setScalar(world.hero.range * SCALE);
     let move;
     for (let i = world.events.length - 1; i >= 0; i--)
-      if (world.events[i].type === 'move') {
+      if (world.events[i].type === 'move' && world.eventVisible(world.events[i])) {
         move = world.events[i];
         break;
       }
@@ -360,6 +364,7 @@ export class GameView {
       u.kind === 'turret' ? 4.3 : u.kind === 'champion' ? 2.3 : 1.55
     );
     bar.hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
+    if (bar.hidden) return;
     bar.style.transform = `translate(${screen.x}px,${screen.y}px) translate(-50%,-100%)`;
     (bar.querySelector('.unit-hp i') as HTMLElement).style.width = `${(u.hp / u.maxHp) * 100}%`;
     (bar.querySelector('.unit-mana i') as HTMLElement).style.width =
@@ -401,6 +406,7 @@ export class GameView {
         this.scene.add(model);
         this.projectileModels.set(p.id, model);
       }
+      model.visible = world.projectileVisible(p);
       model.position.set(
         lerp(p.previous.x, p.x, alpha) * SCALE,
         p.type === 'ultimate' ? 1.2 : 0.9,
@@ -443,28 +449,28 @@ export class GameView {
     this.aim.position.set(hero.x * SCALE, 0, hero.y * SCALE);
   }
   private updateFog(world: World): void {
-    const c = this.fogCanvas.getContext('2d')!,
-      n = 256;
-    c.globalCompositeOperation = 'source-over';
-    c.fillStyle = 'rgba(5,17,18,.73)';
-    c.clearRect(0, 0, n, n);
-    c.fillRect(0, 0, n, n);
-    c.globalCompositeOperation = 'destination-out';
-    const reveal = (p: Vec2, r: number) => {
-      const x = (p.x / (MAP_HALF * 2) + 0.5) * n,
-        y = (p.y / (MAP_HALF * 2) + 0.5) * n,
-        radius = (r / (MAP_HALF * 2)) * n;
-      const gradient = c.createRadialGradient(x, y, radius * 0.78, x, y, radius);
-      gradient.addColorStop(0, 'rgba(0,0,0,1)');
-      gradient.addColorStop(1, 'rgba(0,0,0,0)');
-      c.fillStyle = gradient;
-      c.beginPath();
-      c.arc(x, y, radius, 0, Math.PI * 2);
-      c.fill();
-    };
-    for (const u of world.units)
-      if (u.team === 'blue' && world.alive(u)) reveal(u, u.kind === 'champion' ? 1500 : 1200);
-    if (world.reveal && world.reveal.endTick > world.tick) reveal(world.reveal.point, 800);
+    // Presentation samples the authoritative query; it never supplies gameplay visibility.
+    const sources = world.visionSources(),
+      pixels = this.fogPixels.data,
+      size = this.fogPixels.width,
+      point = { x: 0, y: 0 };
+    for (let y = 0; y < size; y++) {
+      point.y = ((y + 0.5) / size - 0.5) * MAP_HALF * 2;
+      for (let x = 0; x < size; x++) {
+        point.x = ((x + 0.5) / size - 0.5) * MAP_HALF * 2;
+        const i = (y * size + x) * 4;
+        pixels[i] = 5;
+        pixels[i + 1] = 17;
+        pixels[i + 2] = 18;
+        pixels[i + 3] = seenFrom(point, sources) ? 0 : 186;
+      }
+    }
+    this.fogMask.getContext('2d')!.putImageData(this.fogPixels, 0, 0);
+    const context = this.fogCanvas.getContext('2d')!;
+    context.clearRect(0, 0, 256, 256);
+    context.filter = 'blur(1px)';
+    context.drawImage(this.fogMask, 0, 0, 256, 256);
+    context.filter = 'none';
     this.fogTexture.needsUpdate = true;
   }
 }

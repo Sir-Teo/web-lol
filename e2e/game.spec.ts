@@ -158,3 +158,82 @@ test('dialog keeps keyboard focus inside its controls', async ({ page }) => {
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Return to the Rift', exact: true })).toBeFocused();
 });
+
+test('brush visibility agrees across battlefield, picking, HUD, effects, and fog', async ({
+  page,
+}) => {
+  await boot(page);
+  const hidden = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.events = [];
+    w.nextWaveTick = Infinity;
+    Object.assign(w.hero, { x: -820, y: 450, previous: { x: -820, y: 450 } });
+    const enemy = w.spawn('champion', 'red', { x: -820, y: -50 });
+    w.emit('damage', enemy, { unit: enemy.id, value: 123 });
+    w.projectiles = [
+      {
+        id: w.nextId++,
+        source: enemy.id,
+        team: 'red',
+        type: 'volley',
+        x: enemy.x,
+        y: enemy.y,
+        previous: { x: enemy.x, y: enemy.y },
+        direction: { x: 0, y: 1 },
+        target: null,
+        damage: 1,
+        speed: 0,
+        radius: 12,
+        remaining: 1200,
+        volleyId: null,
+      },
+    ];
+    v.selected = enemy.id;
+    w.step(8);
+    v.render(w, 1, w.time);
+    g.hud.update(60);
+    const screen = v.screenPoint(enemy, 0.65);
+    const fogX = Math.floor((enemy.x / 8200 + 0.5) * 256);
+    const fogY = Math.floor((enemy.y / 8200 + 0.5) * 256);
+    return {
+      id: enemy.id,
+      model: v.models.get(enemy.id).root.visible,
+      picked: v.pick(w, screen.x, screen.y)?.id,
+      projectile: [...v.projectileModels.values()].some((m: any) => m.visible),
+      fogAlpha: v.fogCanvas.getContext('2d').getImageData(fogX, fogY, 1, 1).data[3],
+    };
+  });
+  expect(hidden.model).toBe(false);
+  expect(hidden.picked).not.toBe(hidden.id);
+  expect(hidden.projectile).toBe(false);
+  expect(hidden.fogAlpha).toBeGreaterThan(150);
+  await expect(page.locator(`#target-panel`)).toBeHidden();
+  await expect(page.locator(`.unit-bar[data-unit="${hidden.id}"]`)).toBeHidden();
+  await expect(page.locator('.combat-text')).toHaveCount(0);
+  await page.screenshot({ path: 'artifacts/browser-brush-hidden.png' });
+
+  const revealed = await page.evaluate((id) => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    Object.assign(w.hero, { x: -700, y: -50 });
+    w.step(8);
+    v.render(w, 1, w.time);
+    g.hud.update(60);
+    return {
+      model: v.models.get(id).root.visible,
+      projectile: [...v.projectileModels.values()].some((m: any) => m.visible),
+    };
+  }, hidden.id);
+  expect(revealed.model).toBe(true);
+  expect(revealed.projectile).toBe(true);
+  await expect(page.locator('#target-panel')).toBeVisible();
+  await expect(page.locator(`.unit-bar[data-unit="${hidden.id}"]`)).toBeVisible();
+  // The earlier hidden damage is not replayed after entering the brush.
+  await expect(page.locator('.combat-text')).toHaveCount(0);
+  await page.screenshot({ path: 'artifacts/browser-brush-revealed.png' });
+});

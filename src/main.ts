@@ -102,11 +102,7 @@ async function boot(): Promise<void> {
       hud.update(fps);
       uiElapsed = 0;
     }
-    audio.update(
-      world.events.filter(
-        (e) => e.unit === undefined || !world.unit(e.unit) || world.visible(world.unit(e.unit)!)
-      )
-    );
+    audio.update(world.events.filter((event) => world.eventVisible(event)));
   });
   if (import.meta.env.DEV) {
     Object.assign(window, {

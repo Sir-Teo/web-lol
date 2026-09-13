@@ -2,6 +2,7 @@ import { LANE_END, LANE_START, SPAWN } from '../content/map';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
 import { findPath, reachable } from './navigation';
+import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
 import type {
   Ability,
   Command,
@@ -28,6 +29,7 @@ export class World {
   reveal: { point: Vec2; endTick: number } | null = null;
   healSpeedEnd = 0;
   volleyHits: Record<number, number[]> = {};
+  visionAreas: VisionArea[] = [];
 
   constructor(populate = true) {
     const champion = this.spawn('champion', 'blue', SPAWN);
@@ -69,7 +71,22 @@ export class World {
     return unit.hp > 0;
   }
   emit(type: SimEvent['type'], p: Vec2, data: Partial<SimEvent> = {}): void {
-    this.events.push({ id: this.nextId++, tick: this.tick, type, x: p.x, y: p.y, ...data });
+    const unit = data.unit === undefined ? undefined : this.unit(data.unit);
+    const privateFeedback = ['move', 'gold', 'message', 'level'].includes(type);
+    const audience = (['blue', 'red'] as const).filter((team) =>
+      privateFeedback
+        ? team === (data.team ?? 'blue')
+        : unit?.team === team || this.pointVisible(p, team)
+    );
+    this.events.push({
+      id: this.nextId++,
+      tick: this.tick,
+      type,
+      x: p.x,
+      y: p.y,
+      ...data,
+      audience,
+    });
   }
   spawn(kind: UnitKind, team: Team, point: Vec2): Unit {
     const champion = kind === 'champion',
@@ -141,6 +158,7 @@ export class World {
   }
   private update(): void {
     this.tick++;
+    this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
     for (const unit of this.units) unit.previous = { x: unit.x, y: unit.y };
     const commands = this.commands.splice(0);
     for (const command of commands) {
@@ -149,7 +167,7 @@ export class World {
       if (command.type === 'order') {
         this.setOrder(u, command.order);
         if (command.order.type === 'move' || command.order.type === 'attackMove')
-          this.emit('move', command.order.point);
+          this.emit('move', command.order.point, { team: u.team });
       } else if (command.type === 'cast') this.cast(u, command.ability, command.point);
       else if (u.id === this.player.id) {
         this.setOrder(u, { type: 'idle' });
@@ -226,20 +244,26 @@ export class World {
     }
   }
   visible(u: Unit, team: Team = 'blue'): boolean {
-    if (u.team === team || u.kind === 'turret') return true;
-    if (
-      team === 'blue' &&
-      this.reveal &&
-      this.reveal.endTick > this.tick &&
-      distance(u, this.reveal.point) < 650
-    )
-      return true;
-    return this.units.some(
-      (ally) =>
-        ally.team === team &&
-        this.alive(ally) &&
-        distance(u, ally) < (ally.kind === 'champion' ? 1300 : 1000)
-    );
+    return u.team === team || this.pointVisible(u, team);
+  }
+  visionSources(team: Team = 'blue', includeAttackReveals = true): VisionSource[] {
+    const sources: VisionSource[] = this.units
+      .filter((u) => u.team === team && this.alive(u))
+      .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
+    if (includeAttackReveals)
+      sources.push(...this.visionAreas.filter((a) => a.team === team && a.endTick > this.tick));
+    if (team === 'blue' && this.reveal && this.reveal.endTick > this.tick)
+      sources.push({ ...this.reveal.point, radius: 650, unobstructed: true });
+    return sources;
+  }
+  pointVisible(point: Vec2, team: Team = 'blue'): boolean {
+    return seenFrom(point, this.visionSources(team));
+  }
+  projectileVisible(projectile: Projectile, team: Team = 'blue'): boolean {
+    return projectile.team === team || this.pointVisible(projectile, team);
+  }
+  eventVisible(event: SimEvent, team: Team = 'blue'): boolean {
+    return event.audience.includes(team);
   }
   private validTarget(u: Unit, target: Unit | undefined): target is Unit {
     return !!target && target.team !== u.team && this.alive(target) && this.visible(target, u.team);
@@ -286,6 +310,14 @@ export class World {
         u.facing = Math.atan2(target.x - u.x, target.y - u.y);
         if (this.tick >= u.releaseTick) {
           u.releaseTick = null;
+          if (!seenFrom(u, this.visionSources(target.team, false)))
+            this.visionAreas.push({
+              x: u.x,
+              y: u.y,
+              radius: 300,
+              team: target.team,
+              endTick: this.tick + 120,
+            });
           this.emit('attack', u, { unit: u.id, team: u.team });
           if (!u.missileSpeed) this.damage(u, target, u.damage, 'physical');
           else
@@ -439,7 +471,7 @@ export class World {
                     ? 21
                     : 14;
         this.player.gold += gold;
-        if (gold) this.emit('gold', target, { value: gold });
+        if (gold) this.emit('gold', this.hero, { value: gold });
         if (target.kind === 'champion') this.player.kills++;
         else if (target.kind !== 'dummy' && target.kind !== 'turret') this.player.cs++;
       }
@@ -569,6 +601,7 @@ export class World {
       wave: this.wave,
       nextWaveTick: this.nextWaveTick,
       reveal: this.reveal,
+      visionAreas: this.visionAreas,
       healSpeedEnd: this.healSpeedEnd,
       volleyHits: this.volleyHits,
       commands: this.commands,
