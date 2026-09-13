@@ -732,18 +732,35 @@ export class World {
       }
       if (contact) {
         if (source && (p.volleyId === null || !this.volleyHits[p.volleyId]?.includes(contact.id))) {
+          const level = source.id === this.player.id ? this.player.level : 1;
+          const slow =
+            ASHE_PASSIVE.slowAtLevel1 +
+            ((ASHE_PASSIVE.slowAtLevel18 - ASHE_PASSIVE.slowAtLevel1) * (level - 1)) / 17;
           if (p.volleyId !== null) (this.volleyHits[p.volleyId] ??= []).push(contact.id);
           if (p.type === 'attack') this.hitBasicAttack(source, contact, p.damage);
           else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
           if (source.kind === 'champion' && !isStructureKind(contact.kind)) {
-            const level = source.id === this.player.id ? this.player.level : 1;
-            const slow =
-              ASHE_PASSIVE.slowAtLevel1 +
-              ((ASHE_PASSIVE.slowAtLevel18 - ASHE_PASSIVE.slowAtLevel1) * (level - 1)) / 17;
             contact.slowMultiplier = p.type === 'attack' ? 1 - slow : 0.7;
             contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
           }
-          if (p.type === 'ultimate') contact.stunUntil = this.tick + 120;
+          if (p.type === 'ultimate') {
+            contact.stunUntil = this.tick + 120;
+            for (const victim of this.units) {
+              if (
+                victim.id === contact.id ||
+                victim.team === p.team ||
+                !this.alive(victim) ||
+                isStructureKind(victim.kind) ||
+                distance(victim, contact) > ASHE_R.splashRadius
+              )
+                continue;
+              this.damage(source, victim, p.damage * ASHE_R.splashDamageMultiplier, 'magic');
+              if (this.alive(victim)) {
+                victim.slowMultiplier = 1 - slow;
+                victim.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
+              }
+            }
+          }
         }
       } else if (p.remaining > travel) {
         p.x = end.x;

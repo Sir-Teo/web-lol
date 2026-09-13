@@ -431,3 +431,9 @@ All 200 simulation checks, four focused Chrome cases, static build and productio
 Crystal Arrow now contributes its source-backed 750-unit sight radius at its current position to the casting team's shared vision sources. The radius follows saved projectile state, persists through caster death, and disappears on removal. Ordinary/Volley projectiles are excluded. Default terrain/brush occlusion and no lingering reveal remain explicit policies pending reference verification.
 
 All 203 simulation checks, three focused Chrome cases, static build and production smoke pass. New checks cover both teams, radius boundaries, movement/removal, saved dead-caster continuation, occlusion and distant-enemy visibility in the browser. Existing structure-vision behavior remains green. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Crystal arrow splash milestone
+
+Crystal Arrow now damages and applies basic Frost Shot slow to surrounding living enemy non-structure units. The source radius is 400 and area coefficient 1.0; the direct target is excluded from the splash loop and alone receives the primary stun. Lethal direct hits still splash minions. Center-distance geometry and shared damage/slow radius are documented interpretations pending reference calibration. Explosion audiovisual effects, slow priority, distance-scaled stun and full rank/AP behavior remain unfinished.
+
+All 205 simulation checks, three focused Chrome cases, static build and production smoke pass. New cases cover radius/exclusions, mitigation, primary non-duplication, lethal-hit minion splash, saved continuation and browser damage/stun separation. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

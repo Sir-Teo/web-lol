@@ -1,5 +1,41 @@
 import { expect, test } from '@playwright/test';
 
+test('crystal arrow damages a nearby enemy while stunning only its direct target', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.nextWaveTick = Infinity;
+    w.units = [w.hero];
+    const primary = w.spawn('dummy', 'red', { x: w.hero.x + 550, y: w.hero.y });
+    const nearby = w.spawn('dummy', 'red', { x: primary.x, y: primary.y + 300 });
+    primary.magicResist = nearby.magicResist = 0;
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'r', point: primary });
+    for (let i = 0; i < 60 && primary.hp === primary.maxHp; i++) w.step();
+    g.view.render(w, 1, 0);
+    return {
+      primaryDamage: primary.maxHp - primary.hp,
+      splashDamage: nearby.maxHp - nearby.hp,
+      primaryStunned: primary.stunUntil > w.tick,
+      splashStunned: nearby.stunUntil > w.tick,
+      splashSlow: nearby.slowMultiplier,
+      splashSlowed: nearby.slowUntil > w.tick,
+    };
+  });
+  expect(result).toEqual({
+    primaryDamage: 200,
+    splashDamage: 200,
+    primaryStunned: true,
+    splashStunned: false,
+    splashSlow: 0.8,
+    splashSlowed: true,
+  });
+});
+
 test('a distant enemy is revealed by the traveling arrow and hidden after it is removed', async ({
   page,
 }) => {

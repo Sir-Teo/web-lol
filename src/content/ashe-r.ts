@@ -3,5 +3,7 @@ export const ASHE_R = {
   "initialSpeed": 1500.0,
   "acceleration": 200.0,
   "maximumSpeed": 2100.0,
-  "sightRadius": 750.0
+  "sightRadius": 750.0,
+  "splashRadius": 400.0,
+  "splashDamageMultiplier": 1.0
 } as const;
