@@ -1,0 +1,880 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/data/characters/lux/lux.bin.json",
+  "sha256": "fbc893b4cfc75060f40427f8024a03e5980d93829971cc0fbccecbedc0689b74",
+  "records": {
+    "Characters/Lux/Spells/LuxLightStrikeKugelAbility": {
+      "mRootSpell": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel",
+      "mChildSpells": [
+        "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel",
+        "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxEEnd",
+        "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxESlow",
+        "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightstrikeToggle"
+      ],
+      "mName": "LuxLightStrikeKugelAbility",
+      "AbilityTraits": 256,
+      "__type": "AbilityObject"
+    },
+    "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel": {
+      "ObjectName": "LuxLightStrikeKugel",
+      "objectPath": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel",
+      "mScriptName": "LuxLightStrikeKugel",
+      "mSpell": {
+        "mAffectsTypeFlags": 16384,
+        "mRequiredUnitTags": {
+          "mObjectTagList": [
+            "{ea595ca6}"
+          ],
+          "__type": "ObjectTags"
+        },
+        "mSpellTags": [
+          "Trait_DamageAbility",
+          "Trait_RecastOrReplaceSpell",
+          "Trait_SignatureSpell",
+          "Trait_AoE"
+        ],
+        "mEffectAmount": [
+          {
+            "value": [
+              20.0,
+              25.0,
+              30.0,
+              35.0,
+              40.0,
+              45.0,
+              50.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "value": [
+              20.0,
+              65.0,
+              115.0,
+              165.0,
+              215.0,
+              265.0,
+              315.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "value": [
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "value": [
+              310.0,
+              310.0,
+              310.0,
+              310.0,
+              310.0,
+              310.0,
+              310.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          }
+        ],
+        "DataValues": [
+          {
+            "name": "VisionRadius",
+            "values": [
+              650.0,
+              650.0,
+              650.0,
+              650.0,
+              650.0,
+              650.0,
+              650.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "SlowLingerDuration",
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "SlowPercent",
+            "values": [
+              20.0,
+              25.0,
+              30.0,
+              35.0,
+              40.0,
+              45.0,
+              50.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "SlowZoneDuration",
+            "values": [
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "BaseDamage",
+            "values": [
+              20.0,
+              65.0,
+              115.0,
+              165.0,
+              215.0,
+              265.0,
+              315.0
+            ],
+            "__type": "SpellDataValue"
+          }
+        ],
+        "DataValuesModeOverride": {
+          "cherry": {
+            "SpellDataValues": [
+              {
+                "name": "SlowPercent",
+                "values": [
+                  30.0,
+                  35.0,
+                  40.0,
+                  45.0,
+                  50.0,
+                  55.0,
+                  60.0
+                ],
+                "__type": "SpellDataValue"
+              }
+            ],
+            "__type": "SpellDataValueVector"
+          }
+        },
+        "mSpellCalculations": {
+          "TotalDamageTT": {
+            "mSimpleTooltipCalculationDisplay": 6,
+            "mFormulaParts": [
+              {
+                "mDataValue": "BaseDamage",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              {
+                "mCoefficient": 0.800000011920929,
+                "__type": "StatByCoefficientCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          },
+          "{ee9714e4}": {
+            "mMultiplier": {
+              "mNumber": -0.009999999776482582,
+              "__type": "NumberCalculationPart"
+            },
+            "mFormulaParts": [
+              {
+                "mDataValue": "SlowPercent",
+                "__type": "NamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          }
+        },
+        "mCoefficient": 0.800000011920929,
+        "mAnimationName": "Spell3",
+        "mImgIconName": [
+          "ASSETS/Characters/Lux/HUD/Icons2D/LuxLightStrikeKugel.dds",
+          ""
+        ],
+        "spellCastTime": 0.25,
+        "spellTotalTime": 1.0,
+        "cooldownTime": [
+          10.0,
+          10.0,
+          9.5,
+          9.0,
+          8.5,
+          8.0,
+          8.0
+        ],
+        "Cooldown": {
+          "values": [
+            10.0,
+            10.0,
+            9.5,
+            9.0,
+            8.5,
+            8.0,
+            8.0
+          ],
+          "__type": "{0a0eddc9}"
+        },
+        "mCantCancelWhileWindingUp": true,
+        "mProjectTargetToCastRange": true,
+        "castRange": [
+          1100.0,
+          1100.0,
+          1100.0,
+          1100.0,
+          1100.0,
+          1100.0,
+          1100.0
+        ],
+        "castRangeValues": {
+          "values": [
+            1100.0,
+            1100.0,
+            1100.0,
+            1100.0,
+            1100.0,
+            1100.0,
+            1100.0
+          ],
+          "{0a3e0478}": 1100.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          295.0,
+          295.0,
+          295.0,
+          295.0,
+          295.0,
+          295.0,
+          295.0
+        ],
+        "castConeDistance": 100.0,
+        "castTargetAdditionalUnitsRadius": 250.0,
+        "mMissileSpec": {
+          "movementComponent": {
+            "mUseHeightOffsetAtEnd": true,
+            "mTracksTarget": false,
+            "mStartBoneName": "root",
+            "mSpeed": 1200.0,
+            "__type": "FixedSpeedMovement"
+          },
+          "visibilityComponent": {
+            "mPerceptionBubbleRadius": 750.0,
+            "__type": "Defaultvisibility"
+          },
+          "heightSolver": {
+            "__type": "BlendedLinearHeightSolver"
+          },
+          "verticalFacing": {
+            "__type": "VerticalFacingFaceTarget"
+          },
+          "behaviors": [
+            {
+              "__type": "CastOnHit"
+            },
+            {
+              "__type": "DestroyOnMovementComplete"
+            }
+          ],
+          "{c195fba6}": true,
+          "__type": "MissileSpecification"
+        },
+        "mCastType": 3,
+        "castFrame": 7.5,
+        "missileSpeed": 1300.0,
+        "mMissileEffectKey": "Lux_E_mis",
+        "mana": [
+          70.0,
+          80.0,
+          90.0,
+          100.0,
+          110.0,
+          110.0
+        ],
+        "manaValues": {
+          "values": [
+            70.0,
+            80.0,
+            90.0,
+            100.0,
+            110.0,
+            110.0
+          ],
+          "__type": "{630af303}"
+        },
+        "selectionPriority": 1,
+        "mTargetingTypeData": {
+          "__type": "Area"
+        },
+        "mCastingBreaksStealth": true,
+        "mClientData": {
+          "mTooltipData": {
+            "mObjectName": "LuxLightStrikeKugel",
+            "mFormat": "{d7c27163}",
+            "mLocKeys": {
+              "keyName": "Spell_LuxE_Name",
+              "keySummary": "Spell_LuxE_Summary",
+              "keyTooltip": "Spell_LuxE_Tooltip",
+              "keyTooltipSimple": "Spell_LuxE_TooltipSimple"
+            },
+            "mLists": {
+              "LevelUp": {
+                "levelCount": 5,
+                "Elements": [
+                  {
+                    "type": "BaseDamage",
+                    "nameOverride": "Spell_ListType_Damage",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "SlowPercent",
+                    "typeIndex": 1,
+                    "nameOverride": "Spell_ListType_MovementSlow",
+                    "Style": 1,
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "Cost",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "Cooldown",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceSpell"
+          },
+          "mTargeterDefinitions": [
+            {
+              "__type": "TargeterDefinitionRange"
+            },
+            {
+              "centerLocator": {
+                "basePosition": 3,
+                "__type": "DrawablePositionLocator"
+              },
+              "__type": "TargeterDefinitionAoe"
+            }
+          ],
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "BotData": {
+        "{6d548702}": {
+          "mFormulaParts": [
+            {
+              "mSpellCalculationKey": "TotalDamageTT",
+              "__type": "{f3cbe7b2}"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "{ec17e271}": [
+          {
+            "EffectTag": 1,
+            "EffectCalculation": {
+              "mFormulaParts": [
+                {
+                  "mDataValue": "SlowZoneDuration",
+                  "__type": "NamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "__type": "{b09016f6}"
+          }
+        ],
+        "{38382c53}": [
+          {
+            "{e38f54f7}": 2,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 8,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 2048,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 4096,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          }
+        ],
+        "__type": "BotsSpellData"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxEEnd": {
+      "ObjectName": "LuxEEnd",
+      "objectPath": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxEEnd",
+      "mScriptName": "LuxEEnd",
+      "mBuff": {
+        "mDescription": "game_buff_tooltip_LuxEEnd",
+        "__type": "BuffData"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxESlow": {
+      "ObjectName": "LuxESlow",
+      "objectPath": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxESlow",
+      "mScriptName": "LuxESlow",
+      "mBuff": {
+        "mTooltipData": {
+          "mObjectName": "LuxESlow",
+          "mFormat": "{b34f999a}",
+          "mLocKeys": {
+            "keyName": "Spell_LuxE_Name",
+            "keyTooltip": "Buff_LuxESlow_Tooltip"
+          },
+          "__type": "TooltipInstanceBuff"
+        },
+        "__type": "BuffData"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightstrikeToggle": {
+      "ObjectName": "LuxLightstrikeToggle",
+      "objectPath": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightstrikeToggle",
+      "mScriptName": "LuxLightstrikeToggle",
+      "mSpell": {
+        "flags": 4,
+        "mAffectsTypeFlags": 1029,
+        "mRequiredUnitTags": {
+          "mObjectTagList": [
+            "{ea595ca6}"
+          ],
+          "__type": "ObjectTags"
+        },
+        "mAlternateName": "LuxLightstrikeKugel",
+        "mSpellTags": [
+          "Trait_FreeRecast"
+        ],
+        "mEffectAmount": [
+          {
+            "value": [
+              20.0,
+              25.0,
+              30.0,
+              35.0,
+              40.0,
+              45.0,
+              50.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "value": [
+              15.0,
+              60.0,
+              105.0,
+              150.0,
+              195.0,
+              240.0,
+              285.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "value": [
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0,
+              5.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          }
+        ],
+        "mCoefficient": 0.6000000238418579,
+        "mAnimationName": "Spell2",
+        "mImgIconName": [
+          "ASSETS/Characters/Lux/HUD/Icons2D/LuxLightStrikeKugel.dds",
+          ""
+        ],
+        "spellCastTime": 0.42500001192092896,
+        "spellTotalTime": 0.7999999523162842,
+        "cooldownTime": [
+          10.0,
+          10.0,
+          9.5,
+          9.0,
+          8.5,
+          8.0,
+          8.0
+        ],
+        "Cooldown": {
+          "values": [
+            10.0,
+            10.0,
+            9.5,
+            9.0,
+            8.5,
+            8.0,
+            8.0
+          ],
+          "__type": "{0a0eddc9}"
+        },
+        "mCantCancelWhileWindingUp": true,
+        "mProjectTargetToCastRange": true,
+        "mSpellRevealsChampion": false,
+        "bIsToggleSpell": true,
+        "castRange": [
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0,
+          1200.0
+        ],
+        "castRangeValues": {
+          "values": [
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0,
+            1200.0
+          ],
+          "{0a3e0478}": 1200.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          250.0,
+          250.0,
+          250.0,
+          250.0,
+          250.0,
+          250.0,
+          250.0
+        ],
+        "castConeDistance": 100.0,
+        "castTargetAdditionalUnitsRadius": 250.0,
+        "castFrame": 10.005000114440918,
+        "missileSpeed": 1400.0,
+        "mMissileEffectKey": "Lux_E_mis",
+        "selectionPriority": 1,
+        "mTargetingTypeData": {
+          "__type": "Self"
+        },
+        "mCastingBreaksStealth": true,
+        "mClientData": {
+          "mUseTooltipFromAnotherSpell": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel",
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "BotData": {
+        "DamageTag": 1,
+        "{ec17e271}": [
+          {
+            "EffectTag": 1,
+            "EffectCalculation": {
+              "mFormulaParts": [
+                {
+                  "SourceObject": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel",
+                  "{137cf12a}": "SlowLingerDuration",
+                  "__type": "{9e9e2e5c}"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "__type": "{b09016f6}"
+          }
+        ],
+        "{38382c53}": [
+          {
+            "{e38f54f7}": 1,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 2,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 4,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 8,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 1024,
+            "{0717e686}": false,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 2048,
+            "__type": "{150d1b92}"
+          },
+          {
+            "{e38f54f7}": 4096,
+            "__type": "{150d1b92}"
+          }
+        ],
+        "__type": "BotsSpellData"
+      },
+      "__type": "SpellObject"
+    }
+  },
+  "dataDragon": {
+    "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Lux.json",
+    "sha256": "4c179c1abc07a47b9ff3e144d8ec968e4d113abd94315a0c3f4578e11b6414c6",
+    "spell": {
+      "id": "LuxLightStrikeKugel",
+      "name": "Lucent Singularity",
+      "description": "Fires an anomaly of twisted light to an area, which slows nearby enemies. Lux can detonate it to damage enemies in the area of effect.",
+      "tooltip": "Lux creates a light zone that <status>Slows</status> by {{ slowpercent }}% and reveals the area. After {{ slowzoneduration }} seconds or on <recast>Recasting</recast> this Ability, it detonates, dealing <magicDamage>{{ totaldamagett }} magic damage</magicDamage> and <status>Slowing</status> for an additional {{ slowlingerduration }} second.{{ spellmodifierdescriptionappend }}",
+      "leveltip": {
+        "label": [
+          "Damage",
+          "Movement Slow",
+          "@AbilityResourceName@ Cost",
+          "Cooldown"
+        ],
+        "effect": [
+          "{{ basedamage }} -> {{ basedamageNL }}",
+          "{{ slowpercent }}% -> {{ slowpercentNL }}%",
+          "{{ cost }} -> {{ costNL }}",
+          "{{ cooldown }} -> {{ cooldownNL }}"
+        ]
+      },
+      "maxrank": 5,
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cooldownBurn": "10/9.5/9/8.5/8",
+      "cost": [
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      "costBurn": "70/80/90/100/110",
+      "datavalues": {},
+      "effect": [
+        null,
+        [
+          25,
+          30,
+          35,
+          40,
+          45
+        ],
+        [
+          65,
+          115,
+          165,
+          215,
+          265
+        ],
+        [
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        [
+          310,
+          310,
+          310,
+          310,
+          310
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "effectBurn": [
+        null,
+        "25/30/35/40/45",
+        "65/115/165/215/265",
+        "5",
+        "310",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "vars": [],
+      "costType": " {{ abilityresourcename }}",
+      "maxammo": "-1",
+      "range": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ],
+      "rangeBurn": "1100",
+      "image": {
+        "full": "LuxLightStrikeKugel.png",
+        "sprite": "spell8.png",
+        "group": "spell",
+        "x": 192,
+        "y": 96,
+        "w": 48,
+        "h": 48
+      },
+      "resource": "{{ cost }} {{ abilityresourcename }}"
+    }
+  },
+  "references": [
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-10-11-notes/",
+      "supports": "One second of slow following detonation damage."
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-gb/news/game-updates/patch-13-17-notes/",
+      "supports": "E damage 65/115/165/215/265 plus 80% AP; agrees with pinned standard parent."
+    }
+  ],
+  "video": {
+    "url": "https://lol.dyn.riotcdn.net/x/videos/champion-abilities/0099/ability_0099_E1.mp4",
+    "sha256": "31b40429a9bb7cc97a8a4e7d7315ab6e1bd33639295100813eaa7bf02900afd9",
+    "bytes": 4559478,
+    "width": 1056,
+    "height": 720,
+    "fps": 30,
+    "frames": 218,
+    "sourcePage": "https://www.leagueoflegends.com/en-us/champions/lux/",
+    "limitations": "Promotional example with unknown gameplay build, no input log or world coordinates; not a controlled timing or geometry capture. Camera moves during flight.",
+    "observations": [
+      {
+        "frames": [
+          15,
+          18
+        ],
+        "description": "Traveling orb separates visibly from the caster in this interval; visual onset only."
+      },
+      {
+        "frames": [
+          34,
+          38
+        ],
+        "description": "Ground ring becomes visible; onset is gradual and not a precise gameplay arrival callback."
+      },
+      {
+        "frames": [
+          169,
+          170
+        ],
+        "description": "Ring is present at 169; explosion is visible at 170. Automatic timeout versus manual recast cannot be determined."
+      }
+    ]
+  }
+}
