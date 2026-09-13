@@ -173,6 +173,7 @@ export class World {
       nextAttackTick: 0,
       slowUntil: 0,
       slowMultiplier: 0.7,
+      criticalSlow: null,
       stunUntil: 0,
       summonerHealReductionUntil: 0,
       summonerHealSpeedUntil: 0,
@@ -695,7 +696,19 @@ export class World {
   }
   movementSpeed(u: Unit): number {
     const haste = u.summonerHealSpeedUntil > this.tick ? 1 + SUMMONER_HEAL.speedBonus : 1;
-    return u.speed * (u.slowUntil > this.tick ? u.slowMultiplier : 1) * haste;
+    let slow = u.slowUntil > this.tick ? u.slowMultiplier : 1;
+    const critical = u.criticalSlow;
+    if (critical && this.tick < critical.endTick) {
+      const progress = Math.max(
+        0,
+        (this.tick - critical.startTick) / (critical.endTick - critical.startTick)
+      );
+      slow = Math.min(
+        slow,
+        critical.startMultiplier + (critical.endMultiplier - critical.startMultiplier) * progress
+      );
+    }
+    return u.speed * slow * haste;
   }
   private advanceProjectiles(): void {
     const survivors: Projectile[] = [];
@@ -742,8 +755,21 @@ export class World {
           if (p.type === 'attack') this.hitBasicAttack(source, contact, p.damage);
           else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
           if (source.kind === 'champion' && !isStructureKind(contact.kind)) {
-            contact.slowMultiplier = p.type === 'attack' ? 1 - slow : 0.7;
+            contact.slowMultiplier = p.type === 'ultimate' ? 0.7 : 1 - slow;
             contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
+            if (p.type === 'volley' && contact.kind === 'champion') {
+              const peak =
+                ASHE_PASSIVE.criticalSlowAtLevel1 +
+                ((ASHE_PASSIVE.criticalSlowAtLevel18 - ASHE_PASSIVE.criticalSlowAtLevel1) *
+                  (level - 1)) /
+                  17;
+              contact.criticalSlow = {
+                startTick: this.tick,
+                endTick: this.tick + TICK_RATE,
+                startMultiplier: 1 - peak,
+                endMultiplier: 1 - slow,
+              };
+            }
           }
           if (p.type === 'ultimate') {
             const distanceTravelled = ASHE_R.range - p.remaining + travel * first;
@@ -938,6 +964,7 @@ export class World {
     u.aiRetreating = false;
     u.slowUntil = 0;
     u.slowMultiplier = 0.7;
+    u.criticalSlow = null;
     this.setOrder(u, { type: 'idle' });
   }
   private cast(u: Unit, ability: Ability, point: Vec2): void {

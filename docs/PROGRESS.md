@@ -455,3 +455,9 @@ All 208 simulation checks, seven focused Chrome cases, static build and producti
 Volley now uses the main spell selected by Ashe's character root: seven rank-one arrows, 60 + 100% bonus AD damage and 1,500-unit/second projectile speed. This replaces provisional nine-arrow, total-AD scaling and 1,800-speed behavior. Root selection and complete main/missile records are pinned and verified, avoiding unused older rank records. Spread geometry, hit width, casting windup, enhanced slow and rank allocation remain unfinished.
 
 All 210 simulation checks, two focused Chrome cases, static build and production smoke pass. New coverage checks level/base-AD separation, item bonus scaling, arrow count/speed, saved cast damage and one hit per target. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Volley enhanced-slow milestone
+
+Volley champion hits now apply source-backed 40–60% enhanced slow strength, easing to ordinary Frost over a one-second policy window. A separate component prevents a subsequent basic attack from erasing the enhanced decay. Non-champion Volley hits use ordinary level-scaled Frost. Snapshot version 11 validates and preserves the component; respawn clears it. Source tooltips support the enhancement/decay behavior, while exact linear timing remains pending reference capture.
+
+All 213 simulation checks, five focused Chrome cases, static build and production smoke pass. New checks cover level endpoints, decay/tail/expiry, saved continuation, subsequent basic hits and malformed component bounds. Export regeneration is byte-identical. General slow priority, critical basic attacks, movement caps and full champion/match/pixel fidelity remain unfinished; the production goal remains active.

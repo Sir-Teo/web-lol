@@ -2,5 +2,7 @@
 export const ASHE_PASSIVE = {
   "slowAtLevel1": 0.2,
   "slowAtLevel18": 0.3,
-  "durationSeconds": 2.0
+  "durationSeconds": 2.0,
+  "criticalSlowAtLevel1": 0.4,
+  "criticalSlowAtLevel18": 0.6
 } as const;

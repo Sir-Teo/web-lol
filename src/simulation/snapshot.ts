@@ -5,7 +5,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 10;
+export const SNAPSHOT_VERSION = 11;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -71,6 +71,18 @@ const unit: z.ZodType<Unit> = z
     nextAttackTick: deadline,
     slowUntil: deadline,
     slowMultiplier: z.number().min(0).max(1),
+    criticalSlow: z
+      .strictObject({
+        startTick: z.number().int().nonnegative(),
+        endTick: z.number().int().nonnegative(),
+        startMultiplier: z.number().min(0).max(1),
+        endMultiplier: z.number().min(0).max(1),
+      })
+      .refine(
+        (effect) =>
+          effect.endTick > effect.startTick && effect.startMultiplier <= effect.endMultiplier
+      )
+      .nullable(),
     stunUntil: deadline,
     summonerHealReductionUntil: tick,
     summonerHealSpeedUntil: deadline,

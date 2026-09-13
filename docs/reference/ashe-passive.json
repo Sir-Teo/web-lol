@@ -179,5 +179,13 @@
       "__type": "BuffData"
     },
     "__type": "SpellObject"
+  },
+  "tooltips": {
+    "url": "https://raw.communitydragon.org/16.18/game/en_us/data/menu/en_us/lol.stringtable.json",
+    "sha256": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d",
+    "entries": {
+      "spell_ashepassive_tooltip": "Ashe's Attacks and Abilities <status>Slow</status> by @SlowAmount@ for @SlowDuration@ seconds. Attacks deal @DamageBonus@ damage.<br><br>Ashe's critical strikes deal no extra damage, instead increasing the <status>Slow</status> to @EmpoweredSlowAmount@ decaying.",
+      "game_spell_tooltip_volley": "<titleLeft>Volley</titleLeft><titleRight>Level @Level@ [@Hotkey@]</titleRight><subtitleLeft>@Cost@ Mana</subtitleLeft><subtitleRight>@Cooldown@ sec Cooldown</subtitleRight><mainText>Fires arrows in a cone, each dealing @Effect2Amount@ <font color='#FF8C00'>(+@CharTotalPhysical@)</font> physical damage. Enemies can block multiple arrows, but only take damage from the first.<br><br>Champion hits count as Critical Strikes for the purposes of Frost Shot.</mainText>"
+    }
   }
 }
