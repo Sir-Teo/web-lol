@@ -1,0 +1,9 @@
+{
+  "source": {
+    "url": "https://github.com/TheKillerey/ReyEngine/blob/cdf014d0b584f65b579211b522c5ed1dfe5687a5/src/ReyEngine.Rendering/Vfx/VfxParticleRenderer.cs",
+    "sha256": "ffef22b70c71cca33b668aba1664756502ab88a55c2dfa7d8e11f046ee167782"
+  },
+  "vertexRule": "rim = (1 - pow(clamp(dot(surfaceToCamera, normal), 0, 1), fresnel)) * fresnelColor.rgb",
+  "fragmentRule": "outgoing RGB += interpolated rim * particle alpha, before blending",
+  "evidenceScope": "Published transcription of REFLECTIVE mesh shader bytecode, adopted for Owl2. We have not independently verified the bytecode or reference pixels. The fourth fresnelColor component is not used as opacity."
+}

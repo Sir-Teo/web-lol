@@ -1,4 +1,4 @@
-/** Convert the pinned Hawkshot Owl1 mesh, texture and source animation to GLB. */
+/** Convert the pinned Hawkshot Owl1/Owl2 mesh, textures and source animation to GLB. */
 import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -11,6 +11,7 @@ const pinBytes = await readFile('docs/reference/hawkshot-effects.json');
 const pin = JSON.parse(pinBytes);
 const blendPinBytes = await readFile('docs/reference/hawkshot-blending.json');
 const blendPin = JSON.parse(blendPinBytes);
+const fresnelPinBytes = await readFile('docs/reference/hawkshot-fresnel.json');
 const sourceRoot = '.cache/hawkshot-sources';
 for (const file of pin.extraction.files) {
   const bytes = await readFile(`${sourceRoot}/${file.path}`);
@@ -23,6 +24,10 @@ if (emitter.primitive.__type !== 'VfxPrimitiveMesh' || emitter.isUniformScale !=
   throw new Error('Hawkshot mesh/scale interpretation must be reviewed');
 if (emitter.blendMode !== blendPin.selectedMode || blendPin.selectedMode !== 4)
   throw new Error('Hawkshot blend interpretation must be reviewed');
+const rim = definition.complexEmitterDefinitionData.find((e) => e.emitterName === 'Owl2');
+for (const field of ['primitive', 'isUniformScale', 'birthScale0', 'birthRotation0', 'blendMode'])
+  if (JSON.stringify(rim[field]) !== JSON.stringify(emitter[field]))
+    throw new Error(`Hawkshot layers no longer share ${field}`);
 const mesh = emitter.primitive.mMesh;
 const source = (path) => `${sourceRoot}/${path.toLowerCase()}`;
 const converted = '.cache/hawkshot-converted';
@@ -38,27 +43,30 @@ const materialNames = Array.from(
       .toString('utf8')
       .split('\0')[0]
 );
+function convertLayer(rawPath, texture) {
+  execFileSync(
+    '.tools/dotnet/dotnet',
+    [
+      '.tools/converter/lol2gltf.dll',
+      'skn2gltf',
+      '-m',
+      source(mesh.mMeshName),
+      '-s',
+      source(mesh.mMeshSkeletonName),
+      '-g',
+      rawPath,
+      '-a',
+      `${converted}/animations`,
+      '--materials',
+      ...materialNames,
+      '--textures',
+      ...materialNames.map(() => source(texture)),
+    ],
+    { stdio: 'inherit' }
+  );
+}
 const rawPath = `${converted}/hawkshot.glb`;
-execFileSync(
-  '.tools/dotnet/dotnet',
-  [
-    '.tools/converter/lol2gltf.dll',
-    'skn2gltf',
-    '-m',
-    source(mesh.mMeshName),
-    '-s',
-    source(mesh.mMeshSkeletonName),
-    '-g',
-    rawPath,
-    '-a',
-    `${converted}/animations`,
-    '--materials',
-    ...materialNames,
-    '--textures',
-    ...materialNames.map(() => source(emitter.texture)),
-  ],
-  { stdio: 'inherit' }
-);
+convertLayer(rawPath, emitter.texture);
 const io = new NodeIO().registerExtensions(ALL_EXTENSIONS);
 const doc = await io.read(rawPath);
 const unitScale = 0.01 * emitter.birthScale0.constantValue[0];
@@ -85,18 +93,50 @@ const unlit = doc.createExtension(KHRMaterialsUnlit);
 for (const material of doc.getRoot().listMaterials()) {
   material.setBaseColorFactor(emitter.Color.constantValue);
   // glTF has no native additive mode; the runtime restores this source state.
-  material.setExtras({ sourceBlendMode: emitter.blendMode });
+  material.setExtras({ sourceBlendMode: emitter.blendMode, sourceEmitter: emitter.emitterName });
   material.setAlphaMode('BLEND').setDoubleSided(true);
   material.setExtension('KHR_materials_unlit', unlit.createUnlit());
 }
-doc.getRoot().listScenes()[0].setExtras({
-  emitterRotationDegrees: emitter.birthRotation0.constantValue,
-  sourceEmitter: 'Owl1',
-});
+const rimPath = `${converted}/hawkshot-rim.glb`;
+convertLayer(rimPath, rim.texture);
+const rimDoc = await io.read(rimPath);
+const hold = rimDoc.getRoot().listMaterials()[0].getBaseColorTexture();
+const rimTexture = doc
+  .createTexture('Owl2 source color hold')
+  .setImage(hold.getImage())
+  .setMimeType(hold.getMimeType());
+const rimMaterial = doc
+  .createMaterial('Owl2 Fresnel rim')
+  .setBaseColorFactor(rim.birthColor.constantValue)
+  .setBaseColorTexture(rimTexture)
+  .setAlphaMode('BLEND')
+  .setDoubleSided(rim.disableBackfaceCull)
+  .setExtension('KHR_materials_unlit', unlit.createUnlit())
+  .setExtras({
+    sourceBlendMode: rim.blendMode,
+    sourceEmitter: rim.emitterName,
+    fresnel: rim.reflectionDefinition.fresnel,
+    fresnelColor: rim.reflectionDefinition.fresnelColor,
+  });
+for (const m of doc.getRoot().listMeshes()) {
+  const primitives = m.listPrimitives();
+  for (const primitive of primitives) {
+    if (!primitive.getAttribute('NORMAL')) throw new Error('Hawkshot rim requires source normals');
+    m.addPrimitive(primitive.clone().setMaterial(rimMaterial));
+  }
+}
+doc
+  .getRoot()
+  .listScenes()[0]
+  .setExtras({
+    emitterRotationDegrees: emitter.birthRotation0.constantValue,
+    sourceEmitters: ['Owl1', 'Owl2'],
+  });
 const asset = doc.getRoot().getAsset();
 asset.copyright = 'Hawkshot artwork and animation © Riot Games. Reference content.';
 asset.generator = 'web-lol Hawkshot converter; lol2gltf + glTF Transform';
-await doc.transform(resample(), dedup(), prune());
+// The custom rim shader consumes normals even though portable unlit glTF does not.
+await doc.transform(resample(), dedup(), prune({ keepAttributes: true, keepSolidTextures: true }));
 const clips = doc
   .getRoot()
   .listAnimations()
@@ -113,23 +153,28 @@ await writeFile(path, bytes);
 const manifest = {
   referenceVersion: pin.extraction.referenceVersion,
   status:
-    'Source Owl1 body and animation. Other particle layers and reference capture/transform parity remain unfinished.',
+    'Source Owl1 body, Owl2 Fresnel rim and animation. Other particle layers and reference capture/transform parity remain unfinished.',
   definitionsSha256: hash(pinBytes),
   blendInterpretationSha256: hash(blendPinBytes),
+  fresnelInterpretationSha256: hash(fresnelPinBytes),
   blendInterpretationSource: blendPin.source.url,
   output: { path: '/assets/models/hawkshot.glb', bytes: bytes.length, sha256: hash(bytes) },
   sourceManifest: pin.extraction.manifest,
   sourceArchive: pin.extraction.archive,
   sources: pin.extraction.files.filter((f) =>
-    [mesh.mMeshName, mesh.mMeshSkeletonName, mesh.mAnimationName, emitter.texture].some(
-      (p) => p.toLowerCase() === f.path
-    )
+    [
+      mesh.mMeshName,
+      mesh.mMeshSkeletonName,
+      mesh.mAnimationName,
+      emitter.texture,
+      rim.texture,
+    ].some((p) => p.toLowerCase() === f.path)
   ),
   unitScale,
   emitterRotationDegrees: emitter.birthRotation0.constantValue,
   sourceBlendMode: emitter.blendMode,
   materialPolicy:
-    'Unlit source Owl1 color/texture; source mode 4 restored at runtime as SRC_ALPHA + ONE additive blending, per pinned dictionary. glTF alpha BLEND is the portable fallback.',
+    'Unlit source Owl1 and Owl2 color/textures with runtime vertex Fresnel for Owl2; source mode 4 restored at runtime as SRC_ALPHA + ONE additive blending, per pinned dictionary. glTF alpha BLEND is the portable fallback.',
   clips,
   triangles: doc
     .getRoot()

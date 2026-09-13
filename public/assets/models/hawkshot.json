@@ -1,13 +1,14 @@
 {
   "referenceVersion": "16.18.8175716",
-  "status": "Source Owl1 body and animation. Other particle layers and reference capture/transform parity remain unfinished.",
+  "status": "Source Owl1 body, Owl2 Fresnel rim and animation. Other particle layers and reference capture/transform parity remain unfinished.",
   "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
   "blendInterpretationSha256": "7c5fd681b275d81f81901ac56b07e5cee82b44d61e7ebc4533acd31d4697c8f6",
+  "fresnelInterpretationSha256": "69b144588d2ce67d488450785eede514289de388481465a1f1fd144b3ac43222",
   "blendInterpretationSource": "https://github.com/DivineSkins/divine-wiki/blob/86d9eb9ad46595f1e533eb50183b08e5aad8b190/content/docs/en/lol/vfx-bins/bin-dictionary.mdx#blendmode-values",
   "output": {
     "path": "/assets/models/hawkshot.glb",
-    "bytes": 73888,
-    "sha256": "ed2107bbbfd0021f18b2dd6860516913f83471954d20c2e0b041e9c1c978ae46"
+    "bytes": 80440,
+    "sha256": "4e08fc931adb5ac15b7dcbcda0f7b55b336a327b87e286b305c4837698f79efe"
   },
   "sourceManifest": {
     "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
@@ -38,6 +39,12 @@
       "wadPathHash": "9585a6ef79205072",
       "sha256": "f05b18afca599846d1e493ed221d4b7b30eb06122b5a7bfdacdeeacdfe9ab8b8",
       "bytes": 28768
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/particles/common_color-hold.tex",
+      "wadPathHash": "455ce69227789cf3",
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8",
+      "bytes": 68
     }
   ],
   "unitScale": 0.01600000023841858,
@@ -47,7 +54,7 @@
     0
   ],
   "sourceBlendMode": 4,
-  "materialPolicy": "Unlit source Owl1 color/texture; source mode 4 restored at runtime as SRC_ALPHA + ONE additive blending, per pinned dictionary. glTF alpha BLEND is the portable fallback.",
+  "materialPolicy": "Unlit source Owl1 and Owl2 color/textures with runtime vertex Fresnel for Owl2; source mode 4 restored at runtime as SRC_ALPHA + ONE additive blending, per pinned dictionary. glTF alpha BLEND is the portable fallback.",
   "clips": [
     {
       "name": "flight",
@@ -55,6 +62,6 @@
       "durationSeconds": 1.3333333730697632
     }
   ],
-  "triangles": 642,
+  "triangles": 1284,
   "bones": 5
 }

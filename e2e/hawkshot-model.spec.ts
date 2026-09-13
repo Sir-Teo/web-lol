@@ -41,6 +41,16 @@ test('source hawks animate independently, restore their cast phase and preserve 
       mesh.skeleton.bones.map((b: any) => [...b.position.toArray(), ...b.quaternion.toArray()]);
     const a = skin(first.id),
       b = skin(second.id);
+    const layers: any[] = [];
+    v.projectileModels.get(first.id).traverse((child: any) => {
+      if (child.isSkinnedMesh) layers.push(child);
+    });
+    const layerState = layers.map((layer) => ({
+      name: layer.material.userData.sourceEmitter,
+      normals: layer.geometry.attributes.normal?.count,
+      vertices: layer.geometry.attributes.position.count,
+      pose: pose(layer),
+    }));
     const before = pose(a),
       secondBefore = pose(b);
     const independent = a.skeleton !== b.skeleton && a.skeleton.bones[0] !== b.skeleton.bones[0];
@@ -65,6 +75,7 @@ test('source hawks animate independently, restore their cast phase and preserve 
     return {
       independent,
       shared,
+      layerState,
       before,
       secondBefore,
       paused,
@@ -78,6 +89,9 @@ test('source hawks animate independently, restore their cast phase and preserve 
       bones: a.skeleton.bones.length,
     };
   });
+  expect(result.layerState.map((layer) => layer.name)).toEqual(['Owl1', 'Owl2']);
+  for (const layer of result.layerState) expect(layer.normals).toBe(layer.vertices);
+  expect(result.layerState[0].pose).toEqual(result.layerState[1].pose);
   expect(result.independent).toBe(true);
   expect(result.shared).toBe(true);
   expect(result.bones).toBe(5);
@@ -108,7 +122,7 @@ test('Hawkshot adds alpha-weighted light without darkening the framebuffer', asy
     const flight = w.projectiles.find((p: any) => p.type === 'hawkshot');
     let source: any;
     g.view.projectileModels.get(flight.id).traverse((o: any) => {
-      if (o.isSkinnedMesh) source = o.material;
+      if (o.isSkinnedMesh && o.material.userData.sourceEmitter === 'Owl1') source = o.material;
     });
     // Use the loaded body's actual blend state, isolating it from texture and scene lighting.
     const material = source.clone();
@@ -154,4 +168,142 @@ test('Hawkshot adds alpha-weighted light without darkening the framebuffer', asy
       expect(Math.abs(value - expected[i])).toBeLessThanOrEqual(1)
     );
   }
+});
+
+test('source Fresnel rim follows camera and object normals and fades with particle alpha', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const samples = await page.evaluate(async () => {
+    // @ts-expect-error Browser-side Vite module.
+    const T = await import('/node_modules/three/build/three.module.js');
+    const g = (window as any).__GAME__;
+    g.setPaused(true);
+    const w = g.world;
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 0, y: 0 } });
+    w.step();
+    g.view.render(w, 1, 0);
+    const flight = w.projectiles.find((p: any) => p.type === 'hawkshot');
+    let source: any;
+    g.view.projectileModels.get(flight.id).traverse((o: any) => {
+      if (o.isSkinnedMesh && o.material.userData.sourceEmitter === 'Owl2') source = o.material;
+    });
+    const material = source.clone();
+    // Three intentionally does not clone shader callbacks; keep the loaded layer's shader.
+    material.onBeforeCompile = source.onBeforeCompile;
+    material.customProgramCacheKey = source.customProgramCacheKey;
+    const renderer = new T.WebGLRenderer({ antialias: false });
+    renderer.setSize(8, 8);
+    renderer.outputColorSpace = T.LinearSRGBColorSpace;
+    renderer.setClearColor(0, 1);
+    const target = new T.WebGLRenderTarget(8, 8);
+    const scene = new T.Scene();
+    const camera = new T.OrthographicCamera(-1, 1, 1, -1, 0.1, 2000);
+    const geometry = new T.PlaneGeometry(2, 2);
+    const mesh = new T.Mesh(geometry, material);
+    scene.add(mesh);
+    renderer.setRenderTarget(target);
+    const sample = (cameraZ: number, rotation: number, alpha: number) => {
+      camera.position.set(0, 0, cameraZ);
+      camera.lookAt(0, 0, 0);
+      mesh.rotation.y = rotation;
+      material.opacity = alpha;
+      renderer.render(scene, camera);
+      const pixel = new Uint8Array(4);
+      renderer.readRenderTargetPixels(target, 4, 4, 1, 1, pixel);
+      return [...pixel].slice(0, 3);
+    };
+    const facing = sample(1000, 0, 1);
+    const behind = sample(-1000, 0, 1);
+    const turned = sample(1000, Math.PI, 1);
+    const faded = sample(-1000, 0, 0.5);
+    renderer.setRenderTarget(null);
+    target.dispose();
+    material.dispose();
+    geometry.dispose();
+    renderer.dispose();
+    renderer.forceContextLoss();
+    return { facing, behind, turned, faded };
+  });
+  for (const [name, expected] of Object.entries({
+    facing: [0, 0, 0],
+    behind: [140, 211, 255],
+    turned: [140, 211, 255],
+    faded: [35, 53, 64],
+  })) {
+    samples[name as keyof typeof samples].forEach((value: number, i: number) =>
+      expect(Math.abs(value - expected[i])).toBeLessThanOrEqual(1)
+    );
+  }
+});
+
+test('animated Hawkshot layers restore identical pixels after graphics loss', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => {
+    if (message.type() === 'error') errors.push(message.text());
+  });
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const snapshot = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 0, y: 0 } });
+    w.step(20);
+    const p = w.projectiles.find((p: any) => p.type === 'hawkshot');
+    v.recenter(p);
+    v.render(w, 1, v.previousElapsed);
+    const gl = v.renderer.getContext();
+    const pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+    gl.readPixels(
+      0,
+      0,
+      gl.drawingBufferWidth,
+      gl.drawingBufferHeight,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      pixels
+    );
+    (window as any).__hawkPixels = pixels;
+    v.renderer.forceContextLoss();
+    return w.snapshot();
+  });
+  await expect(page.getByRole('heading', { name: 'Restoring the battlefield' })).toBeVisible();
+  await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextRestore());
+  await expect(page.getByRole('heading', { name: 'Game paused' })).toBeVisible();
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      v = g.view;
+    v.render(g.world, 1, v.previousElapsed);
+    const gl = v.renderer.getContext();
+    const before = (window as any).__hawkPixels;
+    const after = new Uint8Array(before.length);
+    gl.readPixels(
+      0,
+      0,
+      gl.drawingBufferWidth,
+      gl.drawingBufferHeight,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      after
+    );
+    let differences = 0,
+      nonzero = 0;
+    for (let i = 0; i < after.length; i++) {
+      if (after[i] !== before[i]) differences++;
+      if (after[i]) nonzero++;
+    }
+    delete (window as any).__hawkPixels;
+    return { differences, nonzero, snapshot: g.world.snapshot() };
+  });
+  expect(result.snapshot).toBe(snapshot);
+  expect(result.nonzero).toBeGreaterThan(100000);
+  expect(result.differences).toBe(0);
+  expect(errors).toEqual([]);
+  await page.screenshot({ path: 'artifacts/browser-hawkshot-rim-restored.png' });
 });

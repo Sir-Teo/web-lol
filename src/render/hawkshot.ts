@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { configureHawkshotMaterial } from './hawkshot-material';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
 
 let reference: { scene: THREE.Group; clip: THREE.AnimationClip } | undefined;
@@ -15,23 +16,13 @@ export async function loadHawkshot(): Promise<void> {
   gltf.scene.traverse((object) => {
     if (object instanceof THREE.Mesh) {
       const materials = Array.isArray(object.material) ? object.material : [object.material];
-      for (const material of materials) {
-        if (material.userData.sourceBlendMode !== 4)
-          throw new Error('Unsupported Hawkshot source blend mode');
-        // Pinned engine dictionary: mode 4 adds source RGB weighted by source alpha.
-        material.blending = THREE.CustomBlending;
-        material.blendEquation = THREE.AddEquation;
-        material.blendSrc = THREE.SrcAlphaFactor;
-        material.blendDst = THREE.OneFactor;
-        material.premultipliedAlpha = false;
-        material.depthWrite = false;
-      }
+      for (const material of materials) configureHawkshotMaterial(material);
     }
   });
   reference = { scene: gltf.scene, clip };
 }
 
-/** Source Owl1 body; other authored particle layers remain to be reconstructed. */
+/** Source Owl1 body and Owl2 rim; remaining particle layers are still absent. */
 export function createHawkshot(): THREE.Group {
   if (!reference) throw new Error('Hawkshot model is not loaded');
   const root = new THREE.Group();
