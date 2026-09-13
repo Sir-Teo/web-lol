@@ -1260,3 +1260,9 @@ All 441 source/simulation checks, four focused Chrome scenarios and nested-path 
 Recovered the active icearrow emitter's SCB mesh and TEX texture from the pinned Ashe archive, distinguished it from the disabled flat arrow emitter, and converted it to a 49,788-byte GLB. Pinned full effect data, extraction provenance and conversion checks. The artifact retains 244 triangles, source UVs, vertex transparency and the 256×256 texture, with emitter transforms left explicit for later integration.
 
 Khronos validation reports zero errors/warnings, exact read-back checks pass, and the isolated one-draw Chrome preview was inspected. The renderer and simulation are unchanged; runtime/browser regressions and performance were not rerun. Source artwork preparation advances the Q flurry pipeline but does not complete its five-arrow schedule, on-hit behavior, effects or combat integration.
+
+## Source Q arrow combat integration
+
+Empowered arrows now use the prepared source ice-arrow model. Release captures projectile identity alongside damage, and snapshot 33 preserves it independently of later buff state. The model uses authored scale and an explicit forward-axis adaptation; native attachment offset and flight-height calibration remain open. Shared geometry/material/texture ownership prevents one removed projectile from disposing another's resources.
+
+All 442 source/simulation checks, six focused Q Chrome scenarios and nested-path production smoke pass. Inspected the combat capture and verified source geometry, texture, vertex alpha, expiry persistence and shared-resource disposal behavior. Tests also preserve identity through source death/save restoration and reject invalid saved empowerment. Full browser/performance suites were not repeated. Five-arrow sequencing, individual impacts and the remaining source particle layers are still unfinished.

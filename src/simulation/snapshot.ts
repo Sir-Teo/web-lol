@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 32;
+export const SNAPSHOT_VERSION = 33;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -212,12 +212,17 @@ const projectile: z.ZodType<Projectile> = z
     radius: nonnegative,
     remaining: nonnegative,
     volleyId: id.nullable(),
+    empowered: z.boolean().optional(),
     launchTick: tick.optional(),
     origin: point.optional(),
   })
   .refine(
     (p) => p.type !== 'hawkshot' || (p.launchTick !== undefined && p.origin !== undefined),
     'Hawkshot lacks launch state'
+  )
+  .refine(
+    (p) => p.empowered === undefined || p.type === 'attack',
+    'Only attacks may carry empowerment'
   );
 const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
@@ -321,6 +326,13 @@ export function decodeSnapshot(text: string) {
     visualIds.add(f.id);
   }
   const ids = [...state.units, ...state.projectiles].map((u) => u.id);
+  for (const projectile of state.projectiles) {
+    if (
+      projectile.empowered &&
+      state.units.find((unit) => unit.id === projectile.source)?.kind !== 'champion'
+    )
+      throw new Error('Saved empowered attack lacks a champion source.');
+  }
   if (new Set(ids).size !== ids.length || ids.some((value) => value >= state.nextId))
     throw new Error('Saved match contains invalid entity identities.');
   const hero = state.units.find((u) => u.id === state.player.id);

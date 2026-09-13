@@ -9,6 +9,7 @@ import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
 import { loadReferenceModels } from './render/models';
 import { loadHawkshotWind } from './render/hawkshot-wind';
+import { loadFocusArrow } from './render/focus-arrow';
 import { loadHawkshotDust } from './render/hawkshot-dust';
 import { loadHawkshotSmoke } from './render/hawkshot-smoke';
 import { loadHawkshotArrival } from './render/hawkshot-arrival';
@@ -86,6 +87,7 @@ async function boot(): Promise<void> {
     audio.load(),
     loadReferenceModels(),
     loadHawkshot(),
+    loadFocusArrow(),
     loadHawkshotWind(),
     loadHawkshotDust(),
     loadHawkshotSmoke(),

@@ -772,6 +772,7 @@ export class World {
               source: u.id,
               team: u.team,
               type: 'attack',
+              empowered: state !== undefined && this.tick < state.qUntil,
               target: target.id,
               direction: direction(u, target),
               damage,

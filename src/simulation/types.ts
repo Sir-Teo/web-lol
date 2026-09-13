@@ -107,6 +107,8 @@ export interface Projectile extends Vec2 {
   radius: number;
   remaining: number;
   volleyId: number | null;
+  /** Captured Q identity; never inferred from the source's current buff. */
+  empowered?: boolean;
   /** Required for Hawkshot's per-cast source animation phase. */
   launchTick?: number;
   origin?: Vec2;

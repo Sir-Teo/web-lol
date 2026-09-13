@@ -11,6 +11,7 @@ import { isStructureKind, type Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
 import { FogSampler } from './fog-sampler';
 import { animateHawkshot, createHawkshot, disposeHawkshot } from './hawkshot';
+import { createFocusArrow, isFocusArrow } from './focus-arrow';
 import { HawkshotWind } from './hawkshot-wind';
 import { HawkshotDust } from './hawkshot-dust';
 import { HawkshotSmoke } from './hawkshot-smoke';
@@ -690,6 +691,7 @@ export class GameView {
       let model = this.projectileModels.get(p.id);
       if (!model) {
         if (p.type === 'hawkshot') model = createHawkshot();
+        else if (p.type === 'attack' && p.empowered) model = createFocusArrow();
         else {
           model = new THREE.Group();
           const color = p.team === 'blue' ? 0x9aefff : 0xff818d;
@@ -733,7 +735,7 @@ export class GameView {
     for (const [id, model] of this.projectileModels)
       if (!active.has(id)) {
         this.scene.remove(model);
-        if (disposeHawkshot(model)) {
+        if (isFocusArrow(model) || disposeHawkshot(model)) {
           this.projectileModels.delete(id);
           continue;
         }
