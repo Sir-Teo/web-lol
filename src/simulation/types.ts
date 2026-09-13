@@ -55,6 +55,7 @@ export interface Unit extends Vec2 {
   lane: number | null;
   laneWaypoint: number;
   attackTarget: number | null;
+  attackCycle: { startTick: number; endTick: number } | null;
   releaseTick: number | null;
   nextAttackTick: number;
   slowUntil: number;

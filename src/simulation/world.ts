@@ -152,6 +152,7 @@ export class World {
       lane: null,
       laneWaypoint: 0,
       attackTarget: null,
+      attackCycle: null,
       releaseTick: null,
       nextAttackTick: 0,
       slowUntil: 0,
@@ -202,6 +203,7 @@ export class World {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
+      u.attackCycle = null;
     }
     u.path = [];
     u.pathTarget = null;
@@ -255,6 +257,7 @@ export class World {
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
       if (u.stunUntil > this.tick) {
+        u.attackCycle = null;
         if (u.releaseTick !== null) {
           u.releaseTick = null;
           u.nextAttackTick = this.tick;
@@ -467,6 +470,7 @@ export class World {
     let target = u.attackTarget === null ? undefined : this.unit(u.attackTarget);
     if (u.releaseTick !== null) {
       if (!this.validTarget(u, target)) {
+        u.attackCycle = null;
         u.releaseTick = null;
         u.nextAttackTick = this.tick;
       } else {
@@ -520,6 +524,7 @@ export class World {
           u.attackTarget = target.id;
           u.releaseTick = this.tick + Math.round(u.windupTicks / speed);
           u.nextAttackTick = this.tick + Math.round(u.attackPeriod / speed);
+          u.attackCycle = { startTick: this.tick, endTick: u.nextAttackTick };
         }
         return;
       }
@@ -665,6 +670,7 @@ export class World {
     if (target.hp === 0) {
       target.deadAt = this.tick;
       target.releaseTick = null;
+      target.attackCycle = null;
       target.order = { type: 'idle' };
       this.emit('death', target, { unit: target.id });
       // Structure destruction is public map knowledge. It grants no live sight

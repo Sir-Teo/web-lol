@@ -4,7 +4,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 5;
+export const SNAPSHOT_VERSION = 6;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -62,6 +62,10 @@ const unit: z.ZodType<Unit> = z
     lane: tick.nullable(),
     laneWaypoint: tick,
     attackTarget: id.nullable(),
+    attackCycle: z
+      .strictObject({ startTick: tick, endTick: tick })
+      .refine((cycle) => cycle.endTick > cycle.startTick, 'Invalid attack cycle')
+      .nullable(),
     releaseTick: deadline.nullable(),
     nextAttackTick: deadline,
     slowUntil: deadline,
