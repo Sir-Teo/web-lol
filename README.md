@@ -13,7 +13,7 @@ npm run dev
 
 Open the localhost address printed by Vite. The game opens directly into Ashe practice. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Q activates at four Focus stacks; F heals. Use A then click for attack-move, S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
 
-Open `/map.html` on the same server to inspect the full reference terrain, original compressed textures, and matching navigation overlay. This terrain study is separate from the practice simulation while full-map gameplay integration is underway. See [map assets and fidelity audit](docs/MAP-ASSETS.md) for source selection, reproducible conversion, and remaining work.
+Open `/map.html` on the same server to inspect the full reference terrain, original compressed textures, and matching navigation overlay. The default game uses this same terrain and navigation grid. The original small scene remains available at `/?scene=fixture` in development for regression tests. See [map assets and fidelity audit](docs/MAP-ASSETS.md) for source selection, reproducible conversion, and remaining work.
 
 ```sh
 npm run check
@@ -26,9 +26,9 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Current build
 
-The playable includes a three-dimensional practice lane, an animated archived Ashe reference model, six animated minion models from patch 16.18, movement and attack states, collision-tested projectiles, basic ability approximations, minion waves, two turrets, a sparring bot, a target dummy, recall, a small working shop, minimap controls, pause, and practice tools. Shared terrain/brush visibility now controls targeting, bots, fog, hidden projectiles, and combat feedback.
+The playable includes the full reference Rift terrain, an animated archived Ashe reference model, six animated minion models from patch 16.18, movement and attack states, collision-tested projectiles, basic ability approximations, three lanes with timed minion waves, 22 turrets at authored positions, a sparring bot, a target dummy, recall, a small working shop, minimap controls, pause, and practice tools. Source-grid navigation and elevation govern movement and pointer targeting. Shared terrain/brush visibility controls targeting, bots, terrain-wide fog, hidden projectiles, and combat feedback.
 
-See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. Procedural terrain, towers, and the target dummy remain temporary. See the [asset pipeline](docs/ASSETS.md) for the matching minion sources and reproducible conversion. The archived champion animation is not certified against the target patch.
+See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. Tower and target-dummy models remain temporary; nexus, inhibitors, camps, and full-match progression are still missing. See the [asset pipeline](docs/ASSETS.md) for the matching minion sources and reproducible conversion. The archived champion animation is not certified against the target patch.
 
 - [Game and technical design](docs/DESIGN.md)
 - [Research, evidence, and uncertainties](docs/RESEARCH.md)

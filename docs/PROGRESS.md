@@ -6,7 +6,7 @@ Last updated: September 12, 2026 (America/New_York).
 
 ## Current authoritative state
 
-- TypeScript/Vite/Three.js application boots directly into a playable practice scene.
+- TypeScript/Vite/Three.js application boots directly into practice on the full reference Rift.
 - Fixed-step, renderer-independent simulation with command handling, wall-aware navigation, ranged attack windup/release, homing attacks, swept skillshots, death, and respawn.
 - Basic Ashe ability representations, minion waves, turrets, a local sparring champion, a target dummy, gold/XP, recall, and four purchasable items.
 - DOM HUD, health bars, ability cooldowns, aiming, camera controls, minimap, menus, scoreboard, practice controls, and synthesized audio feedback.
@@ -14,8 +14,8 @@ Last updated: September 12, 2026 (America/New_York).
 - Team vision now accounts for terrain occlusion, brush, living allied observers, temporary attack reveals, and Hawkshot. Targeting, bot acquisition, render visibility, HUD, minimap fog, projectiles, and event feedback use the shared policy.
 - Six animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
 - Source revisions and SHA-256 hashes are recorded for imported art. The GLB passes the Khronos glTF validator with zero errors and zero warnings.
-- A separate full-map inspection page now renders pinned Base_SRX terrain and vegetation with original BC1/BC3 blocks, authored mip levels, a lossless WebP fallback, and the matching navigation overlay. It is not yet connected to the playable simulation.
-- Thirteen browser scenarios and nineteen simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
+- The default playable now renders pinned Base_SRX terrain and vegetation with original BC1/BC3 blocks, authored mip levels, and a lossless WebP fallback. Source navigation, elevation, fountain spawns, three lane routes, timed barracks waves, and 22 turret positions are connected. The separate inspector retains its navigation overlay.
+- Sixteen browser scenarios and thirty-one simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
 
 The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
 
@@ -23,11 +23,12 @@ The game is **not production complete**. No roadmap milestone that requires comp
 
 | Evidence | Result | Scope |
 |---|---|---|
-| `npm run check` | TypeScript check and 19 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility |
-| `npm run test:browser` | 13 Chrome scenarios | Existing practice interactions, minion lifecycle, full terrain loading, original compressed mips, BC1 alpha, both gzip-hosting conventions, navigation overlay, and WebP fallback |
-| `npm run assets:validate` | 0 errors, 0 warnings | Seven character GLBs, full map glTF, 278 hashed map resources, and navigation payload; not certification of pixel parity |
+| `npm run check` | TypeScript check and 31 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility, source-grid clearance/gates, full-map routes, wave cadence, and fountain recall |
+| `npm run test:browser` | 16 Chrome scenarios | Existing practice interactions, minion lifecycle, full terrain loading, original compressed mips, BC1 alpha, both gzip-hosting conventions, navigation overlay, WebP fallback, full-map pointer/elevation alignment, movement/attack, and exact fog-mask/query agreement |
+| `npm run assets:validate` | 0 errors, 0 warnings | Seven character GLBs, full map glTF, 278 hashed map resources, navigation payload, gameplay layout, and minimap; not certification of pixel parity |
 | `npm run build` | Static build succeeds | Bundles the application and local assets; not deployment or backend work |
-| Browser screenshots | Inspected at 1600×1000 and 1366×768 | Playfield composition, character visibility, HUD overlap, targeting and shop presentation |
+| Browser screenshots | Inspected at multiple viewports up to 1920×1080 | Full terrain, live lane combat, river aim, fountain placement, character visibility, HUD and shop presentation |
+| Built-game smoke check | No browser errors or failed requests | Full Rift loads; real movement/aim input; development diagnostics absent |
 
 Browser tests save additional screenshot evidence into the ignored local `artifacts/` folder. They intentionally use real pointer and keyboard interactions; the diagnostics hook supplies observations and world-to-screen coordinates.
 
@@ -41,9 +42,9 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 
 | Area | Current limitation | Required direction |
 |---|---|---|
-| Match scope | Practice lane with one opponent | Full three-lane map, jungle, nine role-aware bots, objective progression, valid victory/defeat |
+| Match scope | Three-lane practice on full terrain with one sparring opponent | Jungle, nine role-aware bots, objective progression, valid victory/defeat |
 | Champion art | Archived base Ashe, not a validated 26.18 asset set | Matched reference captures, scale/orientation/material validation, current or approved content pipeline |
-| Environment | Full reference terrain verified in a separate inspector; practice remains procedural | Integrate source navigation/elevation/vision and map objects; complete buildings, effects, lighting, shader calibration, and region streaming |
+| Environment | Full terrain integrated; 22 procedural towers, missing base buildings and camps | Import building/camp models; complete effects, lighting, shader calibration, and region streaming |
 | Minion art | Matching 16.18 base models with four source clips each | Validate active match skin selection, attack impact timing, variant selection, VFX, camera-scale match, and full-wave reference captures |
 | Camera | Provisional perspective and scale | Fit against reference gameplay screenshots at matched viewport/zoom |
 | Abilities | Practice approximations; all abilities unlocked | Complete passive and Q/W/E/R, rank rules, charges, cast locks, travel/impact behavior, exact timing, animation/VFX synchronization |
@@ -52,21 +53,21 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 | R | Fixed damage/stun; no full travel-distance/splash rules | Reference-accurate hit and CC semantics |
 | Summoner spells | Simple heal and obstacle-projected blink | Exact targeting, ally effects, wall rules, timing, rank/patch values |
 | Combat systems | Simplified stats, status effects, growth, and mitigation | Full typed modifiers, patch reconciliation, CC capabilities, item/rune interaction rules |
-| Vision | Occlusion and brush work against practice circles; sight radii remain provisional, fog is sampled on the floor, enemy buildings disappear without vision | Measured map sight geometry, static building memory/global destruction semantics, wards, stealth/true sight, projectile-specific reveal rules, terrain-wide fog shading |
-| Navigation | Circle-obstacle visibility graph | Measured navmesh, unit avoidance, lane/camp behavior, geometry agreement |
+| Vision | Source-grid occlusion and brush; elevated terrain fog; provisional sight radii; enemy buildings disappear without vision | Reference sight checks, static building memory/global destruction semantics, wards, stealth/true sight, projectile-specific reveal rules |
+| Navigation | Source-grid A*, cached radius clearance, swept capsule validation and authored lane routing | Dynamic overlays, local unit avoidance, exact steering calibration, camp behavior |
 | Bots | One tactical sparring policy | Per-role perception, team strategy, objective conversion, decision uncertainty, complete match QA |
 | Shop | Four direct purchases | Recipes, sell/undo, full builds, role-specific capacity, passives/actives, runes |
 | Audio | Synthetic feedback tones | Reference-aligned event timing, real impact/ambient/voice assets, perceptual hierarchy |
 | Persistence | Snapshot serialization only | Validated restore/import, command replay, IndexedDB saves, cache lifecycle, offline reload |
-| QA | Chrome practice coverage | Firefox/Safari, larger stress fixtures, long-match soak, context restore, complete content and match gates |
+| QA | Chrome practice, full-map, and inspector coverage | Firefox/Safari, larger stress fixtures, long-match soak, context restore, complete content and match gates |
 | Distribution | Riot reference assets have provenance, no distribution authorization | Resolve the final asset/content rights before a production release |
 
 ## Next implementation priorities
 
-1. Connect the verified full terrain and source navigation to the playable simulation, including elevation, lane/spawn coordinates, collision and vision. Import map-placeable buildings and camps. The inspection page is an asset milestone, not a replacement for this integration.
-2. Extend the tested vision policy to measured map geometry, static building memory, wards/stealth, and complete ability-specific reveal rules; shade elevated terrain consistently with the floor.
+1. Import the matching map-placeable tower, nexus, inhibitor, and camp assets. Implement building progression and complete-match win/loss, retaining the source-aligned navigation and placement.
+2. Complete static building memory, wards/stealth, and ability-specific reveal rules. Calibrate camera, fog, shaders, and scale against matched reference captures; reduce large-scene rendering cost.
 3. Replace the ability approximations with a versioned ability timeline/state model and complete Ashe behavior, then implement a second full kit.
-4. Extend the lane test harness toward the complete map and role-aware match simulation, preserving the tested input/combat boundaries.
+4. Extend the three-lane test harness toward role-aware match simulation, preserving the tested input/combat boundaries.
 
 ## Asset investigation notes
 
@@ -90,8 +91,18 @@ A 96-minion rendering fixture (stationary units, AI disabled, vision active; Chr
 
 [Map pipeline and audit](MAP-ASSETS.md) documents the explicit Base_SRX/default-layer selection, matching AIPath_SRX_3 grid, current-format converter patches, and 184 hash-pinned sources. The terrain artifact contains 645,491 triangles and 137 full-resolution textures. Native DXT loading preserves the original compression blocks and mip levels, requires 327.42 MiB of texture GPU storage, and avoids decoding every texture to RGBA. The standard lossless WebP fallback is also browser-tested.
 
-The navigation exporter validates 87,320 cells and 350,463 height samples. Inspection screenshots show the navigation overlay aligning with base object cutouts, brush, river edges, and walls; pathfinding and sight behavior have not yet been connected to this grid. The textured intermediate rebuild is byte-identical with the frozen minimal path table. All 19 simulation tests, 13 Chrome scenarios, asset validators, and the two-page static build pass.
+The navigation exporter validates 87,320 cells and 350,463 height samples. Inspection screenshots show the navigation overlay aligning with base object cutouts, brush, river edges, and walls; the playable now uses this grid for movement and sight. The textured intermediate rebuild is byte-identical with the frozen minimal path table. All 19 simulation tests, 13 Chrome scenarios, asset validators, and the two-page static build pass.
 
 An isolated terrain-only measurement at 1920×1080 on Chrome 152 / Apple M5 Pro sampled 180 frames after 45 warmup frames per viewpoint. Overview: median 16.7 ms, p95 17.7 ms, 198 draw calls, 645,491 triangles. Mid lane: median 16.7 ms, p95 17.3 ms, 78 draw calls, 174,365 triangles. Both retained 138 GPU textures. This has no combat simulation, units, or full-match effects and is not a match-performance certification. Evidence: `artifacts/map-render-benchmark.json`.
 
 Remaining visible terrain gaps include missing map-placeable buildings and VFX, approximate dynamic shaders, provisional grass tint/camera calibration, omitted procedural Faelights indicators, and unimplemented terrain overlays. The full production objective remains active.
+
+## Full-map gameplay integration milestone
+
+The default page now loads the same terrain as the inspector and uses the frozen gameplay layout described in [MAP-ASSETS.md](MAP-ASSETS.md). Camera picking, unit feet, health bars, targeting, and ground indicators account for source elevation. All three lanes spawn both teams on the authored barracks cadence and follow the source routes. The old small scene is explicitly selected with `/?scene=fixture` in development so its regression scenarios remain reproducible.
+
+The simulation retains deterministic A* queries and exact swept capsule checks against grid rectangles. Range filtering before expensive visibility queries avoids repeated full-map rays during target acquisition. Fog computes the union of observer-local samples, preserving exact agreement with the simulation at every sampled position while doubling its resolution from 128 to 256.
+
+A 90-second three-lane run on Apple M5 Pro / Chrome 152 at 1920×1080 sampled 180 frames after 45 warmup frames. There were 101 live/persisting unit records, 260 draw calls, and 313,510 submitted triangles. Before optimization, simulation steps cost median 3.1 ms / p95 4.1 ms; after optimization they cost median 0.2 ms / p95 0.3 ms. Fog updates at the higher resolution cost median 6.2 ms / p95 7.1 ms. Frame intervals remained median 16.7 ms, p95 23.5 ms, p99 25.4 ms. This is **not a full-match performance pass**: frame tails still miss budget, and nine complete bots and final effects are absent. Local evidence: `artifacts/rift-before-vision-optimization.json`, `artifacts/rift-90s-benchmark.json`, and `artifacts/rift-90s-playable.png`.
+
+Current validation: 31 simulation scenarios, 16 Chrome scenarios, zero asset validator errors/warnings, and a passing static production build. A separate preview smoke check loaded the built default game without browser errors or failed requests, exercised actual movement/aim input, and confirmed that the development hook is absent. The goal remains active; full kit, match, art, device, persistence, and performance gates remain outstanding.

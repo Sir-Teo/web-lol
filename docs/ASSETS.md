@@ -1,6 +1,6 @@
 # Reference asset pipeline
 
-The game now uses animated base melee, caster, and siege minions for both teams, extracted from the matching patch 16.18 game archive. Procedural minion and champion fallback geometry has been removed. Towers, terrain, and the training dummy still use temporary geometry.
+The game now uses animated base melee, caster, and siege minions for both teams, extracted from the matching patch 16.18 game archive. Procedural minion and champion fallback geometry has been removed. The default game also uses the full reference Rift terrain. Towers and the training dummy still use temporary geometry.
 
 ## Sources and provenance
 
@@ -66,4 +66,4 @@ The browser suite includes a six-model gallery, distinct mixer behavior, complet
 
 ## Full map extraction
 
-The separate [map pipeline](MAP-ASSETS.md) now extracts pinned terrain, materials, textures, and navigation from this archive. `/map.html` provides a full-map inspection scene with original GPU-compressed textures and a navigation overlay. The playable practice simulation remains on its original terrain until full-map collision, elevation, vision, and object placement are connected together.
+The separate [map pipeline](MAP-ASSETS.md) now extracts pinned terrain, materials, textures, and navigation from this archive. `/map.html` provides a full-map inspection scene with original GPU-compressed textures and a navigation overlay. The playable simulation uses this terrain, source-grid collision and sight, bilinear elevation, authored fountain and turret positions, and three lane routes. The original small terrain is retained only as an explicit development regression fixture.

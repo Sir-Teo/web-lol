@@ -1,6 +1,6 @@
 # Summoner’s Rift reference terrain
 
-The map inspection page at `/map.html` renders the pinned full terrain, vegetation, and background geometry. It provides fixed viewpoints, orbit/pan/zoom, and an overlay of the matching navigation grid. This is an asset and alignment study. The playable practice scene still uses its original simulation terrain; replacing that requires connecting navigation, elevation, vision, buildings, and map-specific spawn/lane data together.
+The map inspection page at `/map.html` renders the pinned full terrain, vegetation, and background geometry. It provides fixed viewpoints, orbit/pan/zoom, and an overlay of the matching navigation grid. The default playable game now uses this same terrain, navigation, elevation, and source-authored fountain, lane, barracks, and turret positions. The inspector remains an asset and alignment study; a complete match, building artwork, camps, and objective progression are still unfinished.
 
 ## Source selection
 
@@ -24,11 +24,28 @@ All glTF, geometry, texture, and navigation hashes are validated by `npm run ass
 
 ## Coordinates and navigation
 
-The glTF retains source map coordinates. The inspector applies `scale = (0.01, 0.01, -0.01)` and `translation = (-74.25, 0, 74.25)`, placing the Order/blue base southwest while preserving positive elevation. Camera bookmarks are inspection positions, not a calibrated League gameplay camera.
+The glTF retains source map coordinates. Both renderer entry points apply `scale = (0.01, 0.01, -0.01)` and `translation = (-74.25, 0, 74.25)`, placing the Order/blue base southwest while preserving positive elevation. Camera bookmarks are inspection positions, not a calibrated League gameplay camera.
 
 The navigation source is format 7.1. The parser checks all 87,320 cells’ X/Z ordering, validates dimensions and finite height samples, and checks the full trailing hint-table length. It exports the original 16-bit flags, four packed region bytes per cell, and 350,463 float32 height samples in a 1,925,772-byte payload. The overlay uses the 50-unit cell grid and bilinear height samples with the source’s separate X/Z sample spacing.
 
-The format reference is [FrankTheBoxMonster/LoL-NGRID-converter](https://github.com/FrankTheBoxMonster/LoL-NGRID-converter/tree/92943ed2b2d5e82c86d680e69f53f247c89aefee), specifically `NGridFileReader.cs`. Unknown flags, including bit 128, are retained rather than assigned invented behavior. The export is the base grid; dynamic terrain overlays, team gates, visibility rules, unit clearance, and pathfinding still need explicit simulation implementation.
+The format reference is [FrankTheBoxMonster/LoL-NGRID-converter](https://github.com/FrankTheBoxMonster/LoL-NGRID-converter/tree/92943ed2b2d5e82c86d680e69f53f247c89aefee), specifically `NGridFileReader.cs`. Unknown flags, including bit 128, are retained rather than assigned invented behavior. The export is the base grid. Runtime A* navigation uses radius-aware clearance, exact swept capsule checks against blocked cell rectangles, and path smoothing. Walls and structures block movement; team gates allow their own team. Transparent walls preserve sight, brush uses connected regions, and neutral gate regions permit sight into and out of their interior while blocking sight through. See [vision policy](VISION.md). Dynamic overlays and unit avoidance remain unfinished; unknown bit 128 is preserved without an assigned behavior.
+
+## Authored gameplay layout
+
+`tools/assets/export-rift-layout.py` freezes the two CommunityDragon JSON sources linked above, verifies their exact SHA-256 hashes before parsing, and writes `docs/reference/rift-layout-source.json`. The snapshot retains the selected source objects, barracks configuration, source URLs/hashes, and derived output hashes.
+
+`public/assets/maps/rift-layout.json` contains two fountain spawns, three routes, six barracks, 22 turret placements, and the source wave configuration. Coordinates come from each object's authored transform. The blue spawn is source `(394, 171, 461)` and the red spawn is `(14340, 179, 14391)`; these use the explicit spawn objects rather than nearby shop or gate locators. The runtime projects moving-unit starts to valid clearance and follows the routes in opposite directions for the two teams.
+
+The frozen barracks configuration starts waves at 30 seconds, repeats every 30 seconds, and separates individual units by approximately 0.8 seconds. Melee, siege, and caster counts follow its timed entries. Active-event overrides and inhibitor/super-minion behavior remain unimplemented; this is not a certified reconstruction of every live match configuration.
+
+The exporter also converts the extracted source minimap to lossless WebP. `assets:validate` checks both layout and minimap output hashes. To rebuild only these small artifacts after source extraction:
+
+```sh
+.tools/cdtb-venv/bin/python tools/assets/export-rift-layout.py
+node tools/assets/validate-map.mjs
+```
+
+Gameplay uses bilinear source elevation for unit feet and indicator placement, and height-field ray intersection for cursor picking. The fog texture shades elevated terrain materials as well as the minimap. Browser checks cover fountain and river picking, model elevation, real pointer movement/attacks, and brush visibility. They establish internal alignment; reference camera/material calibration still needs matched gameplay captures.
 
 ## Converter toolchain
 
@@ -72,5 +89,5 @@ The reconstructed textured intermediate GLB was rebuilt byte-for-byte after repl
 - The twelve procedural Faelights indicator meshes are explicitly omitted and listed in the artifact manifest; their shader is not implemented.
 - Dynamic terrain materials use their diffuse texture without their authored state transitions. This is visible in the audit manifest and prevents a pixel-parity claim.
 - Active event/map mutators have not been fully reconciled. The artifact is the pinned default container and initial visibility mask, not a claim about every live match configuration.
-- Geometry, height, collision, brush, and vision must be validated together when integrating the full map into the playable simulation. The inspector does not silently reuse the old circle collision model.
+- The full-map simulation now shares geometry coordinates, elevation, grid collision, brush, and vision. Dynamic grid overlays, local unit avoidance, exact Riot steering, and expanded route/region reference checks remain required.
 - Region-based texture streaming, broader GPU support, reference camera matching, and complete-match performance remain production work.
