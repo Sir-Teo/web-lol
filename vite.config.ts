@@ -1,6 +1,19 @@
 import { defineConfig } from 'vite';
+import { rulesetFingerprint, affectsRuleset } from './tools/ruleset-fingerprint.ts';
 
 export default defineConfig({
+  define: { __SIMULATION_HASH__: JSON.stringify(rulesetFingerprint()) },
+  plugins: [
+    {
+      name: 'refresh-ruleset-identity',
+      configureServer(server) {
+        server.watcher.on('all', (event, file) => {
+          if (['add', 'change', 'unlink'].includes(event) && affectsRuleset(file))
+            void server.restart();
+        });
+      },
+    },
+  ],
   build: {
     target: 'es2022',
     rollupOptions: {

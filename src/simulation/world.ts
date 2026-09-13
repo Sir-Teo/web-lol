@@ -1,3 +1,4 @@
+import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
@@ -816,9 +817,33 @@ export class World {
     this.hero.speed += item.speed;
     return null;
   }
+  static fromSnapshot(text: string, battlefield: Battlefield): World {
+    const state = decodeSnapshot(text);
+    if (state.battlefield !== battlefield.id)
+      throw new Error('Saved match uses a different battlefield.');
+    if (
+      state.units.some((u) => u.lane !== null && u.lane >= battlefield.lanes.length) ||
+      state.pendingSpawns.some((u) => u.lane >= battlefield.lanes.length)
+    )
+      throw new Error('Saved match contains an invalid lane.');
+    const world = new World(false, battlefield);
+    const {
+      version: _version,
+      ruleset: _ruleset,
+      battlefield: _battlefield,
+      randomState,
+      ...fields
+    } = state;
+    Object.assign(world, fields);
+    world.random.state = randomState;
+    // Presentation events are transient; replaying them would repeat sounds and combat text.
+    world.events = [];
+    return world;
+  }
   snapshot(): string {
-    return JSON.stringify({
-      version: 4,
+    return encodeSnapshot({
+      version: SNAPSHOT_VERSION,
+      ruleset: SNAPSHOT_RULESET,
       winner: this.winner,
       battlefield: this.battlefield.id,
       pendingSpawns: this.pendingSpawns,
