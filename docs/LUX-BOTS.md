@@ -10,9 +10,9 @@ Outside retreat, R is a finishing spell: the estimate uses captured-current AP/r
 
 Q targets a visible champion within range, or within 700 during retreat. The policy sorts visible swept contacts and casts only if the target is among the first two. If Q is unavailable or blocked, it may place E at a visible target within cast range, provided no E is active. Retreat can use W/Q/E but does not stop to cast a finishing R. Existing committed attack windups, recall and movement/tower logic remain relevant to when planning runs.
 
-Skill order is E/Q/W/E/E/R initially, then R/E/Q/W subject to the ordinary level gates. Current purchases are one Amplifying Tome and boots. These are explicit policies in `src/content/lux-bot-policy.ts`, not source-exported recommendations. The item catalog lacks a completed mage build; the diagnostic demonstrates accumulated unused gold after these purchases.
+Skill order is E/Q/W/E/E/R initially, then R/E/Q/W subject to the ordinary level gates. Current purchases begin with Amplifying Tome and boots, then Rods toward Deathcap, then Blasting Wand. These are explicit policies in `src/content/lux-bot-policy.ts`, not source-exported recommendations. The item catalog still lacks a completed mage build; [mage item integration](MAGE-ITEMS.md) records the new recipe path and its twenty-minute diagnostic.
 
-Remaining work includes role and objective coordination, AP item recipes/builds, wave-clear decisions, leading moving targets, multi-target R evaluation, holding E for zone control or combinations, predicting threat/shield timing, and more complete escape behavior. The policy does not certify human-like decisions, native accuracy or full-match quality.
+Remaining work includes role and objective coordination, additional mage items and full builds, wave-clear decisions, leading moving targets, multi-target R evaluation, holding E for zone control or combinations, predicting threat/shield timing, and more complete escape behavior. The policy does not certify human-like decisions, native accuracy or full-match quality.
 
 ## Evidence
 

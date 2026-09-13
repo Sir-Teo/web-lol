@@ -101,6 +101,137 @@
         "total": 400,
         "sell": 280
       }
+    },
+    "1026": {
+      "name": "Blasting Wand",
+      "description": "<mainText><stats><attention>45</attention> Ability Power</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Moderately increases Ability Power",
+      "into": [
+        "2522",
+        "3100",
+        "326621",
+        "4637",
+        "3135",
+        "3165",
+        "3115",
+        "324005",
+        "2510",
+        "3116",
+        "3118",
+        "326657",
+        "6621",
+        "6657"
+      ],
+      "image": {
+        "full": "1026.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 240,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 850,
+        "purchasable": true,
+        "total": 850,
+        "sell": 595
+      },
+      "tags": [
+        "SpellDamage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 45
+      }
+    },
+    "1058": {
+      "name": "Needlessly Large Rod",
+      "description": "<mainText><stats><attention>65</attention> Ability Power</stats><br><br></mainText>",
+      "colloq": ";nlr",
+      "plaintext": "Greatly increases Ability Power",
+      "into": [
+        "3157",
+        "4645",
+        "3089",
+        "3102",
+        "3128",
+        "4403"
+      ],
+      "image": {
+        "full": "1058.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 240,
+        "y": 96,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 1200,
+        "purchasable": true,
+        "total": 1200,
+        "sell": 840
+      },
+      "tags": [
+        "SpellDamage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 65
+      }
+    },
+    "3089": {
+      "name": "Rabadon's Deathcap",
+      "description": "<mainText><stats><attention>130</attention> Ability Power</stats><br><br><passive>Magical Opus</passive><br>Increases your total <scaleAP>Ability Power by 30%</scaleAP>.</mainText>",
+      "colloq": ";dc;banksys;hat",
+      "plaintext": "Massively increases Ability Power",
+      "from": [
+        "1058",
+        "1058"
+      ],
+      "image": {
+        "full": "3089.png",
+        "sprite": "item3.png",
+        "group": "item",
+        "x": 288,
+        "y": 288,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 1100,
+        "purchasable": true,
+        "total": 3500,
+        "sell": 2450
+      },
+      "tags": [
+        "SpellDamage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 130
+      },
+      "depth": 2
     }
   }
 }

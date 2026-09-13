@@ -219,7 +219,11 @@ const player: z.ZodType<PlayerState> = z
           .refine((value) => ITEMS.some((item) => item.id === value))
           .nullable()
       )
-      .max(6),
+      .max(6)
+      .refine(
+        (items) => items.filter((item) => item === 'deathcap').length <= 1,
+        'Only one Deathcap is ownable'
+      ),
   })
   .refine(
     (p) => p.spellRanks.e > 0 || p.eRechargeTick === null,

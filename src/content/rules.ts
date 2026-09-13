@@ -1,3 +1,4 @@
+import { MAGE_ITEMS } from './mage-items';
 import type { Ability } from '../simulation/types';
 import { SUMMONER_HEAL } from './summoner-heal';
 import { ASHE_Q } from './ashe-q';
@@ -237,8 +238,10 @@ export const ITEMS = [
     hp: 0,
     speed: 0,
   },
+  ...MAGE_ITEMS,
 ] as const;
 export const ITEM_RECIPES: Readonly<Record<string, readonly string[]>> = {
+  deathcap: ['rod', 'rod'],
   belt: ['ruby'],
   vest: ['cloth'],
   cloak: ['mantle'],

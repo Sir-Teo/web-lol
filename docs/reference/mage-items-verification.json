@@ -1,0 +1,93 @@
+{
+  "fixture": "Ten automated champions (eight Ashe, two Lux), 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.",
+  "revision": "43ba44da3a5fca7bc497a3476aee6772d0c353b9",
+  "requestedSeconds": 1200,
+  "simulatedSeconds": 1200,
+  "wallSeconds": 14.200341625,
+  "winner": null,
+  "violations": [],
+  "restoredEqual": true,
+  "castCounts": {
+    "ashe:w": 131,
+    "lux:e": 66,
+    "lux:f": 8,
+    "ashe:f": 33,
+    "ashe:q": 95,
+    "lux:q": 54,
+    "ashe:e": 71,
+    "lux:w": 30,
+    "ashe:r": 35,
+    "lux:r": 13
+  },
+  "snapshotSHA256": "08592b3d2682eb0486393c09b7f4bb8098f53ae8c71e5717a324a956e2ac1d29",
+  "command": "node tools/qa/simulate-rift.mjs 1200 artifacts/rift-mage-items-simulation.json mixed",
+  "sourceSHA256": {
+    "src/simulation/world.ts": "7f5c3d98baf74fb69c5b46d003636649edab535da9c546be76f5f787a4399791",
+    "src/simulation/snapshot.ts": "8ca52a9f778e75622855597962f39e6a7f1722a627586a8e4a01e0b15ab59c5d",
+    "src/content/rules.ts": "3ce88ac9e000671dcc9f45cb07b558c241ba275b5fc3efb6edaac313c2c16a8e",
+    "src/content/mage-items.ts": "f31901f11b6534e430cb491a0fcf30e05157ee71800c91dee699c6fad3060891",
+    "tools/qa/simulate-rift.mjs": "5af5739d9fec59ee1ac985a0e52723c50b97d010d16003698e8778dfdcd0ae0e"
+  },
+  "reportSHA256": "a3d5862fe47ae646adbc45f3c2ae7c55758df23154950535bfd4c70c66f1b65d",
+  "luxFinal": [
+    {
+      "id": 35,
+      "champion": "lux",
+      "team": "blue",
+      "lane": "bot",
+      "x": 963.1852550280695,
+      "y": 6207.015195949169,
+      "hp": 1554.655,
+      "level": 12,
+      "gold": 2528.4,
+      "cs": 67,
+      "kills": 11,
+      "deaths": 5,
+      "inventory": [
+        "tome",
+        "boots",
+        "deathcap",
+        "wand"
+      ],
+      "order": {
+        "type": "move",
+        "point": {
+          "x": 1444.9996781945229,
+          "y": 6212.999955058098
+        }
+      },
+      "retreating": false,
+      "stationarySeconds": 0
+    },
+    {
+      "id": 40,
+      "champion": "lux",
+      "team": "red",
+      "lane": "bot",
+      "x": 6468.994034139964,
+      "y": -5711.685350114604,
+      "hp": 1346.26,
+      "level": 10,
+      "gold": 313.4,
+      "cs": 40,
+      "kills": 6,
+      "deaths": 11,
+      "inventory": [
+        "tome",
+        "boots",
+        "deathcap",
+        "wand"
+      ],
+      "order": {
+        "type": "move",
+        "point": {
+          "x": 5827.999416947365,
+          "y": -3908.9988383054733
+        }
+      },
+      "retreating": false,
+      "stationarySeconds": 0
+    }
+  ],
+  "limitations": "Tested changed worktree on recorded base revision; exact relevant source hashes retained. Twenty-minute headless diagnostic, not a complete-match, rendered-performance or native-fidelity certification."
+}

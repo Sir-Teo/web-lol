@@ -3,6 +3,7 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
 import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
+import { DEATHCAP_AP_AMPLIFICATION } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
@@ -883,11 +884,24 @@ export class World {
   }
   private nextBotPurchase(u: Unit) {
     const state = this.championState(u.id)!;
-    const choices =
-      u.champion === 'lux' ? LUX_BOT_POLICY.purchases : ['blade', 'boots', 'pickaxe', 'sword'];
-    const id = choices.find((id) => !state.inventory.includes(id));
+    if (u.champion === 'lux') {
+      let id: string | undefined = LUX_BOT_POLICY.purchases.find(
+        (id) => !state.inventory.includes(id)
+      );
+      if (!id && !state.inventory.includes('deathcap')) {
+        const plan = this.purchasePlan('deathcap', u.id)!;
+        id =
+          state.gold >= plan.cost || state.inventory.filter((item) => item === 'rod').length >= 2
+            ? 'deathcap'
+            : 'rod';
+      }
+      if (!id && !state.inventory.includes('wand')) id = 'wand';
+      return ITEMS.find((item) => item.id === id);
+    }
+    const id = ['blade', 'boots', 'pickaxe', 'sword'].find((id) => !state.inventory.includes(id));
     return ITEMS.find((item) => item.id === id);
   }
+
   private planLuxCombat(u: Unit, retreating: boolean): boolean {
     if (u.champion !== 'lux') return false;
     const state = this.championState(u.id)!;
@@ -1131,10 +1145,13 @@ export class World {
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
     const state = this.championState(u.id)!;
     const nextPurchase = this.nextBotPurchase(u);
+    const nextPlan = nextPurchase ? this.purchasePlan(nextPurchase.id, u.id) : null;
     const canShop =
-      nextPurchase &&
-      state.gold >= Math.max(900, nextPurchase.price) &&
-      (state.inventory.length < 6 || state.inventory.includes(null));
+      nextPlan &&
+      state.gold >= Math.max(900, nextPlan.cost) &&
+      (state.inventory.length < 6 ||
+        state.inventory.includes(null) ||
+        nextPlan.consumed.length > 0);
     if (state.recallEnd !== null || canShop) {
       const safe = this.safeToRecall(u);
       if (state.recallEnd !== null) {
@@ -2709,17 +2726,24 @@ export class World {
     );
     if (emptySlot === -1 && state.inventory.length >= 6) return 'Inventory is full';
     if (state.gold < plan.cost) return 'Not enough gold';
+    if (item.id === 'deathcap' && state.inventory.includes('deathcap'))
+      return 'You already own Rabadon’s Deathcap';
     if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
     if (item.id === 'blade' && state.inventory.includes('blade'))
       return 'You already own a Doran item';
     return null;
   }
   abilityPower(u: Unit = this.hero): number {
-    return (this.championState(u.id)?.inventory ?? []).reduce<number>(
+    const inventory = this.championState(u.id)?.inventory ?? [];
+    const flat = inventory.reduce<number>(
       (total, id) => total + (ITEMS.find((item) => item.id === id)?.abilityPower ?? 0),
       0
     );
+    return statPrecision(
+      flat * (inventory.includes('deathcap') ? 1 + DEATHCAP_AP_AMPLIFICATION : 1)
+    );
   }
+
   crystalArrowDamage(u: Unit = this.hero, rank = this.abilityRank('r', u.id)): number {
     return asheCrystalArrowValues(rank, this.abilityPower(u)).damage;
   }

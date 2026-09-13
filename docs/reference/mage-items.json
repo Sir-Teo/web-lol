@@ -1,0 +1,329 @@
+{
+  "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+  "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+  "items": {
+    "1026": {
+      "name": "Blasting Wand",
+      "description": "<mainText><stats><attention>45</attention> Ability Power</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Moderately increases Ability Power",
+      "into": [
+        "2522",
+        "3100",
+        "326621",
+        "4637",
+        "3135",
+        "3165",
+        "3115",
+        "324005",
+        "2510",
+        "3116",
+        "3118",
+        "326657",
+        "6621",
+        "6657"
+      ],
+      "image": {
+        "full": "1026.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 240,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 850,
+        "purchasable": true,
+        "total": 850,
+        "sell": 595
+      },
+      "tags": [
+        "SpellDamage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 45
+      }
+    },
+    "1058": {
+      "name": "Needlessly Large Rod",
+      "description": "<mainText><stats><attention>65</attention> Ability Power</stats><br><br></mainText>",
+      "colloq": ";nlr",
+      "plaintext": "Greatly increases Ability Power",
+      "into": [
+        "3157",
+        "4645",
+        "3089",
+        "3102",
+        "3128",
+        "4403"
+      ],
+      "image": {
+        "full": "1058.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 240,
+        "y": 96,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 1200,
+        "purchasable": true,
+        "total": 1200,
+        "sell": 840
+      },
+      "tags": [
+        "SpellDamage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 65
+      }
+    },
+    "3089": {
+      "name": "Rabadon's Deathcap",
+      "description": "<mainText><stats><attention>130</attention> Ability Power</stats><br><br><passive>Magical Opus</passive><br>Increases your total <scaleAP>Ability Power by 30%</scaleAP>.</mainText>",
+      "colloq": ";dc;banksys;hat",
+      "plaintext": "Massively increases Ability Power",
+      "from": [
+        "1058",
+        "1058"
+      ],
+      "image": {
+        "full": "3089.png",
+        "sprite": "item3.png",
+        "group": "item",
+        "x": 288,
+        "y": 288,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 1100,
+        "purchasable": true,
+        "total": 3500,
+        "sell": 2450
+      },
+      "tags": [
+        "SpellDamage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 130
+      },
+      "depth": 2
+    }
+  },
+  "communityDragon": {
+    "url": "https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json",
+    "sha256": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb",
+    "records": {
+      "Items/1026": {
+        "mDisplayName": "Item_1026_Name",
+        "itemID": 1026,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default"
+        ],
+        "price": 850,
+        "mCanBeSold": true,
+        "mFlatMagicDamageMod": 45.0,
+        "mCategories": [
+          "SpellDamage"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          16
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "1026",
+            "mFormat": "{32559c50}",
+            "mLocKeys": {
+              "keyName": "Item_1026_Name",
+              "keyColloquialism": "Item_1026_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AbilityPower",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_1026_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_1026_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_1026_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/1026_mage_t1_blastingwand.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/1026_Mage_T1_BlastingWand.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/1026_Mage_T1_BlastingWand.png",
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "Items/1058": {
+        "mDisplayName": "Item_1058_Name",
+        "itemID": 1058,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default"
+        ],
+        "price": 1200,
+        "mCanBeSold": true,
+        "mFlatMagicDamageMod": 65.0,
+        "mCategories": [
+          "SpellDamage"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          16
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "1058",
+            "mFormat": "{32559c50}",
+            "mLocKeys": {
+              "keyName": "Item_1058_Name",
+              "keyColloquialism": "Item_1058_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AbilityPower",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_1058_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_1058_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_1058_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/1058_mage_t1_largerod.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/1058_Mage_T1_LargeRod.png",
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "Items/3089": {
+        "spellName": "",
+        "mDisplayName": "Item_3089_Name",
+        "itemID": 3089,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default",
+          "{ac92b6ad}",
+          "{bbcc250a}"
+        ],
+        "price": 1100,
+        "mItemCalloutSpectator": true,
+        "mCanBeSold": true,
+        "epicness": 5,
+        "recipeItemLinks": [
+          "Items/1058",
+          "Items/1058"
+        ],
+        "mEffectAmount": [
+          0.0
+        ],
+        "mDataValues": [
+          {
+            "mName": "APAmp",
+            "mValue": 0.30000001192092896,
+            "__type": "ItemDataValue"
+          }
+        ],
+        "mFlatMagicDamageMod": 130.0,
+        "mCategories": [
+          "SpellDamage"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          16
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "3089",
+            "mFormat": "{32559c50}",
+            "EnableExtendedTooltip": false,
+            "mLocKeys": {
+              "keyName": "Item_3089_Name",
+              "keyBrief": "Item_3089_Brief",
+              "keyTooltipInventory": "Item_3089_TooltipDynamic",
+              "keyTooltip": "Item_3089_Tooltip",
+              "keyColloquialism": "Item_3089_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AbilityPower",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_3089_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_3089_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_3089_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/3089_mage_t3_deathcap.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/3089_Mage_T3_Deathcap.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/3089_Mage_T3_Deathcap.png",
+          "epicness": 5,
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "{ac92b6ad}": {
+        "mItemGroupID": "3089",
+        "mMaxGroupOwnable": 1,
+        "__type": "ItemGroup"
+      },
+      "{bbcc250a}": {
+        "mItemGroupID": "APMultiplier",
+        "mMaxGroupOwnable": 1,
+        "__type": "ItemGroup"
+      }
+    }
+  }
+}

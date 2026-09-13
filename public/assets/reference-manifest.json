@@ -152,6 +152,24 @@
       "source": "https://raw.communitydragon.org/16.18/game/assets/ux/lol/clarity_hudatlas.png",
       "sha256": "f5f930263d995f0c602eaf7dc4fc7eaf0e9416d9a742baa72c2a5cabe0c98ed9",
       "bytes": 367427
+    },
+    {
+      "path": "/assets/icons/1026.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1026.png",
+      "sha256": "dda8735a84bbbd8b2f9a8776c70d86b8c1448b6e585735386fef398c1914e02f",
+      "bytes": 4671
+    },
+    {
+      "path": "/assets/icons/1058.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1058.png",
+      "sha256": "8a942c70b61d633074a237f6858742585e35146a8f6618ae3d8e07c8091063f4",
+      "bytes": 5943
+    },
+    {
+      "path": "/assets/icons/3089.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3089.png",
+      "sha256": "ad77331bb9a325db9536f5614f3ca3516e24279406123f2892eb33ee419d369b",
+      "bytes": 6981
     }
   ]
 }
