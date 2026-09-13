@@ -389,3 +389,9 @@ All 184 simulation checks, three focused Chrome cases, static build and producti
 Focus now loses one stack after four seconds of inactivity, then one per second, using pinned spell timing values and retained tooltip corroboration. New eligible impacts refresh the full window. Active Q prevents Focus accumulation, and casting clears the stack deadline. The existing deadline field persists intermediate decay through saves. Exact boundary ordering and impact-based generation remain documented limitations; full Q parity is not claimed.
 
 All 187 simulation checks, three focused Chrome cases, static build and production smoke pass. New tests cover individual decay and saved continuation, impact refresh, active-window damage without Focus, and visible pip falloff. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion behavior, match systems and pixel fidelity remain unfinished; the production goal remains active.
+
+## Focus attack-release milestone
+
+Focus now increments on a successfully released attack rather than projectile impact. The fourth arrow can unlock Q while still traveling; impact does not duplicate or refresh the stack. Canceled, stunned or invalidated windups grant nothing. This removes travel distance from Q readiness. The source tooltip describes attacks granting Focus, while exact callback mapping remains a documented implementation interpretation pending reference capture.
+
+All 190 simulation checks, four focused Chrome cases, static build and production smoke pass. New regressions cover pre-impact readiness, saved arrows, canceled windups, no duplicate impact stacks and visible pips before damage. The full browser suite was not repeated. Full Q ranks/flurry, specialized attack outcomes, match systems and pixel fidelity remain unfinished; the production goal remains active.

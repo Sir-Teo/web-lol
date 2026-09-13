@@ -6,7 +6,7 @@ The complete selected spell record is retained in `docs/reference/ashe-q.json`, 
 
 Casting schedules an absolute deadline 360 simulation ticks later. Active attack-speed evaluation and the HUD already use a strict deadline comparison, so the buff ends on that exact tick. Existing attacks retain their scheduled cycles across expiry. Saves retain the original deadline, and death clears the active buff through the existing cleanup path.
 
-The prototype still uses a fixed 1.4 attack-speed multiplier, lacks spell ranks and the complete five-arrow damage/animation behavior, and still grants Focus on arrow impact rather than a separately verified attack event. These remain fidelity gaps. Six-second duration alone does not establish complete Q parity.
+The prototype still uses a fixed 1.4 attack-speed multiplier, lacks spell ranks and the complete five-arrow damage/animation behavior, and still requires reference calibration of attack-event timing. These remain fidelity gaps. Six-second duration alone does not establish complete Q parity.
 
 One simulation test casts Q, verifies it remains active after four seconds and immediately before expiry, and compares saved continuation through the exact deadline. One browser test verifies the corresponding empowered HUD state. Existing attack-cycle and death-cleanup regressions remain relevant.
 
@@ -14,8 +14,16 @@ One simulation test casts Q, verifies it remains active after four seconds and i
 
 The exporter now verifies the string-table source and selected legacy `game_spell_tooltip_asheq` alongside the complete spell record. The tooltip explicitly describes individual stack falloff and no Focus accumulation during Q. This is retained legacy text, not independently captured runtime evidence. Current spell `DataValues` supply four-second `StackDuration`, one-second `StackFalloffDuration`, and four `MaxStacks`.
 
-The implementation removes the first stack at the four-second deadline and one additional stack each second thereafter. The existing `qStackExpiry` field now stores the next decay deadline; after the final stack it resets to zero. A new eligible impact adds a stack up to the cap and refreshes the full four-second window. Active Q blocks new Focus, and casting clears the old stack deadline. Death cleanup remains unchanged. No additional snapshot field is required; source-version matching handles saves from older implementations.
+The implementation removes the first stack at the four-second deadline and one additional stack each second thereafter. The existing `qStackExpiry` field now stores the next decay deadline; after the final stack it resets to zero. A new eligible released attack adds a stack up to the cap and refreshes the full four-second window. Active Q blocks new Focus, and casting clears the old stack deadline. Death cleanup remains unchanged. No additional snapshot field is required; source-version matching handles saves from older implementations.
 
-Exact first-falloff timing and same-tick impact/expiry ordering remain authored policy pending reference capture. The simulation processes impacts before decay, so an impact on the expiration tick refreshes the window. Stack generation is still impact-based; attack-release timing, target restrictions, canceled attacks and complete Q rank/flurry behavior require further work.
+Exact first-falloff timing and same-tick attack/expiry ordering remain authored policy pending reference capture. The simulation processes attack release before decay, so a release on the expiration tick refreshes the window. Target restrictions and complete Q rank/flurry behavior require further work.
 
 Three additional simulation cases cover individual decay, saved continuation, impact refresh, and active-window damage without stacks. A browser case verifies the pips falling from four to three to two rather than disappearing together.
+
+## Focus at attack release
+
+Focus generation now runs at the successful attack-release event, before creating the arrow, rather than on projectile contact. This makes readiness independent of travel distance and lets the fourth released attack unlock Q while its arrow is still traveling. Canceled windups, dead/invalid targets before release, stun interruption and death before release grant no stack. Impact never grants or refreshes Focus; an arrow fired during active Q cannot grant a delayed stack merely because it lands after the active window ends.
+
+The pinned tooltip establishes attacks granting Focus, but does not encode the precise event callback. Mapping that behavior to successful release is an implementation interpretation pending controlled capture, not a claim that the static record contains server script logic. The current target eligibility follows the existing attack system; specialized blind/dodge/projectile destruction and target-class cases are not fully implemented.
+
+Three new simulation cases cover release before impact, no duplicate/refresh on impact, saved arrows, canceled/invalidated windups, and casting Q after the fourth release before contact. A browser case checks four visible pips with an arrow in flight and an undamaged target. Existing active-Q and death tests remain green.

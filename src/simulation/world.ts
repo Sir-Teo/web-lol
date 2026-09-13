@@ -565,6 +565,10 @@ export class World {
               endTick: this.tick + 120,
             });
           this.emit('attack', u, { unit: u.id, team: u.team });
+          if (u.id === this.player.id && this.tick >= this.player.qUntil) {
+            this.player.qStacks = Math.min(ASHE_Q.maxStacks, this.player.qStacks + 1);
+            this.player.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
+          }
           if (!u.missileSpeed) this.hitBasicAttack(u, target, u.damage);
           else
             this.projectiles.push({
@@ -701,15 +705,6 @@ export class World {
           else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
           if (source.kind === 'champion') contact.slowUntil = this.tick + 120;
           if (p.type === 'ultimate') contact.stunUntil = this.tick + 120;
-          if (
-            source.id === this.player.id &&
-            this.alive(source) &&
-            p.type === 'attack' &&
-            this.tick >= this.player.qUntil
-          ) {
-            this.player.qStacks = Math.min(ASHE_Q.maxStacks, this.player.qStacks + 1);
-            this.player.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
-          }
         }
       } else if (p.remaining > travel) {
         p.x = end.x;
