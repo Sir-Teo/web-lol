@@ -8,6 +8,7 @@ import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
 import { loadReferenceModels } from './render/models';
 import { loadHawkshotWind } from './render/hawkshot-wind';
+import { loadHawkshotDust } from './render/hawkshot-dust';
 import { loadHawkshot } from './render/hawkshot';
 import { loadRiftBattlefield } from './content/rift';
 import { PRACTICE_FIXTURE } from './content/practice-fixture';
@@ -78,6 +79,7 @@ async function boot(): Promise<void> {
     loadReferenceModels(),
     loadHawkshot(),
     loadHawkshotWind(),
+    loadHawkshotDust(),
     view.loadEnvironment(),
   ]);
   const pauseForInterruption = () => {

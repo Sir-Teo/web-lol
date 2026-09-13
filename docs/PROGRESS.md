@@ -644,3 +644,11 @@ Prepared the original four-cell dust and smoke atlases and the red-channel smoke
 All 254 source/simulation checks and the production build pass. The three images were inspected; source export is byte-identical, and the built static files match the verified outputs. Browser gameplay and unchanged GLB checks were not repeated for this asset-only step.
 
 Playback requirements now explicitly include instanced atlas quads, dust orbital/box-space calibration, source erosion UV/default semantics, smoke depth intersection fading and saved deterministic particle reconstruction. These emitters remain unimplemented; this preparation is not a claim of completed effects or native pixel parity. The full production goal remains active. See [sprite preparation and required playback](ASHE-E.md#dust-and-smoke-sprite-preparation).
+
+## Hawkshot Dust playback milestone
+
+The original four-cell dust atlas now renders through one reusable instanced draw. Source-selected rate, randomized lifetimes, size/growth, rotation, color, velocity, drag and orbital ranges feed deterministic birth reconstruction. Camera-facing quads carry independent frame and alpha attributes without shared texture-offset mutation. Existing saved flight trajectories also reconstruct dust after arrival and let its tail expire. The atlas adds 10,401 requested bytes; smoke assets remain unused.
+
+All 257 source/simulation checks, nine focused Chrome scenarios, production build and production smoke pass. Tests cover stable source sampling, motion covariance, saved instance equality, tail cleanup, draw reuse and actual GPU pixels for four distinct cells and alpha fading. Adjacent Hawkshot graphics-loss, Fresnel, body, wind and Owl3 scenarios pass. The screenshot was inspected and parameter export is byte-identical. The full browser suite and unchanged GLB validation were not repeated.
+
+The implementation retains explicit provisional policies for half-extents, orbital units/order, unbound motion, birth phase, local randomness and fixed-step integration. These require native capture calibration before pixel/motion parity can be claimed. Smoke erosion/intersection fading, endpoint VFX, audio and the broader production goal remain incomplete. See [dust playback and evidence](ASHE-E.md#dust-atlas-playback).
