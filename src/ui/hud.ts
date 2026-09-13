@@ -91,6 +91,53 @@ export class Hud {
         button.querySelector('b')!.textContent = price;
     });
   }
+  private updateShopOwnedItems(): void {
+    const owned = this.root.querySelector<HTMLElement>('.shop-owned');
+    if (!owned) return;
+    const key = JSON.stringify(this.world.player.inventory);
+    if (owned.dataset.inventory === key) return;
+    const focused = owned.contains(document.activeElement)
+      ? (document.activeElement as HTMLButtonElement)
+      : null;
+    const focusedSlot = Number(focused?.dataset.sell);
+    const existing = Array.from(owned.querySelectorAll<HTMLButtonElement>('[data-sell]'));
+    const buttons: HTMLButtonElement[] = [];
+    this.world.player.inventory.forEach((id, slot) => {
+      if (!id) return;
+      const item = ITEMS.find((entry) => entry.id === id)!;
+      let button = existing.find(
+        (entry) => entry.dataset.sell === String(slot) && entry.dataset.item === id
+      );
+      if (!button) {
+        button = document.createElement('button');
+        button.className = 'shop-item';
+        button.dataset.sell = String(slot);
+        button.dataset.item = id;
+        button.setAttribute(
+          'aria-label',
+          `Sell ${item.name}, slot ${slot + 1}, for ${item.sell} gold`
+        );
+        button.innerHTML = `<img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>Sell · slot ${slot + 1}</small></span><b>◆ ${item.sell}</b>`;
+      }
+      buttons.push(button);
+    });
+    // Keep surviving controls in place, preserving focus and scroll during purchases.
+    for (const child of Array.from(owned.children))
+      if (!buttons.includes(child as HTMLButtonElement)) child.remove();
+    buttons.forEach((button, index) => {
+      if (owned.children[index] !== button)
+        owned.insertBefore(button, owned.children[index] ?? null);
+    });
+    if (!buttons.length) owned.innerHTML = '<p>No items owned.</p>';
+    owned.dataset.inventory = key;
+    if (focused && !focused.isConnected) {
+      const next =
+        buttons.find((button) => Number(button.dataset.sell) >= focusedSlot) ?? buttons.at(-1);
+      (next ?? this.root.querySelector<HTMLButtonElement>('.close-button'))?.focus({
+        preventScroll: true,
+      });
+    }
+  }
   private bind(): void {
     const inventory = this.root.querySelector<HTMLElement>('#inventory')!;
     let dragged: { slot: number; item: string } | null = null;
@@ -325,34 +372,27 @@ export class Hud {
         }
       })
     );
-    const renderOwnedItems = () => {
-      const owned = backdrop.querySelector<HTMLElement>('.shop-owned');
-      if (!owned) return;
-      owned.innerHTML =
-        this.world.player.inventory
-          .map((id, slot) => {
-            if (id === null) return '';
-            const item = ITEMS.find((entry) => entry.id === id)!;
-            return `<button class="shop-item" data-sell="${slot}" aria-label="Sell ${item.name}, slot ${slot + 1}, for ${item.sell} gold"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>Sell · slot ${slot + 1}</small></span><b>◆ ${item.sell}</b></button>`;
-          })
-          .join('') || '<p>No items owned.</p>';
-    };
     const showShopResult = (result: string | null, success: string) => {
       const message = backdrop.querySelector<HTMLElement>('.shop-message')!;
       message.textContent = result ?? success;
       message.classList.toggle('error', !!result);
       backdrop.querySelector('.shop-balance b')!.textContent =
         `◆ ${Math.floor(this.world.player.gold)}`;
-      renderOwnedItems();
+      this.updateShopOwnedItems();
       backdrop.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
         button.querySelector('b')!.textContent =
           `◆ ${this.world.purchasePlan(button.dataset.buy!)!.cost}`;
       });
     };
-    renderOwnedItems();
+    this.updateShopOwnedItems();
     backdrop.querySelector('.shop-owned')?.addEventListener('click', (event) => {
       const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-sell]');
-      if (button) showShopResult(this.world.sell(Number(button.dataset.sell)), 'Item sold');
+      if (!button) return;
+      if (this.world.player.inventory[Number(button.dataset.sell)] !== button.dataset.item) {
+        showShopResult('Inventory changed. Select the item again.', '');
+        return;
+      }
+      showShopResult(this.world.sell(Number(button.dataset.sell)), 'Item sold');
     });
     backdrop.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) =>
       button.addEventListener('click', () => {
@@ -476,7 +516,10 @@ export class Hud {
     text('level', p.level);
     text('gold', Math.floor(p.gold));
     const shopBalance = this.root.querySelector('.shop-balance b');
-    if (shopBalance) this.updateShopPurchases();
+    if (shopBalance) {
+      this.updateShopPurchases();
+      this.updateShopOwnedItems();
+    }
     const balanceLabel = `◆ ${Math.floor(p.gold)}`;
     if (shopBalance && shopBalance.textContent !== balanceLabel)
       shopBalance.textContent = balanceLabel;
