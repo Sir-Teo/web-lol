@@ -1242,3 +1242,9 @@ All 426 source/simulation checks, seven focused Chrome scenarios, source verific
 Added recent-damage execution credit using the community reference's 15-second Summoner's Rift window, kept distinct from the assist constant. Direct champion final blows take precedence; otherwise the latest eligible damage contributor receives kill gold, first blood and the kill counter, and is excluded from assists. The actual finisher still owns the damage event. Untouched/expired executions preserve first blood and pay no champion kill gold.
 
 All 433 source/simulation checks, four focused Chrome scenarios and nested-path production smoke pass. Tests exercise both teams, turret/minion finishers, actual same-tick hit order, the expiry boundary, dead contributors, direct-kill precedence and saved continuation. Browser coverage verifies credited gold and kill HUD values. Native constant extraction, debuff-only/special reveal attribution and full execution parity remain unfinished; the reference source and local inclusive-tick convention are documented. Full browser/performance suites were not repeated.
+
+## Assist-gold evidence and capture design
+
+Corroborated the pinned opening-timer shift against Riot's 26.1 Game Start Time notes without promoting unnamed fields to verified behavior. Added competing endpoint/duration predictions, discriminating capture times, required observation metadata and a reward interaction matrix to ASSIST-GOLD.md. Updated its stale XP/execution status and aligned the fidelity plan's historical performance figures with the saved d0d65a5 benchmark.
+
+The existing cross-version source verifier passes; independently calculated hypothesis values, local document links and diff whitespace checks pass. This is a research/design change: no assist payout was added, no native capture was performed and no runtime/browser/performance suite was rerun. The full production goal remains unfinished.
