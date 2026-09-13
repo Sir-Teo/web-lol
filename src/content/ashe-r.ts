@@ -12,5 +12,11 @@ export const ASHE_R = {
   "splashDamageMultiplier": 1.0,
   "minimumStunSeconds": 1.0,
   "maximumStunSeconds": 3.5,
+  "baseDamageByRank": [
+    200.0,
+    400.0,
+    600.0
+  ],
+  "abilityPowerRatio": 1.2,
   "stunSecondsPerUnit": 0.00125
 } as const;

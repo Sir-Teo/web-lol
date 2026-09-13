@@ -24,7 +24,7 @@ The client exports `maxLevel: 0` for every spell. This cannot establish rank cap
 - Replace fixed Q attack-speed/damage indexes in attack scheduling and empowered damage. Already released attacks retain captured damage and scheduled timings.
 - Replace fixed W damage/arrow count, resource costs and cooldowns. Decide and verify which values snapshot at cast start versus release; current pending casts capture damage but not arrow count.
 - Replace E's fixed recharge index everywhere a charge timer is scheduled. Verify behavior when learning a rank during a running recharge before changing existing deadlines.
-- Replace R's literal 200 damage and fixed cooldown with the pinned rank data. AP scaling remains a separate missing stat system.
+- Select R damage and cooldown by learned rank; both now read rank-one generated values. AP scaling remains a separate missing stat system.
 - Use the same learned-rank queries in cast validation, bot resource checks, HUD mana labels, tooltips, cooldown shading and learning controls.
 - Bots must allocate earned points and cannot cast unlearned spells. Fixture-specific assumptions must not leak into the real match setup.
 

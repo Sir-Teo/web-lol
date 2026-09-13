@@ -1146,3 +1146,9 @@ All 393 source/simulation checks, dual-source export verification and nested-pat
 The spell-rank exporter now derives its table lengths from the selected game spell's level-up tooltip record: five ranks for Q/W/E and three for R. Pinned those complete records and the source recommendation list. Map-11 bottom/utility recommendations are R/W/Q/E priority with W/Q/E/W early choices; map 12 has a different opening and must not be substituted.
 
 All 393 source/simulation checks and the expanded dual-source exporter pass. Runtime learning behavior is unchanged. This audit resolves the rank-count evidence gap left by unusable client `maxLevel: 0`, but recommendations and tooltip counts do not establish champion-level learning permissions. Standard unlock thresholds, allocation controls/state and actual rank-driven gameplay remain unfinished. Browser/production tests were not repeated for metadata generation with unchanged active values.
+
+## Source Crystal Arrow damage ranks
+
+Extended R's exporter to verify its damage formula and retain 200/400/600 normal-rank base damage plus the 1.2 AP ratio. Replaced both runtime 200 literals with the source rank-one entry and expanded tooltip feedback to cover damage, splash and distance-based stun bounds.
+
+All 393 source/simulation checks, five focused tooltip Chrome scenarios, R export verification and nested-path production smoke pass. The new browser case verifies the displayed 200 damage and 1–3.5 second stun range against a real released R projectile; the tooltip screenshot was inspected. Full-suite/performance checks were not repeated. Higher-rank allocation and AP scaling are not implemented by this data change; full production fidelity remains unfinished.

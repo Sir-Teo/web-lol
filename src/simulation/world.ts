@@ -1369,7 +1369,8 @@ export class World {
         startTick: this.tick,
         releaseTick: this.tick + timing.castSeconds * TICK_RATE,
         point: { ...point },
-        damage: ability === 'e' ? 0 : ability === 'r' ? 200 : this.volleyDamage(u),
+        damage:
+          ability === 'e' ? 0 : ability === 'r' ? ASHE_R.baseDamageByRank[0] : this.volleyDamage(u),
       };
     }
     if (ability === 'e') {
@@ -1466,7 +1467,8 @@ export class World {
         type: ability === 'w' ? 'volley' : 'ultimate',
         target: null,
         direction: { x: Math.cos(a), y: Math.sin(a) },
-        damage: capturedDamage ?? (ability === 'w' ? this.volleyDamage(u) : 200),
+        damage:
+          capturedDamage ?? (ability === 'w' ? this.volleyDamage(u) : ASHE_R.baseDamageByRank[0]),
         speed: ability === 'w' ? ASHE_W.projectileSpeed : ASHE_R.initialSpeed,
         radius: ability === 'w' ? 12 : 65,
         remaining: spec.range,

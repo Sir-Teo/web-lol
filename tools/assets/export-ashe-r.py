@@ -29,6 +29,17 @@ for name, field in [('SlowRadius', 'splashRadius'), ('AoECoefficient', 'splashDa
     values = next(v['values'] for v in record['mSpell']['DataValues'] if v['name'] == name)
     assert len(set(values)) == 1
     data[field] = values[0]
+rank_count = spell['mClientData']['mTooltipData']['mLists']['LevelUp']['levelCount']
+assert rank_count == 3
+base_damage = next(v['values'] for v in spell['DataValues'] if v['name'] == 'RBaseDamage')
+ap_ratio = next(v['values'] for v in spell['DataValues'] if v['name'] == 'APRatio')
+assert spell['mSpellCalculations']['RMainDamage']['mFormulaParts'] == [
+    {'mDataValue': 'RBaseDamage', '__type': 'NamedDataValueCalculationPart'},
+    {'mDataValue': 'APRatio', '__type': 'StatByNamedDataValueCalculationPart'},
+]
+assert len(set(ap_ratio)) == 1
+data['baseDamageByRank'] = base_damage[1:rank_count + 1]
+data['abilityPowerRatio'] = round(ap_ratio[0], 6)
 data['stunSecondsPerUnit'] = pin['stunResearch']['secondsPerUnit']
 assert movement['mMinSpeed'] == data['initialSpeed'] < data['maximumSpeed']
 Path('src/content/ashe-r.ts').write_text(

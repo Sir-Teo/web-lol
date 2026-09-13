@@ -119,3 +119,29 @@ test('open tooltip stays inside the viewport after resize and longer live conten
   await expect(tip).toBeInViewport({ ratio: 1 });
   await page.screenshot({ path: 'artifacts/tooltip-small-window.png' });
 });
+
+test('Crystal Arrow tooltip agrees with its released damage and stun range', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.evaluate(() => (window as any).__GAME__.setPaused(true));
+  await page.getByRole('button', { name: 'Enchanted Crystal Arrow', exact: true }).focus();
+  const tip = page.getByRole('tooltip');
+  await expect(tip).toContainText('200 magic damage');
+  await expect(tip).toContainText('1–3.5 seconds');
+  const damage = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.enqueue({
+      type: 'cast',
+      unit: g.world.hero.id,
+      ability: 'r',
+      point: { x: g.world.hero.x + 1000, y: g.world.hero.y },
+    });
+    g.world.step(16);
+    return g.world.projectiles.find(
+      (p: any) => p.source === g.world.hero.id && p.type === 'ultimate'
+    )?.damage;
+  });
+  expect(damage).toBe(200);
+  await page.screenshot({ path: 'artifacts/crystal-arrow-tooltip.png' });
+});

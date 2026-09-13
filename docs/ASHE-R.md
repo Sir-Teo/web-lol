@@ -53,3 +53,7 @@ The verified source exporter now exposes `mUseMinimapTargeting: true`. Holding a
 ## Saved source windup
 
 Enchanted Crystal Arrow now spends resources once, enters a 15-tick windup and releases afterward. Its source Spell4 pose seeks from simulation time and survives pause/restoration. Existing acceleration, sight, collision, splash and travel-based stun calculations begin with the actual projectile launch. See [cast timing evidence, interaction policy and tests](ASHE-CASTING.md#enchanted-crystal-arrow-windup). Spell buffering, Flash interactions, full recovery animation and reference-pixel alignment remain unfinished.
+
+## Normal-rank damage data
+
+The exporter now verifies the `RMainDamage` formula parts and emits the three normal `RBaseDamage` values (200/400/600) plus the normalized `APRatio` of 1.2. Normal rank count comes from the selected spell's level-up list; additional trailing source values are not exposed as ordinary ranks. Cast snapshots and fallback projectile creation read the exported first-rank value instead of a literal 200. The tooltip uses that same source value and the existing stun bounds. Actual learned ranks and an ability-power stat system remain required before higher ranks and AP scaling can affect gameplay.

@@ -52,8 +52,7 @@ export const ABILITIES: Record<
   r: {
     minimapTargeting: ASHE_R.minimapTargeting,
     name: 'Enchanted Crystal Arrow',
-    description:
-      'Launch an arrow that passes through minions and stuns the first enemy champion hit.',
+    description: `Launch an arrow that passes through minions, dealing ${ASHE_R.baseDamageByRank[0]} magic damage to the first enemy champion hit and nearby enemies. Stuns the champion for ${ASHE_R.minimumStunSeconds}–${ASHE_R.maximumStunSeconds} seconds based on distance traveled.`,
     cooldown: ASHE_SPELL_RANKS.r.cooldownSecondsByRank[0],
     cost: ASHE_SPELL_RANKS.r.manaByRank[0],
     range: ASHE_R.range,
