@@ -42,3 +42,24 @@ The script checks the parser revision and bank hashes, writes a cache-only XML d
 5. Compare reference timing and mixing, then replace the relevant synthesized cues. Test rapid repeated casts, overlapping events, mute/unmute, focus loss, saves and memory disposal. Do not normalize every sound independently and erase authored relative levels.
 
 Missing shared-bank references, native audio initialization, exact event mappings and listening comparisons remain open. The browser implementation must continue to work without runtime Riot services or remote audio lookups.
+
+## Hawkshot event graph and encoded media
+
+`python3 tools/assets/map-hawkshot-audio.py` now resolves all six Hawkshot event names from the pinned skin/particle reference using the pinned parser's lowercase FNV-1 hash. Each ID exists as a bank event. The [event graph](reference/hawkshot-audio.json) records action order, playback descendants, inherited parameter nodes, every selected parameter field with its tree path, and media provenance. Inheritance traversal does not expand sibling sounds into an event's playback set.
+
+| Event suffix | Verified bank route and authored parameters |
+|---|---|
+| `OnCast` | Play action → random/shuffle container 3432; three equally weighted entries; action DelayTime 150; container MakeUpGain −12 |
+| `OnMissileLaunch` | Two play actions: random/shuffle container 3429 with three equally weighted entries and MakeUpGain −8; sound 921284325, media 61040111, MakeUpGain −26, Loop 0 |
+| `hit` | Sound 108015836, media 381540917, MakeUpGain −9 |
+| `buffactivate` | Sound 604153567, media 649034525, MakeUpGain −32, Loop 0 |
+| `Stop … OnMissileLaunch` | Two stop actions targeting 3429 and 921284325, each TransitionTime 150 and Linear fade curve |
+| `Stop … buffactivate` | Stop action targeting 604153567, TransitionTime 1250 and Linear fade curve |
+
+The pinned parser interprets action DelayTime in milliseconds and Loop 0 as infinite. MakeUpGain values are authored gain parameters, not measured output loudness. No final gain is established until inherited buses, attenuation and native dispatch are reconciled. See the pinned checkout's `wwiser/generator/render/bnode_props.py` and `wwiser/wfnv.py` for the inspected interpretation and hash implementation.
+
+The particle reference explicitly attaches `buffactivate` as the linger system's persistent sound and `hit` as the explosion system's creation sound. Cast/launch event presence establishes available bank events; their exact native dispatch timestamps still require observation. The 1.25-second linger stop transition also means the audio tail cannot simply be removed with the current one-second visual tail. Its eventual runtime lifetime must be independent.
+
+Nine distinct encoded WEM files totaling 218,831 bytes are extracted into `.cache/hawkshot-audio-media`. Extraction verifies complete bank hashes, compares the binary DIDX entries with the parser's media inventory, checks DATA bounds and RIFF/WAVE lengths, and records each media file's absolute bank offset, size and SHA-256. All nine selected sound nodes identify the Vorbis plugin. These encoded files have not been decoded or listened to and are not shipped to the browser.
+
+The graph includes 28 event/action/sound/container/inheritance/attenuation objects. Parent mixers 606977369 and 462566399 and attenuation object 339248780 resolve locally. Output bus 1259461568 does not exist in these two banks and remains explicit as an unresolved hierarchy dependency. Native positional mixing, shared-bus behavior, shuffle state and persistent event stop dispatch remain validation work. Regenerating the graph and media produces identical hashes.
