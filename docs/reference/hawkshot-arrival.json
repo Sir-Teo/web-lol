@@ -1,0 +1,153 @@
+{
+  "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_tar_explode",
+  "emitter": {
+    "rate": {
+      "constantValue": 1.0,
+      "__type": "ValueFloat"
+    },
+    "particleLifetime": {
+      "constantValue": 0.5,
+      "dynamics": {
+        "probabilityTables": [
+          {
+            "keyTimes": [
+              0.0,
+              1.0
+            ],
+            "keyValues": [
+              0.5,
+              1.0
+            ],
+            "__type": "VfxProbabilityTableData"
+          }
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          0.5
+        ],
+        "__type": "VfxAnimatedFloatVariableData"
+      },
+      "__type": "ValueFloat"
+    },
+    "particleLinger": 13.0,
+    "lifetime": 1.0,
+    "isSingleParticle": 1,
+    "emitterName": "Aurora",
+    "birthVelocity": {
+      "constantValue": [
+        0.0,
+        8000.0,
+        0.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "birthDrag": {
+      "constantValue": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "SpawnShape": {
+      "flags": 1,
+      "__type": "VfxShapeCylinder"
+    },
+    "EmitterPosition": {
+      "constantValue": [
+        0.0,
+        -100.0,
+        0.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "primitive": {
+      "__type": "VfxPrimitiveArbitraryQuad"
+    },
+    "blendMode": 4,
+    "birthColor": {
+      "constantValue": [
+        1.0,
+        1.0,
+        1.0,
+        0.5700007677078247
+      ],
+      "__type": "ValueColor"
+    },
+    "Color": {
+      "constantValue": [
+        0.2699931263923645,
+        0.5100023150444031,
+        1.0,
+        0.2699931263923645
+      ],
+      "dynamics": {
+        "times": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "values": [
+          [
+            0.2699931263923645,
+            0.5100023150444031,
+            1.0,
+            0.0
+          ],
+          [
+            0.2699931263923645,
+            0.5100023150444031,
+            1.0,
+            0.2699931263923645
+          ],
+          [
+            0.2699931263923645,
+            0.5100023150444031,
+            1.0,
+            0.0
+          ]
+        ],
+        "__type": "VfxAnimatedColorVariableData"
+      },
+      "__type": "ValueColor"
+    },
+    "pass": 1,
+    "birthRotation0": {
+      "constantValue": [
+        0.0,
+        0.0,
+        90.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "birthScale0": {
+      "constantValue": [
+        800.0,
+        200.0,
+        500.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_Q_mis_core.tex",
+    "__type": "VfxEmitterDefinitionData"
+  },
+  "texture": {
+    "source": {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_base_q_mis_core.tex",
+      "wadPathHash": "3361f328ceaff759",
+      "sha256": "e1db88fc7d73e7a6c594e92888356a2576b92d932a6acb5e553843b75032a486",
+      "bytes": 21884
+    },
+    "path": "public/assets/effects/hawkshot-arrival-core.png",
+    "dimensions": [
+      128,
+      128
+    ],
+    "bytes": 7562,
+    "sha256": "674e58b9443d7f531ee4576edfd3183176500f5ab910dce2639fb313f683f121",
+    "rgbaSha256": "dcf43ff024007fc7adc15b8b34c98f6889f1a7d01eb7ec582f8ac2fda1bed554"
+  }
+}

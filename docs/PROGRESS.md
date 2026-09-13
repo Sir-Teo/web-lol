@@ -676,3 +676,11 @@ Visible smoke now captures depth only within conservative projected instance bou
 All 261 source/simulation checks, nine focused Chrome scenarios, production build and a production real-input Hawkshot cast pass. The new browser comparison proves exact cropped/full final pixels at device pixel ratios 1 and 2 while the fixture capture covers less than one quarter of the framebuffer. Edge/fallback unit checks and neighboring smoke/graphics-loss scenarios pass. This saves rasterized area but does not reduce geometry submission or full-resolution target memory; those remain optimization opportunities. The full browser suite and unchanged asset validation were not repeated.
 
 Native visual calibration, endpoint effects, audio and the broader production scope remain unfinished. The goal remains active. See [cropped depth behavior and evidence](ASHE-E.md#cropped-smoke-depth-capture).
+
+## First Hawkshot endpoint Aurora milestone
+
+Hawkshot now starts the pinned endpoint Aurora at its saved arrival tick. The original 128×128 texture adds 7,562 bytes; authored dimensions, emitter rotation, birth/color alpha, randomized short lifetime and upward velocity/drag feed a deterministic saved-age adapter. The burst fades independently of the five-second scouting reveal. Shared geometry/texture survive burst expiry; private opacity materials are released.
+
+All 263 source/simulation checks, six focused Chrome scenarios, production build and a production real-input Hawkshot cast pass. New coverage checks arrival-only birth, pause, fresh restoration, lifetime cleanup, ongoing scouting and actual pixels. Visual inspection caught an unsupported incoming-flight yaw making the arbitrary quad edge-on; world-axis endpoint placement now retains only the authored emitter rotation. The inspected capture and byte-identical export are recorded in the effect documentation. The full browser suite and unchanged GLB validation were not repeated.
+
+This is the first of five explosion emitters. Remaining explosion layers, all lingering layers, audio and native placement/phase/drag/RNG calibration remain unfinished, along with the broader production goal. See [endpoint Aurora evidence and limits](ASHE-E.md#first-endpoint-aurora-layer).
