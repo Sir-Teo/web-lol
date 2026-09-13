@@ -1284,3 +1284,9 @@ Added a reproducible provenance/metadata verifier and three ordered contact shee
 Added ordinary/Q Glow and Glow1 layers using verified source emitter records and the original texture. Saved attack launch ticks drive color-curve age; instances share geometry/texture and own only their changing glow materials. Native particle-plane adaptation and impact linger remain documented interpretations.
 
 All 444 source/simulation checks and nested-path production smoke pass. Six related Chrome cases initially passed; the new Q check failed because its returned observation omitted three asserted fields. Corrected the observation and reran all three arrow cases successfully, including private-material disposal. Inspected the updated combat capture. Full browser/performance suites were not repeated; other particle layers and full flurry behavior remain unfinished.
+
+## Full browser regression after attack-arrow effects
+
+Ran all 170 configured Chrome scenarios against `34eed412090940b13a307e7da8764b5cdbc6513c` without code changes during execution. Every case passed once: zero failures, skips, flaky results or retries, one worker, 357.5 seconds. The JSON report's individual results and top-level error list were checked before replacing the 161-case historical baseline in `reference/browser-regression.json`.
+
+Inspected fresh full-Rift fountain and river-aiming captures and recorded their hashes with the tested commit and report hash. This verification adds no runtime behavior and does not establish native visual parity, full 5v5 completeness or the still-open performance target. Source/simulation checks and production smoke were not rerun in this verification-only turn; their prior results remain above.
