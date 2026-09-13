@@ -1710,6 +1710,10 @@
       "nexus-turret": 0.07
     }
   },
+  "minionExperienceRadius": {
+    "blue": 1500.0,
+    "red": 1500.0
+  },
   "waves": {
     "initialSeconds": 30.0,
     "intervalSeconds": 30.0,

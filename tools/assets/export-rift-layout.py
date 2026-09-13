@@ -183,6 +183,7 @@ layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawn
           "minionCurrentHealthDamage": minion_current_health_damage,
           "siegeMidTurretAttackSpeedBonus": siege_mid_turret_attack_speed_bonus,
           "turretMinionHealthDamage": turret_minion_health_damage,
+          "minionExperienceRadius": {team: definitions[key]['ExpRadius'] for team, key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]},
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
                     "intervalChanges": overrides['waveIntervals'],
