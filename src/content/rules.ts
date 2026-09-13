@@ -3,6 +3,7 @@ import { SUMMONER_HEAL } from './summoner-heal';
 import { ASHE_Q } from './ashe-q';
 import { ASHE_E } from './ashe-e';
 import { ASHE_R } from './ashe-r';
+import { ASHE_SPELL_RANKS } from './ashe-spell-ranks';
 
 export const TICK_RATE = 60;
 export const DT = 1 / TICK_RATE;
@@ -25,8 +26,8 @@ export const ABILITIES: Record<
   q: {
     name: 'Ranger’s Focus',
     description: `Build 4 Focus with attacks. Consume Focus to gain ${ASHE_Q.bonusAttackSpeedByRank[0] * 100}% attack speed for ${ASHE_Q.durationSeconds} seconds and empower attacks to deal ${Math.round(ASHE_Q.damageMultiplierByRank[0] * 100)}% damage. Activating resets your attack timer.`,
-    cooldown: 0,
-    cost: 30,
+    cooldown: ASHE_SPELL_RANKS.q.cooldownSecondsByRank[0],
+    cost: ASHE_SPELL_RANKS.q.manaByRank[0],
     range: 600,
     icon: 'AsheQ',
   },
@@ -34,8 +35,8 @@ export const ABILITIES: Record<
     name: 'Volley',
     description:
       'Fire a cone of frost arrows. Each enemy takes damage from one arrow and is slowed.',
-    cooldown: 18,
-    cost: 75,
+    cooldown: ASHE_SPELL_RANKS.w.cooldownSecondsByRank[0],
+    cost: ASHE_SPELL_RANKS.w.manaByRank[0],
     range: 1200,
     icon: 'Volley',
   },
@@ -43,8 +44,8 @@ export const ABILITIES: Record<
     minimapTargeting: ASHE_E.minimapTargeting,
     name: 'Hawkshot',
     description: `Send a hawk that reveals its route, then grants destination vision for ${ASHE_E.visionSeconds} seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${ASHE_E.rechargeSecondsByRank[0]} seconds.`,
-    cooldown: ASHE_E.castCooldownSeconds,
-    cost: 0,
+    cooldown: ASHE_SPELL_RANKS.e.cooldownSecondsByRank[0],
+    cost: ASHE_SPELL_RANKS.e.manaByRank[0],
     range: ASHE_E.range,
     icon: 'AsheSpiritOfTheHawk',
   },
@@ -53,8 +54,8 @@ export const ABILITIES: Record<
     name: 'Enchanted Crystal Arrow',
     description:
       'Launch an arrow that passes through minions and stuns the first enemy champion hit.',
-    cooldown: 100,
-    cost: 100,
+    cooldown: ASHE_SPELL_RANKS.r.cooldownSecondsByRank[0],
+    cost: ASHE_SPELL_RANKS.r.manaByRank[0],
     range: ASHE_R.range,
     icon: 'EnchantedCrystalArrow',
   },

@@ -1134,3 +1134,9 @@ All 393 source/simulation checks, four focused Chrome scenarios and nested-path 
 Tooltip placement now measures the rendered panel and clamps its position within viewport margins. Repositioning occurs on opening, viewport resize and changed live description text; tooltip width and height are bounded to the viewport. This replaces the fixed-width, opening-only bottom offset.
 
 All 393 source/simulation checks, four focused Chrome tooltip cases and nested-path production smoke pass. The new scenario opens Heal at desktop size, resizes to 600×420, then adds the longer recent-Heal text and verifies the full panel remains visible. Inspected the small-window capture: the tooltip is readable above the ability controls. Full-suite/performance checks were not repeated. Complete mobile interaction and exact native tooltip geometry remain unfinished.
+
+## Spell-rank source audit and resource tables
+
+Pinned and normalized Q/W/E/R mana/cooldown tables against both game and client exports, and connected existing rank-one ability definitions to the generated values. The audit found different array indexing for game mana versus cooldown fields; the client coefficients confirm the normalized result. Client `maxLevel: 0` is explicitly not treated as a valid learning cap.
+
+All 393 source/simulation checks, dual-source export verification and nested-path production smoke pass. Added `SPELL-RANKS.md` with the concrete state, command, cast snapshot, recharge, bot, UI and save integration requirements. No skill allocation behavior is claimed: standard-match unlearned spells and verified level restrictions remain unfinished. This establishes validated data and integration scope for actual progression, not completion of that feature.

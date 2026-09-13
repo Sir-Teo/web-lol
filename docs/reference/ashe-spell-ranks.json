@@ -1,0 +1,162 @@
+{
+  "gameUrl": "https://raw.communitydragon.org/16.18/game/data/characters/ashe/ashe.bin.json",
+  "gameSha256": "d5aecdf76b201b075a8c77c3444abaabab3dc5a5ac0b35dc14aafaefb65d5c5d",
+  "clientUrl": "https://raw.communitydragon.org/16.18/plugins/rcp-be-lol-game-data/global/default/v1/champions/22.json",
+  "clientSha256": "5301c33ad038fd0046abed4b9f5153b2d6e5995b601e06114ef41f04b5a54b11",
+  "root": "Characters/Ashe/CharacterRecords/Root",
+  "spells": {
+    "q": {
+      "path": "Characters/Ashe/Spells/AsheQAbility/AsheQ",
+      "cooldownTime": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mana": [
+        30.0,
+        30.0,
+        30.0,
+        30.0,
+        30.0,
+        30.0
+      ],
+      "client": {
+        "spellKey": "q",
+        "costCoefficients": [
+          30.0,
+          30.0,
+          30.0,
+          30.0,
+          30.0,
+          30.0
+        ],
+        "cooldownCoefficients": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maxLevel": 0
+      }
+    },
+    "w": {
+      "path": "Characters/Ashe/Spells/VolleyAbility/Volley",
+      "cooldownTime": [
+        18.0,
+        18.0,
+        14.5,
+        11.0,
+        7.5,
+        4.0,
+        4.0
+      ],
+      "mana": [
+        75.0,
+        70.0,
+        65.0,
+        60.0,
+        55.0,
+        50.0
+      ],
+      "client": {
+        "spellKey": "w",
+        "costCoefficients": [
+          75.0,
+          70.0,
+          65.0,
+          60.0,
+          55.0,
+          50.0
+        ],
+        "cooldownCoefficients": [
+          18.0,
+          14.5,
+          11.0,
+          7.5,
+          4.0,
+          4.0
+        ],
+        "maxLevel": 0
+      }
+    },
+    "e": {
+      "path": "Characters/Ashe/Spells/AsheSpiritOfTheHawkAbility/AsheSpiritOfTheHawk",
+      "cooldownTime": [
+        5.0,
+        5.0,
+        5.0,
+        5.0,
+        5.0,
+        5.0,
+        5.0
+      ],
+      "mana": null,
+      "client": {
+        "spellKey": "e",
+        "costCoefficients": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cooldownCoefficients": [
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "maxLevel": 0
+      }
+    },
+    "r": {
+      "path": "Characters/Ashe/Spells/EnchantedCrystalArrowAbility/EnchantedCrystalArrow",
+      "cooldownTime": [
+        100.0,
+        100.0,
+        80.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "mana": [
+        100.0,
+        100.0,
+        100.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "client": {
+        "spellKey": "r",
+        "costCoefficients": [
+          100.0,
+          100.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cooldownCoefficients": [
+          100.0,
+          80.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0
+        ],
+        "maxLevel": 0
+      }
+    }
+  }
+}
