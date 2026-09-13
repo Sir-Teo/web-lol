@@ -16,7 +16,7 @@ Last updated: September 13, 2026 (America/New_York).
 - Eight animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
 - Source revisions and SHA-256 hashes are recorded for imported art. The GLB passes the Khronos glTF validator with zero errors and zero warnings.
 - The default playable now renders pinned Base_SRX terrain and vegetation with original BC1/BC3 blocks, authored mip levels, and a lossless WebP fallback. Source navigation, elevation, fountain spawns, three lane routes, timed barracks waves, and 22 turret positions are connected. The separate inspector retains its navigation overlay.
-- Twenty-five browser scenarios and fifty-one simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
+- Twenty-six browser scenarios and fifty-five simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
 
 The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
 
@@ -24,8 +24,8 @@ The game is **not production complete**. No roadmap milestone that requires comp
 
 | Evidence | Result | Scope |
 |---|---|---|
-| `npm run check` | TypeScript check and 51 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility, source-grid clearance/gates, full-map routes, wave cadence, and fountain recall |
-| `npm run test:browser` | 25 Chrome scenarios | Existing practice interactions, minion lifecycle, full terrain loading, original compressed mips, BC1 alpha, both gzip-hosting conventions, navigation overlay, WebP fallback, full-map pointer/elevation alignment, movement/attack, exact fog-mask/query agreement, tower transforms/rig sharing, and persistent rubble |
+| `npm run check` | TypeScript check and 55 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility, source-grid clearance/gates, full-map routes, wave cadence, and fountain recall |
+| `npm run test:browser` | 26 Chrome scenarios | Existing practice interactions, minion lifecycle, full terrain loading, original compressed mips, BC1 alpha, both gzip-hosting conventions, navigation overlay, WebP fallback, full-map pointer/elevation alignment, movement/attack, exact fog-mask/query agreement, tower transforms/rig sharing, and persistent rubble |
 | `npm run assets:validate` | 0 errors, 0 warnings | Fifteen character/structure GLBs, full map glTF, 278 hashed map resources, navigation payload, gameplay layout, and minimap; not certification of pixel parity |
 | `npm run build` | Static build succeeds | Bundles the application and local assets; not deployment or backend work |
 | Browser screenshots | Inspected at multiple viewports up to 1920×1080 | Full terrain, live lane combat, river aim, fountain placement, character visibility, HUD and shop presentation |
@@ -54,7 +54,7 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 | R | Fixed damage/stun; no full travel-distance/splash rules | Reference-accurate hit and CC semantics |
 | Summoner spells | Simple heal and obstacle-projected blink | Exact targeting, ally effects, wall rules, timing, rank/patch values |
 | Combat systems | Simplified stats, status effects, growth, and mitigation | Full typed modifiers, patch reconciliation, CC capabilities, item/rune interaction rules |
-| Vision | Source-grid occlusion and brush; elevated terrain fog; provisional sight radii; enemy buildings disappear without vision | Reference sight checks, static building memory/global destruction semantics, wards, stealth/true sight, projectile-specific reveal rules |
+| Vision | Source-grid occlusion and brush; elevated terrain fog; provisional sight radii; known-building state implemented, exact hidden-regrowth behavior needs calibration | Reference sight checks, building-knowledge/global-announcement calibration, wards, stealth/true sight, projectile-specific reveal rules |
 | Navigation | Source-grid A*, cached radius clearance, swept capsule validation and authored lane routing | Dynamic overlays, local unit avoidance, exact steering calibration, camp behavior |
 | Bots | One tactical sparring policy | Per-role perception, team strategy, objective conversion, decision uncertainty, complete match QA |
 | Shop | Four direct purchases | Recipes, sell/undo, full builds, role-specific capacity, passives/actives, runes |
@@ -66,7 +66,7 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 ## Next implementation priorities
 
 1. Reconcile all lane minions’ base stats, timed upgrades, economy, attack timing, and wave cadence after the super-wave foundation. Import camps and extend the building dependency/result foundation into complete-match behavior.
-2. Complete static building memory, wards/stealth, and ability-specific reveal rules. Calibrate camera, fog, shaders, and scale against matched reference captures; reduce large-scene rendering cost.
+2. Calibrate known-building state, implement wards/stealth and ability-specific reveal rules. Calibrate camera, fog, shaders, and scale against matched reference captures; reduce large-scene rendering cost.
 3. Replace the ability approximations with a versioned ability timeline/state model and complete Ashe behavior, then implement a second full kit.
 4. Extend the three-lane test harness toward role-aware match simulation, preserving the tested input/combat boundaries.
 
@@ -147,3 +147,13 @@ Six ordinary minion Root records and their source hashes are frozen and verified
 The simulation suite passes 51 scenarios. The work continues toward full minion reconstruction, static-building vision, and the larger complete-match gates; this milestone does not certify those unfinished systems.
 
 The 25 Chrome regression scenarios, static build, asset validation, and built-game smoke check also pass. All six upstream minion files match their recorded hashes, and the generated layout/source snapshot rebuild byte-identically. Full minion combat and exact reference transition phases remain outstanding.
+
+## Known buildings under fog milestone
+
+Enemy buildings now remain visible under the same fog shading as terrain, filling the source terrain cutouts. The simulation retains separate per-team intact/destroyed knowledge; live sight still governs picking, health bars, targeting, and combat events. Known intact buildings appear on the minimap. Hidden regrowth keeps the remembered destroyed representation until the building is observed, then preserves its newly observed intact state after sight is lost. Snapshot version 4 retains that knowledge.
+
+The shared fog shader computes world positions after skinning, so structure meshes and source matrices agree with terrain fog. Before/after full-base screenshots and hidden-regrowth screenshots were inspected in Chrome. Simulation checks now total 55 scenarios. Exact reference knowledge/announcement behavior and broader vision systems remain unfinished; the production goal stays active.
+
+All 26 Chrome scenarios and the static build pass for this milestone. The 90-second full-Rift benchmark on Chrome 152 / Apple M5 Pro / 64 GiB at 1920×1080, with 45 warmup frames and 180 samples, records 109 unit records, 318 draw calls, and 554,586 triangles. Frame intervals: median 16.7 ms, p95 23.3 ms, p99 28.1 ms. Simulation steps cost median 0.2 ms / p95 0.4 ms; 22 fog updates cost median 6.3 ms / p95 7.8 ms. Retaining known enemy structures increases submitted geometry; this does not pass the full-match frame budget. Animation-aware building bounds and offscreen culling are a concrete next rendering task. These timings are a scoped observation, not a controlled comparison with older fixtures.
+
+The fresh production preview smoke check passes with no browser errors or failed requests and no development diagnostics exposed.

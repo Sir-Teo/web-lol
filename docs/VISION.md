@@ -23,12 +23,15 @@ The source-grid flag interpretation follows the primary [LoL-NGRID-converter for
 | Projectiles | Allied missiles remain visible. Enemy missiles render only when their current position is visible; visibility of the shooter does not expose a remote missile. Collision continues while hidden. |
 | Combat events | Each event receives its team audience at emission. Audio and combat text use that saved audience, including when the subject later becomes visible or is removed. |
 | Private feedback | Movement indicators, messages, gold, and level feedback belong to their team. Gold text appears at the player rather than revealing a hidden kill location. |
-| Enemy UI | Hidden health bars and target panels stop updating their displayed values. Picking and minimap icons require visibility. |
-| Fog presentation | A reused 256×256 mask samples the shared sight query every eight simulation ticks. Observer bounds limit work and already-revealed cells skip duplicate rays. Terrain materials, including trees and rocks, and the minimap share the softened mask. Gameplay queries the source grid directly, independent of display resolution or cadence. |
+| Enemy UI | Hidden health bars and target panels stop updating their displayed values. Picking and mobile-unit minimap icons require live visibility. Known intact buildings retain minimap markers. |
+| Building knowledge | Initial static placements are known to both teams. Destruction updates their public intact/destroyed state without revealing damage or granting sight. Hidden regrowth retains the last known state until observed. |
+| Fog presentation | A reused 256×256 mask samples the shared sight query every eight simulation ticks. Observer bounds limit work and already-revealed cells skip duplicate rays. Terrain materials, including trees and rocks, static building materials, and the minimap share the softened mask. Building fog coordinates are evaluated after skeletal deformation. Gameplay queries the source grid directly, independent of display resolution or cadence. |
 
 ## Remaining gaps
 
-Enemy structures currently disappear outside vision. A known-building representation, last observed state, and explicit globally announced destruction are needed to reproduce League's map presentation without exposing hidden health changes.
+Enemy structures now retain their known representation outside vision. `World.visible` remains a live-sight query used by combat and picking. `knownStructureDestroyed` is a separate presentation query: it returns an intact/destroyed state for buildings and no known representation for mobile units. Snapshot version 4 includes per-team structure knowledge. No hidden HP values are stored in that knowledge or displayed by the UI.
+
+Destruction updates public map state directly; the original damage/death event audience remains unchanged, so this does not introduce hidden combat text or ordinary combat audio. Complete global structure announcements and their reference audio remain future work. Respawning buildings update their owner's knowledge immediately and the opposing team's knowledge on observation. This is the current reconstruction policy, including initial map knowledge and the exact hidden-regrowth behavior; it still requires matched League captures before claiming exact parity.
 
 Wards, detectors, stealth, camouflage, true sight, nearsight, terrain transformations, and per-ability reveal rules are not yet modeled. Allied projectiles in fog and spell effects require reference-specific policies rather than one universal visibility rule. The original circle terrain and 128×128 floor mask remain only in the development regression fixture at `/?scene=fixture`. Full-map tests use the source grid. Passing internal alignment tests is not certification against recorded League sight behavior.
 
@@ -39,3 +42,7 @@ Nine new simulation scenarios cover brush entry/exit, wall occlusion, shared sig
 A browser fixture checks that hidden and revealed states agree across the actual model, picking, projectile model, health bar, target panel, combat text, and fog mask. It records screenshots before and after entering brush. The earlier eight browser scenarios remain in the suite.
 
 The full-map browser scenario places an enemy in source-authored brush, verifies hidden model and picking behavior, then introduces an allied observer. It compares every one of the 65,536 raw fog samples against the simulation visibility query and requires zero mismatches. Separate checks validate cursor/ground agreement at the elevated fountain and below-zero river floor. The complete current suite has 31 simulation and 16 Chrome scenarios.
+
+## Known-building presentation verification
+
+Four additional simulation scenarios separate initial knowledge, hidden damage, public destruction, and both-team regrowth/observation. A Chrome scenario inspects all 15 enemy structures under fog, their material shader hook, a known minimap marker, hidden health/picking/selection, damage event isolation, and hidden inhibitor regrowth. It then observes the inhibitor and checks that its intact appearance remains remembered after sight expires. Full-base hidden/revealed and regrowth screenshots were visually inspected. This closes the terrain-cutout presentation gap while retaining the live-sight rules.
