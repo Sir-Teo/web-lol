@@ -20,4 +20,12 @@ Cannon and super-minion bounty growth is now implemented; see [the minion gold s
 
 ## Champion reward ownership
 
-Ambient income now accrues independently for every champion, including through death. Existing last-hit bounties and CS belong to the champion that dealt the killing damage; champion kills increment that owner's kill counter. Same-team kills grant no last-hit gold or kill/CS credit. Gold feedback uses the recipient's position and team audience. This ownership correction retains the existing bounty amounts and does not implement assists, shutdowns or team structure rewards. Shared purchasing and a finite fountain-only bot plan are now implemented; complete item builds and recipes remain unfinished.
+Ambient income now accrues independently for every champion, including through death. Last-hit bounties and CS belong to the champion that dealt the killing damage; champion kills increment that owner's kill counter. Same-team kills grant no last-hit gold or kill/CS credit. Gold feedback uses the recipient's position and team audience. Damage and Hawkshot reveal assist counters are implemented; assist gold, shutdowns and team structure rewards remain incomplete. Shared purchasing and a finite fountain-only bot plan are implemented; complete item builds and recipes remain unfinished.
+
+## Champion base kill gold
+
+The standard-mode `BaseGold` array in [the complete bounty configuration pin](reference/assist-window.json) specifies 300 gold at victim levels 1–6, then 310 through 420 at levels 7–18. Riot's [25.09 Champion Bounties / Tuning notes](https://www.leagueoflegends.com/en-us/news/game-updates/patch-25-09-notes/) independently describe the ten-gold-per-level increase beginning at level 7. The pinned 16.18 record retains that table.
+
+`python3 tools/assets/export-champion-kill-gold.py` validates the cached map hash, mode/config link, full configuration and independently described progression before generating the runtime table. On a direct opposing champion kill, the game reads the victim's level before XP distribution and credits the source champion, including posthumous sources. The current supported level range is 1–18. Explicit practice `goldBounty` overrides still replace the base amount. Nonchampion final blows do not yet resolve execution attribution.
+
+This replaces the flat 300 base reward only. First blood, positive/negative bounty accounting, suppression and assist gold are separate outstanding rules. Unknown hashed configuration fields have not been assigned speculative meanings. Tests cover every supported victim level on both teams with different killer levels, duplicate death protection, gold event ownership, saved continuation, posthumous credit, overrides and the visible player balance.

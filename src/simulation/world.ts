@@ -1,3 +1,4 @@
+import { CHAMPION_BASE_KILL_GOLD } from '../content/champion-kill-gold';
 import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
 import { ASSIST_WINDOW_SECONDS } from '../content/assist-window';
 import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
@@ -1144,7 +1145,7 @@ export class World {
         const gold =
           target.goldBounty ??
           (target.kind === 'champion'
-            ? 300
+            ? CHAMPION_BASE_KILL_GOLD[targetState!.level - 1]
             : target.kind === 'dummy'
               ? 0
               : target.kind === 'turret'
