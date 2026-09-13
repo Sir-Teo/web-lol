@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 35 adds the required per-unit `rootUntil` deadline. Roots retain movement orders and can expire identically after restoration; respawn clears them. Earlier versions are incompatible, consistent with the existing conservative ruleset policy.
+
 Full-Rift navigation now returns position-only waypoints even when a caller passes a complete unit as its destination. Previously the walkable-endpoint fast path spread the whole unit into the returned point. Chases consequently embedded combat fields in `path` and `pathDestination`, making otherwise valid live matches fail the strict save decoder. This was reproduced in a five-minute ten-champion simulation and two focused regressions. Navigation now explicitly copies `x` and `y`; schema validation remains strict. A browser scenario saves an active Rift chase, reloads through IndexedDB, and matches uninterrupted continuation through an actual attack.
 
 Queued commands store only their declared payload fields. When a UI or simulation caller supplies a unit as a coordinate argument, the queue captures its `x` and `y` at dispatch time rather than copying the full entity. This keeps pending casts and movement orders valid under the strict snapshot schema and prevents subsequent unit movement from changing their destinations. Regression cases restore each command type before execution and compare continued state. A browser case holds simulation steps, clicks the actual HUD Heal button, and restores the resulting pending cast before resuming.

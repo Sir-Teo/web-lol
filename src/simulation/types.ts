@@ -68,6 +68,7 @@ export interface Unit extends Vec2 {
     endMultiplier: number;
   } | null;
   stunUntil: number;
+  rootUntil: number;
   summonerHealReductionUntil: number;
   summonerHealSpeedUntil: number;
   deadAt: number | null;

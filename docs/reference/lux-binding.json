@@ -1,0 +1,843 @@
+{
+  "status": "Source audit and shared root foundation; Lux projectile and champion integration pending",
+  "sources": [
+    {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/lux/lux.bin.json",
+      "sha256": "fbc893b4cfc75060f40427f8024a03e5980d93829971cc0fbccecbedc0689b74",
+      "records": {
+        "Characters/Lux/Spells/LuxLightBindingAbility/LuxLightBinding": {
+          "ObjectName": "LuxLightBinding",
+          "objectPath": "Characters/Lux/Spells/LuxLightBindingAbility/LuxLightBinding",
+          "mScriptName": "LuxLightBinding",
+          "mSpell": {
+            "mAffectsTypeFlags": 13327,
+            "mRequiredUnitTags": {
+              "mObjectTagList": [
+                "{ea595ca6}"
+              ],
+              "__type": "ObjectTags"
+            },
+            "mAlternateName": "LuxLightBinding",
+            "mSpellTags": [
+              "Trait_ImmobilizingCCSpell",
+              "Trait_DamageAbility",
+              "Trait_Low_Damage",
+              "Trait_AoE"
+            ],
+            "mEffectAmount": [
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "value": [
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0
+                ],
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              }
+            ],
+            "DataValues": [
+              {
+                "name": "BaseDamage",
+                "values": [
+                  40.0,
+                  80.0,
+                  120.0,
+                  160.0,
+                  200.0,
+                  240.0,
+                  280.0
+                ],
+                "__type": "SpellDataValue"
+              },
+              {
+                "name": "APRatio",
+                "values": [
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75
+                ],
+                "__type": "SpellDataValue"
+              },
+              {
+                "name": "RootDuration",
+                "values": [
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0
+                ],
+                "__type": "SpellDataValue"
+              }
+            ],
+            "DataValuesModeOverride": {
+              "cherry": {
+                "SpellDataValues": [
+                  {
+                    "name": "BaseDamage",
+                    "values": [
+                      70.0,
+                      110.0,
+                      150.0,
+                      190.0,
+                      230.0,
+                      270.0,
+                      310.0
+                    ],
+                    "__type": "SpellDataValue"
+                  },
+                  {
+                    "name": "APRatio",
+                    "values": [
+                      0.6499999761581421,
+                      0.6499999761581421,
+                      0.6499999761581421,
+                      0.6499999761581421,
+                      0.6499999761581421,
+                      0.6499999761581421,
+                      0.6499999761581421
+                    ],
+                    "__type": "SpellDataValue"
+                  }
+                ],
+                "__type": "SpellDataValueVector"
+              }
+            },
+            "mSpellCalculations": {
+              "TotalDamageTT": {
+                "mSimpleTooltipCalculationDisplay": 6,
+                "mFormulaParts": [
+                  {
+                    "mDataValue": "BaseDamage",
+                    "__type": "NamedDataValueCalculationPart"
+                  },
+                  {
+                    "mDataValue": "APRatio",
+                    "__type": "StatByNamedDataValueCalculationPart"
+                  }
+                ],
+                "__type": "GameCalculation"
+              }
+            },
+            "mAnimationName": "Spell1",
+            "mImgIconName": [
+              "ASSETS/Characters/Lux/HUD/Icons2D/LuxCrashingBlitz2.dds",
+              ""
+            ],
+            "spellCastTime": 0.25,
+            "spellTotalTime": 1.0,
+            "mCantCancelWhileWindingUp": true,
+            "castRange": [
+              10000.0,
+              10000.0,
+              10000.0,
+              10000.0,
+              10000.0,
+              10000.0,
+              10000.0
+            ],
+            "castRangeValues": {
+              "values": [
+                10000.0,
+                10000.0,
+                10000.0,
+                10000.0,
+                10000.0,
+                10000.0,
+                10000.0
+              ],
+              "{0a3e0478}": 10000.0,
+              "__type": "{0a0eddc9}"
+            },
+            "castRangeDisplayOverride": [
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0
+            ],
+            "castRadius": [
+              210.0,
+              210.0,
+              210.0,
+              210.0,
+              210.0,
+              210.0,
+              210.0
+            ],
+            "castConeDistance": 100.0,
+            "castFrame": 7.5,
+            "missileSpeed": 1200.0,
+            "mLineWidth": 80.0,
+            "mana": [
+              50.0,
+              50.0,
+              50.0,
+              50.0,
+              50.0,
+              50.0
+            ],
+            "manaValues": {
+              "values": [
+                50.0,
+                50.0,
+                50.0,
+                50.0,
+                50.0,
+                50.0
+              ],
+              "{0a3e0478}": 50.0,
+              "__type": "{630af303}"
+            },
+            "selectionPriority": 2,
+            "mTargetingTypeData": {
+              "__type": "Location"
+            },
+            "mCastingBreaksStealth": true,
+            "mClientData": {
+              "mTooltipData": {
+                "mObjectName": "LuxLightBinding",
+                "mFormat": "{d7c27163}",
+                "mLocKeys": {
+                  "keyName": "Spell_LuxQ_Name",
+                  "keySummary": "Spell_LuxQ_Summary",
+                  "keyTooltip": "Spell_LuxQ_Tooltip",
+                  "keyTooltipSimple": "Spell_LuxQ_TooltipSimple"
+                },
+                "mLists": {
+                  "LevelUp": {
+                    "levelCount": 5,
+                    "Elements": [
+                      {
+                        "type": "BaseDamage",
+                        "typeIndex": 1,
+                        "nameOverride": "Spell_ListType_Damage",
+                        "__type": "TooltipInstanceListElement"
+                      }
+                    ],
+                    "__type": "TooltipInstanceList"
+                  }
+                },
+                "__type": "TooltipInstanceSpell"
+              },
+              "mTargeterDefinitions": [
+                {
+                  "indicatorType": {
+                    "__type": "IndicatorTypeLocal"
+                  },
+                  "endLocator": {
+                    "distanceOffset": 1310.0,
+                    "orientationType": 3,
+                    "__type": "DrawablePositionLocator"
+                  },
+                  "lineStopsAtEndPosition": true,
+                  "overrideBaseRange": {
+                    "mPerLevelValues": [
+                      1310.0,
+                      1310.0,
+                      1310.0,
+                      1310.0,
+                      1310.0,
+                      1310.0
+                    ],
+                    "mValueType": 1,
+                    "__type": "FloatPerSpellLevel"
+                  },
+                  "facingLine": true,
+                  "__type": "TargeterDefinitionLine"
+                },
+                {
+                  "hideWithLineIndicator": true,
+                  "__type": "TargeterDefinitionRange"
+                }
+              ],
+              "__type": "SpellDataResourceClient"
+            },
+            "__type": "SpellDataResource"
+          },
+          "BotData": {
+            "DamageTag": 1,
+            "{6d548702}": {
+              "mFormulaParts": [
+                {
+                  "mSpellCalculationKey": "TotalDamageTT",
+                  "__type": "{f3cbe7b2}"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "{ec17e271}": [
+              {
+                "EffectTag": 4096,
+                "EffectCalculation": {
+                  "mFormulaParts": [
+                    {
+                      "mDataValue": "RootDuration",
+                      "__type": "NamedDataValueCalculationPart"
+                    }
+                  ],
+                  "__type": "GameCalculation"
+                },
+                "__type": "{b09016f6}"
+              },
+              {
+                "EffectTag": 32768,
+                "EffectCalculation": {
+                  "mFormulaParts": [
+                    {
+                      "mNumber": 80.0,
+                      "__type": "NumberCalculationPart"
+                    }
+                  ],
+                  "__type": "GameCalculation"
+                },
+                "__type": "{b09016f6}"
+              }
+            ],
+            "{38382c53}": [
+              {
+                "{e38f54f7}": 1,
+                "{0717e686}": false,
+                "__type": "{150d1b92}"
+              },
+              {
+                "{e38f54f7}": 4,
+                "{0717e686}": false,
+                "__type": "{150d1b92}"
+              },
+              {
+                "{e38f54f7}": 8192,
+                "{0717e686}": false,
+                "__type": "{150d1b92}"
+              },
+              {
+                "__type": "{150d1b92}"
+              }
+            ],
+            "__type": "BotsSpellData"
+          },
+          "__type": "SpellObject"
+        },
+        "Characters/Lux/Spells/LuxLightBindingAbility/LuxLightBindingMis": {
+          "ObjectName": "LuxLightBindingMis",
+          "objectPath": "Characters/Lux/Spells/LuxLightBindingAbility/LuxLightBindingMis",
+          "mScriptName": "LuxLightBindingMis",
+          "mSpell": {
+            "mAffectsTypeFlags": 6154,
+            "mAlternateName": "LuxLightBindingMis",
+            "mCoefficient": 0.8999999761581421,
+            "mAnimationName": "Spell1",
+            "spellCastTime": 0.25,
+            "spellTotalTime": 1.0,
+            "cooldownTime": [
+              12.0,
+              12.0,
+              12.0,
+              12.0,
+              12.0,
+              12.0,
+              12.0
+            ],
+            "Cooldown": {
+              "values": [
+                12.0,
+                12.0,
+                12.0,
+                12.0,
+                12.0,
+                12.0,
+                12.0
+              ],
+              "{0a3e0478}": 12.0,
+              "__type": "{0a0eddc9}"
+            },
+            "mCantCancelWhileWindingUp": true,
+            "castRange": [
+              1300.0,
+              1300.0,
+              1300.0,
+              1300.0,
+              1300.0,
+              1300.0,
+              1300.0
+            ],
+            "castRangeValues": {
+              "values": [
+                1300.0,
+                1300.0,
+                1300.0,
+                1300.0,
+                1300.0,
+                1300.0,
+                1300.0
+              ],
+              "{0a3e0478}": 1300.0,
+              "__type": "{0a0eddc9}"
+            },
+            "castRangeDisplayOverride": [
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0,
+              1175.0
+            ],
+            "castRadius": [
+              210.0,
+              210.0,
+              210.0,
+              210.0,
+              210.0,
+              210.0,
+              210.0
+            ],
+            "castConeDistance": 100.0,
+            "mMissileSpec": {
+              "mMissileWidth": 70.0,
+              "movementComponent": {
+                "mUseHeightOffsetAtEnd": true,
+                "mTracksTarget": false,
+                "mOffsetInitialTargetHeight": 100.0,
+                "mStartBoneName": "BUFFBONE_CSTM_WEAPON_6",
+                "mProjectTargetToCastRange": true,
+                "mSpeed": 1200.0,
+                "__type": "FixedSpeedMovement"
+              },
+              "heightSolver": {
+                "__type": "BlendedLinearHeightSolver"
+              },
+              "verticalFacing": {
+                "__type": "VerticalFacingFaceTarget"
+              },
+              "behaviors": [
+                {
+                  "__type": "CastOnHit"
+                },
+                {
+                  "__type": "DestroyOnMovementComplete"
+                }
+              ],
+              "__type": "MissileSpecification"
+            },
+            "mCastType": 3,
+            "castFrame": 8.100000381469727,
+            "missileSpeed": 1200.0,
+            "mMissileEffectKey": "Lux_Q_mis",
+            "mLineWidth": 70.0,
+            "bHaveHitBone": true,
+            "mHitBoneName": "C_BUFFBONE_GLB_HEAD_LOC",
+            "selectionPriority": 2,
+            "mTargetingTypeData": {
+              "__type": "Direction"
+            },
+            "__type": "SpellDataResource"
+          },
+          "mBuff": {
+            "mDescription": "game_buff_tooltip_LuxLightBindingMis",
+            "__type": "BuffData"
+          },
+          "__type": "SpellObject"
+        }
+      }
+    },
+    {
+      "url": "https://raw.communitydragon.org/16.18/game/shared.cdtb.bin.json",
+      "sha256": "8726e915a7c913c826bf3a722e548d002e8e41677073a585d40e8d179d0dd8bf",
+      "records": {
+        "Shared/Spells/SummonerFlash": {
+          "ObjectName": "SummonerFlash",
+          "objectPath": "Shared/Spells/SummonerFlash",
+          "mScriptName": "SummonerFlash",
+          "mSpell": {
+            "flags": 36,
+            "mPlatformSpellInfo": {
+              "mAvatarLevelRequired": 7,
+              "mSpellID": 4,
+              "mPlatformEnabled": true,
+              "mGameModes": [
+                "ARAM",
+                "TUTORIAL",
+                "KIWI",
+                "ULTBOOK",
+                "FIRSTBLOOD",
+                "SWIFTPLAY",
+                "CLASSIC",
+                "PRACTICETOOL",
+                "RUBY",
+                "RUBY_TRIAL_1",
+                "BRAWL",
+                "WIPMODEWIP4",
+                "URF",
+                "SNOWURF",
+                "KIWI_JADE",
+                "RUBY_TRIAL_3",
+                "ONEFORALL",
+                "ARSR",
+                "NEXUSBLITZ",
+                "DOOMBOTSTEEMO",
+                "RUBY_TRIAL_2"
+              ],
+              "__type": "PlatformSpellInfo"
+            },
+            "mSpellTags": [
+              "PositiveEffect_Teleport",
+              "Trait_SummonerFlash",
+              "Trait_SummonerSpell"
+            ],
+            "mEffectAmount": [
+              {
+                "value": [
+                  400.0,
+                  400.0,
+                  400.0,
+                  400.0,
+                  400.0,
+                  400.0,
+                  400.0
+                ],
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              },
+              {
+                "__type": "SpellEffectAmount"
+              }
+            ],
+            "mImgIconName": [
+              "Summoner_flash.dds"
+            ],
+            "cooldownTime": [
+              300.0,
+              300.0,
+              300.0,
+              300.0,
+              300.0,
+              300.0,
+              300.0
+            ],
+            "Cooldown": {
+              "values": [
+                300.0,
+                300.0,
+                300.0,
+                300.0,
+                300.0,
+                300.0,
+                300.0
+              ],
+              "{0a3e0478}": 300.0,
+              "__type": "{0a0eddc9}"
+            },
+            "cantCastWhileRooted": true,
+            "mDoesntBreakChannels": true,
+            "mBelongsToAvatar": true,
+            "castRange": [
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0
+            ],
+            "castRangeValues": {
+              "values": [
+                25000.0,
+                25000.0,
+                25000.0,
+                25000.0,
+                25000.0,
+                25000.0,
+                25000.0
+              ],
+              "{0a3e0478}": 25000.0,
+              "__type": "{0a0eddc9}"
+            },
+            "castRangeDisplayOverride": [
+              425.0,
+              425.0,
+              425.0,
+              425.0,
+              425.0,
+              425.0,
+              425.0
+            ],
+            "castRadius": [
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0
+            ],
+            "castConeDistance": 100.0,
+            "castFrame": 10.0,
+            "missileSpeed": 0.0,
+            "mFloatVarsDecimals": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "mTargetingTypeData": {
+              "__type": "Location"
+            },
+            "mClientData": {
+              "mTooltipData": {
+                "mObjectName": "SummonerFlash",
+                "mFormat": "{b5df7ddb}",
+                "EnableExtendedTooltip": false,
+                "mLocKeys": {
+                  "keyName": "Spell_SummonerFlash_Name",
+                  "keySummary": "Spell_SummonerFlash_Summary",
+                  "keyTooltip": "Spell_SummonerFlash_Tooltip"
+                },
+                "__type": "TooltipInstanceSpell"
+              },
+              "mTargeterDefinitions": [
+                {
+                  "__type": "TargeterDefinitionRange"
+                }
+              ],
+              "__type": "SpellDataResourceClient"
+            },
+            "__type": "SpellDataResource"
+          },
+          "BotData": {
+            "{6d548702}": {
+              "__type": "GameCalculation"
+            },
+            "{ec17e271}": [
+              {
+                "EffectTag": 128,
+                "EffectCalculation": {
+                  "__type": "GameCalculation"
+                },
+                "__type": "{b09016f6}"
+              }
+            ],
+            "__type": "BotsSpellData"
+          },
+          "__type": "SpellObject"
+        }
+      }
+    }
+  ],
+  "dataDragon": {
+    "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Lux.json",
+    "sha256": "d8cc49a6ebc72344755cc15d39a569b41bd96482fa2073f397fd65303fc9d210",
+    "spell": {
+      "id": "LuxLightBinding",
+      "name": "Light Binding",
+      "description": "Lux releases a sphere of light that binds and deals damage to up to two enemy units.",
+      "tooltip": "Lux fires a ball of light, <status>Rooting</status> the first two enemies for {{ rootduration }} seconds and dealing <magicDamage>{{ totaldamagett }} magic damage</magicDamage> to each.{{ spellmodifierdescriptionappend }}",
+      "leveltip": {
+        "label": [
+          "Damage"
+        ],
+        "effect": [
+          "{{ basedamage }} -> {{ basedamageNL }}"
+        ]
+      },
+      "maxrank": 5,
+      "cooldown": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "cooldownBurn": "10",
+      "cost": [
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "costBurn": "50",
+      "datavalues": {},
+      "effect": [
+        null,
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "effectBurn": [
+        null,
+        "0",
+        "0",
+        "2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "vars": [],
+      "costType": " {{ abilityresourcename }}",
+      "maxammo": "-1",
+      "range": [
+        1175,
+        1175,
+        1175,
+        1175,
+        1175
+      ],
+      "rangeBurn": "1175",
+      "image": {
+        "full": "LuxLightBinding.png",
+        "sprite": "spell8.png",
+        "group": "spell",
+        "x": 96,
+        "y": 96,
+        "w": 48,
+        "h": 48
+      },
+      "resource": "{{ cost }} {{ abilityresourcename }}"
+    }
+  }
+}

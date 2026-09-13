@@ -205,6 +205,7 @@ export class World {
       slowMultiplier: 0.7,
       criticalSlow: null,
       stunUntil: 0,
+      rootUntil: 0,
       summonerHealReductionUntil: 0,
       summonerHealSpeedUntil: 0,
       deadAt: null,
@@ -876,6 +877,7 @@ export class World {
   private planEmergencyFlash(u: Unit): boolean {
     const home = this.battlefield.spawns[u.team];
     if (
+      u.rootUntil > this.tick ||
       u.hp >= u.maxHp * 0.12 ||
       distance(u, home) <= 400 ||
       this.abilityCooldownTicks('d', u.id) > 0
@@ -1176,7 +1178,7 @@ export class World {
     }
   }
   private move(u: Unit, point: Vec2): void {
-    if (!u.speed) return;
+    if (!u.speed || u.rootUntil > this.tick) return;
     if (
       (!u.pathTarget || distance(u.pathTarget, point) > 90 || !u.path.length) &&
       this.tick >= u.nextPathTick
@@ -1224,6 +1226,19 @@ export class World {
       );
     }
     return u.speed * slow * haste;
+  }
+  applyRoot(target: Unit, durationTicks: number): boolean {
+    if (
+      this.winner ||
+      !this.alive(target) ||
+      isStructureKind(target.kind) ||
+      !Number.isSafeInteger(durationTicks) ||
+      durationTicks <= 0 ||
+      !Number.isSafeInteger(this.tick + durationTicks)
+    )
+      return false;
+    target.rootUntil = Math.max(target.rootUntil, this.tick + durationTicks);
+    return true;
   }
   private unseenBeforeHawkshot(): Map<Team, Set<number>> {
     const unseen = new Map<Team, Set<number>>();
@@ -1740,6 +1755,7 @@ export class World {
     u.respawnTick = null;
     u.releaseTick = null;
     u.stunUntil = 0;
+    u.rootUntil = 0;
     u.aiRetreating = false;
     u.slowUntil = 0;
     u.slowMultiplier = 0.7;
@@ -1788,6 +1804,10 @@ export class World {
     if (state.pendingCast && ability !== 'f') return;
     const spec = ABILITIES[ability];
     const fail = (text: string) => this.emit('message', u, { text, unit: u.id, team: u.team });
+    if (u.rootUntil > this.tick && spec.cantCastWhileRooted) {
+      fail('Cannot cast that spell while rooted');
+      return;
+    }
     if (!this.abilityRank(ability, u.id)) {
       fail('Learn that spell first');
       return;

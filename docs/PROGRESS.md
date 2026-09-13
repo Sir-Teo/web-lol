@@ -1410,3 +1410,9 @@ All 512 source/simulation checks and production smoke pass. Four attack-move bro
 Prepared the planned second champion's base rig from the pinned client archive. Verified 25 original files and exact binary skin/animation definitions, then converted all 22 atomic clips, 79 bones and 4,926 triangles with the source skin scale and texture intact. Added an interactive development preview with clip selection, scrubbing and camera orbit.
 
 The Lux browser case checks every skinned vertex at three samples per clip, and the idle/ultimate captures were inspected. All 512 source/simulation checks, full model/map asset validation and production smoke pass. Fixed the asset validator's pre-existing static Ashe-arrow manifest lookup so it could finish the complete catalog. Lux's kit, effects/audio, runtime champion identity and native lighting/transition calibration remain unfinished; this does not add a selectable or playable Lux. See `LUX-ASSETS.md` for reproducible commands and the full scope boundary.
+
+## Lux binding audit and shared root support
+
+Pinned Lux Q and Flash records, preserving conflicting child/parent range and cooldown metadata rather than treating all fields as final gameplay values. Added a root deadline distinct from stun: walking/Flash are blocked, attacks and non-movement spells remain possible, and expiry resumes retained movement. Flash rejects newly rooted queued casts without consuming cooldown. Snapshot 35 preserves the deadline and respawn clears it; health bars show ROOTED.
+
+All 517 source/simulation checks, seven focused root/Flash/save Chrome scenarios and production smoke pass. Lux's actual two-target projectile, champion identity, damage/passive effects, full kit and CC exceptions remain unfinished. This is shared combat groundwork; no existing playable spell applies root yet. See `LUX-BINDING.md` for source fields and limits.

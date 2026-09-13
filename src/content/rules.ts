@@ -22,6 +22,7 @@ export const ABILITIES: Record<
     range: number;
     icon: string;
     canCastWhileDisabled?: boolean;
+    cantCastWhileRooted?: boolean;
     preservesRecall?: boolean;
     minimapTargeting?: boolean;
   }
@@ -62,6 +63,7 @@ export const ABILITIES: Record<
     icon: 'EnchantedCrystalArrow',
   },
   d: {
+    cantCastWhileRooted: true,
     name: 'Flash',
     description: 'Blink a short distance toward the cursor.',
     cooldown: 300,

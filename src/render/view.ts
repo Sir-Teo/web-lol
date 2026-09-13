@@ -714,9 +714,11 @@ export class GameView {
         ? 'PROTECTED'
         : u.stunUntil > world.tick
           ? 'STUNNED'
-          : u.slowUntil > world.tick
-            ? 'SLOWED'
-            : '';
+          : u.rootUntil > world.tick
+            ? 'ROOTED'
+            : u.slowUntil > world.tick
+              ? 'SLOWED'
+              : '';
     if (parts.status.textContent !== status) parts.status.textContent = status;
   }
   private syncProjectiles(world: World, alpha: number): void {
