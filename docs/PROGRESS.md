@@ -1164,3 +1164,9 @@ All 396 source/simulation checks, six focused Chrome scenarios, Tome/sell verifi
 Added the live ability-power readout beside attack damage, using the pinned `scaleap` icon region from the already-shipped source atlas. Tightened vertical stat spacing so six values fit within the existing stat column without increasing panel width. Extended atlas verification to the sixth region.
 
 All 396 source/simulation checks, the AP purchase/sale browser case, six-icon atlas verification and nested-path production smoke pass. The browser case checks 0→20→0 AP and all six stats inside a 1366×768 viewport. Inspected the laptop capture: icons and values remain distinct and fit the panel. Full-suite/performance checks were not repeated. Native stat-panel geometry, broader AP modifiers and full production fidelity remain unfinished.
+
+## Verify AP-scaled Crystal Arrow through impact
+
+Added both-team integration coverage for a real R cast with two Amplifying Tomes, selling both during flight, and restoring the pre-impact checkpoint. Tests check actual health loss: captured 248 damage becomes 124 against the primary champion's 100 MR and 248/1.5 against a splash minion's 50 MR. The champion assertion accounts for the same-tick regeneration that follows impact. A minion beyond splash range remains unharmed, the projectile is consumed, and restored state matches uninterrupted execution.
+
+All 398 source/simulation checks pass. No runtime behavior changed; browser and production smoke were not repeated for this test-only addition. This verifies the current captured-damage policy, not independent evidence of native cast-snapshot timing. Rank allocation, broader AP modifiers and production fidelity remain unfinished.
