@@ -1404,3 +1404,9 @@ All 512 source/simulation checks and six focused selection/attack-move/structure
 Reproduced a wrong-target selection when overlapping champions were ranked from simulation positions despite their pick volumes following rendered interpolation. Both now use rendered positions. Hover refreshes after each frame, so moving targets, lost visibility and death update feedback beneath a stationary cursor; pointer exit/focus loss/modal overlays clear it.
 
 All 512 source/simulation checks and production smoke pass. Four attack-move browser cases passed in the initial run; all three selection cases pass after correcting an overbroad paused-state hover exclusion. Pausing without a modal retains hover inspection. The movement regression failed before the correction and now covers three interpolation fractions and reversed unit order. Native overlap priority, full-match hover cost and broader fidelity gates remain unverified.
+
+## Lux source rig preparation
+
+Prepared the planned second champion's base rig from the pinned client archive. Verified 25 original files and exact binary skin/animation definitions, then converted all 22 atomic clips, 79 bones and 4,926 triangles with the source skin scale and texture intact. Added an interactive development preview with clip selection, scrubbing and camera orbit.
+
+The Lux browser case checks every skinned vertex at three samples per clip, and the idle/ultimate captures were inspected. All 512 source/simulation checks, full model/map asset validation and production smoke pass. Fixed the asset validator's pre-existing static Ashe-arrow manifest lookup so it could finish the complete catalog. Lux's kit, effects/audio, runtime champion identity and native lighting/transition calibration remain unfinished; this does not add a selectable or playable Lux. See `LUX-ASSETS.md` for reproducible commands and the full scope boundary.

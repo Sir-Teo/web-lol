@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Champion asset preview</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: #eadfbd;
+        background: #101b24;
+        font: 15px system-ui;
+      }
+      canvas {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+      }
+      header {
+        position: absolute;
+        top: 24px;
+        left: 28px;
+        pointer-events: none;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font: 30px Georgia;
+      }
+      p {
+        margin: 0;
+        color: #9cabb4;
+      }
+      footer {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 16px 22px;
+        background: #142430ee;
+        border: 1px solid #776642;
+        border-radius: 6px;
+      }
+      select,
+      button {
+        font: inherit;
+        color: inherit;
+        background: #223744;
+        border: 1px solid #776642;
+        padding: 8px;
+        border-radius: 3px;
+      }
+      input {
+        width: 200px;
+      }
+      output {
+        white-space: nowrap;
+        min-width: 110px;
+      }
+      #error {
+        color: #ff8f8f;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Lux · Base skin</h1>
+      <p>Drag to orbit · Scroll to zoom · Source animation inspection</p>
+      <p id="error" role="alert"></p>
+    </header>
+    <footer>
+      <label
+        >Animation
+        <select id="clip" aria-label="Animation"></select></label
+      ><button id="play">Pause</button
+      ><input
+        id="time"
+        aria-label="Animation time"
+        type="range"
+        min="0"
+        max="1"
+        step="0.001"
+        value="0"
+      /><output id="elapsed"></output>
+    </footer>
+    <script type="module">
+      import * as THREE from 'three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.setSize(innerWidth, innerHeight);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      document.body.prepend(renderer.domElement);
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#101b24');
+      const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.01, 100);
+      camera.position.set(4, 3, 6);
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.target.set(0, 1.1, 0);
+      controls.update();
+      const grid = new THREE.GridHelper(12, 12, 0x655838, 0x223441);
+      scene.add(grid);
+      const select = document.querySelector('#clip'),
+        slider = document.querySelector('#time'),
+        play = document.querySelector('#play'),
+        elapsed = document.querySelector('#elapsed');
+      let mixer,
+        active,
+        playing = true;
+      const render = () => renderer.render(scene, camera);
+      function setClip(name) {
+        const clip = model.animations.find((clip) => clip.name === name);
+        if (!clip) throw new Error(`Missing animation ${name}`);
+        mixer.stopAllAction();
+        active = mixer.clipAction(clip).reset().play();
+        mixer.setTime(0);
+        select.value = name;
+        render();
+      }
+      let model;
+      try {
+        model = await new GLTFLoader().loadAsync('../../assets/models/lux-base.glb');
+        scene.add(model.scene);
+        mixer = new THREE.AnimationMixer(model.scene);
+        for (const clip of model.animations) select.add(new Option(clip.name, clip.name));
+        setClip('idle1');
+        select.addEventListener('change', () => setClip(select.value));
+        play.addEventListener('click', () => {
+          playing = !playing;
+          play.textContent = playing ? 'Pause' : 'Play';
+        });
+        slider.addEventListener('input', () => {
+          playing = false;
+          play.textContent = 'Play';
+          mixer.setTime(Number(slider.value) * active.getClip().duration);
+          render();
+        });
+        window.__CHAMPION_PREVIEW__ = {
+          model,
+          mixer,
+          scene,
+          camera,
+          renderer,
+          setClip,
+          setTime: (time) => {
+            playing = false;
+            play.textContent = 'Play';
+            mixer.setTime(time);
+            render();
+          },
+          render,
+        };
+        let previous = performance.now();
+        renderer.setAnimationLoop(() => {
+          const now = performance.now();
+          if (playing) mixer.update(Math.min((now - previous) / 1000, 0.1));
+          previous = now;
+          slider.value = String(active.time / active.getClip().duration);
+          elapsed.textContent = `${active.time.toFixed(2)} / ${active.getClip().duration.toFixed(2)} s`;
+          render();
+        });
+      } catch (error) {
+        document.querySelector('#error').textContent = error.message;
+        throw error;
+      }
+      window.addEventListener('resize', () => {
+        renderer.setSize(innerWidth, innerHeight);
+        camera.aspect = innerWidth / innerHeight;
+        camera.updateProjectionMatrix();
+        render();
+      });
+    </script>
+  </body>
+</html>

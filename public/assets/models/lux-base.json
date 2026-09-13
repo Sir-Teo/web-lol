@@ -1,0 +1,307 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/lux-base.glb",
+    "bytes": 3864360,
+    "sha256": "d063e8b7435eede85f1a8617c5bf6ff3571590cb19f22a314281fe2e43cb6bee"
+  },
+  "definitionsSha256": "abbd26503162b6c744e57a0f647c9e23044cf0efb5e7812cca0fe0a149622b4f",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Champions/Lux.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_attack1.anm",
+      "wadPathHash": "a0fd74002986bcf4",
+      "sha256": "2ece445e3cdcf968ece79f4014c84db4b3601c1754c9ee8b9ba486366292ebe4",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_attack2.anm",
+      "wadPathHash": "573829936871cd74",
+      "sha256": "5d0f398415c08be08a1abce39925da18bc7d47c65d213f81e0165214f3483b4f",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_channel.anm",
+      "wadPathHash": "5ac1d27d9fa653fa",
+      "sha256": "696bb65e210b96835c64a7abc75b62d73fa139708b53e2073f62cc0cfb2a3f35",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_channel_windup.anm",
+      "wadPathHash": "40713f4f8c656dde",
+      "sha256": "2e16222fbeddd6a0bb81309c704197779ab213e54547b7f1d6d96cef09e9edbc",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_crit.anm",
+      "wadPathHash": "f6f78ea8296e3b54",
+      "sha256": "5e40d0bfaa9970bf0ff7a422b54bd292a457fdb2fca456c99e645ddbc5014b49",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_dance_60fps.anm",
+      "wadPathHash": "c32445dafa008877",
+      "sha256": "37488d45dcd4987b4427adedf4b135f19acca167539f34e70947e18a7fb7207c",
+      "bytes": 2017028
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_death.anm",
+      "wadPathHash": "06e9154defc9468c",
+      "sha256": "72c44946c5f1863a851d511fc3fbbc98a0272a6e2ff3488fb8f25111c3351d2a",
+      "bytes": 137804
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_idle1.anm",
+      "wadPathHash": "f38a5c366f2f5a47",
+      "sha256": "e24fe3b38a01c24efdad46353fa8b11184e1ec461bc9cdb3358a54c93a647647",
+      "bytes": 75868
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_idle2_60fps.anm",
+      "wadPathHash": "cd1b42bf457f1fe5",
+      "sha256": "95ece6d62b2b2b091b6212868f6fd787261765c890619dd1d0086a68ee074e82",
+      "bytes": 506016
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_idle3.anm",
+      "wadPathHash": "cc9a189b6b1c053d",
+      "sha256": "5bc953de0883b55d62bccb287762356259aed95c45ac4bd3dd07925a5ac7eec7",
+      "bytes": 381124
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_idle4.anm",
+      "wadPathHash": "86ce85aa131a2fe0",
+      "sha256": "099a38767cf84b367515cf7e2399227bac5f713decdc5a8a567f3a88ce9761f6",
+      "bytes": 509420
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_joke.anm",
+      "wadPathHash": "1f5a7b2d41fadbfe",
+      "sha256": "c6d9af51d580122b81cda2eacc020bc0ad2e0c3e42eba55bbe71bf7e29689efe",
+      "bytes": 259464
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_laugh_60fps.anm",
+      "wadPathHash": "0bc76ec256ebbc2e",
+      "sha256": "30f9baf6a561cb7ec0364f9b333d9b9a5f5e2e96559ff1f5e765dc9bca2f5551",
+      "bytes": 801404
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+      "wadPathHash": "77163634744e96e9",
+      "sha256": "95271da2aa8274b645f4568d4a60e8107a27608996256dbdd0a0a534f6f7ae79",
+      "bytes": 58712
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_run.anm",
+      "wadPathHash": "27460d0cda6e23d6",
+      "sha256": "81354cf853801d763b4415d8aa7ed226d1dbfe07d4ff1a9a63e174e600c9bc8e",
+      "bytes": 82236
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_spell1.anm",
+      "wadPathHash": "1821b450477f6625",
+      "sha256": "6eaf1c22542e9071911ca6b492f6433adb917af7405b2a838277948231bba6ea",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_spell2.anm",
+      "wadPathHash": "0cf8e36579c7eb83",
+      "sha256": "739e0566114d377a6649e4a759be57425f266cf56fab9672bc0523c5c99fe5e6",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_spell3.anm",
+      "wadPathHash": "177d5c84adf85a42",
+      "sha256": "8135343a8e93253f19effc598725424582dc0cfedf4ea86a53c70ce5bc317367",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_spell4.anm",
+      "wadPathHash": "37ba660d1d724c06",
+      "sha256": "69f809518e5eb15be03befbafc51a1ba848bcb3ef9abe8c855b118e85dcb97da",
+      "bytes": 115028
+    },
+    {
+      "path": "assets/characters/lux/skins/base/animations/lux_taunt.anm",
+      "wadPathHash": "180cd449dca7b759",
+      "sha256": "4366380c4c8c4dd4e3c7a278d780b79cca4edc43a5520f51c23c6faea21f85a0",
+      "bytes": 47478
+    },
+    {
+      "path": "assets/characters/lux/skins/base/lux.skl",
+      "wadPathHash": "2e1fbde7eb8541e1",
+      "sha256": "4454e3c46c6c6c666710984c5f3e521a25d9021352431a8280882953fe2ad2ea",
+      "bytes": 9968
+    },
+    {
+      "path": "assets/characters/lux/skins/base/lux.skn",
+      "wadPathHash": "a2871dd1b0d9bfba",
+      "sha256": "55e77591fa0ccba0a924672b012384bb8379ce4dd200b7f222ccf9373236dca1",
+      "bytes": 200204
+    },
+    {
+      "path": "assets/characters/lux/skins/base/lux_base_cm_tx.tex",
+      "wadPathHash": "8ca0d5c37810fc3b",
+      "sha256": "b3e948d3c4d7822136913304b8b0917620197df2f6696dac31ba3ded637b43d3",
+      "bytes": 174788
+    },
+    {
+      "path": "data/characters/lux/animations/skin0.bin",
+      "wadPathHash": "ac6c567bb271554d",
+      "sha256": "2c249c3b8a76922603e871f4878f98fec35f62512c9b37ac43bd19e2dc019615",
+      "bytes": 2006
+    },
+    {
+      "path": "data/characters/lux/skins/skin0.bin",
+      "wadPathHash": "fe53402d52f13627",
+      "sha256": "d8a73faa8ff734c24af349fb9e110f6ac9f73202f2a5022fa181a9c93314b50c",
+      "bytes": 9359
+    }
+  ],
+  "unitScale": 0.015,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1.5,
+  "materialPolicy": "Source texture with unlit shading; source selfIllumination lighting calibration remains unfinished.",
+  "clips": [
+    {
+      "name": "attack1",
+      "state": "Attack1",
+      "source": "assets/characters/lux/skins/base/animations/lux_attack1.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/lux/skins/base/animations/lux_attack2.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "channel",
+      "state": "Channel",
+      "source": "assets/characters/lux/skins/base/animations/lux_channel.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "channel_wndup",
+      "state": "Channel_Wndup",
+      "source": "assets/characters/lux/skins/base/animations/lux_channel_windup.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "crit",
+      "state": "Crit",
+      "source": "assets/characters/lux/skins/base/animations/lux_crit.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "dance",
+      "state": "Dance",
+      "source": "assets/characters/lux/skins/base/animations/lux_dance_60fps.anm",
+      "durationSeconds": 18.666667938232422
+    },
+    {
+      "name": "death",
+      "state": "Death",
+      "source": "assets/characters/lux/skins/base/animations/lux_death.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "idle1",
+      "state": "Idle1",
+      "source": "assets/characters/lux/skins/base/animations/lux_idle1.anm",
+      "durationSeconds": 1.0666667222976685
+    },
+    {
+      "name": "idle2",
+      "state": "Idle2",
+      "source": "assets/characters/lux/skins/base/animations/lux_idle2_60fps.anm",
+      "durationSeconds": 5.150000095367432
+    },
+    {
+      "name": "idle3",
+      "state": "Idle3",
+      "source": "assets/characters/lux/skins/base/animations/lux_idle3.anm",
+      "durationSeconds": 5.6666669845581055
+    },
+    {
+      "name": "idle4",
+      "state": "Idle4",
+      "source": "assets/characters/lux/skins/base/animations/lux_idle4.anm",
+      "durationSeconds": 7.600000381469727
+    },
+    {
+      "name": "joke",
+      "state": "Joke",
+      "source": "assets/characters/lux/skins/base/animations/lux_joke.anm",
+      "durationSeconds": 3.8333334922790527
+    },
+    {
+      "name": "laugh",
+      "state": "Laugh",
+      "source": "assets/characters/lux/skins/base/animations/lux_laugh_60fps.anm",
+      "durationSeconds": 6.000000476837158
+    },
+    {
+      "name": "spell1",
+      "state": "Spell1",
+      "source": "assets/characters/lux/skins/base/animations/lux_spell1.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "spell2",
+      "state": "Spell2",
+      "source": "assets/characters/lux/skins/base/animations/lux_spell2.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "spell3",
+      "state": "Spell3",
+      "source": "assets/characters/lux/skins/base/animations/lux_spell3.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "taunt",
+      "state": "Taunt",
+      "source": "assets/characters/lux/skins/base/animations/lux_taunt.anm",
+      "durationSeconds": 6.433333873748779
+    },
+    {
+      "name": "spell4",
+      "state": "Spell4",
+      "source": "assets/characters/lux/skins/base/animations/lux_spell4.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "recall_winddown",
+      "state": "Recall_Winddown",
+      "source": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "respawn",
+      "state": "Respawn",
+      "source": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "run",
+      "state": "Run",
+      "source": "assets/characters/lux/skins/base/animations/lux_run.anm",
+      "durationSeconds": 4.766666889190674
+    },
+    {
+      "name": "entry_b4dcde19",
+      "state": "{b4dcde19}",
+      "source": "assets/characters/lux/skins/base/animations/lux_taunt.anm",
+      "durationSeconds": 6.433333873748779
+    }
+  ],
+  "triangles": 4926,
+  "bones": 79
+}

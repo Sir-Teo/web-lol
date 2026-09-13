@@ -1,0 +1,921 @@
+{
+  "skin": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/lux/skins/skin0.bin.json",
+    "sha256": "1b98d7d0b4294c68d0ef472267c03e6f1444d160bd3afde3b1db163a3584791b",
+    "data": {
+      "Characters/Lux/Skins/Skin0": {
+        "skinClassification": 1,
+        "championSkinName": "BaseLux",
+        "metaDataTags": "faction:demacia,gender:female,race:human,element:light",
+        "loadscreen": {
+          "image": "assets/characters/lux/skins/base/luxloadscreen.tex",
+          "__type": "CensoredImage"
+        },
+        "skinAudioProperties": {
+          "tagEventList": [
+            "Lux"
+          ],
+          "bankUnits": [
+            {
+              "name": "Lux_Base_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Characters/Lux/Skins/Base/Lux_Base_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Characters/Lux/Skins/Base/Lux_Base_SFX_events.bnk"
+              ],
+              "events": [
+                "Play_sfx_Lux_Death3D_cast",
+                "Play_sfx_Lux_LuxBasicAttack2_OnCast",
+                "Play_sfx_Lux_LuxBasicAttack2_OnHit",
+                "Play_sfx_Lux_LuxBasicAttack_OnCast",
+                "Play_sfx_Lux_LuxBasicAttack_OnHit",
+                "Play_sfx_Lux_LuxCritAttack_OnCast",
+                "Play_sfx_Lux_LuxCritAttack_OnHit",
+                "Play_sfx_Lux_LuxIlluminationPassive_hit",
+                "Play_sfx_Lux_LuxLightBinding_OnBuffActivate",
+                "Play_sfx_Lux_LuxLightBinding_OnBuffDeactivate",
+                "Play_sfx_Lux_LuxLightBinding_OnCast",
+                "Play_sfx_Lux_LuxLightBindingDummy_OnMissileLaunch",
+                "Play_sfx_Lux_LuxLightBindingMis_OnBuffActivate",
+                "Play_sfx_Lux_LuxLightBindingMis_OnBuffDeactivate",
+                "Play_sfx_Lux_LuxLightStrikeKugel_buffactivate",
+                "Play_sfx_Lux_LuxLightStrikeKugel_hit",
+                "Play_sfx_Lux_LuxLightStrikeKugel_OnCast",
+                "Play_sfx_Lux_LuxLightStrikeKugel_OnMissileLaunch",
+                "Play_sfx_Lux_LuxPrismaticWave_OnCast",
+                "Play_sfx_Lux_LuxPrismaticWaveMissile_OnMissileLaunch",
+                "Play_sfx_Lux_LuxPrismaticWaveShield_buffactivate",
+                "Play_sfx_Lux_LuxPrismaticWaveShieldSelf_buffactivate",
+                "Play_sfx_Lux_LuxR_OnCast",
+                "Play_sfx_Lux_LuxRBeam_beamend",
+                "Play_sfx_Lux_LuxRBeam_beammiddle",
+                "Stop_sfx_Lux_LuxLightBinding_OnBuffActivate",
+                "Stop_sfx_Lux_LuxLightBindingDummy_OnMissileLaunch",
+                "Stop_sfx_Lux_LuxLightBindingMis_OnBuffActivate",
+                "Stop_sfx_Lux_LuxLightStrikeKugel_OnMissileLaunch",
+                "Stop_sfx_Lux_LuxPrismaticWaveMissile_OnMissileLaunch"
+              ],
+              "__type": "BankUnit"
+            },
+            {
+              "name": "Lux_Base_VO",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Lux/Skins/Base/Lux_Base_VO_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Lux/Skins/Base/Lux_Base_VO_events.bnk",
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Lux/Skins/Base/Lux_Base_VO_audio.wpk"
+              ],
+              "events": [
+                "Play_vo_Lux_Attack2DGeneral",
+                "Play_vo_Lux_Death3D",
+                "Play_vo_Lux_FirstEncounter3DDemacia",
+                "Play_vo_Lux_FirstEncounter3DEzreal",
+                "Play_vo_Lux_FirstEncounter3DGalio",
+                "Play_vo_Lux_FirstEncounter3DGaren",
+                "Play_vo_Lux_FirstEncounter3DJarvanIV",
+                "Play_vo_Lux_FirstEncounter3DKatarina",
+                "Play_vo_Lux_FirstEncounter3DLeona",
+                "Play_vo_Lux_FirstEncounter3DLucian",
+                "Play_vo_Lux_FirstEncounter3DNoxus",
+                "Play_vo_Lux_FirstEncounter3DRyze",
+                "Play_vo_Lux_FirstEncounter3DShadowIsles",
+                "Play_vo_Lux_FirstEncounter3DSona",
+                "Play_vo_Lux_FirstEncounter3DTaliyah",
+                "Play_vo_Lux_FirstEncounter3DTwitch",
+                "Play_vo_Lux_Joke3DGeneral",
+                "Play_vo_Lux_JokeResponse3DGeneral",
+                "Play_vo_Lux_Kill3DGeneral",
+                "Play_vo_Lux_Laugh3DGeneral",
+                "Play_vo_Lux_LuxBasicAttack2_cast3D",
+                "Play_vo_Lux_LuxBasicAttack_cast3D",
+                "Play_vo_Lux_LuxCritAttack_cast3D",
+                "Play_vo_Lux_LuxLightBinding_cast3D",
+                "Play_vo_Lux_LuxLightBindingMis_hit3D",
+                "Play_vo_Lux_LuxLightStrikeKugel_cast3D",
+                "Play_vo_Lux_LuxLightstrikeToggle_cast3D",
+                "Play_vo_Lux_LuxPrismaticWave_cast3D",
+                "Play_vo_Lux_LuxPrismaticWaveMissile_hit3D",
+                "Play_vo_Lux_LuxR_cast3D",
+                "Play_vo_Lux_Move2DFirst",
+                "Play_vo_Lux_Move2DFirstAllyDemacia",
+                "Play_vo_Lux_Move2DFirstAllyGalio",
+                "Play_vo_Lux_Move2DFirstAllyGaren",
+                "Play_vo_Lux_Move2DFirstAllyTaliyah",
+                "Play_vo_Lux_Move2DStandard",
+                "Play_vo_Lux_Respawn2DGeneral",
+                "Play_vo_Lux_Taunt3DGeneral",
+                "Play_vo_Lux_TauntResponse3DGeneral"
+              ],
+              "voiceOver": true,
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "Characters/Lux/Animations/Skin0",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/Lux/Skins/Base/Lux.skl",
+          "simpleSkin": "ASSETS/Characters/Lux/Skins/Base/Lux.skn",
+          "texture": "assets/characters/lux/skins/base/lux_base_cm_tx.tex",
+          "skinScale": 1.5,
+          "selfIllumination": 0.699999988079071,
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Flesh",
+        "idleParticlesEffects": [
+          {
+            "effectKey": "Lux_I_weapon",
+            "boneName": "BUFFBONE_CSTM_WEAPON_2",
+            "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+          },
+          {
+            "effectKey": "Lux_I_weapon",
+            "boneName": "BUFFBONE_CSTM_WEAPON_4",
+            "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+          }
+        ],
+        "mContextualActionData": "Characters/Lux/CAC/Lux_Base",
+        "iconCircle": "assets/characters/lux/hud/lux_circle_0.tex",
+        "iconSquare": "assets/characters/lux/hud/lux_square_0.tex",
+        "healthBarData": {
+          "unitHealthBarStyle": 12,
+          "__type": "CharacterHealthBarDataRecord"
+        },
+        "mResourceResolver": "Characters/Lux/Skins/Skin0/Resources",
+        "objectPath": "Characters/Lux/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "Characters/Lux/Skins/Skin0/Resources": {
+        "resourceMap": {
+          "DoomBots_LuxMaliceCannon_beam_BV2": "Characters/Lux/Skins/Skin0/Particles/DoomBots_LuxMaliceCannon_beam",
+          "DoomBots_LuxMaliceCannon_cas_BV2": "Characters/Lux/Skins/Skin0/Particles/DoomBots_LuxMaliceCannon_cas",
+          "LuxLightBinding_cas_BV2": "Characters/Lux/Skins/Skin0/Particles/LuxLightBinding_cas",
+          "Lux_BA_mis": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_mis",
+          "Lux_BA_tar": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar",
+          "Lux_BA_tar_crit": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar_crit",
+          "Lux_Death_1": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_Death_1",
+          "Lux_Death_2": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_Death_2",
+          "lux_death_sound": "Characters/Lux/Skins/Skin0/Particles/lux_Base_death_sound",
+          "Lux_E_mis": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_E_mis",
+          "Lux_E_tar_aoe_green": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_E_tar_aoe_green",
+          "Lux_E_tar_aoe_red": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_E_tar_aoe_red",
+          "Lux_E_tar_aoe_sound": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_E_tar_aoe_sound",
+          "Lux_E_tar_hit": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_E_tar_hit",
+          "Lux_E_tar_nova": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_E_tar_nova",
+          "Lux_globalhit_mana": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_globalhit_mana",
+          "Lux_I_weapon": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_I_weapon",
+          "Lux_P_debuff": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_P_debuff",
+          "Lux_P_tar": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_P_tar",
+          "Lux_Q_cas": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_Q_cas",
+          "Lux_Q_mis": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_Q_mis",
+          "Lux_Q_tar": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_Q_tar",
+          "Lux_R_cas": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_R_cas",
+          "Lux_R_mis_beam": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_R_mis_beam",
+          "Lux_R_mis_beam_middle": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_R_mis_beam_middle",
+          "Lux_R_tar": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_R_tar",
+          "Lux_W_mis": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_W_mis",
+          "Lux_W_mis_return": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_W_mis_return",
+          "Lux_W_sound_ally": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_W_sound_ally",
+          "Lux_W_sound_self": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_W_sound_self",
+          "Lux_W_tar_shield": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_W_tar_shield",
+          "Lux_nightmarebot_LightBinding_mis_BV2": "Characters/Lux/Skins/Skin0/Particles/Lux_nightmarebot_LightBinding_mis",
+          "Lux_nightmarebot_Lightstrike_mis_BV2": "Characters/Lux/Skins/Skin0/Particles/Lux_nightmarebot_Lightstrike_mis",
+          "Lux_nightmarebot_Lightstrike_tar_green_BV2": "Characters/Lux/Skins/Skin0/Particles/Lux_nightmarebot_Lightstrike_tar_green",
+          "Lux_nightmarebot_Lightstrike_tar_red_BV2": "Characters/Lux/Skins/Skin0/Particles/Lux_nightmarebot_Lightstrike_tar_red",
+          "Lux_W_mis_child": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_W_mis_child",
+          "Lux_W_mis_return_child": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_W_mis_return_child"
+        },
+        "__type": "ResourceResolver"
+      },
+      "__linked": [
+        "DATA/Characters/Lux/Lux.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Animations/Skin0.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin64_Skins_Skin65_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Root_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin64_Skins_Skin65_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin3_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin60_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin2_Skins_Skin3_Skins_Skin39_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin17_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin38_Skins_Skin4_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin60.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin17_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5.bin",
+        "DATA/Characters/Lux/Lux_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3_Skins_Skin4.bin"
+      ]
+    }
+  },
+  "animations": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/lux/animations/skin0.bin.json",
+    "sha256": "fba11f7ac5d40ba617cfa083f9026b98ae381560137c061ff94b257c1d30dd5b",
+    "data": {
+      "Characters/Lux/Animations/Skin0": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "Attack1": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_attack1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_attack2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Channel": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_channel.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Channel_Wndup": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_channel_windup.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Crit": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_crit.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Dance": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.01666666753590107,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_dance_60fps.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Death": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "Audio_Death": {
+                "mStartFrame": 6.0,
+                "mSoundName": "Play_sfx_Lux_Death3D_cast",
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "SoundEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_death.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle1": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_idle1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle2": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.01666666753590107,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_idle2_60fps.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle3": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_idle3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle4": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_idle4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Joke": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_joke.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Laugh": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.01666666753590107,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_laugh_60fps.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell1": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{5ba4a083}": {
+                "mName": "{5ba4a083}",
+                "mEffectKey": "Lux_Q_cas",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "BuffBone_Cstm_Weapon_6",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_spell1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell2": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_spell2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell3": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_spell3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Taunt": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_taunt.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell4": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_spell4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Recall": {
+            "mClipNameList": [
+              "Idle3",
+              "{b4dcde19}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Recall_Winddown": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Respawn": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Run": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.032258063554763794,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_run.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{b4dcde19}": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/lux/skins/base/animations/lux_taunt.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "Default": {
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "2432597616235167053": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502141246797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208476870491469": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289110054976845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11230245605582880077": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11302304930492628301": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11374364255402376525": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11734660879951117645": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733634831269197": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556605523311949": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255342808397": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13111734580252556621": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13156647006022188365": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13255853230072053069": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13590883339407506765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413820501325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13987674971085258061": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17876238949570624845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "Characters/Lux/Animations/Skin0",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    }
+  },
+  "atomicClips": {
+    "Attack1": "assets/characters/lux/skins/base/animations/lux_attack1.anm",
+    "Attack2": "assets/characters/lux/skins/base/animations/lux_attack2.anm",
+    "Channel": "assets/characters/lux/skins/base/animations/lux_channel.anm",
+    "Channel_Wndup": "assets/characters/lux/skins/base/animations/lux_channel_windup.anm",
+    "Crit": "assets/characters/lux/skins/base/animations/lux_crit.anm",
+    "Dance": "assets/characters/lux/skins/base/animations/lux_dance_60fps.anm",
+    "Death": "assets/characters/lux/skins/base/animations/lux_death.anm",
+    "Idle1": "assets/characters/lux/skins/base/animations/lux_idle1.anm",
+    "Idle2": "assets/characters/lux/skins/base/animations/lux_idle2_60fps.anm",
+    "Idle3": "assets/characters/lux/skins/base/animations/lux_idle3.anm",
+    "Idle4": "assets/characters/lux/skins/base/animations/lux_idle4.anm",
+    "Joke": "assets/characters/lux/skins/base/animations/lux_joke.anm",
+    "Laugh": "assets/characters/lux/skins/base/animations/lux_laugh_60fps.anm",
+    "Spell1": "assets/characters/lux/skins/base/animations/lux_spell1.anm",
+    "Spell2": "assets/characters/lux/skins/base/animations/lux_spell2.anm",
+    "Spell3": "assets/characters/lux/skins/base/animations/lux_spell3.anm",
+    "Taunt": "assets/characters/lux/skins/base/animations/lux_taunt.anm",
+    "Spell4": "assets/characters/lux/skins/base/animations/lux_spell4.anm",
+    "Recall_Winddown": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+    "Respawn": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+    "Run": "assets/characters/lux/skins/base/animations/lux_run.anm",
+    "{b4dcde19}": "assets/characters/lux/skins/base/animations/lux_taunt.anm"
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Lux.wad.client",
+    "chunks": {
+      "7D5437E8D5843DBA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43375574,
+        "bytes": 56046,
+        "sha256": "f8676f054a339a678077f61ba4826eef310c0bd36fdd61f1fc549193c887c881"
+      },
+      "67E10A4B0643E131": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43431620,
+        "bytes": 46417,
+        "sha256": "e8223f6dbde05a4fa33b30bb4c0858d2ec05348997e197e0a66a2d872efbfed8"
+      },
+      "B1AC3C9C15618EEA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43478037,
+        "bytes": 28336,
+        "sha256": "d06b47e1d88ad5102843783bf602f93f74f96f2bd2000ef9c204c2950acf87f8"
+      },
+      "75409B5EC48CDCE6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+        "offset": 10679373,
+        "bytes": 49341,
+        "sha256": "5f190cb4ca2ba253f04c1c0956ac75e779693944b71b46ba277f5dec8a9cd361"
+      },
+      "AC29F3A9345E58C7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 1359024,
+        "bytes": 24796,
+        "sha256": "c8e6db442161f9ed34ff8de3c04676ab6bd328f9920be16b5547ae0fc54b995d"
+      },
+      "DED5646ECF6B9951": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 46657632,
+        "bytes": 24600,
+        "sha256": "bcdcdaf89f18f92389806e821684309bd27f2bce321914d27391f63aa82cd641"
+      },
+      "A38D4FB282FC30CD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 49392653,
+        "bytes": 13257,
+        "sha256": "dee3d4cc728e87aca8f471383340aaa7034f6efad526a9111c7eddd0be4e2d2d"
+      },
+      "1215DED041BC78FA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 48283457,
+        "bytes": 15234,
+        "sha256": "a054bef87f8507a0b6ea36d46b8763176311b3b6b5f5b4d53d6bc2356647c4b8"
+      },
+      "643F5EDD5FC25868": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 46838541,
+        "bytes": 27726,
+        "sha256": "a6086dd86dc6d326f1ef5dd0e29c059f32b7c372f8036936c6cf8d54defd7b13"
+      },
+      "277102169CD128CE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 2521317,
+        "bytes": 192539,
+        "sha256": "85be11c7a63d8ce8b0b6926ecccdbe60ec7e4093e094da86f39f40b7fddfff35"
+      },
+      "2CECE7EB9FE455B2": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 2713856,
+        "bytes": 119495,
+        "sha256": "d7482888e967c5e364ba7147d2843a7c0ce025c878f0dec7d1c3dafe6bb41891"
+      },
+      "1BA1697635B732BB": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 2833351,
+        "bytes": 81108,
+        "sha256": "a9284869f78f1acae307646bffa0a0340616e6b048d8200ed85102d02a73445f"
+      },
+      "9DB8DEC1FB334003": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 2914459,
+        "bytes": 198711,
+        "sha256": "3b7fd7cae8539ef2fe1370c1d73f33343a37ff7012b5fa1e992a57fa6ad3e99c"
+      },
+      "8AE734D74E2D4BB7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 3113170,
+        "bytes": 335601,
+        "sha256": "f29e1394b42c8f32264c452733514d6950cc1785dc6b45f628b4f583888ae4ea"
+      },
+      "710A856CEFC043C8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 3448771,
+        "bytes": 26124,
+        "sha256": "d2d003835ada2245bfb52298fd227f26b4bd16871046310eb83057a31f98fa6f"
+      },
+      "28E9F2D8F941B178": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 499212,
+        "bytes": 33634,
+        "sha256": "9090bba204ed992dea087e890ca1cc9d2ff2dcfeb7adb9948a1f3118ba958842"
+      },
+      "DA859B1296B2CAAE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 406936,
+        "bytes": 18141,
+        "sha256": "21085fc5fcf5b7b241a4cee6c7ee943e6192a8630083857f5444cb09a9d8c06b"
+      },
+      "7FE6E028BC3ABD5C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 10451630,
+        "bytes": 76924,
+        "sha256": "65448cc44ea04b977be84f0e3a1a4fe6c2d6ee47ed78ae0ce06e1ec0fba56946"
+      },
+      "86A2CF0BE69CBFDC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 10528554,
+        "bytes": 139619,
+        "sha256": "7eef639ecf6be7fbf22d0b6e8d12bda66ece4261df9401eb31bc90dde446a924"
+      },
+      "618C24520D687B7D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 44976687,
+        "bytes": 114633,
+        "sha256": "51f6e2a1a6de85738f3d59450a51fa25b6bc89d1db3d1cf486a252d8c660f0a7"
+      },
+      "B5E2E0D5DEB00DF8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 3840100,
+        "bytes": 81878,
+        "sha256": "39f6494d2b7da8179ecb6169b7fea27f2e273bd48ee050494fc95e23488ec738"
+      },
+      "99B133AB6008FE33": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2005ECB55B7931E1.bundle",
+        "offset": 3921978,
+        "bytes": 58817,
+        "sha256": "ab79194a1e760c1e4bf6dd3a1e3c3dabe3b325466f8597263836fbf94731441c"
+      },
+      "7B7E719FA6AA9611": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 1430207,
+        "bytes": 64971,
+        "sha256": "0c5acaf57d479c56c6c8acc8be37714c1f76cb8cd80a4921c40885c951bf8ef8"
+      },
+      "3AABABA008004B17": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 20663585,
+        "bytes": 242678,
+        "sha256": "428dde6464a412c7fbf2752fcef12f64ad233eca1bac5cac4e87ca51c62427b4"
+      },
+      "252EEA1AB902EE6F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 10858414,
+        "bytes": 34019,
+        "sha256": "75adfc9f233cc5029d6f60a02b0d27fae573bf053a1b5fa2cff36b385b56b7bf"
+      },
+      "F355FDB0C41181CC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 6582268,
+        "bytes": 39494,
+        "sha256": "e67cbe75485bb11416dad8426d32b5c5475f3504754794837fb1560b27c67524"
+      },
+      "8B9757FE85612148": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 666947,
+        "bytes": 24299,
+        "sha256": "3a927d9f8a9f21591e3af275a0de9565aa9a1d9a25df5453373d10c8f6e36444"
+      },
+      "FC517A05B478037D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 47704553,
+        "bytes": 24946,
+        "sha256": "f02c8b984f4d0483f17be8db00a793dcbab65daf56f65125ec0aa2070d4e7939"
+      },
+      "03FB6C59CD97CC6F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43896476,
+        "bytes": 28100,
+        "sha256": "9a4291628ecf1a07fa9856cb5468c0ab9c8026db09623f7100cbc28f6b9b5569"
+      },
+      "C267866F22689746": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 4281837,
+        "bytes": 62534,
+        "sha256": "05abd6f8a6fc1f2525dbcd78219a34eb8bb0e3284da00d4cf4611ea87c3ffd69"
+      },
+      "D669E40B0BEDF2E6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6735211DE8407A1E.bundle",
+        "offset": 14559945,
+        "bytes": 27898,
+        "sha256": "f06b8837a50dd3f06b8ee96169dd21558046b7a1f7e6d1bd910b8006acdc8e37"
+      },
+      "5F9473E68E251B65": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43870355,
+        "bytes": 5257,
+        "sha256": "523fc5f26bc5515fad29a69be9ec75504b8b0f963df91ee93f1f163a56700dfd"
+      },
+      "722D51DDE74098CF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 44643214,
+        "bytes": 103029,
+        "sha256": "d2ca696cf0d0b938fce6ee24669affb4773f26f63031d1c9ca5a7f69ab4ee130"
+      },
+      "24876303790C5625": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+        "offset": 28951650,
+        "bytes": 130298,
+        "sha256": "a76e0dd4f54d9b668c1aac2150133e818189c0887de95ad0e5801993b1abb337"
+      },
+      "EF4F924BDE5CF60A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43895439,
+        "bytes": 737,
+        "sha256": "8ddc9f54b0d76383e3618e69d0f0d6d55d0f9c07a7c2da965d8121f3be3d1227"
+      },
+      "12946A79F377FD89": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 46033434,
+        "bytes": 1931,
+        "sha256": "5c9bd608d6682a9e24787a9104db214fd4d33bc7e5645836c37a3fd6fbded9c9"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_attack1.anm",
+        "wadPathHash": "a0fd74002986bcf4",
+        "sha256": "2ece445e3cdcf968ece79f4014c84db4b3601c1754c9ee8b9ba486366292ebe4",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_attack2.anm",
+        "wadPathHash": "573829936871cd74",
+        "sha256": "5d0f398415c08be08a1abce39925da18bc7d47c65d213f81e0165214f3483b4f",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_channel.anm",
+        "wadPathHash": "5ac1d27d9fa653fa",
+        "sha256": "696bb65e210b96835c64a7abc75b62d73fa139708b53e2073f62cc0cfb2a3f35",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_channel_windup.anm",
+        "wadPathHash": "40713f4f8c656dde",
+        "sha256": "2e16222fbeddd6a0bb81309c704197779ab213e54547b7f1d6d96cef09e9edbc",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_crit.anm",
+        "wadPathHash": "f6f78ea8296e3b54",
+        "sha256": "5e40d0bfaa9970bf0ff7a422b54bd292a457fdb2fca456c99e645ddbc5014b49",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_dance_60fps.anm",
+        "wadPathHash": "c32445dafa008877",
+        "sha256": "37488d45dcd4987b4427adedf4b135f19acca167539f34e70947e18a7fb7207c",
+        "bytes": 2017028
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_death.anm",
+        "wadPathHash": "06e9154defc9468c",
+        "sha256": "72c44946c5f1863a851d511fc3fbbc98a0272a6e2ff3488fb8f25111c3351d2a",
+        "bytes": 137804
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_idle1.anm",
+        "wadPathHash": "f38a5c366f2f5a47",
+        "sha256": "e24fe3b38a01c24efdad46353fa8b11184e1ec461bc9cdb3358a54c93a647647",
+        "bytes": 75868
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_idle2_60fps.anm",
+        "wadPathHash": "cd1b42bf457f1fe5",
+        "sha256": "95ece6d62b2b2b091b6212868f6fd787261765c890619dd1d0086a68ee074e82",
+        "bytes": 506016
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_idle3.anm",
+        "wadPathHash": "cc9a189b6b1c053d",
+        "sha256": "5bc953de0883b55d62bccb287762356259aed95c45ac4bd3dd07925a5ac7eec7",
+        "bytes": 381124
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_idle4.anm",
+        "wadPathHash": "86ce85aa131a2fe0",
+        "sha256": "099a38767cf84b367515cf7e2399227bac5f713decdc5a8a567f3a88ce9761f6",
+        "bytes": 509420
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_joke.anm",
+        "wadPathHash": "1f5a7b2d41fadbfe",
+        "sha256": "c6d9af51d580122b81cda2eacc020bc0ad2e0c3e42eba55bbe71bf7e29689efe",
+        "bytes": 259464
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_laugh_60fps.anm",
+        "wadPathHash": "0bc76ec256ebbc2e",
+        "sha256": "30f9baf6a561cb7ec0364f9b333d9b9a5f5e2e96559ff1f5e765dc9bca2f5551",
+        "bytes": 801404
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_npe_spawn.anm",
+        "wadPathHash": "77163634744e96e9",
+        "sha256": "95271da2aa8274b645f4568d4a60e8107a27608996256dbdd0a0a534f6f7ae79",
+        "bytes": 58712
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_run.anm",
+        "wadPathHash": "27460d0cda6e23d6",
+        "sha256": "81354cf853801d763b4415d8aa7ed226d1dbfe07d4ff1a9a63e174e600c9bc8e",
+        "bytes": 82236
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_spell1.anm",
+        "wadPathHash": "1821b450477f6625",
+        "sha256": "6eaf1c22542e9071911ca6b492f6433adb917af7405b2a838277948231bba6ea",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_spell2.anm",
+        "wadPathHash": "0cf8e36579c7eb83",
+        "sha256": "739e0566114d377a6649e4a759be57425f266cf56fab9672bc0523c5c99fe5e6",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_spell3.anm",
+        "wadPathHash": "177d5c84adf85a42",
+        "sha256": "8135343a8e93253f19effc598725424582dc0cfedf4ea86a53c70ce5bc317367",
+        "bytes": 71444
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_spell4.anm",
+        "wadPathHash": "37ba660d1d724c06",
+        "sha256": "69f809518e5eb15be03befbafc51a1ba848bcb3ef9abe8c855b118e85dcb97da",
+        "bytes": 115028
+      },
+      {
+        "path": "assets/characters/lux/skins/base/animations/lux_taunt.anm",
+        "wadPathHash": "180cd449dca7b759",
+        "sha256": "4366380c4c8c4dd4e3c7a278d780b79cca4edc43a5520f51c23c6faea21f85a0",
+        "bytes": 47478
+      },
+      {
+        "path": "assets/characters/lux/skins/base/lux.skl",
+        "wadPathHash": "2e1fbde7eb8541e1",
+        "sha256": "4454e3c46c6c6c666710984c5f3e521a25d9021352431a8280882953fe2ad2ea",
+        "bytes": 9968
+      },
+      {
+        "path": "assets/characters/lux/skins/base/lux.skn",
+        "wadPathHash": "a2871dd1b0d9bfba",
+        "sha256": "55e77591fa0ccba0a924672b012384bb8379ce4dd200b7f222ccf9373236dca1",
+        "bytes": 200204
+      },
+      {
+        "path": "assets/characters/lux/skins/base/lux_base_cm_tx.tex",
+        "wadPathHash": "8ca0d5c37810fc3b",
+        "sha256": "b3e948d3c4d7822136913304b8b0917620197df2f6696dac31ba3ded637b43d3",
+        "bytes": 174788
+      },
+      {
+        "path": "data/characters/lux/animations/skin0.bin",
+        "wadPathHash": "ac6c567bb271554d",
+        "sha256": "2c249c3b8a76922603e871f4878f98fec35f62512c9b37ac43bd19e2dc019615",
+        "bytes": 2006
+      },
+      {
+        "path": "data/characters/lux/skins/skin0.bin",
+        "wadPathHash": "fe53402d52f13627",
+        "sha256": "d8a73faa8ff734c24af349fb9e110f6ac9f73202f2a5022fa181a9c93314b50c",
+        "bytes": 9359
+      }
+    ]
+  }
+}
