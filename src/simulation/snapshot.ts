@@ -2,12 +2,13 @@ import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_E } from '../content/ashe-e';
+import { HAWKSHOT_LINGER_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 20;
+export const SNAPSHOT_VERSION = 21;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -226,6 +227,26 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  scoutVisuals: z
+    .array(
+      z.strictObject({
+        x: z.number(),
+        y: z.number(),
+        team,
+        flight: z.strictObject({
+          id,
+          origin: point,
+          direction: point,
+          speed: z.number().positive(),
+          launchTick: tick,
+          arrivalTick: tick,
+          distance: nonnegative,
+        }),
+        stopTick: tick,
+        endTick: tick,
+      })
+    )
+    .max(10000),
   volleyHits: z.record(z.string().regex(/^\d+$/), z.array(id).max(10000)),
   commands: z.array(command).max(10000),
 });
@@ -243,6 +264,21 @@ export function decodeSnapshot(text: string) {
       cause: result.error,
     });
   const state = result.data;
+  const visualIds = new Set<number>();
+  for (const effect of state.scoutVisuals) {
+    const f = effect.flight;
+    if (
+      visualIds.has(f.id) ||
+      f.id >= state.nextId ||
+      f.launchTick > f.arrivalTick ||
+      f.arrivalTick > state.tick ||
+      effect.endTick <= state.tick ||
+      effect.stopTick !== f.arrivalTick + ASHE_E.visionSeconds * TICK_RATE ||
+      effect.endTick !== effect.stopTick + Math.ceil(HAWKSHOT_LINGER_TAIL_SECONDS * TICK_RATE)
+    )
+      throw new Error('Saved match contains an invalid scout visual lifetime.');
+    visualIds.add(f.id);
+  }
   const ids = [...state.units, ...state.projectiles].map((u) => u.id);
   if (new Set(ids).size !== ids.length || ids.some((value) => value >= state.nextId))
     throw new Error('Saved match contains invalid entity identities.');

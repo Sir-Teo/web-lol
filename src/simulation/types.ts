@@ -164,3 +164,11 @@ export interface ScoutFlight {
   arrivalTick?: number;
   distance?: number;
 }
+
+/** Presentation-only arrival state; never a vision or targeting source. */
+export interface ScoutVisual extends Vec2 {
+  team: Team;
+  flight: ScoutFlight & { arrivalTick: number; distance: number };
+  stopTick: number;
+  endTick: number;
+}

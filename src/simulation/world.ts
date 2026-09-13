@@ -7,6 +7,7 @@ import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
 import { ASHE_E } from '../content/ashe-e';
+import { HAWKSHOT_LINGER_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
@@ -28,6 +29,7 @@ import type {
   Team,
   Unit,
   UnitKind,
+  ScoutVisual,
 } from './types';
 
 export class World {
@@ -45,6 +47,7 @@ export class World {
   reveal: { point: Vec2; endTick: number } | null = null;
   volleyHits: Record<number, number[]> = {};
   visionAreas: VisionArea[] = [];
+  scoutVisuals: ScoutVisual[] = [];
 
   pendingSpawns: { tick: number; kind: UnitKind; team: Team; lane: number; offset: number }[] = [];
 
@@ -299,6 +302,7 @@ export class World {
           : null;
     }
     this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
+    this.scoutVisuals = this.scoutVisuals.filter((effect) => effect.endTick > this.tick);
     for (const unit of this.units) unit.previous = { x: unit.x, y: unit.y };
     const commands = this.commands.splice(0);
     for (const command of commands) {
@@ -785,7 +789,25 @@ export class World {
         p.y = end.y;
         p.remaining = Math.max(0, p.remaining - travel);
         if (p.remaining > 1e-8) survivors.push(p);
-        else
+        else {
+          const flight = {
+            id: p.id,
+            origin: { ...p.origin! },
+            direction: { ...p.direction },
+            speed: p.speed,
+            launchTick: p.launchTick!,
+            arrivalTick: this.tick,
+            distance: distance(p.origin!, p),
+          };
+          const stopTick = this.tick + ASHE_E.visionSeconds * TICK_RATE;
+          this.scoutVisuals.push({
+            x: p.x,
+            y: p.y,
+            team: p.team,
+            flight,
+            stopTick,
+            endTick: stopTick + Math.ceil(HAWKSHOT_LINGER_TAIL_SECONDS * TICK_RATE),
+          });
           this.visionAreas.push({
             kind: 'scout',
             flight: {
@@ -802,8 +824,9 @@ export class World {
             radius: 650,
             unobstructed: true,
             team: p.team,
-            endTick: this.tick + ASHE_E.visionSeconds * TICK_RATE,
+            endTick: stopTick,
           });
+        }
         continue;
       }
       let contact: Unit | undefined,
@@ -1286,6 +1309,7 @@ export class World {
       nextWaveTick: this.nextWaveTick,
       reveal: this.reveal,
       visionAreas: this.visionAreas,
+      scoutVisuals: this.scoutVisuals,
       volleyHits: this.volleyHits,
       commands: this.commands,
     });

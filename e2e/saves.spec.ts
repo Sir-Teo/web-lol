@@ -1,5 +1,46 @@
 import { expect, test } from '@playwright/test';
 
+test('scout visual tail checkpoint reloads without restoring expired vision', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.keyboard.press('Escape');
+  const saved = await page.evaluate(() => {
+    const w = (window as any).__GAME__.world;
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.enqueue({
+      type: 'cast',
+      unit: w.hero.id,
+      ability: 'e',
+      point: { x: w.hero.x + 700, y: w.hero.y },
+    });
+    w.step(46);
+    const effect = w.scoutVisuals[0];
+    w.step(effect.stopTick - w.tick + 10);
+    return w.snapshot();
+  });
+  await page.getByRole('button', { name: 'Save match', exact: true }).click();
+  await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
+  await page.reload();
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(() => {
+    const w = (window as any).__GAME__.world;
+    const before = {
+      snapshot: w.snapshot(),
+      visuals: w.scoutVisuals.length,
+      vision: w.visionAreas.length,
+    };
+    w.step(w.scoutVisuals[0].endTick - w.tick);
+    return { ...before, expired: w.scoutVisuals.length };
+  });
+  expect(result.snapshot).toBe(saved);
+  expect(result.visuals).toBe(1);
+  expect(result.vision).toBe(0);
+  expect(result.expired).toBe(0);
+});
+
 test('manual checkpoint survives reload exactly, resumes explicitly and restart removes it', async ({
   page,
 }) => {
