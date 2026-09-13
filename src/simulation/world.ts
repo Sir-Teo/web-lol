@@ -1,3 +1,4 @@
+import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
 import { ASSIST_WINDOW_SECONDS } from '../content/assist-window';
 import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
 import { createChampionState, rechargeChampion, expireChampionFocus } from './champion-state';
@@ -288,6 +289,7 @@ export class World {
     for (let i = 0; i < count && !this.winner; i++) this.update();
   }
   private update(): void {
+    const unseen = this.unseenBeforeHawkshot();
     this.tick++;
     // Serial recharge continues through death. Resolve before commands so a
     // newly restored charge can be used on its deadline tick.
@@ -368,7 +370,8 @@ export class World {
       this.advanceUnit(u);
       if (this.winner) return;
     }
-    this.advanceProjectiles();
+    this.creditHawkshotReveals(unseen);
+    this.advanceProjectiles(unseen);
     if (this.winner) return;
     for (const unit of this.units) {
       if (!unit.structureKnowledge) continue;
@@ -485,14 +488,21 @@ export class World {
     if (!u.structureKnowledge) return null;
     return this.visible(u, team) ? !this.alive(u) : u.structureKnowledge[team];
   }
-  visionSources(team: Team = 'blue', includeAttackReveals = true): VisionSource[] {
+  visionSources(
+    team: Team = 'blue',
+    includeAttackReveals = true,
+    includeHawkshots = true
+  ): VisionSource[] {
     const sources: VisionSource[] = this.units
       .filter((u) => u.team === team && this.alive(u))
       .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
     sources.push(
       ...this.visionAreas.filter(
         (a) =>
-          a.team === team && a.endTick > this.tick && (includeAttackReveals || a.kind === 'scout')
+          a.team === team &&
+          a.endTick > this.tick &&
+          (includeAttackReveals || a.kind === 'scout') &&
+          (includeHawkshots || a.kind !== 'scout')
       )
     );
     sources.push(
@@ -502,7 +512,10 @@ export class World {
     );
     sources.push(
       ...this.projectiles
-        .filter((projectile) => projectile.team === team && projectile.type === 'hawkshot')
+        .filter(
+          (projectile) =>
+            includeHawkshots && projectile.team === team && projectile.type === 'hawkshot'
+        )
         // Radius remains provisional until reference geometry is verified.
         .map((projectile) => ({
           x: projectile.x,
@@ -825,7 +838,70 @@ export class World {
     }
     return u.speed * slow * haste;
   }
-  private advanceProjectiles(): void {
+  private unseenBeforeHawkshot(): Map<Team, Set<number>> {
+    const unseen = new Map<Team, Set<number>>();
+    for (const team of ['blue', 'red'] as const) {
+      const active =
+        this.projectiles.some((p) => p.type === 'hawkshot' && p.team === team) ||
+        this.visionAreas.some(
+          (a) =>
+            a.kind === 'scout' &&
+            a.team === team &&
+            a.sourceId !== undefined &&
+            a.endTick > this.tick
+        ) ||
+        this.units.some(
+          (u) => u.team === team && this.championState(u.id)?.pendingCast?.ability === 'e'
+        );
+      if (active)
+        unseen.set(
+          team,
+          new Set(
+            this.units
+              .filter(
+                (u) =>
+                  u.kind === 'champion' &&
+                  u.team !== team &&
+                  this.alive(u) &&
+                  !this.visible(u, team)
+              )
+              .map((u) => u.id)
+          )
+        );
+    }
+    return unseen;
+  }
+  private creditHawkshotReveals(unseen: Map<Team, Set<number>>): void {
+    for (const [team, ids] of unseen) {
+      for (const id of ids) {
+        const target = this.unit(id);
+        if (!target || !this.alive(target) || !this.visible(target, team)) continue;
+        ids.delete(id);
+        // Simultaneous ordinary sight wins attribution. Continuous scout sight
+        // does not refresh credit; another hidden-to-visible transition is needed.
+        if (seenFrom(target, this.visionSources(team, true, false), this.battlefield.lineOfSight))
+          continue;
+        const flight = this.projectiles.find(
+          (p) => p.type === 'hawkshot' && p.team === team && distance(p, target) <= 650
+        );
+        const area = this.visionAreas.find(
+          (a) =>
+            a.kind === 'scout' &&
+            a.team === team &&
+            a.endTick > this.tick &&
+            a.sourceId !== undefined &&
+            distance(a, target) <= a.radius
+        );
+        const sourceId = flight?.source ?? area?.sourceId;
+        if (sourceId === undefined || !this.championState(sourceId)) continue;
+        const state = this.championState(id)!;
+        const entry = state.revealContributors.find((c) => c.sourceId === sourceId);
+        if (entry) entry.lastRevealTick = this.tick;
+        else state.revealContributors.push({ sourceId, lastRevealTick: this.tick });
+      }
+    }
+  }
+  private advanceProjectiles(unseen: Map<Team, Set<number>>): void {
     const survivors: Projectile[] = [];
     for (const p of this.projectiles) {
       p.previous = { x: p.x, y: p.y };
@@ -873,6 +949,7 @@ export class World {
           });
           this.visionAreas.push({
             kind: 'scout',
+            sourceId: p.source,
             flight: {
               id: p.id,
               origin: p.origin!,
@@ -891,6 +968,7 @@ export class World {
           });
           this.emit('scout-arrival', p, { unit: p.source, team: p.team });
         }
+        this.creditHawkshotReveals(unseen);
         continue;
       }
       let contact: Unit | undefined,
@@ -1081,14 +1159,22 @@ export class World {
         if (gold) this.emit('gold', source, { value: gold, unit: source.id, team: source.team });
         if (target.kind === 'champion') {
           sourceState.kills++;
-          for (const entry of targetState!.damageContributors) {
-            if (
-              entry.sourceId === source.id ||
-              this.tick - entry.lastDamageTick > ASSIST_WINDOW_SECONDS * TICK_RATE
-            )
-              continue;
-            const contributor = this.unit(entry.sourceId);
-            const record = this.championState(entry.sourceId);
+          const assistantIds = new Set([
+            ...targetState!.damageContributors
+              .filter(
+                (entry) => this.tick - entry.lastDamageTick <= ASSIST_WINDOW_SECONDS * TICK_RATE
+              )
+              .map((entry) => entry.sourceId),
+            ...targetState!.revealContributors
+              .filter(
+                (entry) => this.tick - entry.lastRevealTick <= HAWKSHOT_ASSIST_SECONDS * TICK_RATE
+              )
+              .map((entry) => entry.sourceId),
+          ]);
+          for (const id of assistantIds) {
+            if (id === source.id) continue;
+            const contributor = this.unit(id);
+            const record = this.championState(id);
             if (record && contributor?.team === source.team) record.assists++;
           }
         } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) sourceState.cs++;
@@ -1149,7 +1235,10 @@ export class World {
   }
   private respawn(u: Unit): void {
     const state = this.championState(u.id);
-    if (state) state.damageContributors = [];
+    if (state) {
+      state.damageContributors = [];
+      state.revealContributors = [];
+    }
     const point =
       isStructureKind(u.kind) || u.kind === 'dummy'
         ? { x: u.x, y: u.y }

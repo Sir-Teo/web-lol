@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 25;
+export const SNAPSHOT_VERSION = 26;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -123,6 +123,7 @@ const player: z.ZodType<PlayerState> = z
     deaths: tick,
     xp: nonnegative,
     level: z.number().int().min(1).max(MAX_LEVEL),
+    revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
     damageContributors: z.array(z.strictObject({ sourceId: id, lastDamageTick: tick })).max(10000),
     cooldowns: z.strictObject({
@@ -209,6 +210,7 @@ const snapshot = z.strictObject({
     .array(
       z.strictObject({
         kind: z.enum(['attack', 'scout']),
+        sourceId: id.optional(),
         flight: z
           .strictObject({
             id,
@@ -312,6 +314,19 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved match contains invalid damage contributions.');
       contributors.add(source.id);
     }
+    const revealers = new Set<number>();
+    for (const entry of owner.revealContributors) {
+      const source = champions.find((u) => u.id === entry.sourceId);
+      if (
+        !source ||
+        source.team === champion.team ||
+        revealers.has(source.id) ||
+        entry.lastRevealTick > state.tick ||
+        (champion.deadAt !== null && entry.lastRevealTick > champion.deadAt)
+      )
+        throw new Error('Saved match contains invalid reveal contributions.');
+      revealers.add(source.id);
+    }
     const cast = owner.pendingCast;
     if (
       cast &&
@@ -335,6 +350,12 @@ export function decodeSnapshot(text: string) {
           animation.startTick !== cast.startTick))
     )
       throw new Error('Saved match contains an invalid cast animation.');
+  }
+  for (const area of state.visionAreas) {
+    if (area.sourceId === undefined) continue;
+    const source = champions.find((u) => u.id === area.sourceId);
+    if (area.kind !== 'scout' || !source || source.team !== area.team)
+      throw new Error('Saved match contains invalid scout ownership.');
   }
   return state;
 }

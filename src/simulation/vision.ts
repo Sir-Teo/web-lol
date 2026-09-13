@@ -9,6 +9,7 @@ export interface VisionSource extends Vec2 {
 }
 
 export interface VisionArea extends VisionSource {
+  sourceId?: number;
   kind: 'attack' | 'scout';
   team: Team;
   endTick: number;

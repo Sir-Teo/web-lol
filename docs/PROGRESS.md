@@ -938,3 +938,11 @@ The pinned standard-mode `Configs` link resolves `{4fd6b68d}` with `AssistDurati
 Four new simulation scenarios cover direct-kill attribution, the inclusive 900-tick boundary, dead/distant contributors through checkpoint continuation and red-team ownership/nonchampion final-blow exclusion. All 348 source/simulation checks, seven focused Chrome cases and production nested-host smoke pass. The new Chrome scenario observes a real damage assist in both score displays. Full browser/performance suites were not repeated.
 
 Boundary inclusivity is the local fixed-tick convention; support/reveal assists, execution attribution, assist gold and champion-kill XP still require work. The source configuration also contains hashed bounty fields, which remain uninterpreted rather than guessed.
+
+## Hawkshot reveal assists
+
+Hawkshot now records unseen-to-visible champion transitions separately from damage contributions, using the ten-second assist rule documented in Riot's 9.1 notes. Landed scout areas retain their caster ID, so an enemy walking into the lingering vision can grant credit. Ordinary allied sight takes precedence, continuous visibility does not refresh the contribution, and damage/reveal IDs deduplicate on a direct champion kill. Respawn clears reveal history. Version 26 stores reveal contributions and scout ownership and rejects version 25 checkpoints.
+
+Six new simulation cases cover damage/reveal deduplication, already-visible exclusion, ten-second boundary with saved continuation, landed-area entry, invalid saved owners/timestamps and both team orientations. The initial ownership-validation fixture sampled before the hawk had landed; advancing to tick 120 corrected that fixture. All 354 source/simulation checks, eight focused Chrome scenarios and production nested-host smoke pass. The new browser case verifies an occluded reveal, checkpoint continuation, subsequent ally kill and HUD assist count. Full browser/performance suites were not repeated.
+
+Scout radius remains provisional, simultaneous ordinary sight wins locally, and overlapping Hawkshots use current iteration order rather than measured native tie-breaking. These policies and conditional transition-scan costs are documented in ASHE-E.md. Heal support assists, execution credit, assist gold and champion-kill XP remain unfinished.
