@@ -54,7 +54,7 @@ Missing shared-bank references, native audio initialization, exact event mapping
 | `hit` | Sound 108015836, media 381540917, MakeUpGain −9 |
 | `buffactivate` | Sound 604153567, media 649034525, MakeUpGain −32, Loop 0 |
 | `Stop … OnMissileLaunch` | Two stop actions targeting 3429 and 921284325, each TransitionTime 150 and Linear fade curve |
-| `Stop … buffactivate` | Stop action targeting 604153567, TransitionTime 1250 and Linear fade curve |
+| `Stop … buffactivate` | Stop action targeting 604153567, TransitionTime 1250 and Exp1 fade curve |
 
 The pinned parser interprets action DelayTime in milliseconds and Loop 0 as infinite. MakeUpGain values are authored gain parameters, not measured output loudness. No final gain is established until inherited buses, attenuation and native dispatch are reconciled. See the pinned checkout's `wwiser/generator/render/bnode_props.py` and `wwiser/wfnv.py` for the inspected interpretation and hash implementation.
 
@@ -117,3 +117,17 @@ The 317,887-frame recording lasts about 7.208 seconds and owns its AudioBufferSo
 Validation: all 284 source/simulation checks, five focused Chrome audio scenarios, production build and real-input production Hawkshot smoke test pass. New simulation checks verify exact landing tick/endpoint, single emission, non-replay after snapshot restore, and fixed hidden-enemy audience despite later vision. The browser observes the real source node surviving visual retirement and then being released, verifies authored gain/full frame count, and checks late seeking and suppression of an elapsed recording. Export regeneration is byte-identical. The full browser gameplay suite and unchanged model validation were not repeated.
 
 As with cast playback, the master gain 0.2 is a local setting and spatial attenuation/shared-bus behavior remain unresolved. No listening comparison or native audiovisual parity is claimed. Launch layers and persistent linger audio are still pending.
+
+## Persistent linger playback and saved fade
+
+The source linger recording now loops at the endpoint with its authored −32 dB MakeUpGain. `tools/assets/export-hawkshot-linger-audio.py` verifies play/stop action targets, infinite Loop 0, source gain and stop parameters before exporting the 815,120-byte float WAV. It has no embedded loop markers; the adapter uses the complete 203,769-frame recording as an end-to-end loop and restores its phase from simulation age. This loop interpretation and seam quality still need native/listening comparison.
+
+Rechecking the mapped stop action corrected the earlier documentation: its 1,250 ms transition uses curve ID 6, **Exp1**, not Linear. The bank graph always retained the correct value; the summary table above is corrected. The runtime uses the pinned wwiser `bnode_rtpc.py` Exp1 polynomial for normalized fade progress `t`: `1 − 0.5*t*(t+1)`, applied to linear amplitude through a 257-point Web Audio automation curve. At half time the amplitude factor is 0.625. The parser's `hnode_envelope.py` also cautions that TXTP fade reproduction is approximate. Applying this interpolation to action-fade amplitude is explicitly a local interpretation; native mixing domain and curve parity are unverified.
+
+The loop starts fading at the existing five-second scouting stop policy and ends 1.25 seconds later. The shared saved `scoutVisuals` presentation descriptor now retires 6.25 seconds after arrival. Particle births/lifetimes and gameplay sight are unchanged; the last quarter-second retains audio presentation only. Snapshot **version 22** rejects version 21 and validates the new retirement bound. A restore during that final interval reconstructs loop phase and remaining fade without granting sight or replaying the arrival one-shot.
+
+Persistent voices are keyed by flight identity and created only once per active audible interval. Pause freezes context time. Mute immediately stops/disconnects the voice; unmuting rebuilds an eligible persistent loop at current simulation phase. Removal or enemy visibility exclusion disconnects it, and later visibility can resume a currently active persistent loop. Friendly loops remain eligible independent of fog. Natural completion records a finished identity until retirement to prevent a slightly delayed simulation frame from restarting the end of a completed fade. Distinct overlapping casts own separate voices, gain nodes and automation.
+
+All 286 source/simulation checks, ten focused Chrome audio/checkpoint scenarios, production build and real-input production Hawkshot smoke pass. Tests verify source parameters/hash, fade shape, restoration after visual particle expiry, unchanged absence of vision, exact retirement and old-version rejection. Browser checks use real source/gain nodes to verify loop bounds/phase, no duplicate creation, scheduled fade values, pause, mute/resume and exclusion cleanup; existing arrival completion and checkpoint failure behavior pass. Export regeneration is byte-identical. No full-match benchmark or full gameplay browser-suite repeat was performed.
+
+The source cast, arrival and persistent linger cues now have runtime adapters. Launch variants and its separate loop remain pending. Shared-bus gain, spatial attenuation, native stop dispatch/curve semantics and listening comparison remain unresolved; the additional local master gain remains 0.2.

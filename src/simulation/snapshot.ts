@@ -2,13 +2,13 @@ import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_E } from '../content/ashe-e';
-import { HAWKSHOT_LINGER_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
+import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 21;
+export const SNAPSHOT_VERSION = 22;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -274,7 +274,7 @@ export function decodeSnapshot(text: string) {
       f.arrivalTick > state.tick ||
       effect.endTick <= state.tick ||
       effect.stopTick !== f.arrivalTick + ASHE_E.visionSeconds * TICK_RATE ||
-      effect.endTick !== effect.stopTick + Math.ceil(HAWKSHOT_LINGER_TAIL_SECONDS * TICK_RATE)
+      effect.endTick !== effect.stopTick + Math.ceil(HAWKSHOT_PRESENTATION_TAIL_SECONDS * TICK_RATE)
     )
       throw new Error('Saved match contains an invalid scout visual lifetime.');
     visualIds.add(f.id);

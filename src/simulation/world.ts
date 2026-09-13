@@ -7,7 +7,7 @@ import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
 import { ASHE_E } from '../content/ashe-e';
-import { HAWKSHOT_LINGER_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
+import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
@@ -806,7 +806,7 @@ export class World {
             team: p.team,
             flight,
             stopTick,
-            endTick: stopTick + Math.ceil(HAWKSHOT_LINGER_TAIL_SECONDS * TICK_RATE),
+            endTick: stopTick + Math.ceil(HAWKSHOT_PRESENTATION_TAIL_SECONDS * TICK_RATE),
           });
           this.visionAreas.push({
             kind: 'scout',

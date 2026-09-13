@@ -173,7 +173,9 @@ test('source arrival outlasts its visual descriptor and releases its audio nodes
       w.events.filter((e: any) => w.eventVisible(e)),
       w.tick
     );
-    const [voice, gain] = [...a.voices.entries()][0] as any;
+    const [voice, gain] = [...a.voices.entries()].find(
+      ([v]: any) => v.buffer === a.arrivalBuffer
+    ) as any;
     return { status: a.arrivalStatus, frames: voice.buffer.length, gain: gain.gain.value };
   });
   expect(initial.status).toBe('ready');
@@ -213,4 +215,95 @@ test('late arrival seeks to its age and fully elapsed arrival is silent', async 
     return { starts, voices: a.voices.size };
   });
   expect(result).toEqual({ starts: [0.5], voices: 1 });
+});
+
+test('persistent linger restores loop phase, follows pause/mute, and cleans up on visibility loss', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      a = g.audio;
+    g.setPaused(true);
+    a.unlock();
+    await a.transition;
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.enqueue({
+      type: 'cast',
+      unit: w.hero.id,
+      ability: 'e',
+      point: { x: w.hero.x + 700, y: w.hero.y },
+    });
+    w.step(345); // At the beginning of the authored 1.25-second stop fade.
+    const saved = w.snapshot(),
+      restored = w.constructor.fromSnapshot(saved, w.battlefield);
+    a.setPaused(false);
+    await a.transition;
+    const starts: number[] = [],
+      curves: number[][] = [];
+    const create = a.context.createBufferSource.bind(a.context),
+      createGain = a.context.createGain.bind(a.context);
+    a.context.createBufferSource = () => {
+      const voice = create(),
+        start = voice.start.bind(voice);
+      voice.start = (when: number, offset: number) => {
+        starts.push(offset);
+        start(when, offset);
+      };
+      return voice;
+    };
+    a.context.createGain = () => {
+      const gain = createGain(),
+        curve = gain.gain.setValueCurveAtTime.bind(gain.gain);
+      gain.gain.setValueCurveAtTime = (values: Float32Array, when: number, duration: number) => {
+        curves.push([values[0], values[128], values[256], duration]);
+        return curve(values, when, duration);
+      };
+      return gain;
+    };
+    a.updateLinger(restored.scoutVisuals, restored.tick);
+    const voice = [...a.lingerVoices.values()][0] as any;
+    const initial = { loop: voice.loop, loopEnd: voice.loopEnd, count: a.lingerVoices.size };
+    a.updateLinger(restored.scoutVisuals, restored.tick);
+    a.setPaused(true);
+    await a.transition;
+    const time = a.context.currentTime;
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const frozen = a.context.currentTime === time;
+    a.enabled = false;
+    const muted = a.lingerVoices.size;
+    a.enabled = true;
+    a.setPaused(false);
+    await a.transition;
+    a.updateLinger(restored.scoutVisuals, restored.tick + 30);
+    const resumed = a.lingerVoices.size;
+    a.updateLinger([], restored.tick + 30);
+    const removed = a.lingerVoices.size;
+    a.setPaused(true);
+    await a.transition;
+    return {
+      initial,
+      starts,
+      curves,
+      frozen,
+      muted,
+      resumed,
+      removed,
+      level: 0.2 * 10 ** (-32 / 20),
+    };
+  });
+  expect(result.initial.loop).toBe(true);
+  expect(result.initial.loopEnd).toBeCloseTo(203769 / 44100, 8);
+  expect(result.initial.count).toBe(1);
+  expect(result.starts).toHaveLength(2);
+  expect(result.starts[0]).toBeCloseTo(5 % (203769 / 44100), 8);
+  expect(result.starts[1]).toBeCloseTo(5.5 % (203769 / 44100), 8);
+  expect(result.curves[0][0]).toBeCloseTo(result.level, 8);
+  expect(result.curves[0][1]).toBeCloseTo(result.level * 0.625, 8);
+  expect(result.curves[0][2]).toBe(0);
+  expect(result.curves[0][3]).toBeCloseTo(1.25, 8);
+  expect(result).toMatchObject({ frozen: true, muted: 0, resumed: 1, removed: 0 });
 });

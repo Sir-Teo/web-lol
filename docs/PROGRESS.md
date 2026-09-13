@@ -792,3 +792,11 @@ Hawkshot now emits a single audience-frozen arrival event at the actual endpoint
 All 284 source/simulation checks, five focused Chrome audio scenarios, production build and a real-input production Hawkshot smoke test pass. Tests cover exact landing/single emission, hidden enemy information boundaries, checkpoint non-replay, full recording length/gain, late seeking and real node lifetime beyond visual expiry. Source export is byte-identical. Full gameplay browser regression and full-match benchmarking were not repeated.
 
 Launch and persistent linger audio, spatial/shared-bus mixing, listening/native comparison and the broader complete production match remain unfinished. See [arrival audio evidence](ASHE-AUDIO.md#arrival-source-playback).
+
+## Persistent source linger audio and version 22 saves
+
+Hawkshot's endpoint now loops the source recording, seeks from saved simulation age, and schedules its authored 1.25-second stop transition. Reinspection corrected the earlier prose from Linear to the bank's actual Exp1 curve. Playback uses a documented polynomial amplitude interpretation pending native comparison. Pause freezes the loop; mute/visibility removal cleans up immediately; eligible re-entry resumes at the current phase. Completed identities prevent accidental tail restarts.
+
+The saved presentation descriptor now includes the full 6.25-second visual/audio window. Snapshot version 22 rejects version 21; sight still expires at five seconds and particles retain their original lifetimes. Tests restore during the final audio-only quarter-second with no renewed vision.
+
+All 286 source/simulation checks, ten focused Chrome audio/checkpoint scenarios, production build and real-input production Hawkshot smoke pass. Source export is byte-identical. Launch audio, shared/spatial/native mixing, listening comparison and the full production match remain unfinished. Full browser regression and full-match performance were not repeated. See [persistent linger evidence](ASHE-AUDIO.md#persistent-linger-playback-and-saved-fade).

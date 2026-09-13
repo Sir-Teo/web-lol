@@ -1,6 +1,9 @@
+import { HAWKSHOT_LINGER_AUDIO } from '../content/hawkshot-linger-audio';
+import { lingerAudioState, lingerFade } from './hawkshot-linger-state';
+import { TICK_RATE } from '../content/rules';
 import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
-import type { SimEvent } from '../simulation/types';
+import type { ScoutVisual, SimEvent } from '../simulation/types';
 
 /** Source Hawkshot cast and arrival audio; other event cues remain synthesized. */
 export class GameAudio {
@@ -11,6 +14,10 @@ export class GameAudio {
   private buffers: AudioBuffer[] = [];
   private bag: number[] = [];
   private arrivalBuffer: AudioBuffer | null = null;
+  private lingerBuffer: AudioBuffer | null = null;
+  private lingerVoices = new Map<number, AudioBufferSourceNode>();
+  private finishedLinger = new Set<number>();
+  lingerStatus: 'loading' | 'ready' | 'failed' = 'loading';
   arrivalStatus: 'loading' | 'ready' | 'failed' = 'loading';
   private voices = new Map<AudioScheduledSourceNode, GainNode>();
   private transition = Promise.resolve();
@@ -27,7 +34,20 @@ export class GameAudio {
     if (!value) this.stopVoices();
   }
   async load(): Promise<void> {
-    await Promise.all([this.loadCast(), this.loadArrival()]);
+    await Promise.all([this.loadCast(), this.loadArrival(), this.loadLinger()]);
+  }
+  private async loadLinger(): Promise<void> {
+    try {
+      const response = await fetch(HAWKSHOT_LINGER_AUDIO.url);
+      if (!response.ok) throw new Error(`Linger audio asset ${response.status}`);
+      this.lingerBuffer = await new OfflineAudioContext(1, 1, 44100).decodeAudioData(
+        await response.arrayBuffer()
+      );
+      this.lingerStatus = 'ready';
+    } catch (error) {
+      this.lingerStatus = 'failed';
+      console.warn('Source linger audio unavailable.', error);
+    }
   }
   private async loadArrival(): Promise<void> {
     try {
@@ -81,6 +101,7 @@ export class GameAudio {
       gain.disconnect();
     }
     this.voices.clear();
+    this.lingerVoices.clear();
   }
   private own(voice: AudioScheduledSourceNode, gain: GainNode): void {
     this.voices.set(voice, gain);
@@ -88,6 +109,11 @@ export class GameAudio {
       voice.disconnect();
       gain.disconnect();
       this.voices.delete(voice);
+      for (const [id, active] of this.lingerVoices)
+        if (active === voice) {
+          this.finishedLinger.add(id);
+          this.lingerVoices.delete(id);
+        }
     };
   }
   private hawkshot(event: SimEvent, tick: number): void {
@@ -111,7 +137,7 @@ export class GameAudio {
     profile: { delaySeconds: number; gainDb: number }
   ): void {
     const context = this.context!;
-    const age = Math.max(0, (tick - event.tick) / 60);
+    const age = Math.max(0, (tick - event.tick) / TICK_RATE);
     const offset = Math.max(0, age - profile.delaySeconds);
     if (offset >= buffer.duration) return;
     const voice = context.createBufferSource(),
@@ -122,6 +148,54 @@ export class GameAudio {
     voice.connect(gain).connect(context.destination);
     this.own(voice, gain);
     voice.start(context.currentTime + Math.max(0, profile.delaySeconds - age), offset);
+  }
+  updateLinger(effects: ScoutVisual[], tick: number): void {
+    // Caller supplies only currently permitted positions. Removal (including
+    // fog exclusion) immediately disconnects the persistent voice.
+    const active = new Set(
+      effects
+        .filter((e) => lingerAudioState(e, tick, this.lingerBuffer?.duration ?? 0))
+        .map((e) => e.flight.id)
+    );
+    for (const id of this.finishedLinger) if (!active.has(id)) this.finishedLinger.delete(id);
+    for (const [id, voice] of this.lingerVoices) {
+      if (active.has(id)) continue;
+      voice.stop();
+      voice.disconnect();
+      this.voices.get(voice)?.disconnect();
+      this.voices.delete(voice);
+      this.lingerVoices.delete(id);
+    }
+    const context = this.context,
+      buffer = this.lingerBuffer;
+    if (!this.enabled || this.paused || !context || context.state !== 'running' || !buffer) return;
+    for (const effect of effects) {
+      if (this.lingerVoices.has(effect.flight.id) || this.finishedLinger.has(effect.flight.id))
+        continue;
+      const state = lingerAudioState(effect, tick, buffer.duration);
+      if (!state) continue;
+      const voice = context.createBufferSource(),
+        gain = context.createGain(),
+        now = context.currentTime;
+      const level = 0.2 * 10 ** (HAWKSHOT_LINGER_AUDIO.gainDb / 20);
+      voice.buffer = buffer;
+      voice.loop = true; // Source bank infinite loop; WEM has no embedded markers.
+      voice.loopStart = 0;
+      voice.loopEnd = buffer.duration;
+      gain.gain.setValueAtTime(level * state.fade, now);
+      const fadeStart = Math.max(state.age, state.stopAge);
+      const curve = new Float32Array(257);
+      for (let i = 0; i < curve.length; i++) {
+        const age = fadeStart + ((state.endAge - fadeStart) * i) / (curve.length - 1);
+        curve[i] = level * lingerFade((age - state.stopAge) / HAWKSHOT_LINGER_AUDIO.fadeSeconds);
+      }
+      gain.gain.setValueCurveAtTime(curve, now + fadeStart - state.age, state.endAge - fadeStart);
+      voice.connect(gain).connect(context.destination);
+      this.own(voice, gain);
+      this.lingerVoices.set(effect.flight.id, voice);
+      voice.start(now, state.offset);
+      voice.stop(now + state.endAge - state.age);
+    }
   }
   unlock(): void {
     this.context ??= new AudioContext();

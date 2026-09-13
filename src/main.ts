@@ -199,6 +199,12 @@ async function boot(): Promise<void> {
       hud.update(fps);
       uiElapsed = 0;
     }
+    audio.updateLinger(
+      world.scoutVisuals.filter(
+        (effect) => effect.team === 'blue' || world.pointVisible(effect, 'blue')
+      ),
+      world.tick
+    );
     audio.update(
       world.events.filter((event) => world.eventVisible(event)),
       world.tick
