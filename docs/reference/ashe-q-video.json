@@ -1,0 +1,47 @@
+{
+  "status": "Official demonstration inspected; recording patch and exact launch intervals unresolved",
+  "page": "https://www.leagueoflegends.com/en-us/champions/ashe/",
+  "url": "https://lol.dyn.riotcdn.net/x/videos/champion-abilities/0022/ability_0022_Q1.mp4",
+  "retrievedAt": "2026-09-13",
+  "cache": ".cache/ashe-official-q.mp4",
+  "sha256": "157bcd33741a28a1a110bde0b310bb26f1f1b53676198daf72a72c15a2f61f30",
+  "bytes": 7478742,
+  "pageCache": ".cache/ashe-official-page.html",
+  "pageSha256": "f000597ff4480475e501c96bda16a22ee448bb938d2bf71e65ee7fa670d398cf",
+  "width": 1056,
+  "height": 720,
+  "fps": "30/1",
+  "durationSeconds": 11.033333,
+  "recordingPatch": null,
+  "attackSpeed": null,
+  "rank": null,
+  "inspectedFrames": [
+    {
+      "first": 105,
+      "last": 134,
+      "note": "Ordinary attack preceding the visible Q activation"
+    },
+    {
+      "first": 135,
+      "last": 164,
+      "note": "Ordinary arrow, Q activation pose, then beginning of flurry"
+    },
+    {
+      "first": 156,
+      "last": 171,
+      "note": "Flurry launch, separated trajectories, successive arrivals"
+    }
+  ],
+  "observations": [
+    "The demonstrated flurry is staggered in time, rather than simultaneous coincident projectiles.",
+    "Arrows occupy separated paths on the way to the same target.",
+    "The clip can guide presentation comparisons but does not establish damage callbacks or current patch timing."
+  ],
+  "measurementLimits": [
+    "Frame index is decoded video order, zero based; presentation spacing is 1/30 second.",
+    "Arrowheads, trails, launch flashes and impact effects overlap; do not identify a new shot from glow alone.",
+    "No native game clock, attack-speed stat, rank or client build appears in the selected capture.",
+    "The 156-171 inspection window is not a measurement of the flurry duration.",
+    "No exact launch interval, trajectory curve or damage distribution is promoted to runtime data."
+  ]
+}

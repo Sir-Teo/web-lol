@@ -1272,3 +1272,9 @@ All 442 source/simulation checks, six focused Q Chrome scenarios and nested-path
 Verified the ordinary attack resolver and active icearrow1 emitter against the cached source. It shares Q's mesh/texture but has its own authored width scale. Generalized the shared arrow renderer to display ordinary champion attacks using that scale, retaining captured normal/Q identity and source blue color for either team. Nonchampion projectile rendering is unchanged.
 
 All 442 source/simulation checks and nested-path production smoke pass. Seven focused Chrome cases passed before a TypeScript tuple-spread correction; all three arrow cases were then rerun successfully on the corrected code. The source exporter passes and the red-team combat screenshot was inspected. Full browser/performance suites were not repeated. Complete surrounding particle effects, native attachment calibration and Q sequencing remain unfinished.
+
+## Official Q flurry frame reference
+
+Retrieved the Q demonstration embedded by Riot's champion page, pinned video/page hashes and metadata, and inspected ordinary-to-Q transition and flurry frames. The visible staggered, separated flight paths rule out simultaneous coincident arrows as a faithful visual implementation. Inspected animation records do not supply five launch events; differing cast-frame values do not establish a repeat schedule.
+
+Added a reproducible provenance/metadata verifier and three ordered contact sheets. The verifier passes. This adds primary visual evidence without claiming the unspecified recording patch or attack-speed setup matches 26.18. Exact delays and individual-hit behavior remain unresolved; no runtime constants changed and runtime/browser suites were not rerun.
