@@ -35,3 +35,9 @@ That contributor state must survive checkpoints with validated unit identities a
 Verification must include both teams, solo equal-level kills, each base-reward boundary, positive/negative level differences, multiple recipients with different levels, proximity boundaries, distant contributions, posthumous eligibility boundaries, expired contributions, execution attribution, support assists, checkpoint continuation and simultaneous deaths. Test assertions need to distinguish source-proven values from local interpretation.
 
 This audit supplies the source curve and identifies the missing ownership transaction. It deliberately does not present an unverified sharing formula as native behavior. The existing flat runtime approximation remains a known fidelity defect until the complete eligibility and payout path is implemented.
+
+## Implemented contribution foundation
+
+Each champion now records the most recent positive damage tick from each opposing champion in `damageContributors`. Lethal damage is included, death retains the entries, and respawn clears them. Version 24 checkpoints validate unique opposing source identities and tick/death chronology, preserving this history without replaying visual events. Entries are bounded by distinct champions rather than growing for every attack.
+
+This does not yet decide eligibility or award assists/XP. It does not track crowd-control-only or support contribution, infer an assist window, or resolve execution credit. Those rules still require the evidence and death transaction described above.

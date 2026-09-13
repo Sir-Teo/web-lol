@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 23;
+export const SNAPSHOT_VERSION = 24;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -123,6 +123,7 @@ const player: z.ZodType<PlayerState> = z
     deaths: tick,
     xp: nonnegative,
     level: z.number().int().min(1).max(MAX_LEVEL),
+    damageContributors: z.array(z.strictObject({ sourceId: id, lastDamageTick: tick })).max(10000),
     cooldowns: z.strictObject({
       q: deadline,
       w: deadline,
@@ -297,6 +298,19 @@ export function decodeSnapshot(text: string) {
     throw new Error('Saved match contains invalid champion ownership.');
   for (const owner of owners) {
     const champion = champions.find((u) => u.id === owner.id)!;
+    const contributors = new Set<number>();
+    for (const contribution of owner.damageContributors) {
+      const source = champions.find((u) => u.id === contribution.sourceId);
+      if (
+        !source ||
+        source.team === champion.team ||
+        contributors.has(source.id) ||
+        contribution.lastDamageTick > state.tick ||
+        (champion.deadAt !== null && contribution.lastDamageTick > champion.deadAt)
+      )
+        throw new Error('Saved match contains invalid damage contributions.');
+      contributors.add(source.id);
+    }
     const cast = owner.pendingCast;
     if (
       cast &&

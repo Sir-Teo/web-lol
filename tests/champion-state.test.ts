@@ -90,7 +90,7 @@ test('saved champion ownership rejects missing, duplicate, foreign, and malforme
     (s: any) => (s.otherChampions[0].id = 999999),
     (s: any) => (s.otherChampions[0].eCharges = 99),
     (s: any) => (s.otherChampions[0].cooldowns.w = -1),
-    (s: any) => (s.version = 22),
+    (s: any) => (s.version = 23),
   ];
   for (const mutate of mutations) {
     const s = JSON.parse(world.snapshot());

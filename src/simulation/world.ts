@@ -1001,7 +1001,17 @@ export class World {
     target.hp = Math.max(0, target.hp - amount);
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
     const targetState = this.championState(target.id);
-    if (targetState) targetState.recallEnd = null;
+    if (targetState) {
+      targetState.recallEnd = null;
+      if (amount > 0 && source.team !== target.team && this.championState(source.id)) {
+        const contribution = targetState.damageContributors.find(
+          (entry) => entry.sourceId === source.id
+        );
+        if (contribution) contribution.lastDamageTick = this.tick;
+        else
+          targetState.damageContributors.push({ sourceId: source.id, lastDamageTick: this.tick });
+      }
+    }
     if (target.kind === 'champion')
       for (const turret of this.units) {
         if (
@@ -1126,6 +1136,8 @@ export class World {
     if (state.level === MAX_LEVEL) state.xp = 0;
   }
   private respawn(u: Unit): void {
+    const state = this.championState(u.id);
+    if (state) state.damageContributors = [];
     const point =
       isStructureKind(u.kind) || u.kind === 'dummy'
         ? { x: u.x, y: u.y }
