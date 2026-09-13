@@ -1,0 +1,18 @@
+{
+  "source": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json",
+  "sha256": "ad684528be94c3f6981daa2c1ff3e32724596a24e8c4f21ab8df8c291ca980f7",
+  "mode": "Maps/Shipping/Map11/Modes/CLASSIC",
+  "record": "{0059202c}",
+  "data": {
+    "mPlayerMinionSplitXp": [
+      1.0,
+      0.6499999761581421,
+      0.43299999833106995,
+      0.32499998807907104,
+      0.25999999046325684,
+      0.21699999272823334
+    ],
+    "__type": "ExperienceModData"
+  },
+  "corroboration": "https://www.leagueoflegends.com/en-sg/news/game-updates/patch-26-1-notes/"
+}

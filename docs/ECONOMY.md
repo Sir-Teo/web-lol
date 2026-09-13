@@ -17,3 +17,7 @@ Tests cover the start boundary, sustained rate, purchase threshold, fractional c
 Starting gold and most rewards still need a complete patch audit. Role quests, support income, kill/assist sharing, shutdown bounties, turret plates, neutral-objective rewards, ordinary minion bounty scaling, item recipes, sell/undo, and independent bot inventories remain incomplete. This ambient correction does not establish a complete match economy.
 
 Cannon and super-minion bounty growth is now implemented; see [the minion gold specification](MINIONS.md#cannon-and-super-gold-growth) for evidence and remaining timing assumptions.
+
+## Champion reward ownership
+
+Ambient income now accrues independently for every champion, including through death. Existing last-hit bounties and CS belong to the champion that dealt the killing damage; champion kills increment that owner's kill counter. Same-team kills grant no last-hit gold or kill/CS credit. Gold feedback uses the recipient's position and team audience. This ownership correction retains the existing bounty amounts and does not implement assists, shutdowns or team structure rewards. Bot purchasing remains unfinished.

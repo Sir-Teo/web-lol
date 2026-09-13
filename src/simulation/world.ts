@@ -1,3 +1,4 @@
+import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
 import { createChampionState, rechargeChampion, expireChampionFocus } from './champion-state';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
@@ -399,9 +400,10 @@ export class World {
     }
     // Continuous fractional accrual is our cadence policy; see docs/ECONOMY.md.
     if (this.tick > AMBIENT_GOLD.startSeconds * TICK_RATE)
-      this.player.gold = statPrecision(
-        this.player.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
-      );
+      for (const state of this.activeChampionStates())
+        state.gold = statPrecision(
+          state.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
+        );
     for (const state of this.activeChampionStates()) expireChampionFocus(state, this.tick);
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
@@ -981,7 +983,8 @@ export class World {
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
       }
-      if (source.id === this.player.id) {
+      const sourceState = this.championState(source.id);
+      if (sourceState && source.team !== target.team) {
         const gold =
           target.goldBounty ??
           (target.kind === 'champion'
@@ -997,37 +1000,46 @@ export class World {
                     : target.kind === 'melee'
                       ? 21
                       : 14);
-        this.player.gold += gold;
-        if (gold) this.emit('gold', this.hero, { value: gold });
-        if (target.kind === 'champion') this.player.kills++;
-        else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) this.player.cs++;
+        sourceState.gold += gold;
+        if (gold) this.emit('gold', source, { value: gold, unit: source.id, team: source.team });
+        if (target.kind === 'champion') sourceState.kills++;
+        else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) sourceState.cs++;
       }
-      if (
+      if (isLaneMinionKind(target.kind)) {
+        const radius = this.battlefield.minionExperienceRadius?.[target.team] ?? 1400;
+        const recipients = this.units.filter(
+          (u) =>
+            u.kind === 'champion' &&
+            u.team !== target.team &&
+            this.alive(u) &&
+            distance(u, target) <= radius
+        );
+        // The source table covers 1–6 recipients. Clamp sandbox overpopulation
+        // to its final entry; normal five-player teams never exceed it.
+        const share =
+          MINION_XP_SHARES[Math.min(recipients.length, MINION_XP_SHARES.length) - 1] ?? 0;
+        const amount = (target.experienceBounty ?? 60) * share;
+        for (const recipient of recipients) this.gainExperience(amount, recipient.id);
+      } else if (
         target.team === 'red' &&
-        target.kind !== 'dummy' &&
-        !isStructureKind(target.kind) &&
-        (isLaneMinionKind(target.kind)
-          ? this.alive(this.hero) &&
-            distance(this.hero, target) <=
-              (this.battlefield.minionExperienceRadius?.[target.team] ?? 1400)
-          : distance(this.hero, target) < 1400)
+        target.kind === 'champion' &&
+        distance(this.hero, target) < 1400
       ) {
-        this.gainExperience(target.experienceBounty ?? (target.kind === 'champion' ? 180 : 60));
+        // Champion kill/assist XP remains a separate legacy approximation.
+        this.gainExperience(target.experienceBounty ?? 180);
       }
     }
   }
-  gainExperience(amount: number): void {
-    if (this.winner || !Number.isFinite(amount) || amount <= 0 || this.player.level >= MAX_LEVEL)
-      return;
-    this.player.xp += amount;
-    while (
-      this.player.level < MAX_LEVEL &&
-      this.player.xp >= experienceToNextLevel(this.player.level)
-    ) {
-      this.player.xp -= experienceToNextLevel(this.player.level);
-      this.player.level++;
-      const factor = ASHE.growthFactors[this.player.level - 1];
-      const h = this.hero,
+  gainExperience(amount: number, championId = this.player.id): void {
+    const state = this.championState(championId);
+    if (!state) return;
+    if (this.winner || !Number.isFinite(amount) || amount <= 0 || state.level >= MAX_LEVEL) return;
+    state.xp += amount;
+    while (state.level < MAX_LEVEL && state.xp >= experienceToNextLevel(state.level)) {
+      state.xp -= experienceToNextLevel(state.level);
+      state.level++;
+      const factor = ASHE.growthFactors[state.level - 1];
+      const h = this.unit(championId)!,
         living = this.alive(h);
       const hp = statPrecision(ASHE.hpGrowth * factor),
         mana = statPrecision(ASHE.manaGrowth * factor);
@@ -1040,12 +1052,12 @@ export class World {
       h.damage = statPrecision(h.damage + ASHE.damageGrowth * factor);
       h.armor = statPrecision(h.armor + ASHE.armorGrowth * factor);
       h.magicResist = statPrecision(h.magicResist + ASHE.magicResistGrowth * factor);
-      const speed = 1 + ASHE.attackSpeedGrowth * growthAtLevel(this.player.level);
+      const speed = 1 + ASHE.attackSpeedGrowth * growthAtLevel(state.level);
       h.attackPeriod = Math.round(TICK_RATE / (ASHE.attackSpeed * speed));
       h.windupTicks = Math.round(20 / speed);
-      this.emit('level', h, { text: 'Level up!' });
+      this.emit('level', h, { text: 'Level up!', unit: h.id, team: h.team });
     }
-    if (this.player.level === MAX_LEVEL) this.player.xp = 0;
+    if (state.level === MAX_LEVEL) state.xp = 0;
   }
   private respawn(u: Unit): void {
     const point =

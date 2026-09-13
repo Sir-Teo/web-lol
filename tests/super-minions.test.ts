@@ -184,7 +184,8 @@ describe('inhibitor-driven lane waves', () => {
       xp = w.player.xp;
     w.damage(w.hero, u, 1e6, 'true');
     expect(w.player.gold - gold).toBe(50);
-    expect(w.player.xp - xp).toBe(75);
+    expect(w.player.xp - xp).toBe(48.75); // Shared with the nearby allied champion.
+    expect(w.championState(victim.id)!.xp).toBe(48.75);
     expect(w.player.cs).toBe(1);
   });
   it('keeps damage finite at very negative resistance and leaves true damage unmodified', () => {
