@@ -49,5 +49,5 @@
     "__type": "DeathTimes"
   },
   "corroboration": "https://www.leagueoflegends.com/en-ph/news/game-updates/patch-14-16-notes/",
-  "scope": "Base seconds by level. Scaling fields preserved for further research; runtime scaling and role modifiers are not yet implemented."
+  "scope": "Base seconds by level and time-scaling data. Cumulative bands, interval ceiling, cap interpretation, and sampling at death are implementation policies pending controlled reference captures; role modifiers remain unimplemented."
 }

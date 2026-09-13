@@ -24,6 +24,29 @@ test('level-18 respawn countdown rounds display seconds while preserving the exa
   await expect(page.locator('.death-overlay')).toBeHidden();
 });
 
+test('late-game respawn countdown includes the capped time multiplier', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.nextWaveTick = Infinity;
+    w.gainExperience(1e6);
+    w.tick = 3600 * 60;
+    w.damage(w.hero, w.hero, 1e6, 'true');
+  });
+  await expect(page.locator('#respawn-count')).toHaveText('Respawning in 79');
+  await expect(page.locator('.death-overlay')).toBeVisible();
+  await page.evaluate(() => {
+    const w = (window as any).__GAME__.world;
+    w.tick = w.hero.respawnTick - 1;
+  });
+  await expect(page.locator('#respawn-count')).toHaveText('Respawning in 1');
+  await page.evaluate(() => (window as any).__GAME__.world.step());
+  await expect(page.locator('.death-overlay')).toBeHidden();
+});
+
 test('both champion teams respawn at their authored Rift fountains', async ({ page }) => {
   await page.goto('/');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);

@@ -4,7 +4,7 @@ import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
-import { CHAMPION_BASE_DEATH_SECONDS } from '../content/champion-death-times';
+import { championDeathTicks } from './champion-death';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
@@ -763,7 +763,7 @@ export class World {
       if (target.structureKnowledge) target.structureKnowledge = { blue: true, red: true };
       if (target.kind === 'champion') {
         const level = target.id === this.player.id ? this.player.level : 1;
-        target.respawnTick = this.tick + CHAMPION_BASE_DEATH_SECONDS[level - 1] * TICK_RATE;
+        target.respawnTick = this.tick + championDeathTicks(level, this.tick);
       }
       if (target.kind === 'dummy') target.respawnTick = this.tick + 3 * TICK_RATE;
       if (target.kind === 'inhibitor') target.respawnTick = this.tick + 300 * TICK_RATE;
