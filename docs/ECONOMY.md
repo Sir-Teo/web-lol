@@ -103,4 +103,4 @@ Transactions apply net component resistance and remove the item's resistance on 
 
 ## Amplifying Tome
 
-Pinned Data Dragon 16.18.1 item 1052 supplies 20 flat ability power for 400 gold and sells for 280. The full record and local icon are verified by `tools/assets/verify-amplifying-tome.py`. Flat AP sums across occupied inventory slots independently per champion and survives saves through inventory ownership. Crystal Arrow consumes the AP query; physical attacks and Volley do not. AP modifiers, advanced recipes and the AP HUD readout remain unfinished.
+Pinned Data Dragon 16.18.1 item 1052 supplies 20 flat ability power for 400 gold and sells for 280. The full record and local icon are verified by `tools/assets/verify-amplifying-tome.py`. Flat AP sums across occupied inventory slots independently per champion and survives saves through inventory ownership. Crystal Arrow consumes the AP query; physical attacks and Volley do not. The combat HUD displays the current flat item AP. AP modifiers and advanced recipes remain unfinished.

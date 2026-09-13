@@ -41,6 +41,14 @@
       "startY": 0.0078125,
       "endX": 0.8505859375,
       "endY": 0.0859375
+    },
+    "ap": {
+      "texture": "assets/ux/fonts/texticons/lol/statsicon/scaleap.png",
+      "atlasPath": "uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
+      "startX": 0.6298828125,
+      "startY": 0.0078125,
+      "endX": 0.6396484375,
+      "endY": 0.0859375
     }
   }
 }

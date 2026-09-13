@@ -384,7 +384,7 @@ button {
   pointer-events: auto;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px;
   padding: 0 0 10px 2px;
   font-size: 12px;
   color: #d8d6be;
@@ -406,6 +406,9 @@ button {
 }
 .stat-ad {
   background-position: -974.4px -1.6px;
+}
+.stat-ap {
+  background-position: -1032px -1.6px;
 }
 .stat-armor {
   background-position: -1070.4px -1.6px;

@@ -1158,3 +1158,9 @@ All 393 source/simulation checks, five focused tooltip Chrome scenarios, R expor
 Added source-pinned Amplifying Tome and its icon, flat item AP ownership, and R's verified 1.2 AP scaling. R's tooltip and cast use the same damage query. Item AP is derived from inventory, so no redundant snapshot field is introduced. Already-started casts retain their captured damage through sale and saved continuation.
 
 All 396 source/simulation checks, six focused Chrome scenarios, Tome/sell verifiers and nested-path production smoke pass. Tests cover both teams, stacking, independent inventories, unchanged Volley damage, sale during R windup and restored projectile damage. Browser input verifies 200→224→200 tooltip damage through purchase and sale; inspected the screenshot. Full-suite/performance checks were not repeated. Broader AP modifiers, AP stat display, actual rank allocation and full production fidelity remain unfinished.
+
+## Ability power in the combat HUD
+
+Added the live ability-power readout beside attack damage, using the pinned `scaleap` icon region from the already-shipped source atlas. Tightened vertical stat spacing so six values fit within the existing stat column without increasing panel width. Extended atlas verification to the sixth region.
+
+All 396 source/simulation checks, the AP purchase/sale browser case, six-icon atlas verification and nested-path production smoke pass. The browser case checks 0→20→0 AP and all six stats inside a 1366×768 viewport. Inspected the laptop capture: icons and values remain distinct and fit the panel. Full-suite/performance checks were not repeated. Native stat-panel geometry, broader AP modifiers and full production fidelity remain unfinished.

@@ -26,4 +26,4 @@ for name, record in pin['icons'].items():
     assert position
     assert abs(float(position[1]) + record['startX'] * width * .8) < .0001
     assert abs(float(position[2]) + record['startY'] * height * .8) < .0001
-print('Verified five League stat icon regions and the unmodified source atlas')
+print(f"Verified {len(pin['icons'])} League stat icon regions and the unmodified source atlas")
