@@ -13,7 +13,7 @@ export function configureHawkshotMaterial(material: THREE.Material): void {
   // Source culling is disabled in one draw. Three's default two-pass transparency
   // flips back-face normals, which would incorrectly erase the source Fresnel rim.
   material.forceSinglePass = true;
-  if (material.userData.sourceEmitter !== 'Owl2') return;
+  if (!['Owl2', 'Owl3'].includes(material.userData.sourceEmitter)) return;
   const { fresnel, fresnelColor } = material.userData;
   if (!Number.isFinite(fresnel) || fresnel <= 0 || !Array.isArray(fresnelColor))
     throw new Error('Hawkshot lacks source Fresnel parameters');

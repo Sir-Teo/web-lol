@@ -12,6 +12,7 @@ import type { World } from '../simulation/world';
 import { FogSampler } from './fog-sampler';
 import { animateHawkshot, createHawkshot, disposeHawkshot } from './hawkshot';
 import { HawkshotWind } from './hawkshot-wind';
+import { HawkshotEchoes } from './hawkshot-echo';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
 
@@ -19,6 +20,7 @@ export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
+  echoes = new HawkshotEchoes(this.scene, (p) => this.ground(p));
   camera = new THREE.PerspectiveCamera(40, 1, 0.1, 180);
   center: Vec2 = { x: -500, y: 375 };
   locked = false;
@@ -537,6 +539,7 @@ export class GameView {
       }
     this.syncProjectiles(world, alpha);
     this.wind.update(world);
+    this.echoes.update(world);
     const selected = world.unit(this.selected ?? world.player.id);
     this.selection.visible = !!selected && world.alive(selected) && world.visible(selected);
     if (selected) {

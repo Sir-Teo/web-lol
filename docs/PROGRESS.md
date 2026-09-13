@@ -628,3 +628,11 @@ The scout now includes the two original background-glow emitters with the pinned
 All 250 source/simulation checks, eight focused Chrome scenarios, production build and production smoke pass. New browser checks cover timing, restored layer state, shared resources and each layer's GPU pixel contribution; adjacent Hawkshot rig, Fresnel, wind and context-loss checks pass. The flight screenshot was inspected and asset generation is byte-identical. No GLBs changed, so their validation and the full browser suite were not repeated.
 
 This adds source artwork with explicitly documented rendering interpretations; it does not establish native pixel parity. Quad orientation, uniform scaling, atlas defaults and culling still need capture calibration. Owl3, dust/smoke, endpoint VFX, sound and the broader production scope remain incomplete. See [source glow evidence and limits](ASHE-E.md#source-background-glow-layers).
+
+## Hawkshot Owl3 particle milestone
+
+The scout now emits the pinned Owl3 mesh particles: 10 per second, approximately 0.3-second lifetime, downward motion, independently animated poses and a fading blue Fresnel rim. The exporter verifies exact asset-field agreement with the shipped Owl2 layer, so this adds no model or texture downloads. Full binding follows the scout horizontally and holds at its destination while existing particles expire. At most four reusable rig/material slots per flight prevent per-birth GPU allocations; private resources are released after the tail.
+
+All 253 source/simulation checks, nine focused Chrome scenarios, production build and production smoke pass. New coverage checks bound motion, source identity, lifetime, stateless pose restoration, independent animation, pooling, disposal and arrival cleanup. Existing Hawkshot graphics-loss pixel checks and neighboring glow/wind/Fresnel scenarios pass. The screenshot was inspected and source parameter regeneration is byte-identical. The full browser suite and unchanged GLB validation were not repeated.
+
+Native emission phase, particle animation phase, binding/shutdown semantics and exact pixel calibration remain unresolved. Dust, smoke, endpoint effects, audio and the broader production scope remain unfinished. The production goal remains active. See [Owl3 source values and adapter policies](ASHE-E.md#owl3-bound-mesh-particles).

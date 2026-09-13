@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { HAWKSHOT_ECHO } from '../content/hawkshot-echo';
 import { loadHawkshotGlow, createHawkshotGlow, animateHawkshotGlow } from './hawkshot-glow';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { configureHawkshotMaterial } from './hawkshot-material';
@@ -73,4 +74,50 @@ export function disposeHawkshot(root: THREE.Group): boolean {
   for (const skeleton of skeletons) skeleton.dispose();
   instances.delete(root);
   return true;
+}
+
+/** Reuse the exact source rim assets with a private material and particle-local animation. */
+export function createHawkshotEcho() {
+  if (!reference) throw new Error('Hawkshot model is not loaded');
+  const root = clone(reference.scene);
+  root.rotation.set(
+    ...(reference.scene.userData.emitterRotationDegrees.map(THREE.MathUtils.degToRad) as [
+      number,
+      number,
+      number,
+    ])
+  );
+  let material: THREE.MeshBasicMaterial | undefined;
+  root.traverse((object) => {
+    if (!(object instanceof THREE.Mesh)) return;
+    const source = object.material as THREE.MeshBasicMaterial;
+    object.visible = source.userData.sourceEmitter === 'Owl2';
+    object.frustumCulled = false;
+    if (!object.visible) return;
+    material = source.clone();
+    material.userData = {
+      ...source.userData,
+      sourceEmitter: 'Owl3',
+      fresnel: HAWKSHOT_ECHO.fresnel,
+      fresnelColor: [...HAWKSHOT_ECHO.fresnelColor],
+    };
+    configureHawkshotMaterial(material);
+    object.material = material;
+    object.renderOrder = HAWKSHOT_ECHO.renderOrder;
+  });
+  if (!material) throw new Error('Hawkshot lacks the source rim for Owl3');
+  const mixer = new THREE.AnimationMixer(root);
+  mixer.clipAction(reference.clip).play();
+  return { root, mixer, material };
+}
+
+export function disposeHawkshotEcho(echo: ReturnType<typeof createHawkshotEcho>) {
+  echo.mixer.stopAllAction();
+  echo.mixer.uncacheRoot(echo.root);
+  const skeletons = new Set<THREE.Skeleton>();
+  echo.root.traverse((o) => {
+    if (o instanceof THREE.SkinnedMesh) skeletons.add(o.skeleton);
+  });
+  for (const skeleton of skeletons) skeleton.dispose();
+  echo.material.dispose();
 }

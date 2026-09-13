@@ -1,0 +1,109 @@
+{
+  "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_mis",
+  "emitter": {
+    "rate": {
+      "constantValue": 10.0,
+      "__type": "ValueFloat"
+    },
+    "particleLifetime": {
+      "constantValue": 0.30000001192092896,
+      "__type": "ValueFloat"
+    },
+    "emitterName": "Owl3",
+    "importance": 3,
+    "birthVelocity": {
+      "constantValue": [
+        0.0,
+        -300.0,
+        0.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "bindWeight": {
+      "constantValue": 1.0,
+      "__type": "ValueFloat"
+    },
+    "primitive": {
+      "mMesh": {
+        "mMeshName": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Skin06_E_Hawk.skn",
+        "mMeshSkeletonName": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Skin06_E_Hawk.skl",
+        "mAnimationName": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Skin06_E_Dove.anm",
+        "__type": "VfxMeshDefinitionData"
+      },
+      "__type": "VfxPrimitiveMesh"
+    },
+    "blendMode": 4,
+    "birthColor": {
+      "constantValue": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "__type": "ValueColor"
+    },
+    "Color": {
+      "constantValue": [
+        1.0,
+        1.0,
+        1.0,
+        0.5400015115737915
+      ],
+      "dynamics": {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0,
+            0.5400015115737915
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "__type": "VfxAnimatedColorVariableData"
+      },
+      "__type": "ValueColor"
+    },
+    "pass": 1,
+    "reflectionDefinition": {
+      "fresnel": 0.05000000074505806,
+      "fresnelColor": [
+        0.23529411852359772,
+        0.5411764979362488,
+        1.0,
+        0.0
+      ],
+      "__type": "VfxReflectionDefinitionData"
+    },
+    "disableBackfaceCull": true,
+    "isUniformScale": 1,
+    "birthRotation0": {
+      "constantValue": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "birthScale0": {
+      "constantValue": [
+        1.600000023841858,
+        210.0,
+        210.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/common_color-hold.tex",
+    "__type": "VfxEmitterDefinitionData"
+  },
+  "reusesEmitter": "Owl2"
+}
