@@ -30,7 +30,7 @@ Pending casts capture their rank as well as damage; Volley therefore retains its
 - Verify native E behavior when learning a rank during a running recharge; current behavior preserves the running interval and changes the next.
 - R damage and cooldown now consume owned ranks and flat item AP. Broader AP modifiers remain separate work.
 - Upgrade buttons and Ctrl shortcuts now enqueue learning commands; add native button art and presentation polish beyond the current CSS controls.
-- Bots must allocate earned points and cannot cast unlearned spells. Fixture-specific assumptions must not leak into the real match setup.
+- Bots now allocate earned points using the exported map-11 default recommendation, filtered through the same learning validator. Standard match setup still needs to replace the practice rank grants.
 
 ## Verification required
 
@@ -47,4 +47,10 @@ Recommendations express skill choices, not permission to learn an unavailable ra
 
 The current validator uses normal basic-skill gates 1/3/5/7/9 and ultimate gates 6/11/16. The [community ability reference](https://leagueoflegends.fandom.com/wiki/Champion_ability) search index confirms the ultimate gates, but direct full-page retrieval failed. These conventional rules are implemented as simulation policy, not claimed as newly extracted game constants. Champion-specific exceptions are outside this Ashe-only validator. The game-file rank caps remain independently pinned.
 
-Unspent points are persisted as bounded integers under snapshot 30. Successful upgrades transfer exactly one point into one rank, and XP grants one point per level gained. Existing manually configured practice states do not enforce a canonical level-to-total-rank budget; standard initialization and corresponding stronger save invariants remain unfinished. Tests demonstrate an explicitly unlearned champion starting with one point reaches 5/5/5/3 with zero points at level 18. Live practice initialization remains four learned spells; bots still need automated allocation.
+Unspent points are persisted as bounded integers under snapshot 30. Successful upgrades transfer exactly one point into one rank, and XP grants one point per level gained. Existing manually configured practice states do not enforce a canonical level-to-total-rank budget; standard initialization and corresponding stronger save invariants remain unfinished. Tests demonstrate an explicitly unlearned champion starting with one point reaches 5/5/5/3 with zero points at level 18. Live practice initialization remains four learned spells. Bots now spend earned points automatically; human points remain available for manual allocation.
+
+## Bot allocation integration
+
+The resource exporter now also emits `src/content/ashe-skill-recommendation.ts`, selecting the unique map-11 default bottom recommendation after verifying its full pinned record. Bots process available points before recharge and commands, including while dead or stunned. The early override is indexed by allocated ranks; unavailable choices fall through to the validated priority order. Allocation stops when no legal upgrade exists, preserving points. Source recommendation ordering does not independently prove native bot decision timing.
+
+Both-team tests trace an explicitly unlearned bot through every level to 5/5/5/3 with no unused points, while a human with earned points remains unchanged. Additional tests restore a dead bot with accumulated points and verify an XP-earned rank-two Volley actually launches eight 95-damage arrows. Default matches still start in the prior practice setup; changing that initialization remains required.

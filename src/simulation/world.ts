@@ -24,6 +24,7 @@ import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-t
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
+import { ASHE_SKILL_RECOMMENDATION } from '../content/ashe-skill-recommendation';
 import {
   asheCrystalArrowValues,
   asheVolleyValues,
@@ -310,6 +311,19 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    for (const state of this.activeChampionStates()) {
+      if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
+      while (state.skillPoints > 0) {
+        const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
+        const early = ASHE_SKILL_RECOMMENDATION.early[allocated];
+        const choices = early
+          ? [early, ...ASHE_SKILL_RECOMMENDATION.priority]
+          : ASHE_SKILL_RECOMMENDATION.priority;
+        const ability = choices.find((key) => this.spellLearningError(key, state.id) === null);
+        if (!ability) break;
+        this.learnSpell(ability, state.id);
+      }
+    }
     // Serial recharge continues through death. Resolve before commands so a
     // newly restored charge can be used on its deadline tick.
     for (const state of this.activeChampionStates()) rechargeChampion(state, this.tick);
