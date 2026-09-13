@@ -4,6 +4,7 @@ import { DT } from './content/rules';
 import { World } from './simulation/world';
 import { GameView } from './render/view';
 import { Hud } from './ui/hud';
+import { loadInterfaceFonts } from './ui/fonts';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
 import { loadReferenceModels } from './render/models';
@@ -81,6 +82,7 @@ async function boot(): Promise<void> {
   }
   window.addEventListener('resize', () => view.resize());
   const assetsReady = Promise.all([
+    loadInterfaceFonts(),
     audio.load(),
     loadReferenceModels(),
     loadHawkshot(),

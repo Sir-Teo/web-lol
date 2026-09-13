@@ -1074,3 +1074,9 @@ All 393 source/simulation checks, the focused shop/HUD browser case, stat-atlas 
 Replaced approximate DOM interface fonts with local Beaufort for LOL and Spiegel faces from the pinned game assets. Added font provenance and a verifier for the definitions and binary files; removed the unused font packages. Existing layout and text sizes are retained for this step.
 
 All 393 source/simulation checks, four focused Chrome HUD/shop scenarios, font-source verification and nested-path production smoke pass. Inspected HUD, narrow shop and production screenshots with the new font metrics. The five source files total 560,480 bytes before transfer compression. Full-suite/performance checks were not repeated. Native typography size/weight/spacing calibration, renderer text and localization coverage remain unfinished; the full production goal remains active.
+
+## Font readiness before play
+
+Startup now explicitly loads all five shipped interface font faces alongside other assets before removing the loading screen. This includes the medium heading face first used by menus. Failed font loads are handled as cosmetic failures and allow fallback text instead of interrupting the match.
+
+All 393 source/simulation checks, two focused Chrome scenarios and nested-path production smoke pass. Browser cases hold a font response during cold boot, confirm loading remains active, then verify all five faces are available after release; a separate case aborts every font download and verifies that the match and shop still open. Full-suite/performance checks were not repeated. Pending font requests follow the browser's network lifecycle; no separate font timeout is introduced. Native typography calibration and full production fidelity remain unfinished.
