@@ -668,3 +668,11 @@ Smoke now tests conservative bounds for its complete instance quads before captu
 All 259 source/simulation checks, eight focused Chrome scenarios, production build and a production real-input Hawkshot cast pass. New browser evidence confirms zero depth captures while offscreen, target reuse, exact camera-away/back pixel equality and correct partial-edge visibility. Existing soft-fade/erosion, resize, tail and context-loss pixel checks pass. The full browser suite and unchanged asset validation were not repeated.
 
 Visible smoke still requires an additional full-resolution scene pass. Aggregate conservative bounds can retain a capture when separate offscreen groups straddle the viewport, so this is not the final depth optimization. Native visual calibration, endpoint effects, sound and the broader production scope remain unfinished. The goal remains active. See [offscreen culling behavior](ASHE-E.md#offscreen-smoke-depth-culling).
+
+## Cropped smoke depth rasterization milestone
+
+Visible smoke now captures depth only within conservative projected instance bounds, with outward rounding and a two-pixel margin. Near-plane crossings retain a full-frame fallback, and empty projected regions skip capture. Render-target scissor coordinates are physical pixels, preserving high-density display behavior. Texture resolution and effect shading remain unchanged.
+
+All 261 source/simulation checks, nine focused Chrome scenarios, production build and a production real-input Hawkshot cast pass. The new browser comparison proves exact cropped/full final pixels at device pixel ratios 1 and 2 while the fixture capture covers less than one quarter of the framebuffer. Edge/fallback unit checks and neighboring smoke/graphics-loss scenarios pass. This saves rasterized area but does not reduce geometry submission or full-resolution target memory; those remain optimization opportunities. The full browser suite and unchanged asset validation were not repeated.
+
+Native visual calibration, endpoint effects, audio and the broader production scope remain unfinished. The goal remains active. See [cropped depth behavior and evidence](ASHE-E.md#cropped-smoke-depth-capture).

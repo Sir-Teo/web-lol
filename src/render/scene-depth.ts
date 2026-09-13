@@ -4,7 +4,12 @@ import * as THREE from 'three';
 export class SceneDepth {
   target?: THREE.WebGLRenderTarget;
   private size = new THREE.Vector2();
-  capture(renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) {
+  capture(
+    renderer: THREE.WebGLRenderer,
+    scene: THREE.Scene,
+    camera: THREE.Camera,
+    region?: THREE.Vector4 | null
+  ) {
     renderer.getDrawingBufferSize(this.size);
     if (!this.target) {
       this.target = new THREE.WebGLRenderTarget(this.size.x, this.size.y);
@@ -38,8 +43,13 @@ export class SceneDepth {
       scissorTest = renderer.getScissorTest();
     try {
       renderer.shadowMap.autoUpdate = false;
+      // Render-target rectangles are physical pixels, independent of the canvas pixel ratio.
+      this.target.scissor.copy(
+        region ?? new THREE.Vector4(0, 0, this.target.width, this.target.height)
+      );
+      this.target.scissorTest = !!region;
       renderer.setRenderTarget(this.target);
-      renderer.setScissorTest(false);
+      renderer.setScissorTest(!!region);
       renderer.clear();
       renderer.render(scene, camera);
     } finally {

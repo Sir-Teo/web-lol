@@ -254,3 +254,77 @@ test('smoke depth culling retains a quad that overlaps the camera edge', async (
   });
   expect(result).toEqual({ edge: true, outside: false });
 });
+
+test('cropped depth matches a full capture at normal and high pixel density', async ({ page }) => {
+  await page.setViewportSize({ width: 900, height: 640 });
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const results = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.enqueue({
+      type: 'cast',
+      unit: w.hero.id,
+      ability: 'e',
+      point: { x: w.hero.x + 1400, y: w.hero.y },
+    });
+    w.step(45);
+    v.recenter(w.projectiles[0]);
+    const capture = v.smoke.depth.capture.bind(v.smoke.depth);
+    const read = () => {
+      const gl = v.renderer.getContext(),
+        data = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+      gl.readPixels(
+        0,
+        0,
+        gl.drawingBufferWidth,
+        gl.drawingBufferHeight,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        data
+      );
+      return data;
+    };
+    const results = [];
+    for (const ratio of [1, 2]) {
+      v.renderer.setPixelRatio(ratio);
+      v.resize();
+      v.smoke.depth.capture = capture;
+      v.render(w, 1, 0);
+      const cropped = read(),
+        target = v.smoke.depth.target;
+      const area = (target.scissor.z * target.scissor.w) / (target.width * target.height);
+      const enabled = target.scissorTest;
+      const viewport = v.renderer.getViewport(v.smoke.uniforms.smokeCamera.value.clone()).toArray();
+      v.smoke.depth.capture = (renderer: any, scene: any, camera: any) =>
+        capture(renderer, scene, camera);
+      v.render(w, 1, 0);
+      const full = read();
+      let differences = 0;
+      for (let i = 0; i < full.length; i++) if (full[i] !== cropped[i]) differences++;
+      results.push({
+        ratio,
+        area,
+        enabled,
+        differences,
+        scissorRestored: !v.renderer.getScissorTest(),
+        viewport,
+      });
+    }
+    v.smoke.depth.capture = capture;
+    return results;
+  });
+  for (const result of results) {
+    expect(result.enabled).toBe(true);
+    expect(result.area).toBeGreaterThan(0);
+    expect(result.area).toBeLessThan(0.25);
+    expect(result.differences).toBe(0);
+    expect(result.scissorRestored).toBe(true);
+    expect(result.viewport).toEqual([0, 0, 900, 640]);
+  }
+});

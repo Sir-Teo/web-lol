@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { SceneDepth } from './scene-depth';
+import { projectedScissor } from './projected-scissor';
 import { HAWKSHOT_SMOKE as D } from '../content/hawkshot-smoke';
 import { smokeParticles } from './hawkshot-smoke-state';
 import type { ScoutFlight } from '../simulation/types';
@@ -23,6 +24,8 @@ export class HawkshotSmoke {
   private capacity = 0;
   private frustum = new THREE.Frustum();
   private projection = new THREE.Matrix4();
+  private bufferSize = new THREE.Vector2();
+  private clip = new THREE.Matrix4();
   depth = new SceneDepth();
   uniforms = {
     smokeDepth: { value: null as THREE.Texture | null },
@@ -111,7 +114,17 @@ diffuseColor.a *= vSmoke.y * mask * smoothstep(0.0, ${D.softDistance}, gap);`
     this.mesh.visible = this.frustum.intersectsObject(this.mesh);
     // Retain an existing target for camera re-entry; allocate nothing offscreen.
     if (!this.mesh.visible) return;
-    const target = this.depth.capture(renderer, this.scene, camera);
+    this.mesh.computeBoundingBox();
+    const region = projectedScissor(
+      this.mesh.boundingBox!,
+      this.clip.multiplyMatrices(this.projection, this.mesh.matrixWorld),
+      renderer.getDrawingBufferSize(this.bufferSize)
+    );
+    if (region && (!region.z || !region.w)) {
+      this.mesh.visible = false;
+      return;
+    }
+    const target = this.depth.capture(renderer, this.scene, camera, region);
     this.uniforms.smokeDepth.value = target.depthTexture;
     this.uniforms.smokeCamera.value.set(camera.near, camera.far, target.width, target.height);
   }
