@@ -2,15 +2,39 @@
 
 Design a browser game that reproduces as much of League of Legends' match experience as practical without an application backend. Quality and fidelity take priority over roster size or speed of delivery.
 
-This repository currently contains research and a build specification, not a playable implementation.
+The repository now contains an interactive practice build and the full production design. The production objective remains a complete, high-fidelity local 5v5 MOBA. This first playable is an intermediate milestone, not that completed product.
+
+## Run locally
+
+```sh
+npm ci
+npm run dev
+```
+
+Open the localhost address printed by Vite. The game opens directly into Ashe practice. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Q activates at four Focus stacks; F heals. Use A then click for attack-move, S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
+
+```sh
+npm run check
+npm run assets:validate
+npm run test:browser
+npm run build
+```
+
+The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Offline reload/persistence, other-browser certification, and production hosting are not implemented yet.
+
+## Current build
+
+The playable includes a three-dimensional practice lane, an animated archived Ashe reference model, movement and attack states, collision-tested projectiles, basic ability approximations, minion waves, two turrets, a sparring bot, a target dummy, recall, a small working shop, minimap controls, pause, and practice tools.
+
+See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. Procedural terrain and supporting units remain temporary. The archived champion animation is not certified against the target patch.
 
 - [Game and technical design](docs/DESIGN.md)
 - [Research, evidence, and uncertainties](docs/RESEARCH.md)
 - [Implementation milestones and acceptance criteria](docs/ROADMAP.md)
 - [Verified champion data sample](docs/reference/champion-sample.json)
 
-Recommended architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, DOM HUD, nine local bots, and browser persistence. Static hosting serves the files; matches need no game server or runtime API.
+Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, and DOM HUD. Nine local bots and browser persistence remain planned. Static hosting serves the files; gameplay needs no game server or runtime API.
 
 Reference target: standard PC Summoner's Rift, patch 26.18, with Data Dragon 16.18.1 as a verified data starting point. This is a frozen reference, not a promise that every rule has already been reconstructed. The specification identifies what still requires measurement.
 
-Riot's published policy does not authorize games using its IP. The design therefore separates match-system research from the assets and content permissions needed for a literal League reproduction. An independently authored MOBA can use the proposed architecture; exact Riot content requires an appropriate license.
+The local reference build includes Riot-owned icons and an archived character model, with source URLs and hashes in `public/assets/`. Riot's published policy does not authorize games using its IP; redistribution authorization has not been established. The reference asset pack is not a cleared production distribution. The independent asset pipeline and content permissions remain tracked in the production design.
