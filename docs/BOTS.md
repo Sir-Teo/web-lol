@@ -1,5 +1,15 @@
 # Local bot combat and remaining match work
 
+## Visible last-hit choices
+
+When a basic attack is ready and no valid windup is already committed, the champion bot now considers visible, vulnerable enemy lane minions within its current attack range whose present HP can be removed by the next attack impact after armor. Selection prioritizes their current gold bounty, then shorter travel distance. The damage estimate and actual damage resolution share the same resistance function. During Q, the estimate uses only the first arrow's damage; it does not assume the full staggered burst lands immediately.
+
+A visible champion within the existing 380-unit close-threat threshold takes priority, even if a minion is closer. A committed valid windup remains protected by the earlier combat rule. Otherwise the existing nearest-target and recovery behavior remains available. This policy uses current team-visible observations; it does not predict from hidden minion HP or positions.
+
+Five simulation scenarios cover both teams securing the farther last hit with exact checkpoint continuation, armor/visibility/range exclusions, high-value minion selection without interrupting a committed attack, close-threat priority, and conservative Q estimates. A browser scenario verifies target choice, delivered kill, CS/gold gain and the nearer minion retaining full HP.
+
+This is a local farming heuristic, not a native bot implementation. Minion HP at impact, allied pending damage, deliberate waiting to freeze a wave, tower safety, lane assignments, and role-specific farm sharing still require tactical policies. In particular, a currently lethal target may die to another unit during windup or projectile travel; the bot does not yet forecast that race.
+
 ## Safe retreat recalls
 
 Retreating champions now queue the shared recall command when distance to their fountain exceeds the distance they could walk at their base movement speed during the eight-second recall. The bot preserves an active safe channel across its 18-tick decisions rather than repeatedly resetting it. A visible approaching threat changes the order back to fountain movement, which cancels recall through normal order handling. Existing recall completion and fountain purchasing then let the bot recover and resume its plan.

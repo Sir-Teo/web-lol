@@ -1320,3 +1320,9 @@ All 455 source/simulation checks, four arrow Chrome cases and nested-path produc
 Retreating champions can now recall when safe and sufficiently far from their own fountain. They preserve a safe channel, cancel it for visible approaching threats, avoid visible incoming targeted missiles, and wait after recorded champion damage before retrying. Nearby hidden enemies do not alter the decision. Recall uses the same queued command and validation as human input, and saved channels continue identically on both teams.
 
 All 461 source/simulation checks, six focused bot/recall Chrome scenarios and nested-path production smoke pass. One retry assertion initially checked before the next scheduled AI decision; it now accounts for the existing 18-tick cadence. This adds a recovery tactic, not a complete role/team planner. Travel-cost estimation, last-seen threat memory, economic recalls, nine-bot matches and full-match performance remain open; see BOTS.md for the policy's limits.
+
+## Bot last-hit selection
+
+Bots now prioritize an in-range, visible lane minion that the next attack impact can kill, considering armor, bounty and distance. Immediate champion threats retain priority and valid windups remain committed. Q estimates use the first arrow rather than the entire delayed burst. Shared damage arithmetic keeps the estimate consistent with current mitigation rules.
+
+All 466 source/simulation checks, five focused bot Chrome scenarios and nested-path production smoke pass. New coverage includes both teams' actual kill/CS with exact saved continuation, visibility/range/armor exclusions, valuable targets, windup commitment, close threats and Q. The browser scenario verifies actual target selection, kill, CS/gold and preservation of the closer healthy minion. Incoming-damage prediction, wave management, role assignments and full 5v5 remain unfinished.

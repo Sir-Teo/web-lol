@@ -1,4 +1,5 @@
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
+import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
 import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
@@ -620,11 +621,16 @@ export class World {
       this.visible(target, u.team)
     );
   }
-  private nearest(u: Unit, range: number): Unit | undefined {
+  private nearest(u: Unit, range: number, championsOnly = false): Unit | undefined {
     let best: Unit | undefined,
       bestDistance = Infinity;
     for (const target of this.units)
-      if (target.team !== u.team && this.alive(target) && target.kind !== 'dummy') {
+      if (
+        target.team !== u.team &&
+        this.alive(target) &&
+        target.kind !== 'dummy' &&
+        (!championsOnly || target.kind === 'champion')
+      ) {
         const d = distance(u, target) - target.radius;
         const score = d + (target.kind === 'champion' && u.kind !== 'champion' ? 300 : 0);
         if (d < range && score < bestDistance && this.validTarget(u, target)) {
@@ -652,6 +658,30 @@ export class World {
     );
     if (threatened)
       this.enqueue({ type: 'cast', unit: u.id, ability: 'f', point: { x: u.x, y: u.y } });
+  }
+  private lastHitTarget(u: Unit): Unit | undefined {
+    if (this.tick < u.nextAttackTick) return;
+    const state = this.championState(u.id)!;
+    // Estimate only the first Q impact; later arrows may arrive too late.
+    const raw =
+      state.qUntil > this.tick ? asheFocusFlurry(state.spellRanks.q, u.damage)[0].damage : u.damage;
+    let best: Unit | undefined;
+    let bestDistance = Infinity;
+    for (const target of this.units) {
+      if (!isLaneMinionKind(target.kind) || !this.validTarget(u, target)) continue;
+      const d = distance(u, target) - target.radius;
+      if (d > u.range || target.hp > damageAfterResistance(raw, target.armor)) continue;
+      // Preserve valuable last hits; equal-value choices prefer shorter flight.
+      if (
+        !best ||
+        (target.goldBounty ?? 0) > (best.goldBounty ?? 0) ||
+        ((target.goldBounty ?? 0) === (best.goldBounty ?? 0) && d < bestDistance)
+      ) {
+        best = target;
+        bestDistance = d;
+      }
+    }
+    return best;
   }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
@@ -703,7 +733,13 @@ export class World {
     }
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
-    const target = this.nearest(u, 1150);
+    const nearest = this.nearest(u, 1150);
+    const closeThreat = this.nearest(u, 380, true);
+    // An immediate champion threat keeps priority over farming.
+    const target =
+      closeThreat && distance(u, closeThreat) < 380
+        ? closeThreat
+        : (this.lastHitTarget(u) ?? nearest);
     if (target) {
       const d = distance(u, target);
       const state = this.championState(u.id)!;
@@ -1214,8 +1250,7 @@ export class World {
     if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;
     const resistance =
       kind === 'physical' ? target.armor : kind === 'magic' ? target.magicResist : 0;
-    const multiplier = resistance >= 0 ? 100 / (100 + resistance) : 2 - 100 / (100 - resistance);
-    const amount = raw * multiplier;
+    const amount = damageAfterResistance(raw, resistance);
     const healthLost = Math.min(target.hp, Math.max(0, amount));
     target.hp = Math.max(0, target.hp - amount);
     const attacker = this.championState(source.id);
