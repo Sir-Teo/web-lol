@@ -1,12 +1,14 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
-import type { Unit } from '../simulation/types';
+import { isStructureKind, type Unit } from '../simulation/types';
 
 export interface UnitModel {
   root: THREE.Group;
   submeshes?: THREE.Object3D[];
   destroyedClip?: string;
+  animateDestruction?: boolean;
+  deadIdleClip?: string;
   destroyed?: boolean;
   mixer?: THREE.AnimationMixer;
   actions?: Record<string, THREE.AnimationAction>;
@@ -30,13 +32,17 @@ const referenceNames = [
   'red-siege',
   'blue-turret',
   'red-turret',
+  'blue-nexus',
+  'red-nexus',
+  'blue-inhibitor',
+  'red-inhibitor',
 ];
 export async function loadReferenceModels(): Promise<void> {
   const loader = new GLTFLoader();
   await Promise.all(
     referenceNames.map(async (name) => {
       const gltf = await loader.loadAsync(`/assets/models/${name}.glb`);
-      for (const required of name.endsWith('-turret')
+      for (const required of /-(turret|nexus|inhibitor)$/.test(name)
         ? ['idle1']
         : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
@@ -77,7 +83,7 @@ export function makeModel(u: Unit): UnitModel {
     u.kind === 'melee' ||
     u.kind === 'caster' ||
     u.kind === 'siege' ||
-    u.kind === 'turret'
+    isStructureKind(u.kind)
   ) {
     const key = u.kind === 'champion' ? 'ashe-reference' : `${u.team}-${u.kind}`;
     const reference = references.get(key);
@@ -92,7 +98,7 @@ export function makeModel(u: Unit): UnitModel {
         submeshes.push(object);
         object.visible = !object.userData.initiallyHidden;
       }
-      if (object instanceof THREE.SkinnedMesh && u.kind === 'turret') {
+      if (object instanceof THREE.SkinnedMesh && isStructureKind(u.kind)) {
         if (!sharedSkeleton) sharedSkeleton = object.skeleton;
         else if (object.skeleton.bones.every((bone, i) => bone === sharedSkeleton!.bones[i]))
           object.skeleton = sharedSkeleton;
@@ -118,12 +124,18 @@ export function makeModel(u: Unit): UnitModel {
     });
     return {
       root,
-      submeshes: u.kind === 'turret' ? submeshes : undefined,
+      submeshes: isStructureKind(u.kind) ? submeshes : undefined,
       destroyedClip: model.userData.destroyedClip,
+      animateDestruction: model.userData.animateDestruction,
+      deadIdleClip: model.userData.deadIdleClip,
       mixer,
       actions,
       actionName: 'idle1',
-      barHeight: u.kind === 'champion' ? 2.3 : bounds.max.y + 0.18,
+      barHeight: u.structure
+        ? u.structure.healthBarHeight * 0.01
+        : u.kind === 'champion'
+          ? 2.3
+          : bounds.max.y + 0.18,
       referenceAsset: key,
     };
   }

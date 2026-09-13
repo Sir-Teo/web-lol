@@ -1,6 +1,6 @@
 import type { Battlefield, LaneRoute } from '../simulation/battlefield';
 import { NavGrid } from '../simulation/navgrid';
-import type { Team, UnitKind } from '../simulation/types';
+import type { Team, UnitKind, StructureState } from '../simulation/types';
 import type { Vec2 } from '../simulation/math';
 
 interface WaveBehavior {
@@ -12,7 +12,16 @@ export interface RiftLayout {
   half: number;
   spawns: Record<Team, Vec2>;
   lanes: LaneRoute[];
-  turrets: { point: Vec2; team: Team; tier: string; height: number; transform: number[] }[];
+  structures: (Battlefield['initialUnits'][number] & { transform: number[] })[];
+  turrets: {
+    point: Vec2;
+    team: Team;
+    tier: string;
+    height: number;
+    transform: number[];
+    structure: StructureState;
+    stats: Battlefield['initialUnits'][number]['stats'];
+  }[];
   waves: {
     initialSeconds: number;
     intervalSeconds: number;
@@ -56,6 +65,13 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
         point: tower.point,
         name: `${tower.tier} turret`,
         structureTransform: tower.transform,
+        structure: tower.structure,
+        stats: tower.stats,
+      })),
+      ...layout.structures.map((building) => ({
+        ...building,
+        name: building.kind === 'nexus' ? 'Nexus' : 'Inhibitor',
+        structureTransform: building.transform,
       })),
       {
         kind: 'champion',

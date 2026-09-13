@@ -1,6 +1,16 @@
 import type { Vec2 } from './math';
 export type Team = 'blue' | 'red';
-export type UnitKind = 'champion' | 'melee' | 'caster' | 'siege' | 'turret' | 'dummy';
+export type UnitKind =
+  'champion' | 'melee' | 'caster' | 'siege' | 'turret' | 'inhibitor' | 'nexus' | 'dummy';
+export const isStructureKind = (kind: UnitKind): boolean =>
+  kind === 'turret' || kind === 'inhibitor' || kind === 'nexus';
+export interface StructureState {
+  role:
+    'outer-turret' | 'inner-turret' | 'inhibitor-turret' | 'nexus-turret' | 'inhibitor' | 'nexus';
+  lane: 'top' | 'mid' | 'bot' | null;
+  healthBarHeight: number;
+  regenPerSecond: number;
+}
 export type Order =
   | { type: 'idle' }
   | { type: 'move' | 'attackMove'; point: Vec2 }
@@ -14,6 +24,7 @@ export interface Unit extends Vec2 {
   facing: number;
   /** Authored source matrix for fixed structures; independent of attack facing. */
   structureTransform?: readonly number[];
+  structure?: StructureState;
   radius: number;
   hp: number;
   maxHp: number;
@@ -21,6 +32,7 @@ export interface Unit extends Vec2 {
   maxMana: number;
   damage: number;
   armor: number;
+  magicResist: number;
   range: number;
   speed: number;
   attackPeriod: number;

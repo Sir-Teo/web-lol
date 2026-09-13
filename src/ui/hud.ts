@@ -1,5 +1,5 @@
 import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
-import type { Ability } from '../simulation/types';
+import { isStructureKind, type Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 
@@ -126,6 +126,7 @@ export class Hud {
     if (this.view.locked) this.view.recenter(this.world.hero);
   }
   toggleModal(which: string): void {
+    if (this.world.winner && which !== 'result') return;
     if (this.modal === which) {
       this.closeModal();
       return;
@@ -137,7 +138,12 @@ export class Hud {
     let content = '',
       title = '',
       subtitle = '';
-    if (which === 'pause') {
+    if (which === 'result') {
+      title = this.world.winner === 'blue' ? 'Victory' : 'Defeat';
+      subtitle =
+        this.world.winner === 'blue' ? 'The enemy Nexus has fallen.' : 'Your Nexus has fallen.';
+      content = '<button class="primary-button" data-action="reset">Play again</button>';
+    } else if (which === 'pause') {
       title = 'Game paused';
       subtitle = 'A moment of clarity before the next move.';
       content =
@@ -171,12 +177,14 @@ export class Hud {
       content = `<div class="shop-balance">Available gold <b>◆ ${this.world.player.gold}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="/assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><p class="shop-message" role="status">Purchases are available at the blue fountain.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
-    backdrop.innerHTML = `<section class="game-dialog ${which}" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
+    backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
+    if (which === 'result')
+      backdrop.querySelector<HTMLButtonElement>('.close-button')!.hidden = true;
     backdrop.querySelector('.close-button')!.addEventListener('click', () => this.closeModal());
     backdrop.onkeydown = (event) => {
       if (event.key !== 'Tab') return;
       const buttons = Array.from(
-        backdrop.querySelectorAll<HTMLButtonElement>('button:not([disabled])')
+        backdrop.querySelectorAll<HTMLButtonElement>('button:not([disabled]):not([hidden])')
       );
       const index = buttons.indexOf(document.activeElement as HTMLButtonElement);
       const next = (index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length;
@@ -235,6 +243,7 @@ export class Hud {
     initialFocus?.focus();
   }
   closeModal(): void {
+    if (this.world.winner) return;
     this.modal = null;
     this.root.querySelector<HTMLElement>('#modal')!.hidden = true;
     this.actions.pause(false);
@@ -257,6 +266,8 @@ export class Hud {
       panel.innerHTML = `<div class="scoreboard-title">PRACTICE MATCH</div><div class="scoreboard-row"><img src="/assets/icons/ashe.png" alt="Ashe"><strong>Ashe <small>You</small></strong><span>${this.world.player.kills} / ${this.world.player.deaths} / 0</span><span>${this.world.player.cs} CS</span></div><div class="scoreboard-row enemy"><img src="/assets/icons/ashe.png" alt="Opponent"><strong>Sparring partner <small>Bot</small></strong><span>${this.world.player.deaths} / ${this.world.player.kills} / 0</span></div>`;
   }
   update(fps: number): void {
+    if (this.world.winner && this.modal !== 'result') this.toggleModal('result');
+    this.floating.hidden = !!this.world.winner;
     const w = this.world,
       p = w.player,
       h = w.hero;
@@ -308,7 +319,10 @@ export class Hud {
     panel.hidden = !target || target.id === p.id || !w.visible(target) || !w.alive(target);
     if (target && !panel.hidden) {
       text('target-name', target.name);
-      text('target-hp', `${Math.ceil(target.hp)} / ${target.maxHp}`);
+      text(
+        'target-hp',
+        `${Math.ceil(target.hp)} / ${target.maxHp}${w.vulnerable(target) ? '' : ' · Protected'}`
+      );
       (panel.querySelector('.target-health i') as HTMLElement).style.width =
         `${(target.hp / target.maxHp) * 100}%`;
     }
@@ -369,7 +383,7 @@ export class Hud {
     for (const u of w.units) {
       if (!w.alive(u) || !w.visible(u)) continue;
       const p = xy(u),
-        r = u.kind === 'champion' ? 5 : u.kind === 'turret' ? 4 : 1.5;
+        r = u.kind === 'champion' ? 5 : isStructureKind(u.kind) ? 4 : 1.5;
       ctx.fillStyle = u.id === w.player.id ? '#f4dc88' : u.team === 'blue' ? '#60d1e5' : '#ee7b81';
       ctx.strokeStyle = '#102228';
       ctx.lineWidth = 1.5;

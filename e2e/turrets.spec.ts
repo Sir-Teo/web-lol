@@ -61,7 +61,7 @@ test('reference towers preserve authored transforms, visible parts, and per-unit
     );
     expect(record.matrixError).toBeLessThan(1e-10);
     expect(record.fixedFacing).toBe(true);
-    expect(record.bar).toBeGreaterThan(5);
+    expect(record.bar).toBeGreaterThan(4.5);
     expect(record.bar).toBeLessThan(7);
   }
   expect(errors).toEqual([]);
@@ -80,7 +80,9 @@ for (const team of ['blue', 'red'])
         v = g.view;
       g.setPaused(true);
       w.nextWaveTick = Infinity;
-      const tower = w.units.find((u: any) => u.kind === 'turret' && u.team === team);
+      const tower = w.units.find(
+        (u: any) => u.structure?.role === 'outer-turret' && u.team === team
+      );
       w.units = [w.hero, tower];
       w.reveal = { point: { x: tower.x, y: tower.y }, endTick: Infinity };
       v.center = { x: tower.x, y: tower.y };

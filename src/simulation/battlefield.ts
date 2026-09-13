@@ -1,5 +1,5 @@
 import type { Vec2 } from './math';
-import type { Team, UnitKind } from './types';
+import type { Team, UnitKind, Unit, StructureState } from './types';
 
 export interface TerrainQueries {
   reachable(point: Vec2, radius: number, team?: Team): Vec2;
@@ -30,5 +30,9 @@ export interface Battlefield extends TerrainQueries {
     name?: string;
     ai?: boolean;
     structureTransform?: readonly number[];
+    structure?: StructureState;
+    stats?: Partial<
+      Pick<Unit, 'maxHp' | 'damage' | 'armor' | 'magicResist' | 'range' | 'radius' | 'attackPeriod'>
+    >;
   }[];
 }

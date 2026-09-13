@@ -9,6 +9,7 @@
       "sha256": "ad684528be94c3f6981daa2c1ff3e32724596a24e8c4f21ab8df8c291ca980f7"
     }
   ],
+  "structureRulesSha256": "f1768cc3fc00d3b397f36be48ae75d128067a2d6b3ffe25ffa29c3e5c4d50952",
   "objects": [
     {
       "container": "{183e98d5}",
@@ -75,6 +76,102 @@
       "name": "__Spawn_T2",
       "type": 1,
       "__type": "GdsMapObject"
+    },
+    {
+      "container": "{78a2c625}",
+      "key": "{d628bfb5}",
+      "transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          13243.0,
+          91.0,
+          13235.0,
+          1.0
+        ]
+      ],
+      "name": "{2a74dc3f}",
+      "Character": {
+        "CharacterRecord": "Characters/Nexus/CharacterRecords/Root",
+        "Skin": "Characters/Nexus/Skins/Skin3",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 1,
+          "Position": 4,
+          "__type": "{82cab1b3}"
+        },
+        "type": 2,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "Team": {
+        "Team": 200,
+        "__type": "TeamGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    {
+      "container": "{78a2c625}",
+      "key": "{e510624b}",
+      "transform": [
+        [
+          0.7071068286895752,
+          0.0,
+          -0.7071067690849304,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.7071067690849304,
+          0.0,
+          0.7071068286895752,
+          0.0
+        ],
+        [
+          1550.6689453125,
+          90.99974060058594,
+          1660.3189697265625,
+          1.0
+        ]
+      ],
+      "name": "{4ff0e417}",
+      "Character": {
+        "CharacterRecord": "Characters/Nexus/CharacterRecords/Root",
+        "Skin": "Characters/Nexus/Skins/Skin0",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 1,
+          "Position": 4,
+          "__type": "{82cab1b3}"
+        },
+        "type": 2,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
     },
     {
       "container": "{78a2c625}",
@@ -766,6 +863,194 @@
     },
     {
       "container": "{78a2c625}",
+      "key": "{418bd13c}",
+      "transform": [
+        [
+          0.7108033895492554,
+          0.0,
+          0.703391969203949,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        [
+          -0.7033919095993042,
+          0.0,
+          0.7108032703399658,
+          0.0
+        ],
+        [
+          3210.615966796875,
+          88.00264739990234,
+          3217.52734375,
+          1.0
+        ]
+      ],
+      "name": "{a616fa16}",
+      "Character": {
+        "CharacterRecord": "Characters/Inhibitor/CharacterRecords/SR_Order",
+        "Skin": "Characters/Inhibitor/Skins/Skin0",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 1,
+          "Position": 1,
+          "__type": "{82cab1b3}"
+        },
+        "type": 1,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    {
+      "container": "{78a2c625}",
+      "key": "{7d88dde9}",
+      "transform": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999998807907104,
+          0.0
+        ],
+        [
+          3468.068115234375,
+          88.00299835205078,
+          1230.9549560546875,
+          1.0
+        ]
+      ],
+      "name": "{b1170b67}",
+      "Character": {
+        "CharacterRecord": "Characters/Inhibitor/CharacterRecords/SR_Order",
+        "Skin": "Characters/Inhibitor/Skins/Skin0",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 0,
+          "Position": 1,
+          "__type": "{82cab1b3}"
+        },
+        "type": 1,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    {
+      "container": "{78a2c625}",
+      "key": "{1771d10c}",
+      "transform": [
+        [
+          -0.018913593143224716,
+          0.0,
+          0.9998219609260559,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        [
+          -0.9998217821121216,
+          0.0,
+          -0.01891360431909561,
+          0.0
+        ],
+        [
+          1172.701904296875,
+          88.00346374511719,
+          3583.285888671875,
+          1.0
+        ]
+      ],
+      "name": "{9f16ef11}",
+      "Character": {
+        "CharacterRecord": "Characters/Inhibitor/CharacterRecords/SR_Order",
+        "Skin": "Characters/Inhibitor/Skins/Skin0",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 2,
+          "Position": 1,
+          "__type": "{82cab1b3}"
+        },
+        "type": 1,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    {
+      "container": "{78a2c625}",
+      "key": "{81cada22}",
+      "transform": [
+        [
+          8.74227694680485e-08,
+          7.64274186065882e-15,
+          -0.9999999403953552,
+          0.0
+        ],
+        [
+          -5.210803119423896e-15,
+          0.9999998807907104,
+          7.64274186065882e-15,
+          0.0
+        ],
+        [
+          0.9999998211860657,
+          -1.894623814660632e-15,
+          8.74227694680485e-08,
+          0.0
+        ],
+        [
+          11275.23046875,
+          95.29100036621094,
+          13657.1728515625,
+          1.0
+        ]
+      ],
+      "name": "{8c230c01}",
+      "Character": {
+        "CharacterRecord": "Characters/Inhibitor/CharacterRecords/SR_Chaos",
+        "Skin": "Characters/Inhibitor/Skins/Skin3",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 2,
+          "Position": 1,
+          "__type": "{82cab1b3}"
+        },
+        "type": 1,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "Team": {
+        "Team": 200,
+        "__type": "TeamGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    {
+      "container": "{78a2c625}",
       "key": "{14114f88}",
       "transform": [
         [
@@ -1325,6 +1610,56 @@
     },
     {
       "container": "{78a2c625}",
+      "key": "{2eb2d42e}",
+      "transform": [
+        [
+          0.6961402297019958,
+          0.0,
+          -0.7179064750671387,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        [
+          0.7179064750671387,
+          0.0,
+          0.6961402297019958,
+          0.0
+        ],
+        [
+          11593.5751953125,
+          88.00086212158203,
+          11669.5654296875,
+          1.0
+        ]
+      ],
+      "name": "{7322e4a6}",
+      "Character": {
+        "CharacterRecord": "Characters/Inhibitor/CharacterRecords/SR_Chaos",
+        "Skin": "Characters/Inhibitor/Skins/Skin3",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 1,
+          "Position": 1,
+          "__type": "{82cab1b3}"
+        },
+        "type": 1,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "Team": {
+        "Team": 200,
+        "__type": "TeamGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    {
+      "container": "{78a2c625}",
       "key": "{8ee09cd6}",
       "transform": [
         [
@@ -1658,6 +1993,56 @@
         },
         "type": 0,
         "{f1d3a034}": true,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "Team": {
+        "Team": 200,
+        "__type": "TeamGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    {
+      "container": "{78a2c625}",
+      "key": "{8d9c90b8}",
+      "transform": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999998807907104,
+          0.0
+        ],
+        [
+          13599.1708984375,
+          88.0009994506836,
+          11319.9169921875,
+          1.0
+        ]
+      ],
+      "name": "{7e22f5f7}",
+      "Character": {
+        "CharacterRecord": "Characters/Inhibitor/CharacterRecords/SR_Chaos",
+        "Skin": "Characters/Inhibitor/Skins/Skin3",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "LaneDefinition": {
+          "lane": 0,
+          "Position": 1,
+          "__type": "{82cab1b3}"
+        },
+        "type": 1,
         "__type": "AttackableUnitGeComponentDef"
       },
       "Team": {
@@ -2115,7 +2500,7 @@
   "outputs": [
     {
       "path": "public/assets/maps/rift-layout.json",
-      "sha256": "a0ba38e2c0c0d5829d4a7154316a59f8ac5d5457de7f1d577acb5ab214da28a6"
+      "sha256": "4b986dd1f46f782a04d5ed9fd3c0c9a88393009e32746b10b08c8dbe5d1c7ef0"
     },
     {
       "path": "public/assets/maps/rift-minimap.webp",

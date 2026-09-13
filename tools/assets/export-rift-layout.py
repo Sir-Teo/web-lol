@@ -31,7 +31,7 @@ for container, value in materials.items():
             continue
         character = item.get("Character", {}).get("CharacterRecord", "")
         if (item.get("name") in ("__Spawn_T1", "__Spawn_T2", "MinionPath_Top", "MinionPath_Mid", "MinionPath_Bot")
-            or item.get("__type") == "{ba138ae3}" or character.startswith("Characters/Turret/CharacterRecords/")):
+            or item.get("__type") == "{ba138ae3}" or any(character.startswith(f"Characters/{kind}/CharacterRecords/") for kind in ["Turret", "Nexus", "Inhibitor"])):
             nodes.append({"container": container, "key": key, **item})
 
 def position(matrix, local=(0, 0, 0)):
@@ -49,11 +49,40 @@ for lane_id, suffix in [(2, "Top"), (1, "Mid"), (0, "Bot")]:
             barracks["red" if item.get("Team", {}).get("Team") == 200 else "blue"] = position(item["transform"])
     assert len(barracks) == 2
     lanes.append({"name": suffix.lower(), "points": [position(path["transform"], segment) for segment in path["Segments"]], "spawns": barracks})
+rules_bytes = Path("docs/reference/structure-rules-source.json").read_bytes()
+assert sha(rules_bytes) == "f1768cc3fc00d3b397f36be48ae75d128067a2d6b3ffe25ffa29c3e5c4d50952", "Structure reference changed"
+rules = json.loads(rules_bytes)
+def stats(character):
+    record = rules["records"][character]["record"]
+    def value(key, default=0):
+        return record.get(key, {}).get("baseValue", default)
+    return {"maxHp": value("baseHPModifiable"), "damage": value("baseDamageModifiable"),
+            "armor": value("baseArmorModifiable"), "magicResist": value("baseMR"),
+            "range": value("attackRangeModifiable"),
+            "radius": record.get("overrideGameplayCollisionRadius", record["pathfindingCollisionRadius"]),
+            "attackPeriod": round(60 / value("attackSpeedModifiable")) if value("attackSpeedModifiable") else 0}
+def structure(character, item):
+    record = rules["records"][character]["record"]
+    kind = character.split("/")[1].lower()
+    role = character.rsplit("/",1)[1].removeprefix("SR_").lower() + "-turret" if kind == "turret" else kind
+    lane_id = item.get("AttackableUnit", {}).get("LaneDefinition", {}).get("lane")
+    return {"role": role, "lane": ["bot", "mid", "top"][lane_id] if kind != "nexus" and role != "nexus-turret" else None,
+            "healthBarHeight": record["healthBarHeight"],
+            "regenPerSecond": record.get("baseStaticHPRegenModifiable", {}).get("baseValue", 0) / 5}
+base_structures = []
+for item in nodes:
+    character = item.get("Character", {}).get("CharacterRecord", "")
+    if any(character.startswith(f"Characters/{kind}/CharacterRecords/") for kind in ["Nexus", "Inhibitor"]):
+        base_structures.append({"kind": character.split("/")[1].lower(),
+            "point": position(item["transform"]), "transform": [value for row in item["transform"] for value in row],
+            "team": "red" if item.get("Team", {}).get("Team") == 200 else "blue",
+            "structure": structure(character,item), "stats": stats(character), "sourceKey":item["key"]})
+assert len(base_structures) == 8
 turrets = []
 for item in nodes:
     character = item.get("Character", {}).get("CharacterRecord", "")
     if character.startswith("Characters/Turret/CharacterRecords/"):
-        turrets.append({"point": position(item["transform"]), "height": item["transform"][3][1], "transform": [value for row in item["transform"] for value in row],
+        turrets.append({"point": position(item["transform"]), "stats": stats(character), "structure": structure(character,item), "height": item["transform"][3][1], "transform": [value for row in item["transform"] for value in row],
                         "team": "red" if item.get("Team", {}).get("Team") == 200 else "blue",
                         "tier": character.rsplit("/", 1)[1].removeprefix("SR_"),
                         "lane": item.get("AttackableUnit", {}).get("LaneDefinition", {}).get("lane"),
@@ -61,7 +90,7 @@ for item in nodes:
 assert len(spawns) == 2 and len(lanes) == 3 and len(turrets) == 22
 wave = definitions["{147211fb}"]
 layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawns": spawns,
-          "lanes": lanes, "turrets": turrets,
+          "lanes": lanes, "turrets": turrets, "structures": base_structures,
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
                     "types": [{"kind": {4: "melee", 5: "caster", 6: "siege"}[item["MinionType"]], "behavior": item["WaveBehavior"]}
@@ -84,8 +113,8 @@ with Image.open(io.BytesIO(dds)) as image:
 provenance = {"sources": [
     {"url": "https://raw.communitydragon.org/16.18/game/data/maps/mapgeometry/map11/base_srx.materials.bin.json", "sha256": sha(material_path.read_bytes())},
     {"url": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json", "sha256": sha(definition_path.read_bytes())}],
-    "objects": nodes, "barracksConfigs": {key: definitions[key] for key in ["{147211fb}", "{e61e55a3}"]},
+    "structureRulesSha256": sha(rules_bytes), "objects": nodes, "barracksConfigs": {key: definitions[key] for key in ["{147211fb}", "{e61e55a3}"]},
     "minimapSource": minimap_record,
     "outputs": [{"path": f"public/assets/maps/{name}", "sha256": sha((output / name).read_bytes())} for name in ["rift-layout.json", "rift-minimap.webp"]]}
 Path("docs/reference/rift-layout-source.json").write_text(json.dumps(provenance, indent=2) + "\n")
-print("Exported 2 spawns, 3 lane routes, 6 barracks, 22 turrets, wave configuration, and minimap")
+print("Exported 2 spawns, 3 lane routes, 6 barracks, 22 turrets, 8 base structures, wave configuration, and minimap")

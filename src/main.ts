@@ -82,7 +82,7 @@ async function boot(): Promise<void> {
     const now = performance.now(),
       dt = Math.min((now - previous) / 1000, 0.1);
     previous = now;
-    elapsed += paused ? 0 : dt;
+    elapsed += paused && !world.winner ? 0 : dt;
     frameTime += dt;
     frames++;
     if (frameTime >= 0.5) {

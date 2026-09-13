@@ -730,7 +730,9 @@ button {
 .unit-bar.champion {
   width: 86px;
 }
-.unit-bar.turret {
+.unit-bar.turret,
+.unit-bar.inhibitor,
+.unit-bar.nexus {
   width: 94px;
 }
 .unit-bar.dummy {
@@ -763,6 +765,8 @@ button {
 }
 .champion .unit-hp,
 .turret .unit-hp,
+.inhibitor .unit-hp,
+.nexus .unit-hp,
 .dummy .unit-hp {
   height: 8px;
 }
@@ -1330,4 +1334,19 @@ button {
   .loading-mark {
     animation: none;
   }
+}
+
+.unit-bar.invulnerable .unit-hp {
+  box-shadow: 0 0 0 1px #9fb8be80;
+}
+.game-dialog.result {
+  text-align: center;
+  max-width: 540px;
+}
+.game-dialog.result h2 {
+  font-size: clamp(40px, 6vw, 64px);
+  letter-spacing: 3px;
+}
+.game-dialog.result.defeat h2 {
+  color: #d08073;
 }

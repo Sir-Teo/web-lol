@@ -3,7 +3,7 @@ import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
 import { loadRift } from './rift-assets';
 import { clamp, lerp, type Vec2 } from '../simulation/math';
-import type { Unit } from '../simulation/types';
+import { isStructureKind, type Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
 import { seenFrom } from '../simulation/vision';
 import { buildTerrain, SCALE } from './terrain';
@@ -306,9 +306,9 @@ export class GameView {
       best = Infinity;
     for (const u of world.units) {
       if (!world.alive(u) || !world.visible(u)) continue;
-      const p = this.screenPoint(u, u.kind === 'turret' ? 1.8 : 0.65);
+      const p = this.screenPoint(u, isStructureKind(u.kind) ? 1.8 : 0.65);
       const d = Math.hypot(p.x - x, p.y - y);
-      const radius = u.kind === 'turret' ? 35 : u.kind === 'champion' ? 26 : 19;
+      const radius = isStructureKind(u.kind) ? 35 : u.kind === 'champion' ? 26 : 19;
       if (d < radius && d < best) {
         best = d;
         target = u;
@@ -362,21 +362,21 @@ export class GameView {
       const deathDuration = model.actions?.death?.getClip().duration ?? 0.65;
       model.root.visible =
         world.visible(u) &&
-        (u.kind === 'turret' ||
+        (isStructureKind(u.kind) ||
           u.deadAt === null ||
           world.tick - u.deadAt < (deathDuration + 0.2) * 60);
       const x = lerp(u.previous.x, u.x, alpha),
         y = lerp(u.previous.y, u.y, alpha);
       if (!u.structureTransform) {
         model.root.position.set(x * SCALE, this.ground({ x, y }), y * SCALE);
-        model.root.rotation.y = u.kind === 'dummy' ? 0.3 : u.kind === 'turret' ? 0 : u.facing;
+        model.root.rotation.y = u.kind === 'dummy' ? 0.3 : isStructureKind(u.kind) ? 0 : u.facing;
         model.root.rotation.z =
           u.deadAt === null || model.mixer
             ? 0
             : -Math.min((world.tick - u.deadAt) / 20, Math.PI / 2);
-        if (u.kind === 'turret') model.root.scale.z = -1;
+        if (isStructureKind(u.kind)) model.root.scale.z = -1;
       }
-      if (u.kind === 'turret' && model.mixer && model.actions) {
+      if (isStructureKind(u.kind) && model.mixer && model.actions) {
         const destroyed = u.deadAt !== null;
         if (model.destroyed !== destroyed) {
           for (const part of model.submeshes ?? [])
@@ -389,15 +389,30 @@ export class GameView {
           action.reset().play();
           // The Destroyed state is the initial rubble pose. Respawn sequencing
           // and destruction particles require the separate source event graph.
-          action.paused = destroyed;
+          action.paused = destroyed && !model.animateDestruction;
+          if (destroyed && model.animateDestruction) {
+            action.setLoop(THREE.LoopOnce, 1);
+            action.clampWhenFinished = true;
+          }
           model.mixer.update(0);
           model.actionName = name;
           model.destroyed = destroyed;
         }
-        if (!destroyed) model.mixer.update(animationDelta);
+        if (!destroyed || model.animateDestruction) model.mixer.update(animationDelta);
+        if (
+          destroyed &&
+          model.deadIdleClip &&
+          model.actionName === model.destroyedClip &&
+          model.actions[model.destroyedClip!].time >=
+            model.actions[model.destroyedClip!].getClip().duration
+        ) {
+          model.mixer.stopAllAction();
+          model.actions[model.deadIdleClip].reset().setLoop(THREE.LoopRepeat, Infinity).play();
+          model.actionName = model.deadIdleClip;
+        }
       }
       const moving = Math.hypot(u.x - u.previous.x, u.y - u.previous.y) > 0.01;
-      if (u.kind !== 'turret' && model.mixer && model.actions) {
+      if (!isStructureKind(u.kind) && model.mixer && model.actions) {
         let clip =
           u.deadAt !== null
             ? 'death'
@@ -454,7 +469,7 @@ export class GameView {
       this.selection.position.x = selected.x * SCALE;
       this.selection.position.z = selected.y * SCALE;
       this.selection.position.y = this.ground(selected) + 0.09;
-      this.selection.scale.setScalar(selected.kind === 'turret' ? 2 : 1);
+      this.selection.scale.setScalar(isStructureKind(selected.kind) ? selected.radius / 47.5 : 1);
     }
     const hovered = this.hovered === null ? undefined : world.unit(this.hovered);
     this.hover.visible = !!hovered && world.alive(hovered) && world.visible(hovered);
@@ -515,7 +530,7 @@ export class GameView {
     }
     const screen = this.screenPoint(
       u.structureTransform ? u : p,
-      this.models.get(u.id)?.barHeight ?? (u.kind === 'turret' ? 4.3 : 1.55)
+      this.models.get(u.id)?.barHeight ?? (isStructureKind(u.kind) ? 4.3 : 1.55)
     );
     bar.hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
     if (bar.hidden) return;
@@ -523,8 +538,15 @@ export class GameView {
     (bar.querySelector('.unit-hp i') as HTMLElement).style.width = `${(u.hp / u.maxHp) * 100}%`;
     (bar.querySelector('.unit-mana i') as HTMLElement).style.width =
       `${(u.mana / (u.maxMana || 1)) * 100}%`;
+    bar.classList.toggle('invulnerable', !world.vulnerable(u));
     bar.querySelector('.unit-status')!.textContent =
-      u.stunUntil > world.tick ? 'STUNNED' : u.slowUntil > world.tick ? 'SLOWED' : '';
+      !world.vulnerable(u) && (this.hovered === u.id || this.selected === u.id)
+        ? 'PROTECTED'
+        : u.stunUntil > world.tick
+          ? 'STUNNED'
+          : u.slowUntil > world.tick
+            ? 'SLOWED'
+            : '';
   }
   private syncProjectiles(world: World, alpha: number): void {
     const active = new Set<number>();

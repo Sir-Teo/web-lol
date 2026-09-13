@@ -3,6 +3,7 @@ import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
+import { isStructureKind } from './types';
 import type {
   Ability,
   Command,
@@ -17,6 +18,7 @@ import type {
 
 export class World {
   tick = 0;
+  winner: Team | null = null;
   nextId = 1;
   units: Unit[] = [];
   projectiles: Projectile[] = [];
@@ -60,6 +62,11 @@ export class World {
         const unit = this.spawn(initial.kind, initial.team, initial.point);
         if (initial.name) unit.name = initial.name;
         if (initial.structureTransform) unit.structureTransform = [...initial.structureTransform];
+        if (initial.structure) unit.structure = { ...initial.structure };
+        if (initial.stats) {
+          Object.assign(unit, initial.stats);
+          unit.hp = unit.maxHp;
+        }
         if (initial.ai !== undefined) unit.ai = initial.ai;
       }
   }
@@ -97,18 +104,23 @@ export class World {
   spawn(kind: UnitKind, team: Team, point: Vec2): Unit {
     const champion = kind === 'champion',
       turret = kind === 'turret',
-      dummy = kind === 'dummy';
+      dummy = kind === 'dummy',
+      structure = isStructureKind(kind);
     const hp = champion
       ? 610
       : turret
         ? 3500
-        : dummy
-          ? 1500
-          : kind === 'siege'
-            ? 900
-            : kind === 'melee'
-              ? 477
-              : 296;
+        : kind === 'nexus'
+          ? 5500
+          : kind === 'inhibitor'
+            ? 4000
+            : dummy
+              ? 1500
+              : kind === 'siege'
+                ? 900
+                : kind === 'melee'
+                  ? 477
+                  : 296;
     const u: Unit = {
       id: this.nextId++,
       kind,
@@ -122,10 +134,11 @@ export class World {
       maxHp: hp,
       mana: champion ? 280 : 0,
       maxMana: champion ? 280 : 0,
-      damage: champion ? 59 : turret ? 150 : kind === 'siege' ? 40 : 24,
+      damage: champion ? 59 : turret ? 150 : structure ? 0 : kind === 'siege' ? 40 : 24,
       armor: champion ? 26 : turret ? 40 : 0,
+      magicResist: structure ? 0 : 30,
       range: champion ? 600 : turret ? 775 : kind === 'melee' ? 110 : 550,
-      speed: champion ? 325 : turret || dummy ? 0 : 325,
+      speed: champion ? 325 : structure || dummy ? 0 : 325,
       attackPeriod: champion ? 91 : turret ? 72 : 80,
       windupTicks: champion ? 20 : turret ? 18 : 22,
       missileSpeed: champion ? 2000 : turret ? 1500 : kind === 'melee' ? 0 : 1200,
@@ -142,7 +155,7 @@ export class World {
       slowUntil: 0,
       stunUntil: 0,
       deadAt: null,
-      ai: !champion && !dummy,
+      ai: !champion && !dummy && (!structure || turret),
       nextThink: 0,
       respawnTick: null,
     };
@@ -150,6 +163,7 @@ export class World {
     return u;
   }
   enqueue(command: Command): void {
+    if (this.winner) return;
     this.commands.push(structuredClone(command));
   }
   setOrder(u: Unit, order: Order): void {
@@ -166,7 +180,7 @@ export class World {
     if (u.id === this.player.id) this.player.recallEnd = null;
   }
   step(count = 1): void {
-    for (let i = 0; i < count; i++) this.update();
+    for (let i = 0; i < count && !this.winner; i++) this.update();
   }
   private update(): void {
     this.tick++;
@@ -197,6 +211,8 @@ export class World {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
         continue;
       }
+      if (u.structure?.regenPerSecond)
+        u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
       if (u.stunUntil > this.tick) {
         if (u.releaseTick !== null) {
           u.releaseTick = null;
@@ -209,8 +225,10 @@ export class World {
         u.nextThink = this.tick + 18;
       }
       this.advanceUnit(u);
+      if (this.winner) return;
     }
     this.advanceProjectiles();
+    if (this.winner) return;
     const h = this.hero;
     if (this.player.recallEnd !== null && this.tick >= this.player.recallEnd) {
       h.x = this.battlefield.spawns.blue.x;
@@ -232,7 +250,7 @@ export class World {
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
       (u) =>
-        u.kind === 'turret' ||
+        isStructureKind(u.kind) ||
         u.deadAt === null ||
         u.respawnTick !== null ||
         this.tick - u.deadAt < 4 * TICK_RATE
@@ -306,8 +324,39 @@ export class World {
   eventVisible(event: SimEvent, team: Team = 'blue'): boolean {
     return event.audience.includes(team);
   }
+  vulnerable(unit: Unit): boolean {
+    if (!unit.structure) return true;
+    const peers = this.units.filter((u) => u.team === unit.team && u.structure);
+    const aliveRole = (role: NonNullable<Unit['structure']>['role'], lane = unit.structure!.lane) =>
+      peers.some((u) => u.structure!.role === role && u.structure!.lane === lane && this.alive(u));
+    switch (unit.structure.role) {
+      case 'outer-turret':
+        return true;
+      case 'inner-turret':
+        return !aliveRole('outer-turret');
+      case 'inhibitor-turret':
+        return !aliveRole('outer-turret') && !aliveRole('inner-turret');
+      case 'inhibitor':
+        return (
+          !aliveRole('outer-turret') && !aliveRole('inner-turret') && !aliveRole('inhibitor-turret')
+        );
+      case 'nexus-turret':
+        return peers.some((u) => u.kind === 'inhibitor' && !this.alive(u));
+      case 'nexus':
+        return (
+          peers.some((u) => u.kind === 'inhibitor' && !this.alive(u)) &&
+          !aliveRole('nexus-turret', null)
+        );
+    }
+  }
   private validTarget(u: Unit, target: Unit | undefined): target is Unit {
-    return !!target && target.team !== u.team && this.alive(target) && this.visible(target, u.team);
+    return (
+      !!target &&
+      target.team !== u.team &&
+      this.alive(target) &&
+      this.vulnerable(target) &&
+      this.visible(target, u.team)
+    );
   }
   private nearest(u: Unit, range: number): Unit | undefined {
     let best: Unit | undefined,
@@ -474,7 +523,7 @@ export class World {
         if (!this.alive(u) || u.team === p.team) continue;
         if (p.target !== null && u.id !== p.target) continue;
         if (p.type === 'ultimate' && u.kind !== 'champion' && u.kind !== 'dummy') continue;
-        if (p.type !== 'attack' && u.kind === 'turret') continue;
+        if (p.type !== 'attack' && isStructureKind(u.kind)) continue;
         const t = sweepCircle(p, end, u, p.radius + u.radius);
         if (t !== null && t < first) {
           contact = u;
@@ -499,11 +548,12 @@ export class World {
         survivors.push(p);
       }
     }
-    this.projectiles = survivors;
+    this.projectiles = this.winner ? [] : survivors;
   }
   damage(source: Unit, target: Unit, raw: number, kind: 'physical' | 'magic' | 'true'): void {
-    if (!this.alive(target)) return;
-    const resistance = kind === 'physical' ? target.armor : kind === 'magic' ? 30 : 0;
+    if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;
+    const resistance =
+      kind === 'physical' ? target.armor : kind === 'magic' ? target.magicResist : 0;
     const amount = (raw * 100) / (100 + resistance);
     target.hp = Math.max(0, target.hp - amount);
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
@@ -525,6 +575,16 @@ export class World {
       this.emit('death', target, { unit: target.id });
       if (target.kind === 'champion') target.respawnTick = this.tick + 10 * TICK_RATE;
       if (target.kind === 'dummy') target.respawnTick = this.tick + 3 * TICK_RATE;
+      if (target.kind === 'inhibitor') target.respawnTick = this.tick + 300 * TICK_RATE;
+      if (target.structure?.role === 'nexus-turret')
+        target.respawnTick = this.tick + 180 * TICK_RATE;
+      if (target.kind === 'nexus') {
+        this.winner = target.team === 'blue' ? 'red' : 'blue';
+        this.projectiles.length = 0;
+        this.commands.length = 0;
+        this.pendingSpawns.length = 0;
+        for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
+      }
       if (target.id === this.player.id) {
         this.player.deaths++;
         this.player.recallEnd = null;
@@ -537,17 +597,24 @@ export class World {
               ? 0
               : target.kind === 'turret'
                 ? 250
-                : target.kind === 'siege'
-                  ? 60
-                  : target.kind === 'melee'
-                    ? 21
-                    : 14;
+                : isStructureKind(target.kind)
+                  ? 0
+                  : target.kind === 'siege'
+                    ? 60
+                    : target.kind === 'melee'
+                      ? 21
+                      : 14;
         this.player.gold += gold;
         if (gold) this.emit('gold', this.hero, { value: gold });
         if (target.kind === 'champion') this.player.kills++;
-        else if (target.kind !== 'dummy' && target.kind !== 'turret') this.player.cs++;
+        else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) this.player.cs++;
       }
-      if (target.team === 'red' && target.kind !== 'dummy' && distance(this.hero, target) < 1400) {
+      if (
+        target.team === 'red' &&
+        target.kind !== 'dummy' &&
+        !isStructureKind(target.kind) &&
+        distance(this.hero, target) < 1400
+      ) {
         this.player.xp += target.kind === 'champion' ? 180 : 60;
         const needed = 280 + (this.player.level - 1) * 100;
         if (this.player.xp >= needed && this.player.level < 18) {
@@ -562,8 +629,9 @@ export class World {
     }
   }
   private respawn(u: Unit): void {
-    const point =
-      u.id === this.player.id
+    const point = isStructureKind(u.kind)
+      ? { x: u.x, y: u.y }
+      : u.id === this.player.id
         ? this.battlefield.spawns.blue
         : u.kind === 'dummy'
           ? { x: u.x, y: u.y }
@@ -571,7 +639,7 @@ export class World {
     u.x = point.x;
     u.y = point.y;
     u.previous = { ...point };
-    u.hp = u.maxHp;
+    u.hp = u.maxHp * (u.structure?.role === 'nexus-turret' ? 0.4 : 1);
     u.mana = u.maxMana;
     u.deadAt = null;
     u.respawnTick = null;
@@ -653,6 +721,7 @@ export class World {
     }
   }
   buy(itemId: string): string | null {
+    if (this.winner) return 'The game has ended';
     const item = ITEMS.find((i) => i.id === itemId);
     if (!item) return 'Unknown item';
     if (distance(this.hero, this.battlefield.spawns.blue) > 400 && this.hero.hp > 0)
@@ -671,7 +740,8 @@ export class World {
   }
   snapshot(): string {
     return JSON.stringify({
-      version: 2,
+      version: 3,
+      winner: this.winner,
       battlefield: this.battlefield.id,
       pendingSpawns: this.pendingSpawns,
       tick: this.tick,
