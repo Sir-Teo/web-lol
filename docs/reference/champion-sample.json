@@ -1,0 +1,752 @@
+{
+  "retrieved_at_utc": "2026-09-13T01:04:49.806351+00:00",
+  "reference_gameplay_patch": "26.18",
+  "data_dragon_version": "16.18.1",
+  "status": "Source field observations only; not a validated executable ruleset. Range, cooldown, and growth fields need semantic and patch reconciliation.",
+  "champions": [
+    {
+      "champion": "Ashe",
+      "source_url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Ashe.json",
+      "source_sha256": "aa2ec02303c2dd14c90538bdbf19cce2c1a859ffc9c62c6fde8c968140cad1a0",
+      "data_version": "16.18.1",
+      "base_stats": {
+        "hp": 610,
+        "hpperlevel": 101,
+        "mp": 280,
+        "mpperlevel": 35,
+        "movespeed": 325,
+        "armor": 26,
+        "armorperlevel": 4.6,
+        "spellblock": 33,
+        "spellblockperlevel": 1.1,
+        "attackrange": 600,
+        "hpregen": 3.5,
+        "hpregenperlevel": 0.55,
+        "mpregen": 7,
+        "mpregenperlevel": 0.65,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 59,
+        "attackdamageperlevel": 0,
+        "attackspeedperlevel": 3,
+        "attackspeed": 0.658
+      },
+      "spell_fields": [
+        {
+          "id": "AsheQ",
+          "name": "Ranger's Focus",
+          "cooldown": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cost": [
+            30,
+            30,
+            30,
+            30,
+            30
+          ],
+          "range": [
+            400,
+            400,
+            400,
+            400,
+            400
+          ]
+        },
+        {
+          "id": "Volley",
+          "name": "Volley",
+          "cooldown": [
+            18,
+            14.5,
+            11,
+            7.5,
+            4
+          ],
+          "cost": [
+            75,
+            70,
+            65,
+            60,
+            55
+          ],
+          "range": [
+            1200,
+            1200,
+            1200,
+            1200,
+            1200
+          ]
+        },
+        {
+          "id": "AsheSpiritOfTheHawk",
+          "name": "Hawkshot",
+          "cooldown": [
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "cost": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "range": [
+            25000,
+            25000,
+            25000,
+            25000,
+            25000
+          ]
+        },
+        {
+          "id": "EnchantedCrystalArrow",
+          "name": "Enchanted Crystal Arrow",
+          "cooldown": [
+            100,
+            80,
+            60
+          ],
+          "cost": [
+            100,
+            100,
+            100
+          ],
+          "range": [
+            25000,
+            25000,
+            25000
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "Ahri",
+      "source_url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Ahri.json",
+      "source_sha256": "81d9f3d8e34d14e6d916af330c0e624aa0e7fabb12d8b900429c076fc56a7364",
+      "data_version": "16.18.1",
+      "base_stats": {
+        "hp": 590,
+        "hpperlevel": 104,
+        "mp": 418,
+        "mpperlevel": 25,
+        "movespeed": 330,
+        "armor": 21,
+        "armorperlevel": 4.2,
+        "spellblock": 30,
+        "spellblockperlevel": 1.3,
+        "attackrange": 550,
+        "hpregen": 2.5,
+        "hpregenperlevel": 0.6,
+        "mpregen": 8,
+        "mpregenperlevel": 0.8,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 53,
+        "attackdamageperlevel": 0,
+        "attackspeedperlevel": 2.2,
+        "attackspeed": 0.668
+      },
+      "spell_fields": [
+        {
+          "id": "AhriQ",
+          "name": "Orb of Deception",
+          "cooldown": [
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "cost": [
+            55,
+            65,
+            75,
+            85,
+            95
+          ],
+          "range": [
+            970,
+            970,
+            970,
+            970,
+            970
+          ]
+        },
+        {
+          "id": "AhriW",
+          "name": "Fox-Fire",
+          "cooldown": [
+            9,
+            8,
+            7,
+            6,
+            5
+          ],
+          "cost": [
+            30,
+            30,
+            30,
+            30,
+            30
+          ],
+          "range": [
+            700,
+            700,
+            700,
+            700,
+            700
+          ]
+        },
+        {
+          "id": "AhriE",
+          "name": "Charm",
+          "cooldown": [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          "cost": [
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "range": [
+            975,
+            975,
+            975,
+            975,
+            975
+          ]
+        },
+        {
+          "id": "AhriR",
+          "name": "Spirit Rush",
+          "cooldown": [
+            140,
+            120,
+            100
+          ],
+          "cost": [
+            100,
+            100,
+            100
+          ],
+          "range": [
+            450,
+            450,
+            450
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "Lux",
+      "source_url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Lux.json",
+      "source_sha256": "d8cc49a6ebc72344755cc15d39a569b41bd96482fa2073f397fd65303fc9d210",
+      "data_version": "16.18.1",
+      "base_stats": {
+        "hp": 580,
+        "hpperlevel": 99,
+        "mp": 440,
+        "mpperlevel": 23.5,
+        "movespeed": 330,
+        "armor": 21,
+        "armorperlevel": 5.2,
+        "spellblock": 30,
+        "spellblockperlevel": 1.3,
+        "attackrange": 550,
+        "hpregen": 5.5,
+        "hpregenperlevel": 0.55,
+        "mpregen": 9,
+        "mpregenperlevel": 0.8,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 54,
+        "attackdamageperlevel": 0,
+        "attackspeedperlevel": 3,
+        "attackspeed": 0.669
+      },
+      "spell_fields": [
+        {
+          "id": "LuxLightBinding",
+          "name": "Light Binding",
+          "cooldown": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          "cost": [
+            50,
+            50,
+            50,
+            50,
+            50
+          ],
+          "range": [
+            1175,
+            1175,
+            1175,
+            1175,
+            1175
+          ]
+        },
+        {
+          "id": "LuxPrismaticWave",
+          "name": "Prismatic Barrier",
+          "cooldown": [
+            12,
+            11.5,
+            11,
+            10.5,
+            10
+          ],
+          "cost": [
+            60,
+            65,
+            70,
+            75,
+            80
+          ],
+          "range": [
+            1150,
+            1150,
+            1150,
+            1150,
+            1150
+          ]
+        },
+        {
+          "id": "LuxLightStrikeKugel",
+          "name": "Lucent Singularity",
+          "cooldown": [
+            10,
+            9.5,
+            9,
+            8.5,
+            8
+          ],
+          "cost": [
+            70,
+            80,
+            90,
+            100,
+            110
+          ],
+          "range": [
+            1100,
+            1100,
+            1100,
+            1100,
+            1100
+          ]
+        },
+        {
+          "id": "LuxR",
+          "name": "Final Spark",
+          "cooldown": [
+            60,
+            50,
+            40
+          ],
+          "cost": [
+            100,
+            100,
+            100
+          ],
+          "range": [
+            3340,
+            3340,
+            3340
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "Garen",
+      "source_url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Garen.json",
+      "source_sha256": "17c0ee01c176374d581ac9d1bee250d9d8256ff12a6e86259e223e21f61f2902",
+      "data_version": "16.18.1",
+      "base_stats": {
+        "hp": 690,
+        "hpperlevel": 98,
+        "mp": 0,
+        "mpperlevel": 0,
+        "movespeed": 340,
+        "armor": 38,
+        "armorperlevel": 4.2,
+        "spellblock": 32,
+        "spellblockperlevel": 1.55,
+        "attackrange": 175,
+        "hpregen": 8,
+        "hpregenperlevel": 0.5,
+        "mpregen": 0,
+        "mpregenperlevel": 0,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 69,
+        "attackdamageperlevel": 0,
+        "attackspeedperlevel": 3.65,
+        "attackspeed": 0.625
+      },
+      "spell_fields": [
+        {
+          "id": "GarenQ",
+          "name": "Decisive Strike",
+          "cooldown": [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "cost": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "range": [
+            300,
+            300,
+            300,
+            300,
+            300
+          ]
+        },
+        {
+          "id": "GarenW",
+          "name": "Courage",
+          "cooldown": [
+            22,
+            19.5,
+            17,
+            14.5,
+            12
+          ],
+          "cost": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "range": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "GarenE",
+          "name": "Judgment",
+          "cooldown": [
+            9,
+            8.25,
+            7.5,
+            6.75,
+            6
+          ],
+          "cost": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "range": [
+            325,
+            325,
+            325,
+            325,
+            325
+          ]
+        },
+        {
+          "id": "GarenR",
+          "name": "Demacian Justice",
+          "cooldown": [
+            120,
+            100,
+            80
+          ],
+          "cost": [
+            0,
+            0,
+            0
+          ],
+          "range": [
+            400,
+            400,
+            400
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "MasterYi",
+      "source_url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/MasterYi.json",
+      "source_sha256": "3033f20c6b3ca69c0d56cdd55231e93971c7123e1a56dc8611bb7367b95a974a",
+      "data_version": "16.18.1",
+      "base_stats": {
+        "hp": 640,
+        "hpperlevel": 105,
+        "mp": 251,
+        "mpperlevel": 42,
+        "movespeed": 355,
+        "armor": 33,
+        "armorperlevel": 5,
+        "spellblock": 32,
+        "spellblockperlevel": 2.05,
+        "attackrange": 175,
+        "hpregen": 7.5,
+        "hpregenperlevel": 0.65,
+        "mpregen": 7.25,
+        "mpregenperlevel": 0.45,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 65,
+        "attackdamageperlevel": 0,
+        "attackspeedperlevel": 2.5,
+        "attackspeed": 0.679
+      },
+      "spell_fields": [
+        {
+          "id": "AlphaStrike",
+          "name": "Alpha Strike",
+          "cooldown": [
+            20,
+            19.5,
+            19,
+            18.5,
+            18
+          ],
+          "cost": [
+            50,
+            55,
+            60,
+            65,
+            70
+          ],
+          "range": [
+            600,
+            600,
+            600,
+            600,
+            600
+          ]
+        },
+        {
+          "id": "Meditate",
+          "name": "Meditate",
+          "cooldown": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          "cost": [
+            40,
+            40,
+            40,
+            40,
+            40
+          ],
+          "range": [
+            20,
+            20,
+            20,
+            20,
+            20
+          ]
+        },
+        {
+          "id": "WujuStyle",
+          "name": "Wuju Style",
+          "cooldown": [
+            14,
+            14,
+            14,
+            14,
+            14
+          ],
+          "cost": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "range": [
+            20,
+            20,
+            20,
+            20,
+            20
+          ]
+        },
+        {
+          "id": "Highlander",
+          "name": "Highlander",
+          "cooldown": [
+            85,
+            85,
+            85
+          ],
+          "cost": [
+            100,
+            100,
+            100
+          ],
+          "range": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "Leona",
+      "source_url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Leona.json",
+      "source_sha256": "1c8cafec74033be85ce2b6fd76e3916dddc2517445c9f6a66b9bee6cedaabc42",
+      "data_version": "16.18.1",
+      "base_stats": {
+        "hp": 646,
+        "hpperlevel": 101,
+        "mp": 302,
+        "mpperlevel": 40,
+        "movespeed": 335,
+        "armor": 43,
+        "armorperlevel": 4.8,
+        "spellblock": 32,
+        "spellblockperlevel": 2.05,
+        "attackrange": 125,
+        "hpregen": 8.5,
+        "hpregenperlevel": 0.85,
+        "mpregen": 6,
+        "mpregenperlevel": 0.8,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 60,
+        "attackdamageperlevel": 0,
+        "attackspeedperlevel": 2.9,
+        "attackspeed": 0.625
+      },
+      "spell_fields": [
+        {
+          "id": "LeonaShieldOfDaybreak",
+          "name": "Shield of Daybreak",
+          "cooldown": [
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "cost": [
+            30,
+            35,
+            40,
+            45,
+            50
+          ],
+          "range": [
+            100,
+            100,
+            100,
+            100,
+            100
+          ]
+        },
+        {
+          "id": "LeonaSolarBarrier",
+          "name": "Eclipse",
+          "cooldown": [
+            14,
+            13,
+            12,
+            11,
+            10
+          ],
+          "cost": [
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "range": [
+            450,
+            450,
+            450,
+            450,
+            450
+          ]
+        },
+        {
+          "id": "LeonaZenithBlade",
+          "name": "Zenith Blade",
+          "cooldown": [
+            12,
+            10.5,
+            9,
+            7.5,
+            6
+          ],
+          "cost": [
+            40,
+            45,
+            50,
+            55,
+            60
+          ],
+          "range": [
+            875,
+            875,
+            875,
+            875,
+            875
+          ]
+        },
+        {
+          "id": "LeonaSolarFlare",
+          "name": "Solar Flare",
+          "cooldown": [
+            90,
+            75,
+            60
+          ],
+          "cost": [
+            100,
+            100,
+            100
+          ],
+          "range": [
+            1200,
+            1200,
+            1200
+          ]
+        }
+      ]
+    }
+  ]
+}
