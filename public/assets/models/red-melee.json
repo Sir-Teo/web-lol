@@ -1,0 +1,83 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching patch 16.18 base minion sources. Reference presentation still requires gameplay capture calibration.",
+  "output": {
+    "path": "/assets/models/red-melee.glb",
+    "bytes": 424436,
+    "sha256": "ed2e1dc508ebb5d96e73904501e72599cdbe167b325840cb33d3211d1a37e536"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/chaos_minion_melee.skl",
+      "wadPathHash": "20ab60e14c592c87",
+      "sha256": "e5dbfef4f0e334f9b1837d6782eec6f7d0db8ce9dbe43ace9c136d2b75ec558b",
+      "bytes": 5432
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_death.anm",
+      "wadPathHash": "4c641de9a3081b9c",
+      "sha256": "386fbc7cb9ccd29f6323778d77435cf41020274d08aeb4ff9568d3786a020bbd",
+      "bytes": 18642
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/animations/minion_melee_attack.anm",
+      "wadPathHash": "6972cfa9b1dea807",
+      "sha256": "a31bdfdbee19678308e27310a04456e8d183137b1b2cead4bde3a99e9374177b",
+      "bytes": 15130
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/chaosminion_melee_tx_cm.tex",
+      "wadPathHash": "a4c1095e9f4988fb",
+      "sha256": "190d1ed78685d0ae095c3507af62cef54b21e46d4801598eefe13649cf72a2e6",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/chaos_minion_melee.skn",
+      "wadPathHash": "c6925e5e4594d088",
+      "sha256": "385353d2448d07ab63ad24366ba7105e0882930aeb9d8b8b2793308c715fedb0",
+      "bytes": 55602
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_idle.anm",
+      "wadPathHash": "f5a12f2c1262cbe7",
+      "sha256": "1d8daf259fddd2109dbfeb42cb52fd183e3f75677b501ea14feecc5f8dbff0f8",
+      "bytes": 7042
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_run.anm",
+      "wadPathHash": "fa323de31679bd27",
+      "sha256": "954b1afc41ceb383f923ce7200c144841a0c9a64fd3f3ad9212673eb52635308",
+      "bytes": 10564
+    }
+  ],
+  "skinScale": 0.7400000095367432,
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionmelee/skins/skin0.bin.json",
+    "animations": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionmelee/animations/skin0.bin.json"
+  },
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_idle.anm"
+    },
+    {
+      "name": "run",
+      "source": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_run.anm"
+    },
+    {
+      "name": "attack1",
+      "source": "assets/characters/sru_chaosminionmelee/skins/base/animations/minion_melee_attack.anm"
+    },
+    {
+      "name": "death",
+      "source": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_death.anm"
+    }
+  ],
+  "triangles": 1223,
+  "bones": 43
+}

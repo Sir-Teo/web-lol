@@ -1,0 +1,83 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching patch 16.18 base minion sources. Reference presentation still requires gameplay capture calibration.",
+  "output": {
+    "path": "/assets/models/red-siege.glb",
+    "bytes": 516764,
+    "sha256": "9b21a8cbd9351f12ee40d513b001493616bb7b837e20cc78e72e57b65df390ff"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_death1.anm",
+      "wadPathHash": "457e563d9e570be9",
+      "sha256": "cde56ab85566a98ef71ba661e6b46c43fe89acbf83e042150da38fb10c5ad720",
+      "bytes": 22488
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/chaos_minion_siege.skn",
+      "wadPathHash": "59036ba50a602d88",
+      "sha256": "5ff119782619eef5f344b579037b1b9eb2682742c14c3e415a3347cdc4c7d65e",
+      "bytes": 75522
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_attack1.anm",
+      "wadPathHash": "6ff2150bac8efb05",
+      "sha256": "db33ffbe757c69d9ab37f420aef42a9c9c0b17f04c8bce52f96caca69d1a7c83",
+      "bytes": 13168
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/chaos_minion_siege_tx_cm.tex",
+      "wadPathHash": "c44053e5acdf1692",
+      "sha256": "4de294116499c185f3dd11134120c08647492cda5e69b1ba1851023e84f9066a",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/chaos_minion_siege.skl",
+      "wadPathHash": "d315f3f25532e118",
+      "sha256": "ffb78ad37c484af23937cbbd92e66af33882dc963e1646d8fc29ec8e1d45848e",
+      "bytes": 5024
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_idle1.anm",
+      "wadPathHash": "ec880df31400e40c",
+      "sha256": "e315d27274331967b954f1d3c35b8037d7fc5aabf170ecf6eac1d01079ff1489",
+      "bytes": 28598
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_run1.anm",
+      "wadPathHash": "f8a04184fa05e3af",
+      "sha256": "4bfde438a4c7ba082a7d7cb1795f53d42c6d90d1089692bac293ccdf02cf8220",
+      "bytes": 33218
+    }
+  ],
+  "skinScale": 0.925000011920929,
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionsiege/skins/skin0.bin.json",
+    "animations": "https://raw.communitydragon.org/16.18/game/data/characters/sru_chaosminionsiege/animations/skin0.bin.json"
+  },
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_idle1.anm"
+    },
+    {
+      "name": "run",
+      "source": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_run1.anm"
+    },
+    {
+      "name": "attack1",
+      "source": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_attack1.anm"
+    },
+    {
+      "name": "death",
+      "source": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_death1.anm"
+    }
+  ],
+  "triangles": 1605,
+  "bones": 40
+}

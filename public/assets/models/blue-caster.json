@@ -1,0 +1,83 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching patch 16.18 base minion sources. Reference presentation still requires gameplay capture calibration.",
+  "output": {
+    "path": "/assets/models/blue-caster.glb",
+    "bytes": 500496,
+    "sha256": "ff550b7d9b25224b0c721f65e622a3100425d627001e5966e0c677200f709ee5"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_attack1.anm",
+      "wadPathHash": "1540c760c16248be",
+      "sha256": "d7c13e235035aec81a4796ee7105c1d95193fe9e4fad7163931a2930ca023159",
+      "bytes": 10922
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_run.anm",
+      "wadPathHash": "20550b99206279cd",
+      "sha256": "103089a165381ca3ae1393837200568b264ac8588e84665a4a09b51f630a76e8",
+      "bytes": 13174
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/orderminion_caster_tx_cm.tex",
+      "wadPathHash": "266f84c90b6bf009",
+      "sha256": "393c4a04a066767aed41ffd431ebcb252ae1f4d878aa348782d7dd227683b16b",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/order_minion_caster.skn",
+      "wadPathHash": "308f2af266d4fe9d",
+      "sha256": "44654d4d6ee543bc6587740b4d54f6f06712958bb797f9b56384535a108de680",
+      "bytes": 48294
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/order_minion_caster.skl",
+      "wadPathHash": "59147908decd4448",
+      "sha256": "8526a2669f8e9c2d3d40063b7d1d9c443a80f7624bdc57e045762b90b06ad693",
+      "bytes": 5416
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_death3.anm",
+      "wadPathHash": "aa4b77d339502646",
+      "sha256": "33bb541cee8323df9f5a3ca819376969d0807b64b9ce73b8ae3b55a86d4e37f5",
+      "bytes": 21134
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_idle.anm",
+      "wadPathHash": "fa0bf462a64e323e",
+      "sha256": "ebd4d3f72a96599f0f457c38b1c469fbdcd5d364a6dc02f46cafe90ae74b9fc2",
+      "bytes": 7172
+    }
+  ],
+  "skinScale": 0.7599999904632568,
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionranged/skins/skin0.bin.json",
+    "animations": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionranged/animations/skin0.bin.json"
+  },
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_idle.anm"
+    },
+    {
+      "name": "run",
+      "source": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_run.anm"
+    },
+    {
+      "name": "attack1",
+      "source": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_attack1.anm"
+    },
+    {
+      "name": "death",
+      "source": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_death3.anm"
+    }
+  ],
+  "triangles": 1071,
+  "bones": 43
+}

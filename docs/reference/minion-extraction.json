@@ -1,0 +1,1038 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "chunks": {
+    "A02D372F5DF76CAD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 39736250,
+      "bytes": 223610,
+      "sha256": "497b48b952a25d9d549a9072d1b2968fced9ac4b0adb323b55d374bdb883ec4b"
+    },
+    "6C7FBEFDF21793B9": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 39959860,
+      "bytes": 258644,
+      "sha256": "f23ef45618318e6d6c3a909b86fc1846003544eeb901caeb4d180d5990932397"
+    },
+    "28395A168DBE5BA0": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 40218504,
+      "bytes": 183351,
+      "sha256": "70bced407e6680cc97032f924a5f3e16f886d1ac327f1146713dbfe168cc87c4"
+    },
+    "902BE54057D2F816": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 40401855,
+      "bytes": 5831,
+      "sha256": "02c40cc44fd863d50514ee0ffd10a54d3ff9e9af1d6fac6ef4cb1d461f16d4d5"
+    },
+    "FEB9FC9832147ADC": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 12867106,
+      "bytes": 266544,
+      "sha256": "5682b05473d220685c2b21546fb68b91041f0ebefc44b3c78b84ca10d62f61a0"
+    },
+    "6D0CD365EE99DF0A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 11930224,
+      "bytes": 16277,
+      "sha256": "9d7bf710d98607323e4764e60d08dfc813fb8beba31b4f1191b324a56cf4d9a1"
+    },
+    "68AB2C4F0C556263": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 15241176,
+      "bytes": 16692,
+      "sha256": "59d562d18b4fa2b609b084fc7b0ac1e873a4507ce9c369f5d582301850afa004"
+    },
+    "2F07CFE630ABC884": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 21714378,
+      "bytes": 109669,
+      "sha256": "3102840b456cb46279cac9f9f180bed335379d487f8e57887d14f415f341e332"
+    },
+    "BE226B7F8356C3C8": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0E1B5DF5483B08F7.bundle",
+      "offset": 22876030,
+      "bytes": 8744,
+      "sha256": "e1771a00fde3c4de55bc8128977a6c17398133311b36ef665ee8f4749bc9038a"
+    },
+    "5161A747B399FDCE": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 5355538,
+      "bytes": 2017,
+      "sha256": "14240f93dc81b5351a2c73dda29b0663011a51fa1c7795fc8dc42545e8cf7e99"
+    },
+    "CA1A1C9B0E5A5D45": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 22388789,
+      "bytes": 6324,
+      "sha256": "d14813a40febddf29e388c1a5960859bca6841b2be83833c5454c48ab74a61ab"
+    },
+    "EDBD75057B9EB0FF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 2313263,
+      "bytes": 8427,
+      "sha256": "2cebedf6c35de184bd49379b73c33b7251e2e2be4d1713e44a41f0519fe23f43"
+    },
+    "263D77DE28888C76": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+      "offset": 17954808,
+      "bytes": 6693,
+      "sha256": "5124d0bb3f0201a3e90a796a7fe4fb06a09094aa0202b8a42d81e37d74af5470"
+    },
+    "4F2D7AA80AA7BD14": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 22023815,
+      "bytes": 20300,
+      "sha256": "6d03006db006b80373da3fc332082aae7a6b77edb8bdabd2feea28ecbfe5a908"
+    },
+    "2CC19CEAEA93333B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 21636982,
+      "bytes": 106374,
+      "sha256": "861e5b4085aa8a12d1ae88bce81d2c0f6ecf0202744d6b78701e5349fff1795a"
+    },
+    "761283FE27F4FE14": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 6241951,
+      "bytes": 7412,
+      "sha256": "e93f6ee9156ef8680905eeda063db0887b32dc5968f70e1f993fc905237d9375"
+    },
+    "58D326A332F5C597": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 6435083,
+      "bytes": 2374,
+      "sha256": "06f6f94054b817d85a691d6fba96ceada7220928027710a75440c092af3fac4f"
+    },
+    "90090549DEBEE6E5": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+      "offset": 7097244,
+      "bytes": 119072,
+      "sha256": "912098a6ef96f023657e17a5ad509e13f42d8b8dc2b1e3640809bc26a89aadce"
+    },
+    "0EB672D77ED3C4D4": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 11760809,
+      "bytes": 125727,
+      "sha256": "fcd49130d9ba534288a1f53054d11b24992b39768afde98e5e7f2d028b77bc95"
+    },
+    "1E61BACB47F140CD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 11836635,
+      "bytes": 3121,
+      "sha256": "a6fd72c2168f7157f630b0c8ed70af67d7b97bdd23987efc0934849ea36e6246"
+    },
+    "8DA8CBFB9579D75F": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 16498142,
+      "bytes": 13277,
+      "sha256": "85047e216a4dad3a3a9b68d9eb11ad28d5874b643a79772a6f608e11923801c8"
+    },
+    "A956EF631B50180B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 6416110,
+      "bytes": 5576,
+      "sha256": "b0b8bcf2a17ebf6249a252fef853b0f2ebd29fa9e24d8aa117f0f616b0b3363f"
+    },
+    "F4D6169AF6C28CC3": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+      "offset": 24169292,
+      "bytes": 23798,
+      "sha256": "30255127332d27200d873917ba9a6202a4f1bb2345279911713f7c827cabb7d0"
+    },
+    "A5717AA5182E7A24": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 28201622,
+      "bytes": 6404,
+      "sha256": "582f7a07c75a0826cb7bba0fb7475308c87fbd8a72ea26a8a9bad07880a96e4e"
+    },
+    "3555DD2A39782861": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+      "offset": 33317247,
+      "bytes": 3437,
+      "sha256": "2ebadd224a97c970a622663f71a2b7021349a4a81615a58910bcd5c680ffd7bd"
+    },
+    "859A616C9F5A90A5": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 22273691,
+      "bytes": 14458,
+      "sha256": "2fca9878b4e3b410bd4e72659a9f33dac5175761fb81af47ab1268246465b4c2"
+    },
+    "10FB0515CCCC1A21": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+      "offset": 9855797,
+      "bytes": 12238,
+      "sha256": "51a4a10bb02731489f8bbf42e87e089655c4c54ed825791840f0eb8b376c822d"
+    },
+    "F5934B6D9FC4F78A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 1077183,
+      "bytes": 2870,
+      "sha256": "bc2cc7e720b90aec806461046a880beae9305e2e03aa763e20ad4e60340350d1"
+    },
+    "59590A76F9AABF55": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 1628628,
+      "bytes": 17614,
+      "sha256": "67671372a3bd5058fbcce4a76c7d1115d52cfb2afd7c8f57771a25b3ce01f159"
+    },
+    "8ACBA95317E295B3": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 15356503,
+      "bytes": 5601,
+      "sha256": "1f3c8d78bba7efb75a23f261d0192ced54a33657d7d492695d41675871f1e40a"
+    },
+    "D6D41ED8801C6C82": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 24368991,
+      "bytes": 37477,
+      "sha256": "c715e667ca08fa04d64e3b67ccafdc00fe55ea49354ff05cb9a34afa863b08c5"
+    },
+    "9FF6A7DF915B6558": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 725109,
+      "bytes": 2271,
+      "sha256": "9076b693116a1ab9deeaf726d0614cd5bbee156d2102fb9c6357ea2af1e4fd37"
+    },
+    "683DB240A2776C6B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 13084551,
+      "bytes": 100025,
+      "sha256": "34acefdd4a928dfbada6864d50adc198254daaf55f7dfe84ea982b26427dfef7"
+    },
+    "1CC54F63CCCE93ED": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 13235712,
+      "bytes": 13045,
+      "sha256": "9ce4408dc8f14d5de710ceb13db5029c5449bec325c074569f0ea796eae9834a"
+    },
+    "657A657B599E0FE9": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 11757169,
+      "bytes": 44372,
+      "sha256": "fd279eb85d28f8ed5e8dd9d2266a2dd50dc79d7073e42889510c2ae1017da56b"
+    },
+    "F69578B45B8E2879": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 9139720,
+      "bytes": 48417,
+      "sha256": "682f1e691c356ddfc8bac450c2a3ef0ab347eb4a5f7128fc5353c06ccb1c7761"
+    },
+    "F3DDF5A2D61B6C30": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 9363156,
+      "bytes": 104011,
+      "sha256": "52eab2fbcb05a305c282e2c9082e4a0cb75fded26ab8e6b75d80b04863f8b847"
+    },
+    "C10603A4950A60A2": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 29193262,
+      "bytes": 8853,
+      "sha256": "7114d7466fa5926bada3f74ee0d18df7c5242fed07af14381127dd8bd632dd5a"
+    },
+    "3362B61BFB2EF08E": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 16053080,
+      "bytes": 7034,
+      "sha256": "33af0c1a91e1ef4cea2ae858cc951928ee248c2a4019dc90d1ae2b1fae0100d8"
+    },
+    "87880CD37247E39D": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+      "offset": 5695543,
+      "bytes": 108158,
+      "sha256": "0f41dea1f71750635d77e09b8c5538d0ba0a4092c559c6de3d4852863ce35da1"
+    },
+    "DC1FF0098AA1EF4A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6F5F679CDBD4ABC8.bundle",
+      "offset": 28761123,
+      "bytes": 37800,
+      "sha256": "0ee20b5c6f1d0be48d8c387c41bc9d078872aece6df8112190bd9719884f52b5"
+    },
+    "3EB24C3EE0B6D1A2": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 3343375,
+      "bytes": 8161,
+      "sha256": "39b18529bd7c42afc00e07dc3bae68f264305620563e98b5d0b8ec2499ea7cbf"
+    },
+    "8430F2682C6D8876": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 26013377,
+      "bytes": 89896,
+      "sha256": "3e0b45917d3875f0d594db65d1398683855b9fd7bcda6708cea0ba3444cf1cdf"
+    },
+    "24B31E3D1B5906BF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 11068827,
+      "bytes": 4373,
+      "sha256": "651e7c9bf25e5b0da2d69c7170a62ddd4b71d7d68287c40a72a147da6ece1d7f"
+    },
+    "0D0A38F46E0DC891": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+      "offset": 39003858,
+      "bytes": 18916,
+      "sha256": "d6ae13491a29472d44513ad0fb602761284e7dfd96b07d672fb5eaa9970ef8dd"
+    },
+    "45FD1F01BFE01163": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 11974263,
+      "bytes": 3277,
+      "sha256": "83eb0d1908c68821a2989c78500eb59a502d3812b7972cefa3ac72e9548d2f5f"
+    },
+    "65E04109F8C00FDF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+      "offset": 11635242,
+      "bytes": 8189,
+      "sha256": "4646880d5066dcb8e4fc47e7e2c9cc673845fc9b2b95663b55cfafbe7346afd6"
+    },
+    "970AA501CAB3AAB2": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3C895C1914F20F08.bundle",
+      "offset": 37315960,
+      "bytes": 94193,
+      "sha256": "de81733dc04d1ff6bbdf62ecee01a32f307a147105e1b8ce0f1f51c565c81e21"
+    },
+    "F64DC485EE4BF339": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 5689444,
+      "bytes": 14493,
+      "sha256": "9252c92ef48c5d2a9d4dee64567f6018602fac3e00060ece5043925fe3972f41"
+    },
+    "BA193835B8D3EF3C": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 10281904,
+      "bytes": 6029,
+      "sha256": "3202e0680382cb5604496e2677e669b89b276e00cad468953c4a1fdcb8f988ad"
+    },
+    "E4B12794BD6C0F18": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+      "offset": 1190967,
+      "bytes": 14132,
+      "sha256": "3084a1bcd283913ff406e1b563e13563a44da4f4f9699fc31fd27a8be75ac9dc"
+    },
+    "B352642E5AAD8F7B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 10300031,
+      "bytes": 63178,
+      "sha256": "ec3d2206eb4035b98c3af2e411d28c54e7bfa402b49409f5f7475d6401a28dac"
+    },
+    "E9BB2944D42D4D25": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 15397032,
+      "bytes": 132906,
+      "sha256": "7004e0b87636f04fc4aa1e1b92403a1349426df6e1d25add21380cc65528d9b0"
+    },
+    "795A2AFEE32EFA88": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 12448450,
+      "bytes": 63167,
+      "sha256": "9e9fa942eec10987cf71dab7b6f7102d62d4e9a08fae862cc4e1d974f622863c"
+    },
+    "C225F7E8C37E24DB": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 23128247,
+      "bytes": 8231,
+      "sha256": "7bd24dce3992631b781b9766f905f1ea49b715b89afa913de7952e3f22dad965"
+    },
+    "9E50A170B84A15E9": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 2444027,
+      "bytes": 8584,
+      "sha256": "0003059c67ce07270eda033a49491f22e610882a6a3a03157f1c705f9463ed77"
+    },
+    "AE2533307E6E24A2": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+      "offset": 19102246,
+      "bytes": 10937,
+      "sha256": "d62f727742083d0474381d5602611ca7239612a4d1bc5e42aa0b5980abcaead0"
+    },
+    "218A5A3F3A0C893F": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 5227910,
+      "bytes": 70513,
+      "sha256": "4f577808e65bfdb8f4003c45b5be2ac1806e7505c2b4d330a0c03d44aebc5745"
+    },
+    "7EEE7D736305CEED": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 5298423,
+      "bytes": 36903,
+      "sha256": "8183fc788a7d2860ecb69b7a34792568e3242707049d61efe4cad6ba9af8b546"
+    },
+    "C8CF76B83AAD7A32": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+      "offset": 11765781,
+      "bytes": 6495,
+      "sha256": "bcd4c5d210a8b3efbaf05da08329f9e75c282870fe14148e76fb7747e75e6e07"
+    },
+    "95EFAEEF1E9E27CF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 22368526,
+      "bytes": 2361,
+      "sha256": "ad1d32a7bf55808de1743f96c7ac333289033d879de83fab805bc53daa4211f6"
+    },
+    "427E3060FB11A9C7": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+      "offset": 19572463,
+      "bytes": 6722,
+      "sha256": "6519a152263911ec735ed6b8432da2a57493bd43fb972720f35ee1ae43de4039"
+    },
+    "9CFD5987AB2CD7F3": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 28833212,
+      "bytes": 13135,
+      "sha256": "0a662476ab5470fa54135bf9c51ed7a9eaa7df22d19a0f3eb6fedc3ce5185c4b"
+    },
+    "A6B27F50E406F463": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 2048651,
+      "bytes": 3427,
+      "sha256": "317326e0a0f3711c44c1ae590174b0a72679e9453d70ea17c4cfdc157f83e0ff"
+    },
+    "AEC726CF45B05A83": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 1276153,
+      "bytes": 2393,
+      "sha256": "e88e5095dfd22f2368b2f03c6fadb5543775e03781530a6423a440de830e0ced"
+    },
+    "ACDAE011BE4A4A39": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 3746253,
+      "bytes": 6715,
+      "sha256": "4eac5665f88790c7e4c684c5fd10dcea79022597f0995e7a4474d3827ea73f3c"
+    },
+    "2E6FDA3FB12889F8": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 6955466,
+      "bytes": 66146,
+      "sha256": "5d0b60bee7368fe2c7d1b26fca02f89d011ec95c5e40621689ef448ce0b2c7f3"
+    },
+    "EAFA05A54AD21806": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 7021612,
+      "bytes": 49583,
+      "sha256": "5b759e7b0464469d8450c50dfba767d5543f73453e4e285903a7e52c4305f414"
+    },
+    "4F2A73E44BCDE65D": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 2446140,
+      "bytes": 11684,
+      "sha256": "8d084ce7a94133d6b381053348b621bc9d6d6b24b02d7b8991019e0961ff361b"
+    },
+    "68EAF6FBFD1C47EC": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 14670194,
+      "bytes": 28194,
+      "sha256": "78f8ce6ee4457c01c43f0dc1ba7a13d8a2a6a5a3b46b20076e6db2a858d587dd"
+    },
+    "19DF5D543699C015": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+      "offset": 40636030,
+      "bytes": 2015,
+      "sha256": "6bb805e27d2e39bfdb3db67682ce118f570d6f9f9f3bad85f31b2c5f266f1ef3"
+    },
+    "F16CD06A6220E62B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 4607554,
+      "bytes": 8960,
+      "sha256": "8f9ed3b33e7fb153f4888735e93b8355812bea3c3cd5010d7525dba5919ce99d"
+    },
+    "6B802322F05BAB34": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 1472372,
+      "bytes": 24899,
+      "sha256": "94351089355f609847c26718f07eb0cdc227585754bcc16f3a864ca25ce0b3ee"
+    },
+    "696E86500A6E9C08": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 22818657,
+      "bytes": 3120,
+      "sha256": "2ac2838a6da59d43ca0726ebc9b6cfdcdc175ea5f9160c9263b5a6d718b8261a"
+    },
+    "ABD750E0D2C69C63": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 2599001,
+      "bytes": 7090,
+      "sha256": "9e892aef45789600520d349a77703a54f7afc003d856229caefa286e322e19ed"
+    },
+    "1274799B563ECF6B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 13980282,
+      "bytes": 10937,
+      "sha256": "d8beb0db7823aaf78f82ea932ae549a273795b36bac2cef8c5a977f8f88e5a37"
+    },
+    "2E66C131DF5DC83D": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 18052319,
+      "bytes": 22883,
+      "sha256": "2fa3b90dbfe0ac79b248d701d814f7a2680257987e66edc63e8372eee11f30bb"
+    },
+    "AA81900F5FF74891": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+      "offset": 13555079,
+      "bytes": 13648,
+      "sha256": "b1cc9a0eb16fccc4b8858f1c46531974036a80f0a4241eaf1aa6ac706d54bc82"
+    },
+    "6C76504090A7166E": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 12550862,
+      "bytes": 10231,
+      "sha256": "ff69f64c22366a539411394be39cbf95f37f48fa27bdc6dac6c12b5592fae015"
+    },
+    "241D93BBF9D4DA2F": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 23136478,
+      "bytes": 2590,
+      "sha256": "df2810f4b6204a25a21f660ed31b5094c6b9c86b2ae7b13978246dc4f8c2a368"
+    },
+    "7F797986E86B8D00": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3C895C1914F20F08.bundle",
+      "offset": 9977778,
+      "bytes": 14563,
+      "sha256": "dded34b29866aa3eaa15c3c14e1a87e2484b00ae37dcbecac5b8d90d36d143f3"
+    },
+    "8CE5DBC9FE11DEC9": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+      "offset": 11625009,
+      "bytes": 2920,
+      "sha256": "2fe0785ca7205cdc759593a51e57a657c95c2c97f8fa00cdbc0abd987c617314"
+    },
+    "A064D67DEAE4CCDD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 30770970,
+      "bytes": 6075,
+      "sha256": "2b0cbf823e1cf0783405461879b329639c706665e15e66973fb10f6326b4a29f"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/particles/mfx_orb_trail_red.tex",
+      "wadPathHash": "006deacf92067217",
+      "sha256": "a7a9f617e5844261ef69c8b4c9ec954157870be41f67eb4a2d391ef5f378bcf0",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/particles/mfx_orb_trail_blue.tex",
+      "wadPathHash": "02963ada403be151",
+      "sha256": "21c59ae47a7c176211853d2ccd5fd70dc99e68c6b5af60815210ead93bb388b1",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/order_minion_siege_tx_cm.tex",
+      "wadPathHash": "0941d78cdecb4fc6",
+      "sha256": "519e5d9af50b91f961e0ab119ee2758d3b2a8c58d683987e66e3e172c956b206",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/animations/minion_melee_attack3.anm",
+      "wadPathHash": "12df9a7e6bfd79ff",
+      "sha256": "20a6a389264d5f9c43a48c618ecefbef21942eec6a3c1e4b6216d480ca48ed93",
+      "bytes": 15016
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/order_minion_siege.skl",
+      "wadPathHash": "14f92555aea068da",
+      "sha256": "c3e4bd79783b52b027f7fe7caaee5c0cca03c3571f20bb078f1a0b154e428bf3",
+      "bytes": 5028
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_attack1.anm",
+      "wadPathHash": "1540c760c16248be",
+      "sha256": "d7c13e235035aec81a4796ee7105c1d95193fe9e4fad7163931a2930ca023159",
+      "bytes": 10922
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/animations/minion_caster_attack2.anm",
+      "wadPathHash": "17e93f4f82a1e923",
+      "sha256": "8da3acc53f1747b87a08a1a750fc232d76768ff66d2e761972034d4ae4ba803a",
+      "bytes": 14252
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_attack2.anm",
+      "wadPathHash": "1af64257f1f840f9",
+      "sha256": "0bcc5aa98832d7e498d9ae3ba774d31a5317eec18149e40b159f352865d965d6",
+      "bytes": 11524
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/animations/minion_caster_chaos_death.anm",
+      "wadPathHash": "1c1a74f6656390e6",
+      "sha256": "9674ded481350009b867f01663eb64ba629436f5ace76ac4d43c45f7a7993922",
+      "bytes": 30740
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/chaos_minion_siege_tx_cm_blue.tex",
+      "wadPathHash": "1f9b5fa870dbe77b",
+      "sha256": "8165f225152639344a2554a0d4cfffbcfc35b1f8fde82f838efd303cf476a414",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_run.anm",
+      "wadPathHash": "20550b99206279cd",
+      "sha256": "103089a165381ca3ae1393837200568b264ac8588e84665a4a09b51f630a76e8",
+      "bytes": 13174
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/chaos_minion_melee.skl",
+      "wadPathHash": "20ab60e14c592c87",
+      "sha256": "e5dbfef4f0e334f9b1837d6782eec6f7d0db8ce9dbe43ace9c136d2b75ec558b",
+      "bytes": 5432
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/red_caster_tx_cm.tex",
+      "wadPathHash": "213dc3755565db48",
+      "sha256": "8f767e66545ecec5e746223eeb1583517b1b50469ec7e391eab68547707ecc9f",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/particles/mfx_orb_trail_blue.tex",
+      "wadPathHash": "263de552c79bcc8a",
+      "sha256": "21c59ae47a7c176211853d2ccd5fd70dc99e68c6b5af60815210ead93bb388b1",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/orderminion_caster_tx_cm.tex",
+      "wadPathHash": "266f84c90b6bf009",
+      "sha256": "393c4a04a066767aed41ffd431ebcb252ae1f4d878aa348782d7dd227683b16b",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/mfx_orb_trail_red.tex",
+      "wadPathHash": "28454a43e2351b5a",
+      "sha256": "a7a9f617e5844261ef69c8b4c9ec954157870be41f67eb4a2d391ef5f378bcf0",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/particles/sru_chaos_cm_ba_mis_tex_blue.tex",
+      "wadPathHash": "29597efb8ca5aa42",
+      "sha256": "a37860b2dae6e140b8624e27b135455e773e046999d6d033e22c05e988b721bf",
+      "bytes": 5500
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/particles/mfx_orb_trail_red.tex",
+      "wadPathHash": "2b7f805ce5da0239",
+      "sha256": "a7a9f617e5844261ef69c8b4c9ec954157870be41f67eb4a2d391ef5f378bcf0",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_death4.anm",
+      "wadPathHash": "2bf12cc1a87157ab",
+      "sha256": "dca864473da871c131c01fb6adc9ac50ddfcdb23f401b335ecd432a2f0cc463b",
+      "bytes": 20412
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_attack1.anm",
+      "wadPathHash": "2e1220af01d81b86",
+      "sha256": "20c055e331ade3779509471cf40e769addc74245309ecab2df0ec34fb3883e43",
+      "bytes": 10668
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/order_minion_caster.skn",
+      "wadPathHash": "308f2af266d4fe9d",
+      "sha256": "44654d4d6ee543bc6587740b4d54f6f06712958bb797f9b56384535a108de680",
+      "bytes": 48294
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_attack2.anm",
+      "wadPathHash": "3e356d0480927460",
+      "sha256": "f8d578446dcc12e19937edfbe30db5d1c7f41cd986604aafa6b8e423d3ff6106",
+      "bytes": 11368
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_win1.anm",
+      "wadPathHash": "41bd2788d716a4f7",
+      "sha256": "3e619ed9502d3252a0520de75594955184c3afb4e2937d701de36b90b2b9edcb",
+      "bytes": 7768
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_death1.anm",
+      "wadPathHash": "457e563d9e570be9",
+      "sha256": "cde56ab85566a98ef71ba661e6b46c43fe89acbf83e042150da38fb10c5ad720",
+      "bytes": 22488
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_death.anm",
+      "wadPathHash": "4c641de9a3081b9c",
+      "sha256": "386fbc7cb9ccd29f6323778d77435cf41020274d08aeb4ff9568d3786a020bbd",
+      "bytes": 18642
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/animations/minion_caster_idle.anm",
+      "wadPathHash": "518f32fd96f0c831",
+      "sha256": "6f92752419030d07c449ddf6000c672a2d0c6cb13ee81fb57be9f194cf54c28d",
+      "bytes": 7634
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_death2.anm",
+      "wadPathHash": "55b4630286b07430",
+      "sha256": "a6da9136394b9caa2a3f14691d84454d99cd753da81834e2c56b1e6499db1ea3",
+      "bytes": 39428
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_attack.anm",
+      "wadPathHash": "55c69ab99087ffdb",
+      "sha256": "25648e112b3d672757523035141f56f3b1b31a453c47cd507a1d6c97b69d9f4b",
+      "bytes": 10434
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/chaos_minion_siege.skn",
+      "wadPathHash": "59036ba50a602d88",
+      "sha256": "5ff119782619eef5f344b579037b1b9eb2682742c14c3e415a3347cdc4c7d65e",
+      "bytes": 75522
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/order_minion_caster.skl",
+      "wadPathHash": "59147908decd4448",
+      "sha256": "8526a2669f8e9c2d3d40063b7d1d9c443a80f7624bdc57e045762b90b06ad693",
+      "bytes": 5416
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/mfx_orb_trail_blue.tex",
+      "wadPathHash": "5941bd9ae617f044",
+      "sha256": "21c59ae47a7c176211853d2ccd5fd70dc99e68c6b5af60815210ead93bb388b1",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/chaosminion_melee_tx_cm_blue.tex",
+      "wadPathHash": "6388609337c06ad2",
+      "sha256": "be7af3212c50c74a4980712023f7a80be601b9bb6235645ae3d9df81d73ea037",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_death3.anm",
+      "wadPathHash": "660e33ef1e2a1833",
+      "sha256": "06f31ecc9422f4e41faf08cdbee6ab81eeb817f75538d3c28af372efbd8c6215",
+      "bytes": 20312
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/sru_redbuff_redtraila.tex",
+      "wadPathHash": "663db21bcb560263",
+      "sha256": "6947c2da68e6679c178171c691e98bf67ea828edb7dc0a38508ae05347daf35c",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/sru_bluebuff_buf_trail.tex",
+      "wadPathHash": "68131bd6ab641000",
+      "sha256": "cc520f35fed8a0ec4fd395fe0479fe8b15e51836bc2d870b3ffc14c99f7a73a0",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/orderminion_melee_tx_cm_red.tex",
+      "wadPathHash": "6932ec020d76609c",
+      "sha256": "fc1519aaeb13e3812bce1225b68be1688f89a9cb2d736d96f4cd0c0b1e9a084f",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/animations/minion_melee_attack.anm",
+      "wadPathHash": "6972cfa9b1dea807",
+      "sha256": "a31bdfdbee19678308e27310a04456e8d183137b1b2cead4bde3a99e9374177b",
+      "bytes": 15130
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/mfx_orb_trail_blue.tex",
+      "wadPathHash": "6fd1af9b51a26524",
+      "sha256": "21c59ae47a7c176211853d2ccd5fd70dc99e68c6b5af60815210ead93bb388b1",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_attack1.anm",
+      "wadPathHash": "6ff2150bac8efb05",
+      "sha256": "db33ffbe757c69d9ab37f420aef42a9c9c0b17f04c8bce52f96caca69d1a7c83",
+      "bytes": 13168
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/order_minion_siege_tx_cm_red.tex",
+      "wadPathHash": "7113432fca197d0a",
+      "sha256": "0f00ea2a85952452e3284a722574f368ea7be57741939bf5baf88e72a2194a3a",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/order_minion_siege.skn",
+      "wadPathHash": "72194b11871c8f29",
+      "sha256": "d4288705530c4dc4b1354125a7cd8b068c5334f4f1d9f0a8731e387f33ac7afa",
+      "bytes": 84536
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_attack2.anm",
+      "wadPathHash": "72ea21add41c6218",
+      "sha256": "fda2733dea9579a695a73aafb5805fc5d96122bd44f3144c063f5a8c8e2c1c91",
+      "bytes": 14248
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/orderminion_caster_tx_cm_red.tex",
+      "wadPathHash": "73e89a9b3e524dbb",
+      "sha256": "ba1e0852a2a82d7d45ff72f08262a77d6f02adb1eb57e0bd50af7b13fdb422b5",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/sru_redbuff_redtrail.tex",
+      "wadPathHash": "760f14adedd9a8c2",
+      "sha256": "6947c2da68e6679c178171c691e98bf67ea828edb7dc0a38508ae05347daf35c",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/sru_bluebuff_trailsolid.tex",
+      "wadPathHash": "7691e9d6ae65d4ba",
+      "sha256": "9b0996e93151fb550023ad878a9f3d713cb1b032f3fbc5d98c1b13c78ef018fa",
+      "bytes": 21916
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/animations/minion_caster_chaos_death_2.anm",
+      "wadPathHash": "78e746f3c43cd26f",
+      "sha256": "4715df6a8807bc0eca321975919d85c095b6cad67dcbe88a2e682e84e54ddb2f",
+      "bytes": 27320
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/particles/sru_order_cm_ba_mis_tex_red.tex",
+      "wadPathHash": "79e666b0dc7d0613",
+      "sha256": "5f4764b0d81581626031043cf11d1141c65982c5ab519b3958670c14fbe2fe5d",
+      "bytes": 5500
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_attack3b.anm",
+      "wadPathHash": "8022abd9e8dc634b",
+      "sha256": "4b3c0f4d6f9b5a9600cdee2562bcadf4e0b75768e77bac2597203565bb218ad6",
+      "bytes": 14362
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/red_caster_tx_cm_blue.tex",
+      "wadPathHash": "8044c39b92884b05",
+      "sha256": "7b794bae6cc56e891fc475aede1d010c690acce62b69e1ec5c0f668a28a4f451",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_death1.anm",
+      "wadPathHash": "87a329e761810172",
+      "sha256": "4b97c412251d54682da62cbd0f6535e571c1716e0606e72d3d61abc3f8a39d54",
+      "bytes": 22498
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/sru_bluebuff_sparks.tex",
+      "wadPathHash": "8962025c7a3fbde5",
+      "sha256": "e567f15b72e469762750c2e2b2bfde0ce046ae32d0b25a46423fa8eb79a5808f",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_run1.anm",
+      "wadPathHash": "8c4f1ae8b9b69d20",
+      "sha256": "edd8f8e45cfad661ad225f6f507400d3f4ab37860c87b89487b52bd89309c60e",
+      "bytes": 32448
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/sru_redbuff_centerglow.tex",
+      "wadPathHash": "8d5df757acc44be9",
+      "sha256": "d5cae372668f534941d1bb498b59b0a7bfb85c54b578ce58bd0313019c975405",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/orderminion_melee_tx_cm.tex",
+      "wadPathHash": "92f3f35bbafeb941",
+      "sha256": "b6e450516b4f1586d32acae87e4a9de2571be51c67cd5cfbe9d0065353c86904",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/sru_bluebuff_centerglow.tex",
+      "wadPathHash": "964db9c017e4c8e1",
+      "sha256": "74a8e927a2198c9757cf1153b5401b767cc5ebd1a2b5bee1cab1c119232907a8",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/sru_redbuff_centerglow.tex",
+      "wadPathHash": "97c0869b0a2a8f3a",
+      "sha256": "d5cae372668f534941d1bb498b59b0a7bfb85c54b578ce58bd0313019c975405",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/animations/minion_caster_run.anm",
+      "wadPathHash": "99d4ae89b2f6c202",
+      "sha256": "16f43b1bfb8780d1cb2231453a3936f95e263fce8b1021b092b569ed4bd0c6d2",
+      "bytes": 14262
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_attack3.anm",
+      "wadPathHash": "a0ad63209d1f287f",
+      "sha256": "706265933768532402aaf818ebefe9b87fdae216ebf108f8982d02d74cc3efe8",
+      "bytes": 14688
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_idle1.anm",
+      "wadPathHash": "a17c750fddccb9d9",
+      "sha256": "7727493165aa733d92f87f4b2f538b2ae48a46f1f0ff32a95a3211bb8cb0364b",
+      "bytes": 28598
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/chaosminion_melee_tx_cm.tex",
+      "wadPathHash": "a4c1095e9f4988fb",
+      "sha256": "190d1ed78685d0ae095c3507af62cef54b21e46d4801598eefe13649cf72a2e6",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_attack3.anm",
+      "wadPathHash": "a55c6d3198cc34e2",
+      "sha256": "ce9c993471b268126b2ce9cd29c6c96d59a8d13c0ba2d81af6bfc90c64d8a8ad",
+      "bytes": 11234
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/chaos_minion_caster.skl",
+      "wadPathHash": "a5a0e76131bba93e",
+      "sha256": "27e4ffbf5d764208c5ccc5896d17592abd7362440b237cb9b5fba21d4a149f0f",
+      "bytes": 5908
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/sru_bluebuff_buf_trail.tex",
+      "wadPathHash": "a706ecd2faba7b3a",
+      "sha256": "cc520f35fed8a0ec4fd395fe0479fe8b15e51836bc2d870b3ffc14c99f7a73a0",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_attack2.anm",
+      "wadPathHash": "a936dfbe8e6e3678",
+      "sha256": "79817b2bad6f492f950b4ff6b5d8e92d7547189f3f7f9c9c0af0b4d9f0619b74",
+      "bytes": 11352
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_death3.anm",
+      "wadPathHash": "aa4b77d339502646",
+      "sha256": "33bb541cee8323df9f5a3ca819376969d0807b64b9ce73b8ae3b55a86d4e37f5",
+      "bytes": 21134
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/sru_bluebuff_sparks.tex",
+      "wadPathHash": "abb6918cb083c448",
+      "sha256": "e567f15b72e469762750c2e2b2bfde0ce046ae32d0b25a46423fa8eb79a5808f",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/particles/sru_order_cm_ba_mis_tex_blue.tex",
+      "wadPathHash": "b69bad1947cc99b1",
+      "sha256": "c73cdad6c76bbdbcd417afa57f24941619bdabdda882e0ddfd5bdf08a9457c28",
+      "bytes": 5500
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/order_minion_melee.skl",
+      "wadPathHash": "b7822cd9bed2d800",
+      "sha256": "b55a58eede1f852023b5e8c53e5ce2677b3c07b67c281602bf57d5a986a22e63",
+      "bytes": 5424
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/mfx_orb_trail_red.tex",
+      "wadPathHash": "b78e8257dad64b92",
+      "sha256": "a7a9f617e5844261ef69c8b4c9ec954157870be41f67eb4a2d391ef5f378bcf0",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/sru_redbuff_sparks.tex",
+      "wadPathHash": "b966b178bf75c383",
+      "sha256": "94f336608b89db644ad925853a15cf262c87052b262f74e24e895463d3adf133",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/chaos_minion_siege_tx_cm.tex",
+      "wadPathHash": "c44053e5acdf1692",
+      "sha256": "4de294116499c185f3dd11134120c08647492cda5e69b1ba1851023e84f9066a",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_death2.anm",
+      "wadPathHash": "c50bef788a9c13a2",
+      "sha256": "7a3ee5f20ebfc60fd94370f2c601e3ad1e2eabc3fef24f6bce71b1f18848045c",
+      "bytes": 18412
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/chaos_minion_melee.skn",
+      "wadPathHash": "c6925e5e4594d088",
+      "sha256": "385353d2448d07ab63ad24366ba7105e0882930aeb9d8b8b2793308c715fedb0",
+      "bytes": 55602
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/chaos_minion_siege.skl",
+      "wadPathHash": "d315f3f25532e118",
+      "sha256": "ffb78ad37c484af23937cbbd92e66af33882dc963e1646d8fc29ec8e1d45848e",
+      "bytes": 5024
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/particles/sru_redbuff_sparks.tex",
+      "wadPathHash": "db783e0626e72d93",
+      "sha256": "94f336608b89db644ad925853a15cf262c87052b262f74e24e895463d3adf133",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/animations/minion_caster_attack.anm",
+      "wadPathHash": "e19e999285605eda",
+      "sha256": "f02bc79e5889c08a3f27313de0b5ff87e437d3590be96d41c6ac6ced7681f708",
+      "bytes": 14832
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/chaos_minion_caster.skn",
+      "wadPathHash": "e784b067d162f2e4",
+      "sha256": "836d25566a27ccb2342258e0c86a5db94a067da7903fbc6f2697bf40518e17cf",
+      "bytes": 45880
+    },
+    {
+      "path": "assets/characters/sru_chaosminionranged/skins/base/particles/sru_chaos_cm_ba_mis_tex.tex",
+      "wadPathHash": "ea67d0e43df6495a",
+      "sha256": "a2a0ad634b19048cbefdc1cba8d861c94e1c58abc121ead997559fd80e417829",
+      "bytes": 5500
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_attack3.anm",
+      "wadPathHash": "eb313bb83fd3c0ea",
+      "sha256": "b70f267092cf79cd34703fe3e288af2cd3c8727566b28f0b0006d6d9a541ebf7",
+      "bytes": 12788
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_idle1.anm",
+      "wadPathHash": "ec880df31400e40c",
+      "sha256": "e315d27274331967b954f1d3c35b8037d7fc5aabf170ecf6eac1d01079ff1489",
+      "bytes": 28598
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/order_minion_melee.skn",
+      "wadPathHash": "f1cf3aeceb39fc9b",
+      "sha256": "9cb600f741532979226f0c02e57987acdf7286e816e115870d091ae303383ac2",
+      "bytes": 47570
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_death.anm",
+      "wadPathHash": "f3b03e2c24bfbf21",
+      "sha256": "46b1ebc1cb35a0ba6f820e6366a2ae9e5c2981e8c85d16a4dfc7b46c819a52ad",
+      "bytes": 21374
+    },
+    {
+      "path": "assets/characters/sru_chaosminionmelee/skins/base/animations/minion_melee_attack2.anm",
+      "wadPathHash": "f47548fe2aeb16ee",
+      "sha256": "663292d8120f0be3148478258834f4c7a8c02627a91df2436a3b472bc8d8f756",
+      "bytes": 16354
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_idle.anm",
+      "wadPathHash": "f5a12f2c1262cbe7",
+      "sha256": "1d8daf259fddd2109dbfeb42cb52fd183e3f75677b501ea14feecc5f8dbff0f8",
+      "bytes": 7042
+    },
+    {
+      "path": "assets/characters/sru_chaosminionsiege/skins/base/animations/cannon_chaos_run1.anm",
+      "wadPathHash": "f8a04184fa05e3af",
+      "sha256": "4bfde438a4c7ba082a7d7cb1795f53d42c6d90d1089692bac293ccdf02cf8220",
+      "bytes": 33218
+    },
+    {
+      "path": "assets/characters/sru_orderminionranged/skins/base/animations/minion_caster_idle.anm",
+      "wadPathHash": "fa0bf462a64e323e",
+      "sha256": "ebd4d3f72a96599f0f457c38b1c469fbdcd5d364a6dc02f46cafe90ae74b9fc2",
+      "bytes": 7172
+    },
+    {
+      "path": "assets/characters/sru_orderminionmelee/skins/base/animations/minion_melee_run.anm",
+      "wadPathHash": "fa323de31679bd27",
+      "sha256": "954b1afc41ceb383f923ce7200c144841a0c9a64fd3f3ad9212673eb52635308",
+      "bytes": 10564
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/particles/sru_bluebuff_centerglow.tex",
+      "wadPathHash": "fe6d63a2bd30387a",
+      "sha256": "74a8e927a2198c9757cf1153b5401b767cc5ebd1a2b5bee1cab1c119232907a8",
+      "bytes": 349564
+    }
+  ]
+}

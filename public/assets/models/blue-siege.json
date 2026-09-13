@@ -1,0 +1,83 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching patch 16.18 base minion sources. Reference presentation still requires gameplay capture calibration.",
+  "output": {
+    "path": "/assets/models/blue-siege.glb",
+    "bytes": 525748,
+    "sha256": "66a4f8679d695444725f6c02947d3e4075fc5a5e7232a06d0f010393c054f29c"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/order_minion_siege_tx_cm.tex",
+      "wadPathHash": "0941d78cdecb4fc6",
+      "sha256": "519e5d9af50b91f961e0ab119ee2758d3b2a8c58d683987e66e3e172c956b206",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/order_minion_siege.skl",
+      "wadPathHash": "14f92555aea068da",
+      "sha256": "c3e4bd79783b52b027f7fe7caaee5c0cca03c3571f20bb078f1a0b154e428bf3",
+      "bytes": 5028
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_attack1.anm",
+      "wadPathHash": "2e1220af01d81b86",
+      "sha256": "20c055e331ade3779509471cf40e769addc74245309ecab2df0ec34fb3883e43",
+      "bytes": 10668
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/order_minion_siege.skn",
+      "wadPathHash": "72194b11871c8f29",
+      "sha256": "d4288705530c4dc4b1354125a7cd8b068c5334f4f1d9f0a8731e387f33ac7afa",
+      "bytes": 84536
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_death1.anm",
+      "wadPathHash": "87a329e761810172",
+      "sha256": "4b97c412251d54682da62cbd0f6535e571c1716e0606e72d3d61abc3f8a39d54",
+      "bytes": 22498
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_run1.anm",
+      "wadPathHash": "8c4f1ae8b9b69d20",
+      "sha256": "edd8f8e45cfad661ad225f6f507400d3f4ab37860c87b89487b52bd89309c60e",
+      "bytes": 32448
+    },
+    {
+      "path": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_idle1.anm",
+      "wadPathHash": "a17c750fddccb9d9",
+      "sha256": "7727493165aa733d92f87f4b2f538b2ae48a46f1f0ff32a95a3211bb8cb0364b",
+      "bytes": 28598
+    }
+  ],
+  "skinScale": 0.925000011920929,
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionsiege/skins/skin0.bin.json",
+    "animations": "https://raw.communitydragon.org/16.18/game/data/characters/sru_orderminionsiege/animations/skin0.bin.json"
+  },
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_idle1.anm"
+    },
+    {
+      "name": "run",
+      "source": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_run1.anm"
+    },
+    {
+      "name": "attack1",
+      "source": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_attack1.anm"
+    },
+    {
+      "name": "death",
+      "source": "assets/characters/sru_orderminionsiege/skins/base/animations/cannon_order_death1.anm"
+    }
+  ],
+  "triangles": 1690,
+  "bones": 40
+}

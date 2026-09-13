@@ -1,0 +1,69 @@
+# Reference asset pipeline
+
+The game now uses animated base melee, caster, and siege minions for both teams, extracted from the matching patch 16.18 game archive. Procedural minion and champion fallback geometry has been removed. Towers, terrain, and the training dummy still use temporary geometry.
+
+## Sources and provenance
+
+The [Riot release service](https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/EUW1?q%5Bplatform%5D=windows&q%5Bpublished%5D=true) returned release `29CE6E781C3B6368`, content version `16.18.8175716`, created September 11, 2026. Rebuilds use that fixed [manifest](https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest), not the moving release endpoint.
+
+The minion sources reside in `DATA/FINAL/Maps/Shipping/Map11.wad.client`. The archive is 2.49 GB, but the extractor reads only the header, subchunk table, and selected file ranges. The current selection uses 83 CDN chunks totaling 3.10 MB compressed and extracts 88 files totaling 5.74 MB. Only the required meshes, rigs, textures, and four selected animation states enter the runtime assets.
+
+- `docs/reference/minion-extraction.json` pins the release manifest hash, CDN bundle byte ranges and hashes, resolved WAD paths, and extracted file hashes.
+- `docs/reference/minion-wad-paths.json` contains the 89 required path-hash resolutions, including the subchunk table. The development investigation used CommunityDragon's full hash list; future rebuilds do not need that 224 MB file.
+- `docs/reference/minion-skins.json` snapshots the six skin and animation graph definitions from CommunityDragon 16.18, with their exact URLs.
+- Each runtime GLB has a sibling JSON manifest identifying its input files, output hash, triangles, bones, scale, and animation mapping.
+
+The source art remains Riot-owned reference material. Provenance does not establish production distribution permission. Current source versions are stronger evidence than the archived Ashe model, but gameplay capture calibration and verification of the active in-match skin selection are still required before asserting pixel parity.
+
+## Conversion details
+
+| Model | Triangles | Joints | Authored skin scale |
+|---|---:|---:|---:|
+| Blue melee | 1,063 | 43 | 0.70 |
+| Red melee | 1,223 | 43 | 0.74 |
+| Blue caster | 1,071 | 43 | 0.76 |
+| Red caster | 1,076 | 46 | 0.87 |
+| Blue siege | 1,690 | 40 | 0.925 |
+| Red siege | 1,605 | 40 | 0.925 |
+
+The converter resolves `Idle1`, `Run`, `Attack1`, and `Death` through each source animation graph. Red melee deliberately shares several blue melee animations according to its graph. Blue caster's default death is `minion_caster_death3`, rather than the similarly named alternatives. Siege attack selection currently keeps the first authored option; randomized attack variants remain unimplemented.
+
+Centimeters and authored skin scale are baked consistently into positions, joint translations, inverse bind matrices, and animation translation tracks. Skeletons remain at the glTF scene root. Materials use their source painted textures with unlit shading. The six GLBs total about 2.9 MiB and contain four clips each. Their source clip durations, including deaths around three seconds, are preserved. The renderer uses separate animation mixers and cloned skeletons per unit while sharing mesh geometry and textures. Unit removal disposes its skeleton GPU texture and mixer bindings without disposing shared geometry or painted textures.
+
+Health-bar placement is measured from the initial animated model bounds. Dead unit records remain for four seconds so these death clips can finish. Attack animation playback still needs precise release-frame calibration against reference captures; passing state-transition tests does not prove that timing parity.
+
+## Rebuild on the current macOS ARM development environment
+
+The running game requires none of these extraction dependencies. They are build-time tools under ignored `.tools/` and `.cache/` directories.
+
+Pinned tools:
+
+- [CDTB](https://github.com/CommunityDragon/CDTB), commit `ba981db2a2c814a0d78e55f6483e0636b527850f`.
+- [lol2gltf](https://github.com/Crauzer/lol2gltf), commit `7fe8d5c9b82fd0a86ea682fced28f8021bb3e063`.
+- Local .NET SDK 8.0.425, installed at `.tools/dotnet` with Microsoft's `dotnet-install.sh`.
+- The lol2gltf ImageSharp dependency is updated from 3.1.6 to 3.1.12 before publishing the converter. The rebuild no longer emits the earlier ImageSharp vulnerability warnings.
+- Python dependencies are pinned in `tools/assets/requirements.txt`; glTF Transform 4.5.0 is locked in `package-lock.json`.
+
+For an existing checked-out toolchain:
+
+```sh
+python3 -m venv .tools/cdtb-venv
+.tools/cdtb-venv/bin/pip install -r tools/assets/requirements.txt
+
+# In the pinned lol2gltf checkout, update the directly referenced ImageSharp package.
+.tools/dotnet/dotnet add .tools/lol2gltf/src/lol2gltf/lol2gltf.csproj package SixLabors.ImageSharp --version 3.1.12
+.tools/dotnet/dotnet publish .tools/lol2gltf/src/lol2gltf/lol2gltf.csproj -c Release -r osx-arm64 -o .tools/converter --self-contained false -p:PublishReadyToRun=false -p:PublishSingleFile=false
+
+PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/extract-reference-minions.py
+node tools/assets/convert-minions.mjs
+npm run assets:validate
+npm run test:browser
+```
+
+The extractor rejects changes to the pinned manifest, compressed chunks, or extracted source bytes. Conversion checks source bytes against their recorded provenance before reading them. The asset validator checks every GLB's output hash and runs the Khronos validator. All seven current GLBs have zero errors and warnings. Blue caster retains four source degenerate triangles, reported at informational severity; no geometry repair was guessed.
+
+The browser suite includes a six-model gallery, distinct mixer behavior, complete death playback and removal, and attack-windup cancellation. Screenshot evidence is stored locally in `artifacts/browser-minion-gallery.png`.
+
+## Next use of the extraction path
+
+The same fixed map archive can supply map geometry, material definitions, textures, buildings, and navigation references. Expand the explicitly selected path set and provenance through a separate reviewed asset change. The current extractor intentionally selects only minion reference sources.
