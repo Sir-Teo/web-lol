@@ -10,44 +10,54 @@
     1920,
     1080
   ],
-  "fixture": "Full Rift, live simulation beginning at 90 seconds, 45 warmup frames, 180 samples",
-  "advanceMS": 233.70000000298023,
+  "fixture": "Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples",
+  "advanceMS": 210.19999999925494,
   "time": 93.71666666666667,
   "units": 103,
   "frames": {
     "n": 180,
-    "median": 16.600000001490116,
-    "p95": 18.900000002235174,
-    "p99": 23
+    "median": 16.700000002980232,
+    "p95": 18.800000000745058,
+    "p99": 22.200000002980232
   },
   "fog": {
     "n": 22,
-    "median": 1.300000000745058,
+    "median": 1.3999999985098839,
     "p95": 1.699999999254942,
-    "p99": 1.8999999985098839
+    "p99": 1.7000000029802322
   },
   "simulationSteps": {
     "n": 180,
     "median": 0.19999999925494194,
     "p95": 0.30000000074505806,
-    "p99": 0.4000000022351742
+    "p99": 0.5
+  },
+  "hudUpdates": {
+    "n": 51,
+    "median": 0.20000000298023224,
+    "p95": 0.30000000074505806,
+    "p99": 0.30000000074505806
+  },
+  "renderCalls": {
+    "n": 180,
+    "median": 3.599999997764826,
+    "p95": 5.199999999254942,
+    "p99": 9
   },
   "calls": 231,
   "triangles": 379519,
   "fogResolution": 256,
-  "testedCommit": "1b279b696549071b61e58fbf6cee570787bcab1c",
-  "recordedAt": "2026-09-13T16:53:50.997796+00:00",
-  "browserRegression": {
-    "command": "npm run test:browser",
-    "passed": 133,
-    "failed": 0,
-    "duration": "4.6 minutes"
-  },
+  "testedCommit": "d0d65a5bb78962cde9d8002fc68086aa7b1bfc45",
+  "recordedAt": "2026-09-13T17:46:50.341425+00:00",
+  "benchmarkScriptSha256": "b1144ce7322a514a7655f0e58605f44ccf1ba60cb32c6ad410912bb1ad11d52f",
+  "browserRegressionRecord": "browser-regression.json",
   "limitations": [
     "Development build; 180-frame observation, not a statistical full-match benchmark.",
     "Current scene has 103 unit records; no complete 5v5 roster, jungle or spell stress scenario.",
     "No controlled performance comparison with earlier revisions.",
-    "Frame p95 exceeds the 16.7 ms target."
+    "Frame p95 exceeds the 16.7 ms target.",
+    "Render call timing is CPU wall time and includes nested fog updates; categories must not be added together.",
+    "GPU execution, browser layout/compositing and frame scheduling are not separately measured."
   ],
-  "previousRecord": "runtime-verification-d361405.json"
+  "previousRecord": "runtime-verification-1b279b6.json"
 }

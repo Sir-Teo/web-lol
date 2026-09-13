@@ -14,6 +14,8 @@ try {
   await page.goto(process.argv[2] ?? 'http://127.0.0.1:5173');
   await page.waitForFunction(() => window.__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.keyboard.press('p');
+  await page.getByRole('button', { name: 'Close menu' }).click();
   const data = await page.evaluate(async () => {
     const g = window.__GAME__,
       w = g.world,
@@ -21,7 +23,9 @@ try {
     if (w.battlefield.id !== 'rift') throw new Error('Benchmark requires the full Rift');
     const frames = [],
       fog = [],
-      simulationSteps = [];
+      simulationSteps = [],
+      hudUpdates = [],
+      renderCalls = [];
     g.setPaused(true);
     const start = performance.now();
     w.step(Math.max(0, 5400 - w.tick));
@@ -34,7 +38,9 @@ try {
       new Promise((resolve) => requestAnimationFrame(() => resolve(performance.now())));
     for (let i = 0; i < 45; i++) await nextFrame();
     const step = w.step,
-      updateFog = v.updateFog;
+      updateFog = v.updateFog,
+      updateHud = g.hud.update,
+      render = v.render;
     w.step = function (...args) {
       const t = performance.now();
       const value = step.apply(this, args);
@@ -47,6 +53,22 @@ try {
       fog.push(performance.now() - t);
       return value;
     };
+    g.hud.update = function (...args) {
+      const t = performance.now();
+      try {
+        return updateHud.apply(this, args);
+      } finally {
+        hudUpdates.push(performance.now() - t);
+      }
+    };
+    v.render = function (...args) {
+      const t = performance.now();
+      try {
+        return render.apply(this, args);
+      } finally {
+        renderCalls.push(performance.now() - t);
+      }
+    };
     try {
       let previous = performance.now();
       for (let i = 0; i < 180; i++) {
@@ -57,8 +79,11 @@ try {
     } finally {
       w.step = step;
       v.updateFog = updateFog;
+      g.hud.update = updateHud;
+      v.render = render;
     }
     const summarize = (values) => {
+      if (!values.length) throw new Error('Missing benchmark samples');
       values.sort((a, b) => a - b);
       return {
         n: values.length,
@@ -69,13 +94,16 @@ try {
     };
     g.setPaused(true);
     return {
-      fixture: 'Full Rift, live simulation beginning at 90 seconds, 45 warmup frames, 180 samples',
+      fixture:
+        'Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples',
       advanceMS,
       time: w.time,
       units: w.units.length,
       frames: summarize(frames),
       fog: summarize(fog),
       simulationSteps: summarize(simulationSteps),
+      hudUpdates: summarize(hudUpdates),
+      renderCalls: summarize(renderCalls),
       calls: v.renderer.info.render.calls,
       triangles: v.renderer.info.render.triangles,
       fogResolution: v.fogPixels.width,
