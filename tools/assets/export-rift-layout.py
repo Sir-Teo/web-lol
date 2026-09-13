@@ -149,10 +149,29 @@ override_bytes = Path('docs/reference/lane-rule-overrides.json').read_bytes()
 overrides = json.loads(override_bytes)
 unit_stats = {'super': super_stats}
 unit_health_growth = {'melee': {}}
+unit_gold_growth = {'siege': {}, 'super': {}}
+# FNV-1a names resolve the two fields in the pinned Barracks MinionUpgradeConfig.
+def field_hash(name):
+    value = 2166136261
+    for byte in name.lower().encode():
+        value = ((value ^ byte) * 16777619) & 0xffffffff
+    return '{' + f'{value:08x}' + '}'
+assert field_hash('GoldUpgrade') == '{726ae049}'
+assert field_hash('GoldMax') == '{db0e9d5b}'
 lane_templates = {}
 for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
     lane_templates[team] = {}
     for minion in definitions[barracks_key]['units']:
+        if minion['MinionType'] in (6, 7):
+            gold_kind = 'siege' if minion['MinionType'] == 6 else 'super'
+            upgrade = minion['MinionUpgradeStats']
+            # Red super omits GoldUpgrade; official 26.1 notes specify +1 for both kinds.
+            increment = upgrade.get(field_hash('GoldUpgrade'), overrides['siegeSuperGoldIncrement'])
+            assert increment == overrides['siegeSuperGoldIncrement']
+            unit_gold_growth[gold_kind][team] = {
+                'intervalSeconds': definitions[barracks_key]['UpgradeIntervalSecs'],
+                'increment': increment, 'maxTotal': upgrade[field_hash('GoldMax')],
+            }
         if minion['MinionType'] == 7:
             continue
         kind = {4: 'melee', 5: 'caster', 6: 'siege'}[minion['MinionType']]
@@ -179,7 +198,7 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
             }
 layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawns": spawns,
           "lanes": lanes, "turrets": turrets, "structures": base_structures,
-          "unitStats": unit_stats, "unitHealthGrowth": unit_health_growth, "minionTurretDamage": overrides["minionTurretDamage"],
+          "unitStats": unit_stats, "unitHealthGrowth": unit_health_growth, "unitGoldGrowth": unit_gold_growth, "minionTurretDamage": overrides["minionTurretDamage"],
           "minionCurrentHealthDamage": minion_current_health_damage,
           "siegeMidTurretAttackSpeedBonus": siege_mid_turret_attack_speed_bonus,
           "turretMinionHealthDamage": turret_minion_health_damage,

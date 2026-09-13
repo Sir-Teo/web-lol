@@ -1663,6 +1663,32 @@
       }
     }
   },
+  "unitGoldGrowth": {
+    "siege": {
+      "blue": {
+        "intervalSeconds": 90.0,
+        "increment": 1.0,
+        "maxTotal": 90.0
+      },
+      "red": {
+        "intervalSeconds": 90.0,
+        "increment": 1.0,
+        "maxTotal": 90.0
+      }
+    },
+    "super": {
+      "blue": {
+        "intervalSeconds": 90.0,
+        "increment": 1.0,
+        "maxTotal": 90.0
+      },
+      "red": {
+        "intervalSeconds": 90.0,
+        "increment": 1,
+        "maxTotal": 90.0
+      }
+    }
+  },
   "minionTurretDamage": {
     "melee": 0.6,
     "caster": 0.6,

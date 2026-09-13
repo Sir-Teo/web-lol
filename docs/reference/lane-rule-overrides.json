@@ -12,6 +12,7 @@
     }
   ],
   "initialSiegeGold": 50,
+  "siegeSuperGoldIncrement": 1,
   "minionTurretDamage": {
     "melee": 0.6,
     "caster": 0.6,
