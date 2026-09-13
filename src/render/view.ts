@@ -395,6 +395,8 @@ export class GameView {
       if (isStructureKind(u.kind) && model.mixer && model.actions) {
         const destroyed = knownDestroyed ?? u.deadAt !== null;
         if (model.destroyed !== destroyed) {
+          const duration = model.actions[model.destroyedClip!].getClip().duration;
+          model.destructionTick = destroyed ? (u.deadAt ?? world.tick - duration * 60) : undefined;
           for (const part of model.submeshes ?? [])
             part.visible = destroyed
               ? part.userData.destroyedVisible
@@ -414,18 +416,31 @@ export class GameView {
           model.actionName = name;
           model.destroyed = destroyed;
         }
-        if (!destroyed || model.animateDestruction) model.mixer.update(animationDelta);
-        if (
-          destroyed &&
-          model.deadIdleClip &&
-          model.actionName === model.destroyedClip &&
-          model.actions[model.destroyedClip!].time >=
-            model.actions[model.destroyedClip!].getClip().duration
-        ) {
-          model.mixer.stopAllAction();
-          model.actions[model.deadIdleClip].reset().setLoop(THREE.LoopRepeat, Infinity).play();
-          model.actionName = model.deadIdleClip;
-        }
+        if (destroyed && model.animateDestruction) {
+          const duration = model.actions[model.destroyedClip!].getClip().duration;
+          // Hidden regrowth retains remembered rubble without exposing the live state.
+          const age =
+            Math.max(0, (world.tick - model.destructionTick! + alpha - 1) / 60) + terminalAge;
+          const name =
+            age >= duration && model.deadIdleClip ? model.deadIdleClip : model.destroyedClip!;
+          const action = model.actions[name];
+          if (model.actionName !== name) {
+            model.mixer.stopAllAction();
+            action.reset().play();
+            model.actionName = name;
+          }
+          const looping = name === model.deadIdleClip;
+          action.setLoop(looping ? THREE.LoopRepeat : THREE.LoopOnce, looping ? Infinity : 1);
+          action.clampWhenFinished = !looping;
+          const length = action.getClip().duration;
+          action.time = looping
+            ? length > 0
+              ? (age - duration) % length
+              : 0
+            : Math.min(age, length);
+          action.paused = true;
+          model.mixer.update(0);
+        } else if (!destroyed) model.mixer.update(animationDelta);
       }
       const moving = Math.hypot(u.x - u.previous.x, u.y - u.previous.y) > 0.01;
       if (!isStructureKind(u.kind) && model.mixer && model.actions) {

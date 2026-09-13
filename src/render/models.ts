@@ -11,6 +11,7 @@ export interface UnitModel {
   animateDestruction?: boolean;
   deadIdleClip?: string;
   destroyed?: boolean;
+  destructionTick?: number;
   mixer?: THREE.AnimationMixer;
   actions?: Record<string, THREE.AnimationAction>;
   actionName?: string;
