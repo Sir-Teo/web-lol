@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 29;
+export const SNAPSHOT_VERSION = 30;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -126,6 +126,7 @@ const player: z.ZodType<PlayerState> = z
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
     damageContributors: z.array(z.strictObject({ sourceId: id, lastDamageTick: tick })).max(10000),
+    skillPoints: z.number().int().min(0).max(18),
     spellRanks: z.strictObject({
       q: z.number().int().min(0).max(5),
       w: z.number().int().min(0).max(5),
@@ -216,6 +217,7 @@ const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
   z.strictObject({ type: z.literal('cast'), unit: id, ability, point }),
   z.strictObject({ type: z.literal('recall'), unit: id }),
+  z.strictObject({ type: z.literal('learn'), unit: id, ability: z.enum(['q', 'w', 'e', 'r']) }),
 ]);
 const snapshot = z.strictObject({
   version: z.literal(SNAPSHOT_VERSION),

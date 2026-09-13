@@ -101,6 +101,16 @@ export class GameInput {
         return;
       }
       if (hud.paused || hud.modal) return;
+      if (e.ctrlKey && ['q', 'w', 'e', 'r'].includes(key)) {
+        e.preventDefault();
+        this.cancelAim();
+        world.enqueue({
+          type: 'learn',
+          unit: world.player.id,
+          ability: key as 'q' | 'w' | 'e' | 'r',
+        });
+        return;
+      }
       if (key === 'tab') hud.scoreboard(true);
       if (key === ' ') {
         this.recenterHeld = true;

@@ -115,6 +115,7 @@ export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =
   | { type: 'order'; unit: number; order: Order }
   | { type: 'cast'; unit: number; ability: Ability; point: Vec2 }
+  | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
@@ -148,6 +149,7 @@ export interface ChampionState {
   deaths: number;
   xp: number;
   level: number;
+  skillPoints: number;
   spellRanks: Record<'q' | 'w' | 'e' | 'r', number>;
   cooldowns: Record<Ability, number>;
   qStacks: number;

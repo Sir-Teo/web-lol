@@ -86,7 +86,9 @@ export class Hud {
     this.bind();
   }
   private abilityMarkup(a: Ability): string {
-    return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    if (a === 'd' || a === 'f') return button;
+    return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${ABILITIES[a].name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden>+</button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
   }
   private positionTooltip(): void {
     if (this.tip.hidden) return;
@@ -245,6 +247,16 @@ export class Hud {
         this.view.locked = false;
         this.view.center = point;
       }
+    });
+    this.root.querySelectorAll<HTMLButtonElement>('[data-learn]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (this.paused || this.modal) return;
+        this.world.enqueue({
+          type: 'learn',
+          unit: this.world.player.id,
+          ability: button.dataset.learn as 'q' | 'w' | 'e' | 'r',
+        });
+      });
     });
     this.root.querySelectorAll<HTMLButtonElement>('[data-ability]').forEach((button) => {
       const ability = button.dataset.ability as Ability;
@@ -652,6 +664,14 @@ export class Hud {
           `Hawkshot, ${p.eCharges} of ${ASHE_E.maximumCharges} charges${p.eRechargeTick === null ? '' : `, next charge in ${Math.ceil(remaining)} seconds`}`
         );
       }
+    });
+    this.root.querySelectorAll<HTMLButtonElement>('[data-learn]').forEach((button) => {
+      const ability = button.dataset.learn as 'q' | 'w' | 'e' | 'r';
+      button.hidden = w.spellLearningError(ability) !== null;
+      button.title = `Upgrade ${ability.toUpperCase()} (Ctrl+${ability.toUpperCase()}) · ${p.skillPoints} skill points`;
+      button
+        .parentElement!.querySelectorAll('.spell-ranks i')
+        .forEach((pip, index) => pip.classList.toggle('learned', index < p.spellRanks[ability]));
     });
     this.root.querySelector('#camera-button')!.classList.toggle('active', this.view.locked);
     const recall = this.root.querySelector<HTMLDivElement>('.recall-progress')!;

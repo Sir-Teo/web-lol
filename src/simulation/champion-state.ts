@@ -16,6 +16,7 @@ export function createChampionState(id: number): ChampionState {
     deaths: 0,
     xp: 0,
     level: 1,
+    skillPoints: 0,
     spellRanks: { q: 1, w: 1, e: 1, r: 1 },
     cooldowns: { q: 0, w: 0, e: 0, r: 0, d: 0, f: 0 },
     qStacks: 0,

@@ -282,6 +282,8 @@ export class World {
               ? { type: 'idle' }
               : { type: order.type, point: { x: order.point.x, y: order.point.y } },
       });
+    } else if (command.type === 'learn') {
+      this.commands.push({ type: 'learn', unit: command.unit, ability: command.ability });
     } else this.commands.push({ type: 'recall', unit: command.unit });
   }
   setOrder(u: Unit, order: Order): void {
@@ -317,7 +319,13 @@ export class World {
     const commands = this.commands.splice(0);
     for (const command of commands) {
       const u = this.unit(command.unit);
-      if (!u || !this.alive(u)) continue;
+      if (!u) continue;
+      if (command.type === 'learn') {
+        const error = this.learnSpell(command.ability, u.id);
+        if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
+        continue;
+      }
+      if (!this.alive(u)) continue;
       if (
         u.stunUntil > this.tick &&
         !(command.type === 'cast' && ABILITIES[command.ability].canCastWhileDisabled)
@@ -1273,6 +1281,7 @@ export class World {
     while (state.level < MAX_LEVEL && state.xp >= experienceToNextLevel(state.level)) {
       state.xp -= experienceToNextLevel(state.level);
       state.level++;
+      state.skillPoints++;
       const factor = ASHE.growthFactors[state.level - 1];
       const h = this.unit(championId)!,
         living = this.alive(h);
@@ -1324,6 +1333,25 @@ export class World {
     if (!state) return Infinity;
     const chargeDeadline = ability === 'e' && state.eCharges === 0 ? (state.eRechargeTick ?? 0) : 0;
     return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
+  }
+  spellLearningError(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
+    if (this.winner) return 'The match has ended';
+    const state = this.championState(championId);
+    if (!state) return 'Unknown champion';
+    const rank = state.spellRanks[ability];
+    if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
+    if (state.skillPoints < 1) return 'No skill points available';
+    const requiredLevel = ability === 'r' ? 6 + rank * 5 : 1 + rank * 2;
+    if (state.level < requiredLevel) return `Requires champion level ${requiredLevel}`;
+    return null;
+  }
+  learnSpell(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
+    const error = this.spellLearningError(ability, championId);
+    if (error) return error;
+    const state = this.championState(championId)!;
+    state.skillPoints--;
+    state.spellRanks[ability]++;
+    return null;
   }
   abilityRank(ability: Ability, championId = this.player.id): number {
     if (ability === 'd' || ability === 'f') return 1;
