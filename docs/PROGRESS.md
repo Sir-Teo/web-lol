@@ -870,3 +870,11 @@ The sparring bot now queues Q during attack recovery against a visible, vulnerab
 Four new deterministic cases verify queued activation with independent state and exact saved continuation, visibility/range/resource/retreat exclusions, committed windup preservation and intervening stun. The browser pursuit scenario now advances ten simulated seconds from zero Focus, observes autonomous Q and empowered attacks, and still verifies kiting, damage and paused-state invariance. All 327 source/simulation checks, six focused Chrome scenarios and the production nested-host smoke pass. The inspected `artifacts/browser-bot-kiting.png` still shows overlapping champions in the fixture; unit collision remains outstanding. Full browser/performance suites were not repeated.
 
 Other bot spells, coordinated decisions, tower safety, champion-kill XP and purchases remain incomplete. Q still follows the existing rank-one local spell mechanics and aggregated damage representation; this step does not establish full champion or match parity.
+
+## Autonomous Volley pursuit
+
+The sparring bot now queues Volley against a visible champion beyond basic-attack range when its own mana/cooldown permit it, preserving attack windups, retreat priority and the existing thinking cadence. The ordinary queued cast path handles windup, resources and release. Aim is copied from the observed target position and does not track hidden movement after decision. Q remains the in-range recovery action.
+
+Four simulation cases verify owned release with exact checkpoint continuation and hit/slow, exclusion conditions, aim retention through vision loss and rejection after intervening stun. The test pathfinding stub initially copied entire units into path points; narrowing it to x/y fixed its strict checkpoint rejection. All 331 source/simulation checks, five focused Chrome scenarios and the production nested-host smoke pass. The new browser case observes autonomous Volley animation, damage, critical slow and separate cooldowns. Full browser/performance sweeps were not repeated.
+
+This local pursuit policy does not predict dodges, estimate arrow obstruction, reserve mana or choose lane-clear opportunities. E/R/Flash/Heal decisions, team strategy, purchases, champion-kill XP and unit collision remain outstanding.

@@ -43,7 +43,10 @@ test('bot Focus decision respects sight, range, mana, cooldown, stacks and retre
     if (condition === 'stacks') state.qStacks = 3;
     if (condition === 'retreat') bot.hp = 100;
     w.step();
-    expect(w.commands, condition).toHaveLength(0);
+    expect(
+      w.commands.filter((c) => c.type === 'cast' && c.ability === 'q'),
+      condition
+    ).toHaveLength(0);
     expect(state.qUntil, condition).toBe(0);
   }
 });

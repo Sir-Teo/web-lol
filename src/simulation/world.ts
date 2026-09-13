@@ -603,6 +603,25 @@ export class World {
         this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point: { x: u.x, y: u.y } });
         return;
       }
+      // Poke a visible champion beyond basic-attack range. Aim at the observed
+      // position; queued point data must not track the target after sight is lost.
+      if (
+        target.kind === 'champion' &&
+        d > u.range + target.radius &&
+        d <= ABILITIES.w.range &&
+        u.mana >= ABILITIES.w.cost &&
+        this.abilityCooldownTicks('w', u.id) === 0
+      ) {
+        if (u.order.type !== 'attack' || u.order.target !== target.id)
+          this.setOrder(u, { type: 'attack', target: target.id });
+        this.enqueue({
+          type: 'cast',
+          unit: u.id,
+          ability: 'w',
+          point: { x: target.x, y: target.y },
+        });
+        return;
+      }
       if (d < 380 && target.kind === 'champion' && this.tick < u.nextAttackTick) {
         let away = direction(target, u);
         if (away.x === 0 && away.y === 0) away = direction(u, this.battlefield.spawns[u.team]);
