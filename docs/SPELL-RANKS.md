@@ -1,6 +1,6 @@
 # Spell-rank implementation audit
 
-Current gameplay still starts with Q/W/E/R available at rank one. Champions now own saved ranks and unspent points, with validated allocation commands, HUD upgrade buttons and Ctrl+Q/W/E/R shortcuts. This initialization is practice behavior, not standard match progression. The production objective requires actual learning and rank allocation.
+The full Rift now starts each champion with Q/W/E/R unlearned and one skill point. Human upgrades use the HUD buttons or Ctrl+Q/W/E/R; bots allocate through the pinned map-11 recommendation. Combat and HUD consume saved ranks. The explicit `practice-fixture` retains all four rank-one spells for focused regression scenarios.
 
 ## Verified resource tables
 
@@ -19,18 +19,18 @@ The client exports `maxLevel: 0` for every spell. This cannot establish rank cap
 
 ## Runtime integration requirements
 
-`src/simulation/ashe-spell-values.ts` exposes validated normal-rank queries for Q buffs, W damage/arrow count, E cast/recharge timers and R damage, together with mana/cooldown costs. Champion `spellRanks` are now saved under snapshot version 30. Casts, Q attack timing/damage, W/R damage, E timers, bot resource checks and live HUD descriptions/costs consume owned ranks. Rank zero blocks casting and Q stack generation. Explicit rank previews remain available through the world damage queries.
+`src/simulation/ashe-spell-values.ts` exposes validated normal-rank queries for Q buffs, W damage/arrow count, E cast/recharge timers and R damage, together with mana/cooldown costs. Champion `spellRanks` are now saved under snapshot version 31. Casts, Q attack timing/damage, W/R damage, E timers, bot resource checks and live HUD descriptions/costs consume owned ranks. Rank zero blocks casting and Q stack generation. Explicit rank previews remain available through the world damage queries.
 
 Pending casts capture their rank as well as damage; Volley therefore retains its starting arrow count through a windup upgrade. Existing E recharge deadlines and their displayed duration remain unchanged by rank edits; the next recharge uses the new rank. These upgrade-timing choices are current simulation policies, not independently verified native timing. Active Q reads the current rank for subsequently released attacks and newly scheduled attack timing. Already released projectiles retain their damage.
 
-- Standard matches still need unlearned initialization with one starting skill point and canonical point-budget validation. Existing practice initialization grants four rank-one spells and zero points; level-ups grant one point each, so it has three extra total ranks compared with standard play.
+- Full-Rift initialization and saves now enforce unlearned startup and the standard point budget. The explicit practice fixture retains four free rank-one spells and zero initial points.
 - Learning commands now validate points, maximum rank and conventional champion-level gates; rejected commands do not mutate state. Commands execute while dead/stunned and preserve orders, recall and cast state. Native gate-source extraction remains an evidence gap.
 - Verify native upgrade timing for active Q and committed attack windups against the current rank-aware behavior.
 - Verify native W cast-start rank/damage capture timing against the current captured-rank behavior.
 - Verify native E behavior when learning a rank during a running recharge; current behavior preserves the running interval and changes the next.
 - R damage and cooldown now consume owned ranks and flat item AP. Broader AP modifiers remain separate work.
 - Upgrade buttons and Ctrl shortcuts now enqueue learning commands; add native button art and presentation polish beyond the current CSS controls.
-- Bots now allocate earned points using the exported map-11 default recommendation, filtered through the same learning validator. Standard match setup still needs to replace the practice rank grants.
+- Bots now allocate earned points using the exported map-11 default recommendation, filtered through the same learning validator. Full-Rift setup uses unlearned startup; the test fixture alone retains practice grants.
 
 ## Verification required
 
@@ -47,10 +47,14 @@ Recommendations express skill choices, not permission to learn an unavailable ra
 
 The current validator uses normal basic-skill gates 1/3/5/7/9 and ultimate gates 6/11/16. The [community ability reference](https://leagueoflegends.fandom.com/wiki/Champion_ability) search index confirms the ultimate gates, but direct full-page retrieval failed. These conventional rules are implemented as simulation policy, not claimed as newly extracted game constants. Champion-specific exceptions are outside this Ashe-only validator. The game-file rank caps remain independently pinned.
 
-Unspent points are persisted as bounded integers under snapshot 30. Successful upgrades transfer exactly one point into one rank, and XP grants one point per level gained. Existing manually configured practice states do not enforce a canonical level-to-total-rank budget; standard initialization and corresponding stronger save invariants remain unfinished. Tests demonstrate an explicitly unlearned champion starting with one point reaches 5/5/5/3 with zero points at level 18. Live practice initialization remains four learned spells. Bots now spend earned points automatically; human points remain available for manual allocation.
+Unspent points are persisted as bounded integers under snapshot 31. Successful upgrades transfer exactly one point into one rank, and XP grants one point per level gained. Existing manually configured practice states do not enforce a canonical level-to-total-rank budget; full-Rift saves now enforce total ranks plus unspent points equal champion level, rank-level gates and zero Hawkshot charges before learning. Tests demonstrate an explicitly unlearned champion starting with one point reaches 5/5/5/3 with zero points at level 18. Only explicit fixture initialization retains four learned spells. Bots now spend earned points automatically; human points remain available for manual allocation.
 
 ## Bot allocation integration
 
 The resource exporter now also emits `src/content/ashe-skill-recommendation.ts`, selecting the unique map-11 default bottom recommendation after verifying its full pinned record. Bots process available points before recharge and commands, including while dead or stunned. The early override is indexed by allocated ranks; unavailable choices fall through to the validated priority order. Allocation stops when no legal upgrade exists, preserving points. Source recommendation ordering does not independently prove native bot decision timing.
 
-Both-team tests trace an explicitly unlearned bot through every level to 5/5/5/3 with no unused points, while a human with earned points remains unchanged. Additional tests restore a dead bot with accumulated points and verify an XP-earned rank-two Volley actually launches eight 95-damage arrows. Default matches still start in the prior practice setup; changing that initialization remains required.
+Both-team tests trace an explicitly unlearned bot through every level to 5/5/5/3 with no unused points, while a human with earned points remains unchanged. Additional tests restore a dead bot with accumulated points and verify an XP-earned rank-two Volley actually launches eight 95-damage arrows. Default full-Rift matches now use unlearned initialization. Learning E grants two charges; summoner spells remain available from the start.
+
+## Standard initialization verification
+
+Snapshot 31 distinguishes the new standard startup semantics. Full-Rift state rejects impossible point totals, ranks learned before their level gate, and charges on unlearned E. The production subpath smoke now learns E with real Ctrl+E input before casting it. Browser minimap tests likewise learn E/R before testing trajectory, with XP awarded for the R-level prerequisite. A default-map browser case verifies zero starting ranks, one point, three available basic upgrade controls, unavailable R, the unlearned tooltip and a real learned Hawkshot cast. This establishes spell progression in the current local game, not completion of all match rules or champion-specific exceptions.

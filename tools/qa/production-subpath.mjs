@@ -100,6 +100,8 @@ try {
   assert(await page.locator('#battlefield').evaluate((node) => node.classList.contains('aiming')));
   await page.keyboard.press('Escape');
   await page.keyboard.up('w');
+  await page.keyboard.press('Control+e');
+  await page.waitForTimeout(100);
   await page.keyboard.down('e');
   await page.mouse.click(1040, 440);
   await page.keyboard.up('e');

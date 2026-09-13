@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 30;
+export const SNAPSHOT_VERSION = 31;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -179,7 +179,10 @@ const player: z.ZodType<PlayerState> = z
       .max(6),
   })
   .refine(
-    (p) => (p.eCharges === ASHE_E.maximumCharges) === (p.eRechargeTick === null),
+    (p) =>
+      p.spellRanks.e === 0
+        ? p.eRechargeTick === null
+        : (p.eCharges === ASHE_E.maximumCharges) === (p.eRechargeTick === null),
     'Invalid Hawkshot recharge state'
   )
   .refine(
@@ -322,6 +325,23 @@ export function decodeSnapshot(text: string) {
     throw new Error('Saved match is missing its player.');
   const owners = [state.player, ...state.otherChampions];
   const ownerIds = new Set(owners.map((p) => p.id));
+  if (state.battlefield === 'rift') {
+    for (const owner of owners) {
+      if (
+        owner.skillPoints + Object.values(owner.spellRanks).reduce((sum, rank) => sum + rank, 0) !==
+        owner.level
+      )
+        throw new Error('Saved match contains an invalid skill-point budget.');
+      for (const ability of ['q', 'w', 'e', 'r'] as const) {
+        const rank = owner.spellRanks[ability];
+        const minimum = ability === 'r' ? 6 + (rank - 1) * 5 : 1 + (rank - 1) * 2;
+        if (rank > 0 && owner.level < minimum)
+          throw new Error('Saved match contains a rank unavailable at its champion level.');
+      }
+      if (owner.spellRanks.e === 0 && owner.eCharges !== 0)
+        throw new Error('Saved match grants charges to unlearned Hawkshot.');
+    }
+  }
   const champions = state.units.filter((u) => u.kind === 'champion');
   if (
     ownerIds.size !== owners.length ||

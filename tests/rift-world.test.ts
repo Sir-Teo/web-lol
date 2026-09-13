@@ -105,3 +105,33 @@ describe('authored full Rift simulation', () => {
     expect(world.buy('blade')).toBeNull();
   });
 });
+
+it('full Rift starts unlearned, conserves points and restores learned spells', () => {
+  const world = new World(true, battlefield);
+  expect(world.player.spellRanks).toEqual({ q: 0, w: 0, e: 0, r: 0 });
+  expect(world.player.skillPoints).toBe(1);
+  expect(world.player.eCharges).toBe(0);
+  expect(world.learnSpell('r')).toBe('Requires champion level 6');
+  expect(world.learnSpell('e')).toBeNull();
+  expect(world.player.eCharges).toBe(2);
+  expect(world.player.skillPoints).toBe(0);
+  const restored = World.fromSnapshot(world.snapshot(), battlefield);
+  expect(restored.snapshot()).toBe(world.snapshot());
+  for (const mutate of [
+    (state: any) => {
+      state.player.skillPoints++;
+    },
+    (state: any) => {
+      state.player.spellRanks = { q: 0, w: 0, e: 0, r: 1 };
+      state.player.eCharges = 0;
+    },
+    (state: any) => {
+      state.player.spellRanks.e = 0;
+      state.player.skillPoints = 1;
+    },
+  ]) {
+    const state = JSON.parse(world.snapshot());
+    mutate(state);
+    expect(() => World.fromSnapshot(JSON.stringify(state), battlefield)).toThrow();
+  }
+});

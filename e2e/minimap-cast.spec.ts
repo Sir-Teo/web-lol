@@ -8,6 +8,14 @@ for (const ability of ['e', 'r']) {
     await page.goto('/');
     await page.waitForFunction(() => (window as any).__GAME__?.ready);
     await page.locator('#loading').waitFor({ state: 'detached' });
+    if (ability === 'r')
+      await page.evaluate(() => (window as any).__GAME__.world.gainExperience(1e6));
+    await page.keyboard.press(`Control+${ability}`);
+    await expect
+      .poll(() =>
+        page.evaluate((key) => (window as any).__GAME__.world.player.spellRanks[key], ability)
+      )
+      .toBe(1);
     const initial = await page.evaluate(() => {
       const g = (window as any).__GAME__,
         w = g.world;

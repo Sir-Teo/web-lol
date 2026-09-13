@@ -4,7 +4,7 @@ import { ASHE_Q } from '../content/ashe-q';
 import { TICK_RATE } from '../content/rules';
 import type { ChampionState } from './types';
 
-export function createChampionState(id: number): ChampionState {
+export function createChampionState(id: number, unlocked = true): ChampionState {
   return {
     revealContributors: [],
     assists: 0,
@@ -16,13 +16,13 @@ export function createChampionState(id: number): ChampionState {
     deaths: 0,
     xp: 0,
     level: 1,
-    skillPoints: 0,
-    spellRanks: { q: 1, w: 1, e: 1, r: 1 },
+    skillPoints: unlocked ? 0 : 1,
+    spellRanks: unlocked ? { q: 1, w: 1, e: 1, r: 1 } : { q: 0, w: 0, e: 0, r: 0 },
     cooldowns: { q: 0, w: 0, e: 0, r: 0, d: 0, f: 0 },
     qStacks: 0,
     qUntil: 0,
     qStackExpiry: 0,
-    eCharges: ASHE_E.maximumCharges,
+    eCharges: unlocked ? ASHE_E.maximumCharges : 0,
     eRechargeTick: null,
     eRechargeDurationTicks: ASHE_E.rechargeSecondsByRank[0] * TICK_RATE,
     recallEnd: null,

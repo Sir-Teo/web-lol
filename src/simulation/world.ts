@@ -256,7 +256,11 @@ export class World {
     }
     if (kind === 'super') u.name = 'Super minion';
     if (structure) u.structureKnowledge = { blue: false, red: false };
-    if (champion) this.championRecords.set(u.id, createChampionState(u.id));
+    if (champion)
+      this.championRecords.set(
+        u.id,
+        createChampionState(u.id, this.battlefield.id === 'practice-fixture')
+      );
     this.units.push(u);
     return u;
   }
@@ -1365,6 +1369,7 @@ export class World {
     const state = this.championState(championId)!;
     state.skillPoints--;
     state.spellRanks[ability]++;
+    if (ability === 'e' && state.spellRanks.e === 1) state.eCharges = ASHE_E.maximumCharges;
     return null;
   }
   abilityRank(ability: Ability, championId = this.player.id): number {
