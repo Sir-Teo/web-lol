@@ -6,6 +6,7 @@ import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
+import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
@@ -148,7 +149,13 @@ export class World {
       speed: champion ? 325 : structure || dummy ? 0 : 325,
       attackPeriod: champion ? 91 : turret ? 72 : 80,
       windupTicks: champion ? 20 : turret ? 18 : 22,
-      missileSpeed: champion ? 2000 : turret ? 1500 : kind === 'melee' ? 0 : 1200,
+      missileSpeed: champion
+        ? ASHE_ATTACK_PROJECTILE_SPEED
+        : turret
+          ? 1500
+          : kind === 'melee'
+            ? 0
+            : 1200,
       order: { type: 'idle' },
       path: [],
       pathTarget: null,

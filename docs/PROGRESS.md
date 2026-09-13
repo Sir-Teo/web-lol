@@ -407,3 +407,9 @@ All 191 simulation checks, four focused Chrome cases, static build and productio
 Rank-one Q now captures 110% AD at attack release, using the pinned spell coefficient. In-flight damage remains stable through Q expiry, AD changes, source death and checkpoint restoration; an ordinary arrow is not retroactively empowered by activating Q after release. This remains a single aggregate hit. Five-arrow sequencing, presentation, individual hit interactions and Frost Shot amplification are still required for full parity.
 
 All 194 simulation checks, five focused Chrome cases, static build and production smoke pass. New tests cover normal/empowered armor mitigation, saved in-flight damage, expiry and activation boundaries. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Source-backed Ashe attack projectile speed milestone
+
+Ordinary and empowered attack arrows now travel at 2,500 units/second instead of 2,000. Four pinned spell records agree on fixed-speed movement; their complete records are retained and verified by the new exporter. Champion prototypes currently all use Ashe's stat profile, so the shared champion default receives the correction. Q inter-arrow timing is not exposed in these selected specifications; five-arrow sequencing, effect binding and individual hit behavior remain unfinished.
+
+All 195 simulation checks, all 63 Chrome scenarios, static build and production smoke pass. The new simulation case checks first-tick displacement, expected impact timing and saved continuation for ordinary/empowered arrows. Export regeneration is byte-identical. Full champion, full-match and pixel fidelity remain unfinished; the production goal remains active.

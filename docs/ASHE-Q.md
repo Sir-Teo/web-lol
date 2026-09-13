@@ -43,3 +43,11 @@ The exporter now emits the five normal-rank `DamagePerStrike` values, normalized
 This is **aggregate damage**, not the completed flurry: the renderer and simulation still represent one arrow and one damage application. Five-arrow sequencing, individual mitigations, per-hit interactions, passive Frost Shot amplification, attack reset and rank allocation remain unfinished. This intermediate change establishes the source-backed total coefficient without claiming full Q combat parity.
 
 Three simulation cases compare normal/empowered attacks against armor, preserve empowered damage through expiry/AD changes/death and saved continuation, and ensure activating Q after release does not retroactively empower an arrow. A browser case casts Q and checks damage after expiry in flight.
+
+## Attack projectile speed and remaining flurry research
+
+`docs/reference/ashe-attack-projectiles.json` pins the complete ordinary attack, alternate ordinary attack, Q attack and Q no-on-hit attack records. All four select fixed-speed movement at 2,500 units/second. `python3 tools/assets/export-ashe-projectiles.py` verifies the cached character source hash, each selected record, movement type and agreement before generating the shared speed constant. Champion prototypes, which currently all use Ashe's stats, now use this speed instead of the provisional 2,000. Other units retain their own projectile rules. Speed is captured in each projectile and preserved through checkpoints.
+
+The records specify a right-hand start bone and target-height offsets. The Q records also expose distinct on-hit/no-on-hit spell identities and the `Ashe_Q_mis` effect key. They do not encode an inter-arrow launch delay in the selected missile specifications. These facts alone are insufficient to implement the complete five-arrow sequence, animation/event binding or damage classifications. Those remain research/implementation work; the current aggregate Q representation remains explicit.
+
+A simulation case checks ordinary and empowered arrows moving exactly 2,500/60 units on their first flight tick, impact timing from the current collision geometry, and identical saved continuation. These are local simulation guarantees, not proof of reference collision-radius parity.
