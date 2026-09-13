@@ -1,0 +1,594 @@
+{
+  "status": "data-verified; assist-gold interpretation unverified",
+  "fields": [
+    "{11f10a40}",
+    "{937cc95a}",
+    "{08c1b120}",
+    "{1eacb90a}",
+    "{ce073fe8}"
+  ],
+  "sources": [
+    {
+      "version": "15.24",
+      "url": "https://raw.communitydragon.org/15.24/game/data/maps/shipping/map11/map11.bin.json",
+      "cache": ".cache/map11-15.24-reward-audit.json",
+      "sha256": "a1d8b2d44069b4b1832070fcd38edb0d8e04738e7f752bc1cf1387c7adec347e",
+      "modeLinks": {
+        "Maps/Shipping/Map11/Modes/WASD": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/CLASSIC": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/PRACTICETOOL": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/URF": "{e15108da}",
+        "Maps/Shipping/Map11/Modes/SWIFTPLAY": "{a4c76730}",
+        "Maps/Shipping/Map11/Modes/ULTBOOK": "{a75b0dc7}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/RUBY": "{7b88e873}",
+        "Maps/Shipping/Map11/Modes/RUBY_TRIAL_2": "{7b88e873}",
+        "Maps/Shipping/Map11/Modes/RUBY_TRIAL_3": "{0f31c9d2}",
+        "Maps/Shipping/Map11/Modes/RUBY_TRIAL_1": "{7b88e873}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL_MODULE_2": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL_MODULE_3": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL_MODULE_1": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/SNOWURF": "{e15108da}",
+        "Maps/Shipping/Map11/Modes/ONEFORALL": "{4fd6b68d}"
+      },
+      "configs": {
+        "{4fd6b68d}": {
+          "BaseGold": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            310.0,
+            320.0,
+            330.0,
+            340.0,
+            350.0,
+            360.0,
+            370.0,
+            380.0,
+            390.0,
+            400.0,
+            410.0,
+            420.0
+          ],
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 5.0,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "{4b733ea3}": 5.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{4ec6dd3c}": 1.0,
+            "{3cb3392e}": 2.5,
+            "__type": "{6030f7c6}"
+          },
+          "NegativeBountyConfig": {
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        },
+        "{e15108da}": {
+          "BaseGold": [
+            200.0
+          ],
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 2.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 4.0,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{74037860}": 5.0,
+            "{3aefc768}": 0.20000000298023224,
+            "__type": "{ee8fe512}"
+          },
+          "NegativeBountyConfig": {
+            "{c080021c}": 50.0,
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        },
+        "{a4c76730}": {
+          "BaseGold": [
+            300.0
+          ],
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{907442e7}": 50.0,
+          "{fe1b406e}": 50.0,
+          "{54ccd262}": 1000.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 2.0,
+          "{7c29d4b9}": 2,
+          "{4e0d7b75}": true,
+          "__type": "{9f30b8a6}"
+        },
+        "{a75b0dc7}": {
+          "BaseGold": [
+            300.0
+          ],
+          "FirstBloodBonus": 100.0,
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 50.0,
+          "{fe1b406e}": 25.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 5.0,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "__type": "{b53e2f1a}"
+          },
+          "NegativeBountyConfig": {
+            "{c080021c}": 75.0,
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "{4e0d7b75}": true,
+          "__type": "{9f30b8a6}"
+        },
+        "{7b88e873}": {
+          "BaseGold": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            310.0,
+            320.0,
+            330.0,
+            340.0,
+            350.0,
+            360.0,
+            370.0,
+            380.0,
+            390.0,
+            400.0,
+            410.0,
+            420.0
+          ],
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 5.0,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "{4b733ea3}": 5.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{4ec6dd3c}": 1.0,
+            "{3cb3392e}": 2.5,
+            "__type": "{6030f7c6}"
+          },
+          "NegativeBountyConfig": {
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        },
+        "{0f31c9d2}": {
+          "BaseGold": [
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0
+          ],
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 5.0,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "{4b733ea3}": 5.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{4ec6dd3c}": 1.0,
+            "{3cb3392e}": 2.5,
+            "__type": "{6030f7c6}"
+          },
+          "NegativeBountyConfig": {
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        }
+      }
+    },
+    {
+      "version": "16.18",
+      "url": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json",
+      "cache": ".cache/map11-definition.json",
+      "sha256": "ad684528be94c3f6981daa2c1ff3e32724596a24e8c4f21ab8df8c291ca980f7",
+      "modeLinks": {
+        "Maps/Shipping/Map11/Modes/CLASSIC": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/PRACTICETOOL": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/URF": "{e15108da}",
+        "Maps/Shipping/Map11/Modes/SWIFTPLAY": "{a4c76730}",
+        "Maps/Shipping/Map11/Modes/ULTBOOK": "{a75b0dc7}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/RUBY": "{7b88e873}",
+        "Maps/Shipping/Map11/Modes/RUBY_TRIAL_2": "{7b88e873}",
+        "Maps/Shipping/Map11/Modes/RUBY_TRIAL_3": "{0f31c9d2}",
+        "Maps/Shipping/Map11/Modes/RUBY_TRIAL_1": "{7b88e873}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL_MODULE_2": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL_MODULE_3": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/TUTORIAL_MODULE_1": "{4fd6b68d}",
+        "Maps/Shipping/Map11/Modes/SNOWURF": "{e15108da}",
+        "Maps/Shipping/Map11/Modes/ONEFORALL": "{4fd6b68d}"
+      },
+      "configs": {
+        "{4fd6b68d}": {
+          "BaseGold": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            310.0,
+            320.0,
+            330.0,
+            340.0,
+            350.0,
+            360.0,
+            370.0,
+            380.0,
+            390.0,
+            400.0,
+            410.0,
+            420.0
+          ],
+          "FirstBloodBonus": 100.0,
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 55.0,
+          "{937cc95a}": 175.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 7.0,
+          "{ec211346}": 3.5,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "{4b733ea3}": 5.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{4ec6dd3c}": 1.0,
+            "{3cb3392e}": 2.5,
+            "__type": "{6030f7c6}"
+          },
+          "NegativeBountyConfig": {
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        },
+        "{e15108da}": {
+          "BaseGold": [
+            200.0
+          ],
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 2.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 4.0,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{74037860}": 5.0,
+            "{3aefc768}": 0.20000000298023224,
+            "__type": "{ee8fe512}"
+          },
+          "NegativeBountyConfig": {
+            "{c080021c}": 50.0,
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        },
+        "{a4c76730}": {
+          "BaseGold": [
+            300.0
+          ],
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{907442e7}": 50.0,
+          "{fe1b406e}": 50.0,
+          "{54ccd262}": 1000.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 2.0,
+          "{7c29d4b9}": 2,
+          "{4e0d7b75}": true,
+          "__type": "{9f30b8a6}"
+        },
+        "{a75b0dc7}": {
+          "BaseGold": [
+            300.0
+          ],
+          "FirstBloodBonus": 100.0,
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 90.0,
+          "{937cc95a}": 210.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 50.0,
+          "{fe1b406e}": 25.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 10.0,
+          "{ec211346}": 5.0,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "__type": "{b53e2f1a}"
+          },
+          "NegativeBountyConfig": {
+            "{c080021c}": 75.0,
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "{4e0d7b75}": true,
+          "__type": "{9f30b8a6}"
+        },
+        "{7b88e873}": {
+          "BaseGold": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            310.0,
+            320.0,
+            330.0,
+            340.0,
+            350.0,
+            360.0,
+            370.0,
+            380.0,
+            390.0,
+            400.0,
+            410.0,
+            420.0
+          ],
+          "FirstBloodBonus": 100.0,
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 55.0,
+          "{937cc95a}": 175.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 7.0,
+          "{ec211346}": 3.5,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "{4b733ea3}": 5.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{4ec6dd3c}": 1.0,
+            "{3cb3392e}": 2.5,
+            "__type": "{6030f7c6}"
+          },
+          "NegativeBountyConfig": {
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        },
+        "{0f31c9d2}": {
+          "BaseGold": [
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0,
+            200.0
+          ],
+          "FirstBloodBonus": 100.0,
+          "AssistDurationOverride": 15.0,
+          "{11f10a40}": 55.0,
+          "{937cc95a}": 175.0,
+          "{08c1b120}": 0.25,
+          "{1eacb90a}": 0.5,
+          "{ce073fe8}": 1.0,
+          "{fd43d59f}": 700.0,
+          "{3cf326fa}": true,
+          "{907442e7}": 100.0,
+          "{fe1b406e}": 50.0,
+          "{d1f9fb6a}": 100.0,
+          "{54ccd262}": 3.0,
+          "{c29d06b9}": 20.0,
+          "{fa93507d}": 7.0,
+          "{ec211346}": 3.5,
+          "{7c29d4b9}": 2,
+          "{40b0d0ff}": true,
+          "{a7e2cc37}": true,
+          "{a966473c}": {
+            "{00490b09}": 100.0,
+            "{4b733ea3}": 5.0,
+            "__type": "{b53e2f1a}"
+          },
+          "ObjectiveBountyConfig": {
+            "{4ec6dd3c}": 1.0,
+            "{3cb3392e}": 2.5,
+            "__type": "{6030f7c6}"
+          },
+          "NegativeBountyConfig": {
+            "{b8ee5cef}": 100.0,
+            "__type": "{24e1cb45}"
+          },
+          "__type": "{9f30b8a6}"
+        }
+      }
+    }
+  ],
+  "dictionary": {
+    "url": "https://raw.githubusercontent.com/CommunityDragon/Data/master/hashes/lol/hashes.binfields.txt",
+    "cache": ".cache/binfields-reward-audit.txt",
+    "sha256": "f80e2ea3ffeea868dafcf528f092778e4dad3a012d8cdb343e9175aa8f6db113",
+    "unresolvedFields": [
+      "{11f10a40}",
+      "{937cc95a}",
+      "{08c1b120}",
+      "{1eacb90a}",
+      "{ce073fe8}"
+    ]
+  }
+}

@@ -38,3 +38,6 @@ The first credited opposing champion kill grants an additional 100 gold to the k
 The match owns a saved `firstBloodClaimed` flag, independent of team and mutable scoreboard counters. It is set during reward processing before a later death can claim the bonus. Same-tick kills use the existing ordered damage processing; this is a deterministic local convention, not native simultaneous-kill calibration. The bonus adds to the base reward (or explicit practice override) and appears in the same gold event. It does not go to assistants. A posthumous champion source remains eligible.
 
 Kills of minions/structures/dummies, same-team debug kills, and uncredited nonchampion final blows do not claim first blood. Execution attribution remains unfinished, so a death that should be credited to a previous champion attacker can still differ from the reference. First-blood announcement artwork/audio is not implemented. Tests cover both teams, same-tick trades, assistants, uncredited deaths and save continuation before/after the award.
+
+
+See [the assist-gold reconstruction audit](ASSIST-GOLD.md) for verified cross-version/mode records, unresolved field meanings, and the death-transaction requirements for implementing assist payouts.
