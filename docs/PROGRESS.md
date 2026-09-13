@@ -16,7 +16,7 @@ Last updated: September 13, 2026 (America/New_York).
 - Eight animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
 - Source revisions and SHA-256 hashes are recorded for imported art. The GLB passes the Khronos glTF validator with zero errors and zero warnings.
 - The default playable now renders pinned Base_SRX terrain and vegetation with original BC1/BC3 blocks, authored mip levels, and a lossless WebP fallback. Source navigation, elevation, fountain spawns, three lane routes, timed barracks waves, and 22 turret positions are connected. The separate inspector retains its navigation overlay.
-- Twenty-six browser scenarios and fifty-five simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
+- Validation counts and exact scope are recorded in the milestones below. They cover the current practice build and map asset inspector, not a complete match.
 
 The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
 
@@ -199,3 +199,11 @@ The pause menu now saves one local checkpoint per battlefield. Reloading a compa
 Validation passes 92 unit/scenario checks and the production build. The full Chrome run passed 37 cases and exposed one outdated pause-menu focus expectation; the corrected focus case and all three checkpoint cases then passed together. The final three checkpoint cases passed again after error-message handling changes. The production save/reload smoke check passes without browser errors and without the development hook. The restored pause screen was visually inspected. Browser tests now own port 5198 and reject an existing server, preventing accidental attachment to another project's app.
 
 These checks cover exact simulation continuation, an aborted storage transaction, incompatible-save retention, and explicit resume/restart. Autosaves, migrations, export/import, offline assets, and cross-browser replay guarantees remain unfinished, alongside the broader match and content fidelity work. The production goal remains active.
+
+## Lane-minion current-health damage milestone
+
+Ordinary minion attacks now add the pinned item ratios of the opposing lane minion's current HP: 2% melee, 3.5% caster, and 5% siege. Both teams' source inventories resolve through frozen 16.18 item definitions into the gameplay layout. Ranged attacks read current HP on contact while preserving release AD, including after source death. The combined physical hit resolves once. Physical composition and precise pre-hit sampling remain explicit policies awaiting matched reference capture; the primary data establishes the ratios and eligible victim class. See [source evidence and combat boundaries](MINIONS.md#minion-current-health-on-hit-damage).
+
+All 103 unit/scenario checks, all 38 Chrome scenarios, the static production build, and the production preview smoke check pass. The six frozen item/tooltip records match upstream hashes and data. Layout, provenance, and minimap exports reproduce byte-identically. The production screenshot was inspected; no new rendering or performance claim is made. Eleven new combat scenarios cover both teams, all ordinary source types and lane-minion victim types, armor, impact-time health changes, source death, repeated attacks, exclusions, and one-time lethal resolution.
+
+This closes a missing lane-combat contribution. Full minion initialization and scaling, turret-specific damage received, siege mid-lane attack speed, super-minion effects, complete champion/bot/objective systems, and pixel-level reference comparison remain unfinished. The production goal remains active.

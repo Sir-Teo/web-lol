@@ -16,6 +16,7 @@ export interface RiftLayout {
   unitStats: Battlefield['unitStats'];
   unitHealthGrowth: Battlefield['unitHealthGrowth'];
   minionTurretDamage: Battlefield['minionTurretDamage'];
+  minionCurrentHealthDamage: Battlefield['minionCurrentHealthDamage'];
   structures: (Battlefield['initialUnits'][number] & { transform: number[] })[];
   turrets: {
     point: Vec2;
@@ -58,6 +59,7 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
     unitStats: layout.unitStats,
     unitHealthGrowth: layout.unitHealthGrowth,
     minionTurretDamage: layout.minionTurretDamage,
+    minionCurrentHealthDamage: layout.minionCurrentHealthDamage,
     waveKinds: (wave, seconds, context) => {
       const superSpec = layout.waves.types.find((type) => type.kind === 'super');
       const supers = context?.enemyLaneInhibitorDown

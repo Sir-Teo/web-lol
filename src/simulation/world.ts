@@ -622,7 +622,12 @@ export class World {
       target.kind === 'turret' && isLaneMinionKind(source.kind)
         ? (this.battlefield.minionTurretDamage?.[source.kind] ?? 1)
         : 1;
-    this.damage(source, target, raw * multiplier, 'physical');
+    const healthRatio =
+      isLaneMinionKind(source.kind) && isLaneMinionKind(target.kind)
+        ? (this.battlefield.minionCurrentHealthDamage?.[source.kind]?.[source.team] ?? 0)
+        : 0;
+    // Sample at impact, before this hit changes HP. Ranged attacks retain release AD.
+    this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
   }
   damage(source: Unit, target: Unit, raw: number, kind: 'physical' | 'magic' | 'true'): void {
     if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;
