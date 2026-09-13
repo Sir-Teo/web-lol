@@ -916,3 +916,9 @@ Bots below 22% health outside their own shop radius now queue available Heal whe
 Four new simulation scenarios cover retreat Heal and saved continuation, stunned activation without movement, preservation of pending Volley, and eligibility exclusions. The Volley retreat assertion now checks absence of W specifically because defensive F is allowed. All 340 source/simulation checks, five focused browser scenarios and the production nested-host smoke pass. The new Chrome case observes actual Heal, independent cooldown, haste deadline and unchanged stunned position. Full browser/performance suites were not repeated.
 
 The health/threat distances are local bot policy; incoming damage estimates, coordinated healing, R/E/Flash decisions and complete native behavior remain unfinished.
+
+## Champion-kill XP source audit
+
+Preserved and verified the complete standard-mode experience curve `{c6f6a84c}`, its map hash/link, the 1,600-unit XP proximity constant and the ten-second credit-after-death constant. The first ten base rewards match Riot's 13.4 release notes; the full supported curve ranges from 42 XP at level 1 to 990 at level 18. The current flat 180 award and 1,400-unit human-only collection are therefore known deviations. Original sharing and level-difference arrays are retained without inventing absent defaults.
+
+`docs/CHAMPION-KILL-XP.md` specifies the remaining contributor/death-transaction boundary and validation cases. The source record alone does not settle shared coefficient indexing, capped recipient eligibility, assist windows or negative-level modifier semantics. In particular, credit-after-death duration must not be reused as an assist window. `python3 tools/assets/verify-champion-kill-xp.py` passes, checking full record identity plus independently published base values. No runtime code changed, so gameplay/browser suites were not repeated. This is evidence for the next implementation, not completed champion reward parity.

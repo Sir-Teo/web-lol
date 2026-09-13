@@ -1,0 +1,100 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json",
+  "sha256": "ad684528be94c3f6981daa2c1ff3e32724596a24e8c4f21ab8df8c291ca980f7",
+  "mode": "Maps/Shipping/Map11/Modes/CLASSIC",
+  "curveRecord": "{c6f6a84c}",
+  "curve": {
+    "mExperienceRequiredPerLevel": [
+      280.0,
+      660.0,
+      1140.0,
+      1720.0,
+      2400.0,
+      3180.0,
+      4060.0,
+      5040.0,
+      6120.0,
+      7300.0,
+      8580.0,
+      9960.0,
+      11440.0,
+      13020.0,
+      14700.0,
+      16480.0,
+      18360.0,
+      20340.0,
+      22420.0,
+      24000.0,
+      25880.0,
+      27760.0,
+      29640.0,
+      31520.0,
+      33400.0,
+      35280.0,
+      37160.0,
+      39040.0,
+      40920.0
+    ],
+    "mExperienceGrantedForKillPerLevel": [
+      42.0,
+      114.0,
+      144.0,
+      174.0,
+      204.0,
+      234.0,
+      308.0,
+      392.0,
+      486.0,
+      590.0,
+      640.0,
+      690.0,
+      740.0,
+      790.0,
+      840.0,
+      890.0,
+      940.0,
+      990.0,
+      1040.0,
+      1090.0,
+      1140.0,
+      1190.0,
+      1240.0,
+      1290.0,
+      1340.0,
+      1390.0,
+      1440.0,
+      1490.0,
+      1540.0,
+      1590.0
+    ],
+    "mExperienceGrantedMultForSharedKillPerLevel": [
+      0.6660000085830688,
+      0.6660000085830688,
+      0.6660000085830688,
+      0.6660000085830688,
+      0.6660000085830688,
+      0.6660000085830688,
+      0.8199999928474426,
+      0.8199999928474426,
+      0.8999999761581421
+    ],
+    "LevelDifferenceExperienceMultiplierPerLevel": [
+      0.0,
+      0.20000000298023224
+    ],
+    "__type": "ExperienceCurveData"
+  },
+  "constantsRecord": "{6cf687be}",
+  "constants": {
+    "aiExp_timeForKillCreditAfterDeath": {
+      "mValue": 10.0,
+      "__type": "GameModeConstantFloat"
+    },
+    "ai_ExpRadius2": {
+      "mValue": 1600.0,
+      "__type": "GameModeConstantFloat"
+    }
+  },
+  "officialCorroboration": "https://www.leagueoflegends.com/en-gb/news/game-updates/patch-13-4-notes/",
+  "runtimeStatus": "Reference only: payout integration requires contributor eligibility and multiplier semantics validation."
+}
