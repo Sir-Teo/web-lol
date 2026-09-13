@@ -3,6 +3,7 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
 import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
+import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX } from '../content/lux-progression';
@@ -366,10 +367,10 @@ export class World {
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
-        const early = ASHE_SKILL_RECOMMENDATION.early[allocated];
-        const choices = early
-          ? [early, ...ASHE_SKILL_RECOMMENDATION.priority]
-          : ASHE_SKILL_RECOMMENDATION.priority;
+        const recommendation =
+          this.unit(state.id)?.champion === 'lux' ? LUX_BOT_POLICY : ASHE_SKILL_RECOMMENDATION;
+        const early = recommendation.early[allocated];
+        const choices = early ? [early, ...recommendation.priority] : recommendation.priority;
         const ability = choices.find((key) => this.spellLearningError(key, state.id) === null);
         if (!ability) break;
         this.learnSpell(ability, state.id);
@@ -882,8 +883,104 @@ export class World {
   }
   private nextBotPurchase(u: Unit) {
     const state = this.championState(u.id)!;
-    const id = ['blade', 'boots', 'pickaxe', 'sword'].find((id) => !state.inventory.includes(id));
+    const choices =
+      u.champion === 'lux' ? LUX_BOT_POLICY.purchases : ['blade', 'boots', 'pickaxe', 'sword'];
+    const id = choices.find((id) => !state.inventory.includes(id));
     return ITEMS.find((item) => item.id === id);
+  }
+  private planLuxCombat(u: Unit, retreating: boolean): boolean {
+    if (u.champion !== 'lux') return false;
+    const state = this.championState(u.id)!;
+    if (state.pendingCast || state.recallEnd !== null) return false;
+    const ready = (ability: 'q' | 'w' | 'e' | 'r') =>
+      state.spellRanks[ability] > 0 &&
+      this.abilityCooldownTicks(ability, u.id) === 0 &&
+      u.mana >= this.abilityResources(ability, u.id).mana;
+    const cast = (ability: 'q' | 'w' | 'e' | 'r', point: Vec2) => {
+      this.enqueue({ type: 'cast', unit: u.id, ability, point: { x: point.x, y: point.y } });
+      return true;
+    };
+    // Filter sight before consulting enemy position, health or order.
+    const enemies = this.units
+      .filter(
+        (target) =>
+          target.kind === 'champion' &&
+          target.team !== u.team &&
+          this.alive(target) &&
+          this.visible(target, u.team) &&
+          this.vulnerable(target)
+      )
+      .sort((a, b) => distance(u, a) - distance(u, b) || a.id - b.id);
+    const zone = this.singularities.find((z) => z.sourceId === u.id && z.detonatedTick === null);
+    if (
+      zone &&
+      zone.arrivalTick !== null &&
+      enemies.some((target) => distance(zone, target) <= LUX_E_POLICY.radius + target.radius)
+    )
+      return cast('e', zone);
+    if (ready('w')) {
+      const amount =
+        LUX_W.baseShield[state.spellRanks.w - 1] + LUX_W.abilityPowerRatio * this.abilityPower(u);
+      const ally = this.units
+        .filter(
+          (a) =>
+            a.kind === 'champion' &&
+            a.team === u.team &&
+            this.alive(a) &&
+            a.hp / a.maxHp < LUX_BOT_POLICY.shieldHealthFraction &&
+            distance(u, a) <= LUX_W.range &&
+            this.shieldAmount(a) < amount / 2 &&
+            (enemies.some((enemy) => distance(enemy, a) <= 1000) ||
+              this.projectiles.some(
+                (p) => p.team !== u.team && p.target === a.id && this.projectileVisible(p, u.team)
+              ))
+        )
+        .sort((a, b) => a.hp / a.maxHp - b.hp / b.maxHp || a.id - b.id)[0];
+      if (ally) {
+        // A self shield still needs a nonzero throw direction.
+        const point =
+          ally.id === u.id
+            ? (enemies[0] ?? { x: u.x + Math.sin(u.facing), y: u.y + Math.cos(u.facing) })
+            : ally;
+        return cast('w', point);
+      }
+    }
+    if (!retreating && this.threateningTower(u, u, true)) return false;
+    if (!retreating && ready('r')) {
+      const raw =
+        LUX_R.baseDamage[state.spellRanks.r - 1] + LUX_R.abilityPowerRatio * this.abilityPower(u);
+      const target = enemies.find(
+        (enemy) =>
+          distance(u, enemy) <= LUX_R.range &&
+          enemy.hp + this.shieldAmount(enemy) <= damageAfterResistance(raw, enemy.magicResist)
+      );
+      if (target) return cast('r', target);
+    }
+    const target = enemies.find(
+      (enemy) => distance(u, enemy) <= (retreating ? 700 : LUX_BINDING.range)
+    );
+    if (!target) return false;
+    if (ready('q')) {
+      const dir = direction(u, target),
+        end = { x: u.x + dir.x * LUX_BINDING.range, y: u.y + dir.y * LUX_BINDING.range };
+      const contacts = this.units
+        .flatMap((enemy) => {
+          if (
+            enemy.team === u.team ||
+            !this.alive(enemy) ||
+            !this.visible(enemy, u.team) ||
+            isStructureKind(enemy.kind)
+          )
+            return [];
+          const t = sweepCircle(u, end, enemy, LUX_BINDING.radius + enemy.radius);
+          return t === null ? [] : [{ id: enemy.id, t }];
+        })
+        .sort((a, b) => a.t - b.t || a.id - b.id)
+        .slice(0, LUX_BINDING.maximumTargets);
+      if (contacts.some((hit) => hit.id === target.id)) return cast('q', target);
+    }
+    if (!zone && ready('e') && distance(u, target) <= LUX_E.castRange) return cast('e', target);
+    return false;
   }
   private planCrystalArrow(u: Unit, purpose: 'finish' | 'peel'): boolean {
     if (u.champion !== 'ashe') return false;
@@ -995,6 +1092,7 @@ export class World {
     if (u.aiRetreating) {
       const home = this.battlefield.spawns[u.team];
       const state = this.championState(u.id)!;
+      if (this.planLuxCombat(u, true)) return;
       if (this.planEmergencyFlash(u)) return;
       if (distance(u, home) > 400 && this.planCrystalArrow(u, 'peel')) return;
       if (this.safeToRecall(u)) {
@@ -1051,6 +1149,7 @@ export class World {
       }
     }
     if (this.planCrystalArrow(u, 'finish')) return;
+    if (this.planLuxCombat(u, false)) return;
     const safeTarget = (target: Unit) => this.safeAttackPosition(u, target);
     const nearest = this.nearest(u, 1150, false, safeTarget);
     const closeThreat = this.nearest(u, 380, true, safeTarget);

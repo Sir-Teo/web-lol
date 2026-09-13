@@ -1,6 +1,6 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 is used; native effects/audio, champion-selection/HUD integration, tactical AI and native calibration remain unfinished.
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 is used; native effects/audio, champion-selection/HUD integration, native calibration and full tactical/role AI remain unfinished. A first Lux combat policy now uses the spell; see [LUX-BOTS.md](LUX-BOTS.md).
 
 ## Implemented lifecycle and provisional policies
 
@@ -65,4 +65,4 @@ The cached base-skin resolver identifies `Lux_Base_E_mis`, `Lux_Base_E_tar_aoe_g
 
 Test every rank's resources and damage; range clamp and self cast; early, late and repeated recasts; expiry-versus-recast ordering; free recast at zero mana and while initial cooldown is active; leaving/re-entering the field; entering after it is created; overlap and weaker-slow restoration; shield absorption; Illumination; caster and target death; hidden enemies and brush; R interaction; saved windup, flight, armed zone and detonation request. Repeated full matches must retire every zone, particle and audio voice. Source-data agreement and local regression tests must remain distinct from native timing and geometry evidence.
 
-The core E lifecycle and supporting slow state are now implemented as described above. Next are source effects, Lux input/HUD and tactical AI integration, and native comparison. The broader full-match design and production gates remain unchanged.
+The core E lifecycle and supporting slow state are now implemented as described above. Next are source effects, Lux input/HUD, broader tactical/role AI and item builds, and native comparison. The broader full-match design and production gates remain unchanged.

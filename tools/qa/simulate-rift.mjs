@@ -6,6 +6,8 @@ import { createHash } from 'node:crypto';
 
 const seconds = Number(process.argv[2] ?? 600);
 const output = process.argv[3] ?? 'artifacts/rift-team-simulation.json';
+const roster = process.argv[4] ?? 'ashe';
+if (!['ashe', 'mixed'].includes(roster)) throw new Error('Roster must be ashe or mixed');
 if (!Number.isInteger(seconds) || seconds < 1 || seconds > 3600)
   throw new Error('Duration must be an integer between 1 and 3600 seconds');
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
@@ -33,13 +35,21 @@ try {
       const home = battlefield.spawns[team];
       const position = battlefield.reachable({ x: home.x + (slot - 2) * 75, y: home.y }, 35, team);
       const u =
-        team === 'blue' && slot === 0 ? world.hero : world.spawn('champion', team, position);
+        team === 'blue' && slot === 0
+          ? world.hero
+          : world.spawn(
+              'champion',
+              team,
+              position,
+              roster === 'mixed' && slot === 4 ? 'lux' : 'ashe'
+            );
       Object.assign(u, position, { previous: { ...position }, ai: true, lane });
       champions.push(u);
     }
   }
   const samples = [];
   const deaths = [];
+  const castCounts = {};
   const violations = [];
   const stationary = new Map(
     champions.map((u) => [u.id, { x: u.x, y: u.y, ticks: 0, longest: 0 }])
@@ -49,6 +59,10 @@ try {
     world.step();
     for (const event of world.events) {
       if (event.tick === world.tick && event.type === 'death') deaths.push({ ...event });
+      if (event.tick === world.tick && event.type === 'cast') {
+        const key = `${world.unit(event.unit)?.champion ?? 'unknown'}:${event.text}`;
+        castCounts[key] = (castCounts[key] ?? 0) + 1;
+      }
     }
     for (const u of world.units) {
       if (
@@ -79,6 +93,7 @@ try {
           const s = world.championState(u.id);
           return {
             id: u.id,
+            champion: u.champion,
             team: u.team,
             lane: battlefield.lanes[u.lane].name,
             x: u.x,
@@ -126,8 +141,8 @@ try {
     violations.push({ tick: world.tick, reason: 'Checkpoint rejected', message: error.message });
   }
   const report = {
-    fixture:
-      'Ten automated Ashe champions, 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.',
+    fixture: `Ten automated champions (${roster === 'mixed' ? 'eight Ashe, two Lux' : 'ten Ashe'}), 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.`,
+    castCounts,
     revision: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
     worktree: execFileSync('git', ['status', '--short'], { encoding: 'utf8' }).trim(),
     requestedSeconds: seconds,

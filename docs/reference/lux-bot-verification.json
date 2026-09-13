@@ -1,0 +1,80 @@
+{
+  "fixture": "Ten automated champions (eight Ashe, two Lux), 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.",
+  "revision": "173050a1b05e42ba6e01129ba6acff9628d5e839",
+  "requestedSeconds": 600,
+  "simulatedSeconds": 600,
+  "wallSeconds": 6.883511333,
+  "winner": null,
+  "violations": [],
+  "restoredEqual": true,
+  "castCounts": {
+    "ashe:w": 65,
+    "lux:e": 33,
+    "lux:f": 4,
+    "ashe:f": 17,
+    "ashe:q": 42,
+    "lux:q": 30,
+    "ashe:e": 31,
+    "lux:w": 13,
+    "ashe:r": 5,
+    "lux:r": 2
+  },
+  "snapshotSHA256": "f00805a20becb75e8a3be426480a1c61244cfb371146358176d06c8fdfa16607",
+  "command": "node tools/qa/simulate-rift.mjs 600 artifacts/rift-lux-simulation.json mixed",
+  "sourceSHA256": {
+    "src/simulation/world.ts": "609053aadb173e88d9ea22dc49abd8db7da0d068249452e73ba97a32f7bcfcf9",
+    "src/content/lux-bot-policy.ts": "9fe3a245ad0c2c2fb10ac1439cc7aa4aa68707388fcadba87c592dc0a7b580ba",
+    "tools/qa/simulate-rift.mjs": "5af5739d9fec59ee1ac985a0e52723c50b97d010d16003698e8778dfdcd0ae0e"
+  },
+  "reportSHA256": "da08beb831e5a11c9bc92694fc1021131bd423987162c36d0c1f7fa58d6c9056",
+  "luxFinal": [
+    {
+      "id": 35,
+      "champion": "lux",
+      "team": "blue",
+      "lane": "bot",
+      "x": 4379.730943236465,
+      "y": 5287.9149295894895,
+      "hp": 346.16693203068985,
+      "level": 7,
+      "gold": 1792.4,
+      "cs": 14,
+      "kills": 2,
+      "deaths": 3,
+      "inventory": [
+        "tome",
+        "boots"
+      ],
+      "order": {
+        "type": "attack",
+        "target": 39
+      },
+      "retreating": false,
+      "stationarySeconds": 0
+    },
+    {
+      "id": 40,
+      "champion": "lux",
+      "team": "red",
+      "lane": "bot",
+      "x": 4112.251424299056,
+      "y": 5846.858790576899,
+      "hp": 0,
+      "level": 6,
+      "gold": 1813.4,
+      "cs": 20,
+      "kills": 2,
+      "deaths": 5,
+      "inventory": [
+        "tome",
+        "boots"
+      ],
+      "order": {
+        "type": "idle"
+      },
+      "retreating": true,
+      "stationarySeconds": 0
+    }
+  ],
+  "limitations": "Tested worktree changes on the recorded base revision, identified by source hashes. Headless simulation throughput is not rendering performance. Ten-minute diagnostic only; no complete-match, role-AI or native-behavior certification."
+}
