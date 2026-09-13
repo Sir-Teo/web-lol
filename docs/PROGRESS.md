@@ -1031,3 +1031,10 @@ All 384 source/simulation checks, three focused Chrome scenarios and the nested-
 Added integration scenarios that queue real W/R casts, save after projectile release, and run collisions against a champion and nearby minion. Identical control worlds retain flat stats and regeneration while omitting only Doran ownership, isolating the healing effect. Both spells apply full champion healing and reduced minion area healing, with byte-identical saved continuation. A separate in-flight Volley scenario sells Doran before impact and verifies that damage still lands without healing.
 
 All 387 source/simulation checks pass. A deliberate local fault injection changed the two spell damage classifications to direct: both new W/R cases failed, confirming that the tests detect missing minion area scaling. The original runtime was restored in a finally block and the final diff contains no runtime edits. Browser and production checks were not rerun for this test-only change. Native overkill/event timing, complete healing modifiers and the overall production objective remain unfinished.
+
+
+## Cloth Armor and Chain Vest
+
+Added source-pinned Cloth Armor and Chain Vest, their local icons, sell values and component recipe. Item transactions now add/remove flat armor and apply only the net armor difference when consuming a component. Existing damage mitigation consumes the updated armor; selling retains champion level growth. Both teams and saved continuation are covered.
+
+All 390 source/simulation checks, three focused Chrome scenarios, armor/sell source verifiers and the nested-path production smoke pass. Browser input verifies the armor HUD through purchase, upgrade and sale. Inspected the expanded shop capture: new icons and prices render, but the growing catalog scrolls the header out of view, leaving a known layout improvement for the full shop design. Full-suite/performance checks were not repeated. Adaptive bot builds, broader defensive effects and complete native shop/match fidelity remain unfinished; the production objective remains active.

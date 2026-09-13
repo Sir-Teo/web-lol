@@ -87,3 +87,10 @@ Healing derives from current ownership at damage resolution and caps at missing 
 
 
 Omnivamp regression coverage now also includes queued W/R casts through actual projectile collisions, saved in-flight continuation and selling before Volley impact. A deliberate direct-hit misclassification fails both W/R integration cases. This verifies local damage plumbing, not the unresolved native healing policies.
+
+
+## Armor itemization
+
+Added Cloth Armor (300 gold, +15 armor, sells for 210) and Chain Vest (800 total, +40 armor, sells for 560) from the pinned Data Dragon 16.18.1 records. Chain Vest consumes one Cloth Armor and costs 500 remaining gold. Item purchases now apply net flat armor after component consumption; sales remove only the item's armor, retaining champion level growth. Physical mitigation reads the resulting unit armor; true damage remains unaffected.
+
+Both icons ship locally with provenance and hashes in the reference manifest. [Full item records](reference/armor-items.json). `python3 tools/assets/verify-armor-items.py` validates records, recipe cost and local icons. Scenario tests cover both teams, damage mitigation, sale after leveling and checkpoint continuation; the browser case verifies armor HUD values 26 → 41 → 66 → 26 through buying, upgrading and selling. Bots retain their existing finite offensive build policy; reactive defensive builds and the wider item catalog remain unfinished.

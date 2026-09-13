@@ -1,0 +1,109 @@
+{
+  "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+  "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+  "items": {
+    "1029": {
+      "name": "Cloth Armor",
+      "description": "<mainText><stats><attention>15</attention> Armor</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Slightly increases Armor",
+      "into": [
+        "2421",
+        "2420",
+        "1031",
+        "323050",
+        "323190",
+        "2019",
+        "3193",
+        "3047",
+        "3024",
+        "3050",
+        "2524",
+        "3023",
+        "3076",
+        "3082",
+        "3105",
+        "3190"
+      ],
+      "image": {
+        "full": "1029.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 384,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 300,
+        "purchasable": true,
+        "total": 300,
+        "sell": 210
+      },
+      "tags": [
+        "Armor"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatArmorMod": 15
+      }
+    },
+    "1031": {
+      "name": "Chain Vest",
+      "description": "<mainText><stats><attention>40</attention> Armor</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Greatly increases Armor",
+      "from": [
+        "1029"
+      ],
+      "into": [
+        "3742",
+        "3068",
+        "323002",
+        "3109",
+        "323075",
+        "2502",
+        "3002",
+        "3075",
+        "323109",
+        "6665",
+        "6662"
+      ],
+      "image": {
+        "full": "1031.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 432,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 500,
+        "purchasable": true,
+        "total": 800,
+        "sell": 560
+      },
+      "tags": [
+        "Armor"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatArmorMod": 40
+      },
+      "depth": 2
+    }
+  }
+}

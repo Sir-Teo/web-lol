@@ -1548,11 +1548,13 @@ export class World {
       (id, slot) => id === null || plan.consumed.includes(slot)
     );
     state.gold -= plan.cost;
-    let damage: number = item.damage,
+    let armor: number = item.armor,
+      damage: number = item.damage,
       hp: number = item.hp,
       speed: number = item.speed;
     for (const slot of plan.consumed) {
       const component = ITEMS.find((entry) => entry.id === state.inventory[slot])!;
+      armor -= component.armor;
       damage -= component.damage;
       hp -= component.hp;
       speed -= component.speed;
@@ -1560,6 +1562,7 @@ export class World {
     }
     if (emptySlot === -1) state.inventory.push(item.id);
     else state.inventory[emptySlot] = item.id;
+    champion.armor += armor;
     champion.damage += damage;
     champion.maxHp += hp;
     if (this.alive(champion)) champion.hp += hp;
@@ -1594,6 +1597,7 @@ export class World {
     // Omitted trailing slots are empty too; interior holes retain slot identity.
     while (state.inventory.length && state.inventory.at(-1) === null) state.inventory.pop();
     state.gold += item.sell;
+    champion.armor -= item.armor;
     champion.damage -= item.damage;
     champion.speed -= item.speed;
     champion.maxHp -= item.hp;

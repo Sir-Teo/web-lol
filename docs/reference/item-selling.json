@@ -56,6 +56,24 @@
         "total": 900,
         "sell": 630
       }
+    },
+    "1029": {
+      "name": "Cloth Armor",
+      "gold": {
+        "base": 300,
+        "purchasable": true,
+        "total": 300,
+        "sell": 210
+      }
+    },
+    "1031": {
+      "name": "Chain Vest",
+      "gold": {
+        "base": 500,
+        "purchasable": true,
+        "total": 800,
+        "sell": 560
+      }
     }
   }
 }
