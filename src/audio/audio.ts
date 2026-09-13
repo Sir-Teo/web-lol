@@ -1,11 +1,13 @@
+import { HAWKSHOT_FLIGHT_AUDIO } from '../content/hawkshot-flight-audio';
+import { flightAudioStates } from './hawkshot-flight-state';
 import { HAWKSHOT_LINGER_AUDIO } from '../content/hawkshot-linger-audio';
 import { lingerAudioState, lingerFade } from './hawkshot-linger-state';
 import { TICK_RATE } from '../content/rules';
 import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
-import type { ScoutVisual, SimEvent } from '../simulation/types';
+import type { Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot cast and arrival audio; other event cues remain synthesized. */
+/** Source Hawkshot audio; other event cues remain synthesized. */
 export class GameAudio {
   context: AudioContext | null = null;
   private audible = true;
@@ -14,6 +16,10 @@ export class GameAudio {
   private buffers: AudioBuffer[] = [];
   private bag: number[] = [];
   private arrivalBuffer: AudioBuffer | null = null;
+  private flightBuffers: AudioBuffer[] = [];
+  private flightVoices = new Map<string, AudioBufferSourceNode>();
+  private finishedFlight = new Set<string>();
+  flightStatus: 'loading' | 'ready' | 'failed' = 'loading';
   private lingerBuffer: AudioBuffer | null = null;
   private lingerVoices = new Map<number, AudioBufferSourceNode>();
   private finishedLinger = new Set<number>();
@@ -34,7 +40,23 @@ export class GameAudio {
     if (!value) this.stopVoices();
   }
   async load(): Promise<void> {
-    await Promise.all([this.loadCast(), this.loadArrival(), this.loadLinger()]);
+    await Promise.all([this.loadCast(), this.loadArrival(), this.loadLinger(), this.loadFlight()]);
+  }
+  private async loadFlight(): Promise<void> {
+    try {
+      const decoder = new OfflineAudioContext(1, 1, 44100);
+      this.flightBuffers = await Promise.all(
+        [...HAWKSHOT_FLIGHT_AUDIO.variants, HAWKSHOT_FLIGHT_AUDIO.loop].map(async ({ url }) => {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`Flight audio asset ${response.status}`);
+          return decoder.decodeAudioData(await response.arrayBuffer());
+        })
+      );
+      this.flightStatus = 'ready';
+    } catch (error) {
+      this.flightStatus = 'failed';
+      console.warn('Source flight audio unavailable.', error);
+    }
   }
   private async loadLinger(): Promise<void> {
     try {
@@ -102,6 +124,7 @@ export class GameAudio {
     }
     this.voices.clear();
     this.lingerVoices.clear();
+    this.flightVoices.clear();
   }
   private own(voice: AudioScheduledSourceNode, gain: GainNode): void {
     this.voices.set(voice, gain);
@@ -109,6 +132,11 @@ export class GameAudio {
       voice.disconnect();
       gain.disconnect();
       this.voices.delete(voice);
+      for (const [key, active] of this.flightVoices)
+        if (active === voice) {
+          this.finishedFlight.add(key);
+          this.flightVoices.delete(key);
+        }
       for (const [id, active] of this.lingerVoices)
         if (active === voice) {
           this.finishedLinger.add(id);
@@ -196,6 +224,56 @@ export class GameAudio {
       voice.start(now, state.offset);
       voice.stop(now + state.endAge - state.age);
     }
+  }
+  updateFlight(projectiles: Projectile[], effects: ScoutVisual[], tick: number): void {
+    const states = flightAudioStates(projectiles, effects, tick);
+    const active = new Set(states.flatMap((s) => [`${s.id}:variant`, `${s.id}:loop`]));
+    for (const key of this.finishedFlight) if (!active.has(key)) this.finishedFlight.delete(key);
+    for (const [key, voice] of this.flightVoices) {
+      if (active.has(key)) continue;
+      voice.stop();
+      voice.disconnect();
+      this.voices.get(voice)?.disconnect();
+      this.voices.delete(voice);
+      this.flightVoices.delete(key);
+    }
+    const context = this.context;
+    if (
+      !this.enabled ||
+      this.paused ||
+      !context ||
+      context.state !== 'running' ||
+      this.flightStatus !== 'ready'
+    )
+      return;
+    for (const state of states)
+      for (const layer of ['variant', 'loop'] as const) {
+        const key = `${state.id}:${layer}`;
+        if (this.flightVoices.has(key) || this.finishedFlight.has(key)) continue;
+        const loop = layer === 'loop';
+        const buffer = this.flightBuffers[loop ? 3 : state.variant];
+        if (!loop && state.age >= buffer.duration) continue;
+        const source = context.createBufferSource(),
+          gain = context.createGain(),
+          now = context.currentTime;
+        const level =
+          0.2 *
+          10 **
+            ((loop ? HAWKSHOT_FLIGHT_AUDIO.loopGainDb : HAWKSHOT_FLIGHT_AUDIO.variantGainDb) / 20);
+        source.buffer = buffer;
+        source.loop = loop;
+        source.loopStart = 0;
+        source.loopEnd = buffer.duration;
+        gain.gain.setValueAtTime(level * state.fade, now);
+        if (state.age < state.stopAge)
+          gain.gain.setValueAtTime(level, now + state.stopAge - state.age);
+        gain.gain.linearRampToValueAtTime(0, now + state.endAge - state.age);
+        source.connect(gain).connect(context.destination);
+        this.own(source, gain);
+        this.flightVoices.set(key, source);
+        source.start(now, loop ? state.age % buffer.duration : state.age);
+        source.stop(now + state.endAge - state.age);
+      }
   }
   unlock(): void {
     this.context ??= new AudioContext();

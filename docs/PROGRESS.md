@@ -800,3 +800,11 @@ Hawkshot's endpoint now loops the source recording, seeks from saved simulation 
 The saved presentation descriptor now includes the full 6.25-second visual/audio window. Snapshot version 22 rejects version 21; sight still expires at five seconds and particles retain their original lifetimes. Tests restore during the final audio-only quarter-second with no renewed vision.
 
 All 286 source/simulation checks, ten focused Chrome audio/checkpoint scenarios, production build and real-input production Hawkshot smoke pass. Source export is byte-identical. Launch audio, shared/spatial/native mixing, listening comparison and the full production match remain unfinished. Full browser regression and full-match performance were not repeated. See [persistent linger evidence](ASHE-AUDIO.md#persistent-linger-playback-and-saved-fade).
+
+## Both source flight audio layers
+
+Hawkshot now plays a launch variant and separate persistent loop with source −8/−26 dB gain and paired 150 ms linear stop fades. Saved projectile state predicts exact arrival; endpoint state preserves the fade after arrival. Per-flight/layer voices seek correctly on restore or eligible re-entry, release on removal/mute/visibility loss, and remember natural completion to prevent tail restarts. Deterministic variant choice is a documented approximation of native shuffle behavior.
+
+All 289 source/simulation checks, eight distinct Chrome audio scenarios across the initial and focused runs, production build and real-input production Hawkshot smoke pass. New checks cover source hashes/gains/stop curves, short/long-flight deadline prediction, restore consistency, loop versus one-shot phase, natural variant ending, exact stop scheduling and cleanup. Source export is byte-identical. Full gameplay browser regression and full-match performance were not repeated.
+
+All nine prepared Hawkshot recordings now have runtime adapters. Native audio parity remains unverified: shared/spatial mixing, shuffle state, stop/fade dispatch, loop seams and listening comparison still need work. The larger full-match production goal remains unfinished. See [flight audio evidence](ASHE-AUDIO.md#flight-launch-variants-and-persistent-loop).

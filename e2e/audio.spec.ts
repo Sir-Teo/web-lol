@@ -307,3 +307,155 @@ test('persistent linger restores loop phase, follows pause/mute, and cleans up o
   expect(result.curves[0][3]).toBeCloseTo(1.25, 8);
   expect(result).toMatchObject({ frozen: true, muted: 0, resumed: 1, removed: 0 });
 });
+
+test('flight layers restore phase and source gain, stop at arrival, and clean up independently', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      original = g.audio;
+    const a = new original.constructor();
+    a.flightBuffers = original.flightBuffers;
+    a.flightStatus = original.flightStatus;
+    g.setPaused(true);
+    a.unlock();
+    await a.transition;
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.enqueue({
+      type: 'cast',
+      unit: w.hero.id,
+      ability: 'e',
+      point: { x: w.hero.x + 10000, y: w.hero.y },
+    });
+    w.step(166); // Restore 2.5 seconds into flight.
+    const restored = w.constructor.fromSnapshot(w.snapshot(), w.battlefield);
+    // Isolate manually controlled saved state from the page's ongoing audio update.
+    w.projectiles = [];
+    a.lastId = w.nextId;
+    a.setPaused(false);
+    await a.transition;
+    const starts: any[] = [],
+      ramps: number[] = [],
+      levels: number[] = [];
+    const create = a.context.createBufferSource.bind(a.context),
+      createGain = a.context.createGain.bind(a.context);
+    a.context.createBufferSource = () => {
+      const source = create(),
+        start = source.start.bind(source);
+      source.start = (when: number, offset: number) => {
+        starts.push({ offset, loop: source.loop, buffer: a.flightBuffers.indexOf(source.buffer) });
+        start(when, offset);
+      };
+      return source;
+    };
+    a.context.createGain = () => {
+      const gain = createGain(),
+        ramp = gain.gain.linearRampToValueAtTime.bind(gain.gain);
+      const set = gain.gain.setValueAtTime.bind(gain.gain);
+      let first = true;
+      gain.gain.setValueAtTime = (value: number, when: number) => {
+        if (first) levels.push(value);
+        first = false;
+        return set(value, when);
+      };
+      gain.gain.linearRampToValueAtTime = (value: number, when: number) => {
+        ramps.push(when - a.context.currentTime);
+        return ramp(value, when);
+      };
+      return gain;
+    };
+    a.updateFlight(restored.projectiles, restored.scoutVisuals, restored.tick);
+    a.updateFlight(restored.projectiles, restored.scoutVisuals, restored.tick);
+    const initial = a.flightVoices.size;
+    a.setPaused(true);
+    await a.transition;
+    const time = a.context.currentTime;
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const frozen = a.context.currentTime === time;
+    a.enabled = false;
+    const muted = a.flightVoices.size;
+    a.enabled = true;
+    a.setPaused(false);
+    await a.transition;
+    restored.step(90);
+    a.updateFlight(restored.projectiles, restored.scoutVisuals, restored.tick);
+    const afterVariantEnd = [...a.flightVoices.values()].map((v: any) => v.loop);
+    a.updateFlight([], [], restored.tick + 90);
+    const cleared = a.flightVoices.size;
+    a.setPaused(true);
+    await a.transition;
+    return {
+      status: a.flightStatus,
+      initial,
+      starts: starts.slice(0, 2),
+      levels: levels.slice(0, 2),
+      ramps: ramps.slice(0, 2),
+      frozen,
+      muted,
+      afterVariantEnd,
+      cleared,
+    };
+  });
+  expect(result.status).toBe('ready');
+  expect(result.initial).toBe(2);
+  expect(result.starts.map((s: any) => s.loop)).toEqual([false, true]);
+  expect(result.starts.map((s: any) => s.offset)).toEqual([2.5, 2.5]);
+  expect(result.levels[0]).toBeCloseTo(0.2 * 10 ** (-8 / 20), 7);
+  expect(result.levels[1]).toBeCloseTo(0.2 * 10 ** (-26 / 20), 7);
+  expect(result.ramps[0]).toBeCloseTo(result.ramps[1], 2);
+  expect(result).toMatchObject({ frozen: true, muted: 0, afterVariantEnd: [true], cleared: 0 });
+});
+
+test('both flight layers complete the arrival fade without restarting on a delayed simulation frame', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      original = g.audio;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.enqueue({
+      type: 'cast',
+      unit: w.hero.id,
+      ability: 'e',
+      point: { x: w.hero.x + 700, y: w.hero.y },
+    });
+    w.step(45);
+    const a = new original.constructor();
+    a.flightBuffers = original.flightBuffers;
+    a.flightStatus = original.flightStatus;
+    a.unlock();
+    await a.transition;
+    const stops: number[] = [],
+      create = a.context.createBufferSource.bind(a.context);
+    a.context.createBufferSource = () => {
+      const source = create(),
+        stop = source.stop.bind(source);
+      source.stop = (when: number) => {
+        stops.push(when - a.context.currentTime);
+        stop(when);
+      };
+      return source;
+    };
+    a.updateFlight([], w.scoutVisuals, w.tick);
+    const initial = a.flightVoices.size;
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    const ended = a.flightVoices.size,
+      finished = a.finishedFlight.size;
+    a.updateFlight([], w.scoutVisuals, w.tick);
+    const replayed = a.flightVoices.size;
+    await a.context.close();
+    return { initial, ended, finished, replayed, stops };
+  });
+  expect(result).toMatchObject({ initial: 2, ended: 0, finished: 2, replayed: 0 });
+  expect(result.stops).toHaveLength(2);
+  for (const stop of result.stops) expect(stop).toBeCloseTo(0.15, 2);
+});
