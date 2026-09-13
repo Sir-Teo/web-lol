@@ -1,5 +1,13 @@
 # Local bot combat and remaining match work
 
+## Defensive Crystal Arrow during retreat
+
+A retreating bot outside its 400-unit fountain area can now use R against a visible enemy champion within 650 units when that champion has a committed basic-attack windup targeting the bot or a visible basic-attack missile already headed toward it. This responds to observable attack cues rather than reading movement orders or assuming an idle nearby champion is pursuing. An already stunned attacker does not consume another defensive ultimate.
+
+The shared ultimate planner retains the finishing tactic's rank, mana, cooldown, visible blocker and tower-safety checks. Defensive mode does not require lethal damage. It queues the normal fixed-point cast and preserves the retreat flag; after the cast delay, normal thinking resumes movement toward the fountain. As with existing low-health retreat, defense may cancel the bot's own windup. Stun and pending-cast execution remain governed by shared simulation rules.
+
+Three simulation scenarios cover an actual nonlethal stun followed by escape with saved continuation, exclusion conditions, and a visible projectile cue after the attacker's windup ends. A browser case verifies the source `spell4` animation, stun, both champions surviving, and resumed fountain movement. The 650-unit threshold is local policy. The tactic does not infer unobserved pursuit, predict skillshots, peel for teammates, optimize crowd-control chains, or guarantee survival through every incoming attack. The existing retreat/recall safety limits still apply.
+
 ## Finishing Crystal Arrow
 
 Bots can now use R against a visible vulnerable enemy champion within the existing 1,150-unit combat decision horizon when its current HP is at or below the ultimate's rank/AP damage after magic resistance. The spell must be learned, affordable and ready. Low-health retreat, a committed attack windup and current tower danger take precedence. The nearest qualifying unobstructed target is selected; minions do not hide the opportunity merely by being closer.

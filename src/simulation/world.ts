@@ -798,7 +798,7 @@ export class World {
     const id = ['blade', 'boots', 'pickaxe', 'sword'].find((id) => !state.inventory.includes(id));
     return ITEMS.find((item) => item.id === id);
   }
-  private planFinishingArrow(u: Unit): boolean {
+  private planCrystalArrow(u: Unit, purpose: 'finish' | 'peel'): boolean {
     const state = this.championState(u.id)!;
     if (
       state.spellRanks.r === 0 ||
@@ -809,11 +809,25 @@ export class World {
       return false;
     const raw = this.crystalArrowDamage(u);
     let chosen: Unit | undefined;
-    let closest = 1150;
+    let closest = purpose === 'peel' ? 650 : 1150;
     for (const target of this.units) {
       if (target.kind !== 'champion' || !this.validTarget(u, target)) continue;
       const d = distance(u, target);
-      if (d > closest || target.hp > damageAfterResistance(raw, target.magicResist)) continue;
+      if (d > closest) continue;
+      if (purpose === 'finish') {
+        if (target.hp > damageAfterResistance(raw, target.magicResist)) continue;
+      } else {
+        // React to visible attacks on this bot, not hidden orders or intent.
+        const attacking = target.releaseTick !== null && target.attackTarget === u.id;
+        const incoming = this.projectiles.some(
+          (p) =>
+            p.source === target.id &&
+            p.target === u.id &&
+            p.type === 'attack' &&
+            this.projectileVisible(p, u.team)
+        );
+        if (target.stunUntil > this.tick || (!attacking && !incoming)) continue;
+      }
       const hit = sweepCircle(u, target, target, CRYSTAL_ARROW_RADIUS + target.radius)!;
       const blocked = this.units.some((other) => {
         if (
@@ -844,6 +858,7 @@ export class World {
     if (u.aiRetreating) {
       const home = this.battlefield.spawns[u.team];
       const state = this.championState(u.id)!;
+      if (distance(u, home) > 400 && this.planCrystalArrow(u, 'peel')) return;
       if (this.safeToRecall(u)) {
         if (state.recallEnd !== null) return;
         // Walking is preferable when already closer than one recall's travel.
@@ -897,7 +912,7 @@ export class World {
         return;
       }
     }
-    if (this.planFinishingArrow(u)) return;
+    if (this.planCrystalArrow(u, 'finish')) return;
     const safeTarget = (target: Unit) => this.safeAttackPosition(u, target);
     const nearest = this.nearest(u, 1150, false, safeTarget);
     const closeThreat = this.nearest(u, 380, true, safeTarget);

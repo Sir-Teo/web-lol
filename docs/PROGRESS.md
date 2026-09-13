@@ -1368,3 +1368,9 @@ All 489 source/simulation checks, five focused bot Chrome scenarios and nested-p
 Added a visible-target finishing tactic for R. Bots check current post-resistance damage, rank, resources, cooldown, range and visible blockers before queuing a fixed observed aim through normal cast validation. Prediction shares the existing projectile radius; hidden blockers remain unknown. Retreat, committed windups and tower danger retain priority.
 
 All 494 source/simulation checks, five focused bot Chrome scenarios and nested-path production smoke pass. Coverage includes actual kills, both teams' ownership, queued save continuation, source cast animation, projectile release, visibility/blockers and intervening stun. Teamfight initiation, defensive ultimates, movement prediction, full kits/roster and complete 5v5 remain open. Full browser/performance suites were not repeated.
+
+## Defensive bot ultimates
+
+Retreating bots can now use R to interrupt a close visible attacker, based on an observed attack windup or incoming targeted attack projectile. The shared planner retains resource, blocker and tower checks, skips already stunned threats, and resumes fountain movement after casting. Retreat state and queued casts continue identically through saves.
+
+All 497 source/simulation checks, six focused bot Chrome scenarios and nested-path production smoke pass. The new browser case observes source cast animation, a nonlethal stun and continued escape. An initial exclusion assertion incorrectly required walking even when the existing safe-recall policy was available; it now verifies the appropriate escape choice. Teammate protection, threat prediction, full team strategy and complete 5v5 remain open; full browser/performance suites were not repeated.
