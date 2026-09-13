@@ -100,7 +100,9 @@ test('unknown turret roles, champion victims, and direct damage retain their ord
   const { world, target, release } = setup('blue', 'champion');
   release();
   world.step(60);
-  expect(target.hp).toBe(877);
+  expect(
+    world.events.find((event) => event.type === 'damage' && event.unit === target.id)?.value
+  ).toBe(123);
   const unknown = setup('red', 'melee');
   delete unknown.source.structure;
   unknown.release();

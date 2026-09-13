@@ -19,8 +19,8 @@ test('cursor selection heals one ally even when another has a lower health perce
   selected.hp = 200;
   wounded.hp = 1;
   cast(w, selected);
-  expect(selected.hp).toBe(280);
-  expect(wounded.hp).toBe(1);
+  expect(selected.hp).toBeCloseTo(280 + 0.7 / 60);
+  expect(wounded.hp).toBeCloseTo(1 + 0.7 / 60);
   expect(w.hero.hp).toBeGreaterThanOrEqual(90);
   expect(w.movementSpeed(selected)).toBeCloseTo(selected.speed * 1.3);
   expect(w.movementSpeed(wounded)).toBe(wounded.speed);
@@ -35,20 +35,23 @@ test('fallback chooses lowest percentage rather than lowest absolute health', ()
   first.hp = 100;
   second.hp = 70;
   cast(w, w.hero);
-  expect(first.hp).toBe(180);
-  expect(second.hp).toBe(70);
+  expect(first.hp).toBeCloseTo(180 + 0.7 / 60);
+  expect(second.hp).toBeCloseTo(70 + 0.7 / 60);
 });
 
 test('cursor tolerance includes 200 units and falls back beyond that boundary', () => {
-  for (const [offset, expected] of [[200, 280], [200.001, 200]]) {
+  for (const [offset, expected] of [
+    [200, 280],
+    [200.001, 200],
+  ]) {
     const w = setup();
     const selected = w.spawn('champion', 'blue', { x: 500, y: 0 });
     const wounded = w.spawn('champion', 'blue', { x: 0, y: 600 });
     selected.hp = 200;
     wounded.hp = 1;
     cast(w, { x: selected.x + offset, y: selected.y });
-    expect(selected.hp).toBe(expected);
-    expect(wounded.hp).toBe(offset === 200 ? 1 : 81);
+    expect(selected.hp).toBeCloseTo(expected + 0.7 / 60);
+    expect(wounded.hp).toBeCloseTo((offset === 200 ? 1 : 81) + 0.7 / 60);
   }
 });
 
@@ -63,7 +66,7 @@ test('range boundary includes 900 but excludes dead allies, enemies and non-cham
   dead.hp = 0;
   dead.deadAt = w.tick;
   cast(w);
-  expect(edge.hp).toBe(81);
+  expect(edge.hp).toBeCloseTo(81 + 0.7 / 60);
   for (const unit of [outside, dead, enemy, minion]) expect(unit.summonerHealSpeedUntil).toBe(0);
 });
 
@@ -78,7 +81,7 @@ test('recipient reduction is independent and both haste timers survive restorati
   expect(w.events.filter((event) => event.type === 'heal').map((event) => event.value)).toEqual([
     159, 318,
   ]);
-  expect(ally.hp).toBe(328);
+  expect(ally.hp).toBeCloseTo(328 + 0.7 / 60);
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   w.step(59);
   restored.step(59);

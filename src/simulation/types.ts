@@ -64,6 +64,7 @@ export interface Unit extends Vec2 {
   summonerHealSpeedUntil: number;
   deadAt: number | null;
   ai: boolean;
+  aiRetreating: boolean;
   nextThink: number;
   respawnTick: number | null;
 }

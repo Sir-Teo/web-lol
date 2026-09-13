@@ -5,7 +5,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 8;
+export const SNAPSHOT_VERSION = 9;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -75,6 +75,7 @@ const unit: z.ZodType<Unit> = z
     summonerHealSpeedUntil: deadline,
     deadAt: tick.nullable(),
     ai: z.boolean(),
+    aiRetreating: z.boolean(),
     nextThink: deadline,
     respawnTick: deadline.nullable(),
     structureTransform: z.array(z.number()).length(16).optional(),

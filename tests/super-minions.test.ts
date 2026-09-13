@@ -176,7 +176,7 @@ describe('inhibitor-driven lane waves', () => {
     w.step(30);
     expect(victim.hp).toBe(hp);
     w.step();
-    expect(victim.hp).toBeCloseTo(hp - 180 / 1.26);
+    expect(victim.hp).toBeCloseTo(hp - 180 / 1.26 + 0.7 / 60);
     expect(w.projectiles).toHaveLength(0);
     w.damage(w.hero, u, 130, 'magic');
     expect(u.hp).toBeCloseTo(1500 - 160);

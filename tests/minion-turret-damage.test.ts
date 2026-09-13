@@ -71,8 +71,16 @@ for (const kind of ['caster', 'siege'] as LaneMinionKind[])
 
 test('turret modifiers do not affect champions, other victims, or non-attack damage', () => {
   expect(attack('champion', 'blue').loss).toBeCloseTo(100);
-  for (const target of ['champion', 'melee', 'inhibitor', 'nexus'] as const)
-    expect(attack('siege', 'red', target).loss).toBeCloseTo(100);
+  for (const target of ['champion', 'melee', 'inhibitor', 'nexus'] as const) {
+    const result = attack('siege', 'red', target);
+    if (target === 'champion')
+      expect(
+        result.world.events.find(
+          (event) => event.type === 'damage' && event.unit === result.target.id
+        )?.value
+      ).toBe(100);
+    else expect(result.loss).toBeCloseTo(100);
+  }
   const { world, source, target } = attack('siege', 'blue');
   const before = target.hp;
   world.damage(source, target, 160, 'physical');

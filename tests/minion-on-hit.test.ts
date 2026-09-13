@@ -92,7 +92,11 @@ test('ordinary minion on-hit does not leak into other victims, super attacks, or
       release();
       if (source.missileSpeed) world.step(60);
       const multiplier = victim === 'turret' ? (kind === 'siege' ? 0.84 : 0.6) : 1;
-      expect(800 - target.hp).toBeCloseTo(80 * multiplier, 4);
+      if (victim === 'champion')
+        expect(
+          world.events.find((event) => event.type === 'damage' && event.unit === target.id)?.value
+        ).toBe(80);
+      else expect(800 - target.hp).toBeCloseTo(80 * multiplier, 4);
     }
   for (const kind of ['champion', 'super'] as const) {
     const { world, source, target, release } = setup(kind, 'blue', 'melee');

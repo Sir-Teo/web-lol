@@ -164,6 +164,7 @@ export class World {
       summonerHealSpeedUntil: 0,
       deadAt: null,
       ai: !champion && !dummy && (!structure || turret),
+      aiRetreating: false,
       nextThink: 0,
       respawnTick: null,
     };
@@ -342,9 +343,10 @@ export class World {
       this.player.recallEnd = null;
       this.emit('heal', h, { value: h.maxHp });
     }
-    if (this.alive(h)) {
-      const fountain = distance(h, this.battlefield.spawns.blue) < 220;
-      const growth = growthAtLevel(this.player.level);
+    for (const h of this.units) {
+      if (h.kind !== 'champion' || !this.alive(h)) continue;
+      const fountain = distance(h, this.battlefield.spawns[h.team]) < 220;
+      const growth = growthAtLevel(h.id === this.player.id ? this.player.level : 1);
       h.hp = Math.min(
         h.maxHp,
         h.hp + (fountain ? h.maxHp * 0.09 : ASHE.healthRegen + ASHE.healthRegenGrowth * growth) * DT
@@ -507,10 +509,14 @@ export class World {
   }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
-    if (u.hp < u.maxHp * 0.22) {
-      if (distance(u, this.battlefield.spawns.red) < 400) u.hp = Math.min(u.maxHp, u.hp + 20);
-      if (u.order.type !== 'move')
-        this.setOrder(u, { type: 'move', point: this.battlefield.spawns.red });
+    if (u.hp < u.maxHp * 0.22) u.aiRetreating = true;
+    if (u.aiRetreating && u.hp >= u.maxHp * 0.85) u.aiRetreating = false;
+    if (u.aiRetreating) {
+      const home = this.battlefield.spawns[u.team];
+      if (distance(u, home) < 100) {
+        if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+      } else if (u.order.type !== 'move' || distance(u.order.point, home) > 1)
+        this.setOrder(u, { type: 'move', point: home });
       return;
     }
     const target = this.nearest(u, 1150);
@@ -853,6 +859,7 @@ export class World {
     u.respawnTick = null;
     u.releaseTick = null;
     u.stunUntil = 0;
+    u.aiRetreating = false;
     u.slowUntil = 0;
     this.setOrder(u, { type: 'idle' });
   }
