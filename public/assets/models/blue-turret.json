@@ -1,0 +1,111 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching source model, scale, parts and clips. Particle effects and full graph sequencing remain incomplete.",
+  "output": {
+    "path": "/assets/models/blue-turret.glb",
+    "bytes": 1923476,
+    "sha256": "9d16305c0687e78bdbdfaccbc6c81269e4bbdfd02772ee7f1d5b43d12d360d4e"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/turret/skins/base/animations/idle1.anm",
+      "wadPathHash": "4eecd0195fde5ffd",
+      "sha256": "4ab6da63eeaeb93836c09d15a7a152d9a5e6a8a8400f9ba3408eb59b3b7c5ee7",
+      "bytes": 558
+    },
+    {
+      "path": "assets/characters/turret/skins/base/animations/respawn.anm",
+      "wadPathHash": "0e98fc2093a4cf41",
+      "sha256": "11f844d736190d89f2ecc437c21fc3dbfb1e05c8b679af5e04abbdebe2e6e823",
+      "bytes": 55200
+    },
+    {
+      "path": "assets/characters/turret/skins/base/turret_base.skl",
+      "wadPathHash": "d068d7bf72ddf4c5",
+      "sha256": "31c97dada2208e369a09f170223bbbd24e89e452ecd7787a7f116e5ac65e48c5",
+      "bytes": 7260
+    },
+    {
+      "path": "assets/characters/turret/skins/base/turret_base.skn",
+      "wadPathHash": "093504a92a70d71a",
+      "sha256": "7ed1f6808b3b62c7db4637039720cf1edaffeaebe7d9ccc29ce5488e0c8ee596",
+      "bytes": 1287866
+    },
+    {
+      "path": "assets/characters/turret/skins/base/turret_base_rubble_tx_cm.tex",
+      "wadPathHash": "86b1b525ceb1c8b1",
+      "sha256": "0a205a941cacf26ff0998b76d207836710fa62e243059b3516a5fc4cd8503343",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/characters/turret/skins/base/turret_base_tx_cm.tex",
+      "wadPathHash": "972b2ffd733e31a5",
+      "sha256": "7ba9f91987d5fe9fe2b1e392a0d842ba65d0ca17e5d015cdb0f40fa95a33c5b9",
+      "bytes": 1398140
+    }
+  ],
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/turret/skins/skin0.bin.json",
+    "animation": "https://raw.communitydragon.org/16.18/game/data/characters/turret/animations/skin0.bin.json"
+  },
+  "skinScale": 0.8999999761581421,
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/turret/skins/base/animations/idle1.anm"
+    },
+    {
+      "name": "respawn",
+      "source": "assets/characters/turret/skins/base/animations/respawn.anm"
+    }
+  ],
+  "submeshes": [
+    {
+      "name": "Base",
+      "initiallyHidden": false,
+      "triangles": 3358
+    },
+    {
+      "name": "Stage1",
+      "initiallyHidden": true,
+      "triangles": 3280
+    },
+    {
+      "name": "Stage2",
+      "initiallyHidden": true,
+      "triangles": 2900
+    },
+    {
+      "name": "Stage3",
+      "initiallyHidden": true,
+      "triangles": 664
+    },
+    {
+      "name": "Rubble",
+      "initiallyHidden": true,
+      "triangles": 517
+    },
+    {
+      "name": "Broken1",
+      "initiallyHidden": true,
+      "triangles": 542
+    },
+    {
+      "name": "Broken2",
+      "initiallyHidden": true,
+      "triangles": 2226
+    },
+    {
+      "name": "Broken3",
+      "initiallyHidden": true,
+      "triangles": 3012
+    }
+  ],
+  "triangles": 16499,
+  "bones": 58
+}

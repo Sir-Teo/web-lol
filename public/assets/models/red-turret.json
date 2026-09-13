@@ -1,0 +1,156 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching source model, scale, parts and clips. Particle effects and full graph sequencing remain incomplete.",
+  "output": {
+    "path": "/assets/models/red-turret.glb",
+    "bytes": 2843196,
+    "sha256": "a7febe0579fd49c2b213ed9fc16470f0daf011220af2e1340eda030c7a421e02"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/turret/skins/skin02/animations/cloth_stage1.anm",
+      "wadPathHash": "014ac307508e776f",
+      "sha256": "97f81a0c77884e6a6491ae6de3ef406f3d90a4f3122c2f4dddc5b1fba6360663",
+      "bytes": 14234
+    },
+    {
+      "path": "assets/characters/turret/skins/skin02/animations/cloth_stage2.anm",
+      "wadPathHash": "d12c8d7784371af3",
+      "sha256": "e3a853b1e87efc09fbab2b955f8fc74aeafbd7da9fa10b9a138bb2db0adad4a4",
+      "bytes": 11832
+    },
+    {
+      "path": "assets/characters/turret/skins/skin02/animations/destroyed.anm",
+      "wadPathHash": "ff904297a20dba22",
+      "sha256": "8ab2a39e80c6302968ff0dc8314f1698675f5ee86e393d896948c2289e27d89f",
+      "bytes": 2554
+    },
+    {
+      "path": "assets/characters/turret/skins/skin02/animations/idle1.anm",
+      "wadPathHash": "398d6ed7d2a3296a",
+      "sha256": "bf7dde93dad510d21caa36e0f80ed00b3cf5c265d0c3a80a3f2f5fbcdc961774",
+      "bytes": 10282
+    },
+    {
+      "path": "assets/characters/turret/skins/skin02/animations/respawn.anm",
+      "wadPathHash": "abe99d0bf130705b",
+      "sha256": "8cd04e345c08c18e7097dc88938eeaaaa086c801a174844f4fa2471208269309",
+      "bytes": 65754
+    },
+    {
+      "path": "assets/characters/turret/skins/skin02/turret_skin02.skl",
+      "wadPathHash": "324c1f04e7dc7956",
+      "sha256": "b1529afe7d27cda9c4fb3bd19a9f6529e20af5dbb330eb41148ad5000370f83f",
+      "bytes": 10240
+    },
+    {
+      "path": "assets/characters/turret/skins/skin02/turret_skin02.skn",
+      "wadPathHash": "561ebfefb2812cb5",
+      "sha256": "0519a9e5221fea9d1e4afd9532c4fc76b8fe0c7cde9cffbbb772de22cc37b422",
+      "bytes": 1922764
+    },
+    {
+      "path": "assets/characters/turret/skins/skin03/turret_skin03_rubble_tx_cm.tex",
+      "wadPathHash": "c347d1a63a42a153",
+      "sha256": "9255ff0e8867cc4aae5e0156c11393bc284f18360297812e93152007c494cdf4",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/turret/skins/skin03/turret_skin03_tx_cm.tex",
+      "wadPathHash": "3ecc0e48035f449f",
+      "sha256": "3a48ed11ad5de0acf747da307af0d3034fa59ca5747756cb4de44015a84a513b",
+      "bytes": 699076
+    }
+  ],
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/turret/skins/skin3.bin.json",
+    "animation": "https://raw.communitydragon.org/16.18/game/data/characters/turret/animations/skin2.bin.json"
+  },
+  "skinScale": 1,
+  "clips": [
+    {
+      "name": "idle1",
+      "source": "assets/characters/turret/skins/skin02/animations/idle1.anm"
+    },
+    {
+      "name": "destroyed",
+      "source": "assets/characters/turret/skins/skin02/animations/destroyed.anm"
+    },
+    {
+      "name": "cloth_stage1",
+      "source": "assets/characters/turret/skins/skin02/animations/cloth_stage1.anm"
+    },
+    {
+      "name": "respawn",
+      "source": "assets/characters/turret/skins/skin02/animations/respawn.anm"
+    },
+    {
+      "name": "cloth_stage2",
+      "source": "assets/characters/turret/skins/skin02/animations/cloth_stage2.anm"
+    }
+  ],
+  "submeshes": [
+    {
+      "name": "Base",
+      "initiallyHidden": false,
+      "triangles": 4938
+    },
+    {
+      "name": "Stage1",
+      "initiallyHidden": true,
+      "triangles": 6137
+    },
+    {
+      "name": "Stage2",
+      "initiallyHidden": true,
+      "triangles": 4003
+    },
+    {
+      "name": "Stage3",
+      "initiallyHidden": true,
+      "triangles": 992
+    },
+    {
+      "name": "Cloth1",
+      "initiallyHidden": false,
+      "triangles": 432
+    },
+    {
+      "name": "Cloth2",
+      "initiallyHidden": false,
+      "triangles": 256
+    },
+    {
+      "name": "RubbleBase",
+      "initiallyHidden": true,
+      "triangles": 982
+    },
+    {
+      "name": "Rubble",
+      "initiallyHidden": true,
+      "triangles": 2126
+    },
+    {
+      "name": "Broken1",
+      "initiallyHidden": true,
+      "triangles": 1713
+    },
+    {
+      "name": "Broken2",
+      "initiallyHidden": true,
+      "triangles": 2838
+    },
+    {
+      "name": "Broken3",
+      "initiallyHidden": true,
+      "triangles": 2993
+    }
+  ],
+  "triangles": 27410,
+  "bones": 82
+}

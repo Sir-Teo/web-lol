@@ -1,0 +1,18 @@
+{
+  "4eecd0195fde5ffd": "assets/characters/turret/skins/base/animations/idle1.anm",
+  "0e98fc2093a4cf41": "assets/characters/turret/skins/base/animations/respawn.anm",
+  "d068d7bf72ddf4c5": "assets/characters/turret/skins/base/turret_base.skl",
+  "093504a92a70d71a": "assets/characters/turret/skins/base/turret_base.skn",
+  "86b1b525ceb1c8b1": "assets/characters/turret/skins/base/turret_base_rubble_tx_cm.tex",
+  "972b2ffd733e31a5": "assets/characters/turret/skins/base/turret_base_tx_cm.tex",
+  "014ac307508e776f": "assets/characters/turret/skins/skin02/animations/cloth_stage1.anm",
+  "d12c8d7784371af3": "assets/characters/turret/skins/skin02/animations/cloth_stage2.anm",
+  "ff904297a20dba22": "assets/characters/turret/skins/skin02/animations/destroyed.anm",
+  "398d6ed7d2a3296a": "assets/characters/turret/skins/skin02/animations/idle1.anm",
+  "abe99d0bf130705b": "assets/characters/turret/skins/skin02/animations/respawn.anm",
+  "324c1f04e7dc7956": "assets/characters/turret/skins/skin02/turret_skin02.skl",
+  "561ebfefb2812cb5": "assets/characters/turret/skins/skin02/turret_skin02.skn",
+  "c347d1a63a42a153": "assets/characters/turret/skins/skin03/turret_skin03_rubble_tx_cm.tex",
+  "3ecc0e48035f449f": "assets/characters/turret/skins/skin03/turret_skin03_tx_cm.tex",
+  "c3cf158ea62ee5b6": "data/final/maps/shipping/map11.wad.subchunktoc"
+}
