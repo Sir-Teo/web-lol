@@ -142,6 +142,13 @@ export interface PlayerState {
   eCharges: number;
   eRechargeTick: number | null;
   recallEnd: number | null;
+  pendingCast: {
+    ability: 'w';
+    startTick: number;
+    releaseTick: number;
+    point: Vec2;
+    damage: number;
+  } | null;
   inventory: string[];
 }
 

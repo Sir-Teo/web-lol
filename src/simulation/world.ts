@@ -69,6 +69,7 @@ export class World {
       eCharges: ASHE_E.maximumCharges,
       eRechargeTick: null,
       recallEnd: null,
+      pendingCast: null,
       inventory: [],
     };
     if (populate)
@@ -308,7 +309,7 @@ export class World {
         if (command.order.type === 'move' || command.order.type === 'attackMove')
           this.emit('move', command.order.point, { team: u.team });
       } else if (command.type === 'cast') this.cast(u, command.ability, command.point);
-      else if (u.id === this.player.id) {
+      else if (u.id === this.player.id && !this.player.pendingCast) {
         this.setOrder(u, { type: 'idle' });
         this.player.recallEnd = this.tick + RECALL_DURATION_TICKS;
         this.emit('message', u, { text: 'Recalling…' });
@@ -337,6 +338,12 @@ export class World {
       }
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
+      if (u.id === this.player.id && this.player.pendingCast) {
+        const cast = this.player.pendingCast;
+        if (this.tick < cast.releaseTick) continue;
+        this.player.pendingCast = null;
+        this.releaseArrowSpell(u, 'w', cast.point, cast.damage);
+      }
       if (u.stunUntil > this.tick) {
         u.attackCycle = null;
         if (u.releaseTick !== null) {
@@ -927,6 +934,7 @@ export class World {
         target.respawnTick = this.tick + 180 * TICK_RATE;
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
+        this.player.pendingCast = null;
         this.projectiles.length = 0;
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
@@ -934,6 +942,7 @@ export class World {
       }
       if (target.id === this.player.id) {
         this.player.deaths++;
+        this.player.pendingCast = null;
         this.player.recallEnd = null;
         this.player.qStacks = 0;
         this.player.qStackExpiry = 0;
@@ -1032,6 +1041,7 @@ export class World {
   }
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     if (u.id !== this.player.id) return;
+    if (this.player.pendingCast && ability !== 'f') return;
     const spec = ABILITIES[ability];
     const fail = (text: string) => this.emit('message', u, { text });
     if (this.abilityCooldownTicks(ability) > 0 || (ability === 'e' && this.player.eCharges === 0)) {
@@ -1066,39 +1076,27 @@ export class World {
         u.nextAttackTick = this.tick;
       }
     }
-    if (ability === 'w' || ability === 'r') {
-      const volleyId = ability === 'w' ? this.nextId++ : null;
-      const number = ability === 'w' ? ASHE_W.arrowsByRank[0] : 1,
-        angle = Math.atan2(dir.y, dir.x);
-      if (volleyId !== null) this.volleyHits[volleyId] = [];
-      for (let i = 0; i < number; i++) {
-        const a = angle + (number === 1 ? 0 : (i / (number - 1) - 0.5) * 0.8);
-        this.projectiles.push({
-          id: this.nextId++,
-          x: u.x,
-          y: u.y,
-          previous: { x: u.x, y: u.y },
-          source: u.id,
-          team: u.team,
-          type: ability === 'w' ? 'volley' : 'ultimate',
-          target: null,
-          direction: { x: Math.cos(a), y: Math.sin(a) },
-          damage:
-            ability === 'w'
-              ? ASHE_W.baseDamageByRank[0] +
-                Math.max(
-                  0,
-                  u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
-                ) *
-                  ASHE_W.bonusADRatioByRank[0]
-              : 200,
-          speed: ability === 'w' ? ASHE_W.projectileSpeed : ASHE_R.initialSpeed,
-          radius: ability === 'w' ? 12 : 65,
-          remaining: spec.range,
-          volleyId,
-        });
-      }
+    if (ability === 'w') {
+      if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
+      u.releaseTick = null;
+      u.attackTarget = null;
+      u.attackCycle = null;
+      u.facing = Math.atan2(dir.x, dir.y);
+      this.player.pendingCast = {
+        ability: 'w',
+        startTick: this.tick,
+        releaseTick: this.tick + ASHE_W.castSeconds * TICK_RATE,
+        point: { ...point },
+        damage:
+          ASHE_W.baseDamageByRank[0] +
+          Math.max(
+            0,
+            u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
+          ) *
+            ASHE_W.bonusADRatioByRank[0],
+      };
     }
+    if (ability === 'r') this.releaseArrowSpell(u, 'r', point);
     if (ability === 'e') {
       this.player.eCharges--;
       this.player.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;
@@ -1167,6 +1165,47 @@ export class World {
           this.tick + SUMMONER_HEAL.speedDurationSeconds * TICK_RATE;
         this.emit('heal', recipient, { value: Math.round(amount) });
       }
+    }
+  }
+  private releaseArrowSpell(
+    u: Unit,
+    ability: 'w' | 'r',
+    point: Vec2,
+    capturedDamage?: number
+  ): void {
+    const dir = direction(u, point),
+      spec = ABILITIES[ability];
+    const volleyId = ability === 'w' ? this.nextId++ : null;
+    const number = ability === 'w' ? ASHE_W.arrowsByRank[0] : 1,
+      angle = Math.atan2(dir.y, dir.x);
+    if (volleyId !== null) this.volleyHits[volleyId] = [];
+    for (let i = 0; i < number; i++) {
+      const a = angle + (number === 1 ? 0 : (i / (number - 1) - 0.5) * 0.8);
+      this.projectiles.push({
+        id: this.nextId++,
+        x: u.x,
+        y: u.y,
+        previous: { x: u.x, y: u.y },
+        source: u.id,
+        team: u.team,
+        type: ability === 'w' ? 'volley' : 'ultimate',
+        target: null,
+        direction: { x: Math.cos(a), y: Math.sin(a) },
+        damage:
+          capturedDamage ??
+          (ability === 'w'
+            ? ASHE_W.baseDamageByRank[0] +
+              Math.max(
+                0,
+                u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
+              ) *
+                ASHE_W.bonusADRatioByRank[0]
+            : 200),
+        speed: ability === 'w' ? ASHE_W.projectileSpeed : ASHE_R.initialSpeed,
+        radius: ability === 'w' ? 12 : 65,
+        remaining: spec.range,
+        volleyId,
+      });
     }
   }
   buy(itemId: string): string | null {

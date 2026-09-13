@@ -40,7 +40,7 @@ test('rank-one Volley creates seven arrows with its current damage and flight sp
       ability: 'w',
       point: { x: w.hero.x + 1200, y: w.hero.y },
     });
-    w.step();
+    w.step(16); // Includes the source windup before first projectile travel.
     g.view.render(w, 1, 0);
     return w.projectiles.map((p: any) => ({
       damage: p.damage,

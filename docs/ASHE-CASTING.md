@@ -1,6 +1,6 @@
 # Ashe cast timing audit and implementation requirements
 
-W, E and R currently create their projectiles immediately in `World.cast`. They do not yet have a saved windup state, movement lock or source cast animation. This is a material gameplay and presentation gap. Adding a clip alone would preserve the incorrect projectile timing.
+Volley now has a saved 15-tick windup, movement lock and source Spell2 pose, described below. E and R still create projectiles immediately and remain a material gameplay and presentation gap. Adding their clips alone would preserve incorrect projectile timing.
 
 ## Verified selection
 
@@ -39,4 +39,17 @@ Resolve whether direction, origin and target point are sampled at start or relea
 - Update projectile-travel tests to use actual release as their epoch. Do not weaken their distance, collision, reveal or expiry assertions merely to accommodate the added windup.
 - Capture reference spells at known simulation/animation phases and record tolerances before claiming exact timing or pixel parity.
 
-This audit prepares the source contract and exposes unresolved semantics. It does not implement the pending cast state or change gameplay behavior.
+The audit prepares the source contract and exposes unresolved semantics. The first runtime integration covers Volley only.
+
+
+## Volley windup implementation
+
+The W exporter verifies that declared spellCastTime is 0.25, castFrame / 30 is the same value, useAnimatorFramerate is true, and mCantCancelWhileWindingUp is true. Runtime uses that agreement for a 15-tick windup. Successful validation spends mana and starts cooldown once, captures aim point and damage, cancels an unreleased basic attack, and stores the start/release ticks. Full existing attack recovery is not reset by W. An order already in progress is retained.
+
+The hero cannot move or start attacks during windup. New movement/attack/stop orders update the retained order, which ordinary unit advancement handles at release. The spell releases before that advancement, then arrows make their first travel interval on the release tick. This preserves the existing first-flight distance of 25 units. A late animation frame seeks directly to elapsed simulation time in Spell2; pause and fresh restored rigs retain identical poses. After release the normal movement/attack/idle controller resumes. Full source animation recovery and transition blending are not yet implemented.
+
+Snapshot version 17 includes the pending cast. Validation checks its ability, 15-tick duration, active time interval, living player and absence of simultaneous recall or terminal result. Death and match completion cancel it. A pending cast is completed before the stun gate at release, so stun does not erase an already accepted Volley. No refunds are applied after accepted casts.
+
+Current interaction policy allows Heal during windup and rejects Q/E/R/Flash, repeated W and recall. It does not implement a general spell-input buffer. Movement orders are retained, but orders received while stunned are still subject to the existing command gate. These rules, cast-start damage capture, cooldown start, no refunds and source release-frame mapping require native capture comparison before claiming complete parity. The explicit source cancellation flag supports an uninterruptible windup but does not prove every listed interaction.
+
+Tests cover no early projectiles, one release, preserved damage/speed/travel assertions, deferred movement, attack cancellation, stun/death, single spending, invalid snapshots, and exact saved continuation. Browser coverage checks the source pose, pause, restored bones and release timing. E/R windups, their displacement/origin semantics and complete spell animation playback remain outstanding.

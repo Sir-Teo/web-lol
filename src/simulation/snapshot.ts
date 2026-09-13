@@ -1,12 +1,13 @@
 import { z } from 'zod';
-import { ITEMS } from '../content/rules';
+import { ITEMS, TICK_RATE } from '../content/rules';
+import { ASHE_W } from '../content/ashe-w';
 import { ASHE_E } from '../content/ashe-e';
 import { MAX_LEVEL } from './progression';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 16;
+export const SNAPSHOT_VERSION = 17;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -135,6 +136,19 @@ const player: z.ZodType<PlayerState> = z
     eCharges: z.number().int().min(0).max(ASHE_E.maximumCharges),
     eRechargeTick: tick.nullable(),
     recallEnd: deadline.nullable(),
+    pendingCast: z
+      .strictObject({
+        ability: z.literal('w'),
+        startTick: tick,
+        releaseTick: tick,
+        point,
+        damage: nonnegative,
+      })
+      .refine(
+        (c) => c.releaseTick === c.startTick + ASHE_W.castSeconds * TICK_RATE,
+        'Invalid Volley windup'
+      )
+      .nullable(),
     inventory: z
       .array(z.string().refine((value) => ITEMS.some((item) => item.id === value)))
       .max(6),
@@ -234,6 +248,16 @@ export function decodeSnapshot(text: string) {
   const hero = state.units.find((u) => u.id === state.player.id);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
+  const cast = state.player.pendingCast;
+  if (
+    cast &&
+    (cast.startTick > state.tick ||
+      cast.releaseTick <= state.tick ||
+      hero.deadAt !== null ||
+      state.winner !== null ||
+      state.player.recallEnd !== null)
+  )
+    throw new Error('Saved match contains an invalid pending cast.');
   return state;
 }
 

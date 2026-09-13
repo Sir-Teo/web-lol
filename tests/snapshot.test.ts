@@ -51,7 +51,7 @@ test('restores active combat, missiles, queued commands, random state and disabl
   Object.assign(w.hero, { x: 0, y: 0, previous: { x: 0, y: 0 } });
   const enemy = w.spawn('dummy', 'red', { x: 400, y: 0 });
   w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'w', point: enemy });
-  w.step();
+  w.step(16);
   expect(w.projectiles.length).toBeGreaterThan(0);
   w.enqueue({ type: 'order', unit: w.hero.id, order: { type: 'attack', target: enemy.id } });
   w.hero.nextThink = Infinity;

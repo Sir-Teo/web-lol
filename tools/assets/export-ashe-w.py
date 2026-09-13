@@ -11,7 +11,10 @@ assert source[pin['root']]['spells'][pin['spellIndex']] == pin['spell']
 for key, record in pin['records'].items():
     assert source[key] == record
 spell = source[pin['spell']]['mSpell']
-data = {}
+assert spell['mCantCancelWhileWindingUp'] is True
+assert spell['useAnimatorFramerate'] is True
+assert spell['spellCastTime'] == spell['castFrame'] / 30 == 0.25
+data = {'castSeconds': spell['spellCastTime'], 'animation': spell['mAnimationName'].lower()}
 for name, field in [('BaseDamage', 'baseDamageByRank'), ('NumberOfArrowsTooltip', 'arrowsByRank'), ('ADRatio', 'bonusADRatioByRank')]:
     values = next(v['values'] for v in spell['DataValues'] if v['name'] == name)
     data[field] = values[1:6]

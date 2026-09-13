@@ -14,7 +14,7 @@ test('rank-one Volley fires seven source-speed arrows and scales only with bonus
         ability: 'w',
         point: { x: w.hero.x + 1200, y: w.hero.y },
       });
-      w.step();
+      w.step(16); // Start tick plus the 15-tick source windup.
       expect(w.projectiles).toHaveLength(7);
       for (const arrow of w.projectiles) {
         expect(arrow.speed).toBe(1500);

@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
 import { ASHE_Q } from '../content/ashe-q';
+import { ASHE_W } from '../content/ashe-w';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
 import { loadRift } from './rift-assets';
@@ -452,7 +453,21 @@ export class GameView {
       if (!isStructureKind(u.kind) && model.mixer && model.actions) {
         const recalling =
           u.deadAt === null && u.id === world.player.id && world.player.recallEnd !== null;
-        if (recalling) {
+        const cast =
+          u.id === world.player.id && u.deadAt === null ? world.player.pendingCast : null;
+        if (cast) {
+          const name = ASHE_W.animation,
+            action = model.actions[name];
+          if (model.actionName !== name) {
+            model.mixer.stopAllAction();
+            action.reset().setLoop(THREE.LoopOnce, 1).play();
+            model.actionName = name;
+          }
+          action.time = Math.max(0, world.tick - cast.startTick + alpha - 1) / TICK_RATE;
+          action.setEffectiveWeight(1);
+          action.paused = true;
+          model.mixer.update(0);
+        } else if (recalling) {
           const start = world.player.recallEnd! - RECALL_DURATION_TICKS;
           animateRecall(model, Math.max(0, world.tick - start + alpha - 1) / TICK_RATE);
         } else {
