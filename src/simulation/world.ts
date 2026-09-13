@@ -693,7 +693,7 @@ export class World {
           else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
           if (source.kind === 'champion') contact.slowUntil = this.tick + 120;
           if (p.type === 'ultimate') contact.stunUntil = this.tick + 120;
-          if (source.id === this.player.id && p.type === 'attack') {
+          if (source.id === this.player.id && this.alive(source) && p.type === 'attack') {
             this.player.qStacks = Math.min(4, this.player.qStacks + 1);
             this.player.qStackExpiry = this.tick + 240;
           }
@@ -779,6 +779,9 @@ export class World {
       if (target.id === this.player.id) {
         this.player.deaths++;
         this.player.recallEnd = null;
+        this.player.qStacks = 0;
+        this.player.qStackExpiry = 0;
+        this.player.qUntil = 0;
       }
       if (source.id === this.player.id) {
         const gold =

@@ -37,3 +37,9 @@ Next verification should record standard Rift deaths at a fixed champion level i
 Three simulation cases cover the complete table, an exact half-second deadline and restored continuation, and separation from other champions' provisional level. A browser case checks the level-18 countdown from 53 to 1 and its disappearance at respawn. Existing team-fountain and dummy respawn cases remain in place.
 
 Three additional simulation cases cover scaling boundaries and cap, a saved death spanning the initial scaling boundary, and both champion teams without affecting dummy timers. An additional browser case checks the capped level-18 countdown and exact expiry. No snapshot field is needed: the existing absolute respawn deadline already persists the result.
+
+## Focus state on death
+
+Player death now immediately clears Focus stacks, their expiry, and the active Q deadline. Previously those fields remained until their ordinary timers expired, so the dead player's HUD could still show a charged or empowered Q. Already released arrows continue traveling and dealing damage, but cannot grant Focus while their source is dead. This is a targeted lifecycle policy for the current Ashe prototype; it does not establish complete reference parity for Q stacking, decay, active duration, or death-persistent effects. Cooldowns and inventory retain their existing behavior. Summoner Heal's reduction timer remains separate and is not cleared by this change.
+
+Two simulation cases cover immediate cleanup, cooldown/inventory retention, saved respawn continuation, and damage from an arrow landing after death without posthumous Focus. A browser case verifies that charged pips and the empowered Q indicator disappear when the death overlay appears.
