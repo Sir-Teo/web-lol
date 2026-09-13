@@ -1,0 +1,70 @@
+{
+  "fixture": "Ten automated Ashe champions, 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.",
+  "revision": "22c4a533a16983f7ad11478bddf2d193c6b603bb",
+  "worktree": "M e2e/saves.spec.ts\n M src/simulation/navgrid.ts\n M tests/navgrid.test.ts\n?? tools/qa/simulate-rift.mjs",
+  "requestedSeconds": 3600,
+  "simulatedSeconds": 2422.0333333333333,
+  "wallSeconds": 35.042591791999996,
+  "winner": "blue",
+  "violations": [],
+  "restoredEqual": true,
+  "snapshotSHA256": "517a3b58144cd9bba98734b32760282254dd31d783420c82f1f0e1d23ed669eb",
+  "longestStationary": [
+    {
+      "id": 1,
+      "seconds": 72.83333333333333
+    },
+    {
+      "id": 32,
+      "seconds": 58.85
+    },
+    {
+      "id": 33,
+      "seconds": 49.88333333333333
+    },
+    {
+      "id": 34,
+      "seconds": 27
+    },
+    {
+      "id": 35,
+      "seconds": 57.766666666666666
+    },
+    {
+      "id": 36,
+      "seconds": 61.75
+    },
+    {
+      "id": 37,
+      "seconds": 35.88333333333333
+    },
+    {
+      "id": 38,
+      "seconds": 35.93333333333333
+    },
+    {
+      "id": 39,
+      "seconds": 23.7
+    },
+    {
+      "id": 40,
+      "seconds": 37.65
+    }
+  ],
+  "reportPath": "artifacts/rift-team-simulation.json",
+  "reportSHA256": "573458c182fa876966daf053821dc9ed03219cfa63dc5638bbdc8b63012bcba1",
+  "sourceSHA256": {
+    "tools/qa/simulate-rift.mjs": "268db21bbc9767b60fe0f846b6860e1fcd90e90e186a6111577c94b082d62da3",
+    "src/simulation/navgrid.ts": "476422ca32668f964527c96d7193f23ffbc72cfa48f1f25ee526a9a3a145e6da",
+    "src/simulation/world.ts": "04ff6f6a5753d87b0acf26f052d6199153a3d3752711af77c019e938243d1c05",
+    "public/assets/maps/rift-layout.json": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9",
+    "public/assets/maps/rift-nav.bin": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+  },
+  "championKills": 92,
+  "championDeaths": 94,
+  "limitations": [
+    "One deterministic mirrored-Ashe lane fixture; no jungle roles or complete roster",
+    "No rendering/browser performance measurement",
+    "Not the 100-seed match certification gate"
+  ]
+}

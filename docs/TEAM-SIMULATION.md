@@ -1,0 +1,15 @@
+# Full-Rift team integration diagnostic
+
+Run `node tools/qa/simulate-rift.mjs 3600` from the repository root. The optional second argument selects the JSON report path; the adjacent `.snapshot.json` file retains the terminal state or unfinished horizon state. Durations are integer seconds from 1 through 3,600. The harness uses Vite's TypeScript loader in Node without a browser or gameplay server.
+
+The fixture creates ten automated Ashe champions on the actual Rift navigation and structure layout. Each team has two top, one mid and two bottom champions, starting at its fountain with ordinary level-one resources. The human record is automated for this diagnostic. It removes the default sparring champion and target dummy, and lets normal waves, combat, shopping, recalls, progression and structure rules run. It does not alter the playable default roster or represent jungle/support roles as implemented.
+
+The report samples positions, orders, HP, progression, inventory and structures every simulated minute. It records deaths, longest stationary intervals, simulation/wall duration, worktree status, winner and snapshot hash. Every tick checks finite unit positions and HP/mana within bounds. A declared winner requires a destroyed opposing Nexus, and the final snapshot must round-trip exactly. Any detected invariant failure returns a nonzero exit status and remains in the report. An unfinished match is retained as an observation, not forcibly resolved. Stationary time alone is not evidence of a stall: attacks, recall and safe holds also keep a champion still.
+
+## First observed result
+
+The initial five-minute run exposed a navigation serialization bug: pathfinding copied an entire target unit into path endpoints, and restoring the resulting checkpoint failed. After the fix, all 509 source/simulation checks passed, including two new regressions that failed beforehand. Nine focused Rift/save browser cases and nested-path production smoke passed.
+
+A subsequent run with a 60-minute horizon ended in a blue Nexus victory at 2,422.0333 simulated seconds (40:22), taking 35.04 wall seconds in Node. There were zero detected invariant violations, the terminal checkpoint round-tripped exactly, and the ten champion records had 92 kills and 94 deaths. The differences include deaths without champion kill credit. The longest observed stationary interval was 72.83 seconds; its cause has not been classified. Machine-readable provenance and hashes are retained in `reference/team-simulation.json`; the larger local report and snapshot are under `artifacts/`.
+
+This is one deterministic mirrored-lane fixture, not the roadmap's 100-seed regression gate or complete 5v5 certification. It does not validate native bot tactics, every structure exposure transition, role performance, jungle/objectives, visual fidelity, rendering frame rate or browser performance under a full match. The next match work still includes the actual champion roster and role policies, better tactical observations and repeated match diagnostics.
