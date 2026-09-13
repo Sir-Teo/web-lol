@@ -1012,7 +1012,63 @@ button {
   text-align: center;
 }
 .game-dialog.shop {
-  width: 560px;
+  width: 940px;
+  height: min(760px, calc(100dvh - 50px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.game-dialog.shop > :not(.shop-panels) {
+  flex-shrink: 0;
+}
+.shop-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 24px;
+  min-height: 0;
+  flex: 1;
+  text-align: left;
+}
+.shop-panels > section {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+.shop-panels h3 {
+  flex-shrink: 0;
+  margin: 18px 0 10px;
+  color: #c9ba8d;
+  font:
+    500 14px Cinzel,
+    serif;
+}
+.shop-panels .shop-items {
+  margin-top: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #8a835a #0c1d23;
+  padding: 2px 5px 2px 2px;
+}
+.shop-panels .shop-item {
+  flex-shrink: 0;
+  gap: 10px;
+}
+.shop-owned > p {
+  color: #8fa79f;
+  font-size: 13px;
+}
+.shop-owned .shop-item {
+  padding: 8px;
+}
+.shop-owned .shop-item > img {
+  width: 32px;
+  height: 32px;
+}
+.shop-owned .shop-item strong {
+  font-size: 13px;
 }
 .dialog-kicker {
   font-size: 9px;
@@ -1371,6 +1427,18 @@ button {
   }
   .game-dialog {
     padding: 28px 22px;
+  }
+  .game-dialog.shop {
+    padding: 20px 16px;
+  }
+  .shop .dialog-subtitle,
+  .shop .dialog-rule {
+    display: none;
+  }
+  .shop-panels {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 0;
   }
   .controls-list {
     grid-template-columns: 120px 1fr;
