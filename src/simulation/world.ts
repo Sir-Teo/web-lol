@@ -161,6 +161,7 @@ export class World {
       nextAttackTick: 0,
       slowUntil: 0,
       stunUntil: 0,
+      summonerHealReductionUntil: 0,
       deadAt: null,
       ai: !champion && !dummy && (!structure || turret),
       nextThink: 0,
@@ -905,8 +906,11 @@ export class World {
       const heal =
         SUMMONER_HEAL.minimumHeal +
         (SUMMONER_HEAL.maximumHeal - SUMMONER_HEAL.minimumHeal) * levelFraction;
-      const amount = Math.min(heal, u.maxHp - u.hp);
+      const multiplier =
+        u.summonerHealReductionUntil > this.tick ? SUMMONER_HEAL.repeatHealMultiplier : 1;
+      const amount = Math.min(heal * multiplier, u.maxHp - u.hp);
       u.hp += amount;
+      u.summonerHealReductionUntil = this.tick + SUMMONER_HEAL.repeatHealWindowSeconds * TICK_RATE;
       this.healSpeedEnd = this.tick + SUMMONER_HEAL.speedDurationSeconds * TICK_RATE;
       this.emit('heal', u, { value: Math.round(amount) });
     }

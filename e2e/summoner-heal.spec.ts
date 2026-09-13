@@ -27,4 +27,17 @@ test('F heals while stunned and updates cooldown without allowing Volley', async
     };
   });
   expect(result).toEqual({ heals: [80], stunned: true, x: 0, y: 0 });
+  await page.locator('#practice-button').click();
+  await page.getByRole('button', { name: 'Reset cooldowns', exact: true }).click();
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.keyboard.press('f');
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const w = (window as any).__GAME__.world;
+        return w.events.filter((e: any) => e.type === 'heal').at(-1)?.value;
+      })
+    )
+    .toBe(40);
+  await expect(page.locator('[data-ability="f"]')).toHaveClass(/cooling/);
 });

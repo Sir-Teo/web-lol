@@ -6,5 +6,7 @@ export const SUMMONER_HEAL = {
   "canCastWhileDisabled": true,
   "preservesRecall": true,
   "speedBonus": 0.3,
-  "speedDurationSeconds": 1.0
+  "speedDurationSeconds": 1.0,
+  "repeatHealMultiplier": 0.5,
+  "repeatHealWindowSeconds": 30.0
 } as const;

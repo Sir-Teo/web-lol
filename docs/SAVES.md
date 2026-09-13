@@ -4,7 +4,7 @@ The pause menu's **Save match** action writes one checkpoint per battlefield to 
 
 ## Simulation format
 
-Snapshot version 6 records units, player resources and inventory, orders and paths, pending commands and wave spawns, projectiles, random state, match outcome, clocks, scheduled attack cycles, and team-specific structure knowledge. Positive infinity is encoded as an explicit disabled-deadline token; it is never confused with a nullable timer. NaN and negative infinity cannot be serialized. Object keys are canonicalized, enabling exact continuation comparisons independent of parser property order.
+Snapshot version 7 records units, player resources and inventory, orders and paths, pending commands and wave spawns, projectiles, random state, match outcome, clocks, scheduled attack cycles, recipient-specific Summoner Heal reduction deadlines, and team-specific structure knowledge. Positive infinity is encoded as an explicit disabled-deadline token; it is never confused with a nullable timer. NaN and negative infinity cannot be serialized. Object keys are canonicalized, enabling exact continuation comparisons independent of parser property order.
 
 The decoder uses a strict schema, rejects invalid resource bounds and identities, verifies the player and battlefield lanes, and checks both the format version and a SHA-256 compatibility fingerprint. The fingerprint covers simulation/content TypeScript sources, the pinned map layout/navigation files, and package declarations. Renderer and HUD edits alone do not invalidate saves. Development restarts refresh the fingerprint when simulation files change. Compatibility is intentionally conservative; there is no migration from another ruleset or the older diagnostic snapshot formats.
 

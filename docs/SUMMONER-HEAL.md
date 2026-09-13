@@ -8,4 +8,13 @@ Heal no longer cancels recall. Cooldown, missing-health state, recall deadline, 
 
 Four simulation scenarios verify level totals, missing-health clamp, stun exceptions, restrictions on other spells, recall preservation, cooldown rejection, restored continuation, death, and victory. Browser input verifies F heals during stun and displays cooldown while Volley remains unavailable; existing movement-speed and attack-cycle browser checks are also run.
 
-This is not the full spell. The same source contains ally range 900, cursor forgiveness 200, a repeated-Heal multiplier of 0.5, and a 30-second debuff duration. Ally selection, ally healing/haste, repeated-Heal reduction, healing modifiers, and exact targeting/refresh semantics remain unimplemented. Other crowd-control types are not represented by this stun-only exception. Exact presentation, input buffering, and additional channel interactions still require reference-client comparison.
+This is not the full spell. The same source contains ally range 900, cursor forgiveness 200, a repeated-Heal multiplier of 0.5, and a 30-second debuff duration. Ally selection, ally healing/haste, healing modifiers, and exact targeting/refresh semantics remain unimplemented. Other crowd-control types are not represented by this stun-only exception. Exact presentation, input buffering, and additional channel interactions still require reference-client comparison.
+
+
+## Repeated Heal reduction
+
+The pinned `StackingHealDebuff = 0.5` and `DebuffDuration = 30` now drive a recipient-specific `summonerHealReductionUntil` timestamp. While that deadline is strictly greater than the cast tick, Heal's nominal amount is multiplied by 0.5 before clamping to missing health. Each accepted Heal refreshes the deadline to 30 seconds from the current cast, including casts at full health. The multiplier does not compound with repeated casts, and does not alter ordinary regeneration or the movement-speed burst. Rejected casts do not refresh it.
+
+Expiry is evaluated at the exact simulation tick: a Heal at the deadline is full strength. The deadline is retained across death/respawn until it expires, and snapshot version 7 validates and preserves it. Refresh-on-receipt, full-health application, death persistence, and exact boundary behavior are runtime policies pending matched reference comparison; the source explicitly establishes the amount and duration. There is no additional cleanse/removal system yet.
+
+Three additional simulation cases cover repeated casts, expiry, clamping order, unchanged regeneration, saved continuation, and malformed saved deadlines. The browser resets cooldowns through the actual practice panel and casts F again while stunned, verifying the reduced heal and renewed cooldown. This makes the effect testable before ally casts and independent bot spell inventories are implemented.

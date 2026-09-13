@@ -323,3 +323,11 @@ The stun-command review found an explicit source exception: Summoner Heal is cas
 All 157 unit/scenario checks, three affected Chrome scenarios, the static build, and production smoke pass. New checks cover healing totals/clamping, stun permission and other-spell rejection, recall/cooldown behavior, checkpoint continuation, death, and victory. The browser presses F during stun and checks the cooldown and heal event; existing movement/run and attack-cycle cases remain green. Generated Heal data reproduces byte-identically. The full browser suite was not repeated.
 
 Ally targeting/healing/haste, repeated-Heal reduction, healing modifiers, additional crowd-control types, complete champion kits, full-match systems, and pixel-level reference comparison remain unfinished. The production goal remains active.
+
+## Repeated Heal reduction milestone
+
+The pinned 0.5 multiplier and 30-second duration now apply to repeated Summoner Heal on a recipient. Reduction precedes missing-health clamping, refreshes on an accepted cast, and does not compound or reduce ordinary regeneration/haste. A recipient timestamp preserves the effect through saves; snapshot version 7 validates it. The practice cooldown reset leaves the reduction intact. See [source facts and runtime policies](SUMMONER-HEAL.md#repeated-heal-reduction).
+
+All 160 simulation checks, four affected Chrome scenarios, the static build, and production smoke pass. New cases cover consecutive casts, exact expiry, clamping, regeneration, checkpoint continuation, and invalid saved deadlines. Browser coverage includes an actual practice cooldown reset and reduced F cast during stun, plus the three existing save scenarios. Generated data reproduces byte-identically. The full browser suite was not repeated.
+
+Exact refresh/full-health/death-persistence semantics still require reference observation. Ally healing, bot spell inventories, healing modifiers, complete match systems, and pixel-level fidelity remain unfinished. The production goal remains active.

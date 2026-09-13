@@ -77,3 +77,61 @@ test('Heal cannot revive a dead player or change a completed match', () => {
   cast(w);
   expect(w.snapshot()).toBe(before);
 });
+
+test('repeated Heal halves the amount without compounding, and refreshes the window', () => {
+  const w = setup();
+  for (const [index, expected] of [80, 40, 40].entries()) {
+    w.hero.hp = 10;
+    w.player.cooldowns.f = 0; // Practice reset stands in for another available Heal.
+    cast(w);
+    expect(w.events.filter((e) => e.type === 'heal').at(-1)?.value).toBe(expected);
+    expect(w.hero.summonerHealReductionUntil).toBe(index + 1 + 30 * 60);
+  }
+  expect(w.healSpeedEnd).toBe(w.tick + 60);
+  expect(w.movementSpeed(w.hero)).toBeCloseTo(w.hero.speed * 1.3);
+});
+
+test('reduction expires at its exact deadline and clamps after reduction', () => {
+  for (const [offset, expected] of [
+    [-1, 40],
+    [0, 80],
+    [1, 80],
+  ]) {
+    const w = setup();
+    cast(w);
+    w.tick = w.hero.summonerHealReductionUntil + offset - 1;
+    w.hero.hp = 10;
+    w.player.cooldowns.f = 0;
+    cast(w);
+    expect(w.events.filter((e) => e.type === 'heal').at(-1)?.value).toBe(expected);
+  }
+  const w = setup();
+  cast(w); // A cast at full health still establishes the reduction window.
+  w.player.cooldowns.f = 0;
+  w.hero.hp = w.hero.maxHp - 30;
+  cast(w);
+  expect(w.hero.hp).toBe(w.hero.maxHp);
+  expect(w.events.filter((e) => e.type === 'heal').at(-1)?.value).toBe(30);
+});
+
+test('the recipient reduction survives saves and does not change ordinary regeneration', () => {
+  const w = setup();
+  w.hero.hp = 10;
+  cast(w);
+  const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+  const before = w.hero.hp;
+  w.step(60);
+  restored.step(60);
+  expect(w.hero.hp - before).toBeCloseTo(0.7);
+  w.player.cooldowns.f = restored.player.cooldowns.f = 0;
+  cast(w);
+  cast(restored);
+  expect(w.events.filter((e) => e.type === 'heal').at(-1)?.value).toBe(40);
+  expect(restored.snapshot()).toBe(w.snapshot());
+  for (const invalid of [-1, 0.5, null]) {
+    const saved = JSON.parse(w.snapshot());
+    saved.units.find((unit: { id: number }) => unit.id === w.hero.id).summonerHealReductionUntil =
+      invalid;
+    expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow();
+  }
+});
