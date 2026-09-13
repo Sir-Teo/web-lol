@@ -191,7 +191,10 @@ export class GameView {
     canvas.height = image.height;
     canvas.getContext('2d')!.drawImage(image, 0, 0);
     this.mapTexture.needsUpdate = true;
-    terrain.traverse((object) => {
+    this.applyRiftFog(terrain);
+  }
+  private applyRiftFog(root: THREE.Object3D): void {
+    root.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       for (const material of (Array.isArray(object.material)
         ? object.material
@@ -205,8 +208,8 @@ export class GameView {
           shader.uniforms.riftFog = { value: this.fogTexture };
           shader.vertexShader = 'varying vec2 vRiftFogUV;\n' + shader.vertexShader;
           shader.vertexShader = shader.vertexShader.replace(
-            '#include <begin_vertex>',
-            '#include <begin_vertex>\nvec3 fogWorld=(modelMatrix*vec4(transformed,1.0)).xyz;\nvRiftFogUV=vec2(fogWorld.x/148.5+0.5,0.5-fogWorld.z/148.5);'
+            '#include <project_vertex>',
+            'vec3 fogWorld=(modelMatrix*vec4(transformed,1.0)).xyz;\nvRiftFogUV=vec2(fogWorld.x/148.5+0.5,0.5-fogWorld.z/148.5);\n#include <project_vertex>'
           );
           shader.fragmentShader =
             'uniform sampler2D riftFog;\nvarying vec2 vRiftFogUV;\n' + shader.fragmentShader;
@@ -215,7 +218,7 @@ export class GameView {
             '#include <opaque_fragment>\nfloat obscured=clamp(texture2D(riftFog,vRiftFogUV).a/0.73,0.0,1.0);\ngl_FragColor.rgb*=mix(1.0,0.2,obscured);'
           );
         };
-        material.customProgramCacheKey = () => key() + '-terrain-fog-v1';
+        material.customProgramCacheKey = () => key() + '-rift-fog-v2';
         material.needsUpdate = true;
       }
     });
@@ -356,15 +359,19 @@ export class GameView {
           model.root.matrix.decompose(model.root.position, model.root.quaternion, model.root.scale);
           model.root.matrixAutoUpdate = false;
         }
+        if (isStructureKind(u.kind) && this.battlefield.id === 'rift')
+          this.applyRiftFog(model.root);
         this.models.set(u.id, model);
         this.scene.add(model.root);
       }
       const deathDuration = model.actions?.death?.getClip().duration ?? 0.65;
+      const knownDestroyed = world.knownStructureDestroyed(u);
       model.root.visible =
-        world.visible(u) &&
-        (isStructureKind(u.kind) ||
-          u.deadAt === null ||
-          world.tick - u.deadAt < (deathDuration + 0.2) * 60);
+        knownDestroyed !== null ||
+        (world.visible(u) &&
+          (isStructureKind(u.kind) ||
+            u.deadAt === null ||
+            world.tick - u.deadAt < (deathDuration + 0.2) * 60));
       const x = lerp(u.previous.x, u.x, alpha),
         y = lerp(u.previous.y, u.y, alpha);
       if (!u.structureTransform) {
@@ -377,7 +384,7 @@ export class GameView {
         if (isStructureKind(u.kind)) model.root.scale.z = -1;
       }
       if (isStructureKind(u.kind) && model.mixer && model.actions) {
-        const destroyed = u.deadAt !== null;
+        const destroyed = knownDestroyed ?? u.deadAt !== null;
         if (model.destroyed !== destroyed) {
           for (const part of model.submeshes ?? [])
             part.visible = destroyed

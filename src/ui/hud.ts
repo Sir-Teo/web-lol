@@ -381,7 +381,9 @@ export class Hud {
       y: (p.y / (this.world.battlefield.half * 2) + 0.5) * n,
     });
     for (const u of w.units) {
-      if (!w.alive(u) || !w.visible(u)) continue;
+      const knownDestroyed = w.knownStructureDestroyed(u);
+      if (knownDestroyed === true || (knownDestroyed === null && (!w.alive(u) || !w.visible(u))))
+        continue;
       const p = xy(u),
         r = u.kind === 'champion' ? 5 : isStructureKind(u.kind) ? 4 : 1.5;
       ctx.fillStyle = u.id === w.player.id ? '#f4dc88' : u.team === 'blue' ? '#60d1e5' : '#ee7b81';

@@ -139,3 +139,60 @@ describe('structure dependency and terminal match state', () => {
       expect(w.commands).toHaveLength(0);
     });
 });
+
+describe('known structure state versus live sight', () => {
+  it('knows initial enemy buildings without granting sight or attack acquisition', () => {
+    const w = setup(),
+      tower = find(w, 'red', 'outer-turret', 'mid');
+    expect(w.knownStructureDestroyed(tower)).toBe(false);
+    expect(w.visible(tower)).toBe(false);
+    w.enqueue({ type: 'order', unit: w.hero.id, order: { type: 'attack', target: tower.id } });
+    w.step();
+    expect(w.hero.releaseTick).toBeNull();
+    expect(w.knownStructureDestroyed(w.hero)).toBeNull();
+  });
+  it('publishes destruction state without exposing hidden damage events', () => {
+    const w = setup(),
+      tower = find(w, 'red', 'outer-turret', 'mid');
+    w.damage(w.hero, tower, 100, 'physical');
+    expect(w.knownStructureDestroyed(tower)).toBe(false);
+    expect(w.events.filter((e) => e.type === 'damage').every((e) => !w.eventVisible(e))).toBe(true);
+    w.damage(w.hero, tower, 1e6, 'true');
+    expect(w.knownStructureDestroyed(tower, 'blue')).toBe(true);
+    expect(w.knownStructureDestroyed(tower, 'red')).toBe(true);
+    expect(w.visible(tower)).toBe(false);
+    expect(w.events.filter((e) => e.type === 'damage').every((e) => !w.eventVisible(e))).toBe(true);
+  });
+  for (const team of ['blue', 'red'] as const)
+    it(`retains ${team} hidden regrowth as last known rubble until observed`, () => {
+      const w = setup();
+      const observer = team === 'blue' ? 'red' : 'blue';
+      // Remove nearby opposing observers to isolate the knowledge transition.
+      if (team === 'blue') Object.assign(w.hero, { x: 0, y: 0 });
+      openBase(w, team);
+      const inhibitor = find(w, team, 'inhibitor', 'mid');
+      w.tick = inhibitor.respawnTick! - 1;
+      w.step();
+      expect(w.alive(inhibitor)).toBe(true);
+      expect(w.knownStructureDestroyed(inhibitor, team)).toBe(false);
+      expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(true);
+      expect(
+        JSON.parse(w.snapshot()).units.find((u: any) => u.id === inhibitor.id).structureKnowledge[
+          observer
+        ]
+      ).toBe(true);
+      w.visionAreas.push({
+        x: inhibitor.x,
+        y: inhibitor.y,
+        radius: 100,
+        team: observer,
+        endTick: w.tick + 2,
+        unobstructed: true,
+      });
+      w.step();
+      expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(false);
+      w.step();
+      expect(w.visible(inhibitor, observer)).toBe(false);
+      expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(false);
+    });
+});

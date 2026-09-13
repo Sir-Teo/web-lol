@@ -25,6 +25,8 @@ export interface Unit extends Vec2 {
   /** Authored source matrix for fixed structures; independent of attack facing. */
   structureTransform?: readonly number[];
   structure?: StructureState;
+  /** Public initial placement, then last known intact/destroyed state per team. */
+  structureKnowledge?: Record<Team, boolean>;
   radius: number;
   hp: number;
   maxHp: number;

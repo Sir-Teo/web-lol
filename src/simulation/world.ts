@@ -177,6 +177,7 @@ export class World {
       }
     }
     if (kind === 'super') u.name = 'Super minion';
+    if (structure) u.structureKnowledge = { blue: false, red: false };
     this.units.push(u);
     return u;
   }
@@ -258,6 +259,12 @@ export class World {
     }
     this.advanceProjectiles();
     if (this.winner) return;
+    for (const unit of this.units) {
+      if (!unit.structureKnowledge) continue;
+      for (const team of ['blue', 'red'] as const)
+        if (unit.structureKnowledge[team] !== !this.alive(unit) && this.visible(unit, team))
+          unit.structureKnowledge[team] = !this.alive(unit);
+    }
     const h = this.hero;
     if (this.player.recallEnd !== null && this.tick >= this.player.recallEnd) {
       h.x = this.battlefield.spawns.blue.x;
@@ -348,6 +355,10 @@ export class World {
   }
   visible(u: Unit, team: Team = 'blue'): boolean {
     return u.team === team || this.pointVisible(u, team);
+  }
+  knownStructureDestroyed(u: Unit, team: Team = 'blue'): boolean | null {
+    if (!u.structureKnowledge) return null;
+    return this.visible(u, team) ? !this.alive(u) : u.structureKnowledge[team];
   }
   visionSources(team: Team = 'blue', includeAttackReveals = true): VisionSource[] {
     const sources: VisionSource[] = this.units
@@ -618,6 +629,9 @@ export class World {
       target.releaseTick = null;
       target.order = { type: 'idle' };
       this.emit('death', target, { unit: target.id });
+      // Structure destruction is public map knowledge. It grants no live sight
+      // and does not broaden the audience of the preceding damage event.
+      if (target.structureKnowledge) target.structureKnowledge = { blue: true, red: true };
       if (target.kind === 'champion') target.respawnTick = this.tick + 10 * TICK_RATE;
       if (target.kind === 'dummy') target.respawnTick = this.tick + 3 * TICK_RATE;
       if (target.kind === 'inhibitor') target.respawnTick = this.tick + 300 * TICK_RATE;
@@ -786,7 +800,7 @@ export class World {
   }
   snapshot(): string {
     return JSON.stringify({
-      version: 3,
+      version: 4,
       winner: this.winner,
       battlefield: this.battlefield.id,
       pendingSpawns: this.pendingSpawns,
