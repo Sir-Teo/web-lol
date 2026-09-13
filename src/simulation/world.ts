@@ -307,10 +307,13 @@ export class World {
         if (command.order.type === 'move' || command.order.type === 'attackMove')
           this.emit('move', command.order.point, { team: u.team });
       } else if (command.type === 'cast') this.cast(u, command.ability, command.point);
-      else if (u.id === this.player.id && !this.player.pendingCast) {
-        this.setOrder(u, { type: 'idle' });
-        this.player.recallEnd = this.tick + RECALL_DURATION_TICKS;
-        this.emit('message', u, { text: 'Recalling…' });
+      else {
+        const state = this.championState(u.id);
+        if (state && !state.pendingCast) {
+          this.setOrder(u, { type: 'idle' });
+          state.recallEnd = this.tick + RECALL_DURATION_TICKS;
+          this.emit('message', u, { text: 'Recalling…', unit: u.id, team: u.team });
+        }
       }
     }
     let waveInterval = this.battlefield.waves.intervalSeconds;
@@ -336,10 +339,11 @@ export class World {
       }
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
-      if (u.id === this.player.id && this.player.pendingCast) {
-        const cast = this.player.pendingCast;
+      const state = this.championState(u.id);
+      if (state?.pendingCast) {
+        const cast = state.pendingCast;
         if (this.tick < cast.releaseTick) continue;
-        this.player.pendingCast = null;
+        state.pendingCast = null;
         if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage);
       }
@@ -368,15 +372,17 @@ export class World {
         if (unit.structureKnowledge[team] !== !this.alive(unit) && this.visible(unit, team))
           unit.structureKnowledge[team] = !this.alive(unit);
     }
-    const h = this.hero;
-    if (this.player.recallEnd !== null && this.tick >= this.player.recallEnd) {
-      h.x = this.battlefield.spawns.blue.x;
-      h.y = this.battlefield.spawns.blue.y;
-      h.previous = { ...this.battlefield.spawns.blue };
+    for (const state of this.activeChampionStates()) {
+      if (state.recallEnd === null || this.tick < state.recallEnd) continue;
+      const h = this.unit(state.id)!;
+      const home = this.battlefield.spawns[h.team];
+      h.x = home.x;
+      h.y = home.y;
+      h.previous = { ...home };
       h.hp = h.maxHp;
       h.mana = h.maxMana;
-      this.player.recallEnd = null;
-      this.emit('heal', h, { value: h.maxHp });
+      state.recallEnd = null;
+      this.emit('heal', h, { value: h.maxHp, unit: h.id, team: h.team });
     }
     for (const h of this.units) {
       if (h.kind !== 'champion' || !this.alive(h)) continue;
@@ -1061,17 +1067,19 @@ export class World {
     u.criticalSlow = null;
     this.setOrder(u, { type: 'idle' });
   }
-  abilityCooldownTicks(ability: Ability): number {
-    const chargeDeadline =
-      ability === 'e' && this.player.eCharges === 0 ? (this.player.eRechargeTick ?? 0) : 0;
-    return Math.max(0, this.player.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
+  abilityCooldownTicks(ability: Ability, championId = this.player.id): number {
+    const state = this.championState(championId);
+    if (!state) return Infinity;
+    const chargeDeadline = ability === 'e' && state.eCharges === 0 ? (state.eRechargeTick ?? 0) : 0;
+    return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
   }
   private cast(u: Unit, ability: Ability, point: Vec2): void {
-    if (u.id !== this.player.id) return;
-    if (this.player.pendingCast && ability !== 'f') return;
+    const state = this.championState(u.id);
+    if (!state) return;
+    if (state.pendingCast && ability !== 'f') return;
     const spec = ABILITIES[ability];
-    const fail = (text: string) => this.emit('message', u, { text });
-    if (this.abilityCooldownTicks(ability) > 0 || (ability === 'e' && this.player.eCharges === 0)) {
+    const fail = (text: string) => this.emit('message', u, { text, unit: u.id, team: u.team });
+    if (this.abilityCooldownTicks(ability, u.id) > 0 || (ability === 'e' && state.eCharges === 0)) {
       fail('That spell is not ready yet');
       return;
     }
@@ -1079,7 +1087,7 @@ export class World {
       fail('Not enough mana');
       return;
     }
-    if (ability === 'q' && this.player.qStacks < 4) {
+    if (ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
       return;
     }
@@ -1087,14 +1095,14 @@ export class World {
     const dir = direction(u, point);
     if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
     u.mana -= spec.cost;
-    this.player.cooldowns[ability] = this.tick + spec.cooldown * TICK_RATE;
-    if (!spec.preservesRecall) this.player.recallEnd = null;
-    if (ability !== 'f') this.player.castAnimation = null;
+    state.cooldowns[ability] = this.tick + spec.cooldown * TICK_RATE;
+    if (!spec.preservesRecall) state.recallEnd = null;
+    if (ability !== 'f') state.castAnimation = null;
     this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
     if (ability === 'q') {
-      this.player.qStacks = 0;
-      this.player.qStackExpiry = 0;
-      this.player.qUntil = this.tick + ASHE_Q.durationSeconds * TICK_RATE;
+      state.qStacks = 0;
+      state.qStackExpiry = 0;
+      state.qUntil = this.tick + ASHE_Q.durationSeconds * TICK_RATE;
       if (ASHE_Q.resetsAttackTimer) {
         // Cancel an unreleased attack or its recovery, retaining the current
         // order/path. advanceUnit may start an empowered attack this tick.
@@ -1111,8 +1119,8 @@ export class World {
       u.attackTarget = null;
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
-      this.player.castAnimation = { ability, startTick: this.tick };
-      this.player.pendingCast = {
+      state.castAnimation = { ability, startTick: this.tick };
+      state.pendingCast = {
         ability,
         startTick: this.tick,
         releaseTick: this.tick + timing.castSeconds * TICK_RATE,
@@ -1125,14 +1133,14 @@ export class World {
               : ASHE_W.baseDamageByRank[0] +
                 Math.max(
                   0,
-                  u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
+                  u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(state.level)
                 ) *
                   ASHE_W.bonusADRatioByRank[0],
       };
     }
     if (ability === 'e') {
-      this.player.eCharges--;
-      this.player.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;
+      state.eCharges--;
+      state.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;
     }
     if (ability === 'd') {
       const d = Math.min(spec.range, distance(u, point));
@@ -1147,7 +1155,7 @@ export class World {
       this.setOrder(u, { type: 'idle' });
     }
     if (ability === 'f') {
-      const levelFraction = Math.max(0, Math.min(1, (this.player.level - 1) / 17));
+      const levelFraction = Math.max(0, Math.min(1, (state.level - 1) / 17));
       const heal =
         SUMMONER_HEAL.minimumHeal +
         (SUMMONER_HEAL.maximumHeal - SUMMONER_HEAL.minimumHeal) * levelFraction;
@@ -1233,7 +1241,9 @@ export class World {
             ? ASHE_W.baseDamageByRank[0] +
               Math.max(
                 0,
-                u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
+                u.damage -
+                  ASHE.damage -
+                  ASHE.damageGrowth * growthAtLevel(this.championState(u.id)?.level ?? 1)
               ) *
                 ASHE_W.bonusADRatioByRank[0]
             : 200),

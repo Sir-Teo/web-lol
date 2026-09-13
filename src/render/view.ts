@@ -471,10 +471,9 @@ export class GameView {
       }
       const moving = Math.hypot(u.x - u.previous.x, u.y - u.previous.y) > 0.01;
       if (!isStructureKind(u.kind) && model.mixer && model.actions) {
-        const recalling =
-          u.deadAt === null && u.id === world.player.id && world.player.recallEnd !== null;
-        const cast =
-          u.id === world.player.id && u.deadAt === null ? world.player.castAnimation : null;
+        const state = world.championState(u.id);
+        const recalling = u.deadAt === null && state !== undefined && state.recallEnd !== null;
+        const cast = u.deadAt === null ? state?.castAnimation : null;
         const castAge = cast ? Math.max(0, world.tick - cast.startTick + alpha - 1) / TICK_RATE : 0;
         if (
           cast &&
@@ -492,7 +491,7 @@ export class GameView {
           action.paused = true;
           model.mixer.update(0);
         } else if (recalling) {
-          const start = world.player.recallEnd! - RECALL_DURATION_TICKS;
+          const start = state!.recallEnd! - RECALL_DURATION_TICKS;
           animateRecall(model, Math.max(0, world.tick - start + alpha - 1) / TICK_RATE);
         } else {
           let clip = u.deadAt !== null ? 'death' : moving ? 'run' : 'idle1';
