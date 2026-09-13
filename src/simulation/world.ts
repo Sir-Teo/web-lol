@@ -363,8 +363,15 @@ export class World {
       this.player.gold = statPrecision(
         this.player.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
       );
-    if (this.tick > this.player.qStackExpiry && this.tick > this.player.qUntil)
-      this.player.qStacks = 0;
+    while (
+      this.player.qStacks > 0 &&
+      this.tick >= this.player.qStackExpiry &&
+      this.tick >= this.player.qUntil
+    ) {
+      this.player.qStacks--;
+      this.player.qStackExpiry =
+        this.player.qStacks > 0 ? this.player.qStackExpiry + ASHE_Q.falloffSeconds * TICK_RATE : 0;
+    }
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
       (u) =>
@@ -694,9 +701,14 @@ export class World {
           else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
           if (source.kind === 'champion') contact.slowUntil = this.tick + 120;
           if (p.type === 'ultimate') contact.stunUntil = this.tick + 120;
-          if (source.id === this.player.id && this.alive(source) && p.type === 'attack') {
-            this.player.qStacks = Math.min(4, this.player.qStacks + 1);
-            this.player.qStackExpiry = this.tick + 240;
+          if (
+            source.id === this.player.id &&
+            this.alive(source) &&
+            p.type === 'attack' &&
+            this.tick >= this.player.qUntil
+          ) {
+            this.player.qStacks = Math.min(ASHE_Q.maxStacks, this.player.qStacks + 1);
+            this.player.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
           }
         }
       } else if (p.remaining > travel) {
@@ -893,6 +905,7 @@ export class World {
     this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
     if (ability === 'q') {
       this.player.qStacks = 0;
+      this.player.qStackExpiry = 0;
       this.player.qUntil = this.tick + ASHE_Q.durationSeconds * TICK_RATE;
     }
     if (ability === 'w' || ability === 'r') {

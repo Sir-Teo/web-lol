@@ -383,3 +383,9 @@ All 183 simulation checks, four focused Chrome cases, static build and productio
 Ranger's Focus now remains active for six seconds instead of four. The duration comes from the pinned 16.18 Ashe spell record and is corroborated by Riot's patch 13.5 notes. The tooltip shares the generated value. The complete Q record is retained for future rank, stacking and arrow-flurry work; this change does not claim those systems are complete. See ASHE-Q.md.
 
 All 184 simulation checks, three focused Chrome cases, static build and production smoke pass. New tests verify activation, persistence beyond the former four-second deadline, exact six-second expiry, HUD state and saved continuation. Existing attack-cycle and death-cleanup browser cases remain green. Export regeneration is byte-identical. The full browser suite was not repeated. Complete champion, full-match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Individual Focus decay milestone
+
+Focus now loses one stack after four seconds of inactivity, then one per second, using pinned spell timing values and retained tooltip corroboration. New eligible impacts refresh the full window. Active Q prevents Focus accumulation, and casting clears the stack deadline. The existing deadline field persists intermediate decay through saves. Exact boundary ordering and impact-based generation remain documented limitations; full Q parity is not claimed.
+
+All 187 simulation checks, three focused Chrome cases, static build and production smoke pass. New tests cover individual decay and saved continuation, impact refresh, active-window damage without Focus, and visible pip falloff. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion behavior, match systems and pixel fidelity remain unfinished; the production goal remains active.
