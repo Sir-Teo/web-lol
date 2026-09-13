@@ -425,3 +425,9 @@ All 198 simulation checks, five affected Chrome cases, static build and producti
 Enchanted Crystal Arrow now starts at 1,500 units/second, accelerates by 200 units/second² and caps at 2,100, using the pinned standard spell movement record. Step integration accounts for acceleration and partial-step arrival at the cap; the existing projectile speed field preserves flight through saves. The complete source record is retained for further stun, splash and vision work. Distance-based stun remains unfinished because the selected record does not expose the required distance threshold.
 
 All 200 simulation checks, four focused Chrome cases, static build and production smoke pass. New cases check integrated distance, speed cap, range expiry, saved continuation and browser presentation updates. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Crystal arrow moving vision milestone
+
+Crystal Arrow now contributes its source-backed 750-unit sight radius at its current position to the casting team's shared vision sources. The radius follows saved projectile state, persists through caster death, and disappears on removal. Ordinary/Volley projectiles are excluded. Default terrain/brush occlusion and no lingering reveal remain explicit policies pending reference verification.
+
+All 203 simulation checks, three focused Chrome cases, static build and production smoke pass. New checks cover both teams, radius boundaries, movement/removal, saved dead-caster continuation, occlusion and distant-enemy visibility in the browser. Existing structure-vision behavior remains green. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

@@ -465,6 +465,11 @@ export class World {
       .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
     if (includeAttackReveals)
       sources.push(...this.visionAreas.filter((a) => a.team === team && a.endTick > this.tick));
+    sources.push(
+      ...this.projectiles
+        .filter((projectile) => projectile.team === team && projectile.type === 'ultimate')
+        .map((projectile) => ({ x: projectile.x, y: projectile.y, radius: ASHE_R.sightRadius }))
+    );
     if (team === 'blue' && this.reveal && this.reveal.endTick > this.tick)
       sources.push({ ...this.reveal.point, radius: 650, unobstructed: true });
     return sources;
