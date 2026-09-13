@@ -123,6 +123,10 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
 lane_bytes = Path('docs/reference/lane-minion-records.json').read_bytes()
 assert sha(lane_bytes) == 'e50d477e691cec02382257e67d9b501faf94a2f6f6e1be4faf000dd267f28447'
 lane_records = json.loads(lane_bytes)
+on_hit_bytes = Path('docs/reference/minion-on-hit-items.json').read_bytes()
+assert sha(on_hit_bytes) == 'e0b78916c8a132fadb79f864d5b68ad2056fbfaccb196595cd67596ced116daf'
+on_hit_items = json.loads(on_hit_bytes)['sources'][0]['records']
+minion_current_health_damage = {}
 override_bytes = Path('docs/reference/lane-rule-overrides.json').read_bytes()
 overrides = json.loads(override_bytes)
 unit_stats = {'super': super_stats}
@@ -139,6 +143,10 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
         assert key.endswith('/CharacterRecords/Root')
         record = lane_records[key.split('/')[1]]['record']
         lane_templates[team][kind] = template
+        item_key, = record['mClientSideItemInventory']
+        ratio, = [value['mValue'] for value in on_hit_items[item_key]['mDataValues']
+                  if value['mName'] == 'MinionCurrentHealthDamage']
+        minion_current_health_damage.setdefault(kind, {})[team] = ratio
         unit_stats.setdefault(kind, {})[team] = {
             'speed': record['baseMoveSpeedModifiable']['baseValue'],
             'goldBounty': overrides['initialSiegeGold'] if kind == 'siege' else record['goldGivenOnDeath'],
@@ -154,6 +162,7 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
 layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawns": spawns,
           "lanes": lanes, "turrets": turrets, "structures": base_structures,
           "unitStats": unit_stats, "unitHealthGrowth": unit_health_growth, "minionTurretDamage": overrides["minionTurretDamage"],
+          "minionCurrentHealthDamage": minion_current_health_damage,
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
                     "intervalChanges": overrides['waveIntervals'],
@@ -184,6 +193,7 @@ provenance = {"sources": [
     "structureRulesSha256": sha(rules_bytes), "superMinionDefinitionsSha256": sha(super_bytes),
     "superMinionTemplates": super_templates,
     "laneMinionRecordsSha256": sha(lane_bytes), "laneRuleOverridesSha256": sha(override_bytes),
+    "minionOnHitItemsSha256": sha(on_hit_bytes),
     "laneMinionTemplates": lane_templates,
     "objects": nodes, "barracksConfigs": {key: definitions[key] for key in ["{147211fb}", "{e61e55a3}"]},
     "minimapSource": minimap_record,

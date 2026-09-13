@@ -1,0 +1,157 @@
+{
+  "sources": [
+    {
+      "url": "https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json",
+      "sha256": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb",
+      "entries": false,
+      "records": {
+        "Items/1508": {
+          "mDisplayName": "game_item_displayname_1508",
+          "itemID": 1508,
+          "maxStack": 1,
+          "mItemGroups": [
+            "Items/ItemGroups/Default"
+          ],
+          "epicness": 1,
+          "mEffectAmount": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mDataValues": [
+            {
+              "mName": "MinionCurrentHealthDamage",
+              "mValue": 0.05000000074505806,
+              "__type": "ItemDataValue"
+            },
+            {
+              "mName": "TurretDamageBonus",
+              "mValue": 0.4000000059604645,
+              "__type": "ItemDataValue"
+            },
+            {
+              "mName": "MidLaneAttackSpeedBonus",
+              "mValue": 0.30000001192092896,
+              "__type": "ItemDataValue"
+            }
+          ],
+          "mCategories": [
+            "Armor",
+            "ManaRegen",
+            "OnHit"
+          ],
+          "mItemAttributes": [
+            1
+          ],
+          "mItemDataClient": {
+            "mDescription": "game_item_description_1508",
+            "mDynamicTooltip": "game_item_tooltip_1508",
+            "inventoryIcon": "assets/items/icons2d/1508_antitowersocks.dds",
+            "epicness": 0,
+            "__type": "ItemDataClient"
+          },
+          "__type": "ItemData"
+        },
+        "Items/1509": {
+          "mDisplayName": "game_item_displayname_1509",
+          "itemID": 1509,
+          "maxStack": 1,
+          "mItemGroups": [
+            "Items/ItemGroups/Default"
+          ],
+          "epicness": 1,
+          "mEffectAmount": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mDataValues": [
+            {
+              "mName": "MinionCurrentHealthDamage",
+              "mValue": 0.019999999552965164,
+              "__type": "ItemDataValue"
+            }
+          ],
+          "mCategories": [
+            "Armor",
+            "ManaRegen",
+            "OnHit"
+          ],
+          "mItemAttributes": [
+            1
+          ],
+          "mItemDataClient": {
+            "mDescription": "game_item_description_1509",
+            "mDynamicTooltip": "game_item_tooltip_1509",
+            "inventoryIcon": "assets/items/icons2d/1509_gusto.dds",
+            "epicness": 0,
+            "__type": "ItemDataClient"
+          },
+          "__type": "ItemData"
+        },
+        "Items/1510": {
+          "mDisplayName": "game_item_displayname_1510",
+          "itemID": 1510,
+          "maxStack": 1,
+          "mItemGroups": [
+            "Items/ItemGroups/Default"
+          ],
+          "epicness": 1,
+          "mEffectAmount": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mDataValues": [
+            {
+              "mName": "MinionCurrentHealthDamage",
+              "mValue": 0.03500000014901161,
+              "__type": "ItemDataValue"
+            }
+          ],
+          "mCategories": [
+            "Armor",
+            "ManaRegen",
+            "OnHit"
+          ],
+          "mItemAttributes": [
+            1
+          ],
+          "mItemDataClient": {
+            "mDescription": "game_item_description_1510",
+            "mDynamicTooltip": "game_item_tooltip_1510",
+            "inventoryIcon": "assets/items/icons2d/1510_phreakishgusto.dds",
+            "epicness": 0,
+            "__type": "ItemDataClient"
+          },
+          "__type": "ItemData"
+        }
+      }
+    },
+    {
+      "url": "https://raw.communitydragon.org/16.18/game/en_us/data/menu/en_us/lol.stringtable.json",
+      "sha256": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d",
+      "entries": true,
+      "records": {
+        "game_item_tooltip_1508": "<titleLeft>Anti-tower Socks</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Reinforced Armor</unique><br>Siege minions take 14% of their health per outer turret shot, 11% of their health per inner turret shot and 8% of their health per base turret shot.<br><br><unique>Minion Slayer</unique><br>Siege minions deal @MinionCurrentHealthDamage*100@% current Health damage to lane minions.<br><br><unique>Turret Slayer</unique><br>Siege minions deal @TurretDamageBonus*100@% bonus damage to turrets and gain @MidLaneAttackSpeedBonus*100@% bonus attack speed against turrets in the mid lane.<br><br><font color='#447777'>They're a little stinky, but effective.</font></mainText>",
+        "game_item_tooltip_1509": "<titleLeft>Gusto</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Gusto</unique><br>This unit takes 45% of its health per turret shot. <br><br><unique>Minion Wounder</unique><br>This unit deals @MinionCurrentHealthDamage*100@% current Health damage to lane minions. <br><br><font color='#447777'>Go hard or go home.</font></mainText>",
+        "game_item_tooltip_1510": "<titleLeft>Phreakish Gusto</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Phreakish Gusto</unique><br>This unit takes 70% of its health per turret shot. <br><br><unique>Minion Damager</unique><br>This unit deals @MinionCurrentHealthDamage*100@% current Health damage to lane minions. <br><br><font color='#447777'>Maybe go a little less hard.</font></mainText>"
+      }
+    }
+  ]
+}
