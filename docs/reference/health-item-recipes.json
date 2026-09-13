@@ -1,0 +1,125 @@
+{
+  "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+  "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+  "items": {
+    "1028": {
+      "name": "Ruby Crystal",
+      "description": "<mainText><stats><attention>150</attention> Health</stats><br><br></mainText>",
+      "colloq": ";red",
+      "plaintext": "Increases Health",
+      "into": [
+        "3742",
+        "1011",
+        "3068",
+        "2021",
+        "323222",
+        "323075",
+        "326617",
+        "323107",
+        "3012",
+        "3147",
+        "3067",
+        "3211",
+        "2502",
+        "322526",
+        "2526",
+        "3023",
+        "3044",
+        "3053",
+        "3066",
+        "3075",
+        "3152",
+        "3161",
+        "3801",
+        "3803",
+        "4401",
+        "4635",
+        "6035",
+        "6660",
+        "6662"
+      ],
+      "image": {
+        "full": "1028.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 336,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 400,
+        "purchasable": true,
+        "total": 400,
+        "sell": 280
+      },
+      "tags": [
+        "Health"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatHPPoolMod": 150
+      }
+    },
+    "1011": {
+      "name": "Giant's Belt",
+      "description": "<mainText><stats><attention>350</attention> Health</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Greatly increases Health",
+      "from": [
+        "1028"
+      ],
+      "into": [
+        "4637",
+        "3084",
+        "2525",
+        "3039",
+        "3083",
+        "3116",
+        "3119",
+        "3143",
+        "323119",
+        "3748",
+        "6665",
+        "6609",
+        "6667",
+        "8001"
+      ],
+      "image": {
+        "full": "1011.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 144,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 500,
+        "purchasable": true,
+        "total": 900,
+        "sell": 630
+      },
+      "tags": [
+        "Health"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatHPPoolMod": 350
+      },
+      "depth": 2
+    }
+  }
+}

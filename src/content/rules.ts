@@ -122,4 +122,27 @@ export const ITEMS = [
     hp: 0,
     speed: 0,
   },
+  {
+    id: 'ruby',
+    name: 'Ruby Crystal',
+    price: 400,
+    sell: 280,
+    description: '+150 Health',
+    icon: '1028',
+    damage: 0,
+    hp: 150,
+    speed: 0,
+  },
+  {
+    id: 'belt',
+    name: 'Giant’s Belt',
+    price: 900,
+    sell: 630,
+    description: '+350 Health · Builds from Ruby Crystal',
+    icon: '1011',
+    damage: 0,
+    hp: 350,
+    speed: 0,
+  },
 ] as const;
+export const ITEM_RECIPES: Readonly<Record<string, readonly string[]>> = { belt: ['ruby'] };

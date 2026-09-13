@@ -6,7 +6,14 @@ import { createChampionState, rechargeChampion, expireChampionFocus } from './ch
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
-import { ABILITIES, DT, ITEMS, RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
+import {
+  ABILITIES,
+  DT,
+  ITEMS,
+  ITEM_RECIPES,
+  RECALL_DURATION_TICKS,
+  TICK_RATE,
+} from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
@@ -1452,6 +1459,25 @@ export class World {
       });
     }
   }
+  purchasePlan(
+    itemId: string,
+    championId = this.player.id
+  ): { cost: number; consumed: number[] } | null {
+    const state = this.championState(championId);
+    const item = ITEMS.find((entry) => entry.id === itemId);
+    if (!state || !item) return null;
+    const consumed: number[] = [];
+    let cost: number = item.price;
+    for (const component of ITEM_RECIPES[itemId] ?? []) {
+      const slot = state.inventory.findIndex(
+        (id, index) => id === component && !consumed.includes(index)
+      );
+      if (slot < 0) continue;
+      consumed.push(slot);
+      cost -= ITEMS.find((entry) => entry.id === component)!.price;
+    }
+    return { cost, consumed };
+  }
   buy(itemId: string, championId = this.player.id): string | null {
     if (this.winner) return 'The game has ended';
     const state = this.championState(championId);
@@ -1461,17 +1487,30 @@ export class World {
     if (!item) return 'Unknown item';
     if (distance(champion, this.battlefield.spawns[champion.team]) > 400 && champion.hp > 0)
       return 'Return to your fountain to purchase items';
-    const emptySlot = state.inventory.indexOf(null);
+    const plan = this.purchasePlan(itemId, championId)!;
+    const emptySlot = state.inventory.findIndex(
+      (id, slot) => id === null || plan.consumed.includes(slot)
+    );
     if (emptySlot === -1 && state.inventory.length >= 6) return 'Inventory is full';
-    if (state.gold < item.price) return 'Not enough gold';
+    if (state.gold < plan.cost) return 'Not enough gold';
     if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
-    state.gold -= item.price;
+    state.gold -= plan.cost;
+    let damage: number = item.damage,
+      hp: number = item.hp,
+      speed: number = item.speed;
+    for (const slot of plan.consumed) {
+      const component = ITEMS.find((entry) => entry.id === state.inventory[slot])!;
+      damage -= component.damage;
+      hp -= component.hp;
+      speed -= component.speed;
+      state.inventory[slot] = null;
+    }
     if (emptySlot === -1) state.inventory.push(item.id);
     else state.inventory[emptySlot] = item.id;
-    champion.damage += item.damage;
-    champion.maxHp += item.hp;
-    if (this.alive(champion)) champion.hp += item.hp;
-    champion.speed += item.speed;
+    champion.damage += damage;
+    champion.maxHp += hp;
+    if (this.alive(champion)) champion.hp += hp;
+    champion.speed += speed;
     return null;
   }
   moveItem(from: number, to: number, championId = this.player.id): string | null {

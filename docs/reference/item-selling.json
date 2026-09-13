@@ -38,6 +38,24 @@
         "total": 875,
         "sell": 613
       }
+    },
+    "1028": {
+      "name": "Ruby Crystal",
+      "gold": {
+        "base": 400,
+        "purchasable": true,
+        "total": 400,
+        "sell": 280
+      }
+    },
+    "1011": {
+      "name": "Giant's Belt",
+      "gold": {
+        "base": 500,
+        "purchasable": true,
+        "total": 900,
+        "sell": 630
+      }
     }
   }
 }

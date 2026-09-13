@@ -244,7 +244,7 @@ export class Hud {
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
-      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${item.price}</b></button>`).join('')}</div><h3>Owned items</h3><div class="shop-owned shop-items"></div><p class="shop-message" role="status">Buy and sell at your fountain, or while dead.</p>`;
+      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${this.world.purchasePlan(item.id)!.cost}</b></button>`).join('')}</div><h3>Owned items</h3><div class="shop-owned shop-items"></div><p class="shop-message" role="status">Buy and sell at your fountain, or while dead.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
@@ -330,6 +330,10 @@ export class Hud {
       backdrop.querySelector('.shop-balance b')!.textContent =
         `◆ ${Math.floor(this.world.player.gold)}`;
       renderOwnedItems();
+      backdrop.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
+        button.querySelector('b')!.textContent =
+          `◆ ${this.world.purchasePlan(button.dataset.buy!)!.cost}`;
+      });
     };
     renderOwnedItems();
     backdrop.querySelector('.shop-owned')?.addEventListener('click', (event) => {

@@ -11,4 +11,4 @@ assert data['version'] == pin['version']
 for item_id, record in pin['items'].items():
     assert data['data'][item_id]['name'] == record['name']
     assert data['data'][item_id]['gold'] == record['gold']
-print('Verified four item sell values from pinned Data Dragon 16.18.1')
+print(f"Verified {len(pin['items'])} item sell values from pinned Data Dragon 16.18.1")
