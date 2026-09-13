@@ -126,8 +126,9 @@ export class World {
       kind,
       team,
       name: champion ? 'Ashe' : turret ? 'Outer turret' : dummy ? 'Target dummy' : `${kind} minion`,
-      ...point,
-      previous: { ...point },
+      x: point.x,
+      y: point.y,
+      previous: { x: point.x, y: point.y },
       facing: team === 'blue' ? 2.2 : -0.95,
       radius: champion ? 35 : turret ? 95 : dummy ? 40 : 27,
       hp,
@@ -163,6 +164,17 @@ export class World {
     if (stats) {
       Object.assign(u, stats);
       u.hp = u.maxHp;
+      const growth = this.battlefield.waves.moveSpeed;
+      if (growth && stats.speed !== undefined) {
+        const upgrades = Math.max(
+          0,
+          Math.min(
+            growth.maxUpgrades,
+            1 + Math.floor((this.time - growth.startSeconds) / growth.intervalSeconds)
+          )
+        );
+        u.speed += upgrades * growth.increment;
+      }
     }
     if (kind === 'super') u.name = 'Super minion';
     this.units.push(u);
@@ -207,9 +219,20 @@ export class World {
         this.emit('message', u, { text: 'Recalling…' });
       }
     }
+    let waveInterval = this.battlefield.waves.intervalSeconds;
+    for (const change of this.battlefield.waves.intervalChanges ?? []) {
+      if (this.tick === Math.round(change.startSeconds * TICK_RATE)) {
+        // Preserve elapsed time toward the pending wave when its interval changes.
+        this.nextWaveTick = Math.max(
+          this.tick,
+          this.nextWaveTick + Math.round((change.intervalSeconds - waveInterval) * TICK_RATE)
+        );
+      }
+      if (this.time >= change.startSeconds) waveInterval = change.intervalSeconds;
+    }
     if (this.tick >= this.nextWaveTick) {
       this.spawnWave();
-      this.nextWaveTick += Math.round(this.battlefield.waves.intervalSeconds * TICK_RATE);
+      this.nextWaveTick += Math.round(waveInterval * TICK_RATE);
     }
     this.releaseWaveUnits();
     for (const u of this.units) {

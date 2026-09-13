@@ -24,10 +24,7 @@ export interface RiftLayout {
     structure: StructureState;
     stats: Battlefield['initialUnits'][number]['stats'];
   }[];
-  waves: {
-    initialSeconds: number;
-    intervalSeconds: number;
-    unitIntervalSeconds: number;
+  waves: Battlefield['waves'] & {
     types: { kind: UnitKind; behavior: WaveBehavior }[];
   };
 }

@@ -1609,12 +1609,64 @@
         "goldBounty": 50,
         "corpseLifetimeTicks": 291
       }
+    },
+    "melee": {
+      "blue": {
+        "speed": 350.0,
+        "goldBounty": 20.0,
+        "experienceBounty": 62.0
+      },
+      "red": {
+        "speed": 350.0,
+        "goldBounty": 20.0,
+        "experienceBounty": 62.0
+      }
+    },
+    "siege": {
+      "blue": {
+        "speed": 350.0,
+        "goldBounty": 50,
+        "experienceBounty": 75.0
+      },
+      "red": {
+        "speed": 350.0,
+        "goldBounty": 50,
+        "experienceBounty": 75.0
+      }
+    },
+    "caster": {
+      "blue": {
+        "speed": 350.0,
+        "goldBounty": 14.0,
+        "experienceBounty": 31.0
+      },
+      "red": {
+        "speed": 350.0,
+        "goldBounty": 14.0,
+        "experienceBounty": 31.0
+      }
     }
   },
   "waves": {
     "initialSeconds": 30.0,
     "intervalSeconds": 30.0,
     "unitIntervalSeconds": 0.800000011920929,
+    "intervalChanges": [
+      {
+        "startSeconds": 840,
+        "intervalSeconds": 25
+      },
+      {
+        "startSeconds": 1800,
+        "intervalSeconds": 20
+      }
+    ],
+    "moveSpeed": {
+      "startSeconds": 600.0,
+      "intervalSeconds": 300.0,
+      "increment": 25,
+      "maxUpgrades": 4
+    },
     "types": [
       {
         "kind": "super",

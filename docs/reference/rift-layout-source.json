@@ -43,6 +43,104 @@
       "__type": "{ad65d8c4}"
     }
   },
+  "laneMinionRecordsSha256": "e50d477e691cec02382257e67d9b501faf94a2f6f6e1be4faf000dd267f28447",
+  "laneRuleOverridesSha256": "904944b834d21a0c220bf27cbd6d3e6be31538ee53ed8b484fcd0ebb59f43620",
+  "laneMinionTemplates": {
+    "blue": {
+      "melee": {
+        "name": "{e1149ff7}",
+        "Character": {
+          "CharacterRecord": "Characters/SRU_OrderMinionMelee/CharacterRecords/Root",
+          "Skin": "Characters/SRU_OrderMinionMelee/Skins/Skin0",
+          "__type": "SkinCharacterGeComponentDef"
+        },
+        "AttackableUnit": {
+          "{f1d3a034}": true,
+          "__type": "AttackableUnitGeComponentDef"
+        },
+        "__type": "{ad65d8c4}"
+      },
+      "siege": {
+        "name": "{74f4e928}",
+        "Character": {
+          "CharacterRecord": "Characters/SRU_OrderMinionSiege/CharacterRecords/Root",
+          "Skin": "Characters/SRU_OrderMinionSiege/Skins/Skin0",
+          "__type": "SkinCharacterGeComponentDef"
+        },
+        "AttackableUnit": {
+          "{f1d3a034}": true,
+          "__type": "AttackableUnitGeComponentDef"
+        },
+        "__type": "{ad65d8c4}"
+      },
+      "caster": {
+        "name": "{60ac7c6e}",
+        "Character": {
+          "CharacterRecord": "Characters/SRU_OrderMinionRanged/CharacterRecords/Root",
+          "Skin": "Characters/SRU_OrderMinionRanged/Skins/Skin0",
+          "__type": "SkinCharacterGeComponentDef"
+        },
+        "AttackableUnit": {
+          "{f1d3a034}": true,
+          "__type": "AttackableUnitGeComponentDef"
+        },
+        "__type": "{ad65d8c4}"
+      }
+    },
+    "red": {
+      "melee": {
+        "name": "{a221058f}",
+        "Character": {
+          "CharacterRecord": "Characters/SRU_ChaosMinionMelee/CharacterRecords/Root",
+          "Skin": "Characters/SRU_ChaosMinionMelee/Skins/Skin0",
+          "__type": "SkinCharacterGeComponentDef"
+        },
+        "AttackableUnit": {
+          "{f1d3a034}": true,
+          "__type": "AttackableUnitGeComponentDef"
+        },
+        "Team": {
+          "Team": 200,
+          "__type": "TeamGeComponentDef"
+        },
+        "__type": "{ad65d8c4}"
+      },
+      "siege": {
+        "name": "{7467b950}",
+        "Character": {
+          "CharacterRecord": "Characters/SRU_ChaosMinionSiege/CharacterRecords/Root",
+          "Skin": "Characters/SRU_ChaosMinionSiege/Skins/Skin0",
+          "__type": "SkinCharacterGeComponentDef"
+        },
+        "AttackableUnit": {
+          "{f1d3a034}": true,
+          "__type": "AttackableUnitGeComponentDef"
+        },
+        "Team": {
+          "Team": 200,
+          "__type": "TeamGeComponentDef"
+        },
+        "__type": "{ad65d8c4}"
+      },
+      "caster": {
+        "name": "{d80a8126}",
+        "Character": {
+          "CharacterRecord": "Characters/SRU_ChaosMinionRanged/CharacterRecords/Root",
+          "Skin": "Characters/SRU_ChaosMinionRanged/Skins/Skin0",
+          "__type": "SkinCharacterGeComponentDef"
+        },
+        "AttackableUnit": {
+          "{f1d3a034}": true,
+          "__type": "AttackableUnitGeComponentDef"
+        },
+        "Team": {
+          "Team": 200,
+          "__type": "TeamGeComponentDef"
+        },
+        "__type": "{ad65d8c4}"
+      }
+    }
+  },
   "objects": [
     {
       "container": "{183e98d5}",
@@ -2533,7 +2631,7 @@
   "outputs": [
     {
       "path": "public/assets/maps/rift-layout.json",
-      "sha256": "a612fd821a3c776e35cb5d404304ec30b2115047aec5f758decfbb99a3e1bbf0"
+      "sha256": "43787a5d53490d00ad5f262e478ce4a41131a0925880ac68f51dbc9eb129a12f"
     },
     {
       "path": "public/assets/maps/rift-minimap.webp",

@@ -120,11 +120,39 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
             clip['durationSeconds'] for clip in model['clips'] if clip['name'].startswith('death')
         )))),
     }
+lane_bytes = Path('docs/reference/lane-minion-records.json').read_bytes()
+assert sha(lane_bytes) == 'e50d477e691cec02382257e67d9b501faf94a2f6f6e1be4faf000dd267f28447'
+lane_records = json.loads(lane_bytes)
+override_bytes = Path('docs/reference/lane-rule-overrides.json').read_bytes()
+overrides = json.loads(override_bytes)
+unit_stats = {'super': super_stats}
+lane_templates = {}
+for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
+    lane_templates[team] = {}
+    for minion in definitions[barracks_key]['units']:
+        if minion['MinionType'] == 7:
+            continue
+        kind = {4: 'melee', 5: 'caster', 6: 'siege'}[minion['MinionType']]
+        template = definitions[minion['{fee040bc}']]
+        key = template['Character']['CharacterRecord']
+        assert key.endswith('/CharacterRecords/Root')
+        record = lane_records[key.split('/')[1]]['record']
+        lane_templates[team][kind] = template
+        unit_stats.setdefault(kind, {})[team] = {
+            'speed': record['baseMoveSpeedModifiable']['baseValue'],
+            'goldBounty': overrides['initialSiegeGold'] if kind == 'siege' else record['goldGivenOnDeath'],
+            'experienceBounty': record['expGivenOnDeath'],
+        }
 layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawns": spawns,
           "lanes": lanes, "turrets": turrets, "structures": base_structures,
-          "unitStats": {"super": super_stats},
+          "unitStats": unit_stats,
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
+                    "intervalChanges": overrides['waveIntervals'],
+                    "moveSpeed": {"startSeconds": wave['MoveSpeedIncreaseInitialDelaySecs'],
+                                  "intervalSeconds": wave['MoveSpeedIncreaseIntervalSecs'],
+                                  "increment": wave['MoveSpeedIncreaseIncrement'],
+                                  "maxUpgrades": wave['MoveSpeedIncreaseMaxTimes']},
                     "types": [{"kind": {4: "melee", 5: "caster", 6: "siege", 7: "super"}[item["MinionType"]], "behavior": item["WaveBehavior"]}
                               for item in wave["units"] if item["MinionType"] in (4, 5, 6, 7)]}}
 
@@ -147,6 +175,8 @@ provenance = {"sources": [
     {"url": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json", "sha256": sha(definition_path.read_bytes())}],
     "structureRulesSha256": sha(rules_bytes), "superMinionDefinitionsSha256": sha(super_bytes),
     "superMinionTemplates": super_templates,
+    "laneMinionRecordsSha256": sha(lane_bytes), "laneRuleOverridesSha256": sha(override_bytes),
+    "laneMinionTemplates": lane_templates,
     "objects": nodes, "barracksConfigs": {key: definitions[key] for key in ["{147211fb}", "{e61e55a3}"]},
     "minimapSource": minimap_record,
     "outputs": [{"path": f"public/assets/maps/{name}", "sha256": sha((output / name).read_bytes())} for name in ["rift-layout.json", "rift-minimap.webp"]]}

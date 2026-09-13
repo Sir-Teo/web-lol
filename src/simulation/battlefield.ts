@@ -26,7 +26,18 @@ export interface Battlefield extends TerrainQueries {
   heightRange: readonly [number, number];
   spawns: Record<Team, Vec2>;
   lanes: LaneRoute[];
-  waves: { initialSeconds: number; intervalSeconds: number; unitIntervalSeconds: number };
+  waves: {
+    initialSeconds: number;
+    intervalSeconds: number;
+    unitIntervalSeconds: number;
+    intervalChanges?: { startSeconds: number; intervalSeconds: number }[];
+    moveSpeed?: {
+      startSeconds: number;
+      intervalSeconds: number;
+      increment: number;
+      maxUpgrades: number;
+    };
+  };
   waveKinds(wave: number, seconds: number, context?: WaveContext): UnitKind[];
   unitStats?: Partial<Record<UnitKind, Record<Team, UnitStats>>>;
   initialUnits: {
