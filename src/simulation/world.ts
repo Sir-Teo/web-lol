@@ -1,6 +1,7 @@
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
+import { LUX_R } from '../content/lux-r';
 import { LUX } from '../content/lux-progression';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
@@ -61,6 +62,7 @@ import type {
   Unit,
   UnitKind,
   ScoutVisual,
+  LuxBeam,
 } from './types';
 
 export class World {
@@ -70,6 +72,7 @@ export class World {
   nextId = 1;
   units: Unit[] = [];
   projectiles: Projectile[] = [];
+  luxBeams: LuxBeam[] = [];
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
   commands: Command[] = [];
@@ -286,7 +289,7 @@ export class World {
     this.units.push(u);
     if (champion && identity === 'lux') {
       const own = this.championState(u.id)!;
-      own.spellRanks.w = own.spellRanks.e = own.spellRanks.r = 0;
+      own.spellRanks.w = own.spellRanks.e = 0;
       own.eCharges = 0;
     }
     return u;
@@ -342,6 +345,9 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    this.luxBeams = this.luxBeams.filter(
+      (beam) => this.tick < beam.startTick + LUX_R.presentationSeconds * TICK_RATE
+    );
     for (const unit of this.units)
       if (unit.illumination.length)
         unit.illumination = unit.illumination.filter((mark) => mark.endTick > this.tick);
@@ -426,7 +432,9 @@ export class World {
         const cast = state.pendingCast;
         if (this.tick < cast.releaseTick) continue;
         state.pendingCast = null;
-        if (cast.ability === 'q') this.releaseLightBinding(u, cast.point, cast.damage);
+        if (u.champion === 'lux' && cast.ability === 'r')
+          this.releaseFinalSpark(u, cast.origin!, cast.point, cast.damage);
+        else if (cast.ability === 'q') this.releaseLightBinding(u, cast.point, cast.damage);
         else if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage, cast.rank);
       }
@@ -849,6 +857,7 @@ export class World {
     return ITEMS.find((item) => item.id === id);
   }
   private planCrystalArrow(u: Unit, purpose: 'finish' | 'peel'): boolean {
+    if (u.champion !== 'ashe') return false;
     const state = this.championState(u.id)!;
     if (
       state.spellRanks.r === 0 ||
@@ -1575,6 +1584,39 @@ export class World {
       return 1 + (this.battlefield.siegeMidTurretAttackSpeedBonus ?? 0);
     return 1;
   }
+  private releaseFinalSpark(source: Unit, origin: Vec2, point: Vec2, raw: number): void {
+    this.luxBeams.push({
+      id: this.nextId++,
+      sourceId: source.id,
+      team: source.team,
+      origin: { ...origin },
+      point: { ...point },
+      startTick: this.tick,
+    });
+    for (const target of this.units) {
+      if (
+        !this.alive(target) ||
+        target.team === source.team ||
+        isStructureKind(target.kind) ||
+        !this.vulnerable(target) ||
+        sweepCircle(origin, point, target, LUX_R.halfWidth + target.radius) === null
+      )
+        continue;
+      const illuminated = target.illumination.some(
+        (mark) => mark.sourceId === source.id && mark.endTick > this.tick
+      );
+      this.damage(source, target, raw, 'magic', 'area');
+      if (illuminated && this.alive(target))
+        this.damage(source, target, this.illuminationDamage(source), 'magic');
+      this.applyIllumination(source, target);
+    }
+  }
+  private illuminationDamage(source: Unit): number {
+    return (
+      LUX_ILLUMINATION.baseDamageByLevel[this.championState(source.id)!.level - 1] +
+      LUX_ILLUMINATION.abilityPowerRatio * this.abilityPower(source)
+    );
+  }
   private applyIllumination(source: Unit, target: Unit): void {
     if (
       source.champion !== 'lux' ||
@@ -1905,7 +1947,7 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'lux' && ability !== 'q')
+    if (this.unit(championId)?.champion === 'lux' && ability !== 'q' && ability !== 'r')
       return 'This Lux spell is not implemented yet';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
@@ -1931,6 +1973,11 @@ export class World {
     if (ability === 'd' || ability === 'f')
       return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'lux' && ability === 'r')
+      return {
+        mana: rank ? LUX_R.mana : 0,
+        cooldownSeconds: rank ? LUX_R.cooldownSeconds[rank - 1] : 0,
+      };
     if (this.unit(championId)?.champion === 'lux')
       return {
         mana: ability === 'q' && rank ? LUX_BINDING.mana : 0,
@@ -1941,7 +1988,9 @@ export class World {
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     const state = this.championState(u.id);
     if (!state) return;
-    if (state.pendingCast && ability !== 'f') return;
+    const flashDuringFinalSpark =
+      ability === 'd' && u.champion === 'lux' && state.pendingCast?.ability === 'r';
+    if (state.pendingCast && ability !== 'f' && !flashDuringFinalSpark) return;
     const spec = ABILITIES[ability];
     const fail = (text: string) => this.emit('message', u, { text, unit: u.id, team: u.team });
     if (u.rootUntil > this.tick && spec.cantCastWhileRooted) {
@@ -1967,35 +2016,40 @@ export class World {
     }
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
     const dir = direction(u, point);
-    if (u.champion === 'lux' && ability === 'q') {
+    if (u.champion === 'lux' && (ability === 'q' || ability === 'r')) {
       if (!dir.x && !dir.y) return;
       u.mana -= resources.mana;
-      state.cooldowns.q = this.tick + resources.cooldownSeconds * TICK_RATE;
+      state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
       state.recallEnd = null;
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
-      state.castAnimation = { ability: 'q', startTick: this.tick };
+      const spell = ability === 'q' ? LUX_BINDING : LUX_R;
+      state.castAnimation = { ability, startTick: this.tick };
       state.pendingCast = {
-        ability: 'q',
-        rank: state.spellRanks.q,
+        ...(ability === 'r' ? { origin: { x: u.x, y: u.y } } : {}),
+        ability,
+        rank: state.spellRanks[ability],
         startTick: this.tick,
-        releaseTick: this.tick + LUX_BINDING.castSeconds * TICK_RATE,
-        point: { x: point.x, y: point.y },
+        releaseTick: this.tick + spell.castSeconds * TICK_RATE,
+        point:
+          ability === 'r'
+            ? { x: u.x + dir.x * LUX_R.range, y: u.y + dir.y * LUX_R.range }
+            : { x: point.x, y: point.y },
         damage:
-          LUX_BINDING.baseDamage[state.spellRanks.q - 1] +
-          LUX_BINDING.abilityPowerRatio * this.abilityPower(u),
+          spell.baseDamage[state.spellRanks[ability] - 1] +
+          spell.abilityPowerRatio * this.abilityPower(u),
       };
-      this.emit('cast', u, { unit: u.id, text: 'q', team: u.team });
+      this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
       return;
     }
     if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
     u.mana -= resources.mana;
     state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
     if (!spec.preservesRecall) state.recallEnd = null;
-    if (ability !== 'f') state.castAnimation = null;
+    if (ability !== 'f' && !flashDuringFinalSpark) state.castAnimation = null;
     this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
     if (ability === 'q') {
       state.qStacks = 0;
@@ -2330,6 +2384,7 @@ export class World {
       player: this.player,
       otherChampions: this.activeChampionStates().filter((p) => p.id !== this.player.id),
       projectiles: this.projectiles,
+      luxBeams: this.luxBeams,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,
       wave: this.wave,

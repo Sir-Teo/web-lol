@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
 import { ASHE_Q } from '../content/ashe-q';
+import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
@@ -37,6 +38,7 @@ import { disposeModel, makeModel, type UnitModel } from './models';
 export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
+  luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
   smoke = new HawkshotSmoke(this.scene, (p) => this.ground(p));
@@ -614,6 +616,7 @@ export class GameView {
         this.healthBars.delete(id);
       }
     this.syncProjectiles(world, alpha);
+    this.luxBeams.update(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);

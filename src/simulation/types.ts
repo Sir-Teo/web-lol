@@ -97,6 +97,14 @@ export type UnitStats = Partial<
     | 'corpseLifetimeTicks'
   >
 >;
+export interface LuxBeam {
+  id: number;
+  sourceId: number;
+  team: Team;
+  origin: Vec2;
+  point: Vec2;
+  startTick: number;
+}
 export interface Projectile extends Vec2 {
   id: number;
   source: number;
@@ -171,6 +179,7 @@ export interface ChampionState {
   /** Presentation can finish after the gameplay windup, until another action takes over. */
   castAnimation: { ability: 'q' | 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {
+    origin?: Vec2;
     ability: 'q' | 'w' | 'e' | 'r';
     rank: number;
     startTick: number;

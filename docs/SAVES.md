@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 39 adds Final Spark's retained beam visuals and required origin/endpoint on Lux R windups. Cast timing is validated per champion; beam range, lifetime, owner and entity identity are validated across save/load. Lux R ranks are now permitted while W/E remain unavailable.
+
 Version 38 requires per-unit Illumination marks with enemy Lux ownership and active deadlines. It rejects duplicate owners, dead or structural targets, unknown/non-Lux/allied sources, expired marks and deadlines beyond the six-second maximum. Target death and respawn clear marks; caster death does not remove marks on other units.
 
 Version 37 adds a required identity on champions (`ashe` or `lux`) and prohibits it on other units. Lux Q windups and animations are retained with their 15-tick release timing, captured rank/aim/damage and champion ownership. The decoder rejects crossed cast identities, unavailable Lux W/E/R ranks, Ashe Focus/charge state on Lux, and empowered attacks without an Ashe source. Earlier snapshot versions are incompatible.

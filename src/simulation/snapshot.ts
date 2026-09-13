@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
+import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
@@ -10,7 +11,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 38;
+export const SNAPSHOT_VERSION = 39;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -170,6 +171,7 @@ const player: z.ZodType<PlayerState> = z
     pendingCast: z
       .strictObject({
         ability: z.enum(['q', 'w', 'e', 'r']),
+        origin: point.optional(),
         rank: z.number().int().min(1).max(5),
         startTick: tick,
         releaseTick: tick,
@@ -177,12 +179,7 @@ const player: z.ZodType<PlayerState> = z
         damage: nonnegative,
       })
       .refine(
-        (c) =>
-          (c.ability !== 'r' || c.rank <= 3) &&
-          c.releaseTick ===
-            c.startTick +
-              (c.ability === 'q' ? LUX_BINDING.castSeconds : ASHE_CASTS[c.ability].castSeconds) *
-                TICK_RATE,
+        (c) => (c.ability !== 'r' || c.rank <= 3) && c.releaseTick > c.startTick,
         'Invalid spell windup'
       )
       .nullable(),
@@ -271,6 +268,9 @@ const snapshot = z.strictObject({
   player,
   otherChampions: z.array(player).max(10000),
   projectiles: z.array(projectile).max(10000),
+  luxBeams: z
+    .array(z.strictObject({ id, sourceId: id, team, origin: point, point, startTick: tick }))
+    .max(10000),
   pendingAttackProjectiles: z.array(projectile).max(10000),
   randomState: z.number().int().min(0).max(0xffffffff),
   wave: tick,
@@ -355,9 +355,12 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved match contains an invalid scout visual lifetime.');
     visualIds.add(f.id);
   }
-  const ids = [...state.units, ...state.projectiles, ...state.pendingAttackProjectiles].map(
-    (u) => u.id
-  );
+  const ids = [
+    ...state.units,
+    ...state.projectiles,
+    ...state.pendingAttackProjectiles,
+    ...state.luxBeams,
+  ].map((u) => u.id);
   for (const p of state.pendingAttackProjectiles) {
     if (
       p.type !== 'attack' ||
@@ -380,7 +383,9 @@ export function decodeSnapshot(text: string) {
         projectile.bindingHits!.some(
           (hit) =>
             hit >= state.nextId ||
-            [...state.projectiles, ...state.pendingAttackProjectiles].some((p) => p.id === hit) ||
+            [...state.projectiles, ...state.pendingAttackProjectiles, ...state.luxBeams].some(
+              (p) => p.id === hit
+            ) ||
             hit === projectile.source ||
             state.units.some(
               (u) =>
@@ -398,6 +403,19 @@ export function decodeSnapshot(text: string) {
   }
   if (new Set(ids).size !== ids.length || ids.some((value) => value >= state.nextId))
     throw new Error('Saved match contains invalid entity identities.');
+  for (const beam of state.luxBeams) {
+    if (
+      !state.units.some(
+        (u) => u.id === beam.sourceId && u.champion === 'lux' && u.team === beam.team
+      ) ||
+      beam.startTick > state.tick ||
+      state.tick >= beam.startTick + LUX_R.presentationSeconds * TICK_RATE ||
+      Math.abs(
+        Math.hypot(beam.point.x - beam.origin.x, beam.point.y - beam.origin.y) - LUX_R.range
+      ) > 1e-6
+    )
+      throw new Error('Saved match contains an invalid Lux beam.');
+  }
   const hero = state.units.find((u) => u.id === state.player.id);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
@@ -494,7 +512,6 @@ export function decodeSnapshot(text: string) {
       champion.champion === 'lux' &&
       (owner.spellRanks.w !== 0 ||
         owner.spellRanks.e !== 0 ||
-        owner.spellRanks.r !== 0 ||
         owner.qStacks !== 0 ||
         owner.qUntil !== 0 ||
         owner.qStackExpiry !== 0 ||
@@ -502,8 +519,25 @@ export function decodeSnapshot(text: string) {
     )
       throw new Error('Saved match contains unavailable Lux spell state.');
     const compatibleCast = (ability: string) =>
-      champion.champion === 'lux' ? ability === 'q' : ability !== 'q';
+      champion.champion === 'lux' ? ability === 'q' || ability === 'r' : ability !== 'q';
     const cast = owner.pendingCast;
+    if (cast) {
+      const luxR = champion.champion === 'lux' && cast.ability === 'r';
+      const seconds = luxR
+        ? LUX_R.castSeconds
+        : cast.ability === 'q'
+          ? LUX_BINDING.castSeconds
+          : ASHE_CASTS[cast.ability].castSeconds;
+      if (
+        cast.releaseTick !== cast.startTick + seconds * TICK_RATE ||
+        luxR !== (cast.origin !== undefined) ||
+        (cast.origin &&
+          Math.abs(
+            Math.hypot(cast.point.x - cast.origin.x, cast.point.y - cast.origin.y) - LUX_R.range
+          ) > 1e-6)
+      )
+        throw new Error('Saved match contains invalid champion cast geometry or timing.');
+    }
     if (
       cast &&
       (!compatibleCast(cast.ability) ||

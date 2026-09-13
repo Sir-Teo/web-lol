@@ -1434,3 +1434,9 @@ All 526 source/simulation checks, five focused Chrome scenarios (Lux, binding an
 Pinned the complete passive records and verified the six-second standard-mode duration, 0.35 AP ratio and level-indexed 30–200 base damage. Q now applies/refreshes saved owner-specific marks. Lux attacks consume their mark once for separately mitigated bonus magic damage; expiry precedes combat, target death clears marks and caster death preserves them. Snapshot 38 validates owners and deadlines. Visible unit bars show ILLUMINATED after higher-priority statuses end.
 
 All 533 source/simulation checks, three focused Lux/binding Chrome scenarios and production smoke pass. Native passive particles/attack presentation, R/E interactions and wider kit/AI work remain unfinished. See `LUX-ILLUMINATION.md` for the distinction between pinned values and adapter behaviors awaiting native comparison. Full browser, match and performance suites were not repeated.
+
+## Lux Final Spark cast, impact and Flash exception
+
+Audited R records and an official 30 FPS demonstration; pinned conflicting timing/geometry metadata instead of treating input range or visual-missile fields as damage geometry. Added champion-owned R resources/windup, all-target beam damage, Illumination trigger/refresh and source spell4 animation. Flash during R preserves its original beam, as Riot's 10.4 notes specify. Snapshot 39 preserves windup geometry and short-lived beam presentation; the Ashe tactical R planner excludes Lux.
+
+All 538 source/simulation checks, three focused Lux Chrome scenarios and production smoke pass. Inspected the beam capture; its procedural ribbon remains an interim effect. Native particles/audio/vision, exact collision geometry, near-expiry passive extension and Lux R AI remain unfinished. Full browser, full-match and performance suites were not repeated. See `LUX-R.md` for evidence and limitations.
