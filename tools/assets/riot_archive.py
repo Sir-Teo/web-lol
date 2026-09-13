@@ -1,4 +1,4 @@
-"""Selective reader for the pinned Riot patch manifest and Map11 archive."""
+"""Selective reader for an archive in the pinned Riot patch manifest."""
 import bisect
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
@@ -30,7 +30,7 @@ def download_range(url, start, end):
 
 
 class RiotArchive:
-    def __init__(self, paths, pinned=None):
+    def __init__(self, paths, pinned=None, archive_name="DATA/FINAL/Maps/Shipping/Map11.wad.client"):
         CACHE.mkdir(parents=True, exist_ok=True)
         self.pinned = pinned
         manifest_path = CACHE / f"{MANIFEST_ID}.manifest"
@@ -41,7 +41,9 @@ class RiotArchive:
         reference = json.loads(Path("docs/reference/minion-extraction.json").read_text())
         if self.manifest != reference["manifest"]:
             raise ValueError("Patch manifest changed")
-        self.file = PatcherManifest(str(manifest_path)).files["DATA/FINAL/Maps/Shipping/Map11.wad.client"]
+        self.file = PatcherManifest(str(manifest_path)).files[archive_name]
+        if pinned and pinned['archive'] != self.file.name:
+            raise ValueError("Archive differs from pinned provenance")
         self.offsets = [0]
         for chunk in self.file.chunks:
             self.offsets.append(self.offsets[-1] + chunk.target_size)
@@ -54,7 +56,8 @@ class RiotArchive:
             raise ValueError("Unexpected WAD version")
         count = struct.unpack_from("<I", header, 268)[0]
         header += self.read_at(272, count * 32)
-        path = CACHE / "map11-header.wad.client"
+        cache_name = "map11" if archive_name == "DATA/FINAL/Maps/Shipping/Map11.wad.client" else sha(archive_name.encode())[:16]
+        path = CACHE / f"{cache_name}-header.wad.client"
         path.write_bytes(header)
         self.wad = Wad(str(path), hashes={})
         self.wad.resolve_paths({int(h, 16): p for h, p in paths.items()})

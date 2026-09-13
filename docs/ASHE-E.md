@@ -43,3 +43,22 @@ Verify and implement sight radius, lingering path vision, the source 0.25-second
 
 
 Minimap aiming/release is now supported through the source `mUseMinimapTargeting` flag. See [input behavior and validation](MOVEMENT.md#minimap-spell-targeting).
+
+
+## Original effect asset recovery
+
+The base skin resolves `Ashe_E_mis`, `Ashe_E_tar_explode` and `Ashe_E_tar_linger` to three `VfxSystemDefinitionData` records. Their linked binary definitions were absent at the expected public JSON URLs, so they were recovered directly from `DATA/FINAL/Champions/Ashe.wad.client` in the existing pinned patch manifest. `docs/reference/hawkshot-effects.json` records the source skin JSON/hash, all three decoded records, binary paths, archive/chunk provenance and SHA-256 hashes for every selected file.
+
+The missile has eight emitters. Three use the same **animated mesh**: `Ashe_Skin06_E_Hawk.skn`, its skeleton, and `Ashe_Skin06_E_Dove.anm`, under the base skin's particle directory. The names do not imply a different skin should be selected: the base effect explicitly references them. `Owl1` supplies the owl texture and tint, `Owl2` adds a reflection/Fresnel layer, and `Owl3` emits short-lived trailing mesh copies. The other emitters provide two background glows, a wind mesh, dust and smoke. Arrival has five emitters; lingering vision has four.
+
+This evidence rules out reproducing the complete effect as a flat bird sprite or two procedural wings. Conversion must retain the rig and animation, then reconstruct layered materials, transforms, blend order, trails and arrival/linger effects. The mesh emitters mark uniform scaling and carry both a rotation and three-component birth scale; do not treat all three scale components as independent axes without resolving that flag. Visual particle lifetimes and dimensions are not proof of gameplay vision duration or radius.
+
+Rebuild and verify the sources with:
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-hawkshot-effects.py
+```
+
+The verified CDTB checkout was `ba981db2a2c814a0d78e55f6483e0636b527850f`. The extractor derives minimal name tables from the pinned records, re-decodes the raw binaries, checks the exact skin/resource mappings and linked records, and rejects missing asset dependencies. It needs no mutable global hash dictionary. Archive reads verify compressed chunks and final file hashes. The archive reader now accepts an explicit archive name and isolates its header cache; its default Map11 path remains supported.
+
+The selected 21 files total **907,219 bytes** (17 asset dependencies and four binary definitions). They require **468,831 compressed patch bytes**, rather than downloading the entire 148,431,276-byte champion archive. The hawk mesh is 28,768 bytes, skeleton 664 bytes and animation 6,060 bytes. All selected files were re-extracted and verified; the default archive-reader regression also revalidated all 40 existing base-structure source files. Runtime visuals are unchanged by this source-recovery milestone: GLB conversion, original material/effect reconstruction and visual comparison remain required.

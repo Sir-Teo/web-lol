@@ -497,3 +497,10 @@ All 222 simulation checks, 16 focused Chrome scenarios, static build and product
 The HUD now displays the same effective speed used by movement and run playback, including active slows, enhanced decay and Heal haste. Whole-number display uses six-decimal normalization before rounding, preventing a binary-noise error at the 227.5 midpoint. Stored speed and movement calculations are unchanged.
 
 All 222 simulation checks, three focused Chrome scenarios, static build and production smoke pass. Browser checks cover a real attack slow, Heal composition, expiry and the enhanced-slow midpoint; existing run-playback coverage remains passing. Full Chrome coverage was not repeated. Movement soft caps, exact reference rounding, full champion/match systems and pixel fidelity remain unfinished; the production goal remains active.
+
+
+## Hawkshot original-effect source recovery
+
+Recovered the three base Hawkshot effect definitions directly from the pinned Ashe archive after their linked JSON URLs proved unavailable. The flight effect explicitly uses an animated hawk mesh in three material/trail layers, alongside glow, wind, dust and smoke; this provides a concrete replacement path for the current procedural bird. Complete decoded records and 21 required files are pinned with archive/chunk/file provenance. The reproducible extractor checks the base skin's resource selection, linked binaries, records and asset closure using minimal pinned name tables.
+
+All 21 source files re-extract and verify: 907,219 output bytes from 468,831 compressed patch bytes. The generalized archive reader also revalidated all 40 existing base-structure files through its default Map11 path. No runtime files changed, so gameplay/browser tests were not repeated. Conversion, layered rendering, original animation/effects and reference visual comparison remain outstanding; the production goal remains active.
