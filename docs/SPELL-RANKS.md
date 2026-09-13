@@ -19,6 +19,8 @@ The client exports `maxLevel: 0` for every spell. This cannot establish rank cap
 
 ## Runtime integration requirements
 
+`src/simulation/ashe-spell-values.ts` now exposes validated, read-only normal-rank queries for Q buffs, W damage/arrow count, E cast/recharge timers and R damage, together with mana/cooldown costs. Rank zero and out-of-range ranks are rejected rather than clamped. `World.volleyDamage` and `World.crystalArrowDamage` accept an explicit rank for previews using current owned stats; existing casts still default to rank one. This is calculation groundwork, not learned-rank ownership or allocation. Connect these queries to champion state in the integration below.
+
 - Add Q/W/E/R rank ownership and unspent points per champion, including saved-state validation and a schema bump. Standard matches need unlearned spells; explicitly retained practice fixtures may start with unlocked skills.
 - Validate learning commands against points, maximum rank and verified champion-level restrictions; invalid commands must be atomic. Learning consumes no match time beyond command processing.
 - Replace fixed Q attack-speed/damage indexes in attack scheduling and empowered damage. Already released attacks retain captured damage and scheduled timings.

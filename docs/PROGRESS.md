@@ -1176,3 +1176,9 @@ All 398 source/simulation checks pass. No runtime behavior changed; browser and 
 Ability tooltips now track focus and hover separately. Leaving a focused ability keeps its description visible; hovering another ability temporarily shows that description and restores the focused ability when the pointer leaves. Moving focus away from a still-hovered ability also preserves its tooltip. Opening a dialog clears tooltip ownership and `aria-describedby` together, preventing a hidden tooltip from remaining attached to an ability control.
 
 All 398 source/simulation checks, six focused Chrome tooltip scenarios and nested-path production smoke pass. The new browser scenario exercises real mouse movement, keyboard focus, shop opening/closing and resumed tooltip use, with no page errors. Tooltip layout/content is unchanged. This is browser interaction polish; exact native input behavior and the broader production clone remain unfinished.
+
+## Shared spell-rank calculations
+
+Added shared normal-rank queries combining each spell's resource requirements with Q bonuses, W damage/arrow count, E recharge and R damage. W/R world queries now delegate to these calculations and support explicit rank previews with current owned stats. Invalid and unlearned ranks throw instead of accidentally reading extra exported entries. Current casts retain rank-one behavior until champion rank ownership is connected.
+
+All 401 source/simulation checks, seven focused Chrome scenarios, all five spell/resource source exporters and nested-path production smoke pass. Tests cover every normal rank, invalid numeric ranks, separate E timers and read-only higher-rank previews after item purchases and level growth. Standard-match learning, saved rank state, allocation controls and bots remain required; this commit establishes their shared calculations and does not claim progression is implemented.

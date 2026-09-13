@@ -24,6 +24,7 @@ import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-t
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
+import { asheCrystalArrowValues, asheVolleyValues } from './ashe-spell-values';
 import { crystalArrowStunTicks } from './crystal-arrow';
 import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
@@ -1521,8 +1522,8 @@ export class World {
       0
     );
   }
-  crystalArrowDamage(u: Unit = this.hero): number {
-    return ASHE_R.baseDamageByRank[0] + this.abilityPower(u) * ASHE_R.abilityPowerRatio;
+  crystalArrowDamage(u: Unit = this.hero, rank = 1): number {
+    return asheCrystalArrowValues(rank, this.abilityPower(u)).damage;
   }
   /** Healing before missing-health cap; optional recipient applies its recent-Heal penalty. */
   summonerHealAmount(caster: Unit = this.hero, recipient?: Unit): number {
@@ -1540,18 +1541,14 @@ export class World {
         : 1)
     );
   }
-  /** Current rank-one raw Volley damage; cast snapshots retain this value at windup. */
-  volleyDamage(u: Unit = this.hero): number {
-    return (
-      ASHE_W.baseDamageByRank[0] +
-      Math.max(
-        0,
-        u.damage -
-          ASHE.damage -
-          ASHE.damageGrowth * growthAtLevel(this.championState(u.id)?.level ?? 1)
-      ) *
-        ASHE_W.bonusADRatioByRank[0]
-    );
+  /** Raw Volley damage; cast snapshots retain this value at windup. */
+  volleyDamage(u: Unit = this.hero, rank = 1): number {
+    return asheVolleyValues(
+      rank,
+      u.damage -
+        ASHE.damage -
+        ASHE.damageGrowth * growthAtLevel(this.championState(u.id)?.level ?? 1)
+    ).damage;
   }
   buy(itemId: string, championId = this.player.id): string | null {
     const error = this.purchaseError(itemId, championId);
