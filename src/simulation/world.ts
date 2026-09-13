@@ -873,6 +873,53 @@ export class World {
     this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: { x: chosen.x, y: chosen.y } });
     return true;
   }
+  private planEmergencyFlash(u: Unit): boolean {
+    const home = this.battlefield.spawns[u.team];
+    if (
+      u.hp >= u.maxHp * 0.12 ||
+      distance(u, home) <= 400 ||
+      this.abilityCooldownTicks('d', u.id) > 0
+    )
+      return false;
+    const threats = this.units.filter(
+      (enemy) =>
+        enemy.kind === 'champion' && this.validTarget(u, enemy) && distance(u, enemy) <= 1150
+    );
+    threats.sort((a, b) => distance(u, a) - distance(u, b));
+    if (!threats.length || distance(u, threats[0]) > 350) return false;
+    let away = direction(threats[0], u);
+    if (away.x === 0 && away.y === 0) away = direction(u, home);
+    const directions = [
+      away,
+      direction(u, home),
+      { x: (away.x - away.y) / Math.SQRT2, y: (away.x + away.y) / Math.SQRT2 },
+      { x: (away.x + away.y) / Math.SQRT2, y: (away.y - away.x) / Math.SQRT2 },
+    ];
+    const currentClearance = distance(u, threats[0]);
+    let aim: Vec2 | undefined;
+    let bestScore = -Infinity;
+    for (const dir of directions) {
+      const point = { x: u.x + dir.x * ABILITIES.d.range, y: u.y + dir.y * ABILITIES.d.range };
+      const landing = this.battlefield.reachable(point, u.radius, u.team);
+      const clearance = Math.min(...threats.map((enemy) => distance(landing, enemy)));
+      if (
+        distance(u, landing) < 200 ||
+        clearance < currentClearance + 200 ||
+        this.threateningTower(u, landing, true)
+      )
+        continue;
+      const score = clearance - distance(landing, home) * 0.1;
+      if (score > bestScore) {
+        aim = point;
+        bestScore = score;
+      }
+    }
+    if (!aim) return false;
+    // Hold the evaluated launch position until the normal command executes.
+    if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'd', point: aim });
+    return true;
+  }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
     if (u.hp < u.maxHp * 0.22) u.aiRetreating = true;
@@ -880,6 +927,7 @@ export class World {
     if (u.aiRetreating) {
       const home = this.battlefield.spawns[u.team];
       const state = this.championState(u.id)!;
+      if (this.planEmergencyFlash(u)) return;
       if (distance(u, home) > 400 && this.planCrystalArrow(u, 'peel')) return;
       if (this.safeToRecall(u)) {
         if (state.recallEnd !== null) return;

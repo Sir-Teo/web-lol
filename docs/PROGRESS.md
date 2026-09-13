@@ -1380,3 +1380,9 @@ All 497 source/simulation checks, six focused bot Chrome scenarios and nested-pa
 Full-Rift bots with learned E now scout unrevealed authored lane points ahead, without using hidden enemy coordinates. Both charges must be available, preserving one charge while the spent one recharges. Scouting queues the normal fixed-point cast and retains lane movement through the cast delay.
 
 All 501 source/simulation checks, four focused lane/E Chrome cases and nested-path production smoke pass. Reran the real-Rift scouting case successfully after adding an explicit source-animation assertion. Tests cover both teams, exact saved continuation, actual reveal, charge retention and hidden-enemy independence. Broader scouting tactics, reserved-charge use, objective/team planning and complete 5v5 remain open. Full browser/performance suites were not repeated.
+
+## Emergency bot Flash
+
+Critically injured retreating bots now evaluate terrain-resolved escape endpoints against close visible champions and turret danger, then queue an ordinary Flash cast. The selected landing must materially increase clearance; nearby secondary enemies can rule it out. Normal cast validation and independent cooldown ownership remain shared, and retreat resumes after the teleport.
+
+All 507 source/simulation checks, six focused bot Chrome scenarios and nested-path production smoke pass. Coverage includes both teams, exact saved continuation, actual browser teleport, exclusion conditions, a second enemy, tower danger and intervening stun. The thresholds and scoring are local tactical policy, not native AI evidence. Offensive Flash, skillshot prediction, route-wide safety, full team strategy and complete 5v5 remain open. Full browser/performance suites were not repeated.

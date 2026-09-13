@@ -1,5 +1,13 @@
 # Local bot combat and remaining match work
 
+## Emergency Flash during retreat
+
+A retreating bot below 12% HP, outside its 400-unit fountain area, can use a ready Flash when a visible vulnerable enemy champion is within 350 units. It evaluates four directions: away from the nearest threat, toward home, and 45 degrees to either side of escape. Each candidate uses the same terrain endpoint resolver as the actual spell. It must move at least 200 units, increase clearance from nearby visible enemy champions by at least 200 units, and avoid visible turret danger. Clearance dominates the score, with a smaller preference for proximity to home.
+
+The selected point enters the ordinary cast queue; the bot holds its evaluated starting position until execution. Normal stun, death and cooldown validation still applies. Successful Flash consumes only that champion's cooldown and retains retreat state so movement resumes on the next decision. This emergency choice precedes defensive R.
+
+Six simulation cases cover both teams' actual escape and exact saved continuation, health/visibility/range/cooldown/terrain/fountain exclusions, turret danger, a second enemy closing the escape direction, and an intervening stun. A Chrome case verifies the teleport, independent cooldown and resumed retreat. Thresholds and scoring are authored tactics, not native bot constants. This is endpoint selection, not full route planning or skillshot prediction; Flash does not disjoint existing homing missiles or confer invulnerability. Offensive Flash and broader tactical use remain unfinished.
+
 ## Hawkshot during lane travel
 
 On the full Rift, a bot with learned E and both charges available can scout an unrevealed point ahead on its assigned lane. It scans authored waypoints in team-relative travel order, selecting the furthest qualifying point in that order between 1,350 and 4,000 straight-line units away. Current allied vision excludes already visible destinations. Hidden enemy locations are never inputs to this choice.
@@ -132,4 +140,4 @@ On an AI decision tick, a champion below the existing 22% retreat threshold, out
 
 Defensive decisions now occur before pending-cast and stun handling, allowing Heal while disabled or casting as the shared spell rules permit. The 18-tick AI deadline advances even while stunned or winding up. Offensive/movement decisions still wait until those states permit them. Commands execute next tick and retain ordinary validation.
 
-Four simulation scenarios cover defensive activation/haste with exact checkpoint continuation, stunned decisions without movement, Heal during Volley windup, and exclusion conditions. A Chrome case observes the bot's actual cast, health gain, haste deadline and independent cooldown while its stunned position remains unchanged. Flash decisions, broader E/R tactics, threat damage estimation, coordinated healing and incoming-projectile anticipation remain outstanding.
+Four simulation scenarios cover defensive activation/haste with exact checkpoint continuation, stunned decisions without movement, Heal during Volley windup, and exclusion conditions. A Chrome case observes the bot's actual cast, health gain, haste deadline and independent cooldown while its stunned position remains unchanged. Broader Flash/E/R tactics, threat damage estimation, coordinated healing and incoming-projectile anticipation remain outstanding.
