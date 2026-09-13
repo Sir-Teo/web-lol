@@ -29,13 +29,11 @@ export class GameInput {
     canvas.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
       this.inside = true;
-      const target = view.pick(world, e.clientX, e.clientY);
-      view.hovered = target?.id ?? null;
-      canvas.classList.toggle('enemy-hover', !!target && target.team === 'red');
+      this.updateHover();
     });
     canvas.addEventListener('pointerleave', () => {
       this.inside = false;
-      view.hovered = null;
+      this.updateHover();
     });
     canvas.addEventListener('pointerdown', (e) => {
       unlockAudio();
@@ -167,6 +165,7 @@ export class GameInput {
   release(): void {
     this.recenterHeld = false;
     this.inside = false;
+    this.updateHover();
     this.cancelAim();
     this.hud.scoreboard(false);
   }
@@ -195,5 +194,16 @@ export class GameInput {
       const y = this.pointer.y < 16 ? -1 : this.pointer.y > window.innerHeight - 16 ? 1 : 0;
       this.view.pan(x, y, dt);
     }
+  }
+  updateHover(): void {
+    const canvas = this.view.renderer.domElement;
+    const target =
+      this.inside &&
+      !this.hud.modal &&
+      document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
+        ? this.view.pick(this.world, this.pointer.x, this.pointer.y)
+        : undefined;
+    this.view.hovered = target?.id ?? null;
+    canvas.classList.toggle('enemy-hover', !!target && target.team !== this.world.hero.team);
   }
 }

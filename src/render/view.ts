@@ -368,11 +368,6 @@ export class GameView {
     for (const u of world.units) {
       if (!world.alive(u) || !world.visible(u)) continue;
       const champion = u.kind === 'champion';
-      const p = this.screenPoint(
-        u,
-        isStructureKind(u.kind) ? 1.8 : champion ? (ASHE_SELECTION.height * SCALE) / 2 : 0.65
-      );
-      const d = Math.hypot(p.x - x, p.y - y);
       const base = champion
         ? (this.models.get(u.id)?.root.position ?? {
             x: u.x * SCALE,
@@ -380,6 +375,17 @@ export class GameView {
             z: u.y * SCALE,
           })
         : null;
+      let p: { x: number; y: number };
+      if (base) {
+        this.projector
+          .set(base.x, base.y + (ASHE_SELECTION.height * SCALE) / 2, base.z)
+          .project(this.camera);
+        p = {
+          x: (this.projector.x + 1) * 0.5 * this.width,
+          y: (1 - this.projector.y) * 0.5 * this.height,
+        };
+      } else p = this.screenPoint(u, isStructureKind(u.kind) ? 1.8 : 0.65);
+      const d = Math.hypot(p.x - x, p.y - y);
       const inside = base
         ? intersectsSelectionCylinder(
             this.ray.ray,

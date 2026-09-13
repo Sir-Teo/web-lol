@@ -10,6 +10,10 @@ Champion picking now intersects the camera ray with a vertical cylinder using th
 
 Only living team-visible units are eligible. Overlapping eligible targets retain the existing nearest projected-center preference. Other unit types retain their existing selection approximations pending their own source-dimension audit. The debug selection ring is not the picking boundary.
 
+Both champion hit testing and nearest-center ranking now use the same rendered position. Previously the cylinder followed interpolation while its ranking used the next simulation position, allowing another overlapping champion to win beneath the visible target. A regression reproduces this with one tick of ordinary Ashe movement and verifies the rendered target across three interpolation fractions and both unit-array orders.
+
+Hover refreshes after rendering even when the pointer remains still. Target movement, visibility, death and camera changes therefore update cursor feedback without another mouse event. Leaving the canvas, losing window focus or entering a modal clears hover; merely pausing the battlefield still allows inspection. The per-frame refresh uses the shared picker and visibility rules, not a second targeting policy. Its full-match performance has not been separately profiled.
+
 The upright, ground-based cylinder is an explicit adapter interpretation of the fields. Native shape, cap behavior, vertical placement, overlap priority and animation-dependent exceptions have not been measured. This does not establish pixel parity with native selection outlines. Combat still uses the existing provisional unit radius; Ashe's record supplies no explicit gameplay-radius override, so the engine default and separate combat dimensions remain unresolved. Dynamic unit collision also remains unfinished.
 
 ## Verification

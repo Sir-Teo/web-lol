@@ -198,6 +198,7 @@ async function boot(): Promise<void> {
       if (accumulator >= DT) accumulator = 0;
     }
     view.render(world, paused ? 1 : accumulator / DT, elapsed);
+    input!.updateHover();
     uiElapsed += dt;
     if (uiElapsed >= 0.05) {
       hud.update(fps);
