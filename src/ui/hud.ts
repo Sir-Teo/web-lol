@@ -89,7 +89,7 @@ export class Hud {
   private abilityMarkup(a: Ability): string {
     const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
     if (a === 'd' || a === 'f') return button;
-    return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${ABILITIES[a].name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden>+</button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
+    return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${ABILITIES[a].name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
   }
   private positionTooltip(): void {
     if (this.tip.hidden) return;

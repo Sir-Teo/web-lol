@@ -146,6 +146,12 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1052.png",
       "sha256": "5b6d009e518f50c73db3b4a7442d3bff0928fb2ea527babd77140ce817562e8a",
       "bytes": 5490
+    },
+    {
+      "path": "/assets/icons/hud-atlas.png",
+      "source": "https://raw.communitydragon.org/16.18/game/assets/ux/lol/clarity_hudatlas.png",
+      "sha256": "f5f930263d995f0c602eaf7dc4fc7eaf0e9416d9a742baa72c2a5cabe0c98ed9",
+      "bytes": 367427
     }
   ]
 }
