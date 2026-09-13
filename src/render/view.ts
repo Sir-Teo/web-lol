@@ -429,24 +429,20 @@ export class GameView {
               : u.id === world.player.id && world.player.recallEnd !== null
                 ? 'channel'
                 : 'idle1';
-        if (u.releaseTick !== null && u.nextAttackTick !== model.animationAttackTick) {
-          model.animationAttackTick = u.nextAttackTick;
+        const cycle = u.attackCycle;
+        const attacking =
+          !moving && u.deadAt === null && cycle !== null && world.tick < cycle.endTick;
+        if (attacking) {
           const attack = model.actions.attack1;
-          attack.reset();
-          attack.setLoop(THREE.LoopOnce, 1);
-          attack.clampWhenFinished = true;
-          const target = u.attackTarget === null ? undefined : world.unit(u.attackTarget);
-          const period = Math.round(u.attackPeriod / world.attackSpeedMultiplier(u, target));
-          attack.timeScale = attack.getClip().duration / (period / 60);
+          if (model.animationAttackTick !== cycle.startTick) {
+            model.animationAttackTick = cycle.startTick;
+            attack.reset();
+            attack.setLoop(THREE.LoopOnce, 1);
+            attack.clampWhenFinished = true;
+          }
+          attack.timeScale = attack.getClip().duration / ((cycle.endTick - cycle.startTick) / 60);
           clip = 'attack1';
-        } else if (
-          !moving &&
-          u.deadAt === null &&
-          model.animationAttackTick &&
-          u.nextAttackTick === model.animationAttackTick &&
-          world.tick < model.animationAttackTick
-        )
-          clip = 'attack1';
+        }
         if (model.actions[clip] && clip !== model.actionName) {
           const next = model.actions[clip],
             previous = model.actions[model.actionName ?? 'idle1'];
@@ -459,6 +455,14 @@ export class GameView {
           previous?.fadeOut(0.08);
           next.fadeIn(0.08).play();
           model.actionName = clip;
+        }
+        if (attacking && clip === 'attack1') {
+          const attack = model.actions.attack1;
+          // Drive attack pose from the scheduled cycle, including after restore or missed frames.
+          const ticks = Math.max(0, world.tick - cycle.startTick + alpha - 1);
+          attack.time =
+            attack.getClip().duration * Math.min(1, ticks / (cycle.endTick - cycle.startTick));
+          attack.paused = true;
         }
         model.mixer.update(animationDelta);
       }

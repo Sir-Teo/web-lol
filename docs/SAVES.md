@@ -4,11 +4,11 @@ The pause menu's **Save match** action writes one checkpoint per battlefield to 
 
 ## Simulation format
 
-Snapshot version 5 records units, player resources and inventory, orders and paths, pending commands and wave spawns, projectiles, random state, match outcome, clocks, and team-specific structure knowledge. Positive infinity is encoded as an explicit disabled-deadline token; it is never confused with a nullable timer. NaN and negative infinity cannot be serialized. Object keys are canonicalized, enabling exact continuation comparisons independent of parser property order.
+Snapshot version 6 records units, player resources and inventory, orders and paths, pending commands and wave spawns, projectiles, random state, match outcome, clocks, scheduled attack cycles, and team-specific structure knowledge. Positive infinity is encoded as an explicit disabled-deadline token; it is never confused with a nullable timer. NaN and negative infinity cannot be serialized. Object keys are canonicalized, enabling exact continuation comparisons independent of parser property order.
 
 The decoder uses a strict schema, rejects invalid resource bounds and identities, verifies the player and battlefield lanes, and checks both the format version and a SHA-256 compatibility fingerprint. The fingerprint covers simulation/content TypeScript sources, the pinned map layout/navigation files, and package declarations. Renderer and HUD edits alone do not invalidate saves. Development restarts refresh the fingerprint when simulation files change. Compatibility is intentionally conservative; there is no migration from another ruleset or the older diagnostic snapshot formats.
 
-`World.fromSnapshot` creates an independent world using the supplied battlefield's terrain queries. It restores validated gameplay fields and random state. Transient presentation events are cleared so loading cannot replay old combat text or sounds. Camera settings, animation blend positions, and preference persistence are separate presentation work; gameplay restoration is the current guarantee.
+`World.fromSnapshot` creates an independent world using the supplied battlefield's terrain queries. It restores validated gameplay fields and random state. Transient presentation events are cleared so loading cannot replay old combat text or sounds. Active attack clips reconstruct their phase from the saved cycle and simulation tick, including after missile release. Camera settings, crossfade weights, other animation phases, and preference persistence remain separate presentation work; a restored framebuffer is not guaranteed to be pixel-identical.
 
 ## Storage behavior
 
