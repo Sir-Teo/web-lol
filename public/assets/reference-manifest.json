@@ -104,6 +104,12 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1057.png",
       "sha256": "4b63c85bcdca48ed074d0411f5c83274fee3e81553946ae4f0a9f0eae0e4f3aa",
       "bytes": 6307
+    },
+    {
+      "path": "/assets/icons/stat-atlas.png",
+      "source": "https://raw.communitydragon.org/16.18/game/uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
+      "sha256": "1e5d07416c5c39c8f0c62ecb3002180a15c5aedca25597d82cf06f06f46229be",
+      "bytes": 164668
     }
   ]
 }

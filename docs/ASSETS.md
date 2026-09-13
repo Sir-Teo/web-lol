@@ -150,3 +150,9 @@ Hawkshot arrival adds one 1,271,592-byte source float WAV at `assets/audio/hawks
 Persistent Hawkshot linger ships an additional 815,120-byte float WAV through `tools/assets/export-hawkshot-linger-audio.py`, preserving the source recording, −32 dB gain and Exp1 stop-curve identity. Its runtime phase/fade and source-vs-local interpretation are detailed in [persistent audio](ASHE-AUDIO.md#persistent-linger-playback-and-saved-fade).
 
 Flight audio ships its three launch variants and separate loop as four verified float WAVs, adding 2,773,644 bytes. All nine prepared Hawkshot recordings are now runtime assets (5,323,532 bytes total). Source hashes, paired action gains/stop fades, variant-selection approximation and remaining mixing work are recorded in [flight audio](ASHE-AUDIO.md#flight-launch-variants-and-persistent-loop).
+
+## League stat icon atlas
+
+The compact champion HUD uses the five named League stat textures `scalead`, `scalearmor`, `scalemr`, `scaleas`, and `scalems`, resolved through CommunityDragon 16.18 `game/ux/fonts/css/stylesheet.cdtb.json`. The unmodified `game/uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png` is shipped locally as `icons/stat-atlas.png` (164,668 bytes). CSS samples the 20×20 source regions at 16×16; no cropped or regenerated artwork is stored.
+
+`reference/stat-icons.json` pins the mapping and metadata digest. `tools/assets/verify-stat-icons.py` checks source equality, the shipped atlas hash and dimensions, and CSS sampling coordinates. These are source League text/stat icons, not proof of the exact native combat HUD atlas selection or layout. Native screen comparison remains required for pixel parity.

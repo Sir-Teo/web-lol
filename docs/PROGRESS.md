@@ -1062,3 +1062,9 @@ All 393 source/simulation checks, five focused Chrome scenarios, resistance/sell
 Added current rounded magic resistance beside armor in the compact stat column. The column retains its width, permits native title tooltips, and distinguishes the MR abbreviation from neighboring symbols. Extended the real shop scenario to assert the visible 33→53→78→33 resistance sequence through purchase, upgrade and sale, then verify all five stats are in the viewport after closing the shop.
 
 All 393 source/simulation checks, the focused Chrome scenario and nested-path production smoke pass. Inspected the captured combat HUD: the fifth row fits inside the existing panel. Full-suite/performance checks were not repeated. The MR abbreviation is a local presentation choice; authentic stat icon assets, full stat details and overall production fidelity remain unfinished.
+
+## Source League stat artwork
+
+Replaced the five compact HUD placeholder glyphs, including the MR abbreviation, with the pinned League stat atlas regions. Kept the original atlas intact and used CSS backgrounds with verified coordinates. The existing stat column dimensions and live values remain in place; each row has an accessible stat name and native title.
+
+All 393 source/simulation checks, the focused shop/HUD browser case, stat-atlas verification and nested-path production smoke pass. Inspected development and production screenshots: all five colored stat symbols render beside their values. Full-suite/performance checks were not repeated. The added atlas is 164,668 bytes; exact native HUD icon selection, sizing, type and placement still require visual calibration. Overall production fidelity remains unfinished.

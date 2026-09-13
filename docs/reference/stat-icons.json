@@ -1,0 +1,46 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/ux/fonts/css/stylesheet.cdtb.json",
+  "sha256": "d9660675a3b25c91afcf2af36e139d784958df5517dfffe781981bb7d2eecdaf",
+  "icons": {
+    "ad": {
+      "texture": "assets/ux/fonts/texticons/lol/statsicon/scalead.png",
+      "atlasPath": "uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
+      "startX": 0.5947265625,
+      "startY": 0.0078125,
+      "endX": 0.6044921875,
+      "endY": 0.0859375
+    },
+    "armor": {
+      "texture": "assets/ux/fonts/texticons/lol/statsicon/scalearmor.png",
+      "atlasPath": "uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
+      "startX": 0.6533203125,
+      "startY": 0.0078125,
+      "endX": 0.6630859375,
+      "endY": 0.0859375
+    },
+    "mr": {
+      "texture": "assets/ux/fonts/texticons/lol/statsicon/scalemr.png",
+      "atlasPath": "uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
+      "startX": 0.8291015625,
+      "startY": 0.0078125,
+      "endX": 0.8388671875,
+      "endY": 0.0859375
+    },
+    "as": {
+      "texture": "assets/ux/fonts/texticons/lol/statsicon/scaleas.png",
+      "atlasPath": "uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
+      "startX": 0.6650390625,
+      "startY": 0.0078125,
+      "endX": 0.6748046875,
+      "endY": 0.0859375
+    },
+    "ms": {
+      "texture": "assets/ux/fonts/texticons/lol/statsicon/scalems.png",
+      "atlasPath": "uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
+      "startX": 0.8408203125,
+      "startY": 0.0078125,
+      "endX": 0.8505859375,
+      "endY": 0.0859375
+    }
+  }
+}

@@ -361,18 +361,32 @@ button {
 .champion-stats span {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 5px;
 }
-.champion-stats i {
-  font-size: 13px;
-  font-style: normal;
-  color: #b8a779;
-  width: 12px;
+/* Source atlas regions: docs/reference/stat-icons.json. 20px artwork shown at 16px. */
+.champion-stats .stat-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
+  background-image: url('/assets/icons/stat-atlas.png');
+  background-size: 1638.4px 204.8px;
+  background-repeat: no-repeat;
 }
-.champion-stats .stat-abbreviation {
-  font-size: 9px;
-  color: #a5c7d5;
+.stat-ad {
+  background-position: -974.4px -1.6px;
+}
+.stat-armor {
+  background-position: -1070.4px -1.6px;
+}
+.stat-mr {
+  background-position: -1358.4px -1.6px;
+}
+.stat-as {
+  background-position: -1089.6px -1.6px;
+}
+.stat-ms {
+  background-position: -1377.6px -1.6px;
 }
 .champion-stats b {
   font-weight: 500;
