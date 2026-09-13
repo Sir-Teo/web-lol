@@ -684,3 +684,11 @@ Hawkshot now starts the pinned endpoint Aurora at its saved arrival tick. The or
 All 263 source/simulation checks, six focused Chrome scenarios, production build and a production real-input Hawkshot cast pass. New coverage checks arrival-only birth, pause, fresh restoration, lifetime cleanup, ongoing scouting and actual pixels. Visual inspection caught an unsupported incoming-flight yaw making the arbitrary quad edge-on; world-axis endpoint placement now retains only the authored emitter rotation. The inspected capture and byte-identical export are recorded in the effect documentation. The full browser suite and unchanged GLB validation were not repeated.
 
 This is the first of five explosion emitters. Remaining explosion layers, all lingering layers, audio and native placement/phase/drag/RNG calibration remain unfinished, along with the broader production goal. See [endpoint Aurora evidence and limits](ASHE-E.md#first-endpoint-aurora-layer).
+
+## Endpoint glow color-ramp preparation milestone
+
+Verified the two endpoint glow emitters and decoded their shared 64×64 color-ramp texture. The 277-byte PNG preserves all RGBA pixels; its identical rows are also recorded as 64 exact samples. The source evidence shows opaque alpha throughout and a black-to-bright-to-black RGB ramp, separate from each emitter's authored alpha fade. Both glows reuse the existing base texture but have different uniform X scales (540/140 units).
+
+All 264 source/simulation checks and the production build pass. The ramp was inspected, regeneration is byte-identical, and the built file matches the verified output. Browser and GLB checks were not repeated because runtime behavior is unchanged. The new ramp is not loaded by the renderer yet.
+
+Emission phase, missing-primitive orientation and native ramp sampling/color space remain documented calibration questions. These two glow layers remain unimplemented, as do other endpoint/lingering effects, sound and substantial broader gameplay work. The goal remains active. See [glow ramp evidence](ASHE-E.md#endpoint-glow-ramp-preparation).

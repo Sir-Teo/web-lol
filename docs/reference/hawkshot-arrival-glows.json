@@ -1,0 +1,717 @@
+{
+  "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_tar_explode",
+  "emitters": [
+    {
+      "rate": {
+        "constantValue": 10.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 0.4000000059604645,
+        "__type": "ValueFloat"
+      },
+      "particleLinger": 10.0,
+      "lifetime": 0.10000000149011612,
+      "emitterName": "flat_top",
+      "importance": 3,
+      "EmitterPosition": {
+        "constantValue": [
+          0.0,
+          80.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "particleColorTexture": "ASSETS/Characters/Ashe/Skins/Base/Particles/common_color-rampdown.tex",
+      "blendMode": 4,
+      "Color": {
+        "constantValue": [
+          0.3529411852359772,
+          0.6117647290229797,
+          1.0,
+          1.0
+        ],
+        "dynamics": {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            [
+              0.3529411852359772,
+              0.6117647290229797,
+              1.0,
+              1.0
+            ],
+            [
+              0.3529411852359772,
+              0.6117647290229797,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "meshRenderFlags": 0,
+      "isUniformScale": 1,
+      "birthRotation0": {
+        "constantValue": [
+          -90.0,
+          1.0,
+          0.0
+        ],
+        "dynamics": {
+          "probabilityTables": [
+            {
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "keyTimes": [
+                0.0,
+                1.0
+              ],
+              "keyValues": [
+                0.0,
+                360.0
+              ],
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              -90.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "birthRotationalVelocity0": {
+        "constantValue": [
+          0.0,
+          90.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "isLocalOrientation": 0,
+      "birthScale0": {
+        "constantValue": [
+          540.0,
+          540.0,
+          540.0
+        ],
+        "dynamics": {
+          "probabilityTables": [
+            {
+              "keyTimes": [
+                0.0,
+                1.0
+              ],
+              "keyValues": [
+                0.8999999761581421,
+                1.0
+              ],
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              540.0,
+              540.0,
+              540.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+      "__type": "VfxEmitterDefinitionData"
+    },
+    {
+      "rate": {
+        "constantValue": 10.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 0.4000000059604645,
+        "__type": "ValueFloat"
+      },
+      "particleLinger": 10.0,
+      "lifetime": 0.10000000149011612,
+      "emitterName": "flat_top1",
+      "importance": 3,
+      "EmitterPosition": {
+        "constantValue": [
+          0.0,
+          80.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "particleColorTexture": "ASSETS/Characters/Ashe/Skins/Base/Particles/common_color-rampdown.tex",
+      "blendMode": 4,
+      "Color": {
+        "constantValue": [
+          0.14901961386203766,
+          0.6039215922355652,
+          1.0,
+          1.0
+        ],
+        "dynamics": {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            [
+              0.14901961386203766,
+              0.6039215922355652,
+              1.0,
+              1.0
+            ],
+            [
+              0.14901961386203766,
+              0.6039215922355652,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "meshRenderFlags": 0,
+      "isUniformScale": 1,
+      "birthRotation0": {
+        "constantValue": [
+          -90.0,
+          1.0,
+          0.0
+        ],
+        "dynamics": {
+          "probabilityTables": [
+            {
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "keyTimes": [
+                0.0,
+                1.0
+              ],
+              "keyValues": [
+                0.0,
+                360.0
+              ],
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              -90.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "birthRotationalVelocity0": {
+        "constantValue": [
+          0.0,
+          90.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "isLocalOrientation": 0,
+      "birthScale0": {
+        "constantValue": [
+          140.0,
+          540.0,
+          540.0
+        ],
+        "dynamics": {
+          "probabilityTables": [
+            {
+              "keyTimes": [
+                0.0,
+                1.0
+              ],
+              "keyValues": [
+                0.8999999761581421,
+                1.0
+              ],
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              140.0,
+              540.0,
+              540.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+      "__type": "VfxEmitterDefinitionData"
+    }
+  ],
+  "sharedGlowTexture": {
+    "path": "public/assets/effects/hawkshot-glow.png",
+    "size": [
+      256,
+      256
+    ],
+    "rgbaSha256": "94a89adf44b948d02be081c41ffe925540882018e3eff61e7c06e1d003926346",
+    "sha256": "cb9642cd1e5ca7dca4eda27576e21405f4e3e2ef4157cf58d6f0d32d22249bf6"
+  },
+  "ramp": {
+    "source": {
+      "path": "assets/characters/ashe/skins/base/particles/common_color-rampdown.tex",
+      "wadPathHash": "cefe239e92a55f53",
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+      "bytes": 2756
+    },
+    "path": "public/assets/effects/hawkshot-arrival-ramp.png",
+    "dimensions": [
+      64,
+      64
+    ],
+    "bytes": 277,
+    "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe",
+    "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae",
+    "identicalRows": true,
+    "rgba8Samples": [
+      [
+        0,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        251,
+        255,
+        255
+      ],
+      [
+        255,
+        251,
+        255,
+        255
+      ],
+      [
+        255,
+        251,
+        255,
+        255
+      ],
+      [
+        247,
+        247,
+        247,
+        255
+      ],
+      [
+        244,
+        244,
+        244,
+        255
+      ],
+      [
+        241,
+        241,
+        241,
+        255
+      ],
+      [
+        239,
+        239,
+        239,
+        255
+      ],
+      [
+        233,
+        235,
+        233,
+        255
+      ],
+      [
+        233,
+        235,
+        233,
+        255
+      ],
+      [
+        227,
+        231,
+        227,
+        255
+      ],
+      [
+        222,
+        227,
+        222,
+        255
+      ],
+      [
+        222,
+        223,
+        222,
+        255
+      ],
+      [
+        216,
+        219,
+        216,
+        255
+      ],
+      [
+        211,
+        215,
+        211,
+        255
+      ],
+      [
+        206,
+        211,
+        206,
+        255
+      ],
+      [
+        206,
+        207,
+        206,
+        255
+      ],
+      [
+        200,
+        201,
+        200,
+        255
+      ],
+      [
+        194,
+        195,
+        194,
+        255
+      ],
+      [
+        189,
+        190,
+        189,
+        255
+      ],
+      [
+        183,
+        183,
+        183,
+        255
+      ],
+      [
+        183,
+        183,
+        183,
+        255
+      ],
+      [
+        178,
+        176,
+        178,
+        255
+      ],
+      [
+        173,
+        170,
+        173,
+        255
+      ],
+      [
+        165,
+        166,
+        165,
+        255
+      ],
+      [
+        159,
+        160,
+        159,
+        255
+      ],
+      [
+        153,
+        155,
+        153,
+        255
+      ],
+      [
+        148,
+        150,
+        148,
+        255
+      ],
+      [
+        148,
+        146,
+        148,
+        255
+      ],
+      [
+        142,
+        140,
+        142,
+        255
+      ],
+      [
+        137,
+        135,
+        137,
+        255
+      ],
+      [
+        132,
+        130,
+        132,
+        255
+      ],
+      [
+        123,
+        125,
+        123,
+        255
+      ],
+      [
+        117,
+        119,
+        117,
+        255
+      ],
+      [
+        112,
+        114,
+        112,
+        255
+      ],
+      [
+        107,
+        109,
+        107,
+        255
+      ],
+      [
+        107,
+        105,
+        107,
+        255
+      ],
+      [
+        101,
+        99,
+        101,
+        255
+      ],
+      [
+        95,
+        94,
+        95,
+        255
+      ],
+      [
+        90,
+        89,
+        90,
+        255
+      ],
+      [
+        82,
+        85,
+        82,
+        255
+      ],
+      [
+        76,
+        79,
+        76,
+        255
+      ],
+      [
+        71,
+        74,
+        71,
+        255
+      ],
+      [
+        66,
+        69,
+        66,
+        255
+      ],
+      [
+        66,
+        65,
+        66,
+        255
+      ],
+      [
+        60,
+        59,
+        60,
+        255
+      ],
+      [
+        54,
+        53,
+        54,
+        255
+      ],
+      [
+        49,
+        48,
+        49,
+        255
+      ],
+      [
+        43,
+        42,
+        43,
+        255
+      ],
+      [
+        43,
+        42,
+        43,
+        255
+      ],
+      [
+        38,
+        37,
+        38,
+        255
+      ],
+      [
+        33,
+        32,
+        33,
+        255
+      ],
+      [
+        27,
+        28,
+        27,
+        255
+      ],
+      [
+        27,
+        28,
+        27,
+        255
+      ],
+      [
+        21,
+        20,
+        21,
+        255
+      ],
+      [
+        21,
+        20,
+        21,
+        255
+      ],
+      [
+        16,
+        16,
+        16,
+        255
+      ],
+      [
+        13,
+        13,
+        13,
+        255
+      ],
+      [
+        10,
+        10,
+        10,
+        255
+      ],
+      [
+        8,
+        8,
+        8,
+        255
+      ],
+      [
+        5,
+        2,
+        5,
+        255
+      ],
+      [
+        2,
+        1,
+        2,
+        255
+      ],
+      [
+        0,
+        0,
+        0,
+        255
+      ],
+      [
+        0,
+        0,
+        0,
+        255
+      ]
+    ]
+  },
+  "unresolved": [
+    "Emission phase for rate-based short-lived emitters",
+    "Default quad orientation when primitive is absent",
+    "Native ramp sampling/color-space rules"
+  ]
+}
