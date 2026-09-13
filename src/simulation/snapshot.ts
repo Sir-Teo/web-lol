@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 27;
+export const SNAPSHOT_VERSION = 28;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -155,7 +155,12 @@ const player: z.ZodType<PlayerState> = z
       )
       .nullable(),
     inventory: z
-      .array(z.string().refine((value) => ITEMS.some((item) => item.id === value)))
+      .array(
+        z
+          .string()
+          .refine((value) => ITEMS.some((item) => item.id === value))
+          .nullable()
+      )
       .max(6),
   })
   .refine(

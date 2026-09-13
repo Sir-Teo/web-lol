@@ -1461,11 +1461,13 @@ export class World {
     if (!item) return 'Unknown item';
     if (distance(champion, this.battlefield.spawns[champion.team]) > 400 && champion.hp > 0)
       return 'Return to your fountain to purchase items';
-    if (state.inventory.length >= 6) return 'Inventory is full';
+    const emptySlot = state.inventory.indexOf(null);
+    if (emptySlot === -1 && state.inventory.length >= 6) return 'Inventory is full';
     if (state.gold < item.price) return 'Not enough gold';
     if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
     state.gold -= item.price;
-    state.inventory.push(item.id);
+    if (emptySlot === -1) state.inventory.push(item.id);
+    else state.inventory[emptySlot] = item.id;
     champion.damage += item.damage;
     champion.maxHp += item.hp;
     if (this.alive(champion)) champion.hp += item.hp;
@@ -1483,7 +1485,9 @@ export class World {
       return 'Return to your fountain to sell items';
     const item = ITEMS.find((entry) => entry.id === state.inventory[slot]);
     if (!item) return 'Unknown item';
-    state.inventory.splice(slot, 1);
+    state.inventory[slot] = null;
+    // Omitted trailing slots are empty too; interior holes retain slot identity.
+    while (state.inventory.length && state.inventory.at(-1) === null) state.inventory.pop();
     state.gold += item.sell;
     champion.damage -= item.damage;
     champion.speed -= item.speed;

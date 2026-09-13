@@ -280,6 +280,7 @@ export class Hud {
       owned.innerHTML =
         this.world.player.inventory
           .map((id, slot) => {
+            if (id === null) return '';
             const item = ITEMS.find((entry) => entry.id === id)!;
             return `<button class="shop-item" data-sell="${slot}" aria-label="Sell ${item.name}, slot ${slot + 1}, for ${item.sell} gold"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>Sell · slot ${slot + 1}</small></span><b>◆ ${item.sell}</b></button>`;
           })

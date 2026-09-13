@@ -164,7 +164,7 @@ export interface ChampionState {
     point: Vec2;
     damage: number;
   } | null;
-  inventory: string[];
+  inventory: (string | null)[];
 }
 
 /** Human HUD/input view of its champion-owned state. */
