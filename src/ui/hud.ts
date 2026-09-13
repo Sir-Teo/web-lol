@@ -403,7 +403,7 @@ export class Hud {
       title = 'Practice tools';
       subtitle = 'Make room for the next perfect play.';
       content =
-        '<div class="practice-grid"><button class="menu-button" data-action="restore">Restore health & mana</button><button class="menu-button" data-action="cooldowns">Reset cooldowns</button><button class="menu-button" data-action="gold">Add 1,000 gold</button><button class="menu-button" data-action="dummy">Restore target dummy</button></div><p class="practice-note">All four abilities are unlocked in this practice build. The champion kit, terrain, vision, items, and timing are still under development.</p><button class="primary-button" data-action="resume">Return to the Rift</button>';
+        '<div class="practice-grid"><button class="menu-button" data-action="restore">Restore health & mana</button><button class="menu-button" data-action="cooldowns">Reset cooldowns</button><button class="menu-button" data-action="gold">Add 1,000 gold</button><button class="menu-button" data-action="dummy">Restore target dummy</button></div><p class="practice-note">Spend skill points to learn and upgrade abilities. Reset cooldowns readies learned abilities and preserves your skill choices. The champion kit, terrain, vision, items, and timing are still under development.</p><button class="primary-button" data-action="resume">Return to the Rift</button>';
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
@@ -453,11 +453,14 @@ export class Hud {
         if (action === 'cooldowns') {
           for (const a of Object.keys(this.world.player.cooldowns) as Ability[])
             this.world.player.cooldowns[a] = 0;
-          this.world.player.qStacks = 4;
-          this.world.player.qStackExpiry = this.world.tick + 600;
-          this.world.player.eCharges = ASHE_E.maximumCharges;
+          const state = this.world.player;
+          state.qStacks = state.spellRanks.q > 0 ? ASHE_Q.maxStacks : 0;
+          state.qStackExpiry = state.qStacks
+            ? this.world.tick + ASHE_Q.stackSeconds * TICK_RATE
+            : 0;
+          state.eCharges = state.spellRanks.e > 0 ? ASHE_E.maximumCharges : 0;
           this.world.player.eRechargeTick = null;
-          this.toast('Abilities are ready');
+          this.toast('Learned abilities are ready');
         }
         if (action === 'gold') {
           this.world.player.gold += 1000;

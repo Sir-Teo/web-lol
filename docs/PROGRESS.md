@@ -1218,3 +1218,9 @@ This replaces the older 148-scenario browser baseline. No runtime code changed i
 Unlearned tooltips now display explicitly labeled rank-one mechanics and actual rank-one resource requirements instead of hiding the description and showing zero costs. W/R previews include the champion's current owned stats. The instruction line shows the learning shortcut or the current validation reason, updating while open when a point is spent elsewhere.
 
 All 416 source/simulation checks, nine focused Chrome scenarios and nested-path production smoke pass. New full-Rift browser coverage verifies R's preview and level requirement, W's damage/mana/cooldown and shortcut, then the live no-points reason after learning E. Inspected the preview screenshot. The full suite was not repeated for this tooltip change. Native tooltip typography/layout and broader clone fidelity remain unfinished.
+
+## Practice reset respects learned spells
+
+Fixed a full-Rift save regression: Reset cooldowns had granted Focus stacks and E charges to unlearned abilities. It now fills these resources only for learned Q/E, leaves skill choices and points intact, and uses Q's source four-second stack lifetime. Updated the practice panel's obsolete all-spells-unlocked claim and reset feedback.
+
+All 416 source/simulation checks, the two existing Hawkshot scenarios and two new full-Rift reset/save/reload scenarios pass, as does nested-path production smoke. The new cases compare the entire restored checkpoint after waiting for save confirmation, covering both unlearned and learned Q/E. Their first draft reloaded before asynchronous save completion; that test race was corrected and both cases rerun successfully. Full-suite and performance checks were not repeated; broader production fidelity remains unfinished.
