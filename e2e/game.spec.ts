@@ -97,8 +97,8 @@ test('shop purchases change stats and inventory, then reject overspending', asyn
   await expect(page.locator('.shop-message')).toHaveText('Item purchased');
   expect((await state(page)).player.inventory).toEqual(['blade']);
   expect((await state(page)).units[0].damage).toBe(69);
-  await page.locator('[data-buy="pickaxe"]').click();
-  await expect(page.locator('.shop-message')).toHaveText('Not enough gold');
+  await expect(page.locator('[data-buy="pickaxe"]')).toBeDisabled();
+  await expect(page.locator('[data-buy="pickaxe"]')).toHaveAttribute('title', 'Not enough gold');
   await page.screenshot({ path: 'artifacts/browser-shop.png' });
   await page.keyboard.press('Escape');
   await expect(page.locator('#inventory img')).toHaveCount(1);

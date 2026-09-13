@@ -1478,7 +1478,7 @@ export class World {
     }
     return { cost, consumed };
   }
-  buy(itemId: string, championId = this.player.id): string | null {
+  purchaseError(itemId: string, championId = this.player.id): string | null {
     if (this.winner) return 'The game has ended';
     const state = this.championState(championId);
     const champion = this.unit(championId);
@@ -1494,6 +1494,18 @@ export class World {
     if (emptySlot === -1 && state.inventory.length >= 6) return 'Inventory is full';
     if (state.gold < plan.cost) return 'Not enough gold';
     if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
+    return null;
+  }
+  buy(itemId: string, championId = this.player.id): string | null {
+    const error = this.purchaseError(itemId, championId);
+    if (error) return error;
+    const state = this.championState(championId)!;
+    const champion = this.unit(championId)!;
+    const item = ITEMS.find((entry) => entry.id === itemId)!;
+    const plan = this.purchasePlan(itemId, championId)!;
+    const emptySlot = state.inventory.findIndex(
+      (id, slot) => id === null || plan.consumed.includes(slot)
+    );
     state.gold -= plan.cost;
     let damage: number = item.damage,
       hp: number = item.hp,

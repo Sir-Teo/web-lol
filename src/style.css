@@ -1162,6 +1162,16 @@ button {
   border-color: #bca871;
   background: #203c3c;
 }
+.shop-item[aria-disabled='true'] {
+  border-color: #344540;
+  color: #89978e;
+}
+.shop-item[aria-disabled='true'] > img {
+  filter: grayscale(0.8) brightness(0.65);
+}
+.shop-item[aria-disabled='true'] > b {
+  color: #89978e;
+}
 .shop-item > img {
   width: 43px;
   height: 43px;

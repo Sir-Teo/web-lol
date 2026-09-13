@@ -66,3 +66,10 @@ Added source-pinned Ruby Crystal (400 gold, +150 health, sells for 280) and Gian
 `purchasePlan` identifies distinct owned component slots and quotes remaining cost before mutation. `buy` validates cost and capacity after considering the consumed slots, clears exactly those components and adds only the net flat stat difference. A full inventory can upgrade when a component frees a slot; insufficient gold does not consume it. The first empty or consumed position receives the result (local slot-selection policy). Dead buyers gain maximum health without current HP or respawn changes. Existing living purchase-health behavior remains the local flat-delta policy.
 
 The shop displays the same quoted cost as the transaction and refreshes it after buying/selling. This first recipe supports the declared immediate components; recursive recipe trees, active/passive item effects, undo and full catalog/build-tree presentation remain unfinished. Existing bots retain their finite build plan. Source verifiers cover records and icons; scenarios cover both teams, duplicates, full inventories, insufficient funds, checkpoint continuation and dead upgrades.
+
+
+## Live purchase availability
+
+The shop queries the same `purchaseError` validation used by `buy`, covering match outcome, owner/item validity, fountain access, capacity after component consumption, exact fractional funds and boots uniqueness. Unavailable cards use muted icon/price styling, `aria-disabled` and a reason in their title. The transaction still revalidates at activation; the display never authorizes a stale purchase. Availability and quoted recipe cost refresh while the shop is open, including changes in funds, position or components.
+
+The validation query does not change match state. Full inventories can still enable a recipe whose owned component frees a slot. Visual styling is a local presentation treatment pending native calibration; a full build-tree/selection interface and permanent visible reason panel remain unfinished.

@@ -77,6 +77,20 @@ export class Hud {
   private abilityMarkup(a: Ability): string {
     return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
   }
+  private updateShopPurchases(): void {
+    this.root.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
+      const id = button.dataset.buy!;
+      const reason = this.world.purchaseError(id);
+      const unavailable = String(!!reason);
+      if (button.getAttribute('aria-disabled') !== unavailable)
+        button.setAttribute('aria-disabled', unavailable);
+      const title = reason ?? 'Purchase item';
+      if (button.title !== title) button.title = title;
+      const price = `◆ ${this.world.purchasePlan(id)!.cost}`;
+      if (button.querySelector('b')!.textContent !== price)
+        button.querySelector('b')!.textContent = price;
+    });
+  }
   private bind(): void {
     const inventory = this.root.querySelector<HTMLElement>('#inventory')!;
     let dragged: { slot: number; item: string } | null = null;
@@ -462,6 +476,7 @@ export class Hud {
     text('level', p.level);
     text('gold', Math.floor(p.gold));
     const shopBalance = this.root.querySelector('.shop-balance b');
+    if (shopBalance) this.updateShopPurchases();
     const balanceLabel = `◆ ${Math.floor(p.gold)}`;
     if (shopBalance && shopBalance.textContent !== balanceLabel)
       shopBalance.textContent = balanceLabel;
