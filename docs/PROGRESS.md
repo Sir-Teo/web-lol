@@ -16,7 +16,7 @@ Last updated: September 13, 2026 (America/New_York).
 - Eight animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
 - Source revisions and SHA-256 hashes are recorded for imported art. The GLB passes the Khronos glTF validator with zero errors and zero warnings.
 - The default playable now renders pinned Base_SRX terrain and vegetation with original BC1/BC3 blocks, authored mip levels, and a lossless WebP fallback. Source navigation, elevation, fountain spawns, three lane routes, timed barracks waves, and 22 turret positions are connected. The separate inspector retains its navigation overlay.
-- Twenty-five browser scenarios and forty-six simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
+- Twenty-five browser scenarios and fifty-one simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
 
 The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
 
@@ -24,7 +24,7 @@ The game is **not production complete**. No roadmap milestone that requires comp
 
 | Evidence | Result | Scope |
 |---|---|---|
-| `npm run check` | TypeScript check and 46 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility, source-grid clearance/gates, full-map routes, wave cadence, and fountain recall |
+| `npm run check` | TypeScript check and 51 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility, source-grid clearance/gates, full-map routes, wave cadence, and fountain recall |
 | `npm run test:browser` | 25 Chrome scenarios | Existing practice interactions, minion lifecycle, full terrain loading, original compressed mips, BC1 alpha, both gzip-hosting conventions, navigation overlay, WebP fallback, full-map pointer/elevation alignment, movement/attack, exact fog-mask/query agreement, tower transforms/rig sharing, and persistent rubble |
 | `npm run assets:validate` | 0 errors, 0 warnings | Fifteen character/structure GLBs, full map glTF, 278 hashed map resources, navigation payload, gameplay layout, and minimap; not certification of pixel parity |
 | `npm run build` | Static build succeeds | Bundles the application and local assets; not deployment or backend work |
@@ -137,3 +137,13 @@ The source death clips exceed the former four-second cleanup window. Clip durati
 Current validation is 46 simulation scenarios, 25 Chrome scenarios, zero errors/warnings across fifteen model GLBs and the full map, and a passing static build. The browser scenarios inspect both team models, source clip catalogs, full death playback, and cleanup; intact and death screenshots were visually inspected. This is not a full-match or pixel-parity certification. Timed stat upgrades, complete economy, minion aura, regeneration, attack impact calibration, pre-regrowth super cutoff, and timed wave-interval overrides remain unfinished. The production goal stays active.
 
 A fresh production preview smoke check also passes with real movement/aim input, no browser errors or failed requests, and no development diagnostics exposed. Both super-model outputs and the gameplay layout reproduce byte-identically.
+
+## Timed lane cadence and rewards milestone
+
+The default Rift now applies the documented 25-second and 20-second wave intervals after 14 and 30 minutes. The scheduler retains elapsed progress toward a wave across transitions and keeps explicit wave suppression intact. A tick-by-tick 31-minute clock scenario checks both boundaries; precise phase alignment still awaits reference capture.
+
+Six ordinary minion Root records and their source hashes are frozen and verified against upstream. Both teams now receive 350 starting movement speed, the source timed movement increments for newly spawned minions, and distinct initial gold/XP rewards. Combat initialization, HP/damage growth, on-hit effects, and shared economy remain incomplete. The new reward checks also exposed and fixed a unit-creation bug where spreading a position object could overwrite identity/team/class with fields from another unit.
+
+The simulation suite passes 51 scenarios. The work continues toward full minion reconstruction, static-building vision, and the larger complete-match gates; this milestone does not certify those unfinished systems.
+
+The 25 Chrome regression scenarios, static build, asset validation, and built-game smoke check also pass. All six upstream minion files match their recorded hashes, and the generated layout/source snapshot rebuild byte-identically. Full minion combat and exact reference transition phases remain outstanding.
