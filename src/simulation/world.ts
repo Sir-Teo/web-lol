@@ -516,10 +516,10 @@ export class World {
       if (inRange) {
         u.facing = Math.atan2(target.x - u.x, target.y - u.y);
         if (this.tick >= u.nextAttackTick) {
-          const boosted = u.id === this.player.id && this.player.qUntil > this.tick;
+          const speed = this.attackSpeedMultiplier(u, target);
           u.attackTarget = target.id;
-          u.releaseTick = this.tick + Math.round(u.windupTicks / (boosted ? 1.4 : 1));
-          u.nextAttackTick = this.tick + Math.round(u.attackPeriod / (boosted ? 1.4 : 1));
+          u.releaseTick = this.tick + Math.round(u.windupTicks / speed);
+          u.nextAttackTick = this.tick + Math.round(u.attackPeriod / speed);
         }
         return;
       }
@@ -616,6 +616,12 @@ export class World {
       }
     }
     this.projectiles = this.winner ? [] : survivors;
+  }
+  attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {
+    if (source.id === this.player.id && this.player.qUntil > this.tick) return 1.4;
+    if (source.kind === 'siege' && target?.kind === 'turret' && target.structure?.lane === 'mid')
+      return 1 + (this.battlefield.siegeMidTurretAttackSpeedBonus ?? 0);
+    return 1;
   }
   private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
     const multiplier =

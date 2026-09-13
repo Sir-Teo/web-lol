@@ -435,7 +435,9 @@ export class GameView {
           attack.reset();
           attack.setLoop(THREE.LoopOnce, 1);
           attack.clampWhenFinished = true;
-          attack.timeScale = attack.getClip().duration / (u.attackPeriod / 60);
+          const target = u.attackTarget === null ? undefined : world.unit(u.attackTarget);
+          const period = Math.round(u.attackPeriod / world.attackSpeedMultiplier(u, target));
+          attack.timeScale = attack.getClip().duration / (period / 60);
           clip = 'attack1';
         } else if (
           !moving &&

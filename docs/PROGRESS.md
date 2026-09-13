@@ -207,3 +207,11 @@ Ordinary minion attacks now add the pinned item ratios of the opposing lane mini
 All 103 unit/scenario checks, all 38 Chrome scenarios, the static production build, and the production preview smoke check pass. The six frozen item/tooltip records match upstream hashes and data. Layout, provenance, and minimap exports reproduce byte-identically. The production screenshot was inspected; no new rendering or performance claim is made. Eleven new combat scenarios cover both teams, all ordinary source types and lane-minion victim types, armor, impact-time health changes, source death, repeated attacks, exclusions, and one-time lethal resolution.
 
 This closes a missing lane-combat contribution. Full minion initialization and scaling, turret-specific damage received, siege mid-lane attack speed, super-minion effects, complete champion/bot/objective systems, and pixel-level reference comparison remain unfinished. The production goal remains active.
+
+## Siege mid-turret attack speed milestone
+
+Siege minions now receive the source item's 30% attack-speed bonus when attacking a mid-lane turret. The exported pinned value drives both windup and repeated attack cadence without modifying baseline stats. Target switching samples the next attack's eligibility without rewriting the existing cooldown. Animation playback uses the same multiplier and rounded period, including the existing Ranger's Focus multiplier. See [timing policy and source evidence](MINIONS.md#siege-attacks-against-mid-lane-turrets).
+
+All 107 unit/scenario checks, all 39 Chrome scenarios, the static build, and the production preview smoke check pass. The new browser scenario verifies both siege rigs against mid and top turrets, comparing actual animation duration to scheduled combat duration. Four simulation scenarios cover both teams, repeated release timestamps, lane/class/victim exclusions, target switching, and immutable baseline timing. Layout, provenance, and minimap reproduce byte-identically.
+
+This corrects a missing siege-pushing modifier. Exact reference windup, complete minion stat initialization, future attack-speed stacking, turret-shot damage rules, full match systems, and pixel-level fidelity remain unfinished. No new performance claim is made. The production goal remains active.
