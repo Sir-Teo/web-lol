@@ -295,3 +295,9 @@ Both super variants now receive their pinned barracks health growth: 100 HP per 
 All 153 unit/scenario checks, the three affected Chrome scenarios, the static build, and production smoke pass. The full browser suite was not repeated for this data-only runtime change. Four new unit scenarios cover both teams' upgrade/cap boundaries, wounded-unit/save preservation, and a real turret projectile. The full-Rift late-wave scenario additionally verifies the spawned super's 3,500 HP. The first turret test setup omitted initial structures; correcting its fixture initialization made the intended projectile check pass. Layout, provenance, and minimap reproduce byte-identically.
 
 Exact upgrade phase and living-unit behavior still require reference-client observation. Super damage growth, aura, regeneration, complete match systems, and pixel-level fidelity remain unfinished. The production goal remains active.
+
+## Super-aura source reconciliation
+
+Inspected the selected super CharacterRecords, item 1512, matching shared buffs, and English string table before implementing the missing aura. Found conflicting descriptions in the same 16.18 source set: the carried cosmetic item describes 35 armor/MR, whereas the shared Minion Commander description claims 70 armor/MR plus 70% damage. Neither supplies radius, filtering, stacking, or application cadence. This changes the next action from importing tooltip values to obtaining behavioral evidence; no guessed aura was added.
+
+Pinned three whole-source hashes and five selected records in `reference/super-aura.json`; `tools/assets/verify-super-aura.py` verifies all of them successfully. [SUPER-AURA.md](SUPER-AURA.md) distinguishes source facts from interpretation and specifies the comparison needed to resolve the effect. Runtime files are unchanged, so simulation/browser checks were not repeated. Independent full-match and presentation work remains available; the production goal remains active.

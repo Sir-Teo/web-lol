@@ -1,0 +1,87 @@
+{
+  "reference": "CommunityDragon 16.18",
+  "status": "Conflicting descriptions; radius and behavior unresolved. No runtime aura implemented.",
+  "sources": [
+    {
+      "url": "https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json",
+      "sha256": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb",
+      "cache": ".cache/items-16.18.json",
+      "container": null,
+      "records": {
+        "Items/1512": {
+          "mDisplayName": "game_item_displayname_1512",
+          "itemID": 1512,
+          "maxStack": 1,
+          "mItemGroups": [
+            "Items/ItemGroups/Default"
+          ],
+          "epicness": 1,
+          "mEffectAmount": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mCategories": [
+            "Armor",
+            "ManaRegen",
+            "OnHit"
+          ],
+          "mItemAttributes": [
+            1
+          ],
+          "mItemDataClient": {
+            "mDescription": "game_item_description_1512",
+            "mDynamicTooltip": "game_item_tooltip_1512",
+            "inventoryIcon": "assets/items/icons2d/1512_supermechpowerfield.dds",
+            "epicness": 0,
+            "__type": "ItemDataClient"
+          },
+          "__type": "ItemData"
+        }
+      }
+    },
+    {
+      "url": "https://raw.communitydragon.org/16.18/game/shared.cdtb.bin.json",
+      "sha256": "8726e915a7c913c826bf3a722e548d002e8e41677073a585d40e8d179d0dd8bf",
+      "cache": ".cache/shared-16.18.json",
+      "container": null,
+      "records": {
+        "Shared/Spells/SuperMinionBuff_Red": {
+          "ObjectName": "SuperMinionBuff_Red",
+          "objectPath": "Shared/Spells/SuperMinionBuff_Red",
+          "mScriptName": "SuperMinionBuff_Red",
+          "mBuff": {
+            "mDescription": "game_buff_tooltip_SuperMinionBuff",
+            "__type": "BuffData"
+          },
+          "__type": "SpellObject"
+        },
+        "Shared/Spells/SuperMinionBuff_Blue": {
+          "ObjectName": "SuperMinionBuff_Blue",
+          "objectPath": "Shared/Spells/SuperMinionBuff_Blue",
+          "mScriptName": "SuperMinionBuff_Blue",
+          "mBuff": {
+            "mDescription": "game_buff_tooltip_SuperMinionBuff",
+            "__type": "BuffData"
+          },
+          "__type": "SpellObject"
+        }
+      }
+    },
+    {
+      "url": "https://raw.communitydragon.org/16.18/game/en_us/data/menu/en_us/lol.stringtable.json",
+      "sha256": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d",
+      "cache": ".cache/lol-strings-16.18.json",
+      "container": "entries",
+      "records": {
+        "game_item_tooltip_1512": "<titleLeft>Super Mech Power Field</titleLeft><titleRight>&nbsp;</titleRight><mainText><unique>Super Mech Power Field</unique><br>Grants nearby minions 35 Magic Resistance, and 35 armor.</mainText>",
+        "game_buff_tooltip_superminionbuff": "<titleLeft>Minion Commander</titleLeft><mainText>This unit inspires nearby minions, granting them 70% increased damage and 70 increased Armor and Magic Resist.</mainText><postScriptLeft>Source: @SourceName@</postScriptLeft>"
+      }
+    }
+  ]
+}
