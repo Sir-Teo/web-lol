@@ -2,6 +2,14 @@
 export const ASHE_Q = {
   "empoweredAttackAnimation": "spell1",
   "resetsAttackTimer": true,
+  "shotsPerStrike": 5,
+  "flurrySpellNames": [
+    "AsheQAttack",
+    "AsheQAttackNoOnHit",
+    "AsheQAttackNoOnHit",
+    "AsheQAttackNoOnHit",
+    "AsheQAttackNoOnHit"
+  ],
   "durationSeconds": 6.0,
   "stackSeconds": 4.0,
   "falloffSeconds": 1.0,

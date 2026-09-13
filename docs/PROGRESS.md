@@ -1290,3 +1290,9 @@ All 444 source/simulation checks and nested-path production smoke pass. Six rela
 Ran all 170 configured Chrome scenarios against `34eed412090940b13a307e7da8764b5cdbc6513c` without code changes during execution. Every case passed once: zero failures, skips, flaky results or retries, one worker, 357.5 seconds. The JSON report's individual results and top-level error list were checked before replacing the 161-case historical baseline in `reference/browser-regression.json`.
 
 Inspected fresh full-Rift fountain and river-aiming captures and recorded their hashes with the tested commit and report hash. This verification adds no runtime behavior and does not establish native visual parity, full 5v5 completeness or the still-open performance target. Source/simulation checks and production smoke were not rerun in this verification-only turn; their prior results remain above.
+
+## Q flurry payload preparation
+
+Exported verified shot count and primary/no-on-hit spell identities from the pinned records. Added a rank-aware helper preparing five equal arrow damage shares with only the first marked for on-hit dispatch. All 446 source/simulation checks and source export verification pass, including every rank's damage total and invalid inputs.
+
+This is executable payload preparation, not live flurry integration. Equal division and callback assignment remain documented interpretations; the aggregate runtime attack has not changed, and no launch interval was invented. Browser/production/performance suites were not rerun. Sequencing, individual impact dispatch and native comparison remain open.

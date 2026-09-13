@@ -22,6 +22,12 @@ graph_pin = json.loads(Path('docs/reference/ashe-model.json').read_text())
 assert animation in [name.lower() for name in graph_pin['atomicClips']]
 assert 'Trait_AttackReset' in record['mSpell']['mSpellTags']
 data = {'empoweredAttackAnimation': animation, 'resetsAttackTimer': True}
+shots = next(value['values'] for value in record['mSpell']['DataValues'] if value['name'] == 'ShotsPerStrike')
+assert len(set(shots)) == 1 and shots[0] == 5
+data['shotsPerStrike'] = int(shots[0])
+secondary_key = 'Characters/Ashe/Spells/AsheQAbility/AsheQAttackNoOnHit'
+assert json.loads(raw)[secondary_key] == attacks['records'][secondary_key]
+data['flurrySpellNames'] = [attack['ObjectName']] + [attacks['records'][secondary_key]['ObjectName']] * (data['shotsPerStrike'] - 1)
 for name, field in [('BuffDuration', 'durationSeconds'), ('StackDuration', 'stackSeconds'),
                     ('StackFalloffDuration', 'falloffSeconds'), ('MaxStacks', 'maxStacks')]:
     values = next(value['values'] for value in record['mSpell']['DataValues'] if value['name'] == name)

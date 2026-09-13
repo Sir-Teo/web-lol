@@ -25,6 +25,18 @@ export function asheFocusValues(rank: number) {
   };
 }
 
+/** Per-arrow payload preparation. Release timing and hit dispatch are separate. */
+export function asheFocusFlurry(rank: number, attackDamage: number) {
+  if (!Number.isFinite(attackDamage) || attackDamage < 0)
+    throw new RangeError('Attack damage must be finite and nonnegative');
+  const total = attackDamage * asheFocusValues(rank).damageMultiplier;
+  return ASHE_Q.flurrySpellNames.map((spell, index) => ({
+    spell,
+    damage: total / ASHE_Q.shotsPerStrike,
+    appliesOnHit: index === 0,
+  }));
+}
+
 export function asheVolleyValues(rank: number, bonusAttackDamage: number) {
   return {
     ...asheSpellResources('w', rank),
