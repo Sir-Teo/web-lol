@@ -1,0 +1,589 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "chunks": {
+    "A02D372F5DF76CAD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 39736250,
+      "bytes": 223610,
+      "sha256": "497b48b952a25d9d549a9072d1b2968fced9ac4b0adb323b55d374bdb883ec4b"
+    },
+    "6C7FBEFDF21793B9": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 39959860,
+      "bytes": 258644,
+      "sha256": "f23ef45618318e6d6c3a909b86fc1846003544eeb901caeb4d180d5990932397"
+    },
+    "28395A168DBE5BA0": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 40218504,
+      "bytes": 183351,
+      "sha256": "70bced407e6680cc97032f924a5f3e16f886d1ac327f1146713dbfe168cc87c4"
+    },
+    "902BE54057D2F816": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+      "offset": 40401855,
+      "bytes": 5831,
+      "sha256": "02c40cc44fd863d50514ee0ffd10a54d3ff9e9af1d6fac6ef4cb1d461f16d4d5"
+    },
+    "FEB9FC9832147ADC": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 12867106,
+      "bytes": 266544,
+      "sha256": "5682b05473d220685c2b21546fb68b91041f0ebefc44b3c78b84ca10d62f61a0"
+    },
+    "36B0C5082B90D135": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 11987,
+      "bytes": 78340,
+      "sha256": "1cf95348f38cd067c33d9c972495781a85748e0798ecc4a48aee1931dd2c278c"
+    },
+    "DA404CE103950573": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 62605,
+      "bytes": 103,
+      "sha256": "571eb358af87852c6db3b4f72c7eb2b903616745242d739a5ea9591641782e52"
+    },
+    "5C97B65844196578": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 2915907,
+      "bytes": 413,
+      "sha256": "664056cc1f6ed0184dfdf843579a2ab5e8861fcf0361b76a911b3292a63bfbd8"
+    },
+    "91ED86D941BC2E66": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 57654,
+      "bytes": 499,
+      "sha256": "50630d96c83fc51a5bcf0a3f927e6ed8ce3f65db13dc9a70686b0fd08fc89cb5"
+    },
+    "15A0038CE7CE17D5": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+      "offset": 26190911,
+      "bytes": 8846,
+      "sha256": "75b5dfa87c894c00b0f6e7b93c06a0a10f08af287ae7b5fdd561e4982bd4128f"
+    },
+    "F573B7D40F594185": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 13076425,
+      "bytes": 83976,
+      "sha256": "bf70738b3b9d54d321ae9761eec9bd51558b68e228145d966c37599b705b49a1"
+    },
+    "82EEBD04A1DFA324": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 13160401,
+      "bytes": 29005,
+      "sha256": "15c9a7db0131e0697147b9c8464f55e1c9c6803aa511e287f6412c00e975af48"
+    },
+    "78E95DF19672345A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 1878714,
+      "bytes": 537,
+      "sha256": "b6bd4cd4b053284254b02739c8d4936eb90c1d60872527aecbd73f7e8769bc53"
+    },
+    "5CBF0048754C83FF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 13508688,
+      "bytes": 1128,
+      "sha256": "f3f6b37e266ccdbf46754927358295c5a2479f34546ee347135bbe04c06f999f"
+    },
+    "80C0EC08890EA48F": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 8589695,
+      "bytes": 135484,
+      "sha256": "d08bf1764faa69febc8dc91f878e979296fb601ffed125259af750c1c8578040"
+    },
+    "9D825D8529D59CB9": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 8725179,
+      "bytes": 62973,
+      "sha256": "eed7c81875eede9f1d972102adf22bfbcae91df2bf904f2206daac781131dfd9"
+    },
+    "028FCC35634CC551": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 6570903,
+      "bytes": 95526,
+      "sha256": "cdbecd17e9f64c4196d20ee5fcc370641058d59057f12de5d140800fd4cd397a"
+    },
+    "2107251032C37415": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 6666429,
+      "bytes": 9145,
+      "sha256": "c7ab5a2ee932ce2689da1753beba8bb06060e94593b0e034dd4e9282f9a0d29d"
+    },
+    "7C908273BDC33A94": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 15719227,
+      "bytes": 64877,
+      "sha256": "55d5a3852b64f573fd0d7e8b0410de7ce0a18ef3c3c65291ce3cec143a734ba5"
+    },
+    "40845A1BBA06509D": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 15784104,
+      "bytes": 40255,
+      "sha256": "d722589dca488a53845a365aecfe40f488ffdae899706b7655136babdccd8f89"
+    },
+    "77858D15E44CF9EF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 35440267,
+      "bytes": 68681,
+      "sha256": "0e1b77845f67cb6e3f757eba5b1fa11a735b64bcacd1e4abc51f4d1c55755845"
+    },
+    "3771B734B30C5492": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F3629AE58FF081E.bundle",
+      "offset": 16722720,
+      "bytes": 5143,
+      "sha256": "7197163165b1d8df1afa364b4219c4bdcc0c86873c62d0875258fbb42fdd2268"
+    },
+    "279B75CA6A5EDADD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 76247,
+      "bytes": 109,
+      "sha256": "2dadf7ff10a00889b22733dd244f815bd9d8270537031256bf717abb09c94310"
+    },
+    "507465E874004FE4": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 561228,
+      "bytes": 742,
+      "sha256": "be1cabc22a106db8e3d4124edd9de4246aeb30e92acf1ceef8c11d8497660aeb"
+    },
+    "9AEA532A916C0E0F": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 7548817,
+      "bytes": 746,
+      "sha256": "78b52c7af2bbbfeb5a2e002121e25ea9a9f18287cb7b2b401a2a6f35c511cd2f"
+    },
+    "C14FAD8E39A08BDA": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 250832,
+      "bytes": 790,
+      "sha256": "8670d29519eeafc1c787d571c703dcb1a6c62ea6df9a44e27a82a2a8152bba41"
+    },
+    "1067C1668E975E00": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 8274446,
+      "bytes": 87934,
+      "sha256": "facd52472eef10c3b91a72105441b79a6815381bb9981d1eac5050ab44b029cd"
+    },
+    "E8379A600805294E": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 62708,
+      "bytes": 456,
+      "sha256": "ed07ca2d368ba5c44a5cbb122830379df410a3b46228abc9d481ad4fefb05efe"
+    },
+    "6516ADBEBC96688A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 14029184,
+      "bytes": 934,
+      "sha256": "deb6ed5aa7ee197f2deb8b9a06992fcaecec0478f46c64ab8e43c19084d6c81a"
+    },
+    "8691048059C2292B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 10620916,
+      "bytes": 92545,
+      "sha256": "ccddae9170307340399634128f901224f34d70084f6a4cffc7ba251bb25040d8"
+    },
+    "AF250ECB55DF86E8": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E3AD44C281B32841.bundle",
+      "offset": 18421198,
+      "bytes": 102110,
+      "sha256": "028e11108ead0f7a6d75c08dca9a271df9d85e0f8fc7b6c0304b51d8505e24ca"
+    },
+    "496FF7D7BC626EE3": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/09BCD199A5AF0EA2.bundle",
+      "offset": 28005985,
+      "bytes": 86878,
+      "sha256": "10eecafc674de263bd5893ccc3cea3f7b0e4d85bf89b1c95913f7e005f560a0f"
+    },
+    "D77BB9105659E3DF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 9527651,
+      "bytes": 52887,
+      "sha256": "550ec550e71b111cb873fc27461e7be3e4d50a406cc23a4b23b491abe59569b3"
+    },
+    "A4C8A3AA06E9E637": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 558727,
+      "bytes": 2501,
+      "sha256": "3ebc44e261feeef003f8a97cab12fdb9e1e85a2a906e74e585db0cbb70dc0a07"
+    },
+    "0BE8C1D4D6F81FAD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 625754,
+      "bytes": 1473,
+      "sha256": "8ad4abaf6dafcd06cca551fd61e9dda971a2821b2bba2b021179d1e9693b0b7d"
+    },
+    "8219FCCD94101FC3": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 136392,
+      "bytes": 166,
+      "sha256": "3879678a47153858b54221c7f1cc345a1801465de0681ba1d0c18e1581336cb2"
+    },
+    "4683B5662493902E": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 6415843,
+      "bytes": 1870,
+      "sha256": "da12286dcb13dc6372fbeb0fa954239d32f12b0dd6a7e6e893538c55d2eccc19"
+    },
+    "D7C7873AB86FB175": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 16151380,
+      "bytes": 159478,
+      "sha256": "8767c151282a70ddd0da6dfe085a08df4549e2bea47127df9b22a2c0166e7cb1"
+    },
+    "D104E6F36A6F040B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 16310858,
+      "bytes": 85989,
+      "sha256": "d984ae6bb66ecea8c185db8911971e708458f08e55b32d1a6f0bd9658df52629"
+    },
+    "D9F16753BD26FD08": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+      "offset": 16396847,
+      "bytes": 110160,
+      "sha256": "f49b4464aa48a15142643c93af54eb32fbe5f1cfbe58d7b9209eb15e46f27bb0"
+    },
+    "E5DEF2B8E2D74055": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6F5F679CDBD4ABC8.bundle",
+      "offset": 41534169,
+      "bytes": 229829,
+      "sha256": "931aac4c0eae2324ff765e9f36e24fb78503ebd818fc99b50048c0e2fda196c8"
+    },
+    "4BECA6A068E9FF7F": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6F5F679CDBD4ABC8.bundle",
+      "offset": 41763998,
+      "bytes": 176675,
+      "sha256": "4f29ab155036fa103feab39a8016e05c3225e2c057b6f51301b20b4f01b5c1f0"
+    },
+    "09DF44C60E3C3C57": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 7764344,
+      "bytes": 148726,
+      "sha256": "f237088a64e8abae71bf0d7f2e2b62fded7891218543d57e73bd7f087f851dcf"
+    },
+    "31E55C190674E5DF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 7913070,
+      "bytes": 145890,
+      "sha256": "c2f8600c89f6b38786cbe19cef12580a9b72d3933cceb4f143d809714be436d2"
+    },
+    "8EDC11C0C1814E98": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 8058960,
+      "bytes": 84065,
+      "sha256": "987187a38c8665ec33f49c623ba57adc33f934dc48d30f4077412ce436cc1943"
+    },
+    "1E094B2158B04786": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+      "offset": 7381108,
+      "bytes": 57090,
+      "sha256": "e9ebbc00fd74753296b61cc4c1deeb743b440d5de4fbfea012ec41a86f674e43"
+    },
+    "49EEE165CECA1339": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 2138354,
+      "bytes": 3645,
+      "sha256": "a6aff2ec919405411a618dca0e1f01fbff87d07ae4ad9b4c171b6a267ccfccb1"
+    },
+    "22A44F29277CDC02": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+      "offset": 11969865,
+      "bytes": 3468,
+      "sha256": "e76979583b8da61666f0ca95af02f56b372bafad97ace06d55832dd7b50579b2"
+    },
+    "0D2CAD3F5A7E921E": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 1224866,
+      "bytes": 10627,
+      "sha256": "4c842034b7110aa724cda5bb2b7e606649098dbccf386d2e9033dceacab64eaa"
+    },
+    "9F7A4DAA5FEF416C": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+      "offset": 6417713,
+      "bytes": 1026,
+      "sha256": "43d191401be0399ce738cd3e69b53d5afc4b0c7b03363249a52d985714081660"
+    },
+    "2B0B8E6A9A6BE05D": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+      "offset": 6065279,
+      "bytes": 1849,
+      "sha256": "071a5f9aed9cc6e4827b2c2c33c23fe4578325dc0ff8843370d77c6fad74651a"
+    },
+    "217542F73318440C": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 32953711,
+      "bytes": 176689,
+      "sha256": "2b18a76d644de9345445423aa4bba2444606aa864cbc458ce488c56e80302820"
+    },
+    "52C6F7E8CAAC708D": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+      "offset": 33130400,
+      "bytes": 184833,
+      "sha256": "a3240f410249d392786c3ac1d0677abd0ce1d0412dbbbe950f3b3edc6dd043cc"
+    },
+    "F525956466A4F274": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+      "offset": 28934780,
+      "bytes": 353736,
+      "sha256": "4eaf978c0bffa5e3287d705923aff03c6922921c7ac79190004cc77410371983"
+    },
+    "E912AFABC075A1C5": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 3252990,
+      "bytes": 141604,
+      "sha256": "7c472cbbcf8eaf33f20996d74d554db18e0a6095b84ff202183aa80876273231"
+    },
+    "8C0EC31D561B9DDD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+      "offset": 3394594,
+      "bytes": 103777,
+      "sha256": "9a73afb16ca0cbf1f3201002d6063e986852ee797a8e8ac6aefd827b19d4cee6"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_death.anm",
+      "wadPathHash": "9845f509cfc4fbd9",
+      "sha256": "9fe0e014fda656fc49d4aee1d2aab4eddffa996d937eda168ff4c14344f7d8c3",
+      "bytes": 110474
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_hold.anm",
+      "wadPathHash": "6a333a985bd435b1",
+      "sha256": "fbd5b7237b04df4068a37daff0b6d7eaa0ea6d528af706f172812a3e7ef5dd55",
+      "bytes": 264
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle1.anm",
+      "wadPathHash": "3ea43c2133453cd9",
+      "sha256": "80017207b83f0c61fc919ff27797fca361aa25cd758959a36b4c7e0f0735c381",
+      "bytes": 858
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle2.anm",
+      "wadPathHash": "2683f07ed3cbe6a8",
+      "sha256": "460f57e8930de620b9ca07f477bbaef0abcfae78948de203222a39d04fdae940",
+      "bytes": 4746
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle_dead.anm",
+      "wadPathHash": "3e5d62d643bfbfbb",
+      "sha256": "384870c6455abd978752b184801e7d558c810f0f1df1cebcc9c816bec1746dcd",
+      "bytes": 17948
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_respawn.anm",
+      "wadPathHash": "54b2f834a958733a",
+      "sha256": "da75c45470428d55fc7bdf2fca65f6af2fa01d8f36e466d43a6e836bd89df43a",
+      "bytes": 150338
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_spawn.anm",
+      "wadPathHash": "e36ea0c7fd92f0fd",
+      "sha256": "537a15bcea95094a409f409ec0d9c4027d3f010daa2e5639c8a76e267e985e13",
+      "bytes": 1194
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor.skl",
+      "wadPathHash": "63ef09b839d68824",
+      "sha256": "4be38ae691592f849645aaf7a1be1e2add2a3ea548c0822b7de4b45264ca327f",
+      "bytes": 3160
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor.skn",
+      "wadPathHash": "e7ab87cb727b710c",
+      "sha256": "5db3a0124be2e0de8fea54c15795e384e57c38c652ac0e01c9716a36f2b0a082",
+      "bytes": 640976
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor_destroyed_cm.tex",
+      "wadPathHash": "bb17c882530feab8",
+      "sha256": "c740af07f44985922cbdccec387c2d6c541329f9d88425f60a22748aa44ba0e2",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor_tx_cm.tex",
+      "wadPathHash": "cb54ecf563f0bb1f",
+      "sha256": "d5b19fb3068d3e2d0b5deb56328cc0cf5e55bf59478ff646c01b04f9704d6fd4",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_death.anm",
+      "wadPathHash": "24e1c336036c6268",
+      "sha256": "5a6b1ba73fb15484d470a2db28a042b2ac6f36a41e35b349e73f364704d93adc",
+      "bytes": 95832
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_death.anm",
+      "wadPathHash": "4429117aeebf5576",
+      "sha256": "b7bbea809b97df6b6c7607353b29bc123216a10047d3b7c6f55ed8dafda4b5e7",
+      "bytes": 12804
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_hold.anm",
+      "wadPathHash": "1ed0ebd3c183f557",
+      "sha256": "bf5733f26735ff2a99349e22a03ae11255dcb8b183d2ce3fe9a53dd94517628d",
+      "bytes": 264
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal.anm",
+      "wadPathHash": "170568258774cd95",
+      "sha256": "4993baa9c0c90187084c4bfea3481004d988a1d380a002a3a52d1e6ae760de22",
+      "bytes": 4494
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal2.anm",
+      "wadPathHash": "fe3ed39d56770dc7",
+      "sha256": "8318607a552ab55214ddfed57da77d222f13e516ae63634f36c5e86019b67f4c",
+      "bytes": 4506
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal3.anm",
+      "wadPathHash": "e8be3b54135026e8",
+      "sha256": "f040f54f804b84cb6c5f0619ec4e60ca16ee9e2f11bea9bec63a9cbccbef66be",
+      "bytes": 4506
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_respawn.anm",
+      "wadPathHash": "0411678901e9e94f",
+      "sha256": "834dde29a98e5559109c7b02b4ca82602cfeaae6dba6fb1ee313c91c522a329e",
+      "bytes": 117420
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_spawn.anm",
+      "wadPathHash": "9a4b31043d6db509",
+      "sha256": "ca50a10350a4be3a16d29a6215eb8f78a265b8de47556aa90dc6e9fed4dec83c",
+      "bytes": 1104
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor.skl",
+      "wadPathHash": "5e74ea71d69ecc92",
+      "sha256": "9522ac5ef9b5ac5f9817f93e8ccaff66c6f90c7aed57f2be77c04cac4516ade3",
+      "bytes": 2620
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor.skn",
+      "wadPathHash": "829fb495347d3080",
+      "sha256": "cdcb1a7d0f743cf25ab7b9169999ea9584ba042e2db6dae4ff7fc809787108cb",
+      "bytes": 408966
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor_destroyed_tx_cm.tex",
+      "wadPathHash": "a2a653fdc97926f4",
+      "sha256": "3a528757be80ddbd13e54354db95175cc6fbe500d7e9a192f861f4885bb3ee2b",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor_tx_cm.tex",
+      "wadPathHash": "f231e999d8bbd6b8",
+      "sha256": "b62fb22034ee6a31784fa889b07c02f7efc042c866963f29338f5780fb69c7be",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/animations/nexus_death.anm",
+      "wadPathHash": "72c73c8465310e64",
+      "sha256": "7a87b03e62492d13eb20d885fb7fb53819fdf762ef1923edf8bc75d21bc3e6b7",
+      "bytes": 118286
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/animations/nexus_idle.anm",
+      "wadPathHash": "ff6c73918b312413",
+      "sha256": "b7aea56f6dc6fa2406d04f3b7bc0f0d72d28c98e5168c397e0e975a16bb220c1",
+      "bytes": 9096
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/animations/nexus_spawn.anm",
+      "wadPathHash": "224d06aaa1279081",
+      "sha256": "7ea58f57a1218077e7f89a0c9ecc6fe1b389db79bf7b5765ebfb91816dcb8e78",
+      "bytes": 4794
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/animations/nexus_spawn_hold.anm",
+      "wadPathHash": "71472d209d657a5d",
+      "sha256": "342943a3474339dc0f5e5bd9d1001d127265b938791f66a02a7d3038cd01880a",
+      "bytes": 294
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/nexus.skl",
+      "wadPathHash": "96c092c643e8b27d",
+      "sha256": "efe530b2a9ac91e017d175c960e0d51e5a51ba50027115ede9013a03dc958f14",
+      "bytes": 5676
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/nexus.skn",
+      "wadPathHash": "54f6daec09b9e93e",
+      "sha256": "901b62a26e38f0778f76375f95cbe00a27bac97877e6afc80bd63611c9e002a0",
+      "bytes": 1325148
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/nexus_destroyed_tx_cm.tex",
+      "wadPathHash": "065cfe6121809234",
+      "sha256": "ce7c20bcf0f46eb701f1ccdc25d9fd06eec42e37403c04411506ce3f9e4eede9",
+      "bytes": 699076
+    },
+    {
+      "path": "assets/characters/nexus/skins/base/nexus_tx_cm.tex",
+      "wadPathHash": "e50a00f866bca2a7",
+      "sha256": "e331cfa4ed71d073ab6f00973d95fd13c7d5a8d45599a649ce5d9ca7c5730d04",
+      "bytes": 699076
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_death.anm",
+      "wadPathHash": "85524794cec15e05",
+      "sha256": "82dfcda9ee84d00b690c7683800755ea2822901f2e0461990becadece9c0fa05",
+      "bytes": 96998
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idle.anm",
+      "wadPathHash": "0db99ca42d3d5e61",
+      "sha256": "2da8d7c24ed03da1e5478560fb1cb2eda50a99a81c3f0d9e668b8005b3570bd5",
+      "bytes": 8766
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idlein.anm",
+      "wadPathHash": "7cb451e846150b90",
+      "sha256": "64df2532611ddc1b46c95cc1b1a39949a9dad463ae62941e152e3b73a9b32dc1",
+      "bytes": 15326
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn.anm",
+      "wadPathHash": "9061b27df19a7694",
+      "sha256": "611bfe330a929ad3983dcef82a332b25a0c058e9cf45fc1d159035044d946c7e",
+      "bytes": 17780
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn_hold.anm",
+      "wadPathHash": "db3b6b18ab3d2eb7",
+      "sha256": "51883ce8540cdae1f01c127d22079434f61b54f22759ae65e941056235965f6f",
+      "bytes": 2840
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus.skl",
+      "wadPathHash": "cbcedc495c1b8b88",
+      "sha256": "8ef7af013c781e62bc9b7b7b481f5e87e0b0616daa76a4804895fb2ac79da588",
+      "bytes": 5644
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus.skn",
+      "wadPathHash": "cb0677b995832a83",
+      "sha256": "cfafb64b3a99e36091155053829fbb2286cd95da04ba2784f9ad58a34de92e3e",
+      "bytes": 1629040
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus_destroyed_tx_cm.tex",
+      "wadPathHash": "5dea0e3454f60343",
+      "sha256": "98cb4a7008bf1c7eb1317753c3ab2173a4660580bd6ca7ce7c36016a891d7ae6",
+      "bytes": 699076
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus_tx_cm.tex",
+      "wadPathHash": "fd958aad0b429d03",
+      "sha256": "cd72678492234cf60cd97a43235f47ded15f6f21527e3380b7e6971a8eb26724",
+      "bytes": 699076
+    }
+  ],
+  "definitionsSha256": "9aa5983740d41aac6f1686f82c6a170f8afc79dbc158fb6158e0d1b000ee854c"
+}

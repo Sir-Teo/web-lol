@@ -1,0 +1,1716 @@
+{
+  "blue-nexus": {
+    "skin": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/nexus/skins/skin0.bin.json",
+      "sha256": "5331d26ab90bdee95b9509aca240213086833c1f7214e423bfd965569fe87d5c",
+      "data": {
+        "Characters/Nexus/Skins/Skin0": {
+          "championSkinName": "Nexus_SR_Order_Blue",
+          "skinAnimationProperties": {
+            "animationGraphData": "Characters/Nexus/Animations/Skin0",
+            "__type": "SkinAnimationProperties"
+          },
+          "skinMeshProperties": {
+            "skeleton": "ASSETS/Characters/Nexus/Skins/Base/Nexus.skl",
+            "simpleSkin": "ASSETS/Characters/Nexus/Skins/Base/Nexus.skn",
+            "ReducedBoneSkinning": true,
+            "texture": "assets/characters/nexus/skins/base/nexus_tx_cm.tex",
+            "selfIllumination": 0.699999988079071,
+            "initialSubmeshToHide": "Destroyed",
+            "materialOverride": [
+              {
+                "texture": "assets/characters/nexus/skins/base/nexus_destroyed_tx_cm.tex",
+                "submesh": "Destroyed",
+                "__type": "SkinMeshDataProperties_MaterialOverride"
+              }
+            ],
+            "__type": "SkinMeshDataProperties"
+          },
+          "armorMaterial": "Stone",
+          "iconCircle": "assets/characters/nexus/hud/nexus_blue_circle.tex",
+          "iconSquare": "assets/characters/nexus/hud/nexus_blue_square.tex",
+          "healthBarData": {
+            "unitHealthBarStyle": 8,
+            "__type": "CharacterHealthBarDataRecord"
+          },
+          "mResourceResolver": "Characters/Nexus/Skins/Skin0/Resources",
+          "objectPath": "Characters/Nexus/Skins/Skin0",
+          "__type": "SkinCharacterDataProperties"
+        },
+        "__linked": [
+          "DATA/Characters/Nexus/Nexus_Multi_Skins_Skin0_Skins_Skin16_Skins_Skin17_Skins_Skin4_Skins_Skin5_Skins_Skin8.bin",
+          "DATA/Characters/Nexus/Nexus.bin",
+          "DATA/Characters/Nexus/Animations/Skin0.bin",
+          "DATA/Characters/Nexus/Nexus_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin12_Skins_Skin13_Skins_Skin16_Skins_Skin17_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin4_Skins_Skin42_Skins_Skin43_Skins_Skin5_Skins_Skin8.bin",
+          "DATA/Characters/Nexus/Nexus_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin12_Skins_Skin13_Skins_Skin16_Skins_Skin17_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin34_Skins_Skin35_Skins_Skin4_Skins_Skin42_Skins_Skin43_Skins_Skin5_Skins_Skin8.bin"
+        ]
+      }
+    },
+    "animation": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/nexus/animations/skin0.bin.json",
+      "sha256": "f7002a50cfc09e45b32e3629e16a58c3a9ea58918bf0cf2c6dcf0d0964ae1a8a",
+      "data": {
+        "Characters/Nexus/Animations/Skin0": {
+          "mCascadeBlendValue": 0.0,
+          "mClipDataMap": {
+            "Death": {
+              "mMaskDataName": "Destroyed",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "SubmeshSwap": {
+                  "mName": "SubmeshSwap",
+                  "mShowSubmeshList": [
+                    "Destroyed"
+                  ],
+                  "mHideSubmeshList": [
+                    "SRUAP_OrderNexus_Mat"
+                  ],
+                  "__type": "SubmeshVisibilityEventData"
+                },
+                "Audio_Death": {
+                  "mName": "Audio_Death",
+                  "mStartFrame": 1.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Nexus_Death_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp15": {
+                  "mName": "bone_cp15",
+                  "mStartFrame": 132.0,
+                  "mEffectName": "DATA/Particles/SRU_Order_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp15",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp12": {
+                  "mName": "bone_cp12",
+                  "mStartFrame": 138.0,
+                  "mEffectName": "DATA/Particles/SRU_Order_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp12",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp8": {
+                  "mName": "bone_cp8",
+                  "mStartFrame": 135.0,
+                  "mEffectName": "DATA/Particles/SRU_Order_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp8",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp10": {
+                  "mName": "bone_cp10",
+                  "mStartFrame": 147.0,
+                  "mEffectName": "DATA/Particles/SRU_Order_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp10",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp2": {
+                  "mName": "bone_cp2",
+                  "mStartFrame": 130.0,
+                  "mEndFrame": 160.0,
+                  "mEffectName": "DATA/Particles/SRU_Order_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp2",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "DeathVfx": {
+                  "mEffectKey": "Nexus_Explosion",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/base/animations/nexus_death.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle1_Base": {
+              "mFlags": 2,
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "IdleVfx": {
+                  "mEffectKey": "Nexus_Idle",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.10000000149011612,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/base/animations/nexus_idle.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "{dd94ffb9}": {
+              "mFlags": 8,
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Audio_Spawn": {
+                  "mName": "Audio_Spawn",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Nexus_Spawn_sound .troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "Audio_Idle": {
+                  "mName": "Audio_Idle",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Nexus_Idle1_sound .troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.0833333358168602,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/base/animations/nexus_spawn.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle1": {
+              "mFlags": 2,
+              "mClipNameList": [
+                "{1115b967}",
+                "{dd94ffb9}",
+                "Idle1_Base"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "{1115b967}": {
+              "mFlags": 8,
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mTickDuration": 2.5,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/base/animations/nexus_spawn_hold.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            }
+          },
+          "mMaskDataMap": {
+            "Destroyed": {
+              "mWeightList": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              "__type": "MaskData"
+            },
+            "Base": {
+              "mId": 1,
+              "mWeightList": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "__type": "MaskData"
+            }
+          },
+          "mTrackDataMap": {
+            "Default": {
+              "__type": "TrackData"
+            }
+          },
+          "mBlendDataTable": {
+            "1231093928362032461": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "7794375147286900454": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "7794375148645694797": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "7794375149189660601": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "11374364254877113350": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "11374364255402376525": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "13630352412461706982": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "13630352413820501325": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "13630352414364467129": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "15966667750784052966": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "15966667752142847309": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "15966667752686813113": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            }
+          },
+          "objectPath": "Characters/Nexus/Animations/Skin0",
+          "__type": "AnimationGraphData"
+        },
+        "__linked": []
+      }
+    }
+  },
+  "red-nexus": {
+    "skin": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/nexus/skins/skin3.bin.json",
+      "sha256": "b7fbc3c73b60855887dc89d1a14764e51f6c02abcde5cc9833c3684830d2981a",
+      "data": {
+        "Characters/Nexus/Skins/Skin3": {
+          "championSkinName": "Nexus_SR_Chaos_Red",
+          "skinAnimationProperties": {
+            "animationGraphData": "Characters/Nexus/Animations/Skin3",
+            "__type": "SkinAnimationProperties"
+          },
+          "skinMeshProperties": {
+            "skeleton": "ASSETS/Characters/Nexus/Skins/Skin03/SRUAP_ChaosNexus.skl",
+            "simpleSkin": "ASSETS/Characters/Nexus/Skins/Skin03/SRUAP_ChaosNexus.skn",
+            "ReducedBoneSkinning": true,
+            "texture": "assets/characters/nexus/skins/skin03/sruap_chaosnexus_tx_cm.tex",
+            "selfIllumination": 0.699999988079071,
+            "initialSubmeshToHide": "Destroyed",
+            "materialOverride": [
+              {
+                "texture": "assets/characters/nexus/skins/skin03/sruap_chaosnexus_destroyed_tx_cm.tex",
+                "submesh": "Destroyed",
+                "__type": "SkinMeshDataProperties_MaterialOverride"
+              }
+            ],
+            "__type": "SkinMeshDataProperties"
+          },
+          "armorMaterial": "Stone",
+          "idleParticlesEffects": [
+            {
+              "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+            }
+          ],
+          "iconCircle": "assets/characters/nexus/hud/nexus_red_circle.tex",
+          "iconSquare": "assets/characters/nexus/hud/nexus_red_square.tex",
+          "healthBarData": {
+            "unitHealthBarStyle": 8,
+            "__type": "CharacterHealthBarDataRecord"
+          },
+          "mResourceResolver": "Characters/Nexus/Skins/Skin3/Resources",
+          "objectPath": "Characters/Nexus/Skins/Skin3",
+          "__type": "SkinCharacterDataProperties"
+        },
+        "__linked": [
+          "DATA/Characters/Nexus/Animations/Skin3.bin",
+          "DATA/Characters/Nexus/Nexus.bin",
+          "DATA/Characters/Nexus/Nexus_Multi_Skins_Skin10_Skins_Skin11_Skins_Skin14_Skins_Skin15_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin3_Skins_Skin6_Skins_Skin7.bin",
+          "DATA/Characters/Nexus/Nexus_Multi_Skins_Skin10_Skins_Skin11_Skins_Skin18_Skins_Skin19_Skins_Skin3_Skins_Skin6_Skins_Skin7.bin"
+        ]
+      }
+    },
+    "animation": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/nexus/animations/skin3.bin.json",
+      "sha256": "e96a8b9c63c26b31a835721b3a6683834d0409522603277f6214433f3f11cd81",
+      "data": {
+        "Characters/Nexus/Animations/Skin3": {
+          "mCascadeBlendValue": 0.0,
+          "mClipDataMap": {
+            "Death": {
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Submesh": {
+                  "mName": "Submesh",
+                  "mShowSubmeshList": [
+                    "Destroyed"
+                  ],
+                  "mHideSubmeshList": [
+                    "SRUAP_ChaosNexus_Mat"
+                  ],
+                  "__type": "SubmeshVisibilityEventData"
+                },
+                "bone_cp10": {
+                  "mName": "bone_cp10",
+                  "mStartFrame": 148.0,
+                  "mEffectName": "DATA/Particles/SRU_Chaos_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp10",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp16": {
+                  "mName": "bone_cp16",
+                  "mStartFrame": 146.0,
+                  "mEffectName": "DATA/Particles/SRU_Chaos_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp16",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp8": {
+                  "mName": "bone_cp8",
+                  "mStartFrame": 143.0,
+                  "mEffectName": "DATA/Particles/SRU_Chaos_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp8",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp11": {
+                  "mName": "bone_cp11",
+                  "mStartFrame": 141.0,
+                  "mEffectName": "DATA/Particles/SRU_Chaos_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp11",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "bone_cp2": {
+                  "mName": "bone_cp2",
+                  "mStartFrame": 140.0,
+                  "mEffectName": "DATA/Particles/SRU_Chaos_nexus_swirlies.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "bone_cp2",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "Audio_Death": {
+                  "mName": "Audio_Death",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Nexus_Death_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                },
+                "DeathVfx": {
+                  "mEffectKey": "Nexus_Explosion",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_death.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle1_Base": {
+              "mFlags": 2,
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "{bd5d7a8f}": {
+                  "mName": "{bd5d7a8f}",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Nexus_Idle1_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "IdleVfx": {
+                  "mEffectKey": "Nexus_Idle",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.05000000074505806,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idle.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Spawn_Hold": {
+              "mFlags": 8,
+              "mTrackDataName": "Default",
+              "mTickDuration": 2.5,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn_hold.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Spawn": {
+              "mFlags": 8,
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Audio_Spawn": {
+                  "mName": "Audio_Spawn",
+                  "mStartFrame": 1.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Nexus_Spawn_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "{bd5d7a8f}": {
+                  "mName": "{bd5d7a8f}",
+                  "mStartFrame": 35.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Nexus_Idle1_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.10000000149011612,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle1": {
+              "mClipNameList": [
+                "Spawn_Hold",
+                "Spawn",
+                "IdleIn",
+                "Idle1_Base"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "IdleIn": {
+              "mTrackDataName": "Default",
+              "mTickDuration": 0.05000000074505806,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idlein.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            }
+          },
+          "mTrackDataMap": {
+            "Default": {
+              "__type": "TrackData"
+            }
+          },
+          "mBlendDataTable": {
+            "4188995919613676952": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "4188995920059483192": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "4188995920453119718": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "4188995922510738080": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6103719140766403992": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6103719141212210232": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6103719141605846758": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6103719143663465120": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "7794375146447457688": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "7794375146893263928": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "7794375147286900454": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "7794375149344518816": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "11374364254877113350": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "13630352411622264216": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "13630352412068070456": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "13630352412461706982": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "13630352414519325344": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16631778718886546840": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16631778719332353080": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16631778719725989606": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16631778721783607968": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            }
+          },
+          "objectPath": "Characters/Nexus/Animations/Skin3",
+          "__type": "AnimationGraphData"
+        },
+        "__linked": []
+      }
+    }
+  },
+  "blue-inhibitor": {
+    "skin": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/skins/skin0.bin.json",
+      "sha256": "eb4d6bfb0f8816edb0c4baa6a7cf72a08aa88ad109c2d1c5b158ee167038472d",
+      "data": {
+        "Characters/Inhibitor/Skins/Skin0": {
+          "championSkinName": "Inhibitor_SR_Order_Blue",
+          "skinAnimationProperties": {
+            "animationGraphData": "Characters/Inhibitor/Animations/Skin0",
+            "__type": "SkinAnimationProperties"
+          },
+          "skinMeshProperties": {
+            "skeleton": "ASSETS/Characters/Inhibitor/Skins/base/Inhibitor.skl",
+            "simpleSkin": "ASSETS/Characters/Inhibitor/Skins/base/Inhibitor.skn",
+            "ReducedBoneSkinning": true,
+            "texture": "assets/characters/inhibitor/skins/base/inhibitor_tx_cm.tex",
+            "selfIllumination": 0.699999988079071,
+            "initialSubmeshToHide": "Destroyed",
+            "materialOverride": [
+              {
+                "texture": "assets/characters/inhibitor/skins/base/inhibitor_destroyed_cm.tex",
+                "submesh": "Destroyed",
+                "__type": "SkinMeshDataProperties_MaterialOverride"
+              }
+            ],
+            "__type": "SkinMeshDataProperties"
+          },
+          "armorMaterial": "Stone",
+          "iconCircle": "assets/characters/inhibitor/hud/inhibitor_blue_circle.tex",
+          "iconSquare": "assets/characters/inhibitor/hud/inhibitor_blue_square.tex",
+          "healthBarData": {
+            "unitHealthBarStyle": 3,
+            "__type": "CharacterHealthBarDataRecord"
+          },
+          "mResourceResolver": "Characters/Inhibitor/Skins/Skin0/Resources",
+          "objectPath": "Characters/Inhibitor/Skins/Skin0",
+          "__type": "SkinCharacterDataProperties"
+        },
+        "Characters/Inhibitor/Skins/Skin0/Resources": {
+          "resourceMap": {
+            "SRUAP_Order_Inhibitor_Idle": "Characters/Inhibitor/Skins/Skin0/Particles/SRUAP_Order_Inhibitor_Idle",
+            "{60f06c00}": "Characters/Inhibitor/Skins/Skin0/Particles/SRU_Order_Inhibitor_Explosion"
+          },
+          "__type": "ResourceResolver"
+        },
+        "__linked": [
+          "DATA/Characters/Inhibitor/Animations/Skin0.bin",
+          "DATA/Characters/Inhibitor/Inhibitor.bin",
+          "DATA/Characters/Inhibitor/Inhibitor_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin12_Skins_Skin14_Skins_Skin15_Skins_Skin18_Skins_Skin19_Skins_Skin20_Skins_Skin21_Skins_Skin24_Skins_Skin25_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin40_Skins_Skin41_Skins_Skin8_Skins_Skin9.bin",
+          "DATA/Characters/Inhibitor/Inhibitor_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin12_Skins_Skin14_Skins_Skin15_Skins_Skin18_Skins_Skin19_Skins_Skin20_Skins_Skin21_Skins_Skin40_Skins_Skin41_Skins_Skin8_Skins_Skin9.bin"
+        ]
+      }
+    },
+    "animation": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/animations/skin0.bin.json",
+      "sha256": "704353c24cc435c2855f184fbe181049754417e53f1f63ce8c12213b82b41fac",
+      "data": {
+        "Characters/Inhibitor/Animations/Skin0": {
+          "mCascadeBlendValue": 0.0,
+          "mClipDataMap": {
+            "Idle_Normal1": {
+              "mFlags": 2,
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "{bd5d7a8f}": {
+                  "mName": "{bd5d7a8f}",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Idle1_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.3333333432674408,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle1.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Death_Base": {
+              "mFlags": 8,
+              "mMaskDataName": "Destroyed",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Submesh": {
+                  "mName": "Submesh",
+                  "mShowSubmeshList": [
+                    "Destroyed"
+                  ],
+                  "mHideSubmeshList": [
+                    "pally_inhib_texture"
+                  ],
+                  "__type": "SubmeshVisibilityEventData"
+                },
+                "Audio_Death": {
+                  "mName": "Audio_Death",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Death_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                },
+                "{8e6b3646}": {
+                  "mName": "{8e6b3646}",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Death_Idle_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "DeathVfx": {
+                  "mEffectKey": "{60f06c00}",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_death.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "{e4cb0f58}": {
+              "mFlags": 8,
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Activate": {
+                  "mName": "Activate",
+                  "mStartFrame": 31.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Activation_flash.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "tower",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "mIsDetachable": true,
+                  "__type": "ParticleEventData"
+                },
+                "Audio_Spawn": {
+                  "mName": "Audio_Spawn",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Spawn_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                },
+                "Audio_Idle": {
+                  "mName": "Audio_Idle",
+                  "mStartFrame": 35.0,
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.25,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_spawn.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Spawn": {
+              "mClipNameList": [
+                "{e4cb0f58}"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "Idle1": {
+              "mClipNameList": [
+                "Idle_Hold",
+                "{e4cb0f58}",
+                "Idle_Normal1"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "{c3247102}": {
+              "mFlags": 2,
+              "mMaskDataName": "Destroyed",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "{8b2bdb93}": {
+                  "mName": "{8b2bdb93}",
+                  "mStartFrame": -50.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Death_Idle_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.25,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle_dead.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Death": {
+              "mClipNameList": [
+                "Death_Base",
+                "{c3247102}"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "Respawn_Base": {
+              "mFlags": 4,
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Submesh": {
+                  "mName": "Submesh",
+                  "mStartFrame": 290.0,
+                  "mShowSubmeshList": [
+                    "pally_inhib_texture"
+                  ],
+                  "mHideSubmeshList": [
+                    "Destroyed"
+                  ],
+                  "__type": "SubmeshVisibilityEventData"
+                },
+                "audio_respawn": {
+                  "mName": "audio_respawn",
+                  "mStartFrame": 73.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Respawn_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "Audio_Spawn": {
+                  "mName": "Audio_Spawn",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Spawn_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                },
+                "{686f7e5b}": {
+                  "mName": "{686f7e5b}",
+                  "mEffectName": "DATA/Particles/SRUAP_Order_Inhibitor_Respawn.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "tower",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "mIsDetachable": true,
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_respawn.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle_Normal2": {
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mTickDuration": 0.3333333432674408,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle2.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle_Normal3": {
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mTickDuration": 0.3333333432674408,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle2.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle_Hold": {
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mTickDuration": 1.3333334922790527,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/base/animations/inhibitor_hold.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Respawn": {
+              "mClipNameList": [
+                "Respawn_Base",
+                "Idle_Normal1"
+              ],
+              "__type": "SequencerClipData"
+            }
+          },
+          "mMaskDataMap": {
+            "Base": {
+              "mWeightList": [
+                1.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "__type": "MaskData"
+            },
+            "Destroyed": {
+              "mId": 1,
+              "mWeightList": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "__type": "MaskData"
+            }
+          },
+          "mTrackDataMap": {
+            "Default": {
+              "__type": "TrackData"
+            }
+          },
+          "mBlendDataTable": {
+            "1509293449560356796": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "1509293449577134415": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "1509293449593912034": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "4188995922622193019": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6115460459080752507": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "11374364256212655483": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287732941682620": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287732958460239": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287732975237858": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287735535213947": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "17110474039167840514": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "17110474039877737851": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            }
+          },
+          "objectPath": "Characters/Inhibitor/Animations/Skin0",
+          "__type": "AnimationGraphData"
+        },
+        "__linked": []
+      }
+    }
+  },
+  "red-inhibitor": {
+    "skin": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/skins/skin3.bin.json",
+      "sha256": "a6ceff6b96df84b0a8291cc6542563421b9e2e5b37c878c3a810af57ff6f0725",
+      "data": {
+        "Characters/Inhibitor/Skins/Skin3": {
+          "championSkinName": "Inhibitor_SR_Chaos_Red",
+          "skinAnimationProperties": {
+            "animationGraphData": "Characters/Inhibitor/Animations/Skin2",
+            "__type": "SkinAnimationProperties"
+          },
+          "skinMeshProperties": {
+            "skeleton": "ASSETS/Characters/Inhibitor/Skins/Skin02/SRUAP_ChaosInhibitor.skl",
+            "simpleSkin": "ASSETS/Characters/Inhibitor/Skins/Skin02/SRUAP_ChaosInhibitor.skn",
+            "ReducedBoneSkinning": true,
+            "texture": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor_tx_cm.tex",
+            "selfIllumination": 0.699999988079071,
+            "initialSubmeshToHide": "Destroyed",
+            "materialOverride": [
+              {
+                "texture": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor_destroyed_tx_cm.tex",
+                "submesh": "Destroyed",
+                "__type": "SkinMeshDataProperties_MaterialOverride"
+              }
+            ],
+            "__type": "SkinMeshDataProperties"
+          },
+          "armorMaterial": "Stone",
+          "idleParticlesEffects": [
+            {
+              "effectKey": "SRUAP_Chaos_Inhibitor_idle",
+              "boneName": "Root",
+              "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+            }
+          ],
+          "iconCircle": "assets/characters/inhibitor/hud/inhibitor_red_circle.tex",
+          "iconSquare": "assets/characters/inhibitor/hud/inhibitor_red_square.tex",
+          "healthBarData": {
+            "unitHealthBarStyle": 3,
+            "__type": "CharacterHealthBarDataRecord"
+          },
+          "mResourceResolver": "Characters/Inhibitor/Skins/Skin3/Resources",
+          "objectPath": "Characters/Inhibitor/Skins/Skin3",
+          "__type": "SkinCharacterDataProperties"
+        },
+        "Characters/Inhibitor/Skins/Skin3/Resources": {
+          "resourceMap": {
+            "SRUAP_Chaos_Inhibitor_idle": "Characters/Inhibitor/Skins/Skin3/Particles/SRUAP_Chaos_Inhibitor_idle",
+            "SRUAP_Chaos_Inhibitor_Explosion": "Characters/Inhibitor/Skins/Skin3/Particles/SRUAP_Chaos_Inhibitor_Explosion"
+          },
+          "__type": "ResourceResolver"
+        },
+        "__linked": [
+          "DATA/Characters/Inhibitor/Inhibitor.bin",
+          "DATA/Characters/Inhibitor/Animations/Skin2.bin",
+          "DATA/Characters/Inhibitor/Inhibitor_Multi_Skins_Skin10_Skins_Skin11_Skins_Skin13_Skins_Skin16_Skins_Skin17_Skins_Skin2_Skins_Skin3_Skins_Skin6.bin",
+          "DATA/Characters/Inhibitor/Inhibitor_Multi_Skins_Skin10_Skins_Skin11_Skins_Skin13_Skins_Skin16_Skins_Skin17_Skins_Skin2_Skins_Skin25_Skins_Skin3_Skins_Skin6.bin"
+        ]
+      }
+    },
+    "animation": {
+      "url": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/animations/skin2.bin.json",
+      "sha256": "57a38f7a1ac6ee21b1902305fc68b6755c863f11fca04e15b30f4404e2069623",
+      "data": {
+        "Characters/Inhibitor/Animations/Skin2": {
+          "mCascadeBlendValue": 0.0,
+          "mClipDataMap": {
+            "Idle_Normal1": {
+              "mFlags": 2,
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Audio_Idle": {
+                  "mName": "Audio_Idle",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Idle1_soundy.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.3333333432674408,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Death_Base": {
+              "mFlags": 8,
+              "mMaskDataName": "Destroyed",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Submesh": {
+                  "mName": "Submesh",
+                  "mShowSubmeshList": [
+                    "Destroyed"
+                  ],
+                  "mHideSubmeshList": [
+                    "SRUAP_ChaosInhibitor_MAT"
+                  ],
+                  "__type": "SubmeshVisibilityEventData"
+                },
+                "Audio_Death": {
+                  "mName": "Audio_Death",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Death_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                },
+                "{8e6b3646}": {
+                  "mName": "{8e6b3646}",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Death_Idle_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "Particle": {
+                  "mEffectKey": "SRUAP_Chaos_Inhibitor_Explosion",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "Root",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                },
+                "DeathVfx": {
+                  "mEffectKey": "SRUAP_Chaos_Inhibitor_Explosion",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_death.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "{e4cb0f58}": {
+              "mFlags": 8,
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "Audio_Spawn": {
+                  "mName": "Audio_Spawn",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Spawn_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "Activate": {
+                  "mName": "Activate",
+                  "mStartFrame": 28.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Activation_flash.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "tower",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "mIsDetachable": true,
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mTickDuration": 0.25,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_spawn.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Spawn": {
+              "mClipNameList": [
+                "{e4cb0f58}"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "Idle1": {
+              "mClipNameList": [
+                "Idle_Hold",
+                "{e4cb0f58}",
+                "{78a49bc0}"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "{c3247102}": {
+              "mFlags": 2,
+              "mMaskDataName": "Destroyed",
+              "mTrackDataName": "Default",
+              "mTickDuration": 0.25,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_death.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Death": {
+              "mClipNameList": [
+                "Death_Base",
+                "{c3247102}"
+              ],
+              "__type": "SequencerClipData"
+            },
+            "Idle_Hold": {
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mTickDuration": 1.3333334922790527,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_hold.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Respawn_Base": {
+              "mFlags": 4,
+              "mTrackDataName": "Default",
+              "mEventDataMap": {
+                "audio_respawn": {
+                  "mName": "audio_respawn",
+                  "mStartFrame": 5.0,
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Respawn_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsKillEvent": false,
+                  "__type": "ParticleEventData"
+                },
+                "Submesh": {
+                  "mName": "Submesh",
+                  "mStartFrame": 295.0,
+                  "mShowSubmeshList": [
+                    "SRUAP_ChaosInhibitor_MAT"
+                  ],
+                  "mHideSubmeshList": [
+                    "Destroyed"
+                  ],
+                  "__type": "SubmeshVisibilityEventData"
+                },
+                "Vfx": {
+                  "mName": "Vfx",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Respawn.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "mBoneName": "Root",
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "mIsKillEvent": false,
+                  "mIsDetachable": true,
+                  "__type": "ParticleEventData"
+                },
+                "Audio_Spawn": {
+                  "mName": "Audio_Spawn",
+                  "mEffectName": "DATA/Particles/SRUAP_Chaos_Inhibitor_Spawn_sound.troy",
+                  "mParticleEventDataPairList": [
+                    {
+                      "__type": "ParticleEventDataPair"
+                    }
+                  ],
+                  "mIsLoop": false,
+                  "__type": "ParticleEventData"
+                }
+              },
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_respawn.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle_Normal2": {
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mTickDuration": 0.3333333432674408,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal2.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "Idle_Normal3": {
+              "mMaskDataName": "Base",
+              "mTrackDataName": "Default",
+              "mTickDuration": 0.3333333432674408,
+              "mAnimationResourceData": {
+                "mAnimationFilePath": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal3.anm",
+                "__type": "AnimationResourceData"
+              },
+              "__type": "AtomicClipData"
+            },
+            "{78a49bc0}": {
+              "mFlags": 2,
+              "mSelectorPairDataList": [
+                {
+                  "mClipName": "Idle_Normal1",
+                  "mProbability": 60.0,
+                  "__type": "SelectorPairData"
+                },
+                {
+                  "mClipName": "Idle_Normal2",
+                  "mProbability": 20.0,
+                  "__type": "SelectorPairData"
+                },
+                {
+                  "mClipName": "Idle_Normal3",
+                  "mProbability": 20.0,
+                  "__type": "SelectorPairData"
+                }
+              ],
+              "__type": "SelectorClipData"
+            },
+            "Respawn": {
+              "mClipNameList": [
+                "Respawn_Base",
+                "Idle_Normal1"
+              ],
+              "__type": "SequencerClipData"
+            }
+          },
+          "mMaskDataMap": {
+            "Base": {
+              "mWeightList": [
+                1.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "__type": "MaskData"
+            },
+            "Destroyed": {
+              "mId": 1,
+              "mWeightList": [
+                0.0,
+                0.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "__type": "MaskData"
+            }
+          },
+          "mTrackDataMap": {
+            "Default": {
+              "__type": "TrackData"
+            }
+          },
+          "mBlendDataTable": {
+            "1509293449560356796": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "1509293449577134415": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "1509293449593912034": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "4188995922622193019": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "5971341806667724732": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "5971341806684502351": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "5971341806701279970": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6043401131577472956": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6043401131594250575": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6043401131611028194": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6115460456487221180": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6115460456503998799": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6115460456520776418": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "6115460459080752507": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "11374364256212655483": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287732941682620": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287732958460239": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287732975237858": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "16486287735535213947": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            },
+            "17110474039877737851": {
+              "mTime": 0.0,
+              "__type": "TimeBlendData"
+            }
+          },
+          "objectPath": "Characters/Inhibitor/Animations/Skin2",
+          "__type": "AnimationGraphData"
+        },
+        "__linked": []
+      }
+    }
+  }
+}

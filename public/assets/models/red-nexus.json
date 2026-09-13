@@ -1,0 +1,111 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching source model, scale, parts and clips. Particle effects and full graph sequencing remain incomplete.",
+  "output": {
+    "path": "/assets/models/red-nexus.glb",
+    "bytes": 2650392,
+    "sha256": "d49216fd563b18e1a6cf3f7752416b2d4cd45ef45f1b38955971b52326341e08"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_death.anm",
+      "wadPathHash": "85524794cec15e05",
+      "sha256": "82dfcda9ee84d00b690c7683800755ea2822901f2e0461990becadece9c0fa05",
+      "bytes": 96998
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idle.anm",
+      "wadPathHash": "0db99ca42d3d5e61",
+      "sha256": "2da8d7c24ed03da1e5478560fb1cb2eda50a99a81c3f0d9e668b8005b3570bd5",
+      "bytes": 8766
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idlein.anm",
+      "wadPathHash": "7cb451e846150b90",
+      "sha256": "64df2532611ddc1b46c95cc1b1a39949a9dad463ae62941e152e3b73a9b32dc1",
+      "bytes": 15326
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn.anm",
+      "wadPathHash": "9061b27df19a7694",
+      "sha256": "611bfe330a929ad3983dcef82a332b25a0c058e9cf45fc1d159035044d946c7e",
+      "bytes": 17780
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn_hold.anm",
+      "wadPathHash": "db3b6b18ab3d2eb7",
+      "sha256": "51883ce8540cdae1f01c127d22079434f61b54f22759ae65e941056235965f6f",
+      "bytes": 2840
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus.skl",
+      "wadPathHash": "cbcedc495c1b8b88",
+      "sha256": "8ef7af013c781e62bc9b7b7b481f5e87e0b0616daa76a4804895fb2ac79da588",
+      "bytes": 5644
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus.skn",
+      "wadPathHash": "cb0677b995832a83",
+      "sha256": "cfafb64b3a99e36091155053829fbb2286cd95da04ba2784f9ad58a34de92e3e",
+      "bytes": 1629040
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus_destroyed_tx_cm.tex",
+      "wadPathHash": "5dea0e3454f60343",
+      "sha256": "98cb4a7008bf1c7eb1317753c3ab2173a4660580bd6ca7ce7c36016a891d7ae6",
+      "bytes": 699076
+    },
+    {
+      "path": "assets/characters/nexus/skins/skin03/sruap_chaosnexus_tx_cm.tex",
+      "wadPathHash": "fd958aad0b429d03",
+      "sha256": "cd72678492234cf60cd97a43235f47ded15f6f21527e3380b7e6971a8eb26724",
+      "bytes": 699076
+    }
+  ],
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/nexus/skins/skin3.bin.json",
+    "animation": "https://raw.communitydragon.org/16.18/game/data/characters/nexus/animations/skin3.bin.json"
+  },
+  "skinScale": 1,
+  "clips": [
+    {
+      "name": "sruap_chaosnexus_idlein",
+      "source": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idlein.anm"
+    },
+    {
+      "name": "sruap_chaosnexus_death",
+      "source": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_death.anm"
+    },
+    {
+      "name": "sruap_chaosnexus_spawn_hold",
+      "source": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn_hold.anm"
+    },
+    {
+      "name": "sruap_chaosnexus_spawn",
+      "source": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_spawn.anm"
+    },
+    {
+      "name": "idle1",
+      "source": "assets/characters/nexus/skins/skin03/animations/sruap_chaosnexus_idle.anm"
+    }
+  ],
+  "submeshes": [
+    {
+      "name": "SRUAP_ChaosNexus_Mat",
+      "initiallyHidden": false,
+      "triangles": 4780
+    },
+    {
+      "name": "Destroyed",
+      "initiallyHidden": true,
+      "triangles": 8870
+    }
+  ],
+  "triangles": 13650,
+  "bones": 46
+}

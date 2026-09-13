@@ -1,0 +1,141 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching source model, scale, parts and clips. Particle effects and full graph sequencing remain incomplete.",
+  "output": {
+    "path": "/assets/models/red-inhibitor.glb",
+    "bytes": 912440,
+    "sha256": "9eef6c5e808f0c948ee7e794800d123ffa884f0a0d244917cfe96c2758ea0373"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_death.anm",
+      "wadPathHash": "24e1c336036c6268",
+      "sha256": "5a6b1ba73fb15484d470a2db28a042b2ac6f36a41e35b349e73f364704d93adc",
+      "bytes": 95832
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_death.anm",
+      "wadPathHash": "4429117aeebf5576",
+      "sha256": "b7bbea809b97df6b6c7607353b29bc123216a10047d3b7c6f55ed8dafda4b5e7",
+      "bytes": 12804
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_hold.anm",
+      "wadPathHash": "1ed0ebd3c183f557",
+      "sha256": "bf5733f26735ff2a99349e22a03ae11255dcb8b183d2ce3fe9a53dd94517628d",
+      "bytes": 264
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal.anm",
+      "wadPathHash": "170568258774cd95",
+      "sha256": "4993baa9c0c90187084c4bfea3481004d988a1d380a002a3a52d1e6ae760de22",
+      "bytes": 4494
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal2.anm",
+      "wadPathHash": "fe3ed39d56770dc7",
+      "sha256": "8318607a552ab55214ddfed57da77d222f13e516ae63634f36c5e86019b67f4c",
+      "bytes": 4506
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal3.anm",
+      "wadPathHash": "e8be3b54135026e8",
+      "sha256": "f040f54f804b84cb6c5f0619ec4e60ca16ee9e2f11bea9bec63a9cbccbef66be",
+      "bytes": 4506
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_respawn.anm",
+      "wadPathHash": "0411678901e9e94f",
+      "sha256": "834dde29a98e5559109c7b02b4ca82602cfeaae6dba6fb1ee313c91c522a329e",
+      "bytes": 117420
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_spawn.anm",
+      "wadPathHash": "9a4b31043d6db509",
+      "sha256": "ca50a10350a4be3a16d29a6215eb8f78a265b8de47556aa90dc6e9fed4dec83c",
+      "bytes": 1104
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor.skl",
+      "wadPathHash": "5e74ea71d69ecc92",
+      "sha256": "9522ac5ef9b5ac5f9817f93e8ccaff66c6f90c7aed57f2be77c04cac4516ade3",
+      "bytes": 2620
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor.skn",
+      "wadPathHash": "829fb495347d3080",
+      "sha256": "cdcb1a7d0f743cf25ab7b9169999ea9584ba042e2db6dae4ff7fc809787108cb",
+      "bytes": 408966
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor_destroyed_tx_cm.tex",
+      "wadPathHash": "a2a653fdc97926f4",
+      "sha256": "3a528757be80ddbd13e54354db95175cc6fbe500d7e9a192f861f4885bb3ee2b",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/skin02/sruap_chaosinhibitor_tx_cm.tex",
+      "wadPathHash": "f231e999d8bbd6b8",
+      "sha256": "b62fb22034ee6a31784fa889b07c02f7efc042c866963f29338f5780fb69c7be",
+      "bytes": 174788
+    }
+  ],
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/skins/skin3.bin.json",
+    "animation": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/animations/skin2.bin.json"
+  },
+  "skinScale": 1,
+  "clips": [
+    {
+      "name": "sruap_chaosinhibitor_idle_death",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_death.anm"
+    },
+    {
+      "name": "idle1",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal.anm"
+    },
+    {
+      "name": "sruap_chaosinhibitor_idle_hold",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_hold.anm"
+    },
+    {
+      "name": "sruap_chaosinhibitor_death",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_death.anm"
+    },
+    {
+      "name": "sruap_chaosinhibitor_spawn",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_spawn.anm"
+    },
+    {
+      "name": "sruap_chaosinhibitor_respawn",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_respawn.anm"
+    },
+    {
+      "name": "sruap_chaosinhibitor_idle_normal3",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal3.anm"
+    },
+    {
+      "name": "sruap_chaosinhibitor_idle_normal2",
+      "source": "assets/characters/inhibitor/skins/skin02/animations/sruap_chaosinhibitor_idle_normal2.anm"
+    }
+  ],
+  "submeshes": [
+    {
+      "name": "SRUAP_ChaosInhibitor_MAT",
+      "initiallyHidden": false,
+      "triangles": 1484
+    },
+    {
+      "name": "Destroyed",
+      "initiallyHidden": true,
+      "triangles": 1905
+    }
+  ],
+  "triangles": 3389,
+  "bones": 20
+}

@@ -1,0 +1,131 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Matching source model, scale, parts and clips. Particle effects and full graph sequencing remain incomplete.",
+  "output": {
+    "path": "/assets/models/blue-inhibitor.glb",
+    "bytes": 1170516,
+    "sha256": "5fb43a919fa3d98548dc62c6234629bb4f56ede60b182429976283160ef4c95b"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_death.anm",
+      "wadPathHash": "9845f509cfc4fbd9",
+      "sha256": "9fe0e014fda656fc49d4aee1d2aab4eddffa996d937eda168ff4c14344f7d8c3",
+      "bytes": 110474
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_hold.anm",
+      "wadPathHash": "6a333a985bd435b1",
+      "sha256": "fbd5b7237b04df4068a37daff0b6d7eaa0ea6d528af706f172812a3e7ef5dd55",
+      "bytes": 264
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle1.anm",
+      "wadPathHash": "3ea43c2133453cd9",
+      "sha256": "80017207b83f0c61fc919ff27797fca361aa25cd758959a36b4c7e0f0735c381",
+      "bytes": 858
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle2.anm",
+      "wadPathHash": "2683f07ed3cbe6a8",
+      "sha256": "460f57e8930de620b9ca07f477bbaef0abcfae78948de203222a39d04fdae940",
+      "bytes": 4746
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle_dead.anm",
+      "wadPathHash": "3e5d62d643bfbfbb",
+      "sha256": "384870c6455abd978752b184801e7d558c810f0f1df1cebcc9c816bec1746dcd",
+      "bytes": 17948
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_respawn.anm",
+      "wadPathHash": "54b2f834a958733a",
+      "sha256": "da75c45470428d55fc7bdf2fca65f6af2fa01d8f36e466d43a6e836bd89df43a",
+      "bytes": 150338
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/animations/inhibitor_spawn.anm",
+      "wadPathHash": "e36ea0c7fd92f0fd",
+      "sha256": "537a15bcea95094a409f409ec0d9c4027d3f010daa2e5639c8a76e267e985e13",
+      "bytes": 1194
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor.skl",
+      "wadPathHash": "63ef09b839d68824",
+      "sha256": "4be38ae691592f849645aaf7a1be1e2add2a3ea548c0822b7de4b45264ca327f",
+      "bytes": 3160
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor.skn",
+      "wadPathHash": "e7ab87cb727b710c",
+      "sha256": "5db3a0124be2e0de8fea54c15795e384e57c38c652ac0e01c9716a36f2b0a082",
+      "bytes": 640976
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor_destroyed_cm.tex",
+      "wadPathHash": "bb17c882530feab8",
+      "sha256": "c740af07f44985922cbdccec387c2d6c541329f9d88425f60a22748aa44ba0e2",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/inhibitor/skins/base/inhibitor_tx_cm.tex",
+      "wadPathHash": "cb54ecf563f0bb1f",
+      "sha256": "d5b19fb3068d3e2d0b5deb56328cc0cf5e55bf59478ff646c01b04f9704d6fd4",
+      "bytes": 174788
+    }
+  ],
+  "definitionSources": {
+    "skin": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/skins/skin0.bin.json",
+    "animation": "https://raw.communitydragon.org/16.18/game/data/characters/inhibitor/animations/skin0.bin.json"
+  },
+  "skinScale": 1,
+  "clips": [
+    {
+      "name": "inhibitor_spawn",
+      "source": "assets/characters/inhibitor/skins/base/animations/inhibitor_spawn.anm"
+    },
+    {
+      "name": "inhibitor_death",
+      "source": "assets/characters/inhibitor/skins/base/animations/inhibitor_death.anm"
+    },
+    {
+      "name": "inhibitor_idle_dead",
+      "source": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle_dead.anm"
+    },
+    {
+      "name": "inhibitor_respawn",
+      "source": "assets/characters/inhibitor/skins/base/animations/inhibitor_respawn.anm"
+    },
+    {
+      "name": "inhibitor_hold",
+      "source": "assets/characters/inhibitor/skins/base/animations/inhibitor_hold.anm"
+    },
+    {
+      "name": "idle1",
+      "source": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle1.anm"
+    },
+    {
+      "name": "inhibitor_idle2",
+      "source": "assets/characters/inhibitor/skins/base/animations/inhibitor_idle2.anm"
+    }
+  ],
+  "submeshes": [
+    {
+      "name": "pally_inhib_texture",
+      "initiallyHidden": false,
+      "triangles": 2225
+    },
+    {
+      "name": "Destroyed",
+      "initiallyHidden": true,
+      "triangles": 3181
+    }
+  ],
+  "triangles": 5406,
+  "bones": 25
+}
