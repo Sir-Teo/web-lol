@@ -112,13 +112,16 @@ test('graphics loss during asset loading recovers after assets arrive', async ({
   const gate = new Promise<void>((resolve) => {
     release = resolve;
   });
-  await page.route('**/assets/models/ashe-reference.glb', async (route) => {
+  let intercepted = false;
+  await page.route('**/assets/models/ashe-base.glb', async (route) => {
+    intercepted = true;
     await gate;
     await route.continue();
   });
   try {
     await page.goto('/?scene=fixture');
     await page.locator('#battlefield').waitFor();
+    await expect.poll(() => intercepted).toBe(true);
     await page.evaluate(() => {
       const canvas = document.querySelector('#battlefield') as HTMLCanvasElement;
       const extension = canvas.getContext('webgl2')!.getExtension('WEBGL_lose_context')!;

@@ -25,7 +25,7 @@ interface ReferenceModel {
 }
 const references = new Map<string, ReferenceModel>();
 const referenceNames = [
-  'ashe-reference',
+  'ashe-base',
   'blue-melee',
   'red-melee',
   'blue-caster',
@@ -92,7 +92,7 @@ export function makeModel(u: Unit): UnitModel {
     u.kind === 'super' ||
     isStructureKind(u.kind)
   ) {
-    const key = u.kind === 'champion' ? 'ashe-reference' : `${u.team}-${u.kind}`;
+    const key = u.kind === 'champion' ? 'ashe-base' : `${u.team}-${u.kind}`;
     const reference = references.get(key);
     if (!reference) throw new Error(`Model not loaded: ${key}`);
     const root = new THREE.Group(),

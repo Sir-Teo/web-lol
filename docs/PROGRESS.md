@@ -542,3 +542,14 @@ Integrated the source WindTunnel as a single instanced draw with deterministic e
 All 225 simulation/source-state checks, 11 focused Chrome cases, asset validation, static build and production smoke pass. Coverage includes bounded deterministic sampling, arrival/expiry, saved trajectory validation, frozen instance transforms, restored tail state, graphics-loss pixel equality, and a GPU readback of the linear-green erosion ramp. Wind assets, manifest and generated parameters rebuild byte-identically. Flight/tail screenshots were inspected on an open lane. The full Chrome suite was not repeated.
 
 The wind remains subtle and reference visual calibration is still needed. Exact RNG, emission phase, drag integration, placement/height and shutdown semantics are explicitly attributed or local policies in ASHE-E.md; passing tests prove our reconstruction is consistent, not complete League parity. Remaining Hawkshot layers, champion/match systems and pixel fidelity remain unfinished; the production goal remains active.
+
+
+## Pinned base Ashe milestone
+
+Replaced the archived champion GLB with the base skin mesh, rig, texture and complete atomic clip set from the pinned 16.18 Ashe archive. The reproducible extractor verifies 27 files, both binary definition records and all 25 atomic mappings. The new GLB is 3,953,864 bytes, with 7,406 triangles, 85 bones and 25 clips. Source skin scale 1.1 is now applied consistently; zero-weight joint slots are canonicalized without changing contributing weights. The retired runtime asset is removed and its provenance retained under docs/reference.
+
+The comparison establishes identical topology counts and texture dimensions, differing decoded texture bytes, a scale/X-reflection difference between converters, and a source attack duration of 2.100000 seconds versus the archive's 2.133333 seconds. These findings do not independently establish reference-pixel orientation or lighting parity. Existing animation state selection remains in use; graph transitions, events, Recall sequencing and gait selection are unfinished.
+
+All 225 simulation checks, all 85 Chrome scenarios, asset validation, production build and production smoke pass. The loading-recovery test now intercepts the new asset name and explicitly proves its request was blocked; that corrected case also passed separately. All 17 model GLBs and the map validate without errors or warnings. GLB and manifest regeneration are byte-identical. Practice and production Rift screenshots were inspected. The earlier page-creation timeout did not recur in the completed suite.
+
+This replaces the archived source dependency; full champion/match systems, remaining effects, lighting/capture calibration and performance targets remain outstanding. The production goal remains active. See [the Ashe asset pipeline](ASSETS.md#pinned-base-ashe).

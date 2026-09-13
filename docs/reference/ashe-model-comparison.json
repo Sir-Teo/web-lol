@@ -1,0 +1,29 @@
+{
+  "archivedManifest": "docs/reference/ashe-archival-model.json",
+  "currentManifest": "public/assets/models/ashe-base.json",
+  "counts": {
+    "vertices": 4902,
+    "triangles": 7406,
+    "bones": 85,
+    "textureDimensions": [
+      512,
+      512
+    ]
+  },
+  "scale": {
+    "archived": 0.01,
+    "current": 0.01100000023841858
+  },
+  "coordinateComparison": "Corresponding vertex X coordinates match after reflection and scale normalization; Y/Z match without reflection. Maximum mean absolute residual is under 0.000004 source units. This identifies conversion differences, not independent reference-pixel calibration.",
+  "decodedTextureRgbaSha256": {
+    "archived": "913d8bcead0b66410d3a35e81bf933d0b71978420f8fdf35b0eb0d195b009747",
+    "current": "91980b5fba8a20f18a0f430cd103c9b59b85ba6afe64567f074fe2357adcba6a"
+  },
+  "clipDurationsSeconds": {
+    "archivedAttack1": 2.133333444595337,
+    "currentAttack1": 2.1000001430511475,
+    "archivedRun": 7.166666507720947,
+    "currentRun": 7.1666669845581055
+  },
+  "scope": "Current graph Run selects ashe_run_walk; Run2 and Run3 remain available for future gait selection. Contextual transitions, events and lighting calibration are not implemented."
+}

@@ -1,0 +1,337 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/ashe-base.glb",
+    "bytes": 3953864,
+    "sha256": "e45069db38b628d9113faa284bce54a5b1ddb7170e2b5029ad5994e1e81a46d5"
+  },
+  "definitionsSha256": "9187409b8d7a56c3b4bcc6748b48905f268ec9f097d4312ab6e5478fb7dd0781",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Champions/Ashe.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_attack1.anm",
+      "wadPathHash": "eb9811757c283d78",
+      "sha256": "6f76b23ef6be5a52f1846700e25fb1ada4dace0115917819581ad5dc6b609609",
+      "bytes": 29278
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_attack2.anm",
+      "wadPathHash": "fac5aa7a7423d18b",
+      "sha256": "1ff385cc44581cc593690a28896d168cf5d019dd4a86b758989f48618c6588cc",
+      "bytes": 27148
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_channel.anm",
+      "wadPathHash": "55d980d59a49d93e",
+      "sha256": "8a5580b86d9325422d16f7e67c70d0a9c0de6704093a1bf0a677f7691941df03",
+      "bytes": 22718
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_channel_windup.anm",
+      "wadPathHash": "13b2294fee39709b",
+      "sha256": "53b94cf50954109321af9defab49534ca0ee014781f0fd3fed3601a87c864d09",
+      "bytes": 20578
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+      "wadPathHash": "cdb6247d43b7aaa0",
+      "sha256": "3f4a4d0773c9863cee7873755aa233af3aab156514cff07f9ec73a7d18f71bec",
+      "bytes": 27358
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_dance1.anm",
+      "wadPathHash": "125db181b2e4822b",
+      "sha256": "4a7c2de828b3bf843e8c7661169319229a078a5e614dc911f6f965ced9b78e01",
+      "bytes": 55218
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_death.anm",
+      "wadPathHash": "9b6efc4ca4b610da",
+      "sha256": "ae50134c3e3c07e9df513b3872ad07765e869b72ad0f29e2ea34a7b04826ec77",
+      "bytes": 45448
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_idle1.anm",
+      "wadPathHash": "9f7b37f2828b219e",
+      "sha256": "de7f3ebc6444d005b4553a6f234c48386d572c89f53909f5832a4c273b38c87a",
+      "bytes": 24628
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_idle2.anm",
+      "wadPathHash": "5982429164d44ff9",
+      "sha256": "6ed7f88035126c1b409ba42130d4aa4304d528f0c9682239a3904ec1fcf9e980",
+      "bytes": 27628
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_idle3.anm",
+      "wadPathHash": "0fee1976dd85047f",
+      "sha256": "126319c1ce58ea7892cc766ebdb068c9b04ffc03ff87677929567822c75e63ba",
+      "bytes": 30598
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_idle4.anm",
+      "wadPathHash": "38f9792a159a0fc8",
+      "sha256": "61a3e3f91516c3ae7f5abaa0be3090fdf833057e402efe0821c7c585661cb339",
+      "bytes": 32448
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_idle5.anm",
+      "wadPathHash": "6cec82812e4a9e9c",
+      "sha256": "e9b63787bd3f7ee14e3c2cdccc513df4bdc397e499b522aef179c4a1e2dc3049",
+      "bytes": 35698
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_joke.anm",
+      "wadPathHash": "1f7477ca115e50d8",
+      "sha256": "a1db2a60fb8e2213e7e47e7108a18f60eb005fe5ad62a96ef6d44d1ad802a995",
+      "bytes": 69678
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_laugh.anm",
+      "wadPathHash": "15815db562f26f6f",
+      "sha256": "bd048566e93901d5924d7affcf15fa711e692bdbadff725277090eb4e547749d",
+      "bytes": 22788
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_run.anm",
+      "wadPathHash": "ffc4fcb5cf7176fe",
+      "sha256": "960fd5af69fd4f005e31d3a1a0e4ff0b3e314e3c66d631a815a35a1a574377f7",
+      "bytes": 84848
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_run_jog.anm",
+      "wadPathHash": "8666be58ebde590c",
+      "sha256": "a4cc37025f13e2c0de0317253499a13493423dd7e591967d53586753dafe33f3",
+      "bytes": 82778
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_run_walk.anm",
+      "wadPathHash": "af5967d909fb0f14",
+      "sha256": "25c5416aeedf6b09dcffa91e0f65285a56b434dd05ae5affcedd3b4f605e0ee9",
+      "bytes": 59158
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_spell1.anm",
+      "wadPathHash": "a4b2a4a06ea5a113",
+      "sha256": "a5cadd972883ba21fbed0864247bd5e24d2eeb6ca0698ce0c96ef5bf6ddba662",
+      "bytes": 21698
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_spell1_in.anm",
+      "wadPathHash": "2d2d3882d52ddcac",
+      "sha256": "ef90c4389a0e13bf5e0a2ba4d263a1b57832328dfde5eb5b3d720b3b89fe00bc",
+      "bytes": 12122
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_spell2.anm",
+      "wadPathHash": "d0bde34427146703",
+      "sha256": "52e4f36896204c4fdebeea2dd08edd8465594eac046bcf3ce3d9c5934891a4c6",
+      "bytes": 23308
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_spell3.anm",
+      "wadPathHash": "fc006ceca1d7bc14",
+      "sha256": "099b3a55ed910a48d59a54ca7364bfa584cd53877c4bf868c281768677f8d739",
+      "bytes": 21668
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+      "wadPathHash": "84660137689188a9",
+      "sha256": "03b3ec5bdeaf7484a8a889370337a19148e2f45c7165160881362ce72ae44011",
+      "bytes": 39688
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/ashe.skl",
+      "wadPathHash": "b939f05f4d701050",
+      "sha256": "ad2412be9d55523aa64caa94046563f4600e3ecc72870df0446fb97d3faec6a2",
+      "bytes": 10800
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/ashe.skn",
+      "wadPathHash": "38513989304b828c",
+      "sha256": "efb66404c5b8893838d336f361f5a57a6c836a58163b421ec2b01cbb03f9634a",
+      "bytes": 299452
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/ashe_base_2011_tx_cm.tex",
+      "wadPathHash": "cf8bca429fd44bce",
+      "sha256": "8ff17727c4ec3c3984ed6abf5ac11339bf3fb53248af926af20aa4fce6ae135f",
+      "bytes": 174788
+    },
+    {
+      "path": "data/characters/ashe/animations/skin0.bin",
+      "wadPathHash": "6bc2c6cfc2786140",
+      "sha256": "94325c3f55c23fa8d8a8eda99da0c29f9d1fc9cb51c4b11fc92285799446d01b",
+      "bytes": 3895
+    },
+    {
+      "path": "data/characters/ashe/skins/skin0.bin",
+      "wadPathHash": "7fd757f76e818e8a",
+      "sha256": "1e01fac53c783130e0ea86a48793f5c71c78e9ee8291b97d9dd7766293a4d245",
+      "bytes": 7029
+    }
+  ],
+  "unitScale": 0.01100000023841858,
+  "canonicalizedJointSlots": 11171,
+  "skinScale": 1.100000023841858,
+  "materialPolicy": "Source texture with unlit shading; source selfIllumination lighting calibration remains unfinished.",
+  "clips": [
+    {
+      "name": "attack1",
+      "state": "Attack1",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_attack1.anm",
+      "durationSeconds": 2.1000001430511475
+    },
+    {
+      "name": "crit",
+      "state": "Crit",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+      "durationSeconds": 2.1000001430511475
+    },
+    {
+      "name": "death",
+      "state": "Death",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_death.anm",
+      "durationSeconds": 1.9000000953674316
+    },
+    {
+      "name": "idle1",
+      "state": "Idle1",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_idle1.anm",
+      "durationSeconds": 9.300000190734863
+    },
+    {
+      "name": "idle2",
+      "state": "Idle2",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_idle2.anm",
+      "durationSeconds": 6.566667079925537
+    },
+    {
+      "name": "idle3",
+      "state": "Idle3",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_idle3.anm",
+      "durationSeconds": 3.9666669368743896
+    },
+    {
+      "name": "idle4",
+      "state": "Idle4",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_idle4.anm",
+      "durationSeconds": 6.366666793823242
+    },
+    {
+      "name": "idle5",
+      "state": "Idle5",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_idle5.anm",
+      "durationSeconds": 5.966667175292969
+    },
+    {
+      "name": "laugh",
+      "state": "Laugh",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_laugh.anm",
+      "durationSeconds": 3.133333444595337
+    },
+    {
+      "name": "run",
+      "state": "Run",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_run_walk.anm",
+      "durationSeconds": 7.1666669845581055
+    },
+    {
+      "name": "run2",
+      "state": "Run2",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_run_jog.anm",
+      "durationSeconds": 8.966667175292969
+    },
+    {
+      "name": "run3",
+      "state": "Run3",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_run.anm",
+      "durationSeconds": 8.966667175292969
+    },
+    {
+      "name": "spell1",
+      "state": "Spell1",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_spell1.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "spell4",
+      "state": "Spell4",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+      "durationSeconds": 2.1000001430511475
+    },
+    {
+      "name": "taunt",
+      "state": "Taunt",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+      "durationSeconds": 4.366666793823242
+    },
+    {
+      "name": "channel",
+      "state": "Channel",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_channel.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "channel_wndup",
+      "state": "Channel_Wndup",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_channel_windup.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "dance",
+      "state": "Dance",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_dance1.anm",
+      "durationSeconds": 6.766666889190674
+    },
+    {
+      "name": "joke",
+      "state": "Joke",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_joke.anm",
+      "durationSeconds": 8.90000057220459
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_attack2.anm",
+      "durationSeconds": 2.1000001430511475
+    },
+    {
+      "name": "spell3",
+      "state": "Spell3",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_spell3.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "spell2",
+      "state": "Spell2",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_spell2.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_9416c333",
+      "state": "{9416c333}",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+      "durationSeconds": 4.366666793823242
+    },
+    {
+      "name": "entry_5c168ec9",
+      "state": "{5c168ec9}",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+      "durationSeconds": 4.366666793823242
+    },
+    {
+      "name": "spell1_in",
+      "state": "Spell1_In",
+      "source": "assets/characters/ashe/skins/base/animations/ashe_spell1_in.anm",
+      "durationSeconds": 0.3333333432674408
+    }
+  ],
+  "triangles": 7406,
+  "bones": 85
+}

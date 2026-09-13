@@ -1,3 +1,4 @@
+// Archival reconstruction only. Runtime Ashe uses convert-ashe-base.mjs.
 /**
  * Convert the pinned archived Ashe reference mesh and animation into standard GLB.
  * Format reference: tengge1/lol-model-viewer resource/js/viewer.js (MIT repository).

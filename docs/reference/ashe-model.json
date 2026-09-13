@@ -1,0 +1,1178 @@
+{
+  "skin": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/ashe/skins/skin0.bin.json",
+    "sha256": "f296993de31360aa530d7b1b4e6eeb755600f0ab6a8e43aceb8125c2aeebe78b",
+    "data": {
+      "Characters/Ashe/Skins/Skin0": {
+        "skinClassification": 1,
+        "championSkinName": "Ashe",
+        "metaDataTags": "race:human,gender:female,faction:freljord,element:ice",
+        "loadscreen": {
+          "image": "assets/characters/ashe/skins/base/asheloadscreen.tex",
+          "__type": "CensoredImage"
+        },
+        "skinAudioProperties": {
+          "tagEventList": [
+            "Ashe"
+          ],
+          "bankUnits": [
+            {
+              "name": "Ashe_Base_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Characters/Ashe/Skins/Base/Ashe_Base_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Characters/Ashe/Skins/Base/Ashe_Base_SFX_events.bnk"
+              ],
+              "events": [
+                "Play_sfx_Ashe_AsheBasicAttack2_OnCast",
+                "Play_sfx_Ashe_AsheBasicAttack2_OnHit",
+                "Play_sfx_Ashe_AsheBasicAttack2_OnMissileLaunch",
+                "Play_sfx_Ashe_AsheBasicAttack_OnCast",
+                "Play_sfx_Ashe_AsheBasicAttack_OnHit",
+                "Play_sfx_Ashe_AsheBasicAttack_OnMissileLaunch",
+                "Play_sfx_Ashe_AsheCritAttack_OnCast",
+                "Play_sfx_Ashe_AsheCritAttack_OnHit",
+                "Play_sfx_Ashe_AsheCritAttack_OnMissileLaunch",
+                "Play_sfx_Ashe_AsheCritChanceReady_OnBuffActivate",
+                "Play_sfx_Ashe_AsheQAttack_OnBuffCast",
+                "Play_sfx_Ashe_AsheQAttack_OnCast",
+                "Play_sfx_Ashe_AsheQAttack_OnHit",
+                "Play_sfx_Ashe_AsheQAttack_OnMissileLaunch",
+                "Play_sfx_Ashe_AsheQCastReady_OnBuffActivate",
+                "Play_sfx_Ashe_AsheSpiritOfTheHawk_buffactivate",
+                "Play_sfx_Ashe_AsheSpiritOfTheHawk_hit",
+                "Play_sfx_Ashe_AsheSpiritOfTheHawk_OnCast",
+                "Play_sfx_Ashe_AsheSpiritOfTheHawk_OnMissileLaunch",
+                "Play_sfx_Ashe_EnchantedCrystalArrow_hit",
+                "Play_sfx_Ashe_EnchantedCrystalArrow_OnCast",
+                "Play_sfx_Ashe_EnchantedCrystalArrow_OnMissileLaunch",
+                "Play_sfx_Ashe_FrostArrow_OnCast",
+                "Play_sfx_Ashe_FrostArrow_OnHit",
+                "Play_sfx_Ashe_FrostArrow_OnMissileLaunch",
+                "Play_sfx_Ashe_Volley_OnCast",
+                "Play_sfx_Ashe_VolleyAttack_OnCast",
+                "Play_sfx_Ashe_VolleyAttack_OnHit",
+                "Play_sfx_Ashe_VolleyAttackWithSound_OnMissileLaunch",
+                "Play_sfx_Ashe_VolleyRank2_OnCast",
+                "Play_sfx_Ashe_VolleyRank3_OnCast",
+                "Play_sfx_Ashe_VolleyRank4_OnCast",
+                "Play_sfx_Ashe_VolleyRank5_OnCast",
+                "Stop_sfx_Ashe_AsheQAttack_OnBuffCast",
+                "Stop_sfx_Ashe_AsheQAttack_OnHit",
+                "Stop_sfx_Ashe_AsheQAttack_OnMissileLaunch",
+                "Stop_sfx_Ashe_AsheQCastReady_OnBuffActivate",
+                "Stop_sfx_Ashe_AsheSpiritOfTheHawk_buffactivate",
+                "Stop_sfx_Ashe_AsheSpiritOfTheHawk_OnMissileLaunch",
+                "Stop_sfx_Ashe_EnchantedCrystalArrow_OnMissileLaunch",
+                "Stop_sfx_Ashe_VolleyAttackWithSound_OnMissileLaunch"
+              ],
+              "__type": "BankUnit"
+            },
+            {
+              "name": "Ashe_Base_VO",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Ashe/Skins/Base/Ashe_Base_VO_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Ashe/Skins/Base/Ashe_Base_VO_events.bnk",
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Ashe/Skins/Base/Ashe_Base_VO_audio.wpk"
+              ],
+              "events": [
+                "Play_vo_Ashe_AsheQ_cast3D",
+                "Play_vo_Ashe_AsheSpiritOfTheHawk_cast3D",
+                "Play_vo_Ashe_Attack2DGeneral",
+                "Play_vo_Ashe_Attack2DSejuani",
+                "Play_vo_Ashe_Death3D",
+                "Play_vo_Ashe_EnchantedCrystalArrow_cast3D",
+                "Play_vo_Ashe_FirstEncounter3DAnivia",
+                "Play_vo_Ashe_FirstEncounter3DBraum",
+                "Play_vo_Ashe_FirstEncounter3DFreljord",
+                "Play_vo_Ashe_FirstEncounter3DGeneral",
+                "Play_vo_Ashe_FirstEncounter3DGragas",
+                "Play_vo_Ashe_FirstEncounter3DLissandra",
+                "Play_vo_Ashe_FirstEncounter3DSejuani",
+                "Play_vo_Ashe_FirstEncounter3DTrundle",
+                "Play_vo_Ashe_FirstEncounter3DTryndamere",
+                "Play_vo_Ashe_FirstEncounter3DUdyr",
+                "Play_vo_Ashe_FirstEncounter3DVolibear",
+                "Play_vo_Ashe_Joke3DGeneral",
+                "Play_vo_Ashe_Kill3DGeneral",
+                "Play_vo_Ashe_Kill3DSejuani",
+                "Play_vo_Ashe_Kill3DTrundle",
+                "Play_vo_Ashe_Kill3DTryndamere",
+                "Play_vo_Ashe_Kill3DUdyr",
+                "Play_vo_Ashe_Kill3DVolibear",
+                "Play_vo_Ashe_Laugh3DGeneral",
+                "Play_vo_Ashe_Move2DLong",
+                "Play_vo_Ashe_Move2DStandard",
+                "Play_vo_Ashe_Taunt3DGeneral",
+                "Play_vo_Ashe_Volley_cast3D",
+                "Play_vo_Ashe_VolleyRank2_cast3D",
+                "Play_vo_Ashe_VolleyRank3_cast3D",
+                "Play_vo_Ashe_VolleyRank4_cast3D",
+                "Play_vo_Ashe_VolleyRank5_cast3D"
+              ],
+              "voiceOver": true,
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "Characters/Ashe/Animations/Skin0",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/Ashe/Skins/Base/Ashe.skl",
+          "simpleSkin": "ASSETS/Characters/Ashe/Skins/Base/Ashe.skn",
+          "texture": "assets/characters/ashe/skins/base/ashe_base_2011_tx_cm.tex",
+          "skinScale": 1.100000023841858,
+          "selfIllumination": 0.699999988079071,
+          "reflectionFresnelColor": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Flesh",
+        "mContextualActionData": "Characters/Ashe/CAC/Ashe_Base",
+        "iconCircle": "assets/characters/ashe/hud/ashe_circle.tex",
+        "iconSquare": "assets/characters/ashe/hud/ashe_square.tex",
+        "healthBarData": {
+          "unitHealthBarStyle": 12,
+          "__type": "CharacterHealthBarDataRecord"
+        },
+        "mResourceResolver": "Characters/Ashe/Skins/Skin0/Resources",
+        "objectPath": "Characters/Ashe/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "Characters/Ashe/Skins/Skin0/Resources": {
+        "resourceMap": {
+          "Ashe_Q_tar": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_tar",
+          "Ashe_BA_Crit_tar": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_BA_Crit_tar",
+          "Ashe_BA_mis": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_BA_mis",
+          "Ashe_BA_tar": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_BA_tar",
+          "Ashe_Emote_": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Emote_",
+          "Ashe_E_mis": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_mis",
+          "Ashe_E_tar_explode": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_tar_explode",
+          "Ashe_E_tar_linger": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_tar_linger",
+          "Ashe_freeze": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_freeze",
+          "Ashe_Q_Buf": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_buf",
+          "Ashe_Q_Buf_attack": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_Buf_attack",
+          "Ashe_Q_Buf_bow": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_Buf_bow",
+          "Ashe_Q_Hurricane_mis": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_Hurricane_mis",
+          "Ashe_Q_mis": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_mis",
+          "Ashe_Q_ready": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_ready",
+          "Ashe_R_mis": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_R_mis",
+          "Ashe_R_Tar": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_R_tar",
+          "Ashe_W_mis": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_W_mis",
+          "Ashe_W_Tar": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_W_tar",
+          "Ashe_W_FlipedOnX_mis": "{00000000}",
+          "Ashe_W_Mid_Mis": "{00000000}",
+          "Ashe_R_mis_Child_Trail": "{00000000}"
+        },
+        "__type": "ResourceResolver"
+      },
+      "__linked": [
+        "DATA/Characters/Ashe/Ashe.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin10_Skins_Skin4_Skins_Skin6_Skins_Skin7_Skins_Skin9.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin4_Skins_Skin42_Skins_Skin5_Skins_Skin6_Skins_Skin62_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin85_Skins_Skin86_Skins_Skin87_Skins_Skin88_Skins_Skin89_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92.bin",
+        "DATA/Characters/Ashe/Animations/Skin0.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin2_Skins_Skin4_Skins_Skin7_Skins_Skin9.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin2_Skins_Skin4_Skins_Skin5_Skins_Skin62_Skins_Skin8.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Root_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin2_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin63_Skins_Skin64_Skins_Skin65_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin83_Skins_Skin84_Skins_Skin85_Skins_Skin86_Skins_Skin87_Skins_Skin88_Skins_Skin89_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin4_Skins_Skin42_Skins_Skin5_Skins_Skin65_Skins_Skin66_Skins_Skin7_Skins_Skin83.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin7_Skins_Skin8.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin4_Skins_Skin7.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin7.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin4_Skins_Skin7.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin4.bin",
+        "DATA/Characters/Ashe/Ashe_Multi_Skins_Skin0_Skins_Skin7.bin"
+      ]
+    }
+  },
+  "animations": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/ashe/animations/skin0.bin.json",
+    "sha256": "f89f3f032fefb3bb6f31807f7bf75d58896a2fdf00eeefff89f1e512c061837c",
+    "data": {
+      "Characters/Ashe/Animations/Skin0": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "Attack1": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_attack1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Crit": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Death": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_death.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle1": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_idle1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle2": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_idle2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle3": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_idle3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle4": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_idle4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle5": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_idle5.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Laugh": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_laugh.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Run": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_run_walk.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Run2": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_run_jog.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Run3": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_run.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell1": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{a9d03380}": {
+                "mName": "{a9d03380}",
+                "mEffectKey": "Ashe_Q_Buf_attack",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "C_Buffbone_GLB_Layout_Loc",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_spell1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell4": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Taunt": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{4d53dc4f}": {
+                "mName": "{4d53dc4f}",
+                "mEffectKey": "Ashe_Emote_",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "Root",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Channel": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_channel.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Channel_Wndup": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_channel_windup.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Dance": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_dance1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Joke": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_joke.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_attack2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell3": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_spell3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell2": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_spell2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{9416c333}": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{2d8867a1}": {
+                "mName": "{2d8867a1}",
+                "mEffectKey": "Ashe_Emote_",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "Root",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{5c168ec9}": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{bb79f403}": {
+                "mName": "{bb79f403}",
+                "mEffectKey": "Ashe_Emote_",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "Root",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell1_In": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/ashe/skins/base/animations/ashe_spell1_in.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Recall": {
+            "mClipNameList": [
+              "Idle5",
+              "Idle2"
+            ],
+            "__type": "SequencerClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "Default": {
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "2432597616064084072": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "2432597616235167053": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597616750127406": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207952311498856": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "3084207952482581837": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207952997542190": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030501970163816": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "6247030502141246797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502656207150": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6427569503797131368": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "6427569503968214349": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6427569504483174702": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208476699408488": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "6463208476870491469": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208477385451822": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6499628828706879592": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "6499628828877962573": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6499628829392922926": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6635648097919055976": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "6635648098090138957": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6635648098605099310": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10670930993914198120": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "10670930994085281101": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10670930994600241454": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289109883893864": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "10832289110054976845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289110569937198": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11230245605411797096": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "11230245605582880077": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11230245606097840430": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11302304930321545320": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "11302304930492628301": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11302304931007588654": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11374364255231293544": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "11374364255402376525": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11374364255917336878": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11662601554870286440": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "11662601555041369421": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11662601555556329774": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11734660879780034664": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "11734660879951117645": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11734660880466077998": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733634660186216": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "11831733634831269197": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733635346229550": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556603067846346": {
+            "mTime": 0.4000000059604645,
+            "__type": "TimeBlendData"
+          },
+          "12895556603846283368": {
+            "mTime": 0.4000000059604645,
+            "__type": "TimeBlendData"
+          },
+          "12895556603863060987": {
+            "mTime": 0.4000000059604645,
+            "__type": "TimeBlendData"
+          },
+          "12895556605523311949": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556606038272302": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255171725416": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "13039675255342808397": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255857768750": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13111734580081473640": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "13111734580252556621": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13111734580767516974": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13156647005851105384": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "13156647006022188365": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13156647006537148718": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13255853229900970088": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "13255853230072053069": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13255853230587013422": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13590883339236423784": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "13590883339407506765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13590883339922467118": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413649418344": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413820501325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352414335461678": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13987674970914175080": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "13987674971085258061": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13987674971600218414": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15842090288521033832": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15842090289207077166": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17876238949399541864": {
+            "mClipName": "Spell1_In",
+            "__type": "TransitionClipBlendData"
+          },
+          "17876238949570624845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17876238950085585198": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "Characters/Ashe/Animations/Skin0",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    }
+  },
+  "atomicClips": {
+    "Attack1": "assets/characters/ashe/skins/base/animations/ashe_attack1.anm",
+    "Crit": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+    "Death": "assets/characters/ashe/skins/base/animations/ashe_death.anm",
+    "Idle1": "assets/characters/ashe/skins/base/animations/ashe_idle1.anm",
+    "Idle2": "assets/characters/ashe/skins/base/animations/ashe_idle2.anm",
+    "Idle3": "assets/characters/ashe/skins/base/animations/ashe_idle3.anm",
+    "Idle4": "assets/characters/ashe/skins/base/animations/ashe_idle4.anm",
+    "Idle5": "assets/characters/ashe/skins/base/animations/ashe_idle5.anm",
+    "Laugh": "assets/characters/ashe/skins/base/animations/ashe_laugh.anm",
+    "Run": "assets/characters/ashe/skins/base/animations/ashe_run_walk.anm",
+    "Run2": "assets/characters/ashe/skins/base/animations/ashe_run_jog.anm",
+    "Run3": "assets/characters/ashe/skins/base/animations/ashe_run.anm",
+    "Spell1": "assets/characters/ashe/skins/base/animations/ashe_spell1.anm",
+    "Spell4": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+    "Taunt": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+    "Channel": "assets/characters/ashe/skins/base/animations/ashe_channel.anm",
+    "Channel_Wndup": "assets/characters/ashe/skins/base/animations/ashe_channel_windup.anm",
+    "Dance": "assets/characters/ashe/skins/base/animations/ashe_dance1.anm",
+    "Joke": "assets/characters/ashe/skins/base/animations/ashe_joke.anm",
+    "Attack2": "assets/characters/ashe/skins/base/animations/ashe_attack2.anm",
+    "Spell3": "assets/characters/ashe/skins/base/animations/ashe_spell3.anm",
+    "Spell2": "assets/characters/ashe/skins/base/animations/ashe_spell2.anm",
+    "{9416c333}": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+    "{5c168ec9}": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+    "Spell1_In": "assets/characters/ashe/skins/base/animations/ashe_spell1_in.anm"
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Ashe.wad.client",
+    "chunks": {
+      "A6D6A900A294DF1F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 18730177,
+        "bytes": 87531,
+        "sha256": "c10acdfea959076fc7d7adfe6b98a9c8abdcf9b7c8ee8fb6cdbac77612388c16"
+      },
+      "819AAF2C2FA03DAD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 18817708,
+        "bytes": 11927,
+        "sha256": "8dc86c0b0e57c94bf9d8c1b62ba1c35361185ebb0f64389dc96c26675df628ec"
+      },
+      "77E5C75D4ADFFCFF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E0EF0B303651FF20.bundle",
+        "offset": 19208965,
+        "bytes": 51974,
+        "sha256": "8c1778a404cc6a00968f454e1c1f4694269c84bd17cb05f85533dd841dc175f8"
+      },
+      "4C7AD3481C20A5A4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 9228196,
+        "bytes": 14952,
+        "sha256": "e4f9601531c098295646a90788e7937c27dc202a3d779f92c5f1a3b22644919a"
+      },
+      "5A8DC4A32C1D8DB1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 1256043,
+        "bytes": 12818,
+        "sha256": "acc21e108471b38d834ffa5183d7fd3131bea5c11b1fc2d4b240eea5fe508ef0"
+      },
+      "C23DF46E36FED1B6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 21207372,
+        "bytes": 9655,
+        "sha256": "fca066aae43c9e3923e6bc755ce442d69cb6edda9925cb895624b87ab66a468c"
+      },
+      "1B8E1DC8473FEA30": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 19559785,
+        "bytes": 8962,
+        "sha256": "612dd1becf22b3deb6f7e8e9d8c9503792d280c254be5b4a5d3d5d03f37c7c8a"
+      },
+      "09B1040455DF2455": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 2077247,
+        "bytes": 13094,
+        "sha256": "a3517639013497d51537fa33fddce4bbaf6e06ecfbfb30b42c0fd67f2816db57"
+      },
+      "47288D031176BCD8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 23139877,
+        "bytes": 36959,
+        "sha256": "42970d85360d9ba497425daa376f166a4b1c17d6ace13525aeef5c75f34ad013"
+      },
+      "90A54F091D341810": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 19037295,
+        "bytes": 29764,
+        "sha256": "a55900f22c52ed6d3d4985fb682629948277ffbe4b2cbed7eb83df7779aae288"
+      },
+      "85ACA84A3ED75A34": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 2767786,
+        "bytes": 12736,
+        "sha256": "4fc92770b855223ce6a8e54aa8b6987624664c02d5bd2590d3ccd9ce9ffc22b8"
+      },
+      "477D297775021C8B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 3216526,
+        "bytes": 14676,
+        "sha256": "f968caebab0cf10289896f616ec5fdee3ff76773547d00e53ffb5b2cbbed6093"
+      },
+      "607ECC9AA320150E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 2686008,
+        "bytes": 17208,
+        "sha256": "4c73ff38ae1ffebf626a6e6d6ed30a7f6fc8761141924821654cff1eaac9d22f"
+      },
+      "29D1ED77A4118A0E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 5652556,
+        "bytes": 18851,
+        "sha256": "ce8609f6e1b5bba759e7ac791a40d644417d85a53ff48ef288a8a731a787468f"
+      },
+      "382A3B0D094A30CF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 2912597,
+        "bytes": 22412,
+        "sha256": "1fa17df4c1afe6a2fe57b4e387fb47180307750ec944f337427e017c632bdf20"
+      },
+      "834338D91DF0619D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 5886550,
+        "bytes": 46787,
+        "sha256": "2d439a0d316a263eeff68bc7bdeecb19228596b2769b5ac8348daa99730db9f5"
+      },
+      "CBA422BA804C2079": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 20660004,
+        "bytes": 11952,
+        "sha256": "c0f608b27bad7681ba8d189b4bda6112c424e79f28cee150d0e5cf7c93e8f169"
+      },
+      "FE0B71290A0C9C60": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 20929980,
+        "bytes": 48021,
+        "sha256": "ab9f33e09b141b060a30a82e06005c1babe46c4ec98e7a9bac7cd7c445a6d6dc"
+      },
+      "D2EEE7F82318D194": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 18959027,
+        "bytes": 48801,
+        "sha256": "56e9155a221994da32eb2af5d03e7eaca9744b366661c0edf25f856db72a5d02"
+      },
+      "90C4C937345A4CF4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 1881510,
+        "bytes": 33266,
+        "sha256": "5788d7a81aab798acdb697cca682cb1e3a8266157fe68db0465fba8d4e2d962e"
+      },
+      "4FC8BC8598153CA7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 20650099,
+        "bytes": 9905,
+        "sha256": "089175df72e577ce96c19fec46dc0e1487791b26f66ad4e71a2e262a328ac5ae"
+      },
+      "CD42AE79956E70E9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 19733038,
+        "bytes": 6856,
+        "sha256": "37e01846d7cc8ceb68343dfe78ae8c15d50d3abe0de198d38fcc1ce2c319d310"
+      },
+      "D694811AAF83C7AC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 1102258,
+        "bytes": 11817,
+        "sha256": "afb9c8211d33d3cb0aba0e2465c39884c9cda9b632df1308715ce4d89768f40e"
+      },
+      "CAAF413DBEE37714": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 19007828,
+        "bytes": 10418,
+        "sha256": "1a47084efbe3b4752bd983ebeb9cc21d3b676ff14dd6df209bce4a0f7c49bbf5"
+      },
+      "0D1A53F3E88EB632": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 3231220,
+        "bytes": 24726,
+        "sha256": "723dcb380dad9281809300778530e5a169c100c252b337a76f4e0736a02c7f86"
+      },
+      "14A56A3183B235D3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 19358481,
+        "bytes": 5701,
+        "sha256": "410318a22040ecdc0e69fbe7c6dbf2809923aafd010e2aee2b250e571b5a0d8a"
+      },
+      "ABB300DC7F78BEC4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9CABED2F7547791C.bundle",
+        "offset": 23514824,
+        "bytes": 160759,
+        "sha256": "8e30b614e48443151f5594eade5b5a11c7adc1105de8cca4b76e6f2e7122e3a8"
+      },
+      "A565E6B999A21D5B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/75220365AA885445.bundle",
+        "offset": 30214584,
+        "bytes": 103631,
+        "sha256": "d75ac8921d98a16ba395c074b8a2f904ed360d3f301a35aa4396081de2691017"
+      },
+      "DAFD41164E8D778C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/75220365AA885445.bundle",
+        "offset": 30318215,
+        "bytes": 9331,
+        "sha256": "6a6f6c36e22d2038835414fe8bad5f55efb2e589263a7f0fa54da33709ab60de"
+      },
+      "80E4E640FEBECAD8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 19524389,
+        "bytes": 845,
+        "sha256": "9a0cfc48ca935665771b3b6d5c5b188869d3bd3aec5645cde29cd016cf482ab8"
+      },
+      "E4D812687ADA1509": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+        "offset": 23104264,
+        "bytes": 1675,
+        "sha256": "5465de3d0611f896be2db6409bb232b42cfdceedfaf9a68f655ec81d4d7ced98"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_attack1.anm",
+        "wadPathHash": "eb9811757c283d78",
+        "sha256": "6f76b23ef6be5a52f1846700e25fb1ada4dace0115917819581ad5dc6b609609",
+        "bytes": 29278
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_attack2.anm",
+        "wadPathHash": "fac5aa7a7423d18b",
+        "sha256": "1ff385cc44581cc593690a28896d168cf5d019dd4a86b758989f48618c6588cc",
+        "bytes": 27148
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_channel.anm",
+        "wadPathHash": "55d980d59a49d93e",
+        "sha256": "8a5580b86d9325422d16f7e67c70d0a9c0de6704093a1bf0a677f7691941df03",
+        "bytes": 22718
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_channel_windup.anm",
+        "wadPathHash": "13b2294fee39709b",
+        "sha256": "53b94cf50954109321af9defab49534ca0ee014781f0fd3fed3601a87c864d09",
+        "bytes": 20578
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+        "wadPathHash": "cdb6247d43b7aaa0",
+        "sha256": "3f4a4d0773c9863cee7873755aa233af3aab156514cff07f9ec73a7d18f71bec",
+        "bytes": 27358
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_dance1.anm",
+        "wadPathHash": "125db181b2e4822b",
+        "sha256": "4a7c2de828b3bf843e8c7661169319229a078a5e614dc911f6f965ced9b78e01",
+        "bytes": 55218
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_death.anm",
+        "wadPathHash": "9b6efc4ca4b610da",
+        "sha256": "ae50134c3e3c07e9df513b3872ad07765e869b72ad0f29e2ea34a7b04826ec77",
+        "bytes": 45448
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_idle1.anm",
+        "wadPathHash": "9f7b37f2828b219e",
+        "sha256": "de7f3ebc6444d005b4553a6f234c48386d572c89f53909f5832a4c273b38c87a",
+        "bytes": 24628
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_idle2.anm",
+        "wadPathHash": "5982429164d44ff9",
+        "sha256": "6ed7f88035126c1b409ba42130d4aa4304d528f0c9682239a3904ec1fcf9e980",
+        "bytes": 27628
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_idle3.anm",
+        "wadPathHash": "0fee1976dd85047f",
+        "sha256": "126319c1ce58ea7892cc766ebdb068c9b04ffc03ff87677929567822c75e63ba",
+        "bytes": 30598
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_idle4.anm",
+        "wadPathHash": "38f9792a159a0fc8",
+        "sha256": "61a3e3f91516c3ae7f5abaa0be3090fdf833057e402efe0821c7c585661cb339",
+        "bytes": 32448
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_idle5.anm",
+        "wadPathHash": "6cec82812e4a9e9c",
+        "sha256": "e9b63787bd3f7ee14e3c2cdccc513df4bdc397e499b522aef179c4a1e2dc3049",
+        "bytes": 35698
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_joke.anm",
+        "wadPathHash": "1f7477ca115e50d8",
+        "sha256": "a1db2a60fb8e2213e7e47e7108a18f60eb005fe5ad62a96ef6d44d1ad802a995",
+        "bytes": 69678
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_laugh.anm",
+        "wadPathHash": "15815db562f26f6f",
+        "sha256": "bd048566e93901d5924d7affcf15fa711e692bdbadff725277090eb4e547749d",
+        "bytes": 22788
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_run.anm",
+        "wadPathHash": "ffc4fcb5cf7176fe",
+        "sha256": "960fd5af69fd4f005e31d3a1a0e4ff0b3e314e3c66d631a815a35a1a574377f7",
+        "bytes": 84848
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_run_jog.anm",
+        "wadPathHash": "8666be58ebde590c",
+        "sha256": "a4cc37025f13e2c0de0317253499a13493423dd7e591967d53586753dafe33f3",
+        "bytes": 82778
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_run_walk.anm",
+        "wadPathHash": "af5967d909fb0f14",
+        "sha256": "25c5416aeedf6b09dcffa91e0f65285a56b434dd05ae5affcedd3b4f605e0ee9",
+        "bytes": 59158
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_spell1.anm",
+        "wadPathHash": "a4b2a4a06ea5a113",
+        "sha256": "a5cadd972883ba21fbed0864247bd5e24d2eeb6ca0698ce0c96ef5bf6ddba662",
+        "bytes": 21698
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_spell1_in.anm",
+        "wadPathHash": "2d2d3882d52ddcac",
+        "sha256": "ef90c4389a0e13bf5e0a2ba4d263a1b57832328dfde5eb5b3d720b3b89fe00bc",
+        "bytes": 12122
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_spell2.anm",
+        "wadPathHash": "d0bde34427146703",
+        "sha256": "52e4f36896204c4fdebeea2dd08edd8465594eac046bcf3ce3d9c5934891a4c6",
+        "bytes": 23308
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_spell3.anm",
+        "wadPathHash": "fc006ceca1d7bc14",
+        "sha256": "099b3a55ed910a48d59a54ca7364bfa584cd53877c4bf868c281768677f8d739",
+        "bytes": 21668
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/animations/ashe_taunt.anm",
+        "wadPathHash": "84660137689188a9",
+        "sha256": "03b3ec5bdeaf7484a8a889370337a19148e2f45c7165160881362ce72ae44011",
+        "bytes": 39688
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/ashe.skl",
+        "wadPathHash": "b939f05f4d701050",
+        "sha256": "ad2412be9d55523aa64caa94046563f4600e3ecc72870df0446fb97d3faec6a2",
+        "bytes": 10800
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/ashe.skn",
+        "wadPathHash": "38513989304b828c",
+        "sha256": "efb66404c5b8893838d336f361f5a57a6c836a58163b421ec2b01cbb03f9634a",
+        "bytes": 299452
+      },
+      {
+        "path": "assets/characters/ashe/skins/base/ashe_base_2011_tx_cm.tex",
+        "wadPathHash": "cf8bca429fd44bce",
+        "sha256": "8ff17727c4ec3c3984ed6abf5ac11339bf3fb53248af926af20aa4fce6ae135f",
+        "bytes": 174788
+      },
+      {
+        "path": "data/characters/ashe/animations/skin0.bin",
+        "wadPathHash": "6bc2c6cfc2786140",
+        "sha256": "94325c3f55c23fa8d8a8eda99da0c29f9d1fc9cb51c4b11fc92285799446d01b",
+        "bytes": 3895
+      },
+      {
+        "path": "data/characters/ashe/skins/skin0.bin",
+        "wadPathHash": "7fd757f76e818e8a",
+        "sha256": "1e01fac53c783130e0ea86a48793f5c71c78e9ee8291b97d9dd7766293a4d245",
+        "bytes": 7029
+      }
+    ]
+  }
+}

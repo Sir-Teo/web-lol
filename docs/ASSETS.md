@@ -13,7 +13,7 @@ The minion sources reside in `DATA/FINAL/Maps/Shipping/Map11.wad.client`. The ar
 - `docs/reference/minion-skins.json` snapshots the six skin and animation graph definitions from CommunityDragon 16.18, with their exact URLs.
 - Each runtime GLB has a sibling JSON manifest identifying its input files, output hash, triangles, bones, scale, and animation mapping.
 
-The source art remains Riot-owned reference material. Provenance does not establish production distribution permission. Current source versions are stronger evidence than the archived Ashe model, but gameplay capture calibration and verification of the active in-match skin selection are still required before asserting pixel parity.
+The source art remains Riot-owned reference material. Provenance does not establish production distribution permission. The pinned base Ashe now replaces the archived model. Gameplay capture calibration and verification of the active in-match skin selection are still required before asserting pixel parity.
 
 ## Conversion details
 
@@ -60,7 +60,7 @@ npm run assets:validate
 npm run test:browser
 ```
 
-The extractor rejects changes to the pinned manifest, compressed chunks, or extracted source bytes. Conversion checks source bytes against their recorded provenance before reading them. The asset validator checks every GLB's output hash and runs the Khronos validator. All seven current GLBs have zero errors and warnings. Blue caster retains four source degenerate triangles, reported at informational severity; no geometry repair was guessed.
+The extractor rejects changes to the pinned manifest, compressed chunks, or extracted source bytes. Conversion checks source bytes against their recorded provenance before reading them. The asset validator checks every GLB's output hash and runs the Khronos validator. All 17 current model GLBs have zero errors and warnings. Blue caster retains four source degenerate triangles, reported at informational severity; no geometry repair was guessed.
 
 The browser suite includes a six-model gallery, distinct mixer behavior, complete death playback and removal, and attack-windup cancellation. Screenshot evidence is stored locally in `artifacts/browser-minion-gallery.png`.
 
@@ -90,11 +90,11 @@ Browser checks cover all 22 exact placement matrices, fixed building orientation
 
 ## Nexus and inhibitor assets
 
-The default map now includes both teams’ source Nexus and inhibitor models, with intact/dead submeshes and retained clips. See [structure assets and gameplay](STRUCTURES.md) for provenance, rebuild commands, state handling, tests, and explicit remaining accuracy work. All fifteen current GLBs pass validation with zero errors/warnings.
+The default map now includes both teams’ source Nexus and inhibitor models, with intact/dead submeshes and retained clips. See [structure assets and gameplay](STRUCTURES.md) for provenance, rebuild commands, state handling, tests, and explicit remaining accuracy work. These structure GLBs pass validation with zero errors/warnings.
 
 ## Super-minion assets
 
-Both team models now use the same matching 16.18 source pipeline. Their six clips, source scales, provenance, reconstruction commands, and animation-derived corpse lifetime are documented in [lane minions](MINIONS.md). All fifteen model GLBs validate with zero errors/warnings. Original six-minion rebuilds remain byte-identical after sharing the converter.
+Both team models now use the same matching 16.18 source pipeline. Their six clips, source scales, provenance, reconstruction commands, and animation-derived corpse lifetime are documented in [lane minions](MINIONS.md). These minion GLBs validate with zero errors/warnings. Original six-minion rebuilds remain byte-identical after sharing the converter.
 
 
 ## Hawkshot body
@@ -104,3 +104,19 @@ The base Hawkshot now uses its pinned source Owl1 body and Owl2 Fresnel rim, tex
 ## Hawkshot wind assets
 
 The source WindTunnel SCB and TEX files now have a reproducible conversion through `node tools/assets/convert-hawkshot-wind.mjs`. The GLB preserves 124 triangles, per-corner UVs and eight vertex-alpha values; the separately hashed erosion texture preserves linear channel data. [Conversion evidence and remaining playback work](ASHE-E.md#windtunnel-asset-preparation). Gameplay now loads these assets for deterministic instanced wind playback, including linear-green erosion and retained arrival tails. The asset validator now also checks optional auxiliary-file hashes and sizes.
+
+## Pinned base Ashe
+
+`docs/reference/ashe-model.json` freezes the base skin and complete animation graph from CommunityDragon 16.18, verified against their binary records in the pinned Riot Ashe archive. The extractor verifies 27 files (1,312,444 bytes), fetched through 898,010 compressed patch bytes. These include the mesh, skeleton, texture, two definitions and 22 unique animation files. The graph has 25 atomic clip mappings and a Recall sequence; all atomic mappings are preserved as named GLB clips, including shared source files.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-ashe-model.py
+node tools/assets/convert-ashe-base.mjs
+npm run assets:validate
+```
+
+`ashe-base.glb` is 3,953,864 bytes, with 7,406 triangles, 85 bones and the original 512×512 decoded texture. Source skin scale 1.100000023841858 and centimeter conversion are baked consistently into geometry, skeleton and animation translations. Unused zero-weight joint slots are canonicalized to joint zero for glTF validation; contributing joints and weights are preserved. The renderer loads this asset in place of `ashe-reference`.
+
+The archived provenance is retained in `docs/reference/ashe-archival-model.json`; `convert-ashe.mjs` is an archival reconstruction tool and is no longer the runtime rebuild path. `ashe-model-comparison.json` records the comparison: vertex/triangle/bone counts and texture dimensions match, but decoded texture bytes differ. Corresponding positions match after scale normalization and an X reflection between converter outputs. This establishes a conversion difference, not independently verified orientation parity. Source attack duration is now 2.100000 seconds versus the archived 2.133333 seconds.
+
+The current controller still selects its existing animation states. Additional clips are available, but source graph transitions, events, Recall sequencing, locomotion gait selection and lighting are unfinished. Unlit shading does not reproduce the source self-illumination model. Browser checks verify the loaded rig, full clip set and representative durations; screenshots require reference-capture calibration before claiming pixel accuracy.
