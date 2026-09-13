@@ -50,6 +50,14 @@ export class GameView {
   rangeVisible = false;
   models = new Map<number, UnitModel>();
   healthBars = new Map<number, HTMLDivElement>();
+  private barParts = new WeakMap<
+    HTMLDivElement,
+    {
+      health: HTMLElement;
+      mana: HTMLElement;
+      status: HTMLElement;
+    }
+  >();
   mapTexture: THREE.CanvasTexture;
   private ray = new THREE.Raycaster();
   private plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
@@ -639,12 +647,18 @@ export class GameView {
       bar.querySelector('.unit-name')!.textContent = u.name;
       this.bars.append(bar);
       this.healthBars.set(u.id, bar);
+      this.barParts.set(bar, {
+        health: bar.querySelector<HTMLElement>('.unit-hp i')!,
+        mana: bar.querySelector<HTMLElement>('.unit-mana i')!,
+        status: bar.querySelector<HTMLElement>('.unit-status')!,
+      });
     }
     const screen = this.screenPoint(
       u.structureTransform ? u : p,
       this.models.get(u.id)?.barHeight ?? (isStructureKind(u.kind) ? 4.3 : 1.55)
     );
-    bar.hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
+    const hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
+    if (bar.hidden !== hidden) bar.hidden = hidden;
     if (bar.hidden) return;
     if (u.kind === 'champion' && bar.dataset.maxHealth !== String(u.maxHp)) {
       // Health-based divisions; their pixel styling remains pending reference calibration.
@@ -653,18 +667,21 @@ export class GameView {
       bar.dataset.maxHealth = String(u.maxHp);
     }
     bar.style.transform = `translate(${screen.x}px,${screen.y}px) translate(-50%,-100%)`;
-    (bar.querySelector('.unit-hp i') as HTMLElement).style.width = `${(u.hp / u.maxHp) * 100}%`;
-    (bar.querySelector('.unit-mana i') as HTMLElement).style.width =
-      `${(u.mana / (u.maxMana || 1)) * 100}%`;
-    bar.classList.toggle('invulnerable', !world.vulnerable(u));
-    bar.querySelector('.unit-status')!.textContent =
-      !world.vulnerable(u) && (this.hovered === u.id || this.selected === u.id)
+    const parts = this.barParts.get(bar)!;
+    parts.health.style.width = `${(u.hp / u.maxHp) * 100}%`;
+    parts.mana.style.width = `${(u.mana / (u.maxMana || 1)) * 100}%`;
+    const protectedUnit = !world.vulnerable(u);
+    if (bar.classList.contains('invulnerable') !== protectedUnit)
+      bar.classList.toggle('invulnerable', protectedUnit);
+    const status =
+      protectedUnit && (this.hovered === u.id || this.selected === u.id)
         ? 'PROTECTED'
         : u.stunUntil > world.tick
           ? 'STUNNED'
           : u.slowUntil > world.tick
             ? 'SLOWED'
             : '';
+    if (parts.status.textContent !== status) parts.status.textContent = status;
   }
   private syncProjectiles(world: World, alpha: number): void {
     const active = new Set<number>();
