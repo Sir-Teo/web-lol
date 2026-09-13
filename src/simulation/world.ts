@@ -1,4 +1,5 @@
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
+import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
 import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
 import { ASSIST_WINDOW_SECONDS } from '../content/assist-window';
 import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
@@ -1001,7 +1002,14 @@ export class World {
             ((ASHE_PASSIVE.slowAtLevel18 - ASHE_PASSIVE.slowAtLevel1) * (level - 1)) / 17;
           if (p.volleyId !== null) (this.volleyHits[p.volleyId] ??= []).push(contact.id);
           if (p.type === 'attack') this.hitBasicAttack(source, contact, p.damage);
-          else this.damage(source, contact, p.damage, p.type === 'ultimate' ? 'magic' : 'physical');
+          else
+            this.damage(
+              source,
+              contact,
+              p.damage,
+              p.type === 'ultimate' ? 'magic' : 'physical',
+              'area'
+            );
           if (source.kind === 'champion' && !isStructureKind(contact.kind)) {
             contact.slowMultiplier = p.type === 'ultimate' ? 0.7 : 1 - slow;
             contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
@@ -1031,7 +1039,13 @@ export class World {
                 distance(victim, contact) > ASHE_R.splashRadius
               )
                 continue;
-              this.damage(source, victim, p.damage * ASHE_R.splashDamageMultiplier, 'magic');
+              this.damage(
+                source,
+                victim,
+                p.damage * ASHE_R.splashDamageMultiplier,
+                'magic',
+                'area'
+              );
               if (this.alive(victim)) {
                 victim.slowMultiplier = 1 - slow;
                 victim.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
@@ -1080,13 +1094,38 @@ export class World {
     // Sample at impact, before this hit changes HP. Ranged attacks retain release AD.
     this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
   }
-  damage(source: Unit, target: Unit, raw: number, kind: 'physical' | 'magic' | 'true'): void {
+  damage(
+    source: Unit,
+    target: Unit,
+    raw: number,
+    kind: 'physical' | 'magic' | 'true',
+    category: 'direct' | 'area' = 'direct'
+  ): void {
     if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;
     const resistance =
       kind === 'physical' ? target.armor : kind === 'magic' ? target.magicResist : 0;
     const multiplier = resistance >= 0 ? 100 / (100 + resistance) : 2 - 100 / (100 - resistance);
     const amount = raw * multiplier;
+    const healthLost = Math.min(target.hp, Math.max(0, amount));
     target.hp = Math.max(0, target.hp - amount);
+    const attacker = this.championState(source.id);
+    if (
+      attacker?.inventory.includes('blade') &&
+      this.alive(source) &&
+      source.team !== target.team &&
+      (target.kind === 'champion' || isLaneMinionKind(target.kind))
+    ) {
+      const effectiveness =
+        category === 'area' && isLaneMinionKind(target.kind) ? MINION_AREA_OMNIVAMP_MULTIPLIER : 1;
+      const healing = Math.min(
+        source.maxHp - source.hp,
+        healthLost * DORANS_BLADE_OMNIVAMP * effectiveness
+      );
+      if (healing > 0) {
+        source.hp += healing;
+        this.emit('heal', source, { value: Math.round(healing) });
+      }
+    }
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
     const targetState = this.championState(target.id);
     if (targetState) {
@@ -1494,6 +1533,8 @@ export class World {
     if (emptySlot === -1 && state.inventory.length >= 6) return 'Inventory is full';
     if (state.gold < plan.cost) return 'Not enough gold';
     if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
+    if (item.id === 'blade' && state.inventory.includes('blade'))
+      return 'You already own a Doran item';
     return null;
   }
   buy(itemId: string, championId = this.player.id): string | null {

@@ -73,3 +73,14 @@ The shop displays the same quoted cost as the transaction and refreshes it after
 The shop queries the same `purchaseError` validation used by `buy`, covering match outcome, owner/item validity, fountain access, capacity after component consumption, exact fractional funds and boots uniqueness. Unavailable cards use muted icon/price styling, `aria-disabled` and a reason in their title. The transaction still revalidates at activation; the display never authorizes a stale purchase. Availability and quoted recipe cost refresh while the shop is open, including changes in funds, position or components.
 
 The validation query does not change match state. Full inventories can still enable a recipe whose owned component frees a slot. Visual styling is a local presentation treatment pending native calibration; a full build-tree/selection interface and permanent visible reason panel remain unfinished.
+
+
+## Doran's Blade omnivamp
+
+Doran's Blade now supplies 2.5% omnivamp, matching `Items/1055.PercentOmnivampMod` in the pinned 16.18 item export. Its `DoransItems` group has a maximum ownership of one, now enforced at purchase. [Source pin](reference/dorans-blade.json); `python3 tools/assets/verify-dorans-blade.py` checks the file hash and both complete records.
+
+Riot's [26.1 Omnivamp notes](https://www.leagueoflegends.com/en-sg/news/game-updates/patch-26-1-notes/) explicitly replace the old nonchampion reduction: full value normally, reduced to 33% for pets, damage over time and area spells against minions. Current basic attacks use the direct category; Volley and Crystal Arrow hits/splash use area. Area damage against champions remains full strength. Pets and damage-over-time systems are not implemented yet.
+
+Healing derives from current ownership at damage resolution and caps at missing health. It applies to living opposing champion sources against champions/lane minions, including physical, magic and true damage. Selling the item therefore removes its effect without a separately cached stat. Structures and the synthetic target dummy do not trigger healing. Dead sources cannot revive from posthumous damage. These target filters for unsupported practice entities are local policies.
+
+**Pending native calibration:** healing currently uses actual health removed, capping overkill at the victim's remaining HP, and occurs immediately after HP subtraction before death rewards. Shield absorption, heal modifiers, grievous wounds and other damage classes are not implemented. This does not establish complete omnivamp parity. Fractional healing is retained in HP and the presentation event rounds its displayed amount. No new snapshot fields are required.

@@ -1,0 +1,84 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json",
+  "cache": ".cache/items-16.18.json",
+  "sha256": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb",
+  "records": {
+    "Items/1055": {
+      "mDisplayName": "Item_1055_Name",
+      "itemID": 1055,
+      "maxStack": 1,
+      "mItemGroups": [
+        "Items/ItemGroups/Default",
+        "Items/ItemGroups/DoransItems"
+      ],
+      "price": 450,
+      "mCanBeSold": true,
+      "epicness": 1,
+      "mFlatHPPoolMod": 80.0,
+      "mFlatPhysicalDamageMod": 10.0,
+      "PercentOmnivampMod": 0.02500000037252903,
+      "sellBackModifier": 0.4000000059604645,
+      "mCategories": [
+        "Health",
+        "Damage",
+        "LifeSteal",
+        "SpellVamp",
+        "Lane"
+      ],
+      "mItemDataAvailability": {
+        "mInStore": true,
+        "__type": "ItemDataAvailability"
+      },
+      "mItemAttributes": [
+        1,
+        2,
+        4
+      ],
+      "mItemDataClient": {
+        "mTooltipData": {
+          "mObjectName": "1055",
+          "mFormat": "{32559c50}",
+          "mLocKeys": {
+            "keyName": "Item_1055_Name",
+            "keyBrief": "Item_1055_Brief",
+            "keyColloquialism": "Item_1055_Colloquialism",
+            "keySecondaryBrief": "Item_Unique_Doran"
+          },
+          "mLists": {
+            "Stats": {
+              "Elements": [
+                {
+                  "type": "AttackDamage",
+                  "__type": "TooltipInstanceListElement"
+                },
+                {
+                  "type": "Health",
+                  "__type": "TooltipInstanceListElement"
+                },
+                {
+                  "type": "Omnivamp",
+                  "__type": "TooltipInstanceListElement"
+                }
+              ],
+              "__type": "TooltipInstanceList"
+            }
+          },
+          "__type": "TooltipInstanceItem"
+        },
+        "mDescription": "GeneratedTip_Item_1055_Description",
+        "mDynamicTooltip": "GeneratedTip_Item_1055_TooltipInventory",
+        "mShopTooltip": "GeneratedTip_Item_1055_TooltipShop",
+        "inventoryIcon": "assets/items/icons2d/1055_marksman_t1_doransblade.dds",
+        "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/1055_Marksman_T1_DoransBlade.png",
+        "epicness": 0,
+        "__type": "ItemDataClient"
+      },
+      "__type": "ItemData"
+    },
+    "Items/ItemGroups/DoransItems": {
+      "mItemGroupID": "DoransItems",
+      "mMaxGroupOwnable": 1,
+      "__type": "ItemGroup"
+    }
+  }
+}

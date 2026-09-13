@@ -83,7 +83,7 @@ export const ITEMS = [
     name: 'Doran’s Blade',
     price: 450,
     sell: 180,
-    description: '+10 Attack Damage · +80 Health',
+    description: '+10 Attack Damage · +80 Health · 2.5% Omnivamp',
     icon: '1055',
     damage: 10,
     hp: 80,
