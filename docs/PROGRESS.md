@@ -708,3 +708,11 @@ Hawkshot now renders its delayed single wispy endpoint particle with the source 
 All 267 source/simulation checks, four focused Chrome scenarios, production build and a real-input production Hawkshot smoke test pass. The new browser scenarios were repeated after adding an isolated capture. Controlled GPU coverage confirms blue-channel selection and full/half/zero erosion; state tests cover delay, pause, fresh restore and cleanup. Both generated files reproduce byte-identically. Combined and glow-hidden screenshots were inspected; the wispy particle is visible but subtle under the bright burst. The full browser suite and unchanged GLB validation were not repeated.
 
 Four of five explosion emitters now have adapters. Radial smoke, four lingering layers, sound, native orientation/timing/shader calibration and the broader full-match objective remain incomplete. The goal stays active. See [DarknessFollow evidence and policies](ASHE-E.md#endpoint-darknessfollow-layer).
+
+## Endpoint radial smoke milestone
+
+The final explosion emitter now plays through one instanced smoke batch. It preserves the rising source rate, animated alpha rather than the distinct constant field, lifetime/velocity ranges, source scale growth, random atlas cells and horizontal drag. The adapter derives 50 births from the integrated rate curve, and saved arrival time restores every particle's phase. Existing smoke textures are reused; no image transfer or snapshot format change is needed.
+
+All 269 source/simulation checks, five focused Chrome scenarios, production build and a real-input production Hawkshot smoke test pass. Tests cover source agreement, emission schedule, motion, alpha, pause/fresh restoration, actual pixels, expiry and batch reuse. Both generated files reproduce byte-identically and the fixture screenshot was inspected. The full browser suite and unchanged GLB validation were not repeated.
+
+All five explosion emitters now have adapters. Normalized spawn curves, analytic integration, inclusive final birth, radial velocity coupling, orientation/default pass policies and native visual matching remain explicitly unverified. Four lingering layers, audio and the broader production match remain incomplete. The goal remains active. See [radial smoke evidence and assumptions](ASHE-E.md#endpoint-radial-smoke).
