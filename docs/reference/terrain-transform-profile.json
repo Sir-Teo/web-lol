@@ -1,0 +1,60 @@
+{
+  "browser": "152.0.7977.83",
+  "hardware": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M5 Pro",
+    "memoryGiB": 64
+  },
+  "viewport": [
+    1920,
+    1080
+  ],
+  "fixture": "Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples",
+  "advanceMS": 211.70000000298023,
+  "time": 93.71666666666667,
+  "units": 103,
+  "frames": {
+    "n": 180,
+    "median": 16.799999997019768,
+    "p95": 18.5,
+    "p99": 22
+  },
+  "fog": {
+    "n": 22,
+    "median": 1.300000000745058,
+    "p95": 1.699999999254942,
+    "p99": 1.800000000745058
+  },
+  "simulationSteps": {
+    "n": 180,
+    "median": 0.19999999925494194,
+    "p95": 0.30000000074505806,
+    "p99": 0.4000000022351742
+  },
+  "hudUpdates": {
+    "n": 52,
+    "median": 0.20000000298023224,
+    "p95": 0.30000000074505806,
+    "p99": 0.4000000022351742
+  },
+  "renderCalls": {
+    "n": 180,
+    "median": 3.5,
+    "p95": 5.099999997764826,
+    "p99": 9.899999998509884
+  },
+  "calls": 231,
+  "triangles": 379519,
+  "fogResolution": 256,
+  "baseCommit": "384b7f4cb8dcb1296ab973e142aa1c09ba9f3267",
+  "modifiedRuntimeFiles": {
+    "src/render/view.ts": "88042eee537992caa421bdbbf63c1b8dbe626a3952881f05f52225419c8e065f"
+  },
+  "limitations": [
+    "Single 180-frame observation; differences from previous samples are not a controlled performance result.",
+    "Render-call CPU wall time includes fog work; GPU time is not separately measured.",
+    "Frame p95 remains above the 16.7 ms target.",
+    "Current fixture does not represent a complete 5v5 match."
+  ]
+}

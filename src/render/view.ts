@@ -216,6 +216,14 @@ export class GameView {
     root.position.set(-74.25, 0, 74.25);
     root.add(terrain);
     this.scene.add(root);
+    // Terrain has no animated transforms. Bake its final world placement once;
+    // fog uniforms and materials remain live, as do all separate unit models.
+    root.name = 'rift-terrain';
+    root.updateWorldMatrix(true, true);
+    root.traverse((object) => {
+      object.matrixAutoUpdate = false;
+      object.matrixWorldAutoUpdate = false;
+    });
     const canvas = this.mapTexture.image;
     canvas.width = image.width;
     canvas.height = image.height;
