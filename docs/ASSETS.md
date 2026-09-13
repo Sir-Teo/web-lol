@@ -64,6 +64,6 @@ The extractor rejects changes to the pinned manifest, compressed chunks, or extr
 
 The browser suite includes a six-model gallery, distinct mixer behavior, complete death playback and removal, and attack-windup cancellation. Screenshot evidence is stored locally in `artifacts/browser-minion-gallery.png`.
 
-## Next use of the extraction path
+## Full map extraction
 
-The same fixed map archive can supply map geometry, material definitions, textures, buildings, and navigation references. Expand the explicitly selected path set and provenance through a separate reviewed asset change. The current extractor intentionally selects only minion reference sources.
+The separate [map pipeline](MAP-ASSETS.md) now extracts pinned terrain, materials, textures, and navigation from this archive. `/map.html` provides a full-map inspection scene with original GPU-compressed textures and a navigation overlay. The playable practice simulation remains on its original terrain until full-map collision, elevation, vision, and object placement are connected together.

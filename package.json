@@ -11,7 +11,7 @@
     "test:watch": "vitest",
     "test:browser": "playwright test",
     "check": "tsc --noEmit && vitest run",
-    "assets:validate": "node tools/assets/validate-glb.mjs",
+    "assets:validate": "node tools/assets/validate-glb.mjs && node tools/assets/validate-map.mjs",
     "format": "prettier --write src tests e2e *.ts tools/assets/*.mjs"
   },
   "dependencies": {

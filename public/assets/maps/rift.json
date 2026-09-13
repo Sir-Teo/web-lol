@@ -1,0 +1,1476 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "container": "Maps/MapGeometry/Map11/Base_SRX",
+  "visibilityMask": 1,
+  "meshes": 196,
+  "materials": 137,
+  "textures": 137,
+  "triangles": 645491,
+  "clips": [],
+  "textureEncoding": "Lossless WebP, original resolution, decoded RGBA equality verified",
+  "source": "docs/reference/map-extraction.json",
+  "omitted": [
+    {
+      "mesh": "MapGeo_Instance_561",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_569",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_572",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_573",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_574",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_576",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_578",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_579",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_581",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_582",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_584",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    },
+    {
+      "mesh": "MapGeo_Instance_585",
+      "material": "Maps/MapGeometry/Map11/Materials/FaeLights_Prototype_Mat",
+      "reason": "Procedural Faelights indicator shader is not implemented."
+    }
+  ],
+  "limitations": [
+    "Static geometry only; map-placeable buildings, particles, animated water, and gameplay objects are separate sources.",
+    "VertexDeform and SRX_DynamicEffect use static diffuse approximations; source displacement, blending, and controller timing remain unimplemented.",
+    "Other converter shader adapters approximate Riot shaders; no pixel-parity certification.",
+    "Default visibility bit 0 only; elemental terrain transitions and event overrides are not implemented."
+  ],
+  "output": {
+    "bytes": 389877,
+    "sha256": "68586f75e3244217d278f70505da60cd0d74ae50631f1d759030926bc8b27fa8"
+  },
+  "resources": [
+    {
+      "uri": "rift-geometry.bin",
+      "bytes": 36311444,
+      "sha256": "679a3c4e75ed0f40915381d2d833b615a290da29f7f8595204b3a90f9b68c3eb"
+    },
+    {
+      "uri": "rift-dxt.json",
+      "bytes": 65060,
+      "sha256": "d337f70da3a5631b42493c89cb4290bcb9dfd4acefc48ba05ca8bc99f2f9f0ad"
+    },
+    {
+      "uri": "textures/grasstint_srx.webp",
+      "bytes": 71552,
+      "sha256": "303b017be6e0a913f62af5d2691613f929ef16663788e0d73bf7f386cbd5e9d8"
+    },
+    {
+      "uri": "textures/ground_e2_chaosbase_a.webp",
+      "bytes": 1952580,
+      "sha256": "c4a74b31a69116f2ac107f8d8f342a5f217abee8ff4082c12713c298686895a9"
+    },
+    {
+      "uri": "textures/ground_d2_chaosbase_a.webp",
+      "bytes": 1591000,
+      "sha256": "116bbde40a00bb5375eaa55f3e546a41aca7a137b4b8177726849ae9ad1339b2"
+    },
+    {
+      "uri": "textures/ground_b4_orderbase_a.webp",
+      "bytes": 1882174,
+      "sha256": "c77a5b876a22d1dab17619d5ed2721f578c94473554b8deff40e97ffc7f8f7b0"
+    },
+    {
+      "uri": "textures/hol_statue_tris_2026.webp",
+      "bytes": 1261130,
+      "sha256": "7735eb6283dbfdb45d8c0fb119c8e87cf97fe274b0dc23116105efaafd34e86a"
+    },
+    {
+      "uri": "textures/ground_a5_orderbase_a.webp",
+      "bytes": 2743076,
+      "sha256": "65a09e08b29a422fd73ace98a79e1b89f7ba2194ea9892b0101f7ee58d62478f"
+    },
+    {
+      "uri": "textures/ground_b3_orderblue_a.webp",
+      "bytes": 1567308,
+      "sha256": "f8c993867f847d8d10a95a8fc1747cf760784d30b085a587f290559e9abd6cf9"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_tunnel_a.webp",
+      "bytes": 1303328,
+      "sha256": "d4605c12e0c649be03c483028b4572a142b048ed86ea23a30954c600cbf8a832"
+    },
+    {
+      "uri": "textures/ground_e5_alcovebot_a.webp",
+      "bytes": 1181826,
+      "sha256": "6c071e033f4fdeacef70f694ca881217d4729f7572faf5061bedfd2dca795c2d"
+    },
+    {
+      "uri": "textures/ground_c1_chaostop_a.webp",
+      "bytes": 1403850,
+      "sha256": "078ac53665aae5255f5368921fc09d011d7f472a1fe141a79fe69aada91851cd"
+    },
+    {
+      "uri": "textures/ground_c5_orderbot_a.webp",
+      "bytes": 1908578,
+      "sha256": "5442aad2be9c00f2c8690db408706002369b5f94e8a37880390cca6d8e658036"
+    },
+    {
+      "uri": "textures/ground_a4_orderbase_a.webp",
+      "bytes": 2301476,
+      "sha256": "ff7430fa6c4a73552090b104b4f74c76dad23c58aa745db6ee760373ededbbf5"
+    },
+    {
+      "uri": "textures/ground_d4_dragonpit_a.webp",
+      "bytes": 1139224,
+      "sha256": "86b6d2535118bd997dbe8a7902e19b47a3442c786dae17752aef6eab64ad7f9e"
+    },
+    {
+      "uri": "textures/ground_e4_chaosbot_a.webp",
+      "bytes": 1283090,
+      "sha256": "a7f638c4755b971a125260ff16781e0be92bc087ce2834360d6d22b695180323"
+    },
+    {
+      "uri": "textures/ground_e1_chaosbase_a.webp",
+      "bytes": 1879702,
+      "sha256": "c99426af6d84e09da4accf90dc2c9f5e227810e4ba5325592558e6ded442499d"
+    },
+    {
+      "uri": "textures/earth_order_gromp_a.webp",
+      "bytes": 100660,
+      "sha256": "91e73291c0d27af82d5cef286e11c7d900bf8e3b7cc59441fa3637685bf5bdb0"
+    },
+    {
+      "uri": "textures/earth_chaos_gromp_a.webp",
+      "bytes": 77832,
+      "sha256": "77d8b3d703d1bef4438bb9fb26cc4ca030eab7c152a48b4551a08eaffe25cd55"
+    },
+    {
+      "uri": "textures/hol_kaisaplatform_a.webp",
+      "bytes": 203620,
+      "sha256": "2f8a0bc8519bd66bc4da6221d231f0eac62bac396220bf29bbff09f9de2024e2"
+    },
+    {
+      "uri": "textures/ground_d3_chaosblue_a.webp",
+      "bytes": 1268818,
+      "sha256": "232dab3cec063fcd7bc8352a6d72fca6ffc534a672477bab7daa2c10e6b02750"
+    },
+    {
+      "uri": "textures/ground_a3_ordertop_a.webp",
+      "bytes": 1398950,
+      "sha256": "607995c44f5376771c3abe2489172c768b465d302342abf4dc326010be5de5b3"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_a.webp",
+      "bytes": 1267536,
+      "sha256": "64e3289750f1c9f4be231c276a5fbf0400873c14e3236af5301325be3cad141b"
+    },
+    {
+      "uri": "textures/ground_b5_orderbase_a.webp",
+      "bytes": 2193238,
+      "sha256": "c141bf5136c9291076cbbc0e414a3b411a6359221ec843984d5bb7ee46d68c01"
+    },
+    {
+      "uri": "textures/ground_c2_chaosred_a.webp",
+      "bytes": 1465804,
+      "sha256": "652beb83c495a572f901776083fe9a61efa2b6c3fc43437db326c7557177f636"
+    },
+    {
+      "uri": "textures/sodapop_propkit_c.webp",
+      "bytes": 415578,
+      "sha256": "b00346193b69fd78cf8ee9b3e13333a0b35b79879a86ec59ee11c152acb427a7"
+    },
+    {
+      "uri": "textures/ground_c3_midlanecaps_a.webp",
+      "bytes": 1540616,
+      "sha256": "14f404494d7de9bd59e274253419f6a4eb30534a764f7c496152c9bf091e7c99"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_walled_a.webp",
+      "bytes": 1289274,
+      "sha256": "dce37d16dd79fea38689d853d108c332b4ccd6040c089fb5afa6d8feca8cbad4"
+    },
+    {
+      "uri": "textures/ground_a1_alcovetop_a.webp",
+      "bytes": 1068358,
+      "sha256": "64627ebdf6a4c761586091d7f21a9ee164d4b7ba3ff023908b1df404435b6c44"
+    },
+    {
+      "uri": "textures/ground_c4_orderred_a.webp",
+      "bytes": 1907992,
+      "sha256": "ff05c8ad648d9be2171d55b0425e4d3a259f749348dbda999700c87c0d2d85d0"
+    },
+    {
+      "uri": "textures/ground_d5_orderbot_a.webp",
+      "bytes": 1572668,
+      "sha256": "39020355fc2edcee0fd227b4d9f1df38bde62300a11ce7c8dfc73271d7b59383"
+    },
+    {
+      "uri": "textures/periph_vista_a.webp",
+      "bytes": 588968,
+      "sha256": "32788ee12fa116cbae226882e2fd718f13800de83ec9c765b0bc183677a6a38e"
+    },
+    {
+      "uri": "textures/ground_a2_ordertop_a.webp",
+      "bytes": 1244252,
+      "sha256": "4fd7afb7ea0565c9eea4886e1dc01fa4dbbd1460a9952db8d6acad1343f0fa2e"
+    },
+    {
+      "uri": "textures/ground_b1_chaostop_a.webp",
+      "bytes": 1441806,
+      "sha256": "f90d5abfa8995d7c5d75ad26ae93512b51154b7152de59ca001fd91c2c891835"
+    },
+    {
+      "uri": "textures/plinths_a.webp",
+      "bytes": 49168,
+      "sha256": "fe4f7341ca6b7d13f118bba98b49f931d7b6055c559dcceab45e2d086e40c4a2"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_upgraded_a.webp",
+      "bytes": 1291668,
+      "sha256": "f40a997fa6ae352638cf0ba4be60f70612b2cf19e89bec358b3e55d767d0527e"
+    },
+    {
+      "uri": "textures/periph_bot_g.webp",
+      "bytes": 789648,
+      "sha256": "aa8f94524a47a605c4991c3519df69d1a21f7e899fb13c5e4a1d7b1d67cd39d2"
+    },
+    {
+      "uri": "textures/ground_d4_dragonpit_ocean_a.webp",
+      "bytes": 1810834,
+      "sha256": "cdf8f07cde8e2d8e59a9ec1300b17dd0553158c04925d6a018962d31256afd82"
+    },
+    {
+      "uri": "textures/ground_e3_chaosbot_a.webp",
+      "bytes": 1375754,
+      "sha256": "0842301027475fd59c6d496f488d90eb2541ecee179599d7cc09bfba49e71386"
+    },
+    {
+      "uri": "textures/ground_d1_chaosbase_a.webp",
+      "bytes": 2008792,
+      "sha256": "4a5de8238efb50f5ac3da0ff0625f86731d0a34fb3922f4f45a5ccfbfae92efe"
+    },
+    {
+      "uri": "textures/periph_vista_d_1bitalpha.webp",
+      "bytes": 1130784,
+      "sha256": "ca6a247a4768e204a97d7e7a7b26f80c1edf0dd129441e7542324605732e83e2"
+    },
+    {
+      "uri": "textures/periph_chaosbase_c_1bitalpha.webp",
+      "bytes": 921866,
+      "sha256": "c612d793974698381db2463dbf720aaee32e2c91a75a1d9cddc8696d521972e8"
+    },
+    {
+      "uri": "textures/periph_top_f_1bitalpha.webp",
+      "bytes": 978116,
+      "sha256": "aead930af02bc7159921f7f7896483eaad5598a643d598bcda99fe9185809e13"
+    },
+    {
+      "uri": "textures/periph_chaosbase_e_1bitalpha.webp",
+      "bytes": 895262,
+      "sha256": "92db37e33bfdda37308f438ea3bf69e2418f3e543d67907032cac2b1b6888478"
+    },
+    {
+      "uri": "textures/periph_top_g_1bitalpha.webp",
+      "bytes": 1190174,
+      "sha256": "cd9df90d918d9505d5c56b765fe0cc41734014299569be4bdbfd30bf9c541d41"
+    },
+    {
+      "uri": "textures/periph_top_i_1bitalpha.webp",
+      "bytes": 1119086,
+      "sha256": "918bee95d67f8da169fa1dd0a307a89520e2f70ead9355e090de80a47f7e5d83"
+    },
+    {
+      "uri": "textures/chaos_spawn_d_1bitalpha.webp",
+      "bytes": 1950142,
+      "sha256": "06c6480d603bbdf0b67ed15973bf19a23794eafbe308cdcd3d06c1ba5e24c9cd"
+    },
+    {
+      "uri": "textures/periph_chaosbase_a_1bitalpha.webp",
+      "bytes": 791876,
+      "sha256": "9633f000588bf876b5939940cc3ad4826b1c24d5ca425865333a98b047b8c2d9"
+    },
+    {
+      "uri": "textures/periph_top_e_1bitalpha.webp",
+      "bytes": 1229082,
+      "sha256": "66b0e1f7716c242eb28afb480ef75d81362e73a1b7080d5593c69075d56770c2"
+    },
+    {
+      "uri": "textures/periph_chaosbase_b.webp",
+      "bytes": 772502,
+      "sha256": "503991021f37cfbffd9ec815731dccd56cc31068961af68a8475433e747d487e"
+    },
+    {
+      "uri": "textures/chaos_spawn_c_1bitalpha.webp",
+      "bytes": 852058,
+      "sha256": "90b2ccfa39f8b5f559608d357e153408c88996a9035bb96653fdd52cba1f01fa"
+    },
+    {
+      "uri": "textures/hol2026_periph_top_h_1bitalpha.webp",
+      "bytes": 1545914,
+      "sha256": "5df3e8b990abaa52af779a4327a6963a13f3ccd354cea30952227ba494f06744"
+    },
+    {
+      "uri": "textures/chaos_spawn_a_1bitalpha.webp",
+      "bytes": 1287490,
+      "sha256": "b20d9f2e82afc773052c865a784ed6730cfc89292d8f15aafcbd4ada136b4ce3"
+    },
+    {
+      "uri": "textures/chaos_spawn_b_1bitalpha.webp",
+      "bytes": 602364,
+      "sha256": "5ca9ebb753a4649829159e4bbdde4fc9acec821aceb69eba5f282ac604d2057f"
+    },
+    {
+      "uri": "textures/sru_brush.webp",
+      "bytes": 46602,
+      "sha256": "6f2723919e087839b600ce531c274a65c38103d51d89cec7ec75603c83c9389a"
+    },
+    {
+      "uri": "textures/periph_topalcove_a_1bitalpha.webp",
+      "bytes": 447940,
+      "sha256": "aefb64b067924a89130fb92a76739c2293bb9655d3c4008c9225ed1f26f9e0a4"
+    },
+    {
+      "uri": "textures/chaos_top_b_1bitalpha.webp",
+      "bytes": 1371012,
+      "sha256": "8343f85f754902381394844639c522c60d2cb1a00285b07a85efb5be9c7b89c4"
+    },
+    {
+      "uri": "textures/chaos_top_c_1bitalpha.webp",
+      "bytes": 786004,
+      "sha256": "718a4158e1088edc419a6d8762c93d5fb6278b19ee5e46500e172429fa798e5c"
+    },
+    {
+      "uri": "textures/chaos_topriver_a_1bitalpha.webp",
+      "bytes": 1696956,
+      "sha256": "11ed0005051ac2cdcb3586128b4945ffecdcf188eea020de5030fe214ab9d865"
+    },
+    {
+      "uri": "textures/chaos_base_a_1bitalpha.webp",
+      "bytes": 1331724,
+      "sha256": "23169e80f80e6da837091254d9aac29a62dac91562f608ca0a03e62d4915fc68"
+    },
+    {
+      "uri": "textures/chaos_krug_a_1bitalpha.webp",
+      "bytes": 1306604,
+      "sha256": "e5f3e0f0e38307272c581644e08562061c3208adbb3c38ba6f03e15e4096a562"
+    },
+    {
+      "uri": "textures/chaos_top_a_1bitalpha.webp",
+      "bytes": 1512076,
+      "sha256": "ad29fecfbc8f92a230ff8cb6bd9bd82406604190a7a0c7a5f08d96e45502fcd0"
+    },
+    {
+      "uri": "textures/periph_top_c_1bitalpha.webp",
+      "bytes": 1080146,
+      "sha256": "95010a08b7d4ccb3c8b50be0d5befe2ebd785dadb1ca61daeaf81821db680480"
+    },
+    {
+      "uri": "textures/periph_chaosbase_d_1bitalpha.webp",
+      "bytes": 816724,
+      "sha256": "6ccb41bf890550cf3201f362e8d9ec4f760eafa4e42ad433ff818b7d1949451c"
+    },
+    {
+      "uri": "textures/periph_chaosbase_f_1bitalpha.webp",
+      "bytes": 897312,
+      "sha256": "c36cbdfcf7aa573ad76d35a93e3de24e918376f00a8cf0a0b4c70e353fa7699d"
+    },
+    {
+      "uri": "textures/periph_top_d_1bitalpha.webp",
+      "bytes": 1402210,
+      "sha256": "8531aa9bdcd11a39bca91ffbb7beffdbae69783a282acd2ee41e1945263e9776"
+    },
+    {
+      "uri": "textures/ocean_puddle_a.webp",
+      "bytes": 617708,
+      "sha256": "3d0f7c1bd1cbd83cd3f505e3eee0809ab555f9ac303a3d9609ed4b51081c0c8e"
+    },
+    {
+      "uri": "textures/chaos_baron_tunnel_a_1bitalpha.webp",
+      "bytes": 1737218,
+      "sha256": "6c8393672d7292b1f22f058da29caee0c92658c7bbccba6f49305f40e61e8cda"
+    },
+    {
+      "uri": "textures/chaos_baron_upgraded_a_1bitalpha.webp",
+      "bytes": 1860736,
+      "sha256": "f75c309da5da7ad1219169fec075afe9ad3f68e1ed98adf4196b5e5c8a04daa9"
+    },
+    {
+      "uri": "textures/chaos_baron_a_1bitalpha.webp",
+      "bytes": 1592176,
+      "sha256": "f1b62a4a437ff6adf980cda8586ab424c7e6a3a5286c89de0fda3a980b7f8e10"
+    },
+    {
+      "uri": "textures/chaos_red_b_1bitalpha.webp",
+      "bytes": 1250290,
+      "sha256": "ed3d39af3d467fe884b2d1a28364755c86b800df8b4ea4a4775a532b1406a80f"
+    },
+    {
+      "uri": "textures/chaos_baron_walled_a_1bitalpha.webp",
+      "bytes": 1965692,
+      "sha256": "9446a8cbf1d76ce416c471d93158a2178002608faae6baafb20768d4cc461785"
+    },
+    {
+      "uri": "textures/chaos_red_a_1bitalpha.webp",
+      "bytes": 1206296,
+      "sha256": "4ea3d0200a2850cc641bd1203f1fdf6d551dd755adff01e18a208bc276679df7"
+    },
+    {
+      "uri": "textures/chaos_base_b_1bitalpha.webp",
+      "bytes": 1281132,
+      "sha256": "f613fed13fb0800ae3ffc8bddde720f03aa655c5a9a7565d720bce26f54df794"
+    },
+    {
+      "uri": "textures/chaos_mid_a_1bitalpha.webp",
+      "bytes": 1317980,
+      "sha256": "96a99018cc980adf187bbf75ddfb97908c51b048934029aadf66a22bb148d0b8"
+    },
+    {
+      "uri": "textures/order_topriver_a_1bitalpha.webp",
+      "bytes": 1388404,
+      "sha256": "325b5f8b0e69ec9c122db90ff4761321168ea5215c6bdca6b538b3b7127507fd"
+    },
+    {
+      "uri": "textures/chaos_baron_b_1bitalpha.webp",
+      "bytes": 1413336,
+      "sha256": "9b37666166765c1523b2ebd3920d0b542f2efa20b4cd6bbe662e9cba196f8dd5"
+    },
+    {
+      "uri": "textures/chaos_baron_upgraded_b_1bitalpha.webp",
+      "bytes": 1709780,
+      "sha256": "4008bca202533f6a923f1f901b16d5fcfbafd780226ca72179e11fb8d66c6bdc"
+    },
+    {
+      "uri": "textures/chaos_baron_walled_b_1bitalpha.webp",
+      "bytes": 1747756,
+      "sha256": "858c3a4a5846a166d4fcdc18012a392d435b47687e984347048536475a7a0e13"
+    },
+    {
+      "uri": "textures/chaos_baron_tunnel_b_1bitalpha.webp",
+      "bytes": 1405670,
+      "sha256": "f7054c4e7e43e83d82f0a52e98b7704c13d5aecbf86c7fe082b3228b44175df9"
+    },
+    {
+      "uri": "textures/chaos_raptor_a_1bitalpha.webp",
+      "bytes": 1288790,
+      "sha256": "a2c5c5f50129bbb74e524445a923fd6bf193092b36d9f20f7b36b8867893c925"
+    },
+    {
+      "uri": "textures/order_baronriver_a_1bitalpha.webp",
+      "bytes": 812356,
+      "sha256": "ef1fe98871819dd9bcac5840d4d445662dc3d1d5caf9e86f5742c64b61617008"
+    },
+    {
+      "uri": "textures/order_gromp_earth_b_1bitalpha.webp",
+      "bytes": 723386,
+      "sha256": "a610c74289f4736c9862f285e4b905208b8f60408ce1b4a12ffa7cd11ae326d4"
+    },
+    {
+      "uri": "textures/order_gromp_b_1bitalpha.webp",
+      "bytes": 696504,
+      "sha256": "328947dad9750eb48d1eff2dee4e8ec7a3d6f8a7e15753a2f34b367fb352b487"
+    },
+    {
+      "uri": "textures/chaos_midriver_a_1bitalpha.webp",
+      "bytes": 883014,
+      "sha256": "0178d2f229cee482f38f63c9abba0bac33fa52e0d1e32257e7ae5f18dc9dc769"
+    },
+    {
+      "uri": "textures/chaos_mid_b_1bitalpha.webp",
+      "bytes": 1364260,
+      "sha256": "35f80392e558a5943b54118d6c695c8ac116121b3f3cd86c1953c7f15c75db3a"
+    },
+    {
+      "uri": "textures/earth_order_grompdecal_a.webp",
+      "bytes": 225978,
+      "sha256": "913d521b528d0b505cd8ea131cafe78b1ed741ee509f6ced407705dd1983663e"
+    },
+    {
+      "uri": "textures/order_gromp_a_1bitalpha.webp",
+      "bytes": 1291356,
+      "sha256": "d33d8f7b0eaa4a6a5150c797ba81fd22d2d26c38494ff9dba30efb3baeb14e33"
+    },
+    {
+      "uri": "textures/chaos_mid_c_1bitalpha.webp",
+      "bytes": 1074538,
+      "sha256": "5b008deb61f11d69ff8b6bbcbb1c78cf42d8557d518fe5f3a60374132e03acf4"
+    },
+    {
+      "uri": "textures/chaos_wolf_a_1bitalpha.webp",
+      "bytes": 653810,
+      "sha256": "5a378fac1ecbe0c8cade46bf28f0f42f4398c51cc6436f801a6201c265a0f3fb"
+    },
+    {
+      "uri": "textures/chaos_bot_a_1bitalpha.webp",
+      "bytes": 1399170,
+      "sha256": "19b7d38f00b3378a86e6e0ca39db8f0ea6a1fb2d6ff225d9991eaede6294907f"
+    },
+    {
+      "uri": "textures/periph_top_b_1bitalpha.webp",
+      "bytes": 1522286,
+      "sha256": "da5327712da2d0677d57dfaf7e5fe2e4959c80bf999fac95591f830c351fd714"
+    },
+    {
+      "uri": "textures/order_blue_a_1bitalpha.webp",
+      "bytes": 1262726,
+      "sha256": "5e624823a5f018742c343951e09786c18ea477d1b7be15dffde5879fe77a9382"
+    },
+    {
+      "uri": "textures/periph_bot_j_1bitalpha.webp",
+      "bytes": 1113876,
+      "sha256": "5d4e338b5969e032dd48e64c7a510fccf3a10fca7b0b5965510246a1da128922"
+    },
+    {
+      "uri": "textures/order_midriver_a_1bitalpha.webp",
+      "bytes": 1454028,
+      "sha256": "1074e7418469517a124c2018e88436f512d39add30e7e3205b5b0deb8343fcdf"
+    },
+    {
+      "uri": "textures/chaos_midriver_b_1bitalpha.webp",
+      "bytes": 1043860,
+      "sha256": "51a95cf33dc791ea89ee520da92d6ddc7d53fafa993c0d30807f407ddbb36dc3"
+    },
+    {
+      "uri": "textures/chaos_blue_a_1bitalpha.webp",
+      "bytes": 924936,
+      "sha256": "08b23317302daa09d286275c59233ee25ab9629e2ada2d0894d447a92710f49b"
+    },
+    {
+      "uri": "textures/order_mid_c_1bitalpha.webp",
+      "bytes": 1068756,
+      "sha256": "ec48c5ff33dce9ba066acff3df464f264aa69b3b5a6f2cfb4a6545b992623eab"
+    },
+    {
+      "uri": "textures/chaos_gromp_a_1bitalpha.webp",
+      "bytes": 712680,
+      "sha256": "433ccece9fcca560d60345b4b2f3fd85f825e7df6a4269e60a9848593fcefbbf"
+    },
+    {
+      "uri": "textures/earth_chaos_grompdecal_a.webp",
+      "bytes": 172212,
+      "sha256": "5dcd22c80b0b3ed3eeb65b3536db22ba3e7cc5aee660205047d96dde2e24b93d"
+    },
+    {
+      "uri": "textures/periph_orderbase_b_1bitalpha.webp",
+      "bytes": 802618,
+      "sha256": "e07c7cc9c2f6a4eb14088794aa10fdcdc3063ee5c4b3bd592ed52975a831d67f"
+    },
+    {
+      "uri": "textures/order_wolf_a_1bitalpha.webp",
+      "bytes": 1288766,
+      "sha256": "b93e5358c4139687bf215abe3e99b2bb7f625400c362afcac38accbc507c17bc"
+    },
+    {
+      "uri": "textures/order_midriver_b_1bitalpha.webp",
+      "bytes": 324670,
+      "sha256": "04544d0abd89275479c23483e728c325686faaf4ba82adbcadbb651e4fd304fd"
+    },
+    {
+      "uri": "textures/periph_top_a_1bitalpha.webp",
+      "bytes": 1488178,
+      "sha256": "087fb26eecbca8a20b267f1614a87c41f14d0d67d2c3ff44540b7d05bcd73f80"
+    },
+    {
+      "uri": "textures/order_top_a_1bitalpha.webp",
+      "bytes": 1218434,
+      "sha256": "6ee4f242b5677e1aa58ae2f90854b11a26cb40177dc1743aa4085595a77a478f"
+    },
+    {
+      "uri": "textures/order_mid_a_1bitalpha.webp",
+      "bytes": 1357530,
+      "sha256": "7f24f7e76f7b7fbf00579367b38893db14458dce0af41d56b2b51d7f7244505b"
+    },
+    {
+      "uri": "textures/chaos_gromp_b_1bitalpha.webp",
+      "bytes": 670586,
+      "sha256": "dd9ba84893396665baee766891c393c7ec1cd35d24a5dfd9f60b03acc272a053"
+    },
+    {
+      "uri": "textures/chaos_gromp_earth_b_1bitalpha.webp",
+      "bytes": 743310,
+      "sha256": "73ca32d62762c90ff359e91e94bc0e5bdbcfc133be39008f54cc70a2509f2179"
+    },
+    {
+      "uri": "textures/periph_bot_i_1bitalpha.webp",
+      "bytes": 1434118,
+      "sha256": "68a9ae352bf7de9bcbfdf3fed02fc62e02baaacc4183ff0f049139c6548b9199"
+    },
+    {
+      "uri": "textures/chaos_dragonriver_a_1bitalpha.webp",
+      "bytes": 998996,
+      "sha256": "3cf0e2958f90a9d61a3d65ea5b5afd5860c0b85f4cbd9b432a6fd0c0c577363b"
+    },
+    {
+      "uri": "textures/order_raptor_a_1bitalpha.webp",
+      "bytes": 1582488,
+      "sha256": "3e16044ccaf7f267a18954f35ab2756357d3cd9231b2d6d26990ec6f89050334"
+    },
+    {
+      "uri": "textures/order_dragon_b_1bitalpha.webp",
+      "bytes": 1177328,
+      "sha256": "b9fac942e449c42d9096fb4224dcd489091daea880512559a1780870d44ad6cb"
+    },
+    {
+      "uri": "textures/chaos_bot_b_1bitalpha.webp",
+      "bytes": 1199278,
+      "sha256": "872e1325dc68ebf1416b4ae73095680b5cbcbc46984720903e82f23da07456c2"
+    },
+    {
+      "uri": "textures/periph_bot_f_1bitalpha.webp",
+      "bytes": 1000916,
+      "sha256": "cdf53a548dc91e80a2b873bbb87e78adb97c50ac2517a8b11e4f23b76bb0c113"
+    },
+    {
+      "uri": "textures/order_dragon_a_1bitalpha.webp",
+      "bytes": 1227990,
+      "sha256": "26f1d8cafc2f513cb3b19fac313d41cfbc3f6594939b451a0deea5c3087ef844"
+    },
+    {
+      "uri": "textures/order_base_a_1bitalpha.webp",
+      "bytes": 1264272,
+      "sha256": "ed33a05564895f5ba52bceb713194de28fe98d59b04b043641c2a570e781104c"
+    },
+    {
+      "uri": "textures/periph_orderbase_a_1bitalpha.webp",
+      "bytes": 1347112,
+      "sha256": "bc5671f507aa2cd62000ea78eeaf2419fbca24123aca869dd0e880f3f923751d"
+    },
+    {
+      "uri": "textures/order_mid_b_1bitalpha.webp",
+      "bytes": 1487840,
+      "sha256": "d96928b3acb83d4e272b64d423e900656774425d86ebb77f22cc38ba3d630942"
+    },
+    {
+      "uri": "textures/chaos_botriver_a_1bitalpha.webp",
+      "bytes": 1198672,
+      "sha256": "2e416effc1c8690b3ce358385046ddbd41886ed4d3ea13e96cde4ff5c33a72c4"
+    },
+    {
+      "uri": "textures/order_red_a_1bitalpha.webp",
+      "bytes": 1309498,
+      "sha256": "653cdbb8e9c68d69ab995899824a111a4fe25213a19b5c763d1b00900adf40fe"
+    },
+    {
+      "uri": "textures/periph_bot_h_1bitalpha.webp",
+      "bytes": 937654,
+      "sha256": "871f5d583ee69658b46628fc47c0df7b1842de8d55464af6ab5827e110b92c07"
+    },
+    {
+      "uri": "textures/order_red_b_1bitalpha.webp",
+      "bytes": 1180892,
+      "sha256": "3410ba04655d5191dc62aa7b611a3d1208431e360792334966b98a32777b3575"
+    },
+    {
+      "uri": "textures/periph_bot_d_1bitalpha.webp",
+      "bytes": 868416,
+      "sha256": "a7414b075871542087dfeeb2fc93e3a65d288f513fb46ccd1d4cc17a4e8f108a"
+    },
+    {
+      "uri": "textures/periph_botalcove_a_1bitalpha.webp",
+      "bytes": 910580,
+      "sha256": "0fb4b73f776759b9e4c1a0627b2f843fd2be0a338868779f5f70278bc64aec0a"
+    },
+    {
+      "uri": "textures/order_krug_a_1bitalpha.webp",
+      "bytes": 1400878,
+      "sha256": "dd45c25863eab91b14edd50852071a9e5dfde932e11f382fab4da02e8c5378d2"
+    },
+    {
+      "uri": "textures/order_botriver_a_1bitalpha.webp",
+      "bytes": 1018794,
+      "sha256": "eff62566b3c1c5b205f9447c5809d5e94f91d1b141df8d44eaa019ba33ef384c"
+    },
+    {
+      "uri": "textures/periph_bot_e_1bitalpha.webp",
+      "bytes": 1117026,
+      "sha256": "7034a699ca27faa2f645a96d717065f19cf9f314baf469918a3feb421f8620ea"
+    },
+    {
+      "uri": "textures/order_base_b_1bitalpha.webp",
+      "bytes": 1240146,
+      "sha256": "ba4619188ce25b15a0490852602b058aed32a3bd8028277c8cc1748db297eac4"
+    },
+    {
+      "uri": "textures/order_bot_a_1bitalpha.webp",
+      "bytes": 1460998,
+      "sha256": "69a3e8b819a18b55d9e2e1c727f5b510f2880929830955a9483636159a0c5c27"
+    },
+    {
+      "uri": "textures/order_spawn_b_1bitalpha.webp",
+      "bytes": 1380892,
+      "sha256": "6f6439a73f9adc327668208ed409fd34626b869e6c5169bb68f834d001bdf45a"
+    },
+    {
+      "uri": "textures/order_bot_b_1bitalpha.webp",
+      "bytes": 1164376,
+      "sha256": "40e2f32f6f8b0bad926bb1aa02a66eac8c1064cbac6b5110ac548d88bb91e5a6"
+    },
+    {
+      "uri": "textures/order_bot_d_1bitalpha.webp",
+      "bytes": 1173786,
+      "sha256": "70cf76589f4d62d90c815133727eada8aef7d1fae1c5f26c028cdd5f1ad87bfb"
+    },
+    {
+      "uri": "textures/order_bot_c_1bitalpha.webp",
+      "bytes": 641616,
+      "sha256": "582910361ca5fe9ec56ee635f94ae88e4a2d44a03f08491eb49b645849ab9690"
+    },
+    {
+      "uri": "textures/periph_orderbase_d_1bitalpha.webp",
+      "bytes": 1076440,
+      "sha256": "95616fa7c2df116d9962b30f55b09d44fa210c9f3f591de0d59c379ff9b65d7a"
+    },
+    {
+      "uri": "textures/order_spawn_a_1bitalpha.webp",
+      "bytes": 1688380,
+      "sha256": "f1b9e0b1fb3da60ecef77b28427c38a6c7802431ac7a5e9d46d0a5d1f4b7b8fd"
+    },
+    {
+      "uri": "textures/periph_bot_c_1bitalpha.webp",
+      "bytes": 781962,
+      "sha256": "c2038ea77476e49dbf9ec5d49fbe85ecc19a8e0193c187ba56adf7b790d47c6c"
+    },
+    {
+      "uri": "textures/periph_bot_a_1bitalpha.webp",
+      "bytes": 920694,
+      "sha256": "6882fb10f24f02403f347bd92353d283bbfd7857000bf0ac86aed9cf0ad66f4b"
+    },
+    {
+      "uri": "textures/periph_orderbase_c_1bitalpha.webp",
+      "bytes": 1423034,
+      "sha256": "d41a0d67393ce8bf3ae2bf115736cfa3af6e7663dfef1dac01024d399ba895e1"
+    },
+    {
+      "uri": "textures/periph_bot_b_1bitalpha.webp",
+      "bytes": 693062,
+      "sha256": "632b0c81db64cd80b690189905d17951af9928d0ee76555218b85bd475d35b32"
+    },
+    {
+      "uri": "textures/order_spawn_c_1bitalpha.webp",
+      "bytes": 66204,
+      "sha256": "8252992c837d41fb3517d9a1eaca1523e329429b79020705251a52b27eaf7eb7"
+    },
+    {
+      "uri": "textures/ground_e2_chaosbase_a.dds.gz",
+      "bytes": 1665941,
+      "sha256": "58f54c245a9fb1fa960cbc95e806668d926f04f626e29100f3df07605fa73ca7"
+    },
+    {
+      "uri": "textures/ground_d2_chaosbase_a.dds.gz",
+      "bytes": 1602966,
+      "sha256": "fcc3080c70f8d05045b1ef711e438b0cfc8a28a5cc3665a1c7a7afa93316652f"
+    },
+    {
+      "uri": "textures/ground_b4_orderbase_a.dds.gz",
+      "bytes": 1666861,
+      "sha256": "738e1364a2053e7ca5e4dfa56e11d7859ae055a44849311a87445f066f58a7d4"
+    },
+    {
+      "uri": "textures/hol_statue_tris_2026.dds.gz",
+      "bytes": 1200717,
+      "sha256": "5357f5834f90467cac3107de63cef59b638903e1e47476cea4dfefc99ca253ff"
+    },
+    {
+      "uri": "textures/ground_a5_orderbase_a.dds.gz",
+      "bytes": 1884532,
+      "sha256": "dc7a88519fefdf901b9bb30bdce2bebf77b0bf23a5b401034586b63215aadca6"
+    },
+    {
+      "uri": "textures/ground_b3_orderblue_a.dds.gz",
+      "bytes": 1535080,
+      "sha256": "f8510ac50fa84fd09dfb28533086bc9d091bdaee5e24b1a6680fa4a2e31f1408"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_tunnel_a.dds.gz",
+      "bytes": 1398669,
+      "sha256": "b9b9184a2e7198dc2169115e0543393f848b964665dbadda06da19a1becf9e54"
+    },
+    {
+      "uri": "textures/ground_e5_alcovebot_a.dds.gz",
+      "bytes": 1097435,
+      "sha256": "9ab1d825a8adc879f97fca954637100608c51da9d58ddb15dd995706e9b08ddb"
+    },
+    {
+      "uri": "textures/ground_c1_chaostop_a.dds.gz",
+      "bytes": 1459619,
+      "sha256": "3f36872ae2bd8a7ff038d0e49796c4276c3d9016c798e4449072a3555952cbfa"
+    },
+    {
+      "uri": "textures/ground_c5_orderbot_a.dds.gz",
+      "bytes": 1628259,
+      "sha256": "e7c3346593397724ee9d47338b40be2e7a1744d1ba835e61e5208c59b641ce90"
+    },
+    {
+      "uri": "textures/ground_a4_orderbase_a.dds.gz",
+      "bytes": 1790415,
+      "sha256": "0e290f5ec3ed78a1ce761946f8f8638a33cc871d15ef87878a75c5a628e05ef0"
+    },
+    {
+      "uri": "textures/ground_d4_dragonpit_a.dds.gz",
+      "bytes": 1291594,
+      "sha256": "ed81e06488baea3b732ea47e7864b32a64466c60a643695a5286de333e292ab8"
+    },
+    {
+      "uri": "textures/ground_e4_chaosbot_a.dds.gz",
+      "bytes": 1405627,
+      "sha256": "13d4d4f99351ff3bd00b256ced9f97832bffded45f1d6e9cf17ffe1acf2472f9"
+    },
+    {
+      "uri": "textures/ground_e1_chaosbase_a.dds.gz",
+      "bytes": 1583685,
+      "sha256": "7f22d58ebaa79c9ed3901a584217afe8e6b85bb1ac49b843e0289f60ea514c9b"
+    },
+    {
+      "uri": "textures/earth_order_gromp_a.dds.gz",
+      "bytes": 92011,
+      "sha256": "d3507aa3e60f5a602c09f802e03aaa2143d9b4b602015bcfe5afd2f2d48224f9"
+    },
+    {
+      "uri": "textures/earth_chaos_gromp_a.dds.gz",
+      "bytes": 78888,
+      "sha256": "93901beccc8895d333103c71d6cd9b1b181a3e204679f17cd0b3d631dd99dd79"
+    },
+    {
+      "uri": "textures/hol_kaisaplatform_a.dds.gz",
+      "bytes": 228505,
+      "sha256": "940a2931464545324279b2aaf2ff6b523df15eca6f8898948dfa19774847b1b2"
+    },
+    {
+      "uri": "textures/ground_d3_chaosblue_a.dds.gz",
+      "bytes": 1370272,
+      "sha256": "48862e03535f24ed6699a4c46dc068fa07af4a1090cae95963235c4cc03d49c4"
+    },
+    {
+      "uri": "textures/ground_a3_ordertop_a.dds.gz",
+      "bytes": 1460234,
+      "sha256": "71042118c8f8a11f54bdb91641aae13a4fb5bd87227ffc942be3857d5c645e3a"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_a.dds.gz",
+      "bytes": 1407380,
+      "sha256": "e28799bd7635e563baa640ef6369969af006d9d70e6a9f0b8961e2847fe34fda"
+    },
+    {
+      "uri": "textures/ground_b5_orderbase_a.dds.gz",
+      "bytes": 1719487,
+      "sha256": "c57c1c1373ae63a3f90ed040882c8a689fd0b32196ab6b14629654f3b027e338"
+    },
+    {
+      "uri": "textures/ground_c2_chaosred_a.dds.gz",
+      "bytes": 1504221,
+      "sha256": "a9b5deeb9566886cdba6cb6e6f1c5f644fce05032c08a9b3f9de21a56f163a6f"
+    },
+    {
+      "uri": "textures/sodapop_propkit_c.dds.gz",
+      "bytes": 394139,
+      "sha256": "18270c322587de82bc0f857221f3e39182dc8cf2af3bc2e78800849da4cafff2"
+    },
+    {
+      "uri": "textures/ground_c3_midlanecaps_a.dds.gz",
+      "bytes": 1560195,
+      "sha256": "e3491c5ea4783aa60757a2b333b1a61d7038085c012173778671772d41973cf4"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_walled_a.dds.gz",
+      "bytes": 1406934,
+      "sha256": "161507409464e2e798bcab5bad9aa29a235413c38c58664acfc874b9ff295039"
+    },
+    {
+      "uri": "textures/ground_a1_alcovetop_a.dds.gz",
+      "bytes": 1101361,
+      "sha256": "de59cfb0e71a161d53f370308bea2ab0fffd54f1837b561646f5df23a7ad8cc4"
+    },
+    {
+      "uri": "textures/ground_c4_orderred_a.dds.gz",
+      "bytes": 1653959,
+      "sha256": "b0af762736b48064d2b924c329c837ced92310aef459e7513b7203f13e9361d1"
+    },
+    {
+      "uri": "textures/ground_d5_orderbot_a.dds.gz",
+      "bytes": 1452275,
+      "sha256": "7d2b4f3920a977c3b8a937786708dba73fc89c1382cbcf53fd1e369befce5356"
+    },
+    {
+      "uri": "textures/periph_vista_a.dds.gz",
+      "bytes": 590772,
+      "sha256": "461f4d936c0f608b7ac092ef3a02d64a7c6c23395122e5ee6dea6f0e532f8789"
+    },
+    {
+      "uri": "textures/ground_a2_ordertop_a.dds.gz",
+      "bytes": 1390999,
+      "sha256": "4cc24de75ec57e5978095dde2f44d752d5f18eab4963663f5bf676bd86020a2f"
+    },
+    {
+      "uri": "textures/ground_b1_chaostop_a.dds.gz",
+      "bytes": 1399701,
+      "sha256": "7e41109d41e8f2eb5af54436ddd150ec5c37899c43394c543b534ab26a98cd13"
+    },
+    {
+      "uri": "textures/plinths_a.dds.gz",
+      "bytes": 56352,
+      "sha256": "2831037d9a1d9e969c1a9d3df6d6eeff0828ed59aa7374d1f503101ea67814e6"
+    },
+    {
+      "uri": "textures/ground_b2_baronpit_upgraded_a.dds.gz",
+      "bytes": 1427329,
+      "sha256": "14555d98f9f3a3d375a4199b7350fe2352552c2be404bc20691d43af1a9022d2"
+    },
+    {
+      "uri": "textures/periph_bot_g.dds.gz",
+      "bytes": 923393,
+      "sha256": "3a3f3131d5a55de5ed2c68b42dcb5eeae2f05acbd28880940e158cf921656cbc"
+    },
+    {
+      "uri": "textures/ground_d4_dragonpit_ocean_a.dds.gz",
+      "bytes": 1560271,
+      "sha256": "e577de16e25f8b1fe8ff5d4c823661ba001e7cdb18ad89f614663db5cba316bb"
+    },
+    {
+      "uri": "textures/ground_e3_chaosbot_a.dds.gz",
+      "bytes": 1489906,
+      "sha256": "cee1dd6c125f753c87b06407c50e576b52d9b318b0882ce1372b9590818975f5"
+    },
+    {
+      "uri": "textures/ground_d1_chaosbase_a.dds.gz",
+      "bytes": 1677780,
+      "sha256": "26d3bb857ebe72c3ae52209c37f6582575ef9317fa276df34a7daf9fa7dfddd6"
+    },
+    {
+      "uri": "textures/periph_vista_d_1bitalpha.dds.gz",
+      "bytes": 988479,
+      "sha256": "71674caca42d3f67b6ae56cf5d25d0094212cdef624fc4bebb049c96c39297e1"
+    },
+    {
+      "uri": "textures/periph_chaosbase_c_1bitalpha.dds.gz",
+      "bytes": 820130,
+      "sha256": "f38165af8ce0ee1f970c9631f8412fcd040b4ce44fdac36a337264c878b9a8c8"
+    },
+    {
+      "uri": "textures/periph_top_f_1bitalpha.dds.gz",
+      "bytes": 919758,
+      "sha256": "d382677c4f93189412a307a7c081049234de3cdb59c3657206a05859f8bde8c7"
+    },
+    {
+      "uri": "textures/periph_chaosbase_e_1bitalpha.dds.gz",
+      "bytes": 862697,
+      "sha256": "70eeeef5ff50f3624ccd29a169b103e16a8746d2e9222a02905ab66427308476"
+    },
+    {
+      "uri": "textures/periph_top_g_1bitalpha.dds.gz",
+      "bytes": 1049413,
+      "sha256": "0d8239fcc6ee60e8c0de9169f34fc8e6318680bbc53ad34b842c782fc4335135"
+    },
+    {
+      "uri": "textures/periph_top_i_1bitalpha.dds.gz",
+      "bytes": 1040629,
+      "sha256": "71e374f48546237720aa81aaa51f2af29a2bc2157976e89107f0506564a5df21"
+    },
+    {
+      "uri": "textures/chaos_spawn_d_1bitalpha.dds.gz",
+      "bytes": 1627305,
+      "sha256": "1a873517704f96e73981941916c6285f66724abb6c69589430a8e75395893ae5"
+    },
+    {
+      "uri": "textures/periph_chaosbase_a_1bitalpha.dds.gz",
+      "bytes": 739762,
+      "sha256": "39ccb0f686b9ba2edda48518c0fe5fea3327bd15f93b138e7ab2948914952491"
+    },
+    {
+      "uri": "textures/periph_top_e_1bitalpha.dds.gz",
+      "bytes": 1060094,
+      "sha256": "d0daaee70fd30efa1ecd97fc87fbc9ca295080205ffe072e1c99bb0e05c40e06"
+    },
+    {
+      "uri": "textures/periph_chaosbase_b.dds.gz",
+      "bytes": 717603,
+      "sha256": "1af684fface03cb8b95e41d7da4b7840a79358d58749a3ed56fd27725ac72d49"
+    },
+    {
+      "uri": "textures/chaos_spawn_c_1bitalpha.dds.gz",
+      "bytes": 709316,
+      "sha256": "56c04241134b5383f8a0e8010efc38a8d9d8efdc1bcd2ea1f97cfc6885d4609a"
+    },
+    {
+      "uri": "textures/hol2026_periph_top_h_1bitalpha.dds.gz",
+      "bytes": 1384837,
+      "sha256": "3932bad83daf409fd7fff807259182b591782d93f44f9f65183d255faf298c7d"
+    },
+    {
+      "uri": "textures/chaos_spawn_a_1bitalpha.dds.gz",
+      "bytes": 938033,
+      "sha256": "7decab171de35ba7c5f4f83750af8f4b474c6849b754bc6dd5369d9d855a5a8a"
+    },
+    {
+      "uri": "textures/chaos_spawn_b_1bitalpha.dds.gz",
+      "bytes": 516302,
+      "sha256": "0c3cb5ae4c30e9d19fdd68ccbaa11c1445ab4f0f8716e23bf2af28f4cf8ba47b"
+    },
+    {
+      "uri": "textures/sru_brush.dds.gz",
+      "bytes": 33822,
+      "sha256": "865ab7579bd24b25002c0ce818880f3103e2d11c49aa9db46fced5a5f00fa9b5"
+    },
+    {
+      "uri": "textures/periph_topalcove_a_1bitalpha.dds.gz",
+      "bytes": 351645,
+      "sha256": "b2fa374c84dfffc30a91ce49436602de4f33e2943b48715c69184a69847d95bc"
+    },
+    {
+      "uri": "textures/chaos_top_b_1bitalpha.dds.gz",
+      "bytes": 1092345,
+      "sha256": "375465f4d1a2d9166ef0d5215f42c3de613b951e0d7b2953b5c692ea9636ff50"
+    },
+    {
+      "uri": "textures/chaos_top_c_1bitalpha.dds.gz",
+      "bytes": 790306,
+      "sha256": "bfa996b40b6b3963abe7ca721ed444fc2764947a3985f4fe047e263b8e1f3b8d"
+    },
+    {
+      "uri": "textures/chaos_topriver_a_1bitalpha.dds.gz",
+      "bytes": 1509453,
+      "sha256": "91e1825d03b6ac25cce7cc22cf5417d2cb5a393d40c1dcfc360d44600bf9d630"
+    },
+    {
+      "uri": "textures/chaos_base_a_1bitalpha.dds.gz",
+      "bytes": 1163496,
+      "sha256": "fbc2f74c0f1a826ce18bf430606192f341f039e0926d4e0fe0eb6e005003116f"
+    },
+    {
+      "uri": "textures/chaos_krug_a_1bitalpha.dds.gz",
+      "bytes": 1076906,
+      "sha256": "449f3fa76b4a8e4dd8bdf6fef6c459b228e225f8e701dabfca0b9dd2627a90d9"
+    },
+    {
+      "uri": "textures/chaos_top_a_1bitalpha.dds.gz",
+      "bytes": 1207065,
+      "sha256": "0130db50687cdc30507dd7311469744f4d919a55a8fc46a0bec74d254d304ca5"
+    },
+    {
+      "uri": "textures/periph_top_c_1bitalpha.dds.gz",
+      "bytes": 1005527,
+      "sha256": "d01db3e23990c1689d5ebb81268a26061e7bb4733a60f397dd350d6db9454b10"
+    },
+    {
+      "uri": "textures/periph_chaosbase_d_1bitalpha.dds.gz",
+      "bytes": 721568,
+      "sha256": "ed53f818ec9e30b4861be4e4ef1a04caa9ca79456163b054ea80db650a180ec9"
+    },
+    {
+      "uri": "textures/periph_chaosbase_f_1bitalpha.dds.gz",
+      "bytes": 887263,
+      "sha256": "769c39478f87d53d0b68fb1f83a5acda85eed59079bab91e811b59fc33b69cac"
+    },
+    {
+      "uri": "textures/periph_top_d_1bitalpha.dds.gz",
+      "bytes": 1173909,
+      "sha256": "b8174236526834f3b0abe007aa72dea380b601ffb3f3b06ab26a5f99745ff504"
+    },
+    {
+      "uri": "textures/ocean_puddle_a.dds.gz",
+      "bytes": 652074,
+      "sha256": "66bfa699591aacc6ce542b3cc33637689a98e3be2c1d9c8277e26718cc408307"
+    },
+    {
+      "uri": "textures/chaos_baron_tunnel_a_1bitalpha.dds.gz",
+      "bytes": 1551301,
+      "sha256": "f873e52a7426144c7a3da72f2edaaa92b377fb5c428a451b22070377c4663a5f"
+    },
+    {
+      "uri": "textures/chaos_baron_upgraded_a_1bitalpha.dds.gz",
+      "bytes": 1547808,
+      "sha256": "2bb838edd95ca25e7e27b41e19afde497eafe016817596ae1de4adb74784833e"
+    },
+    {
+      "uri": "textures/chaos_baron_a_1bitalpha.dds.gz",
+      "bytes": 1198315,
+      "sha256": "e321618c901dd479c18c16e1a0fe3fb380758e1212ded16b3220f90419d939ce"
+    },
+    {
+      "uri": "textures/chaos_red_b_1bitalpha.dds.gz",
+      "bytes": 1056850,
+      "sha256": "1b19018d7aaec28f6fef120e01d95e57db0395f0e9d6e8fabcc0889702e19e18"
+    },
+    {
+      "uri": "textures/chaos_baron_walled_a_1bitalpha.dds.gz",
+      "bytes": 1638089,
+      "sha256": "cfa9928cbfb4e89a6a856079551e59f72e74a3b7259cf6751c88843b89970dcb"
+    },
+    {
+      "uri": "textures/chaos_red_a_1bitalpha.dds.gz",
+      "bytes": 1009813,
+      "sha256": "4a204886274c0c6f109bd5c8fe3a1f7ed40c58e582e10c978929a15e0a0012ee"
+    },
+    {
+      "uri": "textures/chaos_base_b_1bitalpha.dds.gz",
+      "bytes": 1130050,
+      "sha256": "68dabff8ceb89e635c4587028d5cf6748ae8a199b1c6df87a5f03ef67fe57ee6"
+    },
+    {
+      "uri": "textures/chaos_mid_a_1bitalpha.dds.gz",
+      "bytes": 1094898,
+      "sha256": "a18297c4bdcb931be70fee4ab928bc2a4cb05ab5deb6c5ed484654ac5a382087"
+    },
+    {
+      "uri": "textures/order_topriver_a_1bitalpha.dds.gz",
+      "bytes": 1254910,
+      "sha256": "2d94055b51250e87b2132b9319cf7df344e6f280778d4d4d39802283853a8d72"
+    },
+    {
+      "uri": "textures/chaos_baron_b_1bitalpha.dds.gz",
+      "bytes": 1169935,
+      "sha256": "73523b268849a74012d1bf31039020683fbfd9448e75a43bc1af3891d4ba0cd9"
+    },
+    {
+      "uri": "textures/chaos_baron_upgraded_b_1bitalpha.dds.gz",
+      "bytes": 1516376,
+      "sha256": "5144f1c55e7e604e24c15ae34104038e177c8921cb7276762fdbf61ae89d939c"
+    },
+    {
+      "uri": "textures/chaos_baron_walled_b_1bitalpha.dds.gz",
+      "bytes": 1585747,
+      "sha256": "9d275fcf27684be584b42316e71bac51f3b62e5b5128ed9f19f17d4a683e6276"
+    },
+    {
+      "uri": "textures/chaos_baron_tunnel_b_1bitalpha.dds.gz",
+      "bytes": 1385449,
+      "sha256": "167c92bb7f89893ab75bc0c8cb238303fef9242c329784aaa96d8c138af5acd8"
+    },
+    {
+      "uri": "textures/chaos_raptor_a_1bitalpha.dds.gz",
+      "bytes": 1053041,
+      "sha256": "45fb18f9697810fe7abe577a1afc5ea4ac8dc66c3cbd0d148245039ebbb8a9b2"
+    },
+    {
+      "uri": "textures/order_baronriver_a_1bitalpha.dds.gz",
+      "bytes": 854477,
+      "sha256": "934180e435cd43ce1d2977552d0c0f08842dc6fb86896844111d47cc813db2c7"
+    },
+    {
+      "uri": "textures/order_gromp_earth_b_1bitalpha.dds.gz",
+      "bytes": 557460,
+      "sha256": "bde52aefde0dbcad5f8e97e9320205180384776e4b5d99637f3e1f76423d32e9"
+    },
+    {
+      "uri": "textures/order_gromp_b_1bitalpha.dds.gz",
+      "bytes": 549494,
+      "sha256": "2ee6ffdee6f5d3f4a3817dbb34313450eb63566aff1c77dfe5a5667d5eb8b342"
+    },
+    {
+      "uri": "textures/chaos_midriver_a_1bitalpha.dds.gz",
+      "bytes": 821404,
+      "sha256": "a0499ed8ece1080100eb39ed9389373786aa1b4a5f824da157aaac2c3cfe42a3"
+    },
+    {
+      "uri": "textures/chaos_mid_b_1bitalpha.dds.gz",
+      "bytes": 1076120,
+      "sha256": "44f20d3bb982cbced47c895c00f85596ee9a590a99690dd4d19b8b5c0f6428eb"
+    },
+    {
+      "uri": "textures/earth_order_grompdecal_a.dds.gz",
+      "bytes": 338287,
+      "sha256": "afc705a4caa5f1f4463d07ddc3f4ad6b99d6e9b0ddd937589fec261ad72c42bf"
+    },
+    {
+      "uri": "textures/order_gromp_a_1bitalpha.dds.gz",
+      "bytes": 1068754,
+      "sha256": "006ff2be804ae9e74bccd5f7cc252049b1d7fb7ad045f94c909849fe78bdbee6"
+    },
+    {
+      "uri": "textures/chaos_mid_c_1bitalpha.dds.gz",
+      "bytes": 1098193,
+      "sha256": "920469402723a3ff03e3d9090a4e7ebe8dd56b9c1f295b88731a1c0476f2b683"
+    },
+    {
+      "uri": "textures/chaos_wolf_a_1bitalpha.dds.gz",
+      "bytes": 531166,
+      "sha256": "b23e261ca8f75d524ba6fa20836e7a568916098d2ad2d80d98b5f5f39f215488"
+    },
+    {
+      "uri": "textures/chaos_bot_a_1bitalpha.dds.gz",
+      "bytes": 1084027,
+      "sha256": "7fef17d57c67bb39cb3043e867a394a4cb8b4b045e27742249491363af7eac34"
+    },
+    {
+      "uri": "textures/periph_top_b_1bitalpha.dds.gz",
+      "bytes": 1272393,
+      "sha256": "8d85810f8505f1cba78e8e5e7ba042c74fa58e117eeeaf60727fb0e3c8f9b9c1"
+    },
+    {
+      "uri": "textures/order_blue_a_1bitalpha.dds.gz",
+      "bytes": 1120359,
+      "sha256": "1fd96f550df6e1b0fbc8ea162e60e9bbb288fa3a5a2169585ecbf8eac17fcd22"
+    },
+    {
+      "uri": "textures/periph_bot_j_1bitalpha.dds.gz",
+      "bytes": 941379,
+      "sha256": "b8627f97b3d1d5d6335c2af54bc2197285ad042f172e1e97ed165679514aa2ce"
+    },
+    {
+      "uri": "textures/order_midriver_a_1bitalpha.dds.gz",
+      "bytes": 1220354,
+      "sha256": "2c28d21d9d6aa7cc8d0133bf8a1e6011f65eacdb78ba168e0e2bb7bca33ed72c"
+    },
+    {
+      "uri": "textures/chaos_midriver_b_1bitalpha.dds.gz",
+      "bytes": 946084,
+      "sha256": "cdd652e04bb75f234dff55a2368ccb227d4d761a9ad5cbdf5db6f0aeb0b33f5a"
+    },
+    {
+      "uri": "textures/chaos_blue_a_1bitalpha.dds.gz",
+      "bytes": 924618,
+      "sha256": "74a7802d1c56af96bb66a6af763ca409c1122cba9374eae7aee01b770a0b35da"
+    },
+    {
+      "uri": "textures/order_mid_c_1bitalpha.dds.gz",
+      "bytes": 1060603,
+      "sha256": "152e07dd5b757e104b8a50fb4e3ef6f15269153659b296127da92798a2cc713d"
+    },
+    {
+      "uri": "textures/chaos_gromp_a_1bitalpha.dds.gz",
+      "bytes": 608465,
+      "sha256": "3b357ce74c4ce62e7dd6931be2dfc35753cf397b1b41e2e9dd9081316ac7899e"
+    },
+    {
+      "uri": "textures/earth_chaos_grompdecal_a.dds.gz",
+      "bytes": 239728,
+      "sha256": "9c2cb5c93bc952caeda19d5cc39d1b5f1331659e6037da6fe1ec0aa807e3f618"
+    },
+    {
+      "uri": "textures/periph_orderbase_b_1bitalpha.dds.gz",
+      "bytes": 808928,
+      "sha256": "41041e03bff924a106c9016eb63df529a88c5c4a4625813667bb82a864eb8816"
+    },
+    {
+      "uri": "textures/order_wolf_a_1bitalpha.dds.gz",
+      "bytes": 1033862,
+      "sha256": "20699a8cbb0612500404a25e3f28e4f18cf7cba8886d9badbb8567b30fb3960f"
+    },
+    {
+      "uri": "textures/order_midriver_b_1bitalpha.dds.gz",
+      "bytes": 271441,
+      "sha256": "aec5957f56a0b249763ffd78ed76e45c0e70e051c68215f667c9d188e8c17001"
+    },
+    {
+      "uri": "textures/periph_top_a_1bitalpha.dds.gz",
+      "bytes": 1223179,
+      "sha256": "dc348571c904cdf85560fa1347ac4d5e2d037b583fff9cc728e810595418b9b8"
+    },
+    {
+      "uri": "textures/order_top_a_1bitalpha.dds.gz",
+      "bytes": 1014488,
+      "sha256": "4eaa44f268a0f316430fa41780b06efb27a5d07bfd3ab598e07b133427914cf7"
+    },
+    {
+      "uri": "textures/order_mid_a_1bitalpha.dds.gz",
+      "bytes": 1143502,
+      "sha256": "f0e94a6aec780cb1d111eeb67255821f3a95a3112df1e63e1bc60c75fe3afc2c"
+    },
+    {
+      "uri": "textures/chaos_gromp_b_1bitalpha.dds.gz",
+      "bytes": 534700,
+      "sha256": "54194bd35afcc569490e6d9dde4d8db02408bab1319c2085d64ee4ce7ca1e97b"
+    },
+    {
+      "uri": "textures/chaos_gromp_earth_b_1bitalpha.dds.gz",
+      "bytes": 571379,
+      "sha256": "95856fac32523fa81fa7f806a8efc8be197a467f788c01c44c1872b01e78f706"
+    },
+    {
+      "uri": "textures/periph_bot_i_1bitalpha.dds.gz",
+      "bytes": 1210809,
+      "sha256": "1a53a7881c62173ca17bf31eed540edf88ac5179c094b12bc8e75642fe6e103e"
+    },
+    {
+      "uri": "textures/chaos_dragonriver_a_1bitalpha.dds.gz",
+      "bytes": 990130,
+      "sha256": "5d74e65b2522c17569236a7fcf6531f76974fbf955d7ed982ca23f9faf625687"
+    },
+    {
+      "uri": "textures/order_raptor_a_1bitalpha.dds.gz",
+      "bytes": 1191536,
+      "sha256": "bb926e8687a539bd6e5baa99fbd018e2b484e1d691e1c1808b9c95bf7266822e"
+    },
+    {
+      "uri": "textures/order_dragon_b_1bitalpha.dds.gz",
+      "bytes": 1038730,
+      "sha256": "d156268e901cae9ee036b6c264a30ddae08f6ae5e18ac59774f266f141c2d5ee"
+    },
+    {
+      "uri": "textures/chaos_bot_b_1bitalpha.dds.gz",
+      "bytes": 1122827,
+      "sha256": "056fe57a35f848aea092974c910025dd61e4c6d96d737f22c1fbff34b300edc3"
+    },
+    {
+      "uri": "textures/periph_bot_f_1bitalpha.dds.gz",
+      "bytes": 944575,
+      "sha256": "68c5e78f64d1e368f43a9cbdea4317ee629a55267f098754ab8c8ae9a872057c"
+    },
+    {
+      "uri": "textures/order_dragon_a_1bitalpha.dds.gz",
+      "bytes": 1066668,
+      "sha256": "6216f21e091c145a85bb054fb759074e5a504bbb599fa9fc7048e30279e65424"
+    },
+    {
+      "uri": "textures/order_base_a_1bitalpha.dds.gz",
+      "bytes": 1105329,
+      "sha256": "ed95d28d835ad92f0f58bcc8ae66d262040523ddbd5bf5a99ee91848a8e96078"
+    },
+    {
+      "uri": "textures/periph_orderbase_a_1bitalpha.dds.gz",
+      "bytes": 1172754,
+      "sha256": "50fa98c600958a5dda8cdfcaebea28552d78e44ba1240e608874790467b4bc96"
+    },
+    {
+      "uri": "textures/order_mid_b_1bitalpha.dds.gz",
+      "bytes": 1189460,
+      "sha256": "86fd6fdbe4e8ab25cfbc49c5eae832fdcda614d5e1b88558314fac14c5560ba1"
+    },
+    {
+      "uri": "textures/chaos_botriver_a_1bitalpha.dds.gz",
+      "bytes": 1118698,
+      "sha256": "eaa89bb581b82ad0d05934afb8eec46cade27afee5e99aea1a6f20479fb5285a"
+    },
+    {
+      "uri": "textures/order_red_a_1bitalpha.dds.gz",
+      "bytes": 1129035,
+      "sha256": "b783861d4f9b2a1dd344697e8a2160e96c4444f1a7448556a6b438e11e7997b1"
+    },
+    {
+      "uri": "textures/periph_bot_h_1bitalpha.dds.gz",
+      "bytes": 853035,
+      "sha256": "aca5e01dc88688eee50f40026035bb3b3940ec961da7f727e2e67c77df430e3b"
+    },
+    {
+      "uri": "textures/order_red_b_1bitalpha.dds.gz",
+      "bytes": 1018348,
+      "sha256": "69fe104d5fae9989e6cb84151247f1e1e5b5a02463c82f951ddef3b1fbea0d70"
+    },
+    {
+      "uri": "textures/periph_bot_d_1bitalpha.dds.gz",
+      "bytes": 788240,
+      "sha256": "17962594c876a9afff9222a60e54eda7ebdd9675df717377921bea6de66185ad"
+    },
+    {
+      "uri": "textures/periph_botalcove_a_1bitalpha.dds.gz",
+      "bytes": 888253,
+      "sha256": "154c086087163ed770b6cfd69a9f3f7bf74001b938d7b57c51a36aa244c8df18"
+    },
+    {
+      "uri": "textures/order_krug_a_1bitalpha.dds.gz",
+      "bytes": 1170855,
+      "sha256": "c1edeb5ddee9ad368122aaecfb15a38aa6007827867841f74b1bbb74a24d3dde"
+    },
+    {
+      "uri": "textures/order_botriver_a_1bitalpha.dds.gz",
+      "bytes": 883201,
+      "sha256": "fdb7d1016be146d11b0816c04d1d04d1853929722153f25683d823988a866265"
+    },
+    {
+      "uri": "textures/periph_bot_e_1bitalpha.dds.gz",
+      "bytes": 1031747,
+      "sha256": "ff68d4ca6723c442b389b7731cc9a4155621c222b79b98cac4c9244194624ac3"
+    },
+    {
+      "uri": "textures/order_base_b_1bitalpha.dds.gz",
+      "bytes": 1120326,
+      "sha256": "1e4e8836ce9851e9c6a1aa8fc446b96ac2908469fd4c6fde354cf15e9a5c452f"
+    },
+    {
+      "uri": "textures/order_bot_a_1bitalpha.dds.gz",
+      "bytes": 1188097,
+      "sha256": "a464b457b887a25882dfc0efb31d0dcef073b31a700561bdaccee7735219c483"
+    },
+    {
+      "uri": "textures/order_spawn_b_1bitalpha.dds.gz",
+      "bytes": 1288274,
+      "sha256": "0a040d70b58480570d999f3525b80b120260d335f0a12b86b4bb4e5464512b7c"
+    },
+    {
+      "uri": "textures/order_bot_b_1bitalpha.dds.gz",
+      "bytes": 1044774,
+      "sha256": "30d601c8bddef7b9b0cf8028559cfe42fa18f0f4d84f335db22c0475afaa85fb"
+    },
+    {
+      "uri": "textures/order_bot_d_1bitalpha.dds.gz",
+      "bytes": 1046352,
+      "sha256": "b8910ff4ecb98a352b757d94b8959e5998f00d6f1736a8c9a81e13f6653df009"
+    },
+    {
+      "uri": "textures/order_bot_c_1bitalpha.dds.gz",
+      "bytes": 587471,
+      "sha256": "9c5f963d19c2e2ae0356c54b47b93b2eda31ba0f1659818008207b0a39419749"
+    },
+    {
+      "uri": "textures/periph_orderbase_d_1bitalpha.dds.gz",
+      "bytes": 1117985,
+      "sha256": "87770fcf58baead3ff52ef770ef8ed13639b035e2b3a7ff3722807187d5f0ce9"
+    },
+    {
+      "uri": "textures/order_spawn_a_1bitalpha.dds.gz",
+      "bytes": 1337277,
+      "sha256": "3ced333efca0a3691cc4e1b21269f73641c62089aaff1cb43a00d84c02041141"
+    },
+    {
+      "uri": "textures/periph_bot_c_1bitalpha.dds.gz",
+      "bytes": 800712,
+      "sha256": "924d000582e3c5a12e1b81359a5db2e5f37fa2769c3eceb7a9e41dfd64535b2f"
+    },
+    {
+      "uri": "textures/periph_bot_a_1bitalpha.dds.gz",
+      "bytes": 885928,
+      "sha256": "737fe5f2fe53290360bad41de4d0ccb0f750baadb9d9b5d61fb4ddf289bf903e"
+    },
+    {
+      "uri": "textures/periph_orderbase_c_1bitalpha.dds.gz",
+      "bytes": 1291741,
+      "sha256": "cbedf7b6e00280ab3e7b3b85f518ec60b0ca56d2473464cad31bf232d83a06ac"
+    },
+    {
+      "uri": "textures/periph_bot_b_1bitalpha.dds.gz",
+      "bytes": 746068,
+      "sha256": "1ce931a54015fb5dc570ea4a5aefcb3b6bb4e5e9eda89835ab9141bf4b4ccbc8"
+    },
+    {
+      "uri": "textures/order_spawn_c_1bitalpha.dds.gz",
+      "bytes": 54760,
+      "sha256": "cffc33d6cde943c16f3c02ac63227914e6db82ab59e0e21d224891b1bc6534c1"
+    },
+    {
+      "uri": "textures/grasstint_srx.dds.gz",
+      "bytes": 37786,
+      "sha256": "95f5f9084f379ea579a67453f775531b791b062a79470f3e6c2a22e8f4befb80"
+    }
+  ]
+}

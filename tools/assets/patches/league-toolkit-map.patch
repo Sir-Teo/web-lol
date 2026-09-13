@@ -1,0 +1,64 @@
+diff --git a/src/LeagueToolkit.IO.Extensions/MapGeometry/MapGeometryGltfExtensions.cs b/src/LeagueToolkit.IO.Extensions/MapGeometry/MapGeometryGltfExtensions.cs
+index a8f9b26..6b88d36 100644
+--- a/src/LeagueToolkit.IO.Extensions/MapGeometry/MapGeometryGltfExtensions.cs
++++ b/src/LeagueToolkit.IO.Extensions/MapGeometry/MapGeometryGltfExtensions.cs
+@@ -1,4 +1,4 @@
+-﻿using System;
++using System;
+ using System.Collections.Generic;
+ using System.IO;
+ using System.Linq;
+@@ -100,6 +100,8 @@ namespace LeagueToolkit.IO.MapGeometryFile
+                 { Fnv1a.HashLower("Shaders/StaticMesh/SRX_Brush"), new SrxBrush() },
+                 { Fnv1a.HashLower("Shaders/StaticMesh/OD_FlowMap"), new OdFlowMap() },
+                 // ------------- RENAMED ENV SHADERS -------------
++                { Fnv1a.HashLower("Shaders/StaticMesh/VertexDeform"), new DefaultEnvFlat() },
++                { Fnv1a.HashLower("Shaders/StaticMesh/SRX_DynamicEffect"), new DefaultEnvFlat() },
+                 { Fnv1a.HashLower("Shaders/StaticMesh/Hologram"), new StaticMeshHologram() },
+                 { Fnv1a.HashLower("Shaders/StaticMesh/Env_Glow"), new EnvGlow() },
+                 { Fnv1a.HashLower("Shaders/StaticMesh/ENV_TileableDiffuse"), new EnvTileableDiffuse() },
+@@ -371,7 +373,7 @@ namespace LeagueToolkit.IO.MapGeometryFile
+                         context
+                     );
+                 }
+-                catch (Exception) { }
++                catch (Exception error) { throw new InvalidOperationException($"Material conversion failed: {gltfMaterial.Name}", error); }
+             }
+             else
+             {
+diff --git a/src/LeagueToolkit/Meta/MetaSerializer.cs b/src/LeagueToolkit/Meta/MetaSerializer.cs
+index 6eab76b..85b2b1e 100644
+--- a/src/LeagueToolkit/Meta/MetaSerializer.cs
++++ b/src/LeagueToolkit/Meta/MetaSerializer.cs
+@@ -12,6 +12,8 @@ namespace LeagueToolkit.Meta;
+ 
+ public static class MetaSerializer
+ {
++    public static Func<ulong, string> ReferenceWadPathResolver { get; set; }
++
+     public static T Deserialize<T>(MetaEnvironment environment, BinTreeObject treeObject)
+         where T : IMetaClass
+     {
+@@ -114,6 +116,8 @@ public static class MetaSerializer
+         Type propertyType = null
+     )
+     {
++        if (treeProperty is BinTreeWadChunkLink wad && propertyType == typeof(string))
++            return ReferenceWadPathResolver(wad.Value);
+         return treeProperty.Type switch
+         {
+             _ when IsPrimitivePropertyType(treeProperty.Type) => FetchPrimitivePropertyValue(treeProperty),
+diff --git a/src/LeagueToolkit/packages.lock.json b/src/LeagueToolkit/packages.lock.json
+index f3eb1aa..877980a 100644
+--- a/src/LeagueToolkit/packages.lock.json
++++ b/src/LeagueToolkit/packages.lock.json
+@@ -66,6 +66,7 @@
+           "SharpGLTF.Core": "1.0.6"
+         }
+       }
+-    }
++    },
++    "net10.0/osx-arm64": {}
+   }
+ }
+\ No newline at end of file
