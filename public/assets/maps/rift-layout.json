@@ -1661,6 +1661,18 @@
         "increment": 35.0,
         "maxBonus": 1120.0
       }
+    },
+    "super": {
+      "blue": {
+        "intervalSeconds": 90.0,
+        "increment": 100.0,
+        "maxBonus": 6000.0
+      },
+      "red": {
+        "intervalSeconds": 90.0,
+        "increment": 100.0,
+        "maxBonus": 6000.0
+      }
     }
   },
   "unitGoldGrowth": {

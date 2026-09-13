@@ -148,7 +148,7 @@ minion_current_health_damage = {}
 override_bytes = Path('docs/reference/lane-rule-overrides.json').read_bytes()
 overrides = json.loads(override_bytes)
 unit_stats = {'super': super_stats}
-unit_health_growth = {'melee': {}}
+unit_health_growth = {'melee': {}, 'super': {}}
 unit_gold_growth = {'siege': {}, 'super': {}}
 # FNV-1a names resolve the two fields in the pinned Barracks MinionUpgradeConfig.
 def field_hash(name):
@@ -173,6 +173,11 @@ for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
                 'increment': increment, 'maxTotal': upgrade[field_hash('GoldMax')],
             }
         if minion['MinionType'] == 7:
+            upgrade = minion['MinionUpgradeStats']
+            unit_health_growth['super'][team] = {
+                'intervalSeconds': definitions[barracks_key]['UpgradeIntervalSecs'],
+                'increment': upgrade['HPUpgrade'], 'maxBonus': upgrade['HpMaxBonus'],
+            }
             continue
         kind = {4: 'melee', 5: 'caster', 6: 'siege'}[minion['MinionType']]
         template = definitions[minion['{fee040bc}']]

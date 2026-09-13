@@ -43,6 +43,69 @@ function composition(w: World, team: Team, lane: string) {
 
 describe('inhibitor-driven lane waves', () => {
   for (const team of ['blue', 'red'] as const)
+    it(`scales ${team} super health at source boundaries and caps the bonus`, () => {
+      expect(battlefield.unitHealthGrowth?.super?.[team]).toEqual({
+        intervalSeconds: 90,
+        increment: 100,
+        maxBonus: 6000,
+      });
+      const w = new World(false, battlefield);
+      for (const [tick, health] of [
+        [0, 1500],
+        [90 * 60 - 1, 1500],
+        [90 * 60, 1600],
+        [180 * 60 - 1, 1600],
+        [180 * 60, 1700],
+        [30 * 60 * 60, 3500],
+        [90 * 60 * 60 - 1, 7400],
+        [90 * 60 * 60, 7500],
+        [120 * 60 * 60, 7500],
+      ]) {
+        w.tick = tick;
+        const unit = w.spawn('super', team, w.hero);
+        expect(unit.maxHp).toBe(health);
+        expect(unit.hp).toBe(health);
+      }
+      expect(battlefield.unitStats?.super?.[team]?.maxHp).toBe(1500);
+    });
+  it('preserves wounded super health across an upgrade boundary and checkpoint', () => {
+    const w = new World(false, battlefield);
+    w.nextWaveTick = Infinity;
+    w.units = [w.hero];
+    w.tick = 180 * 60 - 1;
+    const older = w.spawn('super', 'blue', w.hero);
+    older.hp -= 250;
+    w.step();
+    expect(older.maxHp).toBe(1600);
+    expect(older.hp).toBe(1350);
+    const restored = World.fromSnapshot(w.snapshot(), battlefield);
+    const saved = restored.units.find((unit) => unit.id === older.id)!;
+    expect(saved.maxHp).toBe(1600);
+    expect(saved.hp).toBe(1350);
+    expect(restored.spawn('super', 'blue', saved).maxHp).toBe(1700);
+  });
+  it('turret health-percentage hits use the scaled maximum health', () => {
+    const w = new World(true, { ...battlefield, lineOfSight: () => true });
+    w.tick = 30 * 60 * 60;
+    w.nextWaveTick = Infinity;
+    const turret = w.units.find(
+      (unit) => unit.team === 'blue' && unit.structure?.role === 'outer-turret'
+    )!;
+    w.units = [w.hero, turret];
+    turret.ai = false;
+    const target = w.spawn('super', 'red', { x: turret.x + 200, y: turret.y });
+    target.stunUntil = Infinity;
+    const before = target.hp;
+    w.setOrder(turret, { type: 'attack', target: target.id });
+    w.step();
+    expect(turret.releaseTick).not.toBeNull();
+    w.step(turret.releaseTick! - w.tick);
+    turret.nextAttackTick = Infinity;
+    w.step(60);
+    expect(before).toBe(3500);
+    expect(target.hp).toBeCloseTo(3500 - (3500 * 0.07) / 2);
+  });
+  for (const team of ['blue', 'red'] as const)
     it(`changes only the opposing ${team} inhibitor lane and replaces its cannon`, () => {
       const w = setup();
       clearLane(w, team, 'mid');

@@ -31,7 +31,12 @@ test('late Rift waves carry scaled cannon and super bounties through last-hit pa
     const before = w.player.gold;
     w.damage(w.hero, victim, 1e6, 'true');
     g.hud.update(60);
-    return { bounties, awarded: w.player.gold - before, displayed: Math.floor(w.player.gold) };
+    return {
+      bounties,
+      superMaxHp: victim.maxHp,
+      awarded: w.player.gold - before,
+      displayed: Math.floor(w.player.gold),
+    };
   });
   expect(result.bounties).toHaveLength(6);
   expect(result.bounties.filter((u: any) => u.kind === 'super')).toEqual([
@@ -39,5 +44,6 @@ test('late Rift waves carry scaled cannon and super bounties through last-hit pa
   ]);
   expect(result.bounties.every((u: any) => u.bounty === 70)).toBe(true);
   expect(result.awarded).toBeCloseTo(70, 6);
+  expect(result.superMaxHp).toBe(3500);
   await expect(page.locator('#gold')).toHaveText(String(result.displayed));
 });
