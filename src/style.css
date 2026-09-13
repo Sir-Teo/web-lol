@@ -205,6 +205,8 @@ button {
   text-align: center;
   white-space: nowrap;
   animation: welcome-out 8s forwards;
+  animation-play-state: paused;
+  animation-delay: var(--welcome-age, 0s);
   filter: drop-shadow(0 3px 6px #07100b);
 }
 .welcome > span {

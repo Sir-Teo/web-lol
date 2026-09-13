@@ -28,6 +28,7 @@ export class Hud {
   private floating: HTMLDivElement;
   private lastEventId = 0;
   private lastSecond = -1;
+  private lastWelcomeTick = -1;
   private lastInventory = '';
   private toastUntil = 0;
   constructor(
@@ -335,6 +336,13 @@ export class Hud {
     const w = this.world,
       p = w.player,
       h = w.hero;
+    // Seek the announcement with match time so loading, pause and time jumps
+    // cannot advance or replay its presentation independently of the simulation.
+    const welcomeTick = Math.min(w.tick, 8 * TICK_RATE);
+    if (welcomeTick !== this.lastWelcomeTick) {
+      this.lastWelcomeTick = welcomeTick;
+      this.root.style.setProperty('--welcome-age', `${-welcomeTick / TICK_RATE}s`);
+    }
     const text = (id: string, value: string | number) => {
       const element = this.root.querySelector(`#${id}`)!;
       const v = String(value);
