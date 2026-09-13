@@ -13,10 +13,10 @@ Last updated: September 13, 2026 (America/New_York).
 - Archived Ashe model converted to GLB: 4,902 vertices, 7,406 triangles, 85 bones, nine retained animation clips. Native Three.js skeletal animation replaces the procedural champion silhouette.
 - Team vision now accounts for terrain occlusion, brush, living allied observers, temporary attack reveals, and Hawkshot. Targeting, bot acquisition, render visibility, HUD, minimap fog, projectiles, and event feedback use the shared policy.
 - Both teams’ source tower models now replace all 22 procedural structures, with exact source transforms and persistent rubble. Six inhibitors and two Nexus objects complete the base placements; lane dependencies, timed regrowth, and terminal local-game results are implemented.
-- Six animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
+- Eight animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
 - Source revisions and SHA-256 hashes are recorded for imported art. The GLB passes the Khronos glTF validator with zero errors and zero warnings.
 - The default playable now renders pinned Base_SRX terrain and vegetation with original BC1/BC3 blocks, authored mip levels, and a lossless WebP fallback. Source navigation, elevation, fountain spawns, three lane routes, timed barracks waves, and 22 turret positions are connected. The separate inspector retains its navigation overlay.
-- Twenty-three browser scenarios and thirty-nine simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
+- Twenty-five browser scenarios and forty-six simulation scenarios pass. These cover the current practice build and map asset inspector, not a complete match.
 
 The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
 
@@ -24,9 +24,9 @@ The game is **not production complete**. No roadmap milestone that requires comp
 
 | Evidence | Result | Scope |
 |---|---|---|
-| `npm run check` | TypeScript check and 39 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility, source-grid clearance/gates, full-map routes, wave cadence, and fountain recall |
-| `npm run test:browser` | 23 Chrome scenarios | Existing practice interactions, minion lifecycle, full terrain loading, original compressed mips, BC1 alpha, both gzip-hosting conventions, navigation overlay, WebP fallback, full-map pointer/elevation alignment, movement/attack, exact fog-mask/query agreement, tower transforms/rig sharing, and persistent rubble |
-| `npm run assets:validate` | 0 errors, 0 warnings | Thirteen character/structure GLBs, full map glTF, 278 hashed map resources, navigation payload, gameplay layout, and minimap; not certification of pixel parity |
+| `npm run check` | TypeScript check and 46 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility, source-grid clearance/gates, full-map routes, wave cadence, and fountain recall |
+| `npm run test:browser` | 25 Chrome scenarios | Existing practice interactions, minion lifecycle, full terrain loading, original compressed mips, BC1 alpha, both gzip-hosting conventions, navigation overlay, WebP fallback, full-map pointer/elevation alignment, movement/attack, exact fog-mask/query agreement, tower transforms/rig sharing, and persistent rubble |
+| `npm run assets:validate` | 0 errors, 0 warnings | Fifteen character/structure GLBs, full map glTF, 278 hashed map resources, navigation payload, gameplay layout, and minimap; not certification of pixel parity |
 | `npm run build` | Static build succeeds | Bundles the application and local assets; not deployment or backend work |
 | Browser screenshots | Inspected at multiple viewports up to 1920×1080 | Full terrain, live lane combat, river aim, fountain placement, character visibility, HUD and shop presentation |
 | Built-game smoke check | No browser errors or failed requests | Full Rift loads; real movement/aim input; development diagnostics absent |
@@ -46,7 +46,7 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 | Match scope | Three-lane practice on full terrain with one sparring opponent | Jungle, nine role-aware bots, complete objectives and a verified full-match route to victory/defeat |
 | Champion art | Archived base Ashe, not a validated 26.18 asset set | Matched reference captures, scale/orientation/material validation, current or approved content pipeline |
 | Environment | Full terrain, source towers, Nexus and inhibitors integrated; missing camps and complete effects | Import remaining building/camp models; complete effects, lighting, shader calibration, and region streaming |
-| Minion art | Matching 16.18 base models with four source clips each | Validate active match skin selection, attack impact timing, variant selection, VFX, camera-scale match, and full-wave reference captures |
+| Minion art | Matching 16.18 models; four source clips per ordinary minion and six per super minion | Validate active match skin selection, attack impact timing, variant selection, VFX, camera-scale match, and full-wave reference captures |
 | Camera | Provisional perspective and scale | Fit against reference gameplay screenshots at matched viewport/zoom |
 | Abilities | Practice approximations; all abilities unlocked | Complete passive and Q/W/E/R, rank rules, charges, cast locks, travel/impact behavior, exact timing, animation/VFX synchronization |
 | Q | Attack-speed buff and Focus, no full flurry/crit interaction | Implement complete attack replacement and modifier semantics |
@@ -65,7 +65,7 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 
 ## Next implementation priorities
 
-1. Implement super-minion consequences and reconcile lane speed, economy, and wave cadence. Import camps and extend the building dependency/result foundation into complete-match behavior.
+1. Reconcile all lane minions’ base stats, timed upgrades, economy, attack timing, and wave cadence after the super-wave foundation. Import camps and extend the building dependency/result foundation into complete-match behavior.
 2. Complete static building memory, wards/stealth, and ability-specific reveal rules. Calibrate camera, fog, shaders, and scale against matched reference captures; reduce large-scene rendering cost.
 3. Replace the ability approximations with a versioned ability timeline/state model and complete Ashe behavior, then implement a second full kit.
 4. Extend the three-lane test harness toward role-aware match simulation, preserving the tested input/combat boundaries.
@@ -127,3 +127,13 @@ The current suite passes 39 simulation and 23 Chrome scenarios, including real p
 This is a base progression foundation. Super waves, plates, structural gold distribution, siege/backdoor modifiers, regeneration thresholds, complete animation/VFX sequencing, static building memory, camps, and nine role-aware bots remain incomplete. No full-match production gate is claimed.
 
 The base-structure run of the same 90-second benchmark recorded 109 unit records, 232 draw calls, and 406,116 triangles on Chrome 152 / Apple M5 Pro / 64 GiB at 1920×1080. Across 180 frames after 45 warmup frames: median 16.7 ms, p95 22.3 ms, p99 27.4 ms. Simulation steps cost median 0.2 ms / p95 0.3 ms; 22 fog updates cost median 5.4 ms / p95 5.8 ms. Frame tails remain above budget, and this fixture still lacks nine full bots, camps, and complete effects. Instrumentation excludes warmup; these measurements are observations, not a claim of improvement over earlier runs.
+
+## Super-minion foundation milestone
+
+[Minion source and rules audit](MINIONS.md) records the selected Summoner’s Rift CharacterRecords, source models, wave rules, and unfinished mechanics. Downed inhibitors now produce lane-specific super waves, including two supers per lane when all three are down. New waves sample inhibitor deadlines consistently; already queued units keep their composition. Super minions use their larger radius for spawn projection and navigation, their own base stats and melee attacks, and separate starting rewards. Negative resistance now amplifies damage through a finite branch.
+
+The source death clips exceed the former four-second cleanup window. Clip durations are recorded by the converter and become a simulation retention floor so both super-minion death animations finish. The runtime keeps independent rigs and does not remove a surviving minion’s resources when another dies.
+
+Current validation is 46 simulation scenarios, 25 Chrome scenarios, zero errors/warnings across fifteen model GLBs and the full map, and a passing static build. The browser scenarios inspect both team models, source clip catalogs, full death playback, and cleanup; intact and death screenshots were visually inspected. This is not a full-match or pixel-parity certification. Timed stat upgrades, complete economy, minion aura, regeneration, attack impact calibration, pre-regrowth super cutoff, and timed wave-interval overrides remain unfinished. The production goal stays active.
+
+A fresh production preview smoke check also passes with real movement/aim input, no browser errors or failed requests, and no development diagnostics exposed. Both super-model outputs and the gameplay layout reproduce byte-identically.

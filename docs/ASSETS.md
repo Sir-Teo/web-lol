@@ -90,4 +90,8 @@ Browser checks cover all 22 exact placement matrices, fixed building orientation
 
 ## Nexus and inhibitor assets
 
-The default map now includes both teams’ source Nexus and inhibitor models, with intact/dead submeshes and retained clips. See [structure assets and gameplay](STRUCTURES.md) for provenance, rebuild commands, state handling, tests, and explicit remaining accuracy work. All thirteen current GLBs pass validation with zero errors/warnings.
+The default map now includes both teams’ source Nexus and inhibitor models, with intact/dead submeshes and retained clips. See [structure assets and gameplay](STRUCTURES.md) for provenance, rebuild commands, state handling, tests, and explicit remaining accuracy work. All fifteen current GLBs pass validation with zero errors/warnings.
+
+## Super-minion assets
+
+Both team models now use the same matching 16.18 source pipeline. Their six clips, source scales, provenance, reconstruction commands, and animation-derived corpse lifetime are documented in [lane minions](MINIONS.md). All fifteen model GLBs validate with zero errors/warnings. Original six-minion rebuilds remain byte-identical after sharing the converter.
