@@ -826,6 +826,7 @@ export class World {
             team: p.team,
             endTick: stopTick,
           });
+          this.emit('scout-arrival', p, { unit: p.source, team: p.team });
         }
         continue;
       }

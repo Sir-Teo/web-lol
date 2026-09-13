@@ -143,3 +143,74 @@ test('missing source audio keeps the match playable with synthesized cast feedba
   });
   expect(result).toEqual({ status: 'failed', voices: ['OscillatorNode'] });
 });
+
+test('source arrival outlasts its visual descriptor and releases its audio nodes', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const initial = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      a = g.audio;
+    g.setPaused(true);
+    a.unlock();
+    await a.transition;
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.enqueue({
+      type: 'cast',
+      unit: w.hero.id,
+      ability: 'e',
+      point: { x: w.hero.x + 700, y: w.hero.y },
+    });
+    w.step(45);
+    const event = w.events.find((e: any) => e.type === 'scout-arrival');
+    a.lastId = event.id - 1;
+    g.setPaused(false);
+    await a.transition;
+    a.update(
+      w.events.filter((e: any) => w.eventVisible(e)),
+      w.tick
+    );
+    const [voice, gain] = [...a.voices.entries()][0] as any;
+    return { status: a.arrivalStatus, frames: voice.buffer.length, gain: gain.gain.value };
+  });
+  expect(initial.status).toBe('ready');
+  expect(initial.frames).toBe(317887);
+  expect(initial.gain).toBeCloseTo(0.2 * 10 ** (-9 / 20), 6);
+  await page.waitForFunction(() => (window as any).__GAME__.world.scoutVisuals.length === 0, null, {
+    timeout: 12000,
+  });
+  expect(await page.evaluate(() => (window as any).__GAME__.audio.voices.size)).toBe(1);
+  await expect.poll(() => page.evaluate(() => (window as any).__GAME__.audio.voices.size)).toBe(0);
+});
+
+test('late arrival seeks to its age and fully elapsed arrival is silent', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      a = g.audio;
+    g.setPaused(true);
+    a.unlock();
+    a.setPaused(false);
+    await a.transition;
+    const starts: number[] = [],
+      create = a.context.createBufferSource.bind(a.context);
+    a.context.createBufferSource = () => {
+      const source = create(),
+        start = source.start.bind(source);
+      source.start = (when: number, offset: number) => {
+        starts.push(offset);
+        start(when, offset);
+      };
+      return source;
+    };
+    const event = { id: a.lastId + 1, tick: 100, type: 'scout-arrival', x: 0, y: 0 };
+    a.update([event], 130);
+    a.update([{ ...event, id: event.id + 1 }], 600);
+    return { starts, voices: a.voices.size };
+  });
+  expect(result).toEqual({ starts: [0.5], voices: 1 });
+});

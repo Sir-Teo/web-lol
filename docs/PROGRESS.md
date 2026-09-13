@@ -784,3 +784,11 @@ Hawkshot now plays its three source cast variants with the mapped 150 ms delay a
 Audio pause now suspends context time with the match; mute stops/disconnects voices immediately, ended nodes release connections, and checkpoint history is primed so old one-shots do not replay. All 281 source/simulation checks, seven focused Chrome audio/save scenarios, production build and real-input production Hawkshot smoke pass. Source profile regeneration is byte-identical. The full browser suite and full-match benchmark were not repeated.
 
 This is source playback for the cast cue only. Launch/arrival/linger audio, spatial attenuation, shared-bus/native mixing, listening comparison and full-match production work remain unfinished. See [runtime audio scope](ASHE-AUDIO.md#first-runtime-source-playback-cast).
+
+## Source arrival audio playback
+
+Hawkshot now emits a single audience-frozen arrival event at the actual endpoint/tick and plays its verified 7.208-second source recording with authored −9 dB gain. The audio node survives visual retirement, seeks appropriately for delayed event delivery, suppresses already-finished cues, and uses the existing pause/mute/cleanup path. Source arrival loading is independent of cast loading and fails without blocking the match.
+
+All 284 source/simulation checks, five focused Chrome audio scenarios, production build and a real-input production Hawkshot smoke test pass. Tests cover exact landing/single emission, hidden enemy information boundaries, checkpoint non-replay, full recording length/gain, late seeking and real node lifetime beyond visual expiry. Source export is byte-identical. Full gameplay browser regression and full-match benchmarking were not repeated.
+
+Launch and persistent linger audio, spatial/shared-bus mixing, listening/native comparison and the broader complete production match remain unfinished. See [arrival audio evidence](ASHE-AUDIO.md#arrival-source-playback).

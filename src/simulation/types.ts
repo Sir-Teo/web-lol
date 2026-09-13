@@ -121,7 +121,17 @@ export interface SimEvent extends Vec2 {
   audience: Team[];
   id: number;
   tick: number;
-  type: 'damage' | 'gold' | 'attack' | 'cast' | 'death' | 'move' | 'level' | 'heal' | 'message';
+  type:
+    | 'damage'
+    | 'gold'
+    | 'attack'
+    | 'cast'
+    | 'death'
+    | 'move'
+    | 'level'
+    | 'heal'
+    | 'message'
+    | 'scout-arrival';
   unit?: number;
   value?: number;
   text?: string;

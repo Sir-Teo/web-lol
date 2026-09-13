@@ -1,7 +1,8 @@
+import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { SimEvent } from '../simulation/types';
 
-/** Source Hawkshot cast audio; other event cues remain synthesized. */
+/** Source Hawkshot cast and arrival audio; other event cues remain synthesized. */
 export class GameAudio {
   context: AudioContext | null = null;
   private audible = true;
@@ -9,6 +10,8 @@ export class GameAudio {
   private lastId: number;
   private buffers: AudioBuffer[] = [];
   private bag: number[] = [];
+  private arrivalBuffer: AudioBuffer | null = null;
+  arrivalStatus: 'loading' | 'ready' | 'failed' = 'loading';
   private voices = new Map<AudioScheduledSourceNode, GainNode>();
   private transition = Promise.resolve();
   sourceStatus: 'loading' | 'ready' | 'failed' = 'loading';
@@ -24,6 +27,21 @@ export class GameAudio {
     if (!value) this.stopVoices();
   }
   async load(): Promise<void> {
+    await Promise.all([this.loadCast(), this.loadArrival()]);
+  }
+  private async loadArrival(): Promise<void> {
+    try {
+      const response = await fetch(HAWKSHOT_ARRIVAL_AUDIO.url);
+      if (!response.ok) throw new Error(`Arrival audio asset ${response.status}`);
+      const decoder = new OfflineAudioContext(1, 1, 44100);
+      this.arrivalBuffer = await decoder.decodeAudioData(await response.arrayBuffer());
+      this.arrivalStatus = 'ready';
+    } catch (error) {
+      this.arrivalStatus = 'failed';
+      console.warn('Source arrival audio unavailable.', error);
+    }
+  }
+  private async loadCast(): Promise<void> {
     try {
       const decoder = new OfflineAudioContext(1, 1, 44100);
       this.buffers = await Promise.all(
@@ -73,7 +91,6 @@ export class GameAudio {
     };
   }
   private hawkshot(event: SimEvent, tick: number): void {
-    const context = this.context!;
     // Equal-weight shuffle bag is a local interpretation of the source shuffle
     // container. Do not consume simulation RNG for cosmetic variation.
     if (!this.bag.length) {
@@ -85,18 +102,26 @@ export class GameAudio {
         [this.bag[i], this.bag[j]] = [this.bag[j], this.bag[i]];
       }
     }
-    const buffer = this.buffers[this.bag.pop()!];
+    this.sample(this.buffers[this.bag.pop()!], event, tick, HAWKSHOT_CAST_AUDIO);
+  }
+  private sample(
+    buffer: AudioBuffer,
+    event: SimEvent,
+    tick: number,
+    profile: { delaySeconds: number; gainDb: number }
+  ): void {
+    const context = this.context!;
     const age = Math.max(0, (tick - event.tick) / 60);
-    const offset = Math.max(0, age - HAWKSHOT_CAST_AUDIO.delaySeconds);
+    const offset = Math.max(0, age - profile.delaySeconds);
     if (offset >= buffer.duration) return;
     const voice = context.createBufferSource(),
       gain = context.createGain();
     voice.buffer = buffer;
     // 0.2 is the local presentation mix. Native shared-bus gain is unresolved.
-    gain.gain.value = 0.2 * 10 ** (HAWKSHOT_CAST_AUDIO.gainDb / 20);
+    gain.gain.value = 0.2 * 10 ** (profile.gainDb / 20);
     voice.connect(gain).connect(context.destination);
     this.own(voice, gain);
-    voice.start(context.currentTime + Math.max(0, HAWKSHOT_CAST_AUDIO.delaySeconds - age), offset);
+    voice.start(context.currentTime + Math.max(0, profile.delaySeconds - age), offset);
   }
   unlock(): void {
     this.context ??= new AudioContext();
@@ -113,6 +138,8 @@ export class GameAudio {
           if (event.text === 'e' && this.sourceStatus === 'ready') this.hawkshot(event, tick);
           else this.tone(event.text === 'r' ? 180 : 480, 1000, 0.2, 0.025, 'sine');
         }
+        if (event.type === 'scout-arrival' && this.arrivalBuffer)
+          this.sample(this.arrivalBuffer, event, tick, HAWKSHOT_ARRIVAL_AUDIO);
         if (event.type === 'gold') this.tone(1400, 1800, 0.12, 0.025, 'sine');
         if (event.type === 'level') this.tone(500, 1300, 0.4, 0.035, 'triangle');
         if (event.type === 'move') this.tone(700, 500, 0.045, 0.007, 'sine');
