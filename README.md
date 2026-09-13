@@ -22,7 +22,7 @@ npm run test:browser
 npm run build
 ```
 
-The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Offline reload/persistence, other-browser certification, and production hosting are not implemented yet.
+The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Offline reload, autosaves, export/import, other-browser certification, and production hosting are not implemented yet.
 
 ## Current build
 
@@ -30,6 +30,7 @@ The playable includes the full reference Rift terrain, an animated archived Ashe
 
 See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. The target-dummy model remains temporary; camps and full-match bot behavior are still missing. Both bases now include their Nexus and inhibitors, with protected structures, regrowth, and a local Victory/Defeat result. See the [asset pipeline](docs/ASSETS.md) for the matching minion sources and reproducible conversion. The archived champion animation is not certified against the target patch.
 
+- [Local match checkpoints and compatibility](docs/SAVES.md)
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)
@@ -39,7 +40,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Implementation milestones and acceptance criteria](docs/ROADMAP.md)
 - [Verified champion data sample](docs/reference/champion-sample.json)
 
-Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, and DOM HUD. Nine local bots and browser persistence remain planned. Static hosting serves the files; gameplay needs no game server or runtime API.
+Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, and DOM HUD. Manual browser checkpoints are implemented; nine local bots, automatic checkpoints, and offline packs remain planned. Static hosting serves the files; gameplay needs no game server or runtime API.
 
 Reference target: standard PC Summoner's Rift, patch 26.18, with Data Dragon 16.18.1 as a verified data starting point. This is a frozen reference, not a promise that every rule has already been reconstructed. The specification identifies what still requires measurement.
 

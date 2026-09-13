@@ -1,0 +1,21 @@
+# Local match checkpoints
+
+The pause menu's **Save match** action writes one checkpoint per battlefield to this browser's IndexedDB storage. After the write completes, reloading the same build restores that match and leaves it paused. The camera recenters on the saved player; the welcome banner is omitted. **Restart practice** clears that battlefield's checkpoint before starting a new match. There is no automatic save, cross-device sync, file import/export, or offline asset cache yet.
+
+## Simulation format
+
+Snapshot version 5 records units, player resources and inventory, orders and paths, pending commands and wave spawns, projectiles, random state, match outcome, clocks, and team-specific structure knowledge. Positive infinity is encoded as an explicit disabled-deadline token; it is never confused with a nullable timer. NaN and negative infinity cannot be serialized. Object keys are canonicalized, enabling exact continuation comparisons independent of parser property order.
+
+The decoder uses a strict schema, rejects invalid resource bounds and identities, verifies the player and battlefield lanes, and checks both the format version and a SHA-256 compatibility fingerprint. The fingerprint covers simulation/content TypeScript sources, the pinned map layout/navigation files, and package declarations. Renderer and HUD edits alone do not invalidate saves. Development restarts refresh the fingerprint when simulation files change. Compatibility is intentionally conservative; there is no migration from another ruleset or the older diagnostic snapshot formats.
+
+`World.fromSnapshot` creates an independent world using the supplied battlefield's terrain queries. It restores validated gameplay fields and random state. Transient presentation events are cleared so loading cannot replay old combat text or sounds. Camera settings, animation blend positions, and preference persistence are separate presentation work; gameplay restoration is the current guarantee.
+
+## Storage behavior
+
+Writes and deletions succeed only after the IndexedDB transaction completes. Failures keep the current match intact and report an error instead of claiming success. An unreadable or incompatible checkpoint is retained; the new match starts paused, and no checkpoint is overwritten until the player explicitly saves. Browser storage can still be cleared or evicted. A local checkpoint does not establish reload availability without network access to the game's assets. [IndexedDB transactions](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+
+## Verification scope
+
+Thirteen simulation scenarios cover exact future-state agreement after restoring missiles, queued commands, random state, queued three-lane waves, recall, hidden inhibitor regrowth, terminal state, and disabled deadlines. Invalid versions, rulesets, identities, resources, lanes, unknown fields, malformed JSON, and invalid numeric state are rejected without mutating the active world.
+
+Browser scenarios cover a full-Rift save/reload/resume/restart flow, preserving the prior checkpoint on a failed write, and retaining an incompatible checkpoint. The restored pause screen is visually reviewed. These are same-build checks in the tested runtime; cross-browser deterministic replay, migrations, autosaves, export/import, and recovery from storage eviction remain unfinished.

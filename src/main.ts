@@ -1,4 +1,5 @@
 import './style.css';
+import { readMatch, writeMatch } from './storage/match-store';
 import { DT } from './content/rules';
 import { World } from './simulation/world';
 import { GameView } from './render/view';
@@ -16,7 +17,18 @@ async function boot(): Promise<void> {
   const fixture =
     import.meta.env.DEV && new URLSearchParams(location.search).get('scene') === 'fixture';
   const battlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
-  const world = new World(true, battlefield);
+  let world = new World(true, battlefield);
+  let restored = false,
+    saveNotice = '';
+  try {
+    const saved = await readMatch(battlefield.id);
+    if (saved) {
+      world = World.fromSnapshot(saved, battlefield);
+      restored = true;
+    }
+  } catch (error) {
+    saveNotice = error instanceof Error ? error.message : 'Saved match could not be loaded.';
+  }
   let view: GameView;
   try {
     view = new GameView(host, battlefield);
@@ -44,12 +56,21 @@ async function boot(): Promise<void> {
   };
   const hud = new Hud(host, world, view, {
     pause: setPaused,
-    reset: () => window.location.reload(),
+    reset: () => {
+      void writeMatch(battlefield.id, null)
+        .then(() => window.location.reload())
+        .catch((error) => hud.toast(error.message));
+    },
+    save: async () => writeMatch(battlefield.id, world.snapshot()),
     sound: (enabled) => {
       audio.enabled = enabled;
     },
   });
   input = new GameInput(world, view, hud, () => audio.unlock());
+  if (restored) {
+    view.recenter(world.hero);
+    hud.root.querySelector('.welcome')?.remove();
+  }
   window.addEventListener('resize', () => view.resize());
   const assetsReady = Promise.all([loadReferenceModels(), view.loadEnvironment()]);
   const pauseForInterruption = () => {
@@ -62,6 +83,11 @@ async function boot(): Promise<void> {
     if (document.hidden) pauseForInterruption();
   });
   if (document.hidden) pauseForInterruption();
+  if (restored || saveNotice) {
+    hud.toggleModal(world.winner ? 'result' : 'pause');
+    hud.focusModal();
+    setPaused(true);
+  }
   let graphicsGeneration = 0;
   let cancelWarmup: (() => void) | undefined;
   const warmGraphics = async (): Promise<boolean> => {
@@ -113,6 +139,8 @@ async function boot(): Promise<void> {
   // A loss during loading hands warmup to the restoration handler.
   if (!hud.graphicsState) await warmGraphics();
   loading.classList.add('finished');
+  if (restored) hud.toast('Saved match restored. Resume when you’re ready.');
+  else if (saveNotice) hud.toast(saveNotice);
   window.setTimeout(() => loading.remove(), 600);
   let frames = 0,
     frameTime = 0,

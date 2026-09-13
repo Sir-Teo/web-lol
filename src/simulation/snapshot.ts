@@ -165,7 +165,13 @@ const snapshot = z.strictObject({
 });
 export function decodeSnapshot(text: string) {
   if (text.length > 16 * 1024 * 1024) throw new Error('Saved match is too large.');
-  const result = snapshot.safeParse(JSON.parse(text));
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    throw new Error('Saved match could not be read.');
+  }
+  const result = snapshot.safeParse(parsed);
   if (!result.success)
     throw new Error('Saved match is invalid or belongs to a different game version.', {
       cause: result.error,

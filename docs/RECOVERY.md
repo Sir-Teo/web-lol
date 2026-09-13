@@ -6,7 +6,7 @@ Graphics recovery has explicit lost, restoring, and failed states. All three blo
 
 On `webglcontextlost`, the handler prevents the default event behavior to permit browser restoration. On `webglcontextrestored`, Three.js rebuilds renderer resources, then the application waits for the required assets, renders and warms shaders, and renders again before presenting the paused match. A generation token rejects stale restoration completions; a subsequent loss interrupts a pending warmup. Simulation entities, timers, pending projectiles, and match results remain in memory throughout. See [MDN context loss](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) and [loss/restoration extension](https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_lose_context).
 
-If restoration fails or the browser never restores the context, the match stays paused and the restart action remains available. Persistent checkpoints, tab-reload restoration, driver crash recovery beyond the WebGL event path, and cross-browser/device certification remain unfinished.
+If restoration fails or the browser never restores the context, the match stays paused and the restart action remains available. Manual [match checkpoints](SAVES.md) support tab reloads after an explicit save. Automatic checkpoints, driver crash recovery beyond the WebGL event path, and cross-browser/device certification remain unfinished.
 
 ## Current checks
 

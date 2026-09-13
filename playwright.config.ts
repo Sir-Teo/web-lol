@@ -6,11 +6,15 @@ export default defineConfig({
   workers: 1,
   retries: 0,
   use: {
-    baseURL: 'http://127.0.0.1:5173',
+    baseURL: 'http://127.0.0.1:5198',
     channel: 'chrome',
     viewport: { width: 1440, height: 900 },
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
   },
-  webServer: { command: 'npm run dev', url: 'http://127.0.0.1:5173', reuseExistingServer: true },
+  webServer: {
+    command: 'npm run dev -- --port 5198',
+    url: 'http://127.0.0.1:5198',
+    reuseExistingServer: false,
+  },
 });

@@ -104,7 +104,7 @@ for (const field of [
 test('rejects wrong battlefields, malformed JSON and invalid numeric simulation state', () => {
   const w = new World(false);
   expect(() => World.fromSnapshot(w.snapshot(), rift)).toThrow(/battlefield/);
-  expect(() => World.fromSnapshot('{', PRACTICE_FIXTURE)).toThrow();
+  expect(() => World.fromSnapshot('{', PRACTICE_FIXTURE)).toThrow('Saved match could not be read.');
   w.hero.x = NaN;
   expect(() => w.snapshot()).toThrow(/numeric/);
 });

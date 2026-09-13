@@ -6,6 +6,7 @@ import type { GameView } from '../render/view';
 export interface HudActions {
   pause: (value: boolean) => void;
   reset: () => void;
+  save: () => Promise<void>;
   sound: (enabled: boolean) => void;
 }
 export class Hud {
@@ -171,7 +172,7 @@ export class Hud {
       title = 'Game paused';
       subtitle = 'A moment of clarity before the next move.';
       content =
-        '<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">Restart practice</button>';
+        '<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">Restart practice</button>';
     } else if (which === 'help') {
       title = 'Master the Rift';
       subtitle = 'Every movement begins with a decision.';
@@ -221,6 +222,18 @@ export class Hud {
         if (action === 'resume') this.closeModal();
         if (action === 'help') this.toggleModal('help');
         if (action === 'reset') this.actions.reset();
+        if (action === 'save') {
+          button.disabled = true;
+          void this.actions
+            .save()
+            .then(() => this.toast('Match saved on this browser.'))
+            .catch((error) =>
+              this.toast(error instanceof Error ? error.message : 'Match could not be saved.')
+            )
+            .finally(() => {
+              button.disabled = false;
+            });
+        }
         if (action === 'restore') {
           const h = this.world.hero;
           if (h.hp > 0) {

@@ -148,6 +148,8 @@ test('dialog keeps keyboard focus inside its controls', async ({ page }) => {
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'Return to the Rift', exact: true })).toBeFocused();
   await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Save match', exact: true })).toBeFocused();
+  await page.keyboard.press('Tab');
   await expect(
     page.getByRole('button', { name: 'Controls & keybindings', exact: true })
   ).toBeFocused();
