@@ -1,5 +1,53 @@
 import { expect, test } from '@playwright/test';
 
+test('a full-Rift chase checkpoint reloads and continues into an attack', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const chase = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.nextWaveTick = Infinity;
+    for (const u of w.units) {
+      u.ai = false;
+      w.setOrder(u, { type: 'idle' });
+    }
+    const lane = w.battlefield.lanes.find((l: any) => l.name === 'mid');
+    Object.assign(w.hero, lane.points[7]);
+    const enemy = w.spawn('champion', 'red', lane.points[8]);
+    w.setOrder(w.hero, { type: 'attack', target: enemy.id });
+    w.step();
+    if (!w.hero.pathDestination) throw new Error('Chase did not create a path');
+    const saved = w.snapshot();
+    const originalHP = enemy.hp;
+    w.step(180);
+    const continued = w.snapshot();
+    // Restore the exact chase start for the ordinary browser save action.
+    const restored = w.constructor.fromSnapshot(saved, w.battlefield);
+    Object.assign(w, restored);
+    return { saved, continued, target: enemy.id, originalHP };
+  });
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Save match', exact: true }).click();
+  await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
+  await page.reload();
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate((target) => {
+    const w = (window as any).__GAME__.world;
+    const saved = w.snapshot();
+    w.step(180);
+    return { saved, continued: w.snapshot(), hp: w.unit(target).hp };
+  }, chase.target);
+  expect(result.saved).toBe(chase.saved);
+  expect(result.continued).toBe(chase.continued);
+  expect(result.hp).toBeLessThan(chase.originalHP);
+  expect(errors).toEqual([]);
+});
+
 test('scout visual tail checkpoint reloads without restoring expired vision', async ({ page }) => {
   await page.goto('/?scene=fixture');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);

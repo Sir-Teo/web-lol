@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { NavGrid, fromRiot, toRiot, type NavGridMetadata } from '../src/simulation/navgrid';
 import { distance } from '../src/simulation/math';
+import { World } from '../src/simulation/world';
+import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 
 function fixture(rows: number[][]) {
   const height = rows.length,
@@ -24,6 +26,40 @@ function fixture(rows: number[][]) {
 }
 
 describe('continuous navigation clearance', () => {
+  it('returns position-only waypoints when pathfinding receives entity records', () => {
+    const grid = fixture(Array.from({ length: 8 }, () => Array(8).fill(0)));
+    const start = { ...fromRiot(75, 75), id: 1, hp: 610 };
+    const target = { ...fromRiot(275, 275), id: 2, hp: 400 };
+    const endpoint = { x: target.x, y: target.y };
+    expect(grid.reachable(target, 35)).toEqual(endpoint);
+    expect(grid.findPath(start, target, 35)).toEqual([endpoint]);
+  });
+
+  it('saves and resumes a live champion chase on the navigation grid', () => {
+    const grid = fixture(Array.from({ length: 24 }, () => Array(24).fill(0)));
+    const battlefield = {
+      ...PRACTICE_FIXTURE,
+      initialUnits: [],
+      spawns: { blue: fromRiot(100, 100), red: fromRiot(1000, 1000) },
+      reachable: grid.reachable.bind(grid),
+      findPath: grid.findPath.bind(grid),
+      lineWalkable: grid.lineWalkable.bind(grid),
+      lineOfSight: grid.lineOfSight.bind(grid),
+    };
+    const world = new World(false, battlefield);
+    world.nextWaveTick = Infinity;
+    const enemy = world.spawn('champion', 'red', fromRiot(1000, 100));
+    world.setOrder(world.hero, { type: 'attack', target: enemy.id });
+    world.step();
+    expect(world.hero.x).toBeGreaterThan(battlefield.spawns.blue.x);
+    expect(world.hero.pathDestination).not.toBeNull();
+    const restored = World.fromSnapshot(world.snapshot(), battlefield);
+    world.step(180);
+    restored.step(180);
+    expect(enemy.hp).toBeLessThan(enemy.maxHp);
+    expect(restored.snapshot()).toBe(world.snapshot());
+  });
+
   it('routes a capsule around a barrier through its opening without cutting corners', () => {
     const grid = fixture(
       Array.from({ length: 9 }, (_, z) =>

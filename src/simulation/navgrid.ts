@@ -328,7 +328,9 @@ export class NavGrid implements TerrainQueries {
     return result;
   }
   reachable(point: Vec2, radius: number, team: Team = 'blue'): Vec2 {
-    if (this.walkable(point, radius, team)) return { ...point };
+    // Callers may pass a Unit as a Vec2. Navigation owns positions only: copying
+    // the entire entity leaks combat state into paths and invalidates saves.
+    if (this.walkable(point, radius, team)) return { x: point.x, y: point.y };
     if (![point.x, point.y, radius].every(Number.isFinite) || radius < 0)
       throw new Error('Invalid navigation request');
     const passable = this.passable(radius, team);
