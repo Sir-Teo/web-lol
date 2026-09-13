@@ -1278,3 +1278,9 @@ All 442 source/simulation checks and nested-path production smoke pass. Seven fo
 Retrieved the Q demonstration embedded by Riot's champion page, pinned video/page hashes and metadata, and inspected ordinary-to-Q transition and flurry frames. The visible staggered, separated flight paths rule out simultaneous coincident arrows as a faithful visual implementation. Inspected animation records do not supply five launch events; differing cast-frame values do not establish a repeat schedule.
 
 Added a reproducible provenance/metadata verifier and three ordered contact sheets. The verifier passes. This adds primary visual evidence without claiming the unspecified recording patch or attack-speed setup matches 26.18. Exact delays and individual-hit behavior remain unresolved; no runtime constants changed and runtime/browser suites were not rerun.
+
+## Source attack-arrow glows
+
+Added ordinary/Q Glow and Glow1 layers using verified source emitter records and the original texture. Saved attack launch ticks drive color-curve age; instances share geometry/texture and own only their changing glow materials. Native particle-plane adaptation and impact linger remain documented interpretations.
+
+All 444 source/simulation checks and nested-path production smoke pass. Six related Chrome cases initially passed; the new Q check failed because its returned observation omitted three asserted fields. Corrected the observation and reran all three arrow cases successfully, including private-material disposal. Inspected the updated combat capture. Full browser/performance suites were not repeated; other particle layers and full flurry behavior remain unfinished.

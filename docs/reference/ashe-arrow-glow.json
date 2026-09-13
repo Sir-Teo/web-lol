@@ -1,0 +1,339 @@
+{
+  "definitionCache": ".cache/ashe-vfx/580213cc594896a4.json",
+  "definitionSha256": "51ac25dab2653dcdfc9abe243d1460290855358ff4c10de60ae8c9316c49ade2",
+  "layers": {
+    "basic": {
+      "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_BA_mis",
+      "emitters": [
+        {
+          "rate": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "lifetime": 0.10000000149011612,
+          "emitterName": "Glow",
+          "bindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "SpawnShape": {
+            "emitOffset": [
+              0.0,
+              -50.0,
+              0.0
+            ],
+            "__type": "{ee39916f}"
+          },
+          "primitive": {
+            "__type": "VfxPrimitiveArbitraryQuad"
+          },
+          "blendMode": 4,
+          "Color": {
+            "constantValue": [
+              0.1900053471326828,
+              0.609994649887085,
+              1.0,
+              0.2399939000606537
+            ],
+            "dynamics": {
+              "times": [
+                0.0,
+                0.10000000149011612,
+                1.0
+              ],
+              "values": [
+                [
+                  0.1900053471326828,
+                  0.609994649887085,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.16839689016342163,
+                  0.5406227111816406,
+                  0.886274516582489,
+                  0.2399939000606537
+                ],
+                [
+                  0.1900053471326828,
+                  0.609994649887085,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "__type": "VfxAnimatedColorVariableData"
+            },
+            "__type": "ValueColor"
+          },
+          "pass": 5,
+          "miscRenderFlags": 1,
+          "particleIsLocalOrientation": 1,
+          "birthScale0": {
+            "constantValue": [
+              120.0,
+              250.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+          "__type": "VfxEmitterDefinitionData"
+        },
+        {
+          "rate": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "lifetime": 0.10000000149011612,
+          "emitterName": "Glow1",
+          "bindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "SpawnShape": {
+            "emitOffset": [
+              0.0,
+              -50.0,
+              0.0
+            ],
+            "__type": "{ee39916f}"
+          },
+          "primitive": {
+            "__type": "VfxPrimitiveArbitraryQuad"
+          },
+          "blendMode": 4,
+          "Color": {
+            "constantValue": [
+              0.1900053471326828,
+              0.609994649887085,
+              1.0,
+              0.5100023150444031
+            ],
+            "dynamics": {
+              "times": [
+                0.0,
+                0.10000000149011612,
+                1.0
+              ],
+              "values": [
+                [
+                  0.1900053471326828,
+                  0.609994649887085,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.16839689016342163,
+                  0.5406227111816406,
+                  0.886274516582489,
+                  0.5100023150444031
+                ],
+                [
+                  0.1900053471326828,
+                  0.609994649887085,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "__type": "VfxAnimatedColorVariableData"
+            },
+            "__type": "ValueColor"
+          },
+          "pass": 5,
+          "miscRenderFlags": 1,
+          "particleIsLocalOrientation": 1,
+          "birthScale0": {
+            "constantValue": [
+              30.0,
+              150.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+          "__type": "VfxEmitterDefinitionData"
+        }
+      ]
+    },
+    "focus": {
+      "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_Q_mis",
+      "emitters": [
+        {
+          "rate": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "lifetime": 0.10000000149011612,
+          "emitterName": "Glow",
+          "bindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "SpawnShape": {
+            "emitOffset": [
+              0.0,
+              -50.0,
+              0.0
+            ],
+            "__type": "{ee39916f}"
+          },
+          "primitive": {
+            "__type": "VfxPrimitiveArbitraryQuad"
+          },
+          "blendMode": 4,
+          "Color": {
+            "constantValue": [
+              0.1900053471326828,
+              0.609994649887085,
+              1.0,
+              0.2399939000606537
+            ],
+            "dynamics": {
+              "times": [
+                0.0,
+                0.10000000149011612,
+                1.0
+              ],
+              "values": [
+                [
+                  0.1900053471326828,
+                  0.609994649887085,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.16839689016342163,
+                  0.5406227111816406,
+                  0.886274516582489,
+                  0.2399939000606537
+                ],
+                [
+                  0.1900053471326828,
+                  0.609994649887085,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "__type": "VfxAnimatedColorVariableData"
+            },
+            "__type": "ValueColor"
+          },
+          "pass": 5,
+          "miscRenderFlags": 1,
+          "particleIsLocalOrientation": 1,
+          "birthScale0": {
+            "constantValue": [
+              100.0,
+              200.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+          "__type": "VfxEmitterDefinitionData"
+        },
+        {
+          "rate": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "lifetime": 0.10000000149011612,
+          "emitterName": "Glow1",
+          "bindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "SpawnShape": {
+            "emitOffset": [
+              0.0,
+              -70.0,
+              0.0
+            ],
+            "__type": "{ee39916f}"
+          },
+          "primitive": {
+            "__type": "VfxPrimitiveArbitraryQuad"
+          },
+          "blendMode": 4,
+          "Color": {
+            "constantValue": [
+              0.1882352977991104,
+              0.6117647290229797,
+              1.0,
+              0.4588235318660736
+            ],
+            "dynamics": {
+              "times": [
+                0.0,
+                0.10000000149011612,
+                1.0
+              ],
+              "values": [
+                [
+                  0.1882352977991104,
+                  0.6117647290229797,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.16682814061641693,
+                  0.5421914458274841,
+                  0.886274516582489,
+                  0.4588235318660736
+                ],
+                [
+                  0.1882352977991104,
+                  0.6117647290229797,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "__type": "VfxAnimatedColorVariableData"
+            },
+            "__type": "ValueColor"
+          },
+          "pass": 5,
+          "miscRenderFlags": 1,
+          "particleIsLocalOrientation": 1,
+          "birthScale0": {
+            "constantValue": [
+              30.0,
+              200.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_Glow.tex",
+          "__type": "VfxEmitterDefinitionData"
+        }
+      ]
+    }
+  },
+  "texture": {
+    "path": "assets/characters/ashe/skins/base/particles/ashe_base_ba_glow.tex",
+    "wadPathHash": "5e034983fb55d578",
+    "sha256": "0976c09543b07b12fedbaad697c1bb82885289b48c16ba6428d5fa0ad9e54b1d",
+    "bytes": 87420
+  },
+  "textureCache": ".cache/hawkshot-sources/assets/characters/ashe/skins/base/particles/ashe_base_ba_glow.tex",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  }
+}

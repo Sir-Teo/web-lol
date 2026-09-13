@@ -48,19 +48,30 @@ test('Q attacks render source ice arrows after buff expiry and retain shared res
     const meshes: any[] = [],
       others: any[] = [];
     first.traverse((o: any) => {
-      if (o.isMesh) meshes.push(o);
+      if (o.isMesh && o.geometry.getAttribute('color')) meshes.push(o);
     });
     second.traverse((o: any) => {
-      if (o.isMesh) others.push(o);
+      if (o.isMesh && o.geometry.getAttribute('color')) others.push(o);
     });
     let disposed = 0;
     meshes[0].geometry.addEventListener('dispose', () => disposed++);
     meshes[0].material.addEventListener('dispose', () => disposed++);
+    const glow = first.children[1];
+    const privateGlowMaterials =
+      glow.children[0].material !== second.children[1].children[0].material;
+    let disposedGlows = 0;
+    second.children[1].children.forEach((mesh: any) =>
+      mesh.material.addEventListener('dispose', () => disposedGlows++)
+    );
     const shared =
       meshes[0].geometry === others[0].geometry && meshes[0].material === others[0].material;
     w.projectiles = w.projectiles.filter((projectile: any) => projectile.id !== 999999);
     g.view.render(w, 1, performance.now() / 1000);
     return {
+      glowLayers: glow.children.length,
+      glowVisible: glow.children.every((mesh: any) => mesh.visible && mesh.material.opacity > 0),
+      privateGlowMaterials,
+      disposedGlows,
       name: first.name,
       meshes: meshes.length,
       triangles: meshes[0].geometry.index.count / 3,
@@ -73,6 +84,10 @@ test('Q attacks render source ice arrows after buff expiry and retain shared res
     };
   });
   expect(result).toEqual({
+    glowLayers: 2,
+    glowVisible: true,
+    privateGlowMaterials: true,
+    disposedGlows: 2,
     name: 'Ashe Q ice arrow',
     meshes: 1,
     triangles: 244,
@@ -119,7 +134,7 @@ for (const team of ['blue', 'red'] as const) {
       const root = g.view.projectileModels.get(p.id);
       let mesh: any;
       root.traverse((o: any) => {
-        if (o.isMesh) mesh = o;
+        if (o.isMesh && o.geometry.getAttribute('color')) mesh = o;
       });
       return {
         name: root.name,

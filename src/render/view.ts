@@ -11,7 +11,11 @@ import { isStructureKind, type Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
 import { FogSampler } from './fog-sampler';
 import { animateHawkshot, createHawkshot, disposeHawkshot } from './hawkshot';
-import { createAsheAttackArrow, isAsheAttackArrow } from './ashe-attack-arrow';
+import {
+  createAsheAttackArrow,
+  animateAsheAttackArrow,
+  disposeAsheAttackArrow,
+} from './ashe-attack-arrow';
 import { HawkshotWind } from './hawkshot-wind';
 import { HawkshotDust } from './hawkshot-dust';
 import { HawkshotSmoke } from './hawkshot-smoke';
@@ -724,6 +728,11 @@ export class GameView {
         this.projectileModels.set(p.id, model);
       }
       model.visible = world.projectileVisible(p);
+      if (p.type === 'attack')
+        animateAsheAttackArrow(
+          model,
+          Math.max(0, (world.tick - 1 + alpha - (p.launchTick ?? world.tick)) / TICK_RATE)
+        );
       if (p.type === 'hawkshot') animateHawkshot(model, world.time - p.launchTick! / 60);
       model.position.set(
         lerp(p.previous.x, p.x, alpha) * SCALE,
@@ -736,7 +745,7 @@ export class GameView {
     for (const [id, model] of this.projectileModels)
       if (!active.has(id)) {
         this.scene.remove(model);
-        if (isAsheAttackArrow(model) || disposeHawkshot(model)) {
+        if (disposeAsheAttackArrow(model) || disposeHawkshot(model)) {
           this.projectileModels.delete(id);
           continue;
         }

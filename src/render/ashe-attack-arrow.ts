@@ -1,12 +1,21 @@
+import {
+  loadArrowGlow,
+  createArrowGlow,
+  animateArrowGlow,
+  disposeArrowGlow,
+} from './ashe-arrow-glow';
 import { ASHE_BASIC_ARROW_SCALE } from '../content/ashe-basic-arrow';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 let reference: THREE.Group | undefined;
-const instances = new WeakSet<THREE.Group>();
+const instances = new WeakMap<THREE.Group, { glow: THREE.Group; empowered: boolean }>();
 
 export async function loadAsheAttackArrow(): Promise<void> {
-  const gltf = await new GLTFLoader().loadAsync('assets/models/ashe-q-arrow.glb');
+  const [gltf] = await Promise.all([
+    new GLTFLoader().loadAsync('assets/models/ashe-q-arrow.glb'),
+    loadArrowGlow(),
+  ]);
   const emitter = gltf.scene.userData.sourceEmitter;
   if (emitter?.emitterName !== 'icearrow' || emitter.disabled || emitter.blendMode !== 3)
     throw new Error('Q arrow lacks its active source emitter');
@@ -30,10 +39,20 @@ export function createAsheAttackArrow(empowered: boolean): THREE.Group {
   // Particle-system attachment rotation/offset still requires native calibration.
   model.rotation.y = Math.PI;
   root.add(model);
-  instances.add(root);
+  const glow = createArrowGlow(empowered);
+  root.add(glow);
+  instances.set(root, { glow, empowered });
   return root;
 }
 
-export function isAsheAttackArrow(model: THREE.Group): boolean {
-  return instances.has(model);
+export function animateAsheAttackArrow(model: THREE.Group, age: number): void {
+  const instance = instances.get(model);
+  if (instance) animateArrowGlow(instance.glow, instance.empowered, age);
+}
+export function disposeAsheAttackArrow(model: THREE.Group): boolean {
+  const instance = instances.get(model);
+  if (!instance) return false;
+  disposeArrowGlow(instance.glow);
+  instances.delete(model);
+  return true;
 }
