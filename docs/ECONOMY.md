@@ -14,4 +14,6 @@ Tests cover the start boundary, sustained rate, purchase threshold, fractional c
 
 ## Remaining economy work
 
-Starting gold and most rewards still need a complete patch audit. Role quests, support income, kill/assist sharing, shutdown bounties, turret plates, neutral-objective rewards, minion bounty scaling, item recipes, sell/undo, and independent bot inventories remain incomplete. This ambient correction does not establish a complete match economy.
+Starting gold and most rewards still need a complete patch audit. Role quests, support income, kill/assist sharing, shutdown bounties, turret plates, neutral-objective rewards, ordinary minion bounty scaling, item recipes, sell/undo, and independent bot inventories remain incomplete. This ambient correction does not establish a complete match economy.
+
+Cannon and super-minion bounty growth is now implemented; see [the minion gold specification](MINIONS.md#cannon-and-super-gold-growth) for evidence and remaining timing assumptions.

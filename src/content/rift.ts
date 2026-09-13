@@ -15,6 +15,7 @@ export interface RiftLayout {
   lanes: LaneRoute[];
   unitStats: Battlefield['unitStats'];
   unitHealthGrowth: Battlefield['unitHealthGrowth'];
+  unitGoldGrowth: Battlefield['unitGoldGrowth'];
   minionTurretDamage: Battlefield['minionTurretDamage'];
   minionCurrentHealthDamage: Battlefield['minionCurrentHealthDamage'];
   siegeMidTurretAttackSpeedBonus: Battlefield['siegeMidTurretAttackSpeedBonus'];
@@ -60,6 +61,7 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
     lanes: layout.lanes,
     waves: layout.waves,
     unitStats: layout.unitStats,
+    unitGoldGrowth: layout.unitGoldGrowth,
     unitHealthGrowth: layout.unitHealthGrowth,
     minionTurretDamage: layout.minionTurretDamage,
     minionCurrentHealthDamage: layout.minionCurrentHealthDamage,

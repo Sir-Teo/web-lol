@@ -191,6 +191,16 @@ export class World {
         u.maxHp += Math.min(health.maxBonus, upgrades * health.increment);
       }
       u.hp = u.maxHp;
+      const gold = isLaneMinionKind(kind)
+        ? this.battlefield.unitGoldGrowth?.[kind]?.[team]
+        : undefined;
+      if (gold && stats.goldBounty !== undefined) {
+        const upgrades = Math.max(
+          0,
+          Math.floor(this.tick / Math.round(gold.intervalSeconds * TICK_RATE))
+        );
+        u.goldBounty = Math.min(gold.maxTotal, stats.goldBounty + upgrades * gold.increment);
+      }
       const growth = this.battlefield.waves.moveSpeed;
       if (growth && stats.speed !== undefined) {
         const upgrades = Math.max(
