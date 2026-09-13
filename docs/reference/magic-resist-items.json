@@ -1,0 +1,102 @@
+{
+  "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+  "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+  "items": {
+    "1033": {
+      "name": "Null-Magic Mantle",
+      "description": "<mainText><stats><attention>20</attention> Magic Resist</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Slightly increases Magic Resist",
+      "into": [
+        "1057",
+        "3140",
+        "323050",
+        "323190",
+        "3193",
+        "3050",
+        "3001",
+        "3211",
+        "2524",
+        "3155",
+        "3105",
+        "3111",
+        "3190",
+        "4632"
+      ],
+      "image": {
+        "full": "1033.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 0,
+        "y": 48,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 400,
+        "purchasable": true,
+        "total": 400,
+        "sell": 280
+      },
+      "tags": [
+        "SpellBlock"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatSpellBlockMod": 20
+      }
+    },
+    "1057": {
+      "name": "Negatron Cloak",
+      "description": "<mainText><stats><attention>45</attention> Magic Resist</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Moderately increases Magic Resist",
+      "from": [
+        "1033"
+      ],
+      "into": [
+        "2504",
+        "8020",
+        "328020",
+        "3091",
+        "6665",
+        "4401"
+      ],
+      "image": {
+        "full": "1057.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 192,
+        "y": 96,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 450,
+        "purchasable": true,
+        "total": 850,
+        "sell": 595
+      },
+      "tags": [
+        "SpellBlock"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatSpellBlockMod": 45
+      },
+      "depth": 2
+    }
+  }
+}

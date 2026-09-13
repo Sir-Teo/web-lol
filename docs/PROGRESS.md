@@ -1050,3 +1050,9 @@ All 390 source/simulation checks, eight focused Chrome scenarios and the nested-
 The open shop now reconciles owned controls when the actual inventory changes, retaining unchanged buttons instead of rebuilding the list after every transaction. Selling a focused item transfers focus to the next occupied slot, the previous remaining slot, or the close control when empty. Sale clicks validate the displayed item against the current slot before transacting, preventing a stale control from selling a replacement item.
 
 All 390 source/simulation checks, seven focused Chrome scenarios and the nested-path production smoke pass. New browser cases cover an external purchase while a sale control is focused, keyboard-only sequential sales through closing the empty shop, and an inventory swap immediately before a stale click. Existing sale and three viewport layout scenarios pass. Full-suite/performance checks were not repeated; native shop fidelity and the full production objective remain unfinished.
+
+## Null-Magic Mantle and Negatron Cloak
+
+Added pinned magic-resistance components, their source icons and the Mantle-to-Cloak recipe. Purchases apply net resistance after consuming components; sales preserve unrelated stats and champion level growth. This adds a defensive response to magic damage alongside the existing armor purchases.
+
+All 393 source/simulation checks, five focused Chrome scenarios, resistance/sell source verifiers and the nested-path production smoke pass. Both teams cover mitigation, true damage, sale and saved continuation; browser input covers buying, upgrading and selling, and the larger catalog retains the three viewport layout checks. Inspected the new icon/description/owned-item screenshot. Full-suite/performance checks were not repeated. The compact HUD still needs a magic-resistance readout; adaptive builds, full item effects and native match fidelity remain unfinished.

@@ -74,6 +74,24 @@
         "total": 800,
         "sell": 560
       }
+    },
+    "1033": {
+      "name": "Null-Magic Mantle",
+      "gold": {
+        "base": 400,
+        "purchasable": true,
+        "total": 400,
+        "sell": 280
+      }
+    },
+    "1057": {
+      "name": "Negatron Cloak",
+      "gold": {
+        "base": 450,
+        "purchasable": true,
+        "total": 850,
+        "sell": 595
+      }
     }
   }
 }

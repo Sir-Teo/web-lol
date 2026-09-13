@@ -94,3 +94,9 @@ Omnivamp regression coverage now also includes queued W/R casts through actual p
 Added Cloth Armor (300 gold, +15 armor, sells for 210) and Chain Vest (800 total, +40 armor, sells for 560) from the pinned Data Dragon 16.18.1 records. Chain Vest consumes one Cloth Armor and costs 500 remaining gold. Item purchases now apply net flat armor after component consumption; sales remove only the item's armor, retaining champion level growth. Physical mitigation reads the resulting unit armor; true damage remains unaffected.
 
 Both icons ship locally with provenance and hashes in the reference manifest. [Full item records](reference/armor-items.json). `python3 tools/assets/verify-armor-items.py` validates records, recipe cost and local icons. Scenario tests cover both teams, damage mitigation, sale after leveling and checkpoint continuation; the browser case verifies armor HUD values 26 → 41 → 66 → 26 through buying, upgrading and selling. Bots retain their existing finite offensive build policy; reactive defensive builds and the wider item catalog remain unfinished.
+
+## Magic resistance components
+
+Data Dragon 16.18.1 pins Null-Magic Mantle (1033) at 400 gold, 280 sell and 20 flat magic resistance; Negatron Cloak (1057) at 850 gold, 595 sell and 45 flat magic resistance. Cloak consumes one Mantle, leaving 450 gold to pay. Full source records are in `reference/magic-resist-items.json`; the source JSON digest and shipped icon hashes are checked by `tools/assets/verify-magic-resist-items.py`.
+
+Transactions apply net component resistance and remove the item's resistance on sale, preserving champion growth. Existing magic mitigation uses the updated stat. The compact combat HUD still lacks a magic-resistance readout; full stat-panel fidelity and adaptive defensive bot builds remain unfinished.

@@ -92,6 +92,18 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1031.png",
       "sha256": "57cb7021e404edd06245d002a49abc61f827cbf006a1b35f2aa0fa32375c86c2",
       "bytes": 6332
+    },
+    {
+      "path": "/assets/icons/1033.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1033.png",
+      "sha256": "07e375e152ba901b1f7acc2ba4c05e9c7f2f21544aba928dfec42d3e36236b03",
+      "bytes": 5411
+    },
+    {
+      "path": "/assets/icons/1057.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1057.png",
+      "sha256": "4b63c85bcdca48ed074d0411f5c83274fee3e81553946ae4f0a9f0eae0e4f3aa",
+      "bytes": 6307
     }
   ]
 }
