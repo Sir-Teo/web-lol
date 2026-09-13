@@ -1683,6 +1683,7 @@
       "red": 0.03500000014901161
     }
   },
+  "siegeMidTurretAttackSpeedBonus": 0.30000001192092896,
   "waves": {
     "initialSeconds": 30.0,
     "intervalSeconds": 30.0,

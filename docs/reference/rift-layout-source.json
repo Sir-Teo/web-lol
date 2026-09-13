@@ -2632,7 +2632,7 @@
   "outputs": [
     {
       "path": "public/assets/maps/rift-layout.json",
-      "sha256": "e930d0d1abb6d76c75a0664c8e61c9b993a41b0b71301081677bd95cd1def7a8"
+      "sha256": "d22268fb21459f834774fa83c2093867d6818547f4a14d3619ebee70a024599d"
     },
     {
       "path": "public/assets/maps/rift-minimap.webp",

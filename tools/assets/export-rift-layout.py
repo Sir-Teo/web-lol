@@ -126,6 +126,8 @@ lane_records = json.loads(lane_bytes)
 on_hit_bytes = Path('docs/reference/minion-on-hit-items.json').read_bytes()
 assert sha(on_hit_bytes) == 'e0b78916c8a132fadb79f864d5b68ad2056fbfaccb196595cd67596ced116daf'
 on_hit_items = json.loads(on_hit_bytes)['sources'][0]['records']
+siege_mid_turret_attack_speed_bonus, = [value['mValue'] for value in on_hit_items['Items/1508']['mDataValues']
+                                       if value['mName'] == 'MidLaneAttackSpeedBonus']
 minion_current_health_damage = {}
 override_bytes = Path('docs/reference/lane-rule-overrides.json').read_bytes()
 overrides = json.loads(override_bytes)
@@ -163,6 +165,7 @@ layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawn
           "lanes": lanes, "turrets": turrets, "structures": base_structures,
           "unitStats": unit_stats, "unitHealthGrowth": unit_health_growth, "minionTurretDamage": overrides["minionTurretDamage"],
           "minionCurrentHealthDamage": minion_current_health_damage,
+          "siegeMidTurretAttackSpeedBonus": siege_mid_turret_attack_speed_bonus,
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
                     "intervalChanges": overrides['waveIntervals'],
