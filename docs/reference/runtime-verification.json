@@ -1,0 +1,52 @@
+{
+  "browser": "152.0.7977.83",
+  "hardware": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M5 Pro",
+    "memoryGiB": 64
+  },
+  "viewport": [
+    1920,
+    1080
+  ],
+  "fixture": "Full Rift, live simulation beginning at 90 seconds, 45 warmup frames, 180 samples",
+  "advanceMS": 229.90000000037253,
+  "time": 93.7,
+  "units": 103,
+  "frames": {
+    "n": 180,
+    "median": 16.59999999962747,
+    "p95": 18.299999998882413,
+    "p99": 22.600000001490116
+  },
+  "fog": {
+    "n": 22,
+    "median": 1,
+    "p95": 1.5,
+    "p99": 1.599999999627471
+  },
+  "simulationSteps": {
+    "n": 180,
+    "median": 0.19999999925494194,
+    "p95": 0.30000000074505806,
+    "p99": 0.40000000037252903
+  },
+  "calls": 231,
+  "triangles": 379519,
+  "fogResolution": 256,
+  "testedCommit": "d3614054d7bd2814a1a1991bf86dc85572d11c83",
+  "recordedAt": "2026-09-13T16:04:38.164317+00:00",
+  "browserRegression": {
+    "command": "npm run test:browser",
+    "passed": 124,
+    "failed": 0,
+    "duration": "4.4 minutes"
+  },
+  "limitations": [
+    "Development build; 180-frame observation, not a statistical full-match benchmark.",
+    "Current scene has 103 unit records; no complete 5v5 roster, jungle or spell stress scenario.",
+    "No controlled performance comparison with earlier revisions.",
+    "Frame p95 exceeds the 16.7 ms target."
+  ]
+}
