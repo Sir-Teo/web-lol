@@ -19,8 +19,8 @@ test('damage contributions retain one latest timestamp per opposing champion', (
   w.step(2);
   w.damage(w.hero, victim, 1, 'true');
   expect(state.damageContributors).toEqual([
-    { sourceId: w.hero.id, lastDamageTick: 5 },
     { sourceId: ally.id, lastDamageTick: 3 },
+    { sourceId: w.hero.id, lastDamageTick: 5 },
   ]);
   expect(w.player.damageContributors).toEqual([]);
 });
@@ -72,4 +72,33 @@ test('saved contributions reject duplicate, foreign, friendly, future and post-d
       /damage contributions/
     );
   }
+});
+
+test('same-tick repeated attacks retain the latest contributor order through a checkpoint', () => {
+  const { w, victim, ally, state } = encounter();
+  w.damage(w.hero, victim, 1, 'true');
+  w.damage(ally, victim, 1, 'true');
+  w.damage(w.hero, victim, 1, 'true');
+  expect(state.damageContributors.map((c) => c.sourceId)).toEqual([ally.id, w.hero.id]);
+  const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+  for (const world of [w, restored]) {
+    world.damage(world.unit(ally.id)!, world.unit(victim.id)!, 1, 'true');
+    expect(world.championState(victim.id)!.damageContributors.map((c) => c.sourceId)).toEqual([
+      w.hero.id,
+      ally.id,
+    ]);
+  }
+  expect(restored.snapshot()).toBe(w.snapshot());
+});
+
+test('checkpoint rejects damage contributions ordered backwards in time', () => {
+  const { w, victim, ally } = encounter();
+  w.damage(w.hero, victim, 1, 'true');
+  w.step();
+  w.damage(ally, victim, 1, 'true');
+  const saved = JSON.parse(w.snapshot());
+  saved.otherChampions.find((p: any) => p.id === victim.id).damageContributors.reverse();
+  expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow(
+    /damage contributions/
+  );
 });

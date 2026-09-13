@@ -43,3 +43,5 @@ Version 25 adds a nonnegative integer `assists` counter per champion. Version 24
 Version 26 adds per-champion `revealContributors` and optional `sourceId` on scout vision areas. Runtime Hawkshots retain their caster when landing; manually authored/unowned scout areas remain supported without attribution. Source IDs must resolve to champions on the scout's team. Reveal contribution IDs must be unique opposing champions, and their timestamps cannot exceed match time or the victim's death tick. Respawn clears reveal history. Version 25 saves are incompatible.
 
 Reconstruction retains reveal credit without replaying a reveal event. Visibility transitions are sampled from simulation state at the start of the next step, so a continuously visible enemy does not receive a renewed deadline merely because a checkpoint was loaded.
+
+Damage contributor arrays now preserve latest-hit order: refreshing an attacker moves its entry to the end, even for multiple attacks in one tick. The decoder rejects decreasing timestamps; equal-tick array order is retained. This adds no fields to version 26, but the simulation fingerprint changes and conservatively rejects earlier builds.

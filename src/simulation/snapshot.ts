@@ -302,17 +302,20 @@ export function decodeSnapshot(text: string) {
   for (const owner of owners) {
     const champion = champions.find((u) => u.id === owner.id)!;
     const contributors = new Set<number>();
+    let previousDamageTick = -1;
     for (const contribution of owner.damageContributors) {
       const source = champions.find((u) => u.id === contribution.sourceId);
       if (
         !source ||
         source.team === champion.team ||
         contributors.has(source.id) ||
+        contribution.lastDamageTick < previousDamageTick ||
         contribution.lastDamageTick > state.tick ||
         (champion.deadAt !== null && contribution.lastDamageTick > champion.deadAt)
       )
         throw new Error('Saved match contains invalid damage contributions.');
       contributors.add(source.id);
+      previousDamageTick = contribution.lastDamageTick;
     }
     const revealers = new Set<number>();
     for (const entry of owner.revealContributors) {

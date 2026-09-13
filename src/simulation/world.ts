@@ -1083,12 +1083,13 @@ export class World {
     if (targetState) {
       targetState.recallEnd = null;
       if (amount > 0 && source.team !== target.team && this.championState(source.id)) {
-        const contribution = targetState.damageContributors.find(
+        const index = targetState.damageContributors.findIndex(
           (entry) => entry.sourceId === source.id
         );
-        if (contribution) contribution.lastDamageTick = this.tick;
-        else
-          targetState.damageContributors.push({ sourceId: source.id, lastDamageTick: this.tick });
+        // Order by actual damage processing, including multiple hits in one tick.
+        // Refreshing in place loses which attacker most recently contributed.
+        if (index !== -1) targetState.damageContributors.splice(index, 1);
+        targetState.damageContributors.push({ sourceId: source.id, lastDamageTick: this.tick });
       }
     }
     if (target.kind === 'champion')
