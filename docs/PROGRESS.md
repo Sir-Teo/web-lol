@@ -1080,3 +1080,9 @@ All 393 source/simulation checks, four focused Chrome HUD/shop scenarios, font-s
 Startup now explicitly loads all five shipped interface font faces alongside other assets before removing the loading screen. This includes the medium heading face first used by menus. Failed font loads are handled as cosmetic failures and allow fallback text instead of interrupting the match.
 
 All 393 source/simulation checks, two focused Chrome scenarios and nested-path production smoke pass. Browser cases hold a font response during cold boot, confirm loading remains active, then verify all five faces are available after release; a separate case aborts every font download and verifies that the match and shop still open. Full-suite/performance checks were not repeated. Pending font requests follow the browser's network lifecycle; no separate font timeout is introduced. Native typography calibration and full production fidelity remain unfinished.
+
+## Full browser regression after item and typography changes
+
+Ran all 148 current Chrome scenarios against commit `4844626`, with one worker and no retries. All passed in 5.0 minutes. The durable record in `reference/browser-regression.json` identifies the exact tested commit, complete scenario list and original output digest. No runtime edits were made during this run.
+
+Coverage includes combat and animation timing, bot interactions, items and recipes, drag/reorder and keyboard selling, three shop viewport layouts, font readiness/failure fallback, saves, graphics loss/restoration, vision and map behavior, structures, summoner healing and announcements. This broadens evidence beyond the earlier focused runs. Performance was not rerun: the prior p95 frame result remains above target. Current-suite success does not establish full 5v5 behavior, native visual parity, complete roster/items or production completion.
