@@ -31,7 +31,7 @@ test('all mobile source rigs scale run playback with gameplay speed, slows and h
       ]) {
         u.speed = nominal * Number(scale);
         u.slowUntil = slow ? w.tick + 100 : 0;
-        w.healSpeedEnd = haste ? w.tick + 100 : 0;
+        w.hero.summonerHealSpeedUntil = haste ? w.tick + 100 : 0;
         const multiplier =
           Number(scale) * (slow ? 0.7 : 1) * (haste && u.id === w.hero.id ? 1.3 : 1);
         const before = { x: u.x, y: u.y };

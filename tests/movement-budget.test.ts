@@ -63,7 +63,7 @@ test('movement stops at its reachable endpoint instead of spending the leftover 
 test('effective speed composes slow and haste and expires them at their exact deadlines', () => {
   const world = moving([{ x: 1000, y: 0 }]);
   world.hero.slowUntil = 2;
-  world.healSpeedEnd = 3;
+  world.hero.summonerHealSpeedUntil = 3;
   world.step();
   expect(world.hero.x).toBeCloseTo(9.1);
   world.step();

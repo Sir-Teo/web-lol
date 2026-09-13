@@ -331,3 +331,11 @@ The pinned 0.5 multiplier and 30-second duration now apply to repeated Summoner 
 All 160 simulation checks, four affected Chrome scenarios, the static build, and production smoke pass. New cases cover consecutive casts, exact expiry, clamping, regeneration, checkpoint continuation, and invalid saved deadlines. Browser coverage includes an actual practice cooldown reset and reduced F cast during stun, plus the three existing save scenarios. Generated data reproduces byte-identically. The full browser suite was not repeated.
 
 Exact refresh/full-health/death-persistence semantics still require reference observation. Ally healing, bot spell inventories, healing modifiers, complete match systems, and pixel-level fidelity remain unfinished. The production goal remains active.
+
+## Allied Heal milestone
+
+Heal now affects the caster and one living allied champion within the pinned 900-unit range. F uses the hovered unit or cursor location, with the exported 200-unit tolerance; without a qualifying cursor target, the current policy chooses the lowest health percentage. The matching tooltip is now pinned and verified alongside the spell record. Each recipient independently receives healing, repeated-Heal reduction, and a one-second speed effect. Snapshot version 8 replaces the player-only haste timer with per-unit deadlines consumed by movement and run playback. See [selection rules and assumptions](SUMMONER-HEAL.md#allied-champion-selection-and-haste).
+
+All 165 simulation checks, six affected Chrome scenarios, the static build, and production smoke pass. Five new simulation cases cover cursor preference, fallback, range/tolerance boundaries, exclusions, independent reductions, caster-level healing, expiry, and saved continuation. The new browser case hovers one ally and verifies that exactly the intended recipient gains healing and haste. Existing Heal, run-speed, and all three save cases pass. Generated data reproduces byte-identically. The full browser suite was not repeated.
+
+Exact selection geometry, fallback interpretation, tie-breaking, additional healing modifiers, bot spell inventories, complete match systems, and pixel-level fidelity remain unfinished. The production goal remains active.

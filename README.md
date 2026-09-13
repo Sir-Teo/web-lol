@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open the localhost address printed by Vite. The game opens directly into Ashe practice. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Q activates at four Focus stacks; F heals. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
+Open the localhost address printed by Vite. The game opens directly into Ashe practice. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Q activates at four Focus stacks; F heals you and a nearby ally, preferring the ally under the cursor. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
 
 Open `/map.html` on the same server to inspect the full reference terrain, original compressed textures, and matching navigation overlay. The default game uses this same terrain and navigation grid. The original small scene remains available at `/?scene=fixture` in development for regression tests. See [map assets and fidelity audit](docs/MAP-ASSETS.md) for source selection, reproducible conversion, and remaining work.
 

@@ -26,7 +26,7 @@ test('Heal scales from 80 to 318 and respects missing health', () => {
     cast(w);
     expect(w.events.find((e) => e.type === 'heal')?.value).toBe(amount);
     expect(w.player.cooldowns.f).toBe(1 + 240 * 60);
-    expect(w.healSpeedEnd).toBe(61);
+    expect(w.hero.summonerHealSpeedUntil).toBe(61);
   }
   const w = setup();
   w.hero.hp = w.hero.maxHp - 7;
@@ -87,7 +87,7 @@ test('repeated Heal halves the amount without compounding, and refreshes the win
     expect(w.events.filter((e) => e.type === 'heal').at(-1)?.value).toBe(expected);
     expect(w.hero.summonerHealReductionUntil).toBe(index + 1 + 30 * 60);
   }
-  expect(w.healSpeedEnd).toBe(w.tick + 60);
+  expect(w.hero.summonerHealSpeedUntil).toBe(w.tick + 60);
   expect(w.movementSpeed(w.hero)).toBeCloseTo(w.hero.speed * 1.3);
 });
 

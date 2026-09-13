@@ -313,5 +313,11 @@
       "__type": "BotsSpellData"
     },
     "__type": "SpellObject"
+  },
+  "targetingTooltip": {
+    "url": "https://raw.communitydragon.org/16.18/game/en_us/data/menu/en_us/lol.stringtable.json",
+    "sha256": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d",
+    "key": "spell_summonerheal_tooltip",
+    "value": "Restores <healing>@TotalHeal@ Health</healing> and grants <speed>@MoveSpeed*100@% Move Speed</speed> for @MoveSpeedDuration@ second to you and target allied champion.<br><br><rules>If cast without a target, it will cast on the most wounded allied champion in range.<br>Healing is halved on units recently affected by Summoner Heal.</rules>"
   }
 }

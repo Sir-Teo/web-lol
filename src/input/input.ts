@@ -110,13 +110,20 @@ export class GameInput {
         canvas.classList.add('aiming');
       }
       if (key === 'b') world.enqueue({ type: 'recall', unit: world.player.id });
-      if (['q', 'f'].includes(key))
+      if (['q', 'f'].includes(key)) {
+        const point =
+          key === 'f'
+            ? (view.pick(world, this.pointer.x, this.pointer.y) ??
+              view.worldPoint(this.pointer.x, this.pointer.y) ??
+              world.hero)
+            : world.hero;
         world.enqueue({
           type: 'cast',
           unit: world.player.id,
           ability: key as Ability,
-          point: world.hero,
+          point: { x: point.x, y: point.y },
         });
+      }
       if (['w', 'e', 'r', 'd'].includes(key)) {
         this.aiming = key as Ability;
         canvas.classList.add('aiming');

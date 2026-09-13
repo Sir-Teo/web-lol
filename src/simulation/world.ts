@@ -34,7 +34,6 @@ export class World {
   wave = 0;
   nextWaveTick = 5 * TICK_RATE;
   reveal: { point: Vec2; endTick: number } | null = null;
-  healSpeedEnd = 0;
   volleyHits: Record<number, number[]> = {};
   visionAreas: VisionArea[] = [];
 
@@ -162,6 +161,7 @@ export class World {
       slowUntil: 0,
       stunUntil: 0,
       summonerHealReductionUntil: 0,
+      summonerHealSpeedUntil: 0,
       deadAt: null,
       ai: !champion && !dummy && (!structure || turret),
       nextThink: 0,
@@ -630,8 +630,7 @@ export class World {
     }
   }
   movementSpeed(u: Unit): number {
-    const haste =
-      u.id === this.player.id && this.healSpeedEnd > this.tick ? 1 + SUMMONER_HEAL.speedBonus : 1;
+    const haste = u.summonerHealSpeedUntil > this.tick ? 1 + SUMMONER_HEAL.speedBonus : 1;
     return u.speed * (u.slowUntil > this.tick ? 0.7 : 1) * haste;
   }
   private advanceProjectiles(): void {
@@ -906,13 +905,35 @@ export class World {
       const heal =
         SUMMONER_HEAL.minimumHeal +
         (SUMMONER_HEAL.maximumHeal - SUMMONER_HEAL.minimumHeal) * levelFraction;
-      const multiplier =
-        u.summonerHealReductionUntil > this.tick ? SUMMONER_HEAL.repeatHealMultiplier : 1;
-      const amount = Math.min(heal * multiplier, u.maxHp - u.hp);
-      u.hp += amount;
-      u.summonerHealReductionUntil = this.tick + SUMMONER_HEAL.repeatHealWindowSeconds * TICK_RATE;
-      this.healSpeedEnd = this.tick + SUMMONER_HEAL.speedDurationSeconds * TICK_RATE;
-      this.emit('heal', u, { value: Math.round(amount) });
+      const allies = this.units.filter(
+        (ally) =>
+          ally.id !== u.id &&
+          ally.team === u.team &&
+          ally.kind === 'champion' &&
+          this.alive(ally) &&
+          distance(u, ally) <= SUMMONER_HEAL.allyRange
+      );
+      // Cursor preference and lowest-health fallback; see docs/SUMMONER-HEAL.md.
+      const underCursor = (point.x === u.x && point.y === u.y ? [] : allies)
+        .filter((ally) => distance(ally, point) <= SUMMONER_HEAL.cursorForgiveness)
+        .sort((a, b) => distance(a, point) - distance(b, point) || a.id - b.id)[0];
+      const ally =
+        underCursor ??
+        allies.sort(
+          (a, b) =>
+            a.hp / a.maxHp - b.hp / b.maxHp || distance(u, a) - distance(u, b) || a.id - b.id
+        )[0];
+      for (const recipient of ally ? [u, ally] : [u]) {
+        const multiplier =
+          recipient.summonerHealReductionUntil > this.tick ? SUMMONER_HEAL.repeatHealMultiplier : 1;
+        const amount = Math.min(heal * multiplier, recipient.maxHp - recipient.hp);
+        recipient.hp += amount;
+        recipient.summonerHealReductionUntil =
+          this.tick + SUMMONER_HEAL.repeatHealWindowSeconds * TICK_RATE;
+        recipient.summonerHealSpeedUntil =
+          this.tick + SUMMONER_HEAL.speedDurationSeconds * TICK_RATE;
+        this.emit('heal', recipient, { value: Math.round(amount) });
+      }
     }
   }
   buy(itemId: string): string | null {
@@ -973,7 +994,6 @@ export class World {
       nextWaveTick: this.nextWaveTick,
       reveal: this.reveal,
       visionAreas: this.visionAreas,
-      healSpeedEnd: this.healSpeedEnd,
       volleyHits: this.volleyHits,
       commands: this.commands,
     });
