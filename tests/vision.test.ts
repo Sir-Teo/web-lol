@@ -104,7 +104,7 @@ describe('authoritative team vision', () => {
     const turret = world.spawn('turret', 'red', remote);
     expect(world.visible(turret)).toBe(false);
     world.enqueue({ type: 'cast', unit: hero.id, ability: 'r', point: { x: 4000, y: 4000 } });
-    world.step();
+    world.step(16);
     const missile = world.projectiles[0];
     Object.assign(missile, remote, { team: 'red' });
     expect(world.projectileVisible(missile)).toBe(false);

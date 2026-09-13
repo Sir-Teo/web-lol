@@ -596,3 +596,12 @@ Volley now stores a pending cast and releases its seven arrows after the source'
 All 237 simulation checks, all 90 Chrome scenarios, production build and production smoke pass. Existing Volley tests now measure first travel from release while retaining damage, speed and remaining-distance assertions. New tests cover deferred movement, single spending/release, interrupted attacks, stun/death, restricted spell input, invalid snapshots and exact restored pose. The windup screenshot was inspected. W parameter generation is byte-identical; unchanged asset validation was not repeated.
 
 This first windup implementation covers W only. During windup Heal remains available; other abilities and recall are rejected rather than buffered. Those interaction policies, cast-start damage/cooldown sampling, refunds and precise native frame alignment remain capture-calibration work. Full post-release animation recovery and E/R windups remain outstanding. The production goal remains active. See [casting evidence and implementation](ASHE-CASTING.md#volley-windup-implementation).
+
+
+## Enchanted Crystal Arrow windup milestone
+
+R now uses the saved pending-cast path, spending resources once and releasing after its verified 0.25-second windup. Rendering seeks the source Spell4 pose. Snapshot version 18 supports both W and R with source-selected duration validation. Existing movement/attack deferral, stun/death and restricted spell-input policies apply to both.
+
+All 241 simulation checks, 15 focused Chrome scenarios, production build and production smoke pass. Shared windup coverage now exercises both spells, including no early missile, one release, saved continuation, frozen/restored bones and interruption rules. R flight fixtures use actual release as their epoch while retaining acceleration, range, splash, collision, sight and stun assertions. Minimap aiming/release passes. The source-pose screenshot was inspected and R parameter regeneration is byte-identical. The full browser suite and unchanged asset validation were not repeated after the prior 90-case full pass.
+
+Hawkshot windup, full post-release animation, general spell buffering/Flash interactions and exact native frame calibration remain unfinished. R damage still uses the prior 200 baseline pending rank/AP work. The production goal remains active. See [R windup evidence and scope](ASHE-CASTING.md#enchanted-crystal-arrow-windup).

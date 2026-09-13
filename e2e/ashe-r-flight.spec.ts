@@ -11,7 +11,7 @@ test('a cross-map arrow reaches a target beyond 10000 units', async ({ page }) =
     w.nextWaveTick = Infinity;
     const target = w.spawn('dummy', 'red', { x: w.hero.x + 15000, y: w.hero.y });
     w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'r', point: target });
-    w.step(360);
+    w.step(375); // Windup plus six seconds in flight.
     const inFlight = w.projectiles.length;
     for (let i = 0; i < 100 && target.hp === target.maxHp; i++) w.step();
     g.view.render(w, 1, 0);
@@ -80,7 +80,7 @@ test('a distant enemy is revealed by the traveling arrow and hidden after it is 
       ability: 'r',
       point: { x: w.hero.x + 10000, y: w.hero.y },
     });
-    w.step();
+    w.step(16);
     Object.assign(w.projectiles[0], { x: 3000, y: 0, previous: { x: 3000, y: 0 } });
     g.view.render(w, 1, 0);
     const during = w.visible(enemy);
@@ -109,7 +109,7 @@ test('crystal arrow reaches its source speed cap and survives presentation updat
       ability: 'r',
       point: { x: startX + 10000, y: w.hero.y },
     });
-    w.step(60);
+    w.step(75); // 15 windup ticks plus 60 flight ticks.
     g.view.render(w, 1, 0);
     const early = { speed: w.projectiles[0].speed, distance: w.projectiles[0].x - startX };
     w.step(120);

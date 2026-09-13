@@ -56,7 +56,7 @@ describe('skillshot collision', () => {
     const minion = w.spawn('melee', 'red', { x: 300, y: 0 });
     minion.ai = false;
     w.enqueue({ type: 'cast', unit: hero.id, ability: 'r', point: target });
-    w.step(40);
+    w.step(55); // 15 windup ticks and the original 40 flight ticks.
     expect(minion.hp).toBe(minion.maxHp);
     expect(target.hp).toBeLessThan(target.maxHp);
     expect(target.stunUntil).toBeGreaterThan(w.tick);

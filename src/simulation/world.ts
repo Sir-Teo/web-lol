@@ -342,7 +342,7 @@ export class World {
         const cast = this.player.pendingCast;
         if (this.tick < cast.releaseTick) continue;
         this.player.pendingCast = null;
-        this.releaseArrowSpell(u, 'w', cast.point, cast.damage);
+        this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage);
       }
       if (u.stunUntil > this.tick) {
         u.attackCycle = null;
@@ -1076,27 +1076,29 @@ export class World {
         u.nextAttackTick = this.tick;
       }
     }
-    if (ability === 'w') {
+    if (ability === 'w' || ability === 'r') {
+      const timing = ability === 'w' ? ASHE_W : ASHE_R;
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
       this.player.pendingCast = {
-        ability: 'w',
+        ability,
         startTick: this.tick,
-        releaseTick: this.tick + ASHE_W.castSeconds * TICK_RATE,
+        releaseTick: this.tick + timing.castSeconds * TICK_RATE,
         point: { ...point },
         damage:
-          ASHE_W.baseDamageByRank[0] +
-          Math.max(
-            0,
-            u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
-          ) *
-            ASHE_W.bonusADRatioByRank[0],
+          ability === 'r'
+            ? 200
+            : ASHE_W.baseDamageByRank[0] +
+              Math.max(
+                0,
+                u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(this.player.level)
+              ) *
+                ASHE_W.bonusADRatioByRank[0],
       };
     }
-    if (ability === 'r') this.releaseArrowSpell(u, 'r', point);
     if (ability === 'e') {
       this.player.eCharges--;
       this.player.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;

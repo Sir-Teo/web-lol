@@ -38,7 +38,7 @@ test('lethal primary impact still splashes minions and restores identically befo
   const minion = w.spawn('melee', 'red', { x: primary.x, y: primary.y + 300 });
   minion.magicResist = 0;
   minion.stunUntil = Infinity;
-  w.step();
+  w.step(16); // Save after launch, before contact.
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   w.step(30);
   restored.step(30);

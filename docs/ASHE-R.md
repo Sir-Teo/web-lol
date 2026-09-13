@@ -48,3 +48,8 @@ Two simulation cases cover zero/800/800.01/1,600/2,800/5,000-unit travel, caster
 ## Minimap targeting
 
 The verified source exporter now exposes `mUseMinimapTargeting: true`. Holding and releasing R over the minimap uses its world position for arrow direction without moving the camera. See [input behavior and validation](MOVEMENT.md#minimap-spell-targeting).
+
+
+## Saved source windup
+
+Enchanted Crystal Arrow now spends resources once, enters a 15-tick windup and releases afterward. Its source Spell4 pose seeks from simulation time and survives pause/restoration. Existing acceleration, sight, collision, splash and travel-based stun calculations begin with the actual projectile launch. See [cast timing evidence, interaction policy and tests](ASHE-CASTING.md#enchanted-crystal-arrow-windup). Spell buffering, Flash interactions, full recovery animation and reference-pixel alignment remain unfinished.

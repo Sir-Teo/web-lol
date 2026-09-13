@@ -11,7 +11,7 @@ function arrow() {
     ability: 'r',
     point: { x: w.hero.x + 10000, y: w.hero.y },
   });
-  w.step();
+  w.step(16);
   w.projectiles[0].x = w.hero.x + 3000;
   return w;
 }
@@ -56,7 +56,7 @@ test('default projectile sight obeys the battlefield occlusion policy', () => {
     ability: 'r',
     point: { x: w.hero.x + 10000, y: w.hero.y },
   });
-  w.step();
+  w.step(16);
   expect(w.visionSources().some((source) => source.radius === 750)).toBe(true);
   expect(w.pointVisible(w.projectiles[0])).toBe(false);
 });

@@ -27,7 +27,7 @@ test('R stun scales from actual swept travel, with an 800-unit floor and 2800-un
 
 test('caster movement does not change flight distance and a saved stun expires on its deadline', () => {
   const { w, target } = castAt(1600);
-  w.step();
+  w.step(16); // Displacement after actual release.
   w.hero.x -= 5000;
   w.hero.previous = { x: w.hero.x, y: w.hero.y };
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);

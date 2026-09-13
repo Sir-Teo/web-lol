@@ -49,7 +49,7 @@ export async function loadReferenceModels(): Promise<void> {
       for (const required of /-(turret|nexus|inhibitor)$/.test(name)
         ? ['idle1']
         : name === 'ashe-base'
-          ? ['idle1', 'run', 'attack1', 'death', 'idle5', 'idle2', 'spell1', 'spell2']
+          ? ['idle1', 'run', 'attack1', 'death', 'idle5', 'idle2', 'spell1', 'spell2', 'spell4']
           : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);

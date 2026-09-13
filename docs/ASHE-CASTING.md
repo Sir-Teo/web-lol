@@ -1,6 +1,6 @@
 # Ashe cast timing audit and implementation requirements
 
-Volley now has a saved 15-tick windup, movement lock and source Spell2 pose, described below. E and R still create projectiles immediately and remain a material gameplay and presentation gap. Adding their clips alone would preserve incorrect projectile timing.
+Volley and Enchanted Crystal Arrow now have saved 15-tick windups, movement locks and their source Spell2/Spell4 poses, described below. E still creates its projectile immediately and remain a material gameplay and presentation gap. Adding their clips alone would preserve incorrect projectile timing.
 
 ## Verified selection
 
@@ -39,7 +39,7 @@ Resolve whether direction, origin and target point are sampled at start or relea
 - Update projectile-travel tests to use actual release as their epoch. Do not weaken their distance, collision, reveal or expiry assertions merely to accommodate the added windup.
 - Capture reference spells at known simulation/animation phases and record tolerances before claiming exact timing or pixel parity.
 
-The audit prepares the source contract and exposes unresolved semantics. The first runtime integration covers Volley only.
+The audit prepares the source contract and exposes unresolved semantics. Runtime integration now covers Volley and Enchanted Crystal Arrow.
 
 
 ## Volley windup implementation
@@ -52,4 +52,13 @@ Snapshot version 17 includes the pending cast. Validation checks its ability, 15
 
 Current interaction policy allows Heal during windup and rejects Q/E/R/Flash, repeated W and recall. It does not implement a general spell-input buffer. Movement orders are retained, but orders received while stunned are still subject to the existing command gate. These rules, cast-start damage capture, cooldown start, no refunds and source release-frame mapping require native capture comparison before claiming complete parity. The explicit source cancellation flag supports an uninterruptible windup but does not prove every listed interaction.
 
-Tests cover no early projectiles, one release, preserved damage/speed/travel assertions, deferred movement, attack cancellation, stun/death, single spending, invalid snapshots, and exact saved continuation. Browser coverage checks the source pose, pause, restored bones and release timing. E/R windups, their displacement/origin semantics and complete spell animation playback remain outstanding.
+Tests cover no early projectiles, one release, preserved damage/speed/travel assertions, deferred movement, attack cancellation, stun/death, single spending, invalid snapshots, and exact saved continuation. Browser coverage checks the source pose, pause, restored bones and release timing. Hawkshot windup, displacement/origin semantics and complete spell animation playback remain outstanding.
+
+
+## Enchanted Crystal Arrow windup
+
+R now uses the same pending-cast path as W. Its exporter independently verifies the source agreement between 0.25-second spellCastTime, frame 7.5 and useAnimatorFramerate, plus the windup cancellation flag. Its animation comes from Spell4, which the pinned base graph maps to the critical-attack source file. The renderer requires that clip and seeks it from saved cast timing.
+
+Snapshot version 18 accepts W/R pending casts, with duration checked against the selected source profile. Both spells retain the existing single-spending, deferred-order, stun/death and restricted-input policies described above. R captures its current 200 damage at acceptance; rank/AP damage work remains separate. The accelerating missile starts only at release, and its travel distance, sight and stun calculations use flight distance rather than elapsed cast time.
+
+Shared simulation and browser tests now exercise both windups. R travel/vision/caster-displacement fixtures wait until actual launch; their original speed cap, distance, hit, splash and stun assertions remain intact. The minimap input path successfully aims and releases through the new delay. The inspected source-pose screenshot is `artifacts/browser-ultimate-windup.png`. Full animation recovery, spell buffering/Flash interactions, native frame calibration and Hawkshot windup remain unfinished.

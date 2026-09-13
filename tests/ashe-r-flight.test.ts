@@ -10,7 +10,7 @@ function cast() {
     ability: 'r',
     point: { x: w.hero.x + 10000, y: w.hero.y },
   });
-  w.step();
+  w.step(16); // Cast start, windup, then first flight tick.
   return w;
 }
 

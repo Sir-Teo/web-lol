@@ -10,7 +10,12 @@ record = json.loads(raw)[pin['record']]
 assert record == pin['data']
 movement = record['mSpell']['mMissileSpec']['movementComponent']
 assert movement['__type'] == 'AcceleratingMovement'
-data = {'initialSpeed': movement['mInitialSpeed'], 'acceleration': movement['mAcceleration'],
+spell = record['mSpell']
+assert spell['mCantCancelWhileWindingUp'] is True
+assert spell['useAnimatorFramerate'] is True
+assert spell['spellCastTime'] == spell['castFrame'] / 30 == 0.25
+data = {'castSeconds': spell['spellCastTime'], 'animation': spell['mAnimationName'].lower(),
+        'initialSpeed': movement['mInitialSpeed'], 'acceleration': movement['mAcceleration'],
         'maximumSpeed': movement['mMaxSpeed']}
 visibility = record['mSpell']['mMissileSpec']['visibilityComponent']
 assert visibility['__type'] == 'Defaultvisibility'
