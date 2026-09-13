@@ -24,7 +24,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Current build
 
-The playable includes a three-dimensional practice lane, an animated archived Ashe reference model, movement and attack states, collision-tested projectiles, basic ability approximations, minion waves, two turrets, a sparring bot, a target dummy, recall, a small working shop, minimap controls, pause, and practice tools.
+The playable includes a three-dimensional practice lane, an animated archived Ashe reference model, movement and attack states, collision-tested projectiles, basic ability approximations, minion waves, two turrets, a sparring bot, a target dummy, recall, a small working shop, minimap controls, pause, and practice tools. Shared terrain/brush visibility now controls targeting, bots, fog, hidden projectiles, and combat feedback.
 
 See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. Procedural terrain and supporting units remain temporary. The archived champion animation is not certified against the target patch.
 
