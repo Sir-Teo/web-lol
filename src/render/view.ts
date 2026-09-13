@@ -5,7 +5,7 @@ import type { Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
 import { seenFrom } from '../simulation/vision';
 import { buildTerrain, SCALE } from './terrain';
-import { makeModel, type UnitModel } from './models';
+import { disposeModel, makeModel, type UnitModel } from './models';
 
 export class GameView {
   renderer: THREE.WebGLRenderer;
@@ -230,7 +230,10 @@ export class GameView {
         this.models.set(u.id, model);
         this.scene.add(model.root);
       }
-      model.root.visible = world.visible(u) && (u.deadAt === null || world.tick - u.deadAt < 50);
+      const deathDuration = model.actions?.death?.getClip().duration ?? 0.65;
+      model.root.visible =
+        world.visible(u) &&
+        (u.deadAt === null || world.tick - u.deadAt < (deathDuration + 0.2) * 60);
       const x = lerp(u.previous.x, u.x, alpha),
         y = lerp(u.previous.y, u.y, alpha);
       model.root.position.set(x * SCALE, 0, y * SCALE);
@@ -261,6 +264,7 @@ export class GameView {
           !moving &&
           u.deadAt === null &&
           model.animationAttackTick &&
+          u.nextAttackTick === model.animationAttackTick &&
           world.tick < model.animationAttackTick
         )
           clip = 'attack1';
@@ -279,19 +283,6 @@ export class GameView {
         }
         model.mixer.update(animationDelta);
       }
-      model.limbs
-        .slice(0, 2)
-        .forEach(
-          (limb, i) => (limb.rotation.x = moving ? Math.sin(elapsed * 9 + i * Math.PI) * 0.45 : 0)
-        );
-      if (model.weapon)
-        model.weapon.rotation.y =
-          u.releaseTick === null
-            ? 0
-            : -0.6 * (1 - Math.max(0, u.releaseTick - world.tick) / u.windupTicks);
-      if (model.cape)
-        model.cape.rotation.x =
-          -0.23 + Math.sin(elapsed * (moving ? 8 : 2)) * (moving ? 0.13 : 0.035);
       if (model.crystal) {
         model.crystal.rotation.y = elapsed * 0.3;
         model.crystal.position.y = 2.9 + Math.sin(elapsed * 2) * 0.07;
@@ -301,11 +292,7 @@ export class GameView {
     for (const [id, model] of this.models)
       if (!present.has(id)) {
         this.scene.remove(model.root);
-        model.mixer?.stopAllAction();
-        if (!model.mixer)
-          model.root.traverse((o) => {
-            if (o instanceof THREE.Mesh) o.geometry.dispose();
-          });
+        disposeModel(model);
         this.models.delete(id);
         this.healthBars.get(id)?.remove();
         this.healthBars.delete(id);
@@ -361,7 +348,7 @@ export class GameView {
     }
     const screen = this.screenPoint(
       p,
-      u.kind === 'turret' ? 4.3 : u.kind === 'champion' ? 2.3 : 1.55
+      this.models.get(u.id)?.barHeight ?? (u.kind === 'turret' ? 4.3 : 1.55)
     );
     bar.hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
     if (bar.hidden) return;

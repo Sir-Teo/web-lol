@@ -5,26 +5,39 @@ import type { Unit } from '../simulation/types';
 
 export interface UnitModel {
   root: THREE.Group;
-  limbs: THREE.Object3D[];
-  weapon?: THREE.Object3D;
-  cape?: THREE.Object3D;
   crystal?: THREE.Object3D;
   mixer?: THREE.AnimationMixer;
   actions?: Record<string, THREE.AnimationAction>;
   actionName?: string;
   animationAttackTick?: number;
+  barHeight?: number;
+  referenceAsset?: string;
 }
-let referenceScene: THREE.Group | null = null;
-let referenceClips: THREE.AnimationClip[] = [];
+interface ReferenceModel {
+  scene: THREE.Group;
+  clips: THREE.AnimationClip[];
+}
+const references = new Map<string, ReferenceModel>();
+const referenceNames = [
+  'ashe-reference',
+  'blue-melee',
+  'red-melee',
+  'blue-caster',
+  'red-caster',
+  'blue-siege',
+  'red-siege',
+];
 export async function loadReferenceModels(): Promise<void> {
-  const gltf = await new GLTFLoader().loadAsync('/assets/models/ashe-reference.glb');
-  referenceScene = gltf.scene;
-  referenceClips = gltf.animations;
-  if (
-    !referenceClips.some((clip) => clip.name === 'idle1') ||
-    !referenceClips.some((clip) => clip.name === 'run')
-  )
-    throw new Error('Reference asset lacks required animations');
+  const loader = new GLTFLoader();
+  await Promise.all(
+    referenceNames.map(async (name) => {
+      const gltf = await loader.loadAsync(`/assets/models/${name}.glb`);
+      for (const required of ['idle1', 'run', 'attack1', 'death'])
+        if (!gltf.animations.some((clip) => clip.name === required))
+          throw new Error(`${name} lacks required ${required} animation`);
+      references.set(name, { scene: gltf.scene, clips: gltf.animations });
+    })
+  );
 }
 const materials = new Map<number, THREE.MeshStandardMaterial>();
 function mat(color: number, metalness = 0): THREE.MeshStandardMaterial {
@@ -52,30 +65,13 @@ function part(
   parent.add(mesh);
   return mesh;
 }
-function link(
-  parent: THREE.Object3D,
-  a: THREE.Vector3,
-  b: THREE.Vector3,
-  radius: number,
-  color: number
-): THREE.Mesh {
-  const mesh = part(
-    parent,
-    new THREE.CylinderGeometry(radius, radius * 0.9, a.distanceTo(b), 6),
-    color,
-    0,
-    0,
-    0
-  );
-  mesh.position.copy(a).add(b).multiplyScalar(0.5);
-  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize());
-  return mesh;
-}
-
 export function makeModel(u: Unit): UnitModel {
-  if (u.kind === 'champion' && referenceScene) {
+  if (u.kind === 'champion' || u.kind === 'melee' || u.kind === 'caster' || u.kind === 'siege') {
+    const key = u.kind === 'champion' ? 'ashe-reference' : `${u.team}-${u.kind}`;
+    const reference = references.get(key);
+    if (!reference) throw new Error(`Model not loaded: ${key}`);
     const root = new THREE.Group(),
-      model = clone(referenceScene);
+      model = clone(reference.scene);
     root.add(model);
     model.traverse((object) => {
       if (object instanceof THREE.Mesh) {
@@ -85,165 +81,40 @@ export function makeModel(u: Unit): UnitModel {
     });
     const mixer = new THREE.AnimationMixer(model);
     const actions = Object.fromEntries(
-      referenceClips.map((clip) => [clip.name, mixer.clipAction(clip)])
+      reference.clips.map((clip) => [clip.name, mixer.clipAction(clip)])
     );
     actions.idle1.play();
-    return { root, limbs: [], mixer, actions, actionName: 'idle1' };
-  }
-  if (u.kind === 'champion') return archer(u.team === 'blue');
-  if (u.kind === 'turret') return turret(u.team === 'blue');
-  if (u.kind === 'dummy') return targetDummy();
-  return minion(u);
-}
-/** Temporary articulated reference silhouette; replace with the validated GLB asset pack. */
-function archer(blue: boolean): UnitModel {
-  const root = new THREE.Group(),
-    body = new THREE.Group();
-  root.add(body);
-  const cloth = blue ? 0x174d82 : 0x783e65,
-    light = blue ? 0x4ba6d6 : 0xca6e84,
-    gold = 0xc4ac6a,
-    skin = 0xe0c9b0;
-  const torso = part(body, new THREE.CylinderGeometry(0.21, 0.28, 0.58, 8), cloth, 0, 1.05, 0);
-  torso.scale.z = 0.7;
-  part(body, new THREE.SphereGeometry(0.17, 10, 8), skin, 0, 1.57, 0.02);
-  const hood = part(
-    body,
-    new THREE.SphereGeometry(0.24, 10, 8, 0, Math.PI * 2, 0, Math.PI * 0.65),
-    cloth,
-    0,
-    1.64,
-    -0.02
-  );
-  hood.rotation.x = -0.28;
-  // Pale locks and a deep hood preserve the archer's read at the fixed gameplay camera.
-  for (const side of [-1, 1]) {
-    const hair = part(
-      body,
-      new THREE.ConeGeometry(0.075, 0.65, 5),
-      0xe3dfd2,
-      side * 0.16,
-      1.37,
-      0.09
-    );
-    hair.rotation.z = side * 0.1;
-    part(body, new THREE.SphereGeometry(0.19, 8, 5), gold, side * 0.29, 1.24, 0).scale.set(
-      1,
-      0.43,
-      1
-    );
-  }
-  part(body, new THREE.CylinderGeometry(0.28, 0.28, 0.065, 8), gold, 0, 0.79, 0).scale.z = 0.8;
-  part(body, new THREE.ConeGeometry(0.38, 0.57, 8), cloth, 0, 0.62, -0.02);
-  const cape = part(body, new THREE.ConeGeometry(0.52, 1.22, 5, 1, true), cloth, 0, 0.89, -0.23);
-  cape.scale.z = 0.4;
-  cape.rotation.x = -0.23;
-  const limbs: THREE.Group[] = [];
-  for (const side of [-1, 1]) {
-    const leg = new THREE.Group();
-    leg.position.set(side * 0.13, 0.58, 0);
-    body.add(leg);
-    link(leg, new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -0.42, 0.03), 0.08, 0x252e36);
-    part(leg, new THREE.BoxGeometry(0.16, 0.15, 0.27), gold, 0, -0.46, 0.08);
-    limbs.push(leg);
-  }
-  const leftArm = new THREE.Group();
-  leftArm.position.set(-0.27, 1.23, 0);
-  body.add(leftArm);
-  link(leftArm, new THREE.Vector3(), new THREE.Vector3(-0.23, -0.2, 0.28), 0.065, skin);
-  link(
-    leftArm,
-    new THREE.Vector3(-0.23, -0.2, 0.28),
-    new THREE.Vector3(-0.18, -0.1, 0.58),
-    0.065,
-    cloth
-  );
-  const rightArm = new THREE.Group();
-  rightArm.position.set(0.27, 1.23, 0);
-  body.add(rightArm);
-  link(rightArm, new THREE.Vector3(), new THREE.Vector3(0.22, -0.17, 0.15), 0.065, skin);
-  link(
-    rightArm,
-    new THREE.Vector3(0.22, -0.17, 0.15),
-    new THREE.Vector3(-0.06, -0.1, 0.4),
-    0.06,
-    cloth
-  );
-  limbs.push(leftArm, rightArm);
-  const bow = new THREE.Group();
-  bow.position.set(-0.46, 1.1, 0.65);
-  body.add(bow);
-  const points = [
-    new THREE.Vector3(0, -0.67, -0.08),
-    new THREE.Vector3(-0.23, -0.35, 0.11),
-    new THREE.Vector3(-0.15, 0, 0.18),
-    new THREE.Vector3(-0.23, 0.35, 0.11),
-    new THREE.Vector3(0, 0.67, -0.08),
-  ];
-  for (let i = 0; i < points.length - 1; i++) link(bow, points[i], points[i + 1], 0.048, light);
-  link(bow, points[0], points[4], 0.009, 0xcef3f4);
-  part(bow, new THREE.OctahedronGeometry(0.13), 0xb8edf4, -0.18, 0, 0.18).scale.set(0.5, 1.6, 0.5);
-  root.scale.setScalar(1.1);
-  return { root, limbs, weapon: rightArm, cape };
-}
-function minion(u: Unit): UnitModel {
-  const root = new THREE.Group(),
-    blue = u.team === 'blue';
-  const color = blue ? 0x36659a : 0x993f49,
-    trim = blue ? 0x95b9c5 : 0xc7a393;
-  if (u.kind === 'siege') {
-    part(root, new THREE.BoxGeometry(0.8, 0.5, 1.1), color, 0, 0.45, 0);
-    for (const x of [-0.45, 0.45])
-      for (const z of [-0.36, 0.36]) {
-        const wheel = part(
-          root,
-          new THREE.CylinderGeometry(0.25, 0.25, 0.15, 10),
-          0x554e40,
-          x,
-          0.25,
-          z
-        );
-        wheel.rotation.z = Math.PI / 2;
-      }
-    const barrel = part(root, new THREE.CylinderGeometry(0.14, 0.18, 1.1, 8), trim, 0, 0.72, 0.35);
-    barrel.rotation.x = Math.PI / 2;
-    return { root, limbs: [] };
-  }
-  const limbs: THREE.Object3D[] = [];
-  part(root, new THREE.ConeGeometry(0.32, 0.65, 7), color, 0, 0.48, 0);
-  part(root, new THREE.SphereGeometry(0.22, 8, 6), trim, 0, 0.95, 0);
-  const hat = part(
-    root,
-    new THREE.ConeGeometry(0.29, u.kind === 'caster' ? 0.55 : 0.2, 7),
-    color,
-    0,
-    1.13,
-    -0.03
-  );
-  hat.rotation.x = -0.18;
-  for (const s of [-1, 1]) {
-    const leg = part(root, new THREE.BoxGeometry(0.13, 0.28, 0.2), 0x3e3836, s * 0.14, 0.17, 0.02);
-    limbs.push(leg);
-    part(root, new THREE.SphereGeometry(0.12, 7, 5), trim, s * 0.29, 0.59, 0.05);
-  }
-  if (u.kind === 'caster') {
-    part(root, new THREE.CylinderGeometry(0.035, 0.04, 1.05, 5), 0x806847, -0.37, 0.6, 0.14);
-    part(root, new THREE.OctahedronGeometry(0.14), blue ? 0x6ccce9 : 0xf08080, -0.37, 1.2, 0.14);
-  } else {
-    const sword = part(root, new THREE.BoxGeometry(0.08, 0.65, 0.12), 0xc4c6b4, 0.39, 0.68, 0.19);
-    sword.rotation.x = 0.4;
-    const shield = part(
+    mixer.update(0);
+    model.updateMatrixWorld(true);
+    model.traverse((object) => {
+      if (object instanceof THREE.SkinnedMesh) object.skeleton.update();
+    });
+    const bounds = new THREE.Box3().setFromObject(model);
+    return {
       root,
-      new THREE.CylinderGeometry(0.23, 0.23, 0.08, 6),
-      color,
-      -0.35,
-      0.64,
-      0.15
-    );
-    shield.rotation.x = Math.PI / 2;
+      mixer,
+      actions,
+      actionName: 'idle1',
+      barHeight: u.kind === 'champion' ? 2.3 : bounds.max.y + 0.18,
+      referenceAsset: key,
+    };
   }
-  return { root, limbs };
+  if (u.kind === 'turret') return turret(u.team === 'blue');
+  return targetDummy();
 }
+
+/** Release per-unit GPU state while preserving the shared reference asset. */
+export function disposeModel(model: UnitModel): void {
+  model.mixer?.stopAllAction();
+  if (model.mixer) model.mixer.uncacheRoot(model.mixer.getRoot());
+  const skeletons = new Set<THREE.Skeleton>();
+  model.root.traverse((object) => {
+    if (object instanceof THREE.SkinnedMesh) skeletons.add(object.skeleton);
+    if (object instanceof THREE.Mesh && !model.referenceAsset) object.geometry.dispose();
+  });
+  for (const skeleton of skeletons) skeleton.dispose();
+}
+
 function turret(blue: boolean): UnitModel {
   const root = new THREE.Group(),
     stone = 0x6e786f,
@@ -286,7 +157,7 @@ function turret(blue: boolean): UnitModel {
   ring.rotation.x = Math.PI / 2;
   ring.position.y = 0.25;
   root.add(ring);
-  return { root, limbs: [], crystal };
+  return { root, crystal };
 }
 function targetDummy(): UnitModel {
   const root = new THREE.Group();
@@ -301,5 +172,5 @@ function targetDummy(): UnitModel {
     const circle = part(root, new THREE.CircleGeometry(radius, 24), color, 0, 1.15, 0.06);
     (circle.material as THREE.Material).side = THREE.DoubleSide;
   }
-  return { root, limbs: [] };
+  return { root };
 }

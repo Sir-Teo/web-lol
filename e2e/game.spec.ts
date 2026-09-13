@@ -237,3 +237,124 @@ test('brush visibility agrees across battlefield, picking, HUD, effects, and fog
   await expect(page.locator('.combat-text')).toHaveCount(0);
   await page.screenshot({ path: 'artifacts/browser-brush-revealed.png' });
 });
+
+test('six reference minions render with independent skeletons and complete death clips', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await boot(page);
+  const gallery = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    v.center = { x: -400, y: 300 };
+    v.zoom = 0.7;
+    const ids: number[] = [];
+    for (const [j, team] of ['blue', 'red'].entries())
+      for (const [i, kind] of ['melee', 'caster', 'siege'].entries()) {
+        const x = -1100 + i * 700;
+        const u = w.spawn(kind, team, { x, y: -0.75 * x + (j ? 200 : -200) });
+        u.ai = false;
+        u.facing = 0;
+        ids.push(u.id);
+      }
+    v.render(w, 1, 0);
+    g.hud.update(60);
+    return ids.map((id) => {
+      const model = v.models.get(id);
+      return {
+        id,
+        asset: model.referenceAsset,
+        clips: Object.keys(model.actions).sort(),
+        barHeight: model.barHeight,
+        visible: model.root.visible,
+      };
+    });
+  });
+  expect(gallery.map((m) => m.asset)).toEqual([
+    'blue-melee',
+    'blue-caster',
+    'blue-siege',
+    'red-melee',
+    'red-caster',
+    'red-siege',
+  ]);
+  for (const model of gallery) {
+    expect(model.clips).toEqual(['attack1', 'death', 'idle1', 'run']);
+    expect(model.barHeight).toBeGreaterThan(0.4);
+    expect(model.barHeight).toBeLessThan(2);
+    expect(model.visible).toBe(true);
+  }
+  await page.screenshot({ path: 'artifacts/browser-minion-gallery.png' });
+  const death = await page.evaluate((id) => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    const dying = w.unit(id);
+    const survivor = w.spawn('melee', 'blue', { x: dying.x + 150, y: dying.y });
+    survivor.ai = false;
+    w.damage(w.hero, dying, 10000, 'true');
+    // Advance in render-sized increments so the real mixer can play the source clip.
+    for (let i = 0; i < 40; i++) {
+      w.step(3);
+      v.render(w, 1, v.previousElapsed + 0.05);
+    }
+    const a = v.models.get(id),
+      b = v.models.get(survivor.id);
+    const result = {
+      retained: !!w.unit(id),
+      visible: a.root.visible,
+      action: a.actionName,
+      time: a.actions.death.time,
+      separateMixer: a.mixer !== b.mixer,
+      survivor: b.actionName,
+      texturesBeforeRemoval: v.renderer.info.memory.textures,
+    };
+    for (let i = 0; i < 45; i++) {
+      w.step(3);
+      v.render(w, 1, v.previousElapsed + 0.05);
+    }
+    return {
+      ...result,
+      removed: !v.models.has(id),
+      survivorStillVisible: b.root.visible,
+      texturesAfterRemoval: v.renderer.info.memory.textures,
+    };
+  }, gallery[0].id);
+  expect(death.retained).toBe(true);
+  expect(death.visible).toBe(true);
+  expect(death.action).toBe('death');
+  expect(death.time).toBeGreaterThan(1.8);
+  expect(death.separateMixer).toBe(true);
+  expect(death.survivor).toBe('idle1');
+  expect(death.removed).toBe(true);
+  expect(death.survivorStillVisible).toBe(true);
+  expect(death.texturesAfterRemoval).toBeLessThan(death.texturesBeforeRemoval);
+  expect(errors).toEqual([]);
+});
+
+test('cancelling attack windup returns the animated champion to idle', async ({ page }) => {
+  await boot(page);
+  const states = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    const target = w.spawn('dummy', 'red', { x: w.hero.x + 400, y: w.hero.y });
+    w.enqueue({ type: 'order', unit: w.hero.id, order: { type: 'attack', target: target.id } });
+    w.step(5);
+    v.render(w, 1, v.previousElapsed + 0.05);
+    const attack = v.models.get(w.hero.id).actionName;
+    w.enqueue({ type: 'order', unit: w.hero.id, order: { type: 'idle' } });
+    w.step();
+    v.render(w, 1, v.previousElapsed + 0.05);
+    return { attack, stopped: v.models.get(w.hero.id).actionName, hp: target.hp };
+  });
+  expect(states.attack).toBe('attack1');
+  expect(states.stopped).toBe('idle1');
+  expect(states.hp).toBe(1500);
+});

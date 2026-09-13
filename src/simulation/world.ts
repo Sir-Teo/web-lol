@@ -218,7 +218,7 @@ export class World {
       this.player.qStacks = 0;
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
-      (u) => u.deadAt === null || u.respawnTick !== null || this.tick - u.deadAt < 90
+      (u) => u.deadAt === null || u.respawnTick !== null || this.tick - u.deadAt < 4 * TICK_RATE
     );
     if (this.tick % 120 === 0)
       for (const key of Object.keys(this.volleyHits)) {

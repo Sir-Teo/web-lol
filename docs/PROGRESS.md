@@ -12,8 +12,9 @@ Last updated: September 12, 2026 (America/New_York).
 - DOM HUD, health bars, ability cooldowns, aiming, camera controls, minimap, menus, scoreboard, practice controls, and synthesized audio feedback.
 - Archived Ashe model converted to GLB: 4,902 vertices, 7,406 triangles, 85 bones, nine retained animation clips. Native Three.js skeletal animation replaces the procedural champion silhouette.
 - Team vision now accounts for terrain occlusion, brush, living allied observers, temporary attack reveals, and Hawkshot. Targeting, bot acquisition, render visibility, HUD, minimap fog, projectiles, and event feedback use the shared policy.
+- Six animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
 - Source revisions and SHA-256 hashes are recorded for imported art. The GLB passes the Khronos glTF validator with zero errors and zero warnings.
-- Nine browser scenarios and nineteen simulation scenarios pass after the keyboard-focus repair. These cover the current practice build only.
+- Eleven browser scenarios and nineteen simulation scenarios pass after the keyboard-focus repair. These cover the current practice build only.
 
 The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
 
@@ -22,8 +23,8 @@ The game is **not production complete**. No roadmap milestone that requires comp
 | Evidence | Result | Scope |
 |---|---|---|
 | `npm run check` | TypeScript check and 19 simulation tests pass | Attack cancellation/release, collision, navigation, last-hit attribution, atomic purchase rejection, deterministic identical inputs, occlusion/brush, shared sight, attack reveal timing, event visibility |
-| `npm run test:browser` | 9 Chrome scenarios | Boot, actual mouse movement/attacks, casting, cooldown, pause, shop, laptop layout/minimap, GPU geometry reuse, modal focus, hidden/revealed brush presentation |
-| `npm run assets:validate` | 0 errors, 0 warnings | GLB structure and recorded source-output hash, not visual parity with current League |
+| `npm run test:browser` | 11 Chrome scenarios | Boot, actual mouse movement/attacks, casting, cooldown, pause, shop, laptop layout/minimap, GPU geometry reuse, modal focus, hidden/revealed brush presentation, six minion assets, death playback, independent mixers, animation cancellation |
+| `npm run assets:validate` | 0 errors, 0 warnings | All seven GLBs and recorded source-output hashes; not certification of pixel parity |
 | `npm run build` | Static build succeeds | Bundles the application and local assets; not deployment or backend work |
 | Browser screenshots | Inspected at 1600×1000 and 1366×768 | Playfield composition, character visibility, HUD overlap, targeting and shop presentation |
 
@@ -41,7 +42,8 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 |---|---|---|
 | Match scope | Practice lane with one opponent | Full three-lane map, jungle, nine role-aware bots, objective progression, valid victory/defeat |
 | Champion art | Archived base Ashe, not a validated 26.18 asset set | Matched reference captures, scale/orientation/material validation, current or approved content pipeline |
-| Environment | Procedural paving, trees, rocks, brush, and towers | Authored/validated map geometry, textures, buildings, minions, vegetation, and lighting; remove temporary silhouettes |
+| Environment | Procedural paving, trees, rocks, brush, and towers | Authored/validated map geometry, textures, buildings, vegetation, and lighting; remove temporary silhouettes |
+| Minion art | Matching 16.18 base models with four source clips each | Validate active match skin selection, attack impact timing, variant selection, VFX, camera-scale match, and full-wave reference captures |
 | Camera | Provisional perspective and scale | Fit against reference gameplay screenshots at matched viewport/zoom |
 | Abilities | Practice approximations; all abilities unlocked | Complete passive and Q/W/E/R, rank rules, charges, cast locks, travel/impact behavior, exact timing, animation/VFX synchronization |
 | Q | Attack-speed buff and Focus, no full flurry/crit interaction | Implement complete attack replacement and modifier semantics |
@@ -60,7 +62,7 @@ See [vision policy](VISION.md) for source evidence, event semantics, and explici
 
 ## Next implementation priorities
 
-1. Establish a stronger environment asset path and validate the imported champion's animation orientation, scale, and attack/cast synchronization. The current screenshot is not close enough to the requested final visual fidelity.
+1. Extend the now-working selective Riot archive extraction to map geometry, textures, buildings, and navigation references. Validate camera fit and attack/cast synchronization against captures. The current procedural environment remains far from the requested visual fidelity.
 2. Extend the tested vision policy to measured map geometry, static building memory, wards/stealth, and complete ability-specific reveal rules; shade elevated terrain consistently with the floor.
 3. Replace the ability approximations with a versioned ability timeline/state model and complete Ashe behavior, then implement a second full kit.
 4. Extend the lane test harness toward the complete map and role-aware match simulation, preserving the tested input/combat boundaries.
@@ -71,4 +73,14 @@ The CommunityDragon 16.18 directory supplied mesh/texture references but returne
 
 Rebuild this asset with `node tools/assets/convert-ashe.mjs`, then run `npm run assets:validate`. This is a local development command that fetches the explicitly pinned source. Hash validation prevents accidental output drift.
 
-`lol2gltf` was also built locally under ignored `.tools/` using a local .NET SDK for future current-format/map investigations, but it was not used for the archived Ashe conversion and is not a runtime dependency. Its current source dependencies emitted ImageSharp vulnerability warnings; resolve those before adopting that tool into a maintained production build pipeline.
+`lol2gltf` was also built locally under ignored `.tools/` using a local .NET SDK for future current-format/map investigations, but it was not used for the archived Ashe conversion and is not a runtime dependency. The initial ImageSharp dependency warnings were resolved by the 3.1.12 update described below.
+
+## Matching minion asset milestone
+
+[Asset pipeline](ASSETS.md) records the pinned release, extraction/conversion workflow, source graph mappings, and remaining calibration gaps. The extractor obtained 88 matching files using 3.10 MB of CDN archive chunks from the 2.49 GB map WAD. Rebuilds validate pinned source hashes; all seven GLBs pass with zero errors/warnings. The six minion assets add about 2.9 MiB of static files, with no runtime external requests.
+
+Browser screenshots verify all six models facing both directions, their relative authored scales, and the corrected health-bar positions. The new browser scenarios verify independent mixers, full death playback through two seconds and subsequent removal, and immediate idle animation after a cancelled windup. Nineteen simulation tests, eleven Chrome scenarios, and the static build pass. This does not certify full minion combat or pixel parity.
+
+The lol2gltf tool is now used for these matching minion sources. Its direct ImageSharp dependency was updated to 3.1.12 before rebuilding, removing the previous vulnerability warnings; the conversion still runs only during asset authoring.
+
+A 96-minion rendering fixture (stationary units, AI disabled, vision active; Chrome 152, 1920×1080, Apple M5 Pro) sampled 180 frames after 45 warmup frames: median 16.7 ms, p95 24.1 ms, p99 24.8 ms, 229 draw calls and 427,572 submitted triangles. This exposes remaining large-scene performance work; it is not a full-match frame-budget pass. Per-unit skeleton textures are now explicitly disposed on removal, with a browser regression check preserving surviving models and shared geometry. Local evidence: `artifacts/minion-render-benchmark.json`.
