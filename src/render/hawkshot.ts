@@ -15,7 +15,17 @@ export async function loadHawkshot(): Promise<void> {
   gltf.scene.traverse((object) => {
     if (object instanceof THREE.Mesh) {
       const materials = Array.isArray(object.material) ? object.material : [object.material];
-      for (const material of materials) material.depthWrite = false;
+      for (const material of materials) {
+        if (material.userData.sourceBlendMode !== 4)
+          throw new Error('Unsupported Hawkshot source blend mode');
+        // Pinned engine dictionary: mode 4 adds source RGB weighted by source alpha.
+        material.blending = THREE.CustomBlending;
+        material.blendEquation = THREE.AddEquation;
+        material.blendSrc = THREE.SrcAlphaFactor;
+        material.blendDst = THREE.OneFactor;
+        material.premultipliedAlpha = false;
+        material.depthWrite = false;
+      }
     }
   });
   reference = { scene: gltf.scene, clip };

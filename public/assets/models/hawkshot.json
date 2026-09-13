@@ -1,11 +1,13 @@
 {
   "referenceVersion": "16.18.8175716",
-  "status": "Source Owl1 body and animation. Other particle layers and exact blend/transform parity remain unfinished.",
+  "status": "Source Owl1 body and animation. Other particle layers and reference capture/transform parity remain unfinished.",
   "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "blendInterpretationSha256": "7c5fd681b275d81f81901ac56b07e5cee82b44d61e7ebc4533acd31d4697c8f6",
+  "blendInterpretationSource": "https://github.com/DivineSkins/divine-wiki/blob/86d9eb9ad46595f1e533eb50183b08e5aad8b190/content/docs/en/lol/vfx-bins/bin-dictionary.mdx#blendmode-values",
   "output": {
     "path": "/assets/models/hawkshot.glb",
-    "bytes": 73856,
-    "sha256": "e4352681c71f0b11b1128d3690cecf236a762dfbcc42c214613849770080296a"
+    "bytes": 73888,
+    "sha256": "ed2107bbbfd0021f18b2dd6860516913f83471954d20c2e0b041e9c1c978ae46"
   },
   "sourceManifest": {
     "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
@@ -45,7 +47,7 @@
     0
   ],
   "sourceBlendMode": 4,
-  "materialPolicy": "Unlit normal alpha blend using source Owl1 color/texture; blend enum interpretation remains unverified.",
+  "materialPolicy": "Unlit source Owl1 color/texture; source mode 4 restored at runtime as SRC_ALPHA + ONE additive blending, per pinned dictionary. glTF alpha BLEND is the portable fallback.",
   "clips": [
     {
       "name": "flight",

@@ -9,6 +9,8 @@ import { dedup, prune, resample } from '@gltf-transform/functions';
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const pinBytes = await readFile('docs/reference/hawkshot-effects.json');
 const pin = JSON.parse(pinBytes);
+const blendPinBytes = await readFile('docs/reference/hawkshot-blending.json');
+const blendPin = JSON.parse(blendPinBytes);
 const sourceRoot = '.cache/hawkshot-sources';
 for (const file of pin.extraction.files) {
   const bytes = await readFile(`${sourceRoot}/${file.path}`);
@@ -19,6 +21,8 @@ const definition = pin.records['Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_
 const emitter = definition.complexEmitterDefinitionData.find((e) => e.emitterName === 'Owl1');
 if (emitter.primitive.__type !== 'VfxPrimitiveMesh' || emitter.isUniformScale !== 1)
   throw new Error('Hawkshot mesh/scale interpretation must be reviewed');
+if (emitter.blendMode !== blendPin.selectedMode || blendPin.selectedMode !== 4)
+  throw new Error('Hawkshot blend interpretation must be reviewed');
 const mesh = emitter.primitive.mMesh;
 const source = (path) => `${sourceRoot}/${path.toLowerCase()}`;
 const converted = '.cache/hawkshot-converted';
@@ -80,6 +84,8 @@ for (const animation of doc.getRoot().listAnimations())
 const unlit = doc.createExtension(KHRMaterialsUnlit);
 for (const material of doc.getRoot().listMaterials()) {
   material.setBaseColorFactor(emitter.Color.constantValue);
+  // glTF has no native additive mode; the runtime restores this source state.
+  material.setExtras({ sourceBlendMode: emitter.blendMode });
   material.setAlphaMode('BLEND').setDoubleSided(true);
   material.setExtension('KHR_materials_unlit', unlit.createUnlit());
 }
@@ -107,8 +113,10 @@ await writeFile(path, bytes);
 const manifest = {
   referenceVersion: pin.extraction.referenceVersion,
   status:
-    'Source Owl1 body and animation. Other particle layers and exact blend/transform parity remain unfinished.',
+    'Source Owl1 body and animation. Other particle layers and reference capture/transform parity remain unfinished.',
   definitionsSha256: hash(pinBytes),
+  blendInterpretationSha256: hash(blendPinBytes),
+  blendInterpretationSource: blendPin.source.url,
   output: { path: '/assets/models/hawkshot.glb', bytes: bytes.length, sha256: hash(bytes) },
   sourceManifest: pin.extraction.manifest,
   sourceArchive: pin.extraction.archive,
@@ -121,7 +129,7 @@ const manifest = {
   emitterRotationDegrees: emitter.birthRotation0.constantValue,
   sourceBlendMode: emitter.blendMode,
   materialPolicy:
-    'Unlit normal alpha blend using source Owl1 color/texture; blend enum interpretation remains unverified.',
+    'Unlit source Owl1 color/texture; source mode 4 restored at runtime as SRC_ALPHA + ONE additive blending, per pinned dictionary. glTF alpha BLEND is the portable fallback.',
   clips,
   triangles: doc
     .getRoot()

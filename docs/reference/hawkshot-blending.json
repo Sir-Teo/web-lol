@@ -1,0 +1,25 @@
+{
+  "source": {
+    "url": "https://github.com/DivineSkins/divine-wiki/blob/86d9eb9ad46595f1e533eb50183b08e5aad8b190/content/docs/en/lol/vfx-bins/bin-dictionary.mdx#blendmode-values",
+    "rawUrl": "https://raw.githubusercontent.com/DivineSkins/divine-wiki/86d9eb9ad46595f1e533eb50183b08e5aad8b190/content/docs/en/lol/vfx-bins/bin-dictionary.mdx",
+    "sha256": "d2ed6de8d25d0f83b0b017982acae61cc7b5bb4ca639e3e751d76dab486c9728",
+    "author": "DAKA (sxrmss)",
+    "layoutReferencePatch": "16.16"
+  },
+  "selectedMode": 4,
+  "sourceFactor": "SRC_ALPHA",
+  "destinationFactor": "ONE",
+  "operation": "ADD",
+  "depthWrite": false,
+  "evidenceScope": "Author documents engine behavior; table adopted for the pinned 16.18 Owl1 emitter. No independent 16.18 output-merger capture has been obtained.",
+  "conflicts": [
+    {
+      "url": "https://wiki.divineskins.gg/en/docs/lol/assets-library/emitter-library",
+      "description": "Older guide labels 3/4 standard transparency. Prefer the explicit factor table over this conflicting shorthand."
+    },
+    {
+      "url": "https://github.com/TheKillerey/ReyEngine/blob/cdf014d0b584f65b579211b522c5ed1dfe5687a5/docs/research/q1-blendmodes.md",
+      "description": "Texture-authoring census explicitly cannot prove blend-state mapping. It is not used as proof for mode 4."
+    }
+  ]
+}

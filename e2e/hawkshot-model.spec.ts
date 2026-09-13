@@ -91,3 +91,67 @@ test('source hawks animate independently, restore their cast phase and preserve 
   expect(result.geometryDisposed).toBe(0);
   expect(result.materialDisposed).toBe(0);
 });
+
+test('Hawkshot adds alpha-weighted light without darkening the framebuffer', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const samples = await page.evaluate(async () => {
+    // @ts-expect-error Browser-side Vite module.
+    const T = await import('/node_modules/three/build/three.module.js');
+    const g = (window as any).__GAME__;
+    g.setPaused(true);
+    const w = g.world;
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'e', point: { x: 0, y: 0 } });
+    w.step();
+    g.view.render(w, 1, 0);
+    const flight = w.projectiles.find((p: any) => p.type === 'hawkshot');
+    let source: any;
+    g.view.projectileModels.get(flight.id).traverse((o: any) => {
+      if (o.isSkinnedMesh) source = o.material;
+    });
+    // Use the loaded body's actual blend state, isolating it from texture and scene lighting.
+    const material = source.clone();
+    material.map = null;
+    material.opacity = 0.5;
+    material.color.setRGB(0.2, 0.4, 0.6);
+    const renderer = new T.WebGLRenderer({ antialias: false });
+    renderer.setSize(8, 8);
+    renderer.outputColorSpace = T.LinearSRGBColorSpace;
+    const target = new T.WebGLRenderTarget(8, 8);
+    const scene = new T.Scene();
+    const camera = new T.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+    camera.position.z = 2;
+    const geometry = new T.PlaneGeometry(2, 2);
+    scene.add(new T.Mesh(geometry, material));
+    renderer.setRenderTarget(target);
+    const sample = (background: number) => {
+      renderer.setClearColor(new T.Color().setRGB(background, background, background), 1);
+      renderer.render(scene, camera);
+      const pixel = new Uint8Array(4);
+      renderer.readRenderTargetPixels(target, 4, 4, 1, 1, pixel);
+      return [...pixel].slice(0, 3);
+    };
+    const dark = sample(0.1),
+      light = sample(0.5);
+    material.color.setRGB(0, 0, 0);
+    const black = sample(0.5);
+    renderer.setRenderTarget(null);
+    target.dispose();
+    material.dispose();
+    geometry.dispose();
+    renderer.dispose();
+    renderer.forceContextLoss();
+    return { dark, light, black };
+  });
+  // RGB_out = RGB_background + alpha_source * RGB_source; allow byte quantization.
+  for (const [name, expected] of Object.entries({
+    dark: [51, 77, 102],
+    light: [153, 179, 204],
+    black: [128, 128, 128],
+  })) {
+    samples[name as keyof typeof samples].forEach((value: number, i: number) =>
+      expect(Math.abs(value - expected[i])).toBeLessThanOrEqual(1)
+    );
+  }
+});
