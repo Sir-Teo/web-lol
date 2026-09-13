@@ -6,6 +6,7 @@ import { ASHE_R } from './ashe-r';
 
 export const TICK_RATE = 60;
 export const DT = 1 / TICK_RATE;
+export const RECALL_DURATION_TICKS = 8 * TICK_RATE;
 export const RULESET = 'practice-0.1';
 export const ABILITIES: Record<
   Ability,

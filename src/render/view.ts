@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
+import { animateRecall } from './recall-animation';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
 import { loadRift } from './rift-assets';
@@ -447,60 +449,60 @@ export class GameView {
       }
       const moving = Math.hypot(u.x - u.previous.x, u.y - u.previous.y) > 0.01;
       if (!isStructureKind(u.kind) && model.mixer && model.actions) {
-        let clip =
-          u.deadAt !== null
-            ? 'death'
-            : moving
-              ? 'run'
-              : u.id === world.player.id && world.player.recallEnd !== null
-                ? 'channel'
-                : 'idle1';
-        const cycle = u.attackCycle;
-        const attacking =
-          !moving && u.deadAt === null && cycle !== null && world.tick < cycle.endTick;
-        if (attacking) {
-          const attack = model.actions.attack1;
-          if (model.animationAttackTick !== cycle.startTick) {
-            model.animationAttackTick = cycle.startTick;
-            attack.reset();
-            attack.setLoop(THREE.LoopOnce, 1);
-            attack.clampWhenFinished = true;
+        const recalling =
+          u.deadAt === null && u.id === world.player.id && world.player.recallEnd !== null;
+        if (recalling) {
+          const start = world.player.recallEnd! - RECALL_DURATION_TICKS;
+          animateRecall(model, Math.max(0, world.tick - start + alpha - 1) / TICK_RATE);
+        } else {
+          let clip = u.deadAt !== null ? 'death' : moving ? 'run' : 'idle1';
+          const cycle = u.attackCycle;
+          const attacking =
+            !moving && u.deadAt === null && cycle !== null && world.tick < cycle.endTick;
+          if (attacking) {
+            const attack = model.actions.attack1;
+            if (model.animationAttackTick !== cycle.startTick) {
+              model.animationAttackTick = cycle.startTick;
+              attack.reset();
+              attack.setLoop(THREE.LoopOnce, 1);
+              attack.clampWhenFinished = true;
+            }
+            attack.timeScale = attack.getClip().duration / ((cycle.endTick - cycle.startTick) / 60);
+            clip = 'attack1';
           }
-          attack.timeScale = attack.getClip().duration / ((cycle.endTick - cycle.startTick) / 60);
-          clip = 'attack1';
-        }
-        if (model.actions[clip] && clip !== model.actionName) {
-          const next = model.actions[clip],
-            previous = model.actions[model.actionName ?? 'idle1'];
-          next.reset();
-          next.setEffectiveWeight(1);
-          if (clip === 'death') {
-            next.setLoop(THREE.LoopOnce, 1);
-            next.clampWhenFinished = true;
+          if (model.actions[clip] && clip !== model.actionName) {
+            const next = model.actions[clip],
+              previous = model.actions[model.actionName ?? 'idle1'];
+            next.reset();
+            next.setEffectiveWeight(1);
+            if (clip === 'death') {
+              next.setLoop(THREE.LoopOnce, 1);
+              next.clampWhenFinished = true;
+            }
+            previous?.fadeOut(0.08);
+            next.fadeIn(0.08).play();
+            model.actionName = clip;
           }
-          previous?.fadeOut(0.08);
-          next.fadeIn(0.08).play();
-          model.actionName = clip;
+          if (attacking && clip === 'attack1') {
+            const attack = model.actions.attack1;
+            // Drive attack pose from the scheduled cycle, including after restore or missed frames.
+            const ticks = Math.max(0, world.tick - cycle.startTick + alpha - 1);
+            attack.time =
+              attack.getClip().duration * Math.min(1, ticks / (cycle.endTick - cycle.startTick));
+            attack.paused = true;
+          }
+          if (clip === 'death' && model.actions.death) {
+            const death = model.actions.death;
+            death.time = Math.min(death.getClip().duration, deathAge);
+            death.paused = true;
+          }
+          if (clip === 'run' && model.actions.run) {
+            const nominalSpeed = world.battlefield.unitStats?.[u.kind]?.[u.team]?.speed ?? 325;
+            model.actions.run.timeScale =
+              nominalSpeed > 0 ? world.movementSpeed(u) / nominalSpeed : 1;
+          }
+          model.mixer.update(animationDelta);
         }
-        if (attacking && clip === 'attack1') {
-          const attack = model.actions.attack1;
-          // Drive attack pose from the scheduled cycle, including after restore or missed frames.
-          const ticks = Math.max(0, world.tick - cycle.startTick + alpha - 1);
-          attack.time =
-            attack.getClip().duration * Math.min(1, ticks / (cycle.endTick - cycle.startTick));
-          attack.paused = true;
-        }
-        if (clip === 'death' && model.actions.death) {
-          const death = model.actions.death;
-          death.time = Math.min(death.getClip().duration, deathAge);
-          death.paused = true;
-        }
-        if (clip === 'run' && model.actions.run) {
-          const nominalSpeed = world.battlefield.unitStats?.[u.kind]?.[u.team]?.speed ?? 325;
-          model.actions.run.timeScale =
-            nominalSpeed > 0 ? world.movementSpeed(u) / nominalSpeed : 1;
-        }
-        model.mixer.update(animationDelta);
       }
       this.updateBar(u, world, { x, y });
     }

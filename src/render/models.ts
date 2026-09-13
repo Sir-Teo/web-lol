@@ -48,7 +48,9 @@ export async function loadReferenceModels(): Promise<void> {
       const gltf = await loader.loadAsync(`/assets/models/${name}.glb`);
       for (const required of /-(turret|nexus|inhibitor)$/.test(name)
         ? ['idle1']
-        : ['idle1', 'run', 'attack1', 'death'])
+        : name === 'ashe-base'
+          ? ['idle1', 'run', 'attack1', 'death', 'idle5', 'idle2']
+          : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);
       if (/-(turret|nexus|inhibitor)$/.test(name))

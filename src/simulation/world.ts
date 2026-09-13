@@ -1,7 +1,7 @@
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
-import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
+import { ABILITIES, DT, ITEMS, RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
@@ -310,7 +310,7 @@ export class World {
       } else if (command.type === 'cast') this.cast(u, command.ability, command.point);
       else if (u.id === this.player.id) {
         this.setOrder(u, { type: 'idle' });
-        this.player.recallEnd = this.tick + 8 * TICK_RATE;
+        this.player.recallEnd = this.tick + RECALL_DURATION_TICKS;
         this.emit('message', u, { text: 'Recalling…' });
       }
     }

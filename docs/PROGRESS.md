@@ -553,3 +553,12 @@ The comparison establishes identical topology counts and texture dimensions, dif
 All 225 simulation checks, all 85 Chrome scenarios, asset validation, production build and production smoke pass. The loading-recovery test now intercepts the new asset name and explicitly proves its request was blocked; that corrected case also passed separately. All 17 model GLBs and the map validate without errors or warnings. GLB and manifest regeneration are byte-identical. Practice and production Rift screenshots were inspected. The earlier page-creation timeout did not recur in the completed suite.
 
 This replaces the archived source dependency; full champion/match systems, remaining effects, lighting/capture calibration and performance targets remain outstanding. The production goal remains active. See [the Ashe asset pipeline](ASSETS.md#pinned-base-ashe).
+
+
+## Ashe recall sequence milestone
+
+Replaced the looping Channel approximation with the source Recall sequence, Idle5 followed by Idle2 at their original clip durations. Rendering seeks from the simulation recall deadline, so late frames, pause and restored rigs retain the same phase. Cancellation, restart, completion, damage and death release or reset the recall pose correctly. Simulation and rendering share the existing eight-second duration; gameplay timing and snapshot schema are unchanged.
+
+All 226 simulation/source checks, six distinct focused Chrome scenarios, production build and production smoke pass. Tests verify the sequence against the binary-verified graph, both stages and exact paused/restored bone transforms, plus attack/death/run regressions. Both recall stage screenshots were inspected. The full browser suite and asset validation were not repeated; assets did not change.
+
+Native transition blending, recall VFX/audio and reference-pixel calibration remain unfinished. The complete production goal remains active. See [recall evidence and playback scope](ASHE-RECALL.md).
