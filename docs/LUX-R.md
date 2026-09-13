@@ -25,3 +25,7 @@ The Ashe ultimate planner explicitly excludes Lux. Her own R AI, native hit-area
 ## Validation
 
 All 538 source/simulation checks pass. Five new R cases cover resource ownership/captured damage, all-target impact/passive refresh, saved windup and beam continuation, current hit positions/structure exclusion, committed stun/death behavior, malformed saves and Flash retaining the original beam. Three focused Chrome scenarios cover Lux Q/passive/recall and R's source animation, charge, impact, damage and effect cleanup. The in-match beam capture was inspected. Nested-path production smoke passes. Full browser, full-match and performance suites were not repeated.
+
+## Native beam layer update
+
+The earlier procedural ribbon has been replaced by six source emitters with six losslessly decoded textures. The pinned native core emission delay is exactly one second, providing stronger presentation timing evidence than the video alone. See `LUX-BEAM-LAYERS.md` for reproducible extraction, validation and remaining material/geometry assumptions. Thirty-nine other beam emitters and the separate cast/hit effects remain unfinished.

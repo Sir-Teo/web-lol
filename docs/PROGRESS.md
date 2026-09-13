@@ -1440,3 +1440,9 @@ All 533 source/simulation checks, three focused Lux/binding Chrome scenarios and
 Audited R records and an official 30 FPS demonstration; pinned conflicting timing/geometry metadata instead of treating input range or visual-missile fields as damage geometry. Added champion-owned R resources/windup, all-target beam damage, Illumination trigger/refresh and source spell4 animation. Flash during R preserves its original beam, as Riot's 10.4 notes specify. Snapshot 39 preserves windup geometry and short-lived beam presentation; the Ashe tactical R planner excludes Lux.
 
 All 538 source/simulation checks, three focused Lux Chrome scenarios and production smoke pass. Inspected the beam capture; its procedural ribbon remains an interim effect. Native particles/audio/vision, exact collision geometry, near-expiry passive extension and Lux R AI remain unfinished. Full browser, full-match and performance suites were not repeated. See `LUX-R.md` for evidence and limitations.
+
+## Native Lux warning and beam texture layers
+
+Resolved the base skin's shared particle binary directly from the pinned Riot archive after public shared-JSON paths failed. Verified six complete emitters and six original textures, then replaced the temporary canvas ribbon with native warning, rainbow core, flash and glow layers. Source emission delay is exactly one second. Animation follows saved simulation time, including authored scale/tint/UV curves and projected beam offsets.
+
+All 538 source/simulation checks, two focused Lux Chrome scenarios and production smoke pass. The exporter verifies original hashes and decoded RGBA pixels; exported textures total 55,341 bytes. Inspected the composite and verified matching geometry/tint/primary UVs after save restoration. Six of 45 beam emitters are integrated; full particle, audio, UV/width/height calibration and wider performance gates remain unfinished. See `LUX-BEAM-LAYERS.md`.

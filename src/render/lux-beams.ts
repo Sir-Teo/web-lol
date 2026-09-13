@@ -1,42 +1,124 @@
 import * as THREE from 'three';
+import { LUX_BEAM_LAYERS } from '../content/lux-beam-layers';
 import { LUX_R } from '../content/lux-r';
 import { TICK_RATE } from '../content/rules';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import type { LuxBeam } from '../simulation/types';
 
-// Interim spatial presentation, not the native Lux particle system.
+interface Curve {
+  readonly times: readonly number[];
+  readonly values: readonly (readonly number[])[];
+}
+interface Layer {
+  readonly name: string;
+  readonly delay: number;
+  readonly life: number;
+  readonly blend: number;
+  readonly pass: number;
+  readonly width: number;
+  readonly sourceOffset: readonly number[];
+  readonly targetOffset: readonly number[];
+  readonly scale: Curve;
+  readonly color: { readonly constantValue?: readonly number[]; readonly dynamics?: Curve };
+  readonly birthColor: readonly number[];
+  readonly texture: string;
+  readonly mult: string;
+  readonly scroll: readonly number[];
+  readonly scrollCurve: { readonly constantValue?: readonly number[]; readonly dynamics?: Curve };
+  readonly multScroll: readonly number[];
+  readonly multOffset: readonly number[];
+  readonly multAddress: number;
+}
+const layers: readonly Layer[] = LUX_BEAM_LAYERS;
+const textures = new Map<string, THREE.Texture>();
+export async function loadLuxBeamTextures(): Promise<void> {
+  await Promise.all(
+    [...new Set(layers.flatMap((layer) => [layer.texture, layer.mult]))].map(async (path) => {
+      const texture = await new THREE.TextureLoader().loadAsync(path);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      textures.set(path, texture);
+    })
+  );
+}
+export function sampleBeamCurve(curve: Curve, time: number): number[] {
+  if (time <= curve.times[0]) return [...curve.values[0]];
+  for (let i = 1; i < curve.times.length; i++)
+    if (time <= curve.times[i]) {
+      const mix = (time - curve.times[i - 1]) / (curve.times[i] - curve.times[i - 1]);
+      return curve.values[i].map(
+        (v, j) => curve.values[i - 1][j] + (v - curve.values[i - 1][j]) * mix
+      );
+    }
+  return [...curve.values.at(-1)!];
+}
+function integratedCurve(curve: Curve, normalized: number, life: number): number[] {
+  const knots = [0, ...curve.times.filter((t) => t > 0 && t < normalized), normalized];
+  const result = [0, 0];
+  for (let i = 1; i < knots.length; i++) {
+    const a = sampleBeamCurve(curve, knots[i - 1]),
+      b = sampleBeamCurve(curve, knots[i]);
+    for (let axis = 0; axis < 2; axis++)
+      result[axis] += (a[axis] + b[axis]) * 0.5 * (knots[i] - knots[i - 1]) * life;
+  }
+  return result;
+}
 const SEGMENTS = 64;
 const SCALE = 0.01;
 export class LuxBeams {
-  readonly models = new Map<number, THREE.Mesh<THREE.BufferGeometry, THREE.MeshBasicMaterial>>();
-  private readonly ribbon = this.createRibbon();
-  private createRibbon(): THREE.CanvasTexture {
-    const canvas = document.createElement('canvas');
-    canvas.width = 128;
-    canvas.height = 1;
-    const context = canvas.getContext('2d')!;
-    const gradient = context.createLinearGradient(0, 0, 128, 0);
-    for (const [at, alpha] of [
-      [0, 0],
-      [0.25, 0.15],
-      [0.43, 0.65],
-      [0.5, 1],
-      [0.57, 0.65],
-      [0.75, 0.15],
-      [1, 0],
-    ])
-      gradient.addColorStop(at, `rgba(255,255,255,${alpha})`);
-    context.fillStyle = gradient;
-    context.fillRect(0, 0, 128, 1);
-    return new THREE.CanvasTexture(canvas);
-  }
+  readonly models = new Map<number, THREE.Group>();
   constructor(
     private scene: THREE.Scene,
     private ground: (point: Vec2) => number
   ) {}
-
+  private create(): THREE.Group {
+    const group = new THREE.Group();
+    for (const layer of layers) {
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute(
+        'position',
+        new THREE.BufferAttribute(new Float32Array(SEGMENTS * 18), 3).setUsage(
+          THREE.DynamicDrawUsage
+        )
+      );
+      geometry.setAttribute(
+        'uv',
+        new THREE.BufferAttribute(new Float32Array(SEGMENTS * 12), 2).setUsage(
+          THREE.DynamicDrawUsage
+        )
+      );
+      const material = new THREE.ShaderMaterial({
+        transparent: true,
+        depthWrite: false,
+        side: THREE.DoubleSide,
+        blending: layer.blend === 4 ? THREE.AdditiveBlending : THREE.NormalBlending,
+        uniforms: {
+          base: { value: textures.get(layer.texture) },
+          mult: { value: textures.get(layer.mult) },
+          tint: { value: new THREE.Vector4(1, 1, 1, 1) },
+          offset: { value: new THREE.Vector2() },
+          multOffset: { value: new THREE.Vector2() },
+          clampMult: { value: layer.multAddress === 2 },
+        },
+        vertexShader:
+          'varying vec2 beamUv; void main(){ beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+        fragmentShader: `uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; varying vec2 beamUv;
+          void main(){ vec2 m=beamUv+multOffset; if(clampMult)m=clamp(m,vec2(0.001),vec2(0.999)); gl_FragColor=texture2D(base,beamUv+offset)*texture2D(mult,m)*tint;
+          #include <colorspace_fragment>
+          }`,
+      });
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.name = layer.name;
+      mesh.renderOrder = layer.pass;
+      mesh.frustumCulled = false;
+      group.add(mesh);
+    }
+    this.scene.add(group);
+    return group;
+  }
   update(world: World, alpha: number): void {
+    if (textures.size === 0) return;
     const beams: (LuxBeam & { charging?: boolean })[] = [...world.luxBeams];
     for (const source of world.units) {
       const cast = world.championState(source.id)?.pendingCast;
@@ -54,79 +136,97 @@ export class LuxBeams {
     const active = new Set<number>();
     for (const beam of beams) {
       active.add(beam.id);
-      let mesh = this.models.get(beam.id);
-      if (!mesh) {
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute(
-          'position',
-          new THREE.BufferAttribute(new Float32Array(SEGMENTS * 18), 3).setUsage(
-            THREE.DynamicDrawUsage
-          )
-        );
-        const uv = new Float32Array(SEGMENTS * 12);
-        for (let i = 0; i < SEGMENTS; i++) uv.set([0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1], i * 12);
-        geometry.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
-        mesh = new THREE.Mesh(
-          geometry,
-          new THREE.MeshBasicMaterial({
-            transparent: true,
-            map: this.ribbon,
-            depthWrite: false,
-            side: THREE.DoubleSide,
-            blending: THREE.AdditiveBlending,
-          })
-        );
-        mesh.frustumCulled = false;
-        this.scene.add(mesh);
-        this.models.set(beam.id, mesh);
+      let group = this.models.get(beam.id);
+      if (!group) {
+        group = this.create();
+        this.models.set(beam.id, group);
       }
-      mesh.material.color.setHex(beam.charging ? 0xe65338 : 0xffe6a3);
-      const age = Math.max(0, world.tick - beam.startTick + alpha - 1) / TICK_RATE;
-      mesh.material.opacity = beam.charging
-        ? 0.55
-        : Math.max(0, 1 - age / LUX_R.presentationSeconds);
+      const sinceStart =
+        Math.max(0, world.tick - beam.startTick + alpha - 1) / TICK_RATE +
+        (beam.charging ? 0 : LUX_R.castSeconds);
       const dx = beam.point.x - beam.origin.x,
-        dy = beam.point.y - beam.origin.y;
-      const length = Math.hypot(dx, dy),
-        width = beam.charging ? 8 : LUX_R.halfWidth;
-      const ox = (-dy / length) * width,
-        oy = (dx / length) * width;
-      const positions = mesh.geometry.getAttribute('position') as THREE.BufferAttribute;
-      let vertex = 0;
-      for (let i = 0; i < SEGMENTS; i++) {
-        const a = {
-          x: beam.origin.x + (dx * i) / SEGMENTS,
-          y: beam.origin.y + (dy * i) / SEGMENTS,
+        dy = beam.point.y - beam.origin.y,
+        length = Math.hypot(dx, dy);
+      group.visible = false;
+      for (let index = 0; index < layers.length; index++) {
+        const layer = layers[index],
+          age = sinceStart - layer.delay;
+        const mesh = group.children[index] as THREE.Mesh<
+          THREE.BufferGeometry,
+          THREE.ShaderMaterial
+        >;
+        mesh.visible = age >= 0 && age < layer.life;
+        if (!mesh.visible) continue;
+        const normalized = age / layer.life;
+        const color = layer.color.dynamics
+          ? sampleBeamCurve(layer.color.dynamics, normalized)
+          : [...(layer.color.constantValue ?? [1, 1, 1, 1])];
+        mesh.material.uniforms.tint.value.set(...color.map((v, i) => v * layer.birthColor[i]));
+        const scroll = layer.scrollCurve.dynamics
+          ? integratedCurve(layer.scrollCurve.dynamics, normalized, layer.life)
+          : [0, 0];
+        mesh.material.uniforms.offset.value.set(
+          layer.scroll[0] * age + scroll[0],
+          layer.scroll[1] * age + scroll[1]
+        );
+        mesh.material.uniforms.multOffset.value.set(
+          layer.multOffset[0] + layer.multScroll[0] * age,
+          layer.multOffset[1] + layer.multScroll[1] * age
+        );
+        const width = (layer.width * sampleBeamCurve(layer.scale, normalized)[0]) / 2;
+        const ox = (-dy / length) * width,
+          oy = (dx / length) * width;
+        const start = {
+          x: beam.origin.x + (dx / length) * layer.sourceOffset[2],
+          y: beam.origin.y + (dy / length) * layer.sourceOffset[2],
         };
-        const b = {
-          x: beam.origin.x + (dx * (i + 1)) / SEGMENTS,
-          y: beam.origin.y + (dy * (i + 1)) / SEGMENTS,
-        };
-        if (beam.team !== 'blue' && (!world.pointVisible(a) || !world.pointVisible(b))) continue;
-        for (const [point, side] of [
-          [a, -1],
-          [a, 1],
-          [b, 1],
-          [a, -1],
-          [b, 1],
-          [b, -1],
-        ] as const)
-          positions.setXYZ(
-            vertex++,
-            (point.x + ox * side) * SCALE,
-            this.ground(point) + 0.18,
-            (point.y + oy * side) * SCALE
-          );
+        const span = length + layer.targetOffset[2] - layer.sourceOffset[2];
+        const spanX = (dx / length) * span,
+          spanY = (dy / length) * span;
+        const positions = mesh.geometry.getAttribute('position') as THREE.BufferAttribute;
+        const uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
+        let vertex = 0;
+        for (let i = 0; i < SEGMENTS; i++) {
+          const a = {
+            x: start.x + (spanX * i) / SEGMENTS,
+            y: start.y + (spanY * i) / SEGMENTS,
+          };
+          const b = {
+            x: start.x + (spanX * (i + 1)) / SEGMENTS,
+            y: start.y + (spanY * (i + 1)) / SEGMENTS,
+          };
+          if (beam.team !== 'blue' && (!world.pointVisible(a) || !world.pointVisible(b))) continue;
+          for (const [point, side, along] of [
+            [a, -1, i],
+            [a, 1, i],
+            [b, 1, i + 1],
+            [a, -1, i],
+            [b, 1, i + 1],
+            [b, -1, i + 1],
+          ] as const) {
+            positions.setXYZ(
+              vertex,
+              (point.x + ox * side) * SCALE,
+              this.ground(point) + 0.18,
+              (point.y + oy * side) * SCALE
+            );
+            uv.setXY(vertex++, side < 0 ? 0 : 1, along / SEGMENTS);
+          }
+        }
+        positions.needsUpdate = uv.needsUpdate = true;
+        mesh.geometry.setDrawRange(0, vertex);
+        mesh.visible = vertex > 0 && width > 0;
+        group.visible ||= mesh.visible;
       }
-      positions.needsUpdate = true;
-      mesh.geometry.setDrawRange(0, vertex);
-      mesh.visible = vertex > 0;
     }
-    for (const [id, mesh] of this.models)
+    for (const [id, group] of this.models)
       if (!active.has(id)) {
-        this.scene.remove(mesh);
-        mesh.geometry.dispose();
-        mesh.material.dispose();
+        this.scene.remove(group);
+        for (const object of group.children) {
+          const mesh = object as THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>;
+          mesh.geometry.dispose();
+          mesh.material.dispose();
+        }
         this.models.delete(id);
       }
   }

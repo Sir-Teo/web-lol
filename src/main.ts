@@ -7,6 +7,7 @@ import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
+import { loadLuxBeamTextures } from './render/lux-beams';
 import { loadReferenceModels } from './render/models';
 import { loadHawkshotWind } from './render/hawkshot-wind';
 import { loadAsheAttackArrow } from './render/ashe-attack-arrow';
@@ -86,6 +87,7 @@ async function boot(): Promise<void> {
     loadInterfaceFonts(),
     audio.load(),
     loadReferenceModels(),
+    loadLuxBeamTextures(),
     loadHawkshot(),
     loadAsheAttackArrow(),
     loadHawkshotWind(),
