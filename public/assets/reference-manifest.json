@@ -1,0 +1,73 @@
+{
+  "version": "16.18.1",
+  "owner": "Riot Games",
+  "usage": "Local fidelity reference; redistribution permission not established.",
+  "assets": [
+    {
+      "path": "/assets/icons/ashe.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ashe.png",
+      "sha256": "423666bdb0685355be4576f78eb6406fd49469b4f6e9f780f1c5eb4349fed91f",
+      "bytes": 32121
+    },
+    {
+      "path": "/assets/icons/AsheQ.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/AsheQ.png",
+      "sha256": "ceb72f8ca8ef01c5ea8249599f956c5f5fa7eb5a41e69b9bfb3b994ba1abd6b4",
+      "bytes": 6683
+    },
+    {
+      "path": "/assets/icons/Volley.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/Volley.png",
+      "sha256": "30e0daa99574f031aec984ac0bf27c0283e24b59d923276af8e9cb0e30c59a95",
+      "bytes": 6241
+    },
+    {
+      "path": "/assets/icons/AsheSpiritOfTheHawk.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/AsheSpiritOfTheHawk.png",
+      "sha256": "94e8e9dd059f9d8615d02da2d6d3430fa20afc938a4baba66a6cfc91d9646506",
+      "bytes": 5806
+    },
+    {
+      "path": "/assets/icons/EnchantedCrystalArrow.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/EnchantedCrystalArrow.png",
+      "sha256": "c26d0583a45c36b3a18b118d92ae1ae3534dae529a052d7c1fa41a9ea613f038",
+      "bytes": 6449
+    },
+    {
+      "path": "/assets/icons/SummonerFlash.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/SummonerFlash.png",
+      "sha256": "1272fe7b3275c0afc872a6aaa6b65e27d41572d57f9ce19b9ed81b79aa5eb2aa",
+      "bytes": 6403
+    },
+    {
+      "path": "/assets/icons/SummonerHeal.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/SummonerHeal.png",
+      "sha256": "ccebc4b0554572a041b2b5014f25a84d7265c371e97448a516765aaad651dc55",
+      "bytes": 5673
+    },
+    {
+      "path": "/assets/icons/1055.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1055.png",
+      "sha256": "1893376ba2a9476444e44e2f73b534d24a90cd0b4b11bf2d81a591e8fd857758",
+      "bytes": 3864
+    },
+    {
+      "path": "/assets/icons/1001.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1001.png",
+      "sha256": "f2b2a8ba7ae715c8906d3037d38778aa545f3d0740091640484aa3d126396ad0",
+      "bytes": 4537
+    },
+    {
+      "path": "/assets/icons/1036.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1036.png",
+      "sha256": "c57b71ae65b3b38241f8ed97fe6fb5ae78db5a82002be392d91ebb6f5ffde8af",
+      "bytes": 5334
+    },
+    {
+      "path": "/assets/icons/1037.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1037.png",
+      "sha256": "427e176835357420964f6207baf2d07f9273e1f64d33a1d9854655e77ee8d230",
+      "bytes": 4515
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+"""Fetch a small, pinned reference icon pack. Runtime never depends on a CDN.
+
+Riot owns these images. Recording provenance is not a distribution license.
+Public-release content authorization remains unresolved; see docs/PROGRESS.md.
+"""
+import hashlib
+import json
+import pathlib
+import subprocess
+
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+OUT = ROOT / 'public/assets/icons'
+OUT.mkdir(parents=True, exist_ok=True)
+BASE = 'https://ddragon.leagueoflegends.com/cdn/16.18.1/img/'
+FILES = {
+    'ashe.png': 'champion/Ashe.png',
+    'AsheQ.png': 'spell/AsheQ.png',
+    'Volley.png': 'spell/Volley.png',
+    'AsheSpiritOfTheHawk.png': 'spell/AsheSpiritOfTheHawk.png',
+    'EnchantedCrystalArrow.png': 'spell/EnchantedCrystalArrow.png',
+    'SummonerFlash.png': 'spell/SummonerFlash.png',
+    'SummonerHeal.png': 'spell/SummonerHeal.png',
+    '1055.png': 'item/1055.png',
+    '1001.png': 'item/1001.png',
+    '1036.png': 'item/1036.png',
+    '1037.png': 'item/1037.png',
+}
+records = []
+for filename, remote in FILES.items():
+    data = subprocess.check_output(['curl', '-fLsS', '--max-time', '30', BASE + remote])
+    if not data.startswith(b'\x89PNG\r\n\x1a\n'):
+        raise ValueError(f'{filename} did not contain a PNG')
+    (OUT / filename).write_bytes(data)
+    records.append({'path': f'/assets/icons/{filename}', 'source': BASE + remote,
+                    'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)})
+(ROOT / 'public/assets/reference-manifest.json').write_text(json.dumps({
+    'version': '16.18.1', 'owner': 'Riot Games',
+    'usage': 'Local fidelity reference; redistribution permission not established.',
+    'assets': records,
+}, indent=2) + '\n')
+print(f'Fetched and hashed {len(records)} reference icons.')
