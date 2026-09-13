@@ -781,17 +781,32 @@ button {
 .unit-bar.champion.blue .unit-hp i {
   background: linear-gradient(#99c363, #5d9336);
 }
+.unit-bar.champion .unit-hp:before,
 .unit-bar.champion .unit-hp:after {
   content: '';
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
+  pointer-events: none;
+  background: linear-gradient(
     90deg,
     transparent 0,
-    transparent 15px,
-    #041109b3 15px,
-    #041109b3 16px
+    transparent calc(100% - 1px),
+    #041109b3 calc(100% - 1px)
   );
+  background-size: var(--health-hundred, 100%) 100%;
+  background-repeat: repeat-x;
+}
+.unit-bar.champion .unit-hp:before {
+  bottom: 40%;
+}
+.unit-bar.champion .unit-hp:after {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(100% - 2px),
+    #041109e6 calc(100% - 2px)
+  );
+  background-size: var(--health-thousand, 100%) 100%;
 }
 .unit-mana {
   display: none;

@@ -581,6 +581,12 @@ export class GameView {
     );
     bar.hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
     if (bar.hidden) return;
+    if (u.kind === 'champion' && bar.dataset.maxHealth !== String(u.maxHp)) {
+      // Health-based divisions; their pixel styling remains pending reference calibration.
+      bar.style.setProperty('--health-hundred', `${10000 / Math.max(1, u.maxHp)}%`);
+      bar.style.setProperty('--health-thousand', `${100000 / Math.max(1, u.maxHp)}%`);
+      bar.dataset.maxHealth = String(u.maxHp);
+    }
     bar.style.transform = `translate(${screen.x}px,${screen.y}px) translate(-50%,-100%)`;
     (bar.querySelector('.unit-hp i') as HTMLElement).style.width = `${(u.hp / u.maxHp) * 100}%`;
     (bar.querySelector('.unit-mana i') as HTMLElement).style.width =

@@ -370,7 +370,7 @@ export class Hud {
       text('target-name', target.name);
       text(
         'target-hp',
-        `${Math.ceil(target.hp)} / ${target.maxHp}${w.vulnerable(target) ? '' : ' · Protected'}`
+        `${Math.ceil(target.hp)} / ${Math.ceil(target.maxHp)}${w.vulnerable(target) ? '' : ' · Protected'}`
       );
       (panel.querySelector('.target-health i') as HTMLElement).style.width =
         `${(target.hp / target.maxHp) * 100}%`;
