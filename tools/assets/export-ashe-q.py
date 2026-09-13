@@ -20,6 +20,8 @@ for name, field in [('BuffDuration', 'durationSeconds'), ('StackDuration', 'stac
     data[field] = values[0]
 bonus = next(value['values'] for value in record['mSpell']['DataValues'] if value['name'] == 'BonusAS')
 data['bonusAttackSpeedByRank'] = [value / 100 for value in bonus[1:6]]
+damage = next(value['values'] for value in record['mSpell']['DataValues'] if value['name'] == 'DamagePerStrike')
+data['damageMultiplierByRank'] = [round(value, 6) for value in damage[1:6]]
 ratio = pin['attackSpeedRatio']
 assert json.loads(raw)[ratio['record']][ratio['field']] == ratio['data']
 data['attackSpeedRatio'] = round(ratio['data']['baseValue'], 6)

@@ -35,3 +35,11 @@ The source exporter now retains all five normal-rank `BonusAS` values (20/30/40/
 The existing baseline remains represented by integer attack-period ticks, so this change does not remove baseline quantization or implement the full attack-speed stat/cap system. The helper converts the additive amount to a scheduling multiplier, then existing cycle creation rounds the period and windup. Scheduled cycles remain immutable across buff expiry. At level one this schedules a 76-tick cycle; at level 18 a 53-tick cycle. Full spell ranks, attack-reset behavior, cap interactions, and flurry damage still require implementation and reference testing.
 
 A new simulation case checks equal absolute speed gain across early and late levels and the resulting scheduled cycles. Existing saved-duration and animation-cycle tests use the corrected values. The Q browser case now verifies the HUD changes from 0.79 while active to 0.66 on expiry.
+
+## Empowered aggregate damage
+
+The exporter now emits the five normal-rank `DamagePerStrike` values, normalized to six decimals. The pinned `EmpoweredDamage` calculation combines this value with attack damage. Rank one therefore captures 110% of the attacker's AD at release. The arrow stores that amount in its existing damage field, so later Q activation/expiry, AD changes or source death do not alter it. Physical resistance remains sampled at impact through the normal attack damage path. This does not change non-player champion or minion attacks.
+
+This is **aggregate damage**, not the completed flurry: the renderer and simulation still represent one arrow and one damage application. Five-arrow sequencing, individual mitigations, per-hit interactions, passive Frost Shot amplification, attack reset and rank allocation remain unfinished. This intermediate change establishes the source-backed total coefficient without claiming full Q combat parity.
+
+Three simulation cases compare normal/empowered attacks against armor, preserve empowered damage through expiry/AD changes/death and saved continuation, and ensure activating Q after release does not retroactively empower an arrow. A browser case casts Q and checks damage after expiry in flight.

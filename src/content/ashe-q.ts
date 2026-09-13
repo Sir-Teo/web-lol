@@ -11,5 +11,12 @@ export const ASHE_Q = {
     0.5,
     0.6
   ],
+  "damageMultiplierByRank": [
+    1.1,
+    1.15,
+    1.2,
+    1.25,
+    1.3
+  ],
   "attackSpeedRatio": 0.658
 } as const;

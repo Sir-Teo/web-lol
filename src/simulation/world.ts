@@ -569,7 +569,14 @@ export class World {
             this.player.qStacks = Math.min(ASHE_Q.maxStacks, this.player.qStacks + 1);
             this.player.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
           }
-          if (!u.missileSpeed) this.hitBasicAttack(u, target, u.damage);
+          // Aggregate Q damage until the five-arrow flurry is represented.
+          // Capture it at release so expiration in flight cannot change the hit.
+          const damage =
+            u.damage *
+            (u.id === this.player.id && this.tick < this.player.qUntil
+              ? ASHE_Q.damageMultiplierByRank[0]
+              : 1);
+          if (!u.missileSpeed) this.hitBasicAttack(u, target, damage);
           else
             this.projectiles.push({
               id: this.nextId++,
@@ -581,7 +588,7 @@ export class World {
               type: 'attack',
               target: target.id,
               direction: direction(u, target),
-              damage: u.damage,
+              damage,
               speed: u.missileSpeed,
               radius: 8,
               remaining: 4000,

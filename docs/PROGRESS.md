@@ -401,3 +401,9 @@ All 190 simulation checks, four focused Chrome cases, static build and productio
 Q now adds rank-one ratio-scaled attack speed instead of multiplying the whole baseline by 1.4. The exporter pins and verifies Ashe's 0.658 attack-speed ratio and exports the five normal-rank bonus values. Rank one adds 0.1316 attacks/second at early and late levels. HUD and simulation share the calculation. Skill-point allocation, baseline stat quantization/caps, attack reset and complete flurry damage remain unfinished.
 
 All 191 simulation checks, four focused Chrome cases, static build and production smoke pass. New coverage checks level-one/18 absolute bonuses and scheduled periods, while existing saved-duration and animation tests use corrected timing. The HUD shows 0.79 during rank-one Q and returns to 0.66 on expiry. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Ashe Q aggregate damage milestone
+
+Rank-one Q now captures 110% AD at attack release, using the pinned spell coefficient. In-flight damage remains stable through Q expiry, AD changes, source death and checkpoint restoration; an ordinary arrow is not retroactively empowered by activating Q after release. This remains a single aggregate hit. Five-arrow sequencing, presentation, individual hit interactions and Frost Shot amplification are still required for full parity.
+
+All 194 simulation checks, five focused Chrome cases, static build and production smoke pass. New tests cover normal/empowered armor mitigation, saved in-flight damage, expiry and activation boundaries. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

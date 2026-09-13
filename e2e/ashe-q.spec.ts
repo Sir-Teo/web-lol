@@ -1,5 +1,31 @@
 import { expect, test } from '@playwright/test';
 
+test('rank-one empowered attack delivers its captured damage after Q expires', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.nextWaveTick = Infinity;
+    const target = w.spawn('dummy', 'red', { x: w.hero.x + 550, y: w.hero.y });
+    target.armor = 100;
+    w.player.qStacks = 4;
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'q', point: w.hero });
+    w.step();
+    w.setOrder(w.hero, { type: 'attack', target: target.id });
+    for (let i = 0; i < 60 && !w.projectiles.length; i++) w.step();
+    const raw = w.projectiles[0].damage,
+      hp = target.hp;
+    w.setOrder(w.hero, { type: 'idle' });
+    w.player.qUntil = w.tick;
+    w.step(60);
+    return { raw, damage: hp - target.hp };
+  });
+  expect(result.raw).toBeCloseTo(64.9);
+  expect(result.damage).toBeCloseTo(32.45);
+});
+
 test('the fourth Focus pip appears when the arrow is released before impact', async ({ page }) => {
   await page.goto('/?scene=fixture');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
