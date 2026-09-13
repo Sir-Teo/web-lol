@@ -775,6 +775,7 @@ export class World {
                 x: u.x,
                 y: u.y,
                 previous: { x: u.x, y: u.y },
+                origin: { x: u.x, y: u.y },
                 source: u.id,
                 team: u.team,
                 type: 'attack',

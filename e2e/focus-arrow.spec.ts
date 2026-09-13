@@ -176,11 +176,15 @@ test('Q has staggered source arrows in flight and five impact events', async ({ 
     const arrows = w.projectiles.filter((p: any) => p.source === w.hero.id);
     const visible = arrows.map((p: any) => ({
       x: p.x,
+      lateral: g.view.projectileModels.get(p.id).position.z - p.y * 0.01,
       name: g.view.projectileModels.get(p.id).name,
     }));
     return { visible, pending: w.pendingAttackProjectiles.length, target: target.id };
   });
   expect(result.visible).toHaveLength(3);
+  expect(result.visible[0].lateral).toBe(0);
+  expect(result.visible[1].lateral).toBeLessThan(0);
+  expect(result.visible[2].lateral).toBeGreaterThan(0);
   expect(new Set(result.visible.map((p: any) => p.x)).size).toBe(3);
   expect(result.visible.every((p: any) => p.name === 'Ashe Q ice arrow')).toBe(true);
   expect(result.pending).toBe(2);

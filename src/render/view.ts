@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
 import { ASHE_Q } from '../content/ashe-q';
+import { flurryFlight } from './flurry-flight';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
@@ -734,13 +735,13 @@ export class GameView {
           Math.max(0, (world.tick - 1 + alpha - (p.launchTick ?? world.tick)) / TICK_RATE)
         );
       if (p.type === 'hawkshot') animateHawkshot(model, world.time - p.launchTick! / 60);
+      const flight = flurryFlight(p, p.target === null ? undefined : world.unit(p.target), alpha);
       model.position.set(
-        lerp(p.previous.x, p.x, alpha) * SCALE,
-        this.ground({ x: lerp(p.previous.x, p.x, alpha), y: lerp(p.previous.y, p.y, alpha) }) +
-          (p.type === 'hawkshot' ? 1.8 : p.type === 'ultimate' ? 1.2 : 0.9),
-        lerp(p.previous.y, p.y, alpha) * SCALE
+        flight.x * SCALE,
+        this.ground(flight) + (p.type === 'hawkshot' ? 1.8 : p.type === 'ultimate' ? 1.2 : 0.9),
+        flight.y * SCALE
       );
-      model.rotation.y = Math.atan2(p.direction.x, p.direction.y);
+      model.rotation.y = flight.facing;
     }
     for (const [id, model] of this.projectileModels)
       if (!active.has(id)) {
