@@ -1,6 +1,6 @@
 # Ashe source audio investigation
 
-The runtime still uses temporary synthesized feedback in `src/audio/audio.ts`. This investigation prepares source sound banks; it does not claim decoded audio, native mixing or source playback.
+The runtime still uses temporary synthesized feedback in `src/audio/audio.ts`. This investigation prepares source sound banks, event mappings and decoded float masters. Native mixing and runtime source playback remain unfinished; the milestones below distinguish each stage.
 
 ## Verified inputs
 
@@ -63,3 +63,35 @@ The particle reference explicitly attaches `buffactivate` as the linger system's
 Nine distinct encoded WEM files totaling 218,831 bytes are extracted into `.cache/hawkshot-audio-media`. Extraction verifies complete bank hashes, compares the binary DIDX entries with the parser's media inventory, checks DATA bounds and RIFF/WAVE lengths, and records each media file's absolute bank offset, size and SHA-256. All nine selected sound nodes identify the Vorbis plugin. These encoded files have not been decoded or listened to and are not shipped to the browser.
 
 The graph includes 28 event/action/sound/container/inheritance/attenuation objects. Parent mixers 606977369 and 462566399 and attenuation object 339248780 resolve locally. Output bus 1259461568 does not exist in these two banks and remains explicit as an unresolved hierarchy dependency. Native positional mixing, shared-bus behavior, shuffle state and persistent event stop dispatch remain validation work. Regenerating the graph and media produces identical hashes.
+
+## Decoded source masters and browser verification
+
+All nine selected recordings now have unnormalized IEEE float32 WAV masters in `.cache/hawkshot-audio-decoded`, superseding the earlier encoded-only milestone. The [decode manifest](reference/hawkshot-audio-decoded.json) records encoded/decoded/PCM hashes, frame counts, sample rates, channels, peaks, RMS, endpoint deltas, complete decoder metadata, and decoder/library provenance. No recordings have been added to `public/` or runtime playback yet.
+
+The decoder is vgmstream revision `e6afeaacf433bfafd38d873f80c94517e09d5b96`, built locally with the existing libvorbis 1.3.7 and libogg 1.3.5. The manifest pins the binary and three linked codec library hashes because revision identity alone does not guarantee bit-identical floating-point decode across platforms. Build follows the project's [CMake instructions](https://github.com/vgmstream/vgmstream/blob/e6afeaacf433bfafd38d873f80c94517e09d5b96/doc/BUILD.md). On this macOS Homebrew setup:
+
+```sh
+cmake -S .tools/vgmstream -B .tools/vgmstream/build \
+  -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXE_LINKER_FLAGS=-L/opt/homebrew/lib \
+  -DBUILD_V123=OFF -DBUILD_AUDACIOUS=OFF -DUSE_FFMPEG=OFF -DUSE_MPEG=OFF \
+  -DUSE_G7221=OFF -DUSE_G719=OFF -DUSE_ATRAC9=OFF -DUSE_CELT=OFF -DUSE_SPEEX=OFF
+cmake --build .tools/vgmstream/build --target vgmstream_cli -j 8
+python3 tools/assets/decode-hawkshot-audio.py
+node tools/qa/verify-hawkshot-audio.mjs
+```
+
+The CLI target uses an underscore; its output executable is `build/cli/vgmstream-cli`. The decode command uses `-i -W 4`: ignore loop expansion and preserve float samples. No normalization, resampling, downmixing, authored gain or fade is baked into the master.
+
+| Recording group | Frames at 44.1 kHz | Duration |
+|---|---:|---:|
+| Three cast variants | 38,587 each | 0.875 s each |
+| Three launch variants | 165,375 each | 3.750 s each |
+| Launch loop, 61040111 | 197,242 | 4.473 s |
+| Arrival, 381540917 | 317,887 | 7.208 s |
+| Linger loop, 649034525 | 203,769 | 4.621 s |
+
+All are mono and report no embedded loop markers. Bank Loop 0 still requests infinite playback for the two loop sounds; the runtime must reconcile end-to-end looping with native behavior rather than infer WEM loop points that are absent. The arrival recording also outlasts its explosion visual, providing another reason to track audio lifetime independently.
+
+The masters total 5,323,532 bytes. Five recordings contain 22 float samples above unit magnitude in total, with the highest peak approximately 1.0961. A direct 16-bit conversion before applying bank gain would clip these values. Keeping float masters preserves them and leaves authored attenuation to playback. These measurements do not establish audible clipping in League's final mix.
+
+Validation checks source hashes, RIFF chunk bounds/lengths, float format, rate/channels/frame counts, finite samples and non-silence. Repeated decoding yields identical manifest/WAV hashes on this pinned local environment. Chrome 152.0.7977.83 decoded every WAV through a real `OfflineAudioContext` at its source sample rate; the verifier compares the full decoded PCM hash and confirms every float sample, including headroom, matches. It tests decoding only: browser output at a different device sample rate, actual scheduling, loops, native mixing and listening comparison remain outstanding. No claim of auditory review is made.
