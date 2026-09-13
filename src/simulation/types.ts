@@ -62,6 +62,14 @@ export interface Unit extends Vec2 {
   nextAttackTick: number;
   slowUntil: number;
   slowMultiplier: number;
+  slows: {
+    sourceId: number;
+    kind: 'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent';
+    startTick: number;
+    endTick: number;
+    startMultiplier: number;
+    endMultiplier: number;
+  }[];
   criticalSlow: {
     startTick: number;
     endTick: number;

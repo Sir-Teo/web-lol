@@ -211,6 +211,7 @@ export class World {
       nextAttackTick: 0,
       slowUntil: 0,
       slowMultiplier: 0.7,
+      slows: [],
       criticalSlow: null,
       stunUntil: 0,
       rootUntil: 0,
@@ -347,6 +348,8 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    for (const unit of this.units)
+      if (unit.slows.length) unit.slows = unit.slows.filter((slow) => slow.endTick > this.tick);
     for (const unit of this.units)
       if (unit.shields.length)
         unit.shields = unit.shields.filter((shield) => shield.endTick > this.tick);
@@ -1263,6 +1266,11 @@ export class World {
   }
   movementSpeed(u: Unit): number {
     const haste = u.summonerHealSpeedUntil > this.tick ? 1 + SUMMONER_HEAL.speedBonus : 1;
+    return u.speed * this.slowFactor(u) * haste;
+  }
+  slowFactor(u: Unit): number {
+    // Retain the old diagnostic fields, but all new combat applications also
+    // retain independent source/effect state so later hits cannot erase them.
     let slow = u.slowUntil > this.tick ? u.slowMultiplier : 1;
     const critical = u.criticalSlow;
     if (critical && this.tick < critical.endTick) {
@@ -1275,7 +1283,58 @@ export class World {
         critical.startMultiplier + (critical.endMultiplier - critical.startMultiplier) * progress
       );
     }
-    return u.speed * slow * haste;
+    for (const effect of u.slows) {
+      if (effect.startTick > this.tick || effect.endTick <= this.tick) continue;
+      const progress = (this.tick - effect.startTick) / (effect.endTick - effect.startTick);
+      slow = Math.min(
+        slow,
+        effect.startMultiplier + (effect.endMultiplier - effect.startMultiplier) * progress
+      );
+    }
+    return slow;
+  }
+  applySlow(
+    source: Unit,
+    target: Unit,
+    kind: Unit['slows'][number]['kind'],
+    durationTicks: number,
+    startMultiplier: number,
+    endMultiplier = startMultiplier
+  ): boolean {
+    if (
+      this.winner ||
+      !this.units.includes(source) ||
+      !this.units.includes(target) ||
+      source.kind !== 'champion' ||
+      source.team === target.team ||
+      !this.alive(target) ||
+      !this.vulnerable(target) ||
+      isStructureKind(target.kind) ||
+      (kind === 'lucent' ? source.champion !== 'lux' : source.champion !== 'ashe') ||
+      !['frost', 'critical-frost', 'crystal-arrow', 'lucent'].includes(kind) ||
+      !Number.isSafeInteger(durationTicks) ||
+      durationTicks <= 0 ||
+      !Number.isSafeInteger(this.tick + durationTicks) ||
+      !Number.isFinite(startMultiplier) ||
+      !Number.isFinite(endMultiplier) ||
+      startMultiplier < 0 ||
+      startMultiplier >= 1 ||
+      endMultiplier < startMultiplier ||
+      endMultiplier > 1
+    )
+      return false;
+    const effect = {
+      sourceId: source.id,
+      kind,
+      startTick: this.tick,
+      endTick: this.tick + durationTicks,
+      startMultiplier,
+      endMultiplier,
+    };
+    const index = target.slows.findIndex((s) => s.sourceId === source.id && s.kind === kind);
+    if (index === -1) target.slows.push(effect);
+    else target.slows[index] = effect;
+    return true;
   }
   applyRoot(target: Unit, durationTicks: number): boolean {
     if (
@@ -1641,6 +1700,13 @@ export class World {
           ) {
             contact.slowMultiplier = p.type === 'ultimate' ? 0.7 : 1 - slow;
             contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
+            this.applySlow(
+              source,
+              contact,
+              p.type === 'ultimate' ? 'crystal-arrow' : 'frost',
+              ASHE_PASSIVE.durationSeconds * TICK_RATE,
+              contact.slowMultiplier
+            );
             if (p.type === 'volley' && contact.kind === 'champion') {
               const peak =
                 ASHE_PASSIVE.criticalSlowAtLevel1 +
@@ -1653,6 +1719,7 @@ export class World {
                 startMultiplier: 1 - peak,
                 endMultiplier: 1 - slow,
               };
+              this.applySlow(source, contact, 'critical-frost', TICK_RATE, 1 - peak, 1 - slow);
             }
           }
           if (p.type === 'ultimate') {
@@ -1677,6 +1744,13 @@ export class World {
               if (this.alive(victim)) {
                 victim.slowMultiplier = 1 - slow;
                 victim.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
+                this.applySlow(
+                  source,
+                  victim,
+                  'frost',
+                  ASHE_PASSIVE.durationSeconds * TICK_RATE,
+                  1 - slow
+                );
               }
             }
           }
@@ -1906,6 +1980,7 @@ export class World {
       );
       target.deadAt = this.tick;
       target.shields = [];
+      target.slows = [];
       target.illumination = [];
       target.releaseTick = null;
       target.attackCycle = null;
@@ -2093,6 +2168,7 @@ export class World {
     u.illumination = [];
     u.aiRetreating = false;
     u.slowUntil = 0;
+    u.slows = [];
     u.slowMultiplier = 0.7;
     u.criticalSlow = null;
     this.setOrder(u, { type: 'idle' });

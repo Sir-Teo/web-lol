@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 42 requires independent slow contributions with source/effect identity, start/end ticks and linear strength endpoints. The decoder validates champion ownership, enemy nonstructural living recipients, unique source/effect pairs, active lifetimes and nondecreasing speed multipliers. Target death/respawn clears contributions; source death does not. Earlier formats are incompatible.
+
 Version 41 adds Prismatic Barrier cast shield payloads, outgoing/returning flight phases, per-pass hit histories, captured shield amount, launch identity and a retained dead-caster return point. Shield grants optionally identify their originating W cast for remaining-capacity refresh. The decoder validates Lux ownership, allies, unique per-pass hits, source self-hit state, flight speed/range limits and launch timing, and rejects duplicate same-cast shield grants. W ranks are now permitted; Lux E remains unavailable. Earlier formats are incompatible.
 
 Version 40 requires per-unit shield grants, preserving remaining capacity, allied champion ownership and active deadlines. Dead/nonchampion recipients, invalid owners, nonpositive amounts, expired grants and nonfinite total capacity are rejected.

@@ -12,7 +12,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 41;
+export const SNAPSHOT_VERSION = 42;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -79,6 +79,20 @@ const unit: z.ZodType<Unit> = z
     nextAttackTick: deadline,
     slowUntil: deadline,
     slowMultiplier: z.number().min(0).max(1),
+    slows: z
+      .array(
+        z
+          .strictObject({
+            sourceId: id,
+            kind: z.enum(['frost', 'critical-frost', 'crystal-arrow', 'lucent']),
+            startTick: tick,
+            endTick: tick,
+            startMultiplier: z.number().min(0).lt(1),
+            endMultiplier: z.number().min(0).max(1),
+          })
+          .refine((s) => s.endTick > s.startTick && s.endMultiplier >= s.startMultiplier)
+      )
+      .max(10000),
     criticalSlow: z
       .strictObject({
         startTick: z.number().int().nonnegative(),
@@ -484,6 +498,23 @@ export function decodeSnapshot(text: string) {
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {
+    const slows = new Set<string>();
+    for (const slow of target.slows) {
+      const source = state.units.find((u) => u.id === slow.sourceId);
+      const key = `${slow.sourceId}:${slow.kind}`;
+      if (
+        !source ||
+        source.team === target.team ||
+        source.champion !== (slow.kind === 'lucent' ? 'lux' : 'ashe') ||
+        target.deadAt !== null ||
+        ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
+        slow.startTick > state.tick ||
+        slow.endTick <= state.tick ||
+        slows.has(key)
+      )
+        throw new Error('Saved match contains invalid independent slows.');
+      slows.add(key);
+    }
     if (!Number.isFinite(target.shields.reduce((sum, shield) => sum + shield.amount, 0)))
       throw new Error('Saved match contains excessive shields.');
     const prismaticGrants = new Set<string>();

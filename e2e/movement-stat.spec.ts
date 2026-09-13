@@ -1,5 +1,33 @@
 import { expect, test } from '@playwright/test';
 
+test('independent slows update movement and overhead status through stronger-effect expiry', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.pendingSpawns = [];
+    const ashe = w.spawn('champion', 'red', { x: w.hero.x + 400, y: w.hero.y });
+    const lux = w.spawn('champion', 'red', { x: w.hero.x + 600, y: w.hero.y }, 'lux');
+    w.applySlow(lux, w.hero, 'lucent', 120, 0.7);
+    w.applySlow(ashe, w.hero, 'frost', 30, 0.5);
+  });
+  await expect(page.locator('#ms')).toHaveText('163');
+  await expect(page.getByText('SLOWED', { exact: true })).toBeVisible();
+  await page.evaluate(() => (window as any).__GAME__.world.step(30));
+  await expect(page.locator('#ms')).toHaveText('228');
+  await expect(page.getByText('SLOWED', { exact: true })).toBeVisible();
+  await page.evaluate(() => (window as any).__GAME__.world.step(90));
+  await expect(page.locator('#ms')).toHaveText('325');
+  await expect(page.getByText('SLOWED', { exact: true })).toHaveCount(0);
+});
+
 test('movement-speed readout follows an attack slow, Heal haste and exact expirations', async ({
   page,
 }) => {

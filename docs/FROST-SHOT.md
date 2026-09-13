@@ -1,5 +1,7 @@
 # Frost Shot basic slow
 
+Current update: [independent slow contributions](SLOWS.md) now preserve different casters and effect kinds. The historical single-slot limitation described below no longer applies to new Ashe combat applications. Legacy fields remain as diagnostic inputs and latest-hit metadata.
+
 Basic attack impacts from Ashe champion prototypes now apply a two-second slow that scales linearly from 20% at attacker level 1 to 30% at level 18. Previously every champion projectile applied a fixed 30% slow. Non-player prototypes currently use level one until independent progression is implemented. Structure targets do not receive the slow.
 
 The complete standard passive record is pinned in `docs/reference/ashe-passive.json`. Its `SlowAmount` calculation uses `ByCharLevelInterpolationCalculationPart` with 0.2/0.3 endpoints; standard `SlowDuration` is two seconds. `tools/assets/export-ashe-passive.py` verifies the entire cached character source and selected record before exporting normalized values. The separate `cherry` duration override is not used. Source: [16.18 Ashe character data](https://raw.communitydragon.org/16.18/game/data/characters/ashe/ashe.bin.json).

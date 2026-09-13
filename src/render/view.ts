@@ -736,7 +736,7 @@ export class GameView {
           ? 'STUNNED'
           : u.rootUntil > world.tick
             ? 'ROOTED'
-            : u.slowUntil > world.tick
+            : world.slowFactor(u) < 1
               ? 'SLOWED'
               : u.illumination.some((mark) => mark.endTick > world.tick)
                 ? 'ILLUMINATED'
