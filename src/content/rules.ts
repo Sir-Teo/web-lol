@@ -1,5 +1,6 @@
 import type { Ability } from '../simulation/types';
 import { SUMMONER_HEAL } from './summoner-heal';
+import { ASHE_Q } from './ashe-q';
 
 export const TICK_RATE = 60;
 export const DT = 1 / TICK_RATE;
@@ -19,7 +20,7 @@ export const ABILITIES: Record<
 > = {
   q: {
     name: 'Ranger’s Focus',
-    description: 'Build 4 Focus with attacks. Consume Focus to gain attack speed for 4 seconds.',
+    description: `Build 4 Focus with attacks. Consume Focus to gain attack speed for ${ASHE_Q.durationSeconds} seconds.`,
     cooldown: 0,
     cost: 30,
     range: 600,

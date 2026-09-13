@@ -5,6 +5,7 @@ import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
+import { ASHE_Q } from '../content/ashe-q';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
@@ -892,7 +893,7 @@ export class World {
     this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
     if (ability === 'q') {
       this.player.qStacks = 0;
-      this.player.qUntil = this.tick + 240;
+      this.player.qUntil = this.tick + ASHE_Q.durationSeconds * TICK_RATE;
     }
     if (ability === 'w' || ability === 'r') {
       const volleyId = ability === 'w' ? this.nextId++ : null;

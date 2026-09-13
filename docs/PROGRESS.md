@@ -377,3 +377,9 @@ All 181 simulation checks, six focused Chrome cases (respawn and saves), static 
 Death immediately clears the player's Focus stacks, expiry and active Q deadline. An arrow already in flight still damages its target after its source dies, but no longer grants posthumous Focus. Cooldowns and inventory remain intact. This closes a lifecycle/HUD state leak in the prototype; complete Ashe Q reference behavior remains unfinished.
 
 All 183 simulation checks, four focused Chrome cases, static build and production smoke pass. New cases cover cleanup, saved continuation through respawn, retained cooldowns/inventory, in-flight damage without Focus, and disappearance of charged pips and the active-Q HUD indicator. The full browser suite was not repeated. Full kit fidelity, match systems and pixel accuracy remain unfinished; the production goal remains active.
+
+## Source-backed Ashe Q duration milestone
+
+Ranger's Focus now remains active for six seconds instead of four. The duration comes from the pinned 16.18 Ashe spell record and is corroborated by Riot's patch 13.5 notes. The tooltip shares the generated value. The complete Q record is retained for future rank, stacking and arrow-flurry work; this change does not claim those systems are complete. See ASHE-Q.md.
+
+All 184 simulation checks, three focused Chrome cases, static build and production smoke pass. New tests verify activation, persistence beyond the former four-second deadline, exact six-second expiry, HUD state and saved continuation. Existing attack-cycle and death-cleanup browser cases remain green. Export regeneration is byte-identical. The full browser suite was not repeated. Complete champion, full-match and pixel fidelity remain unfinished; the production goal remains active.
