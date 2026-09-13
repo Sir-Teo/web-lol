@@ -1,5 +1,11 @@
 # Structure progression and base assets
 
+## Retaliation target recovery
+
+Turrets now release a retaliation order when its champion target becomes invalid or leaves the current attack boundary (turret range plus target radius), then reacquire an eligible visible target in the same simulation tick. Previously an out-of-range but still visible champion could leave the tower indefinitely holding an unusable attack order, preventing lane defense.
+
+This correction preserves the existing attack deadline and any missile already released. A valid committed windup keeps its existing semantics; this change does not reconstruct native windup leeway or retarget delay. Ordinary mobile-unit pursuit is unchanged. Five simulation cases cover reacquisition, in-range priority, target death, visibility, range boundaries, released missiles and saved continuation. A browser case observes actual resumed minion damage after champion retaliation ends.
+
 The default Rift contains 22 towers, six inhibitors, and two Nexus objects at the source-authored transforms. Both teams use matching patch 16.18 meshes, rigs, painted textures, and retained animation clips. This establishes the building dependency chain and a terminal local-game result; it does not certify full structure or match fidelity.
 
 ## Data and implemented rules

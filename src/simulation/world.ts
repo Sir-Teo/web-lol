@@ -911,8 +911,17 @@ export class World {
     }
     if (u.order.type === 'attack') {
       const ordered = this.unit(u.order.target);
-      target = this.validTarget(u, ordered) ? ordered : undefined;
-      if (!target) this.setOrder(u, { type: 'idle' });
+      target =
+        this.validTarget(u, ordered) &&
+        (u.kind !== 'turret' || distance(u, ordered!) <= u.range + ordered!.radius)
+          ? ordered
+          : undefined;
+      if (!target) {
+        this.setOrder(u, { type: 'idle' });
+        // Stationary defenses must resume acquisition when retaliation ends.
+        // A released missile and the next attack deadline remain independent.
+        if (u.kind === 'turret') target = this.nearest(u, u.range);
+      }
     } else if (u.order.type === 'attackMove' || u.kind === 'turret')
       target = this.nearest(u, u.kind === 'turret' ? u.range : 650);
     else target = undefined;

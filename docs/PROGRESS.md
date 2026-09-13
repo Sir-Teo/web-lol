@@ -1332,3 +1332,9 @@ All 466 source/simulation checks, five focused bot Chrome scenarios and nested-p
 Added visible-tower danger checks before combat commitment and target pursuit. Unsupported bots move out and hold outside danger instead of repeatedly re-entering; living minion cover permits tower pressure, while tower focus and protected champion aggression override it. New danger can cancel a windup. Hidden/destroyed towers do not affect the decision, and saved continuation remains deterministic.
 
 All 472 source/simulation checks, six focused bot Chrome scenarios and nested-path production smoke pass. Coverage includes support loss, tower focus, newly visible protection, stable holding and pursuit rejection. The browser fixture isolates decisions by delaying tower shots. Whole-route danger avoidance, threat memory, alternate safe target selection and coordinated team play remain unfinished; the full-match completion gate remains open.
+
+## Turret retaliation recovery
+
+Reproduced stale out-of-range retaliation orders that prevented towers from defending the lane, plus delayed reacquisition after invalid targets. Turrets now clear unusable orders and reacquire visible targets in the same tick. The release/recovery case retains its original attack deadline and missile already in flight. Tests also cover in-range retaliation priority, target radius boundaries, hidden targets and exact saved continuation.
+
+All 477 source/simulation checks and nested-path production smoke pass. Three related bot browser cases passed initially; the new browser fixture failed because it reused renderer IDs from a different world. Changed that fixture to exercise the running world, then passed the recovery case and all three existing source-turret rendering/destruction cases. The two initial simulation regressions failed before the fix. Native retarget timing and complete tower behavior remain unaudited.
