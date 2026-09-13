@@ -772,6 +772,32 @@ export class World {
       this.setOrder(u, { type: 'move', point: { ...point } });
     }
   }
+  private safeToRecall(u: Unit): boolean {
+    const state = this.championState(u.id)!;
+    // Tactical policy, not a native bot rule. Use team-visible threats only;
+    // a hidden opponent's proximity must not influence a recall decision.
+    const threatened =
+      this.units.some(
+        (enemy) =>
+          enemy.team !== u.team &&
+          enemy.kind !== 'dummy' &&
+          this.alive(enemy) &&
+          distance(u, enemy) <= (enemy.kind === 'champion' ? 1150 : enemy.range + u.radius + 400) &&
+          this.visible(enemy, u.team)
+      ) ||
+      this.projectiles.some(
+        (p) => p.team !== u.team && p.target === u.id && this.projectileVisible(p, u.team)
+      );
+    const recentlyHit = state.damageContributors.some(
+      (entry) => this.tick - entry.lastDamageTick < 2 * TICK_RATE
+    );
+    return !threatened && !recentlyHit;
+  }
+  private nextBotPurchase(u: Unit) {
+    const state = this.championState(u.id)!;
+    const id = ['blade', 'boots', 'pickaxe', 'sword'].find((id) => !state.inventory.includes(id));
+    return ITEMS.find((item) => item.id === id);
+  }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
     if (u.hp < u.maxHp * 0.22) u.aiRetreating = true;
@@ -779,25 +805,7 @@ export class World {
     if (u.aiRetreating) {
       const home = this.battlefield.spawns[u.team];
       const state = this.championState(u.id)!;
-      // Tactical policy, not a native bot rule. Use team-visible threats only;
-      // a hidden opponent's proximity must not influence a recall decision.
-      const threatened =
-        this.units.some(
-          (enemy) =>
-            enemy.team !== u.team &&
-            enemy.kind !== 'dummy' &&
-            this.alive(enemy) &&
-            distance(u, enemy) <=
-              (enemy.kind === 'champion' ? 1150 : enemy.range + u.radius + 400) &&
-            this.visible(enemy, u.team)
-        ) ||
-        this.projectiles.some(
-          (p) => p.team !== u.team && p.target === u.id && this.projectileVisible(p, u.team)
-        );
-      const recentlyHit = state.damageContributors.some(
-        (entry) => this.tick - entry.lastDamageTick < 2 * TICK_RATE
-      );
-      if (!threatened && !recentlyHit) {
+      if (this.safeToRecall(u)) {
         if (state.recallEnd !== null) return;
         // Walking is preferable when already closer than one recall's travel.
         if (distance(u, home) > (u.speed * RECALL_DURATION_TICKS) / TICK_RATE) {
@@ -812,13 +820,8 @@ export class World {
       return;
     }
     if (distance(u, this.battlefield.spawns[u.team]) <= 400) {
-      const state = this.championState(u.id)!;
-      // Local plan for the limited practice shop. Save toward the next item;
-      // never buy repeated components merely to empty the gold balance.
-      const next = ['blade', 'boots', 'pickaxe', 'sword'].find(
-        (id) => !state.inventory.includes(id)
-      );
-      if (next) this.buy(next, u.id);
+      const next = this.nextBotPurchase(u);
+      if (next) this.buy(next.id, u.id);
     }
     const tower = this.threateningTower(
       u,
@@ -836,6 +839,25 @@ export class World {
     }
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
+    const state = this.championState(u.id)!;
+    const nextPurchase = this.nextBotPurchase(u);
+    const canShop =
+      nextPurchase &&
+      state.gold >= Math.max(900, nextPurchase.price) &&
+      (state.inventory.length < 6 || state.inventory.includes(null));
+    if (state.recallEnd !== null || canShop) {
+      const safe = this.safeToRecall(u);
+      if (state.recallEnd !== null) {
+        if (safe) return;
+        this.setOrder(u, { type: 'idle' });
+      } else if (
+        safe &&
+        distance(u, this.battlefield.spawns[u.team]) > (u.speed * RECALL_DURATION_TICKS) / TICK_RATE
+      ) {
+        this.enqueue({ type: 'recall', unit: u.id });
+        return;
+      }
+    }
     const safeTarget = (target: Unit) => this.safeAttackPosition(u, target);
     const nearest = this.nearest(u, 1150, false, safeTarget);
     const closeThreat = this.nearest(u, 380, true, safeTarget);

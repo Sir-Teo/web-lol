@@ -1356,3 +1356,9 @@ All 484 source/simulation checks and nested-path production smoke pass. Two new 
 Ran the complete configured Chrome suite against `504f43279f4c082fe8d11827ff48a19c39c418c9` with an unchanged worktree: all 177 scenarios passed once, with zero failures, skips, flaky results or retries, one worker, 393.7 seconds. Checked every individual result, retry/error list and top-level error list before updating `reference/browser-regression.json` with the tested commit, scenario timings and raw report hash.
 
 Inspected the fresh full-Rift fountain, river-aiming and live Q-flurry captures and recorded their hashes after verifying their timestamps belong to this run. This verifies the integrated implemented scenarios; it does not certify native pixel parity, complete nine-bot matches or performance. Source/simulation checks and production smoke were not repeated in this verification-only step; the previous 484-check and production results remain above. Team strategy, roster, jungle/objectives and full-match certification remain unfinished.
+
+## Healthy bot shopping returns
+
+Healthy bots now queue safe recalls for an affordable unfinished purchase when banked gold reaches the local 900-gold trip threshold. Purchase planning and recall safety are shared with existing fountain/retreat behavior. Channels persist while safe, cancel for visible danger, and do not override committed attacks. No new save state is required.
+
+All 489 source/simulation checks, five focused bot Chrome scenarios and nested-path production smoke pass. Coverage includes both teams' saved round trips, actual inventory/gold/stat changes, capacity/completed-plan/affordability exclusions, danger visibility and attack commitment. The full browser/performance suites were not repeated. Adaptive builds, wave/objective timing and complete team strategy remain unfinished.

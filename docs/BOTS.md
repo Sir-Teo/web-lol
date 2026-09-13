@@ -36,7 +36,7 @@ Retreating champions now queue the shared recall command when distance to their 
 
 The current local safety heuristic excludes visible living enemy champions within 1,150 units, other combat units within their attack range plus the bot's radius plus a 400-unit margin, and visible enemy targeted projectiles already headed toward the bot. It also waits two seconds after recorded enemy-champion damage. These checks use the bot's team visibility and its own damage history; nearby hidden opponents do not influence the decision. Pending recall commands retain normal stun, death and cast validation.
 
-These are authored tactics, not native AI reconstruction or guaranteed safety. The travel comparison uses straight distance and base speed rather than a complete route cost. The recent-damage window uses existing champion contribution records; it does not yet track all environmental/minion damage. The current policy does not predict untargeted skillshots, remember last-seen danger zones, find cover, or choose economic recalls while healthy. Those remain part of the broader team/role planner.
+These are authored tactics, not native AI reconstruction or guaranteed safety. The travel comparison uses straight distance and base speed rather than a complete route cost. The recent-damage window uses existing champion contribution records; it does not yet track all environmental/minion damage. The current policy does not predict untargeted skillshots, remember last-seen danger zones, or find cover. Those remain part of the broader team/role planner.
 
 Six simulation cases cover both teams' completion and saved continuation, visible/hidden threat handling, shorter-walk and minion exclusions, damage interruption/retry, and visible incoming missiles after their source leaves sight. A browser case runs the autonomous channel to completion, renders the active channel, verifies arrival/recovery, and checks that the bot resumes movement. Existing recall animation and bot combat browser scenarios remain passing.
 
@@ -91,6 +91,14 @@ The shared `buy(itemId, championId)` operation now checks the buyer's team fount
 After its retreat handling, a bot inside its own 400-unit shop radius attempts one purchase per thinking decision from the local plan: Doran's Blade, Boots, Pickaxe, Long Sword. It saves for the next missing item instead of repeatedly filling slots with components. Returning bots still prioritize recovery while in the retreat state. Purchases survive checkpoints through the same champion state and unit stats. The current four-item catalog, prices/stats and this fixed plan are practice approximations; recipes, complete builds, selling, role choices and adaptive itemization remain outstanding.
 
 Five simulation cases cover independent spending/stats, fountain and other rejection rules, dead purchases through respawn on both owners, deterministic automatic purchase continuation and saving/away-from-fountain behavior. A Chrome scenario verifies an automatic enemy purchase and checkpoint identity while the human inventory display and balance remain unchanged.
+
+## Shopping recalls while healthy
+
+A healthy bot now considers returning when its fixed purchase plan has an unfinished item, it has inventory capacity, and banked gold reaches both that item's price and a 900-gold minimum. The minimum is a local policy intended to avoid frequent low-value trips, not a measured native bot constant. The same purchase-plan helper drives fountain buying and the recall decision, so a completed plan or full inventory does not trigger a useless trip.
+
+Shopping uses the same team-visible threat, incoming-targeted-missile and recent-champion-damage checks as low-health recalls. It also requires distance greater than one recall's base-speed walking distance. A safe channel remains committed; new visible danger cancels it. A valid attack windup takes precedence over shopping. Completed recall uses normal purchases and returns to the existing lane/sparring plan without marking the bot as injured or adding new snapshot state.
+
+Five simulation scenarios cover both teams' complete saved shopping trips, exclusion conditions, hidden/visible danger changes and committed-attack preservation. A browser case verifies a healthy return with 1,000 gold, the two purchases, their actual damage/movement stat gains, remaining balance, and resumed movement. This does not implement adaptive builds, recipe-aware future shopping plans, wave-timing costs, objective-aware recalls or coordinated team resets.
 
 ## Defensive Heal
 
