@@ -140,6 +140,12 @@
       "source": "https://raw.communitydragon.org/16.18/game/assets/ux/fonts/spiegel-bold.otf",
       "sha256": "4ad72bc2e96d1a037103e9c626755bd628a4be29d1cd3dd273ce44b64525af60",
       "bytes": 131836
+    },
+    {
+      "path": "/assets/icons/1052.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1052.png",
+      "sha256": "5b6d009e518f50c73db3b4a7442d3bff0928fb2ea527babd77140ce817562e8a",
+      "bytes": 5490
     }
   ]
 }

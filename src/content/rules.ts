@@ -5,6 +5,9 @@ import { ASHE_E } from './ashe-e';
 import { ASHE_R } from './ashe-r';
 import { ASHE_SPELL_RANKS } from './ashe-spell-ranks';
 
+export const crystalArrowDescription = (damage: number): string =>
+  `Launch an arrow that passes through minions, dealing ${Math.round(damage)} magic damage to the first enemy champion hit and nearby enemies. Stuns the champion for ${ASHE_R.minimumStunSeconds}–${ASHE_R.maximumStunSeconds} seconds based on distance traveled.`;
+
 export const TICK_RATE = 60;
 export const DT = 1 / TICK_RATE;
 export const RECALL_DURATION_TICKS = 8 * TICK_RATE;
@@ -52,7 +55,7 @@ export const ABILITIES: Record<
   r: {
     minimapTargeting: ASHE_R.minimapTargeting,
     name: 'Enchanted Crystal Arrow',
-    description: `Launch an arrow that passes through minions, dealing ${ASHE_R.baseDamageByRank[0]} magic damage to the first enemy champion hit and nearby enemies. Stuns the champion for ${ASHE_R.minimumStunSeconds}–${ASHE_R.maximumStunSeconds} seconds based on distance traveled.`,
+    description: crystalArrowDescription(ASHE_R.baseDamageByRank[0]),
     cooldown: ASHE_SPELL_RANKS.r.cooldownSecondsByRank[0],
     cost: ASHE_SPELL_RANKS.r.manaByRank[0],
     range: ASHE_R.range,
@@ -86,6 +89,7 @@ export const ITEMS = [
     description: '+10 Attack Damage · +80 Health · 2.5% Omnivamp',
     icon: '1055',
     magicResist: 0,
+    abilityPower: 0,
     damage: 10,
     armor: 0,
     hp: 80,
@@ -99,6 +103,7 @@ export const ITEMS = [
     description: '+25 Move Speed',
     icon: '1001',
     magicResist: 0,
+    abilityPower: 0,
     damage: 0,
     armor: 0,
     hp: 0,
@@ -112,6 +117,7 @@ export const ITEMS = [
     description: '+10 Attack Damage',
     icon: '1036',
     magicResist: 0,
+    abilityPower: 0,
     damage: 10,
     armor: 0,
     hp: 0,
@@ -125,6 +131,7 @@ export const ITEMS = [
     description: '+25 Attack Damage',
     icon: '1037',
     magicResist: 0,
+    abilityPower: 0,
     damage: 25,
     armor: 0,
     hp: 0,
@@ -138,6 +145,7 @@ export const ITEMS = [
     description: '+150 Health',
     icon: '1028',
     magicResist: 0,
+    abilityPower: 0,
     damage: 0,
     armor: 0,
     hp: 150,
@@ -151,6 +159,7 @@ export const ITEMS = [
     description: '+350 Health · Builds from Ruby Crystal',
     icon: '1011',
     magicResist: 0,
+    abilityPower: 0,
     damage: 0,
     armor: 0,
     hp: 350,
@@ -164,6 +173,7 @@ export const ITEMS = [
     description: '+15 Armor',
     icon: '1029',
     magicResist: 0,
+    abilityPower: 0,
     damage: 0,
     hp: 0,
     speed: 0,
@@ -177,6 +187,7 @@ export const ITEMS = [
     description: '+40 Armor · Builds from Cloth Armor',
     icon: '1031',
     magicResist: 0,
+    abilityPower: 0,
     damage: 0,
     hp: 0,
     speed: 0,
@@ -189,6 +200,7 @@ export const ITEMS = [
     sell: 280,
     description: '+20 Magic Resist',
     icon: '1033',
+    abilityPower: 0,
     damage: 0,
     armor: 0,
     magicResist: 20,
@@ -202,9 +214,24 @@ export const ITEMS = [
     sell: 595,
     description: '+45 Magic Resist · Builds from Null-Magic Mantle',
     icon: '1057',
+    abilityPower: 0,
     damage: 0,
     armor: 0,
     magicResist: 45,
+    hp: 0,
+    speed: 0,
+  },
+  {
+    id: 'tome',
+    name: 'Amplifying Tome',
+    price: 400,
+    sell: 280,
+    description: '+20 Ability Power',
+    icon: '1052',
+    abilityPower: 20,
+    damage: 0,
+    armor: 0,
+    magicResist: 0,
     hp: 0,
     speed: 0,
   },

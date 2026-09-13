@@ -1,4 +1,4 @@
-import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
+import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { ASHE_E } from '../content/ashe-e';
 import { ASHE_W } from '../content/ashe-w';
@@ -95,6 +95,7 @@ export class Hud {
   private abilityDescription(ability: Ability): string {
     if (ability === 'w')
       return `Fire ${ASHE_W.arrowsByRank[0]} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage())} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
+    if (ability === 'r') return crystalArrowDescription(this.world.crystalArrowDamage());
     if (ability === 'f') {
       const base = this.world.summonerHealAmount();
       const self = this.world.summonerHealAmount(this.world.hero, this.world.hero);

@@ -1152,3 +1152,9 @@ All 393 source/simulation checks and the expanded dual-source exporter pass. Run
 Extended R's exporter to verify its damage formula and retain 200/400/600 normal-rank base damage plus the 1.2 AP ratio. Replaced both runtime 200 literals with the source rank-one entry and expanded tooltip feedback to cover damage, splash and distance-based stun bounds.
 
 All 393 source/simulation checks, five focused tooltip Chrome scenarios, R export verification and nested-path production smoke pass. The new browser case verifies the displayed 200 damage and 1–3.5 second stun range against a real released R projectile; the tooltip screenshot was inspected. Full-suite/performance checks were not repeated. Higher-rank allocation and AP scaling are not implemented by this data change; full production fidelity remains unfinished.
+
+## Amplifying Tome and Crystal Arrow AP scaling
+
+Added source-pinned Amplifying Tome and its icon, flat item AP ownership, and R's verified 1.2 AP scaling. R's tooltip and cast use the same damage query. Item AP is derived from inventory, so no redundant snapshot field is introduced. Already-started casts retain their captured damage through sale and saved continuation.
+
+All 396 source/simulation checks, six focused Chrome scenarios, Tome/sell verifiers and nested-path production smoke pass. Tests cover both teams, stacking, independent inventories, unchanged Volley damage, sale during R windup and restored projectile damage. Browser input verifies 200→224→200 tooltip damage through purchase and sale; inspected the screenshot. Full-suite/performance checks were not repeated. Broader AP modifiers, AP stat display, actual rank allocation and full production fidelity remain unfinished.

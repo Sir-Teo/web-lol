@@ -1370,7 +1370,7 @@ export class World {
         releaseTick: this.tick + timing.castSeconds * TICK_RATE,
         point: { ...point },
         damage:
-          ability === 'e' ? 0 : ability === 'r' ? ASHE_R.baseDamageByRank[0] : this.volleyDamage(u),
+          ability === 'e' ? 0 : ability === 'r' ? this.crystalArrowDamage(u) : this.volleyDamage(u),
       };
     }
     if (ability === 'e') {
@@ -1468,7 +1468,7 @@ export class World {
         target: null,
         direction: { x: Math.cos(a), y: Math.sin(a) },
         damage:
-          capturedDamage ?? (ability === 'w' ? this.volleyDamage(u) : ASHE_R.baseDamageByRank[0]),
+          capturedDamage ?? (ability === 'w' ? this.volleyDamage(u) : this.crystalArrowDamage(u)),
         speed: ability === 'w' ? ASHE_W.projectileSpeed : ASHE_R.initialSpeed,
         radius: ability === 'w' ? 12 : 65,
         remaining: spec.range,
@@ -1514,6 +1514,15 @@ export class World {
     if (item.id === 'blade' && state.inventory.includes('blade'))
       return 'You already own a Doran item';
     return null;
+  }
+  abilityPower(u: Unit = this.hero): number {
+    return (this.championState(u.id)?.inventory ?? []).reduce<number>(
+      (total, id) => total + (ITEMS.find((item) => item.id === id)?.abilityPower ?? 0),
+      0
+    );
+  }
+  crystalArrowDamage(u: Unit = this.hero): number {
+    return ASHE_R.baseDamageByRank[0] + this.abilityPower(u) * ASHE_R.abilityPowerRatio;
   }
   /** Healing before missing-health cap; optional recipient applies its recent-Heal penalty. */
   summonerHealAmount(caster: Unit = this.hero, recipient?: Unit): number {

@@ -1,0 +1,64 @@
+{
+  "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+  "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+  "item": {
+    "name": "Amplifying Tome",
+    "description": "<mainText><stats><attention>20</attention> Ability Power</stats><br><br></mainText>",
+    "colloq": ";amptome",
+    "plaintext": "Slightly increases Ability Power",
+    "into": [
+      "3113",
+      "2421",
+      "2420",
+      "3145",
+      "124011",
+      "4637",
+      "3916",
+      "6656",
+      "3147",
+      "3146",
+      "3802",
+      "4005",
+      "2508",
+      "326616",
+      "3108",
+      "3116",
+      "3124",
+      "4630",
+      "323504",
+      "4628",
+      "4632",
+      "4635",
+      "4642",
+      "4644"
+    ],
+    "image": {
+      "full": "1052.png",
+      "sprite": "item0.png",
+      "group": "item",
+      "x": 432,
+      "y": 48,
+      "w": 48,
+      "h": 48
+    },
+    "gold": {
+      "base": 400,
+      "purchasable": true,
+      "total": 400,
+      "sell": 280
+    },
+    "tags": [
+      "SpellDamage"
+    ],
+    "maps": {
+      "11": true,
+      "12": true,
+      "22": false,
+      "30": false,
+      "453": true
+    },
+    "stats": {
+      "FlatMagicDamageMod": 20
+    }
+  }
+}

@@ -57,3 +57,7 @@ Enchanted Crystal Arrow now spends resources once, enters a 15-tick windup and r
 ## Normal-rank damage data
 
 The exporter now verifies the `RMainDamage` formula parts and emits the three normal `RBaseDamage` values (200/400/600) plus the normalized `APRatio` of 1.2. Normal rank count comes from the selected spell's level-up list; additional trailing source values are not exposed as ordinary ranks. Cast snapshots and fallback projectile creation read the exported first-rank value instead of a literal 200. The tooltip uses that same source value and the existing stun bounds. Actual learned ranks and an ability-power stat system remain required before higher ranks and AP scaling can affect gameplay.
+
+## Flat item ability power
+
+Crystal Arrow now computes rank-one base damage plus 1.2 times the caster's flat item AP. AP is derived from each champion's current inventory rather than duplicating it in saved state. The current item set supports Amplifying Tome (20 AP). Cast windup snapshots this calculated damage; selling before release changes future casts but does not alter the pending one. Existing splash uses the same captured damage and source multiplier. Other AP modifiers and higher ranks remain unfinished.

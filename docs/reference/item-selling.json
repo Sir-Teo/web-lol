@@ -92,6 +92,15 @@
         "total": 850,
         "sell": 595
       }
+    },
+    "1052": {
+      "name": "Amplifying Tome",
+      "gold": {
+        "base": 400,
+        "purchasable": true,
+        "total": 400,
+        "sell": 280
+      }
     }
   }
 }
