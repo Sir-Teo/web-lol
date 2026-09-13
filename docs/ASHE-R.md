@@ -27,3 +27,11 @@ An ultimate collision now applies area damage and basic Frost Shot slow to livin
 There is no final explosion audiovisual effect yet. The existing single-slot slow model still lacks priority/stacking rules. Distance-dependent primary stun, full rank/AP scaling and reference collision calibration remain unfinished.
 
 Two simulation cases check the radius edge/outside, exclusions, single primary damage, distinct stun/slow behavior, magic mitigation, minion splash after a lethal primary hit and pre-impact saved continuation. A browser case checks primary and nearby damage with a stun on only the direct target.
+
+## Cross-map travel range
+
+The exporter now verifies the uniform `castRange` array and emits its 25,000-unit value. The ability specification uses that generated range for projectile travel, replacing the provisional 10,000-unit cutoff. Aim points determine direction; an unobstructed arrow continues to its range limit. This enables the existing map to support cross-map shots instead of deleting them mid-flight.
+
+With the source acceleration, an unobstructed arrow consumes its range after 740 simulation steps (12⅓ seconds). Projectile cleanup ignores residual distances of at most 1e-8 world units, avoiding an extra lifetime tick from floating-point accumulation without expanding collision travel. The full-speed endpoint and range budget remain governed by the collision sweep.
+
+The flight regression now checks survival past 10,000 units, remaining range and exact removal at the terminal step. A new simulation case saves an arrow after six seconds and confirms identical impact on a target 15,000 units from launch. A browser case confirms that long-range hit. Distance-scaled stun, full audiovisual fidelity and complete match systems remain unfinished.

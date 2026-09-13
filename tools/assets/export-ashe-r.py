@@ -15,6 +15,9 @@ data = {'initialSpeed': movement['mInitialSpeed'], 'acceleration': movement['mAc
 visibility = record['mSpell']['mMissileSpec']['visibilityComponent']
 assert visibility['__type'] == 'Defaultvisibility'
 data['sightRadius'] = visibility['mPerceptionBubbleRadius']
+cast_ranges = record['mSpell']['castRange']
+assert len(set(cast_ranges)) == 1
+data['range'] = cast_ranges[0]
 for name, field in [('SlowRadius', 'splashRadius'), ('AoECoefficient', 'splashDamageMultiplier')]:
     values = next(v['values'] for v in record['mSpell']['DataValues'] if v['name'] == name)
     assert len(set(values)) == 1

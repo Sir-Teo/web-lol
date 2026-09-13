@@ -1,6 +1,7 @@
 import type { Ability } from '../simulation/types';
 import { SUMMONER_HEAL } from './summoner-heal';
 import { ASHE_Q } from './ashe-q';
+import { ASHE_R } from './ashe-r';
 
 export const TICK_RATE = 60;
 export const DT = 1 / TICK_RATE;
@@ -49,7 +50,7 @@ export const ABILITIES: Record<
       'Launch an arrow that passes through minions and stuns the first enemy champion hit.',
     cooldown: 100,
     cost: 100,
-    range: 10000,
+    range: ASHE_R.range,
     icon: 'EnchantedCrystalArrow',
   },
   d: {

@@ -1,5 +1,25 @@
 import { expect, test } from '@playwright/test';
 
+test('a cross-map arrow reaches a target beyond 10000 units', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    const target = w.spawn('dummy', 'red', { x: w.hero.x + 15000, y: w.hero.y });
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'r', point: target });
+    w.step(360);
+    const inFlight = w.projectiles.length;
+    w.step(100);
+    g.view.render(w, 1, 0);
+    return { inFlight, hit: target.hp < target.maxHp, remaining: w.projectiles.length };
+  });
+  expect(result).toEqual({ inFlight: 1, hit: true, remaining: 0 });
+});
+
 test('crystal arrow damages a nearby enemy while stunning only its direct target', async ({
   page,
 }) => {

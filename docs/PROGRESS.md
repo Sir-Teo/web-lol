@@ -437,3 +437,9 @@ All 203 simulation checks, three focused Chrome cases, static build and producti
 Crystal Arrow now damages and applies basic Frost Shot slow to surrounding living enemy non-structure units. The source radius is 400 and area coefficient 1.0; the direct target is excluded from the splash loop and alone receives the primary stun. Lethal direct hits still splash minions. Center-distance geometry and shared damage/slow radius are documented interpretations pending reference calibration. Explosion audiovisual effects, slow priority, distance-scaled stun and full rank/AP behavior remain unfinished.
 
 All 205 simulation checks, three focused Chrome cases, static build and production smoke pass. New cases cover radius/exclusions, mitigation, primary non-duplication, lethal-hit minion splash, saved continuation and browser damage/stun separation. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+## Crystal arrow cross-map range milestone
+
+Crystal Arrow now uses its pinned 25,000-unit cast/travel range instead of 10,000. Long-range shots reach targets beyond the former cutoff and retain their remaining range through saves. A terminal-step test exposed a floating-point remainder that extended projectile lifetime by one tick; cleanup now ignores at most 1e-8 world units of residual range while preserving the collision travel bound.
+
+All 206 simulation checks, four focused Chrome cases, static build and production smoke pass. Coverage includes source acceleration through full range, exact terminal removal and saved/browser hits at 15,000 units. Export regeneration is byte-identical. The full browser suite was not repeated. Distance-scaled stun, full champion, match and pixel fidelity remain unfinished; the production goal remains active.

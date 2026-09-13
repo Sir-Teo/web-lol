@@ -762,7 +762,7 @@ export class World {
             }
           }
         }
-      } else if (p.remaining > travel) {
+      } else if (p.remaining - travel > 1e-8) {
         p.x = end.x;
         p.y = end.y;
         p.remaining -= travel;
