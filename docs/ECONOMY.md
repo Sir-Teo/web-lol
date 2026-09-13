@@ -84,3 +84,6 @@ Riot's [26.1 Omnivamp notes](https://www.leagueoflegends.com/en-sg/news/game-upd
 Healing derives from current ownership at damage resolution and caps at missing health. It applies to living opposing champion sources against champions/lane minions, including physical, magic and true damage. Selling the item therefore removes its effect without a separately cached stat. Structures and the synthetic target dummy do not trigger healing. Dead sources cannot revive from posthumous damage. These target filters for unsupported practice entities are local policies.
 
 **Pending native calibration:** healing currently uses actual health removed, capping overkill at the victim's remaining HP, and occurs immediately after HP subtraction before death rewards. Shield absorption, heal modifiers, grievous wounds and other damage classes are not implemented. This does not establish complete omnivamp parity. Fractional healing is retained in HP and the presentation event rounds its displayed amount. No new snapshot fields are required.
+
+
+Omnivamp regression coverage now also includes queued W/R casts through actual projectile collisions, saved in-flight continuation and selling before Volley impact. A deliberate direct-hit misclassification fails both W/R integration cases. This verifies local damage plumbing, not the unresolved native healing policies.

@@ -50,3 +50,65 @@ test('omnivamp preserves dead sources, clamps to missing health and survives res
   }
   expect(restored.snapshot()).toBe(w.snapshot());
 });
+
+for (const ability of ['w', 'r'] as const)
+  test(`${ability.toUpperCase()} projectile collisions apply the correct champion and minion healing`, () => {
+    const w = new World(false, {
+      ...PRACTICE_FIXTURE,
+      lineOfSight: () => true,
+      findPath: (_from, to) => [{ x: to.x, y: to.y }],
+      reachable: (p) => ({ x: p.x, y: p.y }),
+      lineWalkable: () => true,
+    });
+    w.nextWaveTick = Infinity;
+    w.buy('blade');
+    w.hero.x = w.hero.y = 0;
+    w.hero.hp = 100;
+    const champion = w.spawn('champion', 'red', { x: 700, y: 0 });
+    const minion = w.spawn('melee', 'red', { x: 700, y: 100 });
+    champion.ai = minion.ai = false;
+    champion.hp = champion.maxHp = minion.hp = minion.maxHp = 1000;
+    champion.armor = champion.magicResist = minion.armor = minion.magicResist = 0;
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability, point: { x: 900, y: 0 } });
+    w.step(17);
+    expect(w.projectiles.some((p) => p.type === (ability === 'w' ? 'volley' : 'ultimate'))).toBe(
+      true
+    );
+    const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+    const control = World.fromSnapshot(w.snapshot(), w.battlefield);
+    // Remove only the effect; retain identical AD, max HP and regeneration for comparison.
+    control.player.inventory = [];
+    const startHP = w.hero.hp;
+    for (const world of [w, restored, control]) world.step(90);
+    const championDamage = w.events
+      .filter((event) => event.type === 'damage' && event.unit === champion.id)
+      .reduce((sum, event) => sum + event.value!, 0);
+    const minionDamage = w.events
+      .filter((event) => event.type === 'damage' && event.unit === minion.id)
+      .reduce((sum, event) => sum + event.value!, 0);
+    expect(championDamage).toBeGreaterThan(0);
+    expect(minionDamage).toBeGreaterThan(0);
+    expect(w.hero.hp - control.hero.hp).toBeCloseTo(
+      championDamage * 0.025 + minionDamage * 0.025 * 0.33
+    );
+    expect(w.hero.hp).toBeGreaterThan(startHP);
+    expect(restored.snapshot()).toBe(w.snapshot());
+  });
+
+test('selling Doran before an in-flight Volley lands removes its healing', () => {
+  const w = new World(false, PRACTICE_FIXTURE);
+  w.nextWaveTick = Infinity;
+  w.buy('blade');
+  w.hero.hp = 100;
+  const target = w.spawn('champion', 'red', { x: w.hero.x + 500, y: w.hero.y });
+  target.ai = false;
+  target.armor = 0;
+  w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'w', point: { x: target.x, y: target.y } });
+  w.step(17);
+  expect(w.projectiles.some((p) => p.type === 'volley')).toBe(true);
+  expect(w.sell(0)).toBeNull();
+  const healingBefore = w.events.filter((event) => event.type === 'heal').length;
+  w.step(90);
+  expect(target.hp).toBeLessThan(target.maxHp);
+  expect(w.events.filter((event) => event.type === 'heal')).toHaveLength(healingBefore);
+});
