@@ -17,10 +17,10 @@ function attacking() {
 
 test('scheduled attack cycle survives buff expiry, baseline changes and checkpoint restoration', () => {
   const { world } = attacking();
-  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 66 });
+  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 77 });
   world.step(5);
   world.hero.attackPeriod = 120;
-  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 66 });
+  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 77 });
   const restored = World.fromSnapshot(world.snapshot(), world.battlefield);
   expect(restored.hero.attackCycle).toEqual(world.hero.attackCycle);
   for (let i = 0; i < 150; i++) {

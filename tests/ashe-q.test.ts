@@ -1,6 +1,24 @@
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 
+test('rank-one Q adds the same ratio-scaled attack speed at early and late levels', () => {
+  for (const level of [1, 18]) {
+    const w = new World(false);
+    w.nextWaveTick = Infinity;
+    if (level === 18) w.gainExperience(1e6);
+    w.player.qUntil = 360;
+    const base = 60 / w.hero.attackPeriod;
+    const effective = base * w.attackSpeedMultiplier(w.hero, undefined);
+    expect(effective - base).toBeCloseTo(0.1316);
+    const target = w.spawn('dummy', 'red', { x: w.hero.x + 300, y: w.hero.y });
+    w.setOrder(w.hero, { type: 'attack', target: target.id });
+    w.step();
+    expect(w.hero.attackCycle!.endTick - w.hero.attackCycle!.startTick).toBe(level === 1 ? 76 : 53);
+    const other = w.spawn('champion', 'blue', { x: 0, y: 0 });
+    expect(w.attackSpeedMultiplier(other, undefined)).toBe(1);
+  }
+});
+
 test('Focus decays one stack per second after its four-second lifetime, including saved continuation', () => {
   const w = new World(false);
   w.nextWaveTick = Infinity;
@@ -68,11 +86,15 @@ test('Q lasts six seconds and saved continuation preserves its exact expiry', ()
   expect(w.player.qUntil).toBe(361);
   expect(w.player.qStacks).toBe(0);
   w.step(240);
-  expect(w.attackSpeedMultiplier(w.hero, undefined)).toBe(1.4);
+  expect((60 / w.hero.attackPeriod) * (w.attackSpeedMultiplier(w.hero, undefined) - 1)).toBeCloseTo(
+    0.1316
+  );
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   for (const world of [w, restored]) {
     world.step(119);
-    expect(world.attackSpeedMultiplier(world.hero, undefined)).toBe(1.4);
+    expect(
+      (60 / world.hero.attackPeriod) * (world.attackSpeedMultiplier(world.hero, undefined) - 1)
+    ).toBeCloseTo(0.1316);
     world.step();
     expect(world.attackSpeedMultiplier(world.hero, undefined)).toBe(1);
   }

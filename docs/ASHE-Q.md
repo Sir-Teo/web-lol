@@ -6,7 +6,7 @@ The complete selected spell record is retained in `docs/reference/ashe-q.json`, 
 
 Casting schedules an absolute deadline 360 simulation ticks later. Active attack-speed evaluation and the HUD already use a strict deadline comparison, so the buff ends on that exact tick. Existing attacks retain their scheduled cycles across expiry. Saves retain the original deadline, and death clears the active buff through the existing cleanup path.
 
-The prototype still uses a fixed 1.4 attack-speed multiplier, lacks spell ranks and the complete five-arrow damage/animation behavior, and still requires reference calibration of attack-event timing. These remain fidelity gaps. Six-second duration alone does not establish complete Q parity.
+The prototype still lacks spell ranks and the complete five-arrow damage/animation behavior, and requires reference calibration of attack-event timing. These remain fidelity gaps. Six-second duration alone does not establish complete Q parity.
 
 One simulation test casts Q, verifies it remains active after four seconds and immediately before expiry, and compares saved continuation through the exact deadline. One browser test verifies the corresponding empowered HUD state. Existing attack-cycle and death-cleanup regressions remain relevant.
 
@@ -27,3 +27,11 @@ Focus generation now runs at the successful attack-release event, before creatin
 The pinned tooltip establishes attacks granting Focus, but does not encode the precise event callback. Mapping that behavior to successful release is an implementation interpretation pending controlled capture, not a claim that the static record contains server script logic. The current target eligibility follows the existing attack system; specialized blind/dodge/projectile destruction and target-class cases are not fully implemented.
 
 Three new simulation cases cover release before impact, no duplicate/refresh on impact, saved arrows, canceled/invalidated windups, and casting Q after the fourth release before contact. A browser case checks four visible pips with an arrow in flight and an undamaged target. Existing active-Q and death tests remain green.
+
+## Additive rank-one attack speed
+
+The source exporter now retains all five normal-rank `BonusAS` values (20/30/40/50/60%) and verifies the character root's `attackSpeedRatioModifiable` field, normalized to 0.658. The current prototype uses rank one until skill-point allocation is implemented. Q therefore adds 0.658 × 0.20 = 0.1316 attacks/second to the existing baseline, rather than multiplying the entire baseline by 1.4. The HUD calls the same effective-speed calculation as combat. Other champion prototypes do not inherit the player's buff.
+
+The existing baseline remains represented by integer attack-period ticks, so this change does not remove baseline quantization or implement the full attack-speed stat/cap system. The helper converts the additive amount to a scheduling multiplier, then existing cycle creation rounds the period and windup. Scheduled cycles remain immutable across buff expiry. At level one this schedules a 76-tick cycle; at level 18 a 53-tick cycle. Full spell ranks, attack-reset behavior, cap interactions, and flurry damage still require implementation and reference testing.
+
+A new simulation case checks equal absolute speed gain across early and late levels and the resulting scheduled cycles. Existing saved-duration and animation-cycle tests use the corrected values. The Q browser case now verifies the HUD changes from 0.79 while active to 0.66 on expiry.

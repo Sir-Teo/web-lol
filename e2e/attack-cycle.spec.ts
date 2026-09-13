@@ -62,12 +62,12 @@ test('late first render uses scheduled speed and phase, stays frozen while pause
       restoredPoseDifference: difference(expectedPose, pose()),
     };
   });
-  expect(result.initial.period).toBeCloseTo(65 / 60);
-  expect(result.initial.phase).toBeCloseTo(9 / 65);
+  expect(result.initial.period).toBeCloseTo(76 / 60);
+  expect(result.initial.phase).toBeCloseTo(9 / 76);
   expect(result.pausedPhase).toBeCloseTo(result.initial.phase);
   expect(result.released).toBe(true);
   expect(result.clip).toBe('attack1');
-  expect(result.restoredPhase).toBeCloseTo(29 / 65);
+  expect(result.restoredPhase).toBeCloseTo(29 / 76);
   expect(result.poseValues).toBeGreaterThan(100);
   expect(result.movedPoseDifference).toBeGreaterThan(0.001);
   expect(result.pausedPoseDifference).toBeLessThan(1e-7);

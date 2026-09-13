@@ -395,3 +395,9 @@ All 187 simulation checks, three focused Chrome cases, static build and producti
 Focus now increments on a successfully released attack rather than projectile impact. The fourth arrow can unlock Q while still traveling; impact does not duplicate or refresh the stack. Canceled, stunned or invalidated windups grant nothing. This removes travel distance from Q readiness. The source tooltip describes attacks granting Focus, while exact callback mapping remains a documented implementation interpretation pending reference capture.
 
 All 190 simulation checks, four focused Chrome cases, static build and production smoke pass. New regressions cover pre-impact readiness, saved arrows, canceled windups, no duplicate impact stacks and visible pips before damage. The full browser suite was not repeated. Full Q ranks/flurry, specialized attack outcomes, match systems and pixel fidelity remain unfinished; the production goal remains active.
+
+## Additive Ashe Q attack-speed milestone
+
+Q now adds rank-one ratio-scaled attack speed instead of multiplying the whole baseline by 1.4. The exporter pins and verifies Ashe's 0.658 attack-speed ratio and exports the five normal-rank bonus values. Rank one adds 0.1316 attacks/second at early and late levels. HUD and simulation share the calculation. Skill-point allocation, baseline stat quantization/caps, attack reset and complete flurry damage remain unfinished.
+
+All 191 simulation checks, four focused Chrome cases, static build and production smoke pass. New coverage checks level-one/18 absolute bonuses and scheduled periods, while existing saved-duration and animation tests use corrected timing. The HUD shows 0.79 during rank-one Q and returns to 0.66 on expiry. Export regeneration is byte-identical. The full browser suite was not repeated. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

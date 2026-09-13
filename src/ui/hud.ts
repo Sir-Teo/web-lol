@@ -338,7 +338,7 @@ export class Hud {
     text('ad', Math.round(h.damage));
     text('armor', Math.round(h.armor));
     text('ms', h.speed);
-    text('as', ((60 / h.attackPeriod) * (p.qUntil > w.tick ? 1.4 : 1)).toFixed(2));
+    text('as', ((60 / h.attackPeriod) * w.attackSpeedMultiplier(h, undefined)).toFixed(2));
     text('kills', p.kills);
     text('deaths', p.deaths);
     text('personal', `${p.kills} / ${p.deaths} / 0`);

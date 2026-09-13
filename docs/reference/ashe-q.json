@@ -421,5 +421,13 @@
     "key": "game_spell_tooltip_asheq",
     "value": "<titleLeft>Ranger's Focus</titleLeft><titleRight>Level @Level@ [@Hotkey@]</titleRight><subtitleLeft>@Cost@ Mana, @Effect2Amount@ Focus</subtitleLeft><subtitleRight>No Cooldown</subtitleRight><mainText><font color='#FF9900'>Passive: </font>Basic attacks grant Focus for @Effect1Amount@ seconds, stacking up to @Effect2Amount@ times. Stacks fall off one at a time, and at @Effect2Amount@ stacks, Ranger's Focus can be cast, consuming all Focus.<br><br><font color='#FF9900'>Active:</font> For @Effect3Amount@ seconds, Ashe gains @Effect4Amount@% Attack Speed, and her basic attacks fire a flurry of arrows dealing <font color='#FF8C00'>@f1@</font> physical damage. During this time, she does not stack Focus. Ranger's Focus applies Frost Shot.</mainText>",
     "scope": "Legacy tooltip corroboration; verify runtime boundaries separately."
+  },
+  "attackSpeedRatio": {
+    "record": "Characters/Ashe/CharacterRecords/Root",
+    "field": "attackSpeedRatioModifiable",
+    "data": {
+      "baseValue": 0.6579999923706055,
+      "__type": "ModifiableFloat"
+    }
   }
 }

@@ -54,9 +54,11 @@ test('Q remains empowered after four seconds and expires at six', async ({ page 
     w.step(240);
   });
   const button = page.locator('[data-ability="q"]');
+  await expect(page.locator('#as')).toHaveText('0.79');
   await expect(button).toHaveClass(/empowered/);
   await page.evaluate(() => (window as any).__GAME__.world.step(119));
   await expect(button).toHaveClass(/empowered/);
   await page.evaluate(() => (window as any).__GAME__.world.step());
   await expect(button).not.toHaveClass(/empowered/);
+  await expect(page.locator('#as')).toHaveText('0.66');
 });

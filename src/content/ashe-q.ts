@@ -3,5 +3,13 @@ export const ASHE_Q = {
   "durationSeconds": 6.0,
   "stackSeconds": 4.0,
   "falloffSeconds": 1.0,
-  "maxStacks": 4.0
+  "maxStacks": 4.0,
+  "bonusAttackSpeedByRank": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6
+  ],
+  "attackSpeedRatio": 0.658
 } as const;

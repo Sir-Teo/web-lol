@@ -716,7 +716,12 @@ export class World {
     this.projectiles = this.winner ? [] : survivors;
   }
   attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {
-    if (source.id === this.player.id && this.player.qUntil > this.tick) return 1.4;
+    if (source.id === this.player.id && this.player.qUntil > this.tick) {
+      // Q is rank one until skill-point allocation is implemented. Its bonus
+      // adds ratio-scaled attacks/second, not a multiplier on existing bonuses.
+      const bonus = ASHE_Q.attackSpeedRatio * ASHE_Q.bonusAttackSpeedByRank[0];
+      return 1 + (bonus * source.attackPeriod) / TICK_RATE;
+    }
     if (source.kind === 'siege' && target?.kind === 'turret' && target.structure?.lane === 'mid')
       return 1 + (this.battlefield.siegeMidTurretAttackSpeedBonus ?? 0);
     return 1;
