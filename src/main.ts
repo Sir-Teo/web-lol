@@ -11,6 +11,7 @@ import { loadHawkshotWind } from './render/hawkshot-wind';
 import { loadHawkshotDust } from './render/hawkshot-dust';
 import { loadHawkshotSmoke } from './render/hawkshot-smoke';
 import { loadHawkshotArrival } from './render/hawkshot-arrival';
+import { loadHawkshotSparkle } from './render/hawkshot-sparkle';
 import { loadHawkshot } from './render/hawkshot';
 import { loadRiftBattlefield } from './content/rift';
 import { PRACTICE_FIXTURE } from './content/practice-fixture';
@@ -84,6 +85,7 @@ async function boot(): Promise<void> {
     loadHawkshotDust(),
     loadHawkshotSmoke(),
     loadHawkshotArrival(),
+    loadHawkshotSparkle(),
     view.loadEnvironment(),
   ]);
   const pauseForInterruption = () => {
