@@ -66,6 +66,8 @@ export class Hud {
     host.append(this.root);
     this.tip = document.createElement('div');
     this.tip.className = 'tooltip';
+    this.tip.id = 'ability-tooltip';
+    this.tip.setAttribute('role', 'tooltip');
     this.tip.hidden = true;
     this.root.append(this.tip);
     this.floating = document.createElement('div');
@@ -206,15 +208,28 @@ export class Hud {
     });
     this.root.querySelectorAll<HTMLButtonElement>('[data-ability]').forEach((button) => {
       const ability = button.dataset.ability as Ability;
-      button.addEventListener('pointerenter', () => {
+      const showTooltip = () => {
+        if (this.modal) return;
         const spec = ABILITIES[ability];
-        this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${spec.cost} MANA <span>·</span> ${spec.cooldown}s COOLDOWN</div><p>${spec.description}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
+        this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${spec.cost ? `${spec.cost} MANA` : 'NO COST'} <span>·</span> ${spec.cooldown ? `${spec.cooldown}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${spec.description}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
+        this.root
+          .querySelectorAll('[aria-describedby="ability-tooltip"]')
+          .forEach((element) => element.removeAttribute('aria-describedby'));
+        this.tip.dataset.tooltipAbility = ability;
         this.tip.hidden = false;
+        button.setAttribute('aria-describedby', this.tip.id);
         const rect = button.getBoundingClientRect();
         this.tip.style.left = `${Math.min(rect.left, window.innerWidth - 330)}px`;
         this.tip.style.bottom = `${window.innerHeight - rect.top + 14}px`;
-      });
-      button.addEventListener('pointerleave', () => (this.tip.hidden = true));
+      };
+      const hideTooltip = () => {
+        if (this.tip.dataset.tooltipAbility === ability) this.tip.hidden = true;
+        button.removeAttribute('aria-describedby');
+      };
+      button.addEventListener('pointerenter', showTooltip);
+      button.addEventListener('pointerleave', hideTooltip);
+      button.addEventListener('focus', showTooltip);
+      button.addEventListener('blur', hideTooltip);
       button.addEventListener('click', () => {
         if (this.paused || this.modal) return;
         if (ability === 'q' || ability === 'f')

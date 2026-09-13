@@ -24,7 +24,7 @@ export const ABILITIES: Record<
 > = {
   q: {
     name: 'Ranger’s Focus',
-    description: `Build 4 Focus with attacks. Consume Focus to gain attack speed for ${ASHE_Q.durationSeconds} seconds.`,
+    description: `Build 4 Focus with attacks. Consume Focus to gain ${ASHE_Q.bonusAttackSpeedByRank[0] * 100}% attack speed for ${ASHE_Q.durationSeconds} seconds and empower attacks to deal ${Math.round(ASHE_Q.damageMultiplierByRank[0] * 100)}% damage. Activating resets your attack timer.`,
     cooldown: 0,
     cost: 30,
     range: 600,
@@ -68,7 +68,7 @@ export const ABILITIES: Record<
   },
   f: {
     name: 'Heal',
-    description: 'Restore health and gain a brief burst of movement speed.',
+    description: `Restore ${SUMMONER_HEAL.minimumHeal}–${SUMMONER_HEAL.maximumHeal} health, based on your level, to yourself and one nearby allied champion. Both gain ${SUMMONER_HEAL.speedBonus * 100}% movement speed for ${SUMMONER_HEAL.speedDurationSeconds} second. Healing is reduced by ${100 - SUMMONER_HEAL.repeatHealMultiplier * 100}% on targets recently affected by Summoner Heal.`,
     cooldown: SUMMONER_HEAL.cooldownSeconds,
     canCastWhileDisabled: SUMMONER_HEAL.canCastWhileDisabled,
     preservesRecall: SUMMONER_HEAL.preservesRecall,
