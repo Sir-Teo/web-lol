@@ -1590,3 +1590,10 @@ button {
 .spell-ranks i.learned {
   background: #cfb46e;
 }
+
+.unit-hp .unit-shield {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(#f4f4ec, #c0c7cf);
+}

@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 40 requires per-unit shield grants, preserving remaining capacity, allied champion ownership and active deadlines. Dead/nonchampion recipients, invalid owners, nonpositive amounts, expired grants and nonfinite total capacity are rejected.
+
 Version 39 adds Final Spark's retained beam visuals and required origin/endpoint on Lux R windups. Cast timing is validated per champion; beam range, lifetime, owner and entity identity are validated across save/load. Lux R ranks are now permitted while W/E remain unavailable.
 
 Version 38 requires per-unit Illumination marks with enemy Lux ownership and active deadlines. It rejects duplicate owners, dead or structural targets, unknown/non-Lux/allied sources, expired marks and deadlines beyond the six-second maximum. Target death and respawn clear marks; caster death does not remove marks on other units.

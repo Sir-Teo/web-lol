@@ -65,6 +65,7 @@ export class GameView {
     HTMLDivElement,
     {
       health: HTMLElement;
+      shield: HTMLElement;
       mana: HTMLElement;
       status: HTMLElement;
     }
@@ -689,12 +690,13 @@ export class GameView {
       bar.className = `unit-bar ${u.team} ${u.kind}`;
       bar.dataset.unit = String(u.id);
       bar.innerHTML =
-        '<div class="unit-name"></div><div class="unit-hp"><i></i></div><div class="unit-mana"><i></i></div><div class="unit-status"></div>';
+        '<div class="unit-name"></div><div class="unit-hp"><i></i><span class="unit-shield"></span></div><div class="unit-mana"><i></i></div><div class="unit-status"></div>';
       bar.querySelector('.unit-name')!.textContent = u.name;
       this.bars.append(bar);
       this.healthBars.set(u.id, bar);
       this.barParts.set(bar, {
         health: bar.querySelector<HTMLElement>('.unit-hp i')!,
+        shield: bar.querySelector<HTMLElement>('.unit-shield')!,
         mana: bar.querySelector<HTMLElement>('.unit-mana i')!,
         status: bar.querySelector<HTMLElement>('.unit-status')!,
       });
@@ -706,15 +708,21 @@ export class GameView {
     const hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
     if (bar.hidden !== hidden) bar.hidden = hidden;
     if (bar.hidden) return;
-    if (u.kind === 'champion' && bar.dataset.maxHealth !== String(u.maxHp)) {
+    const shield = world.shieldAmount(u);
+    const capacity = Math.max(u.maxHp, u.hp + shield);
+    if (u.kind === 'champion' && bar.dataset.maxHealth !== String(capacity)) {
       // Health-based divisions; their pixel styling remains pending reference calibration.
-      bar.style.setProperty('--health-hundred', `${10000 / Math.max(1, u.maxHp)}%`);
-      bar.style.setProperty('--health-thousand', `${100000 / Math.max(1, u.maxHp)}%`);
-      bar.dataset.maxHealth = String(u.maxHp);
+      bar.style.setProperty('--health-hundred', `${10000 / Math.max(1, capacity)}%`);
+      bar.style.setProperty('--health-thousand', `${100000 / Math.max(1, capacity)}%`);
+      bar.dataset.maxHealth = String(capacity);
     }
     bar.style.transform = `translate(${screen.x}px,${screen.y}px) translate(-50%,-100%)`;
     const parts = this.barParts.get(bar)!;
-    parts.health.style.width = `${(u.hp / u.maxHp) * 100}%`;
+    parts.health.style.width = `${(u.hp / capacity) * 100}%`;
+    parts.shield.style.left = `${(u.hp / capacity) * 100}%`;
+    parts.shield.style.width = `${(shield / capacity) * 100}%`;
+    parts.shield.hidden = shield === 0;
+    parts.shield.title = `${Math.ceil(shield)} shield`;
     parts.mana.style.width = `${(u.mana / (u.maxMana || 1)) * 100}%`;
     const protectedUnit = !world.vulnerable(u);
     if (bar.classList.contains('invulnerable') !== protectedUnit)

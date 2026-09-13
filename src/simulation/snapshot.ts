@@ -11,7 +11,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 39;
+export const SNAPSHOT_VERSION = 40;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -92,6 +92,9 @@ const unit: z.ZodType<Unit> = z
       .nullable(),
     stunUntil: deadline,
     rootUntil: deadline,
+    shields: z
+      .array(z.strictObject({ sourceId: id, amount: z.number().positive(), endTick: tick }))
+      .max(10000),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
     summonerHealReductionUntil: tick,
     summonerHealSpeedUntil: deadline,
@@ -420,6 +423,20 @@ export function decodeSnapshot(text: string) {
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {
+    if (!Number.isFinite(target.shields.reduce((sum, shield) => sum + shield.amount, 0)))
+      throw new Error('Saved match contains excessive shields.');
+    for (const shield of target.shields) {
+      const source = state.units.find((u) => u.id === shield.sourceId);
+      if (
+        target.kind !== 'champion' ||
+        target.deadAt !== null ||
+        !source ||
+        source.kind !== 'champion' ||
+        source.team !== target.team ||
+        shield.endTick <= state.tick
+      )
+        throw new Error('Saved match contains an invalid shield.');
+    }
     const sources = new Set<number>();
     for (const mark of target.illumination) {
       const source = state.units.find((unit) => unit.id === mark.sourceId);

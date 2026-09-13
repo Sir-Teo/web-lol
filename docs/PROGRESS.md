@@ -1446,3 +1446,9 @@ All 538 source/simulation checks, three focused Lux Chrome scenarios and product
 Resolved the base skin's shared particle binary directly from the pinned Riot archive after public shared-JSON paths failed. Verified six complete emitters and six original textures, then replaced the temporary canvas ribbon with native warning, rainbow core, flash and glow layers. Source emission delay is exactly one second. Animation follows saved simulation time, including authored scale/tint/UV curves and projected beam offsets.
 
 All 538 source/simulation checks, two focused Lux Chrome scenarios and production smoke pass. The exporter verifies original hashes and decoded RGBA pixels; exported textures total 55,341 bytes. Inspected the composite and verified matching geometry/tint/primary UVs after save restoration. Six of 45 beam emitters are integrated; full particle, audio, UV/width/height calibration and wider performance gates remain unfinished. See `LUX-BEAM-LAYERS.md`.
+
+## Saved shields and Prismatic Barrier source audit
+
+Pinned W parent/child records and separated standard data from a recent League Classic change. Added independent allied champion shield grants, resistance-before-shield absorption, overflow health damage, expiry/death cleanup and snapshot 40 validation. Fully absorbed damage preserves recall while maintaining combat contribution; shield absorption contributes to the existing omnivamp calculation. Overhead bars show white shield capacity and bot finish estimates include active shields.
+
+All 545 source/simulation checks, five focused Chrome scenarios and production smoke pass. Inspected the shield bar. W's actual cast/outgoing-return flight, two-application/stacking rules, native shield particles, support credit and broader shield exceptions remain unfinished; W stays unavailable. Native comparison of absorption ordering, recall/omnivamp interaction and bar scaling remains open. See `SHIELDS.md` for evidence and limitations.

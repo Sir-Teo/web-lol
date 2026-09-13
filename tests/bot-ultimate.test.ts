@@ -51,6 +51,7 @@ test('ultimate decisions respect visibility, magic resistance, resources, rank a
     'hidden',
     'resist',
     'health',
+    'shield',
     'mana',
     'cooldown',
     'unlearned',
@@ -61,6 +62,7 @@ test('ultimate decisions respect visibility, magic resistance, resources, rank a
     if (reason === 'hidden') w.battlefield.lineOfSight = () => false;
     if (reason === 'resist') w.hero.magicResist = 1000;
     if (reason === 'health') w.hero.hp = w.hero.maxHp;
+    if (reason === 'shield') w.applyShield(w.hero, w.hero, 1000, 150);
     if (reason === 'mana') bot.mana = 0;
     if (reason === 'cooldown') state.cooldowns.r = 10000;
     if (reason === 'unlearned') state.spellRanks.r = 0;

@@ -213,6 +213,7 @@ export class World {
       criticalSlow: null,
       stunUntil: 0,
       rootUntil: 0,
+      shields: [],
       illumination: [],
       summonerHealReductionUntil: 0,
       summonerHealSpeedUntil: 0,
@@ -345,6 +346,9 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    for (const unit of this.units)
+      if (unit.shields.length)
+        unit.shields = unit.shields.filter((shield) => shield.endTick > this.tick);
     this.luxBeams = this.luxBeams.filter(
       (beam) => this.tick < beam.startTick + LUX_R.presentationSeconds * TICK_RATE
     );
@@ -718,7 +722,7 @@ export class World {
       const d = distance(u, target) - target.radius;
       if (
         d > u.range ||
-        target.hp > damageAfterResistance(raw, target.armor) ||
+        target.hp + this.shieldAmount(target) > damageAfterResistance(raw, target.armor) ||
         !this.safeAttackPosition(u, target)
       )
         continue;
@@ -874,7 +878,8 @@ export class World {
       const d = distance(u, target);
       if (d > closest) continue;
       if (purpose === 'finish') {
-        if (target.hp > damageAfterResistance(raw, target.magicResist)) continue;
+        if (target.hp + this.shieldAmount(target) > damageAfterResistance(raw, target.magicResist))
+          continue;
       } else {
         // React to visible attacks on this bot, not hidden orders or intent.
         const attacking = target.releaseTick !== null && target.attackTarget === u.id;
@@ -1687,6 +1692,32 @@ export class World {
     }
     return contributors;
   }
+  shieldAmount(target: Unit): number {
+    return target.shields.reduce(
+      (sum, shield) => sum + (shield.endTick > this.tick ? shield.amount : 0),
+      0
+    );
+  }
+  /** Independent shield grants; ability-specific stacking belongs to the spell adapter. */
+  applyShield(source: Unit, target: Unit, amount: number, durationTicks: number): void {
+    if (
+      this.winner ||
+      !this.units.includes(source) ||
+      !this.units.includes(target) ||
+      source.kind !== 'champion' ||
+      target.kind !== 'champion' ||
+      source.team !== target.team ||
+      !this.alive(target) ||
+      !Number.isFinite(amount) ||
+      amount <= 0 ||
+      !Number.isSafeInteger(durationTicks) ||
+      durationTicks <= 0 ||
+      !Number.isSafeInteger(this.tick + durationTicks) ||
+      !Number.isFinite(this.shieldAmount(target) + amount)
+    )
+      return;
+    target.shields.push({ sourceId: source.id, amount, endTick: this.tick + durationTicks });
+  }
   damage(
     source: Unit,
     target: Unit,
@@ -1698,8 +1729,23 @@ export class World {
     const resistance =
       kind === 'physical' ? target.armor : kind === 'magic' ? target.magicResist : 0;
     const amount = damageAfterResistance(raw, resistance);
-    const healthLost = Math.min(target.hp, Math.max(0, amount));
-    target.hp = Math.max(0, target.hp - amount);
+    let remainder = Math.max(0, amount);
+    let absorbed = 0;
+    // Earliest-expiring shield first; stable insertion order breaks equal-deadline ties.
+    target.shields.sort((a, b) => a.endTick - b.endTick);
+    for (const shield of target.shields) {
+      if (shield.endTick <= this.tick) continue;
+      const used = Math.min(shield.amount, remainder);
+      shield.amount -= used;
+      remainder -= used;
+      absorbed += used;
+      if (remainder === 0) break;
+    }
+    target.shields = target.shields.filter(
+      (shield) => shield.amount > 0 && shield.endTick > this.tick
+    );
+    const healthLost = Math.min(target.hp, remainder);
+    target.hp = Math.max(0, target.hp - remainder);
     const attacker = this.championState(source.id);
     if (
       attacker?.inventory.includes('blade') &&
@@ -1711,7 +1757,7 @@ export class World {
         category === 'area' && isLaneMinionKind(target.kind) ? MINION_AREA_OMNIVAMP_MULTIPLIER : 1;
       const healing = Math.min(
         source.maxHp - source.hp,
-        healthLost * DORANS_BLADE_OMNIVAMP * effectiveness
+        (healthLost + absorbed) * DORANS_BLADE_OMNIVAMP * effectiveness
       );
       if (healing > 0) {
         source.hp += healing;
@@ -1721,7 +1767,7 @@ export class World {
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
     const targetState = this.championState(target.id);
     if (targetState) {
-      targetState.recallEnd = null;
+      if (healthLost > 0) targetState.recallEnd = null;
       if (amount > 0 && source.team !== target.team && this.championState(source.id)) {
         const index = targetState.damageContributors.findIndex(
           (entry) => entry.sourceId === source.id
@@ -1747,6 +1793,7 @@ export class World {
         (p) => p.target !== target.id
       );
       target.deadAt = this.tick;
+      target.shields = [];
       target.illumination = [];
       target.releaseTick = null;
       target.attackCycle = null;
@@ -1930,6 +1977,7 @@ export class World {
     u.releaseTick = null;
     u.stunUntil = 0;
     u.rootUntil = 0;
+    u.shields = [];
     u.illumination = [];
     u.aiRetreating = false;
     u.slowUntil = 0;
