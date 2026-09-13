@@ -591,11 +591,14 @@ export class World {
         this.setOrder(u, { type: 'move', point: home });
       return;
     }
+    // Keep a valid committed windup; retargeting through setOrder would cancel it.
+    if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
     const target = this.nearest(u, 1150);
     if (target) {
       const d = distance(u, target);
-      if (d < 380 && target.kind === 'champion' && this.tick > (u.releaseTick ?? 0)) {
-        const away = direction(target, u);
+      if (d < 380 && target.kind === 'champion' && this.tick < u.nextAttackTick) {
+        let away = direction(target, u);
+        if (away.x === 0 && away.y === 0) away = direction(u, this.battlefield.spawns[u.team]);
         this.setOrder(u, { type: 'move', point: { x: u.x + away.x * 180, y: u.y + away.y * 180 } });
       } else if (u.order.type !== 'attack' || u.order.target !== target.id)
         this.setOrder(u, { type: 'attack', target: target.id });

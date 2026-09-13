@@ -822,3 +822,11 @@ The hosting change exposed four audio integrity-test path failures: relative ass
 Added `npm run test:production`, a reproducible production-build smoke test with a strict static server beneath `/nested/rift/` and no root fallback. It verifies map load/navigation, map-to-practice navigation, all nine source audio requests, no development hook, real keyboard/mouse aim and Hawkshot charge consumption, and zero console/request errors or requests outside the deployment prefix. Its game screenshot was inspected and confirms terrain, champion, HUD and effect rendering. The helper uses an ephemeral local port and closes its browser/server.
 
 All 292 source/simulation checks and the production build/smoke pass. The existing lightweight deployment workflow remains unchanged. This verifies local production subdirectory behavior, not the current remote deployment or a full-match/browser-performance certification. Native reference calibration and the broader production match remain unfinished.
+
+## Sparring bot attack commitment and recovery movement
+
+Corrected a close-range decision bug that made a ready bot retreat instead of attacking. Bots now reserve close-range movement for attack recovery and retain valid committed windups when another target becomes nearer. Target visibility and low-health escape still take priority where appropriate. Coincident opponents use a fountain-directed escape instead of a zero vector.
+
+All 298 source/simulation checks, the focused Chrome pursuit/pause scenario, and the nested-path production build/smoke pass. The initial three regression scenarios failed before the correction. Additional cases protect hidden-target cancellation, emergency retreat, checkpoint determinism and overlapping-unit escape. The browser capture was repeated after adding an explicit loading-screen wait and inspected. Full browser regression and full-match performance were not repeated.
+
+Bot spellcasting remains disabled by single-human ability-state ownership. The required ownership separation and remaining 5v5 gaps are recorded in [bot combat notes](BOTS.md); this change improves the sparring bot without claiming native AI or complete matches.
