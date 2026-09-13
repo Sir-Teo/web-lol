@@ -63,6 +63,23 @@ for (const ability of ['w', 'e', 'r']) {
         clip: pose().clip,
       };
       w.step();
+      const after = w.projectiles.length;
+      w.step(20);
+      v.render(w, 1, v.previousElapsed + 0.1);
+      const recovery = pose();
+      v.render(w, 1, v.previousElapsed + 10);
+      const recoveryPaused = pose();
+      const recoverySave = w.snapshot(),
+        recoveryModel = v.models.get(w.hero.id);
+      v.scene.remove(recoveryModel.root);
+      disposeModel(recoveryModel);
+      v.models.delete(w.hero.id);
+      w = World.fromSnapshot(recoverySave, w.battlefield);
+      v.render(w, 1, v.previousElapsed + 0.1);
+      const recoveryRestored = pose();
+      w.step(150);
+      v.render(w, 1, v.previousElapsed + 0.1);
+      const completedClip = pose().clip;
       return {
         initial,
         paused,
@@ -70,7 +87,11 @@ for (const ability of ['w', 'e', 'r']) {
         arrowsBefore,
         beforeRelease,
         release,
-        after: w.projectiles.length,
+        after,
+        recovery,
+        recoveryPaused,
+        recoveryRestored,
+        completedClip,
       };
     }, ability);
     expect(result.initial.clip).toBe(
@@ -85,7 +106,13 @@ for (const ability of ['w', 'e', 'r']) {
     const count = ability === 'w' ? 7 : 1;
     expect(result.release.count).toBe(count);
     expect(result.release.pending).toBeNull();
-    expect(result.release.clip).toBe('idle1');
+    expect(result.release.clip).toBe(result.initial.clip);
+    expect(result.recovery.clip).toBe(result.initial.clip);
+    expect(result.recovery.time).toBeCloseTo(0.6);
+    expect(result.recovery.bones).not.toEqual(result.initial.bones);
+    expect(result.recoveryPaused).toEqual(result.recovery);
+    expect(result.recoveryRestored).toEqual(result.recovery);
+    expect(result.completedClip).toBe('idle1');
     expect(result.release.remaining).toBeCloseTo(
       ability === 'w' ? 1175 : ability === 'e' ? 1200 - 1400 / 60 : 25000 - (1500 / 60 + 100 / 3600)
     );

@@ -454,8 +454,12 @@ export class GameView {
         const recalling =
           u.deadAt === null && u.id === world.player.id && world.player.recallEnd !== null;
         const cast =
-          u.id === world.player.id && u.deadAt === null ? world.player.pendingCast : null;
-        if (cast) {
+          u.id === world.player.id && u.deadAt === null ? world.player.castAnimation : null;
+        const castAge = cast ? Math.max(0, world.tick - cast.startTick + alpha - 1) / TICK_RATE : 0;
+        if (
+          cast &&
+          castAge < model.actions[ASHE_CASTS[cast.ability].animation].getClip().duration
+        ) {
           const name = ASHE_CASTS[cast.ability].animation,
             action = model.actions[name];
           if (model.actionName !== name) {
@@ -463,7 +467,7 @@ export class GameView {
             action.reset().setLoop(THREE.LoopOnce, 1).play();
             model.actionName = name;
           }
-          action.time = Math.max(0, world.tick - cast.startTick + alpha - 1) / TICK_RATE;
+          action.time = castAge;
           action.setEffectiveWeight(1);
           action.paused = true;
           model.mixer.update(0);

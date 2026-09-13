@@ -36,6 +36,7 @@ for (const ability of ['w', 'e', 'r'] as const) {
     for (const world of [w, restored]) {
       world.step();
       expect(world.player.pendingCast).toBeNull();
+      expect(world.player.castAnimation).toBeNull();
       expect(world.projectiles).toHaveLength(count);
       expect(world.projectiles[Math.floor(count / 2)].previous).toEqual(origin);
       expect(world.projectiles[Math.floor(count / 2)].direction).toEqual({ x: 1, y: 0 });
@@ -122,3 +123,74 @@ for (const ability of ['w', 'e', 'r'] as const) {
     expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow();
   });
 }
+
+for (const ability of ['w', 'e', 'r'] as const) {
+  test(`${ability} retains recovery through release and Heal, but actions cancel it permanently`, () => {
+    for (const interrupt of [
+      'move',
+      'idle',
+      'attack',
+      'recall',
+      'stun',
+      'death',
+      'q',
+      'd',
+      'spell',
+    ] as const) {
+      const w = new World(false);
+      w.nextWaveTick = Infinity;
+      const point = { x: w.hero.x + 400, y: w.hero.y };
+      w.enqueue({ type: 'cast', unit: w.hero.id, ability, point });
+      w.step(16);
+      expect(w.player.pendingCast).toBeNull();
+      expect(w.player.castAnimation).toEqual({ ability, startTick: 1 });
+      w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'f', point });
+      w.step();
+      const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+      expect(restored.player.castAnimation).toEqual(w.player.castAnimation);
+      if (interrupt === 'move' || interrupt === 'idle')
+        w.setOrder(w.hero, interrupt === 'move' ? { type: 'move', point } : { type: 'idle' });
+      else if (interrupt === 'attack') {
+        const target = w.spawn('dummy', 'red', point);
+        w.setOrder(w.hero, { type: 'attack', target: target.id });
+      } else if (interrupt === 'recall') w.enqueue({ type: 'recall', unit: w.hero.id });
+      else if (interrupt === 'stun') w.hero.stunUntil = w.tick + 2;
+      else if (interrupt === 'death') w.damage(w.spawn('dummy', 'red', point), w.hero, 1e6, 'true');
+      else {
+        w.player.qStacks = 4;
+        w.player.qStackExpiry = w.tick + 240;
+        w.enqueue({
+          type: 'cast',
+          unit: w.hero.id,
+          ability: interrupt === 'spell' ? (ability === 'w' ? 'e' : 'w') : interrupt,
+          point,
+        });
+      }
+      w.step();
+      if (interrupt === 'spell') {
+        expect(w.player.castAnimation?.ability).not.toBe(ability);
+        expect(w.player.castAnimation?.startTick).toBe(w.tick);
+      } else {
+        expect(w.player.castAnimation).toBeNull();
+        w.step(3);
+        expect(w.player.castAnimation).toBeNull();
+      }
+    }
+  });
+}
+
+test('saved cast presentation rejects missing, mismatched and future timelines', () => {
+  const w = new World(false);
+  w.enqueue({
+    type: 'cast',
+    unit: w.hero.id,
+    ability: 'w',
+    point: { x: w.hero.x + 500, y: w.hero.y },
+  });
+  w.step();
+  for (const animation of [null, { ability: 'e', startTick: 1 }, { ability: 'w', startTick: 2 }]) {
+    const saved = JSON.parse(w.snapshot());
+    saved.player.castAnimation = animation;
+    expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow();
+  }
+});

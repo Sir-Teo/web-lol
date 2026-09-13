@@ -142,6 +142,8 @@ export interface PlayerState {
   eCharges: number;
   eRechargeTick: number | null;
   recallEnd: number | null;
+  /** Presentation can finish after the gameplay windup, until another action takes over. */
+  castAnimation: { ability: 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {
     ability: 'w' | 'e' | 'r';
     startTick: number;

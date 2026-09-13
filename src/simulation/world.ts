@@ -70,6 +70,7 @@ export class World {
       eCharges: ASHE_E.maximumCharges,
       eRechargeTick: null,
       recallEnd: null,
+      castAnimation: null,
       pendingCast: null,
       inventory: [],
     };
@@ -278,7 +279,10 @@ export class World {
     u.pathTarget = null;
     u.pathDestination = null;
     u.nextPathTick = this.tick;
-    if (u.id === this.player.id) this.player.recallEnd = null;
+    if (u.id === this.player.id) {
+      this.player.recallEnd = null;
+      if (!this.player.pendingCast) this.player.castAnimation = null;
+    }
   }
   step(count = 1): void {
     for (let i = 0; i < count && !this.winner; i++) this.update();
@@ -347,6 +351,7 @@ export class World {
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage);
       }
       if (u.stunUntil > this.tick) {
+        if (u.id === this.player.id) this.player.castAnimation = null;
         u.attackCycle = null;
         if (u.releaseTick !== null) {
           u.releaseTick = null;
@@ -669,6 +674,7 @@ export class World {
           u.attackTarget = target.id;
           u.releaseTick = this.tick + Math.round(u.windupTicks / speed);
           u.nextAttackTick = this.tick + Math.round(u.attackPeriod / speed);
+          if (u.id === this.player.id) this.player.castAnimation = null;
           u.attackCycle = {
             startTick: this.tick,
             endTick: u.nextAttackTick,
@@ -724,6 +730,7 @@ export class World {
       }
       const dir = direction(u, waypoint),
         amount = Math.min(d, remaining);
+      if (u.id === this.player.id) this.player.castAnimation = null;
       u.x += dir.x * amount;
       u.y += dir.y * amount;
       u.facing = Math.atan2(dir.x, dir.y);
@@ -937,6 +944,7 @@ export class World {
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         this.player.pendingCast = null;
+        this.player.castAnimation = null;
         this.projectiles.length = 0;
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
@@ -945,6 +953,7 @@ export class World {
       if (target.id === this.player.id) {
         this.player.deaths++;
         this.player.pendingCast = null;
+        this.player.castAnimation = null;
         this.player.recallEnd = null;
         this.player.qStacks = 0;
         this.player.qStackExpiry = 0;
@@ -1064,6 +1073,7 @@ export class World {
     u.mana -= spec.cost;
     this.player.cooldowns[ability] = this.tick + spec.cooldown * TICK_RATE;
     if (!spec.preservesRecall) this.player.recallEnd = null;
+    if (ability !== 'f') this.player.castAnimation = null;
     this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
     if (ability === 'q') {
       this.player.qStacks = 0;
@@ -1085,6 +1095,7 @@ export class World {
       u.attackTarget = null;
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
+      this.player.castAnimation = { ability, startTick: this.tick };
       this.player.pendingCast = {
         ability,
         startTick: this.tick,

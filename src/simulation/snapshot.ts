@@ -7,7 +7,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 19;
+export const SNAPSHOT_VERSION = 20;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -136,6 +136,7 @@ const player: z.ZodType<PlayerState> = z
     eCharges: z.number().int().min(0).max(ASHE_E.maximumCharges),
     eRechargeTick: tick.nullable(),
     recallEnd: deadline.nullable(),
+    castAnimation: z.strictObject({ ability: z.enum(['w', 'e', 'r']), startTick: tick }).nullable(),
     pendingCast: z
       .strictObject({
         ability: z.enum(['w', 'e', 'r']),
@@ -258,6 +259,17 @@ export function decodeSnapshot(text: string) {
       state.player.recallEnd !== null)
   )
     throw new Error('Saved match contains an invalid pending cast.');
+  const animation = state.player.castAnimation;
+  if (
+    (animation &&
+      (animation.startTick > state.tick ||
+        hero.deadAt !== null ||
+        state.winner !== null ||
+        state.player.recallEnd !== null)) ||
+    (cast &&
+      (!animation || animation.ability !== cast.ability || animation.startTick !== cast.startTick))
+  )
+    throw new Error('Saved match contains an invalid cast animation.');
   return state;
 }
 
