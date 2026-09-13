@@ -55,7 +55,8 @@ export interface Unit extends Vec2 {
   lane: number | null;
   laneWaypoint: number;
   attackTarget: number | null;
-  attackCycle: { startTick: number; endTick: number } | null;
+  /** Empowerment is captured at attack start for source animation selection. */
+  attackCycle: { startTick: number; endTick: number; empowered: boolean } | null;
   releaseTick: number | null;
   nextAttackTick: number;
   slowUntil: number;

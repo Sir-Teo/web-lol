@@ -17,10 +17,10 @@ function attacking() {
 
 test('scheduled attack cycle survives buff expiry, baseline changes and checkpoint restoration', () => {
   const { world } = attacking();
-  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 77 });
+  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 77, empowered: true });
   world.step(5);
   world.hero.attackPeriod = 120;
-  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 77 });
+  expect(world.hero.attackCycle).toEqual({ startTick: 1, endTick: 77, empowered: true });
   const restored = World.fromSnapshot(world.snapshot(), world.battlefield);
   expect(restored.hero.attackCycle).toEqual(world.hero.attackCycle);
   for (let i = 0; i < 150; i++) {
@@ -49,4 +49,39 @@ test('snapshot decoder rejects reversed and zero-duration attack cycles', () => 
     saved.units.find((u: { id: number }) => u.id === world.hero.id).attackCycle.endTick = endTick;
     expect(() => World.fromSnapshot(JSON.stringify(saved), world.battlefield)).toThrow();
   }
+});
+
+test('animation empowerment is captured at start and only changes on the next cycle', () => {
+  const world = new World(false);
+  world.nextWaveTick = Infinity;
+  const target = world.spawn('dummy', 'red', { x: world.hero.x + 300, y: world.hero.y });
+  world.setOrder(world.hero, { type: 'attack', target: target.id });
+  world.step();
+  expect(world.hero.attackCycle!.empowered).toBe(false);
+  world.player.qUntil = 1000;
+  world.step(10);
+  expect(world.hero.attackCycle!.empowered).toBe(false);
+  const next = world.hero.attackCycle!.endTick;
+  world.step(next - world.tick);
+  expect(world.hero.attackCycle!.empowered).toBe(true);
+  world.player.qUntil = 0;
+  world.step();
+  expect(world.hero.attackCycle!.empowered).toBe(true);
+});
+
+test('snapshots require an explicit boolean attack animation state', () => {
+  const { world } = attacking();
+  for (const empowered of [undefined, null, 1, 'true']) {
+    const saved = JSON.parse(world.snapshot());
+    saved.units.find((u: { id: number }) => u.id === world.hero.id).attackCycle.empowered =
+      empowered;
+    expect(() => World.fromSnapshot(JSON.stringify(saved), world.battlefield)).toThrow();
+  }
+});
+
+test('snapshots reject empowered clips on minion rigs', () => {
+  const { world } = attacking();
+  const minion = world.spawn('melee', 'blue', world.hero);
+  minion.attackCycle = { startTick: 1, endTick: 77, empowered: true };
+  expect(() => World.fromSnapshot(world.snapshot(), world.battlefield)).toThrow();
 });

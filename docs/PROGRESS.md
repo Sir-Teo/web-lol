@@ -562,3 +562,12 @@ Replaced the looping Channel approximation with the source Recall sequence, Idle
 All 226 simulation/source checks, six distinct focused Chrome scenarios, production build and production smoke pass. Tests verify the sequence against the binary-verified graph, both stages and exact paused/restored bone transforms, plus attack/death/run regressions. Both recall stage screenshots were inspected. The full browser suite and asset validation were not repeated; assets did not change.
 
 Native transition blending, recall VFX/audio and reference-pixel calibration remain unfinished. The complete production goal remains active. See [recall evidence and playback scope](ASHE-RECALL.md).
+
+
+## Ashe empowered attack animation milestone
+
+Q attack cycles now select the source Spell1 clip instead of ordinary Attack1. The exporter verifies the spell's animation field against the existing pinned source and base graph. Cycle creation captures animation empowerment once; later buff changes do not switch a running clip. Snapshot version 16 preserves that flag and rejects missing/non-boolean flags or empowered minion rigs. Existing cycle-based playback timing, cancellation and death behavior remain intact.
+
+All 229 simulation/source checks, 14 distinct focused Chrome scenarios, production build and production smoke pass. Browser coverage checks normal and empowered phases, pause, exact restored bone transforms after expiry, Q behavior, recall, death, cancellation and checkpoint compatibility. Both attack screenshots were inspected after correcting the capture's loading-overlay wait. Q parameter regeneration is byte-identical. The full browser suite and unchanged asset validation were not repeated.
+
+The Q flurry still uses aggregate projectile damage. Five-arrow sequencing, source release-frame alignment, activation/reset behavior, complete spell cast timing and pixel calibration remain outstanding. This milestone does not complete the production goal. See [Q evidence and scope](ASHE-Q.md#source-empowered-attack-animation).

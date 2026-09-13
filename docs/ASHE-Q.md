@@ -51,3 +51,14 @@ Three simulation cases compare normal/empowered attacks against armor, preserve 
 The records specify a right-hand start bone and target-height offsets. The Q records also expose distinct on-hit/no-on-hit spell identities and the `Ashe_Q_mis` effect key. They do not encode an inter-arrow launch delay in the selected missile specifications. These facts alone are insufficient to implement the complete five-arrow sequence, animation/event binding or damage classifications. Those remain research/implementation work; the current aggregate Q representation remains explicit.
 
 A simulation case checks ordinary and empowered arrows moving exactly 2,500/60 units on their first flight tick, impact timing from the current collision geometry, and identical saved continuation. These are local simulation guarantees, not proof of reference collision-radius parity.
+
+
+## Source empowered attack animation
+
+The pinned `AsheQAttack` spell record selects `Spell1`, distinct from Q activation's `Spell3`. The Q exporter now verifies that record against the existing attack-projectile source pin and confirms its clip exists in the base animation graph. It exports the lowercase runtime clip name. The model loader requires the selected source clip.
+
+Each attack cycle records whether the player's Q was active when that cycle began. The renderer plays the 1.800000-second Spell1 clip for those cycles, while ordinary attacks retain Attack1. Both clips use the existing scheduled-cycle speed and phase calculation. Buff expiry and later activation do not change an animation already underway. The flag describes animation selection at attack start; aggregate damage is still sampled at release as documented above.
+
+Snapshot version 16 requires a boolean empowerment flag on every non-null attack cycle and rejects empowered cycles on non-champion rigs. Late rendering and fresh restored rigs seek the same pose even after Q expires. Cancellation, stun, invalid targets and death still clear the scheduled presentation. Tests cover both ordinary and empowered phases, frozen/restored bone transforms, immutable selection across buff changes, and malformed checkpoint rejection. The generated parameter file rebuilds byte-identically.
+
+This adds the original attack clip, not the complete Q flurry. Source event attachment, five-arrow timing, animation release-frame calibration, transition blending, activation/reset behavior and W/E/R cast windups remain unfinished. Inspected browser captures are `artifacts/browser-basic-attack-pose.png` and `artifacts/browser-q-attack-pose.png`.

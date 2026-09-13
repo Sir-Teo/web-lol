@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
+import { ASHE_Q } from '../content/ashe-q';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
 import { loadRift } from './rift-assets';
@@ -459,8 +460,9 @@ export class GameView {
           const cycle = u.attackCycle;
           const attacking =
             !moving && u.deadAt === null && cycle !== null && world.tick < cycle.endTick;
+          const attackName = cycle?.empowered ? ASHE_Q.empoweredAttackAnimation : 'attack1';
           if (attacking) {
-            const attack = model.actions.attack1;
+            const attack = model.actions[attackName];
             if (model.animationAttackTick !== cycle.startTick) {
               model.animationAttackTick = cycle.startTick;
               attack.reset();
@@ -468,7 +470,7 @@ export class GameView {
               attack.clampWhenFinished = true;
             }
             attack.timeScale = attack.getClip().duration / ((cycle.endTick - cycle.startTick) / 60);
-            clip = 'attack1';
+            clip = attackName;
           }
           if (model.actions[clip] && clip !== model.actionName) {
             const next = model.actions[clip],
@@ -483,8 +485,8 @@ export class GameView {
             next.fadeIn(0.08).play();
             model.actionName = clip;
           }
-          if (attacking && clip === 'attack1') {
-            const attack = model.actions.attack1;
+          if (attacking && clip === attackName) {
+            const attack = model.actions[attackName];
             // Drive attack pose from the scheduled cycle, including after restore or missed frames.
             const ticks = Math.max(0, world.tick - cycle.startTick + alpha - 1);
             attack.time =

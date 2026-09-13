@@ -12,7 +12,15 @@ tooltip_raw = Path('.cache/lol-strings-16.18.json').read_bytes()
 tooltip = pin['stackingTooltip']
 assert hashlib.sha256(tooltip_raw).hexdigest() == tooltip['sha256']
 assert json.loads(tooltip_raw)['entries'][tooltip['key']] == tooltip['value']
-data = {}
+attacks = json.loads(Path('docs/reference/ashe-attack-projectiles.json').read_text())
+assert attacks['sha256'] == pin['sha256']
+key = 'Characters/Ashe/Spells/AsheQAbility/AsheQAttack'
+attack = attacks['records'][key]
+assert json.loads(raw)[key] == attack
+animation = attack['mSpell']['mAnimationName'].lower()
+graph_pin = json.loads(Path('docs/reference/ashe-model.json').read_text())
+assert animation in [name.lower() for name in graph_pin['atomicClips']]
+data = {'empoweredAttackAnimation': animation}
 for name, field in [('BuffDuration', 'durationSeconds'), ('StackDuration', 'stackSeconds'),
                     ('StackFalloffDuration', 'falloffSeconds'), ('MaxStacks', 'maxStacks')]:
     values = next(value['values'] for value in record['mSpell']['DataValues'] if value['name'] == name)

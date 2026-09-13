@@ -660,7 +660,11 @@ export class World {
           u.attackTarget = target.id;
           u.releaseTick = this.tick + Math.round(u.windupTicks / speed);
           u.nextAttackTick = this.tick + Math.round(u.attackPeriod / speed);
-          u.attackCycle = { startTick: this.tick, endTick: u.nextAttackTick };
+          u.attackCycle = {
+            startTick: this.tick,
+            endTick: u.nextAttackTick,
+            empowered: u.id === this.player.id && this.tick < this.player.qUntil,
+          };
         }
         return;
       }

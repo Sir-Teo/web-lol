@@ -6,7 +6,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 15;
+export const SNAPSHOT_VERSION = 16;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -65,7 +65,7 @@ const unit: z.ZodType<Unit> = z
     laneWaypoint: tick,
     attackTarget: id.nullable(),
     attackCycle: z
-      .strictObject({ startTick: tick, endTick: tick })
+      .strictObject({ startTick: tick, endTick: tick, empowered: z.boolean() })
       .refine((cycle) => cycle.endTick > cycle.startTick, 'Invalid attack cycle')
       .nullable(),
     releaseTick: deadline.nullable(),
@@ -110,7 +110,8 @@ const unit: z.ZodType<Unit> = z
       })
       .optional(),
   })
-  .refine((u) => u.hp <= u.maxHp && u.mana <= u.maxMana, 'Invalid unit resources');
+  .refine((u) => u.hp <= u.maxHp && u.mana <= u.maxMana, 'Invalid unit resources')
+  .refine((u) => !u.attackCycle?.empowered || u.kind === 'champion', 'Invalid empowered attacker');
 const player: z.ZodType<PlayerState> = z
   .strictObject({
     id,
