@@ -1374,3 +1374,9 @@ All 494 source/simulation checks, five focused bot Chrome scenarios and nested-p
 Retreating bots can now use R to interrupt a close visible attacker, based on an observed attack windup or incoming targeted attack projectile. The shared planner retains resource, blocker and tower checks, skips already stunned threats, and resumes fountain movement after casting. Retreat state and queued casts continue identically through saves.
 
 All 497 source/simulation checks, six focused bot Chrome scenarios and nested-path production smoke pass. The new browser case observes source cast animation, a nonlethal stun and continued escape. An initial exclusion assertion incorrectly required walking even when the existing safe-recall policy was available; it now verifies the appropriate escape choice. Teammate protection, threat prediction, full team strategy and complete 5v5 remain open; full browser/performance suites were not repeated.
+
+## Bot lane scouting
+
+Full-Rift bots with learned E now scout unrevealed authored lane points ahead, without using hidden enemy coordinates. Both charges must be available, preserving one charge while the spent one recharges. Scouting queues the normal fixed-point cast and retains lane movement through the cast delay.
+
+All 501 source/simulation checks, four focused lane/E Chrome cases and nested-path production smoke pass. Reran the real-Rift scouting case successfully after adding an explicit source-animation assertion. Tests cover both teams, exact saved continuation, actual reveal, charge retention and hidden-enemy independence. Broader scouting tactics, reserved-charge use, objective/team planning and complete 5v5 remain open. Full browser/performance suites were not repeated.

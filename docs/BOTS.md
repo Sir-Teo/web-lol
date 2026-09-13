@@ -1,5 +1,13 @@
 # Local bot combat and remaining match work
 
+## Hawkshot during lane travel
+
+On the full Rift, a bot with learned E and both charges available can scout an unrevealed point ahead on its assigned lane. It scans authored waypoints in team-relative travel order, selecting the furthest qualifying point in that order between 1,350 and 4,000 straight-line units away. Current allied vision excludes already visible destinations. Hidden enemy locations are never inputs to this choice.
+
+The bot queues the ordinary fixed-point E cast after choosing its lane movement order. Cast validation, source animation, travel, reveal and serial recharge remain shared gameplay rules. Movement pauses for the cast and resumes afterward. Requiring both charges preserves one for future tactical scouting and prevents routine travel from immediately emptying the charge pool. The distance thresholds and charge-reserve policy are authored tactics, not native AI constants.
+
+Four simulation scenarios cover both teams' forward scouting, actual reveal with saved continuation, charge reservation, unchanged decisions across different hidden-enemy locations, and unlearned/already-visible exclusions. A browser case exercises the real Rift grid, the `spell3` source clip, arrival vision, one remaining charge and continued movement. Objective/camp scouting, last-seen target reactions, the tactical use of the reserved charge, and team coordination remain unfinished.
+
 ## Defensive Crystal Arrow during retreat
 
 A retreating bot outside its 400-unit fountain area can now use R against a visible enemy champion within 650 units when that champion has a committed basic-attack windup targeting the bot or a visible basic-attack missile already headed toward it. This responds to observable attack cues rather than reading movement orders or assuming an idle nearby champion is pursuing. An already stunned attacker does not consume another defensive ultimate.
@@ -72,7 +80,7 @@ Six deterministic regression cases cover ready attacks at close range, commitmen
 
 Each champion owns an independent `ChampionState` containing cooldowns, pending casts, Focus, ammunition, recall, progression and inventory. `World.player` remains the human record. Cast execution now accepts any champion through the same command validation, using that owner's resources and deadlines. Nonchampions cannot cast. Pending casts release from the owning unit, and source model cast/recall animation reads that record. Recall returns to the caster's team fountain. Rejection and recall messages carry the caster's team audience.
 
-The sparring AI issues attack/movement orders and now queues Q, W, finishing R and defensive Heal under the policies below. Other spells still require their own observation, reaction and tactical policies. Minion XP, level growth, ambient gold and last-hit gold/CS/kill credit now resolve independently; champion-kill XP and complete item builds still require further work. Full duels and 5v5 still require that progression work, jungle routes, coordinated objectives, complete kits/roster and full seeded-match completion/performance tests.
+The sparring AI issues attack/movement orders and now queues Q, W, finishing R and defensive Heal under the policies below. Other spells still require their own observation, reaction and tactical policies. Minion XP, level growth, ambient gold and last-hit gold/CS/kill credit now resolve independently; complete item builds and role progression still require further work. Full duels and 5v5 still require that progression work, jungle routes, coordinated objectives, complete kits/roster and full seeded-match completion/performance tests.
 
 ## Ownership verification
 
@@ -124,4 +132,4 @@ On an AI decision tick, a champion below the existing 22% retreat threshold, out
 
 Defensive decisions now occur before pending-cast and stun handling, allowing Heal while disabled or casting as the shared spell rules permit. The 18-tick AI deadline advances even while stunned or winding up. Offensive/movement decisions still wait until those states permit them. Commands execute next tick and retain ordinary validation.
 
-Four simulation scenarios cover defensive activation/haste with exact checkpoint continuation, stunned decisions without movement, Heal during Volley windup, and exclusion conditions. A Chrome case observes the bot's actual cast, health gain, haste deadline and independent cooldown while its stunned position remains unchanged. E and Flash decisions, broader R tactics, threat damage estimation, coordinated healing and incoming-projectile anticipation remain outstanding.
+Four simulation scenarios cover defensive activation/haste with exact checkpoint continuation, stunned decisions without movement, Heal during Volley windup, and exclusion conditions. A Chrome case observes the bot's actual cast, health gain, haste deadline and independent cooldown while its stunned position remains unchanged. Flash decisions, broader E/R tactics, threat damage estimation, coordinated healing and incoming-projectile anticipation remain outstanding.

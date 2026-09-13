@@ -793,6 +793,28 @@ export class World {
     );
     return !threatened && !recentlyHit;
   }
+  private planLaneScout(u: Unit): void {
+    const state = this.championState(u.id)!;
+    if (
+      u.lane === null ||
+      u.order.type !== 'move' ||
+      state.spellRanks.e === 0 ||
+      state.eCharges < ASHE_E.maximumCharges ||
+      this.abilityCooldownTicks('e', u.id) > 0
+    )
+      return;
+    const lane = this.battlefield.lanes[u.lane];
+    const step = u.team === 'blue' ? 1 : -1;
+    let aim: Vec2 | undefined;
+    for (let index = u.laneWaypoint; index >= 0 && index < lane.points.length; index += step) {
+      const point = lane.points[index];
+      const d = distance(u, point);
+      if (d > 1350 && d <= 4000 && !this.pointVisible(point, u.team)) aim = point;
+    }
+    // Scan the authored route, never hidden enemy coordinates. Keep one charge
+    // available for future tactical scouting rather than emptying both on travel.
+    if (aim) this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { ...aim } });
+  }
   private nextBotPurchase(u: Unit) {
     const state = this.championState(u.id)!;
     const id = ['blade', 'boots', 'pickaxe', 'sword'].find((id) => !state.inventory.includes(id));
@@ -971,8 +993,10 @@ export class World {
       // Visible opponents remain, but none offers a safe attack position.
       // Hold rather than resuming the lane route into their tower protection.
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
-    } else if (this.battlefield.id === 'rift') this.advanceChampionLane(u);
-    else if (u.order.type !== 'move')
+    } else if (this.battlefield.id === 'rift') {
+      this.advanceChampionLane(u);
+      this.planLaneScout(u);
+    } else if (u.order.type !== 'move')
       this.setOrder(u, {
         type: 'move',
         point: { x: 650, y: -490 },
