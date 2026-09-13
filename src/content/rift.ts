@@ -12,7 +12,7 @@ export interface RiftLayout {
   half: number;
   spawns: Record<Team, Vec2>;
   lanes: LaneRoute[];
-  turrets: { point: Vec2; team: Team; tier: string; height: number }[];
+  turrets: { point: Vec2; team: Team; tier: string; height: number; transform: number[] }[];
   waves: {
     initialSeconds: number;
     intervalSeconds: number;
@@ -55,6 +55,7 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
         team: tower.team,
         point: tower.point,
         name: `${tower.tier} turret`,
+        structureTransform: tower.transform,
       })),
       {
         kind: 'champion',

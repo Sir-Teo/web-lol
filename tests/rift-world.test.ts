@@ -25,6 +25,21 @@ describe('authored full Rift simulation', () => {
     expect(JSON.parse(world.snapshot()).battlefield).toBe('rift');
   });
 
+  it('retains destroyed structures without targeting or living sight', () => {
+    const world = new World(true, battlefield);
+    world.nextWaveTick = Infinity;
+    const tower = world.units.find((u) => u.kind === 'turret')!;
+    world.units = [world.hero, tower];
+    world.damage(world.hero, tower, 10000, 'true');
+    world.step(301);
+    expect(world.unit(tower.id)).toBe(tower);
+    expect(world.alive(tower)).toBe(false);
+    expect(world.visionSources(tower.team).some((s) => s.x === tower.x && s.y === tower.y)).toBe(
+      false
+    );
+    expect(tower.structureTransform).toEqual(layout.turrets[0].transform);
+  });
+
   it('spawns both teams on three authored lanes with the source 0.8-second cadence', () => {
     const world = new World(false, battlefield);
     world.step(1799);

@@ -12,6 +12,8 @@ export interface Unit extends Vec2 {
   name: string;
   previous: Vec2;
   facing: number;
+  /** Authored source matrix for fixed structures; independent of attack facing. */
+  structureTransform?: readonly number[];
   radius: number;
   hp: number;
   maxHp: number;

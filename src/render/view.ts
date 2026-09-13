@@ -283,9 +283,17 @@ export class GameView {
     }
     return null;
   }
-  screenPoint(point: Vec2, elevation = 0): { x: number; y: number; visible: boolean } {
+  screenPoint(
+    point: Vec2 & { structureTransform?: readonly number[] },
+    elevation = 0
+  ): { x: number; y: number; visible: boolean } {
     this.projector
-      .set(point.x * SCALE, this.ground(point) + elevation, point.y * SCALE)
+      .set(
+        point.x * SCALE,
+        (point.structureTransform ? point.structureTransform[13] * SCALE : this.ground(point)) +
+          elevation,
+        point.y * SCALE
+      )
       .project(this.camera);
     return {
       x: (this.projector.x + 1) * 0.5 * this.width,
@@ -336,23 +344,60 @@ export class GameView {
       let model = this.models.get(u.id);
       if (!model) {
         model = makeModel(u);
+        if (u.structureTransform) {
+          // Geometry already has centimeters baked in; preserve source rotation
+          // and scale while converting the authored translation and Z direction.
+          model.root.matrix.fromArray(u.structureTransform);
+          model.root.matrix.premultiply(new THREE.Matrix4().makeScale(SCALE, SCALE, -SCALE));
+          model.root.matrix.premultiply(new THREE.Matrix4().makeTranslation(-74.25, 0, 74.25));
+          model.root.matrix.multiply(
+            new THREE.Matrix4().makeScale(1 / SCALE, 1 / SCALE, 1 / SCALE)
+          );
+          model.root.matrix.decompose(model.root.position, model.root.quaternion, model.root.scale);
+          model.root.matrixAutoUpdate = false;
+        }
         this.models.set(u.id, model);
         this.scene.add(model.root);
       }
       const deathDuration = model.actions?.death?.getClip().duration ?? 0.65;
       model.root.visible =
         world.visible(u) &&
-        (u.deadAt === null || world.tick - u.deadAt < (deathDuration + 0.2) * 60);
+        (u.kind === 'turret' ||
+          u.deadAt === null ||
+          world.tick - u.deadAt < (deathDuration + 0.2) * 60);
       const x = lerp(u.previous.x, u.x, alpha),
         y = lerp(u.previous.y, u.y, alpha);
-      model.root.position.set(x * SCALE, this.ground({ x, y }), y * SCALE);
-      model.root.rotation.y = u.facing;
-      model.root.rotation.z =
-        u.deadAt === null || model.mixer ? 0 : -Math.min((world.tick - u.deadAt) / 20, Math.PI / 2);
-      if (u.kind === 'dummy' || u.kind === 'turret')
-        model.root.rotation.y = u.kind === 'dummy' ? 0.3 : 0;
+      if (!u.structureTransform) {
+        model.root.position.set(x * SCALE, this.ground({ x, y }), y * SCALE);
+        model.root.rotation.y = u.kind === 'dummy' ? 0.3 : u.kind === 'turret' ? 0 : u.facing;
+        model.root.rotation.z =
+          u.deadAt === null || model.mixer
+            ? 0
+            : -Math.min((world.tick - u.deadAt) / 20, Math.PI / 2);
+        if (u.kind === 'turret') model.root.scale.z = -1;
+      }
+      if (u.kind === 'turret' && model.mixer && model.actions) {
+        const destroyed = u.deadAt !== null;
+        if (model.destroyed !== destroyed) {
+          for (const part of model.submeshes ?? [])
+            part.visible = destroyed
+              ? part.userData.destroyedVisible
+              : !part.userData.initiallyHidden;
+          model.mixer.stopAllAction();
+          const name = destroyed ? model.destroyedClip! : 'idle1';
+          const action = model.actions[name];
+          action.reset().play();
+          // The Destroyed state is the initial rubble pose. Respawn sequencing
+          // and destruction particles require the separate source event graph.
+          action.paused = destroyed;
+          model.mixer.update(0);
+          model.actionName = name;
+          model.destroyed = destroyed;
+        }
+        if (!destroyed) model.mixer.update(animationDelta);
+      }
       const moving = Math.hypot(u.x - u.previous.x, u.y - u.previous.y) > 0.01;
-      if (model.mixer && model.actions) {
+      if (u.kind !== 'turret' && model.mixer && model.actions) {
         let clip =
           u.deadAt !== null
             ? 'death'
@@ -391,10 +436,6 @@ export class GameView {
           model.actionName = clip;
         }
         model.mixer.update(animationDelta);
-      }
-      if (model.crystal) {
-        model.crystal.rotation.y = elapsed * 0.3;
-        model.crystal.position.y = 2.9 + Math.sin(elapsed * 2) * 0.07;
       }
       this.updateBar(u, world, { x, y });
     }
@@ -473,7 +514,7 @@ export class GameView {
       this.healthBars.set(u.id, bar);
     }
     const screen = this.screenPoint(
-      p,
+      u.structureTransform ? u : p,
       this.models.get(u.id)?.barHeight ?? (u.kind === 'turret' ? 4.3 : 1.55)
     );
     bar.hidden = !world.alive(u) || !world.visible(u) || !screen.visible;

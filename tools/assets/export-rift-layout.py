@@ -53,7 +53,7 @@ turrets = []
 for item in nodes:
     character = item.get("Character", {}).get("CharacterRecord", "")
     if character.startswith("Characters/Turret/CharacterRecords/"):
-        turrets.append({"point": position(item["transform"]), "height": item["transform"][3][1],
+        turrets.append({"point": position(item["transform"]), "height": item["transform"][3][1], "transform": [value for row in item["transform"] for value in row],
                         "team": "red" if item.get("Team", {}).get("Team") == 200 else "blue",
                         "tier": character.rsplit("/", 1)[1].removeprefix("SR_"),
                         "lane": item.get("AttackableUnit", {}).get("LaneDefinition", {}).get("lane"),

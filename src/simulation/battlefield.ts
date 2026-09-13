@@ -23,5 +23,12 @@ export interface Battlefield extends TerrainQueries {
   lanes: LaneRoute[];
   waves: { initialSeconds: number; intervalSeconds: number; unitIntervalSeconds: number };
   waveKinds(wave: number, seconds: number): UnitKind[];
-  initialUnits: { kind: UnitKind; team: Team; point: Vec2; name?: string; ai?: boolean }[];
+  initialUnits: {
+    kind: UnitKind;
+    team: Team;
+    point: Vec2;
+    name?: string;
+    ai?: boolean;
+    structureTransform?: readonly number[];
+  }[];
 }

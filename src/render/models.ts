@@ -5,7 +5,9 @@ import type { Unit } from '../simulation/types';
 
 export interface UnitModel {
   root: THREE.Group;
-  crystal?: THREE.Object3D;
+  submeshes?: THREE.Object3D[];
+  destroyedClip?: string;
+  destroyed?: boolean;
   mixer?: THREE.AnimationMixer;
   actions?: Record<string, THREE.AnimationAction>;
   actionName?: string;
@@ -26,13 +28,17 @@ const referenceNames = [
   'red-caster',
   'blue-siege',
   'red-siege',
+  'blue-turret',
+  'red-turret',
 ];
 export async function loadReferenceModels(): Promise<void> {
   const loader = new GLTFLoader();
   await Promise.all(
     referenceNames.map(async (name) => {
       const gltf = await loader.loadAsync(`/assets/models/${name}.glb`);
-      for (const required of ['idle1', 'run', 'attack1', 'death'])
+      for (const required of name.endsWith('-turret')
+        ? ['idle1']
+        : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);
       references.set(name, { scene: gltf.scene, clips: gltf.animations });
@@ -66,14 +72,31 @@ function part(
   return mesh;
 }
 export function makeModel(u: Unit): UnitModel {
-  if (u.kind === 'champion' || u.kind === 'melee' || u.kind === 'caster' || u.kind === 'siege') {
+  if (
+    u.kind === 'champion' ||
+    u.kind === 'melee' ||
+    u.kind === 'caster' ||
+    u.kind === 'siege' ||
+    u.kind === 'turret'
+  ) {
     const key = u.kind === 'champion' ? 'ashe-reference' : `${u.team}-${u.kind}`;
     const reference = references.get(key);
     if (!reference) throw new Error(`Model not loaded: ${key}`);
     const root = new THREE.Group(),
       model = clone(reference.scene);
     root.add(model);
+    const submeshes: THREE.Object3D[] = [];
+    let sharedSkeleton: THREE.Skeleton | undefined;
     model.traverse((object) => {
+      if (object.userData.submesh) {
+        submeshes.push(object);
+        object.visible = !object.userData.initiallyHidden;
+      }
+      if (object instanceof THREE.SkinnedMesh && u.kind === 'turret') {
+        if (!sharedSkeleton) sharedSkeleton = object.skeleton;
+        else if (object.skeleton.bones.every((bone, i) => bone === sharedSkeleton!.bones[i]))
+          object.skeleton = sharedSkeleton;
+      }
       if (object instanceof THREE.Mesh) {
         object.castShadow = true;
         object.frustumCulled = false;
@@ -89,9 +112,14 @@ export function makeModel(u: Unit): UnitModel {
     model.traverse((object) => {
       if (object instanceof THREE.SkinnedMesh) object.skeleton.update();
     });
-    const bounds = new THREE.Box3().setFromObject(model);
+    const bounds = new THREE.Box3();
+    model.traverseVisible((object) => {
+      if (object instanceof THREE.Mesh) bounds.expandByObject(object);
+    });
     return {
       root,
+      submeshes: u.kind === 'turret' ? submeshes : undefined,
+      destroyedClip: model.userData.destroyedClip,
       mixer,
       actions,
       actionName: 'idle1',
@@ -99,7 +127,6 @@ export function makeModel(u: Unit): UnitModel {
       referenceAsset: key,
     };
   }
-  if (u.kind === 'turret') return turret(u.team === 'blue');
   return targetDummy();
 }
 
@@ -115,50 +142,6 @@ export function disposeModel(model: UnitModel): void {
   for (const skeleton of skeletons) skeleton.dispose();
 }
 
-function turret(blue: boolean): UnitModel {
-  const root = new THREE.Group(),
-    stone = 0x6e786f,
-    dark = 0x414f4a,
-    gold = 0x9f956d;
-  part(root, new THREE.CylinderGeometry(1.15, 1.3, 0.22, 10), dark, 0, 0.1, 0);
-  part(root, new THREE.CylinderGeometry(0.88, 1.1, 0.45, 8), stone, 0, 0.43, 0);
-  part(root, new THREE.CylinderGeometry(0.56, 0.85, 1.4, 8), stone, 0, 1.25, 0);
-  part(root, new THREE.CylinderGeometry(0.95, 0.65, 0.3, 8), gold, 0, 2.05, 0);
-  for (let i = 0; i < 4; i++) {
-    const a = (i / 4) * Math.PI * 2;
-    const claw = part(
-      root,
-      new THREE.BoxGeometry(0.28, 1.25, 0.35),
-      stone,
-      Math.sin(a) * 0.67,
-      2.4,
-      Math.cos(a) * 0.67
-    );
-    claw.rotation.z = -Math.sin(a) * 0.22;
-    claw.rotation.x = Math.cos(a) * 0.22;
-  }
-  const crystal = new THREE.Mesh(
-    new THREE.OctahedronGeometry(0.65),
-    new THREE.MeshStandardMaterial({
-      color: blue ? 0x78ddf3 : 0xf17c84,
-      emissive: blue ? 0x169acc : 0xa81c39,
-      emissiveIntensity: 1.2,
-      roughness: 0.22,
-      metalness: 0.25,
-    })
-  );
-  crystal.scale.y = 1.7;
-  crystal.position.y = 2.9;
-  root.add(crystal);
-  const ring = new THREE.Mesh(
-    new THREE.TorusGeometry(0.89, 0.035, 5, 32),
-    mat(blue ? 0x75d8e5 : 0xdb8186)
-  );
-  ring.rotation.x = Math.PI / 2;
-  ring.position.y = 0.25;
-  root.add(ring);
-  return { root, crystal };
-}
 function targetDummy(): UnitModel {
   const root = new THREE.Group();
   part(root, new THREE.CylinderGeometry(0.08, 0.12, 1.4, 6), 0x6d4d32, 0, 0.7, 0);
