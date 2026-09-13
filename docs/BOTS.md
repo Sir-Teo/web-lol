@@ -1,5 +1,13 @@
 # Local bot combat and remaining match work
 
+## Rift lane progression
+
+On the full Rift, a champion with no current combat target now follows its assigned lane's authored points toward the opposing base. Existing `lane` and `laneWaypoint` fields retain the assignment in saves. Unassigned champions choose mid. Blue traverses forward and red backward. During uninterrupted travel the bot retains its waypoint, advances within a 150-unit arrival margin, and holds at the final endpoint. It uses the normal navigation/movement path and does not teleport between points.
+
+After combat or returning to base, the bot chooses the nearest point on its assigned route and rejoins it before continuing forward. Retaining a waypoint during travel is essential: recomputing the nearest point every decision caused oscillation near the arrival margin in the first implementation. The short practice fixture retains its sparring destination; the full-Rift fixed midpoint has been removed.
+
+Four simulation cases cover complete forward/reverse traversal, assigned-lane combat interruption plus checkpoint continuation, and base return without a direct shortcut to the old front. A browser case follows the actual Rift navigation grid beyond the previous fixed midpoint, with opponents disabled to isolate navigation. This is route execution, not a five-role assignment planner: unassigned bots still default to mid, the roster is unchanged, and coordinated pressure, jungle routes, wave objectives and strategic lane changes remain outstanding.
+
 ## Tower safety during combat and farming
 
 Before preserving a windup or choosing a combat target, bots now check nearby visible living enemy turrets. A turret is treated as dangerous when it is targeting the bot, when the bot is about to attack a protected champion, or when no living allied lane minion is inside that turret's attack range. The local safety boundary is turret range plus champion radius plus 100 units. A bot inside it moves radially out to an additional 100 units of clearance; tower danger may interrupt a committed windup.

@@ -707,6 +707,45 @@ export class World {
       return targetingUs || attackingChampion || !cover;
     });
   }
+  private advanceChampionLane(u: Unit): void {
+    // Rejoin the assigned route after combat, recall or respawn. Route points
+    // are authored blue-to-red; opponents traverse the same route in reverse.
+    const laneIndex =
+      u.lane ??
+      Math.max(
+        0,
+        this.battlefield.lanes.findIndex((lane) => lane.name === 'mid')
+      );
+    const lane = this.battlefield.lanes[laneIndex];
+    if (!lane?.points.length) return;
+    u.lane = laneIndex;
+    const committed =
+      u.order.type === 'move' &&
+      lane.points[u.laneWaypoint] &&
+      distance(u.order.point, lane.points[u.laneWaypoint]) <= 1;
+    let nearest = committed ? u.laneWaypoint : 0;
+    let bestDistance = Infinity;
+    if (committed) bestDistance = distance(u, lane.points[nearest]);
+    else {
+      for (const [index, point] of lane.points.entries()) {
+        const d = distance(u, point);
+        if (d < bestDistance) {
+          nearest = index;
+          bestDistance = d;
+        }
+      }
+    }
+    const step = u.team === 'blue' ? 1 : -1;
+    const next = nearest + step;
+    const waypoint = bestDistance <= 150 && next >= 0 && next < lane.points.length ? next : nearest;
+    u.laneWaypoint = waypoint;
+    const point = lane.points[waypoint];
+    if (distance(u, point) <= 3) {
+      if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    } else if (u.order.type !== 'move' || distance(u.order.point, point) > 1) {
+      this.setOrder(u, { type: 'move', point: { ...point } });
+    }
+  }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
     if (u.hp < u.maxHp * 0.22) u.aiRetreating = true;
@@ -836,13 +875,11 @@ export class World {
         this.setOrder(u, { type: 'move', point: { x: u.x + away.x * 180, y: u.y + away.y * 180 } });
       } else if (u.order.type !== 'attack' || u.order.target !== target.id)
         this.setOrder(u, { type: 'attack', target: target.id });
-    } else if (u.order.type !== 'move')
+    } else if (this.battlefield.id === 'rift') this.advanceChampionLane(u);
+    else if (u.order.type !== 'move')
       this.setOrder(u, {
         type: 'move',
-        point:
-          this.battlefield.id === 'practice-fixture'
-            ? { x: 650, y: -490 }
-            : this.battlefield.lanes.find((lane) => lane.name === 'mid')!.points[9],
+        point: { x: 650, y: -490 },
       });
   }
   private advanceUnit(u: Unit): void {

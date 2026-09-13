@@ -1338,3 +1338,9 @@ All 472 source/simulation checks, six focused bot Chrome scenarios and nested-pa
 Reproduced stale out-of-range retaliation orders that prevented towers from defending the lane, plus delayed reacquisition after invalid targets. Turrets now clear unusable orders and reacquire visible targets in the same tick. The release/recovery case retains its original attack deadline and missile already in flight. Tests also cover in-range retaliation priority, target radius boundaries, hidden targets and exact saved continuation.
 
 All 477 source/simulation checks and nested-path production smoke pass. Three related bot browser cases passed initially; the new browser fixture failed because it reused renderer IDs from a different world. Changed that fixture to exercise the running world, then passed the recovery case and all three existing source-turret rendering/destruction cases. The two initial simulation regressions failed before the fix. Native retarget timing and complete tower behavior remain unaudited.
+
+## Full-Rift bot lane progression
+
+Replaced the fixed full-Rift midpoint destination with assigned-lane waypoint progression. Bots move toward the opposing base in team-relative route order, preserve their waypoint while traveling, and rejoin the assigned lane after combat or base return. Assignment uses the existing saved unit fields; unassigned bots default to mid. The practice sparring destination remains specific to that fixture.
+
+All 481 source/simulation checks, four focused bot Chrome scenarios and nested-path production smoke pass. Early route tests exposed waypoint oscillation, now corrected by retaining travel commitment. The combat-resumption fixture also postpones the defeated opponent's respawn so it measures one interruption rather than a second fight. Browser coverage confirms progression beyond the former midpoint on the actual Rift grid. Full role assignment, jungle/team planning and complete-match certification remain open.
