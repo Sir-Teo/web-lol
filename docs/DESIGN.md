@@ -176,11 +176,11 @@ Calibrate projected champion height, attack-range circles, lane width, visible w
 
 ### Movement
 
-Use A* on navigation polygons, followed by a funnel path. Move locally along the resulting corridor; replan on meaningful obstruction or target changes. Units use soft local avoidance with bounded corrections, while walls remain hard constraints. Minions follow lane guidance until aggro temporarily takes over.
+Use the pinned source navigation grid with radius-aware A*, swept capsule clearance, and path smoothing, as documented in [the map audit](MAP-ASSETS.md). Replan on meaningful obstruction or target changes. Add dynamic blocker overlays and soft local avoidance with bounded corrections, while walls remain hard constraints. Minions follow lane guidance until aggro temporarily takes over.
 
 Unreachable clicks project to reachable boundaries. Dashes and blinks have explicit wall-crossing policies. Clicking a target approaches the appropriate attack/cast range rather than its center. Keep visual footprint, selection radius, pathing radius, and hit radius distinct.
 
-A raster grid is acceptable in the first movement experiment. Test it against diagonal corridors and narrow passages before retaining it; coarse grids can visibly damage movement fidelity.
+Test the source grid against diagonal corridors, narrow passages, structure boundaries, and measured reference paths. A polygon mesh and funnel are an alternative only if a comparison demonstrates better fidelity or necessary performance without losing source flag semantics. Do not replace the source grid solely because another navigation representation is more conventional.
 
 ### Vision
 

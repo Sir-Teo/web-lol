@@ -120,4 +120,10 @@ These sources support capability claims. Proposed frame budgets, roster order, w
 | Bot quality under complete matches | Determines whether the local game remains strategically interesting | Seeded full-match runs and human playtests |
 | Production art throughput | Dominant schedule uncertainty | Complete one character and one polished lane environment before estimating roster delivery |
 
-None of the performance targets has been benchmarked. No match, browser playtest, or visual comparison has run because this turn produced the research and design phase only.
+The initial research phase did not run a game or benchmark. Subsequent implementation has produced local scenario tests, browser captures, and practice benchmarks; [PROGRESS.md](PROGRESS.md) records those results and [FIDELITY-PLAN.md](FIDELITY-PLAN.md) records the remaining performance gaps. These local checks are not controlled comparisons against the native League client.
+
+## Research review, September 13, 2026
+
+Rechecked Riot's official game guide, patch 26.18 notes, developer documentation, historical graphics pipeline article, and clarity article, together with Three.js renderer documentation and MDN's WebRTC/storage documentation. The browser-only architecture remains appropriate. The repository's source imports provide much more detail than the initial champion sample, but native camera, input, shader and undocumented gameplay semantics remain separate measurement work.
+
+The [reference validation specification](REFERENCE-VALIDATION.md) now makes that work executable: controlled capture conditions, paired behavior scenarios, visual comparison order, evidence labels, and release coverage. The design's earlier polygon/funnel recommendation has been reconciled with its source-grid architecture and implemented map evidence. This review changes documentation only; it does not rerun or certify the existing runtime changes.
