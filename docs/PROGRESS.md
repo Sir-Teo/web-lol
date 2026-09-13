@@ -1086,3 +1086,9 @@ All 393 source/simulation checks, two focused Chrome scenarios and nested-path p
 Ran all 148 current Chrome scenarios against commit `4844626`, with one worker and no retries. All passed in 5.0 minutes. The durable record in `reference/browser-regression.json` identifies the exact tested commit, complete scenario list and original output digest. No runtime edits were made during this run.
 
 Coverage includes combat and animation timing, bot interactions, items and recipes, drag/reorder and keyboard selling, three shop viewport layouts, font readiness/failure fallback, saves, graphics loss/restoration, vision and map behavior, structures, summoner healing and announcements. This broadens evidence beyond the earlier focused runs. Performance was not rerun: the prior p95 frame result remains above target. Current-suite success does not establish full 5v5 behavior, native visual parity, complete roster/items or production completion.
+
+## Stop hidden shop work during combat
+
+HUD updates now skip the shop subtree unless the shop is open. Closing the modal retains its DOM, which previously caused all ten catalog purchase validations, recipe quotes and inventory reconciliation checks to continue during normal play. Reopening still reconstructs current inventory and gold and resumes live availability updates.
+
+The new browser regression failed before the fix with 1,000 purchase validations across 100 closed-shop HUD updates, then passed with zero afterward. It also verifies externally purchased inventory and discounted recipe cost on reopening. All 393 source/simulation checks, four focused Chrome cases and nested-path production smoke pass. This proves removal of unnecessary calls, not a measured FPS improvement; the prior frame-time target remains unmet and no new frame benchmark was run. Full production fidelity remains unfinished.

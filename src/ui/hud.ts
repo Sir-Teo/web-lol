@@ -515,7 +515,7 @@ export class Hud {
     width('xp-fill', p.level === MAX_LEVEL ? 1 : p.xp / experienceToNextLevel(p.level));
     text('level', p.level);
     text('gold', Math.floor(p.gold));
-    const shopBalance = this.root.querySelector('.shop-balance b');
+    const shopBalance = this.modal === 'shop' ? this.root.querySelector('.shop-balance b') : null;
     if (shopBalance) {
       this.updateShopPurchases();
       this.updateShopOwnedItems();
