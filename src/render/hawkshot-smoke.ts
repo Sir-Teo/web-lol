@@ -9,6 +9,10 @@ import type { Vec2 } from '../simulation/math';
 
 let texture: THREE.Texture | undefined;
 let erosion: THREE.Texture;
+export function hawkshotSmokeTextures() {
+  if (!texture || !erosion) throw new Error('Hawkshot smoke textures are not loaded');
+  return { texture, erosion };
+}
 export async function loadHawkshotSmoke() {
   [texture, erosion] = await Promise.all([
     new THREE.TextureLoader().loadAsync('/assets/effects/hawkshot-smoke.png'),

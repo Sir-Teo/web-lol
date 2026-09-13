@@ -1,0 +1,462 @@
+{
+  "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_tar_explode",
+  "emitter": {
+    "timeBeforeFirstEmission": 0.05000000074505806,
+    "rate": {
+      "constantValue": 30.0,
+      "__type": "ValueFloat"
+    },
+    "particleLifetime": {
+      "constantValue": 0.5,
+      "dynamics": {
+        "probabilityTables": [
+          {
+            "keyTimes": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "keyValues": [
+              0.5,
+              0.800000011920929,
+              1.0
+            ],
+            "__type": "VfxProbabilityTableData"
+          }
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          0.5
+        ],
+        "__type": "VfxAnimatedFloatVariableData"
+      },
+      "__type": "ValueFloat"
+    },
+    "particleLinger": 1.0,
+    "lifetime": 1.0,
+    "isSingleParticle": 1,
+    "emitterName": "DarknessFollow",
+    "birthVelocity": {
+      "constantValue": [
+        200.0,
+        200.0,
+        200.0
+      ],
+      "dynamics": {
+        "probabilityTables": [
+          {
+            "keyTimes": [
+              0.0,
+              1.0
+            ],
+            "keyValues": [
+              -1.0,
+              1.0
+            ],
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "keyTimes": [
+              0.0,
+              1.0
+            ],
+            "keyValues": [
+              -1.0,
+              1.0
+            ],
+            "__type": "VfxProbabilityTableData"
+          }
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            200.0,
+            200.0,
+            200.0
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "SpawnShape": {
+      "emitOffset": {
+        "constantValue": [
+          60.0,
+          0.0,
+          0.0
+        ],
+        "dynamics": {
+          "probabilityTables": [
+            {
+              "keyTimes": [
+                0.0,
+                1.0
+              ],
+              "keyValues": [
+                -1.0,
+                1.0
+              ],
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              60.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "__type": "VfxShapeLegacy"
+    },
+    "EmitterPosition": {
+      "constantValue": [
+        0.0,
+        80.0,
+        10.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "blendMode": 4,
+    "birthColor": {
+      "dynamics": {
+        "probabilityTables": [
+          {
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "keyTimes": [
+              0.0,
+              1.0
+            ],
+            "keyValues": [
+              0.5,
+              1.0
+            ],
+            "__type": "VfxProbabilityTableData"
+          }
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "__type": "VfxAnimatedColorVariableData"
+      },
+      "__type": "ValueColor"
+    },
+    "Color": {
+      "constantValue": [
+        0.3764705955982208,
+        0.729411780834198,
+        1.0,
+        0.40784314274787903
+      ],
+      "dynamics": {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            0.3764705955982208,
+            0.729411780834198,
+            1.0,
+            0.40784314274787903
+          ],
+          [
+            0.3764705955982208,
+            0.729411780834198,
+            1.0,
+            0.0
+          ]
+        ],
+        "__type": "VfxAnimatedColorVariableData"
+      },
+      "__type": "ValueColor"
+    },
+    "alphaErosionDefinition": {
+      "erosionDriveCurve": {
+        "dynamics": {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            0.30000001192092896
+          ],
+          "__type": "VfxAnimatedFloatVariableData"
+        },
+        "__type": "ValueFloat"
+      },
+      "erosionMapName": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_BA_ErosionPack01.tex",
+      "erosionMapChannelMixer": {
+        "constantValue": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "__type": "ValueColor"
+      },
+      "__type": "VfxAlphaErosionDefinitionData"
+    },
+    "isUniformScale": 1,
+    "isRandomStartFrame": 1,
+    "isRotationEnabled": 1,
+    "birthRotation0": {
+      "constantValue": [
+        1.0,
+        0.0,
+        90.0
+      ],
+      "dynamics": {
+        "probabilityTables": [
+          {
+            "keyTimes": [
+              0.0,
+              1.0
+            ],
+            "keyValues": [
+              -360.0,
+              360.0
+            ],
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          }
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            90.0
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "birthScale0": {
+      "constantValue": [
+        80.0,
+        40.0,
+        30.0
+      ],
+      "dynamics": {
+        "probabilityTables": [
+          {
+            "keyTimes": [
+              0.0,
+              1.0
+            ],
+            "keyValues": [
+              1.0,
+              2.0
+            ],
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          }
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            80.0,
+            40.0,
+            30.0
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_E_WispySmoke01.tex",
+    "numFrames": 4,
+    "texDiv": [
+      2.0,
+      2.0
+    ],
+    "__type": "VfxEmitterDefinitionData"
+  },
+  "textures": [
+    {
+      "path": "public/assets/effects/hawkshot-smoke.png",
+      "source": {
+        "path": "assets/characters/ashe/skins/base/particles/ashe_base_e_wispysmoke01.tex",
+        "wadPathHash": "120dbdd7c9c91878",
+        "sha256": "292c890bdf856e4b2333d0a43266e463e931a0e3255007ec1ff81ab0675f18f7",
+        "bytes": 87420
+      },
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 65502,
+      "sha256": "f160b90edb9f794510f12c42451318761a497c451d0283bccd5fd47ce6d68c85",
+      "rgbaSha256": "0020c39a46f9dadca49e81883e2ff536bf6dd860ab75518183d43d59379125c1",
+      "colorSpace": "sRGB",
+      "frames": [
+        {
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "rgbaSha256": "aa9f0f5972dbc5c70de99dc7511946967150771342fc605bcbe0561608d85cea"
+        },
+        {
+          "rect": [
+            128,
+            0,
+            256,
+            128
+          ],
+          "rgbaSha256": "0345da85f09467e60ae313f3f96aa487baf85d847272bdd5edd33a5e1728908a"
+        },
+        {
+          "rect": [
+            0,
+            128,
+            128,
+            256
+          ],
+          "rgbaSha256": "bd89f76725510febd77fe88ba03afb50763f3df6a9c5b57b3d6689ace199f632"
+        },
+        {
+          "rect": [
+            128,
+            128,
+            256,
+            256
+          ],
+          "rgbaSha256": "55fafcb556573b0af3646189978af00951d8a26e72ecc8580aab232358c574f8"
+        }
+      ]
+    },
+    {
+      "path": "public/assets/effects/hawkshot-wind-erosion.png",
+      "sha256": "b995122187f1c994a398bd8958107fed03cc0fdef6cfb1eece3cfff8ea7ed245",
+      "source": {
+        "path": "assets/characters/ashe/skins/base/particles/ashe_base_ba_erosionpack01.tex",
+        "wadPathHash": "0606445f2e9ef353",
+        "sha256": "ee5a16c2711867cd65725dca34835dcd251f99d2cf9c4e0db3d95fd748e49c1d",
+        "bytes": 174788
+      }
+    }
+  ],
+  "profile": {
+    "delay": 0.05000000074505806,
+    "life": 0.5,
+    "lifeProbability": {
+      "keyTimes": [
+        0.0,
+        0.800000011920929,
+        1.0
+      ],
+      "keyValues": [
+        0.5,
+        0.800000011920929,
+        1.0
+      ],
+      "__type": "VfxProbabilityTableData"
+    },
+    "velocity": [
+      200.0,
+      200.0,
+      200.0
+    ],
+    "velocityRanges": [
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ]
+    ],
+    "offset": [
+      0.0,
+      80.0,
+      10.0
+    ],
+    "spawnX": 60.0,
+    "spawnRange": [
+      -1.0,
+      1.0
+    ],
+    "color": [
+      0.3764705955982208,
+      0.729411780834198,
+      1.0,
+      0.40784314274787903
+    ],
+    "alphaRange": [
+      0.5,
+      1.0
+    ],
+    "scale": 80.0,
+    "scaleRange": [
+      1.0,
+      2.0
+    ],
+    "rotationRange": [
+      -360.0,
+      360.0
+    ],
+    "erosion": [
+      0.0,
+      0.30000001192092896
+    ],
+    "frames": 4
+  }
+}

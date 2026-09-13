@@ -700,3 +700,11 @@ Both source endpoint glow layers now render with their distinct 540/140-unit uni
 All 265 source/simulation checks, four focused Chrome scenarios, production build and a real-input production Hawkshot cast pass. Tests verify generated-source agreement, birth timing, paused/restored state, each layer's independent pixel contribution, expiry and material disposal. Profile regeneration is byte-identical; fixture and production screenshots were inspected. The full browser suite and unchanged GLB validation were not repeated.
 
 Three of five explosion emitters now have rendering adapters. Rate-accumulator birth phase, camera-facing default orientation, full source rotation semantics, random distribution and native color interpretation remain explicit playback assumptions pending reference captures. DarknessFollow, radial smoke, all four linger emitters, sound and the broader production match remain unfinished. The full goal remains active. See [endpoint glow playback evidence](ASHE-E.md#endpoint-glow-playback).
+
+## Endpoint DarknessFollow milestone
+
+Hawkshot now renders its delayed single wispy endpoint particle with the source lifetime probability kink, randomized drift/scale/frame, birth alpha, lifetime fade and blue-channel erosion. It reuses the smoke atlas and WindTunnel's distinct erosion pack without new texture downloads. Source evidence and generated parameters are pinned, and private particle materials are released on removal or expiry.
+
+All 267 source/simulation checks, four focused Chrome scenarios, production build and a real-input production Hawkshot smoke test pass. The new browser scenarios were repeated after adding an isolated capture. Controlled GPU coverage confirms blue-channel selection and full/half/zero erosion; state tests cover delay, pause, fresh restore and cleanup. Both generated files reproduce byte-identically. Combined and glow-hidden screenshots were inspected; the wispy particle is visible but subtle under the bright burst. The full browser suite and unchanged GLB validation were not repeated.
+
+Four of five explosion emitters now have adapters. Radial smoke, four lingering layers, sound, native orientation/timing/shader calibration and the broader full-match objective remain incomplete. The goal stays active. See [DarknessFollow evidence and policies](ASHE-E.md#endpoint-darknessfollow-layer).

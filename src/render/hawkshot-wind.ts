@@ -10,6 +10,10 @@ import { windParticles } from './hawkshot-wind-state';
 let reference:
   | { geometry: THREE.BufferGeometry; material: THREE.MeshBasicMaterial; erosion: THREE.Texture }
   | undefined;
+export function hawkshotWindErosion() {
+  if (!reference) throw new Error('Hawkshot wind erosion is not loaded');
+  return reference.erosion;
+}
 export async function loadHawkshotWind(): Promise<void> {
   const [gltf, erosion] = await Promise.all([
     new GLTFLoader().loadAsync('/assets/models/hawkshot-wind.glb'),
