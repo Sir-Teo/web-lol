@@ -307,3 +307,11 @@ Pinned three whole-source hashes and five selected records in `reference/super-a
 Replaced the fixed 16-pixel champion stripe pattern with health-based 100-HP divisions and stronger 1,000-HP marks. Spacing follows maximum health after levels and items; damage only changes the fill. CSS layers keep DOM size constant. The selected-target panel now rounds maximum health consistently with current health. See [presentation policy and remaining calibration](HEALTH-BARS.md).
 
 All 153 simulation checks, the new division browser scenario, the existing progression HUD scenario, the static build, and production smoke pass. Starting, level-18, and post-item bar captures were visually inspected. The full browser suite was not repeated for this presentation-only change. Exact source styling, shield presentation, high-health density, full-match systems, and pixel-level comparison remain unfinished. The production goal remains active.
+
+## Explicit A-click targeting milestone
+
+A followed by an enemy click now issues a targeted attack using the same picked enemy as right-click. Previously the input handler discarded that target and issued ground attack-move, which could acquire a different nearby enemy or ignore a directly clicked dummy. Ground and ally clicks remain attack-move, and Escape cancels the armed input. README controls and [movement documentation](MOVEMENT.md#explicit-attack-clicks) describe the distinction.
+
+All 153 simulation checks, four focused Chrome scenarios, the static build, and production smoke pass. The browser cases use actual keyboard/mouse input, verify explicit champion/caster/dummy damage despite a nearer enemy, and cover ground/ally clicks, cursor cleanup, and Escape. The initial test incorrectly stunned the player, causing commands to be rejected as designed; removing that fixture constraint exercised the intended behavior. The full browser suite was not repeated for this localized input change.
+
+Configurable attack-move-on-cursor, champion-only targeting, exact input buffering/cancellation calibration, complete match systems, and pixel-level fidelity remain unfinished. The production goal remains active.

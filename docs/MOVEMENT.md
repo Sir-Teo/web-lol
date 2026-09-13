@@ -7,3 +7,9 @@ One `World.movementSpeed` function supplies the existing movement modifiers to b
 Run playback scales relative to the battlefield's unmodified unit speed, falling back to the current practice baseline of 325 when no source speed is configured. Thus a Rift minion's 350-to-450 speed progression changes its run rate proportionally, as do existing slows and haste. This is relative rate consistency; the authored nominal stride and exact foot contacts still require controlled reference capture. Run-cycle phase is not saved.
 
 Four simulation scenarios compare sparse and dense straight paths, exercise zero-length segments and corners, enforce endpoint stopping, and verify slow/haste composition and exact expiration. A browser scenario covers 36 combinations across Ashe and all eight imported lane-minion rigs, comparing actual per-tick displacement and source run playback rate. It uses a controlled unobstructed path to isolate speed; existing navigation and full-map movement tests remain required.
+
+## Explicit attack clicks
+
+Pressing A and left-clicking a visible enemy issues a targeted attack, including on a practice dummy. It does not discard the selected enemy in favor of the ground attack-move acquisition rule. Clicking ground or an ally with A armed still issues attack-move. Escape cancels the armed input, and accepting either command clears its range/aim cursor. Ground acquisition remains the existing nearest-to-unit policy; configurable attack-move-on-cursor and target-champions-only controls remain unfinished.
+
+The browser tests click an enemy champion, caster, and dummy with another enemy closer to the player, then verify the chosen unit takes damage and the nearer unit does not. A fourth case covers ally/ground routing and Escape cancellation. These checks verify this implementation; precise input buffering, targeting tolerances, and windup behavior still require matched reference comparison.

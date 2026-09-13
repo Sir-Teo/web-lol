@@ -52,7 +52,10 @@ export class GameInput {
           world.enqueue({
             type: 'order',
             unit: world.player.id,
-            order: { type: 'attackMove', point },
+            order:
+              target && target.team !== world.hero.team
+                ? { type: 'attack', target: target.id }
+                : { type: 'attackMove', point },
           });
           this.cancelAim();
         } else view.selected = target?.id ?? world.player.id;
