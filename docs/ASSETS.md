@@ -156,3 +156,9 @@ Flight audio ships its three launch variants and separate loop as four verified 
 The compact champion HUD uses the five named League stat textures `scalead`, `scalearmor`, `scalemr`, `scaleas`, and `scalems`, resolved through CommunityDragon 16.18 `game/ux/fonts/css/stylesheet.cdtb.json`. The unmodified `game/uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png` is shipped locally as `icons/stat-atlas.png` (164,668 bytes). CSS samples the 20×20 source regions at 16×16; no cropped or regenerated artwork is stored.
 
 `reference/stat-icons.json` pins the mapping and metadata digest. `tools/assets/verify-stat-icons.py` checks source equality, the shipped atlas hash and dimensions, and CSS sampling coordinates. These are source League text/stat icons, not proof of the exact native combat HUD atlas selection or layout. Native screen comparison remains required for pixel parity.
+
+## Source interface fonts
+
+The DOM interface uses local Beaufort for LOL (medium/bold) and Spiegel (regular/semibold/bold) OpenType files from CommunityDragon 16.18 `game/assets/ux/fonts/`. The pinned game font definitions explicitly reference Beaufort Bold and Spiegel Regular/Bold; file URLs and digests cover all five shipped faces. `reference/hud-fonts.json` retains the relevant definitions and `tools/assets/verify-hud-fonts.py` validates them and the 560,480 bytes of unmodified font files.
+
+CSS maps the existing regular/medium body styles to Spiegel Regular, semibold to Spiegel Semibold, and bold to Spiegel Bold; medium headings use Beaufort Medium and heavier headings use Beaufort Bold. `font-display: swap` preserves loading readability. This is an English interface font pass, not a complete localization font pack or verified native typography geometry. The former Cinzel and Barlow Condensed dependencies were removed.

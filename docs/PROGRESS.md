@@ -1068,3 +1068,9 @@ All 393 source/simulation checks, the focused Chrome scenario and nested-path pr
 Replaced the five compact HUD placeholder glyphs, including the MR abbreviation, with the pinned League stat atlas regions. Kept the original atlas intact and used CSS backgrounds with verified coordinates. The existing stat column dimensions and live values remain in place; each row has an accessible stat name and native title.
 
 All 393 source/simulation checks, the focused shop/HUD browser case, stat-atlas verification and nested-path production smoke pass. Inspected development and production screenshots: all five colored stat symbols render beside their values. Full-suite/performance checks were not repeated. The added atlas is 164,668 bytes; exact native HUD icon selection, sizing, type and placement still require visual calibration. Overall production fidelity remains unfinished.
+
+## Source League interface typography
+
+Replaced approximate DOM interface fonts with local Beaufort for LOL and Spiegel faces from the pinned game assets. Added font provenance and a verifier for the definitions and binary files; removed the unused font packages. Existing layout and text sizes are retained for this step.
+
+All 393 source/simulation checks, four focused Chrome HUD/shop scenarios, font-source verification and nested-path production smoke pass. Inspected HUD, narrow shop and production screenshots with the new font metrics. The five source files total 560,480 bytes before transfer compression. Full-suite/performance checks were not repeated. Native typography size/weight/spacing calibration, renderer text and localization coverage remain unfinished; the full production goal remains active.

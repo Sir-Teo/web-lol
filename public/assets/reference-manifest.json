@@ -110,6 +110,36 @@
       "source": "https://raw.communitydragon.org/16.18/game/uiautoatlas/ux/fonts/css/stylesheet/atlas_0.png",
       "sha256": "1e5d07416c5c39c8f0c62ecb3002180a15c5aedca25597d82cf06f06f46229be",
       "bytes": 164668
+    },
+    {
+      "path": "/assets/fonts/beaufortforlol-bold.otf",
+      "source": "https://raw.communitydragon.org/16.18/game/assets/ux/fonts/beaufortforlol-bold.otf",
+      "sha256": "f056036d22af8d0b3c3efe1b6087724efc46d9fd3711f76bcd1e40fc8e1c4d43",
+      "bytes": 85332
+    },
+    {
+      "path": "/assets/fonts/beaufortforlol-medium.otf",
+      "source": "https://raw.communitydragon.org/16.18/game/assets/ux/fonts/beaufortforlol-medium.otf",
+      "sha256": "4caf3363ac873db5213203d97dce3eb24e3ba74d65e819989894becff79ffa2e",
+      "bytes": 84184
+    },
+    {
+      "path": "/assets/fonts/spiegel-regular.otf",
+      "source": "https://raw.communitydragon.org/16.18/game/assets/ux/fonts/spiegel-regular.otf",
+      "sha256": "2f3575cc882cc70cf527ce6f599ee5e075fa4f56d01041fdc08713ae29c39a00",
+      "bytes": 128964
+    },
+    {
+      "path": "/assets/fonts/spiegel-semibold.otf",
+      "source": "https://raw.communitydragon.org/16.18/game/assets/ux/fonts/spiegel-semibold.otf",
+      "sha256": "6fbe02b1c5abfa1a45222149050368a3d0f6ed1d5c1ec62904f727b8e1374acf",
+      "bytes": 130164
+    },
+    {
+      "path": "/assets/fonts/spiegel-bold.otf",
+      "source": "https://raw.communitydragon.org/16.18/game/assets/ux/fonts/spiegel-bold.otf",
+      "sha256": "4ad72bc2e96d1a037103e9c626755bd628a4be29d1cd3dd273ce44b64525af60",
+      "bytes": 131836
     }
   ]
 }

@@ -16,8 +16,6 @@
     "test:production": "npm run build && node tools/qa/production-subpath.mjs"
   },
   "dependencies": {
-    "@fontsource/barlow-condensed": "5.3.0",
-    "@fontsource/cinzel": "5.3.0",
     "three": "0.186.0",
     "zod": "4.6.4"
   },

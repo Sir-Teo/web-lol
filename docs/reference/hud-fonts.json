@@ -1,0 +1,187 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/ux/fonts.cdtb.bin.json",
+  "sha256": "7d11063c4eeedb8004392c17a866d6f6e3fdc8c5f8de3f1de562eade2f5fa8e9",
+  "types": {
+    "UX/Fonts/Types/SpiegelReg": {
+      "localeTypes": [
+        {
+          "mFontFilePath": "ASSETS/UX/Fonts/Spiegel-Regular.otf",
+          "FontFilePathBold": "ASSETS/UX/Fonts/Spiegel-Bold.otf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ko_kr",
+          "mFontFilePath": "ASSETS/UX/Fonts/UttumDotum.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "th_th",
+          "mFontFilePath": "ASSETS/UX/Fonts/tahoma.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ro_ro",
+          "mFontFilePath": "ASSETS/UX/Fonts/arialbd.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_cn",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZDHTK.TTF",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_my",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZDHTK.TTF",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_tw",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZXHYSZK.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ja_jp",
+          "mFontFilePath": "ASSETS/UX/Fonts/SpiegelJa-Regular.ttf",
+          "FontFilePathBold": "ASSETS/UX/Fonts/SpiegelJa-Bold.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ru_ru",
+          "mFontFilePath": "ASSETS/UX/Fonts/arialbd.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "el_gr",
+          "mFontFilePath": "ASSETS/UX/Fonts/arialbd.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "vi_vn",
+          "mFontFilePath": "ASSETS/UX/Fonts/DejaVuSans-Bold.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ar_ae",
+          "mFontFilePath": "ASSETS/UX/Fonts/Cairo-VariableFont_wght.ttf",
+          "__type": "FontLocaleType"
+        }
+      ],
+      "__type": "FontType"
+    },
+    "UX/Fonts/Types/SpiegelBold": {
+      "localeTypes": [
+        {
+          "mFontFilePath": "ASSETS/UX/Fonts/Spiegel-Bold.otf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ko_kr",
+          "mFontFilePath": "ASSETS/UX/Fonts/UttumDotum.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "th_th",
+          "mFontFilePath": "ASSETS/UX/Fonts/tahoma.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ro_ro",
+          "mFontFilePath": "ASSETS/UX/Fonts/arialbd.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_cn",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZDHTK.TTF",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_my",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZDHTK.TTF",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_tw",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZXHYSZK.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ja_jp",
+          "mFontFilePath": "ASSETS/UX/Fonts/SpiegelJa-Bold.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ru_ru",
+          "mFontFilePath": "ASSETS/UX/Fonts/arialbd.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "el_gr",
+          "mFontFilePath": "ASSETS/UX/Fonts/arialbd.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "vi_vn",
+          "mFontFilePath": "ASSETS/UX/Fonts/DejaVuSans-Bold.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ar_ae",
+          "mFontFilePath": "ASSETS/UX/Fonts/Cairo-VariableFont_wght.ttf",
+          "__type": "FontLocaleType"
+        }
+      ],
+      "__type": "FontType"
+    },
+    "UX/Fonts/Types/BeaufortBold": {
+      "localeTypes": [
+        {
+          "mFontFilePath": "ASSETS/UX/Fonts/BeaufortforLOL-Bold.otf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ko_kr",
+          "mFontFilePath": "ASSETS/UX/Fonts/UttumDotum.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "th_th",
+          "mFontFilePath": "ASSETS/UX/Fonts/tahoma.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_cn",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZDHTK.TTF",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_my",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZDHTK.TTF",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "zh_tw",
+          "mFontFilePath": "ASSETS/UX/Fonts/FZXHYSZK.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ja_jp",
+          "mFontFilePath": "ASSETS/UX/Fonts/BeaufortforLOLJa-Bold.ttf",
+          "__type": "FontLocaleType"
+        },
+        {
+          "localeName": "ar_ae",
+          "mFontFilePath": "ASSETS/UX/Fonts/Cairo-VariableFont_wght.ttf",
+          "__type": "FontLocaleType"
+        }
+      ],
+      "__type": "FontType"
+    }
+  },
+  "files": [
+    "beaufortforlol-bold",
+    "beaufortforlol-medium",
+    "spiegel-regular",
+    "spiegel-semibold",
+    "spiegel-bold"
+  ]
+}

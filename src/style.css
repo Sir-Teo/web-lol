@@ -1,10 +1,41 @@
-@import '@fontsource/cinzel/600.css';
-@import '@fontsource/barlow-condensed/400.css';
-@import '@fontsource/barlow-condensed/500.css';
-@import '@fontsource/barlow-condensed/600.css';
+@font-face {
+  font-family: 'Beaufort for LOL';
+  src: url('/assets/fonts/beaufortforlol-bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Beaufort for LOL';
+  src: url('/assets/fonts/beaufortforlol-medium.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spiegel';
+  src: url('/assets/fonts/spiegel-regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spiegel';
+  src: url('/assets/fonts/spiegel-semibold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spiegel';
+  src: url('/assets/fonts/spiegel-bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+}
 
 :root {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Spiegel', sans-serif;
   color: #e5dfc9;
   background: #102a26;
   font-synthesis: none;
@@ -75,7 +106,7 @@ button {
 }
 #loading h1 {
   font:
-    600 24px Cinzel,
+    600 24px 'Beaufort for LOL',
     serif;
   letter-spacing: 6px;
   color: #c8b681;
@@ -122,7 +153,7 @@ button {
 .match-identity strong {
   display: block;
   font:
-    600 13px Cinzel,
+    600 13px 'Beaufort for LOL',
     serif;
   letter-spacing: 2.2px;
   color: #e4dcc0;
@@ -216,7 +247,7 @@ button {
 }
 .welcome h1 {
   font:
-    600 24px Cinzel,
+    600 24px 'Beaufort for LOL',
     serif;
   color: #eee4c7;
   font-variant: small-caps;
@@ -262,7 +293,7 @@ button {
   display: block;
   margin: 6px 0 10px;
   font:
-    600 13px Cinzel,
+    600 13px 'Beaufort for LOL',
     serif;
 }
 .target-health {
@@ -405,7 +436,7 @@ button {
 }
 .champion-title strong {
   font:
-    600 11px Cinzel,
+    600 11px 'Beaufort for LOL',
     serif;
   color: #d9c58f;
   letter-spacing: 2px;
@@ -471,7 +502,7 @@ button {
   line-height: 13px;
   text-align: center;
   font:
-    600 10px 'Barlow Condensed',
+    600 10px 'Spiegel',
     sans-serif;
   color: #e8dfc4;
   z-index: 2;
@@ -730,7 +761,7 @@ button {
   right: 0;
   text-align: center;
   font:
-    600 8px Cinzel,
+    600 8px 'Beaufort for LOL',
     serif;
   letter-spacing: 1.5px;
   color: #c9caab;
@@ -797,7 +828,7 @@ button {
   display: none;
   text-align: center;
   font:
-    11px 'Barlow Condensed',
+    11px 'Spiegel',
     sans-serif;
   color: #f0edcc;
   margin-bottom: 4px;
@@ -880,7 +911,7 @@ button {
 }
 .unit-status {
   font:
-    600 9px 'Barlow Condensed',
+    600 9px 'Spiegel',
     sans-serif;
   text-align: center;
   letter-spacing: 1px;
@@ -892,7 +923,7 @@ button {
   position: absolute;
   color: #f0ddbe;
   font:
-    600 19px 'Barlow Condensed',
+    600 19px 'Spiegel',
     sans-serif;
   text-shadow:
     0 2px 2px #000,
@@ -923,7 +954,7 @@ button {
 .tooltip strong {
   display: block;
   font:
-    600 13px Cinzel,
+    600 13px 'Beaufort for LOL',
     serif;
   color: #e5d4a5;
   padding-right: 13px;
@@ -995,7 +1026,7 @@ button {
 .death-overlay > span {
   display: block;
   font:
-    600 25px Cinzel,
+    600 25px 'Beaufort for LOL',
     serif;
   color: #c9aea0;
 }
@@ -1061,7 +1092,7 @@ button {
   margin: 18px 0 10px;
   color: #c9ba8d;
   font:
-    500 14px Cinzel,
+    500 14px 'Beaufort for LOL',
     serif;
 }
 .shop-panels .shop-items {
@@ -1098,7 +1129,7 @@ button {
 }
 .game-dialog h2 {
   font:
-    600 24px Cinzel,
+    600 24px 'Beaufort for LOL',
     serif;
   color: #ecdfb9;
   margin: 14px 0 9px;
@@ -1183,7 +1214,7 @@ button {
 }
 .controls-list kbd {
   font:
-    500 12px 'Barlow Condensed',
+    500 12px 'Spiegel',
     sans-serif;
   color: #dfc891;
 }
@@ -1305,7 +1336,7 @@ button {
 }
 .scoreboard-title {
   font:
-    600 12px Cinzel,
+    600 12px 'Beaufort for LOL',
     serif;
   text-align: center;
   color: #cbbb85;
