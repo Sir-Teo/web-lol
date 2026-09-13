@@ -1,6 +1,6 @@
 # Browser League clone: recommended build strategy
 
-Research review: September 13, 2026. Based on the existing repository through `f071556`, its pinned source records, and the primary references linked below. This is the decision brief; [DESIGN.md](DESIGN.md) specifies the systems and [REFERENCE-VALIDATION.md](REFERENCE-VALIDATION.md) specifies how to measure fidelity. It does not claim exhaustive recovery of undocumented League behavior.
+Research review: September 13, 2026. Based on the existing repository through `1b279b6`, its pinned source records, and the primary references linked below. This is the decision brief; [DESIGN.md](DESIGN.md) specifies the systems and [REFERENCE-VALIDATION.md](REFERENCE-VALIDATION.md) specifies how to measure fidelity. It does not claim exhaustive recovery of undocumented League behavior.
 
 ## Product and architecture
 
@@ -69,7 +69,7 @@ The practice build already provides imported Rift terrain/navigation, an animate
 
 The highest-impact remaining gaps include dynamic unit collision, complete ability ranks and interactions, champion-death XP and gold rules, item recipes/runes, jungle/objectives, nine role-aware bots, and native visual/timing comparisons. For example, [champion-kill XP](CHAMPION-KILL-XP.md) still documents a human-only flat 180 XP approximation despite a richer pinned source curve. Assist counters do not mean assist gold or execution attribution is complete.
 
-The last recorded full-Rift benchmark tested **`d361405`**, not the current revision: 103 unit records, 231 draw calls, 379,519 triangles, frame p95 **18.3 ms**, p99 **22.6 ms**, and simulation p95 **0.3 ms** on Chrome 152 / Apple M5 Pro at 1080p. It sampled 180 frames and omitted complete 5v5/camp/spell stress. The frame target remains unmet. The same record reports 124 passing browser cases at that revision. Later focused checks do not replace a current full-suite run. [Recorded evidence](reference/runtime-verification.json)
+The last recorded full-Rift benchmark tested **`1b279b6`**, the runtime revision used for this review: 103 unit records, 231 draw calls, 379,519 triangles, frame p95 **18.9 ms**, p99 **23.0 ms**, and simulation p95 **0.3 ms** on Chrome 152 / Apple M5 Pro at 1080p. It sampled 180 frames and omitted complete 5v5/camp/spell stress. The frame target remains unmet. The same record reports 133 passing browser cases at that revision. Later focused checks do not replace a current full-suite run. [Recorded evidence](reference/runtime-verification.json)
 
 The map's source texture path alone transfers approximately **145.77 MB** and allocates an estimated **327.42 MiB** of GPU block storage. The existing 60 MB core-pack and 256 MiB texture targets therefore require a measured delivery strategy or an explicit budget revision. Do not silently trade away the requested visual quality. [Map audit](MAP-ASSETS.md)
 

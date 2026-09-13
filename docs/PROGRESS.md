@@ -966,3 +966,12 @@ All 361 source/simulation checks, two focused Chrome scenarios and the nested-pa
 Implemented the pinned +100 first-blood bonus, corroborated by official 26.1 notes. The first credited opposing champion kill adds the bonus to its gold event and marks a match-wide claim before processing subsequent deaths. Both teams and posthumous killers are supported; assistants receive no bonus. Nonchampion targets, same-team debug kills and uncredited deaths do not claim it. Snapshot 27 stores the required boolean and restores without replaying rewards.
 
 All 366 source/simulation checks, six focused Chrome cases (reward display, assists and save flows), and the nested-path production smoke pass. New scenarios cover same-tick trades in both team orders, assistant exclusion, nonqualifying deaths and checkpoint continuation before/after the claim. The full browser suite and performance sweep were not repeated. Native simultaneous-kill ordering, execution attribution, remaining bounty rules and announcement presentation remain unfinished; the full production objective remains active.
+
+
+## Full browser verification after champion reward changes
+
+Ran the complete Chrome suite against unchanged runtime `1b279b6`: all 133 scenarios passed in 4.6 minutes, including combat ownership, bots, assists, first-blood gold, snapshot 27, graphics recovery, structures and presentation. This replaces reliance on the older 124-case run for current integration coverage.
+
+Refreshed the 90-second full-Rift practice benchmark on Chrome 152 / Apple M5 Pro / 64 GiB at 1920×1080, after 45 warmup frames with 180 samples. The scene contains 103 unit records and submits 231 draw calls / 379,519 triangles. Frame median/p95/p99: 16.6/18.9/23.0 ms. Simulation: 0.2/0.3/0.4 ms. Fog updates (22 samples): 1.3/1.7/1.9 ms. The screenshot was visually inspected; the expired welcome overlay is absent and terrain, lane units, fog and HUD render. The dedicated development server was stopped after measurement.
+
+Updated [runtime evidence](reference/runtime-verification.json), retaining the previous record separately. This short development-build observation does not establish a performance regression or improvement, native pixel parity, full 5v5 performance, or cross-browser certification. Frame p95 remains above 16.7 ms. Complete camps, nine role bots and heavy spell stress remain absent, and the production objective remains active.
