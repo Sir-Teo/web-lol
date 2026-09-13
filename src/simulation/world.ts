@@ -46,6 +46,7 @@ export class World {
   player: PlayerState;
   private championRecords = new Map<number, ChampionState>();
   championState(id: number): ChampionState | undefined {
+    if (!this.championRecords.has(id)) return undefined;
     if (!this.units.some((u) => u.id === id && u.kind === 'champion')) return undefined;
     return this.player?.id === id ? this.player : this.championRecords.get(id);
   }
@@ -275,9 +276,10 @@ export class World {
     u.pathTarget = null;
     u.pathDestination = null;
     u.nextPathTick = this.tick;
-    if (u.id === this.player.id) {
-      this.player.recallEnd = null;
-      if (!this.player.pendingCast) this.player.castAnimation = null;
+    const state = this.championState(u.id);
+    if (state) {
+      state.recallEnd = null;
+      if (!state.pendingCast) state.castAnimation = null;
     }
   }
   step(count = 1): void {
@@ -342,7 +344,8 @@ export class World {
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage);
       }
       if (u.stunUntil > this.tick) {
-        if (u.id === this.player.id) this.player.castAnimation = null;
+        const state = this.championState(u.id);
+        if (state) state.castAnimation = null;
         u.attackCycle = null;
         if (u.releaseTick !== null) {
           u.releaseTick = null;
@@ -378,7 +381,7 @@ export class World {
     for (const h of this.units) {
       if (h.kind !== 'champion' || !this.alive(h)) continue;
       const fountain = distance(h, this.battlefield.spawns[h.team]) < 220;
-      const growth = growthAtLevel(h.id === this.player.id ? this.player.level : 1);
+      const growth = growthAtLevel(this.championState(h.id)?.level ?? 1);
       h.hp = Math.min(
         h.maxHp,
         h.hp + (fountain ? h.maxHp * 0.09 : ASHE.healthRegen + ASHE.healthRegenGrowth * growth) * DT
@@ -591,6 +594,7 @@ export class World {
       });
   }
   private advanceUnit(u: Unit): void {
+    const state = this.championState(u.id);
     let target = u.attackTarget === null ? undefined : this.unit(u.attackTarget);
     if (u.releaseTick !== null) {
       if (!this.validTarget(u, target)) {
@@ -611,15 +615,15 @@ export class World {
               endTick: this.tick + 120,
             });
           this.emit('attack', u, { unit: u.id, team: u.team });
-          if (u.id === this.player.id && this.tick >= this.player.qUntil) {
-            this.player.qStacks = Math.min(ASHE_Q.maxStacks, this.player.qStacks + 1);
-            this.player.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
+          if (state && this.tick >= state.qUntil) {
+            state.qStacks = Math.min(ASHE_Q.maxStacks, state.qStacks + 1);
+            state.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
           }
           // Aggregate Q damage until the five-arrow flurry is represented.
           // Capture it at release so expiration in flight cannot change the hit.
           const damage =
             u.damage *
-            (u.id === this.player.id && this.tick < this.player.qUntil
+            (state !== undefined && this.tick < state.qUntil
               ? ASHE_Q.damageMultiplierByRank[0]
               : 1);
           if (!u.missileSpeed) this.hitBasicAttack(u, target, damage);
@@ -660,11 +664,12 @@ export class World {
           u.attackTarget = target.id;
           u.releaseTick = this.tick + Math.round(u.windupTicks / speed);
           u.nextAttackTick = this.tick + Math.round(u.attackPeriod / speed);
-          if (u.id === this.player.id) this.player.castAnimation = null;
+          const state = this.championState(u.id);
+          if (state) state.castAnimation = null;
           u.attackCycle = {
             startTick: this.tick,
             endTick: u.nextAttackTick,
-            empowered: u.id === this.player.id && this.tick < this.player.qUntil,
+            empowered: state !== undefined && this.tick < state.qUntil,
           };
         }
         return;
@@ -716,7 +721,8 @@ export class World {
       }
       const dir = direction(u, waypoint),
         amount = Math.min(d, remaining);
-      if (u.id === this.player.id) this.player.castAnimation = null;
+      const state = this.championState(u.id);
+      if (state) state.castAnimation = null;
       u.x += dir.x * amount;
       u.y += dir.y * amount;
       u.facing = Math.atan2(dir.x, dir.y);
@@ -827,7 +833,7 @@ export class World {
       }
       if (contact) {
         if (source && (p.volleyId === null || !this.volleyHits[p.volleyId]?.includes(contact.id))) {
-          const level = source.id === this.player.id ? this.player.level : 1;
+          const level = this.championState(source.id)?.level ?? 1;
           const slow =
             ASHE_PASSIVE.slowAtLevel1 +
             ((ASHE_PASSIVE.slowAtLevel18 - ASHE_PASSIVE.slowAtLevel1) * (level - 1)) / 17;
@@ -881,7 +887,8 @@ export class World {
     this.projectiles = this.winner ? [] : survivors;
   }
   attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {
-    if (source.id === this.player.id && this.player.qUntil > this.tick) {
+    const state = this.championState(source.id);
+    if (state && state.qUntil > this.tick) {
       // Q is rank one until skill-point allocation is implemented. Its bonus
       // adds ratio-scaled attacks/second, not a multiplier on existing bonuses.
       const bonus = ASHE_Q.attackSpeedRatio * ASHE_Q.bonusAttackSpeedByRank[0];
@@ -919,7 +926,8 @@ export class World {
     const amount = raw * multiplier;
     target.hp = Math.max(0, target.hp - amount);
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
-    if (target.id === this.player.id) this.player.recallEnd = null;
+    const targetState = this.championState(target.id);
+    if (targetState) targetState.recallEnd = null;
     if (target.kind === 'champion')
       for (const turret of this.units) {
         if (
@@ -940,7 +948,7 @@ export class World {
       // and does not broaden the audience of the preceding damage event.
       if (target.structureKnowledge) target.structureKnowledge = { blue: true, red: true };
       if (target.kind === 'champion') {
-        const level = target.id === this.player.id ? this.player.level : 1;
+        const level = targetState?.level ?? 1;
         target.respawnTick = this.tick + championDeathTicks(level, this.tick);
       }
       if (target.kind === 'dummy') target.respawnTick = this.tick + 3 * TICK_RATE;
@@ -949,21 +957,23 @@ export class World {
         target.respawnTick = this.tick + 180 * TICK_RATE;
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
-        this.player.pendingCast = null;
-        this.player.castAnimation = null;
+        for (const state of this.activeChampionStates()) {
+          state.pendingCast = null;
+          state.castAnimation = null;
+        }
         this.projectiles.length = 0;
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
       }
-      if (target.id === this.player.id) {
-        this.player.deaths++;
-        this.player.pendingCast = null;
-        this.player.castAnimation = null;
-        this.player.recallEnd = null;
-        this.player.qStacks = 0;
-        this.player.qStackExpiry = 0;
-        this.player.qUntil = 0;
+      if (targetState) {
+        targetState.deaths++;
+        targetState.pendingCast = null;
+        targetState.castAnimation = null;
+        targetState.recallEnd = null;
+        targetState.qStacks = 0;
+        targetState.qStackExpiry = 0;
+        targetState.qUntil = 0;
       }
       if (source.id === this.player.id) {
         const gold =
