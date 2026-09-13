@@ -1474,6 +1474,19 @@ export class World {
     champion.speed += item.speed;
     return null;
   }
+  moveItem(from: number, to: number, championId = this.player.id): string | null {
+    if (this.winner) return 'The game has ended';
+    const owner = this.championState(championId);
+    if (!owner) return 'Unknown champion';
+    if (![from, to].every((slot) => Number.isInteger(slot) && slot >= 0 && slot < 6))
+      return 'Invalid inventory slot';
+    if (!owner.inventory[from]) return 'Choose an owned item';
+    if (from === to) return null;
+    while (owner.inventory.length <= Math.max(from, to)) owner.inventory.push(null);
+    [owner.inventory[from], owner.inventory[to]] = [owner.inventory[to], owner.inventory[from]];
+    while (owner.inventory.length && owner.inventory.at(-1) === null) owner.inventory.pop();
+    return null;
+  }
   sell(slot: number, championId = this.player.id): string | null {
     if (this.winner) return 'The game has ended';
     const state = this.championState(championId);

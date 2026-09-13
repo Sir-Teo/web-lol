@@ -78,6 +78,43 @@ export class Hud {
     return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
   }
   private bind(): void {
+    const inventory = this.root.querySelector<HTMLElement>('#inventory')!;
+    let dragged: { slot: number; item: string } | null = null;
+    inventory.addEventListener('dragstart', (event) => {
+      const slot = (event.target as HTMLElement).closest<HTMLElement>('[data-inventory-slot]');
+      const index = Number(slot?.dataset.inventorySlot);
+      const item = this.world.player.inventory[index];
+      if (!slot || !item || this.modal || this.paused || this.world.winner) {
+        event.preventDefault();
+        return;
+      }
+      dragged = { slot: index, item };
+      event.dataTransfer!.effectAllowed = 'move';
+      event.dataTransfer!.setData('text/plain', String(index));
+    });
+    inventory.addEventListener('dragover', (event) => {
+      if (!dragged || this.modal || this.paused) return;
+      event.preventDefault();
+      event.dataTransfer!.dropEffect = 'move';
+    });
+    inventory.addEventListener('drop', (event) => {
+      event.preventDefault();
+      const target = (event.target as HTMLElement).closest<HTMLElement>('[data-inventory-slot]');
+      if (
+        dragged &&
+        target &&
+        !this.modal &&
+        !this.paused &&
+        this.world.player.inventory[dragged.slot] === dragged.item
+      ) {
+        const error = this.world.moveItem(dragged.slot, Number(target.dataset.inventorySlot));
+        if (error) this.toast(error);
+      }
+      dragged = null;
+    });
+    inventory.addEventListener('dragend', () => {
+      dragged = null;
+    });
     const on = (id: string, fn: () => void) =>
       this.root.querySelector(`#${id}`)!.addEventListener('click', fn);
     on('pause-button', () => this.toggleModal('pause'));
@@ -486,7 +523,7 @@ export class Hud {
       this.lastInventory = p.inventory.join(',');
       this.root.querySelector('#inventory')!.innerHTML = Array.from({ length: 6 }, (_, i) => {
         const item = ITEMS.find((item) => item.id === p.inventory[i]);
-        return `<div class="item-slot" title="${item?.name ?? 'Empty item slot'}">${item ? `<img src="assets/icons/${item.icon}.png" alt="${item.name}">` : ''}<span>${i + 1}</span></div>`;
+        return `<div class="item-slot" data-inventory-slot="${i}" draggable="${!!item}" title="${item ? `${item.name} · Drag to move` : 'Empty item slot'}">${item ? `<img draggable="false" src="assets/icons/${item.icon}.png" alt="${item.name}">` : ''}<span>${i + 1}</span></div>`;
       }).join('');
     }
     if (Math.floor(w.time) !== this.lastSecond) {
