@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { clone } from 'three/addons/utils/SkeletonUtils.js';
 import type { Unit } from '../simulation/types';
 
 export interface UnitModel {
@@ -7,6 +9,18 @@ export interface UnitModel {
   weapon?: THREE.Object3D;
   cape?: THREE.Object3D;
   crystal?: THREE.Object3D;
+  mixer?: THREE.AnimationMixer;
+  actions?: Record<string, THREE.AnimationAction>;
+  actionName?: string;
+  animationAttackTick?: number;
+}
+let referenceScene: THREE.Group | null = null;
+let referenceClips: THREE.AnimationClip[] = [];
+export async function loadReferenceModels(): Promise<void> {
+  const gltf = await new GLTFLoader().loadAsync('/assets/models/ashe-reference.glb');
+  referenceScene = gltf.scene;
+  referenceClips = gltf.animations;
+  if (!referenceClips.some(clip => clip.name === 'idle1') || !referenceClips.some(clip => clip.name === 'run')) throw new Error('Reference asset lacks required animations');
 }
 const materials = new Map<number, THREE.MeshStandardMaterial>();
 function mat(color: number, metalness = 0): THREE.MeshStandardMaterial {
@@ -23,6 +37,14 @@ function link(parent: THREE.Object3D, a: THREE.Vector3, b: THREE.Vector3, radius
 }
 
 export function makeModel(u: Unit): UnitModel {
+  if (u.kind === 'champion' && referenceScene) {
+    const root = new THREE.Group(), model = clone(referenceScene); root.add(model);
+    model.traverse(object => { if (object instanceof THREE.Mesh) { object.castShadow = true; object.frustumCulled = false; } });
+    const mixer = new THREE.AnimationMixer(model);
+    const actions = Object.fromEntries(referenceClips.map(clip => [clip.name, mixer.clipAction(clip)]));
+    actions.idle1.play();
+    return { root, limbs: [], mixer, actions, actionName: 'idle1' };
+  }
   if (u.kind === 'champion') return archer(u.team === 'blue');
   if (u.kind === 'turret') return turret(u.team === 'blue');
   if (u.kind === 'dummy') return targetDummy();

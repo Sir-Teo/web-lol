@@ -5,6 +5,7 @@ import { GameView } from './render/view';
 import { Hud } from './ui/hud';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
+import { loadReferenceModels } from './render/models';
 
 const host = document.querySelector<HTMLElement>('#app')!;
 const loading = document.querySelector<HTMLDivElement>('#loading')!;
@@ -34,8 +35,10 @@ async function boot(): Promise<void> {
     e.preventDefault(); setPaused(true); hud.toast('Graphics interrupted. Restoring the battlefield…');
   });
   view.renderer.domElement.addEventListener('webglcontextrestored', () => {
-    hud.toggleModal('pause'); hud.toast('Graphics restored. Resume when you’re ready.');
+    if (hud.modal !== 'pause') hud.toggleModal('pause');
+    setPaused(true); hud.toast('Graphics restored. Resume when you’re ready.');
   });
+  await loadReferenceModels();
   // Renderer initialization and shader warmup precede dismissing the load screen.
   view.render(world, 1, 0);
   await view.renderer.compileAsync(view.scene, view.camera);

@@ -29,6 +29,7 @@ export class GameView {
   private hover: THREE.Mesh;
   private range: THREE.LineLoop;
   private aim: THREE.Group;
+  private aimLine: THREE.Line;
   private aimPoint: Vec2 | null = null;
   private aimMode: string | null = null;
   private moveMarker: THREE.Group;
@@ -38,6 +39,7 @@ export class GameView {
   private fogTexture: THREE.CanvasTexture;
   private lastFogTick = -100;
   private bars: HTMLDivElement;
+  private previousElapsed = 0;
 
   constructor(host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
@@ -71,6 +73,10 @@ export class GameView {
     this.range = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(points), new THREE.LineBasicMaterial({ color: 0x89dcd8, transparent: true, opacity: .55 }));
     this.range.position.y = .095; this.scene.add(this.range);
     this.aim = new THREE.Group(); this.scene.add(this.aim);
+    const aimGeometry = new THREE.BufferGeometry();
+    aimGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(35 * 3), 3).setUsage(THREE.DynamicDrawUsage));
+    this.aimLine = new THREE.Line(aimGeometry, new THREE.LineBasicMaterial({ color: 0x93dfdf, transparent: true, opacity: .7 }));
+    this.aimLine.frustumCulled = false; this.aim.add(this.aimLine);
     this.moveMarker = new THREE.Group();
     for (let i = 0; i < 4; i++) {
       const a = i / 4 * Math.PI * 2;
@@ -128,6 +134,7 @@ export class GameView {
     this.center.x += dx * dt * 1500 * this.zoom; this.center.y += dy * dt * 1500 * this.zoom;
   }
   render(world: World, alpha: number, elapsed: number): void {
+    const animationDelta = Math.max(0, Math.min(.1, elapsed - this.previousElapsed)); this.previousElapsed = elapsed;
     if (this.locked) this.center = { x: lerp(world.hero.previous.x, world.hero.x, alpha), y: lerp(world.hero.previous.y, world.hero.y, alpha) };
     this.positionCamera();
     const present = new Set<number>();
@@ -142,6 +149,21 @@ export class GameView {
       model.root.rotation.z = u.deadAt === null ? 0 : -Math.min((world.tick - u.deadAt) / 20, Math.PI / 2);
       if (u.kind === 'dummy' || u.kind === 'turret') model.root.rotation.y = u.kind === 'dummy' ? .3 : 0;
       const moving = Math.hypot(u.x - u.previous.x, u.y - u.previous.y) > .01;
+      if (model.mixer && model.actions) {
+        let clip = u.deadAt !== null ? 'death' : moving ? 'run' : u.id === world.player.id && world.player.recallEnd !== null ? 'channel' : 'idle1';
+        if (u.releaseTick !== null && u.nextAttackTick !== model.animationAttackTick) {
+          model.animationAttackTick = u.nextAttackTick;
+          const attack = model.actions.attack1; attack.reset(); attack.setLoop(THREE.LoopOnce, 1); attack.clampWhenFinished = true;
+          attack.timeScale = attack.getClip().duration / (u.attackPeriod / 60); clip = 'attack1';
+        } else if (!moving && u.deadAt === null && model.animationAttackTick && world.tick < model.animationAttackTick) clip = 'attack1';
+        if (model.actions[clip] && clip !== model.actionName) {
+          const next = model.actions[clip], previous = model.actions[model.actionName ?? 'idle1'];
+          next.reset(); next.setEffectiveWeight(1);
+          if (clip === 'death') { next.setLoop(THREE.LoopOnce, 1); next.clampWhenFinished = true; }
+          previous?.fadeOut(.08); next.fadeIn(.08).play(); model.actionName = clip;
+        }
+        model.mixer.update(animationDelta);
+      }
       model.limbs.slice(0, 2).forEach((limb, i) => limb.rotation.x = moving ? Math.sin(elapsed * 9 + i * Math.PI) * .45 : 0);
       if (model.weapon) model.weapon.rotation.y = u.releaseTick === null ? 0 : -.6 * (1 - Math.max(0, u.releaseTick - world.tick) / u.windupTicks);
       if (model.cape) model.cape.rotation.x = -.23 + Math.sin(elapsed * (moving ? 8 : 2)) * (moving ? .13 : .035);
@@ -149,7 +171,8 @@ export class GameView {
       this.updateBar(u, world, { x, y });
     }
     for (const [id, model] of this.models) if (!present.has(id)) {
-      this.scene.remove(model.root); model.root.traverse(o => { if (o instanceof THREE.Mesh) o.geometry.dispose(); });
+      this.scene.remove(model.root); model.mixer?.stopAllAction();
+      if (!model.mixer) model.root.traverse(o => { if (o instanceof THREE.Mesh) o.geometry.dispose(); });
       this.models.delete(id); this.healthBars.get(id)?.remove(); this.healthBars.delete(id);
     }
     this.syncProjectiles(world, alpha);
@@ -214,19 +237,17 @@ export class GameView {
   private updateAim(world: World): void {
     this.aim.visible = !!this.aimMode && !!this.aimPoint;
     if (!this.aimMode || !this.aimPoint) return;
-    while (this.aim.children.length) {
-      const child = this.aim.children[0] as THREE.Line; child.geometry.dispose(); (child.material as THREE.Material).dispose(); this.aim.remove(child);
-    }
     const hero = world.hero, dir = Math.atan2(this.aimPoint.y - hero.y, this.aimPoint.x - hero.x);
-    const add = (points: THREE.Vector3[]) => this.aim.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), new THREE.LineBasicMaterial({ color: 0x93dfdf, transparent: true, opacity: .7 })));
+    const positions = this.aimLine.geometry.attributes.position as THREE.BufferAttribute;
+    positions.setXYZ(0, 0, .1, 0);
     if (this.aimMode === 'w') {
-      const points = [new THREE.Vector3(0, .1, 0)];
-      for (let i = 0; i <= 32; i++) { const a = dir - .4 + i / 32 * .8; points.push(new THREE.Vector3(Math.cos(a) * 12, .1, Math.sin(a) * 12)); }
-      points.push(new THREE.Vector3(0, .1, 0)); add(points);
+      for (let i = 0; i <= 32; i++) { const a = dir - .4 + i / 32 * .8; positions.setXYZ(i + 1, Math.cos(a) * 12, .1, Math.sin(a) * 12); }
+      positions.setXYZ(34, 0, .1, 0); this.aimLine.geometry.setDrawRange(0, 35);
     } else {
       const length = this.aimMode === 'd' ? 4 : this.aimMode === 'r' ? 24 : 12;
-      add([new THREE.Vector3(0, .1, 0), new THREE.Vector3(Math.cos(dir) * length, .1, Math.sin(dir) * length)]);
+      positions.setXYZ(1, Math.cos(dir) * length, .1, Math.sin(dir) * length); this.aimLine.geometry.setDrawRange(0, 2);
     }
+    positions.needsUpdate = true;
     this.aim.position.set(hero.x * SCALE, 0, hero.y * SCALE);
   }
   private updateFog(world: World): void {

@@ -1,0 +1,44 @@
+{
+  "status": "Archival reference art. Not certified against patch 26.18. Redistribution permission not established.",
+  "repositoryRevision": "ef5635c5fbe0c315275c9bcccf83558cfe7ee436",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/tengge1/lol-model-viewer/ef5635c5fbe0c315275c9bcccf83558cfe7ee436/LOLModelViewer/LOLModelViewer/resource/models/22_0.lmesh",
+      "sha256": "4f210d4aea3e6f7c0f5fe940f177ac3d80439b88e560bbafc2cd803cda8b96ca",
+      "bytes": 312381
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tengge1/lol-model-viewer/ef5635c5fbe0c315275c9bcccf83558cfe7ee436/LOLModelViewer/LOLModelViewer/resource/models/22_0.lanim",
+      "sha256": "d675782cd07d78ad52d3de4c982a1545babfe36a06da8ecdf510d20a23d54e04",
+      "bytes": 2478818
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tengge1/lol-model-viewer/ef5635c5fbe0c315275c9bcccf83558cfe7ee436/LOLModelViewer/LOLModelViewer/resource/textures/22/ashe_base_2011_tx_cm.png",
+      "sha256": "2fbce6b8b82ad273ad53122b6ba4c060533a6452ba2e0ec66480003aeb5ff2da",
+      "bytes": 203368
+    }
+  ],
+  "output": {
+    "path": "/assets/models/ashe-reference.glb",
+    "sha256": "1dd8f313893f0960677556a2c35fd826f425d624d14857580897b603d66d46f0",
+    "bytes": 4460820
+  },
+  "meshVersion": 2,
+  "animationVersion": 3,
+  "animationFile": "22_0",
+  "textureFile": "ashe_base_2011_tx_cm",
+  "vertices": 4902,
+  "triangles": 7406,
+  "bones": 85,
+  "clips": [
+    "attack1",
+    "death",
+    "idle1",
+    "run",
+    "spell1",
+    "channel",
+    "attack2",
+    "spell3",
+    "spell2"
+  ]
+}
