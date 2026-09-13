@@ -15,7 +15,7 @@ test('rank-one empowered attack delivers its captured damage after Q expires', a
     w.step();
     w.setOrder(w.hero, { type: 'attack', target: target.id });
     for (let i = 0; i < 60 && !w.projectiles.length; i++) w.step();
-    const raw = w.projectiles[0].damage,
+    const raw = w.projectiles[0].damage * 5,
       hp = target.hp;
     w.setOrder(w.hero, { type: 'idle' });
     w.player.qUntil = w.tick;

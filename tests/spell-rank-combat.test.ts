@@ -44,7 +44,7 @@ test('rank-five Q changes actual attack speed and released empowered damage', ()
   w.setOrder(w.hero, { type: 'attack', target: target.id });
   for (let tick = 0; tick < 60 && !w.projectiles.length; tick++) w.step();
   expect(w.projectiles.find((p) => p.source === w.hero.id)!.damage).toBeCloseTo(
-    w.hero.damage * 1.3
+    (w.hero.damage * 1.3) / 5
   );
 });
 

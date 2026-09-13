@@ -23,7 +23,10 @@ test('ordinary and empowered arrows travel at source speed and hit on the expect
       expect(victim.hp).toBe(victim.maxHp);
       world.step();
       expect(victim.hp).toBeLessThan(victim.maxHp);
+      expect(world.projectiles.some((p) => p.id === arrow.id)).toBe(false);
+      world.step(16);
       expect(world.projectiles).toHaveLength(0);
+      expect(world.pendingAttackProjectiles).toHaveLength(0);
     }
     expect(restored.snapshot()).toBe(w.snapshot());
   }

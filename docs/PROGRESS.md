@@ -1296,3 +1296,9 @@ Inspected fresh full-Rift fountain and river-aiming captures and recorded their 
 Exported verified shot count and primary/no-on-hit spell identities from the pinned records. Added a rank-aware helper preparing five equal arrow damage shares with only the first marked for on-hit dispatch. All 446 source/simulation checks and source export verification pass, including every rank's damage total and invalid inputs.
 
 This is executable payload preparation, not live flurry integration. Equal division and callback assignment remain documented interpretations; the aggregate runtime attack has not changed, and no launch interval was invented. Browser/production/performance suites were not rerun. Sequencing, individual impact dispatch and native comparison remain open.
+
+## Live staggered Q impacts
+
+Connected five-arrow payloads to live ranged Q attacks. Separate saved pending/active queues retain captured damage and launch identity; every projectile applies its own physical impact. First-arrow-only on-hit/Frost handling avoids refreshing the slow from the four secondary arrows. Committed bursts survive source death and stop on target death. Snapshot 34 validates future pending launches and IDs.
+
+All 451 source/simulation checks, nine focused Q Chrome scenarios and nested-path production smoke pass. After immediate pending-target cleanup was added, all four arrow Chrome cases were rerun successfully. Inspected the live flurry capture. Coverage includes both teams, per-impact mitigation, source/target death and exact saved continuation. Four-tick spacing, committed-burst semantics and fixed launch origins remain explicit approximations; native curved flight and timing calibration are unfinished. Full browser/performance suites were not repeated.

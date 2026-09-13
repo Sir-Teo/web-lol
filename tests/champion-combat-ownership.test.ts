@@ -45,11 +45,11 @@ test('enemy Q owns attack timing, empowerment and release damage independently o
   while (!w.projectiles.length) w.step();
   const arrow = w.projectiles[0];
   expect(arrow.source).toBe(bot.id);
-  expect(arrow.damage).toBeCloseTo(bot.damage * ASHE_Q.damageMultiplierByRank[0]);
+  expect(arrow.damage).toBeCloseTo((bot.damage * ASHE_Q.damageMultiplierByRank[0]) / 5);
   expect(state.qStacks).toBe(0);
   state.qUntil = w.tick;
   expect(w.attackSpeedMultiplier(bot, w.hero)).toBe(1);
-  expect(arrow.damage).toBeCloseTo(bot.damage * ASHE_Q.damageMultiplierByRank[0]);
+  expect(arrow.damage).toBeCloseTo((bot.damage * ASHE_Q.damageMultiplierByRank[0]) / 5);
 });
 
 test('Frost Shot strength uses the enemy attacker level', () => {

@@ -18,7 +18,7 @@ test('rank-one Q captures 110% attack damage and applies armor once at impact', 
   for (const empowered of [false, true]) {
     const { w, target } = release(empowered);
     const raw = 59 * (empowered ? 1.1 : 1);
-    expect(w.projectiles[0].damage).toBeCloseTo(raw);
+    expect(w.projectiles[0].damage).toBeCloseTo(raw / (empowered ? 5 : 1));
     expect(w.projectiles[0].empowered).toBe(empowered);
     const hp = target.hp;
     w.step(60);

@@ -155,3 +155,40 @@ for (const team of ['blue', 'red'] as const) {
     expect(errors).toEqual([]);
   });
 }
+
+test('Q has staggered source arrows in flight and five impact events', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.nextWaveTick = Infinity;
+    for (const unit of w.units) unit.ai = false;
+    const target = w.spawn('dummy', 'red', { x: w.hero.x + 550, y: w.hero.y });
+    w.player.qUntil = w.tick + 360;
+    w.setOrder(w.hero, { type: 'attack', target: target.id });
+    for (let i = 0; i < 60 && !w.projectiles.length; i++) w.step();
+    w.setOrder(w.hero, { type: 'idle' });
+    w.step(8);
+    g.view.render(w, 1, performance.now() / 1000);
+    const arrows = w.projectiles.filter((p: any) => p.source === w.hero.id);
+    const visible = arrows.map((p: any) => ({
+      x: p.x,
+      name: g.view.projectileModels.get(p.id).name,
+    }));
+    return { visible, pending: w.pendingAttackProjectiles.length, target: target.id };
+  });
+  expect(result.visible).toHaveLength(3);
+  expect(new Set(result.visible.map((p: any) => p.x)).size).toBe(3);
+  expect(result.visible.every((p: any) => p.name === 'Ashe Q ice arrow')).toBe(true);
+  expect(result.pending).toBe(2);
+  await page.screenshot({ path: 'artifacts/ashe-q-live-flurry.png' });
+  const count = await page.evaluate((target) => {
+    const w = (window as any).__GAME__.world;
+    w.step(40);
+    return w.events.filter((e: any) => e.type === 'damage' && e.unit === target).length;
+  }, result.target);
+  expect(count).toBe(5);
+});

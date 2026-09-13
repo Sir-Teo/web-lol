@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 33;
+export const SNAPSHOT_VERSION = 34;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -213,6 +213,7 @@ const projectile: z.ZodType<Projectile> = z
     remaining: nonnegative,
     volleyId: id.nullable(),
     empowered: z.boolean().optional(),
+    flurryShot: z.number().int().min(0).max(4).optional(),
     launchTick: tick.optional(),
     origin: point.optional(),
   })
@@ -223,6 +224,12 @@ const projectile: z.ZodType<Projectile> = z
   .refine(
     (p) => p.empowered === undefined || p.type === 'attack',
     'Only attacks may carry empowerment'
+  )
+  .refine(
+    (p) =>
+      p.flurryShot === undefined ||
+      (p.type === 'attack' && p.empowered === true && p.launchTick !== undefined),
+    'Invalid flurry arrow'
   );
 const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
@@ -242,6 +249,7 @@ const snapshot = z.strictObject({
   player,
   otherChampions: z.array(player).max(10000),
   projectiles: z.array(projectile).max(10000),
+  pendingAttackProjectiles: z.array(projectile).max(10000),
   randomState: z.number().int().min(0).max(0xffffffff),
   wave: tick,
   nextWaveTick: deadline,
@@ -325,8 +333,23 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved match contains an invalid scout visual lifetime.');
     visualIds.add(f.id);
   }
-  const ids = [...state.units, ...state.projectiles].map((u) => u.id);
-  for (const projectile of state.projectiles) {
+  const ids = [...state.units, ...state.projectiles, ...state.pendingAttackProjectiles].map(
+    (u) => u.id
+  );
+  for (const p of state.pendingAttackProjectiles) {
+    if (
+      p.type !== 'attack' ||
+      !p.empowered ||
+      p.flurryShot === undefined ||
+      p.flurryShot < 1 ||
+      p.target === null ||
+      !state.units.some((unit) => unit.id === p.target && unit.team !== p.team) ||
+      p.launchTick === undefined ||
+      p.launchTick <= state.tick
+    )
+      throw new Error('Saved match contains an invalid pending flurry.');
+  }
+  for (const projectile of [...state.projectiles, ...state.pendingAttackProjectiles]) {
     if (
       projectile.empowered &&
       state.units.find((unit) => unit.id === projectile.source)?.kind !== 'champion'

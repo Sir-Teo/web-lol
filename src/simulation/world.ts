@@ -1,3 +1,4 @@
+import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
 import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
@@ -32,6 +33,7 @@ import {
   asheCrystalArrowValues,
   asheVolleyValues,
   asheFocusValues,
+  asheFocusFlurry,
   asheHawkshotValues,
   asheSpellResources,
 } from './ashe-spell-values';
@@ -64,6 +66,7 @@ export class World {
   nextId = 1;
   units: Unit[] = [];
   projectiles: Projectile[] = [];
+  pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
   commands: Command[] = [];
   random = new Random(26018);
@@ -755,33 +758,39 @@ export class World {
             state.qStacks = Math.min(ASHE_Q.maxStacks, state.qStacks + 1);
             state.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
           }
-          // Aggregate Q damage until the five-arrow flurry is represented.
-          // Capture it at release so expiration in flight cannot change the hit.
-          const damage =
-            u.damage *
-            (state !== undefined && this.tick < state.qUntil
-              ? asheFocusValues(state.spellRanks.q).damageMultiplier
-              : 1);
-          if (!u.missileSpeed) this.hitBasicAttack(u, target, damage);
+          const empowered = state !== undefined && this.tick < state.qUntil;
+          const payloads = empowered
+            ? asheFocusFlurry(state.spellRanks.q, u.damage)
+            : [{ damage: u.damage, appliesOnHit: true }];
+          if (!u.missileSpeed)
+            this.hitBasicAttack(
+              u,
+              target,
+              payloads.reduce((sum, p) => sum + p.damage, 0)
+            );
           else
-            this.projectiles.push({
-              id: this.nextId++,
-              x: u.x,
-              y: u.y,
-              previous: { x: u.x, y: u.y },
-              source: u.id,
-              team: u.team,
-              type: 'attack',
-              launchTick: this.tick,
-              empowered: state !== undefined && this.tick < state.qUntil,
-              target: target.id,
-              direction: direction(u, target),
-              damage,
-              speed: u.missileSpeed,
-              radius: 8,
-              remaining: 4000,
-              volleyId: null,
-            });
+            for (const [index, payload] of payloads.entries()) {
+              const projectile: Projectile = {
+                id: this.nextId++,
+                x: u.x,
+                y: u.y,
+                previous: { x: u.x, y: u.y },
+                source: u.id,
+                team: u.team,
+                type: 'attack',
+                launchTick: this.tick + index * ASHE_FLURRY_INTERVAL_TICKS,
+                empowered,
+                ...(empowered ? { flurryShot: index } : {}),
+                target: target.id,
+                direction: direction(u, target),
+                damage: payload.damage,
+                speed: u.missileSpeed,
+                radius: 8,
+                remaining: 4000,
+                volleyId: null,
+              };
+              (index === 0 ? this.projectiles : this.pendingAttackProjectiles).push(projectile);
+            }
         }
         return;
       }
@@ -952,6 +961,14 @@ export class World {
     }
   }
   private advanceProjectiles(unseen: Map<Team, Set<number>>): void {
+    const pending: Projectile[] = [];
+    for (const p of this.pendingAttackProjectiles) {
+      const target = p.target === null ? undefined : this.unit(p.target);
+      if (!target || !this.alive(target)) continue;
+      if (p.launchTick! <= this.tick) this.projectiles.push(p);
+      else pending.push(p);
+    }
+    this.pendingAttackProjectiles = pending;
     const survivors: Projectile[] = [];
     for (const p of this.projectiles) {
       p.previous = { x: p.x, y: p.y };
@@ -1041,7 +1058,9 @@ export class World {
             ASHE_PASSIVE.slowAtLevel1 +
             ((ASHE_PASSIVE.slowAtLevel18 - ASHE_PASSIVE.slowAtLevel1) * (level - 1)) / 17;
           if (p.volleyId !== null) (this.volleyHits[p.volleyId] ??= []).push(contact.id);
-          if (p.type === 'attack') this.hitBasicAttack(source, contact, p.damage);
+          if (p.type === 'attack' && (p.flurryShot ?? 0) === 0)
+            this.hitBasicAttack(source, contact, p.damage);
+          else if (p.type === 'attack') this.damage(source, contact, p.damage, 'physical');
           else
             this.damage(
               source,
@@ -1050,7 +1069,11 @@ export class World {
               p.type === 'ultimate' ? 'magic' : 'physical',
               'area'
             );
-          if (source.kind === 'champion' && !isStructureKind(contact.kind)) {
+          if (
+            source.kind === 'champion' &&
+            !isStructureKind(contact.kind) &&
+            (p.flurryShot ?? 0) === 0
+          ) {
             contact.slowMultiplier = p.type === 'ultimate' ? 0.7 : 1 - slow;
             contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
             if (p.type === 'volley' && contact.kind === 'champion') {
@@ -1210,6 +1233,9 @@ export class World {
           turret.order = { type: 'attack', target: source.id };
       }
     if (target.hp === 0) {
+      this.pendingAttackProjectiles = this.pendingAttackProjectiles.filter(
+        (p) => p.target !== target.id
+      );
       target.deadAt = this.tick;
       target.releaseTick = null;
       target.attackCycle = null;
@@ -1233,6 +1259,7 @@ export class World {
           state.castAnimation = null;
         }
         this.projectiles.length = 0;
+        this.pendingAttackProjectiles.length = 0;
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -1792,6 +1819,7 @@ export class World {
       player: this.player,
       otherChampions: this.activeChampionStates().filter((p) => p.id !== this.player.id),
       projectiles: this.projectiles,
+      pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,
       wave: this.wave,
       nextWaveTick: this.nextWaveTick,
