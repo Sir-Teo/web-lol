@@ -1,4 +1,6 @@
 import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
+import { ASHE } from '../content/ashe-progression';
+import { experienceToNextLevel, growthAtLevel, MAX_LEVEL } from '../simulation/progression';
 import { isStructureKind, type Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
@@ -317,15 +319,19 @@ export class Hud {
     const width = (id: string, value: number) =>
       ((this.root.querySelector(`#${id}`) as HTMLElement).style.width =
         `${Math.max(0, value) * 100}%`);
-    text('health-text', `${Math.ceil(h.hp)} / ${h.maxHp}`);
-    text('mana-text', `${Math.floor(h.mana)} / ${h.maxMana}`);
+    text('health-text', `${Math.ceil(h.hp)} / ${Math.ceil(h.maxHp)}`);
+    text('mana-text', `${Math.floor(h.mana)} / ${Math.floor(h.maxMana)}`);
+    text(
+      'health-regen',
+      `+${(ASHE.healthRegen + ASHE.healthRegenGrowth * growthAtLevel(p.level)).toFixed(1)}`
+    );
     width('health-fill', h.hp / h.maxHp);
     width('mana-fill', h.mana / h.maxMana);
-    width('xp-fill', p.xp / (280 + (p.level - 1) * 100));
+    width('xp-fill', p.level === MAX_LEVEL ? 1 : p.xp / experienceToNextLevel(p.level));
     text('level', p.level);
     text('gold', p.gold);
-    text('ad', h.damage);
-    text('armor', h.armor);
+    text('ad', Math.round(h.damage));
+    text('armor', Math.round(h.armor));
     text('ms', h.speed);
     text('as', ((60 / h.attackPeriod) * (p.qUntil > w.tick ? 1.4 : 1)).toFixed(2));
     text('kills', p.kills);

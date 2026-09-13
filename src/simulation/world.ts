@@ -2,6 +2,8 @@ import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } fr
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
+import { ASHE } from '../content/ashe-progression';
+import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
 import { isStructureKind, isLaneMinionKind } from './types';
@@ -163,6 +165,18 @@ export class World {
       respawnTick: null,
     };
     const stats = this.battlefield.unitStats?.[kind]?.[team];
+    if (champion) {
+      Object.assign(u, {
+        hp: ASHE.hp,
+        maxHp: ASHE.hp,
+        mana: ASHE.mana,
+        maxMana: ASHE.mana,
+        damage: ASHE.damage,
+        armor: ASHE.armor,
+        magicResist: ASHE.magicResist,
+        attackPeriod: Math.round(TICK_RATE / ASHE.attackSpeed),
+      });
+    }
     if (stats) {
       Object.assign(u, stats);
       const health = isLaneMinionKind(kind)
@@ -291,8 +305,15 @@ export class World {
     }
     if (this.alive(h)) {
       const fountain = distance(h, this.battlefield.spawns.blue) < 220;
-      h.hp = Math.min(h.maxHp, h.hp + (fountain ? h.maxHp * 0.09 : 0.7) * DT);
-      h.mana = Math.min(h.maxMana, h.mana + (fountain ? h.maxMana * 0.12 : 1.4) * DT);
+      const growth = growthAtLevel(this.player.level);
+      h.hp = Math.min(
+        h.maxHp,
+        h.hp + (fountain ? h.maxHp * 0.09 : ASHE.healthRegen + ASHE.healthRegenGrowth * growth) * DT
+      );
+      h.mana = Math.min(
+        h.maxMana,
+        h.mana + (fountain ? h.maxMana * 0.12 : ASHE.manaRegen + ASHE.manaRegenGrowth * growth) * DT
+      );
     }
     if (this.tick % 60 === 0) this.player.gold += 2;
     if (this.tick > this.player.qStackExpiry && this.tick > this.player.qUntil)
@@ -733,18 +754,40 @@ export class World {
         !isStructureKind(target.kind) &&
         distance(this.hero, target) < 1400
       ) {
-        this.player.xp += target.experienceBounty ?? (target.kind === 'champion' ? 180 : 60);
-        const needed = 280 + (this.player.level - 1) * 100;
-        if (this.player.xp >= needed && this.player.level < 18) {
-          this.player.xp -= needed;
-          this.player.level++;
-          this.hero.maxHp += 90;
-          this.hero.hp += 90;
-          this.hero.damage += 3;
-          this.emit('level', this.hero, { text: 'Level up!' });
-        }
+        this.gainExperience(target.experienceBounty ?? (target.kind === 'champion' ? 180 : 60));
       }
     }
+  }
+  gainExperience(amount: number): void {
+    if (this.winner || !Number.isFinite(amount) || amount <= 0 || this.player.level >= MAX_LEVEL)
+      return;
+    this.player.xp += amount;
+    while (
+      this.player.level < MAX_LEVEL &&
+      this.player.xp >= experienceToNextLevel(this.player.level)
+    ) {
+      this.player.xp -= experienceToNextLevel(this.player.level);
+      this.player.level++;
+      const factor = ASHE.growthFactors[this.player.level - 1];
+      const h = this.hero,
+        living = this.alive(h);
+      const hp = statPrecision(ASHE.hpGrowth * factor),
+        mana = statPrecision(ASHE.manaGrowth * factor);
+      h.maxHp = statPrecision(h.maxHp + hp);
+      h.maxMana = statPrecision(h.maxMana + mana);
+      if (living) {
+        h.hp = Math.min(h.maxHp, h.hp + hp);
+        h.mana = Math.min(h.maxMana, h.mana + mana);
+      }
+      h.damage = statPrecision(h.damage + ASHE.damageGrowth * factor);
+      h.armor = statPrecision(h.armor + ASHE.armorGrowth * factor);
+      h.magicResist = statPrecision(h.magicResist + ASHE.magicResistGrowth * factor);
+      const speed = 1 + ASHE.attackSpeedGrowth * growthAtLevel(this.player.level);
+      h.attackPeriod = Math.round(TICK_RATE / (ASHE.attackSpeed * speed));
+      h.windupTicks = Math.round(20 / speed);
+      this.emit('level', h, { text: 'Level up!' });
+    }
+    if (this.player.level === MAX_LEVEL) this.player.xp = 0;
   }
   private respawn(u: Unit): void {
     const point = isStructureKind(u.kind)

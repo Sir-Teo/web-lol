@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { ITEMS } from '../content/rules';
+import { MAX_LEVEL } from './progression';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
@@ -100,7 +101,7 @@ const player: z.ZodType<PlayerState> = z.strictObject({
   kills: tick,
   deaths: tick,
   xp: nonnegative,
-  level: z.number().int().min(1).max(30),
+  level: z.number().int().min(1).max(MAX_LEVEL),
   cooldowns: z.strictObject({
     q: deadline,
     w: deadline,
