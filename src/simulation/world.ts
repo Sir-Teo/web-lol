@@ -1369,17 +1369,7 @@ export class World {
         startTick: this.tick,
         releaseTick: this.tick + timing.castSeconds * TICK_RATE,
         point: { ...point },
-        damage:
-          ability === 'e'
-            ? 0
-            : ability === 'r'
-              ? 200
-              : ASHE_W.baseDamageByRank[0] +
-                Math.max(
-                  0,
-                  u.damage - ASHE.damage - ASHE.damageGrowth * growthAtLevel(state.level)
-                ) *
-                  ASHE_W.bonusADRatioByRank[0],
+        damage: ability === 'e' ? 0 : ability === 'r' ? 200 : this.volleyDamage(u),
       };
     }
     if (ability === 'e') {
@@ -1479,18 +1469,7 @@ export class World {
         type: ability === 'w' ? 'volley' : 'ultimate',
         target: null,
         direction: { x: Math.cos(a), y: Math.sin(a) },
-        damage:
-          capturedDamage ??
-          (ability === 'w'
-            ? ASHE_W.baseDamageByRank[0] +
-              Math.max(
-                0,
-                u.damage -
-                  ASHE.damage -
-                  ASHE.damageGrowth * growthAtLevel(this.championState(u.id)?.level ?? 1)
-              ) *
-                ASHE_W.bonusADRatioByRank[0]
-            : 200),
+        damage: capturedDamage ?? (ability === 'w' ? this.volleyDamage(u) : 200),
         speed: ability === 'w' ? ASHE_W.projectileSpeed : ASHE_R.initialSpeed,
         radius: ability === 'w' ? 12 : 65,
         remaining: spec.range,
@@ -1536,6 +1515,19 @@ export class World {
     if (item.id === 'blade' && state.inventory.includes('blade'))
       return 'You already own a Doran item';
     return null;
+  }
+  /** Current rank-one raw Volley damage; cast snapshots retain this value at windup. */
+  volleyDamage(u: Unit = this.hero): number {
+    return (
+      ASHE_W.baseDamageByRank[0] +
+      Math.max(
+        0,
+        u.damage -
+          ASHE.damage -
+          ASHE.damageGrowth * growthAtLevel(this.championState(u.id)?.level ?? 1)
+      ) *
+        ASHE_W.bonusADRatioByRank[0]
+    );
   }
   buy(itemId: string, championId = this.player.id): string | null {
     const error = this.purchaseError(itemId, championId);

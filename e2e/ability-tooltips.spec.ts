@@ -25,3 +25,38 @@ test('ability tooltips describe current mechanics and support keyboard focus', a
   await expect(tip).toBeHidden();
   expect(errors).toEqual([]);
 });
+
+test('Volley tooltip follows bonus damage and matches the released arrows', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.evaluate(() => (window as any).__GAME__.setPaused(true));
+  await page.getByRole('button', { name: 'Volley', exact: true }).focus();
+  const tip = page.getByRole('tooltip');
+  await expect(tip).toContainText('7 frost arrows');
+  await expect(tip).toContainText('60 physical damage before armor');
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.player.gold = 875;
+    if (g.world.buy('pickaxe')) throw new Error('Purchase failed');
+    g.world.gainExperience(1e6);
+    g.hud.update(60);
+  });
+  await expect(tip).toContainText('85 physical damage before armor');
+  const damage = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.enqueue({
+      type: 'cast',
+      unit: g.world.hero.id,
+      ability: 'w',
+      point: { x: g.world.hero.x + 1000, y: g.world.hero.y },
+    });
+    g.world.step(16);
+    return g.world.projectiles
+      .filter((p: any) => p.source === g.world.hero.id && p.type === 'volley')
+      .map((p: any) => p.damage);
+  });
+  expect(damage).toHaveLength(7);
+  for (const value of damage) expect(value).toBeCloseTo(85);
+  await page.screenshot({ path: 'artifacts/volley-tooltip.png' });
+});

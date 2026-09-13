@@ -1116,3 +1116,9 @@ The stationary browser regression recorded 40 mutations across 20 renders before
 Expanded current rank-one Q feedback with its pinned attack-speed bonus, empowered damage multiplier and attack reset. Heal now describes its level-scaled healing, allied target, speed duration and repeated-heal reduction. Tooltip metadata distinguishes no cost and no cooldown. Tooltips also open on ability-button focus, expose a tooltip role and associate the active control with its description.
 
 All 393 source/simulation checks, the focused tooltip browser case and nested-path production smoke pass. Inspected the Heal tooltip capture. An initial tooltip ownership attribute collided with the ability-button selector; log inspection caught the runtime error, the attribute was renamed and the final test explicitly exercises a live HUD update and checks page errors. Full-suite/performance checks were not repeated. Tooltips still need complete damage/rank scaling details and native layout calibration; full production fidelity remains unfinished.
+
+## Volley tooltip shares combat damage calculation
+
+Consolidated the existing rank-one Volley damage formula into a World query consumed by cast snapshots, fallback projectile construction and the tooltip. Volley now reports its seven arrows and current raw physical damage before armor. Visible tooltip descriptions refresh when stats change, without rewriting unchanged text.
+
+All 393 source/simulation checks, four focused Chrome scenarios and nested-path production smoke pass. The new browser case keeps the tooltip open through a Pickaxe purchase and level-18 growth, observes 60→85 damage, and confirms all seven released arrows carry the same 85 damage. Existing saved-cast and bonus-AD-only tests pass. Inspected the updated tooltip screenshot. Full-suite/performance checks were not repeated. Spell rank progression and complete native tooltip styling/details remain unfinished.

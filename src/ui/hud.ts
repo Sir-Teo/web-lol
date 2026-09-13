@@ -1,6 +1,7 @@
 import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { ASHE_E } from '../content/ashe-e';
+import { ASHE_W } from '../content/ashe-w';
 import {
   experienceToNextLevel,
   growthAtLevel,
@@ -78,6 +79,11 @@ export class Hud {
   }
   private abilityMarkup(a: Ability): string {
     return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+  }
+  private abilityDescription(ability: Ability): string {
+    if (ability === 'w')
+      return `Fire ${ASHE_W.arrowsByRank[0]} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage())} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
+    return ABILITIES[ability].description;
   }
   private updateShopPurchases(): void {
     this.root.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
@@ -211,7 +217,7 @@ export class Hud {
       const showTooltip = () => {
         if (this.modal) return;
         const spec = ABILITIES[ability];
-        this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${spec.cost ? `${spec.cost} MANA` : 'NO COST'} <span>·</span> ${spec.cooldown ? `${spec.cooldown}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${spec.description}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
+        this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${spec.cost ? `${spec.cost} MANA` : 'NO COST'} <span>·</span> ${spec.cooldown ? `${spec.cooldown}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
         this.root
           .querySelectorAll('[aria-describedby="ability-tooltip"]')
           .forEach((element) => element.removeAttribute('aria-describedby'));
@@ -510,6 +516,11 @@ export class Hud {
     if (welcomeTick !== this.lastWelcomeTick) {
       this.lastWelcomeTick = welcomeTick;
       this.root.style.setProperty('--welcome-age', `${-welcomeTick / TICK_RATE}s`);
+    }
+    if (!this.tip.hidden && this.tip.dataset.tooltipAbility) {
+      const description = this.abilityDescription(this.tip.dataset.tooltipAbility as Ability);
+      const paragraph = this.tip.querySelector('p')!;
+      if (paragraph.textContent !== description) paragraph.textContent = description;
     }
     const text = (id: string, value: string | number) => {
       const element = this.root.querySelector(`#${id}`)!;
