@@ -1,0 +1,67 @@
+{
+  "definitionCache": ".cache/ashe-vfx/580213cc594896a4.json",
+  "definitionSha256": "51ac25dab2653dcdfc9abe243d1460290855358ff4c10de60ae8c9316c49ade2",
+  "record": "Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_BA_mis",
+  "emitter": {
+    "rate": {
+      "constantValue": 1.0,
+      "__type": "ValueFloat"
+    },
+    "particleLifetime": {
+      "constantValue": 5.0,
+      "__type": "ValueFloat"
+    },
+    "emitterName": "icearrow1",
+    "birthVelocity": {
+      "constantValue": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "bindWeight": {
+      "constantValue": 1.0,
+      "__type": "ValueFloat"
+    },
+    "SpawnShape": {
+      "emitOffset": [
+        0.0,
+        -30.0,
+        0.0
+      ],
+      "__type": "{ee39916f}"
+    },
+    "primitive": {
+      "mMesh": {
+        "mSimpleMeshName": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_AA_Arrow.scb",
+        "__type": "VfxMeshDefinitionData"
+      },
+      "__type": "VfxPrimitiveMesh"
+    },
+    "blendMode": 3,
+    "particleIsLocalOrientation": 1,
+    "birthRotation0": {
+      "constantValue": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "birthScale0": {
+      "constantValue": [
+        1.7000000476837158,
+        1.7000000476837158,
+        2.0
+      ],
+      "__type": "ValueVector3"
+    },
+    "texture": "ASSETS/Characters/Ashe/Skins/Base/Particles/Ashe_Base_AA_ArrowText.tex",
+    "__type": "VfxEmitterDefinitionData"
+  },
+  "resolverCache": ".cache/ashe-skin0-16.18.json",
+  "resolverSha256": "f296993de31360aa530d7b1b4e6eeb755600f0ab6a8e43aceb8125c2aeebe78b",
+  "resourceKey": "Ashe_BA_mis",
+  "status": "Source mesh and scale; full particles and attachment remain incomplete."
+}

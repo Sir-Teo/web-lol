@@ -86,3 +86,57 @@ test('Q attacks render source ice arrows after buff expiry and retain shared res
   await page.screenshot({ path: 'artifacts/ashe-q-arrow-combat.png' });
   expect(errors).toEqual([]);
 });
+
+for (const team of ['blue', 'red'] as const) {
+  test(`${team} ordinary attack uses its source scale and stays ordinary after Q activation`, async ({
+    page,
+  }) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto('/?scene=fixture');
+    await page.waitForFunction(() => (window as any).__GAME__?.ready);
+    await page.locator('#loading').waitFor({ state: 'detached' });
+    const result = await page.evaluate((team) => {
+      const g = (window as any).__GAME__,
+        w = g.world;
+      g.setPaused(true);
+      w.nextWaveTick = Infinity;
+      for (const unit of w.units) unit.ai = false;
+      const source = w.spawn('champion', team, { x: w.hero.x + 100, y: w.hero.y - 100 });
+      const target = w.spawn('dummy', team === 'blue' ? 'red' : 'blue', {
+        x: source.x + 550,
+        y: source.y,
+      });
+      source.ai = false;
+      w.setOrder(source, { type: 'attack', target: target.id });
+      for (let i = 0; i < 60 && !w.projectiles.some((p: any) => p.source === source.id); i++)
+        w.step();
+      w.setOrder(source, { type: 'idle' });
+      const p = w.projectiles.find((p: any) => p.source === source.id);
+      w.championState(source.id).qUntil = w.tick + 360;
+      w.step(4);
+      g.view.render(w, 1, performance.now() / 1000);
+      const root = g.view.projectileModels.get(p.id);
+      let mesh: any;
+      root.traverse((o: any) => {
+        if (o.isMesh) mesh = o;
+      });
+      return {
+        name: root.name,
+        scale: root.children[0].scale.toArray(),
+        triangles: mesh.geometry.index.count / 3,
+        textured: !!mesh.material.map,
+        empowered: p.empowered,
+      };
+    }, team);
+    expect(result.name).toBe('Ashe basic ice arrow');
+    expect(result.scale[0]).toBeCloseTo(1.7);
+    expect(result.scale[1]).toBeCloseTo(1.7);
+    expect(result.scale[2]).toBe(2);
+    expect(result.triangles).toBe(244);
+    expect(result.textured).toBe(true);
+    expect(result.empowered).toBe(false);
+    await page.screenshot({ path: `artifacts/ashe-basic-arrow-${team}.png` });
+    expect(errors).toEqual([]);
+  });
+}

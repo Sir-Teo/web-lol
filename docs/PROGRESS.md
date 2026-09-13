@@ -1266,3 +1266,9 @@ Khronos validation reports zero errors/warnings, exact read-back checks pass, an
 Empowered arrows now use the prepared source ice-arrow model. Release captures projectile identity alongside damage, and snapshot 33 preserves it independently of later buff state. The model uses authored scale and an explicit forward-axis adaptation; native attachment offset and flight-height calibration remain open. Shared geometry/material/texture ownership prevents one removed projectile from disposing another's resources.
 
 All 442 source/simulation checks, six focused Q Chrome scenarios and nested-path production smoke pass. Inspected the combat capture and verified source geometry, texture, vertex alpha, expiry persistence and shared-resource disposal behavior. Tests also preserve identity through source death/save restoration and reject invalid saved empowerment. Full browser/performance suites were not repeated. Five-arrow sequencing, individual impacts and the remaining source particle layers are still unfinished.
+
+## Ordinary source attack arrows
+
+Verified the ordinary attack resolver and active icearrow1 emitter against the cached source. It shares Q's mesh/texture but has its own authored width scale. Generalized the shared arrow renderer to display ordinary champion attacks using that scale, retaining captured normal/Q identity and source blue color for either team. Nonchampion projectile rendering is unchanged.
+
+All 442 source/simulation checks and nested-path production smoke pass. Seven focused Chrome cases passed before a TypeScript tuple-spread correction; all three arrow cases were then rerun successfully on the corrected code. The source exporter passes and the red-team combat screenshot was inspected. Full browser/performance suites were not repeated. Complete surrounding particle effects, native attachment calibration and Q sequencing remain unfinished.
