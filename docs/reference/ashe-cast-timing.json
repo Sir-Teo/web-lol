@@ -1,0 +1,144 @@
+{
+  "status": "Verified source fields and clip selection; native timing precedence and interruption semantics remain unresolved.",
+  "source": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/ashe/ashe.bin.json",
+    "sha256": "d5aecdf76b201b075a8c77c3444abaabab3dc5a5ac0b35dc14aafaefb65d5c5d",
+    "root": "Characters/Ashe/CharacterRecords/Root"
+  },
+  "pins": {
+    "q": {
+      "path": "docs/reference/ashe-q.json",
+      "sha256": "4d4b15df71829a6e0206e885a38518d671687fb10e62682c9bc2da794c097f2c"
+    },
+    "w": {
+      "path": "docs/reference/ashe-w.json",
+      "sha256": "e68db19f49caaf9c1e07ec7522114da706c0e6ccd3e0500225ac2339cc819948"
+    },
+    "e": {
+      "path": "docs/reference/ashe-e.json",
+      "sha256": "95003d4d0deed9b08d77b775e4e6ab549e4ca1b05821cd47bf83fecc5667e3e8"
+    },
+    "r": {
+      "path": "docs/reference/ashe-r.json",
+      "sha256": "414d052170d14111d14ff3ca8c4574a5253962402e9c2682caa59eccfaa6d92c"
+    }
+  },
+  "model": {
+    "path": "docs/reference/ashe-model.json",
+    "sha256": "9187409b8d7a56c3b4bcc6748b48905f268ec9f097d4312ab6e5478fb7dd0781",
+    "graph": "Characters/Ashe/Animations/Skin0",
+    "runtimeManifest": "public/assets/models/ashe-base.json",
+    "glbSha256": "e45069db38b628d9113faa284bce54a5b1ddb7170e2b5029ad5994e1e81a46d5"
+  },
+  "missingFieldPolicy": "null means absent in the selected source record, not false or a verified engine default.",
+  "spells": {
+    "q": {
+      "spellbookIndex": 0,
+      "record": "Characters/Ashe/Spells/AsheQAbility/AsheQ",
+      "sourceFields": {
+        "spellCastTime": 0.25,
+        "castFrame": null,
+        "useAnimatorFramerate": null,
+        "flags": 4,
+        "mCantCancelWhileWindingUp": null,
+        "mCantCancelWhileChanneling": null,
+        "mCanMoveWhileChanneling": null,
+        "mDoNotNeedToFaceTarget": null
+      },
+      "tags": [
+        "Trait_AttackReset",
+        "Trait_DamageAbility",
+        "Trait_AttackBuff_Duration",
+        "Trait_NoCooldown"
+      ],
+      "animation": {
+        "graphEntry": "Spell3",
+        "path": "assets/characters/ashe/skins/base/animations/ashe_spell3.anm",
+        "runtimeClip": "spell3",
+        "durationSeconds": 1.633333444595337
+      }
+    },
+    "w": {
+      "spellbookIndex": 1,
+      "record": "Characters/Ashe/Spells/VolleyAbility/Volley",
+      "sourceFields": {
+        "spellCastTime": 0.25,
+        "castFrame": 7.5,
+        "useAnimatorFramerate": true,
+        "flags": null,
+        "mCantCancelWhileWindingUp": true,
+        "mCantCancelWhileChanneling": null,
+        "mCanMoveWhileChanneling": null,
+        "mDoNotNeedToFaceTarget": null
+      },
+      "tags": [
+        "Trait_DamageAbility",
+        "Trait_SignatureSpell",
+        "Trait_Ranged_StopsFirstHit",
+        "Trait_AoE"
+      ],
+      "animation": {
+        "graphEntry": "Spell2",
+        "path": "assets/characters/ashe/skins/base/animations/ashe_spell2.anm",
+        "runtimeClip": "spell2",
+        "durationSeconds": 1.8000000715255737
+      }
+    },
+    "e": {
+      "spellbookIndex": 2,
+      "record": "Characters/Ashe/Spells/AsheSpiritOfTheHawkAbility/AsheSpiritOfTheHawk",
+      "sourceFields": {
+        "spellCastTime": 0.25,
+        "castFrame": 11.3100004196167,
+        "useAnimatorFramerate": null,
+        "flags": null,
+        "mCantCancelWhileWindingUp": true,
+        "mCantCancelWhileChanneling": null,
+        "mCanMoveWhileChanneling": null,
+        "mDoNotNeedToFaceTarget": null
+      },
+      "tags": [
+        "Trait_Ammo"
+      ],
+      "animation": {
+        "graphEntry": "Spell3",
+        "path": "assets/characters/ashe/skins/base/animations/ashe_spell3.anm",
+        "runtimeClip": "spell3",
+        "durationSeconds": 1.633333444595337
+      }
+    },
+    "r": {
+      "spellbookIndex": 3,
+      "record": "Characters/Ashe/Spells/EnchantedCrystalArrowAbility/EnchantedCrystalArrow",
+      "sourceFields": {
+        "spellCastTime": 0.25,
+        "castFrame": 7.5,
+        "useAnimatorFramerate": true,
+        "flags": null,
+        "mCantCancelWhileWindingUp": true,
+        "mCantCancelWhileChanneling": null,
+        "mCanMoveWhileChanneling": null,
+        "mDoNotNeedToFaceTarget": null
+      },
+      "tags": [
+        "Trait_Ultimate",
+        "Trait_ImmobilizingCCSpell",
+        "Trait_DamageAbility",
+        "Trait_AoE"
+      ],
+      "animation": {
+        "graphEntry": "Spell4",
+        "path": "assets/characters/ashe/skins/base/animations/ashe_crit1.anm",
+        "runtimeClip": "spell4",
+        "durationSeconds": 2.1000001430511475
+      }
+    }
+  },
+  "findings": [
+    "Q/W/E/R all declare spellCastTime 0.25; Q also has flags 4 and Trait_AttackReset. That number alone is insufficient to resolve activation behavior.",
+    "W/R explicitly enable useAnimatorFramerate and record castFrame 7.5. E omits the flag and records castFrame 11.3100004196167. Preserve both timing sources.",
+    "W/E/R explicitly set mCantCancelWhileWindingUp. This does not by itself classify movement, stun, death, Flash or other-spell interruption.",
+    "Q activation and E both select Spell3. Q empowered attacks separately select Spell1; do not infer spell slot from animation suffix.",
+    "The source animation duration is longer than the declared cast time. Playing the entire clip as a movement lock would conflate windup and recovery."
+  ]
+}

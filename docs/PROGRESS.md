@@ -580,3 +580,10 @@ Successful Q activation now resets the attack timer, supported by the pinned spe
 All 233 simulation checks, nine focused Chrome scenarios, production build and production smoke pass. Coverage includes both reset phases, preserved projectile damage, exact saved continuation, rejected casts, movement, idle and the source animation restart. The reset screenshot was inspected and Q parameter regeneration is byte-identical. The full browser suite and unchanged asset validation were not repeated.
 
 Same-tick ordering and precise native release-frame alignment still need reference calibration. Q activation animation, five-arrow flurry and complete spell cast timing remain unfinished; the production goal remains active. See [the reset evidence and semantics](ASHE-Q.md#q-attack-reset).
+
+
+## Ashe cast-timing source audit
+
+Added a reproducible join of the four spellbook-selected source records, base animation graph and shipped GLB. The checked profile preserves absent fields and distinguishes declared cast time, animator-frame selection, cast frame, cancellation flags and full clip duration. It exposes E's different frame value/absent animator flag and Q's special reset/flags despite the shared declared 0.25-second value. These findings prevent a generic delay or full-clip movement lock from being mistaken for verified native timing.
+
+The audit verifies all source/definition/model hashes and all four graph mappings, and regenerates byte-identically. Runtime files and assets did not change, so gameplay, browser and asset suites were not repeated. W/E/R still launch immediately; pending cast state, release epochs, deferred orders, interruption semantics and reference capture checks are specified in [the casting implementation requirements](ASHE-CASTING.md). This is a research milestone, not completed cast playback; the full production goal remains active.
