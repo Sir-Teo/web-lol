@@ -1,0 +1,55 @@
+{
+  "status": "Prepared source geometry; runtime particle placement and five-arrow sequencing are not integrated.",
+  "output": {
+    "path": "/assets/models/ashe-q-arrow.glb",
+    "bytes": 49788,
+    "sha256": "bcf9dfc5c1cd64dcd0c3d3f628f220f0c0c0c748f89d6053b300f4c4462cbefb"
+  },
+  "definitionPinSha256": "cd4fc2fa2173258cb462f3f3479ca078d59cdfc474df7cdf9680b8617f0cb14b",
+  "sourceArchive": "DATA/FINAL/Champions/Ashe.wad.client",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sources": [
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_base_aa_arrow.scb",
+      "wadPathHash": "742b3a2ce890806d",
+      "sha256": "30b729731916eb654a1499cd8e3ddc11e3b0293ced1785ab5bdaffc71fa4a264",
+      "bytes": 26608
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_base_aa_arrowtext.tex",
+      "wadPathHash": "0656810a5018821c",
+      "sha256": "b6793eb3f2868d518ab69843696e2ddf641dd933d922580cbb576cf51b7ea9be",
+      "bytes": 43716
+    }
+  ],
+  "sourceVertices": 126,
+  "triangles": 244,
+  "texture": {
+    "name": "color",
+    "path": ".cache/q-arrow/color.png",
+    "source": "assets/characters/ashe/skins/base/particles/ashe_base_aa_arrowtext.tex",
+    "size": [
+      256,
+      256
+    ],
+    "rgbaSha256": "ba48498b76bbab478ed27395d5d4e74f2a0fc1dce8b007a31fd699a546c047a6",
+    "pngSha256": "16743b7b4fb8357be6b927b9517af4cdf07ef5576d948ba895a812fc3e1c1cb4"
+  },
+  "unitScale": 0.01,
+  "sourcePivot": [
+    0,
+    0,
+    0
+  ],
+  "emitterTransformApplied": false,
+  "readerReference": "https://github.com/LeagueToolkit/LeagueToolkit/tree/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit/Core/Mesh",
+  "checks": [
+    "Exact face order",
+    "Exact float32 positions after unit conversion",
+    "Exact UVs and vertex RGBA",
+    "Exact embedded PNG bytes"
+  ]
+}
