@@ -96,5 +96,7 @@
     }
   },
   "officialCorroboration": "https://www.leagueoflegends.com/en-gb/news/game-updates/patch-13-4-notes/",
-  "runtimeStatus": "Reference only: payout integration requires contributor eligibility and multiplier semantics validation."
+  "runtimeStatus": "Integrated for both teams using source bounties and recorded/proximity recipients; see CHAMPION-KILL-XP.md for interpretation and remaining support/execution/native-comparison gaps.",
+  "communitySemantics": "https://wiki.leagueoflegends.com/en-us/Experience_%28champion%29",
+  "sharedPatchCorroboration": "https://www.leagueoflegends.com/en-au/news/game-updates/patch-14-10-notes/"
 }

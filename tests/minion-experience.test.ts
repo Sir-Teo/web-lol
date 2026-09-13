@@ -61,8 +61,8 @@ test('dead players, friendly minions, dummies, and structures do not grant proxi
   }
   for (const kind of ['dummy', 'turret', 'inhibitor', 'nexus'] as const)
     expect(death(kind, 100).w.player.xp).toBe(0);
-  expect(death('champion', 1450).w.player.xp).toBe(0);
-  expect(death('champion', 1300).w.player.xp).toBe(180);
+  expect(death('champion', 1450).w.player.xp).toBe(42);
+  expect(death('champion', 1300).w.player.xp).toBe(42);
 });
 
 test('automatic minion XP can level the player without awarding last-hit gold', () => {

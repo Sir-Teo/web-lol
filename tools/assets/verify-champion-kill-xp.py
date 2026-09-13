@@ -20,3 +20,12 @@ assert pin['curve']['mExperienceGrantedForKillPerLevel'][:10] == [42, 114, 144, 
 assert fields['ai_ExpRadius2']['mValue'] == 1600
 assert fields['aiExp_timeForKillCreditAfterDeath']['mValue'] == 10
 print('Verified map SHA, standard-mode links, full XP curve, proximity/death constants and published level 1–10 rewards.')
+
+values = {
+    'baseByVictimLevel': pin['curve']['mExperienceGrantedForKillPerLevel'][:18],
+    'sharedMultiplierByLevel': pin['curve']['mExperienceGrantedMultForSharedKillPerLevel'],
+    'levelDifferenceMultiplier': pin['curve']['LevelDifferenceExperienceMultiplierPerLevel'][1],
+    'radius': fields['ai_ExpRadius2']['mValue'],
+    'posthumousSeconds': fields['aiExp_timeForKillCreditAfterDeath']['mValue'],
+}
+Path('src/content/champion-kill-xp.ts').write_text('// Generated from verified standard-mode champion XP records.\nexport const CHAMPION_KILL_XP = '+json.dumps(values, indent=2)+' as const;\n')

@@ -24,6 +24,8 @@ import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-t
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
+import { CHAMPION_KILL_XP } from '../content/champion-kill-xp';
+import { championKillExperience } from './champion-kill-experience';
 import { ASHE_SKILL_RECOMMENDATION } from '../content/ashe-skill-recommendation';
 import {
   asheCrystalArrowValues,
@@ -1281,13 +1283,41 @@ export class World {
           MINION_XP_SHARES[Math.min(recipients.length, MINION_XP_SHARES.length) - 1] ?? 0;
         const amount = (target.experienceBounty ?? 60) * share;
         for (const recipient of recipients) this.gainExperience(amount, recipient.id);
-      } else if (
-        target.team === 'red' &&
-        target.kind === 'champion' &&
-        distance(this.hero, target) < 1400
-      ) {
-        // Champion kill/assist XP remains a separate legacy approximation.
-        this.gainExperience(target.experienceBounty ?? 180);
+      } else if (targetState) {
+        const contributors = new Set([
+          ...targetState.damageContributors
+            .filter(
+              (entry) => this.tick - entry.lastDamageTick <= ASSIST_WINDOW_SECONDS * TICK_RATE
+            )
+            .map((entry) => entry.sourceId),
+          ...targetState.revealContributors
+            .filter(
+              (entry) => this.tick - entry.lastRevealTick <= HAWKSHOT_ASSIST_SECONDS * TICK_RATE
+            )
+            .map((entry) => entry.sourceId),
+        ]);
+        if (this.championState(source.id) && source.team !== target.team)
+          contributors.add(source.id);
+        const recipients = this.units.filter(
+          (unit) =>
+            unit.kind === 'champion' &&
+            unit.team !== target.team &&
+            (contributors.has(unit.id) ||
+              ((this.alive(unit) ||
+                (unit.deadAt !== null &&
+                  this.tick - unit.deadAt <= CHAMPION_KILL_XP.posthumousSeconds * TICK_RATE)) &&
+                distance(unit, target) <= CHAMPION_KILL_XP.radius))
+        );
+        // Compute every award before XP changes anyone's level or resources.
+        const awards = recipients.map((unit) => ({
+          id: unit.id,
+          amount: championKillExperience(
+            targetState,
+            this.championState(unit.id)!,
+            recipients.length
+          ),
+        }));
+        for (const award of awards) this.gainExperience(award.amount, award.id);
       }
     }
   }
