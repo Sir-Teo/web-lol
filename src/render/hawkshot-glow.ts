@@ -50,3 +50,11 @@ export function animateHawkshotGlow(root: THREE.Group, seconds: number): void {
     mesh.visible = seconds >= layer.delay && seconds < layer.delay + layer.lifetime;
   });
 }
+
+/** Private endpoint material with the same cached source glow map and quad geometry. */
+export function createArrivalGlowQuad() {
+  if (!reference) throw new Error('Hawkshot glow is not loaded');
+  const material = reference.materials[0].clone();
+  material.blendDst = THREE.OneFactor;
+  return new THREE.Mesh(reference.geometry, material);
+}

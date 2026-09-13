@@ -692,3 +692,11 @@ Verified the two endpoint glow emitters and decoded their shared 64×64 color-ra
 All 264 source/simulation checks and the production build pass. The ramp was inspected, regeneration is byte-identical, and the built file matches the verified output. Browser and GLB checks were not repeated because runtime behavior is unchanged. The new ramp is not loaded by the renderer yet.
 
 Emission phase, missing-primitive orientation and native ramp sampling/color space remain documented calibration questions. These two glow layers remain unimplemented, as do other endpoint/lingering effects, sound and substantial broader gameplay work. The goal remains active. See [glow ramp evidence](ASHE-E.md#endpoint-glow-ramp-preparation).
+
+## Endpoint glow playback milestone
+
+Both source endpoint glow layers now render with their distinct 540/140-unit uniform scales, exact RGB-ramp samples and independent alpha fade. They reuse the cached glow texture and geometry, derive deterministic variation and age from the saved flight, and release private materials on removal or expiry. No new texture request, gameplay rule or snapshot field is needed.
+
+All 265 source/simulation checks, four focused Chrome scenarios, production build and a real-input production Hawkshot cast pass. Tests verify generated-source agreement, birth timing, paused/restored state, each layer's independent pixel contribution, expiry and material disposal. Profile regeneration is byte-identical; fixture and production screenshots were inspected. The full browser suite and unchanged GLB validation were not repeated.
+
+Three of five explosion emitters now have rendering adapters. Rate-accumulator birth phase, camera-facing default orientation, full source rotation semantics, random distribution and native color interpretation remain explicit playback assumptions pending reference captures. DarknessFollow, radial smoke, all four linger emitters, sound and the broader production match remain unfinished. The full goal remains active. See [endpoint glow playback evidence](ASHE-E.md#endpoint-glow-playback).

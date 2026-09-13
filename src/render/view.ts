@@ -15,6 +15,7 @@ import { HawkshotWind } from './hawkshot-wind';
 import { HawkshotDust } from './hawkshot-dust';
 import { HawkshotSmoke } from './hawkshot-smoke';
 import { HawkshotArrivals } from './hawkshot-arrival';
+import { HawkshotArrivalGlows } from './hawkshot-arrival-glows';
 import { HawkshotEchoes } from './hawkshot-echo';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
@@ -26,6 +27,7 @@ export class GameView {
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
   smoke = new HawkshotSmoke(this.scene, (p) => this.ground(p));
   arrivals = new HawkshotArrivals(this.scene, (p) => this.ground(p));
+  arrivalGlows = new HawkshotArrivalGlows(this.scene, (p) => this.ground(p));
   echoes = new HawkshotEchoes(this.scene, (p) => this.ground(p));
   camera = new THREE.PerspectiveCamera(40, 1, 0.1, 180);
   center: Vec2 = { x: -500, y: 375 };
@@ -549,6 +551,7 @@ export class GameView {
     this.smoke.update(world, this.camera);
     this.echoes.update(world);
     this.arrivals.update(world);
+    this.arrivalGlows.update(world, this.camera);
     const selected = world.unit(this.selected ?? world.player.id);
     this.selection.visible = !!selected && world.alive(selected) && world.visible(selected);
     if (selected) {
