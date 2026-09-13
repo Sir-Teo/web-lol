@@ -33,6 +33,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)
 - [Game and technical design](docs/DESIGN.md)
+- [Fidelity priorities, reference captures, and production gates](docs/FIDELITY-PLAN.md)
 - [Research, evidence, and uncertainties](docs/RESEARCH.md)
 - [Implementation milestones and acceptance criteria](docs/ROADMAP.md)
 - [Verified champion data sample](docs/reference/champion-sample.json)

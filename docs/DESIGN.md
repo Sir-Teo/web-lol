@@ -1,6 +1,6 @@
 # Browser League-like MOBA: game and technical design
 
-Research date: September 12, 2026, America/New_York. Status: design specification; no runtime or performance results yet.
+Initial research: September 12, 2026, America/New_York. Design reviewed September 13 against the existing practice build. This document specifies the target; [PROGRESS.md](PROGRESS.md) records implementation and measured results. The [fidelity plan](FIDELITY-PLAN.md) defines the next comparison and production gates.
 
 ## 1. Recommended product
 
@@ -72,7 +72,7 @@ Do not plan around screenshots as map textures, ripped voice packs, or public da
 | Language/build | TypeScript, strict mode, Vite | Inspectable local simulation and static output |
 | Renderer | Three.js, WebGLRenderer | Direct control over the fixed camera, skinned models, effects, and fog |
 | Simulation | Pure TypeScript modules with stable entity IDs | Headless testing, replay, and renderer independence |
-| Navigation | Authored 2D navigation mesh, A* corridor search, funnel smoothing | Wall-aware movement with predictable shortcuts |
+| Navigation | Pinned source grid, radius-aware A*, swept capsule clearance, path smoothing | Preserve the imported map's collision semantics; add dynamic overlays and local avoidance |
 | Collision | 2D circles, capsules, swept queries, authored obstacles | Explicit game rules without rigid-body drift |
 | UI | HTML/CSS with typed view models | Clear text, rebinding, shop, settings, tooltips |
 | Audio | Web Audio | Event scheduling, mixing, voice limits |
@@ -83,7 +83,7 @@ Do not plan around screenshots as map textures, ripped voice packs, or public da
 
 Phaser is Game Studio's default for 2D games. Its own documentation describes a 2D framework without built-in 3D rendering. For this request, 3D presentation is the recommendation derived from prioritizing League's visual fidelity. Three.js is a renderer, so navigation, match rules, and tooling remain work we must build. [Phaser scope](https://docs.phaser.io/phaser/getting-started/what-is-phaser), [Three.js renderer](https://threejs.org/docs/pages/WebGLRenderer.html)
 
-React Three Fiber is reasonable inside an existing React product; this repository is empty and has no such constraint. Babylon.js or PlayCanvas merit a short production spike if an editor workflow becomes the decisive need. Do not change engines based on a single attractive demo.
+React Three Fiber is reasonable inside an existing React product; this repository already uses plain TypeScript and Three.js. Babylon.js or PlayCanvas merit a short production spike if an editor workflow becomes the decisive need. Do not change engines based on a single attractive demo.
 
 Use WebGL 2 as the initial acceptance path. Three.js also offers a WebGPU renderer with WebGL 2 fallback; that is a viable later evaluation, not a prerequisite for quality. A material/postprocessing migration still needs its own verification. [WebGPURenderer](https://threejs.org/docs/pages/WebGPURenderer.html)
 
