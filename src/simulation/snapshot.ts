@@ -6,7 +6,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 13;
+export const SNAPSHOT_VERSION = 14;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -142,22 +142,25 @@ const player: z.ZodType<PlayerState> = z
     (p) => (p.eCharges === ASHE_E.maximumCharges) === (p.eRechargeTick === null),
     'Invalid Hawkshot recharge state'
   );
-const projectile: z.ZodType<Projectile> = z.strictObject({
-  id,
-  source: id,
-  team,
-  type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot']),
-  x: z.number(),
-  y: z.number(),
-  previous: point,
-  direction: point,
-  target: id.nullable(),
-  damage: nonnegative,
-  speed: nonnegative,
-  radius: nonnegative,
-  remaining: nonnegative,
-  volleyId: id.nullable(),
-});
+const projectile: z.ZodType<Projectile> = z
+  .strictObject({
+    id,
+    source: id,
+    team,
+    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot']),
+    x: z.number(),
+    y: z.number(),
+    previous: point,
+    direction: point,
+    target: id.nullable(),
+    damage: nonnegative,
+    speed: nonnegative,
+    radius: nonnegative,
+    remaining: nonnegative,
+    volleyId: id.nullable(),
+    launchTick: tick.optional(),
+  })
+  .refine((p) => p.type !== 'hawkshot' || p.launchTick !== undefined, 'Hawkshot lacks launch tick');
 const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
   z.strictObject({ type: z.literal('cast'), unit: id, ability, point }),

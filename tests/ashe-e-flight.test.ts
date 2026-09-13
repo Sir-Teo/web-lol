@@ -14,6 +14,18 @@ function cast(w: World, point: Vec2) {
   w.step();
 }
 
+test('saved Hawkshot flight requires a finite launch tick for its source animation phase', () => {
+  const w = fixture();
+  w.step(500);
+  cast(w, { x: 4200, y: 0 });
+  expect(w.projectiles[0].launchTick).toBe(501);
+  for (const launchTick of [undefined, null, -1, 1.5, 'Infinity']) {
+    const saved = JSON.parse(w.snapshot());
+    saved.projectiles[0].launchTick = launchTick;
+    expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow();
+  }
+});
+
 test('Hawkshot travels at 1400 through terrain and units, then reveals its endpoint for five seconds', () => {
   const w = fixture();
   const target = w.spawn('dummy', 'red', { x: 700, y: 0 });

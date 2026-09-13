@@ -20,7 +20,13 @@ test('Hawkshot travels visibly, preserves its paused pose and reveals the destin
     v.recenter(p);
     v.render(w, 1, 0);
     const model = v.projectileModels.get(p.id);
-    const pose = () => model.children.map((child: any) => child.rotation.toArray());
+    const pose = () => {
+      const bones: number[][] = [];
+      model.traverse((child: any) => {
+        if (child.isBone) bones.push(child.quaternion.toArray());
+      });
+      return bones;
+    };
     const before = pose();
     v.render(w, 1, 0.25);
     const after = pose();
@@ -29,7 +35,7 @@ test('Hawkshot travels visibly, preserves its paused pose and reveals the destin
       target: target.id,
       x: p.x,
       visible: model.visible,
-      wings: model.children.filter((child: any) => child.name.endsWith('-wing')).length,
+      bones: before.length,
       targetVisible: w.visible(target),
       areas: w.visionAreas.filter((a: any) => a.kind === 'scout').length,
       before,
@@ -38,7 +44,7 @@ test('Hawkshot travels visibly, preserves its paused pose and reveals the destin
   });
   expect(result.x).toBeCloseTo(1400);
   expect(result.visible).toBe(true);
-  expect(result.wings).toBe(2);
+  expect(result.bones).toBe(5);
   expect(result.targetVisible).toBe(false);
   expect(result.areas).toBe(0);
   expect(result.after).toEqual(result.before);

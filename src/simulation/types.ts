@@ -106,6 +106,8 @@ export interface Projectile extends Vec2 {
   radius: number;
   remaining: number;
   volleyId: number | null;
+  /** Required for Hawkshot's per-cast source animation phase. */
+  launchTick?: number;
 }
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =

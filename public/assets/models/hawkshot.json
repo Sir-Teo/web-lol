@@ -1,0 +1,58 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Source Owl1 body and animation. Other particle layers and exact blend/transform parity remain unfinished.",
+  "definitionsSha256": "59218bc2dc0b54e3d7efb9c98e1f73e9c0f8a807e82645f9bd246aebf97a7399",
+  "output": {
+    "path": "/assets/models/hawkshot.glb",
+    "bytes": 73856,
+    "sha256": "e4352681c71f0b11b1128d3690cecf236a762dfbcc42c214613849770080296a"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Champions/Ashe.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_base_e_textureowl.tex",
+      "wadPathHash": "5ad0d9b26c3d4f7f",
+      "sha256": "4f41516ddab7a101cf36ff0128562d7f5bb3a415123f7dc2fc128b4a12feaeb7",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_skin06_e_dove.anm",
+      "wadPathHash": "43a412dd5504c540",
+      "sha256": "f5037b0b3fff1ab54e84e7ac595610c0246c35b8ab4cb8d0e5b77bf1f74d4f20",
+      "bytes": 6060
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_skin06_e_hawk.skl",
+      "wadPathHash": "9bd1b84076fedccc",
+      "sha256": "3a7f417859eec7393c04d7b4328e8ec2ffe43d188717abe3068a71e43bb10216",
+      "bytes": 664
+    },
+    {
+      "path": "assets/characters/ashe/skins/base/particles/ashe_skin06_e_hawk.skn",
+      "wadPathHash": "9585a6ef79205072",
+      "sha256": "f05b18afca599846d1e493ed221d4b7b30eb06122b5a7bfdacdeeacdfe9ab8b8",
+      "bytes": 28768
+    }
+  ],
+  "unitScale": 0.01600000023841858,
+  "emitterRotationDegrees": [
+    90,
+    0,
+    0
+  ],
+  "sourceBlendMode": 4,
+  "materialPolicy": "Unlit normal alpha blend using source Owl1 color/texture; blend enum interpretation remains unverified.",
+  "clips": [
+    {
+      "name": "flight",
+      "source": "assets/characters/ashe/skins/base/particles/ashe_skin06_e_dove.anm",
+      "durationSeconds": 1.3333333730697632
+    }
+  ],
+  "triangles": 642,
+  "bones": 5
+}

@@ -1086,6 +1086,7 @@ export class World {
         source: u.id,
         team: u.team,
         type: 'hawkshot',
+        launchTick: this.tick,
         x: u.x,
         y: u.y,
         previous: { x: u.x, y: u.y },

@@ -1,37 +1,68 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { clone } from 'three/addons/utils/SkeletonUtils.js';
 
-/** Readable flight proxy pending conversion of the authored Hawkshot particles. */
-export function createHawkshot(): THREE.Group {
-  const root = new THREE.Group();
-  const material = new THREE.MeshBasicMaterial({
-    color: 0xb9f5ff,
-    transparent: true,
-    opacity: 0.85,
-    side: THREE.DoubleSide,
-    depthWrite: false,
+let reference: { scene: THREE.Group; clip: THREE.AnimationClip } | undefined;
+const instances = new WeakMap<
+  THREE.Group,
+  { model: THREE.Object3D; mixer: THREE.AnimationMixer }
+>();
+
+export async function loadHawkshot(): Promise<void> {
+  const gltf = await new GLTFLoader().loadAsync('/assets/models/hawkshot.glb');
+  const clip = gltf.animations.find((clip) => clip.name === 'flight');
+  if (!clip) throw new Error('Hawkshot lacks its source flight animation');
+  gltf.scene.traverse((object) => {
+    if (object instanceof THREE.Mesh) {
+      const materials = Array.isArray(object.material) ? object.material : [object.material];
+      for (const material of materials) material.depthWrite = false;
+    }
   });
-  const body = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.65, 4), material);
-  body.rotation.x = Math.PI / 2;
-  root.add(body);
-  for (const side of [-1, 1]) {
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute(
-      'position',
-      new THREE.Float32BufferAttribute(
-        [0, 0, 0.12, side * 0.7, 0, -0.12, side * 0.95, 0, -0.5, side * 0.5, 0, -0.34, 0, 0, -0.2],
-        3
-      )
-    );
-    geometry.setIndex([0, 1, 2, 0, 2, 3, 0, 3, 4]);
-    const wing = new THREE.Mesh(geometry, material);
-    wing.name = side < 0 ? 'left-wing' : 'right-wing';
-    root.add(wing);
-  }
+  reference = { scene: gltf.scene, clip };
+}
+
+/** Source Owl1 body; other authored particle layers remain to be reconstructed. */
+export function createHawkshot(): THREE.Group {
+  if (!reference) throw new Error('Hawkshot model is not loaded');
+  const root = new THREE.Group();
+  const model = clone(reference.scene);
+  const rotation = reference.scene.userData.emitterRotationDegrees as number[];
+  model.rotation.set(...(rotation.map(THREE.MathUtils.degToRad) as [number, number, number]));
+  model.traverse((object) => {
+    if (object instanceof THREE.Mesh) {
+      object.castShadow = false;
+      // The bird is small and deforming; a static bind-pose bound is unsafe.
+      object.frustumCulled = false;
+    }
+  });
+  root.add(model);
+  const mixer = new THREE.AnimationMixer(model);
+  mixer.clipAction(reference.clip).play();
+  instances.set(root, { model, mixer });
+  animateHawkshot(root, 0);
   return root;
 }
 
 export function animateHawkshot(root: THREE.Group, seconds: number): void {
-  const flap = Math.sin(seconds * 12) * 0.25;
-  root.getObjectByName('left-wing')!.rotation.z = flap;
-  root.getObjectByName('right-wing')!.rotation.z = -flap;
+  const state = instances.get(root)!;
+  state.mixer.setTime(Math.max(0, seconds));
+  state.model.updateMatrixWorld(true);
+  state.model.traverse((object) => {
+    if (object instanceof THREE.SkinnedMesh) object.skeleton.update();
+  });
+}
+
+/** Release private pose resources, retaining the cached geometry/material/texture. */
+export function disposeHawkshot(root: THREE.Group): boolean {
+  const state = instances.get(root);
+  if (!state) return false;
+  state.mixer.stopAllAction();
+  state.mixer.uncacheRoot(state.model);
+  const skeletons = new Set<THREE.Skeleton>();
+  state.model.traverse((object) => {
+    if (object instanceof THREE.SkinnedMesh) skeletons.add(object.skeleton);
+  });
+  for (const skeleton of skeletons) skeleton.dispose();
+  instances.delete(root);
+  return true;
 }

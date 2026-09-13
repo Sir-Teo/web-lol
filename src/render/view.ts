@@ -6,7 +6,7 @@ import { clamp, lerp, type Vec2 } from '../simulation/math';
 import { isStructureKind, type Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
 import { FogSampler } from './fog-sampler';
-import { animateHawkshot, createHawkshot } from './hawkshot';
+import { animateHawkshot, createHawkshot, disposeHawkshot } from './hawkshot';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
 
@@ -640,7 +640,7 @@ export class GameView {
         this.projectileModels.set(p.id, model);
       }
       model.visible = world.projectileVisible(p);
-      if (p.type === 'hawkshot') animateHawkshot(model, world.time);
+      if (p.type === 'hawkshot') animateHawkshot(model, world.time - p.launchTick! / 60);
       model.position.set(
         lerp(p.previous.x, p.x, alpha) * SCALE,
         this.ground({ x: lerp(p.previous.x, p.x, alpha), y: lerp(p.previous.y, p.y, alpha) }) +
@@ -652,6 +652,10 @@ export class GameView {
     for (const [id, model] of this.projectileModels)
       if (!active.has(id)) {
         this.scene.remove(model);
+        if (disposeHawkshot(model)) {
+          this.projectileModels.delete(id);
+          continue;
+        }
         model.traverse((o) => {
           if (o instanceof THREE.Mesh) {
             o.geometry.dispose();

@@ -95,3 +95,8 @@ The default map now includes both teams’ source Nexus and inhibitor models, wi
 ## Super-minion assets
 
 Both team models now use the same matching 16.18 source pipeline. Their six clips, source scales, provenance, reconstruction commands, and animation-derived corpse lifetime are documented in [lane minions](MINIONS.md). All fifteen model GLBs validate with zero errors/warnings. Original six-minion rebuilds remain byte-identical after sharing the converter.
+
+
+## Hawkshot body
+
+The base Hawkshot now uses its pinned source Owl1 body, texture, five-bone rig and original flight clip. `node tools/assets/convert-hawkshot.mjs` rebuilds the 73,856-byte, 642-triangle GLB after the source extraction described in [ASHE-E.md](ASHE-E.md#original-effect-asset-recovery). The companion manifest records source/output hashes and explicit material/transform assumptions. Animation resources are private per scout; geometry and materials remain shared. Complete particle layering and reference visual calibration remain outstanding.

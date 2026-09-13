@@ -1,0 +1,143 @@
+/** Convert the pinned Hawkshot Owl1 mesh, texture and source animation to GLB. */
+import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { NodeIO } from '@gltf-transform/core';
+import { ALL_EXTENSIONS, KHRMaterialsUnlit } from '@gltf-transform/extensions';
+import { dedup, prune, resample } from '@gltf-transform/functions';
+
+const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const pinBytes = await readFile('docs/reference/hawkshot-effects.json');
+const pin = JSON.parse(pinBytes);
+const sourceRoot = '.cache/hawkshot-sources';
+for (const file of pin.extraction.files) {
+  const bytes = await readFile(`${sourceRoot}/${file.path}`);
+  if (bytes.length !== file.bytes || hash(bytes) !== file.sha256)
+    throw new Error(`Hawkshot source differs: ${file.path}`);
+}
+const definition = pin.records['Characters/Ashe/Skins/Skin0/Particles/Ashe_Base_E_mis'].data;
+const emitter = definition.complexEmitterDefinitionData.find((e) => e.emitterName === 'Owl1');
+if (emitter.primitive.__type !== 'VfxPrimitiveMesh' || emitter.isUniformScale !== 1)
+  throw new Error('Hawkshot mesh/scale interpretation must be reviewed');
+const mesh = emitter.primitive.mMesh;
+const source = (path) => `${sourceRoot}/${path.toLowerCase()}`;
+const converted = '.cache/hawkshot-converted';
+await mkdir(`${converted}/animations`, { recursive: true });
+await mkdir('public/assets/models', { recursive: true });
+await copyFile(source(mesh.mAnimationName), `${converted}/animations/flight.anm`);
+const meshBytes = await readFile(source(mesh.mMeshName));
+const materialNames = Array.from(
+  { length: meshBytes.readUInt32LE(8) },
+  (_, i) =>
+    meshBytes
+      .subarray(12 + i * 80, 76 + i * 80)
+      .toString('utf8')
+      .split('\0')[0]
+);
+const rawPath = `${converted}/hawkshot.glb`;
+execFileSync(
+  '.tools/dotnet/dotnet',
+  [
+    '.tools/converter/lol2gltf.dll',
+    'skn2gltf',
+    '-m',
+    source(mesh.mMeshName),
+    '-s',
+    source(mesh.mMeshSkeletonName),
+    '-g',
+    rawPath,
+    '-a',
+    `${converted}/animations`,
+    '--materials',
+    ...materialNames,
+    '--textures',
+    ...materialNames.map(() => source(emitter.texture)),
+  ],
+  { stdio: 'inherit' }
+);
+const io = new NodeIO().registerExtensions(ALL_EXTENSIONS);
+const doc = await io.read(rawPath);
+const unitScale = 0.01 * emitter.birthScale0.constantValue[0];
+const scaled = new Set();
+function scale(accessor, matrix = false) {
+  if (scaled.has(accessor)) return;
+  scaled.add(accessor);
+  const values = accessor.getArray();
+  if (matrix) {
+    for (let i = 0; i < values.length; i += 16)
+      for (const j of [12, 13, 14]) values[i + j] *= unitScale;
+  } else for (let i = 0; i < values.length; i++) values[i] *= unitScale;
+  accessor.setArray(values);
+}
+for (const m of doc.getRoot().listMeshes())
+  for (const p of m.listPrimitives()) scale(p.getAttribute('POSITION'));
+for (const skin of doc.getRoot().listSkins()) scale(skin.getInverseBindMatrices(), true);
+for (const node of doc.getRoot().listNodes())
+  node.setTranslation(node.getTranslation().map((v) => v * unitScale));
+for (const animation of doc.getRoot().listAnimations())
+  for (const channel of animation.listChannels())
+    if (channel.getTargetPath() === 'translation') scale(channel.getSampler().getOutput());
+const unlit = doc.createExtension(KHRMaterialsUnlit);
+for (const material of doc.getRoot().listMaterials()) {
+  material.setBaseColorFactor(emitter.Color.constantValue);
+  material.setAlphaMode('BLEND').setDoubleSided(true);
+  material.setExtension('KHR_materials_unlit', unlit.createUnlit());
+}
+doc.getRoot().listScenes()[0].setExtras({
+  emitterRotationDegrees: emitter.birthRotation0.constantValue,
+  sourceEmitter: 'Owl1',
+});
+const asset = doc.getRoot().getAsset();
+asset.copyright = 'Hawkshot artwork and animation © Riot Games. Reference content.';
+asset.generator = 'web-lol Hawkshot converter; lol2gltf + glTF Transform';
+await doc.transform(resample(), dedup(), prune());
+const clips = doc
+  .getRoot()
+  .listAnimations()
+  .map((a) => ({
+    name: a.getName(),
+    source: mesh.mAnimationName.toLowerCase(),
+    durationSeconds: Math.max(...a.listSamplers().map((s) => Math.max(...s.getInput().getArray()))),
+  }));
+if (clips.length !== 1 || clips[0].name !== 'flight' || clips[0].durationSeconds <= 0)
+  throw new Error('Hawkshot flight animation is missing');
+const bytes = await io.writeBinary(doc);
+const path = 'public/assets/models/hawkshot.glb';
+await writeFile(path, bytes);
+const manifest = {
+  referenceVersion: pin.extraction.referenceVersion,
+  status:
+    'Source Owl1 body and animation. Other particle layers and exact blend/transform parity remain unfinished.',
+  definitionsSha256: hash(pinBytes),
+  output: { path: '/assets/models/hawkshot.glb', bytes: bytes.length, sha256: hash(bytes) },
+  sourceManifest: pin.extraction.manifest,
+  sourceArchive: pin.extraction.archive,
+  sources: pin.extraction.files.filter((f) =>
+    [mesh.mMeshName, mesh.mMeshSkeletonName, mesh.mAnimationName, emitter.texture].some(
+      (p) => p.toLowerCase() === f.path
+    )
+  ),
+  unitScale,
+  emitterRotationDegrees: emitter.birthRotation0.constantValue,
+  sourceBlendMode: emitter.blendMode,
+  materialPolicy:
+    'Unlit normal alpha blend using source Owl1 color/texture; blend enum interpretation remains unverified.',
+  clips,
+  triangles: doc
+    .getRoot()
+    .listMeshes()
+    .reduce(
+      (n, m) => n + m.listPrimitives().reduce((s, p) => s + p.getIndices().getCount() / 3, 0),
+      0
+    ),
+  bones: doc.getRoot().listSkins()[0].listJoints().length,
+};
+await writeFile(path.replace('.glb', '.json'), JSON.stringify(manifest, null, 2) + '\n');
+console.log(
+  JSON.stringify({
+    bytes: bytes.length,
+    triangles: manifest.triangles,
+    bones: manifest.bones,
+    clips,
+  })
+);
