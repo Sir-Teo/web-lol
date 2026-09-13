@@ -315,3 +315,11 @@ A followed by an enemy click now issues a targeted attack using the same picked 
 All 153 simulation checks, four focused Chrome scenarios, the static build, and production smoke pass. The browser cases use actual keyboard/mouse input, verify explicit champion/caster/dummy damage despite a nearer enemy, and cover ground/ally clicks, cursor cleanup, and Escape. The initial test incorrectly stunned the player, causing commands to be rejected as designed; removing that fixture constraint exercised the intended behavior. The full browser suite was not repeated for this localized input change.
 
 Configurable attack-move-on-cursor, champion-only targeting, exact input buffering/cancellation calibration, complete match systems, and pixel-level fidelity remain unfinished. The production goal remains active.
+
+## Source-backed Heal self-cast milestone
+
+The stun-command review found an explicit source exception: Summoner Heal is castable while disabled and does not break channels. Its pinned record now drives the supported self-cast values: 80–318 healing across levels 1–18, 240-second cooldown, and 30% movement speed for one second. Heal works during the implemented stun and preserves recall; it does not remove stun, permit movement during it, or revive dead players. Other spells and movement orders retain the existing stun filter. Movement buffering itself remains unverified and unchanged. See [Heal scope and remaining mechanics](SUMMONER-HEAL.md).
+
+All 157 unit/scenario checks, three affected Chrome scenarios, the static build, and production smoke pass. New checks cover healing totals/clamping, stun permission and other-spell rejection, recall/cooldown behavior, checkpoint continuation, death, and victory. The browser presses F during stun and checks the cooldown and heal event; existing movement/run and attack-cycle cases remain green. Generated Heal data reproduces byte-identically. The full browser suite was not repeated.
+
+Ally targeting/healing/haste, repeated-Heal reduction, healing modifiers, additional crowd-control types, complete champion kits, full-match systems, and pixel-level reference comparison remain unfinished. The production goal remains active.

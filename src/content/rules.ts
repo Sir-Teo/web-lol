@@ -1,11 +1,21 @@
 import type { Ability } from '../simulation/types';
+import { SUMMONER_HEAL } from './summoner-heal';
 
 export const TICK_RATE = 60;
 export const DT = 1 / TICK_RATE;
 export const RULESET = 'practice-0.1';
 export const ABILITIES: Record<
   Ability,
-  { name: string; description: string; cooldown: number; cost: number; range: number; icon: string }
+  {
+    name: string;
+    description: string;
+    cooldown: number;
+    cost: number;
+    range: number;
+    icon: string;
+    canCastWhileDisabled?: boolean;
+    preservesRecall?: boolean;
+  }
 > = {
   q: {
     name: 'Ranger’s Focus',
@@ -52,7 +62,9 @@ export const ABILITIES: Record<
   f: {
     name: 'Heal',
     description: 'Restore health and gain a brief burst of movement speed.',
-    cooldown: 240,
+    cooldown: SUMMONER_HEAL.cooldownSeconds,
+    canCastWhileDisabled: SUMMONER_HEAL.canCastWhileDisabled,
+    preservesRecall: SUMMONER_HEAL.preservesRecall,
     cost: 0,
     range: 0,
     icon: 'SummonerHeal',

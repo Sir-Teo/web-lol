@@ -4,6 +4,7 @@ import type { Battlefield } from './battlefield';
 import { ABILITIES, DT, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
+import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
 import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
@@ -246,7 +247,12 @@ export class World {
     const commands = this.commands.splice(0);
     for (const command of commands) {
       const u = this.unit(command.unit);
-      if (!u || !this.alive(u) || u.stunUntil > this.tick) continue;
+      if (!u || !this.alive(u)) continue;
+      if (
+        u.stunUntil > this.tick &&
+        !(command.type === 'cast' && ABILITIES[command.ability].canCastWhileDisabled)
+      )
+        continue;
       if (command.type === 'order') {
         this.setOrder(u, command.order);
         if (command.order.type === 'move' || command.order.type === 'attackMove')
@@ -623,7 +629,8 @@ export class World {
     }
   }
   movementSpeed(u: Unit): number {
-    const haste = u.id === this.player.id && this.healSpeedEnd > this.tick ? 1.3 : 1;
+    const haste =
+      u.id === this.player.id && this.healSpeedEnd > this.tick ? 1 + SUMMONER_HEAL.speedBonus : 1;
     return u.speed * (u.slowUntil > this.tick ? 0.7 : 1) * haste;
   }
   private advanceProjectiles(): void {
@@ -849,7 +856,7 @@ export class World {
     if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
     u.mana -= spec.cost;
     this.player.cooldowns[ability] = this.tick + spec.cooldown * TICK_RATE;
-    this.player.recallEnd = null;
+    if (!spec.preservesRecall) this.player.recallEnd = null;
     this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
     if (ability === 'q') {
       this.player.qStacks = 0;
@@ -894,9 +901,13 @@ export class World {
       this.setOrder(u, { type: 'idle' });
     }
     if (ability === 'f') {
-      const amount = Math.min(100 + this.player.level * 10, u.maxHp - u.hp);
+      const levelFraction = Math.max(0, Math.min(1, (this.player.level - 1) / 17));
+      const heal =
+        SUMMONER_HEAL.minimumHeal +
+        (SUMMONER_HEAL.maximumHeal - SUMMONER_HEAL.minimumHeal) * levelFraction;
+      const amount = Math.min(heal, u.maxHp - u.hp);
       u.hp += amount;
-      this.healSpeedEnd = this.tick + 60;
+      this.healSpeedEnd = this.tick + SUMMONER_HEAL.speedDurationSeconds * TICK_RATE;
       this.emit('heal', u, { value: Math.round(amount) });
     }
   }
