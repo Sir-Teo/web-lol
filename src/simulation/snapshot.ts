@@ -8,7 +8,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 28;
+export const SNAPSHOT_VERSION = 29;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -126,6 +126,12 @@ const player: z.ZodType<PlayerState> = z
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
     damageContributors: z.array(z.strictObject({ sourceId: id, lastDamageTick: tick })).max(10000),
+    spellRanks: z.strictObject({
+      q: z.number().int().min(0).max(5),
+      w: z.number().int().min(0).max(5),
+      e: z.number().int().min(0).max(5),
+      r: z.number().int().min(0).max(3),
+    }),
     cooldowns: z.strictObject({
       q: deadline,
       w: deadline,
@@ -139,18 +145,26 @@ const player: z.ZodType<PlayerState> = z
     qStackExpiry: deadline,
     eCharges: z.number().int().min(0).max(ASHE_E.maximumCharges),
     eRechargeTick: tick.nullable(),
+    eRechargeDurationTicks: z
+      .number()
+      .refine((value) =>
+        ASHE_E.rechargeSecondsByRank.some((seconds) => value === seconds * TICK_RATE)
+      ),
     recallEnd: deadline.nullable(),
     castAnimation: z.strictObject({ ability: z.enum(['w', 'e', 'r']), startTick: tick }).nullable(),
     pendingCast: z
       .strictObject({
         ability: z.enum(['w', 'e', 'r']),
+        rank: z.number().int().min(1).max(5),
         startTick: tick,
         releaseTick: tick,
         point,
         damage: nonnegative,
       })
       .refine(
-        (c) => c.releaseTick === c.startTick + ASHE_CASTS[c.ability].castSeconds * TICK_RATE,
+        (c) =>
+          (c.ability !== 'r' || c.rank <= 3) &&
+          c.releaseTick === c.startTick + ASHE_CASTS[c.ability].castSeconds * TICK_RATE,
         'Invalid spell windup'
       )
       .nullable(),
@@ -166,6 +180,14 @@ const player: z.ZodType<PlayerState> = z
   .refine(
     (p) => (p.eCharges === ASHE_E.maximumCharges) === (p.eRechargeTick === null),
     'Invalid Hawkshot recharge state'
+  )
+  .refine(
+    (p) => p.spellRanks.e > 0 || p.eRechargeTick === null,
+    'Unlearned Hawkshot cannot recharge'
+  )
+  .refine(
+    (p) => p.spellRanks.q > 0 || (p.qUntil === 0 && p.qStacks === 0),
+    'Unlearned Focus cannot be active'
   );
 const projectile: z.ZodType<Projectile> = z
   .strictObject({
@@ -339,7 +361,8 @@ export function decodeSnapshot(text: string) {
     const cast = owner.pendingCast;
     if (
       cast &&
-      (cast.startTick > state.tick ||
+      (cast.rank > owner.spellRanks[cast.ability] ||
+        cast.startTick > state.tick ||
         cast.releaseTick <= state.tick ||
         champion.deadAt !== null ||
         state.winner !== null ||

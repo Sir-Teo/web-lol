@@ -71,6 +71,7 @@ test('enemy death resets its combat state and uses its level without consuming c
   state.recallEnd = 480;
   state.castAnimation = { ability: 'w', startTick: 0 };
   state.pendingCast = {
+    rank: 1,
     ability: 'w',
     startTick: 0,
     releaseTick: 15,

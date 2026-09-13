@@ -1,7 +1,12 @@
 import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { ASHE_E } from '../content/ashe-e';
-import { ASHE_W } from '../content/ashe-w';
+import { ASHE_Q } from '../content/ashe-q';
+import {
+  asheFocusValues,
+  asheVolleyValues,
+  asheHawkshotValues,
+} from '../simulation/ashe-spell-values';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import {
   experienceToNextLevel,
@@ -95,8 +100,16 @@ export class Hud {
     this.tip.style.top = `${Math.max(margin, Math.min(rect.top - this.tip.offsetHeight - 14, window.innerHeight - this.tip.offsetHeight - margin))}px`;
   }
   private abilityDescription(ability: Ability): string {
+    const rank = this.world.abilityRank(ability);
+    if (!rank) return 'This ability has not been learned.';
+    if (ability === 'q') {
+      const values = asheFocusValues(rank);
+      return `Build 4 Focus with attacks. Consume Focus to gain ${Math.round(values.bonusAttackSpeed * 100)}% attack speed for ${ASHE_Q.durationSeconds} seconds and empower attacks to deal ${Math.round(values.damageMultiplier * 100)}% damage. Activating resets your attack timer.`;
+    }
+    if (ability === 'e')
+      return `Send a hawk that reveals its route, then grants destination vision for ${ASHE_E.visionSeconds} seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${asheHawkshotValues(rank).rechargeSeconds} seconds.`;
     if (ability === 'w')
-      return `Fire ${ASHE_W.arrowsByRank[0]} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage())} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
+      return `Fire ${asheVolleyValues(rank, 0).arrows} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage())} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
     if (ability === 'r') return crystalArrowDescription(this.world.crystalArrowDamage());
     if (ability === 'f') {
       const base = this.world.summonerHealAmount();
@@ -279,8 +292,10 @@ export class Hud {
     }
     const ability = button.dataset.ability as Ability;
     const spec = ABILITIES[ability];
-    this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${spec.cost ? `${spec.cost} MANA` : 'NO COST'} <span>·</span> ${spec.cooldown ? `${spec.cooldown}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
+    const resources = this.world.abilityResources(ability);
+    this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${resources.mana ? `${resources.mana} MANA` : 'NO COST'} <span>·</span> ${resources.cooldownSeconds ? `${resources.cooldownSeconds}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
     this.tip.dataset.tooltipAbility = ability;
+    this.tip.dataset.tooltipRank = String(this.world.abilityRank(ability));
     this.tip.hidden = false;
     button.setAttribute('aria-describedby', this.tip.id);
     this.positionTooltip();
@@ -556,6 +571,11 @@ export class Hud {
       this.root.style.setProperty('--welcome-age', `${-welcomeTick / TICK_RATE}s`);
     }
     if (!this.tip.hidden && this.tip.dataset.tooltipAbility) {
+      if (
+        this.tip.dataset.tooltipRank !==
+        String(w.abilityRank(this.tip.dataset.tooltipAbility as Ability))
+      )
+        this.refreshTooltip();
       const description = this.abilityDescription(this.tip.dataset.tooltipAbility as Ability);
       const paragraph = this.tip.querySelector('p')!;
       if (paragraph.textContent !== description) {
@@ -614,7 +634,11 @@ export class Hud {
         cd = w.abilityCooldownTicks(a) / TICK_RATE;
       button.querySelector('.cooldown-text')!.textContent = cd > 0 ? String(Math.ceil(cd)) : '';
       button.classList.toggle('cooling', cd > 0);
-      button.classList.toggle('insufficient', h.mana < ABILITIES[a].cost);
+      const resources = w.abilityResources(a);
+      button.querySelector('.ability-cost')!.textContent = resources.mana
+        ? String(resources.mana)
+        : '';
+      button.classList.toggle('insufficient', !w.abilityRank(a) || h.mana < resources.mana);
       button.classList.toggle('empowered', a === 'q' && p.qUntil > w.tick);
       if (a === 'e') {
         const remaining = Math.max(0, (p.eRechargeTick ?? w.tick) - w.tick) / TICK_RATE;
@@ -622,7 +646,7 @@ export class Hud {
         const recharge = button.querySelector<HTMLElement>('.ability-recharge')!;
         recharge.hidden = p.eRechargeTick === null;
         recharge.querySelector<HTMLElement>('i')!.style.transform =
-          `scaleX(${Math.max(0, Math.min(1, 1 - remaining / ASHE_E.rechargeSecondsByRank[0]))})`;
+          `scaleX(${Math.max(0, Math.min(1, 1 - remaining / (p.eRechargeDurationTicks / TICK_RATE)))})`;
         button.setAttribute(
           'aria-label',
           `Hawkshot, ${p.eCharges} of ${ASHE_E.maximumCharges} charges${p.eRechargeTick === null ? '' : `, next charge in ${Math.ceil(remaining)} seconds`}`

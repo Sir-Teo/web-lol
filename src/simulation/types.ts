@@ -148,17 +148,20 @@ export interface ChampionState {
   deaths: number;
   xp: number;
   level: number;
+  spellRanks: Record<'q' | 'w' | 'e' | 'r', number>;
   cooldowns: Record<Ability, number>;
   qStacks: number;
   qUntil: number;
   qStackExpiry: number;
   eCharges: number;
   eRechargeTick: number | null;
+  eRechargeDurationTicks: number;
   recallEnd: number | null;
   /** Presentation can finish after the gameplay windup, until another action takes over. */
   castAnimation: { ability: 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {
     ability: 'w' | 'e' | 'r';
+    rank: number;
     startTick: number;
     releaseTick: number;
     point: Vec2;

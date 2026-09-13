@@ -24,7 +24,13 @@ import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-t
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
-import { asheCrystalArrowValues, asheVolleyValues } from './ashe-spell-values';
+import {
+  asheCrystalArrowValues,
+  asheVolleyValues,
+  asheFocusValues,
+  asheHawkshotValues,
+  asheSpellResources,
+} from './ashe-spell-values';
 import { crystalArrowStunTicks } from './crystal-arrow';
 import { ASHE_PASSIVE } from '../content/ashe-passive';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
@@ -365,7 +371,7 @@ export class World {
         if (this.tick < cast.releaseTick) continue;
         state.pendingCast = null;
         if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
-        else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage);
+        else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage, cast.rank);
       }
       if (u.stunUntil > this.tick) {
         const state = this.championState(u.id);
@@ -650,7 +656,8 @@ export class World {
         this.tick < u.nextAttackTick &&
         state.qStacks >= ASHE_Q.maxStacks &&
         state.qUntil <= this.tick &&
-        u.mana >= ABILITIES.q.cost &&
+        state.spellRanks.q > 0 &&
+        u.mana >= this.abilityResources('q', u.id).mana &&
         this.abilityCooldownTicks('q', u.id) === 0
       ) {
         if (u.order.type !== 'attack' || u.order.target !== target.id)
@@ -664,7 +671,8 @@ export class World {
         target.kind === 'champion' &&
         d > u.range + target.radius &&
         d <= ABILITIES.w.range &&
-        u.mana >= ABILITIES.w.cost &&
+        state.spellRanks.w > 0 &&
+        u.mana >= this.abilityResources('w', u.id).mana &&
         this.abilityCooldownTicks('w', u.id) === 0
       ) {
         if (u.order.type !== 'attack' || u.order.target !== target.id)
@@ -714,7 +722,7 @@ export class World {
               endTick: this.tick + 120,
             });
           this.emit('attack', u, { unit: u.id, team: u.team });
-          if (state && this.tick >= state.qUntil) {
+          if (state && state.spellRanks.q > 0 && this.tick >= state.qUntil) {
             state.qStacks = Math.min(ASHE_Q.maxStacks, state.qStacks + 1);
             state.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
           }
@@ -723,7 +731,7 @@ export class World {
           const damage =
             u.damage *
             (state !== undefined && this.tick < state.qUntil
-              ? ASHE_Q.damageMultiplierByRank[0]
+              ? asheFocusValues(state.spellRanks.q).damageMultiplier
               : 1);
           if (!u.missileSpeed) this.hitBasicAttack(u, target, damage);
           else
@@ -1066,9 +1074,8 @@ export class World {
   attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {
     const state = this.championState(source.id);
     if (state && state.qUntil > this.tick) {
-      // Q is rank one until skill-point allocation is implemented. Its bonus
-      // adds ratio-scaled attacks/second, not a multiplier on existing bonuses.
-      const bonus = ASHE_Q.attackSpeedRatio * ASHE_Q.bonusAttackSpeedByRank[0];
+      // Q adds ratio-scaled attacks/second, not a multiplier on existing bonuses.
+      const bonus = ASHE_Q.attackSpeedRatio * asheFocusValues(state.spellRanks.q).bonusAttackSpeed;
       return 1 + (bonus * source.attackPeriod) / TICK_RATE;
     }
     if (source.kind === 'siege' && target?.kind === 'turret' && target.structure?.lane === 'mid')
@@ -1318,17 +1325,32 @@ export class World {
     const chargeDeadline = ability === 'e' && state.eCharges === 0 ? (state.eRechargeTick ?? 0) : 0;
     return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
   }
+  abilityRank(ability: Ability, championId = this.player.id): number {
+    if (ability === 'd' || ability === 'f') return 1;
+    return this.championState(championId)?.spellRanks[ability] ?? 0;
+  }
+  abilityResources(ability: Ability, championId = this.player.id) {
+    if (ability === 'd' || ability === 'f')
+      return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
+    const rank = this.abilityRank(ability, championId);
+    return rank ? asheSpellResources(ability, rank) : { mana: 0, cooldownSeconds: 0 };
+  }
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     const state = this.championState(u.id);
     if (!state) return;
     if (state.pendingCast && ability !== 'f') return;
     const spec = ABILITIES[ability];
     const fail = (text: string) => this.emit('message', u, { text, unit: u.id, team: u.team });
+    if (!this.abilityRank(ability, u.id)) {
+      fail('Learn that spell first');
+      return;
+    }
+    const resources = this.abilityResources(ability, u.id);
     if (this.abilityCooldownTicks(ability, u.id) > 0 || (ability === 'e' && state.eCharges === 0)) {
       fail('That spell is not ready yet');
       return;
     }
-    if (u.mana < spec.cost) {
+    if (u.mana < resources.mana) {
       fail('Not enough mana');
       return;
     }
@@ -1339,8 +1361,8 @@ export class World {
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
     const dir = direction(u, point);
     if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
-    u.mana -= spec.cost;
-    state.cooldowns[ability] = this.tick + spec.cooldown * TICK_RATE;
+    u.mana -= resources.mana;
+    state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
     if (!spec.preservesRecall) state.recallEnd = null;
     if (ability !== 'f') state.castAnimation = null;
     this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
@@ -1367,6 +1389,7 @@ export class World {
       state.castAnimation = { ability, startTick: this.tick };
       state.pendingCast = {
         ability,
+        rank: state.spellRanks[ability],
         startTick: this.tick,
         releaseTick: this.tick + timing.castSeconds * TICK_RATE,
         point: { ...point },
@@ -1376,7 +1399,11 @@ export class World {
     }
     if (ability === 'e') {
       state.eCharges--;
-      state.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;
+      if (state.eRechargeTick === null) {
+        state.eRechargeDurationTicks =
+          asheHawkshotValues(state.spellRanks.e).rechargeSeconds * TICK_RATE;
+        state.eRechargeTick = this.tick + state.eRechargeDurationTicks;
+      }
     }
     if (ability === 'd') {
       const d = Math.min(spec.range, distance(u, point));
@@ -1448,12 +1475,16 @@ export class World {
     u: Unit,
     ability: 'w' | 'r',
     point: Vec2,
-    capturedDamage?: number
+    capturedDamage?: number,
+    capturedRank?: number
   ): void {
     const dir = direction(u, point),
       spec = ABILITIES[ability];
     const volleyId = ability === 'w' ? this.nextId++ : null;
-    const number = ability === 'w' ? ASHE_W.arrowsByRank[0] : 1,
+    const number =
+        ability === 'w'
+          ? asheVolleyValues(capturedRank ?? this.abilityRank('w', u.id), 0).arrows
+          : 1,
       angle = Math.atan2(dir.y, dir.x);
     if (volleyId !== null) this.volleyHits[volleyId] = [];
     for (let i = 0; i < number; i++) {
@@ -1522,7 +1553,7 @@ export class World {
       0
     );
   }
-  crystalArrowDamage(u: Unit = this.hero, rank = 1): number {
+  crystalArrowDamage(u: Unit = this.hero, rank = this.abilityRank('r', u.id)): number {
     return asheCrystalArrowValues(rank, this.abilityPower(u)).damage;
   }
   /** Healing before missing-health cap; optional recipient applies its recent-Heal penalty. */
@@ -1542,7 +1573,7 @@ export class World {
     );
   }
   /** Raw Volley damage; cast snapshots retain this value at windup. */
-  volleyDamage(u: Unit = this.hero, rank = 1): number {
+  volleyDamage(u: Unit = this.hero, rank = this.abilityRank('w', u.id)): number {
     return asheVolleyValues(
       rank,
       u.damage -

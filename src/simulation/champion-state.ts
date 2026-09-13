@@ -1,4 +1,5 @@
 import { ASHE_E } from '../content/ashe-e';
+import { asheHawkshotValues } from './ashe-spell-values';
 import { ASHE_Q } from '../content/ashe-q';
 import { TICK_RATE } from '../content/rules';
 import type { ChampionState } from './types';
@@ -15,12 +16,14 @@ export function createChampionState(id: number): ChampionState {
     deaths: 0,
     xp: 0,
     level: 1,
+    spellRanks: { q: 1, w: 1, e: 1, r: 1 },
     cooldowns: { q: 0, w: 0, e: 0, r: 0, d: 0, f: 0 },
     qStacks: 0,
     qUntil: 0,
     qStackExpiry: 0,
     eCharges: ASHE_E.maximumCharges,
     eRechargeTick: null,
+    eRechargeDurationTicks: ASHE_E.rechargeSecondsByRank[0] * TICK_RATE,
     recallEnd: null,
     castAnimation: null,
     pendingCast: null,
@@ -31,9 +34,11 @@ export function createChampionState(id: number): ChampionState {
 export function rechargeChampion(state: ChampionState, tick: number): void {
   while (state.eRechargeTick !== null && tick >= state.eRechargeTick) {
     state.eCharges++;
+    state.eRechargeDurationTicks =
+      asheHawkshotValues(state.spellRanks.e).rechargeSeconds * TICK_RATE;
     state.eRechargeTick =
       state.eCharges < ASHE_E.maximumCharges
-        ? state.eRechargeTick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE
+        ? state.eRechargeTick + state.eRechargeDurationTicks
         : null;
   }
 }

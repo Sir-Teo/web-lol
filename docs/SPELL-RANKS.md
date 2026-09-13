@@ -1,6 +1,6 @@
 # Spell-rank implementation audit
 
-Current gameplay still starts with Q/W/E/R available at rank one. This is practice behavior, not standard match progression. The production objective requires actual learning and rank allocation.
+Current gameplay still starts with Q/W/E/R available at rank one. Champions now own saved ranks and combat/HUD consume them, but there is no point allocation yet. This initialization is practice behavior, not standard match progression. The production objective requires actual learning and rank allocation.
 
 ## Verified resource tables
 
@@ -19,15 +19,17 @@ The client exports `maxLevel: 0` for every spell. This cannot establish rank cap
 
 ## Runtime integration requirements
 
-`src/simulation/ashe-spell-values.ts` now exposes validated, read-only normal-rank queries for Q buffs, W damage/arrow count, E cast/recharge timers and R damage, together with mana/cooldown costs. Rank zero and out-of-range ranks are rejected rather than clamped. `World.volleyDamage` and `World.crystalArrowDamage` accept an explicit rank for previews using current owned stats; existing casts still default to rank one. This is calculation groundwork, not learned-rank ownership or allocation. Connect these queries to champion state in the integration below.
+`src/simulation/ashe-spell-values.ts` exposes validated normal-rank queries for Q buffs, W damage/arrow count, E cast/recharge timers and R damage, together with mana/cooldown costs. Champion `spellRanks` are now saved under snapshot version 29. Casts, Q attack timing/damage, W/R damage, E timers, bot resource checks and live HUD descriptions/costs consume owned ranks. Rank zero blocks casting and Q stack generation. Explicit rank previews remain available through the world damage queries.
 
-- Add Q/W/E/R rank ownership and unspent points per champion, including saved-state validation and a schema bump. Standard matches need unlearned spells; explicitly retained practice fixtures may start with unlocked skills.
+Pending casts capture their rank as well as damage; Volley therefore retains its starting arrow count through a windup upgrade. Existing E recharge deadlines and their displayed duration remain unchanged by rank edits; the next recharge uses the new rank. These upgrade-timing choices are current simulation policies, not independently verified native timing. Active Q reads the current rank for subsequently released attacks and newly scheduled attack timing. Already released projectiles retain their damage.
+
+- Add unspent points and allocation per champion, extending saved-state validation. Standard matches need unlearned spells; explicitly retained practice fixtures may start with unlocked skills.
 - Validate learning commands against points, maximum rank and verified champion-level restrictions; invalid commands must be atomic. Learning consumes no match time beyond command processing.
-- Replace fixed Q attack-speed/damage indexes in attack scheduling and empowered damage. Already released attacks retain captured damage and scheduled timings.
-- Replace fixed W damage/arrow count, resource costs and cooldowns. Decide and verify which values snapshot at cast start versus release; current pending casts capture damage but not arrow count.
-- Replace E's fixed recharge index everywhere a charge timer is scheduled. Verify behavior when learning a rank during a running recharge before changing existing deadlines.
-- Select R damage and cooldown by learned rank; both now read rank-one generated values. R now applies flat item AP scaling; broader AP modifiers remain separate work.
-- Use the same learned-rank queries in cast validation, bot resource checks, HUD mana labels, tooltips, cooldown shading and learning controls.
+- Verify native upgrade timing for active Q and committed attack windups against the current rank-aware behavior.
+- Verify native W cast-start rank/damage capture timing against the current captured-rank behavior.
+- Verify native E behavior when learning a rank during a running recharge; current behavior preserves the running interval and changes the next.
+- R damage and cooldown now consume owned ranks and flat item AP. Broader AP modifiers remain separate work.
+- Add learning controls to the rank-aware HUD, cast validation and bot resource checks.
 - Bots must allocate earned points and cannot cast unlearned spells. Fixture-specific assumptions must not leak into the real match setup.
 
 ## Verification required
