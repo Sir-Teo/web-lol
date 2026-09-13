@@ -45,7 +45,7 @@ async function boot(): Promise<void> {
     console.error(error);
     return;
   }
-  const audio = new GameAudio();
+  const audio = new GameAudio(world.events);
   let paused = false,
     accumulator = 0,
     previous = performance.now(),
@@ -54,6 +54,7 @@ async function boot(): Promise<void> {
   const setPaused = (value: boolean) => {
     paused = value || document.hidden || !!hud.graphicsState;
     hud.paused = paused;
+    audio.setPaused(paused);
     accumulator = 0;
     previous = performance.now();
     if (paused) {
@@ -80,6 +81,7 @@ async function boot(): Promise<void> {
   }
   window.addEventListener('resize', () => view.resize());
   const assetsReady = Promise.all([
+    audio.load(),
     loadReferenceModels(),
     loadHawkshot(),
     loadHawkshotWind(),
@@ -197,7 +199,10 @@ async function boot(): Promise<void> {
       hud.update(fps);
       uiElapsed = 0;
     }
-    audio.update(world.events.filter((event) => world.eventVisible(event)));
+    audio.update(
+      world.events.filter((event) => world.eventVisible(event)),
+      world.tick
+    );
   });
   if (import.meta.env.DEV) {
     Object.assign(window, {
@@ -205,6 +210,7 @@ async function boot(): Promise<void> {
         world,
         view,
         hud,
+        audio,
         setPaused,
         snapshot: () => JSON.parse(world.snapshot()),
         ready: true,

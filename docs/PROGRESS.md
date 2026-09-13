@@ -776,3 +776,11 @@ The source establishes a delayed cast, separate launch variant/loop layers and e
 Built pinned vgmstream and decoded all nine Hawkshot media files to cache-only float WAV masters. The reproducible decode manifest captures full frame/rate/channel metadata, source/PCM hashes, peaks, RMS, endpoint deltas and exact codec-library hashes. All files are mono 44.1 kHz with no embedded loop markers; source bank loop requests remain separate. Five recordings contain 22 samples above unit magnitude before gain, so float masters preserve headroom that a direct integer conversion would clip.
 
 Repeat decoding produced identical hashes. A real Chrome 152 Web Audio decode check verified every float sample for all nine recordings, including values above 1. The approximately 5.32 MB masters are not runtime requests. No gameplay/render code changed; source/simulation checks, production build and the full browser gameplay suite were not repeated. Runtime source playback, listening comparison, shared mixing and native scheduling remain unfinished. See [decoded audio evidence](ASHE-AUDIO.md#decoded-source-masters-and-browser-verification).
+
+## First source cast audio playback
+
+Hawkshot now plays its three source cast variants with the mapped 150 ms delay and −12 dB authored gain. Source WAVs retain float headroom. Event-age scheduling handles batched simulation delivery, and a local shuffle bag avoids consuming gameplay randomness. The optional source preload falls back to synthesized feedback on failure.
+
+Audio pause now suspends context time with the match; mute stops/disconnects voices immediately, ended nodes release connections, and checkpoint history is primed so old one-shots do not replay. All 281 source/simulation checks, seven focused Chrome audio/save scenarios, production build and real-input production Hawkshot smoke pass. Source profile regeneration is byte-identical. The full browser suite and full-match benchmark were not repeated.
+
+This is source playback for the cast cue only. Launch/arrival/linger audio, spatial attenuation, shared-bus/native mixing, listening comparison and full-match production work remain unfinished. See [runtime audio scope](ASHE-AUDIO.md#first-runtime-source-playback-cast).
