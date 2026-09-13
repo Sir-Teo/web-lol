@@ -1,5 +1,6 @@
 import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
+import { ASHE_E } from '../content/ashe-e';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL } from '../simulation/progression';
 import { isStructureKind, type Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
@@ -67,7 +68,7 @@ export class Hud {
     this.bind();
   }
   private abilityMarkup(a: Ability): string {
-    return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="/assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span></button>`;
+    return `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="/assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
   }
   private bind(): void {
     const on = (id: string, fn: () => void) =>
@@ -249,6 +250,8 @@ export class Hud {
             this.world.player.cooldowns[a] = 0;
           this.world.player.qStacks = 4;
           this.world.player.qStackExpiry = this.world.tick + 600;
+          this.world.player.eCharges = ASHE_E.maximumCharges;
+          this.world.player.eRechargeTick = null;
           this.toast('Abilities are ready');
         }
         if (action === 'gold') {
@@ -348,11 +351,23 @@ export class Hud {
       .forEach((pip, i) => pip.classList.toggle('charged', i < p.qStacks));
     this.root.querySelectorAll<HTMLButtonElement>('[data-ability]').forEach((button) => {
       const a = button.dataset.ability as Ability,
-        cd = Math.max(0, p.cooldowns[a] - w.tick) / TICK_RATE;
+        cd = w.abilityCooldownTicks(a) / TICK_RATE;
       button.querySelector('.cooldown-text')!.textContent = cd > 0 ? String(Math.ceil(cd)) : '';
       button.classList.toggle('cooling', cd > 0);
       button.classList.toggle('insufficient', h.mana < ABILITIES[a].cost);
       button.classList.toggle('empowered', a === 'q' && p.qUntil > w.tick);
+      if (a === 'e') {
+        const remaining = Math.max(0, (p.eRechargeTick ?? w.tick) - w.tick) / TICK_RATE;
+        button.querySelector('.ability-charges')!.textContent = String(p.eCharges);
+        const recharge = button.querySelector<HTMLElement>('.ability-recharge')!;
+        recharge.hidden = p.eRechargeTick === null;
+        recharge.querySelector<HTMLElement>('i')!.style.transform =
+          `scaleX(${Math.max(0, Math.min(1, 1 - remaining / ASHE_E.rechargeSecondsByRank[0]))})`;
+        button.setAttribute(
+          'aria-label',
+          `Hawkshot, ${p.eCharges} of ${ASHE_E.maximumCharges} charges${p.eRechargeTick === null ? '' : `, next charge in ${Math.ceil(remaining)} seconds`}`
+        );
+      }
     });
     this.root.querySelector('#camera-button')!.classList.toggle('active', this.view.locked);
     const recall = this.root.querySelector<HTMLDivElement>('.recall-progress')!;

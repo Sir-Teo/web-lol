@@ -135,6 +135,8 @@ export interface PlayerState {
   qStacks: number;
   qUntil: number;
   qStackExpiry: number;
+  eCharges: number;
+  eRechargeTick: number | null;
   recallEnd: number | null;
   inventory: string[];
 }

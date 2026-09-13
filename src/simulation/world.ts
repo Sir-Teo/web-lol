@@ -6,6 +6,7 @@ import { ASHE } from '../content/ashe-progression';
 import { AMBIENT_GOLD } from '../content/ambient-gold';
 import { championDeathTicks } from './champion-death';
 import { ASHE_Q } from '../content/ashe-q';
+import { ASHE_E } from '../content/ashe-e';
 import { ASHE_R } from '../content/ashe-r';
 import { ASHE_W } from '../content/ashe-w';
 import { crystalArrowStunTicks } from './crystal-arrow';
@@ -65,6 +66,8 @@ export class World {
       qStacks: 0,
       qUntil: 0,
       qStackExpiry: 0,
+      eCharges: ASHE_E.maximumCharges,
+      eRechargeTick: null,
       recallEnd: null,
       inventory: [],
     };
@@ -280,6 +283,15 @@ export class World {
   }
   private update(): void {
     this.tick++;
+    // Serial recharge continues through death. Resolve before commands so a
+    // newly restored charge can be used on its deadline tick.
+    while (this.player.eRechargeTick !== null && this.tick >= this.player.eRechargeTick) {
+      this.player.eCharges++;
+      this.player.eRechargeTick =
+        this.player.eCharges < ASHE_E.maximumCharges
+          ? this.player.eRechargeTick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE
+          : null;
+    }
     this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
     for (const unit of this.units) unit.previous = { x: unit.x, y: unit.y };
     const commands = this.commands.splice(0);
@@ -967,11 +979,16 @@ export class World {
     u.criticalSlow = null;
     this.setOrder(u, { type: 'idle' });
   }
+  abilityCooldownTicks(ability: Ability): number {
+    const chargeDeadline =
+      ability === 'e' && this.player.eCharges === 0 ? (this.player.eRechargeTick ?? 0) : 0;
+    return Math.max(0, this.player.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
+  }
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     if (u.id !== this.player.id) return;
     const spec = ABILITIES[ability];
     const fail = (text: string) => this.emit('message', u, { text });
-    if (this.player.cooldowns[ability] > this.tick) {
+    if (this.abilityCooldownTicks(ability) > 0 || (ability === 'e' && this.player.eCharges === 0)) {
       fail('That spell is not ready yet');
       return;
     }
@@ -1028,7 +1045,11 @@ export class World {
         });
       }
     }
-    if (ability === 'e') this.reveal = { point: { ...point }, endTick: this.tick + 300 };
+    if (ability === 'e') {
+      this.player.eCharges--;
+      this.player.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;
+      this.reveal = { point: { ...point }, endTick: this.tick + 300 };
+    }
     if (ability === 'd') {
       const d = Math.min(spec.range, distance(u, point));
       const end = this.battlefield.reachable(

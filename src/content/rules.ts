@@ -1,6 +1,7 @@
 import type { Ability } from '../simulation/types';
 import { SUMMONER_HEAL } from './summoner-heal';
 import { ASHE_Q } from './ashe-q';
+import { ASHE_E } from './ashe-e';
 import { ASHE_R } from './ashe-r';
 
 export const TICK_RATE = 60;
@@ -38,8 +39,8 @@ export const ABILITIES: Record<
   },
   e: {
     name: 'Hawkshot',
-    description: 'Reveal a distant area of the battlefield for 5 seconds.',
-    cooldown: 45,
+    description: `Reveal a distant area for 5 seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${ASHE_E.rechargeSecondsByRank[0]} seconds.`,
+    cooldown: ASHE_E.castCooldownSeconds,
     cost: 0,
     range: 8000,
     icon: 'AsheSpiritOfTheHawk',

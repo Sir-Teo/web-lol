@@ -40,7 +40,7 @@ A new simulation case checks equal absolute speed gain across early and late lev
 
 The exporter now emits the five normal-rank `DamagePerStrike` values, normalized to six decimals. The pinned `EmpoweredDamage` calculation combines this value with attack damage. Rank one therefore captures 110% of the attacker's AD at release. The arrow stores that amount in its existing damage field, so later Q activation/expiry, AD changes or source death do not alter it. Physical resistance remains sampled at impact through the normal attack damage path. This does not change non-player champion or minion attacks.
 
-This is **aggregate damage**, not the completed flurry: the renderer and simulation still represent one arrow and one damage application. Five-arrow sequencing, individual mitigations, per-hit interactions, passive Frost Shot amplification, attack reset and rank allocation remain unfinished. This intermediate change establishes the source-backed total coefficient without claiming full Q combat parity.
+This is **aggregate damage**, not the completed flurry: the renderer and simulation still represent one arrow and one damage application. Five-arrow sequencing, individual mitigations, per-hit interactions, critical-strike stat scaling, attack reset and rank allocation remain unfinished. This intermediate change establishes the source-backed total coefficient without claiming full Q combat parity.
 
 Three simulation cases compare normal/empowered attacks against armor, preserve empowered damage through expiry/AD changes/death and saved continuation, and ensure activating Q after release does not retroactively empower an arrow. A browser case casts Q and checks damage after expiry in flight.
 

@@ -6,6 +6,8 @@ Last updated: September 13, 2026 (America/New_York).
 
 ## Current authoritative state
 
+Latest validation: 218 simulation checks, all 71 Chrome scenarios, static build and production smoke pass at the Hawkshot ammunition milestone below.
+
 - TypeScript/Vite/Three.js application boots directly into practice on the full reference Rift.
 - Fixed-step, renderer-independent simulation with command handling, wall-aware navigation, ranged attack windup/release, homing attacks, swept skillshots, death, and respawn.
 - Basic Ashe ability representations, minion waves, turrets, a local sparring champion, a target dummy, gold/XP, recall, and four purchasable items.
@@ -20,7 +22,9 @@ Last updated: September 13, 2026 (America/New_York).
 
 The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
 
-## Verification performed
+## Historical baseline verification
+
+The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.
 
 | Evidence                  | Result                                          | Scope                                                                                                                                                                                                                                                                                                                     |
 | ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -461,3 +465,12 @@ All 210 simulation checks, two focused Chrome cases, static build and production
 Volley champion hits now apply source-backed 40–60% enhanced slow strength, easing to ordinary Frost over a one-second policy window. A separate component prevents a subsequent basic attack from erasing the enhanced decay. Non-champion Volley hits use ordinary level-scaled Frost. Snapshot version 11 validates and preserves the component; respawn clears it. Source tooltips support the enhancement/decay behavior, while exact linear timing remains pending reference capture.
 
 All 213 simulation checks, five focused Chrome cases, static build and production smoke pass. New checks cover level endpoints, decay/tail/expiry, saved continuation, subsequent basic hits and malformed component bounds. Export regeneration is byte-identical. General slow priority, critical basic attacks, movement caps and full champion/match/pixel fidelity remain unfinished; the production goal remains active.
+
+
+## Hawkshot ammunition milestone
+
+Hawkshot now stores two charges with a five-second cast delay and serial 90-second rank-one recharge, replacing its provisional 45-second single cooldown. Spending the second charge does not restart recharge; death and respawn preserve it. Snapshot version 12 validates and saves charge count/deadline. The HUD displays ammunition, recharge progress and actual cast availability; practice reset restores both charges. Complete selected spell/tooltip records are pinned, and the verified exporter excludes nonstandard rank entries. [Hawkshot evidence and remaining scope](ASHE-E.md).
+
+All 218 simulation checks, all 71 Chrome scenarios, static build and production smoke pass. Five new simulation cases cover serial recharge, boundary ordering, rejection, recall, death/respawn, save continuation and malformed state. Browser coverage exercises actual keyboard casts, charge/countdown display, accessible feedback and practice reset; charge-state screenshots were visually inspected. Export regeneration is byte-identical. These are local checks, not reference timing or pixel-parity certification.
+
+Hawkshot still needs travel, range enforcement, complete vision geometry/persistence, cast windup and audiovisual fidelity. Starting charges and recharge event ordering remain documented policies pending reference capture. Passive research also confirmed that the pinned zero-crit calculation does not justify adding an old flat Frost Shot amplification; crit-stat support remains missing. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

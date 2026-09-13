@@ -1,11 +1,12 @@
 import { z } from 'zod';
 import { ITEMS } from '../content/rules';
+import { ASHE_E } from '../content/ashe-e';
 import { MAX_LEVEL } from './progression';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 11;
+export const SNAPSHOT_VERSION = 12;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -110,28 +111,37 @@ const unit: z.ZodType<Unit> = z
       .optional(),
   })
   .refine((u) => u.hp <= u.maxHp && u.mana <= u.maxMana, 'Invalid unit resources');
-const player: z.ZodType<PlayerState> = z.strictObject({
-  id,
-  gold: nonnegative,
-  cs: tick,
-  kills: tick,
-  deaths: tick,
-  xp: nonnegative,
-  level: z.number().int().min(1).max(MAX_LEVEL),
-  cooldowns: z.strictObject({
-    q: deadline,
-    w: deadline,
-    e: deadline,
-    r: deadline,
-    d: deadline,
-    f: deadline,
-  }),
-  qStacks: z.number().int().min(0).max(4),
-  qUntil: deadline,
-  qStackExpiry: deadline,
-  recallEnd: deadline.nullable(),
-  inventory: z.array(z.string().refine((value) => ITEMS.some((item) => item.id === value))).max(6),
-});
+const player: z.ZodType<PlayerState> = z
+  .strictObject({
+    id,
+    gold: nonnegative,
+    cs: tick,
+    kills: tick,
+    deaths: tick,
+    xp: nonnegative,
+    level: z.number().int().min(1).max(MAX_LEVEL),
+    cooldowns: z.strictObject({
+      q: deadline,
+      w: deadline,
+      e: deadline,
+      r: deadline,
+      d: deadline,
+      f: deadline,
+    }),
+    qStacks: z.number().int().min(0).max(4),
+    qUntil: deadline,
+    qStackExpiry: deadline,
+    eCharges: z.number().int().min(0).max(ASHE_E.maximumCharges),
+    eRechargeTick: tick.nullable(),
+    recallEnd: deadline.nullable(),
+    inventory: z
+      .array(z.string().refine((value) => ITEMS.some((item) => item.id === value)))
+      .max(6),
+  })
+  .refine(
+    (p) => (p.eCharges === ASHE_E.maximumCharges) === (p.eRechargeTick === null),
+    'Invalid Hawkshot recharge state'
+  );
 const projectile: z.ZodType<Projectile> = z.strictObject({
   id,
   source: id,
