@@ -46,6 +46,8 @@ export class GameView {
   private fogSampler?: FogSampler;
   private bars: HTMLDivElement;
   private previousElapsed = 0;
+  private terminalWorld?: World;
+  private terminalAnimationStart = 0;
 
   constructor(
     host: HTMLElement,
@@ -335,6 +337,12 @@ export class GameView {
   }
   render(world: World, alpha: number, elapsed: number): void {
     const animationDelta = Math.max(0, Math.min(0.1, elapsed - this.previousElapsed));
+    if (!world.winner) this.terminalWorld = undefined;
+    else if (this.terminalWorld !== world) {
+      this.terminalWorld = world;
+      this.terminalAnimationStart = elapsed;
+    }
+    const terminalAge = world.winner ? Math.max(0, elapsed - this.terminalAnimationStart) : 0;
     this.previousElapsed = elapsed;
     if (this.locked)
       this.center = {
@@ -366,13 +374,13 @@ export class GameView {
         this.scene.add(model.root);
       }
       const deathDuration = model.actions?.death?.getClip().duration ?? 0.65;
+      const deathAge =
+        u.deadAt === null ? 0 : Math.max(0, (world.tick - u.deadAt + alpha - 1) / 60) + terminalAge;
       const knownDestroyed = world.knownStructureDestroyed(u);
       model.root.visible =
         knownDestroyed !== null ||
         (world.visible(u) &&
-          (isStructureKind(u.kind) ||
-            u.deadAt === null ||
-            world.tick - u.deadAt < (deathDuration + 0.2) * 60));
+          (isStructureKind(u.kind) || u.deadAt === null || deathAge < deathDuration + 0.2));
       const x = lerp(u.previous.x, u.x, alpha),
         y = lerp(u.previous.y, u.y, alpha);
       if (!u.structureTransform) {
@@ -463,6 +471,11 @@ export class GameView {
           attack.time =
             attack.getClip().duration * Math.min(1, ticks / (cycle.endTick - cycle.startTick));
           attack.paused = true;
+        }
+        if (clip === 'death' && model.actions.death) {
+          const death = model.actions.death;
+          death.time = Math.min(death.getClip().duration, deathAge);
+          death.paused = true;
         }
         model.mixer.update(animationDelta);
       }
