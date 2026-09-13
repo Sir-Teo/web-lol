@@ -9,6 +9,7 @@ import { GameAudio } from './audio/audio';
 import { loadReferenceModels } from './render/models';
 import { loadHawkshotWind } from './render/hawkshot-wind';
 import { loadHawkshotDust } from './render/hawkshot-dust';
+import { loadHawkshotSmoke } from './render/hawkshot-smoke';
 import { loadHawkshot } from './render/hawkshot';
 import { loadRiftBattlefield } from './content/rift';
 import { PRACTICE_FIXTURE } from './content/practice-fixture';
@@ -80,6 +81,7 @@ async function boot(): Promise<void> {
     loadHawkshot(),
     loadHawkshotWind(),
     loadHawkshotDust(),
+    loadHawkshotSmoke(),
     view.loadEnvironment(),
   ]);
   const pauseForInterruption = () => {
@@ -120,6 +122,7 @@ async function boot(): Promise<void> {
   };
   view.renderer.domElement.addEventListener('webglcontextlost', (event) => {
     event.preventDefault();
+    view.smoke.depth.dispose();
     graphicsGeneration++;
     cancelWarmup?.();
     hud.setGraphicsState('lost');

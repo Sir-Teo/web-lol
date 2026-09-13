@@ -1,0 +1,59 @@
+import * as THREE from 'three';
+
+/** Capture actual depth-writing materials, including their skinning and alpha tests. */
+export class SceneDepth {
+  target?: THREE.WebGLRenderTarget;
+  private size = new THREE.Vector2();
+  capture(renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) {
+    renderer.getDrawingBufferSize(this.size);
+    if (!this.target) {
+      this.target = new THREE.WebGLRenderTarget(this.size.x, this.size.y);
+      this.target.depthTexture = new THREE.DepthTexture(
+        this.size.x,
+        this.size.y,
+        THREE.UnsignedIntType
+      );
+    } else if (this.target.width !== this.size.x || this.target.height !== this.size.y)
+      this.target.setSize(this.size.x, this.size.y);
+    // A first depth pass must see the current pose, before the normal renderer
+    // has initialized or refreshed each skinned mesh's GPU bone data.
+    scene.updateMatrixWorld(true);
+    scene.traverse((o) => {
+      if ((o as THREE.SkinnedMesh).isSkinnedMesh) (o as THREE.SkinnedMesh).skeleton.update();
+    });
+    const hidden: THREE.Object3D[] = [];
+    scene.traverse((o) => {
+      const material = (o as THREE.Mesh).material;
+      if (!o.visible || !material) return;
+      const materials = Array.isArray(material) ? material : [material];
+      if (materials.every((m) => !m.depthWrite)) {
+        hidden.push(o);
+        o.visible = false;
+      }
+    });
+    const previous = renderer.getRenderTarget(),
+      shadows = renderer.shadowMap.autoUpdate;
+    const viewport = renderer.getViewport(new THREE.Vector4()),
+      scissor = renderer.getScissor(new THREE.Vector4()),
+      scissorTest = renderer.getScissorTest();
+    try {
+      renderer.shadowMap.autoUpdate = false;
+      renderer.setRenderTarget(this.target);
+      renderer.setScissorTest(false);
+      renderer.clear();
+      renderer.render(scene, camera);
+    } finally {
+      for (const o of hidden) o.visible = true;
+      renderer.shadowMap.autoUpdate = shadows;
+      renderer.setRenderTarget(previous);
+      renderer.setViewport(viewport);
+      renderer.setScissor(scissor);
+      renderer.setScissorTest(scissorTest);
+    }
+    return this.target;
+  }
+  dispose() {
+    this.target?.dispose();
+    this.target = undefined;
+  }
+}

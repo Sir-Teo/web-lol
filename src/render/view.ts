@@ -13,6 +13,7 @@ import { FogSampler } from './fog-sampler';
 import { animateHawkshot, createHawkshot, disposeHawkshot } from './hawkshot';
 import { HawkshotWind } from './hawkshot-wind';
 import { HawkshotDust } from './hawkshot-dust';
+import { HawkshotSmoke } from './hawkshot-smoke';
 import { HawkshotEchoes } from './hawkshot-echo';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
@@ -22,6 +23,7 @@ export class GameView {
   scene = new THREE.Scene();
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
+  smoke = new HawkshotSmoke(this.scene, (p) => this.ground(p));
   echoes = new HawkshotEchoes(this.scene, (p) => this.ground(p));
   camera = new THREE.PerspectiveCamera(40, 1, 0.1, 180);
   center: Vec2 = { x: -500, y: 375 };
@@ -542,6 +544,7 @@ export class GameView {
     this.syncProjectiles(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);
+    this.smoke.update(world, this.camera);
     this.echoes.update(world);
     const selected = world.unit(this.selected ?? world.player.id);
     this.selection.visible = !!selected && world.alive(selected) && world.visible(selected);
@@ -594,6 +597,7 @@ export class GameView {
       this.updateFog(world);
       this.lastFogTick = world.tick;
     }
+    this.smoke.prepareDepth(this.renderer, this.camera);
     this.renderer.render(this.scene, this.camera);
   }
   private updateBar(u: Unit, world: World, p: Vec2): void {
