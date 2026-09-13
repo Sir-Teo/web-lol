@@ -21,7 +21,7 @@ test('Hawkshot spends two charges five seconds apart without restarting serial r
   w.step(298);
   cast(w); // tick 300: still one tick before the cast cooldown ends.
   expect(w.player.eCharges).toBe(1);
-  expect(w.reveal!.endTick).toBe(301);
+  expect(w.visionAreas.find((a) => a.kind === 'scout')!.endTick).toBe(301);
   cast(w); // tick 301: the second charge is available.
   expect(w.player.eCharges).toBe(0);
   expect(w.player.eRechargeTick).toBe(5401);
@@ -51,12 +51,12 @@ test('empty charges reject casts without refreshing reveal or cancelling recall'
   w.step(300);
   w.player.recallEnd = w.tick + 480;
   const end = w.player.recallEnd;
-  const reveal = structuredClone(w.reveal);
+  const reveals = structuredClone(w.visionAreas);
   cast(w);
   expect(w.player.eCharges).toBe(0);
   expect(w.player.eRechargeTick).toBe(5401);
   expect(w.player.recallEnd).toBe(end);
-  expect(w.reveal).toEqual(reveal);
+  expect(w.visionAreas).toEqual(reveals);
   expect(w.events.some((e) => e.tick === w.tick && e.type === 'cast' && e.text === 'e')).toBe(
     false
   );

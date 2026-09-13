@@ -6,7 +6,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 12;
+export const SNAPSHOT_VERSION = 13;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -146,7 +146,7 @@ const projectile: z.ZodType<Projectile> = z.strictObject({
   id,
   source: id,
   team,
-  type: z.enum(['attack', 'volley', 'ultimate']),
+  type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot']),
   x: z.number(),
   y: z.number(),
   previous: point,
@@ -181,6 +181,7 @@ const snapshot = z.strictObject({
   visionAreas: z
     .array(
       z.strictObject({
+        kind: z.enum(['attack', 'scout']),
         x: z.number(),
         y: z.number(),
         radius: nonnegative,

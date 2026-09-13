@@ -6,7 +6,7 @@ Last updated: September 13, 2026 (America/New_York).
 
 ## Current authoritative state
 
-Latest validation: 218 simulation checks, all 71 Chrome scenarios, static build and production smoke pass at the Hawkshot ammunition milestone below.
+Latest validation: 222 simulation checks, nine focused Chrome scenarios, static build and production smoke pass at the Hawkshot flight milestone below. The last full Chrome run passed all 71 scenarios at the preceding ammunition milestone.
 
 - TypeScript/Vite/Three.js application boots directly into practice on the full reference Rift.
 - Fixed-step, renderer-independent simulation with command handling, wall-aware navigation, ranged attack windup/release, homing attacks, swept skillshots, death, and respawn.
@@ -474,3 +474,12 @@ Hawkshot now stores two charges with a five-second cast delay and serial 90-seco
 All 218 simulation checks, all 71 Chrome scenarios, static build and production smoke pass. Five new simulation cases cover serial recharge, boundary ordering, rejection, recall, death/respawn, save continuation and malformed state. Browser coverage exercises actual keyboard casts, charge/countdown display, accessible feedback and practice reset; charge-state screenshots were visually inspected. Export regeneration is byte-identical. These are local checks, not reference timing or pixel-parity certification.
 
 Hawkshot still needs travel, range enforcement, complete vision geometry/persistence, cast windup and audiovisual fidelity. Starting charges and recharge event ordering remain documented policies pending reference capture. Passive research also confirmed that the pinned zero-crit calculation does not justify adding an old flat Frost Shot amplification; crit-stat support remains missing. Full champion, match and pixel fidelity remain unfinished; the production goal remains active.
+
+
+## Hawkshot flight milestone
+
+Hawkshot now travels at the source-backed 1400 units/second toward a target clamped to 25000 units, grants moving team sight and creates a separate five-second destination reveal on arrival. It passes through units and terrain without damage. Multiple flights/reveals coexist and survive caster death and saved continuation. Typed scouting areas remain visible to queries that intentionally exclude attack-reveal feedback. Snapshot version 13 preserves the new projectile and area kinds.
+
+All 222 simulation checks, nine focused Chrome cases, static build and production smoke pass. New cases cover flight distance, endpoint/range/expiry boundaries, collision exclusion, team sight, multiple scouts, death and saved continuation. Browser checks confirm visible flight, frozen wing pose while paused, distant enemy reveal and re-hide, model cleanup and existing charge feedback. Screenshots were inspected; the final silhouette uses indexed triangles without adding a polygon triangulation dependency. Export regeneration is byte-identical. The full Chrome suite was not repeated for this milestone.
+
+The bird is an authored temporary proxy, and sight retains the earlier provisional 650 radius. Lingering trail vision, source cast windup, reference geometry, minimap targeting and original audiovisual effects remain unfinished, as detailed in [ASHE-E.md](ASHE-E.md). Full champion, match and pixel fidelity remain unfinished; the production goal remains active.

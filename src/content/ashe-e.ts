@@ -8,5 +8,8 @@ export const ASHE_E = {
     70.0,
     60.0,
     50.0
-  ]
+  ],
+  "projectileSpeed": 1400.0,
+  "range": 25000.0,
+  "visionSeconds": 5.0
 } as const;

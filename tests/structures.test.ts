@@ -182,6 +182,7 @@ describe('known structure state versus live sight', () => {
         ]
       ).toBe(true);
       w.visionAreas.push({
+        kind: 'scout',
         x: inhibitor.x,
         y: inhibitor.y,
         radius: 100,

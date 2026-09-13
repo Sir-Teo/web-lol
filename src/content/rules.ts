@@ -39,10 +39,10 @@ export const ABILITIES: Record<
   },
   e: {
     name: 'Hawkshot',
-    description: `Reveal a distant area for 5 seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${ASHE_E.rechargeSecondsByRank[0]} seconds.`,
+    description: `Send a hawk that reveals its route, then grants destination vision for ${ASHE_E.visionSeconds} seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${ASHE_E.rechargeSecondsByRank[0]} seconds.`,
     cooldown: ASHE_E.castCooldownSeconds,
     cost: 0,
-    range: 8000,
+    range: ASHE_E.range,
     icon: 'AsheSpiritOfTheHawk',
   },
   r: {

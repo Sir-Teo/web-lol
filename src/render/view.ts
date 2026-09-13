@@ -6,6 +6,7 @@ import { clamp, lerp, type Vec2 } from '../simulation/math';
 import { isStructureKind, type Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
 import { FogSampler } from './fog-sampler';
+import { animateHawkshot, createHawkshot } from './hawkshot';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
 
@@ -607,39 +608,43 @@ export class GameView {
       active.add(p.id);
       let model = this.projectileModels.get(p.id);
       if (!model) {
-        model = new THREE.Group();
-        const color = p.team === 'blue' ? 0x9aefff : 0xff818d;
-        const material = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95 });
-        const tip = new THREE.Mesh(
-          new THREE.ConeGeometry(
-            p.type === 'ultimate' ? 0.3 : 0.07,
-            p.type === 'ultimate' ? 1.25 : 0.32,
-            4
-          ),
-          material
-        );
-        tip.rotation.x = Math.PI / 2;
-        model.add(tip);
-        const trail = new THREE.Mesh(
-          new THREE.CylinderGeometry(
-            0.02,
-            p.type === 'ultimate' ? 0.12 : 0.035,
-            p.type === 'ultimate' ? 2.5 : 0.85,
-            4
-          ),
-          material
-        );
-        trail.rotation.x = Math.PI / 2;
-        trail.position.z = -0.55;
-        model.add(trail);
+        if (p.type === 'hawkshot') model = createHawkshot();
+        else {
+          model = new THREE.Group();
+          const color = p.team === 'blue' ? 0x9aefff : 0xff818d;
+          const material = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95 });
+          const tip = new THREE.Mesh(
+            new THREE.ConeGeometry(
+              p.type === 'ultimate' ? 0.3 : 0.07,
+              p.type === 'ultimate' ? 1.25 : 0.32,
+              4
+            ),
+            material
+          );
+          tip.rotation.x = Math.PI / 2;
+          model.add(tip);
+          const trail = new THREE.Mesh(
+            new THREE.CylinderGeometry(
+              0.02,
+              p.type === 'ultimate' ? 0.12 : 0.035,
+              p.type === 'ultimate' ? 2.5 : 0.85,
+              4
+            ),
+            material
+          );
+          trail.rotation.x = Math.PI / 2;
+          trail.position.z = -0.55;
+          model.add(trail);
+        }
         this.scene.add(model);
         this.projectileModels.set(p.id, model);
       }
       model.visible = world.projectileVisible(p);
+      if (p.type === 'hawkshot') animateHawkshot(model, world.time);
       model.position.set(
         lerp(p.previous.x, p.x, alpha) * SCALE,
         this.ground({ x: lerp(p.previous.x, p.x, alpha), y: lerp(p.previous.y, p.y, alpha) }) +
-          (p.type === 'ultimate' ? 1.2 : 0.9),
+          (p.type === 'hawkshot' ? 1.8 : p.type === 'ultimate' ? 1.2 : 0.9),
         lerp(p.previous.y, p.y, alpha) * SCALE
       );
       model.rotation.y = Math.atan2(p.direction.x, p.direction.y);

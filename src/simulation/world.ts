@@ -478,12 +478,27 @@ export class World {
     const sources: VisionSource[] = this.units
       .filter((u) => u.team === team && this.alive(u))
       .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
-    if (includeAttackReveals)
-      sources.push(...this.visionAreas.filter((a) => a.team === team && a.endTick > this.tick));
+    sources.push(
+      ...this.visionAreas.filter(
+        (a) =>
+          a.team === team && a.endTick > this.tick && (includeAttackReveals || a.kind === 'scout')
+      )
+    );
     sources.push(
       ...this.projectiles
         .filter((projectile) => projectile.team === team && projectile.type === 'ultimate')
         .map((projectile) => ({ x: projectile.x, y: projectile.y, radius: ASHE_R.sightRadius }))
+    );
+    sources.push(
+      ...this.projectiles
+        .filter((projectile) => projectile.team === team && projectile.type === 'hawkshot')
+        // Radius remains provisional until reference geometry is verified.
+        .map((projectile) => ({
+          x: projectile.x,
+          y: projectile.y,
+          radius: 650,
+          unobstructed: true,
+        }))
     );
     if (team === 'blue' && this.reveal && this.reveal.endTick > this.tick)
       sources.push({ ...this.reveal.point, radius: 650, unobstructed: true });
@@ -588,6 +603,7 @@ export class World {
           u.releaseTick = null;
           if (!seenFrom(u, this.visionSources(target.team, false), this.battlefield.lineOfSight))
             this.visionAreas.push({
+              kind: 'attack',
               x: u.x,
               y: u.y,
               radius: 300,
@@ -744,6 +760,23 @@ export class World {
       }
       const travel = Math.min(stepDistance, p.remaining);
       const end = { x: p.x + p.direction.x * travel, y: p.y + p.direction.y * travel };
+      if (p.type === 'hawkshot') {
+        p.x = end.x;
+        p.y = end.y;
+        p.remaining = Math.max(0, p.remaining - travel);
+        if (p.remaining > 1e-8) survivors.push(p);
+        else
+          this.visionAreas.push({
+            kind: 'scout',
+            x: p.x,
+            y: p.y,
+            radius: 650,
+            unobstructed: true,
+            team: p.team,
+            endTick: this.tick + ASHE_E.visionSeconds * TICK_RATE,
+          });
+        continue;
+      }
       let contact: Unit | undefined,
         first = Infinity;
       for (const u of this.units) {
@@ -1048,7 +1081,22 @@ export class World {
     if (ability === 'e') {
       this.player.eCharges--;
       this.player.eRechargeTick ??= this.tick + ASHE_E.rechargeSecondsByRank[0] * TICK_RATE;
-      this.reveal = { point: { ...point }, endTick: this.tick + 300 };
+      this.projectiles.push({
+        id: this.nextId++,
+        source: u.id,
+        team: u.team,
+        type: 'hawkshot',
+        x: u.x,
+        y: u.y,
+        previous: { x: u.x, y: u.y },
+        direction: dir,
+        target: null,
+        damage: 0,
+        speed: ASHE_E.projectileSpeed,
+        radius: 0,
+        remaining: Math.min(ASHE_E.range, distance(u, point)),
+        volleyId: null,
+      });
     }
     if (ability === 'd') {
       const d = Math.min(spec.range, distance(u, point));
