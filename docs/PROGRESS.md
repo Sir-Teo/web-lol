@@ -1428,3 +1428,9 @@ All 522 source/simulation checks, three focused binding/root/ultimate Chrome sce
 Added saved Ashe/Lux identity, Lux's pinned stats and growth/regen/selection dimensions, runtime source rig and recall sequence, and a normal resource-consuming Q windup that releases the two-contact binding. Ashe Focus and Frost Shot now apply only to Ashe. Lux's unfinished W/E/R remain unavailable. Snapshot 37 preserves and validates champion-owned cast state.
 
 All 526 source/simulation checks, five focused Chrome scenarios (Lux, binding and selection), and nested-path production smoke pass. Inspected the in-match Lux recall capture. The default human remains Ashe; this does not complete Lux's passive, full kit, AI or native effects. The additional runtime rig costs 3.86 MB in initial model loading. Full browser, full-match and performance suites were not repeated; production fidelity gates remain open.
+
+## Lux Illumination through Q and basic attacks
+
+Pinned the complete passive records and verified the six-second standard-mode duration, 0.35 AP ratio and level-indexed 30–200 base damage. Q now applies/refreshes saved owner-specific marks. Lux attacks consume their mark once for separately mitigated bonus magic damage; expiry precedes combat, target death clears marks and caster death preserves them. Snapshot 38 validates owners and deadlines. Visible unit bars show ILLUMINATED after higher-priority statuses end.
+
+All 533 source/simulation checks, three focused Lux/binding Chrome scenarios and production smoke pass. Native passive particles/attack presentation, R/E interactions and wider kit/AI work remain unfinished. See `LUX-ILLUMINATION.md` for the distinction between pinned values and adapter behaviors awaiting native comparison. Full browser, match and performance suites were not repeated.

@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
+import { LUX_ILLUMINATION } from '../content/lux-illumination';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
@@ -9,7 +10,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 37;
+export const SNAPSHOT_VERSION = 38;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -90,6 +91,7 @@ const unit: z.ZodType<Unit> = z
       .nullable(),
     stunUntil: deadline,
     rootUntil: deadline,
+    illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
     summonerHealReductionUntil: tick,
     summonerHealSpeedUntil: deadline,
     deadAt: tick.nullable(),
@@ -399,6 +401,24 @@ export function decodeSnapshot(text: string) {
   const hero = state.units.find((u) => u.id === state.player.id);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
+  for (const target of state.units) {
+    const sources = new Set<number>();
+    for (const mark of target.illumination) {
+      const source = state.units.find((unit) => unit.id === mark.sourceId);
+      if (
+        !source ||
+        source.champion !== 'lux' ||
+        source.team === target.team ||
+        target.deadAt !== null ||
+        ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
+        sources.has(mark.sourceId) ||
+        mark.endTick <= state.tick ||
+        mark.endTick > state.tick + LUX_ILLUMINATION.durationSeconds * TICK_RATE
+      )
+        throw new Error('Saved match contains invalid Illumination marks.');
+      sources.add(mark.sourceId);
+    }
+  }
   const owners = [state.player, ...state.otherChampions];
   const ownerIds = new Set(owners.map((p) => p.id));
   if (state.battlefield === 'rift') {

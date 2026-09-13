@@ -1,0 +1,350 @@
+{
+  "url": "https://raw.communitydragon.org/16.18/game/data/characters/lux/lux.bin.json",
+  "sha256": "fbc893b4cfc75060f40427f8024a03e5980d93829971cc0fbccecbedc0689b74",
+  "records": {
+    "Characters/Lux/Spells/LuxIlluminationPassiveAbility": {
+      "mRootSpell": "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminationPassive",
+      "mChildSpells": [
+        "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminationPassive",
+        "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminatingFraulein"
+      ],
+      "mName": "LuxIlluminationPassiveAbility",
+      "mType": 3,
+      "__type": "AbilityObject"
+    },
+    "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminatingFraulein": {
+      "ObjectName": "LuxIlluminatingFraulein",
+      "objectPath": "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminatingFraulein",
+      "mScriptName": "LuxIlluminatingFraulein",
+      "mSpell": {
+        "mAffectsTypeFlags": 24527,
+        "mAlternateName": "LuxIlluminatingFraulein",
+        "mImgIconName": [
+          "ASSETS/Characters/Lux/HUD/Icons2D/LuxIlluminatingFraulein.dds",
+          ""
+        ],
+        "spellCastTime": 0.4327000081539154,
+        "cooldownTime": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Cooldown": {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "{0a3e0478}": 0.0,
+          "__type": "{0a0eddc9}"
+        },
+        "bHaveHitEffect": true,
+        "castRange": [
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312
+        ],
+        "castRangeValues": {
+          "values": [
+            622.7000122070312,
+            622.7000122070312,
+            622.7000122070312,
+            622.7000122070312,
+            622.7000122070312,
+            622.7000122070312,
+            622.7000122070312
+          ],
+          "{0a3e0478}": 622.7000122070312,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "castConeDistance": 100.0,
+        "mMissileSpec": {
+          "movementComponent": {
+            "mTargetHeightAugment": 100.0,
+            "mOffsetInitialTargetHeight": 100.0,
+            "mStartBoneName": "r_hand",
+            "mSpeed": 1400.0,
+            "__type": "FixedSpeedMovement"
+          },
+          "verticalFacing": {
+            "__type": "VeritcalFacingMatchVelocity"
+          },
+          "behaviors": [
+            {
+              "__type": "CastOnMovementComplete"
+            },
+            {
+              "__type": "DestroyOnMovementComplete"
+            }
+          ],
+          "__type": "MissileSpecification"
+        },
+        "mCastType": 1,
+        "castFrame": 10.949999809265137,
+        "missileSpeed": 1400.0,
+        "mMissileEffectKey": "Lux_BA_mis",
+        "mHitEffectName": "doesnotexist.troy",
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BuffBone_Glb_Center_Loc",
+        "selectionPriority": 1,
+        "__type": "SpellDataResource"
+      },
+      "mBuff": {
+        "mDescription": "game_buff_tooltip_LuxIlluminatingFraulein",
+        "__type": "BuffData"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminationPassive": {
+      "ObjectName": "LuxIlluminationPassive",
+      "objectPath": "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminationPassive",
+      "mScriptName": "LuxIlluminationPassive",
+      "mSpell": {
+        "mAffectsTypeFlags": 24527,
+        "DataValues": [
+          {
+            "name": "DebuffDuration",
+            "values": [
+              6.0,
+              6.0,
+              6.0,
+              6.0,
+              6.0,
+              6.0,
+              6.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "APRatio",
+            "values": [
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355
+            ],
+            "__type": "SpellDataValue"
+          }
+        ],
+        "DataValuesModeOverride": {
+          "cherry": {
+            "SpellDataValues": [
+              {
+                "name": "APRatio",
+                "values": [
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5
+                ],
+                "__type": "SpellDataValue"
+              }
+            ],
+            "__type": "SpellDataValueVector"
+          }
+        },
+        "mSpellCalculations": {
+          "TotalDamage": {
+            "mSimpleTooltipCalculationDisplay": 6,
+            "mFormulaParts": [
+              {
+                "values": [
+                  20.0,
+                  30.0,
+                  40.0,
+                  50.0,
+                  60.0,
+                  70.0,
+                  80.0,
+                  90.0,
+                  100.0,
+                  110.0,
+                  120.0,
+                  130.0,
+                  140.0,
+                  150.0,
+                  160.0,
+                  170.0,
+                  180.0,
+                  190.0,
+                  200.0,
+                  210.0,
+                  220.0,
+                  230.0,
+                  240.0,
+                  250.0,
+                  260.0,
+                  270.0,
+                  280.0,
+                  290.0,
+                  300.0,
+                  310.0,
+                  320.0
+                ],
+                "__type": "ByCharLevelFormulaCalculationPart"
+              },
+              {
+                "mDataValue": "APRatio",
+                "__type": "StatByNamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          }
+        },
+        "mImgIconName": [
+          "ASSETS/Characters/Lux/HUD/Icons2D/LuxIlluminatingFraulein.dds"
+        ],
+        "spellCastTime": 0.4327000081539154,
+        "cooldownTime": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Cooldown": {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "{0a3e0478}": 0.0,
+          "__type": "{0a0eddc9}"
+        },
+        "bHaveHitEffect": true,
+        "castRange": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castRangeValues": {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "{0a3e0478}": 0.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "castConeDistance": 100.0,
+        "mMissileSpec": {
+          "movementComponent": {
+            "mTargetHeightAugment": 100.0,
+            "mOffsetInitialTargetHeight": 100.0,
+            "mStartBoneName": "r_hand",
+            "mSpeed": 1400.0,
+            "__type": "FixedSpeedMovement"
+          },
+          "verticalFacing": {
+            "__type": "VeritcalFacingMatchVelocity"
+          },
+          "behaviors": [
+            {
+              "__type": "CastOnMovementComplete"
+            },
+            {
+              "__type": "DestroyOnMovementComplete"
+            }
+          ],
+          "__type": "MissileSpecification"
+        },
+        "mCastType": 1,
+        "castFrame": 10.949999809265137,
+        "missileSpeed": 1400.0,
+        "mMissileEffectKey": "Lux_BA_mis",
+        "mHitEffectName": "doesnotexist.troy",
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BuffBone_Glb_Center_Loc",
+        "mFloatVarsDecimals": [
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "selectionPriority": 1,
+        "mClientData": {
+          "mTooltipData": {
+            "mObjectName": "LuxIlluminationPassive",
+            "mFormat": "{476ec0b8}",
+            "mLocKeys": {
+              "keyName": "Buff_LuxP_Name",
+              "keyTooltip": "Buff_LuxP_Tooltip",
+              "keyTooltipSimple": "Buff_LuxP_TooltipSimple",
+              "keySummary": "Spell_LuxIlluminationPassive_Summary"
+            },
+            "__type": "TooltipInstanceSpell"
+          },
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "mBuff": {
+        "mDescription": "game_buff_tooltip_LuxIlluminationPassive",
+        "__type": "BuffData"
+      },
+      "__type": "SpellObject"
+    }
+  }
+}

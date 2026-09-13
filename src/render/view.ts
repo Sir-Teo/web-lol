@@ -725,7 +725,9 @@ export class GameView {
             ? 'ROOTED'
             : u.slowUntil > world.tick
               ? 'SLOWED'
-              : '';
+              : u.illumination.some((mark) => mark.endTick > world.tick)
+                ? 'ILLUMINATED'
+                : '';
     if (parts.status.textContent !== status) parts.status.textContent = status;
   }
   private syncProjectiles(world: World, alpha: number): void {

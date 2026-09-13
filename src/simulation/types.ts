@@ -70,6 +70,7 @@ export interface Unit extends Vec2 {
   } | null;
   stunUntil: number;
   rootUntil: number;
+  illumination: { sourceId: number; endTick: number }[];
   summonerHealReductionUntil: number;
   summonerHealSpeedUntil: number;
   deadAt: number | null;

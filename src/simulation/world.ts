@@ -1,5 +1,6 @@
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
+import { LUX_ILLUMINATION } from '../content/lux-illumination';
 import { LUX } from '../content/lux-progression';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
@@ -209,6 +210,7 @@ export class World {
       criticalSlow: null,
       stunUntil: 0,
       rootUntil: 0,
+      illumination: [],
       summonerHealReductionUntil: 0,
       summonerHealSpeedUntil: 0,
       deadAt: null,
@@ -340,6 +342,9 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    for (const unit of this.units)
+      if (unit.illumination.length)
+        unit.illumination = unit.illumination.filter((mark) => mark.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
@@ -1461,6 +1466,7 @@ export class World {
           if (source) {
             this.damage(source, unit, p.damage, 'magic', 'area');
             this.applyRoot(unit, LUX_BINDING.rootSeconds * TICK_RATE);
+            this.applyIllumination(source, unit);
           }
           if (p.bindingHits!.length === LUX_BINDING.maximumTargets) break;
         }
@@ -1569,6 +1575,20 @@ export class World {
       return 1 + (this.battlefield.siegeMidTurretAttackSpeedBonus ?? 0);
     return 1;
   }
+  private applyIllumination(source: Unit, target: Unit): void {
+    if (
+      source.champion !== 'lux' ||
+      source.team === target.team ||
+      !this.alive(target) ||
+      !this.vulnerable(target) ||
+      isStructureKind(target.kind)
+    )
+      return;
+    const endTick = this.tick + LUX_ILLUMINATION.durationSeconds * TICK_RATE;
+    const mark = target.illumination.find((entry) => entry.sourceId === source.id);
+    if (mark) mark.endTick = endTick;
+    else target.illumination.push({ sourceId: source.id, endTick });
+  }
   private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
     const turretHealthRatio =
       source.kind === 'turret' && source.structure && isLaneMinionKind(target.kind)
@@ -1587,7 +1607,23 @@ export class World {
         ? (this.battlefield.minionCurrentHealthDamage?.[source.kind]?.[source.team] ?? 0)
         : 0;
     // Sample at impact, before this hit changes HP. Ranged attacks retain release AD.
+    const illuminated =
+      source.champion === 'lux' &&
+      this.vulnerable(target) &&
+      target.illumination.some((mark) => mark.sourceId === source.id && mark.endTick > this.tick);
+    if (illuminated)
+      target.illumination = target.illumination.filter((mark) => mark.sourceId !== source.id);
     this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
+    if (illuminated && this.alive(target)) {
+      const level = this.championState(source.id)!.level;
+      this.damage(
+        source,
+        target,
+        LUX_ILLUMINATION.baseDamageByLevel[level - 1] +
+          LUX_ILLUMINATION.abilityPowerRatio * this.abilityPower(source),
+        'magic'
+      );
+    }
   }
   /** One support hop from direct contributors; see docs/SUMMONER-HEAL.md. */
   private takedownContributors(victim: ChampionState, killerId?: number): Set<number> {
@@ -1669,6 +1705,7 @@ export class World {
         (p) => p.target !== target.id
       );
       target.deadAt = this.tick;
+      target.illumination = [];
       target.releaseTick = null;
       target.attackCycle = null;
       target.order = { type: 'idle' };
@@ -1851,6 +1888,7 @@ export class World {
     u.releaseTick = null;
     u.stunUntil = 0;
     u.rootUntil = 0;
+    u.illumination = [];
     u.aiRetreating = false;
     u.slowUntil = 0;
     u.slowMultiplier = 0.7;
