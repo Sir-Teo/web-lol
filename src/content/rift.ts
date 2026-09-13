@@ -6,12 +6,14 @@ import type { Vec2 } from '../simulation/math';
 interface WaveBehavior {
   SpawnCount?: number;
   SpawnCountsByWave?: number[];
+  SpawnCountPerInhibitorDown?: number[];
   behaviors?: { StartTimeSecs?: number; Behavior: WaveBehavior }[];
 }
 export interface RiftLayout {
   half: number;
   spawns: Record<Team, Vec2>;
   lanes: LaneRoute[];
+  unitStats: Battlefield['unitStats'];
   structures: (Battlefield['initialUnits'][number] & { transform: number[] })[];
   turrets: {
     point: Vec2;
@@ -53,11 +55,19 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
     spawns,
     lanes: layout.lanes,
     waves: layout.waves,
-    waveKinds: (wave, seconds) =>
-      ['melee', 'siege', 'caster'].flatMap((kind) => {
+    unitStats: layout.unitStats,
+    waveKinds: (wave, seconds, context) => {
+      const superSpec = layout.waves.types.find((type) => type.kind === 'super');
+      const supers = context?.enemyLaneInhibitorDown
+        ? (superSpec?.behavior.SpawnCountPerInhibitorDown?.[context.enemyInhibitorsDown - 1] ?? 0)
+        : 0;
+      return ['melee', 'super', 'siege', 'caster'].flatMap((kind) => {
+        if (kind === 'super') return Array.from({ length: supers }, () => 'super' as const);
+        if (kind === 'siege' && supers) return [];
         const spec = layout.waves.types.find((type) => type.kind === kind)!;
         return Array.from({ length: waveCount(spec.behavior, wave, seconds) }, () => spec.kind);
-      }),
+      });
+    },
     initialUnits: [
       ...layout.turrets.map((tower) => ({
         kind: 'turret' as const,

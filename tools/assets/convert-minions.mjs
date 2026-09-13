@@ -135,6 +135,16 @@ for (const [team, kind, character, mesh, texture] of definitions) {
       if (channel.getTargetPath() === 'translation') scale(channel.getSampler().getOutput());
 
   await doc.transform(resample(), dedup(), prune());
+  if (supers)
+    for (const clip of clips) {
+      const animation = doc
+        .getRoot()
+        .listAnimations()
+        .find((a) => a.getName() === clip.name);
+      clip.durationSeconds = Math.max(
+        ...animation.listSamplers().map((s) => Math.max(...s.getInput().getArray()))
+      );
+    }
   const bytes = await io.writeBinary(doc);
   const path = `public/assets/models/${name}.glb`;
   await writeFile(path, bytes);

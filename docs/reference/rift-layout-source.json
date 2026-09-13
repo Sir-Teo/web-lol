@@ -10,6 +10,39 @@
     }
   ],
   "structureRulesSha256": "f1768cc3fc00d3b397f36be48ae75d128067a2d6b3ffe25ffa29c3e5c4d50952",
+  "superMinionDefinitionsSha256": "efcc9d32a9cb856f6373936e7f0060fa1d2ef2b1eff81e377731705a3fa9a617",
+  "superMinionTemplates": {
+    "blue": {
+      "name": "{73d40978}",
+      "Character": {
+        "CharacterRecord": "Characters/SRU_OrderMinionSuper/CharacterRecords/Root",
+        "Skin": "Characters/SRU_OrderMinionSuper/Skins/Skin0",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "{f1d3a034}": true,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    },
+    "red": {
+      "name": "{bfb471d0}",
+      "Character": {
+        "CharacterRecord": "Characters/SRU_ChaosMinionSuper/CharacterRecords/Root",
+        "Skin": "Characters/SRU_ChaosMinionSuper/Skins/Skin0",
+        "__type": "SkinCharacterGeComponentDef"
+      },
+      "AttackableUnit": {
+        "{f1d3a034}": true,
+        "__type": "AttackableUnitGeComponentDef"
+      },
+      "Team": {
+        "Team": 200,
+        "__type": "TeamGeComponentDef"
+      },
+      "__type": "{ad65d8c4}"
+    }
+  },
   "objects": [
     {
       "container": "{183e98d5}",
@@ -2500,7 +2533,7 @@
   "outputs": [
     {
       "path": "public/assets/maps/rift-layout.json",
-      "sha256": "4b986dd1f46f782a04d5ed9fd3c0c9a88393009e32746b10b08c8dbe5d1c7ef0"
+      "sha256": "a612fd821a3c776e35cb5d404304ec30b2115047aec5f758decfbb99a3e1bbf0"
     },
     {
       "path": "public/assets/maps/rift-minimap.webp",

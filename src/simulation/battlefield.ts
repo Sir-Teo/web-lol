@@ -1,5 +1,10 @@
 import type { Vec2 } from './math';
-import type { Team, UnitKind, Unit, StructureState } from './types';
+import type { Team, UnitKind, UnitStats, StructureState } from './types';
+
+export interface WaveContext {
+  enemyLaneInhibitorDown: boolean;
+  enemyInhibitorsDown: number;
+}
 
 export interface TerrainQueries {
   reachable(point: Vec2, radius: number, team?: Team): Vec2;
@@ -22,7 +27,8 @@ export interface Battlefield extends TerrainQueries {
   spawns: Record<Team, Vec2>;
   lanes: LaneRoute[];
   waves: { initialSeconds: number; intervalSeconds: number; unitIntervalSeconds: number };
-  waveKinds(wave: number, seconds: number): UnitKind[];
+  waveKinds(wave: number, seconds: number, context?: WaveContext): UnitKind[];
+  unitStats?: Partial<Record<UnitKind, Record<Team, UnitStats>>>;
   initialUnits: {
     kind: UnitKind;
     team: Team;
@@ -31,8 +37,6 @@ export interface Battlefield extends TerrainQueries {
     ai?: boolean;
     structureTransform?: readonly number[];
     structure?: StructureState;
-    stats?: Partial<
-      Pick<Unit, 'maxHp' | 'damage' | 'armor' | 'magicResist' | 'range' | 'radius' | 'attackPeriod'>
-    >;
+    stats?: UnitStats;
   }[];
 }

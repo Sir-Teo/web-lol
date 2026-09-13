@@ -159,6 +159,12 @@ export class World {
       nextThink: 0,
       respawnTick: null,
     };
+    const stats = this.battlefield.unitStats?.[kind]?.[team];
+    if (stats) {
+      Object.assign(u, stats);
+      u.hp = u.maxHp;
+    }
+    if (kind === 'super') u.name = 'Super minion';
     this.units.push(u);
     return u;
   }
@@ -253,7 +259,7 @@ export class World {
         isStructureKind(u.kind) ||
         u.deadAt === null ||
         u.respawnTick !== null ||
-        this.tick - u.deadAt < 4 * TICK_RATE
+        this.tick - u.deadAt < (u.corpseLifetimeTicks ?? 4 * TICK_RATE)
     );
     if (this.tick % 120 === 0)
       for (const key of Object.keys(this.volleyHits)) {
@@ -265,17 +271,33 @@ export class World {
     this.wave++;
     for (let lane = 0; lane < this.battlefield.lanes.length; lane++) {
       for (const team of ['blue', 'red'] as const) {
-        this.battlefield.waveKinds(this.wave, this.time).forEach((kind, offset) => {
-          this.pendingSpawns.push({
-            tick:
-              this.tick +
-              Math.round(offset * this.battlefield.waves.unitIntervalSeconds * TICK_RATE),
-            kind,
-            team,
-            lane,
-            offset,
+        // Sample the defender state at the wave deadline. A queued wave keeps
+        // its composition while its individual units leave the barracks.
+        const inhibitors = this.units.filter(
+          (u) =>
+            u.team !== team &&
+            u.kind === 'inhibitor' &&
+            !this.alive(u) &&
+            (u.respawnTick === null || u.respawnTick > this.tick)
+        );
+        this.battlefield
+          .waveKinds(this.wave, this.time, {
+            enemyLaneInhibitorDown: inhibitors.some(
+              (u) => u.structure?.lane === this.battlefield.lanes[lane].name
+            ),
+            enemyInhibitorsDown: inhibitors.length,
+          })
+          .forEach((kind, offset) => {
+            this.pendingSpawns.push({
+              tick:
+                this.tick +
+                Math.round(offset * this.battlefield.waves.unitIntervalSeconds * TICK_RATE),
+              kind,
+              team,
+              lane,
+              offset,
+            });
           });
-        });
       }
     }
   }
@@ -292,11 +314,10 @@ export class World {
         this.battlefield.waves.unitIntervalSeconds === 0
           ? { x: start.x - dir.x * spawn.offset * 100, y: start.y - dir.y * spawn.offset * 100 }
           : start;
-      const u = this.spawn(
-        spawn.kind,
-        spawn.team,
-        this.battlefield.reachable(position, 27, spawn.team)
-      );
+      const u = this.spawn(spawn.kind, spawn.team, position);
+      const spawnPoint = this.battlefield.reachable(position, u.radius, spawn.team);
+      Object.assign(u, spawnPoint);
+      u.previous = { ...spawnPoint };
       u.lane = spawn.lane;
       u.laneWaypoint = first;
       u.order = { type: 'attackMove', point: lane.points[first] };
@@ -554,7 +575,8 @@ export class World {
     if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;
     const resistance =
       kind === 'physical' ? target.armor : kind === 'magic' ? target.magicResist : 0;
-    const amount = (raw * 100) / (100 + resistance);
+    const multiplier = resistance >= 0 ? 100 / (100 + resistance) : 2 - 100 / (100 - resistance);
+    const amount = raw * multiplier;
     target.hp = Math.max(0, target.hp - amount);
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
     if (target.id === this.player.id) this.player.recallEnd = null;
@@ -591,7 +613,8 @@ export class World {
       }
       if (source.id === this.player.id) {
         const gold =
-          target.kind === 'champion'
+          target.goldBounty ??
+          (target.kind === 'champion'
             ? 300
             : target.kind === 'dummy'
               ? 0
@@ -603,7 +626,7 @@ export class World {
                     ? 60
                     : target.kind === 'melee'
                       ? 21
-                      : 14;
+                      : 14);
         this.player.gold += gold;
         if (gold) this.emit('gold', this.hero, { value: gold });
         if (target.kind === 'champion') this.player.kills++;
@@ -615,7 +638,7 @@ export class World {
         !isStructureKind(target.kind) &&
         distance(this.hero, target) < 1400
       ) {
-        this.player.xp += target.kind === 'champion' ? 180 : 60;
+        this.player.xp += target.experienceBounty ?? (target.kind === 'champion' ? 180 : 60);
         const needed = 280 + (this.player.level - 1) * 100;
         if (this.player.xp >= needed && this.player.level < 18) {
           this.player.xp -= needed;

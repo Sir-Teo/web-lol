@@ -1,7 +1,7 @@
 import type { Vec2 } from './math';
 export type Team = 'blue' | 'red';
 export type UnitKind =
-  'champion' | 'melee' | 'caster' | 'siege' | 'turret' | 'inhibitor' | 'nexus' | 'dummy';
+  'champion' | 'melee' | 'caster' | 'siege' | 'super' | 'turret' | 'inhibitor' | 'nexus' | 'dummy';
 export const isStructureKind = (kind: UnitKind): boolean =>
   kind === 'turret' || kind === 'inhibitor' || kind === 'nexus';
 export interface StructureState {
@@ -38,6 +38,10 @@ export interface Unit extends Vec2 {
   attackPeriod: number;
   windupTicks: number;
   missileSpeed: number;
+  goldBounty?: number;
+  experienceBounty?: number;
+  /** Simulation retention floor for complete source death-animation playback. */
+  corpseLifetimeTicks?: number;
   order: Order;
   path: Vec2[];
   pathTarget: Vec2 | null;
@@ -55,6 +59,24 @@ export interface Unit extends Vec2 {
   nextThink: number;
   respawnTick: number | null;
 }
+export type UnitStats = Partial<
+  Pick<
+    Unit,
+    | 'maxHp'
+    | 'damage'
+    | 'armor'
+    | 'magicResist'
+    | 'range'
+    | 'radius'
+    | 'attackPeriod'
+    | 'speed'
+    | 'windupTicks'
+    | 'missileSpeed'
+    | 'goldBounty'
+    | 'experienceBounty'
+    | 'corpseLifetimeTicks'
+  >
+>;
 export interface Projectile extends Vec2 {
   id: number;
   source: number;

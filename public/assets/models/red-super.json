@@ -75,27 +75,33 @@
   "clips": [
     {
       "name": "idle1",
-      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_idle.anm"
+      "source": "assets/characters/sru_orderminionsuper/skins/base/animations/superminion_blue_idle.anm",
+      "durationSeconds": 1.5666667222976685
     },
     {
       "name": "run",
-      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_run.anm"
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_run.anm",
+      "durationSeconds": 1.6000001430511475
     },
     {
       "name": "attack1",
-      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack1.anm"
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack1.anm",
+      "durationSeconds": 1.5666667222976685
     },
     {
       "name": "death",
-      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death.anm"
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death.anm",
+      "durationSeconds": 4.633333683013916
     },
     {
       "name": "attack2",
-      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack2.anm"
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_attack2.anm",
+      "durationSeconds": 1.5666667222976685
     },
     {
       "name": "death2",
-      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death2.anm"
+      "source": "assets/characters/sru_chaosminionsuper/skins/base/animations/superminion_red_death2.anm",
+      "durationSeconds": 3.9666669368743896
     }
   ],
   "triangles": 2856,

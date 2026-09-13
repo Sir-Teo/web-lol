@@ -1577,11 +1577,56 @@
       "sourceKey": "{8d9c90b8}"
     }
   ],
+  "unitStats": {
+    "super": {
+      "blue": {
+        "maxHp": 1500.0,
+        "damage": 180.0,
+        "armor": 100.0,
+        "magicResist": -30.0,
+        "speed": 350.0,
+        "range": 170.0,
+        "radius": 65.0,
+        "attackPeriod": 71,
+        "windupTicks": 30,
+        "missileSpeed": 0,
+        "experienceBounty": 75.0,
+        "goldBounty": 50,
+        "corpseLifetimeTicks": 291
+      },
+      "red": {
+        "maxHp": 1500.0,
+        "damage": 180.0,
+        "armor": 100.0,
+        "magicResist": -30.0,
+        "speed": 350.0,
+        "range": 170.0,
+        "radius": 65.0,
+        "attackPeriod": 71,
+        "windupTicks": 30,
+        "missileSpeed": 0,
+        "experienceBounty": 75.0,
+        "goldBounty": 50,
+        "corpseLifetimeTicks": 291
+      }
+    }
+  },
   "waves": {
     "initialSeconds": 30.0,
     "intervalSeconds": 30.0,
     "unitIntervalSeconds": 0.800000011920929,
     "types": [
+      {
+        "kind": "super",
+        "behavior": {
+          "SpawnCountPerInhibitorDown": [
+            1,
+            1,
+            2
+          ],
+          "__type": "InhibitorWaveBehavior"
+        }
+      },
       {
         "kind": "melee",
         "behavior": {

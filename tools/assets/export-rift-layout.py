@@ -2,6 +2,7 @@
 import hashlib
 import io
 import json
+import math
 from pathlib import Path
 import struct
 import subprocess
@@ -89,12 +90,43 @@ for item in nodes:
                         "sourceKey": item["key"], "skin": item["Character"]["Skin"]})
 assert len(spawns) == 2 and len(lanes) == 3 and len(turrets) == 22
 wave = definitions["{147211fb}"]
+super_bytes = Path('docs/reference/super-minion-definitions.json').read_bytes()
+super_pin = json.loads(Path('docs/reference/super-minion-extraction.json').read_text())
+assert sha(super_bytes) == super_pin['definitionsSha256'], 'Super-minion reference changed'
+super_definitions = json.loads(super_bytes)
+super_stats = {}
+super_templates = {}
+for team, barracks_key in [('blue', '{147211fb}'), ('red', '{e61e55a3}')]:
+    unit = next(u for u in definitions[barracks_key]['units'] if u['MinionType'] == 7)
+    template = definitions[unit['{fee040bc}']]
+    super_templates[team] = template
+    key = template['Character']['CharacterRecord']
+    record = super_definitions[key.split('/')[1].lower()]['character']['data'][key]
+    model = json.loads(Path(f'public/assets/models/{team}-super.json').read_text())
+    def value(field):
+        return record[field]['baseValue']
+    super_stats[team] = {
+        'maxHp': value('baseHPModifiable'), 'damage': value('baseDamageModifiable'),
+        'armor': value('baseArmorModifiable'), 'magicResist': value('baseMR'),
+        'speed': value('baseMoveSpeedModifiable'), 'range': value('attackRangeModifiable'),
+        'radius': record['overrideGameplayCollisionRadius'],
+        'attackPeriod': round(60 / value('attackSpeedModifiable')),
+        'windupTicks': round(60 * record['basicAttack']['mAttackCastTime']),
+        'missileSpeed': 0, 'experienceBounty': record['expGivenOnDeath'],
+        # 26.1 notes specify 50 initial gold. The raw CharacterRecord stores 49;
+        # initialization/upgrades are separate from that base record.
+        'goldBounty': 50,
+        'corpseLifetimeTicks': max(240, math.ceil(60 * (0.2 + max(
+            clip['durationSeconds'] for clip in model['clips'] if clip['name'].startswith('death')
+        )))),
+    }
 layout = {"schema": 1, "referenceVersion": "16.18.8175716", "half": 7425, "spawns": spawns,
           "lanes": lanes, "turrets": turrets, "structures": base_structures,
+          "unitStats": {"super": super_stats},
           "waves": {"initialSeconds": wave["InitialSpawnTimeSecs"], "intervalSeconds": wave["WaveSpawnIntervalSecs"],
                     "unitIntervalSeconds": wave["MinionSpawnIntervalSecs"],
-                    "types": [{"kind": {4: "melee", 5: "caster", 6: "siege"}[item["MinionType"]], "behavior": item["WaveBehavior"]}
-                              for item in wave["units"] if item["MinionType"] in (4, 5, 6)]}}
+                    "types": [{"kind": {4: "melee", 5: "caster", 6: "siege", 7: "super"}[item["MinionType"]], "behavior": item["WaveBehavior"]}
+                              for item in wave["units"] if item["MinionType"] in (4, 5, 6, 7)]}}
 
 minimap_source = "assets/maps/info/map11/2dlevelminimap_base_baron1.tex"
 minimap_record = next(item for item in json.loads(Path("docs/reference/map-extraction.json").read_text())["files"] if item["path"] == minimap_source)
@@ -113,7 +145,9 @@ with Image.open(io.BytesIO(dds)) as image:
 provenance = {"sources": [
     {"url": "https://raw.communitydragon.org/16.18/game/data/maps/mapgeometry/map11/base_srx.materials.bin.json", "sha256": sha(material_path.read_bytes())},
     {"url": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json", "sha256": sha(definition_path.read_bytes())}],
-    "structureRulesSha256": sha(rules_bytes), "objects": nodes, "barracksConfigs": {key: definitions[key] for key in ["{147211fb}", "{e61e55a3}"]},
+    "structureRulesSha256": sha(rules_bytes), "superMinionDefinitionsSha256": sha(super_bytes),
+    "superMinionTemplates": super_templates,
+    "objects": nodes, "barracksConfigs": {key: definitions[key] for key in ["{147211fb}", "{e61e55a3}"]},
     "minimapSource": minimap_record,
     "outputs": [{"path": f"public/assets/maps/{name}", "sha256": sha((output / name).read_bytes())} for name in ["rift-layout.json", "rift-minimap.webp"]]}
 Path("docs/reference/rift-layout-source.json").write_text(json.dumps(provenance, indent=2) + "\n")

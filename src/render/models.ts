@@ -30,6 +30,8 @@ const referenceNames = [
   'red-caster',
   'blue-siege',
   'red-siege',
+  'blue-super',
+  'red-super',
   'blue-turret',
   'red-turret',
   'blue-nexus',
@@ -83,6 +85,7 @@ export function makeModel(u: Unit): UnitModel {
     u.kind === 'melee' ||
     u.kind === 'caster' ||
     u.kind === 'siege' ||
+    u.kind === 'super' ||
     isStructureKind(u.kind)
   ) {
     const key = u.kind === 'champion' ? 'ashe-reference' : `${u.team}-${u.kind}`;
