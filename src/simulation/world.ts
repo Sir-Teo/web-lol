@@ -1389,10 +1389,6 @@ export class World {
       this.setOrder(u, { type: 'idle' });
     }
     if (ability === 'f') {
-      const levelFraction = Math.max(0, Math.min(1, (state.level - 1) / 17));
-      const heal =
-        SUMMONER_HEAL.minimumHeal +
-        (SUMMONER_HEAL.maximumHeal - SUMMONER_HEAL.minimumHeal) * levelFraction;
       const allies = this.units.filter(
         (ally) =>
           ally.id !== u.id &&
@@ -1412,9 +1408,10 @@ export class World {
             a.hp / a.maxHp - b.hp / b.maxHp || distance(u, a) - distance(u, b) || a.id - b.id
         )[0];
       for (const recipient of ally ? [u, ally] : [u]) {
-        const multiplier =
-          recipient.summonerHealReductionUntil > this.tick ? SUMMONER_HEAL.repeatHealMultiplier : 1;
-        const amount = Math.min(heal * multiplier, recipient.maxHp - recipient.hp);
+        const amount = Math.min(
+          this.summonerHealAmount(u, recipient),
+          recipient.maxHp - recipient.hp
+        );
         recipient.hp += amount;
         recipient.summonerHealReductionUntil =
           this.tick + SUMMONER_HEAL.repeatHealWindowSeconds * TICK_RATE;
@@ -1515,6 +1512,22 @@ export class World {
     if (item.id === 'blade' && state.inventory.includes('blade'))
       return 'You already own a Doran item';
     return null;
+  }
+  /** Healing before missing-health cap; optional recipient applies its recent-Heal penalty. */
+  summonerHealAmount(caster: Unit = this.hero, recipient?: Unit): number {
+    const levelFraction = Math.max(
+      0,
+      Math.min(1, ((this.championState(caster.id)?.level ?? 1) - 1) / 17)
+    );
+    const base =
+      SUMMONER_HEAL.minimumHeal +
+      (SUMMONER_HEAL.maximumHeal - SUMMONER_HEAL.minimumHeal) * levelFraction;
+    return (
+      base *
+      (recipient && recipient.summonerHealReductionUntil > this.tick
+        ? SUMMONER_HEAL.repeatHealMultiplier
+        : 1)
+    );
   }
   /** Current rank-one raw Volley damage; cast snapshots retain this value at windup. */
   volleyDamage(u: Unit = this.hero): number {

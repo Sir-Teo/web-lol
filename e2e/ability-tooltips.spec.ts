@@ -60,3 +60,41 @@ test('Volley tooltip follows bonus damage and matches the released arrows', asyn
   for (const value of damage) expect(value).toBeCloseTo(85);
   await page.screenshot({ path: 'artifacts/volley-tooltip.png' });
 });
+
+test('Heal tooltip tracks level and the recent-Heal penalty through expiry', async ({ page }) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.evaluate(() => (window as any).__GAME__.setPaused(true));
+  await page.getByRole('button', { name: 'Heal', exact: true }).focus();
+  const tip = page.getByRole('tooltip');
+  await expect(tip).toContainText('Restore up to 80 health');
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.gainExperience(1e6);
+    g.world.hero.hp = 100;
+    g.hud.update(60);
+  });
+  await expect(tip).toContainText('Restore up to 318 health');
+  const amount = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.enqueue({
+      type: 'cast',
+      unit: g.world.hero.id,
+      ability: 'f',
+      point: { x: g.world.hero.x, y: g.world.hero.y },
+    });
+    g.world.step();
+    g.hud.update(60);
+    return g.world.events.filter((event: any) => event.type === 'heal').at(-1)?.value;
+  });
+  expect(amount).toBe(318);
+  await expect(tip).toContainText('Your healing is currently reduced to 159.');
+  await page.screenshot({ path: 'artifacts/heal-reduced-tooltip.png' });
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.tick = g.world.hero.summonerHealReductionUntil;
+    g.hud.update(60);
+  });
+  await expect(tip).not.toContainText('Your healing is currently reduced');
+});

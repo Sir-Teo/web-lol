@@ -2,6 +2,7 @@ import { ABILITIES, ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { ASHE_E } from '../content/ashe-e';
 import { ASHE_W } from '../content/ashe-w';
+import { SUMMONER_HEAL } from '../content/summoner-heal';
 import {
   experienceToNextLevel,
   growthAtLevel,
@@ -83,6 +84,11 @@ export class Hud {
   private abilityDescription(ability: Ability): string {
     if (ability === 'w')
       return `Fire ${ASHE_W.arrowsByRank[0]} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage())} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
+    if (ability === 'f') {
+      const base = this.world.summonerHealAmount();
+      const self = this.world.summonerHealAmount(this.world.hero, this.world.hero);
+      return `Restore up to ${Math.round(base)} health to yourself and one nearby allied champion. Both gain ${SUMMONER_HEAL.speedBonus * 100}% movement speed for ${SUMMONER_HEAL.speedDurationSeconds} second. Healing is reduced by ${100 - SUMMONER_HEAL.repeatHealMultiplier * 100}% on targets recently affected by Summoner Heal.${self < base ? ` Your healing is currently reduced to ${Math.round(self)}.` : ''}`;
+    }
     return ABILITIES[ability].description;
   }
   private updateShopPurchases(): void {

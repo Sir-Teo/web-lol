@@ -1122,3 +1122,9 @@ All 393 source/simulation checks, the focused tooltip browser case and nested-pa
 Consolidated the existing rank-one Volley damage formula into a World query consumed by cast snapshots, fallback projectile construction and the tooltip. Volley now reports its seven arrows and current raw physical damage before armor. Visible tooltip descriptions refresh when stats change, without rewriting unchanged text.
 
 All 393 source/simulation checks, four focused Chrome scenarios and nested-path production smoke pass. The new browser case keeps the tooltip open through a Pickaxe purchase and level-18 growth, observes 60→85 damage, and confirms all seven released arrows carry the same 85 damage. Existing saved-cast and bonus-AD-only tests pass. Inspected the updated tooltip screenshot. Full-suite/performance checks were not repeated. Spell rank progression and complete native tooltip styling/details remain unfinished.
+
+## Heal tooltip shares cast calculation
+
+Extracted the existing level-scaled Summoner Heal amount into a shared query, including optional per-recipient recent-Heal reduction. Casts still cap healing to each recipient's missing health. The open tooltip now displays the caster's current base amount and explicitly reports reduced self-healing while the recent-Heal penalty is active.
+
+All 393 source/simulation checks, four focused Chrome scenarios and nested-path production smoke pass. Browser coverage follows 80→318 healing through level growth, checks the actual 318-point cast event, then observes the 159-point reduced amount and its removal exactly at expiry. Existing recipient selection/reduction tests remain passing. Inspected the reduced-healing tooltip screenshot. Full-suite/performance checks were not repeated. Broader healing modifiers and exact native tooltip presentation remain unfinished.
