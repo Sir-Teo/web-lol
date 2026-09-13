@@ -1,6 +1,6 @@
 # Reference asset pipeline
 
-The game now uses animated base melee, caster, and siege minions for both teams, extracted from the matching patch 16.18 game archive. Procedural minion and champion fallback geometry has been removed. The default game also uses the full reference Rift terrain. Towers and the training dummy still use temporary geometry.
+The game now uses animated base melee, caster, and siege minions for both teams, extracted from the matching patch 16.18 game archive. Procedural minion and champion fallback geometry has been removed. The default game also uses the full reference Rift terrain. Both teams’ towers now use matching source rigs, textures, submesh states, and authored placements. The training dummy still uses temporary geometry.
 
 ## Sources and provenance
 
@@ -67,3 +67,23 @@ The browser suite includes a six-model gallery, distinct mixer behavior, complet
 ## Full map extraction
 
 The separate [map pipeline](MAP-ASSETS.md) now extracts pinned terrain, materials, textures, and navigation from this archive. `/map.html` provides a full-map inspection scene with original GPU-compressed textures and a navigation overlay. The playable simulation uses this terrain, source-grid collision and sight, bilinear elevation, authored fountain and turret positions, and three lane routes. The original small terrain is retained only as an explicit development regression fixture.
+
+## Matching tower assets
+
+The map's authored `Characters/Turret/Skins/Skin0` and `Skin3` references select the blue and red models. Skin3 explicitly shares the Skin02 mesh/rig and animation graph while supplying red textures. The source skin scale is approximately 0.9 for blue and the default 1.0 for red. The runtime applies each full source placement matrix, including rotation and height, after conversion to browser coordinates; targeting direction does not rotate the building.
+
+`docs/reference/turret-definitions.json` freezes both skin and animation definitions with their exact CommunityDragon 16.18 URLs and source hashes. `turret-extraction.json` pins the manifest, selected patch chunks, 15 source files, and the definition snapshot hash. `turret-wad-paths.json` is the minimal path table. Extraction reads 2,867,273 compressed bytes from 28 chunks and yields 6,010,112 source bytes. It reuses the existing pinned Map11 archive reader and the minion converter toolchain.
+
+```sh
+PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/extract-reference-turrets.py
+node tools/assets/convert-turrets.mjs
+npm run assets:validate
+```
+
+The two GLBs total 4,766,672 bytes. Blue has 58 joints and 16,499 triangles across all retained parts; its intact visible part has 3,358 triangles. Red has 82 joints and 27,410 triangles across all retained parts; its intact base and cloth have 5,626 triangles. Original painted texture dimensions and all seven referenced animation files are retained across the two assets. GLB reconstruction after a fresh generated animation-directory cleanup is byte-identical.
+
+Every submesh is an independent node with `submesh`, `initiallyHidden`, and `destroyedVisible` extras. The game applies these source-derived visibility states; a generic glTF viewer that ignores the extras will display overlapping intact, damaged, and broken parts. Geometry and textures are shared, while each unit owns one rig and mixer. Submeshes within a tower share that rig, and removal disposes its bone texture without disposing the shared assets.
+
+Destroyed towers remain as records and render the source rubble parts in the initial `Destroyed` pose. This is a persistent rubble representation, not the complete destruction sequence. Damage-stage triggers, staged break animation events, ambient sparkle/glow, attack VFX and muzzle attachment, respawn rules, native texture-mip preservation, and pixel calibration remain outstanding. Source graph definitions are retained so these can be reconstructed without inventing animation timing. Enemy-building memory remains separate vision work.
+
+Browser checks cover all 22 exact placement matrices, fixed building orientation during attack states, initial visible parts, independent per-tower rigs, persistent rubble for both teams, hidden dead health bars, and GPU cleanup on explicit removal. Intact/rubble screenshots are stored under `artifacts/browser-{blue,red}-tower-{intact,rubble}.png`.

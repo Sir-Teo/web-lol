@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, copyFile, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { NodeIO } from '@gltf-transform/core';
@@ -30,6 +30,7 @@ for (const team of ['blue', 'red']) {
           .split('\0')[0]
     );
   const anim = '.cache/turret-converted/' + team + '-animations';
+  await rm(anim, { recursive: true, force: true });
   await mkdir(anim, { recursive: true });
   const graph = Object.values(def.animation.data).find((v) => v.mClipDataMap).mClipDataMap;
   const paths = [
