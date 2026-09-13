@@ -57,6 +57,7 @@ export interface Battlefield extends TerrainQueries {
   minionTurretDamage?: Record<LaneMinionKind, number>;
   minionCurrentHealthDamage?: Partial<Record<LaneMinionKind, Record<Team, number>>>;
   siegeMidTurretAttackSpeedBonus?: number;
+  minionExperienceRadius?: Record<Team, number>;
   turretMinionHealthDamage?: Partial<
     Record<LaneMinionKind, Partial<Record<StructureState['role'], number>>>
   >;

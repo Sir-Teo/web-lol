@@ -263,3 +263,11 @@ Ashe now uses pinned CharacterRecord stats and the matching client global level-
 All 130 unit/scenario checks, all 45 Chrome scenarios, the static build, and the production preview smoke check pass. Both pinned upstream records verify and the generated gameplay data reproduces byte-identically. Five new simulation scenarios cover thresholds/cap, source totals, items/resources, death safety, regeneration, snapshot continuation, invalid saved levels, and attack timing. The level-2/18 HUD browser case passes; after its initial screenshot caught the loading fade, the test was updated to wait for the overlay to detach and passed again. The unobstructed level-18 HUD was visually inspected.
 
 Enemy leveling, XP sharing and eligibility, role modifiers and higher role-specific caps, ability ranks, complete stat/item interactions, and the remaining full-match and pixel-fidelity gates are unfinished. Exact source windup and attack-speed stacking also remain unresolved. The production goal remains active.
+
+## Minion experience collection milestone
+
+Rift minion XP now uses each victim team's pinned barracks radius of 1,500 units, matching Riot's published range change. The inclusive center-distance boundary replaces the hard-coded 1,400-unit check for Rift lane minions. Living players can collect proximity XP without sight or the last hit; dead players cannot collect that minion award. Gold and CS remain tied to the separate last-hit path. Champion-kill XP and the legacy unconfigured practice radius remain separate approximations. See [collection rules and limits](PROGRESSION.md#minion-experience-collection).
+
+All 137 unit/scenario checks, all 45 Chrome scenarios, the static build, and the production preview smoke check pass. Layout, provenance, and minimap reproduce byte-identically. Seven new scenarios verify both source radii, all four minion classes inside/on/outside the boundary, sight and last-hit independence, dead-player and victim exclusions, distant last-hit gold/CS, and automatic leveling from proximity XP.
+
+Experience sharing, full champion-kill and assist rewards, role modifiers, enemy progression, the remaining full-match systems, and pixel-level reference comparison remain unfinished. No new performance claim is made. The production goal remains active.

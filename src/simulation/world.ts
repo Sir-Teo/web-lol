@@ -752,7 +752,11 @@ export class World {
         target.team === 'red' &&
         target.kind !== 'dummy' &&
         !isStructureKind(target.kind) &&
-        distance(this.hero, target) < 1400
+        (isLaneMinionKind(target.kind)
+          ? this.alive(this.hero) &&
+            distance(this.hero, target) <=
+              (this.battlefield.minionExperienceRadius?.[target.team] ?? 1400)
+          : distance(this.hero, target) < 1400)
       ) {
         this.gainExperience(target.experienceBounty ?? (target.kind === 'champion' ? 180 : 60));
       }
