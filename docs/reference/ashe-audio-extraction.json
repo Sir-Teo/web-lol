@@ -1,0 +1,78 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Champions/Ashe.wad.client",
+  "chunks": {
+    "A6D6A900A294DF1F": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 18730177,
+      "bytes": 87531,
+      "sha256": "c10acdfea959076fc7d7adfe6b98a9c8abdcf9b7c8ee8fb6cdbac77612388c16"
+    },
+    "819AAF2C2FA03DAD": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 18817708,
+      "bytes": 11927,
+      "sha256": "8dc86c0b0e57c94bf9d8c1b62ba1c35361185ebb0f64389dc96c26675df628ec"
+    },
+    "77E5C75D4ADFFCFF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E0EF0B303651FF20.bundle",
+      "offset": 19208965,
+      "bytes": 51974,
+      "sha256": "8c1778a404cc6a00968f454e1c1f4694269c84bd17cb05f85533dd841dc175f8"
+    },
+    "A559B24E1852DE26": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 22041821,
+      "bytes": 173205,
+      "sha256": "9cea61f3175d0e73963aa1a5d90c8c315355677daddd78dcbc2ab2732d6f9118"
+    },
+    "2AE8FFBDB0BA9F90": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 22215026,
+      "bytes": 156219,
+      "sha256": "c64afd7ba4e5125ff23a70a4ee727f81fd7f02ad8a5b338306ca888430cdf39f"
+    },
+    "DF0B26D04DD323B2": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 22371245,
+      "bytes": 122720,
+      "sha256": "7e21068332c15d1469ef196fb027bda25eb5b74dfaa6e365ca724c98a5ecf7dd"
+    },
+    "3151B5D180B85EFA": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 22493965,
+      "bytes": 124577,
+      "sha256": "34c857c68be20d40fd8c38afbf5e0637d0d500e003aab71fa389b64469ead739"
+    },
+    "1E7458AC16936D73": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 22618542,
+      "bytes": 11688,
+      "sha256": "d59c540927b7507882eaefb442769d694ae9fb038f8fd0680a303fa6379de70c"
+    },
+    "BD6B11F555802990": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BEFEE01C43750559.bundle",
+      "offset": 19949142,
+      "bytes": 2530,
+      "sha256": "5f5494147b166a4e691c3137480271cd1ad52bdd402235e88a223c77d8df6db1"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/ashe/skins/base/ashe_base_sfx_audio.bnk",
+      "wadPathHash": "4732619a3ca9f524",
+      "sha256": "6b2c24680caf16b79b29d8175d222fcea083f92e4f0426e8a5718538159c0fde",
+      "bytes": 614312
+    },
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/ashe/skins/base/ashe_base_sfx_events.bnk",
+      "wadPathHash": "ecbf026695f19b8f",
+      "sha256": "cba47fd503e7bd628bb654807c8780c057c255a7e439709da3cd778b5e489a3d",
+      "bytes": 8052
+    }
+  ]
+}

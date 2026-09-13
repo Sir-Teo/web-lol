@@ -1,0 +1,32 @@
+{
+  "extractionSha256": "e5ff6fb0c6d8323dca63b89b8c098ce3de276ce2391ad420380e5e67eebdf7ea",
+  "parser": {
+    "repository": "https://github.com/bnnm/wwiser",
+    "revision": "71654ed1a2c4642894bd7e7ed79eba66986fb770"
+  },
+  "banks": [
+    {
+      "name": "ashe_base_sfx_audio.bnk",
+      "version": 145,
+      "mediaCount": 44,
+      "soundObjects": 0,
+      "events": 0,
+      "playActions": 0,
+      "stopActions": 0,
+      "randomSequenceContainers": 0,
+      "attenuations": 0
+    },
+    {
+      "name": "ashe_base_sfx_events.bnk",
+      "version": 145,
+      "mediaCount": 0,
+      "soundObjects": 55,
+      "events": 41,
+      "playActions": 35,
+      "stopActions": 9,
+      "randomSequenceContainers": 18,
+      "attenuations": 3
+    }
+  ],
+  "status": "Source-bank inventory only; no event-to-media mapping, media decoding, listening comparison or runtime replacement has been completed."
+}

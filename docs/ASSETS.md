@@ -140,3 +140,5 @@ The prepared Sparkle PNG is now loaded for sustained endpoint playback (3,128 by
 Snow01 and Snow02 reuse the loaded shard atlas through two independent instanced batches, adding no images. `python3 tools/assets/export-hawkshot-snow.py` generates their distinct source profiles. [Snow playback and native-calibration limits](ASHE-E.md#lingering-snow01-and-snow02-playback).
 
 Lingering Aurora now loads the remaining 373-byte multiplication band, reusing the wispy atlas and verified erosion alias. The secondary texture uses independent repeating UVs and per-particle scroll uniforms. `python3 tools/assets/export-hawkshot-linger-aurora.py` regenerates its source profile. [Aurora playback and shader policies](ASHE-E.md#lingering-aurora-playback).
+
+Ashe's base sound-event and media banks are now selectively extracted and hash-pinned outside the runtime pack. A pinned wwiser inspection records 44 media entries and 41 events; decoding, event composition and runtime audio replacement remain unfinished. [Audio evidence and next playback work](ASHE-AUDIO.md).
