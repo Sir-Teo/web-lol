@@ -1212,3 +1212,9 @@ All 416 source/simulation checks, 13 focused Chrome scenarios and nested-path pr
 Ran the complete configured Chrome suite against `87e57a4` without runtime changes during execution: all 161 scenarios passed in 5.5 minutes, with one worker and zero retries. Updated `reference/browser-regression.json` with the exact tested commit, all scenario results and the captured output hash. Coverage includes combat, spell learning, bot behavior, source effects, full-Rift rendering, shop layouts, recovery and saved continuation.
 
 This replaces the older 148-scenario browser baseline. No runtime code changed in this verification commit. Existing production smoke and 416 source/simulation results remain recorded above; performance was not remeasured. A passing regression suite does not establish complete native visual parity, full 5v5 behavior or production completion.
+
+## Inspect spells before learning
+
+Unlearned tooltips now display explicitly labeled rank-one mechanics and actual rank-one resource requirements instead of hiding the description and showing zero costs. W/R previews include the champion's current owned stats. The instruction line shows the learning shortcut or the current validation reason, updating while open when a point is spent elsewhere.
+
+All 416 source/simulation checks, nine focused Chrome scenarios and nested-path production smoke pass. New full-Rift browser coverage verifies R's preview and level requirement, W's damage/mana/cooldown and shortcut, then the live no-points reason after learning E. Inspected the preview screenshot. The full suite was not repeated for this tooltip change. Native tooltip typography/layout and broader clone fidelity remain unfinished.

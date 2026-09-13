@@ -35,3 +35,31 @@ test('full Rift requires first learning and then casts the learned Hawkshot', as
   await page.screenshot({ path: 'artifacts/standard-learning.png' });
   expect(errors).toEqual([]);
 });
+
+test('unlearned spell previews show real mechanics and explain changing learning availability', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const tip = page.getByRole('tooltip');
+  await page.getByRole('button', { name: 'Enchanted Crystal Arrow', exact: true }).focus();
+  await expect(tip).toContainText('Rank 1 preview');
+  await expect(tip).toContainText('200 magic damage');
+  await expect(tip).toContainText('100 MANA');
+  await expect(tip).toContainText('Requires champion level 6');
+  await page.getByRole('button', { name: 'Volley', exact: true }).focus();
+  await expect(tip).toContainText('7 frost arrows');
+  await expect(tip).toContainText('60 physical damage');
+  await expect(tip).toContainText('75 MANA');
+  await expect(tip).toContainText('18s COOLDOWN');
+  await expect(tip).toContainText('Press Ctrl+W to learn');
+  await page.screenshot({ path: 'artifacts/unlearned-volley-tooltip.png' });
+  await page.keyboard.press('Control+e');
+  await expect(tip).toContainText('No skill points available');
+  await expect(tip).toContainText('75 MANA');
+  await expect(tip).toContainText('Rank 1 preview');
+  expect(errors).toEqual([]);
+});

@@ -4,6 +4,7 @@ import { ASHE_E } from '../content/ashe-e';
 import { ASHE_Q } from '../content/ashe-q';
 import {
   asheFocusValues,
+  asheSpellResources,
   asheVolleyValues,
   asheHawkshotValues,
 } from '../simulation/ashe-spell-values';
@@ -102,8 +103,10 @@ export class Hud {
     this.tip.style.top = `${Math.max(margin, Math.min(rect.top - this.tip.offsetHeight - 14, window.innerHeight - this.tip.offsetHeight - margin))}px`;
   }
   private abilityDescription(ability: Ability): string {
-    const rank = this.world.abilityRank(ability);
-    if (!rank) return 'This ability has not been learned.';
+    const learned = this.world.abilityRank(ability);
+    return `${learned ? '' : 'This ability has not been learned. Rank 1 preview: '}${this.rankedAbilityDescription(ability, Math.max(1, learned))}`;
+  }
+  private rankedAbilityDescription(ability: Ability, rank: number): string {
     if (ability === 'q') {
       const values = asheFocusValues(rank);
       return `Build 4 Focus with attacks. Consume Focus to gain ${Math.round(values.bonusAttackSpeed * 100)}% attack speed for ${ASHE_Q.durationSeconds} seconds and empower attacks to deal ${Math.round(values.damageMultiplier * 100)}% damage. Activating resets your attack timer.`;
@@ -111,14 +114,24 @@ export class Hud {
     if (ability === 'e')
       return `Send a hawk that reveals its route, then grants destination vision for ${ASHE_E.visionSeconds} seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${asheHawkshotValues(rank).rechargeSeconds} seconds.`;
     if (ability === 'w')
-      return `Fire ${asheVolleyValues(rank, 0).arrows} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage())} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
-    if (ability === 'r') return crystalArrowDescription(this.world.crystalArrowDamage());
+      return `Fire ${asheVolleyValues(rank, 0).arrows} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage(this.world.hero, rank))} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
+    if (ability === 'r')
+      return crystalArrowDescription(this.world.crystalArrowDamage(this.world.hero, rank));
     if (ability === 'f') {
       const base = this.world.summonerHealAmount();
       const self = this.world.summonerHealAmount(this.world.hero, this.world.hero);
       return `Restore up to ${Math.round(base)} health to yourself and one nearby allied champion. Both gain ${SUMMONER_HEAL.speedBonus * 100}% movement speed for ${SUMMONER_HEAL.speedDurationSeconds} second. Healing is reduced by ${100 - SUMMONER_HEAL.repeatHealMultiplier * 100}% on targets recently affected by Summoner Heal.${self < base ? ` Your healing is currently reduced to ${Math.round(self)}.` : ''}`;
     }
     return ABILITIES[ability].description;
+  }
+  private tooltipInstruction(ability: Ability): string {
+    if (!this.world.abilityRank(ability) && ability !== 'd' && ability !== 'f') {
+      const reason = this.world.spellLearningError(ability);
+      return reason
+        ? `Cannot learn yet: ${reason}.`
+        : `Press Ctrl+${ability.toUpperCase()} to learn.`;
+    }
+    return ['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.';
   }
   private updateShopPurchases(): void {
     this.root.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
@@ -304,8 +317,11 @@ export class Hud {
     }
     const ability = button.dataset.ability as Ability;
     const spec = ABILITIES[ability];
-    const resources = this.world.abilityResources(ability);
-    this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${resources.mana ? `${resources.mana} MANA` : 'NO COST'} <span>·</span> ${resources.cooldownSeconds ? `${resources.cooldownSeconds}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.'}</small>`;
+    const resources =
+      this.world.abilityRank(ability) || ability === 'd' || ability === 'f'
+        ? this.world.abilityResources(ability)
+        : asheSpellResources(ability, 1);
+    this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${resources.mana ? `${resources.mana} MANA` : 'NO COST'} <span>·</span> ${resources.cooldownSeconds ? `${resources.cooldownSeconds}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${this.tooltipInstruction(ability)}</small>`;
     this.tip.dataset.tooltipAbility = ability;
     this.tip.dataset.tooltipRank = String(this.world.abilityRank(ability));
     this.tip.hidden = false;
@@ -589,6 +605,12 @@ export class Hud {
       )
         this.refreshTooltip();
       const description = this.abilityDescription(this.tip.dataset.tooltipAbility as Ability);
+      const instruction = this.tip.querySelector('small')!;
+      const nextInstruction = this.tooltipInstruction(this.tip.dataset.tooltipAbility as Ability);
+      if (instruction.textContent !== nextInstruction) {
+        instruction.textContent = nextInstruction;
+        this.positionTooltip();
+      }
       const paragraph = this.tip.querySelector('p')!;
       if (paragraph.textContent !== description) {
         paragraph.textContent = description;
