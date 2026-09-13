@@ -47,6 +47,7 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
   };
   return {
     id: 'rift',
+    visibilityRevision: 0,
     half: layout.half,
     heightRange: grid.heightRange,
     spawns,

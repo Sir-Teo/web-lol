@@ -6,6 +6,7 @@ import type { Battlefield } from '../simulation/battlefield';
 /** Explicit deterministic regression fixture. The default application uses the full Rift. */
 export const PRACTICE_FIXTURE: Battlefield = {
   id: 'practice-fixture',
+  visibilityRevision: 0,
   half: MAP_HALF,
   heightRange: [0, 0],
   spawns: { blue: SPAWN, red: LANE_END },

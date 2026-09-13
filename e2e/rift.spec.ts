@@ -188,3 +188,48 @@ test('source brush visibility agrees with models, picking, and every fog-mask sa
   }, hidden);
   expect(revealed).toEqual({ visible: true, rendered: true, mismatches: 0, size: 256 });
 });
+
+test('cached full-map fog matches uncached samples after movement, observer death and reveal expiry', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const comparisons = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    const results: { name: string; differences: number }[] = [];
+    const compare = (name: string) => {
+      v.updateFog(w);
+      const cached = v.fogPixels.data.slice();
+      const revision = w.battlefield.visibilityRevision;
+      w.battlefield.visibilityRevision = undefined;
+      v.updateFog(w);
+      w.battlefield.visibilityRevision = revision;
+      let differences = 0;
+      for (let i = 0; i < cached.length; i++) if (cached[i] !== v.fogPixels.data[i]) differences++;
+      results.push({ name, differences });
+      // Warm the cache for the next state transition, after the uncached oracle.
+      v.updateFog(w);
+    };
+    compare('initial');
+    compare('stationary');
+    for (let i = 0; i < 5400; i++) w.step();
+    compare('active lanes');
+    w.hero.x += 0.125;
+    compare('sub-cell movement');
+    const tower = w.units.find((u: any) => u.team === 'blue' && u.kind === 'turret');
+    tower.hp = 0;
+    compare('observer removed');
+    tower.hp = tower.maxHp;
+    compare('observer restored');
+    w.reveal = { point: { x: 3000, y: -3000 }, endTick: w.tick + 1 };
+    compare('unobstructed reveal');
+    w.tick += 2;
+    compare('reveal expired');
+    return results;
+  });
+  expect(comparisons).toHaveLength(8);
+  for (const comparison of comparisons) expect(comparison.differences, comparison.name).toBe(0);
+});

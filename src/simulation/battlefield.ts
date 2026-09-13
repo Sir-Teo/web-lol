@@ -21,6 +21,8 @@ export interface LaneRoute {
 }
 
 export interface Battlefield extends TerrainQueries {
+  /** Advance whenever sight geometry changes; omit to disable presentation ray caching. */
+  visibilityRevision?: number;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

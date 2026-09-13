@@ -46,3 +46,11 @@ The full-map browser scenario places an enemy in source-authored brush, verifies
 ## Known-building presentation verification
 
 Four additional simulation scenarios separate initial knowledge, hidden damage, public destruction, and both-team regrowth/observation. A Chrome scenario inspects all 15 enemy structures under fog, their material shader hook, a known minimap marker, hidden health/picking/selection, damage event isolation, and hidden inhibitor regrowth. It then observes the inhibitor and checks that its intact appearance remains remembered after sight expires. Full-base hidden/revealed and regrowth screenshots were visually inspected. This closes the terrain-cutout presentation gap while retaining the live-sight rules.
+
+## Exact fog sample reuse
+
+`FogSampler` caches individual observer-to-pixel results using exact X/Y, radius, and unobstructed status. It records both visible and blocked samples lazily, retaining the union's early-out for pixels another observer already reveals. No observer coordinates are rounded, and no fog samples are removed or deferred. Only sources present in the current update remain cached, so movement, death, and expiring reveals cannot leave an old contribution in the union.
+
+Both current battlefields explicitly declare `visibilityRevision: 0` for their static sight geometry. Any future wall/brush/terrain mutation must advance this revision in the same update as the geometry change. A changed query function or revision clears the cache; an omitted revision disables reuse between updates for mutable/custom battlefields. The cache is presentation-only and never supplies gameplay visibility.
+
+Unit scenarios compare the complete mask with independent `seenFrom` queries through source movement, reordering, overlap removal, radius changes, unobstructed reveal, empty source sets, and cache invalidation. A browser scenario compares all RGBA samples with caching disabled across eight full-map states: initial, stationary, active lanes, sub-cell movement, observer death/restoration, and reveal appearance/expiry. The existing source-brush test independently compares all 65,536 samples with `World.pointVisible`.

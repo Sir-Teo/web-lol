@@ -5,7 +5,7 @@ import { loadRift } from './rift-assets';
 import { clamp, lerp, type Vec2 } from '../simulation/math';
 import { isStructureKind, type Unit } from '../simulation/types';
 import type { World } from '../simulation/world';
-import { seenFrom } from '../simulation/vision';
+import { FogSampler } from './fog-sampler';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
 
@@ -43,6 +43,7 @@ export class GameView {
   private fogPixels = new ImageData(128, 128);
   private fogTexture: THREE.CanvasTexture;
   private lastFogTick = -100;
+  private fogSampler?: FogSampler;
   private bars: HTMLDivElement;
   private previousElapsed = 0;
 
@@ -643,34 +644,20 @@ export class GameView {
   }
   private updateFog(world: World): void {
     // Presentation samples the authoritative query; it never supplies gameplay visibility.
-    const sources = world.visionSources(),
-      pixels = this.fogPixels.data,
-      size = this.fogPixels.width,
-      point = { x: 0, y: 0 };
-    for (let i = 0; i < pixels.length; i += 4) {
-      pixels[i] = 5;
-      pixels[i + 1] = 17;
-      pixels[i + 2] = 18;
-      pixels[i + 3] = 186;
-    }
-    const span = this.battlefield.half * 2;
-    // Sight is a union. Visit each observer's bounding box and skip pixels
-    // already revealed by another observer; retain the authoritative ray query.
-    for (const source of sources) {
-      const single = [source];
-      const x0 = Math.max(0, Math.floor(((source.x - source.radius) / span + 0.5) * size));
-      const y0 = Math.max(0, Math.floor(((source.y - source.radius) / span + 0.5) * size));
-      const x1 = Math.min(size - 1, Math.ceil(((source.x + source.radius) / span + 0.5) * size));
-      const y1 = Math.min(size - 1, Math.ceil(((source.y + source.radius) / span + 0.5) * size));
-      for (let y = y0; y <= y1; y++) {
-        point.y = ((y + 0.5) / size - 0.5) * span;
-        for (let x = x0; x <= x1; x++) {
-          const i = (y * size + x) * 4;
-          if (pixels[i + 3] === 0) continue;
-          point.x = ((x + 0.5) / size - 0.5) * span;
-          if (seenFrom(point, single, this.battlefield.lineOfSight)) pixels[i + 3] = 0;
-        }
-      }
+    const pixels = this.fogPixels.data,
+      size = this.fogPixels.width;
+    this.fogSampler ??= new FogSampler(size, this.battlefield.half * 2);
+    const mask = this.fogSampler.sample(
+      world.visionSources(),
+      this.battlefield.lineOfSight,
+      this.battlefield.visibilityRevision
+    );
+    for (let i = 0; i < mask.length; i++) {
+      const offset = i * 4;
+      pixels[offset] = 5;
+      pixels[offset + 1] = 17;
+      pixels[offset + 2] = 18;
+      pixels[offset + 3] = mask[i] ? 0 : 186;
     }
     this.fogMask.getContext('2d')!.putImageData(this.fogPixels, 0, 0);
     const context = this.fogCanvas.getContext('2d')!;
