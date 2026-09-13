@@ -716,3 +716,11 @@ The final explosion emitter now plays through one instanced smoke batch. It pres
 All 269 source/simulation checks, five focused Chrome scenarios, production build and a real-input production Hawkshot smoke test pass. Tests cover source agreement, emission schedule, motion, alpha, pause/fresh restoration, actual pixels, expiry and batch reuse. Both generated files reproduce byte-identically and the fixture screenshot was inspected. The full browser suite and unchanged GLB validation were not repeated.
 
 All five explosion emitters now have adapters. Normalized spawn curves, analytic integration, inclusive final birth, radial velocity coupling, orientation/default pass policies and native visual matching remain explicitly unverified. Four lingering layers, audio and the broader production match remain incomplete. The goal remains active. See [radial smoke evidence and assumptions](ASHE-E.md#endpoint-radial-smoke).
+
+## Lingering effect source and dependency milestone
+
+Prepared the complete four-emitter lingering effect and both missing textures. Lossless multiplication-band and sparkle PNGs total 3,501 bytes. Source/output/pixel hashes are pinned, and the skin-named erosion dependency is verified byte-identical to the existing base pack. Profiles retain missing fields explicitly, including Aurora's absent constant lifetime and the snow layers' different scale/orientation policies.
+
+All 271 source/simulation checks and the production build pass. Both images were inspected, regeneration is byte-identical, and built images match the verified outputs. Browser and GLB checks were not repeated because runtime behavior and models are unchanged. The new textures are not requested by the renderer yet.
+
+The audit identified a concrete playback dependency: the current scouting record expires at five seconds, while authored snow emission and active particle lifetimes permit tails beyond that point. The next implementation must preserve visual descriptors independently of vision expiry, with save/restore and no extra gameplay sight. Native shutdown behavior, texture-multiply semantics and orbital/cylinder defaults remain unresolved. Four lingering layers, sound and the full production objective remain unfinished. See [source evidence and lifecycle boundary](ASHE-E.md#lingering-effect-preparation-and-lifecycle-boundary).

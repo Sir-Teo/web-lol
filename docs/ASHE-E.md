@@ -264,3 +264,28 @@ The material uses animated Color values. Initial alpha is approximately 0.0447 a
 One additive, double-sided instanced draw serves all visible bursts. Per-instance atlas frame and alpha avoid mutating shared textures. Capacity grows when needed; replacement geometry and instance buffers are released, while the high-water buffer/material remain reusable after expiry. Empty batches are hidden. Enemy particles are filtered at their current horizontal positions. Default pass order and double-sided rendering are explicit local policies. No erosion or soft-depth effect is inherited from the flight smoke because this emitter does not author them.
 
 Tests protect the animated/constant alpha distinction, rising-rate birth schedule, last birth, radial displacement, deceleration, deterministic restoration, expiry and source hashes. Browser coverage verifies all 50 instances at emitter shutdown, actual pixel contribution, frozen/restored buffers and allocation reuse. The inspected `artifacts/browser-hawkshot-radial.png` shows the composite; the smoke is deliberately faint at its authored alpha. All five explosion emitters now have adapters, but this count is not a native-fidelity score. Four lingering emitters, sound and native capture calibration remain outstanding.
+
+## Lingering effect preparation and lifecycle boundary
+
+`tools/assets/export-hawkshot-linger.py` now preserves all four complete `Ashe_Base_E_tar_linger` emitters and their texture dependencies in `docs/reference/hawkshot-linger.json`. This is preparation for playback, not four implemented layers. It records missing fields as null in the normalized profiles and retains the raw source records.
+
+| Layer | Authored behavior requiring playback |
+|---|---|
+| Aurora | Single arbitrary quad; 1.5–3-second life; cylinder radius 200 with unresolved flag 1; 100-unit/second X drift at height 300; blue erosion; scrolling secondary texture; triangular alpha |
+| Snow01 | 40/s for approximately 5.001 seconds; 0.3–1-second life; downward velocity, drag and acceleration; randomized orbital Y velocity; direction-oriented nonuniform quad; shard atlas |
+| Snow02 | 30/s for five seconds; 0.3–1-second life; slower downward velocity; distinct orbital motion; uniform X scale; rotating shard atlas |
+| Sparkle | 5/s for five seconds; approximately 0.12–0.4-second life; full-image sprite; uniform X scale growing from zero and shrinking back to zero |
+
+Aurora has no `particleLifetime.constantValue`; its animated birth value is 3. A constant-only importer would lose it. Snow02's uniform X scale must not become a 150-unit-tall quad from its unused Y scale. Snow01's direction orientation and Snow02's spin also require different handling. Source probability ranges and original curves remain available for the adapters.
+
+Two textures are newly decoded and pixel-verified: `hawkshot-linger-multiply.png` is 64×64 and 373 bytes; `hawkshot-linger-sparkle.png` is 128×128 and 3,128 bytes. Their source archive bytes, PNG hashes, decoded RGBA hashes and channel extrema are pinned. Both were visually inspected. Aurora's multiplication texture is a band, not an alpha-only fade; exact color-space, UV-domain and wrapping behavior still need shader/source calibration before playback. Sparkle is a blue cross-shaped full-image sprite with no authored atlas division.
+
+The wispy smoke and shard atlases are reused. Aurora's `Ashe_Skin11_Z_ErosionPack01` source has the same byte count and SHA-256 as the already decoded base erosion pack used by WindTunnel. Both source identities are retained while one PNG can serve them. This avoids assuming that different asset paths imply different content. All newly prepared images remain outside runtime loading for now.
+
+### Preserve visual tails without extending vision
+
+Current `World.step` removes `visionAreas` when their `endTick` is reached. Current endpoint rendering reconstructs effects from those records. That is sufficient for the short explosion layers but would abruptly remove late snow particles if used unchanged for lingering playback. The authored duration plus maximum active particle life gives conservative uncapped end bounds of approximately 6.001 seconds for Snow01, 6 seconds for Snow02 and 5.4 seconds for Sparkle; these are derived bounds, not measured native shutdown times. Aurora's single birth has a three-second maximum active life. `particleLinger` is not automatically an instruction to extend either vision or active particle life.
+
+Before adding sustained layers, introduce a serializable visual effect descriptor carrying the stable flight ID, endpoint, team, arrival tick and emission stop time independently of the gameplay vision record. Keep vision expiry at its verified rule deadline. Restore visual tails from the descriptor, retire them after their bounded maximum active life, and filter enemy effects by current visibility. Test the boundary on both sides of five seconds, save/restore during the tail, and verify that the tail does not reveal units, enable targeting, or influence bots. Native effect start/stop semantics must still be compared; descriptor lifetime is a presentation policy, not a new gameplay reveal.
+
+Further unresolved items are the cylinder flag/distribution, orbital integration and rotation precedence, texture-multiply UV/color interpretation, and the native hard-stop versus tail behavior. Asset preparation and local source checks establish the inputs without claiming these engine semantics are solved.
