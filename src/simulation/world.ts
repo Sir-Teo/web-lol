@@ -586,6 +586,23 @@ export class World {
     const target = this.nearest(u, 1150);
     if (target) {
       const d = distance(u, target);
+      const state = this.championState(u.id)!;
+      // Spend Focus against a visible champion during recovery, preserving a
+      // committed windup above. The queued cast is validated next tick like input.
+      if (
+        target.kind === 'champion' &&
+        d <= u.range + target.radius &&
+        this.tick < u.nextAttackTick &&
+        state.qStacks >= ASHE_Q.maxStacks &&
+        state.qUntil <= this.tick &&
+        u.mana >= ABILITIES.q.cost &&
+        this.abilityCooldownTicks('q', u.id) === 0
+      ) {
+        if (u.order.type !== 'attack' || u.order.target !== target.id)
+          this.setOrder(u, { type: 'attack', target: target.id });
+        this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point: { x: u.x, y: u.y } });
+        return;
+      }
       if (d < 380 && target.kind === 'champion' && this.tick < u.nextAttackTick) {
         let away = direction(target, u);
         if (away.x === 0 && away.y === 0) away = direction(u, this.battlefield.spawns[u.team]);

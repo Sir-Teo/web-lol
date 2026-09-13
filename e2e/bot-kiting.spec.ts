@@ -32,7 +32,9 @@ test('close-range sparring bot releases repeated attacks and preserves a paused 
     const unchanged = w.snapshot() === paused;
     const releases = new Set();
     let recoveryMoves = 0;
-    for (let i = 0; i < 360; i++) {
+    let focusCast = false,
+      empowered = false;
+    for (let i = 0; i < 600; i++) {
       if (i % 6 === 0)
         w.enqueue({
           type: 'order',
@@ -40,6 +42,10 @@ test('close-range sparring bot releases repeated attacks and preserves a paused 
           order: { type: 'move', point: { x: bot.x, y: bot.y } },
         });
       w.step();
+      focusCast ||= w.events.some(
+        (e: any) => e.type === 'cast' && e.unit === bot.id && e.text === 'q'
+      );
+      empowered ||= bot.attackCycle?.empowered === true;
       for (const e of w.events) if (e.type === 'attack' && e.unit === bot.id) releases.add(e.tick);
       if (bot.order.type === 'move' && bot.releaseTick === null && w.tick < bot.nextAttackTick)
         recoveryMoves++;
@@ -51,6 +57,8 @@ test('close-range sparring bot releases repeated attacks and preserves a paused 
       initial,
       unchanged,
       attacks: releases.size,
+      focusCast,
+      empowered,
       recoveryMoves,
       damage: w.hero.maxHp - w.hero.hp,
       hero: w.hero.id,
@@ -60,7 +68,9 @@ test('close-range sparring bot releases repeated attacks and preserves a paused 
   expect(result.initial.release).not.toBeNull();
   expect(result.initial.attackTarget).toBe(result.hero);
   expect(result.unchanged).toBe(true);
-  expect(result.attacks).toBeGreaterThanOrEqual(3);
+  expect(result.attacks).toBeGreaterThanOrEqual(5);
+  expect(result.focusCast).toBe(true);
+  expect(result.empowered).toBe(true);
   expect(result.recoveryMoves).toBeGreaterThan(15);
   expect(result.damage).toBeGreaterThan(0);
   await page.screenshot({ path: 'artifacts/browser-bot-kiting.png' });
