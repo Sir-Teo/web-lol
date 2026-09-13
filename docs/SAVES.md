@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 43 adds Lux E windup detonation requests and saved singularity instances with source/team, origin/endpoint, flight position, damage/slow capture, arrival, zone deadline and retained explosion time. It validates flight positions, identity, unique active ownership and lifecycle deadlines. Lux E ranks are now permitted without Hawkshot charges; Hawkshot recharge validation is champion-specific. Earlier formats are incompatible.
+
 Version 42 requires independent slow contributions with source/effect identity, start/end ticks and linear strength endpoints. The decoder validates champion ownership, enemy nonstructural living recipients, unique source/effect pairs, active lifetimes and nondecreasing speed multipliers. Target death/respawn clears contributions; source death does not. Earlier formats are incompatible.
 
 Version 41 adds Prismatic Barrier cast shield payloads, outgoing/returning flight phases, per-pass hit histories, captured shield amount, launch identity and a retained dead-caster return point. Shield grants optionally identify their originating W cast for remaining-capacity refresh. The decoder validates Lux ownership, allies, unique per-pass hits, source self-hit state, flight speed/range limits and launch timing, and rejects duplicate same-cast shield grants. W ranks are now permitted; Lux E remains unavailable. Earlier formats are incompatible.

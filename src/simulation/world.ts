@@ -1,6 +1,8 @@
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
+import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
+import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX } from '../content/lux-progression';
@@ -64,6 +66,7 @@ import type {
   UnitKind,
   ScoutVisual,
   LuxBeam,
+  Singularity,
 } from './types';
 
 export class World {
@@ -74,6 +77,7 @@ export class World {
   units: Unit[] = [];
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
+  singularities: Singularity[] = [];
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
   commands: Command[] = [];
@@ -292,7 +296,6 @@ export class World {
     this.units.push(u);
     if (champion && identity === 'lux') {
       const own = this.championState(u.id)!;
-      own.spellRanks.e = 0;
       own.eCharges = 0;
     }
     return u;
@@ -378,6 +381,9 @@ export class World {
     this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
     this.scoutVisuals = this.scoutVisuals.filter((effect) => effect.endTick > this.tick);
     for (const unit of this.units) unit.previous = { x: unit.x, y: unit.y };
+    for (const zone of this.singularities)
+      if (zone.arrivalTick !== null && zone.detonatedTick === null && zone.endTick! > this.tick)
+        this.slowSingularity(zone);
     const commands = this.commands.splice(0);
     for (const command of commands) {
       const u = this.unit(command.unit);
@@ -445,6 +451,7 @@ export class World {
         else if (u.champion === 'lux' && cast.ability === 'w')
           this.releasePrismatic(u, cast.point, cast.shield!, cast.startTick);
         else if (cast.ability === 'q') this.releaseLightBinding(u, cast.point, cast.damage);
+        else if (u.champion === 'lux' && cast.ability === 'e') this.releaseSingularity(u, cast);
         else if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage, cast.rank);
       }
@@ -464,6 +471,7 @@ export class World {
     }
     this.creditHawkshotReveals(unseen);
     this.advanceProjectiles(unseen);
+    this.advanceSingularities();
     if (this.winner) return;
     for (const unit of this.units) {
       if (!unit.structureKnowledge) continue;
@@ -619,6 +627,17 @@ export class World {
           radius: 650,
           unobstructed: true,
         }))
+    );
+    sources.push(
+      ...this.singularities
+        .filter(
+          (z) =>
+            z.team === team &&
+            z.arrivalTick !== null &&
+            z.detonatedTick === null &&
+            z.endTick! > this.tick
+        )
+        .map((z) => ({ x: z.x, y: z.y, radius: LUX_E.visionRadius, unobstructed: true }))
     );
     if (team === 'blue' && this.reveal && this.reveal.endTick > this.tick)
       sources.push({ ...this.reveal.point, radius: 650, unobstructed: true });
@@ -1382,6 +1401,87 @@ export class World {
       bindingHits: [],
     });
     return true;
+  }
+  private releaseSingularity(source: Unit, cast: NonNullable<ChampionState['pendingCast']>): void {
+    this.singularities.push({
+      id: this.nextId++,
+      sourceId: source.id,
+      team: source.team,
+      x: source.x,
+      y: source.y,
+      previous: { x: source.x, y: source.y },
+      origin: { x: source.x, y: source.y },
+      point: { ...cast.point },
+      launchTick: this.tick,
+      arrivalTick: null,
+      endTick: null,
+      detonatedTick: null,
+      detonateRequested: cast.detonateRequested!,
+      damage: cast.damage,
+      slowMultiplier: 1 - LUX_E.slowPercent[cast.rank - 1] / 100,
+    });
+  }
+  private singularityTargets(zone: Singularity): Unit[] {
+    return this.units.filter(
+      (u) =>
+        u.team !== zone.team &&
+        this.alive(u) &&
+        this.vulnerable(u) &&
+        !isStructureKind(u.kind) &&
+        distance(u, zone) <= LUX_E_POLICY.radius + u.radius
+    );
+  }
+  private slowSingularity(zone: Singularity): void {
+    const source = this.unit(zone.sourceId);
+    if (!source) return;
+    for (const target of this.singularityTargets(zone))
+      this.applySlow(
+        source,
+        target,
+        'lucent',
+        LUX_E_POLICY.exitLingerSeconds * TICK_RATE,
+        zone.slowMultiplier
+      );
+  }
+  private advanceSingularities(): void {
+    for (const zone of this.singularities) {
+      zone.previous = { x: zone.x, y: zone.y };
+      if (zone.detonatedTick !== null) continue;
+      if (zone.arrivalTick === null) {
+        const d = distance(zone, zone.point),
+          dir = direction(zone, zone.point);
+        const travel = Math.min(d, LUX_E.movementSpeed * DT);
+        zone.x += dir.x * travel;
+        zone.y += dir.y * travel;
+        if (d > travel + 1e-8) continue;
+        zone.x = zone.point.x;
+        zone.y = zone.point.y;
+        zone.arrivalTick = this.tick;
+        zone.endTick = this.tick + LUX_E.zoneSeconds * TICK_RATE;
+      }
+      if (zone.detonateRequested || zone.endTick! <= this.tick) {
+        // Retire before dealing damage so a death/victory cannot cause a second hit.
+        zone.detonatedTick = this.tick;
+        const source = this.unit(zone.sourceId);
+        if (!source) continue;
+        for (const target of this.singularityTargets(zone)) {
+          this.damage(source, target, zone.damage, 'magic', 'area');
+          this.applyIllumination(source, target);
+          this.applySlow(
+            source,
+            target,
+            'lucent',
+            LUX_E.slowLingerSeconds * TICK_RATE,
+            zone.slowMultiplier
+          );
+        }
+      } else this.slowSingularity(zone);
+    }
+    this.singularities = this.singularities.filter(
+      (z) =>
+        z.detonatedTick === null ||
+        this.tick < z.detonatedTick + LUX_E_POLICY.presentationSeconds * TICK_RATE
+    );
   }
   private releasePrismatic(source: Unit, point: Vec2, shield: number, castTick: number): void {
     this.projectiles.push({
@@ -2183,8 +2283,6 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'lux' && ability === 'e')
-      return 'This Lux spell is not implemented yet';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
     if (state.skillPoints < 1) return 'No skill points available';
@@ -2198,7 +2296,8 @@ export class World {
     const state = this.championState(championId)!;
     state.skillPoints--;
     state.spellRanks[ability]++;
-    if (ability === 'e' && state.spellRanks.e === 1) state.eCharges = ASHE_E.maximumCharges;
+    if (ability === 'e' && this.unit(championId)?.champion === 'ashe' && state.spellRanks.e === 1)
+      state.eCharges = ASHE_E.maximumCharges;
     return null;
   }
   abilityRank(ability: Ability, championId = this.player.id): number {
@@ -2209,6 +2308,11 @@ export class World {
     if (ability === 'd' || ability === 'f')
       return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'lux' && ability === 'e')
+      return {
+        mana: rank ? LUX_E.mana[rank - 1] : 0,
+        cooldownSeconds: rank ? LUX_E.cooldownSeconds[rank - 1] : 0,
+      };
     if (this.unit(championId)?.champion === 'lux' && ability === 'w')
       return {
         mana: rank ? LUX_W.mana[rank - 1] : 0,
@@ -2229,6 +2333,19 @@ export class World {
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     const state = this.championState(u.id);
     if (!state) return;
+    if (u.champion === 'lux' && ability === 'e') {
+      if (state.pendingCast?.ability === 'e') {
+        state.pendingCast.detonateRequested = true;
+        return;
+      }
+      const active = this.singularities.find(
+        (z) => z.sourceId === u.id && z.detonatedTick === null
+      );
+      if (active) {
+        active.detonateRequested = true;
+        return;
+      }
+    }
     const flashDuringFinalSpark =
       ability === 'd' && u.champion === 'lux' && state.pendingCast?.ability === 'r';
     if (state.pendingCast && ability !== 'f' && !flashDuringFinalSpark) return;
@@ -2243,7 +2360,10 @@ export class World {
       return;
     }
     const resources = this.abilityResources(ability, u.id);
-    if (this.abilityCooldownTicks(ability, u.id) > 0 || (ability === 'e' && state.eCharges === 0)) {
+    if (
+      this.abilityCooldownTicks(ability, u.id) > 0 ||
+      (u.champion === 'ashe' && ability === 'e' && state.eCharges === 0)
+    ) {
       fail('That spell is not ready yet');
       return;
     }
@@ -2257,8 +2377,11 @@ export class World {
     }
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
     const dir = direction(u, point);
-    if (u.champion === 'lux' && (ability === 'q' || ability === 'w' || ability === 'r')) {
-      if (!dir.x && !dir.y) return;
+    if (
+      u.champion === 'lux' &&
+      (ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r')
+    ) {
+      if (!dir.x && !dir.y && ability !== 'e') return;
       u.mana -= resources.mana;
       state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
       state.recallEnd = null;
@@ -2267,7 +2390,7 @@ export class World {
       u.attackTarget = null;
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
-      const spell = ability === 'q' ? LUX_BINDING : LUX_R;
+      const spell = ability === 'q' ? LUX_BINDING : ability === 'e' ? LUX_E : LUX_R;
       const shield =
         LUX_W.baseShield[state.spellRanks.w - 1] + LUX_W.abilityPowerRatio * this.abilityPower(u);
       if (ability === 'w') this.applyPrismaticShield(u, u, shield, this.tick);
@@ -2280,17 +2403,23 @@ export class World {
         releaseTick:
           this.tick + (ability === 'w' ? LUX_W.castSeconds : spell.castSeconds) * TICK_RATE,
         ...(ability === 'w' ? { shield } : {}),
+        ...(ability === 'e' ? { detonateRequested: false } : {}),
         point:
           ability === 'r'
             ? { x: u.x + dir.x * LUX_R.range, y: u.y + dir.y * LUX_R.range }
-            : { x: point.x, y: point.y },
+            : ability === 'e'
+              ? {
+                  x: u.x + dir.x * Math.min(distance(u, point), LUX_E.castRange),
+                  y: u.y + dir.y * Math.min(distance(u, point), LUX_E.castRange),
+                }
+              : { x: point.x, y: point.y },
         damage:
           ability === 'w'
             ? 0
             : spell.baseDamage[state.spellRanks[ability] - 1] +
               spell.abilityPowerRatio * this.abilityPower(u),
       };
-      this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
+      this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
       return;
     }
     if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
@@ -2298,7 +2427,7 @@ export class World {
     state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
     if (!spec.preservesRecall) state.recallEnd = null;
     if (ability !== 'f' && !flashDuringFinalSpark) state.castAnimation = null;
-    this.emit('cast', u, { unit: u.id, text: ability, team: u.team });
+    this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
     if (ability === 'q') {
       state.qStacks = 0;
       state.qStackExpiry = 0;
@@ -2633,6 +2762,7 @@ export class World {
       otherChampions: this.activeChampionStates().filter((p) => p.id !== this.player.id),
       projectiles: this.projectiles,
       luxBeams: this.luxBeams,
+      singularities: this.singularities,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,
       wave: this.wave,

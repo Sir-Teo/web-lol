@@ -114,6 +114,21 @@ export interface LuxBeam {
   point: Vec2;
   startTick: number;
 }
+export interface Singularity extends Vec2 {
+  id: number;
+  sourceId: number;
+  team: Team;
+  origin: Vec2;
+  previous: Vec2;
+  point: Vec2;
+  launchTick: number;
+  arrivalTick: number | null;
+  endTick: number | null;
+  detonatedTick: number | null;
+  detonateRequested: boolean;
+  damage: number;
+  slowMultiplier: number;
+}
 export interface Projectile extends Vec2 {
   id: number;
   source: number;
@@ -150,6 +165,7 @@ export type Command =
   | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
+  champion?: 'ashe' | 'lux';
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
   audience: Team[];
   id: number;
@@ -196,6 +212,7 @@ export interface ChampionState {
   /** Presentation can finish after the gameplay windup, until another action takes over. */
   castAnimation: { ability: 'q' | 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {
+    detonateRequested?: boolean;
     shield?: number;
     origin?: Vec2;
     ability: 'q' | 'w' | 'e' | 'r';

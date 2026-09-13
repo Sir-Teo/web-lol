@@ -287,7 +287,8 @@ export class GameAudio {
           continue;
         if (event.type === 'attack') this.tone(650, 260, 0.065, 0.012, 'triangle');
         if (event.type === 'cast') {
-          if (event.text === 'e' && this.sourceStatus === 'ready') this.hawkshot(event, tick);
+          if (event.text === 'e' && event.champion === 'ashe' && this.sourceStatus === 'ready')
+            this.hawkshot(event, tick);
           else this.tone(event.text === 'r' ? 180 : 480, 1000, 0.2, 0.025, 'sine');
         }
         if (event.type === 'scout-arrival' && this.arrivalBuffer)

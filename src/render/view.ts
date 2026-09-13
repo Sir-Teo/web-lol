@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
 import { ASHE_Q } from '../content/ashe-q';
+import { LuxSingularities } from './lux-singularities';
 import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
 import { ASHE_SELECTION } from '../content/ashe-selection';
@@ -38,6 +39,7 @@ import { disposeModel, makeModel, type UnitModel } from './models';
 export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
+  luxSingularities = new LuxSingularities(this.scene, (p) => this.ground(p));
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -538,8 +540,10 @@ export class GameView {
         const castName = cast
           ? cast.ability === 'q'
             ? 'spell1'
-            : u.champion === 'lux' && cast.ability === 'w'
-              ? 'spell2'
+            : u.champion === 'lux' && (cast.ability === 'w' || cast.ability === 'e')
+              ? cast.ability === 'w'
+                ? 'spell2'
+                : 'spell3'
               : ASHE_CASTS[cast.ability].animation
           : null;
         if (castName && castAge < model.actions[castName].getClip().duration) {
@@ -620,6 +624,7 @@ export class GameView {
       }
     this.syncProjectiles(world, alpha);
     this.luxBeams.update(world, alpha);
+    this.luxSingularities.update(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);

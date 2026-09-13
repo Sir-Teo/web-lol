@@ -1,6 +1,24 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E remains unimplemented. This audit establishes its source profile and identifies the systems required to implement the entire spell. It does not unlock a partial spell or claim native conformance.
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 is used; native effects/audio, champion-selection/HUD integration, tactical AI and native calibration remain unfinished.
+
+## Implemented lifecycle and provisional policies
+
+Initial cast spends rank mana, starts the rank cooldown, captures rank/AP damage, cancels recall and unreleased attacks, and winds up for 15 ticks. Aim is clamped to 1100; self casts work. Lux E does not consume, recharge or grant Hawkshot charges. The flight travels at the explicit movement-component speed 1200 and does not collide with intervening units. It advances its first step on release, consistent with existing projectile scheduling.
+
+Arrival starts the five-second zone deadline. The 310 source effect value is provisionally interpreted as radius, with target collision radius included at the boundary. An active zone refreshes its captured slow through the independent `lucent` contribution API. Leaving the undetonated field leaves a provisional 0.25-second slow; detonation applies the supported one-second slow. Refresh occurs before commands/movement and after flight processing, and detonation samples post-movement positions after ordinary projectile processing.
+
+Repeated E commands during windup or flight buffer detonation for arrival. Recast costs no mana, does not restart cooldown, and neither interrupts a current cast (including R) nor recall. Hard stun and death still block commands; root does not. There is no extra minimum recast interval in this adapter. Multiple commands and timeout cannot cause multiple detonations. The existing cooldown readout is still initial-cast-oriented; Lux-specific recast HUD work remains outstanding with champion selection.
+
+An armed zone supplies unobstructed team vision at named radius 650. This adapter grants no flight vision or post-detonation sight. Damage is magic/area, ignores allies and structures, applies Illumination without consuming an existing mark, and follows shared shield/mitigation rules. Death during windup cancels E; death after release preserves flight, zone, timeout and effects. Explosion visuals persist for 0.3 seconds and never reapply gameplay.
+
+All timing/geometry choices above beyond explicit source fields and the supported post-detonation slow are provisional and require native comparison. In particular, lifetime measured from arrival, buffered windup recast, recast/recall/CC rules, circle boundaries, exit linger, source-death behavior and sight obstruction/tails are not established by the promotional clip.
+
+Snapshot 43 preserves windup recast requests and each instance's origin, endpoint, flight position, source/team, captured damage/slow, arrival/deadline and detonation tick. It validates transit position against fixed-speed elapsed travel, radius-independent cast range, source ownership, unique active owner and global identity, compatible windup payloads and active/retained lifetimes. Dead sources remain valid.
+
+The temporary presentation uses a small orb, a ground-following 64-segment perimeter and a brief fading burst. Static perimeter geometry is allocated once per instance and all geometry/materials are disposed on retirement. The inspected `artifacts/lux-e-zone.png` is a diagnostic fixture capture, not a native visual match. Cast events now carry champion identity so Lux E cannot play Ashe's Hawkshot source sample; Lux still uses temporary synthesized cast feedback.
+
+Validation: 566 source/simulation checks pass, including nine E cases spanning windup/flight/zone/burst saves, every resource rank, range/self cast, buffered/free recast, exit/reentry, timeout, R interaction, death, team vision and invalid persistence. Four focused Lux Chrome cases and eight audio cases pass. Production build and nested-path smoke pass. Full browser, full-match and performance suites were not repeated.
 
 ## Frozen evidence
 
@@ -33,7 +51,7 @@ Frame inspection shows the orb visibly separating around frames 15–18, gradual
 
 The cached base-skin resolver identifies `Lux_Base_E_mis`, `Lux_Base_E_tar_aoe_green`, `Lux_Base_E_tar_aoe_red`, `Lux_Base_E_tar_aoe_sound`, `Lux_Base_E_tar_hit` and `Lux_Base_E_tar_nova` under `Characters/Lux/Skins/Skin0/Particles/`. These are the next presentation extraction targets. Ally/enemy ring choice, sustained sound, explosion and target hit effects must have distinct lifetimes; one generic projectile mesh is insufficient.
 
-## Required simulation work
+## Original integration contract and remaining audit
 
 1. Add a saved, caster-owned E instance with explicit windup, flight, active-zone and retirement states. Capture aim, rank/AP damage, slow strength, source/team, launch and arrival ticks, lifetime deadline and a requested-detonation flag. Stable IDs must participate in snapshot identity validation. At most one active E instance belongs to a caster.
 2. Clamp initial aim to the supported cast range and allow a zero-distance cast. Use the explicit movement component as the initial motion adapter, documenting that 1200 remains unmeasured. Other units must not consume the projectile as if it were Q. Decide and document the five-second timer anchor separately; the current evidence does not resolve it.
@@ -47,4 +65,4 @@ The cached base-skin resolver identifies `Lux_Base_E_mis`, `Lux_Base_E_tar_aoe_g
 
 Test every rank's resources and damage; range clamp and self cast; early, late and repeated recasts; expiry-versus-recast ordering; free recast at zero mana and while initial cooldown is active; leaving/re-entering the field; entering after it is created; overlap and weaker-slow restoration; shield absorption; Illumination; caster and target death; hidden enemies and brush; R interaction; saved windup, flight, armed zone and detonation request. Repeated full matches must retire every zone, particle and audio voice. Source-data agreement and local regression tests must remain distinct from native timing and geometry evidence.
 
-The next implementation is the complete E lifecycle and supporting slow state, followed by source effects and native comparison. The broader full-match design and production gates remain unchanged.
+The core E lifecycle and supporting slow state are now implemented as described above. Next are source effects, Lux input/HUD and tactical AI integration, and native comparison. The broader full-match design and production gates remain unchanged.

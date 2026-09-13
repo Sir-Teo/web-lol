@@ -2,6 +2,8 @@ import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
+import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
+import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
@@ -12,7 +14,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 42;
+export const SNAPSHOT_VERSION = 43;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -203,6 +205,7 @@ const player: z.ZodType<PlayerState> = z
         point,
         damage: nonnegative,
         shield: z.number().positive().optional(),
+        detonateRequested: z.boolean().optional(),
       })
       .refine(
         (c) => (c.ability !== 'r' || c.rank <= 3) && c.releaseTick > c.startTick,
@@ -218,13 +221,6 @@ const player: z.ZodType<PlayerState> = z
       )
       .max(6),
   })
-  .refine(
-    (p) =>
-      p.spellRanks.e === 0
-        ? p.eRechargeTick === null
-        : (p.eCharges === ASHE_E.maximumCharges) === (p.eRechargeTick === null),
-    'Invalid Hawkshot recharge state'
-  )
   .refine(
     (p) => p.spellRanks.e > 0 || p.eRechargeTick === null,
     'Unlearned Hawkshot cannot recharge'
@@ -317,6 +313,27 @@ const snapshot = z.strictObject({
   player,
   otherChampions: z.array(player).max(10000),
   projectiles: z.array(projectile).max(10000),
+  singularities: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        x: z.number(),
+        y: z.number(),
+        origin: point,
+        previous: point,
+        point,
+        launchTick: tick,
+        arrivalTick: tick.nullable(),
+        endTick: tick.nullable(),
+        detonatedTick: tick.nullable(),
+        detonateRequested: z.boolean(),
+        damage: nonnegative,
+        slowMultiplier: z.number().min(0).max(1),
+      })
+    )
+    .max(10000),
   luxBeams: z
     .array(z.strictObject({ id, sourceId: id, team, origin: point, point, startTick: tick }))
     .max(10000),
@@ -409,6 +426,7 @@ export function decodeSnapshot(text: string) {
     ...state.projectiles,
     ...state.pendingAttackProjectiles,
     ...state.luxBeams,
+    ...state.singularities,
   ].map((u) => u.id);
   for (const p of state.pendingAttackProjectiles) {
     if (
@@ -461,9 +479,12 @@ export function decodeSnapshot(text: string) {
         projectile.bindingHits!.some(
           (hit) =>
             hit >= state.nextId ||
-            [...state.projectiles, ...state.pendingAttackProjectiles, ...state.luxBeams].some(
-              (p) => p.id === hit
-            ) ||
+            [
+              ...state.projectiles,
+              ...state.pendingAttackProjectiles,
+              ...state.luxBeams,
+              ...state.singularities,
+            ].some((p) => p.id === hit) ||
             hit === projectile.source ||
             state.units.some(
               (u) =>
@@ -495,6 +516,50 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved match contains an invalid Lux beam.');
   }
   const hero = state.units.find((u) => u.id === state.player.id);
+  const singularityOwners = new Set<number>();
+  for (const zone of state.singularities) {
+    const source = state.units.find((u) => u.id === zone.sourceId);
+    const arrived = zone.arrivalTick !== null;
+    if (!arrived) {
+      const length = Math.hypot(zone.point.x - zone.origin.x, zone.point.y - zone.origin.y);
+      const travelled = ((state.tick - zone.launchTick + 1) * LUX_E.movementSpeed) / TICK_RATE;
+      const fraction = length ? Math.min(1, travelled / length) : 1;
+      if (
+        travelled >= length - 1e-8 ||
+        Math.hypot(
+          zone.x - (zone.origin.x + (zone.point.x - zone.origin.x) * fraction),
+          zone.y - (zone.origin.y + (zone.point.y - zone.origin.y) * fraction)
+        ) > 1e-6
+      )
+        throw new Error('Saved Lucent flight has an invalid position.');
+    }
+    if (
+      source?.champion !== 'lux' ||
+      source.team !== zone.team ||
+      zone.launchTick > state.tick ||
+      Math.hypot(zone.point.x - zone.origin.x, zone.point.y - zone.origin.y) >
+        LUX_E.castRange + 1e-6 ||
+      !LUX_E.slowPercent.some(
+        (value) => Math.abs(zone.slowMultiplier - (1 - value / 100)) < 1e-8
+      ) ||
+      (arrived
+        ? zone.arrivalTick! < zone.launchTick ||
+          zone.arrivalTick! > state.tick ||
+          zone.endTick !== zone.arrivalTick! + LUX_E.zoneSeconds * TICK_RATE ||
+          zone.x !== zone.point.x ||
+          zone.y !== zone.point.y
+        : zone.endTick !== null || zone.detonatedTick !== null) ||
+      (zone.detonatedTick !== null
+        ? !arrived ||
+          zone.detonatedTick < zone.arrivalTick! ||
+          zone.detonatedTick > state.tick ||
+          zone.detonatedTick > zone.endTick! ||
+          state.tick >= zone.detonatedTick + LUX_E_POLICY.presentationSeconds * TICK_RATE
+        : (arrived && zone.endTick! <= state.tick) || singularityOwners.has(zone.sourceId))
+    )
+      throw new Error('Saved match contains an invalid Lucent Singularity.');
+    if (zone.detonatedTick === null) singularityOwners.add(zone.sourceId);
+  }
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {
@@ -627,32 +692,40 @@ export function decodeSnapshot(text: string) {
     }
     if (
       champion.champion === 'lux' &&
-      (owner.spellRanks.e !== 0 ||
-        owner.qStacks !== 0 ||
+      (owner.qStacks !== 0 ||
         owner.qUntil !== 0 ||
         owner.qStackExpiry !== 0 ||
-        owner.eCharges !== 0)
+        owner.eCharges !== 0 ||
+        owner.eRechargeTick !== null)
     )
       throw new Error('Saved match contains unavailable Lux spell state.');
+    if (
+      champion.champion === 'ashe' &&
+      owner.spellRanks.e > 0 &&
+      (owner.eCharges === ASHE_E.maximumCharges) !== (owner.eRechargeTick === null)
+    )
+      throw new Error('Saved Hawkshot has invalid recharge state.');
     const compatibleCast = (ability: string) =>
-      champion.champion === 'lux'
-        ? ability === 'q' || ability === 'w' || ability === 'r'
-        : ability !== 'q';
+      champion.champion === 'lux' ? ['q', 'w', 'e', 'r'].includes(ability) : ability !== 'q';
     const cast = owner.pendingCast;
     if (cast) {
       const luxR = champion.champion === 'lux' && cast.ability === 'r';
       const luxW = champion.champion === 'lux' && cast.ability === 'w';
+      const luxE = champion.champion === 'lux' && cast.ability === 'e';
       const seconds = luxR
         ? LUX_R.castSeconds
         : luxW
           ? LUX_W.castSeconds
-          : cast.ability === 'q'
-            ? LUX_BINDING.castSeconds
-            : ASHE_CASTS[cast.ability].castSeconds;
+          : luxE
+            ? LUX_E.castSeconds
+            : cast.ability === 'q'
+              ? LUX_BINDING.castSeconds
+              : ASHE_CASTS[cast.ability].castSeconds;
       if (
         cast.releaseTick !== cast.startTick + seconds * TICK_RATE ||
         luxR !== (cast.origin !== undefined) ||
         luxW !== (cast.shield !== undefined) ||
+        luxE !== (cast.detonateRequested !== undefined) ||
         (luxW && cast.damage !== 0) ||
         (cast.origin &&
           Math.abs(

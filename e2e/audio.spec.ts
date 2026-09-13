@@ -38,6 +38,7 @@ test('Hawkshot source cast preserves scheduling, shuffle, pause and mute lifecyc
       tick: w.tick,
       type: 'cast',
       text: 'e',
+      champion: 'ashe',
       audience: ['blue'],
       x: w.hero.x,
       y: w.hero.y,
@@ -47,6 +48,9 @@ test('Hawkshot source cast preserves scheduling, shuffle, pause and mute lifecyc
     a.update([{ ...event, id: id + 1 }], w.tick + 6);
     a.update([{ ...event, id: id + 2 }], w.tick + 12);
     const gain = [...a.voices.values()].map((n: any) => n.gain.value);
+    const count = a.voices.size;
+    a.update([{ ...event, id: id + 3, champion: 'lux' }], w.tick);
+    const luxSampleCount = calls.length;
     a.setPaused(true);
     await a.transition;
     return {
@@ -54,9 +58,11 @@ test('Hawkshot source cast preserves scheduling, shuffle, pause and mute lifecyc
       calls,
       gain,
       time: a.context.currentTime,
-      count: a.voices.size,
+      count,
+      luxSampleCount,
     };
   });
+  expect(initial.luxSampleCount).toBe(3);
   expect(initial.status).toBe('ready');
   expect(initial.count).toBe(3);
   expect(new Set(initial.calls.map((c: any) => c.buffer)).size).toBe(3);

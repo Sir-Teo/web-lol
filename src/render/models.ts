@@ -70,6 +70,7 @@ export async function loadReferenceModels(): Promise<void> {
                 'death',
                 'spell1',
                 'spell2',
+                'spell3',
                 'spell4',
                 'idle3',
                 'entry_b4dcde19',
