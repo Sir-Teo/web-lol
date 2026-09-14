@@ -6,21 +6,17 @@ Last updated: September 13, 2026 (America/New_York).
 
 ## Current authoritative state
 
-Latest validation: 222 simulation checks, three focused Chrome scenarios, static build and production smoke pass at the effective movement-speed readout milestone below. The last full Chrome run passed all 71 scenarios at the preceding ammunition milestone.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation is 595 source/simulation checks, all 201 Chrome scenarios in a complete run, and nested-path production smoke. The browser audit and its repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md); gameplay diagnostics retain their individual revision and scope below. Historical counts do not describe the current build.
 
-- TypeScript/Vite/Three.js application boots directly into practice on the full reference Rift.
-- Fixed-step, renderer-independent simulation with command handling, wall-aware navigation, ranged attack windup/release, homing attacks, swept skillshots, death, and respawn.
-- Basic Ashe ability representations, minion waves, turrets, a local sparring champion, a target dummy, gold/XP, recall, and four purchasable items.
-- DOM HUD, health bars, ability cooldowns, aiming, camera controls, minimap, menus, scoreboard, practice controls, and synthesized audio feedback.
-- Archived Ashe model converted to GLB: 4,902 vertices, 7,406 triangles, 85 bones, nine retained animation clips. Native Three.js skeletal animation replaces the procedural champion silhouette.
-- Team vision now accounts for terrain occlusion, brush, living allied observers, temporary attack reveals, and Hawkshot. Targeting, bot acquisition, render visibility, HUD, minimap fog, projectiles, and event feedback use the shared policy.
-- Both teams’ source tower models now replace all 22 procedural structures, with exact source transforms and persistent rubble. Six inhibitors and two Nexus objects complete the base placements; lane dependencies, timed regrowth, and terminal local-game results are implemented.
-- Eight animated minion assets now replace the primitive supporting units, using matching patch 16.18 meshes, rigs, textures, animation graphs, and authored scales. The runtime shares geometry/textures and clones skeletons per unit.
-- Source revisions and SHA-256 hashes are recorded for imported art. The GLB passes the Khronos glTF validator with zero errors and zero warnings.
-- The default playable now renders pinned Base_SRX terrain and vegetation with original BC1/BC3 blocks, authored mip levels, and a lossless WebP fallback. Source navigation, elevation, fountain spawns, three lane routes, timed barracks waves, and 22 turret positions are connected. The separate inspector retains its navigation overlay.
-- Validation counts and exact scope are recorded in the milestones below. They cover the current practice build and map asset inspector, not a complete match.
+- TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
+- Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
+- Ashe Q/W/E/R and Lux passive/Q/W/E/R have runtime foundations and targeted interaction checks. Lux has a local combat and purchase policy. Human selection and HUD remain Ashe-specific; neither champion is certified complete in native effects, audio, timing or all interactions.
+- Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
+- DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
+- Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default playable remains practice rather than a production 5v5 match flow.
+- Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. The earlier recorded frame-tail and texture-budget overruns remain unresolved until measured against an appropriate current fixture.
 
-The game is **not production complete**. No roadmap milestone that requires complete map/kit/reference fidelity is certified by this first playable.
+The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
 ## Historical baseline verification
 
@@ -1508,3 +1504,9 @@ All 589 checks, seven focused Chrome tooltip/shop scenarios, source regeneration
 Added source-backed Chapter stats (40 AP/300 mana/10 haste), Tome/Sapphire/Mote plus 250 recipe, unique ownership and a hashed icon. Enlighten captures 20% maximum mana after level growth and restores it over the next 180 ticks, with explicit refresh/sale/death policies awaiting native calibration. Snapshot 45 preserves and validates the effect. Lux now builds Chapter before Rods/Deathcap/Wand and does not rebuy the consumed Tome.
 
 All 595 checks, three focused Chrome scenarios, source regeneration and production smoke pass; inspected the HUD capture. A twenty-minute mixed Rift diagnostic had no resource violations and exact saved-state restoration. Both Lux bots bought Chapter; blue completed Deathcap/Wand while red held two Rods and insufficient completion gold. No winner was reached. Full-match completion, native passive behavior, full-browser regressions and rendered performance remain unproven. See [LOST-CHAPTER.md](LOST-CHAPTER.md) and its pinned verification report.
+
+## Complete browser audit and shield-label mutation repair
+
+Ran all 201 Chrome scenarios after mage-item integration. The initial run passed 199 and exposed two failures: shield labels produced 120 unnecessary attribute mutations over 20 unchanged frames, and the Sapphire shop test read an offscreen lazy icon before decoding. Shield hidden/title attributes now change only when needed; the expanded regression verifies zero repeated mutations with and without a shield and correct appearance/removal. The icon test scrolls and waits for decoded width. Three.js now receives the PCF shadow mode it previously selected through an obsolete-mode fallback.
+
+All 201 scenarios pass in the complete verification run, with one worker and no retries. The 595 simulation checks, three focused repair/shield cases and production smoke pass. Inspected source-base, laptop and shield captures; no new missing assets or layout obstruction were observed. Corrected this document's stale opening summary. This audit does not certify a full match, native pixel fidelity, cross-browser parity, offline delivery or frame budgets. See [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md) and its hashed verification record.

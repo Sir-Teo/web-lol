@@ -1,0 +1,42 @@
+{
+  "baseRevision": "40dbdedd5bf8a4bec06303850f4496abd580ab13",
+  "browser": "Chrome 152.0.7977.83",
+  "workers": 1,
+  "retries": 0,
+  "initial": {
+    "passed": 199,
+    "failed": 2,
+    "failures": [
+      "health-bar-updates: 120 unchanged attribute mutations in 20 renders",
+      "mana-shop: lazy icon naturalWidth read before loading"
+    ],
+    "logSHA256": "0eaf003874e6afd92cdb55843bd22d56e5e706a543df969ff5d466f1d7aca36b"
+  },
+  "verification": {
+    "command": "npm run test:browser",
+    "passed": 201,
+    "failed": 0,
+    "logSHA256": "bbc9f40976261c7d14c543d7a7abafd9c1f1b78b0d65405f882385b8c2a015a5",
+    "obsoleteShadowWarningPresent": false
+  },
+  "simulationChecks": 595,
+  "focusedRepairChecks": 3,
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "logSHA256": "60e6e65f430bfdb9dfb687b0e676aa1955ee090a7d5bc6bfcb9dc55691b48fb4"
+  },
+  "sourceSHA256": {
+    "src/render/view.ts": "aa22b34368629cd991714c1ec177ef70eac59cefb08e15531e315bf05526d68f",
+    "e2e/health-bar-updates.spec.ts": "b5ad0d9d95801bf6c7f2eda4ee4beee7e62dcea8aa8d00ce6eaa42397c479b13",
+    "e2e/mana-shop.spec.ts": "acc326e8eeb2753b8e53dcbdc18ebfa20e1b85ba614290ec9b5e9312ae4d1372",
+    "playwright.config.ts": "d45bf2d1e63457887cd9757977569e58c5bad08cc350778a3f89ee6a75e62b3b",
+    "package-lock.json": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+  },
+  "limits": [
+    "Chrome only",
+    "Development practice and source-Rift fixtures, not a finished 5v5 match",
+    "No frame-rate improvement measured",
+    "Native pixel comparison, offline delivery and performance gates remain open"
+  ]
+}

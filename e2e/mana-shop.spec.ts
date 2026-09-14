@@ -15,9 +15,10 @@ test('Sapphire Crystal shop purchase and sale update the visible mana pool', asy
   const crystal = page.locator('[data-buy="sapphire"]');
   await expect(crystal).toContainText('+300 Mana');
   await expect(crystal.locator('b')).toHaveText('◆ 300');
-  expect(
-    await crystal.locator('img').evaluate((img: HTMLImageElement) => img.naturalWidth)
-  ).toBeGreaterThan(0);
+  await crystal.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() => crystal.locator('img').evaluate((img: HTMLImageElement) => img.naturalWidth))
+    .toBeGreaterThan(0);
   await crystal.click();
   await expect(page.locator('#mana-text')).toHaveText(`340 / ${base + 300}`);
   await expect(page.locator('.shop-balance b')).toHaveText('◆ 0');

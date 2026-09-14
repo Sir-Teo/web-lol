@@ -110,7 +110,7 @@ export class GameView {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.shadowMap.type = THREE.PCFShadowMap;
     this.renderer.domElement.id = 'battlefield';
     this.renderer.domElement.setAttribute(
       'aria-label',
@@ -728,8 +728,10 @@ export class GameView {
     parts.health.style.width = `${(u.hp / capacity) * 100}%`;
     parts.shield.style.left = `${(u.hp / capacity) * 100}%`;
     parts.shield.style.width = `${(shield / capacity) * 100}%`;
-    parts.shield.hidden = shield === 0;
-    parts.shield.title = `${Math.ceil(shield)} shield`;
+    const shieldHidden = shield === 0;
+    if (parts.shield.hidden !== shieldHidden) parts.shield.hidden = shieldHidden;
+    const shieldTitle = `${Math.ceil(shield)} shield`;
+    if (parts.shield.title !== shieldTitle) parts.shield.title = shieldTitle;
     parts.mana.style.width = `${(u.mana / (u.maxMana || 1)) * 100}%`;
     const protectedUnit = !world.vulnerable(u);
     if (bar.classList.contains('invulnerable') !== protectedUnit)
