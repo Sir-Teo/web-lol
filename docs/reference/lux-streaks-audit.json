@@ -25,12 +25,20 @@
     "b0794a80": "erosionMapChannelMixer"
   },
   "remainingPlayback": [
-    "Independent deterministic birth chance per particle and source probability table interpolation.",
-    "Lifetime, birth velocity, spawn offset, birth scale and multiplier UV offset distributions.",
-    "Source drag [0,0,3] and emitter translation [0,0,1600].",
-    "Arbitrary quad rotation [90,90,0], animated scale and flickering alpha.",
     "Extract and pin mote and erosion-shape textures.",
-    "Default erosion feather values and source red-channel sampling."
+    "Build cast-frame arbitrary quad geometry for rotation [90,90,0], carrying sampled source positions and half-extents.",
+    "Apply per-particle color, multiplier UV offsets, scale and red-channel erosion with default feathers.",
+    "Verify gameplay, saves, fog, terminal playback and resource retirement."
   ],
-  "status": "Not yet selected or rendered; constant RGBA erosion channel mixer is implemented and GPU verified."
+  "status": "Source birth/motion sampler implemented and tested; emitter is not yet selected or rendered.",
+  "sampler": {
+    "profile": "src/content/lux-r-streaks.json",
+    "profileSha256": "f62db59e83eddfa2ba3ab927ee3c26788a6ccc1c055cc48fcb17a14417b260d9",
+    "implementation": "src/render/lux-r-streak-particles.ts",
+    "sourceSystemFlags": 198,
+    "analyticDragFlag": 256,
+    "integration": "Stepped drag: damp velocity before displacement on the reconstruction 60 Hz grid; interpolate the next step for fractional age.",
+    "randomness": "Stable indexed visual hash; one shared chance per particle drives correlated source tables. Native PRNG is not reproduced.",
+    "validation": "45 distinct lifetimes, endpoint and interior birth samples, independently stepped drag, alpha flicker, retirement, repeatability and changed seed; 724 unit tests pass."
+  }
 }

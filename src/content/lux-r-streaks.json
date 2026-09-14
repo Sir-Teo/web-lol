@@ -1,0 +1,274 @@
+{
+  "name": "Streaks_Linger",
+  "emitterIndex": 4,
+  "count": 45,
+  "delay": 1.0,
+  "life": {
+    "value": [
+      0.4000000059604645
+    ],
+    "probabilities": [
+      {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          1.0,
+          2.0
+        ]
+      }
+    ]
+  },
+  "velocity": {
+    "value": [
+      0.0,
+      0.0,
+      -1300.0
+    ],
+    "probabilities": [
+      {
+        "times": [],
+        "values": []
+      },
+      {
+        "times": [],
+        "values": []
+      },
+      {
+        "times": [
+          0.0,
+          0.5,
+          0.699999988079071,
+          1.0
+        ],
+        "values": [
+          0.10000000149011612,
+          0.20000000298023224,
+          1.0,
+          2.0
+        ]
+      }
+    ]
+  },
+  "offset": {
+    "value": [
+      -100.0,
+      35.0,
+      1000.0
+    ],
+    "probabilities": [
+      {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          -1.0,
+          1.0
+        ]
+      },
+      {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          -1.2999999523162842,
+          1.2999999523162842
+        ]
+      }
+    ]
+  },
+  "halfSize": {
+    "value": [
+      100.0,
+      50.0,
+      1.0
+    ],
+    "probabilities": [
+      {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          0.5,
+          1.0
+        ]
+      },
+      {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          0.6000000238418579,
+          1.0
+        ]
+      },
+      {
+        "times": [],
+        "values": []
+      }
+    ]
+  },
+  "multOffset": {
+    "value": [
+      1.0,
+      0.0
+    ],
+    "probabilities": [
+      {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          -1.0,
+          1.0
+        ]
+      },
+      {
+        "times": [],
+        "values": []
+      }
+    ]
+  },
+  "drag": [
+    0.0,
+    0.0,
+    3.0
+  ],
+  "emitterPosition": [
+    0.0,
+    0.0,
+    1600.0
+  ],
+  "rotation": [
+    90.0,
+    90.0,
+    0.0
+  ],
+  "scale": {
+    "times": [
+      0.0,
+      1.0
+    ],
+    "values": [
+      [
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.5,
+        0.0,
+        1.0
+      ]
+    ],
+    "__type": "VfxAnimatedVector3fVariableData"
+  },
+  "color": {
+    "times": [
+      0.0,
+      0.5,
+      0.6000000238418579,
+      0.699999988079071,
+      0.800000011920929,
+      0.8999999761581421,
+      1.0
+    ],
+    "values": [
+      [
+        1.0,
+        0.800000011920929,
+        0.4000000059604645,
+        0.39000535011291504
+      ],
+      [
+        1.0,
+        0.800000011920929,
+        0.4000000059604645,
+        0.39000535011291504
+      ],
+      [
+        1.0,
+        0.800000011920929,
+        0.4000000059604645,
+        0.39000535011291504
+      ],
+      [
+        1.0,
+        0.800000011920929,
+        0.4000000059604645,
+        0.39000535011291504
+      ],
+      [
+        1.0,
+        0.800000011920929,
+        0.4000000059604645,
+        0.0
+      ],
+      [
+        1.0,
+        0.800000011920929,
+        0.4000000059604645,
+        0.39000535011291504
+      ],
+      [
+        1.0,
+        0.800000011920929,
+        0.4000000059604645,
+        0.0
+      ]
+    ],
+    "__type": "VfxAnimatedColorVariableData"
+  },
+  "multScroll": [
+    2.0,
+    0.0
+  ],
+  "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_Mote.tex",
+  "textureMult": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_RainbowMult.tex",
+  "erosion": {
+    "{c6fbacd5}": {
+      "constantValue": 0.0,
+      "dynamics": {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          0.0,
+          0.0
+        ],
+        "__type": "{fe064c88}"
+      },
+      "__type": "ValueFloat"
+    },
+    "{5da05f9b}": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_ErosionShapes01.tex",
+    "{b0794a80}": {
+      "constantValue": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "__type": "ValueColor"
+    },
+    "__type": "{5e842b9b}"
+  },
+  "pass": 9,
+  "miscRenderFlags": 1
+}
