@@ -1,0 +1,57 @@
+{
+  "selected": "WOOSH",
+  "source": "lux-beam-layers.json",
+  "primitive": "VfxPrimitiveArbitraryQuad",
+  "fieldNames": {
+    "3bf0b4ed": "SpawnShape",
+    "e5f268dd": "emitOffset",
+    "5932ff9c": "birthRotation0",
+    "fa41ab8d": "birthVelocity"
+  },
+  "interpretation": {
+    "rotation": [
+      90,
+      0,
+      0
+    ],
+    "quadHalfExtents": [
+      350,
+      800
+    ],
+    "emitOffset": [
+      0,
+      0,
+      2800
+    ],
+    "velocity": [
+      0,
+      0,
+      -20000
+    ],
+    "burstCount": 2,
+    "uv": "Source corner x,y in [-1,1]: u=(y+1)/2, v=(1-x)/2; cast frame includes source Z reflection.",
+    "frame": "Cast origin and direction; height uses existing ground(origin)+0.18 reconstruction."
+  },
+  "externalReference": {
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "files": [
+      {
+        "path": "src/modules/workshop/bin/vfx/emit.ts",
+        "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+      },
+      {
+        "path": "src/modules/workshop/bin/vfx/materials.ts",
+        "sha256": "bc40cea052c3d0f13c5ab37bdc7e5900e638d8c89d19505046b25fa3b6569688"
+      },
+      {
+        "path": "docs/plans/vfx-particle-renderer.md",
+        "sha256": "0dec1227d324e927ca66c0e22b850fd8e8bc803285874e605bc2db468455d523"
+      }
+    ]
+  },
+  "limitations": [
+    "Native attachment height and full visual composition remain unverified.",
+    "Quad support is restricted to this source record; exporter rejects other arbitrary quad names and rotations.",
+    "Burst geometry duplication is valid for these deterministic particles; independent random properties require per-particle sampling."
+  ]
+}

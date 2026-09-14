@@ -65,6 +65,7 @@ test('Lux R presents charge and beam around its source cast animation, then clea
     native: [
       'Beam_Core1',
       'Beam_Core2',
+      'WOOSH',
       'Beam_Core_FLASH',
       'Beam_Core_Glow',
       'Beam_Core_Glow1',

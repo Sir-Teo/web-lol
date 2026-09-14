@@ -212,6 +212,75 @@
       "__type": "VfxEmitterDefinitionData"
     },
     {
+      "timeBeforeFirstEmission": 1.0,
+      "rate": {
+        "constantValue": 2.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 0.12999999523162842,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 1.7999999523162842,
+      "isSingleParticle": 1,
+      "emitterName": "WOOSH",
+      "importance": 3,
+      "{fa41ab8d}": {
+        "constantValue": [
+          0.0,
+          0.0,
+          -20000.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "{3bf0b4ed}": {
+        "{e5f268dd}": [
+          0.0,
+          0.0,
+          2800.0
+        ],
+        "__type": "{ee39916f}"
+      },
+      "primitive": {
+        "__type": "{4beb81fd}"
+      },
+      "blendMode": 4,
+      "Color": {
+        "constantValue": [
+          1.0,
+          0.7450980544090271,
+          0.23529411852359772,
+          1.0
+        ],
+        "__type": "ValueColor"
+      },
+      "pass": 60,
+      "alphaRef": 0,
+      "miscRenderFlags": 1,
+      "{5932ff9c}": {
+        "constantValue": [
+          90.0,
+          0.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "birthScale0": {
+        "constantValue": [
+          350.0,
+          800.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Diana_Skin11_R_Glow.tex",
+      "__type": "VfxEmitterDefinitionData"
+    },
+    {
       "rate": {
         "constantValue": 1.0,
         "__type": "ValueFloat"
@@ -2510,6 +2579,13 @@
       "width": 128,
       "height": 128,
       "rgbaSha256": "30a560aeb476644a0908d78f3dc95b1bc8e7cfa935bdf71f363aefbb4bf27747"
+    },
+    {
+      "path": "assets/characters/lux/skins/base/particles/diana_skin11_r_glow.tex",
+      "width": 256,
+      "height": 256,
+      "rgbaSha256": "ad41d80e0cd7d52a66b5aadb497b1f7cfe1e5184f3ef6bddb2cd6b2133a7cd22",
+      "output": "public/assets/effects/lux-r-diana_skin11_r_glow.png"
     }
   ],
   "extraction": {
@@ -2609,6 +2685,12 @@
         "offset": 37184200,
         "bytes": 19232,
         "sha256": "ff5c1a9f6d47c10cbf35baae6c779a44ecffdb1ba221be3936742ac3157e1a32"
+      },
+      "17C83370C94CFEB5": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/37F7524F2C46DFF6.bundle",
+        "offset": 3866715,
+        "bytes": 42843,
+        "sha256": "9803b10de14d61b4cfbabbd442099838ea19acae9f72fd95953085c47ccb45c7"
       }
     },
     "files": [
@@ -2677,6 +2759,12 @@
         "wadPathHash": "49348fc12651dca7",
         "sha256": "8d2bb18506c7548ca0beda4750613dfdde13a2510fe9a2bc1fcd7ccc647ad37a",
         "bytes": 21884
+      },
+      {
+        "path": "assets/characters/lux/skins/base/particles/diana_skin11_r_glow.tex",
+        "wadPathHash": "4b08a1b9b39b71b2",
+        "sha256": "aa581cc955565289a957ebb7ec46c36532d6a1ea701d560c8541f2957397a7a7",
+        "bytes": 87420
       }
     ]
   }

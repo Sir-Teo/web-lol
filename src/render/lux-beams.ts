@@ -14,6 +14,13 @@ interface Curve {
   readonly values: readonly (readonly number[])[];
 }
 interface Layer {
+  readonly count: number;
+  readonly quad: {
+    readonly offset: readonly number[];
+    readonly velocity: readonly number[];
+    readonly halfSize: readonly number[];
+    readonly rotation: readonly number[];
+  } | null;
   readonly erosion: {
     readonly texture: string;
     readonly drive: { readonly times: readonly number[]; readonly values: readonly number[] };
@@ -47,9 +54,27 @@ interface Layer {
   readonly multOffset: readonly number[];
   readonly multAddress: number;
 }
+/** These selected burst particles have identical deterministic geometry. Repeated
+ * triangles retain each particle's blend contribution without extra draw calls. */
+function repeatGeometry(geometry: THREE.BufferGeometry, vertices: number, count: number) {
+  const positions = geometry.getAttribute('position') as THREE.BufferAttribute;
+  const uv = geometry.getAttribute('uv') as THREE.BufferAttribute;
+  for (let particle = 1; particle < count; particle++)
+    for (let i = 0; i < vertices; i++) {
+      positions.copyAt(particle * vertices + i, positions, i);
+      uv.copyAt(particle * vertices + i, uv, i);
+    }
+  geometry.setDrawRange(0, vertices * count);
+}
 const layers: readonly Layer[] = LUX_BEAM_LAYERS;
 const textures = new Map<string, THREE.Texture>();
 export async function loadLuxBeamTextures(): Promise<void> {
+  if (!textures.has('')) {
+    const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
+    white.minFilter = white.magFilter = THREE.LinearFilter;
+    white.needsUpdate = true;
+    textures.set('', white);
+  }
   await Promise.all(
     [
       ...new Set(
@@ -59,15 +84,17 @@ export async function loadLuxBeamTextures(): Promise<void> {
           ...(layer.erosion ? [layer.erosion.texture] : []),
         ])
       ),
-    ].map(async (path) => {
-      const texture = await new THREE.TextureLoader().loadAsync(path);
-      texture.colorSpace = THREE.NoColorSpace;
-      texture.flipY = false;
-      texture.minFilter = texture.magFilter = THREE.LinearFilter;
-      texture.generateMipmaps = false;
-      texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-      textures.set(path, texture);
-    })
+    ]
+      .filter(Boolean)
+      .map(async (path) => {
+        const texture = await new THREE.TextureLoader().loadAsync(path);
+        texture.colorSpace = THREE.NoColorSpace;
+        texture.flipY = false;
+        texture.minFilter = texture.magFilter = THREE.LinearFilter;
+        texture.generateMipmaps = false;
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        textures.set(path, texture);
+      })
   );
 }
 export function sampleBeamCurve(curve: Curve, time: number): number[] {
@@ -106,13 +133,13 @@ export class LuxBeams {
       const geometry = new THREE.BufferGeometry();
       geometry.setAttribute(
         'position',
-        new THREE.BufferAttribute(new Float32Array(SEGMENTS * 18), 3).setUsage(
+        new THREE.BufferAttribute(new Float32Array(SEGMENTS * 18 * layer.count), 3).setUsage(
           THREE.DynamicDrawUsage
         )
       );
       geometry.setAttribute(
         'uv',
-        new THREE.BufferAttribute(new Float32Array(SEGMENTS * 12), 2).setUsage(
+        new THREE.BufferAttribute(new Float32Array(SEGMENTS * 12 * layer.count), 2).setUsage(
           THREE.DynamicDrawUsage
         )
       );
@@ -250,6 +277,42 @@ export class LuxBeams {
           layer.multOffset[0] + layer.multScroll[0] * age,
           layer.multOffset[1] + layer.multScroll[1] * age
         );
+        if (layer.quad) {
+          // Selected arbitrary quad: source XY rotated 90 degrees about X,
+          // then carried by the cast frame. Source Z is reflected into map Y.
+          const q = layer.quad,
+            along = q.offset[2] + q.velocity[2] * age;
+          const center = {
+            x: beam.origin.x + (dx / length) * along,
+            y: beam.origin.y + (dy / length) * along,
+          };
+          const positions = mesh.geometry.getAttribute('position') as THREE.BufferAttribute;
+          const uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
+          let vertex = 0;
+          for (const [x, y] of [
+            [-1, -1],
+            [1, -1],
+            [1, 1],
+            [-1, -1],
+            [1, 1],
+            [-1, 1],
+          ]) {
+            const across = x * q.halfSize[0],
+              forward = y * q.halfSize[1];
+            positions.setXYZ(
+              vertex,
+              (center.x - (dy / length) * across + (dx / length) * forward) * SCALE,
+              this.ground(beam.origin) + 0.18,
+              (center.y + (dx / length) * across + (dy / length) * forward) * SCALE
+            );
+            uv.setXY(vertex++, (y + 1) / 2, (1 - x) / 2);
+          }
+          positions.needsUpdate = uv.needsUpdate = true;
+          repeatGeometry(mesh.geometry, vertex, layer.count);
+          mesh.visible = beam.team === 'blue' || world.pointVisible(center);
+          group.visible ||= mesh.visible;
+          continue;
+        }
         const width = (layer.width * sampleBeamCurve(layer.scale, normalized)[0]) / 2;
         const start = {
           x: beam.origin.x + (dx / length) * layer.sourceOffset[2],
@@ -295,7 +358,7 @@ export class LuxBeams {
           }
         }
         positions.needsUpdate = uv.needsUpdate = true;
-        mesh.geometry.setDrawRange(0, vertex);
+        repeatGeometry(mesh.geometry, vertex, layer.count);
         mesh.visible = vertex > 0 && width !== 0;
         group.visible ||= mesh.visible;
       }
