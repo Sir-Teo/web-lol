@@ -21,6 +21,16 @@ test('charge wisps retain their birth UV phase across seeks and saved reconstruc
       const group = [...v.luxBeams.models.values()][0] as any;
       const mesh = group.children.find((m: any) => m.name === 'CHARGE_BEAM_PRETTINESS');
       return {
+        companions: group.children
+          .filter((m: any) =>
+            ['CHARGE_BEAM_PRETTINESS1', 'CHARGE_BEAM_PRETTINESS2'].includes(m.name)
+          )
+          .map((m: any) => ({
+            name: m.name,
+            visible: m.visible,
+            offset: m.material.uniforms.offset.value.toArray(),
+            tint: m.material.uniforms.tint.value.toArray(),
+          })),
         visible: mesh.visible,
         offset: mesh.material.uniforms.offset.value.toArray(),
         tint: mesh.material.uniforms.tint.value.toArray(),
@@ -41,6 +51,9 @@ test('charge wisps retain their birth UV phase across seeks and saved reconstruc
     return { first, repeat, restored, next, age };
   });
   expect(result.first.visible).toBe(true);
+  expect(result.first.companions).toHaveLength(2);
+  for (const layer of result.first.companions) expect(layer.visible).toBe(true);
+  expect(result.first.companions[0].offset).not.toEqual(result.first.companions[1].offset);
   expect(result.repeat).toEqual(result.first);
   expect(result.restored).toEqual(result.first);
   const birth = result.first.offset[0] + 2 * result.age * result.age;

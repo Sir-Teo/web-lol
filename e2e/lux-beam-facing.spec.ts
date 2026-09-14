@@ -52,7 +52,13 @@ test('warning and fired beams face the camera while preserving source width', as
                 .clone()
                 .normalize()
                 .dot(camera.position.clone().sub(center).normalize()),
-              beamDot: width.clone().normalize().dot(end.sub(center).normalize()),
+              handedness: width
+                .clone()
+                .normalize()
+                .dot(
+                  end.clone().sub(center).cross(camera.position.clone().sub(center)).normalize()
+                ),
+              beamDot: width.clone().normalize().dot(end.clone().sub(center).normalize()),
               vertical: width.y,
             });
           }
@@ -60,9 +66,10 @@ test('warning and fired beams face the camera while preserving source width', as
     }
     return results;
   });
-  expect(result).toHaveLength(18);
+  expect(result).toHaveLength(22);
   for (const layer of result) {
-    expect(layer.width).toBeCloseTo(layer.expected, 5);
+    expect(layer.width).toBeCloseTo(Math.abs(layer.expected), 5);
+    expect(layer.handedness).toBeCloseTo(Math.sign(layer.expected), 5);
     expect(Math.abs(layer.eyeDot)).toBeLessThan(1e-5);
     expect(Math.abs(layer.beamDot)).toBeLessThan(1e-5);
     expect(Math.abs(layer.vertical)).toBeGreaterThan(0.01);

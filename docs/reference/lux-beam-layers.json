@@ -1255,6 +1255,414 @@
       "__type": "VfxEmitterDefinitionData"
     },
     {
+      "rate": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 0.800000011920929,
+      "isSingleParticle": 1,
+      "emitterName": "CHARGE_BEAM_PRETTINESS1",
+      "importance": 3,
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "primitive": {
+        "mBeam": {
+          "mLocalSpaceSourceOffset": [
+            0.0,
+            0.0,
+            -120.0
+          ],
+          "mBirthTilingSize": {
+            "constantValue": [
+              0.0,
+              -0.5,
+              1.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "__type": "VfxBeamDefinitionData"
+        },
+        "__type": "VfxPrimitiveBeam"
+      },
+      "blendMode": 1,
+      "birthColor": {
+        "constantValue": [
+          1.0,
+          1.0,
+          1.0,
+          0.6500037908554077
+        ],
+        "__type": "ValueColor"
+      },
+      "Color": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.30000001192092896,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "values": [
+            [
+              1.0,
+              0.9764705896377563,
+              0.8470588326454163,
+              0.1568627506494522
+            ],
+            [
+              1.0,
+              0.9600061178207397,
+              0.8699931502342224,
+              0.05999847501516342
+            ],
+            [
+              0.9300068616867065,
+              0.7799954414367676,
+              0.6200045943260193,
+              0.2500038146972656
+            ],
+            [
+              1.0,
+              0.7300068736076355,
+              0.5100023150444031,
+              0.6000000238418579
+            ],
+            [
+              1.0,
+              0.7803921699523926,
+              0.4000000059604645,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "alphaRef": 0,
+      "miscRenderFlags": 1,
+      "birthScale0": {
+        "constantValue": [
+          200.0,
+          1.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "values": [
+            [
+              2.0,
+              1.0,
+              1.0
+            ],
+            [
+              0.5,
+              1.0,
+              1.0
+            ],
+            [
+              0.05000000074505806,
+              1.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_Z_Wisp_2.tex",
+      "{b9198a2a}": {
+        "constantValue": [
+          1.0,
+          0.0
+        ],
+        "dynamics": {
+          "{a7084719}": [
+            {
+              "{40c351da}": [
+                0.0,
+                1.0
+              ],
+              "{e44b7382}": [
+                -1.0,
+                1.0
+              ],
+              "__type": "{53a6c97e}"
+            },
+            {
+              "__type": "{53a6c97e}"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector2fVariableData"
+        },
+        "__type": "ValueVector2"
+      },
+      "particleUVScrollRate": {
+        "constantValue": [
+          -0.4000000059604645,
+          0.0
+        ],
+        "dynamics": {
+          "times": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "values": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              -0.4000000059604645,
+              0.0
+            ],
+            [
+              -3.200000047683716,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector2fVariableData"
+        },
+        "__type": "IntegratedValueVector2"
+      },
+      "textureMult": {
+        "textureMult": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_LazurBeam04.tex",
+        "__type": "VfxTextureMultDefinitionData"
+      },
+      "__type": "VfxEmitterDefinitionData"
+    },
+    {
+      "rate": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 0.800000011920929,
+      "isSingleParticle": 1,
+      "emitterName": "CHARGE_BEAM_PRETTINESS2",
+      "importance": 3,
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "primitive": {
+        "mBeam": {
+          "mLocalSpaceSourceOffset": [
+            0.0,
+            0.0,
+            -120.0
+          ],
+          "mBirthTilingSize": {
+            "constantValue": [
+              0.0,
+              -1.0,
+              1.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "__type": "VfxBeamDefinitionData"
+        },
+        "__type": "VfxPrimitiveBeam"
+      },
+      "blendMode": 1,
+      "birthColor": {
+        "constantValue": [
+          1.0,
+          1.0,
+          1.0,
+          0.28000304102897644
+        ],
+        "__type": "ValueColor"
+      },
+      "Color": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.30000001192092896,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "values": [
+            [
+              0.4274509847164154,
+              1.0,
+              0.2705882489681244,
+              0.5490196347236633
+            ],
+            [
+              1.0,
+              0.9600061178207397,
+              0.8699931502342224,
+              0.14999619126319885
+            ],
+            [
+              0.9254902005195618,
+              0.7843137383460999,
+              0.615686297416687,
+              0.529411792755127
+            ],
+            [
+              1.0,
+              0.7333333492279053,
+              0.5137255191802979,
+              0.9725490212440491
+            ],
+            [
+              1.0,
+              0.7803921699523926,
+              0.4000000059604645,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "alphaRef": 0,
+      "miscRenderFlags": 1,
+      "birthScale0": {
+        "constantValue": [
+          -160.0,
+          1.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "values": [
+            [
+              2.0,
+              1.0,
+              1.0
+            ],
+            [
+              0.5,
+              1.0,
+              1.0
+            ],
+            [
+              0.10000000149011612,
+              1.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_Z_Wisp_2.tex",
+      "{b9198a2a}": {
+        "constantValue": [
+          1.0,
+          0.0
+        ],
+        "dynamics": {
+          "{a7084719}": [
+            {
+              "{40c351da}": [
+                0.0,
+                1.0
+              ],
+              "{e44b7382}": [
+                -1.0,
+                1.0
+              ],
+              "__type": "{53a6c97e}"
+            },
+            {
+              "{40c351da}": [
+                0.0,
+                1.0
+              ],
+              "{e44b7382}": [
+                -1.0,
+                1.0
+              ],
+              "__type": "{53a6c97e}"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector2fVariableData"
+        },
+        "__type": "ValueVector2"
+      },
+      "particleUVScrollRate": {
+        "constantValue": [
+          -0.4000000059604645,
+          0.0
+        ],
+        "dynamics": {
+          "times": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "values": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              -0.4000000059604645,
+              0.0
+            ],
+            [
+              -3.200000047683716,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector2fVariableData"
+        },
+        "__type": "IntegratedValueVector2"
+      },
+      "textureMult": {
+        "textureMult": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_LazurBeam04.tex",
+        "__type": "VfxTextureMultDefinitionData"
+      },
+      "__type": "VfxEmitterDefinitionData"
+    },
+    {
       "timeBeforeFirstEmission": 1.059999942779541,
       "rate": {
         "constantValue": 2.0,

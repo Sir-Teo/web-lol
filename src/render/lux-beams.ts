@@ -254,7 +254,7 @@ export class LuxBeams {
         }
         positions.needsUpdate = uv.needsUpdate = true;
         mesh.geometry.setDrawRange(0, vertex);
-        mesh.visible = vertex > 0 && width > 0;
+        mesh.visible = vertex > 0 && width !== 0;
         group.visible ||= mesh.visible;
       }
     }

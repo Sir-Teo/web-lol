@@ -450,6 +450,146 @@ export const LUX_BEAM_LAYERS = [
     multAddress: 0,
   },
   {
+    emitterIndex: 21,
+    birthOffset: {
+      value: [1.0, 0.0],
+      probabilities: [
+        {
+          times: [0.0, 1.0],
+          values: [-1.0, 1.0],
+        },
+        {
+          times: [],
+          values: [],
+        },
+      ],
+    },
+    texDiv: [1, 1],
+    texDivMult: [1, 1],
+    miscRenderFlags: 1,
+    name: 'CHARGE_BEAM_PRETTINESS1',
+    delay: 0,
+    life: 1.0,
+    blend: 1,
+    pass: 0,
+    width: 200.0,
+    sourceOffset: [0.0, 0.0, -120.0],
+    targetOffset: [0, 0, 0],
+    scale: {
+      times: [0.0, 0.5, 1.0],
+      values: [
+        [2.0, 1.0, 1.0],
+        [0.5, 1.0, 1.0],
+        [0.05000000074505806, 1.0, 1.0],
+      ],
+      __type: 'VfxAnimatedVector3fVariableData',
+    },
+    color: {
+      dynamics: {
+        times: [0.0, 0.30000001192092896, 0.5, 0.75, 1.0],
+        values: [
+          [1.0, 0.9764705896377563, 0.8470588326454163, 0.1568627506494522],
+          [1.0, 0.9600061178207397, 0.8699931502342224, 0.05999847501516342],
+          [0.9300068616867065, 0.7799954414367676, 0.6200045943260193, 0.2500038146972656],
+          [1.0, 0.7300068736076355, 0.5100023150444031, 0.6000000238418579],
+          [1.0, 0.7803921699523926, 0.4000000059604645, 1.0],
+        ],
+        __type: 'VfxAnimatedColorVariableData',
+      },
+      __type: 'ValueColor',
+    },
+    birthColor: [1.0, 1.0, 1.0, 0.6500037908554077],
+    texture: 'assets/effects/lux-r-lux_base_z_wisp_2.png',
+    mult: 'assets/effects/lux-r-2.png',
+    scroll: [0, 0],
+    scrollCurve: {
+      constantValue: [-0.4000000059604645, 0.0],
+      dynamics: {
+        times: [0.0, 0.5, 1.0],
+        values: [
+          [-0.0, 0.0],
+          [-0.4000000059604645, 0.0],
+          [-3.200000047683716, 0.0],
+        ],
+        __type: 'VfxAnimatedVector2fVariableData',
+      },
+      __type: 'IntegratedValueVector2',
+    },
+    multScroll: [0, 0],
+    multOffset: [0, 0],
+    multAddress: 0,
+  },
+  {
+    emitterIndex: 22,
+    birthOffset: {
+      value: [1.0, 0.0],
+      probabilities: [
+        {
+          times: [0.0, 1.0],
+          values: [-1.0, 1.0],
+        },
+        {
+          times: [0.0, 1.0],
+          values: [-1.0, 1.0],
+        },
+      ],
+    },
+    texDiv: [1, 1],
+    texDivMult: [1, 1],
+    miscRenderFlags: 1,
+    name: 'CHARGE_BEAM_PRETTINESS2',
+    delay: 0,
+    life: 1.0,
+    blend: 1,
+    pass: 0,
+    width: -160.0,
+    sourceOffset: [0.0, 0.0, -120.0],
+    targetOffset: [0, 0, 0],
+    scale: {
+      times: [0.0, 0.5, 1.0],
+      values: [
+        [2.0, 1.0, 1.0],
+        [0.5, 1.0, 1.0],
+        [0.10000000149011612, 1.0, 1.0],
+      ],
+      __type: 'VfxAnimatedVector3fVariableData',
+    },
+    color: {
+      dynamics: {
+        times: [0.0, 0.30000001192092896, 0.5, 0.75, 1.0],
+        values: [
+          [0.4274509847164154, 1.0, 0.2705882489681244, 0.5490196347236633],
+          [1.0, 0.9600061178207397, 0.8699931502342224, 0.14999619126319885],
+          [0.9254902005195618, 0.7843137383460999, 0.615686297416687, 0.529411792755127],
+          [1.0, 0.7333333492279053, 0.5137255191802979, 0.9725490212440491],
+          [1.0, 0.7803921699523926, 0.4000000059604645, 1.0],
+        ],
+        __type: 'VfxAnimatedColorVariableData',
+      },
+      __type: 'ValueColor',
+    },
+    birthColor: [1.0, 1.0, 1.0, 0.28000304102897644],
+    texture: 'assets/effects/lux-r-lux_base_z_wisp_2.png',
+    mult: 'assets/effects/lux-r-2.png',
+    scroll: [0, 0],
+    scrollCurve: {
+      constantValue: [-0.4000000059604645, 0.0],
+      dynamics: {
+        times: [0.0, 0.5, 1.0],
+        values: [
+          [-0.0, 0.0],
+          [-0.4000000059604645, 0.0],
+          [-3.200000047683716, 0.0],
+        ],
+        __type: 'VfxAnimatedVector2fVariableData',
+      },
+      __type: 'IntegratedValueVector2',
+    },
+    multScroll: [0, 0],
+    multOffset: [0, 0],
+    multAddress: 0,
+  },
+  {
     emitterIndex: 30,
     birthOffset: {
       value: [0, 0],
