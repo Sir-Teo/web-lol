@@ -1715,3 +1715,9 @@ All model/map asset validators pass with zero errors/warnings, the browser sourc
 Fixed selective extraction for shader archives without subchunk tables, retaining the table requirement for subchunked archives. Pinned four particle shader TOCs, exhaustively verified 2,576 variant hashes, checked 416 programs in five bundles, and extracted/disassembled 14 selected Metal programs without executing them. Repeated shader extraction matches all provenance; the existing Lux source exporter still passes unchanged.
 
 Native disassembly establishes that the ordinary mesh/quad color path multiplies the source texture, vertex color and a separate particle-color lookup sample. Optional palette replacement is a different shader operation. The Lux scale/offset field hashes are identified, but lookup-coordinate generation, actual native variant/blend state and complete effect integration remain open. See [PARTICLE-SHADERS.md](PARTICLE-SHADERS.md). No gameplay/UI behavior changed in this step.
+
+## Particle color stage in WebGL
+
+Traced native quad VS lookup coordinates to the dedicated ATTR9 input, passed unchanged to the pixel shader. Added a reusable initial RGBA-product shader with uniform and vertex lookup paths, plus a development inspector using Lux's source Ring04/ramp and mote/spectral texture pairs. Coordinates are explicit inspection inputs while native age/type mapping remains unresolved.
+
+Twelve GPU probes agree with independent CPU products from source PNG pixels within one byte per channel, including fractional tint alpha and an unrelated uniform in vertex mode. Both focused browser scenarios and the production build pass. The 1440×900 color-inspection screenshot was reviewed. No gameplay/simulation behavior changed; next work remains native coordinate generation, sampler/blend selection, motion and integration. Evidence: `docs/reference/particle-color-verification.json`.

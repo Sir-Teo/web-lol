@@ -1,0 +1,29 @@
+{
+  "recordedAt": "2026-09-14T04:35:48.422947+00:00",
+  "baseRevision": "e1b01a9ed9cc67ff3b5a31e276f2d4f01c1f0d67",
+  "scope": "Native initial color product only; no gameplay integration",
+  "validation": {
+    "gpuSamples": 12,
+    "rgbaComparisons": 48,
+    "byteTolerance": 1,
+    "browserScenarios": 2,
+    "build": "passed",
+    "visualReview": "1440x900 Hoop source/product/lookup inspector reviewed"
+  },
+  "limitations": [
+    "Native lookup-coordinate generation and sampling state unresolved",
+    "No framebuffer blending, remap, fog, animation or full native effect parity",
+    "Source fixture texture alpha opaque; fractional alpha comes from tint",
+    "Vertex lookup probes use constant attributes across each test quad"
+  ],
+  "sha256": {
+    "src/render/particle-color-product.ts": "68e3296184d9ef31a385b7f1d22b9437163e2b5acf193331c3fecd5810972361",
+    "tools/qa/particle-color-preview.html": "68b9df1e7bdfa2c2bbe204d0df2d5d36fe9484f9651525742ffcb209d57d4af2",
+    "tools/qa/particle-color-preview.ts": "760bb69c8f2334b6c986906503d4262ce47bcd1b1c1c459cdf0a7d3775f62e79",
+    "e2e/particle-color-product.spec.ts": "4a86077988da2d03007313649819947d26d5495cb73d806ccc381d03798e821b",
+    "artifacts/particle-color-browser.log": "53ae978cf8544cd6e14540cdc84eadd1558dff0440ea2c1619bb3b01638afd59",
+    "artifacts/particle-color-build.log": "28a84123d1717b1f171edba60983fecfbd3cace60aa46c87801fae83d90e3932",
+    "artifacts/particle-color-preview.png": "ce69cbf5a4e75fd69234ca3528ffa2f022152d8e22299641c1dc2dbc632392e0",
+    ".cache/particle-shaders/quad_vs.vs-metal-1.ll": "8f50e428ac9bbd68e56c0d6b948449237118d286f00917261ce8efeba8a425f9"
+  }
+}
