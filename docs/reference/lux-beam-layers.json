@@ -535,6 +535,149 @@
       "__type": "VfxEmitterDefinitionData"
     },
     {
+      "rate": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 0.8999999761581421,
+      "isSingleParticle": 1,
+      "emitterName": "warning_beam_glow",
+      "importance": 3,
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "primitive": {
+        "mBeam": {
+          "mLocalSpaceSourceOffset": [
+            0.0,
+            0.0,
+            -120.0
+          ],
+          "mBirthTilingSize": {
+            "constantValue": [
+              0.0,
+              -1.0,
+              1.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "__type": "VfxBeamDefinitionData"
+        },
+        "__type": "VfxPrimitiveBeam"
+      },
+      "blendMode": 4,
+      "Color": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.30000001192092896,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "values": [
+            [
+              0.2784309983253479,
+              0.00392200006172061,
+              0.00392200006172061,
+              0.07449500262737274
+            ],
+            [
+              1.0,
+              0.8470590114593506,
+              0.01960800029337406,
+              0.12939700484275818
+            ],
+            [
+              0.9254902005195618,
+              0.0941176488995552,
+              0.019607843831181526,
+              0.3803921639919281
+            ],
+            [
+              1.0,
+              0.274509996175766,
+              0.1294119954109192,
+              0.4784010052680969
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "pass": -1,
+      "alphaRef": 0,
+      "miscRenderFlags": 1,
+      "birthScale0": {
+        "constantValue": [
+          400.0,
+          1.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.3499999940395355,
+            1.0
+          ],
+          "values": [
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              0.5,
+              1.0,
+              1.0
+            ],
+            [
+              0.30000001192092896,
+              1.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_Heart_Beam_Glow.tex",
+      "birthUvScrollRate": {
+        "constantValue": [
+          -0.5,
+          0.0
+        ],
+        "__type": "ValueVector2"
+      },
+      "{86a84509}": [
+        1.0,
+        0.5
+      ],
+      "textureMult": {
+        "textureMult": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_beam_core_mult.tex",
+        "{164b5733}": [
+          1.0,
+          2.0
+        ],
+        "__type": "VfxTextureMultDefinitionData"
+      },
+      "__type": "VfxEmitterDefinitionData"
+    },
+    {
       "timeBeforeFirstEmission": 1.0,
       "rate": {
         "constantValue": 2.0,
@@ -1076,6 +1219,20 @@
       "height": 256,
       "rgbaSha256": "a0912afa4b088315d593e2aa5cfdfdb5d3ddcc408c4da93eda0ec88646b1451d",
       "outputSha256": "867d9bf1b9ff6998f03867aa14fc416742f93ffd1b4cde9b662ad3a1b3c26d12"
+    },
+    {
+      "path": "assets/characters/lux/skins/base/particles/lux_base_r_heart_beam_glow.tex",
+      "output": "public/assets/effects/lux-r-lux_base_r_heart_beam_glow.png",
+      "width": 64,
+      "height": 4,
+      "rgbaSha256": "c82c32bb3bafe81b397d9d41733a3d22e141a24acb3b251243845a402ebacfae"
+    },
+    {
+      "path": "assets/characters/lux/skins/base/particles/lux_base_r_beam_core_mult.tex",
+      "output": "public/assets/effects/lux-r-lux_base_r_beam_core_mult.png",
+      "width": 4,
+      "height": 128,
+      "rgbaSha256": "91927548eddde2494250732fa7e099f09a6c1f2c1788034377b188f2667b0fa2"
     }
   ],
   "extraction": {
@@ -1151,6 +1308,18 @@
         "offset": 31803356,
         "bytes": 23887,
         "sha256": "2474e0ff955498fcf77f530be9882c3975053b127d7a6fe7e0749c35b9c502e9"
+      },
+      "F0F28AF01B00416B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43694817,
+        "bytes": 262,
+        "sha256": "c506f3a0d556d371070379a6fa9f3ae0dee96ec5121605d4a7fcc03a481dcb04"
+      },
+      "2202D44E76262BF6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+        "offset": 43542739,
+        "bytes": 127,
+        "sha256": "26779db112d223e57c8f4fad5a8316797e36a3b2a6f7079fc032b80f78823e64"
       }
     },
     "files": [
@@ -1195,6 +1364,18 @@
         "wadPathHash": "1c0cfb97e7863cce",
         "sha256": "5c2f92b6053e9bb0a640889b5fc051f81948386905b339865b3d3137ebb52dd0",
         "bytes": 87420
+      },
+      {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_r_heart_beam_glow.tex",
+        "wadPathHash": "4782dce836e5f324",
+        "sha256": "53d811c49612e0b593949a3209a936412444817c4435031f1362f2d63d16f30b",
+        "bytes": 540
+      },
+      {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_r_beam_core_mult.tex",
+        "wadPathHash": "5b5b0f6fdbfa9472",
+        "sha256": "3cf63886c150c9d99f26f94f8b3ff9cbb3f1ffcd95b52b10d1fce3a7ee28aa00",
+        "bytes": 1052
       }
     ]
   }

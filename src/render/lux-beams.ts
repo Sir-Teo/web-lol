@@ -12,6 +12,8 @@ interface Curve {
   readonly values: readonly (readonly number[])[];
 }
 interface Layer {
+  readonly texDiv: readonly number[];
+  readonly texDivMult: readonly number[];
   readonly miscRenderFlags: number;
   readonly name: string;
   readonly delay: number;
@@ -110,13 +112,23 @@ export class LuxBeams {
           tint: { value: new THREE.Vector4(1, 1, 1, 1) },
           offset: { value: new THREE.Vector2() },
           multOffset: { value: new THREE.Vector2() },
+          baseCell: {
+            value: new THREE.Vector2(
+              ...(layer.texDiv.map((v) => 1 / Math.max(1, Math.round(v))) as [number, number])
+            ),
+          },
+          multCell: {
+            value: new THREE.Vector2(
+              ...(layer.texDivMult.map((v) => 1 / Math.max(1, Math.round(v))) as [number, number])
+            ),
+          },
           clampMult: { value: layer.multAddress === 2 },
         },
         vertexShader:
           'varying vec2 beamUv; void main(){ beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
         // Source beam transforms act on (along, across), then transpose to (u, v).
-        fragmentShader: `uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; varying vec2 beamUv;
-          void main(){ vec2 m=beamUv+multOffset.yx; if(clampMult)m=clamp(m,vec2(0.001),vec2(0.999)); gl_FragColor=texture2D(base,beamUv+offset.yx)*texture2D(mult,m)*tint;
+        fragmentShader: `uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
+          void main(){ vec2 m=beamUv+multOffset.yx; m=clampMult ? clamp(m,vec2(0.001),vec2(0.999)) : fract(m); gl_FragColor=texture2D(base,fract(beamUv+offset.yx)*baseCell)*texture2D(mult,m*multCell)*tint;
           }`,
       });
       const mesh = new THREE.Mesh(geometry, material);
