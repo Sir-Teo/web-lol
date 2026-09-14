@@ -51,7 +51,7 @@ test('all Final Spark layers use source-alpha factors on both framebuffer channe
     renderer.dispose();
     return results;
   });
-  expect(results).toHaveLength(6);
+  expect(results).toHaveLength(LUX_BEAM_LAYERS.length);
   for (const result of results) {
     const layer = LUX_BEAM_LAYERS.find((layer) => layer.name === result.name)!;
     const expected = layer.blend === 4 ? [0.5, 0.4, 0.4, 0.5] : [0.45, 0.3, 0.25, 0.375];

@@ -772,6 +772,117 @@
         "__type": "VfxTextureMultDefinitionData"
       },
       "__type": "VfxEmitterDefinitionData"
+    },
+    {
+      "timeBeforeFirstEmission": 1.059999942779541,
+      "rate": {
+        "constantValue": 2.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 0.03999999910593033,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 1.7999999523162842,
+      "isSingleParticle": 1,
+      "emitterName": "Beam_DARK_FLASH1",
+      "importance": 3,
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "primitive": {
+        "mBeam": {
+          "mLocalSpaceSourceOffset": [
+            0.0,
+            0.0,
+            -240.0
+          ],
+          "mLocalSpaceTargetOffset": [
+            0.0,
+            0.0,
+            100.0
+          ],
+          "mBirthTilingSize": {
+            "constantValue": [
+              0.0,
+              -1.0,
+              1.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "__type": "VfxBeamDefinitionData"
+        },
+        "__type": "VfxPrimitiveBeam"
+      },
+      "blendMode": 1,
+      "birthColor": {
+        "constantValue": [
+          0.0800030529499054,
+          0.0,
+          0.10000763088464737,
+          1.0
+        ],
+        "__type": "ValueColor"
+      },
+      "pass": 15,
+      "alphaRef": 0,
+      "miscRenderFlags": 1,
+      "birthScale0": {
+        "constantValue": [
+          400.0,
+          1.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.10000000149011612,
+            0.6000000238418579,
+            1.0
+          ],
+          "values": [
+            [
+              0.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.5,
+              1.0,
+              1.0
+            ],
+            [
+              1.399999976158142,
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_LazurBeam01.tex",
+      "birthUvScrollRate": {
+        "constantValue": [
+          2.0,
+          0.0
+        ],
+        "__type": "ValueVector2"
+      },
+      "textureMult": {
+        "textureMult": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_LazurBeam04.tex",
+        "__type": "VfxTextureMultDefinitionData"
+      },
+      "__type": "VfxEmitterDefinitionData"
     }
   ],
   "textures": [

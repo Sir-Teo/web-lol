@@ -1,3 +1,4 @@
+import { LUX_BEAM_LAYERS } from '../src/content/lux-beam-layers';
 import { expect, test } from '@playwright/test';
 
 test('Final Spark preserves authored texture products on the output canvas', async ({ page }) => {
@@ -61,7 +62,7 @@ test('Final Spark preserves authored texture products on the output canvas', asy
     renderer.dispose();
     return { results };
   });
-  expect(result.results).toHaveLength(6);
+  expect(result.results).toHaveLength(LUX_BEAM_LAYERS.length);
   const source = [128, 96, 64, 128],
     mult = [192, 160, 224, 192],
     tint = [0.5, 0.75, 0.25, 0.5];

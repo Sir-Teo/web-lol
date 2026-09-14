@@ -266,3 +266,16 @@ A GPU regression checks the decoded flags directly in the source pin and tests e
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-lux-beam-layers.py
 npx playwright test e2e/lux-beam-depth.spec.ts e2e/lux-r.spec.ts e2e/lux-beam-facing.spec.ts
 ```
+
+## Complete effect audit and delayed dark flash
+
+`export-lux-beam-layers.py` now preserves the entire decoded particle system in `reference/lux-beam-complete.json`, including the binary SHA-256 and a per-emitter coverage inventory. The source contains 45 emitters, six disabled; 17 are explicitly decoded beam primitives. Unknown primitive/field hashes remain visible in the record rather than silently assigned meanings. Seven beam emitters are now selected for runtime playback; the remaining active layers are still missing.
+
+The newly selected `Beam_DARK_FLASH1` uses already exported textures and the supported beam/material path. Its source delay is `1.059999942779541` seconds from cast presentation start, lifetime `0.03999999910593033`, alpha blend mode 1, pass 15, no depth test, and dark-purple birth tint. Source width/scale and translation curves pass through the existing adapter unchanged. Thus a brief dark flash overlays the early core roughly 60 ms after release; no new texture download or guessed appearance constant is introduced.
+
+The exporter revalidates all seven selected definitions against the binary. GPU checks now iterate the selected layer count, covering seven color products, seven depth/blend cases and 42 translation texels. A dedicated gameplay check verifies absence before the delayed interval, presence with the exact source tint and pass, stable repeated rendering, and expiry immediately after the interval. Its screenshot `artifacts/lux-r-dark-flash.png` was retaken after the loading overlay cleared and visually reviewed. Six distinct browser checks, all 720 unit tests and production smoke testing pass. This adds one missing source layer; native timing, attachment and the complete composition are not yet calibrated.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-lux-beam-layers.py
+npx playwright test e2e/lux-beam-dark-flash.spec.ts e2e/lux-beam-depth.spec.ts e2e/lux-beam-color.spec.ts e2e/lux-beam-uv.spec.ts e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts
+```

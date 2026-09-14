@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import pin from '../docs/reference/lux-beam-layers.json' with { type: 'json' };
 
-test('all six source beam flags bypass opaque geometry depth', async ({ page }) => {
+test('all selected source beam flags bypass opaque geometry depth', async ({ page }) => {
   for (const emitter of pin.emitters) expect(emitter.miscRenderFlags).toBe(1);
   await page.goto('/?scene=fixture');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
@@ -64,7 +64,7 @@ test('all six source beam flags bypass opaque geometry depth', async ({ page }) 
     renderer.dispose();
     return results;
   });
-  expect(results).toHaveLength(6);
+  expect(results).toHaveLength(pin.emitters.length);
   for (const result of results) {
     expect(result.depth).toBe(false);
     expect(result.visible).toEqual([255, 0, 255, 255]);

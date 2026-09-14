@@ -1,3 +1,4 @@
+import { LUX_BEAM_LAYERS } from '../src/content/lux-beam-layers';
 import { expect, test } from '@playwright/test';
 
 test('Final Spark transposes both texture translation axes after beam placement', async ({
@@ -72,7 +73,7 @@ test('Final Spark transposes both texture translation axes after beam placement'
     renderer.dispose();
     return results;
   });
-  expect(results).toHaveLength(36);
+  expect(results).toHaveLength(LUX_BEAM_LAYERS.length * 6);
   for (const result of results) {
     const [along, across] = result.translation;
     const expected = along ? [0, 0, 255, 255] : across ? [0, 255, 0, 255] : [255, 0, 0, 255];
