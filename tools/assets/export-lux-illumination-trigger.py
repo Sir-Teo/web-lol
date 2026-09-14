@@ -6,6 +6,7 @@ import runpy
 verified = runpy.run_path('tools/assets/verify-lux-illumination-trigger.py')
 assert verified['record'] == verified['pin']['definition']
 emitters, pin = verified['emitters'], verified['pin']
+assert verified['record']['flags'] & 0x100 == 0, 'Static motion requires stepped drag'
 
 def vector(v):
     return v if isinstance(v, list) else [v]
@@ -36,6 +37,9 @@ for index, e in enumerate(emitters):
     # Appearance currently supports this pinned set's static atlas and constant palette.
     # Fail explicitly if a replacement source would require additional playback.
     assert e.get('frameRate', 0) == 0 and not e.get('isRandomStartFrame', False)
+    acceleration = e.get('worldAcceleration', {}).get('dynamics')
+    if acceleration:
+        assert acceleration['times'] == [0], 'Static motion requires constant world acceleration'
     shape = e.get('SpawnShape', {})
     offset = shape.get('emitOffset', [0, 0, 0])
     offset = offset if isinstance(offset, dict) else {'constantValue': offset}
