@@ -53,12 +53,13 @@
     "unitTests": 721,
     "productionSmoke": "passed",
     "gpuSpatialProbes": 42,
-    "ordinaryWrapMutation": "rejected by spatial assertion"
+    "ordinaryWrapMutation": "rejected by spatial assertion",
+    "gpuMixerProbes": 63
   },
   "limitations": [
     "Native quad and mesh arithmetic inspected; actual Lux beam variant selection, bound uniform defaults and sampler settings remain unverified.",
     "Spatial probes verify mirrored sampling and transposed scroll with nearest-filtered diagnostic texels; native filtering and composition remain unverified.",
-    "Only default alpha mixer and mirrored addressing are supported; exporter rejects additional erosion fields."
+    "Constant RGBA channel mixers are supported; mirrored addressing and authored feather interpretation retain the documented limits."
   ],
   "nativeInspection": {
     "pin": "particle-shaders.json",

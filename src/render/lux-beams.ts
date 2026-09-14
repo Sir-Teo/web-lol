@@ -168,6 +168,9 @@ export class LuxBeams {
               layer.quad ? layer.uvScaleMult : [...layer.uvScaleMult].reverse()
             ),
           },
+          erosionMixer: {
+            value: new THREE.Vector4().fromArray(layer.erosion?.mixer ?? [0, 0, 0, 1]),
+          },
           erosionEnabled: { value: !!layer.erosion },
           erosionMap: { value: textures.get(layer.erosion?.texture ?? layer.texture) },
           erosionDrive: { value: 0 },
@@ -198,11 +201,11 @@ export class LuxBeams {
         vertexShader:
           'varying vec2 beamUv; void main(){ beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
         // Source beam transforms act on (along, across), then transpose to (u, v).
-        fragmentShader: `uniform bool quadUv; uniform vec2 baseScale; uniform vec2 multScale; uniform sampler2D erosionMap; uniform bool erosionEnabled; uniform float erosionDrive; uniform vec2 erosionRates; uniform float erosionSlice; uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
+        fragmentShader: `uniform bool quadUv; uniform vec2 baseScale; uniform vec2 multScale; uniform vec4 erosionMixer; uniform sampler2D erosionMap; uniform bool erosionEnabled; uniform float erosionDrive; uniform vec2 erosionRates; uniform float erosionSlice; uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
           void main(){ vec2 b=(beamUv-0.5)*baseScale+0.5+(quadUv?offset:offset.yx); vec2 m=(beamUv-0.5)*multScale+0.5+(quadUv?multOffset:multOffset.yx); m=clampMult ? clamp(m,vec2(0.001),vec2(0.999)) : fract(m); gl_FragColor=texture2D(base,fract(b)*baseCell)*texture2D(mult,m*multCell)*tint;
           if(erosionEnabled){
             vec2 erodeUv=1.0-abs(mod(b*baseCell,2.0)-1.0);
-            float value=texture2D(erosionMap,erodeUv).a;
+            float value=clamp(dot(texture2D(erosionMap,erodeUv),erosionMixer),0.0,1.0);
             float upper=clamp((erosionDrive-value+erosionSlice)*erosionRates.x,0.0,1.0);
             float lower=clamp((erosionDrive-value)*erosionRates.y,0.0,1.0);
             gl_FragColor.a*=upper-lower;

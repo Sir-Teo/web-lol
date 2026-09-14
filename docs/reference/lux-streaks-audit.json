@@ -1,0 +1,36 @@
+{
+  "record": "Streaks_Linger",
+  "source": "lux-beam-complete.json",
+  "sourceBinSha256": "c2087e2b9100cc2d9f75151775679983953e95c8b389d6e111fb0eb5b72cd3a9",
+  "burstCount": 45,
+  "delay": 1,
+  "particleLifetimeRange": [
+    0.4000000059604645,
+    0.800000011920929
+  ],
+  "erosionMixer": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "erosionDrive": [
+    0,
+    0
+  ],
+  "fieldNames": {
+    "8275da98": "birthDrag",
+    "563d4a22": "EmitterPosition",
+    "4f4e2ed7": "VfxShapeLegacy",
+    "b0794a80": "erosionMapChannelMixer"
+  },
+  "remainingPlayback": [
+    "Independent deterministic birth chance per particle and source probability table interpolation.",
+    "Lifetime, birth velocity, spawn offset, birth scale and multiplier UV offset distributions.",
+    "Source drag [0,0,3] and emitter translation [0,0,1600].",
+    "Arbitrary quad rotation [90,90,0], animated scale and flickering alpha.",
+    "Extract and pin mote and erosion-shape textures.",
+    "Default erosion feather values and source red-channel sampling."
+  ],
+  "status": "Not yet selected or rendered; constant RGBA erosion channel mixer is implemented and GPU verified."
+}

@@ -35,7 +35,8 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
     );
     spatialMask.needsUpdate = true;
     const results = [],
-      spatial = [];
+      spatial = [],
+      mixed = [];
     for (const source of group.children.filter((m: any) => m.name.startsWith('Beam_Post_'))) {
       const material = source.material.clone();
       material.blending = THREE.NoBlending;
@@ -72,6 +73,26 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
           renderer.readRenderTargetPixels(target, 0, 0, 1, 1, pixel);
           spatial.push({ name: source.name, axis, translation, pixel: [...pixel] });
         }
+      bytes.set([32, 96, 160, 224]);
+      mask.needsUpdate = true;
+      material.uniforms.erosionMap.value = mask;
+      for (const mixer of [
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1],
+        [0.5, 0.5, 0, 0],
+        [-1, 0, 0, 0],
+        [0, 0, 2, 0],
+      ])
+        for (const drive of [0.25, 0.5, 0.75]) {
+          material.uniforms.erosionMixer.value.fromArray(mixer);
+          material.uniforms.erosionDrive.value = drive;
+          renderer.render(scene, camera);
+          const pixel = new Uint8Array(4);
+          renderer.readRenderTargetPixels(target, 0, 0, 1, 1, pixel);
+          mixed.push({ name: source.name, mixer, drive, pixel: [...pixel] });
+        }
       scene.remove(mesh);
       material.dispose();
     }
@@ -82,7 +103,7 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
     spatialMask.dispose();
     target.dispose();
     renderer.dispose();
-    return { ramps: results, spatial };
+    return { ramps: results, spatial, mixed };
   });
   expect(results.ramps).toHaveLength(45);
   for (const result of results.ramps) {
@@ -109,5 +130,17 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
     const expected = 255 * (1 - Math.min(1, Math.max(0, (0.5 - maskAlpha) / 0.30000001192092896)));
     expect(result.pixel.slice(0, 3)).toEqual([255, 255, 255]);
     expect(Math.abs(result.pixel[3] - expected), JSON.stringify(result)).toBeLessThanOrEqual(1);
+  }
+  expect(results.mixed).toHaveLength(63);
+  for (const result of results.mixed) {
+    const clamp = (v: number) => Math.max(0, Math.min(1, v));
+    const value = clamp(
+      result.mixer.reduce((sum, weight, i) => sum + (weight * [32, 96, 160, 224][i]) / 255, 0)
+    );
+    const kept =
+      clamp((result.drive - value + 1.5) / 0.30000001192092896) -
+      clamp((result.drive - value) / 0.30000001192092896);
+    expect(result.pixel.slice(0, 3)).toEqual([255, 255, 255]);
+    expect(Math.abs(result.pixel[3] - 255 * kept), JSON.stringify(result)).toBeLessThanOrEqual(1);
   }
 });

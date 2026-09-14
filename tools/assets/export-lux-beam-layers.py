@@ -72,13 +72,15 @@ def birth_offset(e):
 def erosion(e):
  raw=e.get('alphaErosionDefinition',e.get('{c4663005}'))
  if raw is None:return None
- assert set(raw) <= {'__type','{c6fbacd5}','{34bee0ea}','{2244caa3}','{5da05f9b}','erosionDriveCurve','erosionFeatherIn','erosionFeatherOut','erosionMapName'}, 'Unsupported erosion fields need explicit interpretation'
+ assert set(raw) <= {'__type','{c6fbacd5}','{34bee0ea}','{2244caa3}','{5da05f9b}','erosionDriveCurve','erosionFeatherIn','erosionFeatherOut','erosionMapName','{b0794a80}','erosionMapChannelMixer'}, 'Unsupported erosion fields need explicit interpretation'
  def field(name,h):return raw.get(name,raw.get('{'+h+'}'))
+ mixer=field('erosionMapChannelMixer','b0794a80') or {'constantValue':[0,0,0,1]}
+ assert 'dynamics' not in mixer, 'Animated erosion mixers need explicit playback support'
  return {'texture':lookup[field('erosionMapName','5da05f9b').lower()],
   'drive':field('erosionDriveCurve','c6fbacd5')['dynamics'],
   'featherIn':field('erosionFeatherIn','34bee0ea'),
   'featherOut':field('erosionFeatherOut','2244caa3'),
-  'sliceWidth':1.5,'mixer':[0,0,0,1],'addressMode':2}
+  'sliceWidth':1.5,'mixer':mixer['constantValue'],'addressMode':2}
 def static_uvscale(raw):
  assert 'dynamics' not in raw, 'Animated UV scale needs explicit playback support'
  return raw.get('constantValue',[1,1])
