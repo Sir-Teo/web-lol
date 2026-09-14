@@ -40,7 +40,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 71;
+export const SNAPSHOT_VERSION = 72;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -319,6 +319,11 @@ const player: z.ZodType<PlayerState> = z
     qUntil: deadline,
     qStackExpiry: deadline,
     garenPassiveReadyTick: tick,
+    garenCourageStacks: z
+      .number()
+      .int()
+      .min(0)
+      .max(Math.ceil(GAREN_W.maxResistGain / GAREN_W.resistGainPerStack)),
     garenW: z
       .strictObject({
         startTick: tick,
@@ -1253,6 +1258,8 @@ export function decodeSnapshot(text: string) {
       champion.champion === 'lux'
         ? ['q', 'w', 'e', 'r'].includes(ability)
         : champion.champion === 'ashe' && ability !== 'q';
+    if (champion.champion !== 'garen' && owner.garenCourageStacks !== 0)
+      throw new Error('Saved match contains foreign Courage stacks.');
     const courage = owner.garenW;
     if (
       courage &&

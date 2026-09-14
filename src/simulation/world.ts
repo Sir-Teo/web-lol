@@ -2886,6 +2886,19 @@ export class World {
         ? this.takedownContributors(targetState, rewardSource?.id)
         : new Set<number>();
       if (sourceState && rewardSource && rewardSource.team !== target.team) {
+        if (
+          rewardSource.champion === 'garen' &&
+          (isLaneMinionKind(target.kind) || target.kind === 'champion')
+        ) {
+          const before = this.courageResistances(sourceState);
+          sourceState.garenCourageStacks = Math.min(
+            Math.ceil(GAREN_W.maxResistGain / GAREN_W.resistGainPerStack),
+            sourceState.garenCourageStacks + GAREN_W.buffCounterPerKill
+          );
+          const gain = this.courageResistances(sourceState) - before;
+          rewardSource.armor = statPrecision(rewardSource.armor + gain);
+          rewardSource.magicResist = statPrecision(rewardSource.magicResist + gain);
+        }
         let gold =
           target.goldBounty ??
           (target.kind === 'champion'
@@ -3056,12 +3069,25 @@ export class World {
     if (state.level < requiredLevel) return `Requires champion level ${requiredLevel}`;
     return null;
   }
+  private courageResistances(state: ChampionState): number {
+    return state.spellRanks.w === 0
+      ? 0
+      : statPrecision(
+          Math.min(GAREN_W.maxResistGain, state.garenCourageStacks * GAREN_W.resistGainPerStack)
+        );
+  }
   learnSpell(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
     const error = this.spellLearningError(ability, championId);
     if (error) return error;
     const state = this.championState(championId)!;
     state.skillPoints--;
     state.spellRanks[ability]++;
+    const champion = this.unit(championId)!;
+    if (champion.champion === 'garen' && ability === 'w' && state.spellRanks.w === 1) {
+      const gain = this.courageResistances(state);
+      champion.armor = statPrecision(champion.armor + gain);
+      champion.magicResist = statPrecision(champion.magicResist + gain);
+    }
     if (ability === 'e' && this.unit(championId)?.champion === 'ashe' && state.spellRanks.e === 1)
       state.eCharges = ASHE_E.maximumCharges;
     return null;

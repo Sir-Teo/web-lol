@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 72 adds the independent Courage stack counter. It accepts integer values from zero through the source-derived 150-stack cap on Garen only, including pre-learning and dead owners. Existing unit resistance totals are restored without reapplying the counter. Earlier formats are incompatible.
+
 Version 71 adds Garen Courage active state: captured rank, activation tick, upfront deadline and defense deadline. Validation checks live Garen ownership, learned rank and exact source-duration relationships. W ranks are now accepted; E/R remain unavailable. Earlier formats are incompatible.
 
 Version 70 requires Garen’s independent Perseverance-ready tick. The decoder rejects foreign/dead ownership and future deadlines beyond one interruption interval. Past deadlines are retained, and restore preserves the recovery boundary. Earlier formats are incompatible.

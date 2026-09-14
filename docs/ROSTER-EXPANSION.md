@@ -173,3 +173,13 @@ not spend W simply because a champion is nearby. The follow-up tenacity correcti
 also synchronizes Ashe's legacy slow clocks, with an actual Volley regression.
 All 867 tests pass; production build and nested static-hosting smoke pass. See
 [GAREN-W.md](GAREN-W.md) for the forecast's current limits and remaining kit work.
+
+## Courage passive integration
+
+Garen now banks a separate, capped counter for credited champion and lane-minion
+kills. Learning W applies the accumulated resistances once; later kills add only
+the new earned amount. Death and respawn preserve the counter and resistance
+stats. Snapshot version 72 validates ownership and range without double-applying
+stats on restore. The old completion multiplier is excluded based on Riot's
+25.11 removal. See [GAREN-W.md](GAREN-W.md) for sources and explicit lifecycle
+policies still awaiting native comparison. All 872 simulation tests pass.

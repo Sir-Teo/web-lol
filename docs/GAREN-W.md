@@ -1,7 +1,7 @@
 # Courage source contract
 
-Courage's active defenses are integrated for Garen NPCs. Passive resistance
-stacks, source presentation and native-client parity remain unfinished. Garen
+Courage's active defenses and passive resistance stacks are integrated for Garen
+NPCs. Source presentation and native-client parity remain unfinished. Garen
 is still excluded from player selection and the default roster.
 
 `tools/assets/export-garen-w.py` reads only the root `GarenW` record in the
@@ -38,11 +38,11 @@ universal replacement enum, or Q attack-speed units, from one health calculation
 - Verify damage-type exceptions and mitigation/shield order before wiring damage.
 - Verify which controls tenacity shortens, minimum duration and application timing.
 - Verify W's cast permissions during stun and an existing Q windup.
-- Track passive stacks independently of ordinary CS; establish eligible kill
-  classes, behavior before learning W, and death/respawn persistence.
+- Verify the passive kill-class and pre-learning policies below against native
+  behavior; extend them as monsters and other unit classes are implemented.
 - `NormalResistKillValue` has no values in the root source. Do not invent its value.
-- Current named data does not contain the historical 10% bonus-resistance cap
-  reward; do not import that old mechanic without additional current evidence.
+- The historical 10% completion reward was removed in Riot patch 25.11, as
+  documented below; it must not be restored from older guides.
 - Preserve all active deadlines and passive stacks in validated snapshots.
 - Add observed-threat AI, source visuals and browser verification with integration.
 
@@ -116,3 +116,42 @@ and proximity without an attack. All 867 tests across 185 files pass. Production
 build and the nested static-hosting smoke check pass; the existing large-bundle
 warning remains. That production smoke covers loading and existing Ashe/Lux flows;
 Garen-specific gameplay is covered by the simulation and dedicated browser checks.
+
+## Passive resistance progression
+
+The root source's per-stack value and cap are corroborated by [Riot patch 11.9](https://www.leagueoflegends.com/en-us/news/game-updates/patch-11-9-notes/):
+0.2 armor and magic resistance per stack, with a 150-unit kill cap. [Riot patch
+25.11](https://www.leagueoflegends.com/en-us/news/game-updates/patch-25-11-notes/)
+explicitly removed the historical 10% bonus-resistance completion reward. The
+current adapter grants at most 30 flat armor and 30 flat magic resistance.
+
+`garenCourageStacks` is independent of CS. The existing kill-reward path grants
+one stack for a credited enemy lane-minion or champion kill, up to the cap;
+assists, structures, dummies and already-dead targets do not grant stacks. Kill
+credit includes the existing execution-attribution policy, not merely the final
+damage source. Other unit classes, including jungle monsters, are not implemented
+and their source stack values are not yet consumed. The missing
+`NormalResistKillValue` remains unknown; the adapter uses the explicitly authored
+`BuffCounterPerKill` for the supported classes rather than filling in that field.
+
+The local lifecycle policy banks kills before W is learned and applies their
+resistances once on learning rank one. Later ranks do not add the existing stacks
+again. Each subsequent kill applies only the difference in total earned
+resistance, normalized through the existing stat-precision helper. This avoids
+accumulating source float noise. Level growth and purchased item stats remain
+additive. Stacks and their applied stats persist through death and respawn.
+Pre-learning timing, kill-class exceptions and posthumous/execution credit still
+need a version-matched native comparison; the Riot patch notes establish the
+numeric curve, not those lifecycle details.
+
+Snapshot version 72 stores the counter and rejects missing, fractional, negative,
+above-cap or foreign-owned stacks. Restoring the existing unit stats never
+reapplies stack gains. The decoder does not reconstruct all item/growth/debuff
+stats from scratch; these checks establish counter ownership and range, not
+native stat parity or tamper-proof saves.
+
+Five added simulation cases cover the cap, effective physical mitigation,
+pre-learning saves, learning exactly once, rank-up, death/respawn and repeated
+restoration, champion kills versus CS, excluded victims, assists, duplicate deaths
+and malformed counters. The actual Q-farming browser scenario also verifies its
+banked pre-W stack. All 872 simulation tests pass.
