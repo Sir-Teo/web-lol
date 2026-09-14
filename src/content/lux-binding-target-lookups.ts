@@ -38,7 +38,7 @@ export const LUX_BINDING_TARGET_LOOKUPS = [
     name: 'fireCircleTimer',
     texture: null,
     lookupTypes: [1, 0],
-    lookupScales: [1, 1],
+    lookupScales: [0.30000001192092896, 0.6000000238418579],
     lookupOffsets: [0, 0],
   },
   {
@@ -46,7 +46,7 @@ export const LUX_BINDING_TARGET_LOOKUPS = [
     name: 'fireCircleTimer1',
     texture: null,
     lookupTypes: [1, 0],
-    lookupScales: [1, 1],
+    lookupScales: [0.30000001192092896, 0.6000000238418579],
     lookupOffsets: [0, 0],
   },
   {

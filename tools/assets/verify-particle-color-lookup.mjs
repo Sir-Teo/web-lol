@@ -2,6 +2,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import ts from 'typescript';
+import { binField } from './bin-field.mjs';
 import { execFileSync } from 'node:child_process';
 const revision = '65a7d2a746b9d02d65dab788b5f7b8198d5e555e';
 const files = [];
@@ -71,9 +72,9 @@ const profiles = pin.definition.complexEmitterDefinitionData.map((e, index) => (
         .find((t) => t.path === e.particleColorTexture.toLowerCase())
         .output.replace('public/', '')
     : null,
-  lookupTypes: [e.colorLookUpTypeX ?? 1, e.colorLookUpTypeY ?? 0],
-  lookupScales: e.colorLookUpScales ?? [1, 1],
-  lookupOffsets: e.colorLookUpOffsets ?? [0, 0],
+  lookupTypes: [binField(e, 'colorLookUpTypeX') ?? 1, binField(e, 'colorLookUpTypeY') ?? 0],
+  lookupScales: binField(e, 'colorLookUpScales') ?? [1, 1],
+  lookupOffsets: binField(e, 'colorLookUpOffsets') ?? [0, 0],
 }));
 await writeFile(
   'src/content/lux-binding-target-lookups.ts',
@@ -86,4 +87,6 @@ await writeFile(
     ' as const;\n'
 );
 
-execFileSync('npx', ['prettier', '--write', 'src/content/lux-binding-target-lookups.ts'], { stdio: 'ignore' });
+execFileSync('npx', ['prettier', '--write', 'src/content/lux-binding-target-lookups.ts'], {
+  stdio: 'ignore',
+});

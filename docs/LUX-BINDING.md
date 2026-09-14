@@ -153,3 +153,31 @@ The pinned ltk-manager reader identifies lookup selectors 0/1/2/3 as constant, n
 Three added numerical cases verify the independently executed comparison samples at GPU float precision, target rune/bar birth-color stability while lifetime advances, non-clamped coordinates, constant-offset behavior and unknown-selector rejection. TypeScript and all 802 unit tests pass. Five passive detonation browser cases pass, including rendered layers, seekable geometry, saved gameplay continuation and visibility. The target effect is still not rendered: birth-draw provenance, all remaining appearance/motion settings, soft particles, mesh transforms, attachment and native comparison remain outstanding.
 
 The production build/nested-path smoke also passes with all seventeen integrated audio recordings and real Lux Q gameplay.
+
+## Hashed-field resolution and lifetime default
+
+A follow-up audit found that the first lookup export incorrectly defaulted the two `fireCircleTimer` layers' scales to [1,1]: their authored `colorLookUpScales` remained under hash `{f02bd44d}` in the source JSON. The exporter now reads named or hashed fields using League BIN's lowercase FNV-1a names, rejects duplicate representations, and retains the exact values [0.30000001192092896, 0.6000000238418579]. These particular mesh layers have no lookup texture, so this repairs source-profile completeness without claiming a current visible color change.
+
+`audit-lux-binding-target-fields.mjs` checks three pinned reader files against their inspected cache, resolves only names explicitly declared through `nameHash`, and retains source file hashes and declaration lines. `reference/lux-binding-target-fields.json` contains the original target pin's hash, thirteen resolved names, a derived readable definition and the still-unresolved field hashes. The original verified BIN definition remains unchanged.
+
+| Hash | Reader field name |
+|---|---|
+| `{264afd39}` | `uvMode` |
+| `{27d40903}` | `isGroundLayer` |
+| `{2b32227b}` | `erosionMapAddressMode` |
+| `{324f9f10}` | `texAddressModeBase` |
+| `{6563bee8}` | `miscRenderFlags` |
+| `{6b89d541}` | `beginIn` |
+| `{76f8ad24}` | `startFrame` |
+| `{7c7970d8}` | `erosionSliceWidth` |
+| `{a6630e0a}` | `uvScrollClamp` |
+| `{b9198a2a}` | `birthUVOffset` |
+| `{b99310f4}` | `alphaRef` |
+| `{cfb707de}` | `birthUvScrollRate` |
+| `{f02bd44d}` | `colorLookUpScales` |
+
+The verified `readValue.ts` defaults an omitted particle lifetime to three seconds. That is the reference reader's particle default, not the emitter's 2.5-second duration and not an independently observed native lifetime. The four single-particle ring emitters omit their particle lifetime. Their eventual gameplay stop/linger behavior still needs implementation and native comparison. Resolving names also does not prove that the clone already implements ground-layer placement, render flags, erosion, addressing or soft-particle behavior.
+
+Five field hashes remain unresolved: `{3aae4707}`, `{4ffce322}`, `{95111b29}`, `{c0bf561e}` and `{dddde180}`. Unnamed type identifiers are also retained. Reproduce with `node tools/assets/audit-lux-binding-target-fields.mjs` and `node tools/assets/verify-particle-color-lookup.mjs`; repeat output is byte-identical. A regression case verifies the hashed timer scales against the original source record. TypeScript and all 803 unit tests pass. Target rendering remains unfinished.
+
+The production build also passes. This step changes source metadata/export handling rather than the live target renderer.

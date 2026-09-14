@@ -39,3 +39,16 @@ test('constant ignores offset and lookup coordinates remain unclamped until samp
     particleColorLookup({ lookupTypes: [4, 0], lookupScales: [1, 1], lookupOffsets: [0, 0] }, 0, 0)
   ).toThrow(RangeError);
 });
+
+test('hashed target timer fields retain their authored lookup scales', () => {
+  const source = JSON.parse(readFileSync('docs/reference/lux-binding-target-vfx.json', 'utf8'));
+  for (const name of ['fireCircleTimer', 'fireCircleTimer1']) {
+    const original = source.definition.complexEmitterDefinitionData.find(
+      (e: any) => e.emitterName === name
+    );
+    expect(original.colorLookUpScales).toBeUndefined();
+    expect(original['{f02bd44d}']).toEqual([0.30000001192092896, 0.6000000238418579]);
+    const profile = LUX_BINDING_TARGET_LOOKUPS.find((p) => p.name === name)!;
+    expect(profile.lookupScales).toEqual(original['{f02bd44d}']);
+  }
+});
