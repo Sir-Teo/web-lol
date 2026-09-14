@@ -43,6 +43,12 @@ for p in profiles:
   assert p['count']==1 and p['delay']==1 and p['life']==1.5 and p['blend']==1
   assert p['geometry']['scale']=={'constantValue':[1,1,1]}
   assert p['geometry']['velocity']==[0,0,0] and not p['mult'] and p['uvRotation']==0
+for p in profiles:
+ if p['delay']==0 and p['geometry']['kind']=='arbitraryQuad':
+  assert p['blend']==4 and p['mult'] and p['multAddress']==0 and p['uvRotation']==90
+  assert p['geometry']['scale']['dynamics']['times']==[0,1]
+  assert p['geometry']['scale']['dynamics']['values']==[[0.800000011920929,1,1],[1,1,1]]
+  assert p['life']==0.949999988079071
 expected={e['emitterName'] for e in record['complexEmitterDefinitionData'] if e.get('{27d40903}') and not e.get('disabled',e.get('{33f36f05}',False))}
 assert {p['name'] for p in profiles}==expected, 'Ground inventory must cover exactly the active ground source emitters'
 assert len(profiles)==17 and sum(p['geometry']['kind']=='beam' for p in profiles)==2

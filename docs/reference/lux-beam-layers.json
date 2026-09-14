@@ -3323,6 +3323,19 @@
     "END_Beam_ROTATING",
     "Bokeh",
     "Burnt",
-    "Burnt1"
+    "Burnt1",
+    "Far_Refraction_L",
+    "Far_Refraction_R",
+    "Far_Refraction_L1",
+    "Far_Refraction_R1",
+    "CLOSE_Refraction_L",
+    "CLOSE_Refraction_R",
+    "END_Ground_1",
+    "END_Ground_2",
+    "END_Ground_3",
+    "END_Ground_Core",
+    "CHARGE_GROUND_LIGHT1",
+    "WIDTH_Refraction_L1",
+    "WIDTH_Refraction_R1"
   ]
 }

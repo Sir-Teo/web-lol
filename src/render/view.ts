@@ -1,3 +1,4 @@
+import { LuxGroundCharge } from './lux-ground-charge';
 import { LuxScorches } from './lux-scorches';
 import { groundDisplayListSort, setGroundRenderStage } from './ground-display-list';
 import { LuxBokeh } from './lux-bokeh';
@@ -61,6 +62,7 @@ export class GameView {
   luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));
   luxImpacts = new LuxImpacts(this.scene, (p) => this.ground(p));
   luxChargeRays = new LuxChargeRays(this.scene, (p) => this.ground(p));
+  luxGroundCharge = new LuxGroundCharge(this.scene);
   luxScorches = new LuxScorches(this.scene);
   luxBokeh = new LuxBokeh(this.scene, (p) => this.ground(p));
   luxStreaks = new LuxRStreaks(this.scene, (p) => this.ground(p));
@@ -606,6 +608,7 @@ export class GameView {
     this.luxBeams.update(world, alpha, this.camera, terminalAge);
     this.luxStreaks.update(world, alpha, terminalAge);
     this.luxScorches.update(world, alpha, terminalAge);
+    this.luxGroundCharge.update(world, alpha);
     this.luxBokeh.update(world, alpha, this.camera, terminalAge);
     this.luxChargeRays.update(world, alpha, this.camera);
     this.luxAttackHoops.update(world, alpha, this.camera, terminalAge);

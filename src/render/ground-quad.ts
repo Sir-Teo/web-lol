@@ -20,7 +20,8 @@ export function projectGroundQuad(
   quad: GroundQuad,
   heightAt: (point: Vec2) => number,
   maxEdge = 50,
-  lift = 2
+  lift = 2,
+  subdivisions?: readonly [number, number]
 ): void {
   const { origin, target, offset, halfSize, rotation } = quad;
   if (
@@ -46,13 +47,16 @@ export function projectGroundQuad(
     geometry.setDrawRange(0, 0);
     return;
   }
-  const nx = Math.max(1, Math.ceil((Math.abs(halfSize[0]) * 2) / maxEdge));
-  const ny = Math.max(1, Math.ceil((Math.abs(halfSize[1]) * 2) / maxEdge));
-  if (nx > 256 || ny > 256) throw new RangeError('Ground quad exceeds projection grid budget');
+  const nx = subdivisions?.[0] ?? Math.max(1, Math.ceil((Math.abs(halfSize[0]) * 2) / maxEdge));
+  const ny = subdivisions?.[1] ?? Math.max(1, Math.ceil((Math.abs(halfSize[1]) * 2) / maxEdge));
+  if (!Number.isInteger(nx) || !Number.isInteger(ny) || nx < 1 || ny < 1 || nx > 256 || ny > 256)
+    throw new RangeError('Ground quad exceeds projection grid budget');
   const vertices = (nx + 1) * (ny + 1);
   let position = geometry.getAttribute('position') as THREE.BufferAttribute | undefined;
   let uv = geometry.getAttribute('uv') as THREE.BufferAttribute | undefined;
   if (!position || position.count !== vertices || !uv || uv.count !== vertices) {
+    // Release renderer-owned buffers before replacing attributes on a live geometry.
+    geometry.dispose();
     position = new THREE.BufferAttribute(new Float32Array(vertices * 3), 3).setUsage(
       THREE.DynamicDrawUsage
     );
