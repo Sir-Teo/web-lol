@@ -1,0 +1,29 @@
+{
+  "recordedAt": "2026-09-14T02:46:26.358272+00:00",
+  "baseRevision": "2ff4b555475baf80940d922d3af19e158019200f",
+  "feature": "Lux bot last-hit estimates include surviving owned Illumination marks",
+  "validation": {
+    "simulationTests": 612,
+    "typeScript": "passed",
+    "browserScenarios": 3,
+    "browser": "passed",
+    "production": "passed /nested/rift/: 9 recordings, map navigation, real Hawkshot, no development hook",
+    "visualReview": "Practice scene with actual Q mark and chosen attack"
+  },
+  "limitations": [
+    "Stationary-target arrival estimate, not a guaranteed future impact.",
+    "Native AI and passive particle parity not certified.",
+    "Snapshot schema 48 unchanged; simulation fingerprint changes same-build compatibility.",
+    "Full production goal remains incomplete."
+  ],
+  "sha256": {
+    "src/simulation/world.ts": "ab1cd5532df4c013f99a7bff27bb0e2c4300e5d1fb9f1c5d566249b741026680",
+    "tests/lux-bot-last-hit.test.ts": "45242b6a6a7006150d2ad6a90537c69b82fe609407e601299d8464be2b915f8e",
+    "e2e/lux-bot-last-hit.spec.ts": "609db7062d83a54f8e4dae73b1dd218c088a91a158c2afdfe611b0322bbe253b",
+    "artifacts/lux-last-hit-before.log": "54c4ac935ab1b91e4e4dc04d3dd2eaef0b61fe954aa11161dc6f8b83c94af1a2",
+    "artifacts/lux-last-hit-final-check.log": "5eec5ac0e9218194155cd114a043f857114b365473a9122b0bf0047219d430f9",
+    "artifacts/lux-last-hit-browser.log": "00d98d781d56f44ff1f26df1bf5446dc84b547d209daa0d38f445bd0c31403a9",
+    "artifacts/lux-last-hit-production.log": "ab10653acbeccb3ea0585681ac806c3fa5fe3ade05b7d2f3fbb06e3bd84c012c",
+    "artifacts/lux-bot-marked-last-hit.png": "d08c7e47d484ee6b40490412a8bc0803f54dcc22abf21377e88ac0d05d8af75f"
+  }
+}

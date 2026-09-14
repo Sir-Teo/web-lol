@@ -764,14 +764,17 @@ export class World {
     if (threatened)
       this.enqueue({ type: 'cast', unit: u.id, ability: 'f', point: { x: u.x, y: u.y } });
   }
-  private incomingAttacksClaimMinion(u: Unit, target: Unit): boolean {
-    if (!isLaneMinionKind(target.kind) || !this.visible(target, u.team)) return false;
-    // Stationary-target estimate, using only already launched allied basic attacks.
+  private estimatedAttackDelay(u: Unit, target: Unit): number {
+    // Stationary-target estimate shared by farming and incoming-missile decisions.
     const windup = Math.round(u.windupTicks / this.attackSpeedMultiplier(u, target));
     const flight = u.missileSpeed
       ? Math.ceil(Math.max(0, distance(u, target) - target.radius - 8) / (u.missileSpeed * DT))
       : 0;
-    const arrival = Math.max(0, u.nextAttackTick - this.tick) + windup + flight;
+    return Math.max(0, u.nextAttackTick - this.tick) + windup + flight;
+  }
+  private incomingAttacksClaimMinion(u: Unit, target: Unit): boolean {
+    if (!isLaneMinionKind(target.kind) || !this.visible(target, u.team)) return false;
+    const arrival = this.estimatedAttackDelay(u, target);
     let damage = 0;
     for (const p of this.projectiles) {
       if (p.type !== 'attack' || p.team !== u.team || p.target !== target.id || p.speed <= 0)
@@ -805,9 +808,19 @@ export class World {
     for (const target of this.units) {
       if (!isLaneMinionKind(target.kind) || !this.validTarget(u, target)) continue;
       const d = distance(u, target) - target.radius;
+      let damage = damageAfterResistance(raw, target.armor);
+      if (
+        u.champion === 'lux' &&
+        target.illumination.some(
+          (mark) =>
+            mark.sourceId === u.id &&
+            mark.endTick > this.tick + this.estimatedAttackDelay(u, target)
+        )
+      )
+        damage += damageAfterResistance(this.illuminationDamage(u), target.magicResist);
       if (
         d > u.range ||
-        target.hp + this.shieldAmount(target) > damageAfterResistance(raw, target.armor) ||
+        target.hp + this.shieldAmount(target) > damage ||
         !this.safeAttackPosition(u, target) ||
         this.incomingAttacksClaimMinion(u, target)
       )
@@ -2133,14 +2146,7 @@ export class World {
       target.illumination = target.illumination.filter((mark) => mark.sourceId !== source.id);
     this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
     if (illuminated && this.alive(target)) {
-      const level = this.championState(source.id)!.level;
-      this.damage(
-        source,
-        target,
-        LUX_ILLUMINATION.baseDamageByLevel[level - 1] +
-          LUX_ILLUMINATION.abilityPowerRatio * this.abilityPower(source),
-        'magic'
-      );
+      this.damage(source, target, this.illuminationDamage(source), 'magic');
     }
   }
   /** One support hop from direct contributors; see docs/SUMMONER-HEAL.md. */
