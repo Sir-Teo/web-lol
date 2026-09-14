@@ -1,0 +1,47 @@
+{
+  "recordedAt": "2026-09-14T04:17:40.898302+00:00",
+  "baseRevision": "1877b3b58bc484b134bf2b51c6d305d93cc87a77",
+  "feature": "Pinned Lux basic-attack source package; not runtime integration",
+  "meshReaderRevision": "76bf57bf4fd195343dec610bf0f912a06b910914",
+  "validation": {
+    "binaryEmitterRecords": 3,
+    "sourceFiles": 8,
+    "losslessTextures": 6,
+    "textureBytes": 31087,
+    "meshTriangles": 120,
+    "meshBytes": 20216,
+    "glTF": "zero errors/warnings; position, UV, custom RGB, topology and image exact round trips",
+    "allModelAndMapAssets": "passed",
+    "browserInspectionCases": 1,
+    "build": "passed",
+    "visualReview": "Source crescent geometry and raw texture board inspected"
+  },
+  "limitations": [
+    "Generic attack projectile remains in gameplay.",
+    "Color lookup, shader/primitive behavior, emission/attachment/motion and saved phase require integration.",
+    "Source flags and 24 trailing SCB bytes are retained without invented semantics.",
+    "Native pixel parity not certified."
+  ],
+  "sha256": {
+    "docs/reference/lux-basic-attack.json": "f9349585f3640e61219fcae8877d353b4416acd9164654b040c3a8696327dcc0",
+    "tools/assets/export-lux-basic-attack.py": "5105fecd058f180b9208359b90e54783bab1c59e4db1ceae8a30225b9e80f90e",
+    "tools/assets/decode-lux-crescent.py": "77d3d1e1b570e806b463cf93ff8ba2d487b59ff34cf1382125aaeb67935f7760",
+    "tools/assets/convert-lux-crescent.mjs": "87131662e4b55e2b34106b19b3709a6fa26304c4a8853e6561a5c145befefcbf",
+    "tools/qa/lux-basic-attack-preview.html": "07042b4371242ff58409377f34c3818ef0cdb640e29c5c1a54136ab69c0f0b0f",
+    "e2e/lux-basic-attack-assets.spec.ts": "375d75cd0f1c6bd13b9718cc2edd9212d15d696b9618b0d67b977c1dfda4ff95",
+    "public/assets/models/lux-basic-crescent.glb": "856b0322e28ae38c1373aed3f5120adee0ab1c301964d576d93903e9d48fb7a9",
+    "public/assets/models/lux-basic-crescent.json": "72a426c508fb99cd4bc4d5fdcb092f53634498ca990e287e6621c6fcdbc74211",
+    "artifacts/lux-ba-export-repeat.log": "13af9ba933fa7b67d58d9d00fc822a244304b4613cfd8583302a9d1944e3f2b5",
+    "artifacts/lux-ba-conversion.log": "64864c50692676e4b4b9f1b05c1b80f4750b20100e3bed5a24c3da5824d692cf",
+    "artifacts/lux-ba-assets-validation.log": "fa032f64e917aeb61ee31f7a7206f1942cee79b9a4d053657f9a2287fd02ff8d",
+    "artifacts/lux-ba-browser.log": "20d38b39a0a6679d257c78b9f89a3c21bc09ce5e315e06b87056a066a1ae2baa",
+    "artifacts/lux-ba-build.log": "70675ebc5b180822d60237bfdefc191e948405fd655e83ac9c6ee4426822bfdc",
+    "artifacts/lux-basic-attack-assets.png": "dc4347ee746d9f439dde3092e42d084d394f922f881c8f848811918b79dfd390",
+    "public/assets/effects/lux-ba-lux_base_q_trail.png": "c2370ce464a98a43b78eb4e25ff8643c5b0598127843ba583e622d0e8ece40e5",
+    "public/assets/effects/lux-ba-lux_base_r_mote.png": "7bc487eb3bece376a141ff810194783e1c1319fc1b00e05c64858554282e0e25",
+    "public/assets/effects/lux-ba-lux_base_r_rainbowmult.png": "5dac684daf04d9667f40197e9e85b7e98b423075acd1237de9cc49b2b6e43a93",
+    "public/assets/effects/lux-ba-color-rampdown.png": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2",
+    "public/assets/effects/lux-ba-color-spectralbell.png": "2883022520bddb9f84f028d8f19449d5a46a68cfc690fec5b48fb3cf67657c72",
+    "public/assets/effects/lux-ba-ring04.png": "9e599144ea2aa4ead9d8d00814234b0ac0ea85a43dc652ce138cee81eedd9fcf"
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lux basic-attack source assets</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 28px;
+        background: #0c1921;
+        color: #d8dedb;
+        font: 14px system-ui;
+      }
+      h1 {
+        font-size: 24px;
+        color: #eee1b2;
+        margin: 0 0 8px;
+      }
+      p {
+        color: #a8b8b9;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 520px 1fr;
+        gap: 28px;
+        margin-top: 24px;
+      }
+      #mesh {
+        width: 520px;
+        height: 520px;
+        border: 1px solid #657060;
+      }
+      #textures {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      figure {
+        margin: 0;
+        padding: 12px;
+        background: #182a32;
+        border: 1px solid #314b53;
+      }
+      img {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        background: repeating-conic-gradient(#273b44 0% 25%, #1b2c34 0% 50%) 0/20px 20px;
+      }
+      figcaption {
+        margin-top: 10px;
+        overflow-wrap: anywhere;
+        color: #c9d8d5;
+        font-size: 12px;
+      }
+      #status {
+        color: #e9cc8b;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lux · basic-attack source assets</h1>
+    <p>
+      Crescent mesh and six lossless textures. Drag the mesh to inspect. This is an asset
+      inspection, not the reconstructed particle effect.
+    </p>
+    <div id="status">Loading…</div>
+    <main>
+      <div id="mesh"></div>
+      <div id="textures"></div>
+    </main>
+    <script type="module">
+      import * as THREE from 'three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      const manifest = await fetch('/assets/models/lux-basic-crescent.json').then((r) => r.json());
+      const gltf = await new GLTFLoader().loadAsync('/assets/models/lux-basic-crescent.glb');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x10232b);
+      scene.add(gltf.scene);
+      const box = new THREE.Box3().setFromObject(gltf.scene),
+        center = box.getCenter(new THREE.Vector3()),
+        size = box.getSize(new THREE.Vector3());
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(520, 520);
+      renderer.setPixelRatio(devicePixelRatio);
+      document.querySelector('#mesh').append(renderer.domElement);
+      const span = Math.max(size.x, size.y, size.z) * 0.7;
+      const camera = new THREE.OrthographicCamera(-span, span, span, -span, 0.001, 100);
+      camera.position.set(center.x, center.y, center.z + 2);
+      camera.lookAt(center);
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.target.copy(center);
+      controls.update();
+      for (const asset of manifest.auxiliaryAssets) {
+        const figure = document.createElement('figure'),
+          img = document.createElement('img'),
+          caption = document.createElement('figcaption');
+        img.src = asset.path;
+        img.alt = asset.path.split('/').at(-1);
+        caption.textContent = img.alt;
+        figure.append(img, caption);
+        document.querySelector('#textures').append(figure);
+        await img.decode();
+      }
+      window.__ASSET__ = {
+        triangles: manifest.triangles,
+        vertices: gltf.scene.children[0].geometry.attributes.position.count,
+        colors: gltf.scene.children[0].geometry.attributes._source_face_rgb?.count,
+        ready: true,
+      };
+      document.querySelector('#status').textContent =
+        `${manifest.sourceVertices} source vertices · ${manifest.triangles} triangles · ${manifest.output.bytes.toLocaleString()} bytes · source attributes preserved`;
+      renderer.setAnimationLoop(() => renderer.render(scene, camera));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "status": "Verified source packaging, not complete runtime particle fidelity.",
+  "output": {
+    "path": "/assets/models/lux-basic-crescent.glb",
+    "bytes": 20216,
+    "sha256": "856b0322e28ae38c1373aed3f5120adee0ab1c301964d576d93903e9d48fb7a9"
+  },
+  "sourcePinSha256": "f9349585f3640e61219fcae8877d353b4416acd9164654b040c3a8696327dcc0",
+  "source": {
+    "path": "assets/particles/voidcrescent.scb",
+    "wadPathHash": "41b2772474fa203f",
+    "sha256": "19f1c380bcc53f450c0e974525356ec18bf3b084413346faaa4e6f23a24ff740",
+    "bytes": 14040
+  },
+  "sourceVertices": 62,
+  "triangles": 120,
+  "unitScale": 0.01,
+  "centralPoint": [
+    0,
+    -3.0916996002197266,
+    0.07629990577697754
+  ],
+  "uninterpretedTailHex": "00000080d0d566c02d439c3d00000080d0d566c02d439c3d",
+  "auxiliaryAssets": [
+    {
+      "path": "/assets/effects/lux-ba-lux_base_q_trail.png",
+      "bytes": 10984,
+      "sha256": "c2370ce464a98a43b78eb4e25ff8643c5b0598127843ba583e622d0e8ece40e5"
+    },
+    {
+      "path": "/assets/effects/lux-ba-lux_base_r_mote.png",
+      "bytes": 7381,
+      "sha256": "7bc487eb3bece376a141ff810194783e1c1319fc1b00e05c64858554282e0e25"
+    },
+    {
+      "path": "/assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+      "bytes": 220,
+      "sha256": "5dac684daf04d9667f40197e9e85b7e98b423075acd1237de9cc49b2b6e43a93"
+    },
+    {
+      "path": "/assets/effects/lux-ba-color-rampdown.png",
+      "bytes": 168,
+      "sha256": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2"
+    },
+    {
+      "path": "/assets/effects/lux-ba-color-spectralbell.png",
+      "bytes": 4743,
+      "sha256": "2883022520bddb9f84f028d8f19449d5a46a68cfc690fec5b48fb3cf67657c72"
+    },
+    {
+      "path": "/assets/effects/lux-ba-ring04.png",
+      "bytes": 7591,
+      "sha256": "9e599144ea2aa4ead9d8d00814234b0ac0ea85a43dc652ce138cee81eedd9fcf"
+    }
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}
