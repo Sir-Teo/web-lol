@@ -87,6 +87,7 @@ export interface Unit extends Vec2 {
   } | null;
   stunUntil: number;
   rootUntil: number;
+  silenceUntil: number;
   shields: { sourceId: number; amount: number; endTick: number; prismaticCastTick?: number }[];
   illumination: { sourceId: number; endTick: number }[];
   summonerHealReductionUntil: number;

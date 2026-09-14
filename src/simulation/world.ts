@@ -252,6 +252,7 @@ export class World {
       criticalSlow: null,
       stunUntil: 0,
       rootUntil: 0,
+      silenceUntil: 0,
       shields: [],
       illumination: [],
       summonerHealReductionUntil: 0,
@@ -464,7 +465,7 @@ export class World {
       } else if (command.type === 'cast') this.cast(u, command.ability, command.point);
       else {
         const state = this.championState(u.id);
-        if (state && !state.pendingCast) {
+        if (state && !state.pendingCast && u.silenceUntil <= this.tick) {
           this.setOrder(u, { type: 'idle' });
           state.recallEnd = this.tick + RECALL_DURATION_TICKS;
           this.emit('message', u, { text: 'Recalling…', unit: u.id, team: u.team });
@@ -991,6 +992,7 @@ export class World {
     }
   }
   private safeToRecall(u: Unit): boolean {
+    if (u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
     // Tactical policy, not a native bot rule. Use team-visible threats only;
     // a hidden opponent's proximity must not influence a recall decision.
@@ -1012,6 +1014,7 @@ export class World {
     return !threatened && !recentlyHit;
   }
   private planLaneScout(u: Unit): void {
+    if (u.silenceUntil > this.tick) return;
     const state = this.championState(u.id)!;
     if (
       u.lane === null ||
@@ -1079,7 +1082,7 @@ export class World {
   }
 
   private planLuxCombat(u: Unit, retreating: boolean): boolean {
-    if (u.champion !== 'lux') return false;
+    if (u.champion !== 'lux' || u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
     if (state.pendingCast || state.recallEnd !== null) return false;
     const ready = (ability: 'q' | 'w' | 'e' | 'r') =>
@@ -1173,7 +1176,7 @@ export class World {
     return false;
   }
   private planCrystalArrow(u: Unit, purpose: 'finish' | 'peel'): boolean {
-    if (u.champion !== 'ashe') return false;
+    if (u.champion !== 'ashe' || u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
     if (
       state.spellRanks.r === 0 ||
@@ -1228,6 +1231,7 @@ export class World {
     return true;
   }
   private planEmergencyFlash(u: Unit): boolean {
+    if (u.silenceUntil > this.tick) return false;
     const home = this.battlefield.spawns[u.team];
     if (
       u.rootUntil > this.tick ||
@@ -1381,6 +1385,7 @@ export class World {
       // committed windup above. The queued cast is validated next tick like input.
       if (
         target.kind === 'champion' &&
+        u.silenceUntil <= this.tick &&
         d <= u.range + target.radius &&
         this.tick < u.nextAttackTick &&
         state.qStacks >= ASHE_Q.maxStacks &&
@@ -1399,6 +1404,7 @@ export class World {
       if (
         u.champion === 'ashe' &&
         target.kind === 'champion' &&
+        u.silenceUntil <= this.tick &&
         d > u.range + target.radius &&
         d <= ABILITIES.w.range &&
         state.spellRanks.w > 0 &&
@@ -1702,6 +1708,24 @@ export class World {
     )
       return false;
     target.rootUntil = Math.max(target.rootUntil, this.tick + durationTicks);
+    return true;
+  }
+  /** Silence blocks new spell actions without stopping movement/basic attacks.
+   * Current pending casts are non-channel windups and continue to release. */
+  applySilence(target: Unit, durationTicks: number): boolean {
+    if (
+      this.winner ||
+      !this.units.includes(target) ||
+      !this.alive(target) ||
+      isStructureKind(target.kind) ||
+      !Number.isSafeInteger(durationTicks) ||
+      durationTicks <= 0 ||
+      !Number.isSafeInteger(this.tick + durationTicks)
+    )
+      return false;
+    target.silenceUntil = Math.max(target.silenceUntil, this.tick + durationTicks);
+    const state = this.championState(target.id);
+    if (state) state.recallEnd = null;
     return true;
   }
   /** Shared binding resolution primitive, also used by the queued Lux Q cast. */
@@ -2781,6 +2805,7 @@ export class World {
     u.releaseTick = null;
     u.stunUntil = 0;
     u.rootUntil = 0;
+    u.silenceUntil = 0;
     u.shields = [];
     u.illumination = [];
     u.aiRetreating = false;
@@ -2863,6 +2888,11 @@ export class World {
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     const state = this.championState(u.id);
     if (!state) return;
+    // Check before Lux's E-recast shortcut as well as ordinary casts.
+    if (u.silenceUntil > this.tick && !ABILITIES[ability].canCastWhileSilenced) {
+      this.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });
+      return;
+    }
     if (u.champion === 'lux' && ability === 'e') {
       if (state.pendingCast?.ability === 'e') {
         state.pendingCast.detonateRequested = true;

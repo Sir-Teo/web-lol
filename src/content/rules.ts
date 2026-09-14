@@ -25,6 +25,7 @@ export const ABILITIES: Record<
     range: number;
     icon: string;
     canCastWhileDisabled?: boolean;
+    canCastWhileSilenced?: boolean;
     cantCastWhileRooted?: boolean;
     preservesRecall?: boolean;
     minimapTargeting?: boolean;
@@ -76,6 +77,7 @@ export const ABILITIES: Record<
   },
   f: {
     name: 'Heal',
+    canCastWhileSilenced: true,
     description: `Restore ${SUMMONER_HEAL.minimumHeal}–${SUMMONER_HEAL.maximumHeal} health, based on your level, to yourself and one nearby allied champion. Both gain ${SUMMONER_HEAL.speedBonus * 100}% movement speed for ${SUMMONER_HEAL.speedDurationSeconds} second. Healing is reduced by ${100 - SUMMONER_HEAL.repeatHealMultiplier * 100}% on targets recently affected by Summoner Heal.`,
     cooldown: SUMMONER_HEAL.cooldownSeconds,
     canCastWhileDisabled: SUMMONER_HEAL.canCastWhileDisabled,

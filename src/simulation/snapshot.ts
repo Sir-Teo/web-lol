@@ -36,7 +36,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 65;
+export const SNAPSHOT_VERSION = 66;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -179,6 +179,7 @@ const unit: z.ZodType<Unit> = z
       .nullable(),
     stunUntil: deadline,
     rootUntil: deadline,
+    silenceUntil: deadline,
     shields: z
       .array(
         z.strictObject({
