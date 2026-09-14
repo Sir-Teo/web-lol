@@ -87,3 +87,31 @@ The following buff lifecycle choices are explicit local policies pending native 
 Rendering observes existing unit visibility and never grants sight. Hidden targets release their clouds; revealing a still-marked target reconstructs its saved age and seed rather than starting a new effect. Removal disposes each cloud's geometry and materials while preserving shared texture ownership.
 
 Two focused gameplay browser checks cover a real queued Q and attack consumption, all four active layers on a rigged target, live bone movement, the procedural fallback, fog hide/reveal with exact geometry recovery, exact snapshot-based particle reconstruction, refresh without duplicate clouds, caster death, deadline removal, target death, and stable geometry/texture allocations across twelve apply/remove cycles. The gameplay capture was visually reviewed separately from the isolated emitter study. TypeScript, 760 unit tests, five focused browser checks (including the isolated renderer and ray primitive), and the production build/nested-path smoke pass. Native pixel parity is not asserted.
+
+## Passive detonation source audit
+
+The distinct `Lux_P_tar` resource now has its complete record pinned in [lux-illumination-trigger-vfx.json](reference/lux-illumination-trigger-vfx.json). This is the consumption burst, not the six-second persistent mark. The verifier resolves the resource through Lux's Skin0 map, extracts the original BIN and seven texture payloads from the frozen 16.18.8175716 manifest, and requires exact equality with the entire parsed record. All five emitters are active; none can be omitted on the basis of a disabled flag.
+
+| Layer | Source requirements for playback |
+|---|---|
+| `innerring` | Rate 1, emitter lifetime 1 second, particle lifetime about 0.4 seconds; source offset `[0,50,0]`; random initial rotation, uniform scale growing from 0.6 to 1, four-point alpha curve, `Lux_Base_StarFilter_01`. |
+| `outerring` | Rate 1, emitter lifetime 1 second, particle lifetime 0.5 seconds; source offset `[0,50,0]`; rainbow lookup scales `[0.5,1]` and offsets `[0.5,0]`; 2×3 atlas, six frames and authored start frame 4; scale curve 0.4 → 0.85 → 1. An additional hashed block remains unresolved. |
+| `sparks` | **Single-particle emitter flag with rate 20:** the rate must be considered when reconstructing the burst population, not replaced by one particle. Random lifetime about 0.2–0.5 seconds, velocity and size distributions, drag 8, binding falling from 0.5 to 0, directional stretching and pass 105. Palette selector 9 of 10, driven by the source green channel. |
+| `motes` | Rate 100 over about 0.2 seconds; random particle lifetime about 0.35–1.4 seconds; orbital velocity, rotated spawn direction, drag 5 and integrated world acceleration `[0,40,0]`. Blend 4, directional stretching, uniform size and lifetime color/scale curves. Palette selector 6 of 10, driven by the source red channel. |
+| `rays` | Rate 60 over about 0.2 seconds; random particle lifetime about 0.125–0.25 seconds; full binding, source offset `[0,50,0]`, world orientation, `VfxPrimitiveRay`, random rotation/size and the authored ray growth curve. `color-rampdown` lookup and the shared passive rainbow-ray texture. |
+
+The [pinned emission reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts) emits `max(trunc(rate) & 0xffff, 1)` on the first emission for a single-particle emitter. For this spark layer that is 20 particles, not one; native cadence/PRNG parity is still not asserted.
+
+The source also names `Play_sfx_Lux_LuxIlluminationPassive_hit` as its creation sound. This pins the event name only; the event's audio payload and playback integration have not been verified here. Authored particle/emitter linger values are retained verbatim and must not be equated automatically with visible particle lifetime.
+
+All seven decoded textures already exist in the shipped basic-impact and persistent-mark assets. The verifier checks their dimensions, exact RGBA bytes (including alpha), and checked-in PNG hashes; this addition introduces no duplicate images or runtime downloads. The palette texture is shared, but its selected row and source-channel mixer differ between sparks and motes. [Pinned palette reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/palette.ts)
+
+The outer ring's `{4ffce322}` block, containing `{95111b29}` and type `{b13097f0}`, remains intentionally hashed. Those hashes do **not** match `distortionDefinition`, `distortion`, or `VfxDistortionDefinitionData`; calling it distortion would be an unsupported interpretation. Likewise, the raw spawn-shape type and other unresolved fields remain in the complete record rather than being discarded during normalization.
+
+Reproduce source and shared-asset verification:
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/verify-lux-illumination-trigger.py
+```
+
+The verifier passes for all eight original files, five complete emitters and seven shared textures. This is source groundwork; **the detonation burst is not yet rendered or played in gameplay**. Event capture at passive consumption, saved continuation, attachment history, burst population, orbital integration, palette composition, atlas/default behavior, unresolved fields, visibility and terminal cleanup still require implementation and appropriate visual/runtime verification. Runtime suites were not repeated for this source-only addition.
