@@ -1,0 +1,33 @@
+{
+  "interpretation": {
+    "repository": "LeagueToolkit/ltk-manager",
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "files": [
+      {
+        "path": "src/modules/workshop/bin/vfx/useVfxTextures.ts",
+        "sha256": "3adba9f5096c31299ce7b28afe440ca2a22fa7d78fbc7924e8c3882c0cc803ea",
+        "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/useVfxTextures.ts"
+      },
+      {
+        "path": "src/modules/workshop/bin/vfx/shaders/ribbon.ts",
+        "sha256": "24321654ec47bc403b607180a83ca3025703afda21215d068c7c50ecc54be830",
+        "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/ribbon.ts"
+      },
+      {
+        "path": "src/modules/viewport/world.ts",
+        "sha256": "019c02839e450e10f9a0732a4f5fb671104386b73f5df4e63baf0d97b7878c63",
+        "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/viewport/world.ts"
+      }
+    ]
+  },
+  "beamDefinitionSha256": "88e1b632f06f4cdea431c3a1fd51754065383cf933d389ccddfb637e255e6637",
+  "observations": [
+    "Particle color space is NoColorSpace; texture row zero corresponds to v=0.",
+    "Particle texture minification uses linear filtering.",
+    "Ribbon shader writes its computed fragment without color-space output conversion."
+  ],
+  "limitations": [
+    "External renderer reconstruction, not a local native-client capture.",
+    "No complete native shader-variant, mip policy, brightness or geometry calibration is established."
+  ]
+}

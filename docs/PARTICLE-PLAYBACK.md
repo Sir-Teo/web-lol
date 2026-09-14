@@ -228,3 +228,15 @@ A GPU test clones all six gameplay materials and supplies a four-color texture. 
 ```sh
 npx playwright test e2e/lux-beam-uv.spec.ts e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts
 ```
+
+## Final Spark raw texture color pipeline
+
+The pinned external renderer explicitly defines particle textures as `NoColorSpace`, uploads them with `flipY=false`, uses linear minification, and writes the ribbon fragment without output encoding. Freshly retrieved source files and their hashes are recorded in `reference/lux-beam-color.json`: the [particle texture loader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/useVfxTextures.ts), [viewport color constants](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/viewport/world.ts) and [ribbon fragment](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/ribbon.ts). This supports matching the raw-byte pipeline already used by the reconstructed basic-attack particles.
+
+Final Spark now samples both textures without sRGB decoding, uses the top-row UV convention and linear filtering, and omits the shader's output color conversion. Unused mip generation is disabled under that minification policy. This avoids nonlinear texture/tint multiplication and restores the source texture orientation. Existing blending and transposed translations remain in place.
+
+A GPU regression checks both loaded texture settings on every actual material, substitutes known non-primary mid-tone inputs, and reads the default sRGB output canvas. All six layer results equal the raw texture-times-multiplier-times-tint product within byte quantization. This explicitly exercises output encoding, unlike a linear offscreen target. UV, RGBA blending, gameplay/reload, all 718 unit tests and production smoke checks pass. The updated fixture screenshot was reviewed; its core remains saturated at the captured early release phase. Full brightness, geometry, native shader variant and sampler/mip parity remain uncalibrated.
+
+```sh
+npx playwright test e2e/lux-beam-color.spec.ts e2e/lux-beam-uv.spec.ts e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts
+```

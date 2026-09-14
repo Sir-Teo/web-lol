@@ -36,7 +36,10 @@ export async function loadLuxBeamTextures(): Promise<void> {
   await Promise.all(
     [...new Set(layers.flatMap((layer) => [layer.texture, layer.mult]))].map(async (path) => {
       const texture = await new THREE.TextureLoader().loadAsync(path);
-      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.colorSpace = THREE.NoColorSpace;
+      texture.flipY = false;
+      texture.minFilter = texture.magFilter = THREE.LinearFilter;
+      texture.generateMipmaps = false;
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       textures.set(path, texture);
     })
@@ -111,7 +114,6 @@ export class LuxBeams {
         // Source beam transforms act on (along, across), then transpose to (u, v).
         fragmentShader: `uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; varying vec2 beamUv;
           void main(){ vec2 m=beamUv+multOffset.yx; if(clampMult)m=clamp(m,vec2(0.001),vec2(0.999)); gl_FragColor=texture2D(base,beamUv+offset.yx)*texture2D(mult,m)*tint;
-          #include <colorspace_fragment>
           }`,
       });
       const mesh = new THREE.Mesh(geometry, material);
