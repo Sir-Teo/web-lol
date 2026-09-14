@@ -115,3 +115,22 @@ PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/ver
 ```
 
 The verifier passes for all eight original files, five complete emitters and seven shared textures. This is source groundwork; **the detonation burst is not yet rendered or played in gameplay**. Event capture at passive consumption, saved continuation, attachment history, burst population, orbital integration, palette composition, atlas/default behavior, unresolved fields, visibility and terminal cleanup still require implementation and appropriate visual/runtime verification. Runtime suites were not repeated for this source-only addition.
+
+## Detonation playback profiles and birth timeline
+
+`tools/assets/export-lux-illumination-trigger.py` runs the complete source/shared-image verifier before generating `src/content/lux-illumination-trigger-vfx.ts`. All five profiles keep birth distributions separate from lifetime curves. They retain emitter and particle lifetimes/linger, offsets and spawn rotation, velocity/orbital/drag inputs, integrated world acceleration, binding, lifetime size/color, orientation/stretching, texture/lookup/atlas/palette settings, and the unresolved outer-ring block. Identity probability tables on lifetime curves are checked before being simplified; a non-identity table fails generation rather than being silently dropped.
+
+Omitted lookup types use the pinned reader's lifetime-X/constant-Y defaults (enum values 1/0). The outer ring explicitly overrides Y to lifetime. Omitted minimum directional stretch is one, so the motes must not shrink along the velocity axis merely because their speed falls. Palette and lookup remain separate operations. These defaults follow the [pinned reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readVfxSystem.ts); unresolved native behavior is not certified by normalization.
+
+`luxIlluminationTriggerBirths` reconstructs live birth records at an arbitrary effect age, using the established local 60 Hz cadence and indexed random stream. All twenty sparks share the first emission time but have distinct indexed birth draws. Motes and rays accumulate at their source rates and stop at their short emitter deadlines. An earlier explicit stop suppresses new births while keeping already-born particles until their individual lifetimes end. Repeated seeks do not retain mutable playback state or expose shared profile arrays.
+
+The returned values remain **untransformed birth data**. Spawn orientation, orbital integration, world acceleration, target movement/binding, lifetime appearance, palette/atlas composition and drawing are subsequent stages. In particular, source velocity is not presented as a finished trajectory, and source scale is not prematurely made uniform before its lifetime curve is applied.
+
+Regenerate:
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-lux-illumination-trigger.py
+npx prettier --write src/content/lux-illumination-trigger-vfx.ts
+```
+
+Five new numerical checks cover the twenty-spark first update, coupled distribution endpoints and empty-table defaults, mote orbital/spawn inputs, continuous emission budgets, stop/lifetime boundary behavior, exact repeated seeking, mutation isolation and invalid inputs. Source re-extraction/texture verification, TypeScript and all 765 unit tests pass. No gameplay rendering change or browser visual-parity claim is made by this stage.
