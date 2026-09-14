@@ -1,3 +1,4 @@
+import type { MapTexturePrefetch } from '../render/map-texture-prefetch';
 import type { MapTextureResidency } from '../render/map-texture-residency';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -139,6 +140,7 @@ async function navigationOverlay(): Promise<THREE.Mesh> {
 
 let ready = false;
 let textureResidency: MapTextureResidency | undefined;
+let texturePrefetch: MapTexturePrefetch | undefined;
 async function load(): Promise<void> {
   const terrain = await loadRift(
     renderer,
@@ -146,6 +148,7 @@ async function load(): Promise<void> {
   );
   map.add(terrain);
   textureResidency = terrain.userData.textureResidency;
+  texturePrefetch = terrain.userData.texturePrefetch;
   const overlay = await navigationOverlay();
   overlay.visible = false;
   map.add(overlay);
@@ -167,6 +170,7 @@ renderer.setAnimationLoop(() => {
   textureResidency?.beginFrame();
   renderer.render(scene, camera);
   textureResidency?.endFrame();
+  texturePrefetch?.update(renderer, camera);
 });
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight;

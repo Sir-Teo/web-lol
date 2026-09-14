@@ -1,0 +1,29 @@
+{
+  "scope": "200-frame blue-base to mid-lane static-map pan; matched-scene framebuffer comparison; not a frame-time gate",
+  "runs": [
+    {
+      "enabled": false,
+      "visibleUploads": 18175416,
+      "preparedUploads": 0,
+      "maxResident": 267126248,
+      "budget": 268435456,
+      "hash": "169,188,57,242,170,208,151,199,63,204,156,51,210,22,69,131,59,40,62,239,144,99,218,132,98,113,48,171,195,178,237,201",
+      "referenceHash": "169,188,57,242,170,208,151,199,63,204,156,51,210,22,69,131,59,40,62,239,144,99,218,132,98,113,48,171,195,178,237,201"
+    },
+    {
+      "enabled": true,
+      "visibleUploads": 0,
+      "preparedUploads": 29535056,
+      "maxResident": 268349568,
+      "budget": 268435456,
+      "hash": "169,188,57,242,170,208,151,199,63,204,156,51,210,22,69,131,59,40,62,239,144,99,218,132,98,113,48,171,195,178,237,201",
+      "referenceHash": "169,188,57,242,170,208,151,199,63,204,156,51,210,22,69,131,59,40,62,239,144,99,218,132,98,113,48,171,195,178,237,201"
+    }
+  ],
+  "inputs": {
+    "src/render/map-texture-residency.ts": "a1bbc2b1d040c528f78c66ec27bce078ba03cd10983747182ca365ce706b921a",
+    "src/render/map-texture-prefetch.ts": "f43f0f878195fad8393b13d9a9c97b3e6e4b1b7b4d91592ca4df5cce451b2c10",
+    "src/render/rift-assets.ts": "3caba84c4b0a1abfb4772ce989dcdc90be477799bff41e6f7047b4227a8cb600",
+    "e2e/map-texture-prefetch.spec.ts": "e9fd9c3c611d8c588411fcae8466c0a5257980c23c955b12d19bb63ef4c84132"
+  }
+}

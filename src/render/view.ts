@@ -1,3 +1,4 @@
+import type { MapTexturePrefetch } from './map-texture-prefetch';
 import type { MapTextureResidency } from './map-texture-residency';
 import { LuxGroundWarnings } from './lux-ground-warnings';
 import { LuxGroundCharge } from './lux-ground-charge';
@@ -257,6 +258,7 @@ export class GameView {
     return this.battlefield.heightAt(point) * SCALE;
   }
   private mapTextureResidency?: MapTextureResidency;
+  private mapTexturePrefetch?: MapTexturePrefetch;
   async loadEnvironment(): Promise<void> {
     if (this.battlefield.id !== 'rift') return;
     const [terrain, image] = await Promise.all([
@@ -273,6 +275,7 @@ export class GameView {
     root.position.set(-74.25, 0, 74.25);
     root.add(terrain);
     this.mapTextureResidency = terrain.userData.textureResidency;
+    this.mapTexturePrefetch = terrain.userData.texturePrefetch;
     this.scene.add(root);
     // Terrain has no animated transforms. Bake its final world placement once;
     // fog uniforms and materials remain live, as do all separate unit models.
@@ -688,6 +691,7 @@ export class GameView {
     this.smoke.prepareDepth(this.renderer, this.camera);
     this.renderer.render(this.scene, this.camera);
     this.mapTextureResidency?.endFrame();
+    this.mapTexturePrefetch?.update(this.renderer, this.camera);
   }
   private updateBar(u: Unit, world: World, p: Vec2): void {
     let bar = this.healthBars.get(u.id);

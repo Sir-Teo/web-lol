@@ -1,3 +1,4 @@
+import { MapTexturePrefetch } from './map-texture-prefetch';
 import { MapTextureResidency } from './map-texture-residency';
 import { installMapGeometryTransport } from './map-geometry-transport';
 import * as THREE from 'three';
@@ -130,8 +131,17 @@ export async function loadRift(
     return bytes;
   };
   gltf.scene.userData.textureResidency = residency;
+  const meshTextures = new Map<THREE.Object3D, Map<THREE.Texture, number>>();
   gltf.scene.traverse((object) => {
     if (!(object instanceof THREE.Mesh)) return;
+    const textures = new Map<THREE.Texture, number>();
+    for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+      const basic = material as THREE.MeshBasicMaterial;
+      if (basic.map) textures.set(basic.map, bytesFor(basic.map));
+      if (material.name.endsWith('/VertexDeform_inst'))
+        textures.set(grassTint, bytesFor(grassTint));
+    }
+    meshTextures.set(object, textures);
     const previousRender = object.onBeforeRender;
     object.onBeforeRender = function (...args) {
       previousRender.apply(this, args);
@@ -162,6 +172,7 @@ export async function loadRift(
       }
     }
   });
+  gltf.scene.userData.texturePrefetch = new MapTexturePrefetch(gltf.scene, residency, meshTextures);
   gltf.scene.userData.textureEncoding = native ? 'original-dxt' : 'lossless-webp';
   gltf.scene.userData.textureGpuBytes = native
     ? Object.values(records).reduce((sum, item) => sum + item.gpuBytes, 0)
