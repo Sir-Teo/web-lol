@@ -1,3 +1,5 @@
+import { mobileClipDurations } from '../content/mobile-clip-durations';
+import { ANIMATION_FADE_TICKS } from './animation-timeline';
 import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
@@ -23,10 +25,30 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 56;
+export const SNAPSHOT_VERSION = 57;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
+const poseLayer = z.strictObject({
+  clip: z.string().max(100),
+  time: nonnegative,
+  rate: nonnegative,
+  loop: z.boolean(),
+  weight: z.number().min(0).max(1),
+});
+const animationTimeline = z.strictObject({
+  tick,
+  primary: z.strictObject({
+    kind: z.enum(['cast', 'recall', 'attack', 'run', 'idle', 'death']),
+    clip: z.string().max(100),
+    time: nonnegative,
+    rate: nonnegative,
+    loop: z.boolean(),
+    cut: z.boolean(),
+    settled: z.boolean(),
+  }),
+  transition: z.strictObject({ startTick: tick, outgoing: z.array(poseLayer).max(64) }).nullable(),
+});
 const deadline = z.union([tick, z.literal('Infinity').transform(() => Infinity)]);
 // A captured recharge may outlive a sale or rank change. Accept every duration the
 // catalog can produce in six slots, rather than comparing against current gear.
@@ -72,6 +94,7 @@ const unit: z.ZodType<Unit> = z
     y: z.number(),
     previous: point,
     facing: z.number(),
+    animationTimeline: animationTimeline.nullable(),
     idleClock: z
       .strictObject({ startTick: tick, previous: nonnegative, current: nonnegative })
       .nullable(),
@@ -521,6 +544,28 @@ export function decodeSnapshot(text: string) {
     });
   const state = result.data;
   for (const unit of state.units) {
+    const timeline = unit.animationTimeline,
+      durations = mobileClipDurations(unit);
+    if (!!durations !== !!timeline) throw new Error('Saved match lacks mobile animation timeline.');
+    if (timeline && durations) {
+      const layers = [timeline.primary, ...(timeline.transition?.outgoing ?? [])];
+      const outgoing = timeline.transition?.outgoing ?? [];
+      if (
+        timeline.tick > state.tick ||
+        layers.some(
+          (layer) =>
+            !Object.hasOwn(durations, layer.clip) || layer.time > durations[layer.clip] + 1e-7
+        ) ||
+        new Set(outgoing.map((layer) => layer.clip)).size !== outgoing.length ||
+        outgoing.some((layer) => layer.clip === timeline.primary.clip) ||
+        outgoing.reduce((sum, layer) => sum + layer.weight, 0) > 1 + 1e-7 ||
+        (timeline.transition &&
+          (timeline.primary.cut ||
+            timeline.transition.startTick > timeline.tick ||
+            timeline.tick - 1 >= timeline.transition.startTick + ANIMATION_FADE_TICKS))
+      )
+        throw new Error('Saved match contains an invalid animation timeline.');
+    }
     for (const clock of [unit.runClock, unit.idleClock])
       if (clock && (clock.startTick > state.tick || clock.previous > clock.current))
         throw new Error('Saved match contains an invalid animation clock.');

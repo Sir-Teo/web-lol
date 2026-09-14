@@ -1,3 +1,4 @@
+import type { AnimationTimeline } from './animation-timeline';
 import type { Vec2 } from './math';
 export type Team = 'blue' | 'red';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
@@ -26,6 +27,7 @@ export interface Unit extends Vec2 {
   name: string;
   previous: Vec2;
   facing: number;
+  animationTimeline: AnimationTimeline | null;
   /** Fixed-step run-clip seconds within the current movement segment. */
   runClock: { startTick: number; previous: number; current: number } | null;
   idleClock: { startTick: number; previous: number; current: number } | null;

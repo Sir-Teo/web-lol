@@ -1,3 +1,6 @@
+import { mobilePose } from '../render/mobile-pose';
+import { mobileClipDurations } from '../content/mobile-clip-durations';
+import { advanceAnimationTimeline } from './animation-timeline';
 import { castAnimationDuration } from '../content/cast-animation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
@@ -199,6 +202,7 @@ export class World {
       y: point.y,
       previous: { x: point.x, y: point.y },
       facing: team === 'blue' ? 2.2 : -0.95,
+      animationTimeline: null,
       runClock: null,
       idleClock: isStructureKind(kind) ? null : { startTick: this.tick, previous: 0, current: 0 },
       radius: champion ? 35 : turret ? 95 : dummy ? 40 : 27,
@@ -310,6 +314,14 @@ export class World {
       this.championRecords.set(
         u.id,
         createChampionState(u.id, this.battlefield.id === 'practice-fixture')
+      );
+    const clipDurations = mobileClipDurations(u);
+    if (clipDurations)
+      u.animationTimeline = advanceAnimationTimeline(
+        null,
+        mobilePose(u, undefined, this.tick, 1, clipDurations),
+        this.tick,
+        clipDurations
       );
     this.units.push(u);
     if (champion && identity === 'lux') {
@@ -1942,6 +1954,14 @@ export class World {
         clock.current += DT;
         unit.idleClock = clock;
       } else unit.idleClock = null;
+      const durations = mobileClipDurations(unit);
+      if (durations)
+        unit.animationTimeline = advanceAnimationTimeline(
+          unit.animationTimeline,
+          mobilePose(unit, state, this.tick, 1, durations),
+          this.tick,
+          durations
+        );
     }
   }
   private advanceImpactVisuals(): void {

@@ -1,3 +1,4 @@
+import { advanceAnimationTimeline, animationLayers } from '../simulation/animation-timeline';
 import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
@@ -551,45 +552,49 @@ export class GameView {
           model.clipDurations,
           terminalAge
         );
-        const action = model.actions[pose.clip];
-        if (pose.cut) {
-          if (model.actionName !== pose.clip) {
-            model.mixer.stopAllAction();
-            action.reset().setLoop(THREE.LoopOnce, 1).play();
-            model.actionName = pose.clip;
-          }
-          action.clampWhenFinished = true;
-          action.setEffectiveWeight(1);
-        } else {
-          if (pose.kind === 'attack' && model.animationAttackTick !== u.attackCycle!.startTick) {
-            model.animationAttackTick = u.attackCycle!.startTick;
-            action.reset();
-          }
-          action.setLoop(pose.loop ? THREE.LoopRepeat : THREE.LoopOnce, pose.loop ? Infinity : 1);
-          action.clampWhenFinished = !pose.loop;
-          if (model.actionName !== pose.clip) {
-            const previous = model.actions[model.actionName ?? 'idle1'];
-            action.reset().setEffectiveWeight(1);
-            previous?.fadeOut(0.08);
-            action.fadeIn(0.08).play();
-            model.actionName = pose.clip;
-          }
-          if (pose.settled) {
-            for (const other of Object.values(model.actions))
-              if (other !== action && other.isScheduled()) other.stop();
-            action.stopFading();
-            action.setEffectiveWeight(1);
-          }
+        const endpoint = mobilePose(
+          u,
+          world.championState(u.id),
+          world.tick,
+          1,
+          model.clipDurations
+        );
+        const timeline = advanceAnimationTimeline(
+          u.animationTimeline,
+          endpoint,
+          world.tick,
+          model.clipDurations
+        );
+        const at = world.tick - 1 + alpha + (pose.kind === 'death' ? terminalAge * 60 : 0);
+        const layers = animationLayers(timeline, at, model.clipDurations);
+        model.mixer.stopAllAction();
+        const primary = model.actions[pose.clip];
+        primary
+          .reset()
+          .setLoop(pose.loop ? THREE.LoopRepeat : THREE.LoopOnce, pose.loop ? Infinity : 1)
+          .setEffectiveWeight(0)
+          .play();
+        primary.time = pose.time;
+        primary.paused = true;
+        primary.clampWhenFinished = !pose.loop;
+        primary.timeScale = pose.kind === 'attack' ? pose.rate : 1;
+        for (const layer of layers) {
+          const action = model.actions[layer.clip];
+          action
+            .reset()
+            .setLoop(layer.loop ? THREE.LoopRepeat : THREE.LoopOnce, layer.loop ? Infinity : 1)
+            .setEffectiveWeight(layer.weight)
+            .play();
+          action.time = layer.time;
+          action.paused = true;
+          action.clampWhenFinished = !layer.loop;
+          action.timeScale = layer.rate;
         }
-        action.time = pose.time;
-        action.timeScale = pose.kind === 'attack' ? pose.rate : 1;
-        action.paused = true;
-        // Outgoing locomotion retains the existing transition policy until
-        // complete transition layers are stored in the simulation.
-        for (const name of ['run', 'idle1'])
-          if (pose.clip !== name && model.actions[name]) model.actions[name].paused = false;
-        model.mixer.update(pose.cut ? 0 : animationDelta);
+        model.actionName = pose.clip;
+        if (pose.kind === 'attack') model.animationAttackTick = u.attackCycle!.startTick;
+        model.mixer.update(0);
       }
+
       this.updateBar(u, world, { x, y });
     }
     for (const [id, model] of this.models)

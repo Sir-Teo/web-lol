@@ -187,3 +187,16 @@ The renderer applies that descriptor through the existing mixer. Cast/recall use
 Two pure-selector unit tests check mode precedence, explicit attack timing, recall hold, run interpolation/rate and missing-clip errors. All 700 unit tests pass. Fourteen distinct browser checks cover both steady clocks, all mobile rig speed variants, normal/critical attacks, source attack variants, cast/recall, death and terminal playback; the production smoke check also passes. No snapshot schema change was needed for this consolidation.
 
 This provides a common primary-pose description for the forthcoming saved transition history. It does not yet save mixtures of outgoing and incoming animations, nor replace the impact renderer's target-centre height with historical bone positions.
+
+
+## Saved mobile animation transitions
+
+Schema 57 saves the primary pose and the outgoing clip layers for all ten source mobile rigs. Each layer carries explicit time, playback rate, loop mode and weight; the transition carries its start tick. Interrupting a fade captures its current mixture before starting the next fade. Re-entering an existing outgoing clip removes that old layer because one mixer action cannot represent two times for the same clip. Any remaining weight below one contributes rest pose through Three normal blending. Cast and recall remain immediate cuts.
+
+The renderer now seeks every mobile layer explicitly at simulation tick plus display interpolation. It does not advance mobile transitions using elapsed render time. The timeline retains the final interpolated frame before retiring a fade. A pure reconciliation at render time also handles changes made between simulation steps without mutating saved state. Terminal death playback retains its existing presentation-time extension.
+
+`export-mobile-clip-durations.mjs` verifies hashes and sizes for both champions and all eight minion GLBs before exporting source clip durations. Snapshot validation requires source-known clips, bounded clip times, unique outgoing layers, valid weights and consistent capture/transition chronology. Older capture ticks can be extrapolated; future captures are rejected.
+
+Three unit cases cover interpolation, interrupted mixtures, cuts, immutable sampling, save continuation and malformed snapshots. The browser test constructs a three-layer interrupted fade, compares its chest-bone position with the independent skeleton sampler to within `1e-7` model units, and verifies identical layers and bone matrices after repeated paused renders and a real save/reload. All 703 unit tests pass, alongside nine existing attack/cast/recall/death/run/idle browser regressions and the new transition browser test. The production subpath smoke check also passes.
+
+This saves the current local 80 ms transition policy. Native animation-graph timing and blending are still uncalibrated. Historical impact attachment still requires per-impact target pose capture, structure animation handling and applying bone samples to the impact path; gameplay impacts continue using the documented target-centre height.
