@@ -1,7 +1,9 @@
 {
   "selected": [
     "WOOSH",
-    "RainbowGlow"
+    "RainbowGlow",
+    "END_Beam_1",
+    "END_Beam_Core"
   ],
   "source": "lux-beam-layers.json",
   "primitive": "VfxPrimitiveArbitraryQuad",
@@ -94,7 +96,7 @@
   },
   "limitations": [
     "Native attachment height and full visual composition remain unverified.",
-    "Quad support is restricted to WOOSH and RainbowGlow with 90-degree X rotation; animated UV scale is rejected by the exporter.",
-    "Burst geometry duplication is valid for these deterministic particles; independent random properties require per-particle sampling."
+    "Quad support is restricted to the four selected records with 90-degree X rotation; animated UV scale and rotation remain unsupported.",
+    "Charge glows carry independently sampled multiplier birth offsets per particle; deterministic WOOSH and RainbowGlow particles retain duplicate geometry."
   ]
 }

@@ -2601,6 +2601,380 @@
         "__type": "VfxTextureMultDefinitionData"
       },
       "__type": "VfxEmitterDefinitionData"
+    },
+    {
+      "rate": {
+        "constantValue": 3.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 0.949999988079071,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 1.7999999523162842,
+      "isSingleParticle": 1,
+      "emitterName": "END_Beam_1",
+      "importance": 3,
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "{3bf0b4ed}": {
+        "{e5f268dd}": [
+          0.0,
+          0.0,
+          -120.0
+        ],
+        "__type": "{ee39916f}"
+      },
+      "primitive": {
+        "__type": "{4beb81fd}"
+      },
+      "blendMode": 4,
+      "Color": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.8999999761581421,
+            1.0
+          ],
+          "values": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.9686274528503418,
+              0.8039215803146362,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "pass": 500,
+      "alphaRef": 0,
+      "miscRenderFlags": 1,
+      "{3559e15b}": 1,
+      "{5932ff9c}": {
+        "constantValue": [
+          90.0,
+          0.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "birthScale0": {
+        "constantValue": [
+          100.0,
+          300.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "dynamics": {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            [
+              0.800000011920929,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Diana_Skin11_R_Glow.tex",
+      "{968279e0}": {
+        "constantValue": 90.0,
+        "__type": "ValueFloat"
+      },
+      "textureMult": {
+        "textureMult": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_RainbowMult.tex",
+        "{cd124686}": {
+          "constantValue": [
+            0.10000000149011612,
+            1.0
+          ],
+          "__type": "ValueVector2"
+        },
+        "{22c3cf3e}": {
+          "constantValue": [
+            -1.0,
+            0.0
+          ],
+          "dynamics": {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              [
+                -0.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0
+              ]
+            ],
+            "__type": "VfxAnimatedVector2fVariableData"
+          },
+          "__type": "IntegratedValueVector2"
+        },
+        "birthUVOffsetMult": {
+          "constantValue": [
+            1.0,
+            1.0
+          ],
+          "dynamics": {
+            "{a7084719}": [
+              {
+                "{40c351da}": [
+                  0.0,
+                  1.0
+                ],
+                "{e44b7382}": [
+                  -1.0,
+                  1.0
+                ],
+                "__type": "{53a6c97e}"
+              },
+              {
+                "{40c351da}": [
+                  0.0,
+                  1.0
+                ],
+                "{e44b7382}": [
+                  -1.0,
+                  1.0
+                ],
+                "__type": "{53a6c97e}"
+              }
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0,
+                1.0
+              ]
+            ],
+            "__type": "VfxAnimatedVector2fVariableData"
+          },
+          "__type": "ValueVector2"
+        },
+        "__type": "VfxTextureMultDefinitionData"
+      },
+      "__type": "VfxEmitterDefinitionData"
+    },
+    {
+      "rate": {
+        "constantValue": 3.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 0.949999988079071,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 1.7999999523162842,
+      "isSingleParticle": 1,
+      "emitterName": "END_Beam_Core",
+      "importance": 3,
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "{3bf0b4ed}": {
+        "{e5f268dd}": [
+          0.0,
+          0.0,
+          -120.0
+        ],
+        "__type": "{ee39916f}"
+      },
+      "primitive": {
+        "__type": "{4beb81fd}"
+      },
+      "blendMode": 4,
+      "Color": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.8999999761581421,
+            1.0
+          ],
+          "values": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.9686274528503418,
+              0.8039215803146362,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "pass": 500,
+      "alphaRef": 0,
+      "miscRenderFlags": 1,
+      "{3559e15b}": 1,
+      "{5932ff9c}": {
+        "constantValue": [
+          90.0,
+          0.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "birthScale0": {
+        "constantValue": [
+          30.0,
+          300.0,
+          1.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "dynamics": {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            [
+              0.800000011920929,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Diana_Skin11_R_Glow.tex",
+      "{968279e0}": {
+        "constantValue": 90.0,
+        "__type": "ValueFloat"
+      },
+      "textureMult": {
+        "textureMult": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_RainbowMult.tex",
+        "{cd124686}": {
+          "constantValue": [
+            0.10000000149011612,
+            1.0
+          ],
+          "__type": "ValueVector2"
+        },
+        "{22c3cf3e}": {
+          "constantValue": [
+            -1.0,
+            0.0
+          ],
+          "dynamics": {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              [
+                -0.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0
+              ]
+            ],
+            "__type": "VfxAnimatedVector2fVariableData"
+          },
+          "__type": "IntegratedValueVector2"
+        },
+        "birthUVOffsetMult": {
+          "constantValue": [
+            1.0,
+            1.0
+          ],
+          "dynamics": {
+            "{a7084719}": [
+              {
+                "{40c351da}": [
+                  0.0,
+                  1.0
+                ],
+                "{e44b7382}": [
+                  -1.0,
+                  1.0
+                ],
+                "__type": "{53a6c97e}"
+              },
+              {
+                "{40c351da}": [
+                  0.0,
+                  1.0
+                ],
+                "{e44b7382}": [
+                  -1.0,
+                  1.0
+                ],
+                "__type": "{53a6c97e}"
+              }
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0,
+                1.0
+              ]
+            ],
+            "__type": "VfxAnimatedVector2fVariableData"
+          },
+          "__type": "ValueVector2"
+        },
+        "__type": "VfxTextureMultDefinitionData"
+      },
+      "__type": "VfxEmitterDefinitionData"
     }
   ],
   "textures": [

@@ -20,7 +20,9 @@
     "Beam_Post_Prettiness",
     "Beam_Post_Prettiness1",
     "Beam_Post_Prettiness2",
-    "Beam_DARK_FLASH1"
+    "Beam_DARK_FLASH1",
+    "END_Beam_1",
+    "END_Beam_Core"
   ],
   "emitters": [
     {
@@ -387,7 +389,7 @@
       "name": "END_Beam_1",
       "disabled": false,
       "primitive": "{4beb81fd}",
-      "implemented": false,
+      "implemented": true,
       "blend": 4,
       "pass": 500,
       "delay": 0,
@@ -397,7 +399,7 @@
       "name": "END_Beam_Core",
       "disabled": false,
       "primitive": "{4beb81fd}",
-      "implemented": false,
+      "implemented": true,
       "blend": 4,
       "pass": 500,
       "delay": 0,

@@ -52,9 +52,14 @@
   },
   "completedPrerequisite": "Constant centered base/multiplier UV rotation in LuxBeams; source beam transpose conjugates the angle sign.",
   "remaining": [
-    "Interpret and preserve isUniformScale in animated quad dimensions.",
-    "Independent multiplier birth offsets per particle and integrated multiplier scroll.",
-    "Enable source layers and verify charge playback, cancellation, geometry and material composition."
+    "Native attachment height and complete visual composition comparison.",
+    "Native random sequence and update cadence calibration."
   ],
-  "status": "Not yet rendered; total active emitter coverage remains eighteen."
+  "status": "END_Beam_1 and END_Beam_Core are selected and rendered; total active coverage is twenty.",
+  "scaleInterpretation": "Multiply birthScale by animated scale, then broadcast the resulting X size to all axes.",
+  "reference": {
+    "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts",
+    "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da"
+  },
+  "validation": "11 browser checks, 724 unit tests, production smoke; charge screenshot reviewed and later-frame phase stability verified."
 }

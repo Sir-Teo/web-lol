@@ -14,6 +14,9 @@ interface Curve {
   readonly values: readonly (readonly number[])[];
 }
 interface Layer {
+  readonly uniformScale: boolean;
+  readonly multBirth: Parameters<typeof luxBeamBirthOffset>[0];
+  readonly multScrollCurve: { readonly dynamics?: Curve };
   readonly uvRotation: number;
   readonly uvRotationMult: number;
   readonly uvScale: readonly number[];
@@ -147,6 +150,12 @@ export class LuxBeams {
           THREE.DynamicDrawUsage
         )
       );
+      geometry.setAttribute(
+        'particleMultOffset',
+        new THREE.BufferAttribute(new Float32Array(SEGMENTS * 12 * layer.count), 2).setUsage(
+          THREE.DynamicDrawUsage
+        )
+      );
       const material = new THREE.ShaderMaterial({
         transparent: true,
         depthWrite: false,
@@ -203,11 +212,11 @@ export class LuxBeams {
           clampMult: { value: layer.multAddress === 2 },
         },
         vertexShader:
-          'varying vec2 beamUv; void main(){ beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+          'attribute vec2 particleMultOffset; varying vec2 particleOffset; varying vec2 beamUv; void main(){ particleOffset=particleMultOffset; beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
         // Source beam transforms act on (along, across), then transpose to (u, v).
-        fragmentShader: `uniform float baseRotation; uniform float multRotation; uniform bool quadUv; uniform vec2 baseScale; uniform vec2 multScale; uniform vec4 erosionMixer; uniform sampler2D erosionMap; uniform bool erosionEnabled; uniform float erosionDrive; uniform vec2 erosionRates; uniform float erosionSlice; uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
+        fragmentShader: `uniform float baseRotation; uniform float multRotation; uniform bool quadUv; uniform vec2 baseScale; uniform vec2 multScale; uniform vec4 erosionMixer; uniform sampler2D erosionMap; uniform bool erosionEnabled; uniform float erosionDrive; uniform vec2 erosionRates; uniform float erosionSlice; uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv; varying vec2 particleOffset;
           vec2 turnUv(vec2 uv,vec2 scale,float angle){vec2 p=(uv-0.5)*scale;float c=cos(angle),s=sin(angle);return vec2(c*p.x-s*p.y,s*p.x+c*p.y)+0.5;}
-          void main(){ vec2 b=turnUv(beamUv,baseScale,baseRotation)+(quadUv?offset:offset.yx); vec2 m=turnUv(beamUv,multScale,multRotation)+(quadUv?multOffset:multOffset.yx); m=clampMult ? clamp(m,vec2(0.001),vec2(0.999)) : fract(m); gl_FragColor=texture2D(base,fract(b)*baseCell)*texture2D(mult,m*multCell)*tint;
+          void main(){ vec2 b=turnUv(beamUv,baseScale,baseRotation)+(quadUv?offset:offset.yx); vec2 m=turnUv(beamUv,multScale,multRotation)+(quadUv?multOffset:multOffset.yx)+particleOffset; m=clampMult ? clamp(m,vec2(0.001),vec2(0.999)) : fract(m); gl_FragColor=texture2D(base,fract(b)*baseCell)*texture2D(mult,m*multCell)*tint;
           if(erosionEnabled){
             vec2 erodeUv=1.0-abs(mod(b*baseCell,2.0)-1.0);
             float value=clamp(dot(texture2D(erosionMap,erodeUv),erosionMixer),0.0,1.0);
@@ -217,6 +226,7 @@ export class LuxBeams {
           }
           }`,
       });
+      Object.assign(material.defaultAttributeValues, { particleMultOffset: [0, 0] });
       const mesh = new THREE.Mesh(geometry, material);
       mesh.name = layer.name;
       mesh.renderOrder = layer.pass;
@@ -294,9 +304,16 @@ export class LuxBeams {
           birthOffset[0] + layer.scroll[0] * age + scroll[0],
           birthOffset[1] + layer.scroll[1] * age + scroll[1]
         );
+        const multScroll = layer.multScrollCurve.dynamics
+          ? integratedCurve(layer.multScrollCurve.dynamics, normalized, layer.life)
+          : [0, 0];
         mesh.material.uniforms.multOffset.value.set(
-          layer.multOffset[0] + layer.multScroll[0] * age,
-          layer.multOffset[1] + layer.multScroll[1] * age
+          (layer.multBirth.probabilities ? 0 : layer.multOffset[0]) +
+            layer.multScroll[0] * age +
+            multScroll[0],
+          (layer.multBirth.probabilities ? 0 : layer.multOffset[1]) +
+            layer.multScroll[1] * age +
+            multScroll[1]
         );
         if (layer.quad) {
           // Selected arbitrary quad: source XY rotated 90 degrees about X,
@@ -309,27 +326,45 @@ export class LuxBeams {
           };
           const positions = mesh.geometry.getAttribute('position') as THREE.BufferAttribute;
           const uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
+          const particleOffsets = mesh.geometry.getAttribute(
+            'particleMultOffset'
+          ) as THREE.BufferAttribute;
+          const relative = sampleBeamCurve(layer.scale, normalized);
+          const halfX = q.halfSize[0] * relative[0],
+            halfY = layer.uniformScale ? halfX : q.halfSize[1] * relative[1];
           let vertex = 0;
-          for (const [x, y] of [
-            [-1, -1],
-            [1, -1],
-            [1, 1],
-            [-1, -1],
-            [1, 1],
-            [-1, 1],
-          ]) {
-            const across = x * q.halfSize[0],
-              forward = y * q.halfSize[1];
-            positions.setXYZ(
-              vertex,
-              (center.x - (dy / length) * across + (dx / length) * forward) * SCALE,
-              this.ground(beam.origin) + 0.18,
-              (center.y + (dx / length) * across + (dy / length) * forward) * SCALE
+          for (let particle = 0; particle < layer.count; particle++) {
+            const chance = luxHoopChance(
+              beam.sourceId ^
+                Math.imul(castStart, 0x9e3779b9) ^
+                Math.imul(layer.emitterIndex, 0x85ebca6b),
+              particle + 1
             );
-            uv.setXY(vertex++, (y + 1) / 2, (1 - x) / 2);
+            const offset = layer.multBirth.probabilities
+              ? luxBeamBirthOffset(layer.multBirth, chance)
+              : [0, 0];
+            for (const [x, y] of [
+              [-1, -1],
+              [1, -1],
+              [1, 1],
+              [-1, -1],
+              [1, 1],
+              [-1, 1],
+            ]) {
+              const across = x * halfX,
+                forward = y * halfY;
+              positions.setXYZ(
+                vertex,
+                (center.x - (dy / length) * across + (dx / length) * forward) * SCALE,
+                this.ground(beam.origin) + 0.18,
+                (center.y + (dx / length) * across + (dy / length) * forward) * SCALE
+              );
+              particleOffsets.setXY(vertex, offset[0], offset[1]);
+              uv.setXY(vertex++, (y + 1) / 2, (1 - x) / 2);
+            }
           }
-          positions.needsUpdate = uv.needsUpdate = true;
-          repeatGeometry(mesh.geometry, vertex, layer.count);
+          positions.needsUpdate = uv.needsUpdate = particleOffsets.needsUpdate = true;
+          mesh.geometry.setDrawRange(0, vertex);
           mesh.visible = beam.team === 'blue' || world.pointVisible(center);
           group.visible ||= mesh.visible;
           continue;

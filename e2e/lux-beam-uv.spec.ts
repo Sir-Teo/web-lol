@@ -79,8 +79,17 @@ test('Final Spark transposes both texture translation axes after beam placement'
     const profile = LUX_BEAM_LAYERS.find((p) => p.name === result.name)!;
     const [across, along] = profile.quad ? [first, second] : [second, first];
     const divisions = result.layer === 'base' ? profile.texDiv : profile.texDivMult;
-    const x = Math.floor(((0.25 + across) * 2) / Math.max(1, Math.round(divisions[0])));
-    const y = Math.floor(((0.25 + along) * 2) / Math.max(1, Math.round(divisions[1])));
+    const authoredScale = result.layer === 'base' ? profile.uvScale : profile.uvScaleMult;
+    const scale = profile.quad ? authoredScale : [...authoredScale].reverse();
+    const angle =
+      (((result.layer === 'base' ? profile.uvRotation : profile.uvRotationMult) * Math.PI) / 180) *
+      (profile.quad ? 1 : -1);
+    const c = Math.cos(angle),
+      s = Math.sin(angle);
+    const u = -0.25 * scale[0] * c + 0.25 * scale[1] * s + 0.5 + across;
+    const v = -0.25 * scale[0] * s - 0.25 * scale[1] * c + 0.5 + along;
+    const x = Math.floor(((u - Math.floor(u)) * 2) / Math.max(1, Math.round(divisions[0])));
+    const y = Math.floor(((v - Math.floor(v)) * 2) / Math.max(1, Math.round(divisions[1])));
     const expected = [
       [255, 0, 0, 255],
       [0, 255, 0, 255],
