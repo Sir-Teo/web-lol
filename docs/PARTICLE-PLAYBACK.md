@@ -167,3 +167,16 @@ Validation: 661 tests pass, including source slot/spell consistency and selectio
 Open `/tools/qa/lux-attack-poses.html` on the development server for side-by-side source clips with a phase scrubber, play/pause and a current-release shortcut. Gold paths show the extracted hand trajectories; cyan markers show the live skeleton's right hand. The status shows cycle time, clip time and measured positional error. At the current level-one release, 14/90 of a cycle corresponds to 0.233 seconds of simulation time and approximately 0.151 seconds of clip time. These are the current adapter's values, explicitly labeled as such rather than native measurements.
 
 The inspector browser test checks seeking both endpoints and intermediate poses, playback, pause, path visibility, the release shortcut and absence of page errors. Its 1440×900 capture was visually reviewed and the camera tightened for readable silhouettes and hand markers. The inspector module also passes a direct TypeScript check. Both new browser cases pass. This turn adds development inspection and regression coverage; production gameplay and assets are unchanged.
+
+## Lux flight depth flags
+
+The preserved basic-attack record distinguishes depth policy by emitter: `crescentwhite` and `Trail` omit `miscRenderFlags` and use its zero default; `hoop` explicitly stores `1` in field hash `6563bee8`. The pinned LeagueToolkit `enums.ts`/`blend.ts` reconstruction identifies mask `0x1` as disabling depth testing. Its revision and verified file hashes are retained in `docs/reference/lux-flight-depth.json`, together with the definition and binary hashes. This is an external interpretation of the source field, not a locally captured native draw-state trace.
+
+`export-lux-flight-depth.py` exports these three settings to `src/content/lux-flight-depth.json`. All three gameplay material factories read their own emitter flag. This corrects the hoop factory's forced depth test while preserving the crescent and ribbon's source-derived depth testing. Depth writes remain disabled for all three; gameplay fog filtering remains independent.
+
+A GPU browser check uses each real material factory on a controlled probe behind opaque geometry. The hoop remains visible; the crescent and ribbon are occluded. Reversing each material's depth setting reverses its pixel result, demonstrating that the test exercises depth behavior. The existing hoop playback and ribbon color/blending checks also pass. All 718 unit tests pass. Native draw ordering and complete material-state parity remain unverified.
+
+```sh
+python3 tools/assets/export-lux-flight-depth.py
+npx playwright test e2e/lux-flight-depth.spec.ts e2e/lux-hoop-playback.spec.ts e2e/lux-trail-material.spec.ts
+```

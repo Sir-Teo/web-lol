@@ -1,0 +1,43 @@
+{
+  "sourceDefinitionSha256": "f9349585f3640e61219fcae8877d353b4416acd9164654b040c3a8696327dcc0",
+  "sourceBinSha256": "ca21a60661167c36f6416bdb32f7b93badabab8874e0a7b46e7311579fc1e152",
+  "interpretation": {
+    "repository": "LeagueToolkit/ltk-manager",
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "files": [
+      {
+        "path": "src/modules/workshop/bin/vfx/enums.ts",
+        "sha256": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0",
+        "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/enums.ts"
+      },
+      {
+        "path": "src/modules/workshop/bin/vfx/blend.ts",
+        "sha256": "d01381d75d574c7c31c8ac2f09d44a746a9aed6523db0af90fa507afe3dc72d9",
+        "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/blend.ts"
+      }
+    ]
+  },
+  "disableDepthTestMask": 1,
+  "emitters": [
+    {
+      "name": "crescentwhite",
+      "miscRenderFlags": 0,
+      "depthTest": true
+    },
+    {
+      "name": "Trail",
+      "miscRenderFlags": 0,
+      "depthTest": true
+    },
+    {
+      "name": "hoop",
+      "miscRenderFlags": 1,
+      "depthTest": false
+    }
+  ],
+  "limitations": [
+    "Absent source miscRenderFlags uses the zero default.",
+    "The bit interpretation is from an external reconstruction, not a local native-client capture.",
+    "This does not establish native draw ordering or complete material state."
+  ]
+}

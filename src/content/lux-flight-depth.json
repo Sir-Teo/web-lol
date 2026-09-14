@@ -1,0 +1,11 @@
+{
+  "crescentwhite": {
+    "miscRenderFlags": 0
+  },
+  "Trail": {
+    "miscRenderFlags": 0
+  },
+  "hoop": {
+    "miscRenderFlags": 1
+  }
+}

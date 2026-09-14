@@ -1,3 +1,4 @@
+import depthProfiles from '../content/lux-flight-depth.json';
 import * as THREE from 'three';
 import { luxHoopParticles, type LuxHoopParticle } from './lux-hoop-particles';
 import { LUX_BASIC_HOOP_APPEARANCE as appearance } from '../content/lux-basic-lookups';
@@ -22,7 +23,7 @@ export class LuxHoopCloud {
     material.blending = THREE.CustomBlending;
     material.blendEquation = THREE.AddEquation;
     material.blendSrc = material.blendDst = THREE.OneFactor;
-    material.depthTest = true;
+    material.depthTest = (depthProfiles.hoop.miscRenderFlags & 1) === 0;
     this.mesh = new THREE.InstancedMesh(this.geometry, material, 128);
     this.mesh.name = 'Lux basic-attack hoop emitter';
     this.mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);

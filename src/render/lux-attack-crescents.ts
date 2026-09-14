@@ -1,3 +1,4 @@
+import depthProfiles from '../content/lux-flight-depth.json';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { LUX_BASIC_CRESCENT as crescent } from '../content/lux-basic-crescent';
@@ -48,7 +49,7 @@ export class LuxCrescentMesh {
     const material = createParticleColorProductMaterial(source, ramp, 'vertex');
     material.name = 'Lux crescent source ADD reconstruction';
     material.transparent = true;
-    material.depthTest = true;
+    material.depthTest = (depthProfiles.crescentwhite.miscRenderFlags & 1) === 0;
     material.blending = THREE.CustomBlending;
     material.blendEquation = THREE.AddEquation;
     material.blendSrc = material.blendDst = THREE.OneFactor;

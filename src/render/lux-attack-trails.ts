@@ -1,3 +1,4 @@
+import depthProfiles from '../content/lux-flight-depth.json';
 import * as THREE from 'three';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
@@ -28,7 +29,7 @@ export function createLuxTrailMaterial(base: THREE.Texture, mult: THREE.Texture)
   const material = createParticleColorProductMaterial(base, mult, 'vertex', undefined, true);
   material.name = 'Lux Trail source-alpha additive reconstruction';
   material.transparent = true;
-  material.depthTest = true;
+  material.depthTest = (depthProfiles.Trail.miscRenderFlags & 1) === 0;
   material.blending = THREE.CustomBlending;
   material.blendEquation = THREE.AddEquation;
   material.blendSrc = THREE.SrcAlphaFactor;
