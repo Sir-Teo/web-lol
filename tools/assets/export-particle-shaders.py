@@ -94,7 +94,9 @@ for path in TOCS:
     requested = [[], ['DISABLE_FOW'], ['MULT_PASS']]
     if stage == 1:
         requested += [['PALETTIZE_TEXTURES'], ['PALETTIZE_TEXTURES', 'DISABLE_FOW'],
-                      ['PALETTIZE_TEXTURES', 'MULT_PASS']]
+                      ['PALETTIZE_TEXTURES', 'MULT_PASS'],
+                      ['ALPHA_EROSION'], ['ALPHA_EROSION', 'DISABLE_FOW'],
+                      ['ALPHA_EROSION', 'MULT_PASS']]
     for names in requested:
         selected = sorted((k, v) for k, v in defines if k in names)
         assert len(selected) == len(names)

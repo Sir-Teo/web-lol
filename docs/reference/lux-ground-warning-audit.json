@@ -1,0 +1,50 @@
+{
+  "sourceBinSha256": "c2087e2b9100cc2d9f75151775679983953e95c8b389d6e111fb0eb5b72cd3a9",
+  "layers": [
+    {
+      "name": "warning_beam_3",
+      "groundField": "{27d40903}",
+      "isGroundLayer": true,
+      "pass": 5,
+      "miscRenderFlags": 1,
+      "particleLifetime": 1.0
+    },
+    {
+      "name": "warning_beam_4",
+      "groundField": "{27d40903}",
+      "isGroundLayer": true,
+      "pass": 0,
+      "miscRenderFlags": 1,
+      "particleLifetime": 1.0
+    }
+  ],
+  "externalReference": {
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "path": "docs/plans/vfx-particle-renderer.md",
+    "sha256": "0dec1227d324e927ca66c0e22b850fd8e8bc803285874e605bc2db468455d523",
+    "findings": [
+      "Ground emitters use a separate display list ordered before characters and default particles.",
+      "The reference viewer explicitly chooses vertical projection; its notes do not establish native ground_layer technique behavior."
+    ]
+  },
+  "localInspection": {
+    "particleShaderTables": "particle-shaders.json",
+    "result": "The four inspected quad/mesh tables expose no ground-projection define. This does not rule out a separate native pass or technique.",
+    "shaderRegistryFiles": [
+      {
+        "path": ".cache/lux-shaders/data/shaders/shaders.bin",
+        "sha256": "d399e964f18bcd84e2f8d15f064f0cfc16e7c95852df1f3a63b7c2a519a5c8f1"
+      },
+      {
+        "path": ".cache/lux-shaders/assets/shaders/shareddata.bin",
+        "sha256": "52fc8bc2e4deb4ca816af6f48da9cc351b48bd5ec061bd09f5a072d7468faed6"
+      }
+    ],
+    "registrySearch": "Decoded registry string search found no ground_layer or particlesystem technique identifier; hashed fields and other engine data remain unresolved."
+  },
+  "nextEvidenceNeeded": [
+    "Native ground-layer pass camera/projection and render-target composition.",
+    "Actual charge capture across camera angle and terrain slope to distinguish vertical projection from a top-down pass."
+  ],
+  "status": "Both ground warnings remain unimplemented; ordinary camera-facing geometry is not an equivalent substitute."
+}

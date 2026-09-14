@@ -153,6 +153,47 @@
       "output": ".cache/particle-shaders/mesh_ps.ps-metal-783.metallib"
     },
     {
+      "toc": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1"
+      },
+      "definesHash": "c25801ec8c38b5a1",
+      "shaderId": 774,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+      "index": 74,
+      "bytes": 5838,
+      "sha256": "eb342c18d27d93e7848585088bb4c20e7e6e5fdcb178734ea18795595e40e792",
+      "output": ".cache/particle-shaders/mesh_ps.ps-metal-774.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1",
+        "DISABLE_FOW": "1"
+      },
+      "definesHash": "a9b16923755c4767",
+      "shaderId": 29,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "index": 29,
+      "bytes": 4174,
+      "sha256": "78a539ceef0955eae79358d720bb9d2a0f831d12308fb01cbdc6fcb5afb42cd6",
+      "output": ".cache/particle-shaders/mesh_ps.ps-metal-29.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1",
+        "MULT_PASS": "1"
+      },
+      "definesHash": "adf862b0cbda5074",
+      "shaderId": 799,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+      "index": 99,
+      "bytes": 6030,
+      "sha256": "a3017a5215f97567648f90402adb29616292060352a4a552d1317dc9f4628a49",
+      "output": ".cache/particle-shaders/mesh_ps.ps-metal-799.metallib"
+    },
+    {
       "toc": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
       "defines": {},
       "definesHash": "ef46db3751d8e999",
@@ -266,6 +307,47 @@
       "bytes": 4302,
       "sha256": "f3c78440d61d267e1fbc6888cd97091b0a8ecd88fe9a4dc23a560727c4df55a0",
       "output": ".cache/particle-shaders/quad_ps.ps-metal-33.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1"
+      },
+      "definesHash": "c25801ec8c38b5a1",
+      "shaderId": 26,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 26,
+      "bytes": 4222,
+      "sha256": "f71360c0eb75857382e406ad82302bf4bc4ab6d32b609ebd7053f5bdada3c339",
+      "output": ".cache/particle-shaders/quad_ps.ps-metal-26.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1",
+        "DISABLE_FOW": "1"
+      },
+      "definesHash": "a9b16923755c4767",
+      "shaderId": 13,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 13,
+      "bytes": 4046,
+      "sha256": "03ebef79000ab275501330b25ffb785f7c9401716f70f460a5b0506a86b991d6",
+      "output": ".cache/particle-shaders/quad_ps.ps-metal-13.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1",
+        "MULT_PASS": "1"
+      },
+      "definesHash": "adf862b0cbda5074",
+      "shaderId": 39,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 39,
+      "bytes": 4334,
+      "sha256": "cca131ea16c6805913a87c3b79b2d6f8cf40b9a9cb1ca760b22688dafa67da3c",
+      "output": ".cache/particle-shaders/quad_ps.ps-metal-39.metallib"
     },
     {
       "toc": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
