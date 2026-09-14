@@ -309,7 +309,13 @@ export class World {
       }
     }
     if (kind === 'super') u.name = 'Super minion';
-    if (structure) u.structureKnowledge = { blue: false, red: false };
+    if (structure) {
+      u.structureKnowledge = { blue: false, red: false };
+      u.structureIdle = {
+        startTick: this.tick,
+        observedStartTicks: { blue: this.tick, red: this.tick },
+      };
+    }
     if (champion)
       this.championRecords.set(
         u.id,
@@ -537,9 +543,12 @@ export class World {
           }
       }
       if (!unit.structureKnowledge) continue;
-      for (const team of ['blue', 'red'] as const)
-        if (unit.structureKnowledge[team] !== !this.alive(unit) && this.visible(unit, team))
-          unit.structureKnowledge[team] = !this.alive(unit);
+      for (const team of ['blue', 'red'] as const) {
+        if (!this.visible(unit, team)) continue;
+        unit.structureKnowledge[team] = !this.alive(unit);
+        if (unit.structureIdle && this.alive(unit))
+          unit.structureIdle.observedStartTicks[team] = unit.structureIdle.startTick;
+      }
     }
     for (const state of this.activeChampionStates()) {
       if (state.recallEnd === null || this.tick < state.recallEnd) continue;
@@ -664,6 +673,12 @@ export class World {
   knownStructureDestroyed(u: Unit, team: Team = 'blue'): boolean | null {
     if (!u.structureKnowledge) return null;
     return this.visible(u, team) ? !this.alive(u) : u.structureKnowledge[team];
+  }
+  knownStructureIdleStartTick(u: Unit, team: Team = 'blue'): number | null {
+    if (!u.structureIdle) return null;
+    return this.visible(u, team)
+      ? u.structureIdle.startTick
+      : u.structureIdle.observedStartTicks[team];
   }
   visionSources(
     team: Team = 'blue',
@@ -2671,6 +2686,7 @@ export class World {
     u.hp = u.maxHp * (u.structure?.role === 'nexus-turret' ? 0.4 : 1);
     u.mana = u.maxMana;
     u.deadAt = null;
+    if (u.structureIdle) u.structureIdle.startTick = this.tick;
     u.respawnTick = null;
     u.releaseTick = null;
     u.stunUntil = 0;

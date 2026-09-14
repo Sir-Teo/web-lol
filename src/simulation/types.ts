@@ -37,6 +37,8 @@ export interface Unit extends Vec2 {
   structure?: StructureState;
   /** Public initial placement, then last known intact/destroyed state per team. */
   structureKnowledge?: Record<Team, boolean>;
+  /** Actual idle entry and each team's observed entry; regrowth can remain hidden. */
+  structureIdle?: { startTick: number; observedStartTicks: Record<Team, number> };
   radius: number;
   hp: number;
   maxHp: number;

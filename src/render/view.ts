@@ -106,7 +106,8 @@ export class GameView {
   private lastFogTick = -100;
   private fogSampler?: FogSampler;
   private bars: HTMLDivElement;
-  private previousElapsed = 0;
+  /** Last presentation timestamp, available to development pose inspectors. */
+  previousElapsed = 0;
   private terminalWorld?: World;
   private terminalAnimationStart = 0;
 
@@ -437,7 +438,6 @@ export class GameView {
     this.center.y += dy * dt * 1500 * this.zoom;
   }
   render(world: World, alpha: number, elapsed: number): void {
-    const animationDelta = Math.max(0, Math.min(0.1, elapsed - this.previousElapsed));
     if (!world.winner) this.terminalWorld = undefined;
     else if (this.terminalWorld !== world) {
       this.terminalWorld = world;
@@ -541,7 +541,17 @@ export class GameView {
             : Math.min(age, length);
           action.paused = true;
           model.mixer.update(0);
-        } else if (!destroyed) model.mixer.update(animationDelta);
+        } else if (!destroyed) {
+          const startTick = world.knownStructureIdleStartTick(u)!;
+          const age = Math.max(0, (world.tick - 1 + alpha - startTick) / 60) + terminalAge;
+          const action = model.actions.idle1,
+            duration = action.getClip().duration;
+          action.setLoop(THREE.LoopRepeat, Infinity);
+          action.clampWhenFinished = false;
+          action.time = duration > 0 ? age % duration : 0;
+          action.paused = true;
+          model.mixer.update(0);
+        }
       }
       if (!isStructureKind(u.kind) && model.mixer && model.actions && model.clipDurations) {
         const pose = mobilePose(

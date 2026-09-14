@@ -63,3 +63,14 @@ Animated structures now seek their source destruction clip from elapsed time sin
 The renderer retains the known destruction clock while the destroyed representation remains active. Hidden inhibitor regrowth therefore cannot reset the visible rubble animation by clearing the live unit's death tick. An observed regrowth returns the model to its living state. For a fresh view of remembered rubble whose live unit has already regrown unseen, the original death timestamp is unavailable in the knowledge snapshot: the renderer initializes a completed destruction and starts the destroyed-idle loop. That remembered loop phase is not a save guarantee.
 
 The browser scenario verifies both teams' inhibitor skeletons at a late initial render and on fresh restoration, with pose components matching within 1e-7. It also checks the remembered enemy clock and expected destroyed-idle loop phase across controlled hidden live regrowth. Existing base destruction, terminal results, fog visibility, and regrowth scenarios remain applicable. Exact source particle events and respawn transition sequencing remain unfinished.
+
+
+## Saved intact animation phase
+
+Schema 60 adds `structureIdle`: the actual idle-entry tick plus the last observed entry tick for each team. Initial placement establishes the entry; an inhibitor or nexus turret returning from destruction starts a new idle segment. Each team's observed tick updates only while the intact structure is visible. The existing public destruction knowledge remains unchanged. A hidden regrowth therefore cannot disclose its new idle phase under fog.
+
+The renderer seeks the source `idle1` clip from the known entry tick and display interpolation, modulo its actual loaded duration. Missing render frames, repeated paused draws and restoration no longer advance or restart intact structure animation. Terminal presentation retains its elapsed-time extension after the match stops. Destruction/ruined-state animation keeps its existing separate path; native regrowth event sequencing is still uncalibrated.
+
+The decoder requires the clock on the three structure kinds, checks actual entry against match/death chronology, and rejects observations newer than the actual entry. Simulation tests cover both teams' hidden inhibitor regrowth, saved observation state, sight acquisition/loss and malformed clocks. All 711 unit tests pass.
+
+A browser check covers both teams' turret, inhibitor and nexus rigs on the full Rift, verifying three interpolation phases, exact paused bone matrices and real browser save/reload. Six existing browser regressions cover source placement, victory/defeat, destruction phase and hidden structure state; all seven browser checks and the production subpath smoke check pass. This is temporal groundwork for historical turret hit-bone attachment; structure impacts still use the documented fallback until the full pose path is implemented.

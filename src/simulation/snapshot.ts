@@ -31,7 +31,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 59;
+export const SNAPSHOT_VERSION = 60;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -194,6 +194,12 @@ const unit: z.ZodType<Unit> = z
     respawnTick: deadline.nullable(),
     structureTransform: z.array(z.number()).length(16).optional(),
     structureKnowledge: z.strictObject({ blue: z.boolean(), red: z.boolean() }).optional(),
+    structureIdle: z
+      .strictObject({
+        startTick: tick,
+        observedStartTicks: z.strictObject({ blue: tick, red: tick }),
+      })
+      .optional(),
     structure: z
       .strictObject({
         role: z.enum([
@@ -593,6 +599,16 @@ export function decodeSnapshot(text: string) {
     });
   const state = result.data;
   for (const unit of state.units) {
+    const fixed = ['turret', 'inhibitor', 'nexus'].includes(unit.kind);
+    const idle = unit.structureIdle;
+    if (
+      !!idle !== fixed ||
+      (idle &&
+        (idle.startTick > state.tick ||
+          Object.values(idle.observedStartTicks).some((start) => start > idle.startTick) ||
+          (unit.deadAt !== null && idle.startTick > unit.deadAt)))
+    )
+      throw new Error('Saved match contains an invalid structure idle clock.');
     const timeline = unit.animationTimeline,
       durations = mobileClipDurations(unit);
     if (!validAnimationTimeline(timeline, durations, state.tick))

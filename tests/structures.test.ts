@@ -174,6 +174,12 @@ describe('known structure state versus live sight', () => {
       w.tick = inhibitor.respawnTick! - 1;
       w.step();
       expect(w.alive(inhibitor)).toBe(true);
+      expect(inhibitor.structureIdle!.startTick).toBe(w.tick);
+      expect(w.knownStructureIdleStartTick(inhibitor, team)).toBe(w.tick);
+      expect(w.knownStructureIdleStartTick(inhibitor, observer)).toBe(0);
+      const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+      expect(restored.snapshot()).toBe(w.snapshot());
+      expect(restored.knownStructureIdleStartTick(restored.unit(inhibitor.id)!, observer)).toBe(0);
       expect(w.knownStructureDestroyed(inhibitor, team)).toBe(false);
       expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(true);
       expect(
@@ -192,8 +198,36 @@ describe('known structure state versus live sight', () => {
       });
       w.step();
       expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(false);
+      expect(w.knownStructureIdleStartTick(inhibitor, observer)).toBe(
+        inhibitor.structureIdle!.startTick
+      );
       w.step();
       expect(w.visible(inhibitor, observer)).toBe(false);
       expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(false);
+      expect(w.knownStructureIdleStartTick(inhibitor, observer)).toBe(
+        inhibitor.structureIdle!.startTick
+      );
     });
+});
+
+it('rejects missing, misplaced and future structure idle clocks', () => {
+  const w = setup(),
+    tower = find(w, 'red', 'outer-turret', 'mid');
+  expect(w.knownStructureIdleStartTick(w.hero)).toBeNull();
+  for (const mutate of [
+    (s: any) => delete s.units.find((u: any) => u.id === tower.id).structureIdle,
+    (s: any) => (s.units.find((u: any) => u.id === tower.id).structureIdle.startTick = s.tick + 1),
+    (s: any) =>
+      (s.units.find((u: any) => u.id === tower.id).structureIdle.observedStartTicks.blue =
+        s.tick + 1),
+    (s: any) =>
+      (s.units.find((u: any) => u.id === w.hero.id).structureIdle = {
+        startTick: 0,
+        observedStartTicks: { blue: 0, red: 0 },
+      }),
+  ]) {
+    const s = JSON.parse(w.snapshot());
+    mutate(s);
+    expect(() => World.fromSnapshot(JSON.stringify(s), w.battlefield)).toThrow();
+  }
 });
