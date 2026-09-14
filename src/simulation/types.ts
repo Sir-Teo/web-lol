@@ -28,6 +28,7 @@ export interface Unit extends Vec2 {
   facing: number;
   /** Fixed-step run-clip seconds within the current movement segment. */
   runClock: { startTick: number; previous: number; current: number } | null;
+  idleClock: { startTick: number; previous: number; current: number } | null;
   /** Authored source matrix for fixed structures; independent of attack facing. */
   structureTransform?: readonly number[];
   structure?: StructureState;

@@ -23,7 +23,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 55;
+export const SNAPSHOT_VERSION = 56;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -72,6 +72,9 @@ const unit: z.ZodType<Unit> = z
     y: z.number(),
     previous: point,
     facing: z.number(),
+    idleClock: z
+      .strictObject({ startTick: tick, previous: nonnegative, current: nonnegative })
+      .nullable(),
     runClock: z
       .strictObject({ startTick: tick, previous: nonnegative, current: nonnegative })
       .nullable(),
@@ -518,9 +521,9 @@ export function decodeSnapshot(text: string) {
     });
   const state = result.data;
   for (const unit of state.units) {
-    const clock = unit.runClock;
-    if (clock && (clock.startTick > state.tick || clock.previous > clock.current))
-      throw new Error('Saved match contains an invalid run animation clock.');
+    for (const clock of [unit.runClock, unit.idleClock])
+      if (clock && (clock.startTick > state.tick || clock.previous > clock.current))
+        throw new Error('Saved match contains an invalid animation clock.');
   }
   const impactIds = new Set<number>();
   for (const visual of state.luxImpactVisuals) {

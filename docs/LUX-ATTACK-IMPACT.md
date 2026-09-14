@@ -158,3 +158,20 @@ The live renderer now seeks the run action from the saved clock, interpolated by
 Two unit cases verify speed changes, continuation after restoration, stopping/restarting, death and malformed saved clocks. The browser speed test now checks both actual clip phase and per-step playback rate across forty champion/minion speed/slow/haste combinations. A separate browser checkpoint test deliberately skips run renders, repeats rendering at the same tick with large elapsed-time changes, saves/reloads, and verifies exact run time, full weight and chest-bone world matrix. All 696 unit tests, both browser tests and the production subpath smoke check pass.
 
 This removes the frame-dependent steady run clock, but full historical attachment poses still need idle clocks, transition layers, target pose fields in impact history and attachment sampling at those saved states. The first 80 ms of transitions are not yet deterministic from saved state alone.
+
+## Saved mobile-unit idle phase
+
+Schema 56 adds the idle counterpart to the saved run clock. Mobile living units advance idle seconds at fixed ticks only while stationary and outside an active attack cycle, recall or cast clip. An interruption clears the clock, and returning to idle starts a fresh segment. Fixed structures keep their separate animation path. The decoder validates both clock intervals and segment start ticks.
+
+`export-champion-clip-durations.mjs` verifies the existing Ashe/Lux GLB hashes and sizes and extracts every animation's exact final input timestamp. The generated duration table is used to detect cast completion in simulation. A shared cast-clip-name function keeps the renderer and simulation's Q/W/E/R mapping consistent. The browser compares every exported duration with the actual loaded Three animation clips, so the simulation is not relying on a separately rounded timer. Cast-to-idle clock activation is still a fixed-tick policy; sub-tick native graph transitions remain uncalibrated.
+
+The renderer now seeks either steady run or idle from its saved previous/current seconds, modulo the selected source clip duration. Once the existing 80 ms entry fade has elapsed, late rendering/restoration applies full action weight. Outgoing run and idle layers retain their old mixer-driven fade behavior until transition history is implemented.
+
+Two new unit cases cover saved idle continuation, interruption/restart on movement, source-duration cast completion, recall cancellation, death and invalid saved timing. Browser checks verify exact idle time, weight and chest-bone world matrix across skipped renders, repeated same-tick renders and a real checkpoint reload for both champions. All 698 unit tests, four browser tests (idle, run and attack-release regression checks) and the production smoke check pass.
+
+```sh
+node tools/assets/export-champion-clip-durations.mjs
+npx playwright test e2e/idle-clock.spec.ts e2e/run-clock.spec.ts e2e/attack-release-pose.spec.ts
+```
+
+Steady mobile idle/run phase is now recoverable. Remaining historical-pose work includes transition layer weights/times, per-impact target pose capture, structure animation state and applying the isolated bone sampler to the saved impact path. This does not certify native animation-graph parity.

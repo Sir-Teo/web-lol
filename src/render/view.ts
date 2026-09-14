@@ -1,3 +1,4 @@
+import { castAnimationName } from '../content/cast-animation';
 import { LuxImpacts } from './lux-impacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { luxAttackAnimation } from '../content/lux-attack-animation';
@@ -18,7 +19,6 @@ import { LUX } from '../content/lux-progression';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
 import { flurryFlight } from './flurry-flight';
-import { ASHE_CASTS } from '../content/ashe-casting';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from '../simulation/battlefield';
 import { loadRift } from './rift-assets';
@@ -551,15 +551,7 @@ export class GameView {
         const recalling = u.deadAt === null && state !== undefined && state.recallEnd !== null;
         const cast = u.deadAt === null ? state?.castAnimation : null;
         const castAge = cast ? Math.max(0, world.tick - cast.startTick + alpha - 1) / TICK_RATE : 0;
-        const castName = cast
-          ? cast.ability === 'q'
-            ? 'spell1'
-            : u.champion === 'lux' && (cast.ability === 'w' || cast.ability === 'e')
-              ? cast.ability === 'w'
-                ? 'spell2'
-                : 'spell3'
-              : ASHE_CASTS[cast.ability].animation
-          : null;
+        const castName = cast ? castAnimationName(u.champion, cast.ability) : null;
         if (castName && castAge < model.actions[castName].getClip().duration) {
           const name = castName,
             action = model.actions[name];
@@ -635,26 +627,25 @@ export class GameView {
             death.time = Math.min(death.getClip().duration, deathAge);
             death.paused = true;
           }
-          if (clip === 'run' && model.actions.run && u.runClock) {
-            const run = model.actions.run,
-              clock = u.runClock;
-            const seconds = lerp(clock.previous, clock.current, alpha);
-            const duration = run.getClip().duration;
-            run.time = duration > 0 ? seconds % duration : 0;
-            run.timeScale = 1;
-            run.paused = true;
-            // Match the existing 80 ms transition, but a late first draw or
-            // restore must not restart an already completed fade.
+          const clock = clip === 'run' ? u.runClock : clip === 'idle1' ? u.idleClock : null;
+          if (clock && model.actions[clip]) {
+            const action = model.actions[clip],
+              seconds = lerp(clock.previous, clock.current, alpha),
+              duration = action.getClip().duration;
+            action.time = duration > 0 ? seconds % duration : 0;
+            action.timeScale = 1;
+            action.paused = true;
             if ((world.tick - clock.startTick + alpha) / TICK_RATE >= 0.08) {
               for (const other of Object.values(model.actions))
-                if (other !== run && other.isScheduled()) other.stop();
-              run.stopFading();
-              run.setEffectiveWeight(1);
+                if (other !== action && other.isScheduled()) other.stop();
+              action.stopFading();
+              action.setEffectiveWeight(1);
             }
           }
-          // Outgoing run actions retain the existing mixer-driven fade policy
-          // until transition state is moved into the simulation too.
-          if (clip !== 'run' && model.actions.run) model.actions.run.paused = false;
+          // Outgoing locomotion retains the existing transition policy until
+          // complete transition layers are stored in the simulation.
+          for (const name of ['run', 'idle1'])
+            if (clip !== name && model.actions[name]) model.actions[name].paused = false;
           model.mixer.update(animationDelta);
         }
       }

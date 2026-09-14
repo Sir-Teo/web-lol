@@ -1,3 +1,4 @@
+import { castAnimationDuration } from '../content/cast-animation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
 import {
@@ -199,6 +200,7 @@ export class World {
       previous: { x: point.x, y: point.y },
       facing: team === 'blue' ? 2.2 : -0.95,
       runClock: null,
+      idleClock: isStructureKind(kind) ? null : { startTick: this.tick, previous: 0, current: 0 },
       radius: champion ? 35 : turret ? 95 : dummy ? 40 : 27,
       hp,
       maxHp: hp,
@@ -490,7 +492,7 @@ export class World {
       if (thinkNow) this.think(u);
       this.advanceUnit(u);
       if (this.winner) {
-        this.advanceRunClocks();
+        this.advanceAnimationClocks();
         this.advanceImpactVisuals();
         return;
       }
@@ -500,7 +502,7 @@ export class World {
     this.advanceSingularities();
     this.advanceImpactVisuals();
     if (this.winner) {
-      this.advanceRunClocks();
+      this.advanceAnimationClocks();
       return;
     }
     for (const unit of this.units) {
@@ -572,7 +574,7 @@ export class World {
           state.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
         );
     for (const state of this.activeChampionStates()) expireChampionFocus(state, this.tick);
-    this.advanceRunClocks();
+    this.advanceAnimationClocks();
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
       (u) =>
@@ -1914,21 +1916,32 @@ export class World {
       }
     }
   }
-  private advanceRunClocks(): void {
+  private advanceAnimationClocks(): void {
     for (const unit of this.units) {
-      if (
-        isStructureKind(unit.kind) ||
-        !this.alive(unit) ||
-        Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) <= 0.01
-      ) {
-        unit.runClock = null;
-        continue;
-      }
-      const nominal = this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed ?? 325;
-      const clock = unit.runClock ?? { startTick: this.tick, previous: 0, current: 0 };
-      clock.previous = clock.current;
-      clock.current += DT * (nominal > 0 ? this.movementSpeed(unit) / nominal : 1);
-      unit.runClock = clock;
+      const mobileAlive = !isStructureKind(unit.kind) && this.alive(unit);
+      const moving =
+        mobileAlive && Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
+      if (moving) {
+        const nominal = this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed ?? 325;
+        const clock = unit.runClock ?? { startTick: this.tick, previous: 0, current: 0 };
+        clock.previous = clock.current;
+        clock.current += DT * (nominal > 0 ? this.movementSpeed(unit) / nominal : 1);
+        unit.runClock = clock;
+      } else unit.runClock = null;
+      const state = this.championState(unit.id),
+        cast = state?.castAnimation;
+      const casting =
+        !!cast &&
+        !!unit.champion &&
+        (this.tick - cast.startTick) / TICK_RATE <
+          castAnimationDuration(unit.champion, cast.ability);
+      const attacking = unit.attackCycle !== null && this.tick < unit.attackCycle.endTick;
+      if (mobileAlive && !moving && !casting && !attacking && state?.recallEnd == null) {
+        const clock = unit.idleClock ?? { startTick: this.tick, previous: 0, current: 0 };
+        clock.previous = clock.current;
+        clock.current += DT;
+        unit.idleClock = clock;
+      } else unit.idleClock = null;
     }
   }
   private advanceImpactVisuals(): void {
