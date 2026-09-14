@@ -21,8 +21,9 @@ export function garenAttackWindupTicks(attackSpeed: number): number {
 }
 
 /** Evaluate the pinned Q override with the unrounded, currently supported
- * attack speed (base + level growth). Stat ID migration is audited in
- * docs/reference/garen-q-timing-audit.json. Native execution remains uncalibrated.
+ * attack speed (base + level growth). This is a provisional interpretation:
+ * docs/reference/garen-q-timing-audit.json records conflicting stat-formula
+ * evidence. The Q-specific stat basis/units and native timing remain unresolved.
  */
 export function garenQAttackTimingAtLevel(level: number) {
   const attackSpeed =

@@ -52,8 +52,8 @@
     }
   },
   "comparison": "After normalizing the previously unresolved total-time field name and stat ID 3 to 4, the historical override equals the current override exactly.",
-  "interpretation": "Current stat 4 in this Garen override is total attack speed. Do not reuse the historical enum numbers globally.",
-  "runtimePolicy": "Evaluate total time and cast fraction, rounded separately to local 60 Hz ticks. Supported total attack speed currently includes base and level growth. Native override precedence and frame parity remain unverified.",
+  "interpretation": "Unresolved: current stat 4 is consistent with historical attack-speed stat 3, but the historical formula2=total label is contradicted by Garen W bonus-health scaling. This audit does not establish Q attack-speed basis or units.",
+  "runtimePolicy": "Existing provisional adapter evaluates base-plus-level total attack speed and rounds total time/cast fraction separately to 60 Hz ticks. Retained pending stronger Q-specific evidence; neither stat basis nor native override precedence/frame parity is verified.",
   "animation": {
     "source": "assets/characters/garen/skins/base/animations/garen_2013_spell1.anm",
     "headerMagic": "r3d2canm",
@@ -64,5 +64,10 @@
     "reader": "LeagueToolkit/Core/Animation/CompressedAnimationAsset.cs ReadCompressed",
     "readerSha256": "df8b0db3cd7868806ac8eac25a609b6da8a3ff476963d632b056c155ef788519",
     "policy": "Map the cast-frame marker to captured release and finish the clip across the remaining cycle. Native use of the marker and transition rates remain unverified."
+  },
+  "conflictingEvidence": {
+    "sourceUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-10-notes/",
+    "finding": "Riot describes both the old and new Courage shields as bonus-health scaling. The historical W shield uses mStat 11/formula 2 and current W uses mStat 12/formula 2. Therefore the historical decoder label is not sufficient evidence that formula 2 means total for Q.",
+    "followUp": "Establish the Q-specific native stat value, its units, and timing with a version-matched native trace or stronger execution evidence before changing runtime deadlines."
   }
 }
