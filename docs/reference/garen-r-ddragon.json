@@ -1,0 +1,123 @@
+{
+  "sourceUrl": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/Garen.json",
+  "version": "16.18.1",
+  "fullResponseSha256": "17c0ee01c176374d581ac9d1bee250d9d8256ff12a6e86259e223e21f61f2902",
+  "retrievalNote": "Retained from the earlier successful session download. A fresh fetch during R research returned HTTP 403; this is a cached versioned response, not a fresh verification.",
+  "spell": {
+    "id": "GarenR",
+    "name": "Demacian Justice",
+    "description": "Garen calls upon the might of Demacia to attempt to execute an enemy champion.",
+    "tooltip": "Garen calls upon the might of Demacia to slay his enemy, dealing <trueDamage>{{ basedamage }} plus {{ executedamage*100 }}% missing Health true damage</trueDamage>.{{ spellmodifierdescriptionappend }}",
+    "leveltip": {
+      "label": [
+        "Cooldown",
+        "Damage",
+        "Percent Missing Health Damage"
+      ],
+      "effect": [
+        "{{ cooldown }} -> {{ cooldownNL }}",
+        "{{ basedamage }} -> {{ basedamageNL }}",
+        "{{ executedamage*100.000000 }}% -> {{ executedamagenl*100.000000 }}%"
+      ]
+    },
+    "maxrank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cooldownBurn": "120/100/80",
+    "cost": [
+      0,
+      0,
+      0
+    ],
+    "costBurn": "0",
+    "datavalues": {},
+    "effect": [
+      null,
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "effectBurn": [
+      null,
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "vars": [],
+    "costType": "No Cost",
+    "maxammo": "-1",
+    "range": [
+      400,
+      400,
+      400
+    ],
+    "rangeBurn": "400",
+    "image": {
+      "full": "GarenR.png",
+      "sprite": "spell4.png",
+      "group": "spell",
+      "x": 432,
+      "y": 96,
+      "w": 48,
+      "h": 48
+    },
+    "resource": "No Cost"
+  }
+}

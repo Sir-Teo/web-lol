@@ -183,3 +183,15 @@ stats. Snapshot version 72 validates ownership and range without double-applying
 stats on restore. The old completion multiplier is excluded based on Riot's
 25.11 removal. See [GAREN-W.md](GAREN-W.md) for sources and explicit lifecycle
 policies still awaiting native comparison. All 872 simulation tests pass.
+
+## Demacian Justice source preparation
+
+The R exporter pins three ranked damage/cooldown values, the one-second reveal,
+client-reported 400 range and separate timing fields. Current damage is confirmed
+by Riot patch 26.14. The existing cached Data Dragon response is explicitly marked
+as cached after a fresh request returned HTTP 403. The exporter also resolves
+`Spell4` to its base/idle sequence and verifies the source animation hash and
+30 FPS header. Its cast marker differs from the authored cast time; no native
+precedence is asserted. [GAREN-R.md](GAREN-R.md) describes the targeting, reveal,
+cast-state, AI and presentation work that must follow. R remains unavailable.
+The exporter and TypeScript check pass; no runtime behavior changes in this step.
