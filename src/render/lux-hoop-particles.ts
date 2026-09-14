@@ -1,3 +1,4 @@
+import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { luxBasicParticleLife } from '../content/lux-basic-linger';
 import { LUX_BASIC_HOOP_APPEARANCE as appearance } from '../content/lux-basic-lookups';
 import { particleLookupCoordinate } from './particle-lookup';
@@ -73,18 +74,27 @@ export interface LuxHoopParticle {
 export function luxHoopParticles(
   seed: number,
   seconds: number,
-  stopSeconds: number = LUX_HOOP.duration
+  stopSeconds: number = Infinity
 ): LuxHoopParticle[] {
-  if (!Number.isFinite(seconds) || !Number.isFinite(stopSeconds) || seconds < 0) return [];
+  if (
+    !Number.isFinite(seconds) ||
+    (!Number.isFinite(stopSeconds) && stopSeconds !== Infinity) ||
+    seconds < 0
+  )
+    return [];
   const nowTick = seconds * HZ;
-  const lastTick = Math.floor(Math.min(seconds, Math.max(0, stopSeconds), LUX_HOOP.duration) * HZ);
-  const last = Math.floor((lastTick * LUX_HOOP.rate) / HZ);
+  const last = luxEmissionCount(
+    LUX_HOOP.rate,
+    nowTick,
+    LUX_HOOP.duration,
+    Math.max(0, stopSeconds) * HZ
+  );
   const maxLife = appearance.nominalLifetime * LUX_HOOP.lifeFactors[2];
   // One grid step of margin includes every potentially living ordinal.
   const first = Math.max(1, Math.floor((seconds - maxLife - 1 / HZ) * LUX_HOOP.rate));
   const particles: LuxHoopParticle[] = [];
   for (let ordinal = first; ordinal <= last; ordinal++) {
-    const birthTick = Math.ceil((ordinal * HZ) / LUX_HOOP.rate);
+    const birthTick = luxEmissionBirthTick(LUX_HOOP.rate, ordinal);
     const age = (nowTick - birthTick) / HZ;
     const birth = luxHoopBirth(luxHoopChance(seed, ordinal));
     const life = luxBasicParticleLife('hoop', birth.life, seconds >= stopSeconds);

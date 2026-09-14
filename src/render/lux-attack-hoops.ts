@@ -29,7 +29,7 @@ export function luxAttackHoopParticles(effect: LuxAttackVisual, tick: number): L
   const particles = luxHoopParticles(
     effect.id,
     (tick - effect.launchTick) / 60,
-    effect.stopTick === null ? 10 : (effect.stopTick - effect.launchTick) / 60
+    effect.stopTick === null ? Infinity : (effect.stopTick - effect.launchTick) / 60
   );
   return particles.flatMap((particle) => {
     const frame = luxAttackFrame(effect, effect.launchTick + particle.birthTick);

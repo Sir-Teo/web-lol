@@ -17,7 +17,7 @@ function effect(): LuxAttackVisual {
       x: i * 100,
       y: 0,
       facing: Math.PI / 2,
-      distance: i * 100,
+      trailDistance: Math.max(0, i - 1) * 100,
     })),
   };
 }
@@ -54,7 +54,7 @@ it('uses birth-time width and particle-age color/scale without turning the parti
   expect(point.birthTick).toBe(6);
   expect(point.age).toBeCloseTo(0.1);
   expect(point.position).toEqual([600, 50, 0]);
-  expect(point.wakeU).toBe(1.2);
+  expect(point.wakeU).toBe(1);
   expect(point.halfWidth).toBeCloseTo(
     (10 + (40 * (0.1 / 1.05)) / 0.2) * (1 + (0.5 * (0.2 - 0.1)) / 0.9),
     4

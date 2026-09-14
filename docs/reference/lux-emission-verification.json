@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-09-14T06:02:32.061937+00:00",
+  "baseRevision": "4ce6e027d7b5697a94b2d3d86b03cb4e64568640",
+  "scope": "First-update Lux emission, non-emitting stop boundary, and saved per-batch trail odometer",
+  "snapshotVersion": 52,
+  "validation": {
+    "checks": 659,
+    "testFiles": 135,
+    "browserCases": 4,
+    "productionNestedPath": "passed",
+    "rateReference": "independent integer-credit stepper, 600 updates for each of 20/50/200 Hz",
+    "odometerReference": "explicit emitting tick list on long curved flight with prefix retirement",
+    "visualReview": "1440x900 combined and isolated-ribbon previews"
+  },
+  "source": {
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "emitSha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+  },
+  "remaining": [
+    "Native simulation frequency and float accumulation",
+    "Native stop ordering and attachment/height",
+    "Parent orientation default discrepancy and binding clock",
+    "Native RNG and shader/sampler comparison"
+  ],
+  "sha256": {
+    "src/content/lux-emission.ts": "9199e12f2b0c8e012b3c8727f18ec3a708eda8510f98d562110306988c559c91",
+    "src/render/lux-attack-frame.ts": "51116896cdb312b971816ef7e83897cf1ad0ffd1c024b3b59ad5f41af096c784",
+    "src/render/lux-attack-hoops.ts": "8e8ffd2e8b9a6a979b3c84950334db3b699ea4830a1d31e75a098a52bac3ef2d",
+    "src/render/lux-hoop-particles.ts": "815d6e785282c8aeb148bd865218e1348da6e8f946d4a922d2ef2fc876d46f12",
+    "src/render/lux-trail-particles.ts": "977ce3c6d51ffbf2349477c77f47cbfb1632cf16e7a0c8b0edd8879e733fe6f8",
+    "src/render/lux-crescent-particles.ts": "81167a8958d1b9118478e70f9f4796d2272e04f767bb6a772a2ab9e22975288c",
+    "src/simulation/types.ts": "867d5ddd28e5b9bc15f241bd1150908d9ca79bd201a24c90fbfc370812546dee",
+    "src/simulation/world.ts": "48a48bf4d4dec716e5798c342835b52352bae4ec7a05e666a9d92ba026d14bbc",
+    "src/simulation/snapshot.ts": "a6bd05aedc73fe5eb49bc3fe01ee1d5d229e0bd2792cb7193c423215ca95b691",
+    "tests/lux-emission.test.ts": "ccefdc4bc4533252e47b542066cf63449ce6c3ce24357b3e43c7a602f9ab3e05",
+    "tests/lux-attack-history.test.ts": "db823bf6c0e975227ab989c3feb320daf89d5b6ab5ec20f5fadd6cdfbd8b7ce2",
+    "tests/lux-crescent-particles.test.ts": "75e7f7a15c87ddd8f661e4b21daa0355371ce1a7eca1057a67051d22b56319ef",
+    "tests/lux-trail-particles.test.ts": "468edb50eb9a4657537403969a3a59166222aa5e92533aa7661bfcb0781cb449",
+    "tests/lux-attack-hoops.test.ts": "fc155ecd974f2c39a9d967f8eae86eea7978892dd7de5430b26136903b773a50",
+    "tools/qa/lux-attack-playback.ts": "50b958910c1211a03e4cbb6cd3df70cfdaa35f0c9c01c1accb1a92a9c43cd180",
+    "tools/qa/lux-trail-playback.ts": "174952dd216e4493e9e53730a38ea03b8b22d6ed06b77169da47ffd9f877dfc8",
+    "artifacts/lux-emission-check.log": "c51336ce8679bb4f37802d5a50c5c6910183e9525ff59924430ba295f3ce2cca",
+    "artifacts/lux-emission-browser.log": "39657a8775b2d714f465524f8a46caf9f28e261f0cf8061ce0b4ec26fe136fb2",
+    "artifacts/lux-emission-production.log": "1038184542a8ec215787521097696f4f88120342049e0093ce5e96226da299a6",
+    "artifacts/lux-basic-preview.png": "20c94effc39c377f7880fa02cc5d201f94ccc94b7f34b199bafd3dabb4b898eb",
+    "artifacts/lux-trail-preview.png": "062d46e5b382ff5baff17981021eb42c1fce78f6878ca8a1f6712094e9b920d3"
+  }
+}

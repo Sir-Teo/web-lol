@@ -16,7 +16,7 @@ function effect(): LuxAttackVisual {
       x: 100 + i * 20,
       y: 200,
       facing: Math.PI / 2,
-      distance: i * 20,
+      trailDistance: i * 20,
     })),
   };
 }
@@ -31,7 +31,7 @@ describe('Lux hoop birth attachment', () => {
       expect(p.position[1]).toBe(local[i].position[1]);
       expect(p.position[2]).toBeCloseTo(200 - local[i].position[0]);
     });
-    e.frames.push({ tick: 131, x: -900, y: -900, facing: 0, distance: 2000 });
+    e.frames.push({ tick: 131, x: -900, y: -900, facing: 0, trailDistance: 2000 });
     expect(luxAttackHoopParticles(e, 130)).toEqual(world);
   });
   it('replays exactly after JSON restore and retains only pre-stop births', () => {

@@ -1,3 +1,5 @@
+import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
+import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
 import {
   LUX_ATTACK_PATH_FRAMES,
   LUX_ATTACK_VISUAL_TAIL_TICKS,
@@ -20,7 +22,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 51;
+export const SNAPSHOT_VERSION = 52;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -402,7 +404,7 @@ const snapshot = z.strictObject({
               x: z.number(),
               y: z.number(),
               facing: z.number(),
-              distance: nonnegative,
+              trailDistance: nonnegative,
             })
           )
           .min(1)
@@ -507,12 +509,34 @@ export function decodeSnapshot(text: string) {
       visual.frames.some((f, i) => {
         if (f.tick !== firstTick + i) return true;
         const previous = visual.frames[i - 1];
-        const anchor = previous ?? visual.origin;
-        const expected = (previous?.distance ?? 0) + Math.hypot(f.x - anchor.x, f.y - anchor.y);
-        const tolerance = 1e-8 * Math.max(1, expected, f.distance);
-        return previous || f.tick === visual.launchTick
-          ? Math.abs(f.distance - expected) > tolerance
-          : f.distance + tolerance < expected;
+        const relativeTick = f.tick - visual.launchTick;
+        const stop = visual.stopTick === null ? Infinity : visual.stopTick - visual.launchTick;
+        const count = luxEmissionCount(
+          LUX_BASIC_TRAIL.rate,
+          relativeTick,
+          LUX_BASIC_TRAIL.emitterLife,
+          stop
+        );
+        const priorCount = luxEmissionCount(
+          LUX_BASIC_TRAIL.rate,
+          relativeTick - 1,
+          LUX_BASIC_TRAIL.emitterLife,
+          stop
+        );
+        if (count <= 1) return f.trailDistance !== 0;
+        if (!previous) return false; // The retired prefix owns the absolute distance.
+        let expected = previous.trailDistance;
+        if (count > priorCount) {
+          const priorBirth =
+            visual.launchTick + luxEmissionBirthTick(LUX_BASIC_TRAIL.rate, priorCount);
+          const anchor = visual.frames.find((p) => p.tick === priorBirth);
+          if (!anchor) return f.trailDistance < previous.trailDistance;
+          expected += Math.hypot(f.x - anchor.x, f.y - anchor.y);
+        }
+        return (
+          !Number.isFinite(expected) ||
+          Math.abs(f.trailDistance - expected) > 1e-8 * Math.max(1, expected, f.trailDistance)
+        );
       }) ||
       (visual.stopTick === null
         ? !p ||

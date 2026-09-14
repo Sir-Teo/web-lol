@@ -168,7 +168,7 @@ export interface LuxAttackVisual {
   team: Team;
   launchTick: number;
   stopTick: number | null;
-  frames: { tick: number; x: number; y: number; facing: number; distance: number }[];
+  frames: { tick: number; x: number; y: number; facing: number; trailDistance: number }[];
 }
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =

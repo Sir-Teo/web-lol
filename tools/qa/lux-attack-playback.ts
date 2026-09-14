@@ -1,3 +1,5 @@
+import { luxEmissionCount } from '../../src/content/lux-emission';
+import { LUX_BASIC_TRAIL } from '../../src/content/lux-basic-trail';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { loadLuxCrescentAssets, LuxCrescentMesh } from '../../src/render/lux-attack-crescents';
@@ -51,13 +53,34 @@ const effect: LuxAttackVisual = {
   stopTick: 21,
   frames: [],
 };
-let distance = 0;
+let trailDistance = 0;
+let previousBirth: { x: number; y: number } | undefined;
 for (let tick = 0; tick <= 21; tick++) {
   const x = -250 + tick * 20,
-    y = 50 * Math.sin(tick / 8),
-    last = effect.frames.at(-1) ?? effect.origin;
-  distance += Math.hypot(x - last.x, y - last.y);
-  effect.frames.push({ tick, x, y, facing: Math.atan2(20, 6.25 * Math.cos(tick / 8)), distance });
+    y = 50 * Math.sin(tick / 8);
+  const count = luxEmissionCount(
+    LUX_BASIC_TRAIL.rate,
+    tick,
+    LUX_BASIC_TRAIL.emitterLife,
+    effect.stopTick!
+  );
+  const prior = luxEmissionCount(
+    LUX_BASIC_TRAIL.rate,
+    tick - 1,
+    LUX_BASIC_TRAIL.emitterLife,
+    effect.stopTick!
+  );
+  if (count > prior) {
+    if (previousBirth) trailDistance += Math.hypot(x - previousBirth.x, y - previousBirth.y);
+    previousBirth = { x, y };
+  }
+  effect.frames.push({
+    tick,
+    x,
+    y,
+    facing: Math.atan2(20, 6.25 * Math.cos(tick / 8)),
+    trailDistance,
+  });
 }
 const time = document.querySelector<HTMLInputElement>('#time')!,
   play = document.querySelector<HTMLButtonElement>('#play')!;

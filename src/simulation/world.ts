@@ -1,3 +1,5 @@
+import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
+import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
 import {
   LUX_ATTACK_VISUAL_TAIL_TICKS,
   LUX_ATTACK_PATH_FRAMES,
@@ -2110,13 +2112,31 @@ export class World {
       if (visual.stopTick !== null) continue;
       const previous = visual.frames.at(-1);
       const frame = visualFrames.get(visual.id) ?? { ...previous!, tick: this.tick };
-      const anchor = previous ?? visual.origin;
-      visual.frames.push({
-        ...frame,
-        distance: (previous?.distance ?? 0) + Math.hypot(frame.x - anchor.x, frame.y - anchor.y),
-      });
-      if (visual.frames.length > LUX_ATTACK_PATH_FRAMES) visual.frames.shift();
       if (!survivingIds.has(visual.id)) visual.stopTick = this.tick;
+      const relativeTick = this.tick - visual.launchTick;
+      const stop = visual.stopTick === null ? Infinity : relativeTick;
+      const count = luxEmissionCount(
+        LUX_BASIC_TRAIL.rate,
+        relativeTick,
+        LUX_BASIC_TRAIL.emitterLife,
+        stop
+      );
+      const priorCount = luxEmissionCount(
+        LUX_BASIC_TRAIL.rate,
+        relativeTick - 1,
+        LUX_BASIC_TRAIL.emitterLife,
+        stop
+      );
+      let trailDistance = previous?.trailDistance ?? 0;
+      if (count > priorCount && priorCount > 0) {
+        const priorBirth =
+          visual.launchTick + luxEmissionBirthTick(LUX_BASIC_TRAIL.rate, priorCount);
+        const anchor = visual.frames.find((f) => f.tick === priorBirth);
+        if (!anchor) throw new Error('Missing Lux trail emission anchor');
+        trailDistance += Math.hypot(frame.x - anchor.x, frame.y - anchor.y);
+      }
+      visual.frames.push({ ...frame, trailDistance });
+      if (visual.frames.length > LUX_ATTACK_PATH_FRAMES) visual.frames.shift();
     }
   }
   attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {

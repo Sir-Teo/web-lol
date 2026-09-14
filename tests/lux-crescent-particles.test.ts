@@ -16,7 +16,7 @@ function effect(): LuxAttackVisual {
       x: i * 20,
       y: i < 10 ? 0 : (i - 10) * 10,
       facing: i < 10 ? Math.PI / 2 : 1,
-      distance: i * 25,
+      trailDistance: i * 25,
     })),
   };
 }
@@ -45,11 +45,11 @@ it('matches the pinned crescent source values and all reconstruction curves', ()
 it('accumulates per-step binding rather than multiplying net travel by the final weight', () => {
   const e = effect(),
     p = luxCrescentParticles(e, 15).find((p) => p.ordinal === 1)!;
-  let x = 60,
+  let x = 20,
     z = 0,
     y = -50,
-    v = 400 * (3 / 60 / c.emitterLife);
-  for (let tick = 4; tick <= 15; tick++) {
+    v = 400 * (1 / 60 / c.emitterLife);
+  for (let tick = 2; tick <= 15; tick++) {
     const weight = c.bind.values[0] * Math.max(0, 1 - tick / 60 / c.emitterLife);
     x += 20 * weight;
     z += (tick > 10 ? 10 : 0) * weight;
@@ -61,16 +61,16 @@ it('accumulates per-step binding rather than multiplying net travel by the final
   expect(p.position[1]).toBeCloseTo(y, 10);
   expect(p.facing).toBe(Math.PI / 2);
   expect(p.position[0]).not.toBeCloseTo(
-    60 + 240 * c.bind.values[0] * (1 - 15 / 60 / c.emitterLife),
+    20 + 280 * c.bind.values[0] * (1 - 15 / 60 / c.emitterLife),
     5
   );
 });
 it('applies source scale and default lookup modes, including the constant Y axis', () => {
-  const p = luxCrescentParticles(effect(), 3)[0];
-  expect(p.position).toEqual([60, -50, 0]);
+  const p = luxCrescentParticles(effect(), 1)[0];
+  expect(p.position).toEqual([20, -50, 0]);
   expect(p.scale).toEqual([1, 18, 3 * c.scale.values[0][2]]);
   expect(p.lookup).toEqual([c.lookupOffsets[0], 1]);
-  const later = luxCrescentParticles(effect(), 21).find((p) => p.ordinal === 1)!;
+  const later = luxCrescentParticles(effect(), 19).find((p) => p.ordinal === 1)!;
   expect(later.scale[0]).toBeCloseTo(3, 5);
   expect(later.scale[1]).toBeCloseTo(3, 5);
   expect(later.lookup[0]).toBeCloseTo(0.85, 5);
@@ -93,7 +93,7 @@ it('interpolates the final integration interval and survives retained history / 
 it('stops emission on impact or emitter lifetime and retires on source float lifetime', () => {
   const e = effect();
   expect(luxCrescentParticles(e, 19).every((p) => p.birthTick <= 18)).toBe(true);
-  e.stopTick = 6;
+  e.stopTick = 7;
   e.frames = e.frames.slice(0, 7);
   expect(luxCrescentParticles(e, 8)).toHaveLength(2);
   // Authored life is slightly longer than exactly 0.6 seconds.

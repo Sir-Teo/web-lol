@@ -1,3 +1,4 @@
+import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { luxBasicParticleLife } from '../content/lux-basic-linger';
 import { LUX_BASIC_CRESCENT as crescent } from '../content/lux-basic-crescent';
 import type { LuxAttackVisual } from '../simulation/types';
@@ -35,12 +36,10 @@ export function luxCrescentParticles(effect: LuxAttackVisual, tick: number): Lux
   );
   const now = tick - effect.launchTick;
   const stop = effect.stopTick === null ? Infinity : effect.stopTick - effect.launchTick;
-  const last = Math.floor(
-    (Math.floor(Math.min(now, stop, crescent.emitterLife * 60)) * crescent.rate) / 60
-  );
+  const last = luxEmissionCount(crescent.rate, now, crescent.emitterLife, stop);
   const particles: LuxCrescentParticle[] = [];
   for (let ordinal = 1; ordinal <= last; ordinal++) {
-    const birthTick = Math.ceil((ordinal * 60) / crescent.rate),
+    const birthTick = luxEmissionBirthTick(crescent.rate, ordinal),
       ageTicks = now - birthTick;
     if (ageTicks < 0 || ageTicks >= life * 60) continue;
     const birth = luxAttackFrame(effect, effect.launchTick + birthTick);
