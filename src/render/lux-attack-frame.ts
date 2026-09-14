@@ -16,8 +16,9 @@ export function luxAttackFrame(effect: LuxAttackVisual, tick: number) {
       x: a.x + (b.x - a.x) * fraction,
       y: a.y + (b.y - a.y) * fraction,
       facing: a.facing + turn * fraction,
+      distance: a.distance + (b.distance - a.distance) * fraction,
     };
   }
   const last = frames.at(-1)!;
-  return { x: last.x, y: last.y, facing: last.facing };
+  return { x: last.x, y: last.y, facing: last.facing, distance: last.distance };
 }

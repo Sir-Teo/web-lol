@@ -20,7 +20,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 50;
+export const SNAPSHOT_VERSION = 51;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -396,7 +396,15 @@ const snapshot = z.strictObject({
         launchTick: tick,
         stopTick: tick.nullable(),
         frames: z
-          .array(z.strictObject({ tick, x: z.number(), y: z.number(), facing: z.number() }))
+          .array(
+            z.strictObject({
+              tick,
+              x: z.number(),
+              y: z.number(),
+              facing: z.number(),
+              distance: nonnegative,
+            })
+          )
           .min(1)
           .max(LUX_ATTACK_PATH_FRAMES),
       })
@@ -496,7 +504,16 @@ export function decodeSnapshot(text: string) {
       lastTick > state.tick ||
       (visual.stopTick !== null && state.tick >= visual.stopTick + LUX_ATTACK_VISUAL_TAIL_TICKS) ||
       visual.frames.length !== lastTick - firstTick + 1 ||
-      visual.frames.some((f, i) => f.tick !== firstTick + i) ||
+      visual.frames.some((f, i) => {
+        if (f.tick !== firstTick + i) return true;
+        const previous = visual.frames[i - 1];
+        const anchor = previous ?? visual.origin;
+        const expected = (previous?.distance ?? 0) + Math.hypot(f.x - anchor.x, f.y - anchor.y);
+        const tolerance = 1e-8 * Math.max(1, expected, f.distance);
+        return previous || f.tick === visual.launchTick
+          ? Math.abs(f.distance - expected) > tolerance
+          : f.distance + tolerance < expected;
+      }) ||
       (visual.stopTick === null
         ? !p ||
           p.type !== 'attack' ||

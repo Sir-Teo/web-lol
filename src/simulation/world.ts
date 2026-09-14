@@ -2108,8 +2108,13 @@ export class World {
     const survivingIds = new Set(this.projectiles.map((p) => p.id));
     for (const visual of this.luxAttackVisuals) {
       if (visual.stopTick !== null) continue;
-      const frame = visualFrames.get(visual.id) ?? { ...visual.frames.at(-1)!, tick: this.tick };
-      visual.frames.push(frame);
+      const previous = visual.frames.at(-1);
+      const frame = visualFrames.get(visual.id) ?? { ...previous!, tick: this.tick };
+      const anchor = previous ?? visual.origin;
+      visual.frames.push({
+        ...frame,
+        distance: (previous?.distance ?? 0) + Math.hypot(frame.x - anchor.x, frame.y - anchor.y),
+      });
       if (visual.frames.length > LUX_ATTACK_PATH_FRAMES) visual.frames.shift();
       if (!survivingIds.has(visual.id)) visual.stopTick = this.tick;
     }

@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-09-14T05:24:32.743083+00:00",
+  "baseRevision": "5bd0fce461d6322040fc2248f7dbe24949113171",
+  "scope": "Persistent attack odometer and source-driven ribbon point reconstruction; geometry not yet integrated",
+  "snapshotVersion": 51,
+  "validation": {
+    "checks": 641,
+    "testFiles": 131,
+    "browserCases": 6,
+    "productionNestedPath": "passed",
+    "sourceProfile": "matched pinned binary-derived emitter",
+    "wakeStability": "unchanged after retained prefix truncation",
+    "boundaryRepair": "age calculated from tick delta before conversion to seconds"
+  },
+  "remaining": [
+    "Ribbon geometry, cutoff and UV packing",
+    "Material path and native blending comparison",
+    "Native update/birth timing and three-dimensional missile travel"
+  ],
+  "sha256": {
+    "src/content/lux-basic-trail.ts": "c42f0725efa4da35323544c589c454bf2d392168ee507499d383c2d18dcf9faf",
+    "src/render/lux-trail-particles.ts": "88e7ecf135f0ed8a3b22d808b9dea35f6dff943479d34879d824116af144d324",
+    "src/render/lux-attack-frame.ts": "5568ae10100d7e3cbcd3b91be67156ab853f51e17d42132bf94890774c3010b0",
+    "src/simulation/types.ts": "9d52836ffbaeb23c056489566ea99ff825d632d6b7fe5c71bfdae5765c1d3c93",
+    "src/simulation/snapshot.ts": "aa23c40b2aed35804b919cd458cf133fd9a5a54ed7cc88feb007578b4935220f",
+    "src/simulation/world.ts": "a6401099dc576cf6fc12dc84bbe4c421906ef7ad8667900ec4a57ce0057a9645",
+    "tests/lux-trail-particles.test.ts": "d4b3b2b0c47e308fa55727420670bc143c24bddcc42c5f2cc28166dc1108d27a",
+    "tests/lux-attack-history.test.ts": "37bcf5b032928f5bdda0f3c290a7e9facae5faabb5622055251869eb315eff36",
+    "tests/lux-attack-hoops.test.ts": "28490ac821960de2e5262f55f923006e1df1c7029c96bde7e3a4b7c6afb80422",
+    "artifacts/lux-trail-state-check.log": "6922ddd56d0bc1547f803a9541263a2c969cfb60608ad3ea8fdd00ed48b33a1b",
+    "artifacts/lux-trail-state-browser.log": "e474df8a3dfa4ccc9ae62324ffd2d4c18e65c7d1fb3db23218b2fb949f8780d5",
+    "artifacts/lux-trail-state-production.log": "dbd7fa1f6941357102ac32d78a72d9806fedc215cb22418de10328fcc4d1ade5",
+    "artifacts/lux-trail-state-boundary-failure.log": "da894505c731235f326ecb13228bf07cbd1d1ffe2fe7d5d6325da0e3c8e64a85"
+  }
+}

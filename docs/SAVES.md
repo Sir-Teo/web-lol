@@ -1,8 +1,10 @@
 # Local match checkpoints
 
+Version 51 requires cumulative planar travel on every Lux attack history frame. The counter includes the first launch step and clipped contact distance, remains absolute when older frames retire, and freezes when movement stops. Validation checks adjacent distance increments, the launch-origin distance when retained, and a minimum origin-to-point distance for a truncated prefix. Earlier checkpoints remain incompatible under the same-build policy.
+
 Version 50 requires `luxAttackVisuals`: released Lux attacks retain their launch origin, a bounded contiguous homing path, and an explicit stop tick after impact or removal. Active records must match their projectile; stopped records survive for 37 ticks, then retire. Duplicate identities, missing active history, conflicting origins/endpoints, invalid participants, gaps and stale tails are rejected. These records support presentation replay and do not apply damage or replay sound events.
 
-Champion choice is stored in the existing player unit identity. New-match selection initializes Ashe or Lux; restarting preserves the current champion and mode. Ashe practice keeps the existing clear-checkpoint restart, while Lux practice writes a fresh Lux checkpoint before reloading. Schema 50 adds Lux basic-attack presentation histories. The simulation fingerprint also changes, so checkpoints from earlier builds remain incompatible.
+Champion choice is stored in the existing player unit identity. New-match selection initializes Ashe or Lux; restarting preserves the current champion and mode. Ashe practice keeps the existing clear-checkpoint restart, while Lux practice writes a fresh Lux checkpoint before reloading. Schema 51 extends Lux basic-attack presentation histories with cumulative travel. The simulation fingerprint also changes, so checkpoints from earlier builds remain incompatible.
 
 Version 49 previously added the required match mode (`practice` or `lanes`). Lane matches are accepted only on Rift. Starting either mode writes a fresh checkpoint before reloading into the ordinary paused restore flow; a failed write preserves the current match and previous checkpoint. **Restart lane match** creates a new lane roster, while **Restart practice** retains its existing clear-and-start behavior. File previews identify the saved mode. Earlier formats are incompatible.
 

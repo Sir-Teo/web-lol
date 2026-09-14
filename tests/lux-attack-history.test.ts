@@ -109,13 +109,72 @@ it('interpolates saved positions and the shortest facing turn, without fabricati
   const { w } = launch();
   const effect = w.luxAttackVisuals[0];
   effect.frames = [
-    { tick: 10, x: 0, y: 0, facing: 3.1 },
-    { tick: 11, x: 10, y: 20, facing: -3.1 },
+    { tick: 10, x: 0, y: 0, facing: 3.1, distance: 0 },
+    { tick: 11, x: 10, y: 20, facing: -3.1, distance: Math.hypot(10, 20) },
   ];
   expect(luxAttackFrame(effect, 9.9)).toBeNull();
   const middle = luxAttackFrame(effect, 10.5)!;
   expect(middle.x).toBe(5);
   expect(middle.y).toBe(10);
   expect(middle.facing).toBeCloseTo(Math.PI, 12);
-  expect(luxAttackFrame(effect, 50)).toEqual({ x: 10, y: 20, facing: -3.1 });
+  expect(luxAttackFrame(effect, 50)).toEqual({
+    x: 10,
+    y: 20,
+    facing: -3.1,
+    distance: Math.hypot(10, 20),
+  });
+});
+
+it('retains cumulative travel through turns, clipped hits and bounded history retirement', () => {
+  const { w, target } = launch();
+  const effect = w.luxAttackVisuals[0];
+  let previous = { ...effect.origin },
+    distance = 0;
+  const first = effect.frames[0];
+  distance += Math.hypot(first.x - previous.x, first.y - previous.y);
+  expect(first.distance).toBe(distance);
+  previous = first;
+  w.projectiles[0].speed = 20;
+  for (let i = 0; i < 70; i++) {
+    target.y += i % 2 ? 80 : -40;
+    w.step();
+    const f = effect.frames.at(-1)!;
+    distance += Math.hypot(f.x - previous.x, f.y - previous.y);
+    expect(f.distance).toBe(distance);
+    previous = f;
+  }
+  expect(effect.frames[0].tick).toBeGreaterThan(effect.launchTick);
+  expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
+  target.x = previous.x + 50;
+  target.y = previous.y;
+  w.projectiles[0].speed = 60000;
+  w.step();
+  const hit = effect.frames.at(-1)!;
+  expect(hit.distance).toBeCloseTo(
+    distance + Math.hypot(hit.x - previous.x, hit.y - previous.y),
+    10
+  );
+  expect(effect.stopTick).toBe(w.tick);
+});
+it('rejects absent, decreasing and spatially inconsistent odometers', () => {
+  const { w } = launch();
+  w.step(3);
+  for (const edit of [
+    (s: any) => {
+      delete s.luxAttackVisuals[0].frames[0].distance;
+    },
+    (s: any) => {
+      s.luxAttackVisuals[0].frames[0].distance = -1;
+    },
+    (s: any) => {
+      s.luxAttackVisuals[0].frames[1].distance += 10;
+    },
+    (s: any) => {
+      s.luxAttackVisuals[0].frames[1].distance = 0;
+    },
+  ]) {
+    const saved = JSON.parse(w.snapshot());
+    edit(saved);
+    expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow();
+  }
 });
