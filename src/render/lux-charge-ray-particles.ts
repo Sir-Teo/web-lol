@@ -2,29 +2,7 @@ import profile from '../content/lux-charge-rays.json';
 import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxHoopChance } from './lux-hoop-particles';
 
-type Curve = { times: readonly number[]; values: readonly (readonly number[])[] };
-function sample(curve: Curve, time: number, axis: number) {
-  if (time <= curve.times[0]) return curve.values[0][axis];
-  for (let i = 1; i < curve.times.length; i++)
-    if (time <= curve.times[i])
-      return (
-        curve.values[i - 1][axis] +
-        ((curve.values[i][axis] - curve.values[i - 1][axis]) * (time - curve.times[i - 1])) /
-          (curve.times[i] - curve.times[i - 1])
-      );
-  return curve.values.at(-1)![axis];
-}
-
-/** Integrate right-endpoint source rates on the same 60 Hz reconstruction grid
- * used by particle motion, interpolating the next step at fractional ages. */
-function accumulated(curve: Curve, age: number, axis: number) {
-  const ticks = age * 60,
-    whole = Math.floor(ticks);
-  let value = 0;
-  for (let tick = 1; tick <= whole; tick++)
-    value += sample(curve, tick / 60 / profile.life, axis) / 60;
-  return value + ((ticks - whole) * sample(curve, (whole + 1) / 60 / profile.life, axis)) / 60;
-}
+import { sampleParticleCurve as sample, accumulateParticleCurve } from './particle-curves';
 
 export function luxChargeRayBirth(chance: number) {
   return {
@@ -41,8 +19,11 @@ export function luxChargeRayParticles(seed: number, age: number) {
   if (!Number.isFinite(age) || age < 0 || age >= profile.life) return [];
   const phase = age / profile.life;
   const turn =
-    profile.birthAngularVelocity[0] * age + 60 * accumulated(profile.rotationRate, age, 0);
-  const scroll = [0, 1].map((axis) => accumulated(profile.multScrollRate, age, axis));
+    profile.birthAngularVelocity[0] * age +
+    60 * accumulateParticleCurve(profile.rotationRate, age, profile.life, 0);
+  const scroll = [0, 1].map((axis) =>
+    accumulateParticleCurve(profile.multScrollRate, age, profile.life, axis)
+  );
   return Array.from({ length: profile.count }, (_, index) => {
     const chance = luxHoopChance(seed, index + 1),
       birth = luxChargeRayBirth(chance);
