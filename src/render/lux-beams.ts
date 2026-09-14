@@ -108,8 +108,9 @@ export class LuxBeams {
         },
         vertexShader:
           'varying vec2 beamUv; void main(){ beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+        // Source beam transforms act on (along, across), then transpose to (u, v).
         fragmentShader: `uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; varying vec2 beamUv;
-          void main(){ vec2 m=beamUv+multOffset; if(clampMult)m=clamp(m,vec2(0.001),vec2(0.999)); gl_FragColor=texture2D(base,beamUv+offset)*texture2D(mult,m)*tint;
+          void main(){ vec2 m=beamUv+multOffset.yx; if(clampMult)m=clamp(m,vec2(0.001),vec2(0.999)); gl_FragColor=texture2D(base,beamUv+offset.yx)*texture2D(mult,m)*tint;
           #include <colorspace_fragment>
           }`,
       });

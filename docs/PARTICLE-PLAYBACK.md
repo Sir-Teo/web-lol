@@ -216,3 +216,15 @@ A GPU regression clones all six actual gameplay materials and renders a known ha
 ```sh
 npx playwright test e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts e2e/lux-beam-terminal.spec.ts
 ```
+
+## Final Spark texture translation axes
+
+The [pinned ribbon reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/ribbon.ts) applies a beam's texture transform to `(along, across)` and then transposes both base and multiplier coordinates. The pinned raw file was retrieved and matched the cached SHA-256 `adafe0f1866a6e74628d2cfa29d25e93357e55f3a9c99b110358c9e3586c682e`. The accompanying reconstruction plan's section 2.34 supports this through beam texture/scroll observations; this remains external evidence rather than a local native Lux capture.
+
+Our generated geometry already stores `(across, along)` UVs. Adding untransposed source offsets therefore put authored U scroll across the beam. The shader now transposes both base and multiplier translation vectors before adding them. This includes integrated base scroll, multiplier scroll and multiplier birth offset; clamp addressing still applies after translation. Exported source values remain unchanged.
+
+A GPU test clones all six gameplay materials and supplies a four-color texture. For each base/multiplier layer it reads the unchanged corner, an along-axis translation and an across-axis translation: all 36 readbacks match the expected texels. Blending and normal Lux R gameplay/reload checks pass, as do all 718 unit tests. The updated fixture screenshot `artifacts/lux-r-match.png` was visually reviewed. The beam remains bright and its texture color handling still requires verification; this axis correction does not certify complete shader or native visual parity.
+
+```sh
+npx playwright test e2e/lux-beam-uv.spec.ts e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts
+```
