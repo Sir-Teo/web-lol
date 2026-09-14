@@ -112,7 +112,7 @@ export class Hud {
       return `Build 4 Focus with attacks. Consume Focus to gain ${Math.round(values.bonusAttackSpeed * 100)}% attack speed for ${ASHE_Q.durationSeconds} seconds and empower attacks to deal ${Math.round(values.damageMultiplier * 100)}% damage. Activating resets your attack timer.`;
     }
     if (ability === 'e')
-      return `Send a hawk that reveals its route, then grants destination vision for ${ASHE_E.visionSeconds} seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${asheHawkshotValues(rank).rechargeSeconds} seconds.`;
+      return `Send a hawk that reveals its route, then grants destination vision for ${ASHE_E.visionSeconds} seconds. Stores ${ASHE_E.maximumCharges} charges, restoring one every ${Number(((asheHawkshotValues(rank).rechargeSeconds * 100) / (100 + this.world.abilityHaste())).toFixed(2))} seconds.`;
     if (ability === 'w')
       return `Fire ${asheVolleyValues(rank, 0).arrows} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage(this.world.hero, rank))} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
     if (ability === 'r')
@@ -321,7 +321,7 @@ export class Hud {
       this.world.abilityRank(ability) || ability === 'd' || ability === 'f'
         ? this.world.abilityResources(ability)
         : asheSpellResources(ability, 1);
-    this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${resources.mana ? `${resources.mana} MANA` : 'NO COST'} <span>·</span> ${resources.cooldownSeconds ? `${resources.cooldownSeconds}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${this.tooltipInstruction(ability)}</small>`;
+    this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${resources.mana ? `${resources.mana} MANA` : 'NO COST'} <span>·</span> ${resources.cooldownSeconds ? `${Number(resources.cooldownSeconds.toFixed(2))}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${this.tooltipInstruction(ability)}</small>`;
     this.tip.dataset.tooltipAbility = ability;
     this.tip.dataset.tooltipRank = String(this.world.abilityRank(ability));
     this.tip.hidden = false;

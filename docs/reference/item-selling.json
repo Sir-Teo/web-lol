@@ -271,6 +271,110 @@
       "stats": {
         "FlatMPPoolMod": 300
       }
+    },
+    "2022": {
+      "name": "Glowing Mote",
+      "description": "<mainText><stats><attention>5</attention> Ability Haste</stats><br><br></mainText>",
+      "colloq": "",
+      "plaintext": "",
+      "into": [
+        "2020",
+        "3024",
+        "3133",
+        "3802",
+        "3067",
+        "3057",
+        "3108",
+        "3158",
+        "4642",
+        "6660"
+      ],
+      "image": {
+        "full": "2022.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 192,
+        "y": 432,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 250,
+        "purchasable": true,
+        "total": 250,
+        "sell": 175
+      },
+      "tags": [
+        "CooldownReduction"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {}
+    },
+    "3108": {
+      "name": "Fiendish Codex",
+      "description": "<mainText><stats><attention>25</attention> Ability Power<br><attention>10</attention> Ability Haste</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Increases Ability Power and Cooldown Reduction",
+      "from": [
+        "1052",
+        "2022"
+      ],
+      "into": [
+        "123430",
+        "4636",
+        "323003",
+        "3115",
+        "3003",
+        "326616",
+        "3107",
+        "3128",
+        "3137",
+        "8010",
+        "6616",
+        "4628",
+        "4629",
+        "4633"
+      ],
+      "image": {
+        "full": "3108.png",
+        "sprite": "item3.png",
+        "group": "item",
+        "x": 192,
+        "y": 336,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 200,
+        "purchasable": true,
+        "total": 850,
+        "sell": 595
+      },
+      "tags": [
+        "SpellDamage",
+        "CooldownReduction",
+        "AbilityHaste"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 25
+      },
+      "effect": {
+        "Effect1Amount": "-0.1"
+      },
+      "depth": 2
     }
   }
 }

@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 44 permits captured, integer Hawkshot recharge durations produced by current item haste at any E rank. A duration may reflect equipment sold after recharge began; validation enumerates reachable six-slot catalog haste instead of using current inventory alone. Spell cooldowns retain captured integer deadlines. Earlier formats are incompatible. See [ABILITY-HASTE.md](ABILITY-HASTE.md).
+
 Version 43 adds Lux E windup detonation requests and saved singularity instances with source/team, origin/endpoint, flight position, damage/slow capture, arrival, zone deadline and retained explosion time. It validates flight positions, identity, unique active ownership and lifecycle deadlines. Lux E ranks are now permitted without Hawkshot charges; Hawkshot recharge validation is champion-specific. Earlier formats are incompatible.
 
 Version 42 requires independent slow contributions with source/effect identity, start/end ticks and linear strength endpoints. The decoder validates champion ownership, enemy nonstructural living recipients, unique source/effect pairs, active lifetimes and nondecreasing speed multipliers. Target death/respawn clears contributions; source death does not. Earlier formats are incompatible.

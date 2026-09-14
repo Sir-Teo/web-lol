@@ -1496,3 +1496,9 @@ All 579 checks and two focused shop browser cases pass; source exporter/hash che
 Added Sapphire Crystal with dual-source 300 mana, 300 gold and 210 sell value, full pinned records and a hashed source icon. Shared purchases apply net mana after component consumption; sales remove one copy. Living transactions use an explicitly provisional missing-mana policy with zero clamping, while dead purchases do not refill resources. Existing growth, recall, respawn and checkpoint behavior preserve the equipped pool. Native transaction semantics still need direct calibration; mana upgrades and Lux mana-build decisions remain unfinished.
 
 All 584 checks, four focused Chrome shop cases, source regeneration and nested-path production smoke pass. Inspected the mana-shop capture. Full-browser, full-match and performance gates were not rerun. See [MAGE-ITEMS.md](MAGE-ITEMS.md).
+
+## Ability haste, Glowing Mote and Fiendish Codex
+
+Added source-pinned Mote (5 haste/250 gold) and Codex (25 AP, 10 haste/850 total, Tome + Mote + 200), two hashed icons, and additive item haste. Champion spell cooldowns use the 100/(100+haste) multiplier; summoner cooldowns and cast windups remain separate. Hawkshot captures hasted recharge per sequential cycle, and tooltips show effective cooldown/recharge with bounded decimal formatting. Snapshot 44 validates captured recharge durations reachable from the catalog, including equipment sold after the timer began. Native rounding, purchase-time rescaling and E inter-cast behavior remain calibration targets.
+
+All 589 checks, seven focused Chrome tooltip/shop scenarios, source regeneration and nested-path production smoke pass. Inspected the haste-tooltip capture. The new browser case initially raced lazy icon loading; it now scrolls and waits for decoded dimensions. Complete mana/haste upgrade items, bot builds, full-match systems and production fidelity gates remain open. See [ABILITY-HASTE.md](ABILITY-HASTE.md).

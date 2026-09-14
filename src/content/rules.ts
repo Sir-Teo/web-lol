@@ -241,6 +241,7 @@ export const ITEMS = [
   ...MAGE_ITEMS,
 ] as const;
 export const ITEM_RECIPES: Readonly<Record<string, readonly string[]>> = {
+  codex: ['tome', 'mote'],
   deathcap: ['rod', 'rod'],
   belt: ['ruby'],
   vest: ['cloth'],

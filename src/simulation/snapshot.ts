@@ -10,15 +10,30 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
+import { hastedCooldownTicks } from './ability-haste';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 43;
+export const SNAPSHOT_VERSION = 44;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
 const deadline = z.union([tick, z.literal('Infinity').transform(() => Infinity)]);
+// A captured recharge may outlive a sale or rank change. Accept every duration the
+// catalog can produce in six slots, rather than comparing against current gear.
+let reachableHaste = new Set([0]);
+for (let slot = 0; slot < 6; slot++) {
+  const next = new Set(reachableHaste);
+  for (const haste of reachableHaste)
+    for (const item of ITEMS) next.add(haste + ('abilityHaste' in item ? item.abilityHaste : 0));
+  reachableHaste = next;
+}
+const rechargeDurations = new Set(
+  ASHE_E.rechargeSecondsByRank.flatMap((seconds) =>
+    [...reachableHaste].map((haste) => hastedCooldownTicks(seconds, haste))
+  )
+);
 const team = z.enum(['blue', 'red']);
 const point = z.strictObject({ x: z.number(), y: z.number() });
 const kind = z.enum([
@@ -186,11 +201,7 @@ const player: z.ZodType<PlayerState> = z
     qStackExpiry: deadline,
     eCharges: z.number().int().min(0).max(ASHE_E.maximumCharges),
     eRechargeTick: tick.nullable(),
-    eRechargeDurationTicks: z
-      .number()
-      .refine((value) =>
-        ASHE_E.rechargeSecondsByRank.some((seconds) => value === seconds * TICK_RATE)
-      ),
+    eRechargeDurationTicks: tick.refine((value) => rechargeDurations.has(value)),
     recallEnd: deadline.nullable(),
     castAnimation: z
       .strictObject({ ability: z.enum(['q', 'w', 'e', 'r']), startTick: tick })

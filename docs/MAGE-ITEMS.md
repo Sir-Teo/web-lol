@@ -20,7 +20,7 @@ Recipe planning consumes two distinct Rod slots, never the same slot twice. A th
 
 The shop displays the same remaining-cost quote as the transaction, loads the three source icons, and updates effective AP. Duplicate ownership disables the purchase. Existing fountain/death access rules and inventory handling apply.
 
-Lux's local bot policy starts with Tome and boots, then buys Rods toward Deathcap or completes it directly when the remaining price is affordable, followed by Wand. It does not rebuild consumed Rods after completion. Shopping recalls use remaining recipe cost and permit a full inventory when recipe components provide space. This path is an interim use of implemented equipment, not a claim that Deathcap-first is the optimal native build. Haste, penetration, active items, richer passives and complete six-item plans remain outstanding.
+Lux's local bot policy starts with Tome and boots, then buys Rods toward Deathcap or completes it directly when the remaining price is affordable, followed by Wand. It does not rebuild consumed Rods after completion. Shopping recalls use remaining recipe cost and permit a full inventory when recipe components provide space. This path is an interim use of implemented equipment, not a claim that Deathcap-first is the optimal native build. Penetration, active items, richer passives and complete six-item plans remain outstanding. Glowing Mote, Fiendish Codex and the shared haste foundation are now described in [ABILITY-HASTE.md](ABILITY-HASTE.md).
 
 ## Sapphire Crystal and bonus mana
 

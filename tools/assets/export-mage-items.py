@@ -10,7 +10,7 @@ args = parser.parse_args()
 pin = json.loads(Path('docs/reference/mage-items.json').read_text())
 records = pin['communityDragon']['records']
 items = []
-for code, identity in [('1026', 'wand'), ('1058', 'rod'), ('3089', 'deathcap'), ('1027', 'sapphire')]:
+for code, identity in [('1026', 'wand'), ('1058', 'rod'), ('3089', 'deathcap'), ('1027', 'sapphire'), ('2022', 'mote'), ('3108', 'codex')]:
     dd, raw = pin['items'][code], records['Items/' + code]
     assert dd['maps']['11'] and dd['gold']['purchasable']
     assert dd['gold']['base'] == raw['price']
@@ -19,10 +19,13 @@ for code, identity in [('1026', 'wand'), ('1058', 'rod'), ('3089', 'deathcap'), 
     assert dd.get('from', []) == [p.removeprefix('Items/') for p in raw.get('recipeItemLinks', [])]
     ap = int(raw.get('mFlatMagicDamageMod', 0))
     mana = int(raw.get('flatMPPoolMod', 0))
-    description = f'+{mana} Mana' if mana else f'+{ap} Ability Power'
+    haste = int(raw.get('mAbilityHasteMod', 0))
+    if haste:
+        assert f'<attention>{haste}</attention> Ability Haste' in dd['description']
+    description = ' · '.join(f'+{value} {label}' for value, label in [(ap, 'Ability Power'), (mana, 'Mana'), (haste, 'Ability Haste')] if value)
     items.append(dict(id=identity, name=dd['name'], price=dd['gold']['total'], sell=dd['gold']['sell'],
         description=description + (' · Magical Opus: +30% total AP' if identity == 'deathcap' else ''),
-        icon=code, abilityPower=ap, mana=mana, damage=0, armor=0, magicResist=0, hp=0, speed=0))
+        icon=code, abilityPower=ap, mana=mana, abilityHaste=haste, damage=0, armor=0, magicResist=0, hp=0, speed=0))
 cap = records['Items/3089']
 amp = next(v['mValue'] for v in cap['mDataValues'] if v['mName'] == 'APAmp')
 assert abs(amp - 0.3) < 1e-7

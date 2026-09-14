@@ -15,6 +15,7 @@ import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
 import { ASSIST_WINDOW_SECONDS } from '../content/assist-window';
 import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
 import { createChampionState, rechargeChampion, expireChampionFocus } from './champion-state';
+import { hastedCooldownTicks, itemAbilityHaste } from './ability-haste';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
@@ -2420,7 +2421,20 @@ export class World {
     if (ability === 'd' || ability === 'f') return 1;
     return this.championState(championId)?.spellRanks[ability] ?? 0;
   }
+  abilityHaste(championId = this.player.id): number {
+    const owner = this.championState(championId);
+    return owner ? itemAbilityHaste(owner) : 0;
+  }
   abilityResources(ability: Ability, championId = this.player.id) {
+    const resources = this.baseAbilityResources(ability, championId);
+    const owner = this.championState(championId);
+    if (!owner || ability === 'd' || ability === 'f') return resources;
+    return {
+      ...resources,
+      cooldownSeconds: (resources.cooldownSeconds * 100) / (100 + itemAbilityHaste(owner)),
+    };
+  }
+  private baseAbilityResources(ability: Ability, championId: number) {
     if (ability === 'd' || ability === 'f')
       return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
     const rank = this.abilityRank(ability, championId);
@@ -2499,7 +2513,7 @@ export class World {
     ) {
       if (!dir.x && !dir.y && ability !== 'e') return;
       u.mana -= resources.mana;
-      state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
+      state.cooldowns[ability] = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
@@ -2540,7 +2554,7 @@ export class World {
     }
     if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
     u.mana -= resources.mana;
-    state.cooldowns[ability] = this.tick + resources.cooldownSeconds * TICK_RATE;
+    state.cooldowns[ability] = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
     if (!spec.preservesRecall) state.recallEnd = null;
     if (ability !== 'f' && !flashDuringFinalSpark) state.castAnimation = null;
     this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
@@ -2578,8 +2592,10 @@ export class World {
     if (ability === 'e') {
       state.eCharges--;
       if (state.eRechargeTick === null) {
-        state.eRechargeDurationTicks =
-          asheHawkshotValues(state.spellRanks.e).rechargeSeconds * TICK_RATE;
+        state.eRechargeDurationTicks = hastedCooldownTicks(
+          asheHawkshotValues(state.spellRanks.e).rechargeSeconds,
+          itemAbilityHaste(state)
+        );
         state.eRechargeTick = this.tick + state.eRechargeDurationTicks;
       }
     }

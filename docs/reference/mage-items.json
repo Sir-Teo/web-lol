@@ -171,6 +171,110 @@
       "stats": {
         "FlatMPPoolMod": 300
       }
+    },
+    "2022": {
+      "name": "Glowing Mote",
+      "description": "<mainText><stats><attention>5</attention> Ability Haste</stats><br><br></mainText>",
+      "colloq": "",
+      "plaintext": "",
+      "into": [
+        "2020",
+        "3024",
+        "3133",
+        "3802",
+        "3067",
+        "3057",
+        "3108",
+        "3158",
+        "4642",
+        "6660"
+      ],
+      "image": {
+        "full": "2022.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 192,
+        "y": 432,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 250,
+        "purchasable": true,
+        "total": 250,
+        "sell": 175
+      },
+      "tags": [
+        "CooldownReduction"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {}
+    },
+    "3108": {
+      "name": "Fiendish Codex",
+      "description": "<mainText><stats><attention>25</attention> Ability Power<br><attention>10</attention> Ability Haste</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Increases Ability Power and Cooldown Reduction",
+      "from": [
+        "1052",
+        "2022"
+      ],
+      "into": [
+        "123430",
+        "4636",
+        "323003",
+        "3115",
+        "3003",
+        "326616",
+        "3107",
+        "3128",
+        "3137",
+        "8010",
+        "6616",
+        "4628",
+        "4629",
+        "4633"
+      ],
+      "image": {
+        "full": "3108.png",
+        "sprite": "item3.png",
+        "group": "item",
+        "x": 192,
+        "y": 336,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 200,
+        "purchasable": true,
+        "total": 850,
+        "sell": 595
+      },
+      "tags": [
+        "SpellDamage",
+        "CooldownReduction",
+        "AbilityHaste"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMagicDamageMod": 25
+      },
+      "effect": {
+        "Effect1Amount": "-0.1"
+      },
+      "depth": 2
     }
   },
   "communityDragon": {
@@ -411,6 +515,143 @@
           "inventoryIcon": "assets/items/icons2d/1027_base_t1_saphirecrystal.dds",
           "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/1027_Base_T1_SaphireCrystal.png",
           "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/1027_Base_T1_SaphireCrystal.png",
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "Items/2022": {
+        "mDisplayName": "Item_2022_Name",
+        "mDeathRecapName": "Glowing Mote",
+        "itemID": 2022,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default"
+        ],
+        "price": 250,
+        "RestrictedBuffName": "HeroPassive",
+        "mCanBeSold": true,
+        "mAbilityHasteMod": 5.0,
+        "mCategories": [
+          "CooldownReduction"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          4,
+          1,
+          2,
+          8,
+          16,
+          32
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "2022",
+            "mFormat": "{32559c50}",
+            "mLocKeys": {
+              "keyName": "Item_2022_Name",
+              "keyColloquialism": "Item_2022_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AbilityHaste",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_2022_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_2022_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_2022_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/2022_glowingmote.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/2022_GlowingMote44.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/2022_GlowingMote88.png",
+          "epicness": 4,
+          "__type": "ItemDataClient"
+        },
+        "mVFXResourceResolver": {
+          "__type": "ResourceResolver"
+        },
+        "__type": "ItemData"
+      },
+      "Items/3108": {
+        "mDisplayName": "Item_3108_Name",
+        "itemID": 3108,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default"
+        ],
+        "price": 200,
+        "mCanBeSold": true,
+        "epicness": 4,
+        "recipeItemLinks": [
+          "Items/1052",
+          "Items/2022"
+        ],
+        "mEffectAmount": [
+          -0.10000000149011612,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mAbilityHasteMod": 10.0,
+        "mFlatMagicDamageMod": 25.0,
+        "mCategories": [
+          "SpellDamage",
+          "CooldownReduction",
+          "AbilityHaste"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          16,
+          32
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "3108",
+            "mFormat": "{32559c50}",
+            "mLocKeys": {
+              "keyName": "Item_3108_Name",
+              "keyColloquialism": "Item_3108_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AbilityPower",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "AbilityHaste",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_3108_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_3108_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_3108_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/3108_mage_t2_fiendishcodex.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/3108_Mage_T2_FiendishCodex.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/3108_Mage_T2_FiendishCodex.png",
+          "epicness": 4,
           "__type": "ItemDataClient"
         },
         "__type": "ItemData"
