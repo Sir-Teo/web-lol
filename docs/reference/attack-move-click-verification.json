@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-09-14T02:32:50.794250+00:00",
+  "baseRevision": "60c2b05259fae9e99bdd02b8ec357107de5555e0",
+  "feature": "Shift-right-click immediate attack-move on battlefield and minimap",
+  "validation": {
+    "browserScenarios": 13,
+    "browser": "passed",
+    "typeScript": "passed",
+    "production": "passed /nested/rift/: 9 recordings, map navigation, real Hawkshot, no development hook",
+    "visualReview": "Controls dialog readable with shortcut row",
+    "simulation": "unchanged; existing 603 checks not rerun"
+  },
+  "limitations": [
+    "Nearest-to-unit acquisition retained; cursor-priority preference not implemented.",
+    "Soft-cap research still lacks target-patch and unit-scope verification.",
+    "Full production fidelity remains incomplete."
+  ],
+  "sha256": {
+    "src/input/input.ts": "9818571c274825ac6bbdd98eaa30e2ee2e688b3d71bc2b3b736291e52010b917",
+    "src/ui/hud.ts": "96c1169af5ee6d342b53f27f7a1f6a3ef2bd4d78dcbc2e212947b0ca17cd72ff",
+    "e2e/attack-move-target.spec.ts": "5a1a9f252e72db1b0292807b4ae2571492f6e390ff45dc9f310965ed6ab6f98d",
+    "artifacts/attack-move-click-browser.log": "e1ccb50e5f430f935ce745ce9a0e114e9698781c0cd4c83367ad3fc8c61ce345",
+    "artifacts/attack-move-click-production.log": "56625ea24c5d94752f5e6e700a5365ad3071c3e9d9a11ef6a32a1802c132b02b",
+    "artifacts/attack-move-click-controls.png": "d313fa24f01a0b87df29a53284287b73790985b43625b1af0197b9fb6e6ad11b"
+  }
+}

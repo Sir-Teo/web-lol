@@ -65,3 +65,15 @@ Four Chrome scenarios verify both spells on the full Rift at laptop size, projec
 The champion HUD now reads `World.movementSpeed`, the same effective value used for travel and run playback, instead of displaying `hero.speed` without active modifiers. Ordinary Frost, the enhanced slow's decay and Heal haste therefore appear in the stat readout as they change and expire. The display normalizes to the existing six-decimal stat precision before rounding to a whole unit; this prevents binary floating-point noise from displaying the mathematical 227.5 midpoint as 227. This is display policy only: movement calculations and the stored base/item stat are unchanged.
 
 Two browser scenarios cover an actual enemy attack slow, a subsequent Heal, both exact expiration boundaries, and the enhanced-slow midpoint while preserving the stored 325 speed. The existing run-playback comparison also passes. This establishes consistency with the current simulation, not reference soft-cap or HUD rounding parity; the soft-cap investigation above remains unresolved.
+
+## Immediate attack-move click
+
+Shift + right-click now accepts attack-move directly, without first arming A-click. On the battlefield, a picked enemy becomes an explicit attack target; ground or an ally becomes an attack-move destination. The minimap routes the same modifier to attack-move at its converted position. Unmodified right-click retains ordinary movement/targeted attack. Both battlefield attack-move inputs share the same routing branch, clear unfinished aiming, and respect pause/modal input suppression.
+
+This supplies the shortcut described in the community [basic-attack reference](https://leagueoflegends.fandom.com/wiki/Basic_attack). It does not implement the separate attack-move-on-cursor preference: ground acquisition still uses the current nearest-to-unit policy. Its cursor-radius, range tolerance and fallback timing remain unverified for the frozen patch. No new simulation targeting rule or snapshot field was added.
+
+Thirteen focused browser cases cover both inputs explicitly attacking champions, casters and dummies despite a nearer enemy; ordinary A-click behavior; ground/minimap shortcut commands; unchanged plain minimap right-click; cancellation of a held Volley without casting it; pause suppression; and existing minimap spell/scoreboard overlap behavior. The controls screen includes the shortcut and was visually reviewed. Production smoke and TypeScript pass.
+
+### Additional soft-cap evidence reviewed
+
+A [July 2025 firsthand Celerity investigation](https://note.com/raq/n/nd61e614b77c5) includes champion HUD examples consistent with the upper soft-cap formula, but also reports an unresolved calculation discrepancy. It does not establish the low-speed branch, minion scope or standard 26.18 behavior. The candidate policy above remains unchanged and unimplemented; no reference-parity claim follows from these additional examples.

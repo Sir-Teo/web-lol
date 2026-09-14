@@ -262,7 +262,7 @@ export class Hud {
         this.world.enqueue({
           type: 'order',
           unit: this.world.player.id,
-          order: { type: 'move', point },
+          order: { type: e.shiftKey ? 'attackMove' : 'move', point },
         });
       else {
         this.view.locked = false;
@@ -402,6 +402,7 @@ export class Hud {
       const controls = [
         ['Right-click', 'Move / attack target'],
         ['A → click', 'Attack move'],
+        ['Shift + right-click', 'Attack move immediately'],
         ['S', 'Stop'],
         ['Q', 'Activate Focus at 4 stacks'],
         ['Hold W / E / R', 'Aim, then release to cast'],

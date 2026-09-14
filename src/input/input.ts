@@ -43,7 +43,8 @@ export class GameInput {
       const target = view.pick(world, e.clientX, e.clientY),
         point = view.worldPoint(e.clientX, e.clientY);
       if (!point) return;
-      if (e.button === 2) {
+      if (e.button === 2 || (e.button === 0 && this.attackMove)) {
+        const attackMove = e.button === 0 || e.shiftKey;
         this.cancelAim();
         world.enqueue({
           type: 'order',
@@ -51,21 +52,9 @@ export class GameInput {
           order:
             target && target.team !== world.hero.team
               ? { type: 'attack', target: target.id }
-              : { type: 'move', point },
+              : { type: attackMove ? 'attackMove' : 'move', point },
         });
-      } else if (e.button === 0) {
-        if (this.attackMove) {
-          world.enqueue({
-            type: 'order',
-            unit: world.player.id,
-            order:
-              target && target.team !== world.hero.team
-                ? { type: 'attack', target: target.id }
-                : { type: 'attackMove', point },
-          });
-          this.cancelAim();
-        } else view.selected = target?.id ?? world.player.id;
-      }
+      } else if (e.button === 0) view.selected = target?.id ?? world.player.id;
     });
     canvas.addEventListener(
       'wheel',
