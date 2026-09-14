@@ -1,3 +1,4 @@
+import { LuxScorches } from './lux-scorches';
 import { groundDisplayListSort, setGroundRenderStage } from './ground-display-list';
 import { LuxBokeh } from './lux-bokeh';
 import { structureModelMatrix } from './structure-transform';
@@ -60,6 +61,7 @@ export class GameView {
   luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));
   luxImpacts = new LuxImpacts(this.scene, (p) => this.ground(p));
   luxChargeRays = new LuxChargeRays(this.scene, (p) => this.ground(p));
+  luxScorches = new LuxScorches(this.scene);
   luxBokeh = new LuxBokeh(this.scene, (p) => this.ground(p));
   luxStreaks = new LuxRStreaks(this.scene, (p) => this.ground(p));
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
@@ -603,6 +605,7 @@ export class GameView {
     this.syncProjectiles(world, alpha);
     this.luxBeams.update(world, alpha, this.camera, terminalAge);
     this.luxStreaks.update(world, alpha, terminalAge);
+    this.luxScorches.update(world, alpha, terminalAge);
     this.luxBokeh.update(world, alpha, this.camera, terminalAge);
     this.luxChargeRays.update(world, alpha, this.camera);
     this.luxAttackHoops.update(world, alpha, this.camera, terminalAge);

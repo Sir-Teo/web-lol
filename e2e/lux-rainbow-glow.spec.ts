@@ -101,6 +101,7 @@ test('RainbowGlow retains source scale, direct quad scroll and fading burst play
       for (const m of group.children) m.material.colorWrite = m.name === 'RainbowGlow';
     for (const m of g.view.luxStreaks.models.values()) m.material.colorWrite = false;
     for (const m of g.view.luxBokeh.models.values()) m.material.colorWrite = false;
+    for (const m of g.view.luxScorches.models.values()) m.material.colorWrite = false;
     g.view.render(g.world, 1, g.view.previousElapsed);
   });
   await page.screenshot({ path: 'artifacts/lux-r-rainbow-isolated.png' });
@@ -110,6 +111,7 @@ test('RainbowGlow retains source scale, direct quad scroll and fading burst play
       for (const m of group.children) m.material.colorWrite = true;
     for (const m of g.view.luxStreaks.models.values()) m.material.colorWrite = true;
     for (const m of g.view.luxBokeh.models.values()) m.material.colorWrite = true;
+    for (const m of g.view.luxScorches.models.values()) m.material.colorWrite = true;
   });
   const visible = await page.evaluate(() => {
     const g = (window as any).__GAME__;

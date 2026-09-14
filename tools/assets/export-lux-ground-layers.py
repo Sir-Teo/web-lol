@@ -38,19 +38,24 @@ for index,e in enumerate(record['complexEmitterDefinitionData']):
   'multBirth':v['birth_offset']({'birthUVOffset':mult.get('birthUVOffsetMult',{})}),
   'multScrollCurve':mult.get('{22c3cf3e}',{}),
   'multScroll':mult.get('birthUvScrollRateMult',{}).get('constantValue',[0,0])})
-expected={e['name'] for e in v['audit']['emitters'] if not e['disabled'] and not e['implemented']}
-assert {p['name'] for p in profiles}==expected, 'Ground inventory must cover exactly the remaining active source emitters'
+for p in profiles:
+ if p['name'] in ['Burnt','Burnt1']:
+  assert p['count']==1 and p['delay']==1 and p['life']==1.5 and p['blend']==1
+  assert p['geometry']['scale']=={'constantValue':[1,1,1]}
+  assert p['geometry']['velocity']==[0,0,0] and not p['mult'] and p['uvRotation']==0
+expected={e['emitterName'] for e in record['complexEmitterDefinitionData'] if e.get('{27d40903}') and not e.get('disabled',e.get('{33f36f05}',False))}
+assert {p['name'] for p in profiles}==expected, 'Ground inventory must cover exactly the active ground source emitters'
 assert len(profiles)==17 and sum(p['geometry']['kind']=='beam' for p in profiles)==2
 out=Path('src/content/lux-ground-layers.json');out.write_text(json.dumps(profiles,indent=2)+'\n')
 audit={'sourceBinSha256':v['audit']['sourceBinSha256'],'profile':str(out),'profileSha256':hashlib.sha256(out.read_bytes()).hexdigest(),
- 'count':17,'quads':15,'beams':2,'rendered':False,
+ 'count':17,'quads':15,'beams':2,'renderedNames':[p['name'] for p in profiles if p['name'] in v['implemented']],
  'ordering':[{ 'name':p['name'],'pass':p['pass'],'sourceIndex':p['emitterIndex']} for p in sorted(profiles,key=lambda p:(p['pass'],p['emitterIndex']))],
  'maximumPostReleaseLife':max(p['delay']+p['life'] for p in profiles)-1,
  'requirements':['Ground composition must occur after terrain and before characters/default particles; source pass numbers sort within the ground display list.',
  'Native ground projection remains unresolved. Any local projection policy must be labeled and compared against native captures on flat and sloped terrain.',
  'Preserve negative source Y offsets in the profile. Do not apply them blindly to the current approximate airborne cast origin.',
- 'Burnt and Burnt1 need 1.5 seconds after release; current 1.3-second retained beam lifetime must be extended when these become rendered.',
+ 'Burnt and Burnt1 need 1.5 seconds after release; retained beam lifetime is extended to 1.5 seconds with these selected layers.',
  'Maintain arbitrary-quad rotations including [90,90,0], uniform-scale multiplication order, source-alpha blend modes, signed UV rotation and independent multiplier phases.',
  'Ground beam source/target offsets require terrain projection rather than the existing camera-facing width path.']}
 Path('docs/reference/lux-ground-layers-audit.json').write_text(json.dumps(audit,indent=2)+'\n')
-print('Verified all 17 remaining active emitters as ground layers: 15 quads and 2 beams')
+print('Verified all 17 active ground emitters: 15 quads and 2 beams')

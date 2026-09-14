@@ -51,7 +51,7 @@ test('R captures its damage/resources, hits all targets simultaneously and refre
   const tailSaved = World.fromSnapshot(w.snapshot(), w.battlefield);
   for (const world of [w, beamSaved, tailSaved]) world.step(18);
   expect(w.luxBeams).toHaveLength(1);
-  for (const world of [w, beamSaved, tailSaved]) world.step(41);
+  for (const world of [w, beamSaved, tailSaved]) world.step(53);
   expect(w.luxBeams).toHaveLength(1);
   for (const world of [w, beamSaved, tailSaved]) world.step();
   expect(w.luxBeams).toEqual([]);

@@ -5,7 +5,10 @@
   "count": 17,
   "quads": 15,
   "beams": 2,
-  "rendered": false,
+  "renderedNames": [
+    "Burnt",
+    "Burnt1"
+  ],
   "ordering": [
     {
       "name": "Far_Refraction_L",
@@ -98,7 +101,7 @@
     "Ground composition must occur after terrain and before characters/default particles; source pass numbers sort within the ground display list.",
     "Native ground projection remains unresolved. Any local projection policy must be labeled and compared against native captures on flat and sloped terrain.",
     "Preserve negative source Y offsets in the profile. Do not apply them blindly to the current approximate airborne cast origin.",
-    "Burnt and Burnt1 need 1.5 seconds after release; current 1.3-second retained beam lifetime must be extended when these become rendered.",
+    "Burnt and Burnt1 need 1.5 seconds after release; retained beam lifetime is extended to 1.5 seconds with these selected layers.",
     "Maintain arbitrary-quad rotations including [90,90,0], uniform-scale multiplication order, source-alpha blend modes, signed UV rotation and independent multiplier phases.",
     "Ground beam source/target offsets require terrain projection rather than the existing camera-facing width path."
   ]

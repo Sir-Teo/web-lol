@@ -1,3 +1,4 @@
+import { LUX_SCORCHES } from './lux-scorches';
 import { LUX_BEAM_LAYERS } from './lux-beam-layers';
 const CAST_SECONDS = 1;
 // Parent spell values and conflicting child metadata retained in docs/reference/lux-r.json.
@@ -12,5 +13,6 @@ export const LUX_R = {
   halfWidth: 95,
   // Retain every selected source layer through its final authored endpoint.
   presentationSeconds:
-    Math.max(...LUX_BEAM_LAYERS.map((layer) => layer.delay + layer.life)) - CAST_SECONDS,
+    Math.max(...[...LUX_BEAM_LAYERS, ...LUX_SCORCHES].map((layer) => layer.delay + layer.life)) -
+    CAST_SECONDS,
 } as const;

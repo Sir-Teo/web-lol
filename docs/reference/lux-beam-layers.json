@@ -3321,6 +3321,8 @@
   "additionalImplementedEmitters": [
     "Streaks_Linger",
     "END_Beam_ROTATING",
-    "Bokeh"
+    "Bokeh",
+    "Burnt",
+    "Burnt1"
   ]
 }

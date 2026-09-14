@@ -5,6 +5,7 @@
   "selectedNames": [
     "Beam_Core1",
     "Beam_Core2",
+    "Burnt",
     "RainbowGlow",
     "Streaks_Linger",
     "WOOSH",
@@ -22,6 +23,7 @@
     "Beam_Post_Prettiness1",
     "Beam_Post_Prettiness2",
     "Beam_DARK_FLASH1",
+    "Burnt1",
     "END_Beam_1",
     "END_Beam_Core",
     "END_Beam_ROTATING"
@@ -51,7 +53,7 @@
       "name": "Burnt",
       "disabled": false,
       "primitive": "{4beb81fd}",
-      "implemented": false,
+      "implemented": true,
       "blend": 1,
       "pass": -5,
       "delay": 1.0,
@@ -361,7 +363,7 @@
       "name": "Burnt1",
       "disabled": false,
       "primitive": "{4beb81fd}",
-      "implemented": false,
+      "implemented": true,
       "blend": 1,
       "pass": -5,
       "delay": 1.0,
