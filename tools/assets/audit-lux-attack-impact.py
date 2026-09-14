@@ -7,10 +7,14 @@ pin = json.loads(pin_path.read_text())
 schema_path = Path('.tools/league-toolkit/src/LeagueToolkit.Meta.Classes/Classes.cs')
 schema = schema_path.read_text()
 names = {compute_binhash(name): name for name in re.findall(r'MetaPropertyAttribute\("([^"]+)"', schema)}
-fields = ['disabled', 'startFrame', 'miscRenderFlags', 'paletteDefinition', 'directionVelocityScale', 'directionVelocityMinScale', 'FlexShapeDefinition']
+fields = ['disabled', 'startFrame', 'miscRenderFlags', 'paletteDefinition', 'directionVelocityScale', 'directionVelocityMinScale', 'FlexShapeDefinition', 'paletteTexture', 'paletteCount', 'paletteSelector', 'palleteSrcMixColor', 'PaletteUAnimationCurve', 'PaletteVAnimationCurve', 'PaletteTextureAddressMode']
 resolved = {f'{compute_binhash(name):08x}': name for name in fields}
 assert all(names[int(h,16)] == name for h,name in resolved.items())
 def value(e, name, default=None): return e.get(name, e.get('{'+f'{compute_binhash(name):08x}'+'}', default))
+def palette_fields(e):
+    p = value(e, 'paletteDefinition')
+    if p is None: return None
+    return {name: value(p, name) for name in ['paletteTexture', 'paletteCount', 'paletteSelector', 'palleteSrcMixColor', 'PaletteUAnimationCurve', 'PaletteVAnimationCurve', 'PaletteTextureAddressMode']}
 variants = {}
 for key, record in pin['records'].items():
     emitters = []
@@ -19,7 +23,7 @@ for key, record in pin['records'].items():
             single=bool(e.get('isSingleParticle',False)),rate=e['rate']['constantValue'],
             particleLife=e['particleLifetime']['constantValue'],emitterLife=e['lifetime'],
             texture=e.get('texture'),colorLookup=e.get('particleColorTexture'),
-            palette=value(e,'paletteDefinition'),startFrame=value(e,'startFrame',0),
+            palette=value(e,'paletteDefinition'),paletteFields=palette_fields(e),startFrame=value(e,'startFrame',0),
             texDiv=e.get('texDiv',[1,1]),numFrames=e.get('numFrames',1),blendMode=e.get('blendMode',0)))
     variants[key.rsplit('/',1)[1]] = emitters
 normal,critical = [pin['records']['Characters/Lux/Skins/Skin0/Particles/'+name]['complexEmitterDefinitionData'] for name in ['Lux_Base_BA_tar','Lux_Base_BA_tar_crit']]

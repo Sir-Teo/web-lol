@@ -12,7 +12,14 @@
     "8aa1ffc1": "paletteDefinition",
     "7ad984a5": "directionVelocityScale",
     "ebd44083": "directionVelocityMinScale",
-    "4ffce322": "FlexShapeDefinition"
+    "4ffce322": "FlexShapeDefinition",
+    "ffa711fb": "paletteTexture",
+    "9e52382f": "paletteCount",
+    "8bd46035": "paletteSelector",
+    "143f06d1": "palleteSrcMixColor",
+    "34d8fac6": "PaletteUAnimationCurve",
+    "44fd44cb": "PaletteVAnimationCurve",
+    "056df716": "PaletteTextureAddressMode"
   },
   "variants": {
     "Lux_Base_BA_tar": [
@@ -26,6 +33,7 @@
         "texture": "ASSETS/Particles/starfilter.tex",
         "colorLookup": null,
         "palette": null,
+        "paletteFields": null,
         "startFrame": 0,
         "texDiv": [
           1,
@@ -44,6 +52,7 @@
         "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
         "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__star__p-rgba.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 1,
         "texDiv": [
           2.0,
@@ -62,6 +71,7 @@
         "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
         "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__star2__p-rgba.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 1,
         "texDiv": [
           2.0,
@@ -80,6 +90,7 @@
         "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
         "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__outerring__p-rgba.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 4,
         "texDiv": [
           2.0,
@@ -98,6 +109,7 @@
         "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
         "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__innerring__p-rgba.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 3,
         "texDiv": [
           2.0,
@@ -116,6 +128,7 @@
         "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_StarFilter_01.tex",
         "colorLookup": null,
         "palette": null,
+        "paletteFields": null,
         "startFrame": 0,
         "texDiv": [
           1,
@@ -134,6 +147,7 @@
         "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
         "colorLookup": "ASSETS/Shared/Particles/color-rainbowbell.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 4,
         "texDiv": [
           2.0,
@@ -173,6 +187,30 @@
           "{9e52382f}": 10,
           "__type": "{a8ad8317}"
         },
+        "paletteFields": {
+          "paletteTexture": "ASSETS/Characters/Lux/Skins/Base/Particles/Flame_trail_gradient.tex",
+          "paletteCount": 10,
+          "paletteSelector": {
+            "constantValue": [
+              9.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "palleteSrcMixColor": {
+            "constantValue": [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueColor"
+          },
+          "PaletteUAnimationCurve": null,
+          "PaletteVAnimationCurve": null,
+          "PaletteTextureAddressMode": null
+        },
         "startFrame": 0,
         "texDiv": [
           1,
@@ -193,6 +231,7 @@
         "texture": "ASSETS/Shared/Particles/HitEffect.tex",
         "colorLookup": "ASSETS/Shared/Particles/color-firefade.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 0,
         "texDiv": [
           1,
@@ -211,6 +250,7 @@
         "texture": "ASSETS/Shared/Particles/blast_nova_bunny_04.tex",
         "colorLookup": "ASSETS/Particles/color-rampdown.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 0,
         "texDiv": [
           1,
@@ -229,6 +269,7 @@
         "texture": "ASSETS/Particles/starfilter.tex",
         "colorLookup": null,
         "palette": null,
+        "paletteFields": null,
         "startFrame": 0,
         "texDiv": [
           1,
@@ -247,6 +288,7 @@
         "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
         "colorLookup": "ASSETS/Shared/Particles/color-rainbowbell.tex",
         "palette": null,
+        "paletteFields": null,
         "startFrame": 4,
         "texDiv": [
           2.0,
@@ -285,6 +327,30 @@
           },
           "{9e52382f}": 10,
           "__type": "{a8ad8317}"
+        },
+        "paletteFields": {
+          "paletteTexture": "ASSETS/Characters/Lux/Skins/Base/Particles/Flame_trail_gradient.tex",
+          "paletteCount": 10,
+          "paletteSelector": {
+            "constantValue": [
+              9.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "palleteSrcMixColor": {
+            "constantValue": [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueColor"
+          },
+          "PaletteUAnimationCurve": null,
+          "PaletteVAnimationCurve": null,
+          "PaletteTextureAddressMode": null
         },
         "startFrame": 0,
         "texDiv": [

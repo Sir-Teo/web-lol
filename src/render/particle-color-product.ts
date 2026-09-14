@@ -1,29 +1,48 @@
 import * as THREE from 'three';
 
+export interface ParticlePalette {
+  texture: THREE.Texture;
+  sourceMix: readonly [number, number, number, number];
+  /** Already normalized row coordinate; native CPU selector conversion is caller-owned. */
+  row: number;
+  scroll?: readonly [number, number];
+}
+
 /** Initial RGBA product verified in native mesh PS 740/615 and quad PS 2/4.
  * For mesh MULT_PASS, pass TEXTUREMULT as the second texture.
  * Quad MULT_PASS keeps the lookup and adds a multiplier sampled at the same UV.
  * This is an inspection building block, not a complete native particle material:
  * framebuffer blending, remap, fog and native sampler state are caller concerns.
- * Textures are borrowed. Disposing the material does not dispose either texture.
+ * Optional palette replacement precedes that product (native quad PS 12/23/33).
+ * Textures are borrowed. Disposing the material does not dispose any texture.
  */
 export function createParticleColorProductMaterial(
   texture: THREE.Texture,
   lookup: THREE.Texture,
   coordinates: 'uniform' | 'vertex' = 'uniform',
   quadMultiplier?: THREE.Texture,
-  vertexTint = false
+  vertexTint = false,
+  palette?: ParticlePalette
 ) {
   return new THREE.ShaderMaterial({
     name: 'Native particle initial color product',
     uniforms: {
       sourceTexture: { value: texture },
+      ...(palette
+        ? {
+            paletteTexture: { value: palette.texture },
+            paletteSourceMix: { value: new THREE.Vector4(...palette.sourceMix) },
+            paletteRow: { value: palette.row },
+            paletteScroll: { value: new THREE.Vector2(...(palette.scroll ?? ([0, 0] as const))) },
+          }
+        : {}),
       particleColorTexture: { value: lookup },
       ...(quadMultiplier ? { multiplierTexture: { value: quadMultiplier } } : {}),
       lookupUv: { value: new THREE.Vector2(0.5, 0.5) },
       particleColor: { value: new THREE.Vector4(1, 1, 1, 1) },
     },
     defines: {
+      ...(palette ? { PALETTIZE_TEXTURES: 1 } : {}),
       ...(coordinates === 'vertex' ? { VERTEX_LOOKUP: 1 } : {}),
       ...(vertexTint ? { VERTEX_TINT: 1 } : {}),
       ...(quadMultiplier ? { QUAD_MULT_PASS: 1 } : {}),
@@ -58,6 +77,12 @@ export function createParticleColorProductMaterial(
     `,
     fragmentShader: `
       uniform sampler2D sourceTexture;
+      #ifdef PALETTIZE_TEXTURES
+        uniform sampler2D paletteTexture;
+        uniform vec4 paletteSourceMix;
+        uniform float paletteRow;
+        uniform vec2 paletteScroll;
+      #endif
       uniform sampler2D particleColorTexture;
       uniform vec4 particleColor;
       #ifdef QUAD_MULT_PASS
@@ -69,8 +94,15 @@ export function createParticleColorProductMaterial(
         varying vec4 vertexColor;
       #endif
       void main() {
-        gl_FragColor = texture2D(sourceTexture, sourceUv)
-          * particleColor * texture2D(particleColorTexture, colorUv);
+        vec4 sourceColor = texture2D(sourceTexture, sourceUv);
+        #ifdef PALETTIZE_TEXTURES
+          // Native quad PS 12/23/33: clamp the source dot before adding scroll;
+          // replace RGB only, then apply particle tint and color lookup.
+          vec2 paletteUv = vec2(clamp(dot(sourceColor, paletteSourceMix), 0.0, 1.0), paletteRow)
+            + paletteScroll;
+          sourceColor.rgb = texture2D(paletteTexture, paletteUv).rgb;
+        #endif
+        gl_FragColor = sourceColor * particleColor * texture2D(particleColorTexture, colorUv);
         #ifdef VERTEX_TINT
           gl_FragColor *= vertexColor;
         #endif
