@@ -279,3 +279,11 @@ The exporter revalidates all seven selected definitions against the binary. GPU 
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-lux-beam-layers.py
 npx playwright test e2e/lux-beam-dark-flash.spec.ts e2e/lux-beam-depth.spec.ts e2e/lux-beam-color.spec.ts e2e/lux-beam-uv.spec.ts e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts
 ```
+
+## Longer-lived core glow
+
+`Beam_Core_Glow1` is now selected from the complete source record, bringing implemented coverage to eight of the 39 active emitters. It reuses existing textures and carries the authored 0.6000000238-second lifetime, warm birth tint, fading alpha curve, widening scale and pass 7. The exporter revalidates all eight selected records against the pinned binary.
+
+Beam retention previously ended at a fixed 0.3 seconds after release. `LUX_R.presentationSeconds` now derives from the maximum selected layer delay plus lifetime, relative to the cast interval. Simulation cleanup and snapshot validation already share this value, so both now retain the full selected effect. Saved fields remain unchanged; same-build compatibility still applies. This bound covers currently selected layers, not the still-missing longer post-beam layers.
+
+The simulation regression checks retention at 18 and 36 ticks after release, removal on the next tick, and identical continuation from a save taken inside the tail. Gameplay checks confirm that only the new glow remains after the original layers end, that it survives reconstruction from a snapshot, and that all render resources eventually retire. The dedicated `artifacts/lux-r-glow-tail.png` capture was reviewed; the remaining glow is faint at that sampled phase. All eight material variants pass color, blend, depth and UV checks; the facing check covers fourteen warning/fired camera samples. Nine browser checks, 720 unit tests and production smoke testing pass.

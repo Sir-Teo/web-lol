@@ -46,8 +46,15 @@ test('R captures its damage/resources, hits all targets simultaneously and refre
   expect(restored.snapshot()).toBe(w.snapshot());
   const beamSaved = World.fromSnapshot(w.snapshot(), w.battlefield);
   for (const world of [w, beamSaved]) world.step(18);
+  expect(w.luxBeams).toHaveLength(1);
+  expect(beamSaved.snapshot()).toBe(w.snapshot());
+  const tailSaved = World.fromSnapshot(w.snapshot(), w.battlefield);
+  for (const world of [w, beamSaved, tailSaved]) world.step(18);
+  expect(w.luxBeams).toHaveLength(1);
+  for (const world of [w, beamSaved, tailSaved]) world.step();
   expect(w.luxBeams).toEqual([]);
   expect(beamSaved.snapshot()).toBe(w.snapshot());
+  expect(tailSaved.snapshot()).toBe(w.snapshot());
 });
 
 test('R samples positions at release, ignores allies, and excludes structures', () => {

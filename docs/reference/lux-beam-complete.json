@@ -9,6 +9,7 @@
     "warning_beam_2",
     "Beam_Core_FLASH",
     "Beam_Core_Glow",
+    "Beam_Core_Glow1",
     "Beam_DARK_FLASH1"
   ],
   "emitters": [
@@ -126,7 +127,7 @@
       "name": "Beam_Core_Glow1",
       "disabled": false,
       "primitive": "VfxPrimitiveBeam",
-      "implemented": false,
+      "implemented": true,
       "blend": 4,
       "pass": 7,
       "delay": 1.0,

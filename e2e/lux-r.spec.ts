@@ -62,15 +62,35 @@ test('Lux R presents charge and beam around its source cast animation, then clea
     beams: 1,
     models: 1,
     hit: [true, true, true],
-    native: ['Beam_Core1', 'Beam_Core2', 'Beam_Core_FLASH', 'Beam_Core_Glow'],
+    native: ['Beam_Core1', 'Beam_Core2', 'Beam_Core_FLASH', 'Beam_Core_Glow', 'Beam_Core_Glow1'],
   });
   await page.screenshot({ path: 'artifacts/lux-r-match.png' });
   const remaining = await page.evaluate(() => {
     const g = (window as any).__GAME__;
     g.world.step(18);
     g.view.render(g.world, 1, performance.now() / 1000);
+    const visible = [...g.view.luxBeams.models.values()].flatMap((group: any) =>
+      group.children.filter((mesh: any) => mesh.visible).map((mesh: any) => mesh.name)
+    );
+    const restored = g.world.constructor.fromSnapshot(g.world.snapshot(), g.world.battlefield);
+    g.view.render(restored, 1, performance.now() / 1000);
+    const restoredVisible = [...g.view.luxBeams.models.values()].flatMap((group: any) =>
+      group.children.filter((mesh: any) => mesh.visible).map((mesh: any) => mesh.name)
+    );
+    return { visible, restoredVisible, count: g.view.luxBeams.models.size };
+  });
+  expect(remaining).toEqual({
+    visible: ['Beam_Core_Glow1'],
+    restoredVisible: ['Beam_Core_Glow1'],
+    count: 1,
+  });
+  await page.screenshot({ path: 'artifacts/lux-r-glow-tail.png' });
+  const retired = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.step(20);
+    g.view.render(g.world, 1, performance.now() / 1000);
     return g.view.luxBeams.models.size;
   });
-  expect(remaining).toBe(0);
+  expect(retired).toBe(0);
   expect(errors).toEqual([]);
 });
