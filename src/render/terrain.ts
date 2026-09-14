@@ -125,7 +125,7 @@ export function createTerrainTexture(): THREE.CanvasTexture {
   return texture;
 }
 
-export function buildTerrain(scene: THREE.Scene): {
+export function buildTerrain(scene: THREE.Object3D): {
   mapTexture: THREE.CanvasTexture;
   water: THREE.Mesh;
 } {

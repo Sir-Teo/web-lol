@@ -1,3 +1,4 @@
+import { groundDisplayListSort, setGroundRenderStage } from './ground-display-list';
 import { LuxBokeh } from './lux-bokeh';
 import { structureModelMatrix } from './structure-transform';
 import { structurePose } from './structure-pose';
@@ -129,6 +130,7 @@ export class GameView {
       alpha: false,
       powerPreference: 'high-performance',
     });
+    this.renderer.setOpaqueSort(groundDisplayListSort);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.shadowMap.enabled = true;
@@ -158,9 +160,12 @@ export class GameView {
     sun.shadow.bias = -0.001;
     sun.shadow.normalBias = 0.04;
     this.scene.add(sun);
+    const fixtureTerrain = new THREE.Group();
+    setGroundRenderStage(fixtureTerrain, 'terrain');
+    this.scene.add(fixtureTerrain);
     this.mapTexture =
       battlefield.id === 'practice-fixture'
-        ? buildTerrain(this.scene).mapTexture
+        ? buildTerrain(fixtureTerrain).mapTexture
         : new THREE.CanvasTexture(document.createElement('canvas'));
     if (battlefield.id === 'rift') this.center = { ...battlefield.spawns.blue };
     const ring = (color: number, radius: number) => {
@@ -263,6 +268,7 @@ export class GameView {
     // Terrain has no animated transforms. Bake its final world placement once;
     // fog uniforms and materials remain live, as do all separate unit models.
     root.name = 'rift-terrain';
+    setGroundRenderStage(root, 'terrain');
     root.updateWorldMatrix(true, true);
     root.traverse((object) => {
       object.matrixAutoUpdate = false;
