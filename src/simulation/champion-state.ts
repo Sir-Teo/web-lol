@@ -25,6 +25,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     qStacks: 0,
     qUntil: 0,
     qStackExpiry: 0,
+    garenQ: null,
     eCharges: unlocked ? ASHE_E.maximumCharges : 0,
     eRechargeTick: null,
     eRechargeDurationTicks: ASHE_E.rechargeSecondsByRank[0] * TICK_RATE,
@@ -48,6 +49,11 @@ export function rechargeChampion(state: ChampionState, tick: number): void {
         ? state.eRechargeTick + state.eRechargeDurationTicks
         : null;
   }
+}
+/** Also run on consumption so a match-ending hit cannot retain an expired buff. */
+export function expireGarenQ(state: ChampionState, tick: number): void {
+  const q = state.garenQ;
+  if (q && tick >= q.speedUntil && (q.consumed || tick >= q.attackUntil)) state.garenQ = null;
 }
 /** Focus expiry follows combat so a fresh attack can refresh the deadline. */
 export function expireChampionFocus(state: ChampionState, tick: number): void {

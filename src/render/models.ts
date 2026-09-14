@@ -84,7 +84,7 @@ export async function loadReferenceModels(): Promise<void> {
                 'entry_b4dcde19',
               ]
             : name === 'garen-base'
-              ? ['idle1_base', 'run_base', 'attack1', 'crit', 'death', 'recall']
+              ? ['idle1_base', 'run_base', 'attack1', 'crit', 'spell1', 'death', 'recall']
               : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);

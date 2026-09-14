@@ -66,7 +66,13 @@ export interface Unit extends Vec2 {
   laneWaypoint: number;
   attackTarget: number | null;
   /** Empowerment is captured at attack start for source animation selection. */
-  attackCycle: { startTick: number; endTick: number; empowered: boolean; critical?: true } | null;
+  attackCycle: {
+    startTick: number;
+    endTick: number;
+    empowered: boolean;
+    critical?: true;
+    garenQRank?: number;
+  } | null;
   releaseTick: number | null;
   nextAttackTick: number;
   slowUntil: number;
@@ -272,6 +278,13 @@ export interface ChampionState {
   qStacks: number;
   qUntil: number;
   qStackExpiry: number;
+  garenQ: {
+    startTick: number;
+    rank: number;
+    attackUntil: number;
+    speedUntil: number;
+    consumed: boolean;
+  } | null;
   eCharges: number;
   eRechargeTick: number | null;
   eRechargeDurationTicks: number;

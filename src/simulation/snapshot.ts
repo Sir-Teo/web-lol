@@ -28,6 +28,7 @@ import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
+import { GAREN_Q } from '../content/garen-q';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
@@ -36,7 +37,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 67;
+export const SNAPSHOT_VERSION = 68;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -144,6 +145,7 @@ const unit: z.ZodType<Unit> = z
         endTick: tick,
         empowered: z.boolean(),
         critical: z.literal(true).optional(),
+        garenQRank: z.number().int().min(1).max(5).optional(),
       })
       .refine((cycle) => cycle.endTick > cycle.startTick, 'Invalid attack cycle')
       .nullable(),
@@ -228,6 +230,10 @@ const unit: z.ZodType<Unit> = z
   )
   .refine((u) => u.hp <= u.maxHp && u.mana <= u.maxMana, 'Invalid unit resources')
   .refine((u) => !u.attackCycle?.empowered || u.champion === 'ashe', 'Invalid empowered attacker')
+  .refine(
+    (u) => u.attackCycle?.garenQRank === undefined || u.champion === 'garen',
+    'Invalid Decisive Strike attacker'
+  )
   .refine((u) => !u.attackCycle?.critical || u.kind === 'champion', 'Invalid critical attacker');
 const inventorySchema = z
   .array(
@@ -298,6 +304,15 @@ const player: z.ZodType<PlayerState> = z
     qStacks: z.number().int().min(0).max(4),
     qUntil: deadline,
     qStackExpiry: deadline,
+    garenQ: z
+      .strictObject({
+        startTick: tick,
+        rank: z.number().int().min(1).max(5),
+        attackUntil: tick,
+        speedUntil: tick,
+        consumed: z.boolean(),
+      })
+      .nullable(),
     eCharges: z.number().int().min(0).max(ASHE_E.maximumCharges),
     eRechargeTick: tick.nullable(),
     eRechargeDurationTicks: tick.refine((value) => rechargeDurations.has(value)),
@@ -1215,7 +1230,30 @@ export function decodeSnapshot(text: string) {
       champion.champion === 'lux'
         ? ['q', 'w', 'e', 'r'].includes(ability)
         : champion.champion === 'ashe' && ability !== 'q';
-    if (champion.champion === 'garen' && Object.values(owner.spellRanks).some((rank) => rank !== 0))
+    const garenQ = owner.garenQ;
+    if (
+      garenQ &&
+      (champion.champion !== 'garen' ||
+        champion.deadAt !== null ||
+        garenQ.rank > owner.spellRanks.q ||
+        garenQ.startTick > state.tick ||
+        garenQ.attackUntil !==
+          garenQ.startTick + Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE) ||
+        garenQ.speedUntil !==
+          garenQ.startTick +
+            Math.round(GAREN_Q.movementSecondsByRank[garenQ.rank - 1] * TICK_RATE) ||
+        (garenQ.speedUntil <= state.tick && (garenQ.consumed || garenQ.attackUntil <= state.tick)))
+    )
+      throw new Error('Saved match contains invalid Decisive Strike state.');
+    if (
+      champion.attackCycle?.garenQRank !== undefined &&
+      champion.attackCycle.garenQRank > owner.spellRanks.q
+    )
+      throw new Error('Saved Decisive Strike has an unavailable rank.');
+    if (
+      champion.champion === 'garen' &&
+      ['w', 'e', 'r'].some((key) => owner.spellRanks[key as 'w' | 'e' | 'r'] !== 0)
+    )
       throw new Error('Saved Garen contains an unavailable spell rank.');
     const cast = owner.pendingCast;
     if (cast) {

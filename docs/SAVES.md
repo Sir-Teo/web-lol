@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 68 adds independent Garen Q buff state and captured empowered-attack ranks. It validates champion ownership, learned ranks, exact activation-relative deadlines, consumption and live buff ownership. Already committed attacks retain their rank through buff expiry and save/restore. Garen remains unavailable as the player, and W/E/R ranks remain rejected. Earlier formats are incompatible.
+
 Version 67 adds Garen as a non-player simulation champion and includes his source animation clips in validated pose state. Garen cannot carry Ashe Focus/Hawkshot state, pending foreign casts or learned unfinished spells. Player selection remains Ashe/Lux; an imported player identity of Garen is rejected until his player kit is integrated. Earlier checkpoint versions remain incompatible.
 
 Version 66 requires a nonnegative integer `silenceUntil` deadline on each unit. Silence resumes with the match clock and clears on respawn. Missing, fractional, negative or null deadlines are rejected. Earlier formats remain incompatible under the same-build checkpoint policy.

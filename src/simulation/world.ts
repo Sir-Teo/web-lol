@@ -28,13 +28,19 @@ import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { championProfile } from '../content/champion-profiles';
 import { garenAttackWindupTicks } from './garen-attack-timing';
+import { GAREN_Q } from '../content/garen-q';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
 import { HAWKSHOT_ASSIST_SECONDS } from '../content/hawkshot-assist';
 import { ASSIST_WINDOW_SECONDS } from '../content/assist-window';
 import { MINION_XP_SHARES } from '../content/minion-xp-sharing';
-import { createChampionState, rechargeChampion, expireChampionFocus } from './champion-state';
+import {
+  createChampionState,
+  rechargeChampion,
+  expireChampionFocus,
+  expireGarenQ,
+} from './champion-state';
 import { hastedCooldownTicks, itemAbilityHaste } from './ability-haste';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
@@ -386,7 +392,13 @@ export class World {
   }
   setOrder(u: Unit, order: Order): void {
     u.order = order;
-    if (order.type !== 'attack' || order.target !== u.attackTarget) {
+    const committedGarenQ =
+      GAREN_Q.attackCannotCancelWindup &&
+      !this.winner &&
+      this.alive(u) &&
+      u.releaseTick !== null &&
+      u.attackCycle?.garenQRank !== undefined;
+    if (!committedGarenQ && (order.type !== 'attack' || order.target !== u.attackTarget)) {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
@@ -443,7 +455,10 @@ export class World {
     }
     // Serial recharge continues through death. Resolve before commands so a
     // newly restored charge can be used on its deadline tick.
-    for (const state of this.activeChampionStates()) rechargeChampion(state, this.tick);
+    for (const state of this.activeChampionStates()) {
+      rechargeChampion(state, this.tick);
+      expireGarenQ(state, this.tick);
+    }
     this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
     this.bindingStops = this.bindingStops.filter(
       (flight) => this.tick < flight.stopTick + LUX_BINDING_STOP_HISTORY_TICKS
@@ -525,6 +540,21 @@ export class World {
         else this.releaseArrowSpell(u, cast.ability, cast.point, cast.damage, cast.rank);
       }
       if (u.stunUntil > this.tick) {
+        // An already committed Decisive Strike completes while disabled. This
+        // does not permit starting another attack or moving during the stun.
+        if (
+          GAREN_Q.attackCanCastWhileDisabled &&
+          u.releaseTick !== null &&
+          u.attackCycle?.garenQRank !== undefined
+        ) {
+          this.advanceUnit(u);
+          if (this.winner) {
+            this.advanceAnimationClocks();
+            this.advanceImpactVisuals();
+            return;
+          }
+          continue;
+        }
         const state = this.championState(u.id);
         if (state) state.castAnimation = null;
         u.attackCycle = null;
@@ -1297,6 +1327,7 @@ export class World {
     if (u.aiRetreating) {
       const home = this.battlefield.spawns[u.team];
       const state = this.championState(u.id)!;
+      this.planGarenQ(u, true);
       if (this.planLuxCombat(u, true)) return;
       if (this.planEmergencyFlash(u)) return;
       if (distance(u, home) > 400 && this.planCrystalArrow(u, 'peel')) return;
@@ -1351,6 +1382,7 @@ export class World {
         !this.threateningTower(u, point, true)
     );
     if (disengage) {
+      this.planGarenQ(u, true);
       if (this.planLuxCombat(u, true) || this.planCrystalArrow(u, 'peel')) return;
       if (u.order.type !== 'move' || distance(u.order.point, disengage) > 50)
         this.setOrder(u, { type: 'move', point: disengage });
@@ -1380,6 +1412,7 @@ export class World {
     }
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planLuxCombat(u, false)) return;
+    this.planGarenQ(u, false);
     const safeTarget = (target: Unit) =>
       this.safeAttackPosition(u, target) && !this.incomingAttacksClaimMinion(u, target);
     const nearest = this.nearest(u, 1150, false, safeTarget);
@@ -1432,7 +1465,12 @@ export class World {
         });
         return;
       }
-      if (d < 380 && target.kind === 'champion' && this.tick < u.nextAttackTick) {
+      if (
+        u.missileSpeed > 0 &&
+        d < 380 &&
+        target.kind === 'champion' &&
+        this.tick < u.nextAttackTick
+      ) {
         let away = direction(target, u);
         if (away.x === 0 && away.y === 0) away = direction(u, this.battlefield.spawns[u.team]);
         this.setOrder(u, { type: 'move', point: { x: u.x + away.x * 180, y: u.y + away.y * 180 } });
@@ -1450,6 +1488,23 @@ export class World {
         type: 'move',
         point: { x: 650, y: -490 },
       });
+  }
+  private planGarenQ(u: Unit, retreating: boolean): boolean {
+    if (u.champion !== 'garen' || u.silenceUntil > this.tick || u.releaseTick !== null)
+      return false;
+    const state = this.championState(u.id)!;
+    if (state.spellRanks.q === 0 || this.abilityCooldownTicks('q', u.id) > 0 || state.garenQ)
+      return false;
+    const target = this.nearest(u, 1000, true);
+    if (!target) return false;
+    const chaseRange =
+      u.range +
+      target.radius +
+      u.speed * GAREN_Q.movementSecondsByRank[state.spellRanks.q - 1] * 0.5;
+    if (!retreating && (distance(u, target) > chaseRange || !this.safeAttackPosition(u, target)))
+      return false;
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point: { x: u.x, y: u.y } });
+    return true;
   }
   private advanceUnit(u: Unit): void {
     const state = this.championState(u.id);
@@ -1490,13 +1545,23 @@ export class World {
           const payloads = empowered
             ? asheFocusFlurry(state.spellRanks.q, attackDamage)
             : [{ damage: attackDamage, appliesOnHit: true }];
-          if (!u.missileSpeed)
-            this.hitBasicAttack(
-              u,
-              target,
-              payloads.reduce((sum, p) => sum + p.damage, 0)
-            );
-          else
+          if (!u.missileSpeed) {
+            const qRank = u.attackCycle?.garenQRank;
+            // Initial Q adapter: only the ordinary attack portion rolls critical
+            // damage; Q's native special critical multiplier remains unmapped.
+            const qBonus =
+              qRank === undefined
+                ? 0
+                : GAREN_Q.baseDamageByRank[qRank - 1] +
+                  (GAREN_Q.totalAttackDamageRatio - 1) * u.damage;
+            if (qRank !== undefined && state?.garenQ) {
+              state.garenQ.consumed = true;
+              expireGarenQ(state, this.tick);
+            }
+            this.hitBasicAttack(u, target, payloads.reduce((sum, p) => sum + p.damage, 0) + qBonus);
+            if (qRank !== undefined)
+              this.applySilence(target, Math.round(GAREN_Q.silenceSeconds * TICK_RATE));
+          } else
             for (const [index, payload] of payloads.entries()) {
               const projectile: Projectile = {
                 id: this.nextId++,
@@ -1535,6 +1600,7 @@ export class World {
         return;
       }
     }
+    if (u.stunUntil > this.tick) return;
     if (u.order.type === 'attack') {
       const ordered = this.unit(u.order.target);
       target =
@@ -1566,6 +1632,12 @@ export class World {
             startTick: this.tick,
             endTick: u.nextAttackTick,
             empowered: state !== undefined && this.tick < state.qUntil,
+            ...(u.champion === 'garen' &&
+            state?.garenQ &&
+            !state.garenQ.consumed &&
+            this.tick < state.garenQ.attackUntil
+              ? { garenQRank: state.garenQ.rank }
+              : {}),
             ...(u.kind === 'champion' &&
             !isStructureKind(target.kind) &&
             this.criticalChance(u) > 0 &&
@@ -1637,7 +1709,11 @@ export class World {
     }
   }
   movementSpeed(u: Unit): number {
-    const haste = u.summonerHealSpeedUntil > this.tick ? 1 + SUMMONER_HEAL.speedBonus : 1;
+    const q = this.championState(u.id)?.garenQ;
+    const haste =
+      1 +
+      (u.summonerHealSpeedUntil > this.tick ? SUMMONER_HEAL.speedBonus : 0) +
+      (q && q.speedUntil > this.tick ? GAREN_Q.movementSpeedBonus : 0);
     return u.speed * this.slowFactor(u) * haste;
   }
   slowFactor(u: Unit): number {
@@ -2664,6 +2740,7 @@ export class World {
         targetState.qStacks = 0;
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
+        targetState.garenQ = null;
       }
       const lastDamage = targetState?.damageContributors
         .slice()
@@ -2836,7 +2913,7 @@ export class World {
     return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
   }
   spellLearningError(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
-    if (this.unit(championId)?.champion === 'garen')
+    if (this.unit(championId)?.champion === 'garen' && ability !== 'q')
       return 'Garen abilities are still in development';
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
@@ -2879,6 +2956,8 @@ export class World {
     if (ability === 'd' || ability === 'f')
       return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'garen')
+      return { mana: 0, cooldownSeconds: ability === 'q' && rank ? GAREN_Q.cooldownSeconds : 0 };
     if (this.unit(championId)?.champion === 'lux' && ability === 'e')
       return {
         mana: rank ? LUX_E.mana[rank - 1] : 0,
@@ -2904,7 +2983,7 @@ export class World {
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     const state = this.championState(u.id);
     if (!state) return;
-    if (u.champion === 'garen' && ability !== 'd' && ability !== 'f') return;
+    if (u.champion === 'garen' && ability !== 'q' && ability !== 'd' && ability !== 'f') return;
     // Check before Lux's E-recast shortcut as well as ordinary casts.
     if (u.silenceUntil > this.tick && !ABILITIES[ability].canCastWhileSilenced) {
       this.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });
@@ -2953,6 +3032,29 @@ export class World {
       return;
     }
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    if (u.champion === 'garen' && ability === 'q') {
+      state.garenQ = {
+        startTick: this.tick,
+        rank: state.spellRanks.q,
+        attackUntil: this.tick + Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE),
+        speedUntil:
+          this.tick + Math.round(GAREN_Q.movementSecondsByRank[state.spellRanks.q - 1] * TICK_RATE),
+        consumed: false,
+      };
+      state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      state.castAnimation = null;
+      u.slowUntil = 0;
+      u.slowMultiplier = 1;
+      u.criticalSlow = null;
+      u.slows = [];
+      u.releaseTick = null;
+      u.attackTarget = null;
+      u.attackCycle = null;
+      u.nextAttackTick = this.tick;
+      this.emit('cast', u, { unit: u.id, champion: 'garen', text: 'q', team: u.team });
+      return;
+    }
     const dir = direction(u, point);
     if (
       u.champion === 'lux' &&

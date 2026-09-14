@@ -69,15 +69,17 @@ export function mobilePose(
     cycle = unit.attackCycle;
   if (!moving && cycle && tick < cycle.endTick) {
     const clip =
-      unit.champion === 'lux'
-        ? cycle.critical
-          ? 'crit'
-          : luxAttackAnimation(unit.id, cycle.startTick)
-        : cycle.empowered
-          ? ASHE_Q.empoweredAttackAnimation
-          : cycle.critical
+      cycle.garenQRank !== undefined
+        ? 'spell1'
+        : unit.champion === 'lux'
+          ? cycle.critical
             ? 'crit'
-            : 'attack1';
+            : luxAttackAnimation(unit.id, cycle.startTick)
+          : cycle.empowered
+            ? ASHE_Q.empoweredAttackAnimation
+            : cycle.critical
+              ? 'crit'
+              : 'attack1';
     const rate = duration(clip) / ((cycle.endTick - cycle.startTick) / TICK_RATE),
       age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
     return { ...fixed('attack', clip, age * rate, false, rate), settled: age >= 0.08 };
