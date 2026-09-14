@@ -11,6 +11,16 @@ assert audit['sourcePinSha256']==hashlib.sha256(pin_path.read_bytes()).hexdigest
 assert audit['readerDefaults']['particleLifetimeSeconds']==3
 
 def vector(value): return value if isinstance(value,list) else [value]
+def field_hash(name):
+    value=2166136261
+    for byte in name.lower().encode('ascii'): value=((value^byte)*16777619)&0xffffffff
+    return '{%08x}'%value
+
+def absent(record, names):
+    keys={key.lower() for key in record}
+    for name in names:
+        assert name.lower() not in keys and field_hash(name) not in keys, name
+
 def birth(value, default):
     dynamics=value.get('dynamics')
     if dynamics: assert dynamics['times']==[0] and len(dynamics['values'])==1
@@ -28,6 +38,12 @@ for index,e in enumerate(audit['resolvedDefinition']['complexEmitterDefinitionDa
     assert e.get('timeBeforeFirstEmission',0)==0
     assert not e.get('disabled',False)
     spawn=e.get('SpawnShape',{})
+    # Static motion deliberately supports only the authored constant birth velocity.
+    # Fail on future motion fields, including their unresolved hash representation.
+    absent(e, ['velocity','acceleration','worldAcceleration','birthAcceleration',
+        'drag','birthDrag','birthOrbitalVelocity','orbitalVelocity','translationOverride'])
+    absent(spawn, ['birthTranslation'])
+    assert len(spawn.get('emitRotationAngles',[]))<=1
     assert not spawn or spawn['__type'] in ('VfxShapeLegacy','{ee39916f}')
     if spawn.get('__type')=='{ee39916f}': assert set(spawn)=={'__type','emitOffset'}
     offset=spawn.get('emitOffset',{})

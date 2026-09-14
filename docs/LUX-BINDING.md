@@ -207,3 +207,15 @@ The source bar curve retains its tiny initial zero-size interval and its peak ne
 Four added numerical cases cover uniform versus nonuniform scaling, exact curve knots, the distinct cylinder height/alpha timelines, seconds-based spin, fixed birth-random lookup, unpremultiplied tint, input immutability and expiration. TypeScript and all 811 unit tests pass. This is a source-value sampler, not a completed target-effect renderer: texture/atlas behavior, spawn/motion integration, mesh/quad transforms, soft particles, erosion, gameplay attachment and native comparison remain outstanding.
 
 The production build also passes for this appearance-data/sampler addition.
+
+## Target spawn placement and static motion
+
+`luxBindingTargetStaticMotion` now evaluates source-space placement for all eleven target emitters. The legacy shape turn rotates both spawn offset and birth velocity; emitter position is added afterwards. Only `energy_Float` has nonzero birth velocity, so its displacement is velocity times age in seconds. Particle-facing spin remains in the appearance evaluator and does not rotate the spawn position. Scene conversion and moving-target attachment are deliberately separate downstream operations.
+
+The pinned [shape reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readMotion.ts) maps `{ee39916f}` to its point-shape interpretation: the lowercase FNV1a hash of `VfxShapePointDoNotUse` matches. The reader explicitly describes that name as a hash crack, not an attested string. Raw source identifiers remain unchanged. Its [spawn sampler](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/spawnShape.ts) and [birth routine](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts) support this placement ordering. These are pinned parser/renderer semantics, not independent native-client verification.
+
+The birth exporter now rejects additional acceleration, velocity-over-life, drag, orbit, translation override and shape-translation fields, including hashed spellings, and rejects multiple shape turns. Those operations are absent from this source set and must not silently enter the constant-velocity evaluator after a source update. Re-export leaves the generated profiles unchanged.
+
+Four regression cases cover authored point heights (including upper caps at 230 and the lower cylinder at -10), bar placement at four cardinal angles, rotated spark velocity and displacement, seek stability, immutable birth inputs and expiration. TypeScript and all 815 tests across 177 files pass. Target material/atlas behavior, mesh/quad orientation, moving attachment, gameplay termination and native visual comparison remain unfinished; this module is not yet the live target renderer.
+
+The production build also passes. Its existing large-chunk warning remains; this isolated motion module does not establish full-match performance.
