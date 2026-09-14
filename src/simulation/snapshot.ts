@@ -194,6 +194,10 @@ const inventorySchema = z
   .refine(
     (items) => items.filter((item) => item === 'deathcap').length <= 1,
     'Only one Deathcap is ownable'
+  )
+  .refine(
+    (items) => items.filter((item) => item === 'infinity-edge').length <= 1,
+    'Only one Infinity Edge is ownable'
   );
 const player: z.ZodType<PlayerState> = z
   .strictObject({

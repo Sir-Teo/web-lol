@@ -1,5 +1,6 @@
 import { MAGE_ITEMS } from './mage-items';
 import { CRITICAL_ATTACKS } from './critical-attacks';
+import { CRITICAL_ITEMS } from './critical-items';
 import type { Ability } from '../simulation/types';
 import { SUMMONER_HEAL } from './summoner-heal';
 import { ASHE_Q } from './ashe-q';
@@ -255,8 +256,10 @@ export const ITEMS = [
     speed: 0,
   },
   ...MAGE_ITEMS,
+  ...CRITICAL_ITEMS,
 ] as const;
 export const ITEM_RECIPES: Readonly<Record<string, readonly string[]>> = {
+  'infinity-edge': ['bf-sword', 'pickaxe', 'agility'],
   chapter: ['tome', 'sapphire', 'mote'],
   codex: ['tome', 'mote'],
   deathcap: ['rod', 'rod'],

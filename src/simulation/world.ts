@@ -814,7 +814,7 @@ export class World {
     if (this.tick < u.nextAttackTick) return;
     const state = this.championState(u.id)!;
     // Estimate only the first Q impact; later arrows may arrive too late.
-    const base = u.damage * (u.champion === 'ashe' ? 1 + this.criticalChance(u) : 1);
+    const base = u.damage * this.basicAttackDamageMultiplier(u);
     const raw =
       state.qUntil > this.tick ? asheFocusFlurry(state.spellRanks.q, base)[0].damage : base;
     let best: Unit | undefined;
@@ -1366,14 +1366,7 @@ export class World {
           const critical = u.attackCycle?.critical === true;
           const attackDamage =
             u.damage *
-            (isStructureKind(target.kind)
-              ? 1
-              : u.champion === 'ashe'
-                ? CRITICAL_ATTACKS.asheBaseMultiplier +
-                  this.criticalChance(u) * CRITICAL_ATTACKS.asheChanceCoefficient
-                : critical
-                  ? CRITICAL_ATTACKS.ordinaryMultiplier
-                  : 1);
+            (isStructureKind(target.kind) ? 1 : this.basicAttackDamageMultiplier(u, critical));
           const payloads = empowered
             ? asheFocusFlurry(state.spellRanks.q, attackDamage)
             : [{ damage: attackDamage, appliesOnHit: true }];
@@ -2925,6 +2918,8 @@ export class World {
     if (state.gold < plan.cost) return 'Not enough gold';
     if (item.id === 'deathcap' && state.inventory.includes('deathcap'))
       return 'You already own Rabadon’s Deathcap';
+    if (item.id === 'infinity-edge' && state.inventory.includes('infinity-edge'))
+      return 'You already own Infinity Edge';
     if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
     if (item.id === 'chapter' && state.inventory.includes('chapter'))
       return 'You already own Lost Chapter';
@@ -2953,6 +2948,22 @@ export class World {
         }, 0)
       )
     );
+  }
+  /** Modifier for a non-structure attack; excludes on-hit and ability damage. */
+  basicAttackDamageMultiplier(u: Unit = this.hero, critical = false): number {
+    const inventory = this.championState(u.id)?.inventory ?? [];
+    const bonus = statPrecision(
+      inventory.reduce<number>((sum, id) => {
+        const item = ITEMS.find((entry) => entry.id === id);
+        return sum + (item && 'bonusCriticalDamage' in item ? item.bonusCriticalDamage : 0);
+      }, 0)
+    );
+    if (u.champion === 'ashe')
+      return statPrecision(
+        CRITICAL_ATTACKS.asheBaseMultiplier +
+          this.criticalChance(u) * (CRITICAL_ATTACKS.asheChanceCoefficient + bonus)
+      );
+    return critical ? CRITICAL_ATTACKS.ordinaryMultiplier + bonus : 1;
   }
 
   crystalArrowDamage(u: Unit = this.hero, rank = this.abilityRank('r', u.id)): number {

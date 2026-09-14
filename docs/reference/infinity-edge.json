@@ -1,0 +1,248 @@
+{
+  "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+  "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+  "items": {
+    "3031": {
+      "name": "Infinity Edge",
+      "description": "<mainText><stats><attention>75</attention> Attack Damage<br><attention>25%</attention> Critical Strike Chance<br><attention>30%</attention> Critical Strike Damage</stats><br><br></mainText>",
+      "colloq": ";ie",
+      "plaintext": "Massively enhances critical strikes",
+      "from": [
+        "1038",
+        "1037",
+        "1018"
+      ],
+      "image": {
+        "full": "3031.png",
+        "sprite": "item3.png",
+        "group": "item",
+        "x": 48,
+        "y": 144,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 725,
+        "purchasable": true,
+        "total": 3500,
+        "sell": 2450
+      },
+      "tags": [
+        "CriticalStrike",
+        "Damage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatCritChanceMod": 0.25,
+        "FlatPhysicalDamageMod": 75
+      },
+      "depth": 2
+    },
+    "1038": {
+      "name": "B. F. Sword",
+      "description": "<mainText><stats><attention>40</attention> Attack Damage</stats><br><br></mainText>",
+      "colloq": ";bf",
+      "plaintext": "Greatly increases Attack Damage",
+      "into": [
+        "3031",
+        "3026",
+        "3032",
+        "3072",
+        "3095",
+        "4403",
+        "6671"
+      ],
+      "image": {
+        "full": "1038.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 192,
+        "y": 48,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 1300,
+        "purchasable": true,
+        "total": 1300,
+        "sell": 910
+      },
+      "tags": [
+        "Damage"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatPhysicalDamageMod": 40
+      }
+    }
+  },
+  "communityDragon": {
+    "url": "https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json",
+    "sha256": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb",
+    "records": {
+      "Items/3031": {
+        "mDisplayName": "Item_3031_Name",
+        "mDeathRecapName": "InfinityEdge",
+        "itemID": 3031,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default",
+          "{aca3ffce}",
+          "{0321bdeb}"
+        ],
+        "price": 725,
+        "mItemCalloutSpectator": true,
+        "mCanBeSold": true,
+        "epicness": 5,
+        "recipeItemLinks": [
+          "Items/1038",
+          "Items/1037",
+          "Items/1018"
+        ],
+        "mFlatCritChanceMod": 0.25,
+        "mFlatCritDamageMod": 0.30000001192092896,
+        "mFlatPhysicalDamageMod": 75.0,
+        "mCategories": [
+          "CriticalStrike",
+          "Damage"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          2
+        ],
+        "ShopOrderPriority": 2,
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "3031",
+            "mFormat": "{32559c50}",
+            "mLocKeys": {
+              "keyName": "Item_3031_Name",
+              "keyBrief": "Item_3031_Brief",
+              "keyColloquialism": "Item_3031_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AttackDamage",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "CritChance",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "CritDamageFlat",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_3031_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_3031_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_3031_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/3031_marksman_t3_infinityedge.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/3031_Marksman_T3_InfinityEdge.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/3031_Marksman_T3_InfinityEdge.png",
+          "epicness": 5,
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "Items/1038": {
+        "mDisplayName": "Item_1038_Name",
+        "itemID": 1038,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default"
+        ],
+        "price": 1300,
+        "mCanBeSold": true,
+        "mFlatPhysicalDamageMod": 40.0,
+        "mCategories": [
+          "Damage"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          1,
+          2,
+          4
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "1038",
+            "mFormat": "{32559c50}",
+            "mLocKeys": {
+              "keyName": "Item_1038_Name",
+              "keyColloquialism": "Item_1038_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AttackDamage",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_1038_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_1038_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_1038_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/1038_marksman_t1_bfsword.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/1038_Marksman_T1_BFSword.png",
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "Items/ItemGroups/Default": {
+        "mItemGroupID": "Default",
+        "__type": "ItemGroup"
+      },
+      "{aca3ffce}": {
+        "mItemGroupID": "{37d64eea}",
+        "mMaxGroupOwnable": 1,
+        "__type": "ItemGroup"
+      },
+      "{0321bdeb}": {
+        "mItemGroupID": "{5ddfe837}",
+        "mMaxGroupOwnable": 1,
+        "__type": "ItemGroup"
+      }
+    }
+  },
+  "icons": {
+    "1038": {
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1038.png",
+      "sha256": "521ede3bac2e64d7b4dc5cc047c57abd7d17bb6a59ff0f6f24a569e41ab0cfe8"
+    },
+    "3031": {
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3031.png",
+      "sha256": "39382e1bef39a48d14e6d37e52e9d02068df9153ca60c2bcca033dd276fae5df"
+    }
+  }
+}

@@ -439,6 +439,24 @@
         "total": 600,
         "sell": 420
       }
+    },
+    "3031": {
+      "name": "Infinity Edge",
+      "gold": {
+        "base": 725,
+        "purchasable": true,
+        "total": 3500,
+        "sell": 2450
+      }
+    },
+    "1038": {
+      "name": "B. F. Sword",
+      "gold": {
+        "base": 1300,
+        "purchasable": true,
+        "total": 1300,
+        "sell": 910
+      }
     }
   }
 }
