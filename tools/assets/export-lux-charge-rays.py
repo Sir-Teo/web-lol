@@ -17,4 +17,4 @@ profile={'name':e['emitterName'],'emitterIndex':record['complexEmitterDefinition
  'texture':v['lookup'][e['texture'].lower()],'mult':v['lookup'][e['textureMult']['textureMult'].lower()],
  'baseRotation':e['{968279e0}']['constantValue'],'multScale':e['textureMult']['{cd124686}']['constantValue'],'pass':e['pass'],'miscRenderFlags':e['miscRenderFlags']}
 Path('src/content/lux-charge-rays.json').write_text(json.dumps(profile,indent=2)+'\n')
-print('Verified ten rotating charge particles; rendering remains separate')
+print('Verified rotating charge profile for ten particles')

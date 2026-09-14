@@ -3281,6 +3281,7 @@
     ]
   },
   "additionalImplementedEmitters": [
-    "Streaks_Linger"
+    "Streaks_Linger",
+    "END_Beam_ROTATING"
   ]
 }

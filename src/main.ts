@@ -13,6 +13,7 @@ import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
+import { loadLuxChargeRayTextures } from './render/lux-charge-rays';
 import { loadLuxRStreakTextures } from './render/lux-r-streaks';
 import { loadLuxBeamTextures } from './render/lux-beams';
 import { loadReferenceModels } from './render/models';
@@ -115,6 +116,7 @@ async function boot(): Promise<void> {
     loadReferenceModels(),
     loadLuxBeamTextures(),
     loadLuxRStreakTextures(),
+    loadLuxChargeRayTextures(),
     loadLuxAttackTextures(),
     loadLuxImpactTextures(),
     loadLuxTrailTextures(),

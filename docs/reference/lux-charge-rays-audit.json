@@ -26,14 +26,20 @@
       "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
     }
   ],
-  "validation": "727 unit tests and TypeScript pass; analytical first-segment and terminal angular-rate checks, source size growth, birth distributions, phase integration, fade and retirement.",
+  "validation": "727 unit tests and TypeScript pass; eight browser checks plus production smoke. Camera planes and transformed corner positions verified for two cameras; save/visibility reconstruction, death/victory cancellation and GPU composition checked.",
   "remaining": [
-    "Camera-facing quad geometry with reference roll sign, source UV rotation and nonuniform dimensions.",
-    "Batched per-particle attributes and source material composition.",
-    "Gameplay, save, cancellation, fog, terminal retirement and visual checks."
+    "Native attachment height, frame frequency, random sequence and full visual composition comparison."
   ],
   "limitations": [
     "Native frame frequency, PRNG and attachment height remain unverified.",
-    "This sampler is not yet attached to gameplay; coverage remains twenty active emitters."
-  ]
+    "Geometry follows the pinned reference camera-quad transform; native-client captures are still needed for full parity."
+  ],
+  "renderer": {
+    "implementation": "src/render/lux-charge-rays.ts",
+    "placement": "Camera right/up basis; negate source spin, rotate the corner, then apply source anisotropic half-extents.",
+    "uv": "Camera quad u=(x+1)/2, v=(1-y)/2; rotate base UV by 90 degrees and apply independent multiplier phase.",
+    "resources": "One mesh per active caster, removed on source lifetime expiry, hidden enemy center, caster death or victory cancellation.",
+    "sourceShaderSha256": "8daff79e4111a4ab9c9d73278c6b1c7cdbef16da36c804b9f6c6074f88ca0fb7"
+  },
+  "status": "Selected and rendered; total active emitter coverage is twenty-one."
 }

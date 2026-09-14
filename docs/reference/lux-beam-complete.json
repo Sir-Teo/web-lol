@@ -22,7 +22,8 @@
     "Beam_Post_Prettiness2",
     "Beam_DARK_FLASH1",
     "END_Beam_1",
-    "END_Beam_Core"
+    "END_Beam_Core",
+    "END_Beam_ROTATING"
   ],
   "emitters": [
     {
@@ -429,7 +430,7 @@
       "name": "END_Beam_ROTATING",
       "disabled": false,
       "primitive": null,
-      "implemented": false,
+      "implemented": true,
       "blend": 4,
       "pass": 500,
       "delay": 0,
