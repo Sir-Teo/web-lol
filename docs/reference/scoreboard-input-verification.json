@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "03c6a990fbea65d46cd394b75cd304a77f694312",
+  "change": "Prevent browser context menus on the interactive scoreboard. Add regression for actual scoreboard/minimap overlap and positive exposed-minimap targeting.",
+  "sources": {
+    "src/ui/hud.ts": "e042178c6bc17d3201ebcb89f99940d32f5d0ca6b6f8824bf0126405fef2b7c0",
+    "src/input/input.ts": "f758ff8f403420c17050b09bb04c9884141937de95bb5a660fc7978df50591a9",
+    "e2e/minimap-cast.spec.ts": "3677a4cf1479b2f7650345c6bf208dd0172b9daf739ff8cfb4716e445fa422a3"
+  },
+  "reproduction": {
+    "result": "Blocked cast already passed; contextPrevented was false before adding the scoreboard contextmenu handler.",
+    "logSHA256": "834d69fcec6623e7d9590dd3aee5c8e5636ce83e1d0e6dfcbb777c3e7192260d"
+  },
+  "validation": {
+    "browserScenarios": 9,
+    "browserPassed": true,
+    "browserLogSHA256": "a883b486eaa6883657962ca10ac13198cc399e228c937705cbe9b749c051d887",
+    "productionPassed": true,
+    "productionLogSHA256": "bdf13f8057e2cb01585252b172e779db9d349be1a35ea4213e409a7e98eee1d2",
+    "screenshotSHA256": "d69e14f72fee43573bab7a732ce5749dd74931c9562bfa9bee0513181c4f71a2",
+    "visualInspection": "Full scoreboard overlaps a narrow left strip of the minimap at laptop size; the exposed map remains usable.",
+    "simulationChecks": "Not rerun for one UI context-menu handler; final production build includes TypeScript."
+  },
+  "limits": [
+    "Minimap hit-testing guard was pre-existing; no new cast-through repair claimed.",
+    "No complete native UI or production match certification."
+  ]
+}

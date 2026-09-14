@@ -550,6 +550,7 @@ export class Hud {
     if (!panel) {
       panel = document.createElement('div');
       panel.className = 'scoreboard';
+      panel.addEventListener('contextmenu', (event) => event.preventDefault());
       this.root.append(panel);
     }
     panel.hidden = !show;

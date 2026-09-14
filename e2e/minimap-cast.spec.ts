@@ -118,3 +118,57 @@ test('right-click minimap movement cancels a held scout cast', async ({ page }) 
     .toBe('move');
   expect(await page.evaluate(() => (window as any).__GAME__.world.player.eCharges)).toBe(2);
 });
+
+test('scoreboard overlap blocks minimap casts while exposed minimap targeting still works', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1366, height: 768 });
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    for (let i = 1; i < 10; i++) w.spawn('champion', i < 5 ? 'blue' : 'red', { x: 0, y: 0 });
+    // Observe accepted input before execution without pausing the UI.
+    w.commands = [];
+    w.step = () => {};
+    g.setPaused(false);
+    window.addEventListener('contextmenu', (event) => {
+      g.contextPrevented = event.defaultPrevented;
+    });
+  });
+  await page.keyboard.down('Tab');
+  const overlap = await page.evaluate(() => {
+    const panel = document.querySelector('.scoreboard')!.getBoundingClientRect();
+    const minimap = document.querySelector('#minimap')!.getBoundingClientRect();
+    const left = Math.max(panel.left, minimap.left),
+      right = Math.min(panel.right, minimap.right);
+    const top = Math.max(panel.top, minimap.top),
+      bottom = Math.min(panel.bottom, minimap.bottom);
+    if (right <= left || bottom <= top)
+      throw new Error('Expected real laptop scoreboard/minimap overlap');
+    const x = (left + right) / 2,
+      y = (top + bottom) / 2;
+    if (!document.elementFromPoint(x, y)?.closest('.scoreboard'))
+      throw new Error('Scoreboard must own the pointer surface');
+    return { x, y, clearX: minimap.right - 10, clearY: minimap.bottom - 10 };
+  });
+  await page.mouse.move(overlap.x, overlap.y);
+  await page.keyboard.press('r');
+  expect(await page.evaluate(() => (window as any).__GAME__.world.commands)).toEqual([]);
+  await page.mouse.click(overlap.x, overlap.y, { button: 'right' });
+  expect(await page.evaluate(() => (window as any).__GAME__.world.commands)).toEqual([]);
+  expect(await page.evaluate(() => (window as any).__GAME__.contextPrevented)).toBe(true);
+  await page.mouse.move(overlap.clearX, overlap.clearY);
+  await page.keyboard.press('e');
+  const accepted = await page.evaluate(() => (window as any).__GAME__.world.commands);
+  expect(accepted).toHaveLength(1);
+  expect(accepted[0].type).toBe('cast');
+  expect(accepted[0].ability).toBe('e');
+  await page.screenshot({ path: 'artifacts/scoreboard-minimap-overlap.png' });
+  await page.keyboard.up('Tab');
+});
