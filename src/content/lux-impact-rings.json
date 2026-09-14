@@ -1,0 +1,213 @@
+[
+  {
+    "name": "flash",
+    "criticalOnly": true,
+    "life": 0.10000000149011612,
+    "blend": 4,
+    "source": "assets/effects/lux-hit-hiteffect.png",
+    "lookup": "assets/effects/lux-hit-color-firefade.png",
+    "scale": 200.0,
+    "scaleTimes": [
+      0.0,
+      1.0
+    ],
+    "scales": [
+      1.0,
+      0.0
+    ],
+    "colorTimes": [
+      0
+    ],
+    "colors": [
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "rotation": 1.0,
+    "randomRotation": true,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScale": [
+      1,
+      0.5
+    ],
+    "lookupOffset": [
+      0,
+      0
+    ],
+    "atlas": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "name": "ring",
+    "criticalOnly": true,
+    "life": 0.5,
+    "blend": 0,
+    "source": "assets/effects/lux-hit-blast_nova_bunny_04.png",
+    "lookup": "assets/effects/lux-hit-color-rampdown.png",
+    "scale": 70.0,
+    "scaleTimes": [
+      0.0,
+      0.30000001192092896,
+      1.0
+    ],
+    "scales": [
+      0.5,
+      1.2000000476837158,
+      1.5
+    ],
+    "colorTimes": [
+      0
+    ],
+    "colors": [
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "rotation": 1.0,
+    "randomRotation": true,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScale": [
+      0.5,
+      1.0
+    ],
+    "lookupOffset": [
+      0.5,
+      0.0
+    ],
+    "atlas": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "name": "blastring",
+    "criticalOnly": false,
+    "life": 0.30000001192092896,
+    "blend": 0,
+    "source": "assets/effects/lux-hit-starfilter.png",
+    "lookup": null,
+    "scale": 80.0,
+    "scaleTimes": [
+      0.0,
+      1.0
+    ],
+    "scales": [
+      0.800000011920929,
+      1.2000000476837158
+    ],
+    "colorTimes": [
+      0.0,
+      0.10000000149011612,
+      0.30000001192092896,
+      1.0
+    ],
+    "colors": [
+      [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        0.1900053471326828
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ]
+    ],
+    "rotation": 45.0,
+    "randomRotation": false,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScale": [
+      1,
+      0.5
+    ],
+    "lookupOffset": [
+      0,
+      0
+    ],
+    "atlas": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "name": "outerring",
+    "criticalOnly": false,
+    "life": 0.25,
+    "blend": 0,
+    "source": "assets/effects/lux-hit-globaltargethit01.png",
+    "lookup": "assets/effects/lux-hit-color-rainbowbell.png",
+    "scale": 100.0,
+    "scaleTimes": [
+      0.0,
+      1.0
+    ],
+    "scales": [
+      0.800000011920929,
+      1.0
+    ],
+    "colorTimes": [
+      0
+    ],
+    "colors": [
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "rotation": 0,
+    "randomRotation": false,
+    "lookupTypes": [
+      1,
+      1
+    ],
+    "lookupScale": [
+      0.5,
+      1.0
+    ],
+    "lookupOffset": [
+      0.5,
+      0.0
+    ],
+    "atlas": [
+      2.0,
+      3.0,
+      4
+    ]
+  }
+]

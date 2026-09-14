@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lux impact ring playback</title>
+    <style>
+      body {
+        background: #101c26;
+        color: #d8e7ed;
+        font: 15px system-ui;
+        margin: 30px;
+      }
+      main {
+        max-width: 1050px;
+        margin: auto;
+      }
+      p {
+        line-height: 1.6;
+        color: #a6bfc9;
+      }
+      canvas {
+        width: 100%;
+        height: auto;
+      }
+      label {
+        margin-right: 20px;
+      }
+      button {
+        margin-right: 20px;
+      }
+      h1 {
+        font-size: 25px;
+      }
+      #status {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Lux hit · ring and flash playback</h1>
+      <p>
+        Normal on the left, critical on the right. Authored lifetime, uniform scale, color curves,
+        atlas and lookups; stationary camera-facing quads. Sparks, flex shape and target attachment
+        are not included.
+      </p>
+      <label
+        >Age since birth
+        <input id="age" type="range" min="0" max="0.55" step="0.001" value="0.045" /></label
+      ><button id="play">Play at 0.25×</button
+      ><label
+        >Birth chance <input id="chance" type="range" min="0" max="1" step="0.01" value="0.25"
+      /></label>
+      <p id="status"></p>
+      <canvas></canvas>
+      <p>
+        Both views share the same birth chance. This is a component reconstruction, pending
+        comparison with native hit captures. Size is shown at 0.01 world units per source unit.
+      </p>
+    </main>
+    <script type="module" src="./lux-impact-rings.ts"></script>
+  </body>
+</html>

@@ -61,3 +61,20 @@ npx playwright test e2e/particle-palette.spec.ts e2e/particle-color-product.spec
 ```
 
 Palette replacement is now an available rendering building block. Composition, spark birth/motion, native sampler state, target attachment, saved impact history and gameplay integration remain unfinished.
+
+## Ring and flash component playback
+
+`/tools/qa/lux-impact-rings.html` now composes the two shared ring layers and the two critical additions. The source exporter preserves float precision for lifetime, scale and color keyframes, lookup settings, atlas selection and birth rotation. It asserts that shared normal/critical definitions match except for names. Disabled normal layers are never exported. `luxImpactRings` samples one birth's age directly, so reverse seeking and repeated reads do not accumulate simulation drift.
+
+The preview follows the existing reconstruction's uniform-X scale policy and unit conversion (a two-unit quad times source scale times 0.01), ADD tint premultiplication and SrcAlpha/One mode-4 flash blending. The ring and flash use birth chance times 360 degrees; the blast ring uses its fixed 45 degrees. The display adapts that source angle into a negative camera-plane Z rotation. Native orientation, flex-shape behavior and target binding remain unverified, and the component preview explicitly holds all particles at a stationary origin. It begins at **particle birth**, not a claimed native impact-event emission time. No spark particles are included yet.
+
+The normal view has two layers until the outer ring expires at 0.25 seconds, then one until the blast ring's exact authored lifetime `0.30000001192092896`. The critical view also has the flash until `0.10000000149011612` and expanding ring until 0.5 seconds. GPU rendering uses the previously verified color product and atlas path, with raw linear texture sampling. The screenshot at 0.045 seconds was visually reviewed; it is a component reconstruction rather than native parity evidence.
+
+Three unit tests check exact source lifetimes/scales, expiry boundaries, scale keyframes, chance rotation, deterministic seeking, shared normal/critical state, and constant-versus-lifetime lookup coordinates. The browser test checks rendering, reverse seek, playback controls and successive retirement of all four layers. All 684 unit tests pass. The QA module also passed a direct TypeScript check because normal application compilation excludes that directory.
+
+```sh
+python3 tools/assets/export-lux-impact-rings.py
+npx playwright test e2e/lux-impact-rings.spec.ts
+```
+
+Next integration work is still spark emission/motion and direction alignment, followed by target-attached saved impact playback and comparison with native captures.
