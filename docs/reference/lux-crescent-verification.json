@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-09-14T05:43:37.857733+00:00",
+  "baseRevision": "5ab188a243c43ccc421581f94c0af6fa2e1e8cf3",
+  "scope": "Source-reconstructed crescent and three-emitter Lux basic attack, replacing generic core",
+  "validation": {
+    "checks": 650,
+    "testFiles": 133,
+    "browserCases": 3,
+    "gpuSourceSamples": 36,
+    "productionNestedPath": "passed",
+    "genericLuxCore": "absent in real flight renderer",
+    "postImpactReload": "crescent instance matrices and counts exact alongside hoop/ribbon",
+    "fog": "hidden enemy instances removed and restored on reveal",
+    "previewDrawCalls": 4,
+    "emitterDrawCalls": 3,
+    "retiredPreviewDrawCalls": 1,
+    "geometryCount": "stable across seek replay",
+    "visualReview": "1440x900 combined/isolated oblique preview and gameplay flight/tail"
+  },
+  "notNativeParity": [
+    "Emitter-phase bind clock",
+    "Source frame, height and unresolved mesh metadata",
+    "Natural lifetime without 10.6-second authored crescent linger policy",
+    "Native RNG, timing, blend/sampler capture and pixel comparison"
+  ],
+  "sha256": {
+    "src/content/lux-basic-crescent.ts": "6ba1e6e93a8ffd2750636ef412f4a3a9452834237f1291f8f392c522bcd2d361",
+    "src/content/lux-attack-presentation.ts": "0b746518f6f190b7c513841f94ae130a7eb9c2f2b4ebe646062f809eb3a7e9d4",
+    "src/render/lux-crescent-particles.ts": "30986f5c94e84feb7545ee27cae3c46b8f355e9ac771b34e1785fb66aeb8e2fe",
+    "src/render/lux-attack-crescents.ts": "bc4b30c73d54fe6ec74c9d11a0fa2842f3de691dc968f37e5fb0068cf008d4b9",
+    "src/render/view.ts": "c691e32fbb133e113e950214ac701766992c9e946b855a9f22285a05b5972f0b",
+    "src/main.ts": "dba475bcc3d8c5642103c040360c027f8285b683d1b6f30bbb644e925efec6ae",
+    "tests/lux-crescent-particles.test.ts": "9c3dd922e4c820710afbc696caf6ebba6fd650900d6e54a5b3c2b5092925ca85",
+    "e2e/lux-attack-history.spec.ts": "1f3cd5c9fca75c42dafe03d6ec3cfe9a39ea03ce49cd4339f1a942441386cf06",
+    "e2e/lux-attack-playback.spec.ts": "2f8b00f3902f31263b8295e22afa64324599b9faf51e2434e4dd1bf520f4cb0f",
+    "tools/qa/lux-attack-playback.html": "44c901bc63a7e8408f9162aa360c64fa43a5a8f2107caa2af11c57855aa2c78c",
+    "tools/qa/lux-attack-playback.ts": "cf01277af6c406c650f5152d5d616b342a79e65e35b398b9b9506c51e495f390",
+    "artifacts/lux-crescent-check.log": "663c5c9d9f34f5fc6ec6265d1289a514bf53876230aeb14b43f5e405c8786a74",
+    "artifacts/lux-crescent-browser.log": "c223eda6df3e5766e759d9a785948a75348d8eac9b773690c05ec60f9ef86f3c",
+    "artifacts/lux-crescent-production.log": "f1ad3955cf8538a86df8c134d7a7865d412f2f5992a73deaae732a4c765c2569",
+    "artifacts/lux-basic-preview.png": "ef4483262fa4079c3bd75a4de22f86dc0c49a71ebde469f56369ae05d7a99637",
+    "artifacts/lux-crescent-preview.png": "4cdc5355dfb56b51fc7bd87e46781cebae1a55241d9a58fe48c7c4959e4310bc",
+    "artifacts/lux-basic-gameplay.png": "7184f645c8259585ee0a2f4cdb972f3a882dcef57490224c4de47672001ffc62",
+    "artifacts/lux-basic-gameplay-flight.png": "b2cf6daf574c34721c83109bdfe71446c8fea0e74f02e0a3e793fc409a909b1e"
+  }
+}

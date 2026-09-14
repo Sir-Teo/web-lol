@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>Lux basic attack playback</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 30px;
+        background: #0c1921;
+        color: #d8dedb;
+        font: 15px system-ui;
+      }
+      h1 {
+        margin: 0;
+        color: #eee1b2;
+        font-size: 27px;
+      }
+      p {
+        max-width: 980px;
+        color: #a8b8b9;
+        line-height: 1.6;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+        align-items: center;
+        margin: 24px 0;
+      }
+      label {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      input {
+        accent-color: #e9cc8b;
+      }
+      input[type='number'] {
+        width: 105px;
+      }
+      button,
+      input[type='number'] {
+        padding: 9px 12px;
+        background: #182a32;
+        color: #eee1b2;
+        border: 1px solid #657060;
+      }
+      button {
+        cursor: pointer;
+      }
+      output {
+        font-variant-numeric: tabular-nums;
+        min-width: 70px;
+      }
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 3fr) minmax(260px, 1fr);
+        gap: 24px;
+      }
+      #view {
+        height: 580px;
+        border: 1px solid #314b53;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      aside {
+        padding: 22px;
+        background: #182a32;
+        border: 1px solid #314b53;
+      }
+      h2 {
+        font-size: 17px;
+        color: #eee1b2;
+        margin-top: 0;
+      }
+      dt {
+        color: #a8b8b9;
+        margin-top: 18px;
+      }
+      dd {
+        margin: 5px 0;
+        font-variant-numeric: tabular-nums;
+      }
+      #status {
+        color: #e9cc8b;
+        margin-top: 20px;
+      }
+      @media (max-width: 800px) {
+        body {
+          padding: 18px;
+        }
+        main {
+          grid-template-columns: 1fr;
+        }
+        #view {
+          height: 420px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lux · basic attack playback</h1>
+    <p>
+      All three source emitters on a saved inspection path: crescent meshes, ribbon and hoop motes.
+      Drag to inspect or isolate a layer. Native-client pixel comparison remains pending.
+    </p>
+    <div class="controls">
+      <button id="play" type="button">Play</button>
+      <label
+        >Effect time
+        <input id="time" type="range" min="0" max="1.0" step="0.001" value="0.2" /><output
+          id="time-value"
+          >0.200 s</output
+        ></label
+      >
+      <label><input id="crescent" type="checkbox" checked /> Crescent</label>
+      <label><input id="ribbon" type="checkbox" checked /> Ribbon</label>
+      <label><input id="hoop" type="checkbox" checked /> Hoop</label>
+      <button id="restart" type="button">Restart</button>
+    </div>
+    <main>
+      <div id="view"></div>
+      <aside>
+        <h2>Reconstructed source effect</h2>
+        <dl>
+          <dt>Emission</dt>
+          <dd>20 crescents · 50 ribbon points · 200 motes / second</dd>
+          <dt>Inspection emission stop</dt>
+          <dd>0.350 seconds</dd>
+          <dt>Particle lifetime</dt>
+          <dd>Up to 0.600 seconds</dd>
+          <dt>Motion</dt>
+          <dd>Saved trajectory · weighted crescent binding</dd>
+          <dt>Playback</dt>
+          <dd>60 Hz grid · saved cumulative travel</dd>
+          <dt>Rendering</dt>
+          <dd>Source mesh and textures · three emitter draws</dd>
+        </dl>
+        <p>
+          The grid is 100 source units per square. Source scale, rotation and birth distributions
+          remain unchanged. Native frame, height and linger behavior still need comparison.
+        </p>
+      </aside>
+    </main>
+    <div id="status">Loading pinned textures…</div>
+    <script type="module" src="./lux-attack-playback.ts"></script>
+  </body>
+</html>

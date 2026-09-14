@@ -1,5 +1,7 @@
 # Lux basic-attack particle source package
 
+Current integration: all three source-reconstructed emitters render on real Lux basic attacks, with saved trajectory replay and post-impact tails. The generic projectile core has been removed. See [PARTICLE-PLAYBACK.md](PARTICLE-PLAYBACK.md) for implementation evidence and the remaining native-fidelity gaps. The source-package audit below records the original extraction stage.
+
 The basic-attack spell's `mMissileEffectKey` selects `Lux_BA_mis`; the pinned skin resource map resolves it to `Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_mis`. The new exporter checks both mappings and decodes the actual particle binary from client 16.18.8175716, manifest `29CE6E781C3B6368`, Lux's client archive. Its decoded record must equal the full pinned record in `reference/lux-basic-attack.json`.
 
 The effect has three emitters: `crescentwhite` uses `VoidCrescent.scb`, Ring04 and a ramp-down lookup; `Trail` uses Lux's Q trail texture with the rainbow multiplier; `hoop` uses the mote texture and a spectral lookup. The complete emitter curves, probabilities, unknown fields, source paths and archive/file/chunk hashes are retained. This is stronger evidence than identifying a similarly named image, but it does not establish native shader semantics.

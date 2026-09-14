@@ -1,3 +1,4 @@
+import { LuxAttackCrescents } from './lux-attack-crescents';
 import { LuxAttackTrails } from './lux-attack-trails';
 import { LuxAttackHoops } from './lux-attack-hoops';
 import { LUX_BINDING } from '../content/lux-binding';
@@ -47,6 +48,7 @@ export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
   luxSingularities = new LuxSingularities(this.scene, (p) => this.ground(p));
+  luxAttackCrescents = new LuxAttackCrescents(this.scene, (p) => this.ground(p));
   luxAttackTrails = new LuxAttackTrails(this.scene, (p) => this.ground(p));
   luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
@@ -635,6 +637,7 @@ export class GameView {
     this.luxBeams.update(world, alpha);
     this.luxAttackHoops.update(world, alpha, this.camera);
     this.luxAttackTrails.update(world, alpha);
+    this.luxAttackCrescents.update(world, alpha);
     this.luxSingularities.update(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);
@@ -764,6 +767,7 @@ export class GameView {
   private syncProjectiles(world: World, alpha: number): void {
     const active = new Set<number>();
     for (const p of world.projectiles) {
+      if (p.type === 'attack' && world.unit(p.source)?.champion === 'lux') continue;
       active.add(p.id);
       let model = this.projectileModels.get(p.id);
       if (!model) {

@@ -1,4 +1,5 @@
 /** Longest currently reconstructed natural particle life is 0.15000000596046448 * 4.
+ * The crescent shares that maximum natural life.
  * Keep one additional frame for interpolation. Native linger policy remains separate.
  */
 export const LUX_ATTACK_VISUAL_TAIL_TICKS = 37;

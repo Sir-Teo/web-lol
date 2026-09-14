@@ -1,0 +1,42 @@
+import { expect, test } from '@playwright/test';
+test('combined Lux attack preview renders all source emitters and preserves replay', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('/tools/qa/lux-attack-playback.html');
+  await page.waitForFunction(() => (window as any).__LUX_ATTACK__?.ready);
+  const state = () => page.evaluate(() => (window as any).__LUX_ATTACK__.state());
+  const initial = await state();
+  expect(initial.meshParticles).toHaveLength(4);
+  expect(initial.vertices.length).toBeGreaterThan(0);
+  expect(initial.motes.length).toBeGreaterThan(0);
+  expect(initial.calls).toBe(4);
+  await page.screenshot({ path: 'artifacts/lux-basic-preview.png' });
+  await page.getByLabel('Ribbon', { exact: true }).uncheck();
+  await page.getByLabel('Hoop', { exact: true }).uncheck();
+  expect((await state()).calls).toBe(2);
+  await page.screenshot({ path: 'artifacts/lux-crescent-preview.png' });
+  await page.getByLabel('Ribbon', { exact: true }).check();
+  await page.getByLabel('Hoop', { exact: true }).check();
+  await page.getByLabel('Effect time').fill('0.6');
+  expect((await state()).meshParticles.length).toBeGreaterThan(0);
+  await page.getByLabel('Effect time').fill('1');
+  const end = await state();
+  expect(end.meshParticles).toEqual([]);
+  expect(end.vertices).toEqual([]);
+  expect(end.motes).toEqual([]);
+  expect(end.calls).toBe(1);
+  await page.getByLabel('Effect time').fill('0.2');
+  const replay = await state();
+  expect(replay.meshParticles).toEqual(initial.meshParticles);
+  expect(replay.vertices).toEqual(initial.vertices);
+  expect(replay.motes).toEqual(initial.motes);
+  expect(replay.geometries).toBe(initial.geometries);
+  await page.getByRole('button', { name: 'Play', exact: true }).click();
+  await expect.poll(async () => (await state()).seconds).toBeGreaterThan(0.25);
+  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await page.getByRole('button', { name: 'Restart', exact: true }).click();
+  expect((await state()).meshParticles).toEqual([]);
+  expect(errors).toEqual([]);
+});
