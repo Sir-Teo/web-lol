@@ -9,6 +9,7 @@ const io = new NodeIO().registerExtensions(ALL_EXTENSIONS),
 for (const champion of [
   'ashe-base',
   'lux-base',
+  'garen-base',
   ...['blue', 'red'].flatMap((team) =>
     ['melee', 'caster', 'siege', 'super'].map((kind) => team + '-' + kind)
   ),
@@ -44,4 +45,4 @@ await writeFile(
   'docs/reference/mobile-clip-durations.json',
   JSON.stringify({ sources, durations }, null, 2) + '\n'
 );
-console.log('Exported exact GLTF clip endpoints for ten mobile rigs');
+console.log(`Exported exact GLTF clip endpoints for ${sources.length} mobile rigs`);

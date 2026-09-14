@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 const io = new NodeIO().registerExtensions(ALL_EXTENSIONS),
   durations = {},
   sources = [];
-for (const champion of ['ashe', 'lux']) {
+for (const champion of ['ashe', 'lux', 'garen']) {
   const path = `public/assets/models/${champion}-base.glb`,
     raw = await readFile(path),
     meta = JSON.parse(await readFile(path.replace('.glb', '.json')));
@@ -38,4 +38,4 @@ await writeFile(
   'docs/reference/champion-clip-durations.json',
   JSON.stringify({ sources, durations }, null, 2) + '\n'
 );
-console.log('Exported exact GLTF clip endpoints for Ashe and Lux');
+console.log(`Exported exact GLTF clip endpoints for ${sources.length} champion rigs`);

@@ -224,6 +224,12 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LuxR.png",
       "sha256": "392a1ed2da41f165ae79c2c3e00b8796ff017f6ce9d55e37d401d63606cb2a86",
       "bytes": 5520
+    },
+    {
+      "path": "/assets/icons/garen.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Garen.png",
+      "sha256": "53018603962e1867b391071f159bb4c60d57919422585c33bfd36551e97f3752",
+      "bytes": 30705
     }
   ]
 }

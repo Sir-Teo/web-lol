@@ -1,12 +1,17 @@
 // Source sequence order is pinned in the champion model reference records.
 export const ASHE_RECALL_CLIPS = ['idle5', 'idle2'] as const;
 export function recallAnimationPose(
-  champion: 'ashe' | 'lux' | undefined,
+  champion: 'ashe' | 'lux' | 'garen' | undefined,
   seconds: number,
   durations: Readonly<Record<string, number>>
 ) {
   let time = Math.max(0, seconds);
-  const clips = champion === 'lux' ? ['idle3', 'entry_b4dcde19'] : ASHE_RECALL_CLIPS;
+  const clips =
+    champion === 'garen'
+      ? ['recall']
+      : champion === 'lux'
+        ? ['idle3', 'entry_b4dcde19']
+        : ASHE_RECALL_CLIPS;
   for (let i = 0; i < clips.length; i++) {
     const clip = clips[i],
       duration = durations[clip];

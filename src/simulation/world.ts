@@ -183,7 +183,12 @@ export class World {
       audience,
     });
   }
-  spawn(kind: UnitKind, team: Team, point: Vec2, identity: 'ashe' | 'lux' = 'ashe'): Unit {
+  spawn(
+    kind: UnitKind,
+    team: Team,
+    point: Vec2,
+    identity: 'ashe' | 'lux' | 'garen' = 'ashe'
+  ): Unit {
     const champion = kind === 'champion',
       turret = kind === 'turret',
       dummy = kind === 'dummy',
@@ -341,9 +346,13 @@ export class World {
         clipDurations
       );
     this.units.push(u);
-    if (champion && identity === 'lux') {
+    if (champion && identity !== 'ashe') {
       const own = this.championState(u.id)!;
       own.eCharges = 0;
+      if (identity === 'garen') {
+        own.spellRanks = { q: 0, w: 0, e: 0, r: 0 };
+        own.skillPoints = 1;
+      }
     }
     return u;
   }
@@ -1014,6 +1023,7 @@ export class World {
     return !threatened && !recentlyHit;
   }
   private planLaneScout(u: Unit): void {
+    if (u.champion !== 'ashe') return;
     if (u.silenceUntil > this.tick) return;
     const state = this.championState(u.id)!;
     if (
@@ -2822,6 +2832,8 @@ export class World {
     return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
   }
   spellLearningError(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
+    if (this.unit(championId)?.champion === 'garen')
+      return 'Garen abilities are still in development';
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
@@ -2888,6 +2900,7 @@ export class World {
   private cast(u: Unit, ability: Ability, point: Vec2): void {
     const state = this.championState(u.id);
     if (!state) return;
+    if (u.champion === 'garen' && ability !== 'd' && ability !== 'f') return;
     // Check before Lux's E-recast shortcut as well as ordinary casts.
     if (u.silenceUntil > this.tick && !ABILITIES[ability].canCastWhileSilenced) {
       this.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });

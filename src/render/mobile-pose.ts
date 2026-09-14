@@ -82,7 +82,8 @@ export function mobilePose(
       age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
     return { ...fixed('attack', clip, age * rate, false, rate), settled: age >= 0.08 };
   }
-  const clip = moving ? 'run' : 'idle1',
+  const clip =
+      unit.champion === 'garen' ? (moving ? 'run_base' : 'idle1_base') : moving ? 'run' : 'idle1',
     clock = moving ? unit.runClock : unit.idleClock;
   const seconds = clock ? clock.previous + (clock.current - clock.previous) * alpha : 0,
     length = duration(clip);

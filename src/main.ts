@@ -1,3 +1,4 @@
+import { selectableChampion } from './content/champion-profiles';
 import { loadLuxIlluminationTriggerTextures } from './render/lux-illumination-triggers';
 import { loadLuxIlluminationTextures } from './render/lux-illumination';
 import { loadLuxGroundWarningTextures } from './render/lux-ground-warnings';
@@ -83,7 +84,7 @@ async function boot(): Promise<void> {
       void writeMatch(
         battlefield.id,
         world.matchMode === 'lanes'
-          ? createLaneMatch(battlefield, world.hero.champion).snapshot()
+          ? createLaneMatch(battlefield, selectableChampion(world.hero.champion)).snapshot()
           : world.hero.champion === 'lux'
             ? new World(true, battlefield, 'lux').snapshot()
             : null

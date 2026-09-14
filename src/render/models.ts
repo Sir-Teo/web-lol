@@ -31,6 +31,7 @@ const references = new Map<string, ReferenceModel>();
 const referenceNames = [
   'ashe-base',
   'lux-base',
+  'garen-base',
   'blue-melee',
   'red-melee',
   'blue-caster',
@@ -82,7 +83,9 @@ export async function loadReferenceModels(): Promise<void> {
                 'idle3',
                 'entry_b4dcde19',
               ]
-            : ['idle1', 'run', 'attack1', 'death'])
+            : name === 'garen-base'
+              ? ['idle1_base', 'run_base', 'attack1', 'crit', 'death', 'recall']
+              : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);
       if (/-(turret|nexus|inhibitor)$/.test(name))
@@ -162,7 +165,8 @@ export function makeModel(u: Unit): UnitModel {
     const actions = Object.fromEntries(
       reference.clips.map((clip) => [clip.name, mixer.clipAction(clip)])
     );
-    actions.idle1.play();
+    const idleClip = u.champion === 'garen' ? 'idle1_base' : 'idle1';
+    actions[idleClip].play();
     mixer.update(0);
     model.updateMatrixWorld(true);
     model.traverse((object) => {
@@ -181,7 +185,7 @@ export function makeModel(u: Unit): UnitModel {
       mixer,
       actions,
       clipDurations: Object.fromEntries(reference.clips.map((clip) => [clip.name, clip.duration])),
-      actionName: 'idle1',
+      actionName: idleClip,
       barHeight: u.structure
         ? u.structure.healthBarHeight * 0.01
         : u.kind === 'champion'

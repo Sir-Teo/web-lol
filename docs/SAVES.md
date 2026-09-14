@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 67 adds Garen as a non-player simulation champion and includes his source animation clips in validated pose state. Garen cannot carry Ashe Focus/Hawkshot state, pending foreign casts or learned unfinished spells. Player selection remains Ashe/Lux; an imported player identity of Garen is rejected until his player kit is integrated. Earlier checkpoint versions remain incompatible.
+
 Version 66 requires a nonnegative integer `silenceUntil` deadline on each unit. Silence resumes with the match clock and clears on respawn. Missing, fractional, negative or null deadlines are rejected. Earlier formats remain incompatible under the same-build checkpoint policy.
 
 Version 52 replaces Lux history frame `distance` with `trailDistance`. It begins at zero at the first trail emission and sums planar distances between emission batches, remaining unchanged on non-emitting and impact ticks. Validation checks the forced first-birth schedule, retained batch anchors and unchanged counters between batches. A retired prefix owns its unavailable absolute history. Earlier formats are incompatible; the source-derived 37-tick tail and 40-frame history remain.

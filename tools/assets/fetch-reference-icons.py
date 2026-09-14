@@ -15,6 +15,7 @@ BASE = 'https://ddragon.leagueoflegends.com/cdn/16.18.1/img/'
 FILES = {
     'ashe.png': 'champion/Ashe.png',
     'lux.png': 'champion/Lux.png',
+    'garen.png': 'champion/Garen.png',
     'LuxLightBinding.png': 'spell/LuxLightBinding.png',
     'LuxPrismaticWave.png': 'spell/LuxPrismaticWave.png',
     'LuxLightStrikeKugel.png': 'spell/LuxLightStrikeKugel.png',

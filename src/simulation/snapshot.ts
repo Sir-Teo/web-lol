@@ -36,7 +36,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 66;
+export const SNAPSHOT_VERSION = 67;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -100,7 +100,7 @@ const unit: z.ZodType<Unit> = z
   .strictObject({
     id,
     kind,
-    champion: z.enum(['ashe', 'lux']).optional(),
+    champion: z.enum(['ashe', 'lux', 'garen']).optional(),
     team,
     name: z.string().max(200),
     x: z.number(),
@@ -645,6 +645,8 @@ export function decodeSnapshot(text: string) {
       cause: result.error,
     });
   const state = result.data;
+  if (state.units.find((u) => u.id === state.player.id)?.champion === 'garen')
+    throw new Error('Garen player kit is still in development.');
   for (const unit of state.units) {
     const fixed = ['turret', 'inhibitor', 'nexus'].includes(unit.kind);
     const idle = unit.structureIdle;
@@ -1186,14 +1188,14 @@ export function decodeSnapshot(text: string) {
       revealers.add(source.id);
     }
     if (
-      champion.champion === 'lux' &&
+      champion.champion !== 'ashe' &&
       (owner.qStacks !== 0 ||
         owner.qUntil !== 0 ||
         owner.qStackExpiry !== 0 ||
         owner.eCharges !== 0 ||
         owner.eRechargeTick !== null)
     )
-      throw new Error('Saved match contains unavailable Lux spell state.');
+      throw new Error('Saved match contains champion-incompatible spell state.');
     if (
       champion.champion === 'ashe' &&
       owner.spellRanks.e > 0 &&
@@ -1210,7 +1212,11 @@ export function decodeSnapshot(text: string) {
     )
       throw new Error('Saved match contains invalid Enlighten restoration.');
     const compatibleCast = (ability: string) =>
-      champion.champion === 'lux' ? ['q', 'w', 'e', 'r'].includes(ability) : ability !== 'q';
+      champion.champion === 'lux'
+        ? ['q', 'w', 'e', 'r'].includes(ability)
+        : champion.champion === 'ashe' && ability !== 'q';
+    if (champion.champion === 'garen' && Object.values(owner.spellRanks).some((rank) => rank !== 0))
+      throw new Error('Saved Garen contains an unavailable spell rank.');
     const cast = owner.pendingCast;
     if (cast) {
       const luxR = champion.champion === 'lux' && cast.ability === 'r';

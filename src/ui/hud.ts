@@ -1,3 +1,4 @@
+import { selectableChampion } from '../content/champion-profiles';
 import { AttackStatTooltip } from './attack-stat-tooltip';
 import { LUX } from '../content/lux-progression';
 import { LUX_SPELLS, isLuxSpell, luxDescription, luxPreviewResources } from './lux-spells';
@@ -399,7 +400,7 @@ export class Hud {
     this.refreshTooltip();
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
-    let chosenChampion = this.world.hero.champion ?? 'ashe';
+    let chosenChampion = selectableChampion(this.world.hero.champion);
     const laneDescription = () =>
       `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and neutral objectives are not available yet.`;
     let content = '',
@@ -775,7 +776,7 @@ export class Hud {
       );
       const portrait = row.querySelector('img')!;
       portrait.src = `assets/icons/${data.champion}.png`;
-      portrait.alt = data.champion === 'lux' ? 'Lux' : 'Ashe';
+      portrait.alt = data.name;
       const deathTimer = row.querySelector<HTMLElement>('.scoreboard-death-timer')!;
       deathTimer.hidden = !data.dead;
       deathTimer.textContent = data.respawnSeconds === null ? '†' : String(data.respawnSeconds);

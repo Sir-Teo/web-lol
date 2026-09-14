@@ -22,7 +22,7 @@ export type Order =
   | { type: 'move' | 'attackMove'; point: Vec2 }
   | { type: 'attack'; target: number };
 export interface Unit extends Vec2 {
-  champion?: 'ashe' | 'lux';
+  champion?: 'ashe' | 'lux' | 'garen';
   id: number;
   kind: UnitKind;
   team: Team;
@@ -230,7 +230,7 @@ export type Command =
   | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
-  champion?: 'ashe' | 'lux';
+  champion?: 'ashe' | 'lux' | 'garen';
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
   audience: Team[];
   id: number;
