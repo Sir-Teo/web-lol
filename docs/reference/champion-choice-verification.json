@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-09-14T04:07:01.623091+00:00",
+  "baseRevision": "4cfe26f9ea4dd13fcf84587d7ed71b1398ef9f95",
+  "feature": "Selectable Ashe or Lux in practice and lane matches, preserving champion through restart",
+  "validation": {
+    "typeScript": "passed",
+    "simulationTests": 617,
+    "browserScenarios": 13,
+    "production": "passed nested path: nine recordings, Hawkshot, Lux selection/Binding/icons/lane restart, no development hook",
+    "visualReview": "1366x768 champion selector and Binding hit; 1600x1000 production Lux"
+  },
+  "limitations": [
+    "Interim two-top, one-mid, two-bottom roster; jungle and objectives remain incomplete.",
+    "Remaining champions and native fidelity are not complete.",
+    "Schema 49 unchanged; simulation fingerprint changes invalidate earlier-build checkpoints."
+  ],
+  "sha256": {
+    "src/main.ts": "768dff3068b7c7900860f49906c0055c3908d214c1cf633f08170efa3baacf12",
+    "src/simulation/world.ts": "506035de9b99f21bdcb91789caaa4e01d4b982067f89a26ca5625708ffa0d101",
+    "src/simulation/lane-match.ts": "a25c2f4e19b640959433502c0197f732a714b5358fcbf93833606c80240569b2",
+    "src/ui/hud.ts": "8a735f56fcb5179a3eead2ca82655be9f8c96628a3dffbd6059968a9d684cfbe",
+    "src/style.css": "0d4f47775f894fb3ecec3415dc4adf4dab442bb89aa647142fe0272b4295dcb0",
+    "tests/lane-match.test.ts": "d2bf14b31e995424d8fb88d25dbc008b8115c89a84ee55d2b6115e7909f4db0f",
+    "e2e/match-champion-choice.spec.ts": "f3f94acb16f809a5ae5fc8aeffaf2a98fca43f39342d0afde4fe51a1e1ca1144",
+    "e2e/lane-match.spec.ts": "9c89bee3c63e17c833f0af2921b2b789501c0268e4eced308161c8e826c55f22",
+    "tools/qa/production-subpath.mjs": "dcbb30c036224c61ff218c2ef464e6735653ddff8b232b5e35fb7eb8d292b452",
+    "artifacts/champion-selection-check.log": "f9b3c695a71a8f0c4fe29e86b13c4c8e615c9f0613181caa8da81dc84193a6e0",
+    "artifacts/champion-choice-integration.log": "0f2b6d05c197d628c5739d844ffad420f26111e01a4b466fb815ee9090e8bce3",
+    "artifacts/champion-choice-final.log": "9787d41ae1f3bd2429c0752d537af5214cf9faa770af81ba3f368fd15d5c90f9",
+    "artifacts/champion-choice-production.log": "acbc19c3c3a4ba0bb425f2392eaa9ce7251273037a4a679f1c0e8f54c77ce61b",
+    "artifacts/champion-selection-lux.png": "59379ee9621cb4bc9b7ddb1f92acf8a97ffa08f90129f0b0397f45bb91b57e7a",
+    "artifacts/champion-selection-lux-binding.png": "4bab9784b99626f19e87f61f4c1f4dad70f1b807662771fae774d0baf3286db2",
+    "artifacts/production-lux.png": "21c8548c646b12fee8b74a43d3a16983f3487bb307f016d6fea8db4936126884"
+  }
+}

@@ -2,7 +2,10 @@ import type { Battlefield } from './battlefield';
 import { World } from './world';
 
 /** Interim lane-only roster: mirrors are deliberate until more complete kits ship. */
-export function createLaneMatch(battlefield: Battlefield): World {
+export function createLaneMatch(
+  battlefield: Battlefield,
+  playerChampion: 'ashe' | 'lux' = 'ashe'
+): World {
   if (battlefield.id !== 'rift') throw new Error('Lane matches require Summoner’s Rift.');
   const assignments = [
     { lane: 'top', champion: 'ashe' },
@@ -17,17 +20,21 @@ export function createLaneMatch(battlefield: Battlefield): World {
       throw new Error(`The ${lane} lane is unavailable.`);
     return index;
   });
-  const world = new World(true, {
-    ...battlefield,
-    initialUnits: battlefield.initialUnits.filter(
-      (unit) => unit.kind !== 'champion' && unit.kind !== 'dummy'
-    ),
-  });
+  const world = new World(
+    true,
+    {
+      ...battlefield,
+      initialUnits: battlefield.initialUnits.filter(
+        (unit) => unit.kind !== 'champion' && unit.kind !== 'dummy'
+      ),
+    },
+    playerChampion
+  );
   world.matchMode = 'lanes';
   for (const team of ['blue', 'red'] as const) {
     for (const [slot, assignment] of assignments.entries()) {
-      // The human takes one blue bottom-lane slot and keeps ordinary player input.
-      if (team === 'blue' && slot === 4) continue;
+      // Human Lux takes mid; Ashe takes bottom. Neither receives an automatic lane order.
+      if (team === 'blue' && slot === (playerChampion === 'lux' ? 2 : 4)) continue;
       const angle = (slot * Math.PI * 2) / 5;
       const home = battlefield.spawns[team];
       const point = battlefield.reachable(

@@ -109,6 +109,49 @@ try {
   assert.equal(await page.locator('[data-ability="e"] .ability-charges').textContent(), '1');
   await mkdir('artifacts', { recursive: true });
   await page.screenshot({ path: 'artifacts/production-subpath.png' });
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'New match', exact: true }).click();
+  await page.getByRole('button', { name: 'Lux', exact: true }).click();
+  await Promise.all([
+    page.waitForEvent('load'),
+    page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
+  ]);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.keyboard.press('Control+q');
+  await page.waitForFunction(
+    () => !document.querySelector('[data-ability="q"]').classList.contains('insufficient')
+  );
+  await page.mouse.move(1020, 440);
+  await page.keyboard.down('q');
+  assert(await page.locator('#battlefield').evaluate((node) => node.classList.contains('aiming')));
+  await page.keyboard.up('q');
+  await page.waitForFunction(
+    () => Number(document.querySelector('[data-ability="q"] .cooldown-text').textContent) > 0
+  );
+  for (const key of ['q', 'w', 'e', 'r'])
+    assert(
+      await page
+        .locator(`[data-ability="${key}"] img`)
+        .evaluate((img) => img.complete && img.naturalWidth > 0)
+    );
+  await page.screenshot({ path: 'artifacts/production-lux.png' });
+  await page.keyboard.press('Escape');
+  await Promise.all([
+    page.waitForEvent('load'),
+    page.getByRole('button', { name: 'Restart lane match', exact: true }).click(),
+  ]);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
+  assert.equal(
+    await page
+      .locator('.match-identity')
+      .textContent()
+      .then((text) => text.includes('LANE MATCH')),
+    true
+  );
   assert.deepEqual(outside, [], 'Requests must stay beneath the static host prefix');
   assert.deepEqual(failed, [], 'All production resources must load successfully');
   assert.deepEqual(errors, [], 'No production JavaScript or console errors');
@@ -119,6 +162,8 @@ try {
       recordings: recordings.size,
       mapNavigation: true,
       realHawkshotCast: true,
+      realLuxBindingCast: true,
+      luxLaneRestart: true,
       developmentHook: false,
       screenshot: 'artifacts/production-subpath.png',
     })

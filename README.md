@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open the localhost address printed by Vite. The game opens directly into Ashe practice unless a saved match exists. Use **Escape → New match → Start lane match** to play Ashe with four allied bots against five opponents. This interim mode uses Ashe/Lux with two top, one mid and two bottom per team; jungle and neutral objectives remain unfinished. Starting replaces the current browser save. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Q activates at four Focus stacks; F heals you and a nearby ally, preferring the ally under the cursor. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
+Open the localhost address printed by Vite. The game opens directly into Ashe practice unless a saved match exists. Use **Escape → New match** to choose Ashe or Lux for practice or a lane match. Lane matches pair you with four allied bots against five opponents; Ashe takes bottom lane and Lux takes mid. This interim mode uses Ashe/Lux with two top, one mid and two bottom per team; jungle and neutral objectives remain unfinished. Starting replaces the current browser save. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Ashe Q activates at four Focus stacks; Lux Q is aimed, and pressing E again detonates her active zone; F heals you and a nearby ally, preferring the ally under the cursor. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
 
 Open `/map.html` on the same server to inspect the full reference terrain, original compressed textures, and matching navigation overlay. The default game uses this same terrain and navigation grid. The original small scene remains available at `/?scene=fixture` in development for regression tests. See [map assets and fidelity audit](docs/MAP-ASSETS.md) for source selection, reproducible conversion, and remaining work.
 
@@ -29,7 +29,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.
 
-`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, all nine source audio requests, a real-input Hawkshot cast, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
+`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, all nine source audio requests, real-input Hawkshot and Lux Binding casts, Lux selection and lane restart, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
 
 ## Current build
 

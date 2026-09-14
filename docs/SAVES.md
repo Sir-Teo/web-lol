@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Champion choice is stored in the existing player unit identity. New-match selection initializes Ashe or Lux; restarting preserves the current champion and mode. Ashe practice keeps the existing clear-checkpoint restart, while Lux practice writes a fresh Lux checkpoint before reloading. Schema 49 is unchanged, but the constructor/factory changes update the simulation fingerprint, so checkpoints from earlier builds remain incompatible.
+
 Version 49 adds the required match mode (`practice` or `lanes`). Lane matches are accepted only on Rift. Starting either mode writes a fresh checkpoint before reloading into the ordinary paused restore flow; a failed write preserves the current match and previous checkpoint. **Restart lane match** creates a new lane roster, while **Restart practice** retains its existing clear-and-start behavior. File previews identify the saved mode. Earlier formats are incompatible.
 
 Version 48 adds ordered inventory copies to team observations. Known empty slots remain null and never-observed inventories remain unknown. Observed inventories use the same catalog, six-slot and unique-item validation as current inventories, but need not match current ownership: hidden purchases, sales and recipes must retain old knowledge. Earlier formats are incompatible.

@@ -70,13 +70,20 @@ async function boot(): Promise<void> {
     reset: () => {
       void writeMatch(
         battlefield.id,
-        world.matchMode === 'lanes' ? createLaneMatch(battlefield).snapshot() : null
+        world.matchMode === 'lanes'
+          ? createLaneMatch(battlefield, world.hero.champion).snapshot()
+          : world.hero.champion === 'lux'
+            ? new World(true, battlefield, 'lux').snapshot()
+            : null
       )
         .then(() => window.location.reload())
         .catch((error) => hud.toast(error.message));
     },
-    startMatch: async (mode) => {
-      const next = mode === 'lanes' ? createLaneMatch(battlefield) : new World(true, battlefield);
+    startMatch: async (mode, champion) => {
+      const next =
+        mode === 'lanes'
+          ? createLaneMatch(battlefield, champion)
+          : new World(true, battlefield, champion);
       await writeMatch(battlefield.id, next.snapshot());
       window.location.reload();
     },

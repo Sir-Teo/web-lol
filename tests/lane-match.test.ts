@@ -80,3 +80,41 @@ test('invalid lane configuration and incompatible saved modes are rejected', () 
   state.matchMode = 'unknown';
   expect(() => World.fromSnapshot(JSON.stringify(state), PRACTICE_FIXTURE)).toThrow();
 });
+
+test('human Lux replaces the allied mid bot and preserves the ten-champion lane roster', () => {
+  const world = createLaneMatch(rift, 'lux');
+  expect(world.hero.champion).toBe('lux');
+  expect(world.hero.name).toBe('Lux');
+  expect(world.hero.lane).toBeNull();
+  expect(world.hero.ai).toBe(false);
+  const champions = world.units.filter((u) => u.kind === 'champion');
+  expect(champions).toHaveLength(10);
+  expect(champions.filter((u) => u.champion === 'lux')).toHaveLength(2);
+  expect(champions.filter((u) => u.ai)).toHaveLength(9);
+  expect(champions.filter((u) => u.team === 'blue' && u.lane === 1)).toHaveLength(0);
+  expect(champions.filter((u) => u.team === 'blue' && u.lane === 2)).toHaveLength(2);
+  expect(world.hero.hp).toBe(580);
+  expect(world.hero.mana).toBe(440);
+  expect(world.player.qStacks).toBe(0);
+  expect(world.player.eCharges).toBe(0);
+  world.step(300);
+  const saved = world.snapshot();
+  const restored = World.fromSnapshot(saved, rift);
+  expect(restored.snapshot()).toBe(saved);
+  world.step(120);
+  restored.step(120);
+  expect(restored.snapshot()).toBe(world.snapshot());
+});
+
+test('practice constructor initializes Lux with her own resources and spell state', () => {
+  const world = new World(true, rift, 'lux');
+  expect(world.matchMode).toBe('practice');
+  expect(world.hero.name).toBe('Lux');
+  expect(world.hero.range).toBe(550);
+  expect(world.hero.speed).toBe(330);
+  expect(world.player.skillPoints).toBe(1);
+  expect(world.player.spellRanks).toEqual({ q: 0, w: 0, e: 0, r: 0 });
+  expect(world.units.filter((u) => u.kind === 'dummy')).toHaveLength(1);
+  expect(world.units.filter((u) => u.kind === 'champion')).toHaveLength(2);
+  expect(World.fromSnapshot(world.snapshot(), rift).hero.champion).toBe('lux');
+});

@@ -95,6 +95,7 @@ test('failed new-match write preserves the current match and previous browser sa
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await choose(page);
+  await page.getByRole('button', { name: 'Lux', exact: true }).click();
   const before = await page.evaluate(async () => {
     const { readMatch } = await import('/src/storage/match-store.ts');
     const original = IDBDatabase.prototype.transaction;

@@ -1,19 +1,19 @@
 # Development status
 
-Last updated: September 13, 2026 (America/New_York).
+Last updated: September 14, 2026 (America/New_York).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The current lane-match change has 615 passing source/simulation checks, with focused browser and production validation recorded below. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The current champion-selection change has 617 passing source/simulation checks, with focused browser and production validation recorded below. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
-- Ashe Q/W/E/R and Lux passive/Q/W/E/R have runtime foundations and targeted interaction checks. Lux has a local combat and purchase policy. Human selection and HUD remain Ashe-specific; neither champion is certified complete in native effects, audio, timing or all interactions.
+- Ashe Q/W/E/R and Lux passive/Q/W/E/R have runtime foundations and targeted interaction checks. Lux has a local combat and purchase policy. Human selection and HUD now support Ashe and Lux; neither champion is certified complete in native effects, audio, timing or all interactions.
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
-- Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** now offering a human Ashe plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
+- Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
@@ -1691,3 +1691,14 @@ The restored Lux-player HUD now shows Lux's portrait/title and four pinned sourc
 This completes the HUD dependency for the next champion-selection step; ordinary match initialization still selects Ashe. Native tooltip/effect parity and the wider production scope remain incomplete.
 
 Validation: 615 source/simulation checks, 14 focused Chrome scenarios and nested-path production smoke passed. The Lux rank-one Q preview and active E recast screenshots were inspected at 1366×768. Simulation format 49 and fingerprint are unchanged. Evidence: `docs/reference/lux-hud-verification.json`.
+
+
+## Selectable Ashe and Lux
+
+**Pause → New match** now offers Ashe and Lux as keyboard-accessible choices for both practice and lane matches. The panel identifies the selected champion and explains their lane assignment. Human Lux replaces the allied mid bot; human Ashe replaces one bottom-lane bot. Both choices retain ten champions, nine bots, two Lux/eight Ashe, and the authored structures. Human input remains free: the hero receives no automatic lane order.
+
+The World constructor initializes the chosen champion's real profile and independent spell state. Restart and Play again preserve champion and mode. Lux practice restarts by writing a fresh Lux checkpoint; Ashe practice retains its existing clear-checkpoint behavior. Choosing a different champion only changes the pending menu selection until Start is clicked. The write-failure scenario now explicitly selects Lux and confirms that a failed replacement preserves the previous world and saved checkpoint.
+
+A browser scenario selects Lux with the keyboard, starts her actual lane match, learns Q through the HUD, hits a controlled dummy with real Q input, saves/restores the exact world, restarts the lane match, switches to Lux practice and restarts again. Source-grid simulation cases verify the Lux roster, practice stats/spells and exact saved continuation. Native champion/effect parity, the remaining roster and full role/objective play remain unfinished. Schema 49 is unchanged; simulation fingerprint compatibility changes.
+
+Validation: 617 source/simulation checks and 13 focused browser scenarios passed, covering champion choice, target picking, lane startup/failure handling, Lux HUD and save restoration. The production smoke now also selects Lux, learns/casts Binding with real input, loads all four Lux icons under the nested static prefix, and verifies a Lux lane restart with no development hook. The 1366×768 selector and live Binding screenshots and 1600×1000 production Lux view were inspected. Evidence: `docs/reference/champion-choice-verification.json`.

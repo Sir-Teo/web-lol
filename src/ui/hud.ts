@@ -27,7 +27,7 @@ import type { GameView } from '../render/view';
 export interface HudActions {
   pause: (value: boolean) => void;
   reset: () => void;
-  startMatch: (mode: 'practice' | 'lanes') => Promise<void>;
+  startMatch: (mode: 'practice' | 'lanes', champion: 'ashe' | 'lux') => Promise<void>;
   save: () => Promise<void>;
   exportMatch: () => void;
   prepareImport: (file: File) => Promise<PreparedMatchImport>;
@@ -392,6 +392,9 @@ export class Hud {
     this.refreshTooltip();
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
+    let chosenChampion = this.world.hero.champion ?? 'ashe';
+    const laneDescription = () =>
+      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and neutral objectives are not available yet.`;
     let content = '',
       title = '',
       subtitle = '';
@@ -421,8 +424,7 @@ export class Hud {
     } else if (which === 'new-match') {
       title = 'Choose your match';
       subtitle = 'Play locally. Your browser runs the match.';
-      content =
-        '<button class="primary-button" data-action="start-lanes">Start lane match</button><p class="practice-note">Play Ashe in bottom lane with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and neutral objectives are not available yet.</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>';
+      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${(['ashe', 'lux'] as const).map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${champion === 'lux' ? 'Lux' : 'Ashe'}</span></button>`).join('')}</div><button class="primary-button" data-action="start-lanes">Start lane match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'files') {
       title = 'Match files';
       subtitle = 'Keep a copy. Continue on another browser.';
@@ -492,13 +494,25 @@ export class Hud {
         const action = button.dataset.action;
         if (this.replacingMatch) return;
         if (action === 'new-match') this.toggleModal('new-match');
+        if (action === 'choose-champion') {
+          chosenChampion = button.dataset.champion === 'lux' ? 'lux' : 'ashe';
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-champion]')
+            .forEach((choice) =>
+              choice.setAttribute(
+                'aria-pressed',
+                String(choice.dataset.champion === chosenChampion)
+              )
+            );
+          backdrop.querySelector('.lane-description')!.textContent = laneDescription();
+        }
         if (action === 'start-lanes' || action === 'start-practice') {
           this.replacingMatch = true;
           backdrop.querySelectorAll<HTMLButtonElement>('button').forEach((control) => {
             control.disabled = true;
           });
           void this.actions
-            .startMatch(action === 'start-lanes' ? 'lanes' : 'practice')
+            .startMatch(action === 'start-lanes' ? 'lanes' : 'practice', chosenChampion)
             .catch((error) => {
               this.replacingMatch = false;
               this.importError =

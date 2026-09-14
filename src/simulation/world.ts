@@ -107,11 +107,11 @@ export class World {
 
   constructor(
     populate = true,
-    readonly battlefield: Battlefield = PRACTICE_FIXTURE
+    readonly battlefield: Battlefield = PRACTICE_FIXTURE,
+    playerChampion: 'ashe' | 'lux' = 'ashe'
   ) {
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
-    const champion = this.spawn('champion', 'blue', battlefield.spawns.blue);
-    champion.name = 'Ashe';
+    const champion = this.spawn('champion', 'blue', battlefield.spawns.blue, playerChampion);
     this.player = this.championRecords.get(champion.id)!;
     if (populate)
       for (const initial of battlefield.initialUnits) {

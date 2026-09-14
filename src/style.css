@@ -1708,3 +1708,27 @@ button {
   align-items: end;
   padding-bottom: 12px;
 }
+
+.champion-choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.champion-choice .menu-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 10px;
+}
+.champion-choice img {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #aa9865;
+}
+.champion-choice [aria-pressed='true'] {
+  border-color: #d9d29d;
+  background: #294747;
+  color: #f0e6bd;
+}
