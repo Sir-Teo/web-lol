@@ -7,7 +7,8 @@ import { execFileSync } from 'node:child_process';
 
 const snapshotPath = process.argv[3];
 const snapshot = snapshotPath ? await readFile(snapshotPath, 'utf8') : null;
-const profileCPU = process.argv[5] === '--profile';
+const profileCPU = process.argv.slice(5).includes('--profile');
+const rawBoneTracks = process.argv.slice(5).includes('--raw-bone-tracks');
 const output =
   process.argv[4] ?? (snapshot ? 'artifacts/rift-match-benchmark' : 'artifacts/rift-benchmark');
 if (snapshot) {
@@ -27,6 +28,16 @@ try {
     deviceScaleFactor: 1,
   });
   const errors = [];
+  let rawTrackModuleRequests = 0;
+  if (rawBoneTracks)
+    await page.route('**/src/render/constant-bone-tracks.ts', (route) => {
+      rawTrackModuleRequests++;
+      return route.fulfill({
+        status: 200,
+        contentType: 'application/javascript',
+        body: 'export const removeConstantBoneTracks = (_root, clips) => clips;',
+      });
+    });
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(process.argv[2] ?? 'http://127.0.0.1:5173');
   await page.waitForFunction(() => window.__GAME__?.ready);
@@ -204,9 +215,12 @@ try {
     await profiler.detach();
   }
   if (errors.length) throw new Error(errors.join('\n'));
+  if (rawBoneTracks && !rawTrackModuleRequests)
+    throw new Error('Raw-track baseline override was not loaded');
   await mkdir('artifacts', { recursive: true });
   const result = {
     cpuProfileEnabled: profileCPU,
+    rawBoneTracks,
     revision: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
     snapshotPath: snapshotPath ?? null,
     snapshotSHA256: snapshot ? createHash('sha256').update(snapshot).digest('hex') : null,

@@ -3,6 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
 import { isStructureKind, type Unit } from '../simulation/types';
 import { prepareAnimationBounds } from './animation-bounds';
+import { removeConstantBoneTracks } from './constant-bone-tracks';
 
 export interface UnitModel {
   root: THREE.Group;
@@ -80,7 +81,10 @@ export async function loadReferenceModels(): Promise<void> {
           throw new Error(`${name} lacks required ${required} animation`);
       if (/-(turret|nexus|inhibitor)$/.test(name))
         prepareAnimationBounds(gltf.scene, gltf.animations);
-      references.set(name, { scene: gltf.scene, clips: gltf.animations });
+      references.set(name, {
+        scene: gltf.scene,
+        clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
+      });
     })
   );
 }

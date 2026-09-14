@@ -1,0 +1,477 @@
+{
+  "baseRevision": "070961cde2a158f1dd5cf651446d91d2df4fbfbc",
+  "poseVerification": {
+    "records": [
+      {
+        "name": "ashe-base",
+        "clips": 25,
+        "samples": 425,
+        "before": 6375,
+        "after": 6375,
+        "bindingsBefore": 255,
+        "bindingsAfter": 255
+      },
+      {
+        "name": "lux-base",
+        "clips": 22,
+        "samples": 374,
+        "before": 5214,
+        "after": 5214,
+        "bindingsBefore": 237,
+        "bindingsAfter": 237
+      },
+      {
+        "name": "blue-melee",
+        "clips": 4,
+        "samples": 68,
+        "before": 507,
+        "after": 506,
+        "bindingsBefore": 129,
+        "bindingsAfter": 128
+      },
+      {
+        "name": "blue-caster",
+        "clips": 4,
+        "samples": 68,
+        "before": 516,
+        "after": 516,
+        "bindingsBefore": 129,
+        "bindingsAfter": 129
+      },
+      {
+        "name": "blue-siege",
+        "clips": 4,
+        "samples": 68,
+        "before": 480,
+        "after": 480,
+        "bindingsBefore": 120,
+        "bindingsAfter": 120
+      },
+      {
+        "name": "blue-super",
+        "clips": 6,
+        "samples": 102,
+        "before": 963,
+        "after": 654,
+        "bindingsBefore": 174,
+        "bindingsAfter": 118
+      },
+      {
+        "name": "blue-turret",
+        "clips": 2,
+        "samples": 34,
+        "before": 225,
+        "after": 150,
+        "bindingsBefore": 174,
+        "bindingsAfter": 116
+      },
+      {
+        "name": "blue-nexus",
+        "clips": 4,
+        "samples": 68,
+        "before": 156,
+        "after": 112,
+        "bindingsBefore": 138,
+        "bindingsAfter": 103
+      },
+      {
+        "name": "blue-inhibitor",
+        "clips": 7,
+        "samples": 119,
+        "before": 312,
+        "after": 198,
+        "bindingsBefore": 75,
+        "bindingsAfter": 48
+      },
+      {
+        "name": "red-melee",
+        "clips": 4,
+        "samples": 68,
+        "before": 507,
+        "after": 338,
+        "bindingsBefore": 129,
+        "bindingsAfter": 86
+      },
+      {
+        "name": "red-caster",
+        "clips": 4,
+        "samples": 68,
+        "before": 552,
+        "after": 552,
+        "bindingsBefore": 138,
+        "bindingsAfter": 138
+      },
+      {
+        "name": "red-siege",
+        "clips": 4,
+        "samples": 68,
+        "before": 480,
+        "after": 480,
+        "bindingsBefore": 120,
+        "bindingsAfter": 120
+      },
+      {
+        "name": "red-super",
+        "clips": 6,
+        "samples": 102,
+        "before": 1029,
+        "after": 698,
+        "bindingsBefore": 186,
+        "bindingsAfter": 126
+      },
+      {
+        "name": "red-turret",
+        "clips": 5,
+        "samples": 85,
+        "before": 1101,
+        "after": 1073,
+        "bindingsBefore": 246,
+        "bindingsAfter": 232
+      },
+      {
+        "name": "red-nexus",
+        "clips": 5,
+        "samples": 85,
+        "before": 669,
+        "after": 541,
+        "bindingsBefore": 138,
+        "bindingsAfter": 111
+      },
+      {
+        "name": "red-inhibitor",
+        "clips": 8,
+        "samples": 136,
+        "before": 372,
+        "after": 276,
+        "bindingsBefore": 60,
+        "bindingsAfter": 45
+      }
+    ],
+    "worstMatrixError": 0,
+    "pixelComparisons": 114,
+    "failures": []
+  },
+  "baseline": {
+    "cpuProfileEnabled": false,
+    "rawBoneTracks": true,
+    "revision": "070961cde2a158f1dd5cf651446d91d2df4fbfbc",
+    "snapshotPath": "artifacts/rift-lost-chapter-simulation.snapshot.json",
+    "snapshotSHA256": "778e7b5b580f7be808bd85f46bacab527e586a1d4df3e1cc6896af696b0bd599",
+    "benchmarkSHA256": "8f4c5878be0a3a830c5b2a9c58615d96f37c24aa6d977a4d3a37f6f25033d28c",
+    "browser": "152.0.7977.83",
+    "hardware": {
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpu": "Apple M5 Pro",
+      "memoryGiB": 64
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "fixture": "Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn",
+    "startingTick": 72000,
+    "warmupCount": 120,
+    "sampleCount": 1800,
+    "cameraSubject": {
+      "id": 35,
+      "champion": "lux"
+    },
+    "championRoster": [
+      {
+        "id": 1,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 32,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 33,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 34,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 35,
+        "team": "blue",
+        "champion": "lux",
+        "ai": true
+      },
+      {
+        "id": 36,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 37,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 38,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 39,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 40,
+        "team": "red",
+        "champion": "lux",
+        "ai": true
+      }
+    ],
+    "activity": {
+      "maxProjectiles": 42,
+      "maxSingularities": 2,
+      "maxLuxBeams": 1,
+      "maxVisibleChampions": 9
+    },
+    "advanceMS": 0,
+    "time": 1231.9666666666667,
+    "units": 99,
+    "frames": {
+      "n": 1800,
+      "median": 16.600000001490116,
+      "p95": 20.200000002980232,
+      "p99": 21.600000001490116
+    },
+    "fog": {
+      "n": 225,
+      "median": 3.1999999955296516,
+      "p95": 4.699999995529652,
+      "p99": 5.100000001490116
+    },
+    "simulationSteps": {
+      "n": 1801,
+      "median": 0.30000000447034836,
+      "p95": 0.5999999940395355,
+      "p99": 1.0999999940395355
+    },
+    "hudUpdates": {
+      "n": 541,
+      "median": 0.20000000298023224,
+      "p95": 0.30000000447034836,
+      "p99": 0.3999999985098839
+    },
+    "renderCalls": {
+      "n": 1800,
+      "median": 4.200000002980232,
+      "p95": 8,
+      "p99": 9.899999998509884
+    },
+    "drawCalls": {
+      "n": 1800,
+      "median": 196,
+      "p95": 215,
+      "p99": 218
+    },
+    "renderedTriangles": {
+      "n": 1800,
+      "median": 410244,
+      "p95": 438020,
+      "p99": 444056
+    },
+    "calls": 212,
+    "triangles": 409519,
+    "fogResolution": 256
+  },
+  "optimized": {
+    "cpuProfileEnabled": false,
+    "rawBoneTracks": false,
+    "revision": "070961cde2a158f1dd5cf651446d91d2df4fbfbc",
+    "snapshotPath": "artifacts/rift-lost-chapter-simulation.snapshot.json",
+    "snapshotSHA256": "778e7b5b580f7be808bd85f46bacab527e586a1d4df3e1cc6896af696b0bd599",
+    "benchmarkSHA256": "8f4c5878be0a3a830c5b2a9c58615d96f37c24aa6d977a4d3a37f6f25033d28c",
+    "browser": "152.0.7977.83",
+    "hardware": {
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpu": "Apple M5 Pro",
+      "memoryGiB": 64
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "fixture": "Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn",
+    "startingTick": 72000,
+    "warmupCount": 120,
+    "sampleCount": 1800,
+    "cameraSubject": {
+      "id": 35,
+      "champion": "lux"
+    },
+    "championRoster": [
+      {
+        "id": 1,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 32,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 33,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 34,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 35,
+        "team": "blue",
+        "champion": "lux",
+        "ai": true
+      },
+      {
+        "id": 36,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 37,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 38,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 39,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 40,
+        "team": "red",
+        "champion": "lux",
+        "ai": true
+      }
+    ],
+    "activity": {
+      "maxProjectiles": 42,
+      "maxSingularities": 2,
+      "maxLuxBeams": 1,
+      "maxVisibleChampions": 9
+    },
+    "advanceMS": 0,
+    "time": 1231.9666666666667,
+    "units": 99,
+    "frames": {
+      "n": 1800,
+      "median": 16.600000001490116,
+      "p95": 20.100000001490116,
+      "p99": 22.200000002980232
+    },
+    "fog": {
+      "n": 222,
+      "median": 2.5,
+      "p95": 3.5,
+      "p99": 4.100000001490116
+    },
+    "simulationSteps": {
+      "n": 1800,
+      "median": 0.29999999701976776,
+      "p95": 0.5,
+      "p99": 1.1000000014901161
+    },
+    "hudUpdates": {
+      "n": 516,
+      "median": 0.20000000298023224,
+      "p95": 0.3999999985098839,
+      "p99": 0.3999999985098839
+    },
+    "renderCalls": {
+      "n": 1800,
+      "median": 4,
+      "p95": 6.899999998509884,
+      "p99": 9.200000002980232
+    },
+    "drawCalls": {
+      "n": 1800,
+      "median": 196,
+      "p95": 215,
+      "p99": 218
+    },
+    "renderedTriangles": {
+      "n": 1800,
+      "median": 410244,
+      "p95": 438144,
+      "p99": 444058
+    },
+    "calls": 212,
+    "triangles": 409519,
+    "fogResolution": 256
+  },
+  "excludedRun": {
+    "path": "artifacts/constant-tracks-baseline.json",
+    "reason": "Overlapped production smoke at the beginning; excluded from the comparison."
+  },
+  "sourceSHA256": {
+    "src/render/constant-bone-tracks.ts": "7fb7bf0af2f25cf09ccea23868645f796d603cf1c10db4d5fbd91c7d56ca3c59",
+    "src/render/models.ts": "8ae83e29489eac0908294634de4c822b97476f98d4308f7ffc4a263f1461310b",
+    "tests/constant-bone-tracks.test.ts": "97e9db6f7df5c985d320e5f4ab1db0be7264182bf5d187fb64eb9409cecea2fb",
+    "e2e/constant-bone-tracks.spec.ts": "113f5eb0783bc49231537bd762363f5bbf4cc603d120cc4aa488cad9a09c1aa8",
+    "tools/qa/benchmark-rift.mjs": "8f4c5878be0a3a830c5b2a9c58615d96f37c24aa6d977a4d3a37f6f25033d28c"
+  },
+  "evidenceSHA256": {
+    "artifacts/constant-bone-tracks.json": "249662972b72a19a44704ecd84e29ccb5594cf92f8a1604051bcb8d7252e3b74",
+    "artifacts/constant-tracks-baseline-clean.json": "919e8c61783644e38ec5ce349e10ef66e9a9d6ede12c78e0b998347b6b410f18",
+    "artifacts/constant-tracks-optimized.json": "7278af1826df30fa5ee478845761a6dd3b44a4c5b5fa94c40debd9e3271febb4",
+    "artifacts/constant-bone-integration.log": "e3e96b4b4fb815532e73d4f3e3bdaf860e381369debe95628c8894caa5e17219",
+    "artifacts/constant-tracks-production.log": "5e65471d45d6195f6424c632851f2b99728d045dbf058ca5feeb87a26b83c491"
+  },
+  "sourceAssetSHA256": {
+    "ashe-base": "e45069db38b628d9113faa284bce54a5b1ddb7170e2b5029ad5994e1e81a46d5",
+    "lux-base": "d063e8b7435eede85f1a8617c5bf6ff3571590cb19f22a314281fe2e43cb6bee",
+    "blue-melee": "274fd87c0181db308592ca924eeac19659da61ce79307e904fb938ffed7cb98b",
+    "blue-caster": "ff550b7d9b25224b0c721f65e622a3100425d627001e5966e0c677200f709ee5",
+    "blue-siege": "66a4f8679d695444725f6c02947d3e4075fc5a5e7232a06d0f010393c054f29c",
+    "blue-super": "0ad412436a18756a4e08f9ade8789192cbb5932cd97c04fe814d36cc867b859e",
+    "blue-turret": "9d16305c0687e78bdbdfaccbc6c81269e4bbdfd02772ee7f1d5b43d12d360d4e",
+    "blue-nexus": "068f03acfca1ee2f8bcab30c2ec117a53f472b67cf6328a69f9e668ebcb02ae0",
+    "blue-inhibitor": "5fb43a919fa3d98548dc62c6234629bb4f56ede60b182429976283160ef4c95b",
+    "red-melee": "ed2e1dc508ebb5d96e73904501e72599cdbe167b325840cb33d3211d1a37e536",
+    "red-caster": "bddd62e8113229de501afa313f642a0163d7608f3002abf4b170e4ecd8b59178",
+    "red-siege": "9b21a8cbd9351f12ee40d513b001493616bb7b837e20cc78e72e57b65df390ff",
+    "red-super": "d3fc25fd36ef7f53ed0b77c9d500e7d9035468bb7068d2e644a90529725b9c90",
+    "red-turret": "a7febe0579fd49c2b213ed9fc16470f0daf011220af2e1340eda030c7a421e02",
+    "red-nexus": "d49216fd563b18e1a6cf3f7752416b2d4cd45ef45f1b38955971b52326341e08",
+    "red-inhibitor": "9eef6c5e808f0c948ee7e794800d123ffa884f0a0d244917cfe96c2758ea0373"
+  },
+  "conclusion": "1295 redundant clip channels and 336 cached property bindings removed across one instance of each source rig. Sampled poses/pixels match; no demonstrated frame-tail improvement."
+}
