@@ -14,6 +14,15 @@ interface Curve {
   readonly values: readonly (readonly number[])[];
 }
 interface Layer {
+  readonly erosion: {
+    readonly texture: string;
+    readonly drive: { readonly times: readonly number[]; readonly values: readonly number[] };
+    readonly featherIn: number;
+    readonly featherOut: number;
+    readonly sliceWidth: number;
+    readonly mixer: readonly number[];
+    readonly addressMode: number;
+  } | null;
   readonly emitterIndex: number;
   readonly birthOffset: Parameters<typeof luxBeamBirthOffset>[0];
   readonly texDiv: readonly number[];
@@ -42,7 +51,15 @@ const layers: readonly Layer[] = LUX_BEAM_LAYERS;
 const textures = new Map<string, THREE.Texture>();
 export async function loadLuxBeamTextures(): Promise<void> {
   await Promise.all(
-    [...new Set(layers.flatMap((layer) => [layer.texture, layer.mult]))].map(async (path) => {
+    [
+      ...new Set(
+        layers.flatMap((layer) => [
+          layer.texture,
+          layer.mult,
+          ...(layer.erosion ? [layer.erosion.texture] : []),
+        ])
+      ),
+    ].map(async (path) => {
       const texture = await new THREE.TextureLoader().loadAsync(path);
       texture.colorSpace = THREE.NoColorSpace;
       texture.flipY = false;
@@ -111,6 +128,16 @@ export class LuxBeams {
         blendSrcAlpha: THREE.SrcAlphaFactor,
         blendDstAlpha: layer.blend === 4 ? THREE.OneFactor : THREE.OneMinusSrcAlphaFactor,
         uniforms: {
+          erosionEnabled: { value: !!layer.erosion },
+          erosionMap: { value: textures.get(layer.erosion?.texture ?? layer.texture) },
+          erosionDrive: { value: 0 },
+          erosionRates: {
+            value: new THREE.Vector2(
+              1 / (layer.erosion?.featherIn ?? 1),
+              1 / (layer.erosion?.featherOut ?? 1)
+            ),
+          },
+          erosionSlice: { value: layer.erosion?.sliceWidth ?? 1.5 },
           base: { value: textures.get(layer.texture) },
           mult: { value: textures.get(layer.mult) },
           tint: { value: new THREE.Vector4(1, 1, 1, 1) },
@@ -131,8 +158,15 @@ export class LuxBeams {
         vertexShader:
           'varying vec2 beamUv; void main(){ beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
         // Source beam transforms act on (along, across), then transpose to (u, v).
-        fragmentShader: `uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
+        fragmentShader: `uniform sampler2D erosionMap; uniform bool erosionEnabled; uniform float erosionDrive; uniform vec2 erosionRates; uniform float erosionSlice; uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
           void main(){ vec2 m=beamUv+multOffset.yx; m=clampMult ? clamp(m,vec2(0.001),vec2(0.999)) : fract(m); gl_FragColor=texture2D(base,fract(beamUv+offset.yx)*baseCell)*texture2D(mult,m*multCell)*tint;
+          if(erosionEnabled){
+            vec2 erodeUv=1.0-abs(mod((beamUv+offset.yx)*baseCell,2.0)-1.0);
+            float value=texture2D(erosionMap,erodeUv).a;
+            float upper=clamp((erosionDrive-value+erosionSlice)*erosionRates.x,0.0,1.0);
+            float lower=clamp((erosionDrive-value)*erosionRates.y,0.0,1.0);
+            gl_FragColor.a*=upper-lower;
+          }
           }`,
       });
       const mesh = new THREE.Mesh(geometry, material);
@@ -188,6 +222,14 @@ export class LuxBeams {
         mesh.visible = age >= 0 && age < layer.life;
         if (!mesh.visible) continue;
         const normalized = age / layer.life;
+        if (layer.erosion)
+          mesh.material.uniforms.erosionDrive.value = sampleBeamCurve(
+            {
+              times: layer.erosion.drive.times,
+              values: layer.erosion.drive.values.map((value) => [value]),
+            },
+            normalized
+          )[0];
         const color = layer.color.dynamics
           ? sampleBeamCurve(layer.color.dynamics, normalized)
           : [...(layer.color.constantValue ?? [1, 1, 1, 1])];

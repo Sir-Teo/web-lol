@@ -1,0 +1,61 @@
+{
+  "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "sources": [
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readSurface.ts",
+      "sha256": "7493b13c0f3fa6a8d9fc8efe6e2ac02d5d872f1f7db5f3a47722f1039e4148a2"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/quad.ts",
+      "sha256": "8daff79e4111a4ab9c9d73278c6b1c7cdbef16da36c804b9f6c6074f88ca0fb7"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/ribbon.ts",
+      "sha256": "24321654ec47bc403b607180a83ca3025703afda21215d068c7c50ecc54be830"
+    }
+  ],
+  "sourceFields": {
+    "c4663005": "alphaErosionDefinition",
+    "c6fbacd5": "erosionDriveCurve",
+    "34bee0ea": "erosionFeatherIn",
+    "2244caa3": "erosionFeatherOut",
+    "5da05f9b": "erosionMapName"
+  },
+  "selectedLayers": [
+    "Beam_Post_Prettiness",
+    "Beam_Post_Prettiness1",
+    "Beam_Post_Prettiness2"
+  ],
+  "authored": {
+    "drive": [
+      0,
+      1
+    ],
+    "featherIn": 0.30000001192092896,
+    "featherOut": 0.30000001192092896,
+    "map": "Lux_Base_Z_EinsteinMul_1.tex"
+  },
+  "reconstructionDefaults": {
+    "mixer": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "sliceWidth": 1.5,
+    "addressMode": 2,
+    "sampling": "mirrored UV"
+  },
+  "equation": "alpha *= clamp((drive - value + sliceWidth) / featherIn, 0, 1) - clamp((drive - value) / featherOut, 0, 1)",
+  "validation": {
+    "gpuAlphaProbes": 45,
+    "browserTests": 10,
+    "unitTests": 721,
+    "productionSmoke": "passed"
+  },
+  "limitations": [
+    "External reconstruction evidence; no independent native erosion shader inspection in this increment.",
+    "GPU probes verify alpha arithmetic, not spatial mirrored sampling or native composition.",
+    "Only default alpha mixer and mirrored addressing are supported; exporter rejects additional erosion fields."
+  ]
+}

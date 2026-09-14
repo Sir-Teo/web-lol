@@ -66,7 +66,7 @@ test('warning and fired beams face the camera while preserving source width', as
     }
     return results;
   });
-  expect(result).toHaveLength(22);
+  expect(result).toHaveLength(28);
   for (const layer of result) {
     expect(layer.width).toBeCloseTo(Math.abs(layer.expected), 5);
     expect(layer.handedness).toBeCloseTo(Math.sign(layer.expected), 5);
