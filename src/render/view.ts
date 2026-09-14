@@ -1,3 +1,4 @@
+import { LuxAttackHoops } from './lux-attack-hoops';
 import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
@@ -45,6 +46,7 @@ export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
   luxSingularities = new LuxSingularities(this.scene, (p) => this.ground(p));
+  luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -629,6 +631,7 @@ export class GameView {
       }
     this.syncProjectiles(world, alpha);
     this.luxBeams.update(world, alpha);
+    this.luxAttackHoops.update(world, alpha, this.camera);
     this.luxSingularities.update(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);

@@ -1,0 +1,36 @@
+{
+  "recordedAt": "2026-09-14T05:18:45.378636+00:00",
+  "baseRevision": "cb7eecc51b328342f3c560d7794bdb5d80e50520",
+  "scope": "Real Lux basic attack hoop emitter, with retained birth frames and post-impact particles",
+  "validation": {
+    "checks": 635,
+    "testFiles": 130,
+    "browserCases": 2,
+    "productionNestedPath": "passed",
+    "postImpactRestoration": "exact instance matrices and counts",
+    "fog": "hidden enemy motes removed and revealed motes restored",
+    "retirement": "cloud map empty after retained effect expires",
+    "visualReview": [
+      "1440x900 in-flight fixture",
+      "1440x900 post-impact fixture"
+    ]
+  },
+  "remaining": [
+    "Crescent and ribbon emitters",
+    "Native client capture and pixel comparison",
+    "Native missile height, orientation, billboard extent, RNG, scheduling, blending and linger"
+  ],
+  "sha256": {
+    "src/render/lux-attack-hoops.ts": "05ec24e44f188722fdc5398871928f8a53fd5e2e58e37835a2d8b44e4278832d",
+    "src/render/lux-hoop-cloud.ts": "efaab1f5d135ad7189b2e40df7e35e66b78a520d76ca7dffe1ea4c68069ada26",
+    "src/render/view.ts": "00521970f6b275870fe4c0bbcadcb276dc75053aba8adf421d5667dae21ed159",
+    "src/main.ts": "721df0036a2c3be109e0c4592bd1bca4e082ed05f6c66f03059c46daa55bd650",
+    "tests/lux-attack-hoops.test.ts": "7331d25aba6cd9f14f77d7346153af7b9a7a7c0aeaaca1683ea6e1a5a4659abc",
+    "e2e/lux-attack-history.spec.ts": "6e0f1f312fad7400d8ffd254f1342c3cef1f605f11df84df2b6f83f55ee3c5f7",
+    "artifacts/lux-attack-hoops-check.log": "f1e3e9246211623233fdfed6798d3649c4d3781adf51eb9602cb58ae9de27d45",
+    "artifacts/lux-attack-hoops-browser.log": "49f3f1a5a313ca93b25d3cdaf987333b36c4130ba212c3f8d7eb2509bc00e861",
+    "artifacts/lux-attack-hoops-production.log": "a40619568c52f3944f7f40aecacc08372ec564d297396cc19cffe2786a219a7d",
+    "artifacts/lux-attack-hoops.png": "28244b9752a4a66bb5d8560fe86e2ab1c503fd7218909c26e9eac0df8e7e1cb6",
+    "artifacts/lux-attack-hoops-flight.png": "37708260969a99b09bba4f8dd444f4b3d498bbf25c9caa914f9b2d2208735e10"
+  }
+}

@@ -37,6 +37,19 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
     Object.assign(w, w.constructor.fromSnapshot(snapshot, w.battlefield));
     return { snapshot, continued };
   });
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    w.step(4);
+    g.view.center = { x: w.hero.x + 200, y: w.hero.y };
+    g.view.zoom = 0.55;
+    g.view.render(w, 1, 0);
+  });
+  await page.screenshot({ path: 'artifacts/lux-attack-hoops-flight.png' });
+  await page.evaluate((snapshot) => {
+    const w = (window as any).__GAME__.world;
+    Object.assign(w, w.constructor.fromSnapshot(snapshot, w.battlefield));
+  }, start.snapshot);
   await save();
   await page.reload();
   await ready();
@@ -55,9 +68,46 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
   expect(impact.after).toBe(start.continued);
   expect(impact.projectiles).toBe(0);
   expect(impact.stop).toBeGreaterThan(0);
+  const matrices = () =>
+    page.evaluate(() => {
+      const g = (window as any).__GAME__;
+      g.view.render(g.world, 1, 0);
+      return [...g.view.luxAttackHoops.clouds.values()].map((cloud: any) => ({
+        count: cloud.mesh.count,
+        matrices: [...cloud.mesh.instanceMatrix.array].slice(0, cloud.mesh.count * 16),
+      }));
+    });
+  const tail = await matrices();
+  expect(tail[0].count).toBeGreaterThan(0);
+  const fog = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    const effect = w.luxAttackVisuals[0],
+      originalTeam = effect.team;
+    const visible = w.pointVisible;
+    effect.team = 'red';
+    w.pointVisible = () => false;
+    g.view.luxAttackHoops.update(w, 1, g.view.camera);
+    const hidden = g.view.luxAttackHoops.clouds.get(effect.id).mesh.count;
+    w.pointVisible = () => true;
+    g.view.luxAttackHoops.update(w, 1, g.view.camera);
+    const revealed = g.view.luxAttackHoops.clouds.get(effect.id).mesh.count;
+    effect.team = originalTeam;
+    w.pointVisible = visible;
+    g.hud.closeModal();
+    g.setPaused(true);
+    g.view.center = { x: effect.frames.at(-1).x - 130, y: effect.frames.at(-1).y };
+    g.view.zoom = 0.55;
+    g.view.render(w, 1, 0);
+    return { hidden, revealed };
+  });
+  expect(fog.hidden).toBe(0);
+  expect(fog.revealed).toBe(tail[0].count);
+  await page.screenshot({ path: 'artifacts/lux-attack-hoops.png' });
   await save();
   await page.reload();
   await ready();
+  expect(await matrices()).toEqual(tail);
   const end = await page.evaluate(() => {
     const w = (window as any).__GAME__.world;
     const before = w.snapshot();
@@ -66,5 +116,6 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
   });
   expect(end.before).toBe(impact.after);
   expect(end.count).toBe(0);
+  expect(await matrices()).toEqual([]);
   expect(errors).toEqual([]);
 });

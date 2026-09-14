@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { luxHoopParticles } from './lux-hoop-particles';
+import { luxHoopParticles, type LuxHoopParticle } from './lux-hoop-particles';
 import { LUX_BASIC_HOOP_APPEARANCE as appearance } from '../content/lux-basic-lookups';
 import { createParticleColorProductMaterial } from './particle-color-product';
 
@@ -34,6 +34,10 @@ export class LuxHoopCloud {
   }
   update(seed: number, seconds: number, stopSeconds: number, camera: THREE.Camera) {
     const particles = luxHoopParticles(seed, seconds, stopSeconds);
+    this.draw(particles, camera);
+    return particles;
+  }
+  draw(particles: readonly LuxHoopParticle[], camera: THREE.Camera) {
     if (particles.length > 128) throw new Error('Lux hoop instance capacity exceeded');
     camera.getWorldQuaternion(this.transform.quaternion);
     for (let i = 0; i < particles.length; i++) {
@@ -47,7 +51,6 @@ export class LuxHoopCloud {
     this.mesh.count = particles.length;
     this.mesh.instanceMatrix.needsUpdate = true;
     this.lookup.needsUpdate = true;
-    return particles;
   }
   dispose() {
     this.geometry.dispose();
