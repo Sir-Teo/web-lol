@@ -1,0 +1,177 @@
+{
+  "sourcePinSha256": "539ad75a5e6c7f9572d23d11d9c2a59437aef9d489b7c43ba6e4bb2b09521806",
+  "layoutReference": {
+    "repository": "https://github.com/LeagueToolkit/LeagueToolkit",
+    "revision": "76bf57bf4fd195343dec610bf0f912a06b910914",
+    "files": {
+      "StaticMesh.cs": "eab04b1454081c56f86d93f568f804b812b8e3dbe44f99caea9efd2eff9272da",
+      "StaticMeshFace.cs": "053418afb28e627ff0709975ef4d5b363e0e44508a6efba27c5243064fb45a37"
+    }
+  },
+  "unitScale": 0.01,
+  "outputs": [
+    {
+      "source": {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_expo_cylinder.scb",
+        "bytes": 4672,
+        "sha256": "25ada043a65ee7f137b35d87d8ee5a5de756a0128cefde106ce65d3760e05af0"
+      },
+      "path": "public/assets/models/lux-binding-target-lux_base_expo_cylinder.glb",
+      "bytes": 3848,
+      "sha256": "c4f6b6e7ce8a110969a6242372eaf263f1e7cc9e0006f41813c1cd16cdd9daa8",
+      "triangles": 40,
+      "sourceVertices": 40,
+      "exportedCorners": 120,
+      "positionFloat32Sha256": "9707595349e567934ef7989b2129e919991c0ee6990f1d9e36fcf354279384ba",
+      "uvFloat32Sha256": "3bd34d12e7e8c14eab5f08a31077ac3e68aa0f2c90d23bff610c596b22be12c3",
+      "centralPoint": [
+        0,
+        0,
+        0
+      ],
+      "rawSourceBounds": [
+        -98.48860168457031,
+        0,
+        -98.48858642578125,
+        196.9771728515625,
+        139.49725341796875,
+        196.97720336914062
+      ],
+      "measuredMinMax": [
+        -98.48860168457031,
+        0,
+        -98.48858642578125,
+        98.48857879638672,
+        139.49725341796875,
+        98.4886245727539
+      ],
+      "materials": [
+        "lambert1"
+      ],
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_q_circle_fixed.scb",
+        "bytes": 26352,
+        "sha256": "948005d65285f94881a1a8dff78da21a5c6aff563fcb8476691361111063d20a"
+      },
+      "path": "public/assets/models/lux-binding-target-lux_base_q_circle_fixed.glb",
+      "bytes": 15692,
+      "sha256": "5aa62696cd48fded19f357d595d5b96caff7f73d97db0fdc152dbda27446312a",
+      "triangles": 240,
+      "sourceVertices": 180,
+      "exportedCorners": 720,
+      "positionFloat32Sha256": "6d112a4c2590012af004b08f31087705ad985168a66243a2fc890f2869a72ea9",
+      "uvFloat32Sha256": "99e2528792e74c00f4f7349f543d2c479553d9daaba3ae72752e8fe717681766",
+      "centralPoint": [
+        0,
+        0,
+        0
+      ],
+      "rawSourceBounds": [
+        -17.318510055541992,
+        0,
+        -17.31825065612793,
+        34.637020111083984,
+        0,
+        34.636512756347656
+      ],
+      "measuredMinMax": [
+        -17.318510055541992,
+        0,
+        -17.31825065612793,
+        17.318510055541992,
+        0,
+        17.318260192871094
+      ],
+      "materials": [
+        "lambert1"
+      ],
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_q_portaledge_circle.scb",
+        "bytes": 51792,
+        "sha256": "fe8f65a02c371cf08c2364ee29c65b3247db74c5bf84268ac2179966d0967cca"
+      },
+      "path": "public/assets/models/lux-binding-target-lux_base_q_portaledge_circle.glb",
+      "bytes": 30112,
+      "sha256": "e61c1478b9bf7d430c8311157250c8c095f12730adfb0ccc89b5fa9f45527c54",
+      "triangles": 480,
+      "sourceVertices": 300,
+      "exportedCorners": 1440,
+      "positionFloat32Sha256": "156100bf72374302d25de881a48438c4f0e8d1af1f7d1d712c5569542fb4206e",
+      "uvFloat32Sha256": "f78ee60a63e882ebb05b45e07fb8d1d9b206a4b243512e2e330dcf477cc2cb97",
+      "centralPoint": [
+        0,
+        0,
+        0
+      ],
+      "rawSourceBounds": [
+        -10.755889892578125,
+        0,
+        -10.755729675292969,
+        21.51177978515625,
+        0,
+        21.511470794677734
+      ],
+      "measuredMinMax": [
+        -10.755889892578125,
+        0,
+        -10.755729675292969,
+        10.755889892578125,
+        0,
+        10.75574016571045
+      ],
+      "materials": [
+        "lambert1"
+      ],
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  ],
+  "status": "Source mesh packaging only; no particle materials, emitter transforms or native rendered comparison."
+}
