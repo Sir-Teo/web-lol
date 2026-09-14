@@ -89,6 +89,20 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
   for (const member of roster) {
     const row = page.locator(`[data-champion="${member.id}"]`);
     const portrait = row.locator('.scoreboard-portrait img');
+    const spells = row.locator('.scoreboard-summoners img');
+    await expect(spells).toHaveCount(2);
+    await expect(spells.nth(0)).toHaveAttribute('alt', 'Flash');
+    await expect(spells.nth(0)).toHaveAttribute('src', 'assets/icons/SummonerFlash.png');
+    await expect(spells.nth(1)).toHaveAttribute('alt', 'Heal');
+    await expect(spells.nth(1)).toHaveAttribute('src', 'assets/icons/SummonerHeal.png');
+    await expect
+      .poll(() =>
+        spells.evaluateAll((images) =>
+          images.every((image) => (image as HTMLImageElement).naturalWidth > 0)
+        )
+      )
+      .toBe(true);
+
     await expect(portrait).toHaveAttribute('src', `assets/icons/${member.champion}.png`);
     await expect(portrait).toHaveAttribute('alt', member.champion === 'lux' ? 'Lux' : 'Ashe');
     await expect
@@ -107,6 +121,23 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
         )
     )
     .toBe(true);
+  const spellMarkup = await page
+    .locator('.scoreboard-summoners')
+    .evaluateAll((nodes) => nodes.map((node) => node.outerHTML));
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    for (const unit of g.world.units.filter((u: any) => u.team === 'red')) {
+      const state = g.world.championState(unit.id);
+      state.cooldowns.d = g.world.tick + 18000;
+      state.cooldowns.f = g.world.tick + 14400;
+    }
+    g.hud.update(60);
+  });
+  expect(
+    await page
+      .locator('.scoreboard-summoners')
+      .evaluateAll((nodes) => nodes.map((node) => node.outerHTML))
+  ).toEqual(spellMarkup);
   const bounds = await page.locator('.scoreboard').boundingBox();
   expect(bounds!.y).toBeGreaterThanOrEqual(0);
   expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(768);

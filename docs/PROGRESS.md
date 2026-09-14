@@ -1584,3 +1584,11 @@ This reuses the existing catalog descriptions; native tooltip layout, dynamic it
 The interactive scoreboard now suppresses the browser context menu, matching the battlefield and minimap controls. A regression uses the real overlap between the full ten-champion scoreboard and minimap at 1366×768: releasing R or right-clicking the covered area queues no command, the context-menu event is prevented, and E targeting on the exposed minimap still queues a cast.
 
 The initial suspicion of a minimap cast-through gap was disproved: `Hud.minimapPoint` already checks `elementFromPoint` against the minimap canvas, and the pre-fix test passed the blocked-cast assertion. It failed at context-menu suppression, which is the actual repaired behavior. Nine focused cases and production smoke pass; inspected the overlap capture. No simulation or snapshot changes were made. Native layout parity and the full production requirements remain unfinished. See [pointer-isolation evidence](reference/scoreboard-input-verification.json).
+
+## Scoreboard summoner identities
+
+Added Flash and Heal source icons beside every champion portrait, with accessible spell names and name tooltips. These match the current fixed D/F loadout used by both supported champions. No enemy cooldown values enter the scoreboard rows or spell markup. The compact two-icon column preserves the ten-row laptop layout and the existing observed inventory behavior.
+
+Nine focused scoreboard, item-inspection and minimap browser cases plus production smoke pass. The expanded roster test verifies both decoded icons for every team member and unchanged spell markup after enemy cooldowns change. The complete 1366×768 roster capture was visually inspected; all rows, item slots and spell identities remain legible without scrolling. Simulation and save format are unchanged; the existing 603 simulation checks were not repeated for this presentation-only change.
+
+Customizable summoner loadouts, allied cooldown indicators, trinkets, champion selection and native scoreboard pixel comparison remain unfinished. Full production scope remains open. See [summoner identity evidence](reference/scoreboard-summoners-verification.json).

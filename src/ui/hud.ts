@@ -591,7 +591,7 @@ export class Hud {
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;
       row.dataset.champion = String(data.id);
       row.innerHTML =
-        '<span class="scoreboard-portrait"><img><span class="scoreboard-level"></span></span><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span><span class="scoreboard-items"></span>';
+        '<span class="scoreboard-portrait"><img><span class="scoreboard-level"></span></span><span class="scoreboard-summoners" role="group" aria-label="Summoner spells"></span><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span><span class="scoreboard-items"></span>';
       const level = row.querySelector('.scoreboard-level')!;
       level.textContent = data.level === null ? '?' : String(data.level);
       level.setAttribute(
@@ -601,6 +601,17 @@ export class Hud {
       const portrait = row.querySelector('img')!;
       portrait.src = `assets/icons/${data.champion}.png`;
       portrait.alt = data.champion === 'lux' ? 'Lux' : 'Ashe';
+      const summoners = row.querySelector('.scoreboard-summoners')!;
+      // All supported champions currently equip D: Flash and F: Heal.
+      // Identities are public; enemy cooldown state is not exposed here.
+      for (const ability of ['d', 'f'] as const) {
+        const spell = ABILITIES[ability];
+        const icon = document.createElement('img');
+        icon.src = `assets/icons/${spell.icon}.png`;
+        icon.alt = spell.name;
+        icon.title = spell.name;
+        summoners.append(icon);
+      }
       const name = row.querySelector('strong')!;
       name.textContent = data.name;
       name.title = data.name;

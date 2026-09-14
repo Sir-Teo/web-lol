@@ -1370,7 +1370,7 @@ button {
 }
 .scoreboard-row {
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr) 72px 48px;
+  grid-template-columns: 38px 18px minmax(0, 1fr) 72px 48px;
   align-items: center;
   column-gap: 10px;
   row-gap: 4px;
@@ -1384,7 +1384,7 @@ button {
   border-color: #74594f77;
 }
 .scoreboard-items {
-  grid-column: 2 / -1;
+  grid-column: 3 / -1;
   display: flex;
   gap: 3px;
 }
@@ -1671,4 +1671,14 @@ button {
 
 .hud .scoreboard-item-tooltip {
   pointer-events: none;
+}
+
+.scoreboard-summoners {
+  display: grid;
+  gap: 2px;
+}
+.scoreboard-row .scoreboard-summoners img {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #665c40;
 }
