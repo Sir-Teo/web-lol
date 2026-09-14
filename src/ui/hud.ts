@@ -1,3 +1,4 @@
+import { AttackStatTooltip } from './attack-stat-tooltip';
 import { LUX } from '../content/lux-progression';
 import { LUX_SPELLS, isLuxSpell, luxDescription, luxPreviewResources } from './lux-spells';
 import { instantSpell } from '../input/spell-controls';
@@ -44,6 +45,7 @@ export class Hud {
   private mini: HTMLCanvasElement;
   private tip: HTMLDivElement;
   private itemTooltip: ScoreboardItemTooltip;
+  private attackStatTooltip: AttackStatTooltip;
   private hoveredAbility: HTMLButtonElement | null = null;
   private focusedAbility: HTMLButtonElement | null = null;
   private floating: HTMLDivElement;
@@ -92,6 +94,11 @@ export class Hud {
     this.tip.hidden = true;
     this.root.append(this.tip);
     this.itemTooltip = new ScoreboardItemTooltip(this.root);
+    this.attackStatTooltip = new AttackStatTooltip(
+      this.root,
+      this.root.querySelector<HTMLElement>('[aria-label="Attack damage"]')!,
+      world
+    );
     this.floating = document.createElement('div');
     this.floating.className = 'floating-layer';
     host.append(this.floating);
@@ -835,6 +842,7 @@ export class Hud {
 
   update(fps: number): void {
     if (this.world.winner && this.modal !== 'result') this.toggleModal('result');
+    this.attackStatTooltip.refresh(this.modal === null);
     this.floating.hidden = !!this.world.winner;
     const w = this.world,
       p = w.player,

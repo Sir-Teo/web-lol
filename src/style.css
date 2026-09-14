@@ -1732,3 +1732,16 @@ button {
   background: #294747;
   color: #f0e6bd;
 }
+
+.attack-stat-tooltip {
+  position: fixed;
+  z-index: 20;
+  width: 290px;
+}
+.hud .attack-stat-tooltip {
+  pointer-events: none;
+}
+.champion-stats [tabindex]:focus-visible {
+  outline: 2px solid #c8aa6e;
+  outline-offset: 3px;
+}

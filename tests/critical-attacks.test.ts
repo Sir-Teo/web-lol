@@ -155,3 +155,39 @@ test('snapshot rejects invalid critical metadata', () => {
   saved.projectiles[0].type = 'volley';
   expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow();
 });
+
+test('cancelled critical windup launches nothing and the next attack receives a fresh saved roll', () => {
+  const { w, target } = setup();
+  w.step();
+  expect(w.hero.attackCycle?.critical).toBe(true);
+  const randomState = w.random.state;
+  w.setOrder(w.hero, { type: 'move', point: { x: w.hero.x, y: w.hero.y + 60 } });
+  w.step(20);
+  expect(w.projectiles).toHaveLength(0);
+  expect(w.hero.attackCycle).toBeNull();
+  expect(w.random.state).toBe(randomState);
+  const next = new Random(randomState),
+    expected = next.next() < 0.15;
+  w.setOrder(w.hero, { type: 'attack', target: target.id });
+  w.step();
+  expect(w.hero.attackCycle?.critical === true).toBe(expected);
+  expect(w.random.state).toBe(next.state);
+  const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+  w.step(30);
+  restored.step(30);
+  expect(w.snapshot()).toBe(restored.snapshot());
+});
+
+test('a bot with shopping gold preserves its committed critical windup', () => {
+  const { w } = setup();
+  w.step();
+  const cycle = { ...w.hero.attackCycle! },
+    releaseTick = w.hero.releaseTick;
+  w.hero.ai = true;
+  w.hero.nextThink = w.tick;
+  w.player.gold = 1000;
+  w.step();
+  expect(w.hero.attackCycle).toEqual(cycle);
+  expect(w.hero.releaseTick).toBe(releaseTick);
+  expect(w.player.recallEnd).toBeNull();
+});
