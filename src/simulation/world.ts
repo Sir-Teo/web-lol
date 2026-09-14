@@ -125,6 +125,8 @@ export class World {
   visionAreas: VisionArea[] = [];
   scoutVisuals: ScoutVisual[] = [];
   bindingStops: BindingFlightStop[] = [];
+  // Local first choice; two source variants with avoid-repeat=1 alternate thereafter.
+  nextBindingAudioVariant: 0 | 1 = 0;
 
   pendingSpawns: { tick: number; kind: UnitKind; team: Team; lane: number; offset: number }[] = [];
 
@@ -1711,7 +1713,9 @@ export class World {
       remaining: LUX_BINDING.range,
       volleyId: null,
       bindingHits: [],
+      bindingAudioVariant: this.nextBindingAudioVariant,
     });
+    this.nextBindingAudioVariant = this.nextBindingAudioVariant === 0 ? 1 : 0;
     return true;
   }
   private releaseSingularity(source: Unit, cast: NonNullable<ChampionState['pendingCast']>): void {
@@ -2175,6 +2179,7 @@ export class World {
             point: { ...stopPoint },
             launchTick: p.launchTick!,
             stopTick: this.tick,
+            variant: p.bindingAudioVariant!,
             reason: p.bindingHits!.length === LUX_BINDING.maximumTargets ? 'hit-limit' : 'range',
           });
         continue;
@@ -3335,6 +3340,7 @@ export class World {
       visionAreas: this.visionAreas,
       scoutVisuals: this.scoutVisuals,
       bindingStops: this.bindingStops,
+      nextBindingAudioVariant: this.nextBindingAudioVariant,
       volleyHits: this.volleyHits,
       commands: this.commands,
     });

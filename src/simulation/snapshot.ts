@@ -36,7 +36,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 64;
+export const SNAPSHOT_VERSION = 65;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -358,6 +358,7 @@ const projectile: z.ZodType<Projectile> = z
       })
       .optional(),
     bindingHits: z.array(id).max(1).optional(),
+    bindingAudioVariant: z.union([z.literal(0), z.literal(1)]).optional(),
     x: z.number(),
     y: z.number(),
     previous: point,
@@ -378,8 +379,11 @@ const projectile: z.ZodType<Projectile> = z
   .refine(
     (p) =>
       p.type === 'binding'
-        ? p.bindingHits !== undefined && p.target === null && p.volleyId === null
-        : p.bindingHits === undefined,
+        ? p.bindingHits !== undefined &&
+          p.bindingAudioVariant !== undefined &&
+          p.target === null &&
+          p.volleyId === null
+        : p.bindingHits === undefined && p.bindingAudioVariant === undefined,
     'Invalid binding hit history'
   )
   .refine(
@@ -486,6 +490,7 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  nextBindingAudioVariant: z.union([z.literal(0), z.literal(1)]),
   bindingStops: z
     .array(
       z.strictObject({
@@ -497,6 +502,7 @@ const snapshot = z.strictObject({
         launchTick: tick,
         stopTick: tick,
         reason: z.enum(['hit-limit', 'range']),
+        variant: z.union([z.literal(0), z.literal(1)]),
       })
     )
     .max(10000),

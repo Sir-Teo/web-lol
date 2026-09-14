@@ -152,6 +152,7 @@ export interface Projectile extends Vec2 {
     returnPoint?: Vec2;
   };
   bindingHits?: number[];
+  bindingAudioVariant?: 0 | 1;
   previous: Vec2;
   direction: Vec2;
   target: number | null;
@@ -179,6 +180,7 @@ export interface BindingFlightStop {
   launchTick: number;
   stopTick: number;
   reason: 'hit-limit' | 'range';
+  variant: 0 | 1;
 }
 /** A released Lux basic attack's presentation path, retained briefly after removal.
  * IDs are the originating projectile ID; this record is not a gameplay entity.

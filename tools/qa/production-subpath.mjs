@@ -90,8 +90,8 @@ try {
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.equal(
     recordings.size,
-    15,
-    'Every source Hawkshot, Illumination and Light Binding cast recording must load beneath the host prefix'
+    17,
+    'Every source Hawkshot, Illumination and Light Binding cast/flight recording must load beneath the host prefix'
   );
   await page.mouse.click(880, 480, { button: 'right' });
   await page.waitForTimeout(1800);

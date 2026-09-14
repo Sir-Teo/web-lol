@@ -1,3 +1,4 @@
+import { LuxBindingFlightAudio } from './lux-binding-flight';
 import { LUX_BINDING_CAST_AUDIO } from '../content/lux-binding-cast-audio';
 import { luxBindingCastAttenuation } from './lux-binding-cast-attenuation';
 import { SourceAudioVariants } from './source-audio-variants';
@@ -11,11 +12,12 @@ import { lingerAudioState, lingerFade } from './hawkshot-linger-state';
 import { TICK_RATE } from '../content/rules';
 import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
-import type { Projectile, ScoutVisual, SimEvent } from '../simulation/types';
+import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding cast and Illumination audio; other event cues remain synthesized. */
+/** Source Hawkshot, Light Binding cast/flight and Illumination audio; other event cues remain synthesized. */
 export class GameAudio {
   context: AudioContext | null = null;
+  bindingFlight = new LuxBindingFlightAudio();
   private audible = true;
   private paused = false;
   private resuming = false;
@@ -65,6 +67,7 @@ export class GameAudio {
       this.loadFlight(),
       this.loadIllumination(),
       this.loadBindingCast(),
+      this.bindingFlight.load(),
     ]);
   }
   private async loadBindingCast(): Promise<void> {
@@ -247,6 +250,7 @@ export class GameAudio {
       });
   }
   private stopVoices(): void {
+    this.bindingFlight.stop();
     for (const [voice, gain] of this.voices) {
       voice.stop();
       voice.disconnect();
@@ -358,6 +362,21 @@ export class GameAudio {
       voice.start(now, state.offset);
       voice.stop(now + state.endAge - state.age);
     }
+  }
+  updateBindingFlight(
+    projectiles: Projectile[],
+    stops: BindingFlightStop[],
+    tick: number,
+    listener: { x: number; y: number }
+  ): void {
+    this.bindingFlight.update(
+      this.context,
+      this.enabled && !this.paused,
+      projectiles,
+      stops,
+      tick,
+      listener
+    );
   }
   updateFlight(projectiles: Projectile[], effects: ScoutVisual[], tick: number): void {
     const states = flightAudioStates(projectiles, effects, tick);
