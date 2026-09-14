@@ -207,7 +207,7 @@ npx playwright test e2e/lux-beam-terminal.spec.ts e2e/lux-r.spec.ts e2e/terminal
 
 ## Final Spark framebuffer blending
 
-The six pinned beam emitters use blend modes 1 and 4. `Beam_Core2`, `warning_beam_1` and `Beam_Core_FLASH` use mode 1; `Beam_Core1`, `warning_beam_2` and `Beam_Core_Glow` use mode 4. Their depth flags default to zero, agreeing with current depth testing. The [pinned LeagueToolkit blend reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/blend.ts) specifies source-alpha / one-minus-source-alpha for mode 1 and source-alpha / one for mode 4, applied to both RGB and alpha. The cached file was rechecked against SHA-256 `d01381d75d574c7c31c8ac2f09d44a746a9aed6523db0af90fa507afe3dc72d9`.
+The six pinned beam emitters use blend modes 1 and 4. `Beam_Core2`, `warning_beam_1` and `Beam_Core_FLASH` use mode 1; `Beam_Core1`, `warning_beam_2` and `Beam_Core_Glow` use mode 4. Correction: all six store decoded `miscRenderFlags = 1`. The earlier hash-only lookup incorrectly reported zero; the depth correction below supersedes that finding. The [pinned LeagueToolkit blend reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/blend.ts) specifies source-alpha / one-minus-source-alpha for mode 1 and source-alpha / one for mode 4, applied to both RGB and alpha. The cached file was rechecked against SHA-256 `d01381d75d574c7c31c8ac2f09d44a746a9aed6523db0af90fa507afe3dc72d9`.
 
 Beam materials now set those factors explicitly with custom blending. Three.js normal blending previously used ONE as the source alpha-channel factor, accumulating alpha differently for the three mode-1 layers. RGB factors were already equivalent. This correction establishes the reconstructed RGBA equation; it does not demonstrate a visible RGB change on the current opaque output surface or certify native beam shader parity.
 
@@ -247,8 +247,22 @@ All six selected source beam records omit `mMode`, using the default camera-faci
 
 `luxBeamWidth` independently computes this direction with a stable side for a collinear eye and a zero vector for coincident endpoints. The beam adapter uses the actual camera and offsets vertices across this three-dimensional width, retaining authored width curves, endpoint offsets, segmented ground placement and fog filtering. Arbitrary beam mode is not implemented by this helper; none of these six records selects it.
 
-Two analytical tests check reflected handedness, full 3D orthogonality, unit width, nonmutation and degenerate inputs. A browser geometry check covers both warning layers and all four fired layers from cameras on opposite sides of the beam: all twelve samples preserve source width and remain perpendicular to the beam and view directions. Normal R playback/reload and terminal cleanup pass. The updated gameplay screenshot was reviewed; the low current centerline causes part of the camera-facing beam to intersect terrain. Native source/target attachment height, terrain treatment and full beam appearance remain unresolved rather than compensated with an invented height.
+Two analytical tests check reflected handedness, full 3D orthogonality, unit width, nonmutation and degenerate inputs. A browser geometry check covers both warning layers and all four fired layers from cameras on opposite sides of the beam: all twelve samples preserve source width and remain perpendicular to the beam and view directions. Normal R playback/reload and terminal cleanup pass. The updated gameplay screenshot was reviewed; part of the camera-facing beam was occluded by terrain under the then-incorrect depth-test setting; the source depth correction below resolves that occlusion. Native source/target attachment height, terrain treatment and full beam appearance remain unresolved rather than compensated with an invented height.
 
 ```sh
 npx playwright test e2e/lux-beam-facing.spec.ts e2e/lux-r.spec.ts e2e/lux-beam-terminal.spec.ts
+```
+
+
+## Final Spark decoded depth flag correction
+
+Re-extraction of the pinned binary confirmed that every selected beam emitter stores `miscRenderFlags = 1` under the decoded field name. The earlier inspection checked only `{6563bee8}` and incorrectly treated this decoded field as absent. The exporter had dropped the field, leaving Three.js depth testing enabled. The relevant older audit statement above is corrected rather than retained as valid evidence.
+
+The exporter now carries the decoded flag into all six runtime profiles, and materials derive depth testing from mask `0x1`, using the already pinned bit interpretation. The original six definitions were revalidated against the binary and all six textures were losslessly re-exported. No source attachment height was inferred from the unrelated child missile's `L_hand` / target-height fields: its mapping to this beam's anchors remains unverified.
+
+A GPU regression checks the decoded flags directly in the source pin and tests every actual gameplay material behind an opaque wall. Authored settings produce the particle; explicitly enabling depth testing produces the wall. The updated gameplay screenshot was visually reviewed and the beam is no longer cut by terrain or props. Camera-facing geometry, normal charge/release/reload, all 720 unit tests and the production smoke test pass. Fog filtering remains independent. Full attachment dispatch/height, missing emitter layers and native pixel parity remain unfinished.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-lux-beam-layers.py
+npx playwright test e2e/lux-beam-depth.spec.ts e2e/lux-r.spec.ts e2e/lux-beam-facing.spec.ts
 ```

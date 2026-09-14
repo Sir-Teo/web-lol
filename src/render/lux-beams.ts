@@ -12,6 +12,7 @@ interface Curve {
   readonly values: readonly (readonly number[])[];
 }
 interface Layer {
+  readonly miscRenderFlags: number;
   readonly name: string;
   readonly delay: number;
   readonly life: number;
@@ -95,6 +96,7 @@ export class LuxBeams {
       const material = new THREE.ShaderMaterial({
         transparent: true,
         depthWrite: false,
+        depthTest: (layer.miscRenderFlags & 1) === 0,
         side: THREE.DoubleSide,
         blending: THREE.CustomBlending,
         blendEquation: THREE.AddEquation,
