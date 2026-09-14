@@ -54,9 +54,17 @@ export function projectGroundQuad(
   const vertices = (nx + 1) * (ny + 1);
   let position = geometry.getAttribute('position') as THREE.BufferAttribute | undefined;
   let uv = geometry.getAttribute('uv') as THREE.BufferAttribute | undefined;
-  if (!position || position.count !== vertices || !uv || uv.count !== vertices) {
-    // Release renderer-owned buffers before replacing attributes on a live geometry.
+  const topology = `${nx}:${ny}`;
+  // Index-only topology changes also replace a GPU buffer, even at equal vertex counts.
+  if (
+    !position ||
+    position.count !== vertices ||
+    !uv ||
+    uv.count !== vertices ||
+    geometry.userData.groundQuadTopology !== topology
+  )
     geometry.dispose();
+  if (!position || position.count !== vertices || !uv || uv.count !== vertices) {
     position = new THREE.BufferAttribute(new Float32Array(vertices * 3), 3).setUsage(
       THREE.DynamicDrawUsage
     );
@@ -64,7 +72,6 @@ export function projectGroundQuad(
     geometry.setAttribute('position', position);
     geometry.setAttribute('uv', uv);
   }
-  const topology = `${nx}:${ny}`;
   if (geometry.userData.groundQuadTopology !== topology) {
     const indices: number[] = [];
     for (let y = 0; y < ny; y++)
