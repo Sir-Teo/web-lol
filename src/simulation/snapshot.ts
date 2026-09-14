@@ -16,7 +16,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 46;
+export const SNAPSHOT_VERSION = 47;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -176,9 +176,9 @@ const player: z.ZodType<PlayerState> = z
     deaths: tick,
     xp: nonnegative,
     level: z.number().int().min(1).max(MAX_LEVEL),
-    observedLevels: z.strictObject({
-      blue: z.number().int().min(1).max(MAX_LEVEL).nullable(),
-      red: z.number().int().min(1).max(MAX_LEVEL).nullable(),
+    observedStats: z.strictObject({
+      blue: z.strictObject({ level: z.number().int().min(1).max(MAX_LEVEL), cs: tick }).nullable(),
+      red: z.strictObject({ level: z.number().int().min(1).max(MAX_LEVEL), cs: tick }).nullable(),
     }),
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
@@ -249,8 +249,11 @@ const player: z.ZodType<PlayerState> = z
       ),
   })
   .refine(
-    (p) => Object.values(p.observedLevels).every((level) => level === null || level <= p.level),
-    'Observed level cannot exceed current level'
+    (p) =>
+      Object.values(p.observedStats).every(
+        (stats) => stats === null || (stats.level <= p.level && stats.cs <= p.cs)
+      ),
+    'Observed stats cannot exceed current stats'
   )
   .refine(
     (p) => p.spellRanks.e > 0 || p.eRechargeTick === null,

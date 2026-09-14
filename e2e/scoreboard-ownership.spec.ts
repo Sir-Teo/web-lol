@@ -131,7 +131,7 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
   expect(errors).toEqual([]);
 });
 
-test('level badges retain observed enemy levels instead of revealing hidden gains', async ({
+test('scoreboard retains observed enemy level and creep score through hidden gains', async ({
   page,
 }) => {
   await page.goto('/?scene=fixture');
@@ -151,6 +151,8 @@ test('level badges retain observed enemy levels instead of revealing hidden gain
     return enemy.id;
   });
   const badge = page.locator(`[data-champion="${id}"] .scoreboard-level`);
+  const cs = page.locator(`[data-champion="${id}"] .scoreboard-cs`);
+  await expect(cs).toHaveText('? CS');
   await expect(badge).toHaveText('?');
   await expect(badge).toHaveAttribute('aria-label', 'Level unknown');
   await page.evaluate((id) => {
@@ -158,19 +160,23 @@ test('level badges retain observed enemy levels instead of revealing hidden gain
       w = g.world;
     Object.assign(w.hero, { x: -800, y: -50 });
     w.gainExperience(280, id);
+    w.championState(id).cs = 4;
     w.step();
     g.hud.update(60);
   }, id);
   await expect(badge).toHaveText('2');
+  await expect(cs).toHaveText('4 CS');
   await page.evaluate((id) => {
     const g = (window as any).__GAME__,
       w = g.world;
     Object.assign(w.hero, { x: -820, y: 450 });
     w.gainExperience(380, id);
+    w.championState(id).cs = 6;
     w.step();
     g.hud.update(60);
   }, id);
   await expect(badge).toHaveText('2');
+  await expect(cs).toHaveText('4 CS');
   await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world;
@@ -179,6 +185,7 @@ test('level badges retain observed enemy levels instead of revealing hidden gain
     g.hud.update(60);
   });
   await expect(badge).toHaveText('3');
+  await expect(cs).toHaveText('6 CS');
   await expect(badge).toHaveAttribute('aria-label', 'Level 3');
-  await page.screenshot({ path: 'artifacts/scoreboard-levels.png' });
+  await page.screenshot({ path: 'artifacts/scoreboard-observed-stats.png' });
 });

@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "83e6cb411ad36742a91cfb8a171c84f4e4a8440e",
+  "change": "Replace level-only observations with persistent per-team level/CS observations; remove direct hidden enemy CS read from scoreboard.",
+  "snapshotVersion": 47,
+  "sourceSHA256": {
+    "src/simulation/types.ts": "3c45c289373d3721789ac84736a369bade38e2c7969145c3f02f173d7d7db5d6",
+    "src/simulation/champion-state.ts": "6540d89dff22503d8df5fc6e0f26703b5c7338dd82af640f4b62fdf1fdb82de7",
+    "src/simulation/world.ts": "d2bf7b981515fd0f21273769862cade3931b11db5dff5ffab67da331a62340ff",
+    "src/simulation/snapshot.ts": "2440929480523853e87429109345f6099f03b6803bd8951c2d371d20c14247e8",
+    "src/ui/hud.ts": "54f21b6125ba9bade62f24aa6c4e05adc6ccc11d17e3378c64ef6a2c3bf60ce4",
+    "tests/observed-levels.test.ts": "e4460ac3802a7713e804e90c2c1764200c4f5068a79f32b20e1ad2f4578d2767",
+    "e2e/scoreboard-ownership.spec.ts": "65280c8357752523012466d0dc7f08e8dba14288dbad56d218541f09c70134c3"
+  },
+  "validation": {
+    "checks": 601,
+    "checkLogSHA256": "97a4e4e4a21e9431468ac713e14ef98a2bc36f1993a2274cd28de1905d7a06bc",
+    "browserScenarios": 8,
+    "browserLogSHA256": "3627e3d07273d69e643f35797090e3b82ddf6cd958a6b0550f7d5dd2c8006a70",
+    "productionPassed": true,
+    "productionLogSHA256": "01bf3d7bf7f9a61e99d41c082e42ca3c5239d4caaadb93feab801d40156fcb60",
+    "screenshotSHA256": "b623b29b459069197ae4f284012c52280262bc55b0c1b2267e12da7d42b3df08",
+    "visualInspection": "CS and level remain legible beside the correct portraits; full-roster containment case still passes."
+  },
+  "limits": [
+    "Conservative local team-knowledge policy; exact native refresh timing and unknown presentation are not certified.",
+    "Older snapshots are incompatible and diagnostic checkpoints must be regenerated.",
+    "Item knowledge, detailed scoreboard content, native visual comparison and full-match production requirements remain open."
+  ]
+}

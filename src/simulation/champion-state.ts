@@ -7,7 +7,7 @@ import { hastedCooldownTicks, itemAbilityHaste } from './ability-haste';
 
 export function createChampionState(id: number, unlocked = true): ChampionState {
   return {
-    observedLevels: { blue: null, red: null },
+    observedStats: { blue: null, red: null },
     revealContributors: [],
     assists: 0,
     damageContributors: [],

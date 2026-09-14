@@ -555,19 +555,20 @@ export class Hud {
       .sort((a, b) => Number(a.team === 'red') - Number(b.team === 'red') || a.id - b.id)
       .map((u) => {
         const state = this.world.championState(u.id)!;
+        const observed =
+          u.team === this.world.hero.team || this.world.visible(u, this.world.hero.team)
+            ? state
+            : state.observedStats[this.world.hero.team];
         return {
           id: u.id,
           name: u.name,
           champion: u.champion!,
-          level:
-            u.team === this.world.hero.team || this.world.visible(u, this.world.hero.team)
-              ? state.level
-              : state.observedLevels[this.world.hero.team],
+          level: observed?.level ?? null,
           team: u.team,
           kills: state.kills,
           deaths: state.deaths,
           assists: state.assists,
-          cs: state.cs,
+          cs: observed?.cs ?? null,
         };
       });
     const signature = JSON.stringify(rows);
@@ -599,7 +600,7 @@ export class Hud {
       name.append(role);
       row.querySelector('.scoreboard-kda')!.textContent =
         `${data.kills} / ${data.deaths} / ${data.assists}`;
-      row.querySelector('.scoreboard-cs')!.textContent = `${data.cs} CS`;
+      row.querySelector('.scoreboard-cs')!.textContent = `${data.cs ?? '?'} CS`;
       panel.querySelector(`[data-team="${data.team}"]`)!.append(row);
     }
   }

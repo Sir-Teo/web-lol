@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 47 replaces level-only observations with nullable per-team `{ level, cs }` records. Both fields are captured together when observed and retained through hidden gains and reloads. Creep score must be a nonnegative integer no greater than actual CS; the existing level bounds remain enforced. Earlier formats are incompatible.
+
 Version 46 adds per-team nullable observed champion levels. Observations must be integers from 1 through the champion’s current level. Hidden level gains retain the earlier observation, and save/load preserves that knowledge exactly. Earlier formats are incompatible under the existing same-build checkpoint policy; old diagnostic checkpoints must be regenerated.
 
 Version 45 adds nullable per-champion Enlighten restoration with captured total mana and a three-second interval. It rejects invalid timelines and dead owners, permits committed restoration after selling Chapter, and resumes the remaining ticks exactly. Earlier formats are incompatible. See [LOST-CHAPTER.md](LOST-CHAPTER.md).
