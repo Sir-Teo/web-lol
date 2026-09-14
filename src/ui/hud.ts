@@ -36,6 +36,7 @@ export class Hud {
   graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
   sound = true;
   private importingMatch = false;
+  private importError = '';
   private mini: HTMLCanvasElement;
   private tip: HTMLDivElement;
   private itemTooltip: ScoreboardItemTooltip;
@@ -426,6 +427,13 @@ export class Hud {
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
+    if (this.importError) {
+      const error = document.createElement('p');
+      error.className = 'practice-note import-error';
+      error.setAttribute('role', 'alert');
+      error.textContent = this.importError;
+      backdrop.querySelector('.dialog-rule')!.after(error);
+    }
     if (which === 'result' || which === 'graphics')
       backdrop.querySelector<HTMLButtonElement>('.close-button')!.hidden = true;
     backdrop.querySelector('.close-button')!.addEventListener('click', () => this.closeModal());
@@ -537,6 +545,8 @@ export class Hud {
       load.onclick = () => {
         if (!prepared || this.importingMatch) return;
         this.importingMatch = true;
+        this.importError = '';
+        dialog.querySelector('.import-error')?.remove();
         dialog.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
           button.disabled = true;
         });
@@ -549,7 +559,13 @@ export class Hud {
           status.textContent =
             error instanceof Error ? error.message : 'Match could not be loaded.';
           if (dialog.isConnected) load.focus();
-          else this.toast(status.textContent);
+          else {
+            // Graphics interruption can replace the import dialog while its write is pending.
+            // Rebuild the current recovery/pause surface after releasing the import lock.
+            this.importError = status.textContent;
+            this.setGraphicsState(this.graphicsState);
+            this.toast(status.textContent);
+          }
         });
       };
     }
@@ -609,6 +625,7 @@ export class Hud {
   closeModal(): void {
     if (this.importingMatch || this.world.winner || this.graphicsState || document.hidden) return;
     this.modal = null;
+    this.importError = '';
     this.root.querySelector<HTMLElement>('#modal')!.hidden = true;
     this.actions.pause(false);
     this.view.renderer.domElement.focus({ preventScroll: true });

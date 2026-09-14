@@ -1,0 +1,24 @@
+{
+  "recordedAt": "2026-09-14T02:26:59.159504+00:00",
+  "baseRevision": "7eba4200cb52a01f7a66a21c9d9f482a088d03ff",
+  "feature": "Restore usable modal and visible import error after overlapping graphics recovery and write failure",
+  "reproduction": "After-restoration case failed before repair: Game paused heading absent after transaction failure.",
+  "verification": {
+    "browserScenarios": 13,
+    "browserResult": "passed",
+    "typeScript": "passed",
+    "production": "passed: /nested/rift/, 9 recordings, navigation, real Hawkshot, no development hook",
+    "visualReview": ["Error visible inside paused dialog after both completion orders"],
+    "simulation": "unchanged; existing 603 tests not repeated"
+  },
+  "scope": "Local import/graphics-recovery handling; full production clone remains incomplete.",
+  "sha256": {
+    "src/ui/hud.ts": "eacd901285d98ea363c746d55c98ae1d5c4be024be2f001c1f171e0d4d219908",
+    "e2e/match-files.spec.ts": "f2b9711d4d8e473ab0f1e1fd235fdec4e8995cae54dfcce82c1c34b89cbbe9a8",
+    "artifacts/match-import-recovery-before.log": "1713456bc9f061852c34a2a1831bc98986bd7b84788504bf420022a77e55510d",
+    "artifacts/match-import-recovery-final-browser.log": "348e673e90386396bdbcf614ddf966b98b662ecccf17087b77e5034a1bcb41f1",
+    "artifacts/match-import-recovery-final-production.log": "f635ce94bf5bfcc676feb59e39f6bead53faa580242731118f63f7f6c44bf327",
+    "artifacts/match-import-failure-after-recovery.png": "908a200528ef0510884f2134956f780835c2531485615eadfc8f3e4e8e59eb80",
+    "artifacts/match-import-failure-before-recovery.png": "891d8a61223a1394a505ab895e9aa45387e9504e12de5e614c97d82924ae87e7"
+  }
+}

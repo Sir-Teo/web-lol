@@ -188,3 +188,68 @@ test('a graphics loss still permits an exact match-file download', async ({ page
   await expect(page.getByRole('heading', { name: 'Restoring the battlefield' })).toBeVisible();
   await page.screenshot({ path: 'artifacts/match-file-graphics-loss.png' });
 });
+
+for (const recoverFirst of [true, false])
+  test(`import write failure ${recoverFirst ? 'after' : 'before'} graphics restoration preserves a usable paused match`, async ({
+    page,
+  }) => {
+    await page.goto('/?scene=fixture');
+    await ready(page);
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'Save match', exact: true }).click();
+    await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
+    const saved = await snapshot(page);
+    await page.evaluate(() => {
+      const g = (window as any).__GAME__;
+      g.world.player.gold += 100;
+      const prepare = g.hud.actions.prepareImport;
+      g.hud.actions.prepareImport = async (file: File) => {
+        const candidate = await prepare(file);
+        return {
+          ...candidate,
+          load: async () => {
+            await new Promise<void>((resolve) => {
+              (window as any).__releaseImport = resolve;
+            });
+            return candidate.load();
+          },
+        };
+      };
+      const transaction = IDBDatabase.prototype.transaction;
+      IDBDatabase.prototype.transaction = function (...args: any[]) {
+        const result = Reflect.apply(transaction, this, args);
+        if (args[1] === 'readwrite') queueMicrotask(() => result.abort());
+        return result;
+      };
+    });
+    const frozen = await snapshot(page);
+    await files(page);
+    await upload(page, saved);
+    await page.getByRole('button', { name: 'Load this match' }).click();
+    await expect(page.locator('.file-status')).toHaveText('Loading match…');
+    await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextLoss());
+    await expect(page.getByRole('heading', { name: 'Restoring the battlefield' })).toBeVisible();
+    if (recoverFirst) {
+      await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextRestore());
+      await page.waitForFunction(() => (window as any).__GAME__.hud.graphicsState === null);
+    }
+    await page.keyboard.press('Escape');
+    expect(await snapshot(page)).toBe(frozen);
+    await page.evaluate(() => (window as any).__releaseImport());
+    await expect(page.locator('#toast')).toContainText('Saved match could not be updated');
+    await expect(page.locator('.import-error')).toContainText('Saved match could not be updated');
+    if (!recoverFirst) {
+      await expect(page.getByRole('heading', { name: 'Restoring the battlefield' })).toBeVisible();
+      expect(await snapshot(page)).toBe(frozen);
+      await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextRestore());
+    }
+    await expect(page.getByRole('heading', { name: 'Game paused' })).toBeVisible();
+    expect(await snapshot(page)).toBe(frozen);
+    expect(await stored(page)).toBe(saved);
+    await expect(page.locator('.import-error')).toBeVisible();
+    await page.screenshot({
+      path: `artifacts/match-import-failure-${recoverFirst ? 'after' : 'before'}-recovery.png`,
+    });
+    await page.getByRole('button', { name: 'Return to the Rift' }).click();
+    await expect.poll(() => snapshot(page)).not.toBe(frozen);
+  });
