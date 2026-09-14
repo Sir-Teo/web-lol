@@ -1,3 +1,4 @@
+import { LuxIlluminationTriggers } from './lux-illumination-triggers';
 import { LuxIllumination } from './lux-illumination';
 import type { MapTexturePrefetch } from './map-texture-prefetch';
 import type { MapTextureResidency } from './map-texture-residency';
@@ -65,6 +66,7 @@ export class GameView {
   luxAttackTrails = new LuxAttackTrails(this.scene, (p) => this.ground(p));
   luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));
   luxIllumination = new LuxIllumination(this.scene);
+  luxIlluminationTriggers = new LuxIlluminationTriggers(this.scene, (p) => this.ground(p));
   luxImpacts = new LuxImpacts(this.scene, (p) => this.ground(p));
   luxChargeRays = new LuxChargeRays(this.scene, (p) => this.ground(p));
   luxGroundWarnings = new LuxGroundWarnings(this.scene);
@@ -627,6 +629,7 @@ export class GameView {
     this.luxAttackCrescents.update(world, alpha, terminalAge);
     this.luxImpacts.update(world, alpha, this.camera, terminalAge);
     this.luxIllumination.update(world, alpha, this.camera, this.models);
+    this.luxIlluminationTriggers.update(world, alpha, this.camera, terminalAge);
     this.luxSingularities.update(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);
