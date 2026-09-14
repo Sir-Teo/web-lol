@@ -1,0 +1,94 @@
+{
+  "sourceDefinitionSha256": "bbb271c4495e87f83b0e8e0703158d4525ce0f6ff666d04a1db52bb26639d5ee",
+  "field": {
+    "name": "miscRenderFlags",
+    "hash": "6563bee8",
+    "disableDepthTestMask": 1
+  },
+  "interpretation": {
+    "repository": "LeagueToolkit/ltk-manager",
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "files": [
+      {
+        "path": "src/modules/workshop/bin/vfx/enums.ts",
+        "sha256": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0",
+        "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/enums.ts"
+      },
+      {
+        "path": "src/modules/workshop/bin/vfx/blend.ts",
+        "sha256": "d01381d75d574c7c31c8ac2f09d44a746a9aed6523db0af90fa507afe3dc72d9",
+        "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/blend.ts"
+      }
+    ]
+  },
+  "activeEmitters": [
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar",
+      "name": "blastring",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    },
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar",
+      "name": "outerring1",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    },
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar",
+      "name": "sparks",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    },
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar_crit",
+      "name": "flash",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    },
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar_crit",
+      "name": "ring",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    },
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar_crit",
+      "name": "blastring",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    },
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar_crit",
+      "name": "outerring",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    },
+    {
+      "system": "Characters/Lux/Skins/Skin0/Particles/Lux_Base_BA_tar_crit",
+      "name": "sparks",
+      "miscRenderFlags": 1,
+      "depthTest": false,
+      "authoredDepthPushPull": null,
+      "authoredDepthBiasFactors": null
+    }
+  ],
+  "limitations": [
+    "Bit interpretation uses the pinned external source reconstruction, not a local native-client capture.",
+    "This audit does not establish native draw ordering, material variant, orientation or target-specific effect dispatch."
+  ]
+}

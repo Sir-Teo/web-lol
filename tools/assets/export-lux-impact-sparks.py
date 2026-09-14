@@ -10,7 +10,9 @@ def birth(name):
     if d:
         assert d['times']==[0] and d['values'][0]==v['constantValue']
     return {'value':v['constantValue'],'probabilities':d['probabilityTables'] if d else None}
-profile={'count':5,'life':birth('particleLifetime'),'velocity':birth('birthVelocity'),'scale':birth('birthScale0'),
+flags = a.get('{6563bee8}', 0)
+assert isinstance(flags, int) and 0 <= flags <= 255
+profile={'miscRenderFlags':flags,'count':5,'life':birth('particleLifetime'),'velocity':birth('birthVelocity'),'scale':birth('birthScale0'),
  'drag':a['birthDrag']['constantValue'],'color':a['Color']['dynamics'],'relativeScale':a['scale0']['dynamics'],
  'binding':a['bindWeight']['dynamics'],'directionScale':a['{7ad984a5}'],'directionMin':a['{ebd44083}']}
 Path('src/content/lux-impact-sparks.json').write_text(json.dumps(profile,indent=2)+'\n')

@@ -50,7 +50,8 @@ function createCloud(rig: ImpactRig | null, ground: (p: Vec2) => number) {
       p.lookup ? textures!.get(p.lookup)! : white
     );
     material.transparent = true;
-    material.depthTest = true;
+    // miscRenderFlags bit 0 is the authored DISABLE_ZBUFFER flag.
+    material.depthTest = (p.miscRenderFlags & 1) === 0;
     material.blending = THREE.CustomBlending;
     material.blendEquation = THREE.AddEquation;
     material.blendSrc = p.blend === 4 ? THREE.SrcAlphaFactor : THREE.OneFactor;
@@ -64,7 +65,7 @@ function createCloud(rig: ImpactRig | null, ground: (p: Vec2) => number) {
     textures!.get(palettePath)!,
     white
   );
-  (sparks.mesh.material as THREE.Material).depthTest = true;
+  (sparks.mesh.material as THREE.Material).depthTest = (sparkProfile.miscRenderFlags & 1) === 0;
   return {
     rings,
     sparks,

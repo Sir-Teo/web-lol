@@ -257,4 +257,20 @@ New unit scenarios cover copied turret transforms, exact save continuation, froz
 
 Two full-Rift browser scenarios compare both sampled turret bones with the live source bones before and after destruction, to within `1e-7` world units per coordinate. They check normal ring placement and exact visible-particle restoration through a real browser save/reload. The blue-turret death can remove player sight, so the comparison includes only active spark instances, not unused GPU buffer slots. Eight structure regressions, four existing Lux flight/impact checks and the production subpath smoke check also pass.
 
-Screenshots `artifacts/lux-blue-turret-impact.png` and `artifacts/lux-red-turret-impact.png` are visually reviewed. Much of the ring effect is occluded by the turret under the current depth policy. These checks establish geometric attachment and reproducibility, not native pixel parity. Native depth/material policy, emitter orientation, structure-specific hit dispatch, missing-bone behavior and post-victory particle playback remain fidelity work.
+Screenshots `artifacts/lux-blue-turret-impact.png` and `artifacts/lux-red-turret-impact.png` are visually reviewed. At this checkpoint, much of the ring effect was occluded by the turret; the source-depth correction below resolves that adapter error. These checks establish geometric attachment and reproducibility, not native pixel parity. Native depth/material policy, emitter orientation, structure-specific hit dispatch, missing-bone behavior and post-victory particle playback remain fidelity work.
+
+
+## Source depth flags
+
+All eight active emitter records across the normal and critical impact definitions carry `miscRenderFlags = 1` (decoded field hash `6563bee8`). The pinned LeagueToolkit reconstruction maps mask `0x1` to disabling depth testing: [enum definition](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/enums.ts) and [material construction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/blend.ts). Both pinned raw files were retrieved and their bytes matched the cached references. `reference/lux-impact-depth.json` records their SHA-256 hashes, the preserved definition hash and every active emitter's flag. This interpretation comes from an external reconstruction, not our own native-client capture.
+
+The ring and spark exporters now retain that field. Gameplay materials derive `depthTest` from the flag instead of forcing it on. Depth writes remain disabled. Existing team/fog visibility rules still apply independently. This fixes the geometry occlusion observed when the correct source attachment bone sits inside a turret model.
+
+The GPU browser regression clones all five actual gameplay material variants, places each behind an opaque wall and reads the rendered pixel. Each produces the expected magenta pixel with its authored setting; explicitly enabling depth testing produces the black wall as a control. Five additional browser checks cover normal/critical historical bones, fog, turret destruction and real save/reload. Updated blue/red turret screenshots were visually reviewed: the blue rings now appear over the turret body at the sampled attachment. All 718 unit tests and the production subpath smoke test pass.
+
+```sh
+python3 tools/assets/audit-lux-impact-depth.py
+npx playwright test e2e/lux-impact-depth.spec.ts e2e/lux-turret-impact.spec.ts e2e/lux-impact-bones.spec.ts e2e/lux-impact-gameplay.spec.ts
+```
+
+Native draw ordering, complete material state, emitter orientation, structure-specific hit dispatch, missing-bone behavior and post-victory particle playback remain unverified. This change resolves the identified depth override without claiming full native pixel parity.

@@ -1,5 +1,6 @@
 [
   {
+    "miscRenderFlags": 1,
     "name": "flash",
     "criticalOnly": true,
     "life": 0.10000000149011612,
@@ -48,6 +49,7 @@
     ]
   },
   {
+    "miscRenderFlags": 1,
     "name": "ring",
     "criticalOnly": true,
     "life": 0.5,
@@ -98,6 +100,7 @@
     ]
   },
   {
+    "miscRenderFlags": 1,
     "name": "blastring",
     "criticalOnly": false,
     "life": 0.30000001192092896,
@@ -167,6 +170,7 @@
     ]
   },
   {
+    "miscRenderFlags": 1,
     "name": "outerring",
     "criticalOnly": false,
     "life": 0.25,

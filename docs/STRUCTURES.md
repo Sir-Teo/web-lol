@@ -104,4 +104,6 @@ node tools/assets/export-structure-animation-profiles.mjs
 This consolidation does not change saved fields or certify native animation graph parity. Historical turret impact state/placement, a structure attachment sampler, native regrowth sequencing and structure effects remain unfinished.
 
 
-Structure-target impact history now records the shared pose and authored map transform. Lux turret attachments use those saved poses and the same map-matrix conversion as live structures; inhibitors/Nexuses preserve explicit missing-bone fallback. See [the impact implementation and remaining depth/dispatch limitations](LUX-ATTACK-IMPACT.md#structure-impact-poses-and-turret-attachments).
+Structure-target impact history now records the shared pose and authored map transform. Lux turret attachments use those saved poses and the same map-matrix conversion as live structures; inhibitors/Nexuses preserve explicit missing-bone fallback. See [the impact implementation and remaining fidelity limitations](LUX-ATTACK-IMPACT.md#structure-impact-poses-and-turret-attachments).
+
+Lux impact geometry occlusion is now corrected by preserving the authored `miscRenderFlags` depth setting. Both turret screenshots show the bone-attached rings over the structure geometry; fog visibility remains independently enforced. See [source depth evidence and GPU validation](LUX-ATTACK-IMPACT.md#source-depth-flags). Native draw ordering and structure-specific effect dispatch remain unverified.

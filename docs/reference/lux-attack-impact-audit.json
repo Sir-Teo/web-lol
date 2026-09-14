@@ -24,6 +24,7 @@
   "variants": {
     "Lux_Base_BA_tar": [
       {
+        "miscRenderFlags": 1,
         "name": "blastring",
         "disabled": false,
         "single": false,
@@ -43,6 +44,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 0,
         "name": "star",
         "disabled": true,
         "single": false,
@@ -62,6 +64,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 0,
         "name": "star2",
         "disabled": true,
         "single": false,
@@ -81,6 +84,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 0,
         "name": "outerring",
         "disabled": true,
         "single": false,
@@ -100,6 +104,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 0,
         "name": "innerring",
         "disabled": true,
         "single": false,
@@ -119,6 +124,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 1,
         "name": "innerring1",
         "disabled": true,
         "single": false,
@@ -138,6 +144,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 1,
         "name": "outerring1",
         "disabled": false,
         "single": false,
@@ -157,6 +164,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 1,
         "name": "sparks",
         "disabled": false,
         "single": true,
@@ -222,6 +230,7 @@
     ],
     "Lux_Base_BA_tar_crit": [
       {
+        "miscRenderFlags": 1,
         "name": "flash",
         "disabled": false,
         "single": true,
@@ -241,6 +250,7 @@
         "blendMode": 4
       },
       {
+        "miscRenderFlags": 1,
         "name": "ring",
         "disabled": false,
         "single": true,
@@ -260,6 +270,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 1,
         "name": "blastring",
         "disabled": false,
         "single": false,
@@ -279,6 +290,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 1,
         "name": "outerring",
         "disabled": false,
         "single": false,
@@ -298,6 +310,7 @@
         "blendMode": 0
       },
       {
+        "miscRenderFlags": 1,
         "name": "sparks",
         "disabled": false,
         "single": true,
@@ -378,6 +391,6 @@
   "limitations": [
     "Source metadata only; exact native material variants remain unverified",
     "Palette definition is preserved, not substituted with color multiplication",
-    "Target bone attachment, target-follow binding and impact playback are not integrated"
+    "This metadata audit does not validate native attachment dispatch or draw-state behavior"
   ]
 }

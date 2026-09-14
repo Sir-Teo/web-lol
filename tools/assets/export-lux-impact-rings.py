@@ -21,7 +21,9 @@ for e in critical:
     if chance: assert chance['keyTimes'] == [0,1] and chance['keyValues'] == [0,360]
     lookup_scale = e.get('{f02bd44d}', [1,.5])
     lookup_offset = e.get('{cd5a323e}', [0,0])
-    profiles.append(dict(name=e['emitterName'], criticalOnly=e['emitterName'] in ['flash','ring'],
+    flags = e.get('{6563bee8}', 0)
+    assert isinstance(flags, int) and 0 <= flags <= 255
+    profiles.append(dict(miscRenderFlags=flags, name=e['emitterName'], criticalOnly=e['emitterName'] in ['flash','ring'],
         life=e['particleLifetime']['constantValue'], blend=e.get('blendMode',0), bind=e.get('bindWeight',{'constantValue':0})['constantValue'],
         source=textures[e['texture'].lower()], lookup=textures.get(e.get('particleColorTexture','').lower()),
         scale=e['birthScale0']['constantValue'][0], scaleTimes=scale['times'], scales=[v[0] for v in scale['values']],

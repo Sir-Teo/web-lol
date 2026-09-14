@@ -19,7 +19,7 @@ variants = {}
 for key, record in pin['records'].items():
     emitters = []
     for e in record['complexEmitterDefinitionData']:
-        emitters.append(dict(name=e['emitterName'], disabled=bool(value(e,'disabled',False)),
+        emitters.append(dict(miscRenderFlags=value(e,'miscRenderFlags',0),name=e['emitterName'], disabled=bool(value(e,'disabled',False)),
             single=bool(e.get('isSingleParticle',False)),rate=e['rate']['constantValue'],
             particleLife=e['particleLifetime']['constantValue'],emitterLife=e['lifetime'],
             texture=e.get('texture'),colorLookup=e.get('particleColorTexture'),
@@ -33,6 +33,6 @@ report={'sourcePinSha256':hashlib.sha256(pin_path.read_bytes()).hexdigest(),
     'schema':{'revision':'76bf57bf4fd195343dec610bf0f912a06b910914','path':str(schema_path),'sha256':hashlib.sha256(schema_path.read_bytes()).hexdigest()},
     'resolvedFields':resolved,'variants':variants,'identicalCriticalEmitters':{k:v for k,v in shared.items() if v},
     'textureCount':len(pin['textures']),'textureBytes':sum(t['bytes'] for t in pin['textures']),
-    'limitations':['Source metadata only; exact native material variants remain unverified','Palette definition is preserved, not substituted with color multiplication','Target bone attachment, target-follow binding and impact playback are not integrated']}
+    'limitations':['Source metadata only; exact native material variants remain unverified','Palette definition is preserved, not substituted with color multiplication','This metadata audit does not validate native attachment dispatch or draw-state behavior']}
 Path('docs/reference/lux-attack-impact-audit.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({'textures':report['textureCount'],'bytes':report['textureBytes'],'enabledEmitters':{k:sum(not e['disabled'] for e in v) for k,v in variants.items()},'shared':report['identicalCriticalEmitters']}))
