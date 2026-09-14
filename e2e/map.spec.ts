@@ -20,6 +20,13 @@ test('full map loads original compressed mips, preserves alpha, and overlays nav
       body: await readFile('public/assets/maps/textures/grasstint_srx.dds.gz'),
     })
   );
+  await page.route('**/rift-geometry.bin.gz', async (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: 'application/octet-stream',
+      body: await readFile('public/assets/maps/rift-geometry.bin.gz'),
+    })
+  );
   await page.goto('/map.html');
   await page.waitForFunction(() => (window as any).__MAP__?.ready);
   const state = await page.evaluate(() => {
@@ -50,6 +57,8 @@ test('full map loads original compressed mips, preserves alpha, and overlays nav
     alpha: true,
     mips: true,
   });
+  expect(requests.filter((url) => url.endsWith('/rift-geometry.bin'))).toHaveLength(0);
+  expect(requests.filter((url) => url.endsWith('/rift-geometry.bin.gz'))).toHaveLength(1);
   expect(requests.filter((url) => url.endsWith('.dds.gz'))).toHaveLength(138);
   expect(requests.filter((url) => url.endsWith('.webp'))).toHaveLength(0);
   await page.getByRole('button', { name: 'Navigation' }).click();
@@ -66,6 +75,13 @@ test('full map loads original compressed mips, preserves alpha, and overlays nav
 });
 
 test('map retains a full-resolution WebP path for GPUs without S3TC', async ({ page }) => {
+  await page.route('**/rift-geometry.bin.gz', async (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: 'application/octet-stream',
+      body: await readFile('public/assets/maps/rift-geometry.bin'),
+    })
+  );
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {

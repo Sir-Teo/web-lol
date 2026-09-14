@@ -1,3 +1,4 @@
+import { installMapGeometryTransport } from './map-geometry-transport';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DDSLoader } from 'three/addons/loaders/DDSLoader.js';
@@ -82,6 +83,7 @@ export async function loadRift(
     return pending;
   }
   const loader = new GLTFLoader();
+  await installMapGeometryTransport(loader, base);
   if (native)
     loader.register((parser) => ({
       // Replace the built-in WebP extension handler only for this source map.

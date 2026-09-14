@@ -1,0 +1,12 @@
+{
+  "source": {
+    "uri": "rift-geometry.bin",
+    "bytes": 36311444,
+    "sha256": "679a3c4e75ed0f40915381d2d833b615a290da29f7f8595204b3a90f9b68c3eb"
+  },
+  "gzip": {
+    "uri": "rift-geometry.bin.gz",
+    "bytes": 13966022,
+    "sha256": "c5aa86d77777883b4e4b319daf8721efeff4c3601b3217bb52473c3dd18e77c1"
+  }
+}

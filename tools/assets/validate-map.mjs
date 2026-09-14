@@ -1,3 +1,4 @@
+import { gunzipSync } from 'node:zlib';
 import fs from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import validator from 'gltf-validator';
@@ -12,6 +13,17 @@ for (const resource of manifest.resources) {
   if (hash(data) !== resource.sha256 || data.length !== resource.bytes)
     throw new Error(`Map resource hash mismatch: ${resource.uri}`);
 }
+const transport = JSON.parse(await fs.readFile(`${base}rift-geometry-gzip.json`, 'utf8'));
+const compressed = await fs.readFile(base + transport.gzip.uri);
+const decoded = gunzipSync(compressed);
+if (
+  compressed.length !== transport.gzip.bytes ||
+  hash(compressed) !== transport.gzip.sha256 ||
+  decoded.length !== transport.source.bytes ||
+  hash(decoded) !== transport.source.sha256 ||
+  !decoded.equals(await fs.readFile(base + transport.source.uri))
+)
+  throw new Error('Compressed geometry verification failed');
 const navigation = JSON.parse(await fs.readFile(`${base}rift-nav.json`, 'utf8'));
 if (hash(await fs.readFile(`${base}rift-nav.bin`)) !== navigation.output.sha256)
   throw new Error('Navigation payload hash mismatch');

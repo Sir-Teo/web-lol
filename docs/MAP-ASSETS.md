@@ -14,6 +14,10 @@ The map source contains all eight terrain visibility bits. The artifact retains 
 
 ## Texture preservation and browser memory
 
+The canonical geometry buffer remains 36,311,444 bytes at its original vertex precision. Runtime loading uses a byte-identical gzip transport of 13,966,022 bytes, saving 22,345,422 bytes (61.54%) before any additional host compression. `pack-map-geometry.mjs` verifies the canonical source hash, writes the compressed artifact and transport manifest, and checks exact roundtrip equality. Compressed byte output may vary across zlib versions; the checked-in compressed hash and invariant decoded hash are both validated. The glTF remains standard and continues to reference the original buffer for external tooling.
+
+`map-geometry-transport.ts` supplies glTF buffer views through the loader plugin interface. Concurrent views share one fetch/decode, bounds are checked, and decoded length/SHA-256 must match the pinned geometry. Raw gzip and already-decoded static-host responses are both supported. Neither texture resolution, vertex precision, topology nor GPU texture memory changes. The existing 327.42 MiB compressed-texture allocation and remaining transfer budget still need separate work.
+
 All source textures remain at their original dimensions. The standard glTF references lossless WebP files; packing verifies exact decoded RGBA equality against the converter’s PNGs, including RGB behind zero alpha. Images are external files so the geometry and textures can be cached independently and no individual artifact exceeds 100 MB.
 
 On GPUs supporting both S3TC and its sRGB extension, `src/render/rift-assets.ts` instead loads the original BC1/BC3 blocks and authored mip levels. `pack-map-dxt.py` changes only the container and mip order, verifies that reversing the result exactly reproduces the source TEX payload, and wraps DDS in deterministic gzip for transfer. The 138 textures, including the grass tint map, require 145.77 MB transferred and 343.32 MB (327.42 MiB) of GPU block storage. This avoids the much larger decoded RGBA allocation without resampling or recompressing the art.
@@ -91,3 +95,7 @@ The reconstructed textured intermediate GLB was rebuilt byte-for-byte after repl
 - Active event/map mutators have not been fully reconciled. The artifact is the pinned default container and initial visibility mask, not a claim about every live match configuration.
 - The full-map simulation now shares geometry coordinates, elevation, grid collision, brush, and vision. Dynamic grid overlays, local unit avoidance, exact Riot steering, and expanded route/region reference checks remain required.
 - Region-based texture streaming, broader GPU support, reference camera matching, and complete-match performance remain production work.
+
+## Lossless geometry transport validation
+
+The transport browser tests verify raw gzip, decoded bytes, corrupt-payload rejection, invalid view bounds and a single shared request. Full-map tests exercise both hosting conventions across original-DXT and WebP-fallback loads, and confirm the canonical uncompressed geometry is not requested. The map validator checks the compressed hash and exact decoded equality as well as the canonical glTF. All 743 unit tests and TypeScript, five browser checks, zero-error/zero-warning map validation, and production subpath smoke pass. The mid-lane map capture was visually reviewed.

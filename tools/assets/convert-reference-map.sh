@@ -25,5 +25,6 @@ PATH="$map_root/.tools/dotnet10:$PATH" DOTNET_ROLL_FORWARD=Major \
   -g .cache/map-textured.glb -d .cache/map-sources --flipX false -l Default -q High
 .tools/cdtb-venv/bin/python tools/assets/convert-navgrid.py
 node tools/assets/pack-reference-map.mjs
+node tools/assets/pack-map-geometry.mjs
 .tools/cdtb-venv/bin/python tools/assets/export-rift-layout.py
 node tools/assets/validate-map.mjs
