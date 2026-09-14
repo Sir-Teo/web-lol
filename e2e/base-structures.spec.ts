@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 
 for (const team of ['blue', 'red'])
@@ -126,7 +127,7 @@ for (const losingTeam of ['red', 'blue'])
       nexus.hp = 1;
       v.center = { x: nexus.x, y: nexus.y };
       v.locked = false;
-      w.reveal = { point: nexus, endTick: Infinity };
+      w.reveal = { point: { x: nexus.x, y: nexus.y }, endTick: Infinity };
       w.tick += 8;
       v.render(w, 1, 10);
       g.hud.update(60);
@@ -151,6 +152,8 @@ for (const losingTeam of ['red', 'blue'])
     await page.keyboard.press('Escape');
     await page.keyboard.press('w');
     await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'Download current match' })).toBeFocused();
+    await page.keyboard.press('Tab');
     await expect(page.getByRole('button', { name: 'Play again' })).toBeFocused();
     await expect
       .poll(() =>
@@ -167,6 +170,17 @@ for (const losingTeam of ['red', 'blue'])
     });
     expect(after).toEqual({ ...before, commands: 0 });
     await expect(page.locator('.floating-layer')).toBeHidden();
+    const saved = await page.evaluate(() => (window as any).__GAME__.world.snapshot());
+    const pendingDownload = page.waitForEvent('download');
+    await page.getByRole('button', { name: 'Download current match' }).click();
+    const download = await pendingDownload;
+    expect(await readFile((await download.path())!, 'utf8')).toBe(saved);
+    expect(
+      await page.evaluate((text) => {
+        const w = (window as any).__GAME__.world;
+        return w.constructor.fromSnapshot(text, w.battlefield).snapshot();
+      }, saved)
+    ).toBe(saved);
     await page.screenshot({
       path: `artifacts/browser-${losingTeam === 'red' ? 'victory' : 'defeat'}.png`,
     });

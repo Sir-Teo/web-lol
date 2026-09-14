@@ -1,5 +1,6 @@
 import './style.css';
 import { readMatch, writeMatch } from './storage/match-store';
+import { downloadMatch, prepareMatchImport } from './storage/match-files';
 import { DT } from './content/rules';
 import { World } from './simulation/world';
 import { GameView } from './render/view';
@@ -71,6 +72,12 @@ async function boot(): Promise<void> {
         .catch((error) => hud.toast(error.message));
     },
     save: async () => writeMatch(battlefield.id, world.snapshot()),
+    exportMatch: () => downloadMatch(world),
+    prepareImport: (file) =>
+      prepareMatchImport(file, battlefield, async (snapshot) => {
+        await writeMatch(battlefield.id, snapshot);
+        window.location.reload();
+      }),
     sound: (enabled) => {
       audio.enabled = enabled;
     },

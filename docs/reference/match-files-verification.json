@@ -1,0 +1,47 @@
+{
+  "recordedAt": "2026-09-14T02:22:01.100811+00:00",
+  "baseRevision": "3eaf424e8355778c270c3714735a5c613d6633de",
+  "feature": "Portable local match files with validated preview and transactional restore",
+  "snapshotVersion": 48,
+  "validation": {
+    "typeScript": "passed",
+    "saveRecoveryBrowserRun": {
+      "passed": 17,
+      "log": "artifacts/match-files-browser-verified.log"
+    },
+    "finalFileAndResultBrowserRun": {
+      "passed": 8,
+      "log": "artifacts/match-files-final-browser.log"
+    },
+    "distinctBrowserScenarios": 22,
+    "production": "passed /nested/rift/: 9 recordings, map navigation, real Hawkshot cast, no development hook",
+    "simulation": "unchanged; existing 603 checks not rerun"
+  },
+  "visualReview": [
+    "1366x768 import preview",
+    "invalid-file status",
+    "graphics-loss download",
+    "victory download",
+    "defeat download"
+  ],
+  "limitations": [
+    "Same-build Chrome-context transfer verified; cross-engine deterministic continuation not certified.",
+    "No format migration, autosave, offline asset pack or automatic cross-device sync.",
+    "Full production match and native presentation fidelity remain incomplete."
+  ],
+  "sha256": {
+    "src/main.ts": "6615939555ccc19c1f22b5be7bd73670f10ddb5bd81cde3da757f3fb955d5ab7",
+    "src/ui/hud.ts": "cabc3aac6e76a42f66710e2091f11077a62435f361099ecf47acbc0330b7b64d",
+    "src/storage/match-files.ts": "be703c720043ec33af9bacbc27279812a922b07719cb000ca787c89a5168129c",
+    "e2e/match-files.spec.ts": "a189ec5b5144d9a77f0bde6bc67c9fe25b736748a1644288342770f3b0dd18dd",
+    "e2e/base-structures.spec.ts": "502fa67e4cea4b26b5e775b612d417eac72446c889a0c11fc51d039dd803c1b3",
+    "artifacts/match-files-browser-verified.log": "a3a6d0d6fd80a3f2d6b6e3266c611ea371d04272904aec84cb0f1b1ca68e8e26",
+    "artifacts/match-files-final-browser.log": "c8f52c800f28a4f2bb8cb710fd0b68b577ef24c444b4198b9d55788f58926dba",
+    "artifacts/match-files-production.log": "70625ec186036b97f661b25dbff54079e51cab5852e22d3d96e7776690a9b36f",
+    "artifacts/match-file-preview.png": "b59dbbae9486c7152171c34437ad2df3d497e7c49ab03fe7e1115d22f4258eac",
+    "artifacts/match-file-rejected.png": "4267151d80ee2dc8dec6da4278d50bce8f870612a5d8d5a9d6d8ad6bf56c7fc1",
+    "artifacts/match-file-graphics-loss.png": "376328b3a2f309e91764c2faf6a1576fbdd06af0bd70dbab888c8ac570819057",
+    "artifacts/browser-victory.png": "e238daee54eee2e8b6e7d778bc29691cbca625fe9764894be71403366d119416",
+    "artifacts/browser-defeat.png": "46741c2095e0706651e4d513bc38ae657d88c99fcf21a4da5fe5250da86384ab"
+  }
+}

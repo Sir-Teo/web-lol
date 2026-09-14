@@ -1,3 +1,4 @@
+import type { PreparedMatchImport } from '../storage/match-files';
 import { ScoreboardItemTooltip } from './scoreboard-item-tooltip';
 import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
@@ -24,6 +25,8 @@ export interface HudActions {
   pause: (value: boolean) => void;
   reset: () => void;
   save: () => Promise<void>;
+  exportMatch: () => void;
+  prepareImport: (file: File) => Promise<PreparedMatchImport>;
   sound: (enabled: boolean) => void;
 }
 export class Hud {
@@ -32,6 +35,7 @@ export class Hud {
   paused = false;
   graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
   sound = true;
+  private importingMatch = false;
   private mini: HTMLCanvasElement;
   private tip: HTMLDivElement;
   private itemTooltip: ScoreboardItemTooltip;
@@ -345,6 +349,7 @@ export class Hud {
     this.root.querySelector<HTMLElement>('.game-dialog')?.focus();
   }
   toggleModal(which: string): void {
+    if (this.importingMatch && which !== 'graphics') return;
     if (this.graphicsState && which !== 'graphics') return;
     if (this.world.winner && which !== 'result' && which !== 'graphics') return;
     if (this.modal === which) {
@@ -373,17 +378,23 @@ export class Hud {
           : this.graphicsState === 'restoring'
             ? 'Preparing the battlefield. You can resume once it is ready.'
             : 'Graphics could not be restored. Restart to try again.';
-      content = `<p class="practice-note" role="status">${message}</p><button class="primary-button" data-action="reset">Restart match</button><p class="practice-note">Restarting starts a new match.</p>`;
+      content = `<p class="practice-note" role="status">${message}</p><button class="menu-button" data-action="export">Download current match</button><button class="primary-button" data-action="reset">Restart match</button><p class="practice-note">Restarting starts a new match.</p>`;
     } else if (which === 'result') {
       title = this.world.winner === 'blue' ? 'Victory' : 'Defeat';
       subtitle =
         this.world.winner === 'blue' ? 'The enemy Nexus has fallen.' : 'Your Nexus has fallen.';
-      content = '<button class="primary-button" data-action="reset">Play again</button>';
+      content =
+        '<button class="primary-button" data-action="reset">Play again</button><button class="menu-button" data-action="export">Download current match</button>';
     } else if (which === 'pause') {
       title = 'Game paused';
       subtitle = 'A moment of clarity before the next move.';
       content =
-        '<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">Restart practice</button>';
+        '<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">Restart practice</button>';
+    } else if (which === 'files') {
+      title = 'Match files';
+      subtitle = 'Keep a copy. Continue on another browser.';
+      content =
+        '<button class="menu-button" data-action="export">Download current match</button><button class="menu-button" data-action="choose-file">Choose match file</button><input type="file" accept=".json,application/json" aria-label="Match file" hidden><p class="practice-note file-status" role="status">Choose a file from this game version to preview it before loading.</p><button class="primary-button" data-action="load-file" hidden>Load this match</button><button class="menu-button" data-action="back">Back to pause menu</button>';
     } else if (which === 'help') {
       title = 'Master the Rift';
       subtitle = 'Every movement begins with a decision.';
@@ -431,6 +442,16 @@ export class Hud {
     backdrop.querySelectorAll<HTMLButtonElement>('[data-action]').forEach((button) =>
       button.addEventListener('click', () => {
         const action = button.dataset.action;
+        if (this.importingMatch) return;
+        if (action === 'files') this.toggleModal('files');
+        if (action === 'back') this.toggleModal('pause');
+        if (action === 'export') {
+          try {
+            this.actions.exportMatch();
+          } catch {
+            this.toast('Match could not be downloaded.');
+          }
+        }
         if (action === 'resume') this.closeModal();
         if (action === 'help') this.toggleModal('help');
         if (action === 'reset') this.actions.reset();
@@ -481,6 +502,57 @@ export class Hud {
         }
       })
     );
+    if (which === 'files') {
+      const dialog = backdrop.querySelector<HTMLElement>('.game-dialog')!;
+      const fileInput = dialog.querySelector<HTMLInputElement>('input[type="file"]')!;
+      const choose = dialog.querySelector<HTMLButtonElement>('[data-action="choose-file"]')!;
+      const load = dialog.querySelector<HTMLButtonElement>('[data-action="load-file"]')!;
+      const status = dialog.querySelector<HTMLElement>('.file-status')!;
+      let prepared: PreparedMatchImport | null = null;
+      let selection = 0;
+      choose.onclick = () => fileInput.click();
+      fileInput.onchange = () => {
+        const file = fileInput.files?.[0];
+        fileInput.value = '';
+        if (!file) return;
+        const generation = ++selection;
+        prepared = null;
+        load.hidden = true;
+        status.textContent = 'Checking match file…';
+        void this.actions
+          .prepareImport(file)
+          .then((result) => {
+            if (!dialog.isConnected || generation !== selection) return;
+            prepared = result;
+            status.textContent = result.description;
+            load.hidden = false;
+            load.focus();
+          })
+          .catch((error) => {
+            if (!dialog.isConnected || generation !== selection) return;
+            status.textContent =
+              error instanceof Error ? error.message : 'Match file could not be read.';
+          });
+      };
+      load.onclick = () => {
+        if (!prepared || this.importingMatch) return;
+        this.importingMatch = true;
+        dialog.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
+          button.disabled = true;
+        });
+        status.textContent = 'Loading match…';
+        void prepared.load().catch((error) => {
+          this.importingMatch = false;
+          dialog.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
+            button.disabled = false;
+          });
+          status.textContent =
+            error instanceof Error ? error.message : 'Match could not be loaded.';
+          if (dialog.isConnected) load.focus();
+          else this.toast(status.textContent);
+        });
+      };
+    }
     const showShopResult = (result: string | null, success: string) => {
       const message = backdrop.querySelector<HTMLElement>('.shop-message')!;
       message.textContent = result ?? success;
@@ -511,7 +583,8 @@ export class Hud {
     );
     const initialFocus =
       (which === 'graphics' ? backdrop.querySelector<HTMLElement>('.game-dialog') : null) ??
-      backdrop.querySelector<HTMLButtonElement>('.primary-button') ??
+      backdrop.querySelector<HTMLButtonElement>('.primary-button:not([hidden])') ??
+      backdrop.querySelector<HTMLButtonElement>('.menu-button:not([hidden])') ??
       backdrop.querySelector<HTMLButtonElement>('.shop-item') ??
       backdrop.querySelector<HTMLButtonElement>('.close-button');
     initialFocus?.focus();
@@ -534,7 +607,7 @@ export class Hud {
     };
   }
   closeModal(): void {
-    if (this.world.winner || this.graphicsState || document.hidden) return;
+    if (this.importingMatch || this.world.winner || this.graphicsState || document.hidden) return;
     this.modal = null;
     this.root.querySelector<HTMLElement>('#modal')!.hidden = true;
     this.actions.pause(false);
