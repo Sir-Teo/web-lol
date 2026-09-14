@@ -192,3 +192,15 @@ Browser checks cover both a real projectile killing the Nexus and a direct Nexus
 ```sh
 npx playwright test e2e/lux-flight-terminal.spec.ts e2e/lux-impact-terminal.spec.ts e2e/lux-continuous-attacks.spec.ts
 ```
+
+## Final Spark after victory
+
+Already-fired Lux R beams now advance with terminal presentation age and retire once every exported layer's delay plus lifetime has elapsed. The adapter then removes the group and disposes its geometry/materials, even though the simulation's beam record remains frozen. Seeking backward reconstructs the same presentation. Normal simulation sampling and saved fields are unchanged.
+
+Nexus destruction already clears pending casts in the simulation. An unfinished Final Spark therefore removes its charge group immediately at victory and never creates fired layers. This cancellation remains intact; no presentation-only cast release is synthesized. The beam spell itself still cannot damage structures.
+
+Two browser cases cast real Final Sparks and destroy the Nexus through a separate direct-damage event, once during charge and once after release. They verify a visible pre-victory effect, charge cancellation, fired-layer progression, exact repeated/reconstructed frames, resource retirement and unchanged serialized state. The normal Lux R charge/release/reload scenario and terminal interpolation regression also pass. All 718 unit tests pass. Native victory/cancellation visual sequencing remains uncalibrated.
+
+```sh
+npx playwright test e2e/lux-beam-terminal.spec.ts e2e/lux-r.spec.ts e2e/terminal-interpolation.spec.ts
+```

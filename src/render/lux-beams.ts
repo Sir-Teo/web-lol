@@ -117,7 +117,7 @@ export class LuxBeams {
     this.scene.add(group);
     return group;
   }
-  update(world: World, alpha: number): void {
+  update(world: World, alpha: number, terminalAge = 0): void {
     if (textures.size === 0) return;
     const beams: (LuxBeam & { charging?: boolean })[] = [...world.luxBeams];
     for (const source of world.units) {
@@ -135,15 +135,17 @@ export class LuxBeams {
     }
     const active = new Set<number>();
     for (const beam of beams) {
+      const sinceStart =
+        Math.max(0, world.tick - beam.startTick + alpha - 1) / TICK_RATE +
+        (world.winner ? terminalAge : 0) +
+        (beam.charging ? 0 : LUX_R.castSeconds);
+      if (sinceStart >= Math.max(...layers.map((layer) => layer.delay + layer.life))) continue;
       active.add(beam.id);
       let group = this.models.get(beam.id);
       if (!group) {
         group = this.create();
         this.models.set(beam.id, group);
       }
-      const sinceStart =
-        Math.max(0, world.tick - beam.startTick + alpha - 1) / TICK_RATE +
-        (beam.charging ? 0 : LUX_R.castSeconds);
       const dx = beam.point.x - beam.origin.x,
         dy = beam.point.y - beam.origin.y,
         length = Math.hypot(dx, dy);
