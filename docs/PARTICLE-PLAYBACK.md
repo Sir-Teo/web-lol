@@ -240,3 +240,15 @@ A GPU regression checks both loaded texture settings on every actual material, s
 ```sh
 npx playwright test e2e/lux-beam-color.spec.ts e2e/lux-beam-uv.spec.ts e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts
 ```
+
+## Final Spark camera-facing width
+
+All six selected source beam records omit `mMode`, using the default camera-facing mode. Their source widths already agreed with the adapter's total-width interpretation. The pinned `ribbon.ts` reconstruction instead revealed an orientation mismatch: default beam width is perpendicular to the beam and the source-to-eye vector, whereas the adapter placed it in the ground plane. After reflecting source Z into render space, that width is `cross(target-source, eye-source)`.
+
+`luxBeamWidth` independently computes this direction with a stable side for a collinear eye and a zero vector for coincident endpoints. The beam adapter uses the actual camera and offsets vertices across this three-dimensional width, retaining authored width curves, endpoint offsets, segmented ground placement and fog filtering. Arbitrary beam mode is not implemented by this helper; none of these six records selects it.
+
+Two analytical tests check reflected handedness, full 3D orthogonality, unit width, nonmutation and degenerate inputs. A browser geometry check covers both warning layers and all four fired layers from cameras on opposite sides of the beam: all twelve samples preserve source width and remain perpendicular to the beam and view directions. Normal R playback/reload and terminal cleanup pass. The updated gameplay screenshot was reviewed; the low current centerline causes part of the camera-facing beam to intersect terrain. Native source/target attachment height, terrain treatment and full beam appearance remain unresolved rather than compensated with an invented height.
+
+```sh
+npx playwright test e2e/lux-beam-facing.spec.ts e2e/lux-r.spec.ts e2e/lux-beam-terminal.spec.ts
+```

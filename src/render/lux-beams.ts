@@ -1,3 +1,4 @@
+import { luxBeamWidth } from './lux-beam-width';
 import * as THREE from 'three';
 import { LUX_BEAM_LAYERS } from '../content/lux-beam-layers';
 import { LUX_R } from '../content/lux-r';
@@ -125,7 +126,7 @@ export class LuxBeams {
     this.scene.add(group);
     return group;
   }
-  update(world: World, alpha: number, terminalAge = 0): void {
+  update(world: World, alpha: number, camera: THREE.Camera, terminalAge = 0): void {
     if (textures.size === 0) return;
     const beams: (LuxBeam & { charging?: boolean })[] = [...world.luxBeams];
     for (const source of world.units) {
@@ -141,6 +142,7 @@ export class LuxBeams {
           charging: true,
         });
     }
+    const eye = camera.getWorldPosition(new THREE.Vector3());
     const active = new Set<number>();
     for (const beam of beams) {
       const sinceStart =
@@ -184,8 +186,6 @@ export class LuxBeams {
           layer.multOffset[1] + layer.multScroll[1] * age
         );
         const width = (layer.width * sampleBeamCurve(layer.scale, normalized)[0]) / 2;
-        const ox = (-dy / length) * width,
-          oy = (dx / length) * width;
         const start = {
           x: beam.origin.x + (dx / length) * layer.sourceOffset[2],
           y: beam.origin.y + (dy / length) * layer.sourceOffset[2],
@@ -193,6 +193,12 @@ export class LuxBeams {
         const span = length + layer.targetOffset[2] - layer.sourceOffset[2];
         const spanX = (dx / length) * span,
           spanY = (dy / length) * span;
+        const end = { x: start.x + spanX, y: start.y + spanY };
+        const sideDirection = luxBeamWidth(
+          new THREE.Vector3(start.x * SCALE, this.ground(start) + 0.18, start.y * SCALE),
+          new THREE.Vector3(end.x * SCALE, this.ground(end) + 0.18, end.y * SCALE),
+          eye
+        );
         const positions = mesh.geometry.getAttribute('position') as THREE.BufferAttribute;
         const uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
         let vertex = 0;
@@ -216,9 +222,9 @@ export class LuxBeams {
           ] as const) {
             positions.setXYZ(
               vertex,
-              (point.x + ox * side) * SCALE,
-              this.ground(point) + 0.18,
-              (point.y + oy * side) * SCALE
+              point.x * SCALE + sideDirection.x * width * side * SCALE,
+              this.ground(point) + 0.18 + sideDirection.y * width * side * SCALE,
+              point.y * SCALE + sideDirection.z * width * side * SCALE
             );
             uv.setXY(vertex++, side < 0 ? 0 : 1, along / SEGMENTS);
           }

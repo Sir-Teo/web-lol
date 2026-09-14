@@ -589,7 +589,7 @@ export class GameView {
         this.healthBars.delete(id);
       }
     this.syncProjectiles(world, alpha);
-    this.luxBeams.update(world, alpha, terminalAge);
+    this.luxBeams.update(world, alpha, this.camera, terminalAge);
     this.luxAttackHoops.update(world, alpha, this.camera, terminalAge);
     this.luxAttackTrails.update(world, alpha, terminalAge);
     this.luxAttackCrescents.update(world, alpha, terminalAge);
