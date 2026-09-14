@@ -26,7 +26,7 @@ import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
 import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
-import { LUX } from '../content/lux-progression';
+import { championProfile } from '../content/champion-profiles';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
@@ -264,7 +264,7 @@ export class World {
     };
     const stats = this.battlefield.unitStats?.[kind]?.[team];
     if (champion) {
-      const profile = identity === 'lux' ? LUX : ASHE;
+      const profile = championProfile(identity);
       Object.assign(u, {
         hp: profile.hp,
         maxHp: profile.hp,
@@ -275,14 +275,13 @@ export class World {
         magicResist: profile.magicResist,
         attackPeriod: Math.round(TICK_RATE / profile.attackSpeed),
       });
-      if (identity === 'lux')
-        Object.assign(u, {
-          name: 'Lux',
-          speed: LUX.speed,
-          range: LUX.range,
-          windupTicks: LUX.windupTicks,
-          missileSpeed: LUX.missileSpeed,
-        });
+      Object.assign(u, {
+        name: profile.name,
+        speed: profile.speed,
+        range: profile.range,
+        windupTicks: profile.windupTicks,
+        missileSpeed: profile.missileSpeed,
+      });
     }
     if (stats) {
       Object.assign(u, stats);
@@ -592,7 +591,7 @@ export class World {
       }
       const fountain = distance(h, this.battlefield.spawns[h.team]) < 220;
       const growth = growthAtLevel(this.championState(h.id)?.level ?? 1);
-      const profile = h.champion === 'lux' ? LUX : ASHE;
+      const profile = championProfile(h.champion!);
       h.hp = Math.min(
         h.maxHp,
         h.hp +
@@ -2733,7 +2732,7 @@ export class World {
       const factor = ASHE.growthFactors[state.level - 1];
       const h = this.unit(championId)!,
         living = this.alive(h);
-      const profile = h.champion === 'lux' ? LUX : ASHE;
+      const profile = championProfile(h.champion!);
       const hp = statPrecision(profile.hpGrowth * factor),
         mana = statPrecision(profile.manaGrowth * factor);
       h.maxHp = statPrecision(h.maxHp + hp);
@@ -2751,13 +2750,11 @@ export class World {
       h.damage = statPrecision(h.damage + profile.damageGrowth * factor);
       h.armor = statPrecision(h.armor + profile.armorGrowth * factor);
       h.magicResist = statPrecision(h.magicResist + profile.magicResistGrowth * factor);
-      const ratio = h.champion === 'lux' ? LUX.attackSpeedRatio : ASHE.attackSpeed;
+      const ratio = profile.attackSpeedRatio;
       const attackSpeed =
         profile.attackSpeed + ratio * profile.attackSpeedGrowth * growthAtLevel(state.level);
       h.attackPeriod = Math.round(TICK_RATE / attackSpeed);
-      h.windupTicks = Math.round(
-        ((h.champion === 'lux' ? LUX.windupTicks : 20) * profile.attackSpeed) / attackSpeed
-      );
+      h.windupTicks = Math.round((profile.windupTicks * profile.attackSpeed) / attackSpeed);
       this.emit('level', h, { text: 'Level up!', unit: h.id, team: h.team });
     }
     if (state.level === MAX_LEVEL) state.xp = 0;
