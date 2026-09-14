@@ -1,3 +1,4 @@
+import { setGroundRenderStage, terrainBlendMaterial } from './ground-display-list';
 import * as THREE from 'three';
 import { BRUSH, MAP_HALF, OBSTACLES } from '../content/map';
 import { Random, segmentDistance } from '../simulation/math';
@@ -152,6 +153,8 @@ export function buildTerrain(scene: THREE.Object3D): {
       depthWrite: false,
     })
   );
+  terrainBlendMaterial(water.material);
+  setGroundRenderStage(water, 'terrainBlend');
   water.rotation.set(-Math.PI / 2, 0, -0.647);
   water.position.y = 0.022;
   scene.add(water);
