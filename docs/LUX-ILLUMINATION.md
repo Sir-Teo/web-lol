@@ -134,3 +134,11 @@ npx prettier --write src/content/lux-illumination-trigger-vfx.ts
 ```
 
 Five new numerical checks cover the twenty-spark first update, coupled distribution endpoints and empty-table defaults, mote orbital/spawn inputs, continuous emission budgets, stop/lifetime boundary behavior, exact repeated seeking, mutation isolation and invalid inputs. Source re-extraction/texture verification, TypeScript and all 765 unit tests pass. No gameplay rendering change or browser visual-parity claim is made by this stage.
+
+## Detonation lifetime appearance
+
+`luxIlluminationTriggerAppearance` now samples appearance from a live birth record and its individual particle age. It multiplies birth size by the lifetime size curve before applying source uniform scaling, multiplies birth tint by lifetime color, and preserves birth rotation. Lookup coordinates use the authored selectors/scales/offsets. Palette parameters are separate: sparks select row center 0.95 with the green-channel mixer, while motes select 0.65 with the red-channel mixer. Returned tint remains unpremultiplied until the eventual shader/blend stage.
+
+The outer ring remains on atlas frame 4 in the 2×3 grid. Its six-frame count does not animate it: the source frame rate is absent, and the pinned reader defaults that rate to zero. The [pinned UV reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/uvTransform.ts) advances the cell by particle age times frame rate, then adds the start frame. Generation now explicitly requires the pinned set's zero frame rates, nonrandom atlas starts and constant palette selectors/mixers.
+
+Four numerical cases cover ring growth/alpha and uniformity, both outer-ring lifetime lookup axes, static atlas-cell corners, distinct palette row/channel selection, source tint preservation, ray lifetime size changes, expired/invalid ages and mutation isolation. Complete source/shared-texture verification, TypeScript and all 769 unit tests pass. Regeneration leaves the generated profiles unchanged. Motion-dependent directional stretch, geometry, texture/palette composition and gameplay event integration are still pending; these tests do not claim rendered pixel parity.
