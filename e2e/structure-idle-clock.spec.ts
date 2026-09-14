@@ -25,7 +25,8 @@ test('all six structure rigs preserve idle phase through late renders, pause and
     );
   });
   const draw = () =>
-    page.evaluate((ids) => {
+    page.evaluate(async (ids) => {
+      const { structureAnimationProfile } = await import('/src/content/structure-animation.ts');
       const g = (window as any).__GAME__,
         w = g.world;
       const poses = [0, 0.5, 1].map((alpha) => {
@@ -42,6 +43,13 @@ test('all six structure rigs preserve idle phase through late renders, pause and
           const duration = action.getClip().duration;
           return {
             rig: model.referenceAsset,
+            profile: structureAnimationProfile(u),
+            loadedProfile: {
+              destroyedClip: model.destroyedClip,
+              animateDestruction: model.animateDestruction ?? false,
+              deadIdleClip: model.deadIdleClip ?? null,
+              durations: model.clipDurations,
+            },
             time: action.time,
             weight: action.getEffectiveWeight(),
             bones,
@@ -59,6 +67,7 @@ test('all six structure rigs preserve idle phase through late renders, pause and
   for (const phase of before.poses) {
     expect(phase).toHaveLength(6);
     for (const pose of phase) {
+      expect(pose.loadedProfile).toEqual(pose.profile);
       expect(pose.time).toBeCloseTo(pose.expected, 12);
       expect(pose.weight).toBe(1);
       expect(pose.bones.length).toBeGreaterThan(16);

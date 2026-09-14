@@ -1,0 +1,75 @@
+{
+  "blue-turret": {
+    "destroyedClip": "respawn",
+    "animateDestruction": false,
+    "deadIdleClip": null,
+    "durations": {
+      "idle1": 0.03333333507180214,
+      "respawn": 14.966667175292969
+    }
+  },
+  "blue-inhibitor": {
+    "destroyedClip": "inhibitor_death",
+    "animateDestruction": true,
+    "deadIdleClip": "inhibitor_idle_dead",
+    "durations": {
+      "inhibitor_spawn": 1.1666667461395264,
+      "inhibitor_death": 8.300000190734863,
+      "inhibitor_idle_dead": 1.6666667461395264,
+      "inhibitor_respawn": 10.000000953674316,
+      "inhibitor_hold": 0.3333333432674408,
+      "idle1": 1,
+      "inhibitor_idle2": 1
+    }
+  },
+  "blue-nexus": {
+    "destroyedClip": "nexus_death",
+    "animateDestruction": true,
+    "deadIdleClip": null,
+    "durations": {
+      "idle1": 9.966667175292969,
+      "nexus_spawn_hold": 0.1666666716337204,
+      "nexus_spawn": 5.1666669845581055,
+      "nexus_death": 8
+    }
+  },
+  "red-turret": {
+    "destroyedClip": "destroyed",
+    "animateDestruction": false,
+    "deadIdleClip": null,
+    "durations": {
+      "idle1": 1.8666667938232422,
+      "destroyed": 0.03333333507180214,
+      "cloth_stage1": 2.3000001907348633,
+      "respawn": 15.30000114440918,
+      "cloth_stage2": 1.9666668176651
+    }
+  },
+  "red-inhibitor": {
+    "destroyedClip": "sruap_chaosinhibitor_death",
+    "animateDestruction": true,
+    "deadIdleClip": "sruap_chaosinhibitor_idle_death",
+    "durations": {
+      "sruap_chaosinhibitor_idle_death": 1.6666667461395264,
+      "idle1": 1,
+      "sruap_chaosinhibitor_idle_hold": 0.3333333432674408,
+      "sruap_chaosinhibitor_death": 8.300000190734863,
+      "sruap_chaosinhibitor_spawn": 1.1666667461395264,
+      "sruap_chaosinhibitor_respawn": 10.000000953674316,
+      "sruap_chaosinhibitor_idle_normal3": 1,
+      "sruap_chaosinhibitor_idle_normal2": 1
+    }
+  },
+  "red-nexus": {
+    "destroyedClip": "sruap_chaosnexus_death",
+    "animateDestruction": true,
+    "deadIdleClip": null,
+    "durations": {
+      "sruap_chaosnexus_idlein": 1.3333333730697632,
+      "sruap_chaosnexus_death": 7.966667175292969,
+      "sruap_chaosnexus_spawn_hold": 0.1666666716337204,
+      "sruap_chaosnexus_spawn": 4.066667079925537,
+      "idle1": 7.966667175292969
+    }
+  }
+}

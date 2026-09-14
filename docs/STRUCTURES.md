@@ -87,3 +87,18 @@ Snapshot validation requires knowledge on structures only, rejects future timest
 The rebuilt-model regression first reproduced a different inferred destruction tick after hidden regrowth. Its updated check compares the rebuilt clock and dead-idle phase with the original. A separate browser scenario uses actual inhibitor regrowth, confirms that the enemy remains unseen and remembered as destroyed, then checks exact bone/phase restoration through a real browser checkpoint. It also verifies a second public destruction while the model's destroyed flag remains true. All eight structure browser checks and the production subpath smoke check pass.
 
 This makes structure destruction timing reproducible from the saved observer state. Historical turret impact poses still need a common structure pose sampler and saved attachment placement; source event-graph reconstruction, native regrowth sequencing and missing-bone fallback remain incomplete.
+
+
+## Shared structure-pose selection
+
+`structurePose` now selects intact idle, static destroyed pose, animated destruction and the optional dead-idle loop from explicit timestamps and a rig profile. The caller supplies actual or observer-known state; the selector does not query visibility. The renderer uses this same pure selection and seeks a single paused action per draw. Submesh visibility still follows known intact/destroyed state. This provides a reusable pose description for historical attachment sampling without borrowing the live renderer's mixer state.
+
+`export-structure-animation-profiles.mjs` verifies the recorded size and SHA-256 of all six structure GLBs, then exports exact clip input endpoints and the converter's existing playback metadata. `src/content/structure-animation-profiles.json` supplies the runtime profiles; `docs/reference/structure-animation-profiles.json` records the source hashes and profiles. The flags describe the current converter/adapter policy, not independently recovered native event-graph behavior. For example, the turret's exported destroyed state still holds the first frame of its `respawn` clip; the new selector does not play that clip through.
+
+Three pure-selector tests check idle interpolation, pre-entry clamping, the precise destruction/dead-idle boundary, looping, endpoint holds, terminal time, static rubble, zero-duration clips and missing data. All 715 unit tests pass. The full-Rift idle browser check now also compares every exported duration and playback flag against the actual loaded models. All eight structure browser checks and the production subpath smoke check pass.
+
+```sh
+node tools/assets/export-structure-animation-profiles.mjs
+```
+
+This consolidation does not change saved fields or certify native animation graph parity. Historical turret impact state/placement, a structure attachment sampler, native regrowth sequencing and structure effects remain unfinished.

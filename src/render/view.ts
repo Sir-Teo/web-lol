@@ -1,3 +1,5 @@
+import { structurePose } from './structure-pose';
+import { structureAnimationProfile } from '../content/structure-animation';
 import { advanceAnimationTimeline, animationLayers } from '../simulation/animation-timeline';
 import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
@@ -495,62 +497,35 @@ export class GameView {
       }
       if (isStructureKind(u.kind) && model.mixer && model.actions) {
         const destroyed = knownDestroyed ?? u.deadAt !== null;
-        model.destructionTick = destroyed ? world.knownStructureDeathTick(u)! : undefined;
-        if (model.destroyed !== destroyed) {
+        const deathTick = world.knownStructureDeathTick(u);
+        const pose = structurePose(
+          { destroyed, deathTick, idleStartTick: world.knownStructureIdleStartTick(u)! },
+          structureAnimationProfile(u),
+          world.tick,
+          alpha,
+          terminalAge
+        );
+        model.destructionTick = destroyed ? deathTick! : undefined;
+        const changed = model.destroyed !== destroyed;
+        if (changed) {
           for (const part of model.submeshes ?? [])
             part.visible = destroyed
               ? part.userData.destroyedVisible
               : !part.userData.initiallyHidden;
-          model.mixer.stopAllAction();
-          const name = destroyed ? model.destroyedClip! : 'idle1';
-          const action = model.actions[name];
-          action.reset().play();
-          // The Destroyed state is the initial rubble pose. Respawn sequencing
-          // and destruction particles require the separate source event graph.
-          action.paused = destroyed && !model.animateDestruction;
-          if (destroyed && model.animateDestruction) {
-            action.setLoop(THREE.LoopOnce, 1);
-            action.clampWhenFinished = true;
-          }
-          model.mixer.update(0);
-          model.actionName = name;
           model.destroyed = destroyed;
         }
-        if (destroyed && model.animateDestruction) {
-          const duration = model.actions[model.destroyedClip!].getClip().duration;
-          // Hidden regrowth retains remembered rubble without exposing the live state.
-          const age =
-            Math.max(0, (world.tick - model.destructionTick! + alpha - 1) / 60) + terminalAge;
-          const name =
-            age >= duration && model.deadIdleClip ? model.deadIdleClip : model.destroyedClip!;
-          const action = model.actions[name];
-          if (model.actionName !== name) {
-            model.mixer.stopAllAction();
-            action.reset().play();
-            model.actionName = name;
-          }
-          const looping = name === model.deadIdleClip;
-          action.setLoop(looping ? THREE.LoopRepeat : THREE.LoopOnce, looping ? Infinity : 1);
-          action.clampWhenFinished = !looping;
-          const length = action.getClip().duration;
-          action.time = looping
-            ? length > 0
-              ? (age - duration) % length
-              : 0
-            : Math.min(age, length);
-          action.paused = true;
-          model.mixer.update(0);
-        } else if (!destroyed) {
-          const startTick = world.knownStructureIdleStartTick(u)!;
-          const age = Math.max(0, (world.tick - 1 + alpha - startTick) / 60) + terminalAge;
-          const action = model.actions.idle1,
-            duration = action.getClip().duration;
-          action.setLoop(THREE.LoopRepeat, Infinity);
-          action.clampWhenFinished = false;
-          action.time = duration > 0 ? age % duration : 0;
-          action.paused = true;
-          model.mixer.update(0);
+        const action = model.actions[pose.clip];
+        if (changed || model.actionName !== pose.clip) {
+          model.mixer.stopAllAction();
+          action.reset().play();
+          model.actionName = pose.clip;
         }
+        action.setLoop(pose.loop ? THREE.LoopRepeat : THREE.LoopOnce, pose.loop ? Infinity : 1);
+        action.clampWhenFinished = !pose.loop;
+        action.setEffectiveWeight(1);
+        action.time = pose.time;
+        action.paused = true;
+        model.mixer.update(0);
       }
       if (!isStructureKind(u.kind) && model.mixer && model.actions && model.clipDurations) {
         const pose = mobilePose(

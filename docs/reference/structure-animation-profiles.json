@@ -1,0 +1,109 @@
+{
+  "sources": [
+    {
+      "path": "public/assets/models/blue-turret.glb",
+      "sha256": "9d16305c0687e78bdbdfaccbc6c81269e4bbdfd02772ee7f1d5b43d12d360d4e",
+      "bytes": 1923476
+    },
+    {
+      "path": "public/assets/models/blue-inhibitor.glb",
+      "sha256": "5fb43a919fa3d98548dc62c6234629bb4f56ede60b182429976283160ef4c95b",
+      "bytes": 1170516
+    },
+    {
+      "path": "public/assets/models/blue-nexus.glb",
+      "sha256": "068f03acfca1ee2f8bcab30c2ec117a53f472b67cf6328a69f9e668ebcb02ae0",
+      "bytes": 2608616
+    },
+    {
+      "path": "public/assets/models/red-turret.glb",
+      "sha256": "a7febe0579fd49c2b213ed9fc16470f0daf011220af2e1340eda030c7a421e02",
+      "bytes": 2843196
+    },
+    {
+      "path": "public/assets/models/red-inhibitor.glb",
+      "sha256": "9eef6c5e808f0c948ee7e794800d123ffa884f0a0d244917cfe96c2758ea0373",
+      "bytes": 912440
+    },
+    {
+      "path": "public/assets/models/red-nexus.glb",
+      "sha256": "d49216fd563b18e1a6cf3f7752416b2d4cd45ef45f1b38955971b52326341e08",
+      "bytes": 2650392
+    }
+  ],
+  "profiles": {
+    "blue-turret": {
+      "destroyedClip": "respawn",
+      "animateDestruction": false,
+      "deadIdleClip": null,
+      "durations": {
+        "idle1": 0.03333333507180214,
+        "respawn": 14.966667175292969
+      }
+    },
+    "blue-inhibitor": {
+      "destroyedClip": "inhibitor_death",
+      "animateDestruction": true,
+      "deadIdleClip": "inhibitor_idle_dead",
+      "durations": {
+        "inhibitor_spawn": 1.1666667461395264,
+        "inhibitor_death": 8.300000190734863,
+        "inhibitor_idle_dead": 1.6666667461395264,
+        "inhibitor_respawn": 10.000000953674316,
+        "inhibitor_hold": 0.3333333432674408,
+        "idle1": 1,
+        "inhibitor_idle2": 1
+      }
+    },
+    "blue-nexus": {
+      "destroyedClip": "nexus_death",
+      "animateDestruction": true,
+      "deadIdleClip": null,
+      "durations": {
+        "idle1": 9.966667175292969,
+        "nexus_spawn_hold": 0.1666666716337204,
+        "nexus_spawn": 5.1666669845581055,
+        "nexus_death": 8
+      }
+    },
+    "red-turret": {
+      "destroyedClip": "destroyed",
+      "animateDestruction": false,
+      "deadIdleClip": null,
+      "durations": {
+        "idle1": 1.8666667938232422,
+        "destroyed": 0.03333333507180214,
+        "cloth_stage1": 2.3000001907348633,
+        "respawn": 15.30000114440918,
+        "cloth_stage2": 1.9666668176651
+      }
+    },
+    "red-inhibitor": {
+      "destroyedClip": "sruap_chaosinhibitor_death",
+      "animateDestruction": true,
+      "deadIdleClip": "sruap_chaosinhibitor_idle_death",
+      "durations": {
+        "sruap_chaosinhibitor_idle_death": 1.6666667461395264,
+        "idle1": 1,
+        "sruap_chaosinhibitor_idle_hold": 0.3333333432674408,
+        "sruap_chaosinhibitor_death": 8.300000190734863,
+        "sruap_chaosinhibitor_spawn": 1.1666667461395264,
+        "sruap_chaosinhibitor_respawn": 10.000000953674316,
+        "sruap_chaosinhibitor_idle_normal3": 1,
+        "sruap_chaosinhibitor_idle_normal2": 1
+      }
+    },
+    "red-nexus": {
+      "destroyedClip": "sruap_chaosnexus_death",
+      "animateDestruction": true,
+      "deadIdleClip": null,
+      "durations": {
+        "sruap_chaosnexus_idlein": 1.3333333730697632,
+        "sruap_chaosnexus_death": 7.966667175292969,
+        "sruap_chaosnexus_spawn_hold": 0.1666666716337204,
+        "sruap_chaosnexus_spawn": 4.066667079925537,
+        "idle1": 7.966667175292969
+      }
+    }
+  }
+}
