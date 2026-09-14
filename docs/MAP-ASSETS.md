@@ -94,8 +94,18 @@ The reconstructed textured intermediate GLB was rebuilt byte-for-byte after repl
 - Dynamic terrain materials use their diffuse texture without their authored state transitions. This is visible in the audit manifest and prevents a pixel-parity claim.
 - Active event/map mutators have not been fully reconciled. The artifact is the pinned default container and initial visibility mask, not a claim about every live match configuration.
 - The full-map simulation now shares geometry coordinates, elevation, grid collision, brush, and vision. Dynamic grid overlays, local unit avoidance, exact Riot steering, and expanded route/region reference checks remain required.
-- Region-based texture streaming, broader GPU support, reference camera matching, and complete-match performance remain production work.
+- Region-based download/CPU texture streaming, broader GPU support, reference camera matching, and complete-match performance remain production work. GPU residency is managed separately as described below.
 
 ## Lossless geometry transport validation
 
 The transport browser tests verify raw gzip, decoded bytes, corrupt-payload rejection, invalid view bounds and a single shared request. Full-map tests exercise both hosting conventions across original-DXT and WebP-fallback loads, and confirm the canonical uncompressed geometry is not requested. The map validator checks the compressed hash and exact decoded equality as well as the canonical glTF. All 743 unit tests and TypeScript, five browser checks, zero-error/zero-warning map validation, and production subpath smoke pass. The mid-lane map capture was visually reviewed.
+
+## GPU texture residency
+
+The map render adapter tracks textures actually drawn, including the grass-tint shader texture and the smoke depth prepass. After each frame, an LRU releases offscreen GPU textures when estimated map texture residency exceeds 256 MiB. Current-frame textures are protected, even when their working set exceeds that target. This is a map-texture target, not a cap on total GPU memory; geometry, render targets and champion textures are outside it.
+
+Original compressed mip arrays or decoded WebP images remain in CPU memory for exact re-upload. There is no texture resizing, mip removal, extra network fetch, or reduction in initial download/CPU memory. Compressed sizes come from the pinned asset manifest; the fallback estimates RGBA bytes including generated mip levels. Driver overhead is not included. Camera re-entry can incur upload work; full-match frame-time benchmarking remains outstanding.
+
+At 1440×900, the inspector sequence overview → blue → mid → river → red → overview measured 327.42 MiB for the complete overview and approximately 254–255 MiB retained in the close views. Seventy-one evictions occurred; returning to the overview restored all visible textures. SHA-256 of the actual overview framebuffer was identical before and after that sequence. A separate GPU test alternates two textures through an eviction budget, verifies identical restored pixels, and checks that only one GPU texture allocation remains after each frame. Unit checks cover LRU order, shared textures, re-entry and visible working sets larger than the target.
+
+Validation: TypeScript and 745 unit tests; eight browser checks covering residency, both map texture encodings, pointer/elevation agreement and fog. The production subpath smoke also passes. The restored overview capture was visually reviewed.

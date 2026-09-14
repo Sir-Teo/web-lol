@@ -1,3 +1,4 @@
+import { MapTextureResidency } from './map-texture-residency';
 import { installMapGeometryTransport } from './map-geometry-transport';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -113,8 +114,32 @@ export async function loadRift(
   grassTint.flipY = false;
   grassTint.colorSpace = THREE.SRGBColorSpace;
   grassTint.wrapS = grassTint.wrapT = THREE.ClampToEdgeWrapping;
+  const residency = new MapTextureResidency();
+  const bytesFor = (texture: THREE.Texture) => {
+    if (native) return records[texture.name].gpuBytes;
+    const image = texture.image as { width: number; height: number };
+    let width = image.width,
+      height = image.height,
+      bytes = 0;
+    do {
+      bytes += width * height * 4;
+      if (!texture.generateMipmaps || (width === 1 && height === 1)) break;
+      width = Math.max(1, Math.floor(width / 2));
+      height = Math.max(1, Math.floor(height / 2));
+    } while (true);
+    return bytes;
+  };
+  gltf.scene.userData.textureResidency = residency;
   gltf.scene.traverse((object) => {
     if (!(object instanceof THREE.Mesh)) return;
+    const previousRender = object.onBeforeRender;
+    object.onBeforeRender = function (...args) {
+      previousRender.apply(this, args);
+      const material = args[4] as THREE.MeshBasicMaterial;
+      if (material.map) residency.touch(material.map, bytesFor(material.map));
+      if (material.name.endsWith('/VertexDeform_inst'))
+        residency.touch(grassTint, bytesFor(grassTint));
+    };
     for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
       const basic = material as THREE.MeshBasicMaterial;
       if (basic.map) basic.map.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());

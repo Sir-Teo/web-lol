@@ -1,3 +1,4 @@
+import type { MapTextureResidency } from '../render/map-texture-residency';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { loadRift } from '../render/rift-assets';
@@ -137,12 +138,14 @@ async function navigationOverlay(): Promise<THREE.Mesh> {
 }
 
 let ready = false;
+let textureResidency: MapTextureResidency | undefined;
 async function load(): Promise<void> {
   const terrain = await loadRift(
     renderer,
     new URLSearchParams(location.search).get('textures') === 'webp'
   );
   map.add(terrain);
+  textureResidency = terrain.userData.textureResidency;
   const overlay = await navigationOverlay();
   overlay.visible = false;
   map.add(overlay);
@@ -161,7 +164,9 @@ void load().catch((error: unknown) => {
 });
 renderer.setAnimationLoop(() => {
   controls.update();
+  textureResidency?.beginFrame();
   renderer.render(scene, camera);
+  textureResidency?.endFrame();
 });
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight;
