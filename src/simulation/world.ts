@@ -77,6 +77,7 @@ export class World {
   winner: Team | null = null;
   firstBloodClaimed = false;
   nextId = 1;
+  matchMode: 'practice' | 'lanes' = 'practice';
   units: Unit[] = [];
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
@@ -2958,6 +2959,8 @@ export class World {
   }
   static fromSnapshot(text: string, battlefield: Battlefield): World {
     const state = decodeSnapshot(text);
+    if (state.matchMode === 'lanes' && battlefield.id !== 'rift')
+      throw new Error('Lane matches require Summoner’s Rift.');
     if (state.battlefield !== battlefield.id)
       throw new Error('Saved match uses a different battlefield.');
     if (
@@ -2984,6 +2987,7 @@ export class World {
   snapshot(): string {
     return encodeSnapshot({
       version: SNAPSHOT_VERSION,
+      matchMode: this.matchMode,
       ruleset: SNAPSHOT_RULESET,
       winner: this.winner,
       firstBloodClaimed: this.firstBloodClaimed,

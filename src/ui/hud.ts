@@ -24,6 +24,7 @@ import type { GameView } from '../render/view';
 export interface HudActions {
   pause: (value: boolean) => void;
   reset: () => void;
+  startMatch: (mode: 'practice' | 'lanes') => Promise<void>;
   save: () => Promise<void>;
   exportMatch: () => void;
   prepareImport: (file: File) => Promise<PreparedMatchImport>;
@@ -35,7 +36,7 @@ export class Hud {
   paused = false;
   graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
   sound = true;
-  private importingMatch = false;
+  private replacingMatch = false;
   private importError = '';
   private mini: HTMLCanvasElement;
   private tip: HTMLDivElement;
@@ -58,7 +59,7 @@ export class Hud {
     this.root = document.createElement('div');
     this.root.className = 'hud';
     this.root.innerHTML = `
-      <div class="match-identity"><span class="rift-emblem">◈</span><div><strong>SUMMONER’S RIFT</strong><span>PRACTICE TOOL <i>•</i> LOCAL MATCH</span></div></div>
+      <div class="match-identity"><span class="rift-emblem">◈</span><div><strong>SUMMONER’S RIFT</strong><span>${world.matchMode === 'lanes' ? 'LANE MATCH' : 'PRACTICE TOOL'} <i>•</i> LOCAL MATCH</span></div></div>
       <div class="match-top"><span class="team-score"><b class="blue-number" id="kills">0</b><i>⚔</i><b class="red-number" id="deaths">0</b></span><span class="personal-score" id="personal">0 / 0 / 0</span><span title="Creep score"><i class="gold-symbol">♜</i> <b id="cs">0</b></span><time id="clock">00:00</time><button class="icon-button" id="pause-button" title="Pause (Esc)" aria-label="Pause game">Ⅱ</button></div>
       <div class="welcome"><span>THE RIFT AWAITS</span><h1>Welcome to Summoner’s Rift</h1><div class="ornament">━━━━ ◈ ━━━━</div></div>
       <div id="toast" role="status" aria-live="polite"></div>
@@ -93,6 +94,8 @@ export class Hud {
     host.append(this.floating);
     this.mini = this.root.querySelector('#minimap')!;
     this.bind();
+    this.root.querySelector<HTMLButtonElement>('#practice-button')!.hidden =
+      world.matchMode === 'lanes';
   }
   private abilityMarkup(a: Ability): string {
     const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
@@ -350,7 +353,7 @@ export class Hud {
     this.root.querySelector<HTMLElement>('.game-dialog')?.focus();
   }
   toggleModal(which: string): void {
-    if (this.importingMatch && which !== 'graphics') return;
+    if (this.replacingMatch && which !== 'graphics') return;
     if (this.graphicsState && which !== 'graphics') return;
     if (this.world.winner && which !== 'result' && which !== 'graphics') return;
     if (this.modal === which) {
@@ -389,8 +392,12 @@ export class Hud {
     } else if (which === 'pause') {
       title = 'Game paused';
       subtitle = 'A moment of clarity before the next move.';
+      content = `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart lane match' : 'Restart practice'}</button>`;
+    } else if (which === 'new-match') {
+      title = 'Choose your match';
+      subtitle = 'Play locally. Your browser runs the match.';
       content =
-        '<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button><button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">Restart practice</button>';
+        '<button class="primary-button" data-action="start-lanes">Start lane match</button><p class="practice-note">Play Ashe in bottom lane with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and neutral objectives are not available yet.</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>';
     } else if (which === 'files') {
       title = 'Match files';
       subtitle = 'Keep a copy. Continue on another browser.';
@@ -451,7 +458,22 @@ export class Hud {
     backdrop.querySelectorAll<HTMLButtonElement>('[data-action]').forEach((button) =>
       button.addEventListener('click', () => {
         const action = button.dataset.action;
-        if (this.importingMatch) return;
+        if (this.replacingMatch) return;
+        if (action === 'new-match') this.toggleModal('new-match');
+        if (action === 'start-lanes' || action === 'start-practice') {
+          this.replacingMatch = true;
+          backdrop.querySelectorAll<HTMLButtonElement>('button').forEach((control) => {
+            control.disabled = true;
+          });
+          void this.actions
+            .startMatch(action === 'start-lanes' ? 'lanes' : 'practice')
+            .catch((error) => {
+              this.replacingMatch = false;
+              this.importError =
+                error instanceof Error ? error.message : 'Match could not be started.';
+              this.setGraphicsState(this.graphicsState);
+            });
+        }
         if (action === 'files') this.toggleModal('files');
         if (action === 'back') this.toggleModal('pause');
         if (action === 'export') {
@@ -544,8 +566,8 @@ export class Hud {
           });
       };
       load.onclick = () => {
-        if (!prepared || this.importingMatch) return;
-        this.importingMatch = true;
+        if (!prepared || this.replacingMatch) return;
+        this.replacingMatch = true;
         this.importError = '';
         dialog.querySelector('.import-error')?.remove();
         dialog.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
@@ -553,7 +575,7 @@ export class Hud {
         });
         status.textContent = 'Loading match…';
         void prepared.load().catch((error) => {
-          this.importingMatch = false;
+          this.replacingMatch = false;
           dialog.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
             button.disabled = false;
           });
@@ -624,7 +646,7 @@ export class Hud {
     };
   }
   closeModal(): void {
-    if (this.importingMatch || this.world.winner || this.graphicsState || document.hidden) return;
+    if (this.replacingMatch || this.world.winner || this.graphicsState || document.hidden) return;
     this.modal = null;
     this.importError = '';
     this.root.querySelector<HTMLElement>('#modal')!.hidden = true;
@@ -680,8 +702,7 @@ export class Hud {
     if (signature === this.lastScoreboard) return;
     this.lastScoreboard = signature;
     const focusedItem = this.itemTooltip.focusKey();
-    panel.innerHTML =
-      '<div class="scoreboard-title">PRACTICE MATCH</div><div class="scoreboard-teams"><section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section></div>';
+    panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? 'LANE MATCH' : 'PRACTICE MATCH'}</div><div class="scoreboard-teams"><section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section></div>`;
     for (const data of rows) {
       const row = document.createElement('div');
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;

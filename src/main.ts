@@ -3,6 +3,7 @@ import { readMatch, writeMatch } from './storage/match-store';
 import { downloadMatch, prepareMatchImport } from './storage/match-files';
 import { DT } from './content/rules';
 import { World } from './simulation/world';
+import { createLaneMatch } from './simulation/lane-match';
 import { GameView } from './render/view';
 import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
@@ -67,9 +68,17 @@ async function boot(): Promise<void> {
   const hud = new Hud(host, world, view, {
     pause: setPaused,
     reset: () => {
-      void writeMatch(battlefield.id, null)
+      void writeMatch(
+        battlefield.id,
+        world.matchMode === 'lanes' ? createLaneMatch(battlefield).snapshot() : null
+      )
         .then(() => window.location.reload())
         .catch((error) => hud.toast(error.message));
+    },
+    startMatch: async (mode) => {
+      const next = mode === 'lanes' ? createLaneMatch(battlefield) : new World(true, battlefield);
+      await writeMatch(battlefield.id, next.snapshot());
+      window.location.reload();
     },
     save: async () => writeMatch(battlefield.id, world.snapshot()),
     exportMatch: () => downloadMatch(world),

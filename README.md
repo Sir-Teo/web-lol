@@ -2,7 +2,7 @@
 
 Design a browser game that reproduces as much of League of Legends' match experience as practical without an application backend. Quality and fidelity take priority over roster size or speed of delivery.
 
-The repository now contains an interactive practice build and the full production design. The production objective remains a complete, high-fidelity local 5v5 MOBA. This first playable is an intermediate milestone, not that completed product.
+The repository now contains interactive practice and lane-match modes plus the full production design. The production objective remains a complete, high-fidelity local 5v5 MOBA. This first playable is an intermediate milestone, not that completed product.
 
 ## Run locally
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open the localhost address printed by Vite. The game opens directly into Ashe practice. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Q activates at four Focus stacks; F heals you and a nearby ally, preferring the ally under the cursor. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
+Open the localhost address printed by Vite. The game opens directly into Ashe practice unless a saved match exists. Use **Escape → New match → Start lane match** to play Ashe with four allied bots against five opponents. This interim mode uses Ashe/Lux with two top, one mid and two bottom per team; jungle and neutral objectives remain unfinished. Starting replaces the current browser save. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Q activates at four Focus stacks; F heals you and a nearby ally, preferring the ally under the cursor. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
 
 Open `/map.html` on the same server to inspect the full reference terrain, original compressed textures, and matching navigation overlay. The default game uses this same terrain and navigation grid. The original small scene remains available at `/?scene=fixture` in development for regression tests. See [map assets and fidelity audit](docs/MAP-ASSETS.md) for source selection, reproducible conversion, and remaining work.
 
@@ -23,7 +23,7 @@ npm run build
 npm run test:production
 ```
 
-The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Offline reload, autosaves, export/import, other-browser certification, are not implemented yet.
+The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Match files can be downloaded and imported through **Pause → Match files**. Offline reload, autosaves and other-browser certification are not implemented yet.
 
 ## Deployment
 
@@ -49,7 +49,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Implementation milestones and acceptance criteria](docs/ROADMAP.md)
 - [Verified champion data sample](docs/reference/champion-sample.json)
 
-Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, and DOM HUD. Manual browser checkpoints are implemented; nine local bots, automatic checkpoints, and offline packs remain planned. Static hosting serves the files; gameplay needs no game server or runtime API.
+Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, and DOM HUD. Manual browser checkpoints and a selectable nine-bot lane match are implemented; complete role AI, automatic checkpoints and offline packs remain planned. Static hosting serves the files; gameplay needs no game server or runtime API.
 
 Reference target: standard PC Summoner's Rift, patch 26.18, with Data Dragon 16.18.1 as a verified data starting point. This is a frozen reference, not a promise that every rule has already been reconstructed. The specification identifies what still requires measurement.
 

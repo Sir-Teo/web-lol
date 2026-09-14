@@ -16,7 +16,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 48;
+export const SNAPSHOT_VERSION = 49;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -350,6 +350,7 @@ const command: z.ZodType<Command> = z.discriminatedUnion('type', [
 ]);
 const snapshot = z.strictObject({
   version: z.literal(SNAPSHOT_VERSION),
+  matchMode: z.enum(['practice', 'lanes']),
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),
   winner: team.nullable(),

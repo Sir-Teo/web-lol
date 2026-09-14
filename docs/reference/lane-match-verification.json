@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-09-14T03:34:10.896579+00:00",
+  "baseRevision": "8098f1f2afbf53931755f48ca91f2cef4bca2aa8",
+  "feature": "Selectable human Ashe plus nine local lane bots",
+  "validation": {
+    "simulationTests": 615,
+    "typeScript": "passed",
+    "browserScenarios": 29,
+    "browser": "passed",
+    "production": "passed /nested/rift/: nine recordings, navigation, real Hawkshot, no development hook",
+    "visualReview": "1366x768 match selection and ten-player scoreboard inspected"
+  },
+  "limitations": [
+    "Interim two-top, one-mid, two-bottom Ashe/Lux roster; no jungle or neutral objectives.",
+    "Human champion selection and full production role AI remain unfinished.",
+    "Snapshot format 49 and simulation fingerprint reject older saves.",
+    "Native visual parity and full-match performance are not certified."
+  ],
+  "sha256": {
+    "src/simulation/lane-match.ts": "6c460fa337c087888b045b538f7c576fdc8ca6edcd4af6e0c9d6a2c68a8f14a4",
+    "src/simulation/world.ts": "081843d1950c6746f6f0cca641a750fa21060917e33810e712d99ff3d68c619f",
+    "src/simulation/snapshot.ts": "5029abc8a80f0a76831142f87414cecf432be7448341d17b8ccd2268186ec4da",
+    "src/main.ts": "20f46f9b426a6efb779c535989bcaf4e811ae0d432c9e4717698e134f72edd0f",
+    "src/ui/hud.ts": "95983ba5792665a7e4c4b37334d123f89f61710138c99b6afa7fa6105c25fc17",
+    "src/storage/match-files.ts": "047efe70b2cac699ed11aa46a1244f77d3e21f498257af82742f8183ee17b0c9",
+    "index.html": "a5d418d1535ce335f23d8ce281938eeefeff8a83207fbacac1ecbe7bf2452268",
+    "tests/lane-match.test.ts": "4b010a9435a74794121872c7b6d3e825c85fe4b3f7f247601bc96a75ba613f31",
+    "e2e/lane-match.spec.ts": "06f5930866f362cd1198ec9deae739464239dc5431352146bba071a9178e69e9",
+    "artifacts/lane-match-check.log": "096d65c1a6dfab23055334c824cbcf323209c6d3d2578bbf9dc0a5b4838c2169",
+    "artifacts/lane-match-integration.log": "403305f628f815ecac1f43aadd8a8589bf33867136c7bf8931cba7fcd3734e34",
+    "artifacts/lane-match-production.log": "390e15bd0d39cf7898222e4dadbc25a78da9f836b34aa638db36214660d879e9",
+    "artifacts/lane-match-menu.png": "1cda43907696e9372a0a4bf294863bf7a4ba8b39492b3c252821ca1031b7d468",
+    "artifacts/lane-match-scoreboard.png": "3e1057b3a5449a94af1fa2a50c85d6f014fe387cfe654499e3674f671beb75a7"
+  }
+}
