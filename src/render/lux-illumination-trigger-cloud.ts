@@ -1,3 +1,4 @@
+import { loadLuxParticleTextures } from './lux-particle-textures';
 import * as THREE from 'three';
 import { LUX_ILLUMINATION_TRIGGER_VFX as profiles } from '../content/lux-illumination-trigger-vfx';
 import { luxIlluminationTriggerBirths } from './lux-illumination-trigger-births';
@@ -9,7 +10,6 @@ import { writeRayQuad } from './ray-quad';
 import { luxIlluminationTriggerAttachment } from './lux-illumination-trigger-attachment';
 
 export async function loadIlluminationTriggerTextures(base = import.meta.env.BASE_URL) {
-  const textures = new Map<string, THREE.Texture>();
   const paths = new Set<string>(
     profiles.flatMap((p) => [
       p.texture,
@@ -17,20 +17,7 @@ export async function loadIlluminationTriggerTextures(base = import.meta.env.BAS
       ...(p.palette ? [p.palette.texture] : []),
     ])
   );
-  await Promise.all(
-    [...paths].map(async (path) => {
-      const texture = await new THREE.TextureLoader().loadAsync(base + path);
-      texture.colorSpace = THREE.NoColorSpace;
-      texture.flipY = false;
-      texture.minFilter = texture.magFilter = THREE.LinearFilter;
-      texture.generateMipmaps = false;
-      textures.set(path, texture);
-    })
-  );
-  const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
-  white.needsUpdate = true;
-  textures.set('', white);
-  return textures;
+  return loadLuxParticleTextures(paths, base);
 }
 const corners = [
   [-1, -1],

@@ -1,10 +1,10 @@
+import { loadLuxParticleTextures } from './lux-particle-textures';
 import * as THREE from 'three';
 import { LUX_ILLUMINATION_VFX } from '../content/lux-illumination-vfx';
 import { luxIlluminationParticles } from './lux-illumination-particles';
 import { writeRayQuad } from './ray-quad';
 
 export async function loadIlluminationTextures(base = import.meta.env.BASE_URL) {
-  const textures = new Map<string, THREE.Texture>();
   const paths = new Set<string>(
     LUX_ILLUMINATION_VFX.flatMap((p) => [
       p.texture,
@@ -12,20 +12,7 @@ export async function loadIlluminationTextures(base = import.meta.env.BASE_URL) 
       ...(p.mult ? [p.mult] : []),
     ])
   );
-  await Promise.all(
-    [...paths].map(async (path) => {
-      const texture = await new THREE.TextureLoader().loadAsync(base + path);
-      texture.colorSpace = THREE.NoColorSpace;
-      texture.flipY = false;
-      texture.minFilter = texture.magFilter = THREE.LinearFilter;
-      texture.generateMipmaps = false;
-      textures.set(path, texture);
-    })
-  );
-  const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
-  white.needsUpdate = true;
-  textures.set('', white);
-  return textures;
+  return loadLuxParticleTextures(paths, base);
 }
 const corners = [
   [-1, -1],

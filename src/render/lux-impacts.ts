@@ -1,3 +1,4 @@
+import { loadLuxParticleTextures } from './lux-particle-textures';
 import { LuxImpactAttachments } from './lux-impact-attachments';
 import { createTargetPoseSampler } from './models';
 import type { ImpactRig } from '../content/impact-target';
@@ -16,28 +17,14 @@ import { createParticleColorProductMaterial } from './particle-color-product';
 const sparkPath = 'assets/effects/lux-hit-lux_base_r_spark.png';
 const palettePath = 'assets/effects/lux-hit-flame_trail_gradient.png';
 let textures: Map<string, THREE.Texture> | undefined;
-let white: THREE.DataTexture;
+let white: THREE.Texture;
 export async function loadLuxImpactTextures() {
-  const loaded = new Map<string, THREE.Texture>();
-  await Promise.all(
-    [
-      ...new Set([
-        sparkPath,
-        palettePath,
-        ...profiles.flatMap((p) => [p.source, ...(p.lookup ? [p.lookup] : [])]),
-      ]),
-    ].map(async (path) => {
-      const t = await new THREE.TextureLoader().loadAsync(import.meta.env.BASE_URL + path);
-      t.flipY = false;
-      t.colorSpace = THREE.NoColorSpace;
-      t.generateMipmaps = false;
-      t.minFilter = t.magFilter = THREE.LinearFilter;
-      loaded.set(path, t);
-    })
-  );
-  white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
-  white.needsUpdate = true;
-  textures = loaded;
+  textures = await loadLuxParticleTextures([
+    sparkPath,
+    palettePath,
+    ...profiles.flatMap((p) => [p.source, ...(p.lookup ? [p.lookup] : [])]),
+  ]);
+  white = textures.get('')!;
 }
 function createCloud(rig: ImpactRig | null, ground: (p: Vec2) => number) {
   const rings = profiles.map((p) => {
