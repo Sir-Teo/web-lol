@@ -27,6 +27,7 @@ import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { championProfile } from '../content/champion-profiles';
+import { garenAttackWindupTicks } from './garen-attack-timing';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
@@ -2788,7 +2789,10 @@ export class World {
       const attackSpeed =
         profile.attackSpeed + ratio * profile.attackSpeedGrowth * growthAtLevel(state.level);
       h.attackPeriod = Math.round(TICK_RATE / attackSpeed);
-      h.windupTicks = Math.round((profile.windupTicks * profile.attackSpeed) / attackSpeed);
+      h.windupTicks =
+        h.champion === 'garen'
+          ? garenAttackWindupTicks(attackSpeed)
+          : Math.round((profile.windupTicks * profile.attackSpeed) / attackSpeed);
       this.emit('level', h, { text: 'Level up!', unit: h.id, team: h.team });
     }
     if (state.level === MAX_LEVEL) state.xp = 0;

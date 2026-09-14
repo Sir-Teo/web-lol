@@ -30,6 +30,16 @@ test('Garen uses his source rig for melee combat and remains a valid Lux impact 
       damage: w.hero.maxHp - w.hero.hp,
       missiles: w.projectiles.filter((p: any) => p.source === garen.id).length,
     };
+    w.gainExperience(1e6, garen.id);
+    w.step(garen.nextAttackTick - w.tick);
+    const levelled = {
+      windup: garen.releaseTick - w.tick,
+      period: garen.nextAttackTick - w.tick,
+    };
+    w.step(levelled.windup - 1);
+    const hpBefore = w.hero.hp;
+    w.step();
+    const levelledDamage = hpBefore - w.hero.hp;
     w.setOrder(garen, { type: 'idle' });
     const lux = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'lux');
     w.setOrder(lux, { type: 'attack', target: garen.id });
@@ -39,12 +49,14 @@ test('Garen uses his source rig for melee combat and remains a valid Lux impact 
     }
     g.hud.scoreboard(true);
     g.hud.update(60);
-    return { attack, hit: garen.hp < garen.maxHp, garenId: garen.id };
+    return { attack, levelled, levelledDamage, hit: garen.hp < garen.maxHp, garenId: garen.id };
   });
   expect(result.attack.rig).toBe('garen-base');
   expect(result.attack.clip).toBe('attack1');
   expect(result.attack.damage).toBeGreaterThan(0);
   expect(result.attack.missiles).toBe(0);
+  expect(result.levelled).toEqual({ windup: 14, period: 59 });
+  expect(result.levelledDamage).toBeGreaterThan(0);
   expect(result.hit).toBe(true);
   expect(errors).toEqual([]);
   await expect(page.locator('img[alt="Garen"]').first()).toBeVisible();

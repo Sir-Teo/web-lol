@@ -67,11 +67,35 @@ test('Garen progression, regeneration and pending melee attacks survive restorat
   expect(garen.maxHp).toBe(2356);
   expect(garen.maxMana).toBe(0);
   expect(garen.damage).toBe(145.5);
+  expect(garen.windupTicks).toBe(14);
+  expect(garen.attackPeriod).toBe(59);
   w.setOrder(garen, { type: 'attack', target: target.id });
   w.step();
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   w.step(180);
   restored.step(180);
+  expect(restored.snapshot()).toBe(w.snapshot());
+});
+test('levelling during a melee windup preserves committed deadlines and changes the following attack', () => {
+  const { w, garen, target } = setup();
+  w.setOrder(garen, { type: 'attack', target: target.id });
+  w.step();
+  const release = garen.releaseTick!;
+  const next = garen.nextAttackTick;
+  w.gainExperience(1e6, garen.id);
+  expect(garen.releaseTick).toBe(release);
+  expect(garen.nextAttackTick).toBe(next);
+  const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+  w.step(release - w.tick - 1);
+  expect(target.hp).toBe(1500);
+  w.step();
+  expect(target.hp).toBe(1354.5);
+  w.step(next - w.tick);
+  expect(garen.releaseTick).toBe(next + 14);
+  expect(garen.nextAttackTick).toBe(next + 59);
+  w.step(14);
+  expect(target.hp).toBe(1209);
+  restored.step(w.tick - restored.tick);
   expect(restored.snapshot()).toBe(w.snapshot());
 });
 test('Garen cannot inherit Ashe abilities or player selection through saved state', () => {
