@@ -926,10 +926,16 @@ export class World {
   private lastHitTarget(u: Unit): Unit | undefined {
     if (this.tick < u.nextAttackTick) return;
     const state = this.championState(u.id)!;
-    // Estimate only the first Q impact; later arrows may arrive too late.
+    // Estimate only the first Ashe Q impact; later arrows may arrive too late.
     const base = u.damage * this.basicAttackDamageMultiplier(u);
+    const garenQ = state.garenQ;
+    const garenQRank =
+      u.champion === 'garen' && garenQ && !garenQ.consumed && this.tick < garenQ.attackUntil
+        ? garenQ.rank
+        : undefined;
     const raw =
-      state.qUntil > this.tick ? asheFocusFlurry(state.spellRanks.q, base)[0].damage : base;
+      (state.qUntil > this.tick ? asheFocusFlurry(state.spellRanks.q, base)[0].damage : base) +
+      this.garenQBonusDamage(u, garenQRank);
     let best: Unit | undefined;
     let bestDistance = Infinity;
     for (const target of this.units) {
@@ -1556,11 +1562,7 @@ export class World {
             const qRank = u.attackCycle?.garenQRank;
             // Initial Q adapter: only the ordinary attack portion rolls critical
             // damage; Q's native special critical multiplier remains unmapped.
-            const qBonus =
-              qRank === undefined
-                ? 0
-                : GAREN_Q.baseDamageByRank[qRank - 1] +
-                  (GAREN_Q.totalAttackDamageRatio - 1) * u.damage;
+            const qBonus = this.garenQBonusDamage(u, qRank);
             if (qRank !== undefined && state?.garenQ) {
               state.garenQ.consumed = true;
               expireGarenQ(state, this.tick);
@@ -2582,6 +2584,12 @@ export class World {
     const mark = target.illumination.find((entry) => entry.sourceId === source.id);
     if (mark) mark.endTick = endTick;
     else target.illumination.push({ sourceId: source.id, endTick });
+  }
+  /** Shared by actual melee release and the conservative, non-critical farm forecast. */
+  private garenQBonusDamage(source: Unit, rank: number | undefined): number {
+    return rank === undefined
+      ? 0
+      : GAREN_Q.baseDamageByRank[rank - 1] + (GAREN_Q.totalAttackDamageRatio - 1) * source.damage;
   }
   private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
     const turretHealthRatio =

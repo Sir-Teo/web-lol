@@ -118,7 +118,7 @@ A final terminal-state regression covers an already stunned Q destroying the Nex
 
 ## Garen Q override and animation contact marker
 
-The Q timing exporter now reads the complete `mOverrideAttackTime` calculation rather than reusing basic-attack timing. The pinned expression is approximately `(1.7 - 0.2 × total attack speed)` seconds, with a 0.2 cast fraction. The adapter evaluates the original floats using unrounded base-plus-level attack speed, then rounds total and windup separately to local ticks. Level one produces 95 total ticks and 19 windup ticks; level 18 produces 90 and 18. These replace the temporary basic-attack values only for captured Q attacks. AI arrival estimates use the same Q windup while the buff is armed. Q-aware farming damage estimates and attack-speed items/buffs remain unfinished.
+The Q timing exporter now reads the complete `mOverrideAttackTime` calculation rather than reusing basic-attack timing. The pinned expression is approximately `(1.7 - 0.2 × total attack speed)` seconds, with a 0.2 cast fraction. The adapter evaluates the original floats using unrounded base-plus-level attack speed, then rounds total and windup separately to local ticks. Level one produces 95 total ticks and 19 windup ticks; level 18 produces 90 and 18. These replace the temporary basic-attack values only for captured Q attacks. AI arrival estimates use the same Q windup while the buff is armed. Q-aware farming damage estimates were added in the farming increment below; attack-speed items/buffs remain unfinished.
 
 The stat mapping required a historical comparison. The [calcrev calculation research](https://github.com/moonshadow565/calcrev/blob/40f21c06e5cfc10750bb44b39d1f2d4e3567a6dc/calc.py) maps its 2021 stat ID 3 to attack speed, ID 4 to windup time, and formula 2 to total. Its [historical Garen record](https://github.com/moonshadow565/calcrev/blob/40f21c06e5cfc10750bb44b39d1f2d4e3567a6dc/json/champs/garen.bin.json) has the same Q override with stat 3. After normalizing the previously unresolved total-time field and this stat ID, that record equals our current stat-4 override exactly. This was initially used to interpret current Q's stat 4 as total attack speed; the Courage review below disputes the formula label, so this is now provisional. copying the old enum globally would be incorrect. `reference/garen-q-timing-audit.json` retains URLs, hashes, both expressions and the comparison. The exporter requires that audit to match the pinned current source.
 
@@ -135,3 +135,22 @@ Garen now gains his pinned level-scaled maximum-health regeneration after an ind
 ## Courage source review and Q audit correction
 
 Courage's root-mode rank values now have a strict exporter and [source contract](GAREN-W.md), including Riot-confirmed bonus-health shield scaling and independent defense windows. W remains unavailable pending integration. Comparing its historical and current formulas exposed contradictory evidence in the old calculation decoder used for Q. The Q audit now records that conflict and withdraws the claim that total attack speed is verified. Current timing remains explicitly provisional until Q-specific stat units and native behavior can be established.
+
+## Garen empowered last-hit decisions
+
+The farm planner now includes an armed, unconsumed Q's bonus damage using the
+same helper as melee release and the rank captured when Q was activated. This
+lets Garen prioritize a farther valuable minion that his ordinary attack cannot
+kill. It does not assume a critical hit or automatically cast Q for farming.
+Consumed/expired Q cannot create false opportunities. A strike started just
+before expiration retains its captured empowerment through release, matching
+the existing combat behavior. Armor, sight, melee range, safety checks and
+incoming allied-missile exclusions remain in the common target-selection path.
+
+Validation: all 853 tests across 183 files pass. Five new simulation cases cover
+both teams, actual kills and CS, save continuation, consumed/expired Q, visibility,
+armor, range, and expiration during a committed strike. Both Garen Q browser
+scenarios pass, including the new AI-driven minion kill with the source sword
+animation and no page errors. The fixture screenshot was reviewed at
+`artifacts/browser-garen-q-farming.png`. No new champion-selection option is
+exposed; Garen's remaining kit and Ahri's gameplay integration are still open.

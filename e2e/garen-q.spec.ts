@@ -1,5 +1,61 @@
 import { expect, test } from '@playwright/test';
 
+test('Garen bot spends an armed Q on a farther minion it can last-hit', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.pendingSpawns = [];
+    w.nextWaveTick = Infinity;
+    Object.assign(w.hero, { x: -3000, y: -3000, previous: { x: -3000, y: -3000 } });
+    w.battlefield.lineOfSight = () => true;
+    const bot = w.spawn('champion', 'red', { x: 0, y: 0 }, 'garen');
+    const healthy = w.spawn('melee', 'blue', { x: 90, y: 0 });
+    const weak = w.spawn('siege', 'blue', { x: 160, y: 0 });
+    for (const minion of [healthy, weak])
+      Object.assign(minion, { speed: 0, nextAttackTick: w.tick + 10000, armor: 0 });
+    weak.hp = 100;
+    w.learnSpell('q', bot.id);
+    w.enqueue({ type: 'cast', unit: bot.id, ability: 'q', point: { x: 0, y: 0 } });
+    w.step();
+    bot.ai = true;
+    bot.nextThink = w.tick + 1;
+    w.step();
+    const chosen = bot.attackTarget;
+    const release = bot.releaseTick;
+    w.step(release - w.tick);
+    // Reveal this controlled scene to the player's rendering team.
+    w.hero.x = 0;
+    w.hero.y = -400;
+    w.hero.previous = { x: 0, y: -400 };
+    g.view.recenter(bot);
+    g.view.render(w, 1, g.view.previousElapsed);
+    g.hud.update(60);
+    return {
+      chosen,
+      weakId: weak.id,
+      weakHp: weak.hp,
+      healthyHp: healthy.hp,
+      healthyMax: healthy.maxHp,
+      cs: w.championState(bot.id).cs,
+      clip: g.view.models.get(bot.id).actionName,
+    };
+  });
+  expect(result.chosen).toBe(result.weakId);
+  expect(result.weakHp).toBe(0);
+  expect(result.healthyHp).toBe(result.healthyMax);
+  expect(result.cs).toBe(1);
+  expect(result.clip).toBe('spell1');
+  await page.screenshot({ path: 'artifacts/browser-garen-q-farming.png' });
+  expect(errors).toEqual([]);
+});
+
 test('Garen Q uses his sword animation and silences actual player spell input', async ({
   page,
 }) => {
