@@ -1,0 +1,84 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Champions/Lux.wad.client",
+  "chunks": {
+    "7D5437E8D5843DBA": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+      "offset": 43375574,
+      "bytes": 56046,
+      "sha256": "f8676f054a339a678077f61ba4826eef310c0bd36fdd61f1fc549193c887c881"
+    },
+    "67E10A4B0643E131": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+      "offset": 43431620,
+      "bytes": 46417,
+      "sha256": "e8223f6dbde05a4fa33b30bb4c0858d2ec05348997e197e0a66a2d872efbfed8"
+    },
+    "B1AC3C9C15618EEA": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+      "offset": 43478037,
+      "bytes": 28336,
+      "sha256": "d06b47e1d88ad5102843783bf602f93f74f96f2bd2000ef9c204c2950acf87f8"
+    },
+    "75409B5EC48CDCE6": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+      "offset": 10679373,
+      "bytes": 49341,
+      "sha256": "5f190cb4ca2ba253f04c1c0956ac75e779693944b71b46ba277f5dec8a9cd361"
+    },
+    "7BEC16DF8171A9E8": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+      "offset": 6740922,
+      "bytes": 213077,
+      "sha256": "18b4e9381619bb9c897ec36b43d57524e01bcf0c05b98ba53b2bd2c26263f553"
+    },
+    "9222949A0A26CD4A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+      "offset": 6953999,
+      "bytes": 191621,
+      "sha256": "c18a270cb3d6f8332fef3b9fd0bb3a6d51f02c0d263698144602612874b64ce2"
+    },
+    "7DAB550504088095": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+      "offset": 7145620,
+      "bytes": 164480,
+      "sha256": "a1dcc1e9d1082cbe87374d375f55ef4fb5d5f11e31ffb0dceef91f0cad0863d1"
+    },
+    "2633A2268C331433": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+      "offset": 7310100,
+      "bytes": 169057,
+      "sha256": "7dfc70e4f388df3c11960f7c8e54a8dc437e82b527c9b125093368b740eddc9d"
+    },
+    "4AA9E9B46C421ECB": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F9B2A27016F4BB3.bundle",
+      "offset": 7479157,
+      "bytes": 159825,
+      "sha256": "30df2889fa0bd0db701a333169c6599d8ff2eda0394b328ddcb06c9be319ace9"
+    },
+    "433D0B5C89250980": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/4B2C307F764D4629.bundle",
+      "offset": 44241954,
+      "bytes": 2664,
+      "sha256": "69ffdb85ad20263f3e0d0d55cbc231466a7fc6c5f2f04ee6c9cf55c3ed9be243"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/lux/skins/base/lux_base_sfx_audio.bnk",
+      "wadPathHash": "9cc67dc3bf3a808f",
+      "sha256": "4b4be98aab1626f51a4ad03d6181269842c95f47ed20893041ee466c9fed02e3",
+      "bytes": 920269
+    },
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/lux/skins/base/lux_base_sfx_events.bnk",
+      "wadPathHash": "f1b133903945a6d1",
+      "sha256": "7900814f0bc600cf7f4679b9c3d8e24552c12421645ebeb31435f7b6cb4edf31",
+      "bytes": 9474
+    }
+  ]
+}

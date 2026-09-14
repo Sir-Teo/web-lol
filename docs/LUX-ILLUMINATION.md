@@ -188,3 +188,28 @@ The current origin provisionally reuses the normal-impact center bone, with the 
 A blue viewer must belong to the saved creation audience; later sight cannot instantiate an originally hidden event. Existing clouds also require current sight at their sampled origin. This is an origin-based visibility policy, not native per-pixel fog certification. Target death freezes attachment history while particles finish their lives. Terminal presentation time continues aging the cloud over frozen simulation history, then releases its geometry, materials and historical pose sampler. Texture ownership remains with the loader.
 
 Two gameplay Chrome checks cover actual queued attack consumption on the Ashe rig, all five active layers, exact geometry after snapshot reconstruction, fog hide/reveal, target death, terminal cleanup without saved-state mutation, ordinary expiry, and a hidden-at-creation event remaining absent after gaining sight. The combined gameplay capture was visually inspected. Three preview cases and all 783 unit tests also pass. The production build/nested-path smoke passes for this integration. Native bone choice, unresolved outer-ring fields, audio and native pixel comparison remain outstanding.
+
+## Source detonation audio
+
+Lux's pinned Skin0 audio properties explicitly name the base SFX audio/event banks and `Play_sfx_Lux_LuxIlluminationPassive_hit`. The selective extractor now verifies both banks against the frozen release manifest. Their complete inventories and the selected event graph are retained in `reference/lux-audio-extraction.json`, `lux-audio-inventory.json` and `lux-illumination-audio.json`.
+
+Event 2823890895 plays action 126980300, targeting container 1149. That container has −12 dB makeup gain and three source sounds. Its preserved policy includes random/shuffle mode, avoid-repeat count 2, playlist reset at each play, global selection state, no continuous playback, disabled transition mode, equal listed weights with weight use disabled, and maximum instances 2. Inherited mixer and attenuation nodes are retained separately from playback edges so unrelated sibling sounds are not included. Shared bus 1259461568 remains unresolved; the exported gain is not a complete native mix.
+
+| Media ID | Mono 44.1 kHz frames | Duration | Float peak |
+|---|---:|---:|---:|
+| 295508404 | 63,393 | 1.437483 s | 1.140944 |
+| 575879865 | 52,368 | 1.187483 s | 1.114036 |
+| 1047162027 | 69,250 | 1.570295 s | 1.187495 |
+
+Pinned wwiser maps the event, actions, playlist, sound/media edges and inherited parameters. Encoded WEM slices are independently checked against bank DIDX/DATA boundaries and parser inventory. Pinned vgmstream decodes the streams without loop expansion, fade, normalization or dithering; its linked decoder libraries are recorded as well as its revision. `reference/lux-illumination-audio-decoded.json` retains encoded/WAV/PCM hashes and numerical diagnostics. The three float32 WAVs preserve above-unit sample headroom and ship with `src/content/lux-illumination-audio.ts`, which keeps playlist order, source IDs, gain and container flags.
+
+Reproduce:
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-lux-audio.py
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/map-lux-illumination-audio.py
+.tools/cdtb-venv/bin/python tools/assets/decode-lux-illumination-audio.py
+.tools/cdtb-venv/bin/python tools/assets/export-lux-illumination-audio.py
+```
+
+The complete extraction/mapping/decoding/export chain passes on repeat. A Chrome check verifies every exported asset hash and exact decoded PCM, frame count, channel count, rate, duration and retained headroom. These recordings are **not yet connected to runtime playback**. Listening comparison, variant policy reconstruction, scheduling, pause/save behavior, attenuation and native bus/mix parity remain outstanding. Existing gameplay audio was not replaced by this asset milestone.
