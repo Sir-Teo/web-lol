@@ -1,4 +1,14 @@
-# Browser integration audit after mage-item integration
+# Browser integration audits
+
+## Current complete run after scoreboard and checkpoint integration
+
+At runtime revision `b01bb24`, all **205 Chrome scenarios passed** in one complete run with one worker and no retries, taking 7.4 minutes. No source edits or repairs were made during this audit. This is the first full suite run since the constant bone-channel optimization, accepted-command pause repair and observed scoreboard level/CS/inventory integration.
+
+The run covers the new scenarios together with existing combat, spell, animation, source asset, input, shop, vision, audio, recovery and save cases. The all-source animation comparison again measured zero sampled matrix error and 114 matching pixel comparisons. Fresh fixture, laptop and full-Rift recovery-dialog captures were inspected; controls were readable, and the recovery backdrop intentionally obscures the battlefield. Deliberate asset/recovery failure injections produce expected console diagnostics; the result is not a claim that every log line is error-free.
+
+The current source hashes match the preceding 603-check and nested-path production-smoke verification. Those checks were not redundantly rerun in this documentation-only audit. The complete browser result replaces the older 201-case run as the current integration baseline. It still does not cover a finished production role match, native pixel parity, cross-browser parity, offline delivery or sustained full-match frame budgets. [Current complete-run evidence](reference/browser-regression-current-verification.json)
+
+## Earlier mage-item audit and repairs
 
 The complete Chrome suite was run from gameplay revision `40dbded` after the Lux kit, shields, independent slows, mage recipes, haste and Enlighten additions. The first run finished with 199 passing scenarios and two failures out of 201, using one worker and no retries. This broader pass found a real presentation-performance regression that the recent focused scenarios had missed.
 

@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-13",
+  "testedRevision": "b01bb24dddc2502d960ed7c682832c3e0cb1c671",
+  "command": "npx playwright test",
+  "result": {
+    "passed": 205,
+    "failed": 0,
+    "workers": 1,
+    "retries": 0,
+    "reportedDuration": "7.4m",
+    "exitCode": 0
+  },
+  "browser": "152.0.7977.83",
+  "logSHA256": "1ab992555521a5de8c485f4adfb2a662c719d042da4b842a66a2df8aa41ddf32",
+  "suiteHashMethod": "SHA256 of sorted tracked e2e/config path + space + file SHA256 + newline",
+  "suiteSHA256": "6033dcddaa1ce61dab6f9aab3380c2a3e5147ef51f2f30942e8b6b1cff8c3604",
+  "animationComparison": {
+    "worstMatrixError": 0,
+    "pixelComparisons": 114,
+    "reportSHA256": "249662972b72a19a44704ecd84e29ccb5594cf92f8a1604051bcb8d7252e3b74"
+  },
+  "inspectedCaptures": {
+    "artifacts/browser-ready.png": "6be4d493edee580d0d8968030ee7259a5301b02134deb773d6b73fdd9d3f4476",
+    "artifacts/browser-laptop.png": "53bc925595aea9ee6997a6d2c64a5ae842084a15186741db950200e3cc91ac0b",
+    "artifacts/browser-graphics-restored.png": "5ccdac10db5089df1bb2bf5c8bc82cc9906bfc6d0a4da4dea464864673c82fc1"
+  },
+  "priorSameSourceValidation": {
+    "record": "docs/reference/scoreboard-items-verification.json",
+    "recordSHA256": "a6eb4e8b9dadb2bd4bd9789392a89057a2706415c084d40e7c56097830d67090",
+    "checks": 603,
+    "productionSmoke": "passed",
+    "sourceHashesRechecked": true,
+    "notRerunReason": "No runtime changes; this turn only runs the complete browser suite and documents evidence."
+  },
+  "limits": [
+    "Fault-injection scenarios intentionally log errors; this is not a blanket console-clean claim.",
+    "No finished 5v5 role match, native pixel comparison, cross-browser, offline or sustained production frame-budget certification.",
+    "No runtime changes or repairs in this audit."
+  ]
+}
