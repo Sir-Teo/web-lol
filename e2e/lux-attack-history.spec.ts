@@ -69,12 +69,17 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
       after: w.snapshot(),
       stop: w.luxAttackVisuals[0]?.stopTick,
       projectiles: w.projectiles.length,
+      impacts: structuredClone(w.luxImpactVisuals),
     };
   });
   expect(impact.before).toBe(start.snapshot);
   expect(impact.after).toBe(start.continued);
   expect(impact.projectiles).toBe(0);
   expect(impact.stop).toBeGreaterThan(0);
+  expect(impact.impacts).toHaveLength(1);
+  expect(impact.impacts[0].startTick).toBe(impact.stop);
+  expect(impact.impacts[0].critical).toBe(false);
+  expect(impact.impacts[0].frames.length).toBeGreaterThan(1);
   const matrices = () =>
     page.evaluate(() => {
       const g = (window as any).__GAME__;

@@ -172,6 +172,19 @@ export interface LuxAttackVisual {
   stopTick: number | null;
   frames: { tick: number; x: number; y: number; facing: number; trailDistance: number }[];
 }
+/** Confirmed Lux basic-attack hit; target centre history in simulation units.
+ * The originating projectile ID is shared with its retained flight history.
+ */
+export interface LuxImpactVisual {
+  id: number;
+  sourceId: number;
+  targetId: number;
+  team: Team;
+  startTick: number;
+  critical: boolean;
+  detachedTick: number | null;
+  frames: { tick: number; x: number; y: number }[];
+}
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =
   | { type: 'order'; unit: number; order: Order }

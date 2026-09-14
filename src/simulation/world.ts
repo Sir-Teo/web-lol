@@ -4,7 +4,8 @@ import {
   LUX_ATTACK_VISUAL_TAIL_TICKS,
   LUX_ATTACK_PATH_FRAMES,
 } from '../content/lux-attack-presentation';
-import type { LuxAttackVisual } from './types';
+import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
+import type { LuxImpactVisual, LuxAttackVisual } from './types';
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
@@ -90,6 +91,7 @@ export class World {
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
   luxAttackVisuals: LuxAttackVisual[] = [];
+  luxImpactVisuals: LuxImpactVisual[] = [];
   singularities: Singularity[] = [];
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
@@ -364,6 +366,9 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    this.luxImpactVisuals = this.luxImpactVisuals.filter(
+      (v) => this.tick < v.startTick + LUX_IMPACT_HISTORY_TICKS
+    );
     this.luxAttackVisuals = this.luxAttackVisuals.filter(
       (v) => v.stopTick === null || this.tick < v.stopTick + LUX_ATTACK_VISUAL_TAIL_TICKS
     );
@@ -483,11 +488,15 @@ export class World {
       }
       if (thinkNow) this.think(u);
       this.advanceUnit(u);
-      if (this.winner) return;
+      if (this.winner) {
+        this.advanceImpactVisuals();
+        return;
+      }
     }
     this.creditHawkshotReveals(unseen);
     this.advanceProjectiles(unseen);
     this.advanceSingularities();
+    this.advanceImpactVisuals();
     if (this.winner) return;
     for (const unit of this.units) {
       const champion = this.championState(unit.id);
@@ -1899,6 +1908,17 @@ export class World {
       }
     }
   }
+  private advanceImpactVisuals(): void {
+    for (const visual of this.luxImpactVisuals) {
+      const target = this.unit(visual.targetId);
+      const previous = visual.frames.at(-1)!;
+      const point = visual.detachedTick === null && target ? target : previous;
+      if (visual.detachedTick === null && (!target || !this.alive(target)))
+        visual.detachedTick = this.tick;
+      if (previous.tick !== this.tick)
+        visual.frames.push({ tick: this.tick, x: point.x, y: point.y });
+    }
+  }
   private advanceProjectiles(unseen: Map<Team, Set<number>>): void {
     const pending: Projectile[] = [];
     for (const p of this.pendingAttackProjectiles) {
@@ -2050,6 +2070,18 @@ export class World {
             facing: Math.atan2(p.direction.x, p.direction.y),
           });
         if (source && (p.volleyId === null || !this.volleyHits[p.volleyId]?.includes(contact.id))) {
+          if (p.type === 'attack' && source.champion === 'lux') {
+            this.luxImpactVisuals.push({
+              id: p.id,
+              sourceId: source.id,
+              targetId: contact.id,
+              team: p.team,
+              startTick: this.tick,
+              critical: p.critical === true,
+              detachedTick: null,
+              frames: [{ tick: this.tick, x: contact.x, y: contact.y }],
+            });
+          }
           const level = this.championState(source.id)?.level ?? 1;
           const slow =
             ASHE_PASSIVE.slowAtLevel1 +
@@ -3139,6 +3171,7 @@ export class World {
       projectiles: this.projectiles,
       luxBeams: this.luxBeams,
       luxAttackVisuals: this.luxAttackVisuals,
+      luxImpactVisuals: this.luxImpactVisuals,
       singularities: this.singularities,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,

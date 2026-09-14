@@ -97,3 +97,15 @@ npx playwright test e2e/lux-impact-rings.spec.ts e2e/particle-palette.spec.ts
 ```
 
 The next step is saved impact state and moving-target binding, followed by gameplay composition and native capture comparison. No gameplay hit effect has been replaced by this component preview yet.
+
+## Confirmed-hit state and target history
+
+Snapshot schema 54 adds `luxImpactVisuals`. A confirmed Lux basic-attack contact records its projectile ID, source/target IDs, team, contact tick and captured critical flag. The record is created only in the accepted projectile contact branch, before damage so lethal hits still produce presentation state. A homing projectile removed because its target disappeared does not create an impact. The ID deliberately matches its retained flight history; no new gameplay entity or random draw is introduced.
+
+Each record keeps target-centre coordinates at fixed ticks for 32 ticks: the longest 0.5-second impact particle, a potential first-step birth and display interpolation. This is a presentation retention policy, not a claim about native emission timing. Live target motion is recorded after simulation movement/damage. On death or disappearance, `detachedTick` freezes the last available target location; subsequent revival/respawn cannot move that old effect. Critical identity comes from the released projectile and does not depend on the attacker's later inventory.
+
+The strict decoder verifies unique impact IDs, the matching stopped Lux flight, source/team identity, target team when present, exact consecutive frame count/ticks, retention bounds and detachment ordering. Attached histories must end at the current target centre; frames after detachment must remain stationary. Source histories remain longer than impact histories, so the required flight record is available throughout impact retention. The schema and simulation fingerprint change intentionally invalidates older checkpoints.
+
+Three new unit cases cover both hit variants, continued moving-target histories through restoration, individual expiry, lost-target suppression, lethal hits, disappearance, death/revival freezing, and malformed histories. The real browser checkpoint test now also asserts confirmed impact state and restores its full snapshot. All 690 unit tests, that browser test and the production subpath smoke check pass.
+
+This step stores simulation-space target centres. Native target-bone height/orientation, per-emitter binding and rendering from saved frames remain unfinished; gameplay still uses the existing generic impact feedback.

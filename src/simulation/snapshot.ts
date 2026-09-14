@@ -1,3 +1,4 @@
+import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
 import {
@@ -22,7 +23,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 53;
+export const SNAPSHOT_VERSION = 54;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -400,6 +401,23 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  luxImpactVisuals: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        targetId: id,
+        team,
+        startTick: tick,
+        critical: z.boolean(),
+        detachedTick: tick.nullable(),
+        frames: z
+          .array(z.strictObject({ tick, x: z.number(), y: z.number() }))
+          .min(1)
+          .max(LUX_IMPACT_HISTORY_TICKS),
+      })
+    )
+    .max(10000),
   luxAttackVisuals: z
     .array(
       z.strictObject({
@@ -496,6 +514,41 @@ export function decodeSnapshot(text: string) {
       cause: result.error,
     });
   const state = result.data;
+  const impactIds = new Set<number>();
+  for (const visual of state.luxImpactVisuals) {
+    const source = state.units.find((u) => u.id === visual.sourceId);
+    const target = state.units.find((u) => u.id === visual.targetId);
+    const flight = state.luxAttackVisuals.find((v) => v.id === visual.id);
+    const last = visual.frames.at(-1)!;
+    if (
+      impactIds.has(visual.id) ||
+      visual.id >= state.nextId ||
+      source?.champion !== 'lux' ||
+      source.team !== visual.team ||
+      (target && target.team === visual.team) ||
+      visual.targetId >= state.nextId ||
+      !flight ||
+      flight.sourceId !== visual.sourceId ||
+      flight.stopTick !== visual.startTick ||
+      visual.startTick > state.tick ||
+      state.tick >= visual.startTick + LUX_IMPACT_HISTORY_TICKS ||
+      visual.frames.length !== state.tick - visual.startTick + 1 ||
+      (visual.detachedTick !== null &&
+        (visual.detachedTick < visual.startTick || visual.detachedTick > state.tick)) ||
+      (visual.detachedTick === null &&
+        (!target || target.hp <= 0 || last.x !== target.x || last.y !== target.y)) ||
+      visual.frames.some(
+        (f, i) =>
+          f.tick !== visual.startTick + i ||
+          (i > 0 &&
+            visual.detachedTick !== null &&
+            f.tick > visual.detachedTick &&
+            (f.x !== visual.frames[i - 1].x || f.y !== visual.frames[i - 1].y))
+      )
+    )
+      throw new Error('Saved match contains an invalid Lux impact visual.');
+    impactIds.add(visual.id);
+  }
   const attackVisualIds = new Set<number>();
   for (const visual of state.luxAttackVisuals) {
     const source = state.units.find((u) => u.id === visual.sourceId);
