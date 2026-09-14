@@ -88,3 +88,8 @@ fixture capture is `artifacts/browser-garen-courage-binding.png`.
 
 No Courage-specific particles or source audio are added in this increment. The
 existing generic cast tone and shared damage/status presentation remain temporary.
+
+The follow-up Volley regression also checks the legacy slow diagnostics used by
+movement. Actual Frost, critical Frost and Crystal Arrow splash now shorten those
+clocks with the same sampled tenacity as their independent slow records. This
+prevents a legacy timer from keeping the unit slowed after the reduced duration.

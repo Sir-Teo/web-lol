@@ -2437,7 +2437,9 @@ export class World {
             (p.flurryShot ?? 0) === 0
           ) {
             contact.slowMultiplier = p.type === 'ultimate' ? 0.7 : 1 - slow;
-            contact.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
+            contact.slowUntil =
+              this.tick +
+              this.controlDurationTicks(contact, ASHE_PASSIVE.durationSeconds * TICK_RATE);
             this.applySlow(
               source,
               contact,
@@ -2456,7 +2458,7 @@ export class World {
                   17;
               contact.criticalSlow = {
                 startTick: this.tick,
-                endTick: this.tick + TICK_RATE,
+                endTick: this.tick + this.controlDurationTicks(contact, TICK_RATE),
                 startMultiplier: 1 - peak,
                 endMultiplier: 1 - slow,
               };
@@ -2486,7 +2488,9 @@ export class World {
               );
               if (this.alive(victim)) {
                 victim.slowMultiplier = 1 - slow;
-                victim.slowUntil = this.tick + ASHE_PASSIVE.durationSeconds * TICK_RATE;
+                victim.slowUntil =
+                  this.tick +
+                  this.controlDurationTicks(victim, ASHE_PASSIVE.durationSeconds * TICK_RATE);
                 this.applySlow(
                   source,
                   victim,

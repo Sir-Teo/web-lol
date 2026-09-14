@@ -99,6 +99,28 @@ test('tenacity does not lengthen short controls and applies the local minimum du
   expect(garen.rootUntil).toBe(19);
 });
 
+test('actual Volley keeps legacy slow clocks synchronized with tenacity-shortened effects', () => {
+  const { w, garen, cast } = setup();
+  w.hero.x = 0;
+  w.hero.y = -200;
+  w.learnSpell('w');
+  cast();
+  w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'w', point: { x: 0, y: 1000 } });
+  for (let i = 0; i < 60 && !garen.criticalSlow; i++) w.step();
+  expect(garen.criticalSlow).not.toBeNull();
+  const contactTick = w.tick;
+  expect(garen.criticalSlow!.endTick).toBe(contactTick + 24);
+  expect(garen.slowUntil).toBe(contactTick + 48);
+  expect(garen.slows.find((s) => s.kind === 'critical-frost')!.endTick).toBe(contactTick + 24);
+  expect(garen.slows.find((s) => s.kind === 'frost')!.endTick).toBe(contactTick + 48);
+  const saved = World.fromSnapshot(w.snapshot(), w.battlefield);
+  for (const world of [w, saved]) {
+    world.step(48);
+    expect(world.movementSpeed(world.unit(garen.id)!)).toBe(340);
+  }
+  expect(saved.snapshot()).toBe(w.snapshot());
+});
+
 test('Courage preserves a committed Q swing and cancels recall without changing orders', () => {
   const { w, garen, state, cast } = setup();
   w.gainExperience(280, garen.id);
