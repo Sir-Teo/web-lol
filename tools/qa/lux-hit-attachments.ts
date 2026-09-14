@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { TargetPoseSampler } from '../../src/render/target-pose-sampler';
 import { luxHitBone } from '../../src/render/lux-hit-bone';
 import audit from '../../docs/reference/lux-hit-attachments.json';
 const renderer = new THREE.WebGLRenderer({
@@ -34,6 +35,8 @@ let model: THREE.Group,
 let bones: (THREE.Object3D | undefined)[] = [],
   selected = '',
   serial = 0;
+let poseSampler: TargetPoseSampler;
+const sampled = new THREE.Vector3();
 function draw() {
   if (!model) return;
   if (action) {
@@ -47,6 +50,12 @@ function draw() {
     bone.getWorldPosition(markers[i].position);
     return markers[i].position.toArray();
   });
+  poseSampler.sample(action ? [{ clip: action.getClip().name, time: action.time, weight: 1 }] : []);
+  const sampleErrors = positions.map((position, i) => {
+    const found = poseSampler.hitPosition(i === 1, sampled);
+    if (found !== (position !== null)) throw new Error('Attachment sampler presence differs');
+    return position ? sampled.distanceTo(new THREE.Vector3(...position)) : 0;
+  });
   document.querySelector('#status')!.textContent =
     `${selected} · ${clipSelect.value} · phase ${Number(phase.value).toFixed(3)}\n` +
     positions
@@ -54,9 +63,16 @@ function draw() {
         (p, i) =>
           `${i ? 'Critical chest' : 'Normal centre'}: ${p ? p.map((n) => n.toFixed(4)).join(', ') : 'MISSING'}`
       )
-      .join('\n');
+      .join('\n') +
+    `\nPrivate sampler error: ${Math.max(...sampleErrors).toExponential(2)}`;
   renderer.render(scene, camera);
-  return { model: selected, clip: clipSelect.value, positions, phase: Number(phase.value) };
+  return {
+    model: selected,
+    clip: clipSelect.value,
+    positions,
+    phase: Number(phase.value),
+    sampleErrors,
+  };
 }
 function chooseClip() {
   mixer.stopAllAction();
@@ -98,6 +114,7 @@ async function chooseModel() {
   if (model) {
     mixer.stopAllAction();
     mixer.uncacheRoot(model);
+    poseSampler.dispose();
     scene.remove(model);
     disposeTarget(model);
   }
@@ -105,6 +122,7 @@ async function chooseModel() {
   model = gltf.scene;
   scene.add(model);
   clips = gltf.animations;
+  poseSampler = new TargetPoseSampler(model, clips);
   mixer = new THREE.AnimationMixer(model);
   bones = [luxHitBone(model, false), luxHitBone(model, true)];
   clipSelect.replaceChildren(...clips.map((c) => new Option(c.name, c.name)));

@@ -138,3 +138,13 @@ npx playwright test e2e/lux-hit-attachments.spec.ts
 ```
 
 The next attachment change must reconstruct the target pose at particle birth and subsequent bound frames, including death and save/load. Simply reading the target's current bone for an unbound old ring would drag that ring with later animation. A rest-height substitution would discard the newly verified animation. Native missing-bone fallback also remains unresolved. The gameplay centre-height adapter is therefore still present pending that historical-pose work.
+
+## Isolated target-pose sampling
+
+`TargetPoseSampler` now samples an explicit set of clip-local times and normal-animation blend weights on a private skeleton cloned from an **unposed reference scene**. It never advances or modifies the live target, geometry, materials or clips. Each request stops the previous actions, restores rest contributions, applies the requested layers and updates the private hierarchy at zero elapsed time. Sampling order therefore does not become part of attachment state. Reference-root transforms are included; instance placement and world transforms remain caller-owned.
+
+The sampler clamps explicit times to clip duration and leaves loop mapping to the caller. Normal Three blending supplies rest contribution for underweight properties and normalization for overweight properties. Duplicate clip layers are rejected because a single mixer action cannot represent two times of the same clip. Unknown clips, nonfinite values and negative weights are rejected before changing the previous sample. Missing hit bones return false without overwriting the caller's output vector. Disposal releases mixer bindings without disposing borrowed render assets.
+
+The attachment inspector now compares each visible posed bone against this isolated sampler and displays the error. Its browser test checks every exported clip at five nonsequential phases (including both endpoints) on Ashe, Lux, red melee and blue inhibitor. Errors remain below `1e-7` model units; missing-bone behavior agrees. Three unit cases independently verify hierarchy translation/rotation against known transforms, weighted rest contribution, repeated mixed poses, time clamping, validation before mutation, absent bones and borrowed-resource ownership. All 694 unit tests pass; the expanded browser test and direct QA TypeScript check pass.
+
+This is an attachment sampling building block, not yet a replacement for gameplay height. The live renderer still maintains some locomotion and transition clocks locally. The next step must make the target's historical animation state recoverable from simulation history so the sampler receives the correct birth and bound-frame poses, including transitions, death and restoration.
