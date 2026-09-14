@@ -1,3 +1,4 @@
+import { luxBasicParticleLife } from '../content/lux-basic-linger';
 import { LUX_BASIC_HOOP_APPEARANCE as appearance } from '../content/lux-basic-lookups';
 import { particleLookupCoordinate } from './particle-lookup';
 
@@ -15,7 +16,7 @@ export const LUX_HOOP = {
   size: 30,
   sizeMin: 0.3499999940395355,
   lifeKnot: 0.8999999761581421,
-  lifeFactors: [0.5, 1.5, 4],
+  lifeFactors: [0.5, 1.5, appearance.maxLifetimeFactor],
 } as const;
 const HZ = 60;
 
@@ -86,15 +87,16 @@ export function luxHoopParticles(
     const birthTick = Math.ceil((ordinal * HZ) / LUX_HOOP.rate);
     const age = (nowTick - birthTick) / HZ;
     const birth = luxHoopBirth(luxHoopChance(seed, ordinal));
-    if (age < 0 || age >= birth.life) continue;
-    const phase = age / birth.life;
+    const life = luxBasicParticleLife('hoop', birth.life, seconds >= stopSeconds);
+    if (age < 0 || age >= life) continue;
+    const phase = age / life;
     const angle = birth.angle + LUX_HOOP.orbitY * age;
     const state = { age01: phase, birthRandom: 0, travelPerSecond: [0, 0, 0] as const };
     particles.push({
       ordinal,
       birthTick,
       age,
-      life: birth.life,
+      life,
       position: [
         LUX_HOOP.radius * Math.cos(angle),
         height(birth.velocityY, age * HZ),

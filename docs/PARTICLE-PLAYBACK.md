@@ -1,4 +1,8 @@
-# Particle lifetime appearance
+# Particle playback
+
+Lux basic attacks now render all three reconstructed source emitters with saved trajectory replay. Their ordinary type-0 lifetime caps preserve natural particle lives; see the latest audit below. Native-client visual parity remains unverified. The sections retain the implementation and verification history.
+
+## Initial lifetime appearance
 
 The hoop color lookup now follows a documented renderer reconstruction instead of a manually chosen coordinate. The pure evaluator in `src/render/particle-lookup.ts` supports constant, lifetime, velocity and birth-random axes. Constant returns the scale alone; the other modes multiply their driving value by scale and add offset. Velocity means the magnitude of actual travel per second in source units. The evaluator leaves coordinates unbounded for the texture sampler to address.
 
@@ -90,3 +94,16 @@ The renderer loads the verified source GLB and raw Ring04/ramp-down textures und
 Validation: 650 tests across 133 files, three focused browser scenarios and nested-path production smoke passed. The source profile, weighted integration, drag recurrence, scale/lookup endpoints, interpolation, retained-history replay and float-lifetime boundaries pass. The gameplay case confirms no generic Lux projectile object, active crescents in flight, exact post-impact instance restoration, fog removal/reappearance and complete retirement of all three effect maps. The combined preview preserves particle/vertex state and geometry counts across seeks and layer toggles. All 36 prior GPU source-color comparisons still pass. Gameplay flight/tail and isolated/combined preview captures were reviewed at 1440×900.
 
 Remaining fidelity work includes native frame/binding-clock and missile-height comparison, source mesh metadata interpretation, exact RNG/update scheduling, native sampler/blend capture and stop/linger modes. The 37-tick retained tail covers the reconstructed natural maximum lifetime; it does not implement the authored 10.6-second crescent linger. This completes the three-emitter reconstruction in gameplay, while native authenticity and the wider game remain unfinished. Evidence: `reference/lux-crescent-verification.json`.
+
+
+## Resolved type-0 lifetime caps
+
+The basic attack's authored linger numbers do **not** request that many additional seconds after impact. All three emitters omit `particleLingerType` and `emitterLinger`, including their hashed field identities. The pinned [LeagueToolkit schema](https://github.com/LeagueToolkit/LeagueToolkit/blob/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit.Meta.Classes/Classes.cs) defaults these to type 0 and zero wait. The [pinned enum](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/enums.ts) names type 0 `maxLifetimeAfterEmitterDies`; the [settlement reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts) caps total particle lifetime rather than resetting it from the stop. The [complex-emitter cap](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/systemModel.ts) also limits authored linger to nominal particle life plus ten seconds.
+
+`lux-basic-linger.ts` now records and applies those three policies. Crescent's approximately 10.6-second cap exceeds its approximately 0.6-second natural life; Trail's 0.5-second cap equals its life; Hoop's one-second cap exceeds every sampled life (at most approximately 0.6 seconds). Thus ordinary type-0 stopping leaves all three natural lifetimes unchanged. It never grants a fresh 10.6 seconds to a crescent. This resolves the earlier documentation's outstanding interpretation of the authored crescent linger value; extending the saved tail to ten seconds would have been incorrect under this mode.
+
+All three evaluators now use the explicit cap, and retained presentation duration derives from the maximum capped source life. It remains 37 ticks, with a 40-frame history including the existing three-frame margin. The maximum hoop lifetime factor is shared with its birth sampler, avoiding a separate handwritten retention bound. Format 51 remains unchanged; the simulation fingerprint changes under the existing same-build checkpoint policy.
+
+Validation: 654 tests across 134 files, two browser scenarios and nested-path production smoke passed. Tests match authored caps, check absence of named/hashed override fields, distinguish total-life caps from added post-impact time, cover the nominal-plus-ten cap, sample 1,001 hoop probability inputs and verify the source-float retention boundary. Real attack saves, all-emitter replay, fog and retirement still pass. No visual appearance change is intended or claimed.
+
+The primary schema/default evidence and external engine reconstruction are distinct from native-client observation. Whether a native Lux missile requests an ordinary soft stop or another termination operation remains to be captured. Exact attachment, orientation, height, binding clock, RNG/timing and shader/sampler comparison also remain open. Evidence: `reference/lux-linger-verification.json`.

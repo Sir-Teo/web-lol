@@ -1,3 +1,4 @@
+import { luxBasicParticleLife } from '../content/lux-basic-linger';
 import { LUX_BASIC_TRAIL as trail } from '../content/lux-basic-trail';
 import type { LuxAttackVisual } from '../simulation/types';
 import { luxAttackFrame } from './lux-attack-frame';
@@ -41,6 +42,11 @@ export interface LuxTrailPoint {
  */
 export function luxTrailParticles(effect: LuxAttackVisual, tick: number): LuxTrailPoint[] {
   if (!Number.isFinite(tick) || tick < effect.launchTick) return [];
+  const life = luxBasicParticleLife(
+    'trail',
+    trail.particleLife,
+    effect.stopTick !== null && tick >= effect.stopTick
+  );
   const nowTick = tick - effect.launchTick;
   const seconds = nowTick / 60;
   const stopTick = effect.stopTick === null ? Infinity : effect.stopTick - effect.launchTick;
@@ -51,11 +57,11 @@ export function luxTrailParticles(effect: LuxAttackVisual, tick: number): LuxTra
   for (let ordinal = last; ordinal >= first; ordinal--) {
     const birthTick = Math.ceil((ordinal * 60) / trail.rate);
     const age = (nowTick - birthTick) / 60;
-    if (age < 0 || age >= trail.particleLife) continue;
+    if (age < 0 || age >= life) continue;
     const frame = luxAttackFrame(effect, effect.launchTick + birthTick);
     if (!frame) continue;
     const birthPhase = birthTick / 60 / trail.emitterLife;
-    const phase = age / trail.particleLife;
+    const phase = age / life;
     const birthColor = color(trail.birthColor, birthPhase);
     const lifeColor = color(trail.color, phase);
     points.push({

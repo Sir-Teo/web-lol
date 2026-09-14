@@ -5,6 +5,7 @@
 export const LUX_BASIC_HOOP_APPEARANCE = {
   lookupX: { type: 1, scale: 1, offset: 0 },
   lookupY: { type: 0, scale: 0.5, offset: 0 },
+  maxLifetimeFactor: 4,
   nominalLifetime: 0.15000000596046448,
   birthColor: [1, 1, 1, 0.6500037908554077],
   scaleTimes: [0, 1],

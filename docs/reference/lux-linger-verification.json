@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-14T05:49:24.608887+00:00",
+  "baseRevision": "f8e7f22db0d5aa7204c9eafd7e315d3ed0bfb5b0",
+  "scope": "Explicit type-0 Lux particle life caps and source-derived presentation retention",
+  "conclusion": "Ordinary type-0 stop leaves every authored natural lifetime unchanged; no additional ten-second crescent tail",
+  "validation": {
+    "checks": 654,
+    "testFiles": 134,
+    "browserCases": 2,
+    "productionNestedPath": "passed",
+    "probabilityInputs": 1001,
+    "retainedTailTicks": 37,
+    "pathFrames": 40
+  },
+  "schema": {
+    "revision": "76bf57bf4fd195343dec610bf0f912a06b910914",
+    "sha256": "7019bed2520e3749762e2cc0d53e8e7612687f5619e30a56668085d03a1ff77a",
+    "defaults": {
+      "particleLingerType": 0,
+      "emitterLinger": 0
+    }
+  },
+  "reconstruction": {
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "sha256": {
+      "enums.ts": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0",
+      "readValue.ts": "f0d68f01959ba8cd8315399621f40556c77edfe2a4c7f6468f30094baa7718c4",
+      "readVfxSystem.ts": "a5765fc5676e4f58d0ae156bad93bf5e84936fe181c8bfe47c503a37da52a844",
+      "integrate.ts": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc",
+      "systemModel.ts": "22476d4a0541b4f13631be19c8e49cb1db9b5024a29ab6b0b5a0d8bcbedbfcfd"
+    }
+  },
+  "remaining": [
+    "Native missile termination operation",
+    "Native attachment/orientation/height and binding clock",
+    "Native RNG/timing and shader/sampler comparison"
+  ],
+  "sha256": {
+    "src/content/lux-basic-linger.ts": "9c5cb29d97602cebea987b31a7f1445fa1a5e4166b18e32abab80dae3316a0e4",
+    "src/content/lux-basic-lookups.ts": "0f17cc1588fb374b4a70d4d62bfdb3c4b846172cb0b596528ac1070dfca55ace",
+    "src/content/lux-attack-presentation.ts": "79908a8037d5e1369a9a493f5de0d0295b2846a6edd421424e496f98fb7c0cf0",
+    "src/render/lux-hoop-particles.ts": "3d2124252c0fbf2d5512014d33bf8721873ece3198dac6a62e2e789a6460cc20",
+    "src/render/lux-trail-particles.ts": "bf03db7e5d5f50d7df5c768063e7236f56ce3904016d195b1ebf6e18b1c490a1",
+    "src/render/lux-crescent-particles.ts": "a74731e0b61c7876dc1bed86d2920db555f5b40cebf62d9564f77b566105bf46",
+    "tests/lux-basic-linger.test.ts": "9291d35ef6c929dbd6848e1513ceee5b62329dd2fbf99a0415f073f3bf5b4628",
+    "artifacts/lux-linger-check.log": "7733a8a0d40b5b9deed9db35d414f657727dae9d702d3ed53f010ce97e85396c",
+    "artifacts/lux-linger-browser.log": "7138a49768668764b178870f3e125f394c6b2bb29905fcf27dedb76724d1c9b0",
+    "artifacts/lux-linger-production.log": "b57c5dac6ea6c3413c498b4135619234f72d2ffd6df0ded75121a2afa4a02e9b"
+  }
+}

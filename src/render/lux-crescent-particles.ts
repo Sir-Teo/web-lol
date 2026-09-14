@@ -1,3 +1,4 @@
+import { luxBasicParticleLife } from '../content/lux-basic-linger';
 import { LUX_BASIC_CRESCENT as crescent } from '../content/lux-basic-crescent';
 import type { LuxAttackVisual } from '../simulation/types';
 import { luxAttackFrame } from './lux-attack-frame';
@@ -27,6 +28,11 @@ export interface LuxCrescentParticle {
  */
 export function luxCrescentParticles(effect: LuxAttackVisual, tick: number): LuxCrescentParticle[] {
   if (!Number.isFinite(tick) || tick < effect.launchTick) return [];
+  const life = luxBasicParticleLife(
+    'crescent',
+    crescent.particleLife,
+    effect.stopTick !== null && tick >= effect.stopTick
+  );
   const now = tick - effect.launchTick;
   const stop = effect.stopTick === null ? Infinity : effect.stopTick - effect.launchTick;
   const last = Math.floor(
@@ -36,7 +42,7 @@ export function luxCrescentParticles(effect: LuxAttackVisual, tick: number): Lux
   for (let ordinal = 1; ordinal <= last; ordinal++) {
     const birthTick = Math.ceil((ordinal * 60) / crescent.rate),
       ageTicks = now - birthTick;
-    if (ageTicks < 0 || ageTicks >= crescent.particleLife * 60) continue;
+    if (ageTicks < 0 || ageTicks >= life * 60) continue;
     const birth = luxAttackFrame(effect, effect.launchTick + birthTick);
     if (!birth) continue;
     let x = birth.x,
@@ -68,7 +74,7 @@ export function luxCrescentParticles(effect: LuxAttackVisual, tick: number): Lux
     const height =
       (velocityY / 60) * ((decay * (1 - power)) / (1 - decay) + fraction * power * decay);
     const age = ageTicks / 60,
-      phase = age / crescent.particleLife;
+      phase = age / life;
     particles.push({
       ordinal,
       birthTick,
