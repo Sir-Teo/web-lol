@@ -12,7 +12,7 @@ def birth(raw):
  assert dynamics['times']==[0] and len(dynamics['values'])==1
  value=dynamics['values'][0]
  return {'value':value if isinstance(value,list) else [value], 'probabilities':[
-  {'times':t.get('{40c351da}',[]),'values':t.get('{e44b7382}',[])}
+  {'single':t.get('singleValue',t.get('{ad345dd6}',1)), 'times':t.get('{40c351da}',[]),'values':t.get('{e44b7382}',[])}
   for t in dynamics['{a7084719}']]}
 
 profile={'name':e['emitterName'],'emitterIndex':record['complexEmitterDefinitionData'].index(e),'count':45,'delay':e['timeBeforeFirstEmission'],

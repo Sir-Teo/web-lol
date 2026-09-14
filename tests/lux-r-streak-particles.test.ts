@@ -10,8 +10,8 @@ test('streak birth retains correlated source distribution endpoints and velocity
   expect(high.life).toBe(0.800000011920929);
   expect(low.offset).toEqual([100, 0, -1299.9999523162842]);
   expect(high.offset).toEqual([-100, 35, 1299.9999523162842]);
-  expect(low.halfSize).toEqual([50, 30.000001192092896, 0]);
-  expect(high.halfSize).toEqual([100, 50, 0]);
+  expect(low.halfSize).toEqual([50, 30.000001192092896, 1]);
+  expect(high.halfSize).toEqual([100, 50, 1]);
   expect(low.velocity[2]).toBeCloseTo(-130, 4);
   expect(middle.velocity[2]).toBeCloseTo(-260, 4);
   expect(high.velocity[2]).toBe(-2600);

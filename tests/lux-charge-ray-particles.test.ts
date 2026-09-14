@@ -7,8 +7,8 @@ test('rotating charge ray birth keeps correlated source endpoints', () => {
     high = luxChargeRayBirth(1);
   expect(low.rotation).toBe(-360);
   expect(high.rotation).toBe(360);
-  expect(low.halfSize).toEqual([5, 60.00000089406967, 0]);
-  expect(high.halfSize).toEqual([20, 300, 0]);
+  expect(low.halfSize).toEqual([5, 60.00000089406967, 1]);
+  expect(high.halfSize).toEqual([20, 300, 1]);
   expect(low.multOffset).toEqual([-1, -1]);
   expect(high.multOffset).toEqual([1, 1]);
   expect(() => luxChargeRayBirth(NaN)).toThrow();

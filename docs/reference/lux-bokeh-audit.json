@@ -1,0 +1,55 @@
+{
+  "emitter": "Bokeh",
+  "source": "lux-beam-complete.json",
+  "status": "Researched; not rendered. Active coverage remains 21 of 39.",
+  "resolvedFields": {
+    "2431d42c": "particleLinger",
+    "e09d5ebb": "isRandomStartFrame",
+    "1e67b0f1": "numFrames",
+    "ad345dd6": "singleValue"
+  },
+  "design": {
+    "count": 45,
+    "delay": 1,
+    "particleLifetime": [
+      0.5,
+      1
+    ],
+    "emitterLifetime": 1.7999999523162842,
+    "particleLinger": 2,
+    "lingerInterpretation": "Absent particleLingerType defaults to maxLifetimeAfterEmitterDies in the pinned reference. On system stop this caps existing lifetime rather than appending two seconds. Do not extend local retention from particleLinger alone.",
+    "atlas": "Use authored texDiv [2,2] and numFrames 4 despite the texture filename saying 4x4. Choose a deterministic random starting cell per particle; absent frameRate defaults to zero. Mult layer shares the counter but has its own divisions.",
+    "birthColor": "Empty RGB probability structs have default singleValue 1. Alpha uses the 0.3-to-1 probability curve multiplied by authored birth alpha 0.02999923750758171.",
+    "size": "Multiply birth scale and animated scale, then broadcast final X for uniform scale. Camera-facing plane and negative 90-degree source X spin.",
+    "motion": "Source birth velocity along Z with drag 4, translated by randomized spawn offset and emitter Z=1600. Use existing deterministic stepped reconstruction policy.",
+    "material": "Source-alpha additive blend, pass 9, miscRenderFlags 1; warm flickering color, rainbow multiplier and red-channel erosion."
+  },
+  "references": [
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readValue.ts",
+      "sha256": "f0d68f01959ba8cd8315399621f40556c77edfe2a4c7f6468f30094baa7718c4"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/sampleCurve.ts",
+      "sha256": "b3bf37eeca26278b1ac4a2fa430dcc1fd2fd9838d2dd22ff04b82c4aa84a7643"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts",
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts",
+      "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/uvTransform.ts",
+      "sha256": "72373e2d9022b96a6d451c4a5f5110154c7d6500e0bce0ee2eb7ef2d88878b53"
+    }
+  ],
+  "remaining": [
+    "Extract and pin Lux_Base_Z_Bokeh_Dots_4x4.tex.",
+    "Export normalized birth, atlas, motion and appearance data with strict source assertions.",
+    "Implement sampler, camera-quad batch and atlas-aware material, then verify GPU cells, visibility, save reconstruction and retirement.",
+    "Native PRNG, update cadence, attachment height and full composition remain unverified."
+  ]
+}

@@ -9,6 +9,7 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -28,14 +29,17 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [],
         "values": []
       },
       {
+        "single": 1,
         "times": [],
         "values": []
       },
       {
+        "single": 1,
         "times": [
           0.0,
           0.5,
@@ -59,6 +63,7 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -69,6 +74,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -79,6 +85,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -98,6 +105,7 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -108,6 +116,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -118,6 +127,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [],
         "values": []
       }
@@ -130,6 +140,7 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -140,6 +151,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [],
         "values": []
       }

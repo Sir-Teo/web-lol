@@ -16,6 +16,7 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -26,10 +27,12 @@
         ]
       },
       {
+        "single": 1,
         "times": [],
         "values": []
       },
       {
+        "single": 1,
         "times": [],
         "values": []
       }
@@ -73,6 +76,7 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -83,6 +87,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -93,6 +98,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [],
         "values": []
       }
@@ -164,6 +170,7 @@
     ],
     "probabilities": [
       {
+        "single": 1,
         "times": [
           0.0,
           1.0
@@ -174,6 +181,7 @@
         ]
       },
       {
+        "single": 1,
         "times": [
           0.0,
           1.0

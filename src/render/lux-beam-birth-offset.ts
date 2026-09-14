@@ -1,7 +1,12 @@
 interface BirthOffset {
   readonly value: readonly number[];
   readonly probabilities:
-    readonly { readonly times: readonly number[]; readonly values: readonly number[] }[] | null;
+    | readonly {
+        readonly times: readonly number[];
+        readonly values: readonly number[];
+        readonly single?: number;
+      }[]
+    | null;
 }
 /** One shared birth chance drives the source per-axis multiplier tables. */
 export function luxBeamBirthOffset(profile: BirthOffset, chance: number): number[] {
@@ -10,7 +15,10 @@ export function luxBeamBirthOffset(profile: BirthOffset, chance: number): number
   return profile.value.map((value, axis) => {
     if (!profile.probabilities) return value;
     const table = profile.probabilities[axis];
-    if (!table?.times.length) return 0;
+    // An absent table leaves the channel alone; an empty table uses singleValue (default 1).
+    if (!table) return value;
+    if (table.times.length !== table.values.length) return 0;
+    if (!table.times.length) return value * (table.single ?? 1);
     if (chance <= table.times[0]) return value * table.values[0];
     for (let i = 1; i < table.times.length; i++)
       if (chance <= table.times[i]) {

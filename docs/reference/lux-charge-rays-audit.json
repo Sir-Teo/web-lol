@@ -2,7 +2,7 @@
   "emitter": "END_Beam_ROTATING",
   "source": "lux-beam-complete.json",
   "profile": "src/content/lux-charge-rays.json",
-  "profileSha256": "42737c2cb095bf6c93dd6745afcd781e69351386aa27a393705383691c613ab3",
+  "profileSha256": "9cd433ad9915925d79172fceed2469674d6e2ccae1c623fe4fd87419b3498f69",
   "count": 10,
   "life": 0.949999988079071,
   "interpretation": {

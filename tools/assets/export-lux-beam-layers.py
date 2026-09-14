@@ -69,7 +69,7 @@ def birth_offset(e):
  assert dynamics['times']==[0] and len(dynamics['values'])==1
  tables=dynamics.get('probabilityTables',dynamics.get('{a7084719}'))
  return {'value':dynamics['values'][0], 'probabilities':[
-  {'times':t.get('keyTimes',t.get('{40c351da}',[])), 'values':t.get('keyValues',t.get('{e44b7382}',[]))}
+  {'single':t.get('singleValue',t.get('{ad345dd6}',1)), 'times':t.get('keyTimes',t.get('{40c351da}',[])), 'values':t.get('keyValues',t.get('{e44b7382}',[]))}
   for t in tables] if tables is not None else None}
 def erosion(e):
  raw=e.get('alphaErosionDefinition',e.get('{c4663005}'))

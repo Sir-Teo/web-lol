@@ -621,10 +621,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 0.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [],
           values: [],
         },
@@ -703,10 +705,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 0.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [],
           values: [],
         },
@@ -786,10 +790,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 0.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
@@ -881,10 +887,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 0.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [],
           values: [],
         },
@@ -975,10 +983,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 0.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [],
           values: [],
         },
@@ -1069,10 +1079,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 0.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [],
           values: [],
         },
@@ -1190,10 +1202,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 1.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
@@ -1274,10 +1288,12 @@ export const LUX_BEAM_LAYERS = [
       value: [1.0, 1.0],
       probabilities: [
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
         {
+          single: 1,
           times: [0.0, 1.0],
           values: [-1.0, 1.0],
         },
