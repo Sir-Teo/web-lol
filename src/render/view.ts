@@ -609,6 +609,14 @@ export class GameView {
             attack.time =
               attack.getClip().duration * Math.min(1, ticks / (cycle.endTick - cycle.startTick));
             attack.paused = true;
+            // A restored or newly visible attack may already be past its transition.
+            // Mixer-clock fades must not hide its saved pose for another 80 ms.
+            if (ticks / TICK_RATE >= 0.08) {
+              for (const other of Object.values(model.actions))
+                if (other !== attack && other.isScheduled()) other.stop();
+              attack.stopFading();
+              attack.setEffectiveWeight(1);
+            }
           }
           if (clip === 'death' && model.actions.death) {
             const death = model.actions.death;
