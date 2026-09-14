@@ -105,3 +105,29 @@ Snapshot version 65 adds the selected missile recording (0/1) to live and stoppe
 Two added numerical cases cover alternating selection across reload, rejected launches, unchanged simulation randomness, invalid selection state, stable range-stop prediction, exact stopped-fade age and natural sample expiry. All 799 unit tests pass. Two new Chrome cases use real Web Audio nodes to verify live playback, offset restoration, impact fade scheduling, independent camera gain, pause/mute, visibility removal/re-entry, voice stealing and completion without frozen-frame replay. The test checks scheduled gain commands because an immediate AudioParam value read can precede the next audio render quantum. Seventeen distinct browser cases pass across missile, cast, binding resolution, Hawkshot and passive audio coverage. The production nested-path smoke passes with seventeen integrated recordings, a real Lux Q cast and lane restart.
 
 Root activation, its continuous layer, deactivation/release audio, native dispatch comparison and full listening parity remain outstanding.
+
+## Complete target-effect source audit
+
+`tools/assets/extract-lux-binding-target.py` verifies the Skin0 `Lux_Q_tar` resource alias and the complete `Lux_Base_Q_tar` definition against the frozen Riot BIN. Cached CDragon JSON supplies names only on the first run; the shared BIN must match its previously pinned bytes/hash, and the decoded record must exactly match the naming seed. Subsequent runs use the committed `reference/lux-binding-target-vfx.json` and the verified archive, so the naming cache is no longer required.
+
+The record has eleven emitters and refers to eleven TEX images and three SCB meshes. All fifteen source files (including the BIN) are retained by hash with frozen manifest/chunk provenance. Eleven lossless PNG mappings preserve decoded RGBA hashes and encoded PNG hashes. Four existing texture outputs are reused; seven new images are exported, and none duplicates the decoded RGBA payload of another existing effects PNG. The three source meshes remain in the verified cache for subsequent topology/UV decoding.
+
+| Source layer | Primitive | Rate / single flag | Explicit particle lifetime | Emitter lifetime / pass |
+|---|---|---|---|---|
+| `blastring` | Default quad | 1 / false | 0.3 s | 1 s / default |
+| `orbitrunes` | Arbitrary quad | 12 / false | 0.5 s | 2.5 s / default |
+| `bars` | Arbitrary quad | 100 / false | 0.7 s | 2 s / default |
+| `orbitcap1` | Arbitrary quad | 12 / false | 0.5 s | 2.5 s / default |
+| `fireCircleTimer`, `fireCircleTimer1` | Portal-edge mesh | 1 / true | Omitted | 2.5 s / 5 |
+| `Constelations`, `Constelations1` | Fixed-circle mesh | 1 / true | Omitted | 2.5 s / 550 |
+| `energy_Float` | Arbitrary quad | 10 / true | 1.5 s × probability 0.5–1.3 | 1 s / −100 |
+| `up_glow` | Cylinder mesh | 3 / true | 0.6 s | 0.1 s / default |
+| `up_glow1` | Cylinder mesh | 3 / true | 1 s | 0.1 s / −1 |
+
+Numbers above are rounded for reading; the full record retains exact source floats, probability tables, colors, transforms, texture multiplication, emission flags and unnamed fields. An omitted particle lifetime is not silently replaced with the emitter lifetime. The rune/cap layers use color lookup Y mode 3; bars and energy carry soft-particle settings. Mesh timers multiply by the Q gradient with U scroll −0.48. The late cylinder multiplies by its own cylinder texture with U scroll −0.1. Unknown `{4ffce322}` blocks and the system's `{3aae4707}` value 260 remain unresolved, rather than being labeled as verified distortion or range.
+
+The 128×128 cap texture is white in RGB with alpha 0–175; it is a mask, not an empty white asset. The cap and 256×256 cylinder PNGs were visually inspected, and the complete extraction/verification passes on repeat with identical pinned output. Reproduce with `PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-lux-binding-target.py`.
+
+Unlike the passive detonation record, this target record does not contain an explicit audio event attachment. It therefore does not establish whether native Q target presentation dispatches the ordinary or `Mis` root event family. That mapping, mesh decoding, lookup/soft-particle interpretation, attachment height/orientation, gameplay lifetime control and rendered/native comparison remain outstanding. These assets are not yet a rendered replacement for the target effect.
+
+All three mesh headers identify SCB 3.2 with flags 2: the cylinder reports 40 vertices/40 triangles, the fixed circle 180/240, and the portal-edge circle 300/480. Those header counts do not yet validate topology or UV interpretation. The production build/nested-path smoke passes with the existing seventeen audio recordings, and all eleven production PNG copies match their verified hashes.
