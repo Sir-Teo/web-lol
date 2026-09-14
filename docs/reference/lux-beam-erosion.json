@@ -51,11 +51,13 @@
     "gpuAlphaProbes": 45,
     "browserTests": 10,
     "unitTests": 721,
-    "productionSmoke": "passed"
+    "productionSmoke": "passed",
+    "gpuSpatialProbes": 42,
+    "ordinaryWrapMutation": "rejected by spatial assertion"
   },
   "limitations": [
     "External reconstruction evidence; no independent native erosion shader inspection in this increment.",
-    "GPU probes verify alpha arithmetic, not spatial mirrored sampling or native composition.",
+    "Spatial probes verify mirrored sampling and transposed scroll with nearest-filtered diagnostic texels; native filtering and composition remain unverified.",
     "Only default alpha mixer and mirrored addressing are supported; exporter rejects additional erosion fields."
   ]
 }

@@ -28,7 +28,14 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
     white.needsUpdate = true;
     const bytes = new Uint8Array([0, 0, 0, 0]),
       mask = new THREE.DataTexture(bytes, 1, 1);
-    const results = [];
+    const spatialMask = new THREE.DataTexture(
+      new Uint8Array([0, 0, 0, 32, 0, 0, 0, 96, 0, 0, 0, 160, 0, 0, 0, 224]),
+      2,
+      2
+    );
+    spatialMask.needsUpdate = true;
+    const results = [],
+      spatial = [];
     for (const source of group.children.filter((m: any) => m.name.startsWith('Beam_Post_'))) {
       const material = source.material.clone();
       material.blending = THREE.NoBlending;
@@ -49,6 +56,22 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
           renderer.readRenderTargetPixels(target, 0, 0, 1, 1, pixel);
           results.push({ name: source.name, alpha, drive, pixel: [...pixel] });
         }
+      material.uniforms.erosionMap.value = spatialMask;
+      material.uniforms.erosionDrive.value = 0.5;
+      const uv = plane.getAttribute('uv');
+      for (let i = 0; i < uv.count; i++) uv.setXY(i, 0.25, 0.25);
+      uv.needsUpdate = true;
+      for (const axis of [0, 1])
+        for (const translation of [-2.5, -1.5, -0.5, 0, 0.5, 1.5, 2.5]) {
+          material.uniforms.offset.value.set(
+            axis === 0 ? translation : 0,
+            axis === 1 ? translation : 0
+          );
+          renderer.render(scene, camera);
+          const pixel = new Uint8Array(4);
+          renderer.readRenderTargetPixels(target, 0, 0, 1, 1, pixel);
+          spatial.push({ name: source.name, axis, translation, pixel: [...pixel] });
+        }
       scene.remove(mesh);
       material.dispose();
     }
@@ -56,12 +79,13 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
     plane.dispose();
     white.dispose();
     mask.dispose();
+    spatialMask.dispose();
     target.dispose();
     renderer.dispose();
-    return results;
+    return { ramps: results, spatial };
   });
-  expect(results).toHaveLength(45);
-  for (const result of results) {
+  expect(results.ramps).toHaveLength(45);
+  for (const result of results.ramps) {
     const clamp = (x: number) => Math.min(1, Math.max(0, x)),
       v = result.alpha / 255,
       f = 0.30000001192092896;
@@ -71,5 +95,19 @@ test('post-beam erosion cuts alpha using source map channel and feather ramps', 
       Math.abs(result.pixel[3] - 255 * kept),
       `${result.name} ${result.alpha} ${result.drive}`
     ).toBeLessThanOrEqual(1);
+  }
+  expect(results.spatial).toHaveLength(42);
+  for (const result of results.spatial) {
+    // The source transform transposes translation axes before mirrored sampling.
+    const coordinate = 0.25 + result.translation;
+    const tile = Math.floor(coordinate),
+      fraction = coordinate - tile;
+    const folded = Math.abs(tile % 2) === 1 ? 1 - fraction : fraction;
+    const column = result.axis === 1 ? Math.floor(folded * 2) : 0;
+    const row = result.axis === 0 ? Math.floor(folded * 2) : 0;
+    const maskAlpha = [32, 96, 160, 224][row * 2 + column] / 255;
+    const expected = 255 * (1 - Math.min(1, Math.max(0, (0.5 - maskAlpha) / 0.30000001192092896)));
+    expect(result.pixel.slice(0, 3)).toEqual([255, 255, 255]);
+    expect(Math.abs(result.pixel[3] - expected), JSON.stringify(result)).toBeLessThanOrEqual(1);
   }
 });
