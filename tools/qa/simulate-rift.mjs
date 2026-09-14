@@ -7,12 +7,14 @@ import { createHash } from 'node:crypto';
 const seconds = Number(process.argv[2] ?? 600);
 const output = process.argv[3] ?? 'artifacts/rift-team-simulation.json';
 const roster = process.argv[4] ?? 'ashe';
-if (!['ashe', 'mixed'].includes(roster)) throw new Error('Roster must be ashe or mixed');
+if (!['ashe', 'mixed', 'lanes'].includes(roster))
+  throw new Error('Roster must be ashe, mixed or lanes');
 if (!Number.isInteger(seconds) || seconds < 1 || seconds > 3600)
   throw new Error('Duration must be an integer between 1 and 3600 seconds');
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
 try {
   const { World } = await server.ssrLoadModule('/src/simulation/world.ts');
+  const { createLaneMatch } = await server.ssrLoadModule('/src/simulation/lane-match.ts');
   const { NavGrid } = await server.ssrLoadModule('/src/simulation/navgrid.ts');
   const { createRift } = await server.ssrLoadModule('/src/content/rift.ts');
   const metadata = JSON.parse(await readFile('public/assets/maps/rift-nav.json', 'utf8'));
@@ -23,28 +25,39 @@ try {
     bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength)
   );
   const battlefield = createRift(grid, layout);
-  battlefield.initialUnits = battlefield.initialUnits.filter(
-    (u) => u.kind !== 'champion' && u.kind !== 'dummy'
-  );
-  const world = new World(true, battlefield);
-  // 2 top / 1 mid / 2 bottom exercises lane combat and shared rewards. No jungler is impersonated.
-  const assignment = [1, 0, 0, 2, 2];
-  const champions = [];
-  for (const team of ['blue', 'red']) {
-    for (const [slot, lane] of assignment.entries()) {
-      const home = battlefield.spawns[team];
-      const position = battlefield.reachable({ x: home.x + (slot - 2) * 75, y: home.y }, 35, team);
-      const u =
-        team === 'blue' && slot === 0
-          ? world.hero
-          : world.spawn(
-              'champion',
-              team,
-              position,
-              roster === 'mixed' && slot === 4 ? 'lux' : 'ashe'
-            );
-      Object.assign(u, position, { previous: { ...position }, ai: true, lane });
-      champions.push(u);
+  let world;
+  let champions = [];
+  if (roster === 'lanes') {
+    world = createLaneMatch(battlefield);
+    champions = world.units.filter((u) => u.kind === 'champion');
+  } else {
+    battlefield.initialUnits = battlefield.initialUnits.filter(
+      (u) => u.kind !== 'champion' && u.kind !== 'dummy'
+    );
+    world = new World(true, battlefield);
+    // 2 top / 1 mid / 2 bottom exercises lane combat and shared rewards. No jungler is impersonated.
+    const assignment = [1, 0, 0, 2, 2];
+
+    for (const team of ['blue', 'red']) {
+      for (const [slot, lane] of assignment.entries()) {
+        const home = battlefield.spawns[team];
+        const position = battlefield.reachable(
+          { x: home.x + (slot - 2) * 75, y: home.y },
+          35,
+          team
+        );
+        const u =
+          team === 'blue' && slot === 0
+            ? world.hero
+            : world.spawn(
+                'champion',
+                team,
+                position,
+                roster === 'mixed' && slot === 4 ? 'lux' : 'ashe'
+              );
+        Object.assign(u, position, { previous: { ...position }, ai: true, lane });
+        champions.push(u);
+      }
     }
   }
   const samples = [];
@@ -95,7 +108,8 @@ try {
             id: u.id,
             champion: u.champion,
             team: u.team,
-            lane: battlefield.lanes[u.lane].name,
+            lane: u.lane === null ? null : battlefield.lanes[u.lane].name,
+            ai: u.ai,
             x: u.x,
             y: u.y,
             hp: u.hp,
@@ -141,7 +155,10 @@ try {
     violations.push({ tick: world.tick, reason: 'Checkpoint rejected', message: error.message });
   }
   const report = {
-    fixture: `Ten automated champions (${roster === 'mixed' ? 'eight Ashe, two Lux' : 'ten Ashe'}), 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.`,
+    fixture:
+      roster === 'lanes'
+        ? 'Actual local lane-match factory: idle human Ashe and nine bots, Lux mid, 2 top / 1 mid / 2 bottom. The idle human intentionally creates an asymmetric stress case; not a representative player match.'
+        : `Ten automated champions (${roster === 'mixed' ? 'eight Ashe, two Lux' : 'ten Ashe'}), 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.`,
     castCounts,
     revision: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
     worktree: execFileSync('git', ['status', '--short'], { encoding: 'utf8' }).trim(),

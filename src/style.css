@@ -57,7 +57,8 @@ button {
   color: inherit;
   cursor: pointer;
 }
-button:focus-visible {
+button:focus-visible,
+.game-dialog:focus-visible {
   outline: 2px solid #d9d29d;
   outline-offset: 4px;
 }

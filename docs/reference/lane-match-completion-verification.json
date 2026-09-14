@@ -1,0 +1,55 @@
+{
+  "recordedAt": "2026-09-14T03:41:00.693960+00:00",
+  "baseRevision": "5c3128a610df4e443bcde08857da4d8e163a54ff",
+  "feature": "Actual lane-match factory natural completion and restored result flow; themed dialog focus",
+  "validation": {
+    "terminalSeconds": 2347.883333333333,
+    "winner": "blue",
+    "violations": [],
+    "restoredEqual": true,
+    "browserResult": {
+      "snapshotSHA256": "2925563365bdf681048ee29fdb4f2ea98a89c1c7b9adc9ef1af0d626bfd65516",
+      "preview": "Lane match \u00b7 39:07 \u00b7 Blue team victory. Loading replaces the current match and its browser save.",
+      "title": "Victory",
+      "exactRestoration": true,
+      "terminalFrozen": true,
+      "restarted": {
+        "mode": "lanes",
+        "tick": 0,
+        "winner": null,
+        "paused": true,
+        "champions": 10
+      },
+      "errors": []
+    },
+    "focusedBrowserScenarios": 2,
+    "production": "passed nested path, nine recordings, navigation, real Hawkshot, no development hook",
+    "legacyDiagnostics": "ashe and mixed one-second smoke passed",
+    "visualReview": [
+      "1920x1080 live twenty-minute top lane",
+      "1366x768 natural victory after import and focus styling repair"
+    ]
+  },
+  "limitations": [
+    "Idle human stress case, not representative player balance.",
+    "One deterministic starting configuration, no full roster/jungle/neutral objectives.",
+    "Render observation overlapped a separate CPU simulation; no isolated performance comparison or native pixel certification.",
+    "Simulation unchanged from 615-check verified base."
+  ],
+  "sha256": {
+    "src/style.css": "0cbb34e6844d7c0a583c9f2a6097d6a8cbbd47bc480fc3ca192c925981ee8ea6",
+    "tools/qa/simulate-rift.mjs": "9ca600adb57925f2b48bc0bb38b6693c35022bd806d16ec5fc6313f008f79280",
+    "tools/qa/restore-match.mjs": "efacb0288b3b8fc56157e8b863a9acdf28bca58c0cea7701a36f9ac4f8988953",
+    "artifacts/lane-match-opening.json": "09ec3afb5666a97b4b7bd6870fd2cdf8d897cb95e1254b7119ed4d1e2f35cfdd",
+    "artifacts/lane-match-twenty-minutes.json": "d5d58df861b016b04566f1dabb141527cbb52b418d7a41d7be62bc717a03a292",
+    "artifacts/lane-match-twenty-minutes.snapshot.json": "38f03566d6e2256fbc6a348d63a86b59f40d645a5f5c3bae73e72239c8c50c48",
+    "artifacts/lane-match-terminal.json": "4bfef38d74f20485e15776b4e21b4f6b32a4ab098d6ca7f7863ed2200355061f",
+    "artifacts/lane-match-terminal.snapshot.json": "2925563365bdf681048ee29fdb4f2ea98a89c1c7b9adc9ef1af0d626bfd65516",
+    "artifacts/lane-match-terminal-ui.json": "a0326f9fec7cebe6a8fb3b9c0d805e4907ca7de54ff4cde441793a5e89f556f1",
+    "artifacts/lane-match-terminal-ui.png": "73ab147e766cc4cd8d5fde9c86a04b01a289320ccf7f65d5b407047b071712e8",
+    "artifacts/lane-match-twenty-minutes-render.json": "b8ec4924efae4b6ba2ed0991cf6a83a5b9c2ed92857412ead88a60c0145e2ae2",
+    "artifacts/lane-match-twenty-minutes-render.png": "06e1a58b1760f40a2550887f59c61784ebe9a77e5ceb8c096b8579c9239c18ba",
+    "artifacts/lane-match-focus.log": "0cf0be8bb91654e6c17af3c15f574c35036eaccb39b0f07e82f48512f44bd78a",
+    "artifacts/lane-match-audit-production.log": "34377388906524cb2974241390e1d67aeb23b2e375748e258cc5ef34f3ed4896"
+  }
+}

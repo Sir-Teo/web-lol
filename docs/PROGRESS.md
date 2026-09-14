@@ -1653,3 +1653,21 @@ Starting replaces the browser checkpoint after explaining that consequence in th
 This milestone exposes existing lane AI in the normal game UI. It does not add jungle roles, camps, neutral objectives, human champion selection, the remaining planned roster, or native visual certification. Those remain required work.
 
 Validation: `npm run check` passed 615 tests across 126 files. The focused Chrome integration run passed 29 scenarios, including match selection/restart, failed replacement writes, save/file recovery, pause focus and scoreboard behavior. Nested-path production smoke passed nine audio recordings, navigation, real Hawkshot input and absence of the development hook. The 1366×768 selection and ten-player scoreboard screenshots were inspected. Evidence hashes are in `docs/reference/lane-match-verification.json`.
+
+
+## Natural lane-match completion audit
+
+The actual `createLaneMatch` entry now has a reproducible `lanes` option in `tools/qa/simulate-rift.mjs`. Unlike the older ten-AI fixtures, it leaves the human Ashe idle at the fountain and uses the shipped nine-bot roster. This deliberately asymmetric case completed at **39:07.883**, blue victory with the red Nexus destroyed, without resource/position bounds violations. Both bases lost structures and inhibitors. The 300-second, 1,200-second and terminal snapshots round-tripped exactly; the first twenty minute samples of the longer run matched the standalone twenty-minute run. This proves this starting configuration can progress naturally to a result, not balance or complete role intelligence.
+
+`tools/qa/restore-match.mjs` imports the naturally reached terminal checkpoint through **Match files**, verifies the exact snapshot and Victory dialog, checks that 120 additional simulation ticks leave the terminal state frozen, then uses **Play again** and verifies a fresh paused ten-champion lane match at tick zero. Its laptop screenshot was inspected. This revealed a browser-default blue focus ring on the dialog; focused dialogs now use the existing gold keyboard-focus treatment. Two focused pause/graphics-recovery browser scenarios and nested-path production smoke passed after that CSS change. The existing 615 source/simulation checks apply to the unchanged simulation.
+
+A 1,800-frame render observation from the actual twenty-minute checkpoint measured rAF timestamp intervals of 16.7/16.7/16.8 ms (median/p95/p99), with no intervals over 25 ms. GPU query times were 3.01/6.48/6.98 ms. It ran concurrently with the separate headless terminal simulation, so it is explicitly an observation under background CPU work, not an isolated comparison, optimization claim, physical presentation measurement or low-end performance certification. The 1920×1080 live top-lane screenshot was inspected. Evidence and hashes: `docs/reference/lane-match-completion-verification.json`.
+
+Reproduce with:
+
+```sh
+node tools/qa/simulate-rift.mjs 3600 artifacts/lane-match-terminal.json lanes
+node tools/qa/restore-match.mjs http://127.0.0.1:5173 artifacts/lane-match-terminal.snapshot.json artifacts/lane-match-terminal-ui
+```
+
+The restore diagnostic requires a development server and a terminal lane-mode checkpoint from the same simulation build. No native client comparison or broader production completion is implied.
