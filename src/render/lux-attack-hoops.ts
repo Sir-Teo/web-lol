@@ -1,3 +1,4 @@
+import { luxAttackPresentation } from './lux-attack-clock';
 import * as THREE from 'three';
 import type { LuxAttackVisual } from '../simulation/types';
 import type { Vec2 } from '../simulation/math';
@@ -49,10 +50,11 @@ export class LuxAttackHoops {
     private scene: THREE.Scene,
     private ground: (p: Vec2) => number
   ) {}
-  update(world: World, alpha: number, camera: THREE.Camera) {
+  update(world: World, alpha: number, camera: THREE.Camera, terminalAge = 0) {
     if (!textures) return;
     const active = new Set<number>();
-    for (const effect of world.luxAttackVisuals) {
+    const { tick, effects } = luxAttackPresentation(world, alpha, terminalAge);
+    for (const effect of effects) {
       active.add(effect.id);
       let cloud = this.clouds.get(effect.id);
       if (!cloud) {
@@ -60,7 +62,7 @@ export class LuxAttackHoops {
         this.clouds.set(effect.id, cloud);
         this.scene.add(cloud.mesh);
       }
-      const particles = luxAttackHoopParticles(effect, world.tick - 1 + alpha)
+      const particles = luxAttackHoopParticles(effect, tick)
         .filter(
           (p) =>
             effect.team === 'blue' || world.pointVisible({ x: p.position[0], y: p.position[2] })

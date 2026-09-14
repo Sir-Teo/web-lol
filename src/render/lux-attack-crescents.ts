@@ -1,3 +1,4 @@
+import { luxAttackPresentation } from './lux-attack-clock';
 import depthProfiles from '../content/lux-flight-depth.json';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -94,10 +95,11 @@ export class LuxAttackCrescents {
     private scene: THREE.Scene,
     private ground: (p: Vec2) => number
   ) {}
-  update(world: World, alpha: number) {
+  update(world: World, alpha: number, terminalAge = 0) {
     if (!geometry || !textures) return;
     const active = new Set<number>();
-    for (const effect of world.luxAttackVisuals) {
+    const { tick, effects } = luxAttackPresentation(world, alpha, terminalAge);
+    for (const effect of effects) {
       active.add(effect.id);
       let cloud = this.clouds.get(effect.id);
       if (!cloud) {
@@ -105,7 +107,7 @@ export class LuxAttackCrescents {
         this.clouds.set(effect.id, cloud);
         this.scene.add(cloud.mesh);
       }
-      const particles = luxCrescentParticles(effect, world.tick - 1 + alpha).filter(
+      const particles = luxCrescentParticles(effect, tick).filter(
         (p) => effect.team === 'blue' || world.pointVisible({ x: p.position[0], y: p.position[2] })
       );
       cloud.update(particles, this.ground);

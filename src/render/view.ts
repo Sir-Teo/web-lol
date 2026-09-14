@@ -587,9 +587,9 @@ export class GameView {
       }
     this.syncProjectiles(world, alpha);
     this.luxBeams.update(world, alpha);
-    this.luxAttackHoops.update(world, alpha, this.camera);
-    this.luxAttackTrails.update(world, alpha);
-    this.luxAttackCrescents.update(world, alpha);
+    this.luxAttackHoops.update(world, alpha, this.camera, terminalAge);
+    this.luxAttackTrails.update(world, alpha, terminalAge);
+    this.luxAttackCrescents.update(world, alpha, terminalAge);
     this.luxImpacts.update(world, alpha, this.camera, terminalAge);
     this.luxSingularities.update(world, alpha);
     this.wind.update(world);

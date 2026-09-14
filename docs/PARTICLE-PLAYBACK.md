@@ -180,3 +180,15 @@ A GPU browser check uses each real material factory on a controlled probe behind
 python3 tools/assets/export-lux-flight-depth.py
 npx playwright test e2e/lux-flight-depth.spec.ts e2e/lux-hoop-playback.spec.ts e2e/lux-trail-material.spec.ts
 ```
+
+## Lux flight tails after victory
+
+The flight adapters now use the same session-local terminal presentation age as impact particles and structure destruction. `luxAttackPresentation` supplies a common display tick and effect list to crescents, hoop motes and ribbons. Confirmed projectile contacts keep their saved stop tick. If victory occurs before projectile cleanup and the saved emitter is still active, presentation supplies a stop at the frozen world tick without mutating the effect. No particles are emitted after that stop; retained frames continue to determine existing particle placement.
+
+At the existing source-derived conservative tail bound, the effect leaves the presentation list and each adapter disposes its owned geometry/material resources. Saved history remains intact, allowing deterministic reconstruction when seeking backward. The terminal age is not persisted; native victory sequencing and the behavior of other spell/environment effects remain separate work.
+
+Browser checks cover both a real projectile killing the Nexus and a direct Nexus death while Lux's projectile remains in flight. Every layer changes during terminal playback, matches its sampler's particle/vertex count with an explicit victory stop, disappears and releases its cloud/ribbon, and reconstructs exactly after seeking backward. Repeated timestamps are stable and serialized match state remains unchanged after rendering and attempted simulation steps. Both existing terminal impact checks and continuous attack playback pass, alongside all 718 unit tests and the production subpath smoke test.
+
+```sh
+npx playwright test e2e/lux-flight-terminal.spec.ts e2e/lux-impact-terminal.spec.ts e2e/lux-continuous-attacks.spec.ts
+```

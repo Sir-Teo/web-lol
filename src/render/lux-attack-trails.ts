@@ -1,3 +1,4 @@
+import { luxAttackPresentation } from './lux-attack-clock';
 import depthProfiles from '../content/lux-flight-depth.json';
 import * as THREE from 'three';
 import type { World } from '../simulation/world';
@@ -88,10 +89,11 @@ export class LuxAttackTrails {
     private scene: THREE.Scene,
     private ground: (p: Vec2) => number
   ) {}
-  update(world: World, alpha: number) {
+  update(world: World, alpha: number, terminalAge = 0) {
     if (!textures) return;
     const active = new Set<number>();
-    for (const effect of world.luxAttackVisuals) {
+    const { tick, effects } = luxAttackPresentation(world, alpha, terminalAge);
+    for (const effect of effects) {
       active.add(effect.id);
       let ribbon = this.ribbons.get(effect.id);
       if (!ribbon) {
@@ -99,7 +101,7 @@ export class LuxAttackTrails {
         this.ribbons.set(effect.id, ribbon);
         this.scene.add(ribbon.mesh);
       }
-      const points = luxTrailParticles(effect, world.tick - 1 + alpha);
+      const points = luxTrailParticles(effect, tick);
       ribbon.update(
         luxTrailRibbon(
           points,
