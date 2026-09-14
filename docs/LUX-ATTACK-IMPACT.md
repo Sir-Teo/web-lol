@@ -230,3 +230,16 @@ Analytical tests check placement under a known bone translation, a 90-degree sav
 Two gameplay browser cases compare every visible ring position and all five spark positions against independently recorded live attachment bones. They also check stretch with inherited bone velocity and exact paused/reloaded particle matrices with the same camera settings. Normal and critical screenshots are visually reviewed (`artifacts/lux-impact-normal-bones.png` and `artifacts/lux-impact-critical-bones.png`). The reload comparison uses identical camera settings to retain an exact matrix assertion. All ten historical rig browser cases, both existing flight/impact browser regressions and the production subpath smoke check also pass.
 
 This replaces the centre-height approximation for all supported mobile rigs. Native graph transitions, sub-tick attachment behavior, structure poses, system orientation, flex shape, sampler/material state and exact direction-stretch calibration remain unverified. The current adapter interpolates fixed-step attachment endpoints rather than claiming native subframe skeletal evaluation.
+
+
+## Interpolation at clip boundaries
+
+Schema 59 adds `unclampedTime` to primary poses and outgoing layers, including those retained in impact history. Previously, the timeline interpolated backward from an already wrapped/clamped local time. A looping endpoint at 0.003 seconds could therefore seek zero for the previous half-frame instead of the preceding loop's final fraction. A completed one-shot endpoint could similarly rewind by half a tick rather than remain held.
+
+Sampling now advances or reverses the unclamped clip clock, clamps negative age at zero, and only then applies looping or the source endpoint limit. Outgoing fades preserve the same clock when interrupted. Run/idle clocks supply accumulated seconds; death and attack poses retain their unclamped age; recall selection retains elapsed time within the final sequence clip even after it has finished. Snapshot validation requires bounded time to agree with this clock and loop mode. Earlier saves remain incompatible under the same-build policy.
+
+Three focused unit regressions cover primary/outgoing wrap boundaries, newly born loops, multiple laps, and held death/recall endpoints. They reproduced the old wrap-to-zero and endpoint-rewind errors before the fix. Invalid saved unclamped clocks are also rejected. All 710 unit tests pass.
+
+The browser boundary fixture starts an active run or idle segment, seeds its clock just before the source duration, and lets a real simulation step produce the crossing interval. It compares five display interpolation values against the clock's expected phase, then checks repeated draws and real save/reload bone matrices. All ten rig cases pass for both run and idle, covering twenty source-duration boundaries. Seven browser regressions cover death, recall, interrupted transitions and bone-attached Lux impacts; the production subpath smoke check also passes. This targets boundary sampling; normal clock accumulation and movement remain covered by the existing run/idle scenarios.
+
+This corrects the local adapter's temporal sampling. Native animation graph transitions, structure animation clocks and native subframe behavior still require calibration.

@@ -11,6 +11,8 @@ export interface MobilePose {
   time: number;
   rate: number;
   loop: boolean;
+  /** Elapsed clip-local seconds before looping or endpoint clamping. */
+  unclampedTime: number;
   /** Cast/recall enter directly; other modes retain the current 80 ms fade. */
   cut: boolean;
   settled: boolean;
@@ -45,6 +47,7 @@ export function mobilePose(
     time: Math.min(Math.max(0, time), duration(clip)),
     rate,
     loop: false,
+    unclampedTime: Math.max(0, time),
     cut,
     settled: cut || time >= 0.08,
   });
@@ -59,7 +62,7 @@ export function mobilePose(
   if (state?.recallEnd != null) {
     const age = Math.max(0, (at - (state.recallEnd - RECALL_DURATION_TICKS)) / TICK_RATE);
     const pose = recallAnimationPose(unit.champion, age, durations);
-    return fixed('recall', pose.clip, pose.time, true);
+    return fixed('recall', pose.clip, pose.unclampedTime, true);
   }
 
   const moving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01,
@@ -89,6 +92,7 @@ export function mobilePose(
     time: length > 0 ? seconds % length : 0,
     rate: moving && clock ? (clock.current - clock.previous) * TICK_RATE : 1,
     loop: true,
+    unclampedTime: seconds,
     cut: false,
     settled: !!clock && (tick - clock.startTick + alpha) / TICK_RATE >= 0.08,
   };

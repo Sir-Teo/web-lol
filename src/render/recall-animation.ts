@@ -11,7 +11,8 @@ export function recallAnimationPose(
     const clip = clips[i],
       duration = durations[clip];
     if (!Number.isFinite(duration) || duration < 0) throw new Error(`Missing recall clip: ${clip}`);
-    if (time < duration || i === clips.length - 1) return { clip, time: Math.min(time, duration) };
+    if (time < duration || i === clips.length - 1)
+      return { clip, time: Math.min(time, duration), unclampedTime: time };
     time -= duration;
   }
   throw new Error('Empty recall sequence');

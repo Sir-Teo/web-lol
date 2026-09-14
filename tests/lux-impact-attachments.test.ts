@@ -17,6 +17,7 @@ function effect(): LuxImpactVisual {
         time,
         rate: 0,
         loop: false,
+        unclampedTime: time,
         cut: false,
         settled: true,
       },
@@ -62,6 +63,7 @@ it('places historical source bones with saved facing, elevation, interpolation a
   expect(path.point({ ...e, critical: false }, 1).toArray()).toEqual([1, 1.5, 0]);
   const restored = structuredClone(e);
   restored.frames[1].animationTimeline!.primary.time = 0;
+  restored.frames[1].animationTimeline!.primary.unclampedTime = 0;
   expect(path.point(restored, 1).z).toBeCloseTo(-1, 12);
   expect(path.point(e, 1)).toEqual(end);
   expect(chest.position.toArray()).toEqual([1, 2, 0]);

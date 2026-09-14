@@ -8,6 +8,7 @@ const pose = (clip: string, time = 0, cut = false): MobilePose => ({
   time,
   rate: 1,
   loop: clip !== 'attack1',
+  unclampedTime: time,
   kind: clip === 'run' ? 'run' : clip === 'attack1' ? 'attack' : 'idle',
   cut,
   settled: false,
@@ -66,7 +67,68 @@ it('persists real transition state and rejects unknown clips, duplicate layers a
     bad.units[0].animationTimeline.primary.clip = clip;
     expect(() => World.fromSnapshot(JSON.stringify(bad), w.battlefield)).toThrow();
   }
+  for (const unclampedTime of [
+    null,
+    -1,
+    s.units[0].animationTimeline.primary.unclampedTime + 0.1,
+  ]) {
+    const bad = structuredClone(s);
+    bad.units[0].animationTimeline.primary.unclampedTime = unclampedTime;
+    expect(() => World.fromSnapshot(JSON.stringify(bad), w.battlefield)).toThrow();
+  }
   const future = structuredClone(s);
   future.units[0].animationTimeline.tick = future.tick + 1;
   expect(() => World.fromSnapshot(JSON.stringify(future), w.battlefield)).toThrow();
+});
+it('interpolates looping primary and outgoing clips across their duration boundary', async () => {
+  const { mobilePose } = await import('../src/render/mobile-pose');
+  const w = new World(false),
+    u = w.hero;
+  u.x += 10;
+  u.runClock = { startTick: 1, previous: 1.003 - 1 / 60, current: 1.003 };
+  let p = mobilePose(u, w.player, 100, 1, durations);
+  let state = advanceAnimationTimeline(null, p, 100, durations);
+  expect(animationLayers(state, 99.5, durations)[0].time).toBeCloseTo(
+    mobilePose(u, w.player, 100, 0.5, durations).time,
+    12
+  );
+  u.runClock = { startTick: 1, previous: 0.99 - 1 / 60, current: 0.99 };
+  p = mobilePose(u, w.player, 100, 1, durations);
+  state = advanceAnimationTimeline(null, p, 100, durations);
+  state = advanceAnimationTimeline(state, pose('idle1', 1 / 60), 101, durations);
+  const outgoing = animationLayers(state, 100.5, durations).find((layer) => layer.clip === 'run')!;
+  expect(outgoing.time).toBeCloseTo(0.99 + 0.5 / 60, 12);
+});
+
+it('clamps a newly started loop before birth and carries unwrapped time through multiple laps', async () => {
+  const { mobilePose } = await import('../src/render/mobile-pose');
+  const w = new World(false),
+    u = w.hero;
+  u.previous = { x: u.x, y: u.y };
+  u.idleClock = { startTick: 100, previous: 0, current: 0 };
+  let primary = mobilePose(u, w.player, 100, 1, durations);
+  let state = advanceAnimationTimeline(null, primary, 100, durations);
+  expect(animationLayers(state, 99.5, durations)[0].time).toBe(0);
+  u.idleClock = { startTick: 1, previous: 10 - 1 / 60, current: 10 };
+  primary = mobilePose(u, w.player, 600, 1, durations);
+  state = advanceAnimationTimeline(null, primary, 600, durations);
+  const layer = animationLayers(state, 599.5, durations)[0];
+  expect(layer.time).toBeCloseTo(2 - 0.5 / 60, 12);
+  expect(layer.unclampedTime).toBeCloseTo(10 - 0.5 / 60, 12);
+});
+it('keeps completed death and recall clips at their endpoint during interpolation', async () => {
+  const { mobilePose } = await import('../src/render/mobile-pose');
+  const w = new World(false),
+    u = w.hero;
+  const clips = { ...durations, death: 1, idle5: 1, idle2: 1 };
+  u.deadAt = 1;
+  let primary = mobilePose(u, w.player, 200, 1, clips);
+  let state = advanceAnimationTimeline(null, primary, 200, clips);
+  expect(animationLayers(state, 199.5, clips)[0].time).toBe(1);
+  u.deadAt = null;
+  w.player.recallEnd = 480;
+  primary = mobilePose(u, w.player, 200, 1, clips);
+  state = advanceAnimationTimeline(null, primary, 200, clips);
+  expect(primary.clip).toBe('idle2');
+  expect(animationLayers(state, 199.5, clips)[0].time).toBe(1);
 });

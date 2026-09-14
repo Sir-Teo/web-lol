@@ -31,7 +31,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 58;
+export const SNAPSHOT_VERSION = 59;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -40,6 +40,7 @@ const poseLayer = z.strictObject({
   time: nonnegative,
   rate: nonnegative,
   loop: z.boolean(),
+  unclampedTime: nonnegative,
   weight: z.number().min(0).max(1),
 });
 const animationTimeline = z.strictObject({
@@ -50,6 +51,7 @@ const animationTimeline = z.strictObject({
     time: nonnegative,
     rate: nonnegative,
     loop: z.boolean(),
+    unclampedTime: nonnegative,
     cut: z.boolean(),
     settled: z.boolean(),
   }),
@@ -557,9 +559,16 @@ function validAnimationTimeline(
   const outgoing = timeline.transition?.outgoing ?? [];
   return !(
     timeline.tick > at ||
-    layers.some(
-      (layer) => !Object.hasOwn(durations, layer.clip) || layer.time > durations[layer.clip] + 1e-7
-    ) ||
+    layers.some((layer) => {
+      if (!Object.hasOwn(durations, layer.clip) || layer.time > durations[layer.clip] + 1e-7)
+        return true;
+      const duration = durations[layer.clip];
+      const mappedTime =
+        layer.loop && duration > 0
+          ? layer.unclampedTime % duration
+          : Math.min(layer.unclampedTime, duration);
+      return Math.abs(layer.time - mappedTime) > 1e-7;
+    }) ||
     new Set(outgoing.map((layer) => layer.clip)).size !== outgoing.length ||
     outgoing.some((layer) => layer.clip === timeline.primary.clip) ||
     outgoing.reduce((sum, layer) => sum + layer.weight, 0) > 1 + 1e-7 ||
