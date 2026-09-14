@@ -1,0 +1,105 @@
+{
+  "sourceBinSha256": "c2087e2b9100cc2d9f75151775679983953e95c8b389d6e111fb0eb5b72cd3a9",
+  "profile": "src/content/lux-ground-layers.json",
+  "profileSha256": "ba3fff0333fbe113ecc6bb59bae24b8a892cb487a27d329571f496d3927963d5",
+  "count": 17,
+  "quads": 15,
+  "beams": 2,
+  "rendered": false,
+  "ordering": [
+    {
+      "name": "Far_Refraction_L",
+      "pass": -999,
+      "sourceIndex": 17
+    },
+    {
+      "name": "Far_Refraction_R",
+      "pass": -999,
+      "sourceIndex": 18
+    },
+    {
+      "name": "Far_Refraction_L1",
+      "pass": -999,
+      "sourceIndex": 19
+    },
+    {
+      "name": "Far_Refraction_R1",
+      "pass": -999,
+      "sourceIndex": 20
+    },
+    {
+      "name": "Burnt",
+      "pass": -5,
+      "sourceIndex": 2
+    },
+    {
+      "name": "Burnt1",
+      "pass": -5,
+      "sourceIndex": 33
+    },
+    {
+      "name": "warning_beam_4",
+      "pass": 0,
+      "sourceIndex": 41
+    },
+    {
+      "name": "CLOSE_Refraction_L",
+      "pass": 5,
+      "sourceIndex": 27
+    },
+    {
+      "name": "CLOSE_Refraction_R",
+      "pass": 5,
+      "sourceIndex": 28
+    },
+    {
+      "name": "warning_beam_3",
+      "pass": 5,
+      "sourceIndex": 31
+    },
+    {
+      "name": "END_Ground_1",
+      "pass": 5,
+      "sourceIndex": 34
+    },
+    {
+      "name": "END_Ground_2",
+      "pass": 5,
+      "sourceIndex": 35
+    },
+    {
+      "name": "END_Ground_3",
+      "pass": 5,
+      "sourceIndex": 38
+    },
+    {
+      "name": "END_Ground_Core",
+      "pass": 5,
+      "sourceIndex": 39
+    },
+    {
+      "name": "WIDTH_Refraction_L1",
+      "pass": 5,
+      "sourceIndex": 43
+    },
+    {
+      "name": "WIDTH_Refraction_R1",
+      "pass": 5,
+      "sourceIndex": 44
+    },
+    {
+      "name": "CHARGE_GROUND_LIGHT1",
+      "pass": 6,
+      "sourceIndex": 42
+    }
+  ],
+  "maximumPostReleaseLife": 1.5,
+  "requirements": [
+    "Ground composition must occur after terrain and before characters/default particles; source pass numbers sort within the ground display list.",
+    "Native ground projection remains unresolved. Any local projection policy must be labeled and compared against native captures on flat and sloped terrain.",
+    "Preserve negative source Y offsets in the profile. Do not apply them blindly to the current approximate airborne cast origin.",
+    "Burnt and Burnt1 need 1.5 seconds after release; current 1.3-second retained beam lifetime must be extended when these become rendered.",
+    "Maintain arbitrary-quad rotations including [90,90,0], uniform-scale multiplication order, source-alpha blend modes, signed UV rotation and independent multiplier phases.",
+    "Ground beam source/target offsets require terrain projection rather than the existing camera-facing width path."
+  ]
+}
