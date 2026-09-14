@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lux attack poses</title>
+    <style>
+      body {
+        margin: 0;
+        background: #0d1c25;
+        color: #e4e8e5;
+        font: 15px system-ui;
+      }
+      main {
+        max-width: 1200px;
+        margin: auto;
+        padding: 24px;
+      }
+      h1 {
+        font-size: 25px;
+        margin: 0 0 8px;
+      }
+      p {
+        color: #a9bfc9;
+        line-height: 1.5;
+        margin: 8px 0 16px;
+      }
+      .controls {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 14px;
+        background: #172e3b;
+        border: 1px solid #395362;
+        border-radius: 6px;
+      }
+      button {
+        background: #294958;
+        border: 1px solid #668793;
+        border-radius: 4px;
+        color: #fff;
+        padding: 8px 14px;
+        cursor: pointer;
+      }
+      input[type='range'] {
+        width: min(330px, 45vw);
+      }
+      canvas {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .names {
+        display: flex;
+        justify-content: space-around;
+        color: #ead59e;
+        font-size: 18px;
+        margin: 16px 0 0;
+      }
+      #status {
+        font-variant-numeric: tabular-nums;
+        color: #b9d1d9;
+        margin-top: 12px;
+      }
+      small {
+        display: block;
+        color: #a9bfc9;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Lux · ordinary attack poses</h1>
+      <p>
+        Both source clips at the same cycle phase. Gold lines show the extracted right-hand paths;
+        cyan markers show the animated skeleton. Use this view to compare release poses against
+        native footage.
+      </p>
+      <div class="controls">
+        <button id="play">Play</button><button id="release">Current release</button
+        ><label
+          >Phase <input id="phase" type="range" min="0" max="1" step="0.001" value="0" /></label
+        ><label><input id="paths" type="checkbox" checked /> Hand paths</label>
+      </div>
+      <div class="names"><span>Attack 1</span><span>Attack 2</span></div>
+      <div id="viewport"></div>
+      <div id="status" role="status">Loading source model…</div>
+      <small
+        >Timing uses the current game's level-one attack cycle, not certified native timing. No
+        transition blending, missile flight, or hit effects are simulated here.</small
+      >
+      <script type="module" src="/tools/qa/lux-attack-poses.ts"></script>
+    </main>
+  </body>
+</html>
