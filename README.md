@@ -39,6 +39,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 
 - [Local match checkpoints and compatibility](docs/SAVES.md)
 - [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)
+- [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)

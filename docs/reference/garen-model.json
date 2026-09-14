@@ -1,0 +1,5024 @@
+{
+  "skin": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/garen/skins/skin0.bin.json",
+    "sha256": "3534b861067c179dd7877b457767038b820542fe44679f937c2316c835fde496",
+    "data": {
+      "Characters/Garen/Skins/Skin0": {
+        "skinClassification": 1,
+        "championSkinName": "Garen",
+        "metaDataTags": "faction:demacia,gender:male,race:human",
+        "loadscreen": {
+          "image": "assets/characters/garen/skins/base/garenloadscreen.tex",
+          "__type": "CensoredImage"
+        },
+        "skinAudioProperties": {
+          "tagEventList": [
+            "Garen"
+          ],
+          "bankUnits": [
+            {
+              "name": "Garen_Base_VO",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Garen/Skins/Base/Garen_Base_VO_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Garen/Skins/Base/Garen_Base_VO_events.bnk",
+                "ASSETS/Sounds/Wwise2016/VO/en_US/Characters/Garen/Skins/Base/Garen_Base_VO_audio.wpk"
+              ],
+              "events": [
+                "Play_vo_Garen_Attack2DGeneral",
+                "Play_vo_Garen_Death3D",
+                "Play_vo_Garen_FirstEncounter3DDarius",
+                "Play_vo_Garen_GarenBasicAttack2_cast3D",
+                "Play_vo_Garen_GarenBasicAttack3_cast3D",
+                "Play_vo_Garen_GarenBasicAttack_cast3D",
+                "Play_vo_Garen_GarenCritAttack_cast3D",
+                "Play_vo_Garen_GarenE_cast3D",
+                "Play_vo_Garen_GarenQ_cast3D",
+                "Play_vo_Garen_GarenQAttack_cast3D",
+                "Play_vo_Garen_GarenR_cast3D",
+                "Play_vo_Garen_GarenW_cast3D",
+                "Play_vo_Garen_Joke3DDarius",
+                "Play_vo_Garen_Joke3DGeneral",
+                "Play_vo_Garen_Joke3DKatarina",
+                "Play_vo_Garen_Kill3DDarius",
+                "Play_vo_Garen_Laugh3DGeneral",
+                "Play_vo_Garen_Move2DStandard",
+                "Play_vo_Garen_Taunt3DDarius",
+                "Play_vo_Garen_Taunt3DGeneral"
+              ],
+              "voiceOver": true,
+              "__type": "BankUnit"
+            },
+            {
+              "name": "Garen_Base_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Characters/Garen/Skins/Base/Garen_Base_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Characters/Garen/Skins/Base/Garen_Base_SFX_events.bnk"
+              ],
+              "events": [
+                "Play_sfx_Garen_Dance3D_buffactivate",
+                "Play_sfx_Garen_Dance3D_loop",
+                "Play_sfx_Garen_Death3D_cast",
+                "Play_sfx_Garen_GarenBasicAttack2_OnCast",
+                "Play_sfx_Garen_GarenBasicAttack2_OnHit",
+                "Play_sfx_Garen_GarenBasicAttack_OnCast",
+                "Play_sfx_Garen_GarenBasicAttack_OnHit",
+                "Play_sfx_Garen_GarenCritAttack_OnCast",
+                "Play_sfx_Garen_GarenCritAttack_OnHit",
+                "Play_sfx_Garen_GarenE_hit",
+                "Play_sfx_Garen_GarenE_OnBuffActivate",
+                "Play_sfx_Garen_GarenE_OnBuffDeactivate",
+                "Play_sfx_Garen_GarenE_OnCast",
+                "Play_sfx_Garen_GarenPassiveKillNotification_buffactivate",
+                "Play_sfx_Garen_GarenQ_OnBuffActivate",
+                "Play_sfx_Garen_GarenQ_OnBuffDeactivate",
+                "Play_sfx_Garen_GarenQ_OnCast",
+                "Play_sfx_Garen_GarenQAttack_OnCast",
+                "Play_sfx_Garen_GarenR_buffactivate",
+                "Play_sfx_Garen_GarenR_OnCast",
+                "Play_sfx_Garen_GarenR_OnHit",
+                "Play_sfx_Garen_GarenRecouperate1_buffactivate",
+                "Play_sfx_Garen_GarenRecouperate1_OnBuffActivate",
+                "Play_sfx_Garen_GarenW_OnBuffActivate",
+                "Play_sfx_Garen_GarenW_OnBuffDeactivate",
+                "Play_sfx_Garen_GarenW_OnCast",
+                "Play_sfx_Garen_Joke3D_buffactivate",
+                "Play_sfx_Garen_Joke3D_loop",
+                "Play_sfx_Garen_Laugh3D_buffactivate",
+                "Play_sfx_Garen_Taunt3D_buffactivate",
+                "Stop_sfx_Garen_Dance3D_buffactivate",
+                "Stop_sfx_Garen_Dance3D_loop",
+                "Stop_sfx_Garen_GarenE_OnBuffActivate",
+                "Stop_sfx_Garen_GarenE_OnBuffDeactivate",
+                "Stop_sfx_Garen_GarenQ_OnBuffActivate",
+                "Stop_sfx_Garen_GarenRecouperate1_OnBuffActivate",
+                "Stop_sfx_Garen_GarenW_OnBuffActivate"
+              ],
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "Characters/Garen/Animations/Skin0",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/Garen/Skins/Base/Garen.skl",
+          "simpleSkin": "ASSETS/Characters/Garen/Skins/Base/Garen.skn",
+          "texture": "assets/characters/garen/skins/base/garen_base_tx_cm.tex",
+          "glossTexture": "assets/characters/garen/skins/base/garen_base_tx_gm.tex",
+          "selfIllumination": 0.699999988079071,
+          "reflectionMap": "assets/characters/garen/skins/base/garen_base_cubemap.dds",
+          "reflectionOpacityDirect": 0.699999988079071,
+          "reflectionFresnel": 0.30000001192092896,
+          "reflectionFresnelColor": [
+            102,
+            102,
+            102,
+            255
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Flesh",
+        "defaultAnimations": [
+          "Buffbones"
+        ],
+        "mContextualActionData": "Characters/Garen/CAC/Garen_Base",
+        "iconCircle": "assets/characters/garen/hud/garen_circle.tex",
+        "iconSquare": "assets/characters/garen/hud/garen_square.tex",
+        "healthBarData": {
+          "unitHealthBarStyle": 12,
+          "__type": "CharacterHealthBarDataRecord"
+        },
+        "mResourceResolver": "Characters/Garen/Skins/Skin0/Resources",
+        "objectPath": "Characters/Garen/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar_Fade": {
+        "complexEmitterDefinitionData": [
+          {
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 10.0,
+            "lifetime": 1.0,
+            "emitterName": "base_override",
+            "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_12.tex",
+            "pass": 100,
+            "meshRenderFlags": 0,
+            "isUniformScale": 1,
+            "materialOverrideDefinitions": [
+              {
+                "overrideBlendMode": 4,
+                "baseTexture": "assets/characters/garen/skins/base/particles/garen_base_w_metal_gold.tex",
+                "transitionTexture": "assets/characters/garen/skins/base/particles/garen_base_w_gold_trans_rgba.tex",
+                "transitionSample": 0.0625,
+                "__type": "VfxMaterialOverrideDefinitionData"
+              }
+            ],
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 4.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 10.0,
+            "lifetime": 0.4000000059604645,
+            "emitterName": "shimmer",
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Shared/Particles/arrow01.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveAttachedMesh"
+            },
+            "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_20.tex",
+            "blendMode": 4,
+            "meshRenderFlags": 0,
+            "colorLookUpScales": [
+              0.5,
+              0.07999999821186066
+            ],
+            "colorLookUpOffsets": [
+              0.5,
+              1.0
+            ],
+            "sliceTechniqueRange": 0.07999999821186066,
+            "particleIsLocalOrientation": 1,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                0.0,
+                180.0,
+                90.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                1.0299999713897705,
+                1.0299999713897705,
+                1.0299999713897705
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_W_Scroll.tex",
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "Garen_Base_W_Avatar_Fade",
+        "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar_Fade",
+        "flags": 198,
+        "buildUpTime": 0.4000000059604645,
+        "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar_Fade",
+        "__type": "VfxSystemDefinitionData"
+      },
+      "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 7.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.30000001192092896,
+            "lifetime": 6.0,
+            "isSingleParticle": 1,
+            "emitterName": "base_override",
+            "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_12.tex",
+            "meshRenderFlags": 0,
+            "isUniformScale": 1,
+            "materialOverrideDefinitions": [
+              {
+                "baseTexture": "assets/characters/garen/skins/base/particles/garen_base_w_metal_gold.tex",
+                "__type": "VfxMaterialOverrideDefinitionData"
+              }
+            ],
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.25,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 10.0,
+            "lifetime": 0.20000000298023224,
+            "emitterName": "shimmer_base",
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Particles/arrow01.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveAttachedMesh"
+            },
+            "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_20.tex",
+            "blendMode": 4,
+            "meshRenderFlags": 0,
+            "colorLookUpScales": [
+              0.5,
+              0.07999999821186066
+            ],
+            "colorLookUpOffsets": [
+              0.5,
+              1.0
+            ],
+            "sliceTechniqueRange": 0.03999999910593033,
+            "particleIsLocalOrientation": 1,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                0.0,
+                180.0,
+                90.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                1.0299999713897705,
+                1.0299999713897705,
+                1.0299999713897705
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_W_Scroll.tex",
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "Garen_Base_W_Avatar",
+        "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar",
+        "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar",
+        "__type": "VfxSystemDefinitionData"
+      },
+      "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Spin": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 7.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.75,
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.5,
+                      2.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  0.75
+                ],
+                "__type": "VfxAnimatedFloatVariableData"
+              },
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.8500000238418579,
+            "emitterName": "Outer_mesh",
+            "importance": 3,
+            "birthVelocity": {
+              "constantValue": [
+                0.0,
+                -70.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.10000000149011612,
+                      1.2999999523162842
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    -70.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                170.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_E_Spin.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveMesh"
+            },
+            "blendMode": 4,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.4000000059604645,
+                  0.5,
+                  0.75,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.10000000149011612
+                  ],
+                  [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": 100,
+            "disableBackfaceCull": true,
+            "birthRotation0": {
+              "constantValue": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthRotationalVelocity0": {
+              "constantValue": [
+                0.0,
+                -60.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      0.0
+                    ],
+                    "keyValues": [
+                      0.25,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    -60.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                3.5,
+                4.5,
+                3.5
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.20000000298023224,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.20000000298023224,
+                    0.20000000298023224,
+                    0.20000000298023224
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_E_Spin_Edge.tex",
+            "uvMode": 2,
+            "birthUvScrollRate": {
+              "constantValue": [
+                -3.0,
+                0.10000000149011612
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      1.0,
+                      0.5
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    -3.0,
+                    0.10000000149011612
+                  ]
+                ],
+                "__type": "VfxAnimatedVector2fVariableData"
+              },
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 4.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.699999988079071,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.5,
+            "emitterName": "inner_mesh",
+            "importance": 1,
+            "birthVelocity": {
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.5,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                110.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_E_Spin.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveMesh"
+            },
+            "blendMode": 4,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.4000000059604645,
+                  0.5,
+                  0.949999988079071,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.5
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": 3,
+            "disableBackfaceCull": true,
+            "birthRotation0": {
+              "constantValue": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      90.0,
+                      -360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthRotationalVelocity0": {
+              "constantValue": [
+                0.0,
+                -300.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      0.0
+                    ],
+                    "keyValues": [
+                      0.25,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    -300.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "isLocalOrientation": 0,
+            "birthScale0": {
+              "constantValue": [
+                1.2000000476837158,
+                4.0,
+                1.2000000476837158
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  [
+                    2.0,
+                    2.0,
+                    2.0
+                  ],
+                  [
+                    0.5,
+                    0.5,
+                    0.5
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_E_Spin_Edge.tex",
+            "uvMode": 2,
+            "birthUvScrollRate": {
+              "constantValue": [
+                0.0,
+                1.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      1.0,
+                      0.20000000298023224
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.20000000298023224,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector2fVariableData"
+              },
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "timeBeforeFirstEmission": 0.20999999344348907,
+            "rate": {
+              "constantValue": 4.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.6000000238418579,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.15000000596046448,
+            "emitterName": "edge",
+            "importance": 3,
+            "birthVelocity": {
+              "constantValue": [
+                0.0,
+                -130.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "SpawnShape": {
+              "emitOffset": [
+                0.0,
+                160.0,
+                0.0
+              ],
+              "__type": "{ee39916f}"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "blendMode": 4,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.10000000149011612
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.5
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": -10,
+            "birthRotation0": {
+              "constantValue": [
+                90.0,
+                1.0,
+                90.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      -360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    90.0,
+                    1.0,
+                    90.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthRotationalVelocity0": {
+              "constantValue": [
+                0.0,
+                -600.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      1.0,
+                      0.8500000238418579
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    -600.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                250.0,
+                250.0,
+                250.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.5,
+                    0.5,
+                    0.5
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_E_Sword_Trail.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "timeBeforeFirstEmission": 0.20999999344348907,
+            "rate": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.15000000596046448,
+            "emitterName": "Top_Down_base",
+            "importance": 1,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "SpawnShape": {
+              "emitOffset": [
+                0.0,
+                160.0,
+                0.0
+              ],
+              "__type": "{ee39916f}"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "blendMode": 1,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.20000000298023224,
+                  0.4000000059604645,
+                  0.75,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.7099999785423279
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.5
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": 50,
+            "birthRotation0": {
+              "constantValue": [
+                90.0,
+                1.0,
+                90.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthRotationalVelocity0": {
+              "constantValue": [
+                0.0,
+                -1500.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      1.0,
+                      0.8500000238418579
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    -1500.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                290.0,
+                290.0,
+                290.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_E_Spin_TopDown.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 5.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.25,
+            "lifetime": 4.0,
+            "emitterName": "ground_glow",
+            "importance": 1,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "SpawnShape": {
+              "emitOffset": [
+                0.0,
+                20.0,
+                0.0
+              ],
+              "__type": "{ee39916f}"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_color-rampdown.tex",
+            "blendMode": 4,
+            "pass": -100,
+            "birthRotation0": {
+              "constantValue": [
+                90.0,
+                0.0,
+                90.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_W_Ground_Glow.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 5.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.25,
+            "lifetime": 4.0,
+            "emitterName": "ground_glow",
+            "importance": 1,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "SpawnShape": {
+              "emitOffset": [
+                0.0,
+                20.0,
+                0.0
+              ],
+              "__type": "{ee39916f}"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_color-rampdown.tex",
+            "blendMode": 4,
+            "pass": -100,
+            "meshRenderFlags": 0,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                -90.0,
+                90.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                150.0,
+                150.0,
+                150.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_W_Ground_Glow.tex",
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "Garen_Base_E_Spin",
+        "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Spin",
+        "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Spin",
+        "__type": "VfxSystemDefinitionData"
+      },
+      "Characters/Garen/Skins/Skin0/Resources": {
+        "resourceMap": {
+          "Garen_AA_Atk_01": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_01",
+          "Garen_AA_Atk_02": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_02",
+          "Garen_AA_Crit": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Crit",
+          "Garen_AA_Sword_Swipe_Front": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Sword_Swipe_Front",
+          "Garen_AA_Tar": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Tar",
+          "Garen_BA_trail_01": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_BA_trail_01",
+          "Garen_Crit_Tar": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Crit_Tar",
+          "Garen_emote_dance_loop_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_dance_loop_sound",
+          "Garen_emote_dance_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_dance_sound",
+          "Garen_emote_death_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_death_sound",
+          "Garen_emote_joke_loop_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_joke_loop_sound",
+          "Garen_emote_joke_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_joke_sound",
+          "Garen_emote_joke_vo": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_joke_vo",
+          "Garen_emote_laugh_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_laugh_sound",
+          "Garen_emote_taunt_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_taunt_sound",
+          "Garen_emote_taunt_vo": "Characters/Garen/Skins/Skin0/Particles/garen_base_emote_taunt_vo",
+          "Garen_E_ArmorShred": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_ArmorShred",
+          "Garen_E_ArmorShred_Cleaver": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_ArmorShred_Cleaver",
+          "Garen_E_Cancel": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Cancel",
+          "Garen_E_Cas": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Cas",
+          "Garen_E_Spin": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Spin",
+          "Garen_E_Tar": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Tar",
+          "Garen_E_Tar_Bloodless": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Tar_Bloodless",
+          "Garen_Heal": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Heal",
+          "garen_interactive0_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_interactive0_sound",
+          "garen_interactive1_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_interactive1_sound",
+          "garen_interactive2_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_interactive2_sound",
+          "garen_interactive3_sound": "Characters/Garen/Skins/Skin0/Particles/garen_base_interactive3_sound",
+          "Garen_P_Boost": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Boost",
+          "Garen_P_Heal": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Heal",
+          "Garen_Q_Buf": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Buf",
+          "Garen_Q_Cas": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Cas",
+          "Garen_Q_Cas_Sword": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Cas_Sword",
+          "Garen_Q_Jump": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Jump",
+          "Garen_Q_Jump_Blur": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Jump_Blur",
+          "Garen_Q_Land": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Land",
+          "Garen_Q_mis_axis_01": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_mis_axis_01",
+          "Garen_Q_Silence": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Silence",
+          "Garen_Q_Sword_Swipe_Blur": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Sword_Swipe_Blur",
+          "Garen_Q_Sword_Trail": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Sword_Trail",
+          "Garen_Q_Tar": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Q_Tar",
+          "Garen_R_Buf_Activate": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Activate",
+          "Garen_R_Buf_Ally": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Ally",
+          "Garen_R_Buf_Ally_Faded": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Ally_Faded",
+          "Garen_R_Buf_Enemy": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Enemy",
+          "Garen_R_Buf_Enemy_Activate": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Enemy_Activate",
+          "Garen_R_Buf_Enemy_Faded": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Enemy_Faded",
+          "Garen_R_Buf_Garen": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Garen",
+          "Garen_R_Buf_Garen_Execute": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Buf_Garen_Execute",
+          "Garen_R_Cas": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Cas",
+          "Garen_R_Champ_Death": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Champ_Death",
+          "Garen_R_Champ_Kill": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Champ_Kill",
+          "Garen_R_Indicator": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Indicator",
+          "Garen_R_Sword_Tar": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Sword_Tar",
+          "Garen_R_Tar_Impact": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Tar_Impact",
+          "Garen_W_Avatar": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar",
+          "Garen_W_Avatar_Fade": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Avatar_Fade",
+          "Garen_W_Buff": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Buff",
+          "Garen_W_Cas": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Cas",
+          "Garen_W_Deflect": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Deflect",
+          "Garen_W_Shoulder_L": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Shoulder_L",
+          "Garen_W_Shoulder_R": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_W_Shoulder_R",
+          "Garen_Skin06_E_Spin_BV2": "Characters/Garen/Skins/Skin0/Particles/Garen_Skin06_E_Spin",
+          "Garen_SteelLegion_critattack_tar_BV2": "Characters/Garen/Skins/Skin0/Particles/Garen_SteelLegion_critattack_tar",
+          "Garen_SteelLegion_Decisive_Strike_Electric_BV2": "Characters/Garen/Skins/Skin0/Particles/Garen_SteelLegion_Decisive_Strike_Electric",
+          "Garen_Steel_Q_Electric_Sword_BV2": "Characters/Garen/Skins/Skin0/Particles/Garen_Steel_Q_Electric_Sword",
+          "Garen_E_Nearest_Buf": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_E_Nearest_Buf"
+        },
+        "__type": "ResourceResolver"
+      },
+      "__linked": [
+        "DATA/Characters/Garen/Garen.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin45_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Animations/Skin0.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin45_Skins_Skin5_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin22_Skins_Skin23.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Root_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin2_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin2_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin5_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin2_Skins_Skin22_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "DATA/Characters/Garen/Garen_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin"
+      ]
+    }
+  },
+  "animations": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/garen/animations/skin0.bin.json",
+    "sha256": "c48d156fb566c44f19c7110244b8caf98b9eef65137a224cfc1d943ccb0023b3",
+    "data": {
+      "Characters/Garen/Animations/Skin0": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "Attack1": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{1deac818}": {
+                "mName": "{1deac818}",
+                "mStartFrame": 6.0,
+                "mEffectKey": "Garen_AA_Atk_01",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              },
+              "{3f100237}": {
+                "mName": "{3f100237}",
+                "mStartFrame": 5.0,
+                "mEffectKey": "Garen_AA_Sword_Swipe_Front",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "weapon",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_attack_01.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{20eaccd1}": {
+                "mName": "{20eaccd1}",
+                "mStartFrame": 7.0,
+                "mEffectKey": "Garen_AA_Atk_02",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              },
+              "{3f100237}": {
+                "mName": "{3f100237}",
+                "mStartFrame": 5.0,
+                "mEffectKey": "Garen_AA_Sword_Swipe_Front",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "weapon",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_attack_02.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Channel": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_channel.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Channel_Wndup": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_channelin.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Crit": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_crit.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Dance_Base": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "Audio_Dance": {
+                "mName": "Audio_Dance",
+                "mEffectKey": "Garen_emote_dance_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              },
+              "{e27bda34}": {
+                "mName": "{e27bda34}",
+                "mStartFrame": 60.0,
+                "mEndFrame": 81.0,
+                "mJointNameToOverride": "weapon",
+                "mJointNameToSnapTo": "buffbone_glb_channel_loc",
+                "__type": "JointSnapEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_dance.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Death": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "Audio_Death": {
+                "mName": "Audio_Death",
+                "mEffectKey": "Garen_emote_death_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              },
+              "{e27bda34}": {
+                "mName": "{e27bda34}",
+                "mStartFrame": 18.0,
+                "mEndFrame": 130.0,
+                "mJointNameToOverride": "weapon",
+                "mJointNameToSnapTo": "buffbone_glb_channel_loc",
+                "__type": "JointSnapEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_death.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle_Enter_BASE": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_idle_leadin.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle1_Base": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_idle1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle2_Base": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_idle2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Idle3_BASE": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_idle3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{9d46ce26}": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "Audio_Joke": {
+                "mName": "Audio_Joke",
+                "mEffectKey": "Garen_emote_joke_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              },
+              "{67b66fad}": {
+                "mName": "{67b66fad}",
+                "mEffectKey": "Garen_emote_joke_vo",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "Sword": {
+                "mStartFrame": 8.0,
+                "mJointNameToOverride": "weapon",
+                "mJointNameToSnapTo": "buffbone_glb_channel_loc",
+                "__type": "JointSnapEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{5dbf4f4f}": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{8c870fbc}": {
+                "mName": "{8c870fbc}",
+                "mEffectKey": "Garen_emote_joke_loop_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              },
+              "Sword": {
+                "mJointNameToOverride": "weapon",
+                "mJointNameToSnapTo": "buffbone_glb_channel_loc",
+                "__type": "JointSnapEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_joke_loop.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Laugh_BASE": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "Audio_Laugh": {
+                "mName": "Audio_Laugh",
+                "mEffectKey": "Garen_emote_laugh_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_laugh.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Recall_Base": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{7b201d91}": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_recall_loop.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Run_Base": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_run.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell1": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{c1241270}": {
+                "mName": "{c1241270}",
+                "mEffectKey": "Garen_Q_Jump",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{ec25cf91}": {
+                "mName": "{ec25cf91}",
+                "mStartFrame": 9.0,
+                "mEffectKey": "Garen_Q_Land",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{e35b3364}": {
+                "mName": "{e35b3364}",
+                "mStartFrame": 8.0,
+                "mEffectKey": "Garen_Q_Sword_Trail",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              },
+              "{f5391780}": {
+                "mName": "{f5391780}",
+                "mEffectKey": "Garen_Q_Jump_Blur",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "Root",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{3f100237}": {
+                "mName": "{3f100237}",
+                "mEffectKey": "Garen_AA_Sword_Swipe_Front",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "weapon",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_spell1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell4_Base": {
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{d0452dec}": {
+                "mName": "{d0452dec}",
+                "mStartFrame": 10.0,
+                "mEffectKey": "Garen_R_Cas",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "C_Buffbone_GLB_Layout_Loc",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_spell4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Taunt_Base": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "Audio_Taunt": {
+                "mName": "Audio_Taunt",
+                "mEffectKey": "Garen_emote_taunt_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              },
+              "{0c7cd800}": {
+                "mName": "{0c7cd800}",
+                "mEffectKey": "Garen_emote_taunt_vo",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Joke": {
+            "mClipNameList": [
+              "{9d46ce26}",
+              "{5dbf4f4f}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Idle1": {
+            "mClipNameList": [
+              "Idle_Enter_BASE",
+              "Idle1_Base",
+              "Idle2"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Idle2": {
+            "mFlags": 2,
+            "mClipNameList": [
+              "Idle1_Base",
+              "Idle1_Base",
+              "Idle2_Base",
+              "Idle1_Base",
+              "Idle1_Base",
+              "Idle1_Base",
+              "Idle3_BASE",
+              "Idle1_Base"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Laugh": {
+            "mClipNameList": [
+              "Laugh_BASE",
+              "Idle2"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Taunt": {
+            "mClipNameList": [
+              "Taunt_Base",
+              "Idle2"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Dance_Loop_BASE": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{a97c2af4}": {
+                "mName": "{a97c2af4}",
+                "mEffectKey": "Garen_emote_dance_loop_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              },
+              "{9520ddb7}": {
+                "mName": "{9520ddb7}",
+                "mJointNameToOverride": "weapon",
+                "mJointNameToSnapTo": "buffbone_glb_channel_loc",
+                "__type": "JointSnapEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_dance_loop.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Dance": {
+            "mClipNameList": [
+              "Dance_Base",
+              "Dance_Loop_BASE"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Recall": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Recall_Leadout": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_recall_leadout.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Respawn_Base": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{13f95189}": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Recall_Winddown": {
+            "mClipNameList": [
+              "{13f95189}",
+              "Idle2"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Respawn": {
+            "mFlags": 8,
+            "mClipNameList": [
+              "Respawn_Base",
+              "Idle2"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Run_Haste": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_run_haste.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Run_Spell1": {
+            "mFlags": 2,
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_run_spell1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Run_Fast": {
+            "mTrackDataName": "Default",
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_run_fast.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell4": {
+            "mFlags": 8,
+            "mClipNameList": [
+              "Spell4_Base",
+              "Idle1_Base"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{1d0e4fa6}": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{1edea96f}": {
+                "mName": "{1edea96f}",
+                "mEffectKey": "garen_interactive1_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "Audio_Taunt": {
+                "mName": "Audio_Taunt",
+                "mEffectKey": "Garen_emote_taunt_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{2ee891b9}": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{d25fe050}": {
+                "mName": "{d25fe050}",
+                "mEffectKey": "garen_interactive0_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "Audio_Joke": {
+                "mName": "Audio_Joke",
+                "mEffectKey": "Garen_emote_joke_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{c2cae43a}": {
+            "mFlags": 8,
+            "mTrackDataName": "Default",
+            "mEventDataMap": {
+              "{be1fb8f9}": {
+                "mName": "{be1fb8f9}",
+                "mEffectKey": "garen_interactive2_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "Audio_Joke": {
+                "mName": "Audio_Joke",
+                "mEffectKey": "Garen_emote_joke_sound",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{95dabe4f}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mTickDuration": 0.03333299979567528,
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{504bd08d}": {
+            "mClipNameList": [
+              "{2ee891b9}",
+              "{5dbf4f4f}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{755f645c}": {
+            "mClipNameList": [
+              "{c2cae43a}",
+              "{5dbf4f4f}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{a2d214c6}": {
+            "mClipNameList": [
+              "{1d0e4fa6}",
+              "Idle2"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "Spell3_0": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_base_spell3_0.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell3_180": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_base_spell3_180.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell3_-180": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_base_spell3_-180.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell3_90": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_base_spell3_90.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell3_-90": {
+            "mTrackDataName": "Default",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/garen/skins/base/animations/garen_base_spell3_-90.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Spell3": {
+            "mTrackDataName": "Default",
+            "Updater": {
+              "__type": "LookAtSpellTargetAngleParametricUpdater"
+            },
+            "mParametricPairDataList": [
+              {
+                "mClipName": "Spell3_-180",
+                "mValue": -180.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "Spell3_-90",
+                "mValue": -90.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "Spell3_0",
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "Spell3_90",
+                "mValue": 90.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "Spell3_180",
+                "mValue": 180.0,
+                "__type": "ParametricPairData"
+              }
+            ],
+            "__type": "ParametricClipData"
+          },
+          "{bc1ef3fb}": {
+            "mConditionFloatPairDataList": [
+              {
+                "mClipName": "Run_Base",
+                "__type": "ConditionFloatPairData"
+              },
+              {
+                "mClipName": "Run_Fast",
+                "mValue": 341.0,
+                "__type": "ConditionFloatPairData"
+              },
+              {
+                "mClipName": "Run_Haste",
+                "mValue": 385.0,
+                "__type": "ConditionFloatPairData"
+              }
+            ],
+            "Updater": {
+              "__type": "MoveSpeedParametricUpdater"
+            },
+            "mChangeAnimationMidPlay": true,
+            "__type": "ConditionFloatClipData"
+          },
+          "Run": {
+            "Updater": {
+              "driver": {
+                "Spell": "Characters/Garen/Spells/GarenQAbility/GarenQ",
+                "__type": "HasBuffDynamicMaterialBoolDriver"
+              },
+              "__type": "LogicDriverBoolParametricUpdater"
+            },
+            "mChangeAnimationMidPlay": true,
+            "mTrueConditionClipName": "Run_Spell1",
+            "mFalseConditionClipName": "{bc1ef3fb}",
+            "__type": "ConditionBoolClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "Default": {
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "69381168003710414": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168196512833": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168322662793": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168338966117": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168407224848": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168475033510": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168553939620": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168636277402": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381172032107954": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168774549945": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168892614929": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381168994812201": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169046777417": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169254591707": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169442056484": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169492389341": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169506008496": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169539259428": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169560375119": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169802325734": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381169979573920": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170053258641": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170198954862": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170509645197": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170626219558": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170643968830": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170742346509": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170780469645": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170788727769": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381170990037096": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381171023592334": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381171161120077": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381171255632954": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381171743745585": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381171850854746": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381171908843818": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "69381172169194877": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461252198399438": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461253087303953": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461253241466441": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461253449280731": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461254820908582": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "897461254975158669": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461255184726120": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "897461255218281358": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461255355809101": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "897461256045543770": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271204790107598": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271205679012113": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271205833174601": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271206040988891": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271207566866829": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271207776434280": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "1439271207809989518": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271207947517261": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1439271208637251930": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293448186199502": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293449075104017": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293449229266505": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293449437080795": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293450962958733": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293451172526184": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "1509293451206081422": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293451343609165": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1509293452033343834": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462465497660878": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462466386565393": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462466540727881": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462466748542171": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462468120170022": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "1802462468274420109": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462468483987560": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "1802462468517542798": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462468655070541": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1802462469344805210": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2093698451173178830": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2093698452062083345": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2093698452216245833": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2093698452424060123": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2093698454193060750": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2093698454330588493": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2093698455020323162": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597613077757390": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597613966661905": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597614120824393": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597614328638683": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597614516103460": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597615700266534": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "2432597615854516621": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597616064084072": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "2432597616097639310": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597616235167053": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2432597616924901722": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235693992934862": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235694881839377": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235695036001865": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235695243816155": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235696769694093": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235696979261544": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "2786235697012816782": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235697150344525": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2786235697840079194": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216857590562254": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216858479466769": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216858633629257": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216858841443547": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216860213071398": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "17371216860367321485": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216860576888936": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "17371216860610444174": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216860747971917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216861437706586": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3380111744112688590": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3380111745001593105": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3380111745155755593": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3380111745363569883": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3380111747132570510": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3380111747270098253": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3380111747959832922": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989195451854": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989388254273": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989514404233": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989530707557": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989598966288": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989666774950": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989745681060": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989828018842": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196993223849394": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196989966291385": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990084356369": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990186553641": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990238518857": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990446333147": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990633797924": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990684130781": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990697749936": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990731000868": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990752116559": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196990994067174": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991171315360": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991245000081": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991390696302": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991701386637": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991817960998": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991835710270": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991934087949": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991972211085": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196991980469209": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196992181778536": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196992215333774": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196992352861517": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196992447374394": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196992935487025": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196993042596186": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196993100585258": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3887196993360936317": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130930175868366": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130931064772881": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130931218935369": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130931426749659": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130932952627597": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130933162195048": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "4326130933195750286": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130933333278029": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4326130934023012698": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319833425444302": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319833618246721": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319833744396681": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319833760700005": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319833828958736": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319833896767398": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319833975673508": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834058011290": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319837453841842": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834196283833": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834314348817": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834416546089": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834468511305": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834676325595": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834863790372": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834914123229": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834927742384": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834960993316": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319834982109007": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319835224059622": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319835401307808": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319835474992529": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319835620688750": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319835931379085": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836047953446": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836065702718": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836164080397": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836202203533": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836210461657": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836411770984": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836445326222": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836582853965": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319836677366842": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319837165479473": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319837272588634": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319837330577706": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4549319837590928765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875412616904142": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875412809706561": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875412935856521": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875412952159845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413020418576": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413088227238": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413167133348": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413249471130": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875416645301682": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413387743673": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413505808657": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413608005929": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413659971145": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875413867785435": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414055250212": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414105583069": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414119202224": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414152453156": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414173568847": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414415519462": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414592767648": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414666452369": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875414812148590": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415122838925": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415239413286": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415257162558": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415355540237": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415393663373": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415401921497": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415603230824": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415636786062": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415774313805": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875415868826682": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875416356939313": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875416464048474": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875416522037546": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5441875416782388605": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "5785947453470063949": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030498983837134": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030499872741649": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030500026904137": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030500234718427": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030500422183204": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030501606346278": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6247030501760596365": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030501970163816": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6247030502003719054": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502141246797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502830981466": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208473713081806": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208474601986321": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208474756148809": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208474963963099": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208476335590950": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6463208476489841037": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208476699408488": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6463208476732963726": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208476870491469": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208477560226138": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702299037236686": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702299926141201": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702300080303689": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702300288117979": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702301813995917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702302023563368": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6521702302057118606": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702302194646349": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6521702302884381018": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513964538756558": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513965427661073": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513965581823561": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513965789637851": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513965977102628": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513967161265702": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6664513967315515789": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513967525083240": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6664513967558638478": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513967696166221": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6664513968385900890": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205166816198094": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205167705102609": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205167859265097": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205168067079387": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205169438707238": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6755205169592957325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205169802524776": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "6755205169836080014": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205169973607757": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6755205170663342426": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375145488285134": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375146377189649": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375146531352137": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375146739166427": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375148110794278": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "7794375148265044365": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375148474611816": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "7794375148508167054": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375148645694797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7794375149335429466": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8457588974698413389": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650307633610190": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650308522514705": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650308676677193": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650308884491483": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650310256119334": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "8555650310410369421": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650310619936872": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "8555650310653492110": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650310791019853": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8555650311480754522": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123774543494606": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123775432399121": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123775586561609": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123775794375899": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123777166003750": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "8872123777320253837": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123777529821288": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "8872123777563376526": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123777700904269": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8872123778390638938": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884278889283022": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884279778187537": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884279932350025": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884280140164315": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884281666042253": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884281875609704": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "9497884281909164942": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884282046692685": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9497884282736427354": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289106897567182": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289107786471697": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289107940634185": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289108148448475": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289109520076326": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "10832289109674326413": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289109883893864": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "10832289109917449102": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289110054976845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289110744711514": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11302304930492628301": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972174944665038": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972175833569553": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972175987732041": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972176195546331": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972177567174182": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11332972177721424269": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972177930991720": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11332972177964546958": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972178102074701": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11332972178791809370": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11374364255402376525": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204717712473550": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204718601378065": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204718755540553": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204718963354843": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204719511088870": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11409204720334982694": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11409204720489232781": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204720698800232": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11409204720732355470": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204720869883213": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11409204721559617882": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11490697228480724301": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11732462823063207245": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733631673859534": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733632562764049": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733632716926537": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733632924740827": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733633112205604": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733634296368678": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11831733634450618765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733634660186216": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11831733634693741454": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733634831269197": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11831733635521003866": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471254014819790": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471254903724305": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471255057886793": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471255265701083": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471256637328934": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11995471256791579021": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471257001146472": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "11995471257034701710": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471257172229453": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11995471257861964122": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939626521132494": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939627410037009": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939627564199497": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939627772013787": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939629297891725": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939629507459176": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "12030939629541014414": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939629678542157": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12030939630368276826": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12167572168680979789": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556602365902286": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556603254806801": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556603408969289": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556603616783579": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556604988411430": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "12895556605142661517": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556605352228968": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "12895556605385784206": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556605523311949": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12895556606213046618": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252185398734": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252378201153": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252504351113": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252520654437": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252588913168": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252656721830": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252735627940": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252817965722": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675256213796274": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675252956238265": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253074303249": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253176500521": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253228465737": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253436280027": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253623744804": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253674077661": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253687696816": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253720947748": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253742063439": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675253984014054": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254161262240": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254234946961": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254380643182": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254691333517": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254807907878": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254825657150": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254924034829": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254962157965": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675254970416089": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255171725416": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255205280654": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255342808397": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255437321274": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675255925433905": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675256032543066": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675256090532138": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13039675256350883197": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13156647006022188365": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13255853230072053069": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13590883339407506765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352410663091662": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352411551996177": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352411706158665": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352411913972955": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413285600806": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "13630352413439850893": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413649418344": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "13630352413682973582": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413820501325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352414510235994": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13987674971085258061": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14036282126428962254": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14036282127317866769": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14036282127472029257": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14036282127679843547": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14036282129448844174": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14036282129586371917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14036282130276106586": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709913338478030": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709914227382545": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709914381545033": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709914589359323": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709915960987174": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16132709916115237261": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709916324804712": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16132709916358359950": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709916495887693": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16132709917185622362": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740256935476686": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257128279105": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257254429065": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257270732389": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257338991120": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257406799782": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257485705892": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257568043674": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740260963874226": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257706316217": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257824381201": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257926578473": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740257978543689": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258186357979": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258373822756": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258424155613": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258437774768": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258471025700": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258492141391": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258734092006": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258911340192": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740258985024913": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259130721134": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259441411469": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259557985830": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259575735102": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259674112781": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259712235917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259720494041": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259921803368": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740259955358606": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740260092886349": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740260187399226": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740260675511857": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740260782621018": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740260840610090": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16592740261100961149": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801424700865998": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801425589770513": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801425743933001": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801425951747291": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801427323375142": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16841801427477625229": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801427687192680": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16841801427720747918": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801427858275661": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16841801428548010330": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17876238949570624845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000708584832462": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000709473736977": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000709627899465": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000709835713755": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000710023178532": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000711361591693": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000711571159144": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "17960000711604714382": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000711742242125": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17960000712431976794": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208475151427876": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10832289108335913252": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540190432775718": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "13555540190967676237": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540190796593256": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "13555540190830148494": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540188699171089": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540189061147867": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540188853333577": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540187810266574": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540191657410906": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13555540190587025805": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207952482581837": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207951947681318": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "3084207952311498856": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "3084207952345054094": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207950214076689": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207950576053467": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207950368239177": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207949325172174": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207953172316506": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207952101931405": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "Characters/Garen/Animations/Skin0",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    }
+  },
+  "atomicClips": {
+    "Attack1": "assets/characters/garen/skins/base/animations/garen_2013_attack_01.anm",
+    "Attack2": "assets/characters/garen/skins/base/animations/garen_2013_attack_02.anm",
+    "Channel": "assets/characters/garen/skins/base/animations/garen_2013_channel.anm",
+    "Channel_Wndup": "assets/characters/garen/skins/base/animations/garen_2013_channelin.anm",
+    "Crit": "assets/characters/garen/skins/base/animations/garen_2013_crit.anm",
+    "Dance_Base": "assets/characters/garen/skins/base/animations/garen_2013_dance.anm",
+    "Death": "assets/characters/garen/skins/base/animations/garen_2013_death.anm",
+    "Idle_Enter_BASE": "assets/characters/garen/skins/base/animations/garen_2013_idle_leadin.anm",
+    "Idle1_Base": "assets/characters/garen/skins/base/animations/garen_2013_idle1.anm",
+    "Idle2_Base": "assets/characters/garen/skins/base/animations/garen_2013_idle2.anm",
+    "Idle3_BASE": "assets/characters/garen/skins/base/animations/garen_2013_idle3.anm",
+    "{9d46ce26}": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+    "{5dbf4f4f}": "assets/characters/garen/skins/base/animations/garen_2013_joke_loop.anm",
+    "Laugh_BASE": "assets/characters/garen/skins/base/animations/garen_2013_laugh.anm",
+    "Recall_Base": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+    "{7b201d91}": "assets/characters/garen/skins/base/animations/garen_2013_recall_loop.anm",
+    "Run_Base": "assets/characters/garen/skins/base/animations/garen_2013_run.anm",
+    "Spell1": "assets/characters/garen/skins/base/animations/garen_2013_spell1.anm",
+    "Spell4_Base": "assets/characters/garen/skins/base/animations/garen_2013_spell4.anm",
+    "Taunt_Base": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+    "Dance_Loop_BASE": "assets/characters/garen/skins/base/animations/garen_2013_dance_loop.anm",
+    "Recall": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+    "Recall_Leadout": "assets/characters/garen/skins/base/animations/garen_2013_recall_leadout.anm",
+    "Respawn_Base": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+    "{13f95189}": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+    "Run_Haste": "assets/characters/garen/skins/base/animations/garen_2013_run_haste.anm",
+    "Run_Spell1": "assets/characters/garen/skins/base/animations/garen_2013_run_spell1.anm",
+    "Run_Fast": "assets/characters/garen/skins/base/animations/garen_2013_run_fast.anm",
+    "{1d0e4fa6}": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+    "{2ee891b9}": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+    "{c2cae43a}": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+    "Spell3_0": "assets/characters/garen/skins/base/animations/garen_base_spell3_0.anm",
+    "Spell3_180": "assets/characters/garen/skins/base/animations/garen_base_spell3_180.anm",
+    "Spell3_-180": "assets/characters/garen/skins/base/animations/garen_base_spell3_-180.anm",
+    "Spell3_90": "assets/characters/garen/skins/base/animations/garen_base_spell3_90.anm",
+    "Spell3_-90": "assets/characters/garen/skins/base/animations/garen_base_spell3_-90.anm"
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Garen.wad.client",
+    "chunks": {
+      "DA567E4A92CDAEA7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32228838,
+        "bytes": 67713,
+        "sha256": "ea3fe3ef4a84f728ab7bfd514e5b8abb1a818a9cc4e9ea113d0e09d26066a41f"
+      },
+      "5941DBBE0BBF6E07": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+        "offset": 7845061,
+        "bytes": 35639,
+        "sha256": "b731fafe45fd27c912e47009d8483ad653384ee86728b687f84642c109d4b42c"
+      },
+      "B632089CCCB8AF30": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 34630667,
+        "bytes": 11507,
+        "sha256": "541442787e131833d8453c1d4ecc1ba66b0234045e9417422184dc23075feccc"
+      },
+      "ACC6EACCAF00C6B9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 38515860,
+        "bytes": 11834,
+        "sha256": "10fd4e5de04ea49c1f043b95360b0d7e959aa52a583a4a602ddd3a157e8e8acd"
+      },
+      "7F7A22F1E6EC32BB": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 34508537,
+        "bytes": 6420,
+        "sha256": "fc184840d09c4e08b2c69d9e3e79b1650f8f48e173194c0249531105373ee360"
+      },
+      "208BF4E34E6D35E6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 35112076,
+        "bytes": 6721,
+        "sha256": "0ff34916b949c029130ad4d669f013c36ea3242b75ca09a206cce5a2871c1de7"
+      },
+      "1CE76D717762B296": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33166542,
+        "bytes": 13434,
+        "sha256": "54ed56a7443c7f0b6493e0872b872dead37786e37e48ab0649f0fb5c9fab188d"
+      },
+      "136B740CF3ADB22A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 38333458,
+        "bytes": 34044,
+        "sha256": "e5a3d76f8cbbd0dde51500bae757710e1189bcfb7b0af8e1c86a9af2c243f127"
+      },
+      "58436A349E4B9B33": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 35351035,
+        "bytes": 36462,
+        "sha256": "9071ade7c7f848b8cba98c5dc4ead40f56ec7b38cdc86c9976d02c148b06a2c5"
+      },
+      "E583E924CFC0796E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 38893292,
+        "bytes": 23502,
+        "sha256": "b9ee3806678d2200eb0c05f1101b622f1d1f1e0dabb9ac1d64826b4b8208355d"
+      },
+      "FEFDCD48194BC0E7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 35807928,
+        "bytes": 31381,
+        "sha256": "0844c38104aaa1af663b1d1072a966ecb4b6f1a2c1ed49e6bc390aeacc7318e9"
+      },
+      "39A4BA60AF72D05E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 34072117,
+        "bytes": 7658,
+        "sha256": "226c61b7a8a44fefbda0b52d5a29c0fdf77ef0e48812dc66b96369f81ae7b764"
+      },
+      "A1BC8BA3CA111402": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 37657737,
+        "bytes": 10559,
+        "sha256": "d41005dc4f35cf865768d103745abb43ec5a48cbb83727aecc0867e07100d3d3"
+      },
+      "113AC5265CBF530C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 35940806,
+        "bytes": 38005,
+        "sha256": "1638632931552dbdd3527aa0102f24f32c44b8fabb223a9f6b157f63ff94a2b2"
+      },
+      "5FE5FAAB283EEAE7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33368118,
+        "bytes": 19557,
+        "sha256": "70bd10862d6bc93e3307af0b00e833d1c3ff1b5b1f5ea8e9ee500931b6920bbd"
+      },
+      "20C8E089664DB65F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33356943,
+        "bytes": 11175,
+        "sha256": "ab8672d39587c761257bfbbff0d41b9b60bc0d978a9ace0c541fdf028ce7d3e7"
+      },
+      "7B84ED3A9BC7C837": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 38848054,
+        "bytes": 32006,
+        "sha256": "617eb0c1e25b4a8baee8df064b424310bf421e269777f385beb5ad97c6ba6999"
+      },
+      "DE0253E5D00901E3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 42356968,
+        "bytes": 73484,
+        "sha256": "83e34332e49281e1dc90a27a55fefadd0b9ed585da9997cc45254a9bc8b62cc2"
+      },
+      "4766B5D98552F152": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 42430452,
+        "bytes": 12178,
+        "sha256": "1fbc8846b3d9314e7dd1bab7a3a4b918c4b20c9884e70f11f9328aea156da83d"
+      },
+      "7748C544ADAFA6AF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 40092958,
+        "bytes": 15886,
+        "sha256": "06c61ac797af724428f65058aa6d44baf988db3fda5cad018d77b925120a7213"
+      },
+      "7A3DF65322DA5461": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 34049215,
+        "bytes": 4697,
+        "sha256": "3504ab13694a3e6617897657c23f11a3a81f1782bb86c415694a43659d4abddf"
+      },
+      "D634FF66E9734A4F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32508917,
+        "bytes": 8527,
+        "sha256": "8428ba254b030d519da9e76aacef122a41182e4a901c776888fba425188d009b"
+      },
+      "F60D6EB11747B8A4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 37533576,
+        "bytes": 7324,
+        "sha256": "57de05181d2fe162a75c22c230c871f2c9da3fa2ce9ec7f226897c33415ac534"
+      },
+      "2ABFAB1917BDE458": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33687116,
+        "bytes": 7513,
+        "sha256": "1cb5064a07c9e5552a8294fb042aeffbd8f9bd9ded5631262b4490f993c2b54a"
+      },
+      "7B544E3064AFA5E7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33158480,
+        "bytes": 7662,
+        "sha256": "e88959c7e994811a54b2e09fcb7549216f3808f19e8d01fcde6e20aab01160b8"
+      },
+      "5F3E80E4F9DC1101": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 35052831,
+        "bytes": 7400,
+        "sha256": "e24be5bc8e89b8904f6a63a621bd5c93fe410d54a99c59c12088eb7cec5b2146"
+      },
+      "B6751FFBB3E71E40": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 36057993,
+        "bytes": 10906,
+        "sha256": "2e7013e96d422c19fb6cf838c5ca8364d12e708a2754dd2fdfa7494c6282ad77"
+      },
+      "0F0AD84D57343347": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33011295,
+        "bytes": 16472,
+        "sha256": "ab4d597979883c02e4f130250d73957de7c38fe6601bcc8731353474790ce3cc"
+      },
+      "CCA766DE39AD999E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33496183,
+        "bytes": 29573,
+        "sha256": "ed4bc947d781241223499d423b93d835fd6b137a3bae34a4b89140328c235e98"
+      },
+      "1240AA8FDC5F0DCA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33946148,
+        "bytes": 6339,
+        "sha256": "05e35fc9c6c91dbd6829cd62d694f0d83691e87e2009aec498fd666a95be7281"
+      },
+      "9F9E14F4D3FA78FA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 38824046,
+        "bytes": 6351,
+        "sha256": "2d97836c70b9f6a2301cedc45514ac7f421b9d2091b08b60c735774dac74f30a"
+      },
+      "7149132F72CCA553": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33184647,
+        "bytes": 6350,
+        "sha256": "bac5d569b168a266ec0bab778635793d33261a0ab5425db9395627c4ff7133b3"
+      },
+      "22DDBD22DE69A3BD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 37540900,
+        "bytes": 6344,
+        "sha256": "ebfd2a9db7969314ca5ea1f7b67338122ca0b979b1c710f22e59bf824445b77a"
+      },
+      "FABB1150574D9CB1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 37436866,
+        "bytes": 6334,
+        "sha256": "d3ef893b8d0c1d7b744faa8f5fd4aba9b1e293e4a5c2c578eb6ce43af06c5ee6"
+      },
+      "C4508EC2A54349D7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32446427,
+        "bytes": 3859,
+        "sha256": "4348e1256274779dcb9f68b6ad2da8e46bbaa49d4f05de3538c415bbe16ecc09"
+      },
+      "E24CE480F4DEC7B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 41697366,
+        "bytes": 84008,
+        "sha256": "d9ec7a988eb55c0470bb9a30e096f1530adb6f2fa9867bc2aa04bd105e5ebfa5"
+      },
+      "867D3267E58A902F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 41781374,
+        "bytes": 34876,
+        "sha256": "e9e206439651f03216aa8744ef46a51a4df7a1121dcf1f29244fc924c2fb5f0a"
+      },
+      "BD79B1E4B8945E5D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 35936911,
+        "bytes": 3895,
+        "sha256": "981201fe0ed829ee6c10b28a92f1a9436c8e0f76e56102df9377ef9c3c744ebf"
+      },
+      "6579D5C7C53FCD45": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/EE1B26E23E4A56A3.bundle",
+        "offset": 24752835,
+        "bytes": 126828,
+        "sha256": "024402275bf42c58222e9b02cf27873ae13425447df280768e28b981e350a243"
+      },
+      "A79CBD8B12879011": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+        "offset": 14721818,
+        "bytes": 44782,
+        "sha256": "8e69f2e4fbea64384f6ac351c6ef9921c1aefeedad5d0b2d4c6c95db1bc5d1ce"
+      },
+      "A769EB8F5A81D4C1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32917920,
+        "bytes": 2404,
+        "sha256": "c1ea0592513859831a80c97764e49bba315a7b3442befdb90dff05016d5b8737"
+      },
+      "217A70F75F54F2D3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32883157,
+        "bytes": 3327,
+        "sha256": "81a79e25c51aef1f28fa8dac0aab3ee574491677b27fe128dc6e09216fb0e69e"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_attack_01.anm",
+        "wadPathHash": "2f939b6f36b276e8",
+        "sha256": "7b8ea30a81aad7f5b94b4751b3149cd463073cfa5073a6b15a8564cd87de64fd",
+        "bytes": 21220
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_attack_02.anm",
+        "wadPathHash": "5a5cff27f903c30b",
+        "sha256": "e5afc81c9d15ec532d3cc4f9d260a3b8427155c414db8d3efb1405972617db2d",
+        "bytes": 21660
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_channel.anm",
+        "wadPathHash": "1ceea144d0a794a3",
+        "sha256": "1f943b185bbd7ac36afb27218562d2e89b043046f2284e3ad50e442fa2b6db28",
+        "bytes": 16520
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_channelin.anm",
+        "wadPathHash": "cca3118ee9432a4d",
+        "sha256": "dc89fa9c2f2d7d4b50c3b463c4f19d29598926250ef3d1c5751ca006478c6491",
+        "bytes": 16890
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_crit.anm",
+        "wadPathHash": "c75da5596f4f5d38",
+        "sha256": "c74def705ff228c9a14e31021cae426d34499e60063c560a8133048b08cdb282",
+        "bytes": 23600
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_dance.anm",
+        "wadPathHash": "920f24263ba21895",
+        "sha256": "d9bb321ca711051c0594719a6069a0d6828a2ad3908d690a91e3409eb2236410",
+        "bytes": 64802
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_dance_loop.anm",
+        "wadPathHash": "4b7e40d577f648af",
+        "sha256": "258fe46d7912d6047a80d3be6b8285fae0b3f0444d91695a11e738ed3b56d56c",
+        "bytes": 75144
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_death.anm",
+        "wadPathHash": "243453402aca3e0e",
+        "sha256": "ccd6551e6873bc72f258b955d33b757f4d692c56fd0677d6051c3c04a1c9035a",
+        "bytes": 38398
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_idle1.anm",
+        "wadPathHash": "c49246c7b15ebf12",
+        "sha256": "929f5e0810b64a8049410b4afd730f1f784d65965f55f3b5abfa1519420809f4",
+        "bytes": 55800
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_idle2.anm",
+        "wadPathHash": "2454a1fa4ee76118",
+        "sha256": "b5bc89b01f0b2472284d2495878a318b7545b0284637b7560bb64ee74036bc3f",
+        "bytes": 17060
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_idle3.anm",
+        "wadPathHash": "2cd91bff058db2ec",
+        "sha256": "f4494abfacfa1281bff0295a310bd8cfb474a8c96e5589e196980f8a8d5c7192",
+        "bytes": 20750
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_idle_leadin.anm",
+        "wadPathHash": "d531f1bafb89cffb",
+        "sha256": "96ae3d320e497e230183c135836162de162845ac28fe16918d0094df0040864c",
+        "bytes": 70254
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+        "wadPathHash": "20d7be75afa09d68",
+        "sha256": "7915c22b2f3d004651ca9289882c7fe90b92de733e15743c1f936789334361ee",
+        "bytes": 40602
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_joke_loop.anm",
+        "wadPathHash": "11b4d487a2416858",
+        "sha256": "315b7d7081cc07c9ee7d5e03e1c8ea3e898e0b6e4f1c22b647ef894d090bd59a",
+        "bytes": 23214
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_laugh.anm",
+        "wadPathHash": "0ce4c36dab979938",
+        "sha256": "ad572e24add4998c7e27cdcd713f992474fa980bcf41ed800050ca11face3a82",
+        "bytes": 62828
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+        "wadPathHash": "d3aed8601f9f93a0",
+        "sha256": "93cf785117fba5bce506180b00768940eb74fa1bf4de0abc357e1a8e708e3b87",
+        "bytes": 177830
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_recall_leadout.anm",
+        "wadPathHash": "008b49b1cffdd06d",
+        "sha256": "c00d43be3cda99eae721127fbb10c4b43015e3c66b79c6aac5dd2c631db65e20",
+        "bytes": 31766
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_recall_loop.anm",
+        "wadPathHash": "4166d275bb6f4f84",
+        "sha256": "715855096bd0a71d5ad548dd67213af0985354c8a317774d252959b024ac6cd1",
+        "bytes": 11972
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+        "wadPathHash": "c788fe63afbc953c",
+        "sha256": "6bd7b4731d40b8fac9308d4969016da9348c2f5efb21c209b155c2e7008de4e3",
+        "bytes": 17470
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_run.anm",
+        "wadPathHash": "edaab218e521e32a",
+        "sha256": "c28487402c4bd1c4653cdfbba49dd024e85f254d9df85f6cb5ac219028195a99",
+        "bytes": 16350
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_run_fast.anm",
+        "wadPathHash": "4163fdd87a9d63b5",
+        "sha256": "6711dae8b11849b552c2fdf99dfb361ee969d459d35aa6b9cb27b15d45d0059f",
+        "bytes": 16350
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_run_haste.anm",
+        "wadPathHash": "d9afba169275209f",
+        "sha256": "7d0d988bb7e9cebba4a6bff1a64541b202195b532d59ff612eb689b45b9f4305",
+        "bytes": 16820
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_run_spell1.anm",
+        "wadPathHash": "fe30f0ef84ebd72a",
+        "sha256": "3925b5d648a243d06a463841062e3530cc6451a0c9cb4e3cb4f204d44b1fb7f7",
+        "bytes": 16470
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_spell1.anm",
+        "wadPathHash": "74bed0b909a29001",
+        "sha256": "24f4c99920325757c46d300228e4f3a9ec959626319edc0b38cd3a6b03e62342",
+        "bytes": 21400
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_spell4.anm",
+        "wadPathHash": "ced54d6f0e2d3646",
+        "sha256": "b1ba5a48c58ece1a74fbbc62b5003d1a32247e0e972f8adc38b40c049968e2a0",
+        "bytes": 29414
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+        "wadPathHash": "0d11773296e46cec",
+        "sha256": "a836a08de93fb6727ce01bf8a3bbe5937556f6a9391c0113ce078fc2ac8ccb9c",
+        "bytes": 44838
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_-180.anm",
+        "wadPathHash": "e002c5970657e78d",
+        "sha256": "06129c5e80910c69dacfc6d9ff38f07c9dc65b2ee88950b4a4a07c765a405d38",
+        "bytes": 19620
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_-90.anm",
+        "wadPathHash": "e18da26fdf79d513",
+        "sha256": "2d66a8a1dbc48e4b1f8c4e49e79f6e680222c955a8e19dc8d0d4a2e6284874e5",
+        "bytes": 19600
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_0.anm",
+        "wadPathHash": "66d5a166788e6306",
+        "sha256": "ab3b7369345bd63c99ca2052da5e6a3ff02fabcd9168db1e363ba39d407ea579",
+        "bytes": 19600
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_180.anm",
+        "wadPathHash": "16813e36798f7920",
+        "sha256": "82cbe93c994fbecc76ce83d48963877f1d8c1515ddf7542b830ad54acade8afa",
+        "bytes": 19620
+      },
+      {
+        "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_90.anm",
+        "wadPathHash": "58f5ea04d910e5c7",
+        "sha256": "1b40799b24055f764fbfbb59ac7f98962db57292c559a7681151dcee7b683291",
+        "bytes": 19590
+      },
+      {
+        "path": "assets/characters/garen/skins/base/garen.skl",
+        "wadPathHash": "444a989ebc452f8c",
+        "sha256": "97ae576d9c0a2090fdfb4b111b6b8af2a1dbf2c630ca573623dd1ebfc6bd680c",
+        "bytes": 8424
+      },
+      {
+        "path": "assets/characters/garen/skins/base/garen.skn",
+        "wadPathHash": "4b37893fd1a76004",
+        "sha256": "ca3865bad9d44b009f5a707c8b131979d18a2cff33524babba2e1fc91ac1808c",
+        "bytes": 242592
+      },
+      {
+        "path": "assets/characters/garen/skins/base/garen_base_cubemap.dds",
+        "wadPathHash": "e5a8a9dc9267798e",
+        "sha256": "a192cf4e7bddc8b41983ad2f355338debdec831362415dcb5bf43488b098c119",
+        "bytes": 12416
+      },
+      {
+        "path": "assets/characters/garen/skins/base/garen_base_tx_cm.tex",
+        "wadPathHash": "56e467916e02cd42",
+        "sha256": "7e9492c5e1a5fa996145e6c2271580fab5a3a149da6fa4240435910d451f720a",
+        "bytes": 174788
+      },
+      {
+        "path": "assets/characters/garen/skins/base/garen_base_tx_gm.tex",
+        "wadPathHash": "d1f6334eb19882b8",
+        "sha256": "7fdb040e6a3569d144e224880a530286ce66e1845d1cdff6c54d78b30f8787c9",
+        "bytes": 174788
+      },
+      {
+        "path": "data/characters/garen/animations/skin0.bin",
+        "wadPathHash": "a9051113df060f9c",
+        "sha256": "77628eed86880d52952256153e4c6c68de267da36b9c228b1f6e5fffaac11570",
+        "bytes": 20556
+      },
+      {
+        "path": "data/characters/garen/skins/skin0.bin",
+        "wadPathHash": "cf5483ae29215c7c",
+        "sha256": "99d71edef30ca759a1b2f4e95b5d8d2993cf8c2063a07d290d66299b22660844",
+        "bytes": 16273
+      }
+    ]
+  }
+}
