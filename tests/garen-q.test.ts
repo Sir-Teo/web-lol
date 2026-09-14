@@ -62,7 +62,8 @@ test('Q resets the attack timer, consumes one melee hit, and silences at damage 
   w.setOrder(garen, { type: 'attack', target: target.id });
   cast();
   expect(garen.attackCycle?.garenQRank).toBe(1);
-  expect(garen.nextAttackTick).toBe(97);
+  expect(garen.nextAttackTick).toBe(96);
+  expect(garen.releaseTick).toBe(20);
   w.step(garen.releaseTick! - w.tick - 1);
   expect(target.hp).toBe(1500);
   expect(target.silenceUntil).toBe(0);
@@ -73,9 +74,9 @@ test('Q resets the attack timer, consumes one melee hit, and silences at damage 
   expect(w.movementSpeed(garen)).toBeCloseTo(459);
   expect(garen.animationTimeline?.primary.clip).toBe('spell1');
   expect(w.projectiles).toHaveLength(0);
-  w.step(114 - w.tick);
+  w.step(113 - w.tick);
   expect(target.hp).toBe(1297.5);
-  expect(target.silenceUntil).toBe(108);
+  expect(target.silenceUntil).toBe(110);
 });
 
 test('a committed Q survives movement orders, stun, and buff expiry without moving while disabled', () => {
@@ -225,4 +226,43 @@ test('a stunned Q that destroys the Nexus stops later units and produces a valid
   const restored = World.fromSnapshot(saved, w.battlefield);
   restored.step(100);
   expect(restored.snapshot()).toBe(saved);
+});
+
+test('Q keeps its captured cadence and source contact frame when levelling during the swing', () => {
+  const { w, garen, target, cast } = setup();
+  w.setOrder(garen, { type: 'attack', target: target.id });
+  cast();
+  const release = garen.releaseTick!;
+  const end = garen.nextAttackTick;
+  w.gainExperience(1e6, garen.id);
+  expect(garen.releaseTick).toBe(release);
+  expect(garen.attackCycle?.garenQReleaseTick).toBe(release);
+  expect(garen.nextAttackTick).toBe(end);
+  const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+  w.step(release - w.tick);
+  restored.step(release - restored.tick);
+  expect(restored.snapshot()).toBe(w.snapshot());
+  expect(garen.animationTimeline?.primary.clip).toBe('spell1');
+  expect(garen.animationTimeline?.primary.time).toBeCloseTo(1 / 3);
+  const fresh = setup();
+  fresh.w.gainExperience(1e6, fresh.garen.id);
+  fresh.w.setOrder(fresh.garen, { type: 'attack', target: fresh.target.id });
+  fresh.cast();
+  expect(fresh.garen.releaseTick).toBe(19);
+  expect(fresh.garen.nextAttackTick).toBe(91);
+  for (const mutate of [
+    (cycle: any) => {
+      delete cycle.garenQReleaseTick;
+    },
+    (cycle: any) => {
+      cycle.garenQReleaseTick++;
+    },
+    (cycle: any) => {
+      cycle.endTick++;
+    },
+  ]) {
+    const invalid = JSON.parse(fresh.w.snapshot());
+    mutate(invalid.units.find((u: any) => u.id === fresh.garen.id).attackCycle);
+    expect(() => World.fromSnapshot(JSON.stringify(invalid), fresh.w.battlefield)).toThrow();
+  }
 });

@@ -27,7 +27,7 @@ import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { championProfile } from '../content/champion-profiles';
-import { garenAttackWindupTicks } from './garen-attack-timing';
+import { garenAttackWindupTicks, garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { GAREN_Q } from '../content/garen-q';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
@@ -885,7 +885,12 @@ export class World {
   }
   private estimatedAttackDelay(u: Unit, target: Unit): number {
     // Stationary-target estimate shared by farming and incoming-missile decisions.
-    const windup = Math.round(u.windupTicks / this.attackSpeedMultiplier(u, target));
+    const state = this.championState(u.id);
+    const q = state?.garenQ;
+    const windup =
+      q && !q.consumed && this.tick < q.attackUntil
+        ? garenQAttackTimingAtLevel(state!.level).windupTicks
+        : Math.round(u.windupTicks / this.attackSpeedMultiplier(u, target));
     const flight = u.missileSpeed
       ? Math.ceil(Math.max(0, distance(u, target) - target.radius - 8) / (u.missileSpeed * DT))
       : 0;
@@ -1623,21 +1628,25 @@ export class World {
         u.facing = Math.atan2(target.x - u.x, target.y - u.y);
         if (this.tick >= u.nextAttackTick) {
           const speed = this.attackSpeedMultiplier(u, target);
-          u.attackTarget = target.id;
-          u.releaseTick = this.tick + Math.round(u.windupTicks / speed);
-          u.nextAttackTick = this.tick + Math.round(u.attackPeriod / speed);
           const state = this.championState(u.id);
+          const garenQRank =
+            u.champion === 'garen' &&
+            state?.garenQ &&
+            !state.garenQ.consumed &&
+            this.tick < state.garenQ.attackUntil
+              ? state.garenQ.rank
+              : undefined;
+          const qTiming = garenQRank !== undefined ? garenQAttackTimingAtLevel(state!.level) : null;
+          u.attackTarget = target.id;
+          u.releaseTick = this.tick + (qTiming?.windupTicks ?? Math.round(u.windupTicks / speed));
+          u.nextAttackTick =
+            this.tick + (qTiming?.periodTicks ?? Math.round(u.attackPeriod / speed));
           if (state) state.castAnimation = null;
           u.attackCycle = {
             startTick: this.tick,
             endTick: u.nextAttackTick,
             empowered: state !== undefined && this.tick < state.qUntil,
-            ...(u.champion === 'garen' &&
-            state?.garenQ &&
-            !state.garenQ.consumed &&
-            this.tick < state.garenQ.attackUntil
-              ? { garenQRank: state.garenQ.rank }
-              : {}),
+            ...(garenQRank !== undefined ? { garenQRank, garenQReleaseTick: u.releaseTick } : {}),
             ...(u.kind === 'champion' &&
             !isStructureKind(target.kind) &&
             this.criticalChance(u) > 0 &&

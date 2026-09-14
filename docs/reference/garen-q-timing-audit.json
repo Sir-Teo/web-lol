@@ -1,0 +1,68 @@
+{
+  "characterSourceSha256": "c0b9f40064cfde35d2805e37dc3181c5f4a8064dfd4357773c5922b412290bbd",
+  "currentOverride": {
+    "mTotalAttackTimeSecs": {
+      "mFormulaParts": [
+        {
+          "mNumber": 1.7000000476837158,
+          "__type": "NumberCalculationPart"
+        },
+        {
+          "mStat": 4,
+          "mStatFormula": 2,
+          "mCoefficient": -0.20000000298023224,
+          "__type": "StatByCoefficientCalculationPart"
+        }
+      ],
+      "__type": "GameCalculation"
+    },
+    "mCastTimePercent": 0.20000000298023224,
+    "__type": "OverrideAttackTimeData"
+  },
+  "historical": {
+    "commit": "40f21c06e5cfc10750bb44b39d1f2d4e3567a6dc",
+    "commitDate": "2021-06-06T16:34:23Z",
+    "recordUrl": "https://raw.githubusercontent.com/moonshadow565/calcrev/40f21c06e5cfc10750bb44b39d1f2d4e3567a6dc/json/champs/garen.bin.json",
+    "recordSha256": "387c44aa9ca7efa10c193ced7d9de017c255d33392ae8c72519c738629285569",
+    "override": {
+      "{20991541}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 1.7000000476837158,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mCoefficient": -0.20000000298023224,
+            "mStat": 3,
+            "mStatFormula": 2,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "mCastTimePercent": 0.20000000298023224,
+      "__type": "OverrideAttackTimeData"
+    },
+    "enumUrl": "https://raw.githubusercontent.com/moonshadow565/calcrev/40f21c06e5cfc10750bb44b39d1f2d4e3567a6dc/calc.py",
+    "enumSha256": "35a130db9f9d9817206d8d02e013384e27ec088fe2f2dd9bf19140f4bd58d345",
+    "enumEntries": {
+      "stat3": "AttackSpeed",
+      "stat4": "AttackWindupTime",
+      "formula2": "total"
+    }
+  },
+  "comparison": "After normalizing the previously unresolved total-time field name and stat ID 3 to 4, the historical override equals the current override exactly.",
+  "interpretation": "Current stat 4 in this Garen override is total attack speed. Do not reuse the historical enum numbers globally.",
+  "runtimePolicy": "Evaluate total time and cast fraction, rounded separately to local 60 Hz ticks. Supported total attack speed currently includes base and level growth. Native override precedence and frame parity remain unverified.",
+  "animation": {
+    "source": "assets/characters/garen/skins/base/animations/garen_2013_spell1.anm",
+    "headerMagic": "r3d2canm",
+    "version": 1,
+    "fpsOffsetBytes": 40,
+    "fps": 30,
+    "castFrame": 10,
+    "reader": "LeagueToolkit/Core/Animation/CompressedAnimationAsset.cs ReadCompressed",
+    "readerSha256": "df8b0db3cd7868806ac8eac25a609b6da8a3ff476963d632b056c155ef788519",
+    "policy": "Map the cast-frame marker to captured release and finish the clip across the remaining cycle. Native use of the marker and transition rates remain unverified."
+  }
+}

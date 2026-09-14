@@ -40,18 +40,21 @@ test('Garen Q uses his sword animation and silences actual player spell input', 
     const g = (window as any).__GAME__,
       w = g.world;
     w.step(release - w.tick);
-    w.setOrder(w.unit(id), { type: 'idle' });
     g.view.render(w, 1, g.view.previousElapsed);
     g.hud.update(60);
     const checkpoint = w.snapshot();
     const restored = w.constructor.fromSnapshot(checkpoint, w.battlefield);
     return {
+      contactTime: w.unit(id).animationTimeline.primary.time,
+      contactClip: w.unit(id).animationTimeline.primary.clip,
       damage: w.hero.maxHp - w.hero.hp,
       silence: w.hero.silenceUntil - w.tick,
       consumed: w.championState(id).garenQ.consumed,
       restored: restored.snapshot() === checkpoint,
     };
   }, attack);
+  expect(hit.contactClip).toBe('spell1');
+  expect(hit.contactTime).toBeCloseTo(1 / 3);
   expect(hit.damage).toBeGreaterThan(100);
   expect(hit.silence).toBe(90);
   expect(hit.consumed).toBe(true);

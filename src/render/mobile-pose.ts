@@ -4,6 +4,7 @@ import { castAnimationName } from '../content/cast-animation';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { luxAttackAnimation } from '../content/lux-attack-animation';
 import { ASHE_Q } from '../content/ashe-q';
+import { GAREN_Q } from '../content/garen-q';
 
 export interface MobilePose {
   kind: 'cast' | 'recall' | 'attack' | 'run' | 'idle' | 'death';
@@ -68,6 +69,16 @@ export function mobilePose(
   const moving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01,
     cycle = unit.attackCycle;
   if (!moving && cycle && tick < cycle.endTick) {
+    if (cycle.garenQReleaseTick !== undefined) {
+      const clip = 'spell1';
+      const contact = GAREN_Q.attackTiming.animationCastFrame / GAREN_Q.attackTiming.animationFps;
+      const windup = (cycle.garenQReleaseTick - cycle.startTick) / TICK_RATE;
+      const recovery = (cycle.endTick - cycle.garenQReleaseTick) / TICK_RATE;
+      const age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
+      const rate = age < windup ? contact / windup : (duration(clip) - contact) / recovery;
+      const time = age < windup ? age * rate : contact + (age - windup) * rate;
+      return { ...fixed('attack', clip, time, false, rate), settled: age >= 0.08 };
+    }
     const clip =
       cycle.garenQRank !== undefined
         ? 'spell1'

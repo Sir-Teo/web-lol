@@ -29,6 +29,7 @@ import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { GAREN_Q } from '../content/garen-q';
+import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
@@ -37,7 +38,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 68;
+export const SNAPSHOT_VERSION = 69;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -146,8 +147,19 @@ const unit: z.ZodType<Unit> = z
         empowered: z.boolean(),
         critical: z.literal(true).optional(),
         garenQRank: z.number().int().min(1).max(5).optional(),
+        garenQReleaseTick: tick.optional(),
       })
       .refine((cycle) => cycle.endTick > cycle.startTick, 'Invalid attack cycle')
+      .refine(
+        (cycle) => (cycle.garenQRank !== undefined) === (cycle.garenQReleaseTick !== undefined),
+        'Missing Decisive Strike release'
+      )
+      .refine(
+        (cycle) =>
+          cycle.garenQReleaseTick === undefined ||
+          (cycle.garenQReleaseTick > cycle.startTick && cycle.garenQReleaseTick < cycle.endTick),
+        'Invalid Decisive Strike release'
+      )
       .nullable(),
     releaseTick: deadline.nullable(),
     nextAttackTick: deadline,
@@ -1231,6 +1243,28 @@ export function decodeSnapshot(text: string) {
         ? ['q', 'w', 'e', 'r'].includes(ability)
         : champion.champion === 'ashe' && ability !== 'q';
     const garenQ = owner.garenQ;
+    const qCycle = champion.attackCycle;
+    if (
+      qCycle?.garenQReleaseTick !== undefined &&
+      (qCycle.endTick !== champion.nextAttackTick ||
+        (champion.releaseTick === null && qCycle.garenQReleaseTick > state.tick))
+    )
+      throw new Error('Saved Decisive Strike has inconsistent attack deadlines.');
+    if (
+      qCycle?.garenQReleaseTick !== undefined &&
+      !Array.from({ length: owner.level }, (_, index) => garenQAttackTimingAtLevel(index + 1)).some(
+        (timing) =>
+          qCycle.garenQReleaseTick === qCycle.startTick + timing.windupTicks &&
+          qCycle.endTick === qCycle.startTick + timing.periodTicks
+      )
+    )
+      throw new Error('Saved Decisive Strike has invalid captured timing.');
+    if (
+      champion.attackCycle?.garenQReleaseTick !== undefined &&
+      champion.releaseTick !== null &&
+      champion.releaseTick !== champion.attackCycle.garenQReleaseTick
+    )
+      throw new Error('Saved Decisive Strike release disagrees with its animation cycle.');
     if (
       garenQ &&
       (champion.champion !== 'garen' ||

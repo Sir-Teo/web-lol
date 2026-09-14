@@ -1,4 +1,4 @@
-// Generated from pinned GarenQ named values; full attack state machine remains separate.
+// Generated from pinned GarenQ named values; timing interpretation audited in docs/reference/garen-q-timing-audit.json.
 export const GAREN_Q = {
   baseDamageByRank: [30.0, 60.0, 90.0, 120.0, 150.0],
   movementSecondsByRank: [
@@ -12,4 +12,13 @@ export const GAREN_Q = {
   attackReset: true,
   attackCannotCancelWindup: true,
   attackCanCastWhileDisabled: true,
+  attackTiming: {
+    constantSeconds: 1.7000000476837158,
+    attackSpeedCoefficient: -0.20000000298023224,
+    castPercent: 0.20000000298023224,
+    statId: 4,
+    statFormula: 2,
+    animationCastFrame: 10.0,
+    animationFps: 30.0,
+  },
 } as const;

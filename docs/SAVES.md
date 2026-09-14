@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 69 captures Garen Q’s release tick in its attack cycle. The decoder requires rank/release pairing, checks release and cycle deadlines against the unit, and permits only timing pairs produced at the owner’s current or earlier levels. This preserves a swing started before level-up and keeps its animation contact marker aligned after restoration. Earlier formats are incompatible.
+
 Version 68 adds independent Garen Q buff state and captured empowered-attack ranks. It validates champion ownership, learned ranks, exact activation-relative deadlines, consumption and live buff ownership. Already committed attacks retain their rank through buff expiry and save/restore. Garen remains unavailable as the player, and W/E/R ranks remain rejected. Earlier formats are incompatible.
 
 Version 67 adds Garen as a non-player simulation champion and includes his source animation clips in validated pose state. Garen cannot carry Ashe Focus/Hawkshot state, pending foreign casts or learned unfinished spells. Player selection remains Ashe/Lux; an imported player identity of Garen is rejected until his player kit is integrated. Earlier checkpoint versions remain incompatible.

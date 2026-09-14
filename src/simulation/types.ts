@@ -72,6 +72,7 @@ export interface Unit extends Vec2 {
     empowered: boolean;
     critical?: true;
     garenQRank?: number;
+    garenQReleaseTick?: number;
   } | null;
   releaseTick: number | null;
   nextAttackTick: number;
