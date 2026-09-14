@@ -195,3 +195,15 @@ Several source spawn records use unnamed type `{ee39916f}` with a literal vector
 Four numerical cases verify eleven-layer first emission and burst counts, random-lifetime endpoints, default ring life and raw offsets, exact repeatable seeking, emission-stop boundaries, retained tails, and fixed birth values/color draw while age advances. All 807 unit tests pass. Repeat export is byte-identical. Run `.tools/cdtb-venv/bin/python tools/assets/export-lux-binding-target-births.py` to regenerate. This birth timeline is not yet connected to a target-effect renderer.
 
 The production build also passes for this data/sampler addition.
+
+## Target lifetime appearance
+
+`export-lux-binding-target-appearance.py` now retains all eleven emitters' lifetime scale/color curves and uniform-scale flags. It checks the verified birth export/source linkage first, refuses non-identity random tables on lifetime curves instead of silently discarding them, and verifies that this source set has no additional `rotation0` lifetime curve. Reproduce with `.tools/cdtb-venv/bin/python tools/assets/export-lux-binding-target-appearance.py`; repeated generated output is byte-identical.
+
+`luxBindingTargetAppearance` multiplies sampled birth size by the source lifetime scale curve, then applies uniform scaling from the evaluated X component when requested. This matters for the ring meshes: the [9,38,38] birth scale on `fireCircleTimer` becomes [9,9,9] under its uniform flag. Nonuniform bar and cylinder scales retain independent axes. Birth tint multiplies the lifetime color curve without premultiplying RGB by alpha. Initial rotation advances by the sampled spin times age in seconds. Lookup coordinates use normalized lifetime and the retained birth draw through the verified shared evaluator; any future velocity selector must receive explicit measured travel.
+
+The source bar curve retains its tiny initial zero-size interval and its peak near normalized age 0.511. `up_glow` reaches zero alpha around age 0.54 and remains invisible, while `up_glow1` stays visible into its later fade. The latter's source gold tint is retained. The timer ring fades use the sampled particle life, including the reader-default three seconds; they are not rescaled silently to the emitter duration or the gameplay root duration.
+
+Four added numerical cases cover uniform versus nonuniform scaling, exact curve knots, the distinct cylinder height/alpha timelines, seconds-based spin, fixed birth-random lookup, unpremultiplied tint, input immutability and expiration. TypeScript and all 811 unit tests pass. This is a source-value sampler, not a completed target-effect renderer: texture/atlas behavior, spawn/motion integration, mesh/quad transforms, soft particles, erosion, gameplay attachment and native comparison remain outstanding.
+
+The production build also passes for this appearance-data/sampler addition.
