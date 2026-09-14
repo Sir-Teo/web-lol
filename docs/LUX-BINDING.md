@@ -29,3 +29,31 @@ Snapshot 36 preserves zero or one prior contact for an active binding. It requir
 `World.spawn('champion', team, point, 'lux')` now creates a distinct Lux actor. A normal queued Q cast spends 50 of her mana, begins her own 600-tick cooldown, cancels an unreleased basic attack and recall, faces the aim point and captures rank/AP damage. After 15 ticks it releases the existing two-contact binding. Changing AP during windup does not change that cast's damage. Snapshot 37 preserves the complete windup and validates cast identity. Lux does not require or gain Ashe Focus, and her attacks do not apply Frost Shot.
 
 The runtime plays Lux's `spell1` clip for Q. Binding and basic-attack particles remain generic, audio remains synthesized, and Illumination now applies through the shared passive integration (see `LUX-ILLUMINATION.md`). Collision width/range interpretations and cast-animation event alignment still need native comparison. There is no champion-selection UI or Lux Q AI planner yet; the human remains Ashe. Lux W/E cannot learn or cast until implemented; R now has its own integration (see `LUX-R.md`).
+
+## Source audio graph and decoded masters
+
+`tools/assets/map-lux-binding-audio.py` now resolves all nine Light Binding event registrations in the pinned Skin0 model through the verified Lux base banks. It reuses the Illumination mapper's bank-byte verification, fresh pinned-wwiser parse, object index and independently checked DIDX/DATA boundaries. The resulting `reference/lux-binding-audio.json` preserves 47 event, action, target and inherited nodes with complete parameter paths. Stop actions explicitly identify affected media; they are never classified as playback. Shared parent mixers do not pull unrelated sibling sounds into the extraction.
+
+| Registered event suffix | Action target(s) | Unique affected recordings |
+|---|---|---:|
+| `LuxLightBinding_OnCast` | 1151 | 3 |
+| `LuxLightBindingDummy_OnMissileLaunch` | 1155 | 2 |
+| `LuxLightBinding_OnBuffActivate` | 1152 | 2 |
+| `LuxLightBinding_OnBuffDeactivate` | 1153 | 3 |
+| `LuxLightBindingMis_OnBuffActivate` | 1157 and 994928353 | 4 |
+| `LuxLightBindingMis_OnBuffDeactivate` | 1158 | 3 |
+
+These six Play events accompany three Stop events targeting 1152, 1155, and both 1157/994928353 respectively. The cast action stores DelayTime 100 (milliseconds in the pinned reader's delay convention). Stop actions store TransitionTime 150 for activation targets and 3000 for the missile-launch target, with Linear fade-curve value 4. These are source action parameters, not proof of when the native game dispatches each event.
+
+The two deactivation containers use the same three recordings through distinct sound objects. The `Mis_OnBuffActivate` event starts two actions: a three-variant impact container at −12 dB makeup gain and a separate single-recording continuous container 994928353 at −28 dB. That continuous container has loop count 0 and continuous mode enabled. Its WEM has no embedded loop metadata; container repetition must not be inferred solely from WAV loop markers. Cast, ordinary activation, deactivation and missile-launch containers have makeup gains −16, −8, −20 and −7 dB respectively. These values do not include the unresolved shared bus 1259461568 or certify native mixing.
+
+Fourteen unique encoded WEMs total 232,194 bytes. The existing pinned-vgmstream decoder now accepts `--effect binding` while retaining Illumination as its default. The decoded masters are mono 44.1 kHz float32 WAV, total 6,115,248 bytes, and retain above-unit headroom without normalization, resampling, expanded loops or fades. Encoded, WAV and PCM hashes, frame counts, diagnostics, decoder revision and linked library hashes are preserved in `reference/lux-binding-audio-decoded.json`. Source masters remain in the ignored cache; they are not yet shipped or played by the game.
+
+Reproduce after the existing Lux bank extraction:
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/map-lux-binding-audio.py
+.tools/cdtb-venv/bin/python tools/assets/decode-lux-illumination-audio.py --effect binding
+```
+
+The mapping and decode chain passes twice with byte-identical output. The default Illumination decoder was also rerun and its graph/decoded artifacts remain byte-identical. No runtime behavior changed in this milestone. Exported playback profiles, source dispatch/lifetime integration, browser decoding, attenuation, listening comparison and native mix verification remain outstanding.

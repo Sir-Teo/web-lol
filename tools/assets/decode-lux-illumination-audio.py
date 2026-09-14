@@ -1,5 +1,6 @@
-"""Decode pinned Lux Illumination WEMs to unnormalized float WAV source masters."""
+"""Decode pinned Lux Illumination or Light Binding WEMs to unnormalized float WAV source masters."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import math
@@ -30,13 +31,16 @@ def chunks(raw):
     return result
 
 
-source_path = Path('docs/reference/lux-illumination-audio.json')
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--effect', choices=('illumination', 'binding'), default='illumination')
+effect = parser.parse_args().effect
+source_path = Path(f'docs/reference/lux-{effect}-audio.json')
 source = json.loads(source_path.read_text())
-out = Path('.cache/lux-illumination-audio-decoded')
+out = Path(f'.cache/lux-{effect}-audio-decoded')
 out.mkdir(parents=True, exist_ok=True)
 results = []
 for media in source['media']:
-    path = Path('.cache/lux-illumination-audio-media') / f"{media['id']}.wem"
+    path = Path(f'.cache/lux-{effect}-audio-media') / f"{media['id']}.wem"
     encoded = path.read_bytes()
     assert len(encoded) == media['bytes'] and sha(encoded) == media['sha256']
     metadata = json.loads(subprocess.check_output([str(TOOL), '-m', '-I', str(path)], text=True))
@@ -82,6 +86,6 @@ result = dict(sourceGraphSha256=sha(source_path.read_bytes()),
                  flags=['-i', '-W', '4']),
     media=results,
     status='Decoded source masters only. No normalization, resampling, gain, loop expansion or fade applied. Native mix and listening comparison remain unverified.')
-Path('docs/reference/lux-illumination-audio-decoded.json').write_text(json.dumps(result, indent=2) + '\n')
+Path(f'docs/reference/lux-{effect}-audio-decoded.json').write_text(json.dumps(result, indent=2) + '\n')
 print(json.dumps([dict(id=x['id'], seconds=round(x['durationSeconds'], 4), peak=round(x['peak'], 4),
                       loop=x['decoderMetadata']['loopingInfo']) for x in results]))
