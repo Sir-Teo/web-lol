@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lux Illumination detonation</title>
+    <style>
+      body {
+        margin: 28px;
+        background: #0c1720;
+        color: #dce8ee;
+        font: 15px system-ui;
+      }
+      main {
+        max-width: 1000px;
+        margin: auto;
+      }
+      h1 {
+        font-size: 25px;
+      }
+      p {
+        color: #a7bfcb;
+        line-height: 1.5;
+      }
+      canvas {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      label,
+      button {
+        margin-right: 18px;
+      }
+      input[type='range'] {
+        width: 300px;
+      }
+      #status {
+        font: 13px monospace;
+        margin: 12px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Lux · Illumination detonation</h1>
+      <p>
+        Five source layers at a stationary origin. Scrub through the burst and its tails. Moving
+        attachment, gameplay events and the unresolved outer-ring block remain unfinished.
+      </p>
+      <label>Age <input id="age" type="range" min="0" max="1.7" step="0.01" value="0.12" /></label
+      ><button id="play">Play</button>
+      <div id="status"></div>
+      <canvas></canvas>
+    </main>
+    <script type="module" src="./lux-illumination-trigger.ts"></script>
+  </body>
+</html>
