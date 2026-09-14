@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garen and Ahri model review</title>
+    <style>
+      body {
+        margin: 0;
+        background: #101b23;
+        color: #e5e6df;
+        font: 15px system-ui;
+      }
+      header {
+        padding: 16px 24px;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      select,
+      button {
+        background: #233743;
+        color: inherit;
+        border: 1px solid #687980;
+        padding: 8px;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+      }
+      p {
+        margin: 12px 24px;
+        color: #b5c5ca;
+      }
+      input {
+        width: 240px;
+      }
+      label {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Roster model review</h1>
+      <label
+        >Champion<select id="champion">
+          <option>Garen</option>
+          <option>Ahri</option>
+        </select></label
+      ><label>Animation<select id="clip"></select></label><button id="play">Play</button
+      ><label>Time<input id="time" type="range" min="0" max="1" step="0.001" value="0" /></label>
+    </header>
+    <canvas></canvas>
+    <p id="status">Loading verified models…</p>
+    <p>
+      Source rigs and atomic clips. Preview shading; gameplay, animation transitions, dynamic
+      materials and secondary rig motion remain in development.
+    </p>
+    <script type="module" src="./roster-models.ts"></script>
+  </body>
+</html>

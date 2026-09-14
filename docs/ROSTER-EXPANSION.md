@@ -33,3 +33,27 @@ Pins: [Garen](reference/garen-model.json), [Ahri](reference/ahri-model.json). Ex
 5. Compare complete fights, then add the champions to lane matches and run seeded multi-champion matches. Evaluate group disengagement with the new melee/ranged mix rather than assuming current attack-power estimates are sufficient for burst or frontline roles.
 
 Source import is not proof of native gameplay or pixel parity. Full interaction coverage, material/animation calibration, audio, ability effects and role AI remain implementation work.
+
+## Browser models and animation review
+
+`convert-roster-base.mjs` now converts either pinned roster model with the existing lol2gltf/glTF Transform toolchain, verifying every input against its source pin before conversion. It retains all atomic clips, applies the same unit conversion to positions, skeleton translations, inverse-bind translations and animation translations, and canonicalizes only zero-weight joint slots. Omitted source `skinScale` currently uses identity; native scale calibration remains open. No geometry simplification is applied.
+
+| GLB | Bytes | Source triangles, including hidden geometry | Bones | Clips |
+|---|---:|---:|---:|---:|
+| Garen base | 2,764,444 | 6,336 | 68 | 36 |
+| Ahri base | 19,854,544 | 21,678 | 211 | 55 |
+
+The generated manifests in `public/assets/models` retain source provenance, output hashes, material-to-texture assignments and clip durations. Both outputs pass glTF validation with zero errors and zero warnings. Build copies match their manifest hashes. Ahri's larger pack retains the complete atomic set; pack splitting/compression should be measured without reducing animation quality. Neither asset is requested by the current Ashe/Lux match loader.
+
+Materials use unlit preview shading. The converter resolves explicit material overrides to their diffuse samplers, so Ahri's Body/Eyes use the body texture while Tails/Tail_Large use the tail texture. Authored material blend flags are retained where supplied. Her `Tail_Large` remains in the asset with `defaultHidden` material metadata, which the preview honors. Garen's gloss/reflection and Ahri's dynamic ultimate materials and rig-pose modifiers remain source-pinned but are not rendered by this preview. A future match loader must honor hidden-submesh metadata too.
+
+Reproduce conversion after extraction:
+
+```sh
+node tools/assets/convert-roster-base.mjs Garen
+node tools/assets/convert-roster-base.mjs Ahri
+```
+
+During `npm run dev`, open `/tools/qa/roster-models.html` to select champions and any atomic clip, play/pause, or scrub time. The preview retains source scale and uses a common camera/grid. Ahri's `idle_var2` and Garen's `idle1_base` are inspection defaults, not completed animation graph policies.
+
+The browser scenario samples every clip at zero and 37% duration, checks finite bone matrices and animated pose changes, distinct diffuse textures and hidden geometry, then exercises actual selection/play/pause controls. Screenshots of idle and action poses were visually reviewed for both champions. TypeScript, all 819 tests and the production build pass. This establishes loadable animated models, not playable champion kits or native pose/shader parity.

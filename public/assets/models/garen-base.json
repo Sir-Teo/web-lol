@@ -1,0 +1,474 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/garen-base.glb",
+    "bytes": 2764444,
+    "sha256": "93fe5d8fcb2d9041ac501b6c658eeacba3b84149d9e9b381d21cbc29ff494575"
+  },
+  "definitionsSha256": "192a7d7b696ed983b6bf25564a688ea3ac35dfdb5ff5b2a89d5eca285125cf71",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Champions/Garen.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_attack_01.anm",
+      "wadPathHash": "2f939b6f36b276e8",
+      "sha256": "7b8ea30a81aad7f5b94b4751b3149cd463073cfa5073a6b15a8564cd87de64fd",
+      "bytes": 21220
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_attack_02.anm",
+      "wadPathHash": "5a5cff27f903c30b",
+      "sha256": "e5afc81c9d15ec532d3cc4f9d260a3b8427155c414db8d3efb1405972617db2d",
+      "bytes": 21660
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_channel.anm",
+      "wadPathHash": "1ceea144d0a794a3",
+      "sha256": "1f943b185bbd7ac36afb27218562d2e89b043046f2284e3ad50e442fa2b6db28",
+      "bytes": 16520
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_channelin.anm",
+      "wadPathHash": "cca3118ee9432a4d",
+      "sha256": "dc89fa9c2f2d7d4b50c3b463c4f19d29598926250ef3d1c5751ca006478c6491",
+      "bytes": 16890
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_crit.anm",
+      "wadPathHash": "c75da5596f4f5d38",
+      "sha256": "c74def705ff228c9a14e31021cae426d34499e60063c560a8133048b08cdb282",
+      "bytes": 23600
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_dance.anm",
+      "wadPathHash": "920f24263ba21895",
+      "sha256": "d9bb321ca711051c0594719a6069a0d6828a2ad3908d690a91e3409eb2236410",
+      "bytes": 64802
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_dance_loop.anm",
+      "wadPathHash": "4b7e40d577f648af",
+      "sha256": "258fe46d7912d6047a80d3be6b8285fae0b3f0444d91695a11e738ed3b56d56c",
+      "bytes": 75144
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_death.anm",
+      "wadPathHash": "243453402aca3e0e",
+      "sha256": "ccd6551e6873bc72f258b955d33b757f4d692c56fd0677d6051c3c04a1c9035a",
+      "bytes": 38398
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_idle1.anm",
+      "wadPathHash": "c49246c7b15ebf12",
+      "sha256": "929f5e0810b64a8049410b4afd730f1f784d65965f55f3b5abfa1519420809f4",
+      "bytes": 55800
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_idle2.anm",
+      "wadPathHash": "2454a1fa4ee76118",
+      "sha256": "b5bc89b01f0b2472284d2495878a318b7545b0284637b7560bb64ee74036bc3f",
+      "bytes": 17060
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_idle3.anm",
+      "wadPathHash": "2cd91bff058db2ec",
+      "sha256": "f4494abfacfa1281bff0295a310bd8cfb474a8c96e5589e196980f8a8d5c7192",
+      "bytes": 20750
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_idle_leadin.anm",
+      "wadPathHash": "d531f1bafb89cffb",
+      "sha256": "96ae3d320e497e230183c135836162de162845ac28fe16918d0094df0040864c",
+      "bytes": 70254
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+      "wadPathHash": "20d7be75afa09d68",
+      "sha256": "7915c22b2f3d004651ca9289882c7fe90b92de733e15743c1f936789334361ee",
+      "bytes": 40602
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_joke_loop.anm",
+      "wadPathHash": "11b4d487a2416858",
+      "sha256": "315b7d7081cc07c9ee7d5e03e1c8ea3e898e0b6e4f1c22b647ef894d090bd59a",
+      "bytes": 23214
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_laugh.anm",
+      "wadPathHash": "0ce4c36dab979938",
+      "sha256": "ad572e24add4998c7e27cdcd713f992474fa980bcf41ed800050ca11face3a82",
+      "bytes": 62828
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+      "wadPathHash": "d3aed8601f9f93a0",
+      "sha256": "93cf785117fba5bce506180b00768940eb74fa1bf4de0abc357e1a8e708e3b87",
+      "bytes": 177830
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_recall_leadout.anm",
+      "wadPathHash": "008b49b1cffdd06d",
+      "sha256": "c00d43be3cda99eae721127fbb10c4b43015e3c66b79c6aac5dd2c631db65e20",
+      "bytes": 31766
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_recall_loop.anm",
+      "wadPathHash": "4166d275bb6f4f84",
+      "sha256": "715855096bd0a71d5ad548dd67213af0985354c8a317774d252959b024ac6cd1",
+      "bytes": 11972
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+      "wadPathHash": "c788fe63afbc953c",
+      "sha256": "6bd7b4731d40b8fac9308d4969016da9348c2f5efb21c209b155c2e7008de4e3",
+      "bytes": 17470
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_run.anm",
+      "wadPathHash": "edaab218e521e32a",
+      "sha256": "c28487402c4bd1c4653cdfbba49dd024e85f254d9df85f6cb5ac219028195a99",
+      "bytes": 16350
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_run_fast.anm",
+      "wadPathHash": "4163fdd87a9d63b5",
+      "sha256": "6711dae8b11849b552c2fdf99dfb361ee969d459d35aa6b9cb27b15d45d0059f",
+      "bytes": 16350
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_run_haste.anm",
+      "wadPathHash": "d9afba169275209f",
+      "sha256": "7d0d988bb7e9cebba4a6bff1a64541b202195b532d59ff612eb689b45b9f4305",
+      "bytes": 16820
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_run_spell1.anm",
+      "wadPathHash": "fe30f0ef84ebd72a",
+      "sha256": "3925b5d648a243d06a463841062e3530cc6451a0c9cb4e3cb4f204d44b1fb7f7",
+      "bytes": 16470
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_spell1.anm",
+      "wadPathHash": "74bed0b909a29001",
+      "sha256": "24f4c99920325757c46d300228e4f3a9ec959626319edc0b38cd3a6b03e62342",
+      "bytes": 21400
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_spell4.anm",
+      "wadPathHash": "ced54d6f0e2d3646",
+      "sha256": "b1ba5a48c58ece1a74fbbc62b5003d1a32247e0e972f8adc38b40c049968e2a0",
+      "bytes": 29414
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+      "wadPathHash": "0d11773296e46cec",
+      "sha256": "a836a08de93fb6727ce01bf8a3bbe5937556f6a9391c0113ce078fc2ac8ccb9c",
+      "bytes": 44838
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_-180.anm",
+      "wadPathHash": "e002c5970657e78d",
+      "sha256": "06129c5e80910c69dacfc6d9ff38f07c9dc65b2ee88950b4a4a07c765a405d38",
+      "bytes": 19620
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_-90.anm",
+      "wadPathHash": "e18da26fdf79d513",
+      "sha256": "2d66a8a1dbc48e4b1f8c4e49e79f6e680222c955a8e19dc8d0d4a2e6284874e5",
+      "bytes": 19600
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_0.anm",
+      "wadPathHash": "66d5a166788e6306",
+      "sha256": "ab3b7369345bd63c99ca2052da5e6a3ff02fabcd9168db1e363ba39d407ea579",
+      "bytes": 19600
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_180.anm",
+      "wadPathHash": "16813e36798f7920",
+      "sha256": "82cbe93c994fbecc76ce83d48963877f1d8c1515ddf7542b830ad54acade8afa",
+      "bytes": 19620
+    },
+    {
+      "path": "assets/characters/garen/skins/base/animations/garen_base_spell3_90.anm",
+      "wadPathHash": "58f5ea04d910e5c7",
+      "sha256": "1b40799b24055f764fbfbb59ac7f98962db57292c559a7681151dcee7b683291",
+      "bytes": 19590
+    },
+    {
+      "path": "assets/characters/garen/skins/base/garen.skl",
+      "wadPathHash": "444a989ebc452f8c",
+      "sha256": "97ae576d9c0a2090fdfb4b111b6b8af2a1dbf2c630ca573623dd1ebfc6bd680c",
+      "bytes": 8424
+    },
+    {
+      "path": "assets/characters/garen/skins/base/garen.skn",
+      "wadPathHash": "4b37893fd1a76004",
+      "sha256": "ca3865bad9d44b009f5a707c8b131979d18a2cff33524babba2e1fc91ac1808c",
+      "bytes": 242592
+    },
+    {
+      "path": "assets/characters/garen/skins/base/garen_base_cubemap.dds",
+      "wadPathHash": "e5a8a9dc9267798e",
+      "sha256": "a192cf4e7bddc8b41983ad2f355338debdec831362415dcb5bf43488b098c119",
+      "bytes": 12416
+    },
+    {
+      "path": "assets/characters/garen/skins/base/garen_base_tx_cm.tex",
+      "wadPathHash": "56e467916e02cd42",
+      "sha256": "7e9492c5e1a5fa996145e6c2271580fab5a3a149da6fa4240435910d451f720a",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/garen/skins/base/garen_base_tx_gm.tex",
+      "wadPathHash": "d1f6334eb19882b8",
+      "sha256": "7fdb040e6a3569d144e224880a530286ce66e1845d1cdff6c54d78b30f8787c9",
+      "bytes": 174788
+    },
+    {
+      "path": "data/characters/garen/animations/skin0.bin",
+      "wadPathHash": "a9051113df060f9c",
+      "sha256": "77628eed86880d52952256153e4c6c68de267da36b9c228b1f6e5fffaac11570",
+      "bytes": 20556
+    },
+    {
+      "path": "data/characters/garen/skins/skin0.bin",
+      "wadPathHash": "cf5483ae29215c7c",
+      "sha256": "99d71edef30ca759a1b2f4e95b5d8d2993cf8c2063a07d290d66299b22660844",
+      "bytes": 16273
+    }
+  ],
+  "unitScale": 0.01,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "Garen_Base_Mat": "assets/characters/garen/skins/base/garen_base_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "attack1",
+      "state": "Attack1",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_attack_01.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_attack_02.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "channel",
+      "state": "Channel",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_channel.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "channel_wndup",
+      "state": "Channel_Wndup",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_channelin.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "crit",
+      "state": "Crit",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_crit.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "dance_base",
+      "state": "Dance_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_dance.anm",
+      "durationSeconds": 2.6666667461395264
+    },
+    {
+      "name": "death",
+      "state": "Death",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_death.anm",
+      "durationSeconds": 4.266666889190674
+    },
+    {
+      "name": "idle_enter_base",
+      "state": "Idle_Enter_BASE",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_idle_leadin.anm",
+      "durationSeconds": 2.7333335876464844
+    },
+    {
+      "name": "idle1_base",
+      "state": "Idle1_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_idle1.anm",
+      "durationSeconds": 2.133333444595337
+    },
+    {
+      "name": "idle2_base",
+      "state": "Idle2_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_idle2.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "idle3_base",
+      "state": "Idle3_BASE",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_idle3.anm",
+      "durationSeconds": 1.3666667938232422
+    },
+    {
+      "name": "entry_9d46ce26",
+      "state": "{9d46ce26}",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+      "durationSeconds": 1.5000001192092896
+    },
+    {
+      "name": "entry_5dbf4f4f",
+      "state": "{5dbf4f4f}",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_joke_loop.anm",
+      "durationSeconds": 1.7000000476837158
+    },
+    {
+      "name": "laugh_base",
+      "state": "Laugh_BASE",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_laugh.anm",
+      "durationSeconds": 2.7333335876464844
+    },
+    {
+      "name": "recall_base",
+      "state": "Recall_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+      "durationSeconds": 7.6666669845581055
+    },
+    {
+      "name": "entry_7b201d91",
+      "state": "{7b201d91}",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_recall_loop.anm",
+      "durationSeconds": 5.466667175292969
+    },
+    {
+      "name": "run_base",
+      "state": "Run_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_run.anm",
+      "durationSeconds": 0.9000000357627869
+    },
+    {
+      "name": "spell1",
+      "state": "Spell1",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_spell1.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "spell4_base",
+      "state": "Spell4_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_spell4.anm",
+      "durationSeconds": 1.533333420753479
+    },
+    {
+      "name": "taunt_base",
+      "state": "Taunt_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+      "durationSeconds": 4.9666666984558105
+    },
+    {
+      "name": "dance_loop_base",
+      "state": "Dance_Loop_BASE",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_dance_loop.anm",
+      "durationSeconds": 4.633333683013916
+    },
+    {
+      "name": "recall",
+      "state": "Recall",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_recall.anm",
+      "durationSeconds": 7.6666669845581055
+    },
+    {
+      "name": "recall_leadout",
+      "state": "Recall_Leadout",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_recall_leadout.anm",
+      "durationSeconds": 1.3333333730697632
+    },
+    {
+      "name": "respawn_base",
+      "state": "Respawn_Base",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+      "durationSeconds": 0.9000000357627869
+    },
+    {
+      "name": "entry_13f95189",
+      "state": "{13f95189}",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_respawn.anm",
+      "durationSeconds": 0.9000000357627869
+    },
+    {
+      "name": "run_haste",
+      "state": "Run_Haste",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_run_haste.anm",
+      "durationSeconds": 1.5666667222976685
+    },
+    {
+      "name": "run_spell1",
+      "state": "Run_Spell1",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_run_spell1.anm",
+      "durationSeconds": 1.3000000715255737
+    },
+    {
+      "name": "run_fast",
+      "state": "Run_Fast",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_run_fast.anm",
+      "durationSeconds": 1.2333333492279053
+    },
+    {
+      "name": "entry_1d0e4fa6",
+      "state": "{1d0e4fa6}",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_taunt.anm",
+      "durationSeconds": 4.9666666984558105
+    },
+    {
+      "name": "entry_2ee891b9",
+      "state": "{2ee891b9}",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+      "durationSeconds": 1.5000001192092896
+    },
+    {
+      "name": "entry_c2cae43a",
+      "state": "{c2cae43a}",
+      "source": "assets/characters/garen/skins/base/animations/garen_2013_joke.anm",
+      "durationSeconds": 1.5000001192092896
+    },
+    {
+      "name": "spell3_0",
+      "state": "Spell3_0",
+      "source": "assets/characters/garen/skins/base/animations/garen_base_spell3_0.anm",
+      "durationSeconds": 2.9666669368743896
+    },
+    {
+      "name": "spell3_180",
+      "state": "Spell3_180",
+      "source": "assets/characters/garen/skins/base/animations/garen_base_spell3_180.anm",
+      "durationSeconds": 2.9666669368743896
+    },
+    {
+      "name": "spell3_-180",
+      "state": "Spell3_-180",
+      "source": "assets/characters/garen/skins/base/animations/garen_base_spell3_-180.anm",
+      "durationSeconds": 2.9666669368743896
+    },
+    {
+      "name": "spell3_90",
+      "state": "Spell3_90",
+      "source": "assets/characters/garen/skins/base/animations/garen_base_spell3_90.anm",
+      "durationSeconds": 2.9666669368743896
+    },
+    {
+      "name": "spell3_-90",
+      "state": "Spell3_-90",
+      "source": "assets/characters/garen/skins/base/animations/garen_base_spell3_-90.anm",
+      "durationSeconds": 2.9666669368743896
+    }
+  ],
+  "triangles": 6336,
+  "bones": 68
+}

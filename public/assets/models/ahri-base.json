@@ -1,0 +1,708 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/ahri-base.glb",
+    "bytes": 19854544,
+    "sha256": "587c1741a908e23874a87d069505e0e233d4f88c22a828c9d7edda195328e202"
+  },
+  "definitionsSha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Champions/Ahri.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/ahri/skins/base/ahri_base.skl",
+      "wadPathHash": "7af569a936e17949",
+      "sha256": "5aa609195ddaecbb8ce15ff3d31d789401ff21b27df734e57f82e9709c2e5e26",
+      "bytes": 25908
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/ahri_base.skn",
+      "wadPathHash": "fca50cac17fc3470",
+      "sha256": "22179a3e0e95b94845fe5a3d3c35ba5f21dec6e2fee34de371ad0e4a3e2a3ae3",
+      "bytes": 847032
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+      "wadPathHash": "df549b7becf3810a",
+      "sha256": "9eb512a47fdf47f4d354c1c09ddf13fb6b73201c3055fb1e62f7b08d7899a5de",
+      "bytes": 1398140
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+      "wadPathHash": "12cf9c27d09be6c5",
+      "sha256": "8d40ce3c62eb5e6794e9bcdc737973b89507442b08661906af0351e4a2617a58",
+      "bytes": 1398140
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/attack1.anm",
+      "wadPathHash": "c867d45041a3528e",
+      "sha256": "d89eda8ac736b9aa1ab4a715e3d6df7a0f0b27176fce824543f501134bf55c13",
+      "bytes": 41780
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/attack1_toidle.anm",
+      "wadPathHash": "da60fdcd988a4ccb",
+      "sha256": "8d6efa3e0987d5dff1c50e7180059557012dbc91c7d7cf63624f15c59cf71a8c",
+      "bytes": 163706
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/attack1_torun.anm",
+      "wadPathHash": "2d08a58d0694bbba",
+      "sha256": "f7ec93dedf646df0abe5e39e12e14c667363ed1ef0a16a3d149022145aeac230",
+      "bytes": 130244
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/attack2.anm",
+      "wadPathHash": "ddf9e28478b28db6",
+      "sha256": "6921cdff9911da1a8dfb01d9e9565d9c1e8d06a71eb81dd609008930bafb298c",
+      "bytes": 29516
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/attack2_toidle.anm",
+      "wadPathHash": "1aa747086df50b21",
+      "sha256": "ea5600d9df6f01a2ad047a87d509c727afa8138602e89dc9e825019d1a47b46d",
+      "bytes": 174730
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/channel_in.anm",
+      "wadPathHash": "704ea331517b6cb1",
+      "sha256": "eb659c570c4c214cb06c72ce27a52598d55ba2dec65001fa4ac0b70b6d2577d8",
+      "bytes": 103618
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/channel_loop.anm",
+      "wadPathHash": "3999433816d0bfd8",
+      "sha256": "f43a58a19012963d9527856b03195e99960ba21489f6749da30c875efaf2bff9",
+      "bytes": 35566
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/crit.anm",
+      "wadPathHash": "ae9033bb6b3653ed",
+      "sha256": "c41a062a9987d63bcce4c5d3efbb3c4326c9d0d67d92860b294e739cad206976",
+      "bytes": 27424
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/crit_toidle.anm",
+      "wadPathHash": "d156eaa96884f705",
+      "sha256": "24362b309da9ef46f7c8fabfda97e09f45b1ee0acff325b3400cc19727832faa",
+      "bytes": 106570
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/dance_in.anm",
+      "wadPathHash": "f1f910622d9aa2c4",
+      "sha256": "4afb2f2a70a1369312b4c875a5ada6920b8e9bfeee36b8677e372aad3d43911f",
+      "bytes": 327764
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/dance_loop.anm",
+      "wadPathHash": "7bb00f787aff5e69",
+      "sha256": "6be984c44d850c6043284fadafc30071cf6275657625ba2690f929977bae96d7",
+      "bytes": 270042
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/death.anm",
+      "wadPathHash": "ab4d2697df76e042",
+      "sha256": "df36a1b773863ffef2b5538f38305dfb67d7d859da6110f6e7a8d33c4235d06e",
+      "bytes": 251540
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/idle1.anm",
+      "wadPathHash": "5b063972ced4cc0c",
+      "sha256": "699aacd7d5f6872b7a40af3d6603864e591d925169297a01ddf9ced13f571a64",
+      "bytes": 382984
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/idle_in.anm",
+      "wadPathHash": "ac4a1299097ca784",
+      "sha256": "49db37b1684c62954e91c5c1f8a4d7d2c7b59728b7644925a8969353a614a884",
+      "bytes": 393006
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/idle_to_run_haste.anm",
+      "wadPathHash": "5551ef4d7cd05568",
+      "sha256": "0c8c318bfc4ddcb42f0be0d1213ac001c64c40a25f4aa370b74e3c8dd7fcbb6e",
+      "bytes": 65122
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/idle_var2.anm",
+      "wadPathHash": "a67f07b821dfde9c",
+      "sha256": "7a058dde1392155cff6e1f351d07f79c66d710874d18fb3e8d60a28c8b7b8438",
+      "bytes": 181650
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/idle_var3.anm",
+      "wadPathHash": "01e51e65afd83178",
+      "sha256": "f839b460e6b12460c4229997b523741bd027bcc174ea2eae324a25363e276806",
+      "bytes": 190154
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/joke_in.anm",
+      "wadPathHash": "349a352be10997aa",
+      "sha256": "5e05b924f211c9f26ea360fbcfe9ed07708a5f70029e5fcfb8ca7c8f9c16a7db",
+      "bytes": 138348
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/joke_loop.anm",
+      "wadPathHash": "33c3cb2a0558289e",
+      "sha256": "e36df6e1511f23e18922c5fb180a26255b449c036b3c44a00e8ef1d16318e890",
+      "bytes": 1226668
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/knockup.anm",
+      "wadPathHash": "d208cfd76d7db664",
+      "sha256": "32d2c70b6d6bd35ee63824f04350be72ac3acd4a7f9621ff3c2f889ce4c22ed7",
+      "bytes": 43414
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/laugh.anm",
+      "wadPathHash": "6f892818f0270d11",
+      "sha256": "a491e2460364f64369929b42b95b65ccc998e16ce0895b4b8996a031ecc69a6c",
+      "bytes": 392246
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/recall.anm",
+      "wadPathHash": "8886bc007242d53a",
+      "sha256": "64a9337f0514079383ef114b6fa292ed950e3fa03d98441de91b7befe3d5e616",
+      "bytes": 517230
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/respawn.anm",
+      "wadPathHash": "09d389acffc98a7d",
+      "sha256": "49ee060ccc7a4c976a90d861080befed8d9493799227c93f8cef9cea3bfa1d98",
+      "bytes": 543796
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/run.anm",
+      "wadPathHash": "9b647dd560d0b108",
+      "sha256": "ca389040cfd16558a3da966d8047a3935b5bb642e0a437b76fec5af27c6b51ca",
+      "bytes": 74770
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/run_fast.anm",
+      "wadPathHash": "00f547be479f1124",
+      "sha256": "a08ccd5cda334605e9ec9ae97ae03f2ad5d84c89cdaf58b0108b28b4a98aa4de",
+      "bytes": 63008
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/run_haste.anm",
+      "wadPathHash": "63ab9ec9d7024894",
+      "sha256": "c0ed673b24a7c65f05b25cb34ae0a37b196f847ded806af7a4d7f3c628961865",
+      "bytes": 100802
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/run_haste_toidle.anm",
+      "wadPathHash": "bdbc9bdd996c3410",
+      "sha256": "4f667793afd5ad8f53418faf8cf449f04b206005e63f1a3102f91e76c44796a4",
+      "bytes": 139438
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/run_var1.anm",
+      "wadPathHash": "2a2546a8f5ba0ca7",
+      "sha256": "77e606010b4938867d179f83b59137a628db85ce82b1d475b6ae3b7845cac338",
+      "bytes": 118310
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/run_var2.anm",
+      "wadPathHash": "b203ca5746f502aa",
+      "sha256": "4248be1ddb210b7b3baebe1697e2798d02f17d44b798e128bbee46d5e2dfe872",
+      "bytes": 171626
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell1.anm",
+      "wadPathHash": "59666d3e64c696ce",
+      "sha256": "55b13152990aad5c3cfb94f8fe201349026b9acb7f6770ecacbc96e665dc2f74",
+      "bytes": 46826
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell1_toidle.anm",
+      "wadPathHash": "460698e5d361a0bd",
+      "sha256": "cc1b9440149463489cf7bd30b0ad5c396724ecee7853cfd586edb6a86ef5e8f7",
+      "bytes": 138318
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell1_torun1.anm",
+      "wadPathHash": "d63a74b66d9ed8a5",
+      "sha256": "45d5df5a5b782adab615ae38cb4806a5545153317348f14cde881d4508ac4732",
+      "bytes": 80180
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell2.anm",
+      "wadPathHash": "2ad6cdb7594ac8da",
+      "sha256": "8b9897f5433215f32514748d93397d91d4f49d2a2cb449e5021abf57c8290fc2",
+      "bytes": 124586
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell2_toidle.anm",
+      "wadPathHash": "a8e859d6f78bb715",
+      "sha256": "25400b757b271276bb6e87d83826d6d9332e5ccfc253cf89b9c39af3500b5817",
+      "bytes": 76612
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell2_torun.anm",
+      "wadPathHash": "2a8291616aec8058",
+      "sha256": "f3cc7b54f236b2d6111fe0293449a8a2afa4027924fca10f19f60d5826f42f9c",
+      "bytes": 204848
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell3_east.anm",
+      "wadPathHash": "e5dbb5be6fe3b6e6",
+      "sha256": "99e9d7e3f272c228ed8afff69b2a7ad5d33ffbfc90d87022bda98cbe7a514640",
+      "bytes": 138008
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell3_north.anm",
+      "wadPathHash": "f61db5f0b2e53c3b",
+      "sha256": "9424c92fd2477705ed5ed26b92f87b21258202f087c4f2b843d11246c50b927b",
+      "bytes": 127730
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell3_south.anm",
+      "wadPathHash": "be9c5bd7594f0760",
+      "sha256": "d647fb0c75cc843da4ec110d740194edbff5287d3a4e2fe18a549d488d09e860",
+      "bytes": 124490
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell3_west.anm",
+      "wadPathHash": "dd043c8a5601f80b",
+      "sha256": "7a2b0888f4e8f6301a78e5279c6fcb6e9736983634045dd68cddb22c6e21fea8",
+      "bytes": 136638
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell4.anm",
+      "wadPathHash": "7aaaff55ccf9c638",
+      "sha256": "5a2e8cd46c97adfa219c30454f80d3ea6f6b2d28bda32cd66148c91b4eb91e89",
+      "bytes": 37246
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell4_idle.anm",
+      "wadPathHash": "e35d4353df0bcfad",
+      "sha256": "0ba47eba26353dacdc9fd89a01c3957b0f2bdde785d627e98fcfe288247af83a",
+      "bytes": 71636
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell4_run.anm",
+      "wadPathHash": "616e60470beed004",
+      "sha256": "49474f5ec65d3a1c270f5e2133df5a7f8af93dc6ae594641a0ad328ffe2bd2c6",
+      "bytes": 66998
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell4_toidle.anm",
+      "wadPathHash": "227c8c87b184aa89",
+      "sha256": "7abc6735d23af13352d06f33c61726feaf86768b8d790f055533c4d1ba75ed40",
+      "bytes": 253664
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/spell4_torun.anm",
+      "wadPathHash": "1333254a41d8e012",
+      "sha256": "b5fb1e3d7db49874b9d0fb7662c370cd8a7dc94be1d3263572acc57936a37f15",
+      "bytes": 117814
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/stunned.anm",
+      "wadPathHash": "5f06959b862c33e6",
+      "sha256": "1e2df2a3d3fb35cddd7271d96b2f045b44ade6f9037871dce7dc3d4b53009cba",
+      "bytes": 44644
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/taunt.anm",
+      "wadPathHash": "bc99d81a33889cc8",
+      "sha256": "b9f16000787a17dc7dcbe70f573fef21f6a95e883254ef289804ae250691f6e6",
+      "bytes": 502204
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/ult_end.anm",
+      "wadPathHash": "cea6e01cfef31fa1",
+      "sha256": "acb2c73646010505828284dbd0c70be116539867df0b5c85d78219a7e08fac06",
+      "bytes": 119180
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/animations/ult_torun.anm",
+      "wadPathHash": "921aac49a04e252c",
+      "sha256": "3c7a998421b6b644b1fc206bdbbf26c88ad15fbf8852dac4c321b06f688342ab",
+      "bytes": 110252
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_tails_mask_01.tex",
+      "wadPathHash": "f15a421478940c07",
+      "sha256": "6d17838c6734f26f62102fff598178779f143231b296b9a775e067da318e0c64",
+      "bytes": 1044
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_r_textureswap.tex",
+      "wadPathHash": "01d568dfc910d67d",
+      "sha256": "e236e19a48565cb9424bf0208659bd2655ebe7c8754edf8e4b5964e48d33e71d",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/shared/materials/black.tex",
+      "wadPathHash": "392f857d87a0dcbb",
+      "sha256": "205d2cc3f5485e2d03b3ac29b82c6e9e9a9986f43d2b017ace3db6e52898a5b3",
+      "bytes": 36
+    },
+    {
+      "path": "data/characters/ahri/animations/skin0.bin",
+      "wadPathHash": "25fa30676c20c6d9",
+      "sha256": "e2715e4df0d2acca5b31a98fc6a9b03501b43545edff49bb33076a3f7d5184b7",
+      "bytes": 31615
+    },
+    {
+      "path": "data/characters/ahri/skins/skin0.bin",
+      "wadPathHash": "49e643f9c8a74bc7",
+      "sha256": "cea16ff8c3ef87fe6892595ad26dd710b3a7e9db33dfb05d30e1938ff27bbb17",
+      "bytes": 20378
+    }
+  ],
+  "unitScale": 0.01,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [
+    "Tail_Large",
+    "Body_Proxy"
+  ],
+  "materialTextures": {
+    "Body": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+    "Eyes": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+    "Tails": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+    "Tail_Large": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "attack1",
+      "state": "Attack1",
+      "source": "assets/characters/ahri/skins/base/animations/attack1.anm",
+      "durationSeconds": 0.36666667461395264
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/ahri/skins/base/animations/attack2.anm",
+      "durationSeconds": 0.3333333432674408
+    },
+    {
+      "name": "channel",
+      "state": "Channel",
+      "source": "assets/characters/ahri/skins/base/animations/channel_loop.anm",
+      "durationSeconds": 0.4333333671092987
+    },
+    {
+      "name": "channel_wndup",
+      "state": "Channel_Wndup",
+      "source": "assets/characters/ahri/skins/base/animations/channel_in.anm",
+      "durationSeconds": 1.3000000715255737
+    },
+    {
+      "name": "crit",
+      "state": "Crit",
+      "source": "assets/characters/ahri/skins/base/animations/crit.anm",
+      "durationSeconds": 0.2666666805744171
+    },
+    {
+      "name": "death",
+      "state": "Death",
+      "source": "assets/characters/ahri/skins/base/animations/death.anm",
+      "durationSeconds": 4
+    },
+    {
+      "name": "joke_in",
+      "state": "Joke_In",
+      "source": "assets/characters/ahri/skins/base/animations/joke_in.anm",
+      "durationSeconds": 3.000000238418579
+    },
+    {
+      "name": "laugh",
+      "state": "Laugh",
+      "source": "assets/characters/ahri/skins/base/animations/laugh.anm",
+      "durationSeconds": 4.633333683013916
+    },
+    {
+      "name": "spell1",
+      "state": "Spell1",
+      "source": "assets/characters/ahri/skins/base/animations/spell1.anm",
+      "durationSeconds": 0.4333333671092987
+    },
+    {
+      "name": "spell2",
+      "state": "Spell2",
+      "source": "assets/characters/ahri/skins/base/animations/spell2.anm",
+      "durationSeconds": 1.3333333730697632
+    },
+    {
+      "name": "spell4",
+      "state": "Spell4",
+      "source": "assets/characters/ahri/skins/base/animations/spell4.anm",
+      "durationSeconds": 0.40000003576278687
+    },
+    {
+      "name": "taunt",
+      "state": "Taunt",
+      "source": "assets/characters/ahri/skins/base/animations/taunt.anm",
+      "durationSeconds": 6.366666793823242
+    },
+    {
+      "name": "dance_loop",
+      "state": "Dance_Loop",
+      "source": "assets/characters/ahri/skins/base/animations/dance_loop.anm",
+      "durationSeconds": 8.100000381469727
+    },
+    {
+      "name": "recall",
+      "state": "Recall",
+      "source": "assets/characters/ahri/skins/base/animations/recall.anm",
+      "durationSeconds": 8.633334159851074
+    },
+    {
+      "name": "attack1_toidle",
+      "state": "Attack1_ToIdle",
+      "source": "assets/characters/ahri/skins/base/animations/attack1_toidle.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "attack2_toidle",
+      "state": "Attack2_ToIdle",
+      "source": "assets/characters/ahri/skins/base/animations/attack2_toidle.anm",
+      "durationSeconds": 2.8333334922790527
+    },
+    {
+      "name": "idle_in",
+      "state": "Idle_In",
+      "source": "assets/characters/ahri/skins/base/animations/idle_in.anm",
+      "durationSeconds": 7.433333873748779
+    },
+    {
+      "name": "run_fast",
+      "state": "Run_Fast",
+      "source": "assets/characters/ahri/skins/base/animations/run_fast.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "run_haste",
+      "state": "Run_Haste",
+      "source": "assets/characters/ahri/skins/base/animations/run_fast.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "run_in",
+      "state": "Run_In",
+      "source": "assets/characters/ahri/skins/base/animations/run.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "spell1_toidle",
+      "state": "Spell1_ToIdle",
+      "source": "assets/characters/ahri/skins/base/animations/spell1_toidle.anm",
+      "durationSeconds": 2.500000238418579
+    },
+    {
+      "name": "spell3_east",
+      "state": "Spell3_East",
+      "source": "assets/characters/ahri/skins/base/animations/spell3_east.anm",
+      "durationSeconds": 2.7333335876464844
+    },
+    {
+      "name": "spell3_north",
+      "state": "Spell3_North",
+      "source": "assets/characters/ahri/skins/base/animations/spell3_north.anm",
+      "durationSeconds": 2.7333335876464844
+    },
+    {
+      "name": "spell3_south",
+      "state": "Spell3_South",
+      "source": "assets/characters/ahri/skins/base/animations/spell3_south.anm",
+      "durationSeconds": 2.7333335876464844
+    },
+    {
+      "name": "spell3_west",
+      "state": "Spell3_West",
+      "source": "assets/characters/ahri/skins/base/animations/spell3_west.anm",
+      "durationSeconds": 2.7333335876464844
+    },
+    {
+      "name": "attack1_torun",
+      "state": "Attack1_Torun",
+      "source": "assets/characters/ahri/skins/base/animations/attack1_torun.anm",
+      "durationSeconds": 1.4666666984558105
+    },
+    {
+      "name": "attack2_torun",
+      "state": "Attack2_Torun",
+      "source": "assets/characters/ahri/skins/base/animations/spell4_run.anm",
+      "durationSeconds": 0.9333333969116211
+    },
+    {
+      "name": "spell2_torun",
+      "state": "Spell2_ToRun",
+      "source": "assets/characters/ahri/skins/base/animations/spell2_torun.anm",
+      "durationSeconds": 2.9000000953674316
+    },
+    {
+      "name": "spell2_toidle",
+      "state": "Spell2_ToIdle",
+      "source": "assets/characters/ahri/skins/base/animations/spell2_toidle.anm",
+      "durationSeconds": 1.5000001192092896
+    },
+    {
+      "name": "spell1_torun",
+      "state": "Spell1_ToRun",
+      "source": "assets/characters/ahri/skins/base/animations/spell1_torun1.anm",
+      "durationSeconds": 0.9000000357627869
+    },
+    {
+      "name": "spell3_torun",
+      "state": "Spell3_ToRun",
+      "source": "assets/characters/ahri/skins/base/animations/run.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "run_spell4",
+      "state": "Run_Spell4",
+      "source": "assets/characters/ahri/skins/base/animations/spell4_run.anm",
+      "durationSeconds": 0.9333333969116211
+    },
+    {
+      "name": "entry_5f28fb20",
+      "state": "{5f28fb20}",
+      "source": "assets/characters/ahri/skins/base/animations/spell4_toidle.anm",
+      "durationSeconds": 6.133333683013916
+    },
+    {
+      "name": "entry_489d5b81",
+      "state": "{489d5b81}",
+      "source": "assets/characters/ahri/skins/base/animations/spell4_idle.anm",
+      "durationSeconds": 1.7666667699813843
+    },
+    {
+      "name": "entry_670b119d",
+      "state": "{670b119d}",
+      "source": "assets/characters/ahri/skins/base/animations/spell4_toidle.anm",
+      "durationSeconds": 6.133333683013916
+    },
+    {
+      "name": "crit_toidle",
+      "state": "Crit_ToIdle",
+      "source": "assets/characters/ahri/skins/base/animations/crit_toidle.anm",
+      "durationSeconds": 2.1000001430511475
+    },
+    {
+      "name": "run_homeguard",
+      "state": "Run_Homeguard",
+      "source": "assets/characters/ahri/skins/base/animations/run_haste.anm",
+      "durationSeconds": 0.9333333969116211
+    },
+    {
+      "name": "entry_5d07a297",
+      "state": "{5d07a297}",
+      "source": "assets/characters/ahri/skins/base/animations/idle_to_run_haste.anm",
+      "durationSeconds": 0.9000000357627869
+    },
+    {
+      "name": "entry_ef042329",
+      "state": "{ef042329}",
+      "source": "assets/characters/ahri/skins/base/animations/run_haste_toidle.anm",
+      "durationSeconds": 2.3000001907348633
+    },
+    {
+      "name": "respawn",
+      "state": "Respawn",
+      "source": "assets/characters/ahri/skins/base/animations/respawn.anm",
+      "durationSeconds": 6.200000286102295
+    },
+    {
+      "name": "dance_in",
+      "state": "Dance_In",
+      "source": "assets/characters/ahri/skins/base/animations/dance_in.anm",
+      "durationSeconds": 8.766667366027832
+    },
+    {
+      "name": "joke_loop",
+      "state": "Joke_Loop",
+      "source": "assets/characters/ahri/skins/base/animations/joke_loop.anm",
+      "durationSeconds": 6.633333683013916
+    },
+    {
+      "name": "recall_winddown",
+      "state": "Recall_Winddown",
+      "source": "assets/characters/ahri/skins/base/animations/respawn.anm",
+      "durationSeconds": 6.200000286102295
+    },
+    {
+      "name": "entry_7411e92b",
+      "state": "{7411e92b}",
+      "source": "assets/characters/ahri/skins/base/animations/spell4_torun.anm",
+      "durationSeconds": 1.433333396911621
+    },
+    {
+      "name": "entry_960cce87",
+      "state": "{960cce87}",
+      "source": "assets/characters/ahri/skins/base/animations/ult_torun.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_c2c5c38e",
+      "state": "{c2c5c38e}",
+      "source": "assets/characters/ahri/skins/base/animations/run_var1.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "entry_c1c5c1fb",
+      "state": "{c1c5c1fb}",
+      "source": "assets/characters/ahri/skins/base/animations/run_var2.anm",
+      "durationSeconds": 2.366666793823242
+    },
+    {
+      "name": "entry_cc7e3fac",
+      "state": "{cc7e3fac}",
+      "source": "assets/characters/ahri/skins/base/animations/run.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "entry_0a621ddf",
+      "state": "{0a621ddf}",
+      "source": "assets/characters/ahri/skins/base/animations/spell4_toidle.anm",
+      "durationSeconds": 6.133333683013916
+    },
+    {
+      "name": "idle_var2",
+      "state": "Idle_Var2",
+      "source": "assets/characters/ahri/skins/base/animations/idle_var2.anm",
+      "durationSeconds": 5.700000286102295
+    },
+    {
+      "name": "entry_bb020a62",
+      "state": "{bb020a62}",
+      "source": "assets/characters/ahri/skins/base/animations/idle_var3.anm",
+      "durationSeconds": 5.000000476837158
+    },
+    {
+      "name": "entry_1efabc75",
+      "state": "{1efabc75}",
+      "source": "assets/characters/ahri/skins/base/animations/idle1.anm",
+      "durationSeconds": 3.9333336353302
+    },
+    {
+      "name": "stunned",
+      "state": "Stunned",
+      "source": "assets/characters/ahri/skins/base/animations/stunned.anm",
+      "durationSeconds": 1.2666667699813843
+    },
+    {
+      "name": "knockup",
+      "state": "KnockUp",
+      "source": "assets/characters/ahri/skins/base/animations/knockup.anm",
+      "durationSeconds": 0.9333333969116211
+    },
+    {
+      "name": "entry_e9472732",
+      "state": "{e9472732}",
+      "source": "assets/characters/ahri/skins/base/animations/ult_end.anm",
+      "durationSeconds": 2
+    }
+  ],
+  "triangles": 21678,
+  "bones": 211
+}
