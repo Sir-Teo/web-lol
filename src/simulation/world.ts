@@ -12,7 +12,8 @@ import {
   LUX_ATTACK_PATH_FRAMES,
 } from '../content/lux-attack-presentation';
 import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
-import type { LuxImpactVisual, LuxAttackVisual } from './types';
+import type { LuxImpactVisual, LuxAttackVisual, LuxIlluminationVisual } from './types';
+import { LUX_ILLUMINATION_HISTORY_TICKS } from '../content/lux-illumination-presentation';
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
@@ -99,6 +100,7 @@ export class World {
   luxBeams: LuxBeam[] = [];
   luxAttackVisuals: LuxAttackVisual[] = [];
   luxImpactVisuals: LuxImpactVisual[] = [];
+  luxIlluminationVisuals: LuxIlluminationVisual[] = [];
   singularities: Singularity[] = [];
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
@@ -390,6 +392,9 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    this.luxIlluminationVisuals = this.luxIlluminationVisuals.filter(
+      (v) => this.tick < v.startTick + LUX_ILLUMINATION_HISTORY_TICKS
+    );
     this.luxImpactVisuals = this.luxImpactVisuals.filter(
       (v) => this.tick < v.startTick + LUX_IMPACT_HISTORY_TICKS
     );
@@ -2009,7 +2014,7 @@ export class World {
     };
   }
   private advanceImpactVisuals(): void {
-    for (const visual of this.luxImpactVisuals) {
+    for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
       const target = this.unit(visual.targetId);
       const previous = visual.frames.at(-1)!;
       const attached = visual.detachedTick === null && target;
@@ -2342,11 +2347,27 @@ export class World {
       const illuminated = target.illumination.some(
         (mark) => mark.sourceId === source.id && mark.endTick > this.tick
       );
+      if (illuminated) this.captureIlluminationVisual(source, target);
       this.damage(source, target, raw, 'magic', 'area');
       if (illuminated && this.alive(target))
         this.damage(source, target, this.illuminationDamage(source), 'magic');
       this.applyIllumination(source, target);
     }
+  }
+  private captureIlluminationVisual(source: Unit, target: Unit): void {
+    this.luxIlluminationVisuals.push({
+      id: this.nextId++,
+      sourceId: source.id,
+      targetId: target.id,
+      team: source.team,
+      startTick: this.tick,
+      critical: false,
+      detachedTick: null,
+      targetRig: impactTargetRig(target),
+      targetTransform: null,
+      frames: [this.captureImpactFrame(target)],
+      audience: (['blue', 'red'] as const).filter((team) => this.visible(target, team)),
+    });
   }
   private illuminationDamage(source: Unit): number {
     return (
@@ -2390,6 +2411,7 @@ export class World {
       source.champion === 'lux' &&
       this.vulnerable(target) &&
       target.illumination.some((mark) => mark.sourceId === source.id && mark.endTick > this.tick);
+    if (illuminated) this.captureIlluminationVisual(source, target);
     if (illuminated)
       target.illumination = target.illumination.filter((mark) => mark.sourceId !== source.id);
     this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
@@ -3281,6 +3303,7 @@ export class World {
       luxBeams: this.luxBeams,
       luxAttackVisuals: this.luxAttackVisuals,
       luxImpactVisuals: this.luxImpactVisuals,
+      luxIlluminationVisuals: this.luxIlluminationVisuals,
       singularities: this.singularities,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,

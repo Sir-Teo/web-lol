@@ -1,3 +1,5 @@
+import { isStructureKind } from './types';
+import { LUX_ILLUMINATION_HISTORY_TICKS } from '../content/lux-illumination-presentation';
 import { impactTargetRig, type ImpactRig } from '../content/impact-target';
 import {
   STRUCTURE_ANIMATION_PROFILES,
@@ -33,7 +35,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 62;
+export const SNAPSHOT_VERSION = 63;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -412,6 +414,43 @@ const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('recall'), unit: id }),
   z.strictObject({ type: z.literal('learn'), unit: id, ability: z.enum(['q', 'w', 'e', 'r']) }),
 ]);
+const luxTargetVisual = (historyTicks: number) =>
+  z.strictObject({
+    id,
+    sourceId: id,
+    targetId: id,
+    team,
+    startTick: tick,
+    critical: z.boolean(),
+    detachedTick: tick.nullable(),
+    targetRig: z
+      .enum([
+        ...Object.keys(MOBILE_CLIP_DURATIONS),
+        ...Object.keys(STRUCTURE_ANIMATION_PROFILES),
+      ] as [ImpactRig, ...ImpactRig[]])
+      .nullable(),
+    targetTransform: z.array(z.number()).length(16).nullable(),
+    frames: z
+      .array(
+        z.strictObject({
+          tick,
+          x: z.number(),
+          y: z.number(),
+          facing: z.number(),
+          structurePose: z
+            .strictObject({
+              kind: z.enum(['idle', 'destroyed', 'dead-idle']),
+              clip: z.string().max(100),
+              time: nonnegative,
+              loop: z.boolean(),
+            })
+            .nullable(),
+          animationTimeline: animationTimeline.nullable(),
+        })
+      )
+      .min(1)
+      .max(historyTicks),
+  });
 const snapshot = z.strictObject({
   version: z.literal(SNAPSHOT_VERSION),
   matchMode: z.enum(['practice', 'lanes']),
@@ -446,43 +485,15 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
-  luxImpactVisuals: z
+  luxImpactVisuals: z.array(luxTargetVisual(LUX_IMPACT_HISTORY_TICKS)).max(10000),
+  luxIlluminationVisuals: z
     .array(
-      z.strictObject({
-        id,
-        sourceId: id,
-        targetId: id,
-        team,
-        startTick: tick,
-        critical: z.boolean(),
-        detachedTick: tick.nullable(),
-        targetRig: z
-          .enum([
-            ...Object.keys(MOBILE_CLIP_DURATIONS),
-            ...Object.keys(STRUCTURE_ANIMATION_PROFILES),
-          ] as [ImpactRig, ...ImpactRig[]])
-          .nullable(),
-        targetTransform: z.array(z.number()).length(16).nullable(),
-        frames: z
-          .array(
-            z.strictObject({
-              tick,
-              x: z.number(),
-              y: z.number(),
-              facing: z.number(),
-              structurePose: z
-                .strictObject({
-                  kind: z.enum(['idle', 'destroyed', 'dead-idle']),
-                  clip: z.string().max(100),
-                  time: nonnegative,
-                  loop: z.boolean(),
-                })
-                .nullable(),
-              animationTimeline: animationTimeline.nullable(),
-            })
-          )
+      luxTargetVisual(LUX_ILLUMINATION_HISTORY_TICKS).extend({
+        audience: z
+          .array(team)
           .min(1)
-          .max(LUX_IMPACT_HISTORY_TICKS),
+          .max(2)
+          .refine((v) => new Set(v).size === v.length),
       })
     )
     .max(10000),
@@ -648,7 +659,10 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved match contains an invalid animation clock.');
   }
   const impactIds = new Set<number>();
-  for (const visual of state.luxImpactVisuals) {
+  for (const [visual, trigger] of [
+    ...state.luxImpactVisuals.map((v) => [v, false] as const),
+    ...state.luxIlluminationVisuals.map((v) => [v, true] as const),
+  ]) {
     const source = state.units.find((u) => u.id === visual.sourceId);
     const target = state.units.find((u) => u.id === visual.targetId);
     const flight = state.luxAttackVisuals.find((v) => v.id === visual.id);
@@ -672,11 +686,16 @@ export function decodeSnapshot(text: string) {
       source.team !== visual.team ||
       (target && (target.team === visual.team || impactTargetRig(target) !== visual.targetRig)) ||
       visual.targetId >= state.nextId ||
-      !flight ||
-      flight.sourceId !== visual.sourceId ||
-      flight.stopTick !== visual.startTick ||
+      (!trigger &&
+        (!flight || flight.sourceId !== visual.sourceId || flight.stopTick !== visual.startTick)) ||
+      (trigger &&
+        (visual.critical ||
+          visual.targetTransform !== null ||
+          !!structureProfile ||
+          (target && isStructureKind(target.kind)))) ||
       visual.startTick > state.tick ||
-      state.tick >= visual.startTick + LUX_IMPACT_HISTORY_TICKS ||
+      state.tick >=
+        visual.startTick + (trigger ? LUX_ILLUMINATION_HISTORY_TICKS : LUX_IMPACT_HISTORY_TICKS) ||
       visual.frames.length !== state.tick - visual.startTick + 1 ||
       (visual.detachedTick !== null &&
         (visual.detachedTick < visual.startTick || visual.detachedTick > state.tick)) ||
@@ -848,6 +867,7 @@ export function decodeSnapshot(text: string) {
     ...state.pendingAttackProjectiles,
     ...state.luxBeams,
     ...state.singularities,
+    ...state.luxIlluminationVisuals,
   ].map((u) => u.id);
   for (const p of state.pendingAttackProjectiles) {
     if (

@@ -205,6 +205,10 @@ export interface LuxImpactVisual {
   targetTransform: readonly number[] | null;
   frames: LuxImpactFrame[];
 }
+/** Saved passive detonation, sharing the historical target pose representation. */
+export interface LuxIlluminationVisual extends LuxImpactVisual {
+  audience: Team[];
+}
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =
   | { type: 'order'; unit: number; order: Order }
