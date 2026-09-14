@@ -1,0 +1,727 @@
+{
+  "benchmark": {
+    "cpuProfileEnabled": false,
+    "revision": "ddb465d70e3f87efe845f368e7db17fcfab45eaf",
+    "snapshotPath": "artifacts/rift-lost-chapter-simulation.snapshot.json",
+    "snapshotSHA256": "778e7b5b580f7be808bd85f46bacab527e586a1d4df3e1cc6896af696b0bd599",
+    "benchmarkSHA256": "4476ab09403a537d4435c06f519013f70d603d278c9a98f796726bd805898ad8",
+    "browser": "152.0.7977.83",
+    "hardware": {
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpu": "Apple M5 Pro",
+      "memoryGiB": 64
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "fixture": "Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn",
+    "startingTick": 72000,
+    "warmupCount": 120,
+    "sampleCount": 1800,
+    "cameraSubject": {
+      "id": 35,
+      "champion": "lux"
+    },
+    "championRoster": [
+      {
+        "id": 1,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 32,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 33,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 34,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 35,
+        "team": "blue",
+        "champion": "lux",
+        "ai": true
+      },
+      {
+        "id": 36,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 37,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 38,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 39,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 40,
+        "team": "red",
+        "champion": "lux",
+        "ai": true
+      }
+    ],
+    "activity": {
+      "maxProjectiles": 42,
+      "maxSingularities": 2,
+      "maxLuxBeams": 1,
+      "maxVisibleChampions": 9
+    },
+    "advanceMS": 0,
+    "time": 1231.9666666666667,
+    "units": 99,
+    "frames": {
+      "n": 1800,
+      "median": 16.600000001490116,
+      "p95": 19.600000001490116,
+      "p99": 21.200000002980232
+    },
+    "fog": {
+      "n": 225,
+      "median": 2.399999998509884,
+      "p95": 3.7000000029802322,
+      "p99": 4.100000001490116
+    },
+    "simulationSteps": {
+      "n": 1801,
+      "median": 0.29999999701976776,
+      "p95": 0.5,
+      "p99": 1
+    },
+    "hudUpdates": {
+      "n": 504,
+      "median": 0.20000000298023224,
+      "p95": 0.30000000447034836,
+      "p99": 0.3999999985098839
+    },
+    "renderCalls": {
+      "n": 1800,
+      "median": 4.199999995529652,
+      "p95": 7.199999995529652,
+      "p99": 9.299999997019768
+    },
+    "drawCalls": {
+      "n": 1800,
+      "median": 196,
+      "p95": 215,
+      "p99": 218
+    },
+    "renderedTriangles": {
+      "n": 1800,
+      "median": 410244,
+      "p95": 438020,
+      "p99": 444056
+    },
+    "calls": 212,
+    "triangles": 409519,
+    "fogResolution": 256
+  },
+  "benchmarkReportSHA256": "a2785b3fb8614e07c0cf0d5b53965eda5b11ab04d61e12632055cb9506e26d01",
+  "profiledBenchmarkReportSHA256": "79268c0cb38d23689d9dfafd515c7f2b0f676e4595ae60400985bbfd76c1eacc",
+  "cpuProfile": {
+    "profileSHA256": "808ce8df46baa9ef55e21e708f09bae634eac02ff440d13beda6df96c2638a56",
+    "durationMS": 32228.182,
+    "sampledMS": 32227.579,
+    "samples": 22206,
+    "note": "Sampled function attribution, not GPU timing. Inclusive times overlap across functions; do not sum them. Idle and program time are retained.",
+    "self": [
+      {
+        "function": "(idle)",
+        "url": "",
+        "line": 0,
+        "selfMS": 20795.127,
+        "inclusiveMS": 20795.127
+      },
+      {
+        "function": "(program)",
+        "url": "",
+        "line": 0,
+        "selfMS": 1796.23,
+        "inclusiveMS": 1796.23
+      },
+      {
+        "function": "updateMatrixWorld",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 10046,
+        "selfMS": 930.398,
+        "inclusiveMS": 1570.94
+      },
+      {
+        "function": "multiplyMatrices",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 8252,
+        "selfMS": 892.523,
+        "inclusiveMS": 892.523
+      },
+      {
+        "function": "setFromRotationMatrix",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 8932,
+        "selfMS": 730.706,
+        "inclusiveMS": 730.706
+      },
+      {
+        "function": "projectObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 52080,
+        "selfMS": 551.834,
+        "inclusiveMS": 769.135
+      },
+      {
+        "function": "apply",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 36874,
+        "selfMS": 333.172,
+        "inclusiveMS": 1187.75
+      },
+      {
+        "function": "renderObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 47372,
+        "selfMS": 273.436,
+        "inclusiveMS": 1201.079
+      },
+      {
+        "function": "slerpFlat",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 3425,
+        "selfMS": 255.744,
+        "inclusiveMS": 255.744
+      },
+      {
+        "function": "evaluate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 30086,
+        "selfMS": 247.626,
+        "inclusiveMS": 737.413
+      },
+      {
+        "function": "updateBar",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 586,
+        "selfMS": 246.315,
+        "inclusiveMS": 459.048
+      },
+      {
+        "function": "trace",
+        "url": "http://127.0.0.1:5198/src/simulation/navgrid.ts",
+        "line": 179,
+        "selfMS": 228.545,
+        "inclusiveMS": 375.069
+      },
+      {
+        "function": "needsUpdate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 42958,
+        "selfMS": 184.888,
+        "inclusiveMS": 187.887
+      },
+      {
+        "function": "interpolate_",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 30285,
+        "selfMS": 173.741,
+        "inclusiveMS": 173.741
+      },
+      {
+        "function": "visionSources",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 506,
+        "selfMS": 145.141,
+        "inclusiveMS": 329.744
+      },
+      {
+        "function": "accumulate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 36845,
+        "selfMS": 141.954,
+        "inclusiveMS": 145.148
+      },
+      {
+        "function": "updateFog",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 706,
+        "selfMS": 135.659,
+        "inclusiveMS": 665.939
+      },
+      {
+        "function": "render",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 353,
+        "selfMS": 130.83,
+        "inclusiveMS": 8450.277
+      },
+      {
+        "function": "compose",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 8562,
+        "selfMS": 130.036,
+        "inclusiveMS": 130.036
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/navgrid.ts",
+        "line": 236,
+        "selfMS": 129.948,
+        "inclusiveMS": 148.623
+      },
+      {
+        "function": "distance",
+        "url": "http://127.0.0.1:5198/src/simulation/math.ts",
+        "line": 1,
+        "selfMS": 128.526,
+        "inclusiveMS": 128.526
+      },
+      {
+        "function": "texSubImage2D",
+        "url": "",
+        "line": 0,
+        "selfMS": 111.276,
+        "inclusiveMS": 111.276
+      },
+      {
+        "function": "getProgramInfoLog",
+        "url": "",
+        "line": 0,
+        "selfMS": 108.773,
+        "inclusiveMS": 108.773
+      },
+      {
+        "function": "toArray",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 8764,
+        "selfMS": 107.711,
+        "inclusiveMS": 107.711
+      },
+      {
+        "function": "WebGLRenderer.renderBufferDirect",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 51786,
+        "selfMS": 101.747,
+        "inclusiveMS": 1148.688
+      },
+      {
+        "function": "_update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 37949,
+        "selfMS": 95.19,
+        "inclusiveMS": 991.28
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 18279,
+        "selfMS": 93.751,
+        "inclusiveMS": 539.368
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 507,
+        "selfMS": 89.641,
+        "inclusiveMS": 103.218
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 38434,
+        "selfMS": 83.695,
+        "inclusiveMS": 2248.112
+      },
+      {
+        "function": "advanceUnit",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 999,
+        "selfMS": 80.981,
+        "inclusiveMS": 360.717
+      },
+      {
+        "function": "sample",
+        "url": "http://127.0.0.1:5198/src/render/fog-sampler.ts",
+        "line": 21,
+        "selfMS": 75.395,
+        "inclusiveMS": 524.132
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 295,
+        "selfMS": 71.231,
+        "inclusiveMS": 640.114
+      },
+      {
+        "function": "nearest",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 562,
+        "selfMS": 69.572,
+        "inclusiveMS": 173.888
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/vision.ts",
+        "line": 13,
+        "selfMS": 65.715,
+        "inclusiveMS": 594.231
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "line": 0,
+        "selfMS": 64.686,
+        "inclusiveMS": 64.686
+      },
+      {
+        "function": "lineOfSight",
+        "url": "http://127.0.0.1:5198/src/simulation/navgrid.ts",
+        "line": 226,
+        "selfMS": 61.47,
+        "inclusiveMS": 444.683
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 507,
+        "selfMS": 59.67,
+        "inclusiveMS": 68.851
+      },
+      {
+        "function": "interpolate_",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 30858,
+        "selfMS": 54.356,
+        "inclusiveMS": 287.327
+      },
+      {
+        "function": "updateMatrixWorld",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 18016,
+        "selfMS": 54.176,
+        "inclusiveMS": 918.244
+      },
+      {
+        "function": "setProgram",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 52328,
+        "selfMS": 49.258,
+        "inclusiveMS": 753.788
+      }
+    ],
+    "inclusive": [
+      {
+        "function": "(root)",
+        "url": "",
+        "line": 0,
+        "selfMS": 0,
+        "inclusiveMS": 32227.579
+      },
+      {
+        "function": "(idle)",
+        "url": "",
+        "line": 0,
+        "selfMS": 20795.127,
+        "inclusiveMS": 20795.127
+      },
+      {
+        "function": "onAnimationFrame",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 42007,
+        "selfMS": 37.226,
+        "inclusiveMS": 9356.883
+      },
+      {
+        "function": "onAnimationFrame",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 51956,
+        "selfMS": 3.006,
+        "inclusiveMS": 9312.112
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/main.ts",
+        "line": 161,
+        "selfMS": 22.462,
+        "inclusiveMS": 9307.585
+      },
+      {
+        "function": "render",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 353,
+        "selfMS": 130.83,
+        "inclusiveMS": 8450.277
+      },
+      {
+        "function": "v.render",
+        "url": "",
+        "line": 73,
+        "selfMS": 18.842,
+        "inclusiveMS": 7913.39
+      },
+      {
+        "function": "WebGLRenderer.render",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 51996,
+        "selfMS": 10.988,
+        "inclusiveMS": 4185.574
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 38434,
+        "selfMS": 83.695,
+        "inclusiveMS": 2248.112
+      },
+      {
+        "function": "(program)",
+        "url": "",
+        "line": 0,
+        "selfMS": 1796.23,
+        "inclusiveMS": 1796.23
+      },
+      {
+        "function": "updateMatrixWorld",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 10046,
+        "selfMS": 930.398,
+        "inclusiveMS": 1570.94
+      },
+      {
+        "function": "WebGLShadowMap.render",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 47158,
+        "selfMS": 3.002,
+        "inclusiveMS": 1226.986
+      },
+      {
+        "function": "renderObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 47372,
+        "selfMS": 273.436,
+        "inclusiveMS": 1201.079
+      },
+      {
+        "function": "apply",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 36874,
+        "selfMS": 333.172,
+        "inclusiveMS": 1187.75
+      },
+      {
+        "function": "WebGLRenderer.renderBufferDirect",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 51786,
+        "selfMS": 101.747,
+        "inclusiveMS": 1148.688
+      },
+      {
+        "function": "_update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 37949,
+        "selfMS": 95.19,
+        "inclusiveMS": 991.28
+      },
+      {
+        "function": "updateMatrixWorld",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 18016,
+        "selfMS": 54.176,
+        "inclusiveMS": 918.244
+      },
+      {
+        "function": "multiplyMatrices",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 8252,
+        "selfMS": 892.523,
+        "inclusiveMS": 892.523
+      },
+      {
+        "function": "_setValue_fromArray_setMatrixWorldNeedsUpdate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 37174,
+        "selfMS": 43.182,
+        "inclusiveMS": 848.53
+      },
+      {
+        "function": "fromArray",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 3947,
+        "selfMS": 21.097,
+        "inclusiveMS": 794.184
+      },
+      {
+        "function": "onQuaternionChange",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 9313,
+        "selfMS": 7.183,
+        "inclusiveMS": 774.425
+      },
+      {
+        "function": "setFromQuaternion",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 9012,
+        "selfMS": 8.961,
+        "inclusiveMS": 769.227
+      },
+      {
+        "function": "projectObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 52080,
+        "selfMS": 551.834,
+        "inclusiveMS": 769.135
+      },
+      {
+        "function": "setProgram",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 52328,
+        "selfMS": 49.258,
+        "inclusiveMS": 753.788
+      },
+      {
+        "function": "evaluate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 30086,
+        "selfMS": 247.626,
+        "inclusiveMS": 737.413
+      },
+      {
+        "function": "setFromRotationMatrix",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 8932,
+        "selfMS": 730.706,
+        "inclusiveMS": 730.706
+      },
+      {
+        "function": "renderScene",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 52125,
+        "selfMS": 2.996,
+        "inclusiveMS": 695.353
+      },
+      {
+        "function": "renderObjects",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 52200,
+        "selfMS": 10.551,
+        "inclusiveMS": 688.763
+      },
+      {
+        "function": "renderObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 52210,
+        "selfMS": 13.408,
+        "inclusiveMS": 678.212
+      },
+      {
+        "function": "updateFog",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 706,
+        "selfMS": 135.659,
+        "inclusiveMS": 665.939
+      },
+      {
+        "function": "step",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 292,
+        "selfMS": 15.078,
+        "inclusiveMS": 658.249
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 295,
+        "selfMS": 71.231,
+        "inclusiveMS": 640.114
+      },
+      {
+        "function": "seenFrom",
+        "url": "http://127.0.0.1:5198/src/simulation/vision.ts",
+        "line": 12,
+        "selfMS": 38.37,
+        "inclusiveMS": 628.219
+      },
+      {
+        "function": "v.updateFog",
+        "url": "",
+        "line": 59,
+        "selfMS": 0.067,
+        "inclusiveMS": 618.111
+      },
+      {
+        "function": "w.step",
+        "url": "",
+        "line": 53,
+        "selfMS": 1.496,
+        "inclusiveMS": 611.949
+      },
+      {
+        "function": "prepareDepth",
+        "url": "http://127.0.0.1:5198/src/render/hawkshot-smoke.ts",
+        "line": 91,
+        "selfMS": 0,
+        "inclusiveMS": 609.646
+      },
+      {
+        "function": "capture",
+        "url": "http://127.0.0.1:5198/src/render/scene-depth.ts",
+        "line": 6,
+        "selfMS": 0,
+        "inclusiveMS": 605.071
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/vision.ts",
+        "line": 13,
+        "selfMS": 65.715,
+        "inclusiveMS": 594.231
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=dd4e1c05",
+        "line": 18279,
+        "selfMS": 93.751,
+        "inclusiveMS": 539.368
+      },
+      {
+        "function": "sample",
+        "url": "http://127.0.0.1:5198/src/render/fog-sampler.ts",
+        "line": 21,
+        "selfMS": 75.395,
+        "inclusiveMS": 524.132
+      }
+    ]
+  },
+  "sourceSHA256": {
+    "tools/qa/benchmark-rift.mjs": "4476ab09403a537d4435c06f519013f70d603d278c9a98f796726bd805898ad8",
+    "tools/qa/summarize-cpu-profile.mjs": "1da487789cdcef778d5c7a53e254d63701cace0121d97f11e7337f27c23e99bc",
+    "src/render/view.ts": "aa22b34368629cd991714c1ec177ef70eac59cefb08e15531e315bf05526d68f",
+    "src/render/fog-sampler.ts": "9b9bd7ab50f11744cb9e41bce6520d95135b470bcbc27a08fe989d789a578dd2",
+    "src/render/models.ts": "0fefcf1de929acaa62fb281e59f350cd481e2a0124bab264296a81af773aa6ac",
+    "src/simulation/world.ts": "eafa306e880ca6c3c4d52ddaa4285b3fcaf7d8631eccaf2202a3328fb0f58878",
+    "package-lock.json": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+  },
+  "scope": "One restored mixed lane match at 20 minutes, 120 warmup frames, 1800 measured frames. CPU profile is a separate instrumented run. No GPU timing or completed-match gate."
+}
