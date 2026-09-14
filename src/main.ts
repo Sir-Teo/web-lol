@@ -60,10 +60,8 @@ async function boot(): Promise<void> {
     audio.setPaused(paused);
     accumulator = 0;
     previous = performance.now();
-    if (paused) {
-      input?.release();
-      world.commands.length = 0;
-    }
+    // Release unfinished gestures; accepted commands belong to the frozen match state.
+    if (paused) input?.release();
   };
   const hud = new Hud(host, world, view, {
     pause: setPaused,

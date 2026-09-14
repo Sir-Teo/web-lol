@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "301563d73023bf1b9204f99b0029c027e9d9e9b5",
+  "problem": "setPaused cleared accepted simulation commands, changing snapshots on pause and on restored-match boot.",
+  "change": "Preserve queued commands; retain release of held input/aim and explicit pause/resume behavior.",
+  "sourceSHA256": {
+    "src/main.ts": "e404f6e62adfad291e1a9f7a3d27f2f7d9a30d2ea4092ade2dd21230baea7cb1",
+    "e2e/queued-hud-cast.spec.ts": "cc23494dc912be7391aec3d0adc0ce1bb0b7356a69d5969139debfa21a9cb7a6",
+    "e2e/saves.spec.ts": "4073547c1ede128fb2db3e5742fd751238078bb2f1f5338051d21de7eb645406",
+    "e2e/recovery.spec.ts": "1e1e9bc17a40f33509186fc43906c87e640df38cc3274aeab595655f23b73696",
+    "e2e/game.spec.ts": "39b037da4e7f6cb7bb60ff8377a8f41dbce719c26b410d1ac05daa6c2c807152"
+  },
+  "reproduction": {
+    "command": "npx playwright test e2e/queued-hud-cast.spec.ts -g 'accepted Heal'",
+    "result": "Failed before repair at exact state comparison immediately after opening Pause.",
+    "logSHA256": "f6be9b511c98de7ff81dbc44cc2c4e4ffb66945daec66b5c99590fa40616dfea"
+  },
+  "validation": {
+    "simulation": {
+      "command": "npm run check",
+      "tests": 598,
+      "passed": true,
+      "logSHA256": "8d16aad19fc3531593b0c3245814f41eb6fbc7b852fce5a047035d9b136decaa"
+    },
+    "browser": {
+      "command": "npx playwright test e2e/queued-hud-cast.spec.ts e2e/saves.spec.ts e2e/recovery.spec.ts e2e/game.spec.ts",
+      "tests": 25,
+      "passed": true,
+      "logSHA256": "7d4bb87a6079f3ba6ec3508d8649398f9431d5bc784a7d18cd97e05398edce88",
+      "newCase": "Actual Heal click held between steps; pause/save/reload/blur retain exact state; first tick after actual Resume matches uninterrupted snapshot and consumes the queue."
+    },
+    "production": {
+      "command": "npm run test:production",
+      "passed": true,
+      "logSHA256": "0c0d189a071bc7d250b6ec19fda944d59f064ffc38b5eaa48778f9adbd5e73b1"
+    },
+    "visual": {
+      "path": "artifacts/queued-cast-restored.png",
+      "sha256": "a5a1402e6aa72855194f1e4810a92eae2f59b6dfc98a26403b01bd7d5f239b02",
+      "inspection": "Centered restored pause dialog and controls readable; battlefield intentionally obscured by modal backdrop."
+    }
+  },
+  "limits": [
+    "Same-build local checkpoint behavior, not a claim of native League pause equivalence.",
+    "Focused browser run, not the full suite.",
+    "Full production match flow, roster, native pixel comparisons and delivery/performance gates remain unfinished."
+  ]
+}
