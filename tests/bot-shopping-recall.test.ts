@@ -45,7 +45,7 @@ test('shopping recalls require an upgrade, sufficient gold, space, distance and 
     const { w, bot, state } = shopTrip();
     if (reason === 'gold') state.gold = 899;
     if (reason === 'full') state.inventory = Array(6).fill('sword');
-    if (reason === 'complete') state.inventory = ['blade', 'boots', 'pickaxe', 'sword'];
+    if (reason === 'complete') state.inventory = ['blade', 'boots', 'infinity-edge'];
     if (reason === 'near') bot.x = 5000;
     if (reason === 'enemy') w.spawn('champion', 'blue', { x: 500, y: 0 });
     if (reason === 'damage') w.damage(w.hero, bot, 1, 'true');

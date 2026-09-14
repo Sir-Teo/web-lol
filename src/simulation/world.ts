@@ -993,7 +993,23 @@ export class World {
       if (!id && !state.inventory.includes('wand')) id = 'wand';
       return ITEMS.find((item) => item.id === id);
     }
-    const id = ['blade', 'boots', 'pickaxe', 'sword'].find((id) => !state.inventory.includes(id));
+    let id = ['blade', 'boots'].find((id) => !state.inventory.includes(id));
+    if (!id && !state.inventory.includes('infinity-edge')) {
+      const plan = this.purchasePlan('infinity-edge', u.id)!;
+      if (state.gold >= plan.cost) id = 'infinity-edge';
+      else {
+        // Prefer the largest affordable missing component. Returning the cheapest
+        // missing component when none is affordable also informs recall planning.
+        const missing = ITEM_RECIPES['infinity-edge']
+          .filter((component) => !state.inventory.includes(component))
+          .map((component) => ITEMS.find((item) => item.id === component)!)
+          .sort((a, b) => b.price - a.price);
+        id =
+          missing.find((item) => item.price <= state.gold)?.id ??
+          missing.at(-1)?.id ??
+          'infinity-edge';
+      }
+    }
     return ITEMS.find((item) => item.id === id);
   }
 

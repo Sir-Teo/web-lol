@@ -57,7 +57,7 @@ test('health purchases while dead increase maximum HP without reviving either ow
   expect(bot.hp).toBe(690);
 });
 
-test('healthy fountain bot follows a finite purchase plan and restores its next choice', () => {
+test('healthy fountain bot buys crit-build components within budget and restores its next choice', () => {
   const { w, bot, state } = shop();
   bot.ai = true;
   bot.speed = 0;
@@ -68,8 +68,8 @@ test('healthy fountain bot follows a finite purchase plan and restores its next 
   w.step(100);
   restored.step(100);
   expect(restored.snapshot()).toBe(w.snapshot());
-  expect(state.inventory).toEqual(['blade', 'boots', 'pickaxe', 'sword']);
-  expect(state.gold).toBe(1025);
+  expect(state.inventory).toEqual(['blade', 'boots', 'bf-sword', 'pickaxe']);
+  expect(state.gold).toBe(75);
 });
 
 test('bot saves for its next item and cannot shop away from its fountain', () => {
