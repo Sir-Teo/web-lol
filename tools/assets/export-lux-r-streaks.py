@@ -24,5 +24,12 @@ profile={'name':e['emitterName'],'emitterIndex':record['complexEmitterDefinition
  'multScroll':e['textureMult']['birthUvScrollRateMult']['constantValue'],
  'texture':e['texture'],'textureMult':e['textureMult']['textureMult'],'erosion':e['{c4663005}'],
  'pass':e['pass'],'miscRenderFlags':e['miscRenderFlags']}
+lookup=verified['lookup']
+assert profile['rotation']==[90,90,0]
+assert e['{c4663005}']['{c6fbacd5}']['dynamics']['values']==[0,0]
+assert e['{c4663005}']['{b0794a80}']['constantValue']==[1,0,0,0]
+profile['render']={'texture':lookup[e['texture'].lower()], 'mult':lookup[e['textureMult']['textureMult'].lower()],
+ 'erosion':lookup[e['{c4663005}']['{5da05f9b}'].lower()], 'multScale':e['textureMult']['{cd124686}']['constantValue'],
+ 'erosionMixer':[1,0,0,0], 'erosionDrive':0, 'featherIn':0.1, 'featherOut':0.1, 'sliceWidth':1.5}
 Path('src/content/lux-r-streaks.json').write_text(json.dumps(profile,indent=2)+'\n')
-print('Verified 45-particle Streaks_Linger source profile; rendering remains separate')
+print('Verified 45-particle Streaks_Linger source profile; render profile included')

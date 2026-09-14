@@ -270,5 +270,24 @@
     "__type": "{5e842b9b}"
   },
   "pass": 9,
-  "miscRenderFlags": 1
+  "miscRenderFlags": 1,
+  "render": {
+    "texture": "assets/effects/lux-r-lux_base_r_mote.png",
+    "mult": "assets/effects/lux-r-4.png",
+    "erosion": "assets/effects/lux-r-lux_base_r_erosionshapes01.png",
+    "multScale": [
+      0.5,
+      0.5
+    ],
+    "erosionMixer": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "erosionDrive": 0,
+    "featherIn": 0.1,
+    "featherOut": 0.1,
+    "sliceWidth": 1.5
+  }
 }

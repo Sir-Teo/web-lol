@@ -2686,6 +2686,20 @@
       "height": 256,
       "rgbaSha256": "ad41d80e0cd7d52a66b5aadb497b1f7cfe1e5184f3ef6bddb2cd6b2133a7cd22",
       "output": "public/assets/effects/lux-r-diana_skin11_r_glow.png"
+    },
+    {
+      "path": "assets/characters/lux/skins/base/particles/lux_base_r_mote.tex",
+      "width": 128,
+      "height": 128,
+      "rgbaSha256": "3acadad202186fac9aed07ff2b5274a9887169ccc6ec882c02deeeecd8049515",
+      "output": "public/assets/effects/lux-r-lux_base_r_mote.png"
+    },
+    {
+      "path": "assets/characters/lux/skins/base/particles/lux_base_r_erosionshapes01.tex",
+      "width": 256,
+      "height": 256,
+      "rgbaSha256": "f1acf55a3c0371675327d651f9516ce336ea6b88dd20908ebacb28c980b1855c",
+      "output": "public/assets/effects/lux-r-lux_base_r_erosionshapes01.png"
     }
   ],
   "extraction": {
@@ -2791,6 +2805,18 @@
         "offset": 3866715,
         "bytes": 42843,
         "sha256": "9803b10de14d61b4cfbabbd442099838ea19acae9f72fd95953085c47ccb45c7"
+      },
+      "E4A3CF3CDAD10F95": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/AB3D748E716FD0A2.bundle",
+        "offset": 33723066,
+        "bytes": 4980,
+        "sha256": "c64b9e561ed7a5d851100d4454de1dc11a37c088aa2d6e39fc8b7dd138a545d4"
+      },
+      "352F97230D4F7EB6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FD2315C2A95EFEE5.bundle",
+        "offset": 16927008,
+        "bytes": 16620,
+        "sha256": "2d708c3346f149749f8801c1acee0a511e51455b085460b495092e1337bb4e9f"
       }
     },
     "files": [
@@ -2865,7 +2891,22 @@
         "wadPathHash": "4b08a1b9b39b71b2",
         "sha256": "aa581cc955565289a957ebb7ec46c36532d6a1ea701d560c8541f2957397a7a7",
         "bytes": 87420
+      },
+      {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_r_mote.tex",
+        "wadPathHash": "442281487e326654",
+        "sha256": "938f91619f0bf2b08354fe26221628bb25e16ad1a9a298242189566623a74a94",
+        "bytes": 10948
+      },
+      {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_r_erosionshapes01.tex",
+        "wadPathHash": "ecf4bb522cfcd868",
+        "sha256": "1129e317c149b9675d7561afc1caa58407a3e4b98e7a4924f87c4f3daa3f1bc0",
+        "bytes": 43716
       }
     ]
-  }
+  },
+  "additionalImplementedEmitters": [
+    "Streaks_Linger"
+  ]
 }

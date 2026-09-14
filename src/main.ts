@@ -13,6 +13,7 @@ import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
+import { loadLuxRStreakTextures } from './render/lux-r-streaks';
 import { loadLuxBeamTextures } from './render/lux-beams';
 import { loadReferenceModels } from './render/models';
 import { loadHawkshotWind } from './render/hawkshot-wind';
@@ -113,6 +114,7 @@ async function boot(): Promise<void> {
     audio.load(),
     loadReferenceModels(),
     loadLuxBeamTextures(),
+    loadLuxRStreakTextures(),
     loadLuxAttackTextures(),
     loadLuxImpactTextures(),
     loadLuxTrailTextures(),

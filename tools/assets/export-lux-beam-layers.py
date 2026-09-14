@@ -33,16 +33,18 @@ record=json.loads(json.dumps(binfile.BinFile(io.BytesIO((root/pin['sourceBin']).
 assert len(record['complexEmitterDefinitionData'])==pin['emitterCount']
 names={e['emitterName'] for e in pin['emitters']}
 assert [e for e in record['complexEmitterDefinitionData'] if e.get('emitterName') in names]==pin['emitters']
+implemented = names | set(pin.get('additionalImplementedEmitters',[]))
+assert implemented <= {e['emitterName'] for e in record['complexEmitterDefinitionData']}
 audit = {
  'record': pin['record'],
  'sourceBin': pin['sourceBin'],
  'sourceBinSha256': hashlib.sha256((root/pin['sourceBin']).read_bytes()).hexdigest(),
- 'selectedNames': [e['emitterName'] for e in pin['emitters']],
+ 'selectedNames': [e['emitterName'] for e in record['complexEmitterDefinitionData'] if e['emitterName'] in implemented],
  'emitters': [{
   'name': e['emitterName'],
   'disabled': bool(e.get('disabled', e.get('{33f36f05}', False))),
   'primitive': e.get('primitive', {}).get('__type'),
-  'implemented': e['emitterName'] in names,
+  'implemented': e['emitterName'] in implemented,
   'blend': e.get('blendMode', 0),
   'pass': e.get('pass', 0),
   'delay': e.get('timeBeforeFirstEmission', 0),

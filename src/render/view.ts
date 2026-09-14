@@ -15,6 +15,7 @@ import { LUX_E_POLICY } from '../content/lux-e-policy';
 import * as THREE from 'three';
 import { TICK_RATE } from '../content/rules';
 import { LuxSingularities } from './lux-singularities';
+import { LuxRStreaks } from './lux-r-streaks';
 import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
 import { ASHE_SELECTION } from '../content/ashe-selection';
@@ -55,6 +56,7 @@ export class GameView {
   luxAttackTrails = new LuxAttackTrails(this.scene, (p) => this.ground(p));
   luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));
   luxImpacts = new LuxImpacts(this.scene, (p) => this.ground(p));
+  luxStreaks = new LuxRStreaks(this.scene, (p) => this.ground(p));
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -590,6 +592,7 @@ export class GameView {
       }
     this.syncProjectiles(world, alpha);
     this.luxBeams.update(world, alpha, this.camera, terminalAge);
+    this.luxStreaks.update(world, alpha, terminalAge);
     this.luxAttackHoops.update(world, alpha, this.camera, terminalAge);
     this.luxAttackTrails.update(world, alpha, terminalAge);
     this.luxAttackCrescents.update(world, alpha, terminalAge);
