@@ -92,7 +92,12 @@ export class LuxBeams {
         transparent: true,
         depthWrite: false,
         side: THREE.DoubleSide,
-        blending: layer.blend === 4 ? THREE.AdditiveBlending : THREE.NormalBlending,
+        blending: THREE.CustomBlending,
+        blendEquation: THREE.AddEquation,
+        blendSrc: THREE.SrcAlphaFactor,
+        blendDst: layer.blend === 4 ? THREE.OneFactor : THREE.OneMinusSrcAlphaFactor,
+        blendSrcAlpha: THREE.SrcAlphaFactor,
+        blendDstAlpha: layer.blend === 4 ? THREE.OneFactor : THREE.OneMinusSrcAlphaFactor,
         uniforms: {
           base: { value: textures.get(layer.texture) },
           mult: { value: textures.get(layer.mult) },

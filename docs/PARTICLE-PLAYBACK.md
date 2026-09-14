@@ -204,3 +204,15 @@ Two browser cases cast real Final Sparks and destroy the Nexus through a separat
 ```sh
 npx playwright test e2e/lux-beam-terminal.spec.ts e2e/lux-r.spec.ts e2e/terminal-interpolation.spec.ts
 ```
+
+## Final Spark framebuffer blending
+
+The six pinned beam emitters use blend modes 1 and 4. `Beam_Core2`, `warning_beam_1` and `Beam_Core_FLASH` use mode 1; `Beam_Core1`, `warning_beam_2` and `Beam_Core_Glow` use mode 4. Their depth flags default to zero, agreeing with current depth testing. The [pinned LeagueToolkit blend reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/blend.ts) specifies source-alpha / one-minus-source-alpha for mode 1 and source-alpha / one for mode 4, applied to both RGB and alpha. The cached file was rechecked against SHA-256 `d01381d75d574c7c31c8ac2f09d44a746a9aed6523db0af90fa507afe3dc72d9`.
+
+Beam materials now set those factors explicitly with custom blending. Three.js normal blending previously used ONE as the source alpha-channel factor, accumulating alpha differently for the three mode-1 layers. RGB factors were already equivalent. This correction establishes the reconstructed RGBA equation; it does not demonstrate a visible RGB change on the current opaque output surface or certify native beam shader parity.
+
+A GPU regression clones all six actual gameplay materials and renders a known half-alpha tint over a quarter-alpha background into RGBA8. Readbacks match the independent equations within quantization tolerance. The probe explicitly disables renderer clear-color premultiplication so its background matches the stated inputs. Normal charge/release/reload and both terminal beam cases pass, alongside 718 unit tests and the production subpath smoke test. Texture color space, UV/sampler conventions and complete native material behavior remain to be verified separately.
+
+```sh
+npx playwright test e2e/lux-beam-blending.spec.ts e2e/lux-r.spec.ts e2e/lux-beam-terminal.spec.ts
+```
