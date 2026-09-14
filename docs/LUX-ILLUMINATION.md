@@ -213,3 +213,13 @@ PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/map
 ```
 
 The complete extraction/mapping/decoding/export chain passes on repeat. A Chrome check verifies every exported asset hash and exact decoded PCM, frame count, channel count, rate, duration and retained headroom. These recordings are **not yet connected to runtime playback**. Listening comparison, variant policy reconstruction, scheduling, pause/save behavior, attenuation and native bus/mix parity remain outstanding. Existing gameplay audio was not replaced by this asset milestone.
+
+## Detonation attenuation evaluator
+
+The audio graph independently resolves Lux's inherited positioning through mixer 413871746 to attenuation 339248780 and unresolved bus 1259461568. The parent enables attenuation and overrides positioning; the selected child sounds/container inherit it. The source has one six-point curve, no enabled cone or height spread, and routes its first three attenuation slots to that curve. This curve happens to match Hawkshot's, but Lux's hierarchy is verified independently.
+
+`tools/assets/export-lux-illumination-attenuation.py` exports the complete curve and checks bank version 145. It executes the pinned wwiser conversion graph to generate comparison samples around knots and throughout the range. `wwise145Attenuation` shares the previously tested interpolation/scaling implementation; the Hawkshot wrapper retains its source profile. `luxIlluminationAttenuation` evaluates Lux's profile and adds the separate −12 dB container makeup gain.
+
+Including that gain, output is −12 dB through 1,750 source units, approximately −24 dB at 2,000 and −36 dB at 2,300. Stored −1 values at/beyond 2,750 use the pinned parser's −96.3 dB attenuation floor, yielding −108.3 dB including makeup gain. Stored curve values are not treated as literal dB, and no extra cutoff or normalization is introduced.
+
+Reproduce with `.tools/cdtb-venv/bin/python tools/assets/export-lux-illumination-attenuation.py`. The generated profile and parser samples are retained in `reference/lux-illumination-attenuation.json`. Three added cases verify source linkage, independent distance samples plus makeup gain, and invalid inputs. TypeScript and all 786 tests pass, including the existing Hawkshot evaluator checks. This evaluator is not yet connected to playback; listener location/distance calibration, shared-bus mixing and native listening comparison remain outstanding.
