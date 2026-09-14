@@ -1,3 +1,5 @@
+import { luxBeamBirthOffset } from './lux-beam-birth-offset';
+import { luxHoopChance } from './lux-hoop-particles';
 import { luxBeamWidth } from './lux-beam-width';
 import * as THREE from 'three';
 import { LUX_BEAM_LAYERS } from '../content/lux-beam-layers';
@@ -12,6 +14,8 @@ interface Curve {
   readonly values: readonly (readonly number[])[];
 }
 interface Layer {
+  readonly emitterIndex: number;
+  readonly birthOffset: Parameters<typeof luxBeamBirthOffset>[0];
   readonly texDiv: readonly number[];
   readonly texDivMult: readonly number[];
   readonly miscRenderFlags: number;
@@ -191,9 +195,14 @@ export class LuxBeams {
         const scroll = layer.scrollCurve.dynamics
           ? integratedCurve(layer.scrollCurve.dynamics, normalized, layer.life)
           : [0, 0];
+        const castStart = beam.startTick - (beam.charging ? 0 : LUX_R.castSeconds * TICK_RATE);
+        const birthOffset = luxBeamBirthOffset(
+          layer.birthOffset,
+          luxHoopChance(beam.sourceId ^ Math.imul(castStart, 0x9e3779b9), layer.emitterIndex)
+        );
         mesh.material.uniforms.offset.value.set(
-          layer.scroll[0] * age + scroll[0],
-          layer.scroll[1] * age + scroll[1]
+          birthOffset[0] + layer.scroll[0] * age + scroll[0],
+          birthOffset[1] + layer.scroll[1] * age + scroll[1]
         );
         mesh.material.uniforms.multOffset.value.set(
           layer.multOffset[0] + layer.multScroll[0] * age,

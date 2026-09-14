@@ -11,6 +11,7 @@
     "Beam_Core_FLASH",
     "Beam_Core_Glow",
     "Beam_Core_Glow1",
+    "CHARGE_BEAM_PRETTINESS",
     "Beam_DARK_FLASH1"
   ],
   "emitters": [
@@ -178,7 +179,7 @@
       "name": "CHARGE_BEAM_PRETTINESS",
       "disabled": false,
       "primitive": "VfxPrimitiveBeam",
-      "implemented": false,
+      "implemented": true,
       "blend": 1,
       "pass": 0,
       "delay": 0,
