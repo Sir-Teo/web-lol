@@ -1,0 +1,498 @@
+{
+  "sourceGraphSha256": "872d0bcd44c3c8636eb8664c0b2746313f4b442ed13b1e1890d2da9b5a8b8bbb",
+  "parserRevision": "71654ed1a2c4642894bd7e7ed79eba66986fb770",
+  "parserFileSha256": "c945508045a59838881ead4326dabadcc191ed935d965ee61a132363ab0ac484",
+  "profile": {
+    "attenuationId": 339248780,
+    "parentMixerId": 413871746,
+    "unresolvedOutputBusId": 1259461568,
+    "bankVersion": 145,
+    "scaling": 2,
+    "curveToUse": [
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2
+    ],
+    "points": [
+      {
+        "distance": 0.0,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 1750.0,
+        "storedValue": 0.0,
+        "interpolation": 2
+      },
+      {
+        "distance": 2000.0,
+        "storedValue": -0.7488113641738892,
+        "interpolation": 2
+      },
+      {
+        "distance": 2300.0,
+        "storedValue": -0.93690425157547,
+        "interpolation": 2
+      },
+      {
+        "distance": 2750.0,
+        "storedValue": -1.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 3000.0,
+        "storedValue": -1.0,
+        "interpolation": 4
+      }
+    ]
+  },
+  "samples": [
+    {
+      "distance": 0,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 0.001,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 50,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 100,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 150,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 200,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 250,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 300,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 350,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 400,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 450,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 500,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 550,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 600,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 650,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 700,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 750,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 800,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 850,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 875.0,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 900,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 950,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1000,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1050,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1100,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1150,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1200,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1250,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1300,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1350,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1400,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1450,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1500,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1550,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1600,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1650,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1700,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1749.999,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1750,
+      "db": 0.0,
+      "amplitude": 1.0
+    },
+    {
+      "distance": 1750.001,
+      "db": -3.902459284566593e-05,
+      "amplitude": 0.9999955071378056
+    },
+    {
+      "distance": 1800,
+      "db": -2.043799678082908,
+      "amplitude": 0.7903328180313111
+    },
+    {
+      "distance": 1850,
+      "db": -4.284606662253366,
+      "amplitude": 0.6106180906295776
+    },
+    {
+      "distance": 1875.0,
+      "db": -5.481883318172284,
+      "amplitude": 0.5319928973913193
+    },
+    {
+      "distance": 1900,
+      "db": -6.728698513043005,
+      "amplitude": 0.4608558177947998
+    },
+    {
+      "distance": 1950,
+      "db": -9.34374080763238,
+      "amplitude": 0.34104599952697745
+    },
+    {
+      "distance": 1999.999,
+      "db": -11.999948466712528,
+      "amplitude": 0.25119013345482977
+    },
+    {
+      "distance": 2000,
+      "db": -12.000000253286988,
+      "amplitude": 0.25118863582611084
+    },
+    {
+      "distance": 2000.001,
+      "db": -12.000032773773025,
+      "amplitude": 0.2511876953627188
+    },
+    {
+      "distance": 2050,
+      "db": -13.689921154652385,
+      "amplitude": 0.20677781518962648
+    },
+    {
+      "distance": 2100,
+      "db": -15.514944846941503,
+      "amplitude": 0.16759179698096383
+    },
+    {
+      "distance": 2150,
+      "db": -17.48188285417823,
+      "amplitude": 0.13363058120012283
+    },
+    {
+      "distance": 2200,
+      "db": -19.584973161244857,
+      "amplitude": 0.10489416784710363
+    },
+    {
+      "distance": 2250,
+      "db": -21.78937338731263,
+      "amplitude": 0.08138255692190598
+    },
+    {
+      "distance": 2299.999,
+      "db": -23.9999549205095,
+      "amplitude": 0.06309606191372073
+    },
+    {
+      "distance": 2300,
+      "db": -23.99999807596477,
+      "amplitude": 0.06309574842453002
+    },
+    {
+      "distance": 2300.001,
+      "db": -24.000027028957042,
+      "amplitude": 0.06309553810552437
+    },
+    {
+      "distance": 2350,
+      "db": -25.519520199413044,
+      "amplitude": 0.05296927028232145
+    },
+    {
+      "distance": 2400,
+      "db": -27.205937913413752,
+      "amplitude": 0.043621751997205964
+    },
+    {
+      "distance": 2450,
+      "db": -29.10544817803089,
+      "amplitude": 0.03505319356918334
+    },
+    {
+      "distance": 2500,
+      "db": -31.288337566532256,
+      "amplitude": 0.027263594998253697
+    },
+    {
+      "distance": 2525.0,
+      "db": -32.51937272141039,
+      "amplitude": 0.023660905659198754
+    },
+    {
+      "distance": 2550,
+      "db": -33.87023149412141,
+      "amplitude": 0.02025295628441702
+    },
+    {
+      "distance": 2600,
+      "db": -37.06424835147164,
+      "amplitude": 0.014021277427673342
+    },
+    {
+      "distance": 2650,
+      "db": -41.341844750373234,
+      "amplitude": 0.008568558428022623
+    },
+    {
+      "distance": 2700,
+      "db": -48.1902983668175,
+      "amplitude": 0.0038947992854647655
+    },
+    {
+      "distance": 2749.999,
+      "db": -143.08482896602283,
+      "amplitude": 7.010654290429134e-08
+    },
+    {
+      "distance": 2750,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 2750.001,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 2800,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 2850,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 2875.0,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 2900,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 2950,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 2999.999,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3000,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3000.001,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3050,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3100,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3150,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3200,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3250,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3300,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3350,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3400,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3450,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    },
+    {
+      "distance": 3500,
+      "db": -96.3,
+      "amplitude": 1.531087461682032e-05
+    }
+  ],
+  "status": "Pinned parser interpretation only. Native listener position, distance scale, shared bus and curve/mixing parity remain unverified; not connected to runtime audio."
+}

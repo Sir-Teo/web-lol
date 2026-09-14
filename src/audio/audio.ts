@@ -1,3 +1,6 @@
+import { LUX_BINDING_CAST_AUDIO } from '../content/lux-binding-cast-audio';
+import { luxBindingCastAttenuation } from './lux-binding-cast-attenuation';
+import { SourceAudioVariants } from './source-audio-variants';
 import { LUX_ILLUMINATION_AUDIO } from '../content/lux-illumination-audio';
 import { luxIlluminationAttenuation } from './lux-illumination-attenuation';
 import { LuxIlluminationVariants } from './lux-illumination-variants';
@@ -10,13 +13,20 @@ import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot and Illumination audio; other event cues remain synthesized. */
+/** Source Hawkshot, Light Binding cast and Illumination audio; other event cues remain synthesized. */
 export class GameAudio {
   context: AudioContext | null = null;
   private audible = true;
   private paused = false;
   private resuming = false;
   private lastId: number;
+  private bindingCastBuffers: AudioBuffer[] = [];
+  private bindingCastVariants = new SourceAudioVariants(
+    LUX_BINDING_CAST_AUDIO.variants.length,
+    LUX_BINDING_CAST_AUDIO.policy.wAvoidRepeatCount
+  );
+  private bindingCastVoices = new Map<AudioBufferSourceNode, { x: number; y: number }>();
+  bindingCastStatus: 'loading' | 'ready' | 'failed' = 'loading';
   private illuminationBuffers: AudioBuffer[] = [];
   private illuminationVariants = new LuxIlluminationVariants();
   private illuminationVoices = new Map<AudioBufferSourceNode, { x: number; y: number }>();
@@ -54,7 +64,59 @@ export class GameAudio {
       this.loadLinger(),
       this.loadFlight(),
       this.loadIllumination(),
+      this.loadBindingCast(),
     ]);
+  }
+  private async loadBindingCast(): Promise<void> {
+    try {
+      const decoder = new OfflineAudioContext(1, 1, 44100);
+      this.bindingCastBuffers = await Promise.all(
+        LUX_BINDING_CAST_AUDIO.variants.map(async ({ url }) => {
+          const response = await fetch(import.meta.env.BASE_URL + url);
+          if (!response.ok) throw new Error(`BindingCast audio asset ${response.status}`);
+          return decoder.decodeAudioData(await response.arrayBuffer());
+        })
+      );
+      this.bindingCastStatus = 'ready';
+    } catch (error) {
+      this.bindingCastStatus = 'failed';
+      console.warn('Source BindingCast audio unavailable.', error);
+    }
+  }
+  private bindingCast(event: SimEvent, tick: number, listener: { x: number; y: number }): void {
+    if (this.bindingCastStatus !== 'ready') return;
+    const buffer = this.bindingCastBuffers[this.bindingCastVariants.next(event.id)];
+    const age = Math.max(0, (tick - event.tick) / TICK_RATE);
+    const offset = Math.max(0, age - LUX_BINDING_CAST_AUDIO.delaySeconds);
+    if (offset >= buffer.duration) return;
+    // Equal-priority local interpretation of the source's two-voice, kill-oldest cap.
+    while (this.bindingCastVoices.size >= LUX_BINDING_CAST_AUDIO.policy.u16MaxNumInstance) {
+      const oldest = this.bindingCastVoices.keys().next().value!;
+      oldest.stop();
+      oldest.disconnect();
+      this.voices.get(oldest)?.disconnect();
+      this.voices.delete(oldest);
+      this.bindingCastVoices.delete(oldest);
+    }
+    const context = this.context!,
+      voice = context.createBufferSource(),
+      gain = context.createGain();
+    voice.buffer = buffer;
+    gain.gain.value = this.bindingCastGain(event, listener);
+    voice.connect(gain).connect(context.destination);
+    this.own(voice, gain);
+    this.bindingCastVoices.set(voice, { x: event.x, y: event.y });
+    voice.start(
+      context.currentTime + Math.max(0, LUX_BINDING_CAST_AUDIO.delaySeconds - age),
+      offset
+    );
+  }
+  private bindingCastGain(point: { x: number; y: number }, listener: { x: number; y: number }) {
+    // Camera ground focus is a local listener; 0.2 is the existing presentation mix.
+    return (
+      0.2 *
+      luxBindingCastAttenuation(Math.hypot(point.x - listener.x, point.y - listener.y)).amplitude
+    );
   }
   private async loadIllumination(): Promise<void> {
     try {
@@ -192,6 +254,7 @@ export class GameAudio {
     }
     this.voices.clear();
     this.illuminationVoices.clear();
+    this.bindingCastVoices.clear();
     this.lingerVoices.clear();
     this.flightVoices.clear();
   }
@@ -202,6 +265,7 @@ export class GameAudio {
       gain.disconnect();
       this.voices.delete(voice);
       this.illuminationVoices.delete(voice as AudioBufferSourceNode);
+      this.bindingCastVoices.delete(voice as AudioBufferSourceNode);
       for (const [key, active] of this.flightVoices)
         if (active === voice) {
           this.finishedFlight.add(key);
@@ -360,6 +424,15 @@ export class GameAudio {
           0.02
         );
     }
+    for (const [voice, point] of this.bindingCastVoices) {
+      this.voices
+        .get(voice)
+        ?.gain.setTargetAtTime(
+          this.bindingCastGain(point, listener),
+          this.context!.currentTime,
+          0.02
+        );
+    }
     // A resume promise can span animation frames. Keep live events eligible until
     // audio is running; intentional pause/mute still consumes history below.
     if (this.resuming && this.enabled && !this.paused && this.context?.state !== 'running') return;
@@ -373,6 +446,12 @@ export class GameAudio {
         if (event.type === 'cast') {
           if (event.text === 'e' && event.champion === 'ashe' && this.sourceStatus === 'ready')
             this.hawkshot(event, tick);
+          else if (
+            event.text === 'q' &&
+            event.champion === 'lux' &&
+            this.bindingCastStatus === 'ready'
+          )
+            this.bindingCast(event, tick, listener);
           else this.tone(event.text === 'r' ? 180 : 480, 1000, 0.2, 0.025, 'sine');
         }
         if (event.type === 'scout-arrival' && this.arrivalBuffer)
