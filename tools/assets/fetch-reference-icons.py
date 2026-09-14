@@ -14,6 +14,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 BASE = 'https://ddragon.leagueoflegends.com/cdn/16.18.1/img/'
 FILES = {
     'ashe.png': 'champion/Ashe.png',
+    'lux.png': 'champion/Lux.png',
     'AsheQ.png': 'spell/AsheQ.png',
     'Volley.png': 'spell/Volley.png',
     'AsheSpiritOfTheHawk.png': 'spell/AsheSpiritOfTheHawk.png',
@@ -25,17 +26,24 @@ FILES = {
     '1036.png': 'item/1036.png',
     '1037.png': 'item/1037.png',
 }
-records = []
+manifest_path = ROOT / 'public/assets/reference-manifest.json'
+manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {
+    'version': '16.18.1', 'owner': 'Riot Games',
+    'usage': 'Local fidelity reference; redistribution permission not established.',
+    'assets': [],
+}
+if manifest['version'] != '16.18.1':
+    raise ValueError('Refusing to mix icon patches in the reference manifest')
+# Other source importers also contribute item and atlas records to this manifest.
+records = {record['path']: record for record in manifest['assets']}
 for filename, remote in FILES.items():
     data = subprocess.check_output(['curl', '-fLsS', '--max-time', '30', BASE + remote])
     if not data.startswith(b'\x89PNG\r\n\x1a\n'):
         raise ValueError(f'{filename} did not contain a PNG')
     (OUT / filename).write_bytes(data)
-    records.append({'path': f'/assets/icons/{filename}', 'source': BASE + remote,
-                    'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)})
-(ROOT / 'public/assets/reference-manifest.json').write_text(json.dumps({
-    'version': '16.18.1', 'owner': 'Riot Games',
-    'usage': 'Local fidelity reference; redistribution permission not established.',
-    'assets': records,
-}, indent=2) + '\n')
-print(f'Fetched and hashed {len(records)} reference icons.')
+    path = f'/assets/icons/{filename}'
+    records[path] = {'path': path, 'source': BASE + remote,
+                     'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)}
+manifest['assets'] = list(records.values())
+manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
+print(f'Fetched and hashed {len(FILES)} icons; retained {len(records)} manifest records.')

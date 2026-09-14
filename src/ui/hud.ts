@@ -558,6 +558,7 @@ export class Hud {
         return {
           id: u.id,
           name: u.name,
+          champion: u.champion!,
           team: u.team,
           kills: state.kills,
           deaths: state.deaths,
@@ -568,15 +569,20 @@ export class Hud {
     const signature = JSON.stringify(rows);
     if (signature === this.lastScoreboard) return;
     this.lastScoreboard = signature;
-    panel.innerHTML = '<div class="scoreboard-title">PRACTICE MATCH</div>';
+    panel.innerHTML =
+      '<div class="scoreboard-title">PRACTICE MATCH</div><div class="scoreboard-teams"><section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section></div>';
     for (const data of rows) {
       const row = document.createElement('div');
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;
       row.dataset.champion = String(data.id);
       row.innerHTML =
-        '<img src="assets/icons/ashe.png" alt="Ashe"><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span>';
+        '<img><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span>';
+      const portrait = row.querySelector('img')!;
+      portrait.src = `assets/icons/${data.champion}.png`;
+      portrait.alt = data.champion === 'lux' ? 'Lux' : 'Ashe';
       const name = row.querySelector('strong')!;
       name.textContent = data.name;
+      name.title = data.name;
       const role = document.createElement('small');
       role.textContent =
         data.id === this.world.player.id ? 'You' : data.team === 'blue' ? 'Ally' : 'Opponent';
@@ -584,7 +590,7 @@ export class Hud {
       row.querySelector('.scoreboard-kda')!.textContent =
         `${data.kills} / ${data.deaths} / ${data.assists}`;
       row.querySelector('.scoreboard-cs')!.textContent = `${data.cs} CS`;
-      panel.append(row);
+      panel.querySelector(`[data-team="${data.team}"]`)!.append(row);
     }
   }
 

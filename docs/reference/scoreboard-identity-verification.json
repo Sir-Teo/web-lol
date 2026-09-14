@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "655f0eee6485ca9bfa1c68028f8ab2597b3bd580",
+  "change": "Per-champion portraits and two-team scoreboard columns showing all ten rows on a 1366x768 viewport. Preserve unrelated records when refreshing the reference icon pack.",
+  "sources": {
+    "src/ui/hud.ts": "3e9bcebe5c737fe329823e1d1db1137c2a07cb42dabac07b7dcddc014c3535f0",
+    "src/style.css": "e01ef340e88af3d8b1dc372185aff3a9df7c47dfaaf94bc04f8a12d110c8efbd",
+    "e2e/scoreboard-ownership.spec.ts": "35fe297f4c998590cd1bef563d866490eda191e0d5bda6dcd4ce9bbc57fc2ae1",
+    "tools/assets/fetch-reference-icons.py": "47f41e80791dd6578286503ba48234e02fd11168f19b20d5ee92b1a721a721be",
+    "public/assets/icons/lux.png": "64639bea2aa7d622dd07287de7a7820950e567f0993c7dcc422e1e699fd743fd",
+    "public/assets/reference-manifest.json": "7a3b8b0c8dad762406f062fc97d6da16f02d738c1da73f375430c4551c7661ce"
+  },
+  "portraitSource": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Lux.png",
+  "assetVerification": {
+    "manifestAssets": 33,
+    "previousRecordsUnchanged": 32,
+    "allHashesAndSizesMatch": true,
+    "luxDimensions": [
+      128,
+      128
+    ],
+    "productionCopySHA256": "64639bea2aa7d622dd07287de7a7820950e567f0993c7dcc422e1e699fd743fd"
+  },
+  "validation": {
+    "sourceSimulationChecks": 598,
+    "checkLogSHA256": "f4113260b071b191d75c103dd07b957624678f345e66989d047d5ee33ccb3a98",
+    "checkScope": "Before final presentation-only layout adjustment; final production build reran TypeScript.",
+    "browserScenarios": 3,
+    "browserLogSHA256": "4df799ac5d9f28eb337d29f6a29618b7ab4077d1e1f27346e3482a6dc975a566",
+    "browserScope": "Two scoreboard cases plus Lux model/cast/recall integration. Mixed ten-champion roster, both teams, real Tab open/close, decoded images, name-independent artwork, score refresh and all rows within panel without scroll.",
+    "production": "passed",
+    "productionLogSHA256": "be1eb1bfdb6dbc9a24e0d04c8da5032c50dd7450cd3684a9c8759ad55321b7e6",
+    "screenshotSHA256": "a0d12a2c93364df1ea1323ed479baccccdc4a988d735dc59cf8d0192d96a33d0",
+    "visualInspection": "Both five-row teams visible simultaneously at laptop size, correct Ashe/Lux portraits and legible labels.",
+    "superseded": "Initial test assumed 120px source width; actual images are 128px. Initial portrait-only layout screenshot showed lower roster clipping, fixed by team columns and stronger containment assertions."
+  },
+  "limits": [
+    "Native scoreboard pixel comparison and remaining item/spell/level details are unfinished.",
+    "Small-screen stacked layout remains scrollable; only laptop no-scroll layout certified by this case.",
+    "Human champion selection and ability HUD remain Ashe-specific; full match remains unfinished."
+  ]
+}

@@ -50,3 +50,83 @@ test('scoreboard and team totals use champion records and update while held open
   await page.keyboard.up('Tab');
   await expect(page.locator('.scoreboard')).toBeHidden();
 });
+
+test('ten-champion scoreboard uses each champion portrait on both teams', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 768 });
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const roster = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    for (const team of ['blue', 'red']) {
+      for (let slot = team === 'blue' ? 1 : 0; slot < 5; slot++) {
+        const champion = slot === 4 ? 'lux' : 'ashe';
+        const unit = w.spawn(
+          'champion',
+          team,
+          { x: w.hero.x + slot * 100, y: w.hero.y + 150 },
+          champion
+        );
+        unit.ai = false;
+        // Player-facing names must not determine champion artwork or accessible identity.
+        if (champion === 'lux' && team === 'red') unit.name = 'Enemy player';
+      }
+    }
+    for (const unit of w.units) w.setOrder(unit, { type: 'idle' });
+    w.step(900);
+    g.setPaused(false);
+    return w.units.map((u: any) => ({ id: u.id, champion: u.champion, team: u.team }));
+  });
+  await page.keyboard.down('Tab');
+  await expect(page.locator('.scoreboard-row')).toHaveCount(10);
+  for (const member of roster) {
+    const row = page.locator(`[data-champion="${member.id}"]`);
+    const portrait = row.locator('img');
+    await expect(portrait).toHaveAttribute('src', `assets/icons/${member.champion}.png`);
+    await expect(portrait).toHaveAttribute('alt', member.champion === 'lux' ? 'Lux' : 'Ashe');
+    await expect
+      .poll(() => portrait.evaluate((img: HTMLImageElement) => img.naturalWidth))
+      .toBeGreaterThan(0);
+    await expect(row.locator('small')).toHaveText(
+      member.id === roster[0].id ? 'You' : member.team === 'blue' ? 'Ally' : 'Opponent'
+    );
+  }
+  const bounds = await page.locator('.scoreboard').boundingBox();
+  expect(bounds!.y).toBeGreaterThanOrEqual(0);
+  expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(768);
+  const layout = await page.locator('.scoreboard').evaluate((panel) => {
+    const box = panel.getBoundingClientRect();
+    return {
+      noScroll: panel.scrollHeight <= panel.clientHeight,
+      rowsInside: [...panel.querySelectorAll('.scoreboard-row')].every((row) => {
+        const r = row.getBoundingClientRect();
+        return (
+          r.top >= box.top && r.bottom <= box.bottom && r.left >= box.left && r.right <= box.right
+        );
+      }),
+    };
+  });
+  expect(layout).toEqual({ noScroll: true, rowsInside: true });
+  await page.screenshot({ path: 'artifacts/scoreboard-mixed-champions.png' });
+  // Reopening exercises the cached row path; counter updates exercise rebuilding rows.
+  await page.keyboard.up('Tab');
+  await page.keyboard.down('Tab');
+  const lux = roster.find((u: any) => u.champion === 'lux')!;
+  await page.evaluate((id) => {
+    const g = (window as any).__GAME__;
+    g.world.championState(id).cs = 42;
+    g.hud.update(60);
+  }, lux.id);
+  const updated = page.locator(`[data-champion="${lux.id}"]`);
+  await expect(updated.locator('.scoreboard-cs')).toHaveText('42 CS');
+  await expect(updated.locator('img')).toHaveAttribute('src', 'assets/icons/lux.png');
+  await page.keyboard.up('Tab');
+  await expect(page.locator('.scoreboard')).toBeHidden();
+  expect(errors).toEqual([]);
+});

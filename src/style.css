@@ -1327,7 +1327,7 @@ button {
   top: 17%;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
+  width: min(960px, calc(100vw - 32px));
   background: #071a20ed;
   border: 1px solid #ac9964;
   box-shadow: 0 15px 60px #0008;
@@ -1337,6 +1337,23 @@ button {
 .scoreboard {
   max-height: 70vh;
   overflow-y: auto;
+}
+.scoreboard-teams {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.scoreboard-team {
+  min-width: 0;
+}
+.scoreboard-team h2 {
+  margin: 0 0 10px;
+  color: #83c7d4;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.scoreboard-team[data-team='red'] h2 {
+  color: #de9191;
 }
 .scoreboard-row + .scoreboard-row {
   margin-top: 8px;
@@ -1351,16 +1368,16 @@ button {
   letter-spacing: 3px;
 }
 .scoreboard-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 72px 48px;
   align-items: center;
-  gap: 24px;
+  gap: 10px;
   background: #20373788;
   border: 1px solid #58726b77;
-  padding: 10px 14px;
-  font-size: 14px;
+  padding: 8px;
+  font-size: 13px;
 }
 .scoreboard-row.enemy {
-  margin-top: 10px;
   background: #39272b77;
   border-color: #74594f77;
 }
@@ -1371,7 +1388,10 @@ button {
 }
 .scoreboard-row strong {
   font-weight: 500;
-  min-width: 180px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .scoreboard-row small {
   display: block;
@@ -1505,8 +1525,8 @@ button {
   .scoreboard {
     width: 90vw;
   }
-  .scoreboard-row strong {
-    min-width: 100px;
+  .scoreboard-teams {
+    grid-template-columns: minmax(0, 1fr);
   }
   .champion-hud {
     max-width: none;
