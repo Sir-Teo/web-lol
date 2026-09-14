@@ -477,6 +477,12 @@ export class World {
     this.advanceSingularities();
     if (this.winner) return;
     for (const unit of this.units) {
+      const champion = this.championState(unit.id);
+      if (champion) {
+        for (const team of ['blue', 'red'] as const)
+          if (unit.team === team || this.visible(unit, team))
+            champion.observedLevels[team] = champion.level;
+      }
       if (!unit.structureKnowledge) continue;
       for (const team of ['blue', 'red'] as const)
         if (unit.structureKnowledge[team] !== !this.alive(unit) && this.visible(unit, team))

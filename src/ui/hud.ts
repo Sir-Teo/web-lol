@@ -559,6 +559,10 @@ export class Hud {
           id: u.id,
           name: u.name,
           champion: u.champion!,
+          level:
+            u.team === this.world.hero.team || this.world.visible(u, this.world.hero.team)
+              ? state.level
+              : state.observedLevels[this.world.hero.team],
           team: u.team,
           kills: state.kills,
           deaths: state.deaths,
@@ -576,7 +580,13 @@ export class Hud {
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;
       row.dataset.champion = String(data.id);
       row.innerHTML =
-        '<img><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span>';
+        '<span class="scoreboard-portrait"><img><span class="scoreboard-level"></span></span><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span>';
+      const level = row.querySelector('.scoreboard-level')!;
+      level.textContent = data.level === null ? '?' : String(data.level);
+      level.setAttribute(
+        'aria-label',
+        data.level === null ? 'Level unknown' : `Level ${data.level}`
+      );
       const portrait = row.querySelector('img')!;
       portrait.src = `assets/icons/${data.champion}.png`;
       portrait.alt = data.champion === 'lux' ? 'Lux' : 'Ashe';

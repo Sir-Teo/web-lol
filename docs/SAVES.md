@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 46 adds per-team nullable observed champion levels. Observations must be integers from 1 through the champion’s current level. Hidden level gains retain the earlier observation, and save/load preserves that knowledge exactly. Earlier formats are incompatible under the existing same-build checkpoint policy; old diagnostic checkpoints must be regenerated.
+
 Version 45 adds nullable per-champion Enlighten restoration with captured total mana and a three-second interval. It rejects invalid timelines and dead owners, permits committed restoration after selling Chapter, and resumes the remaining ticks exactly. Earlier formats are incompatible. See [LOST-CHAPTER.md](LOST-CHAPTER.md).
 
 Version 44 permits captured, integer Hawkshot recharge durations produced by current item haste at any E rank. A duration may reflect equipment sold after recharge began; validation enumerates reachable six-slot catalog haste instead of using current inventory alone. Spell cooldowns retain captured integer deadlines. Earlier formats are incompatible. See [ABILITY-HASTE.md](ABILITY-HASTE.md).

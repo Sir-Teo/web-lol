@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "a9b596b854ac18e2b32201fec6fc241cc65f981b",
+  "scope": "Persistent per-team champion level observations and scoreboard badges; conservative local visibility policy, not certified native patch behavior.",
+  "snapshotVersion": 46,
+  "sourceSHA256": {
+    "src/simulation/types.ts": "667b567e8726f65f8845bbf27a9280b3f6825303e48b78e3aa2b90cf290f2950",
+    "src/simulation/champion-state.ts": "2a5fda493cc97c98417f787bfce9ae2efb2190de770cf66e3d675a4827c5392e",
+    "src/simulation/world.ts": "a040d11940f2985bbfbb2e580c61930f7cf8bbc54057c29766b3e349df8343bd",
+    "src/simulation/snapshot.ts": "cf486c23f0a1403c4f71c55da6b5b22531929e7003d487f6e07c25decef39350",
+    "src/ui/hud.ts": "c6a67ea9a9302412fbd5c734aa7815e0f936f4387b82147e3a7b6a5bb5c14e54",
+    "src/style.css": "b410e4ac3730c3230765cf023b764ca24964e08d7925a9efffcd029c79a473c9",
+    "tests/observed-levels.test.ts": "82bb14354c92a13d2db6d906e3069e4a8d85cea6656d976bb18169d520d53a3e",
+    "e2e/scoreboard-ownership.spec.ts": "671be64444aa33029b5021ea941ac5ec1ba59bedcb4d743de29c62ddc3a0b8a4"
+  },
+  "validation": {
+    "checks": 600,
+    "checkLogSHA256": "e1bb6c5d2319d29bcd1365dcb0fc5ebbf07c1ad9d7025b035abfd9dbb1f94580",
+    "browserScenarios": 8,
+    "browserLogSHA256": "095b4d1c3ab6cba75b2a2322cf1c91ad69d44ddd120af8c94ad2ab6fc80d03e4",
+    "productionPassed": true,
+    "productionLogSHA256": "86513937621376f60b7c0594cc52f34dc9c391e447a1b8773b0a70f29185ab6e",
+    "screenshotSHA256": "af3cca628431e157262a41f0082cc6520f1809070b454487230d4b09583e87b1",
+    "visualInspection": "Ashe level 1 and Lux level 3 badges legible beside portraits; existing full-roster containment case passes."
+  },
+  "limits": [
+    "Native badge placement/fonts and exact enemy knowledge refresh timing need reference comparison.",
+    "Other scoreboard statistics have not gained visibility-aware history in this change.",
+    "Version 45 checkpoints remain incompatible; regeneration required for diagnostics.",
+    "Full production match, roster, source comparison and delivery gates remain unfinished."
+  ]
+}

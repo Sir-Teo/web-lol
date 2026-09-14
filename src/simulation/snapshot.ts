@@ -16,7 +16,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 45;
+export const SNAPSHOT_VERSION = 46;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -176,6 +176,10 @@ const player: z.ZodType<PlayerState> = z
     deaths: tick,
     xp: nonnegative,
     level: z.number().int().min(1).max(MAX_LEVEL),
+    observedLevels: z.strictObject({
+      blue: z.number().int().min(1).max(MAX_LEVEL).nullable(),
+      red: z.number().int().min(1).max(MAX_LEVEL).nullable(),
+    }),
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
     damageContributors: z.array(z.strictObject({ sourceId: id, lastDamageTick: tick })).max(10000),
@@ -244,6 +248,10 @@ const player: z.ZodType<PlayerState> = z
         'Only one Deathcap is ownable'
       ),
   })
+  .refine(
+    (p) => Object.values(p.observedLevels).every((level) => level === null || level <= p.level),
+    'Observed level cannot exceed current level'
+  )
   .refine(
     (p) => p.spellRanks.e > 0 || p.eRechargeTick === null,
     'Unlearned Hawkshot cannot recharge'

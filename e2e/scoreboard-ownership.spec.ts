@@ -130,3 +130,55 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
   await expect(page.locator('.scoreboard')).toBeHidden();
   expect(errors).toEqual([]);
 });
+
+test('level badges retain observed enemy levels instead of revealing hidden gains', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const id = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    Object.assign(w.hero, { x: -820, y: 450 });
+    const enemy = w.spawn('champion', 'red', { x: -820, y: -50 }, 'lux');
+    enemy.ai = false;
+    w.step();
+    g.hud.scoreboard(true);
+    return enemy.id;
+  });
+  const badge = page.locator(`[data-champion="${id}"] .scoreboard-level`);
+  await expect(badge).toHaveText('?');
+  await expect(badge).toHaveAttribute('aria-label', 'Level unknown');
+  await page.evaluate((id) => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    Object.assign(w.hero, { x: -800, y: -50 });
+    w.gainExperience(280, id);
+    w.step();
+    g.hud.update(60);
+  }, id);
+  await expect(badge).toHaveText('2');
+  await page.evaluate((id) => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    Object.assign(w.hero, { x: -820, y: 450 });
+    w.gainExperience(380, id);
+    w.step();
+    g.hud.update(60);
+  }, id);
+  await expect(badge).toHaveText('2');
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    Object.assign(w.hero, { x: -800, y: -50 });
+    w.step();
+    g.hud.update(60);
+  });
+  await expect(badge).toHaveText('3');
+  await expect(badge).toHaveAttribute('aria-label', 'Level 3');
+  await page.screenshot({ path: 'artifacts/scoreboard-levels.png' });
+});

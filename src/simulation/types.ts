@@ -187,6 +187,7 @@ export interface SimEvent extends Vec2 {
   team?: Team;
 }
 export interface ChampionState {
+  observedLevels: Record<Team, number | null>;
   revealContributors: { sourceId: number; lastRevealTick: number }[];
   assists: number;
   damageContributors: { sourceId: number; lastDamageTick: number }[];
