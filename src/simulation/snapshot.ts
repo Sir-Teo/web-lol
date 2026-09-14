@@ -22,7 +22,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 52;
+export const SNAPSHOT_VERSION = 53;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -96,7 +96,12 @@ const unit: z.ZodType<Unit> = z
     laneWaypoint: tick,
     attackTarget: id.nullable(),
     attackCycle: z
-      .strictObject({ startTick: tick, endTick: tick, empowered: z.boolean() })
+      .strictObject({
+        startTick: tick,
+        endTick: tick,
+        empowered: z.boolean(),
+        critical: z.literal(true).optional(),
+      })
       .refine((cycle) => cycle.endTick > cycle.startTick, 'Invalid attack cycle')
       .nullable(),
     releaseTick: deadline.nullable(),
@@ -172,7 +177,8 @@ const unit: z.ZodType<Unit> = z
     'Invalid champion identity'
   )
   .refine((u) => u.hp <= u.maxHp && u.mana <= u.maxMana, 'Invalid unit resources')
-  .refine((u) => !u.attackCycle?.empowered || u.champion === 'ashe', 'Invalid empowered attacker');
+  .refine((u) => !u.attackCycle?.empowered || u.champion === 'ashe', 'Invalid empowered attacker')
+  .refine((u) => !u.attackCycle?.critical || u.kind === 'champion', 'Invalid critical attacker');
 const inventorySchema = z
   .array(
     z
@@ -310,10 +316,12 @@ const projectile: z.ZodType<Projectile> = z
     remaining: nonnegative,
     volleyId: id.nullable(),
     empowered: z.boolean().optional(),
+    critical: z.literal(true).optional(),
     flurryShot: z.number().int().min(0).max(4).optional(),
     launchTick: tick.optional(),
     origin: point.optional(),
   })
+  .refine((p) => !p.critical || p.type === 'attack', 'Invalid critical projectile')
   .refine(
     (p) =>
       p.type === 'binding'
@@ -597,6 +605,13 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved match contains an invalid pending flurry.');
   }
   for (const projectile of [...state.projectiles, ...state.pendingAttackProjectiles]) {
+    if (
+      projectile.critical &&
+      !state.units.some(
+        (u) => u.id === projectile.source && u.kind === 'champion' && u.team === projectile.team
+      )
+    )
+      throw new Error('Saved match contains an invalid critical projectile source.');
     const flight = projectile.prismatic;
     if (flight) {
       const source = state.units.find((u) => u.id === projectile.source);

@@ -57,7 +57,7 @@ export interface Unit extends Vec2 {
   laneWaypoint: number;
   attackTarget: number | null;
   /** Empowerment is captured at attack start for source animation selection. */
-  attackCycle: { startTick: number; endTick: number; empowered: boolean } | null;
+  attackCycle: { startTick: number; endTick: number; empowered: boolean; critical?: true } | null;
   releaseTick: number | null;
   nextAttackTick: number;
   slowUntil: number;
@@ -153,6 +153,8 @@ export interface Projectile extends Vec2 {
   volleyId: number | null;
   /** Captured Q identity; never inferred from the source's current buff. */
   empowered?: boolean;
+  /** Windup roll retained through travel and delayed flurry shots. */
+  critical?: true;
   flurryShot?: number;
   /** Required for Hawkshot's per-cast source animation phase. */
   launchTick?: number;

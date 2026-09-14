@@ -1,4 +1,5 @@
 import { MAGE_ITEMS } from './mage-items';
+import { CRITICAL_ATTACKS } from './critical-attacks';
 import type { Ability } from '../simulation/types';
 import { SUMMONER_HEAL } from './summoner-heal';
 import { ASHE_Q } from './ashe-q';
@@ -84,6 +85,21 @@ export const ABILITIES: Record<
   },
 };
 export const ITEMS = [
+  {
+    id: 'agility',
+    name: 'Cloak of Agility',
+    price: 600,
+    sell: 420,
+    description: '+15% Critical Strike Chance',
+    icon: '1018',
+    criticalChance: CRITICAL_ATTACKS.cloakChance,
+    magicResist: 0,
+    abilityPower: 0,
+    damage: 0,
+    armor: 0,
+    hp: 0,
+    speed: 0,
+  },
   {
     id: 'blade',
     name: 'Doran’s Blade',

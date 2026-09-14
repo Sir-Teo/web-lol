@@ -1,0 +1,15 @@
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import assert from 'node:assert/strict';
+const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const pin = JSON.parse(await readFile('docs/reference/critical-attacks.json'));
+const itemBytes = await readFile('.cache/item-ddragon-16.18.1.json');
+assert.equal(hash(itemBytes), pin.item.sha256);
+assert.deepEqual(JSON.parse(itemBytes).data[pin.item.id], pin.item.data);
+const luxBytes = await readFile('.cache/lux-16.18.json');
+assert.equal(hash(luxBytes), pin.luxCritSource.sha256);
+assert.deepEqual(JSON.parse(luxBytes)[pin.luxCritSource.record], pin.luxCritSpell);
+const icon = await readFile('public/assets/icons/1018.png');
+assert.equal(hash(icon), pin.icon.sha256);
+assert.equal(icon.length, pin.icon.bytes);
+console.log('Verified pinned critical spell, item record and item icon against source hashes.');

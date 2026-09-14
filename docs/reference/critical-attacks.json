@@ -1,0 +1,163 @@
+{
+  "item": {
+    "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+    "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+    "id": "1018",
+    "data": {
+      "name": "Cloak of Agility",
+      "description": "<mainText><stats><attention>15%</attention> Critical Strike Chance</stats><br><br></mainText>",
+      "colloq": ";",
+      "plaintext": "Increases critical strike chance",
+      "into": [
+        "123430",
+        "667666",
+        "3031",
+        "3086",
+        "6670",
+        "3033",
+        "3039",
+        "3508",
+        "3095",
+        "6676"
+      ],
+      "image": {
+        "full": "1018.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 192,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 600,
+        "purchasable": true,
+        "total": 600,
+        "sell": 420
+      },
+      "tags": [
+        "CriticalStrike"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatCritChanceMod": 0.15
+      }
+    }
+  },
+  "luxCritSpell": {
+    "ObjectName": "LuxCritAttack",
+    "objectPath": "Characters/Lux/Spells/LuxCritAttack",
+    "mScriptName": "LuxCritAttack",
+    "mSpell": {
+      "mAffectsTypeFlags": 24527,
+      "mAlternateName": "LuxBasicAttack",
+      "mAnimationName": "Crit",
+      "spellCastTime": 0.4281249940395355,
+      "cooldownTime": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Cooldown": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "{0a3e0478}": 0.0,
+        "__type": "{0a0eddc9}"
+      },
+      "bHaveHitEffect": true,
+      "castRange": [
+        622.7000122070312,
+        622.7000122070312,
+        622.7000122070312,
+        622.7000122070312,
+        622.7000122070312,
+        622.7000122070312,
+        622.7000122070312
+      ],
+      "castRangeValues": {
+        "values": [
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312,
+          622.7000122070312
+        ],
+        "{0a3e0478}": 622.7000122070312,
+        "__type": "{0a0eddc9}"
+      },
+      "castRadius": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "castConeDistance": 100.0,
+      "mMissileSpec": {
+        "movementComponent": {
+          "mTargetHeightAugment": 100.0,
+          "mOffsetInitialTargetHeight": 100.0,
+          "mStartBoneName": "R_hand",
+          "mSpeed": 1600.0,
+          "__type": "FixedSpeedMovement"
+        },
+        "verticalFacing": {
+          "__type": "VeritcalFacingMatchVelocity"
+        },
+        "behaviors": [
+          {
+            "__type": "CastOnMovementComplete"
+          },
+          {
+            "__type": "DestroyOnMovementComplete"
+          }
+        ],
+        "__type": "MissileSpecification"
+      },
+      "mCastType": 1,
+      "castFrame": 7.5,
+      "missileSpeed": 1600.0,
+      "mMissileEffectKey": "Lux_BA_mis",
+      "mHitEffectKey": "Lux_BA_tar_crit",
+      "bHaveHitBone": true,
+      "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC",
+      "selectionPriority": 1,
+      "__type": "SpellDataResource"
+    },
+    "__type": "SpellObject"
+  },
+  "luxCharacterSource": "lux-character.json",
+  "ashePassiveSource": "ashe-passive.json",
+  "policy": "Independent deterministic PRNG roll at windup; not native bad-luck protection. Chance and damage scaling captured at release; critical identity retained from windup.",
+  "luxCritSource": {
+    "url": "https://raw.communitydragon.org/16.18/game/data/characters/lux/lux.bin.json",
+    "sha256": "fbc893b4cfc75060f40427f8024a03e5980d93829971cc0fbccecbedc0689b74",
+    "record": "Characters/Lux/Spells/LuxCritAttack"
+  },
+  "icon": {
+    "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1018.png",
+    "sha256": "93891331d6641e612d4bf799009b7fcbc8de418d1bc6d8131283fe8332c9e9f4",
+    "bytes": 5595
+  }
+}

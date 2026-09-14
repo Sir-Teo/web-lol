@@ -580,10 +580,14 @@ export class GameView {
             !moving && u.deadAt === null && cycle !== null && world.tick < cycle.endTick;
           const attackName =
             u.champion === 'lux' && cycle
-              ? luxAttackAnimation(u.id, cycle.startTick)
+              ? cycle.critical
+                ? 'crit'
+                : luxAttackAnimation(u.id, cycle.startTick)
               : cycle?.empowered
                 ? ASHE_Q.empoweredAttackAnimation
-                : 'attack1';
+                : cycle?.critical
+                  ? 'crit'
+                  : 'attack1';
           if (attacking) {
             const attack = model.actions[attackName];
             if (model.animationAttackTick !== cycle.startTick) {

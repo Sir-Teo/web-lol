@@ -430,6 +430,15 @@
         "FlatMagicDamageMod": 40
       },
       "depth": 2
+    },
+    "1018": {
+      "name": "Cloak of Agility",
+      "gold": {
+        "base": 600,
+        "purchasable": true,
+        "total": 600,
+        "sell": 420
+      }
     }
   }
 }

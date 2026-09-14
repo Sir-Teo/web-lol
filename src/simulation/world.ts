@@ -57,6 +57,7 @@ import {
 } from './ashe-spell-values';
 import { crystalArrowStunTicks, CRYSTAL_ARROW_RADIUS } from './crystal-arrow';
 import { ASHE_PASSIVE } from '../content/ashe-passive';
+import { CRITICAL_ATTACKS } from '../content/critical-attacks';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
@@ -813,8 +814,9 @@ export class World {
     if (this.tick < u.nextAttackTick) return;
     const state = this.championState(u.id)!;
     // Estimate only the first Q impact; later arrows may arrive too late.
+    const base = u.damage * (u.champion === 'ashe' ? 1 + this.criticalChance(u) : 1);
     const raw =
-      state.qUntil > this.tick ? asheFocusFlurry(state.spellRanks.q, u.damage)[0].damage : u.damage;
+      state.qUntil > this.tick ? asheFocusFlurry(state.spellRanks.q, base)[0].damage : base;
     let best: Unit | undefined;
     let bestDistance = Infinity;
     for (const target of this.units) {
@@ -1361,9 +1363,20 @@ export class World {
             state.qStackExpiry = this.tick + ASHE_Q.stackSeconds * TICK_RATE;
           }
           const empowered = state !== undefined && this.tick < state.qUntil;
+          const critical = u.attackCycle?.critical === true;
+          const attackDamage =
+            u.damage *
+            (isStructureKind(target.kind)
+              ? 1
+              : u.champion === 'ashe'
+                ? CRITICAL_ATTACKS.asheBaseMultiplier +
+                  this.criticalChance(u) * CRITICAL_ATTACKS.asheChanceCoefficient
+                : critical
+                  ? CRITICAL_ATTACKS.ordinaryMultiplier
+                  : 1);
           const payloads = empowered
-            ? asheFocusFlurry(state.spellRanks.q, u.damage)
-            : [{ damage: u.damage, appliesOnHit: true }];
+            ? asheFocusFlurry(state.spellRanks.q, attackDamage)
+            : [{ damage: attackDamage, appliesOnHit: true }];
           if (!u.missileSpeed)
             this.hitBasicAttack(
               u,
@@ -1383,6 +1396,7 @@ export class World {
                 type: 'attack',
                 launchTick: this.tick + index * ASHE_FLURRY_INTERVAL_TICKS,
                 empowered,
+                ...(critical ? { critical: true as const } : {}),
                 ...(empowered ? { flurryShot: index } : {}),
                 target: target.id,
                 direction: direction(u, target),
@@ -1439,6 +1453,12 @@ export class World {
             startTick: this.tick,
             endTick: u.nextAttackTick,
             empowered: state !== undefined && this.tick < state.qUntil,
+            ...(u.kind === 'champion' &&
+            !isStructureKind(target.kind) &&
+            this.criticalChance(u) > 0 &&
+            this.random.next() < this.criticalChance(u)
+              ? { critical: true as const }
+              : {}),
           };
         }
         return;
@@ -2051,7 +2071,10 @@ export class World {
               ASHE_PASSIVE.durationSeconds * TICK_RATE,
               contact.slowMultiplier
             );
-            if (p.type === 'volley' && contact.kind === 'champion') {
+            if (
+              (p.type === 'volley' && contact.kind === 'champion') ||
+              (p.type === 'attack' && p.critical)
+            ) {
               const peak =
                 ASHE_PASSIVE.criticalSlowAtLevel1 +
                 ((ASHE_PASSIVE.criticalSlowAtLevel18 - ASHE_PASSIVE.criticalSlowAtLevel1) *
@@ -2917,6 +2940,18 @@ export class World {
     );
     return statPrecision(
       flat * (inventory.includes('deathcap') ? 1 + DEATHCAP_AP_AMPLIFICATION : 1)
+    );
+  }
+  criticalChance(u: Unit = this.hero): number {
+    const inventory = this.championState(u.id)?.inventory ?? [];
+    return Math.min(
+      1,
+      statPrecision(
+        inventory.reduce<number>((sum, id) => {
+          const item = ITEMS.find((entry) => entry.id === id);
+          return sum + (item && 'criticalChance' in item ? item.criticalChance : 0);
+        }, 0)
+      )
     );
   }
 
