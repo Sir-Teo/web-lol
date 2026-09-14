@@ -22,13 +22,13 @@ The benchmark can bypass only this filter through the test-side `--raw-bone-trac
 
 | Measurement | Clean original tracks | Filtered tracks |
 |---|---:|---:|
-| Frame median | 16.6 ms | 16.6 ms |
-| Frame p95 | 20.2 ms | 20.1 ms |
-| Frame p99 | 21.6 ms | 22.2 ms |
+| Callback delivery median | 16.6 ms | 16.6 ms |
+| Callback delivery p95 | 20.2 ms | 20.1 ms |
+| Callback delivery p99 | 21.6 ms | 22.2 ms |
 | Render-call median | 4.2 ms | 4.0 ms |
 | Render-call p95 | 8.0 ms | 6.9 ms |
 
-Fog time also varied despite unchanged fog code. These limited runs do not isolate an FPS gain, and the worse filtered p99 must not be hidden by the lower render-call p95. The deterministic gain is fewer channels/bindings with equivalent tested output. The consistent 60 FPS gate remains unmet. GPU timing and further animation/matrix investigation remain necessary.
+Fog time also varied despite unchanged fog code. These limited runs do not isolate an FPS gain, and the worse filtered p99 must not be hidden by the lower render-call p95. The deterministic gain is fewer channels/bindings with equivalent tested output. These historical values used callback delivery time, not the animation-frame timestamp, and do not establish missed frames. See the corrected cadence and GPU measurements in [MATCH-RENDER-PROFILE.md](MATCH-RENDER-PROFILE.md). The full-match performance gate remains open; these runs do not certify it.
 
 ```sh
 node tools/qa/benchmark-rift.mjs http://127.0.0.1:5198 artifacts/rift-lost-chapter-simulation.snapshot.json artifacts/constant-tracks-baseline-clean --raw-bone-tracks

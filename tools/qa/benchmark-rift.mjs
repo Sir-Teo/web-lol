@@ -9,6 +9,7 @@ const snapshotPath = process.argv[3];
 const snapshot = snapshotPath ? await readFile(snapshotPath, 'utf8') : null;
 const profileCPU = process.argv.slice(5).includes('--profile');
 const rawBoneTracks = process.argv.slice(5).includes('--raw-bone-tracks');
+const gpuTiming = process.argv.slice(5).includes('--gpu');
 const output =
   process.argv[4] ?? (snapshot ? 'artifacts/rift-match-benchmark' : 'artifacts/rift-benchmark');
 if (snapshot) {
@@ -64,151 +65,185 @@ try {
     await profiler.send('Profiler.enable');
     await profiler.send('Profiler.start');
   }
-  const data = await page.evaluate(async (matchMode) => {
-    const g = window.__GAME__,
-      w = g.world,
-      v = g.view;
-    if (w.battlefield.id !== 'rift') throw new Error('Benchmark requires the full Rift');
-    const frames = [],
-      fog = [],
-      simulationSteps = [],
-      hudUpdates = [],
-      renderCalls = [];
-    if (g.hud.modal) g.hud.closeModal();
-    g.setPaused(true);
-    const start = performance.now();
-    if (!matchMode) w.step(Math.max(0, 5400 - w.tick));
-    const advanceMS = performance.now() - start;
-    const champions = w.units.filter((u) => u.kind === 'champion');
-    const threatCount = (u) =>
-      w.units.filter(
-        (other) =>
-          other.team !== u.team &&
-          w.alive(other) &&
-          w.visible(other) &&
-          Math.hypot(u.x - other.x, u.y - other.y) < 1600
-      ).length;
-    const focus = matchMode
-      ? champions
-          .filter((u) => u.team === 'blue' && w.alive(u))
-          .sort((a, b) => threatCount(b) - threatCount(a) || a.id - b.id)[0]
-      : null;
-    if (matchMode && !focus) throw new Error('Checkpoint has no living blue camera subject');
-    v.center = focus ? { x: focus.x, y: focus.y } : { x: 0, y: 0 };
-    v.locked = false;
-    v.render(w, 1, w.time);
-    const startingTick = w.tick;
-    const sampleCount = matchMode ? 1800 : 180;
-    const warmupCount = matchMode ? 120 : 45;
-    g.setPaused(false);
-    const nextFrame = () =>
-      new Promise((resolve) => requestAnimationFrame(() => resolve(performance.now())));
-    for (let i = 0; i < warmupCount; i++) await nextFrame();
-    const activity = {
-      maxProjectiles: 0,
-      maxSingularities: 0,
-      maxLuxBeams: 0,
-      maxVisibleChampions: 0,
-    };
-    const drawCalls = [],
-      triangles = [];
-    const step = w.step,
-      updateFog = v.updateFog,
-      updateHud = g.hud.update,
-      render = v.render;
-    w.step = function (...args) {
-      const t = performance.now();
-      const value = step.apply(this, args);
-      simulationSteps.push(performance.now() - t);
-      return value;
-    };
-    v.updateFog = function (...args) {
-      const t = performance.now();
-      const value = updateFog.apply(this, args);
-      fog.push(performance.now() - t);
-      return value;
-    };
-    g.hud.update = function (...args) {
-      const t = performance.now();
-      try {
-        return updateHud.apply(this, args);
-      } finally {
-        hudUpdates.push(performance.now() - t);
-      }
-    };
-    v.render = function (...args) {
-      const t = performance.now();
-      try {
-        if (focus) this.center = { x: focus.x, y: focus.y };
-        return render.apply(this, args);
-      } finally {
-        renderCalls.push(performance.now() - t);
-        drawCalls.push(this.renderer.info.render.calls);
-        triangles.push(this.renderer.info.render.triangles);
-        activity.maxProjectiles = Math.max(activity.maxProjectiles, w.projectiles.length);
-        activity.maxSingularities = Math.max(activity.maxSingularities, w.singularities.length);
-        activity.maxLuxBeams = Math.max(activity.maxLuxBeams, w.luxBeams.length);
-        activity.maxVisibleChampions = Math.max(
-          activity.maxVisibleChampions,
-          champions.filter((u) => w.alive(u) && w.visible(u) && this.screenPoint(u, 1.55).visible)
-            .length
+  const data = await page.evaluate(
+    async ({ matchMode, gpuTiming }) => {
+      const g = window.__GAME__,
+        w = g.world,
+        v = g.view;
+      if (w.battlefield.id !== 'rift') throw new Error('Benchmark requires the full Rift');
+      const frames = [],
+        fog = [],
+        simulationSteps = [],
+        hudUpdates = [],
+        renderCalls = [];
+      if (g.hud.modal) g.hud.closeModal();
+      g.setPaused(true);
+      const start = performance.now();
+      if (!matchMode) w.step(Math.max(0, 5400 - w.tick));
+      const advanceMS = performance.now() - start;
+      const champions = w.units.filter((u) => u.kind === 'champion');
+      const threatCount = (u) =>
+        w.units.filter(
+          (other) =>
+            other.team !== u.team &&
+            w.alive(other) &&
+            w.visible(other) &&
+            Math.hypot(u.x - other.x, u.y - other.y) < 1600
+        ).length;
+      const focus = matchMode
+        ? champions
+            .filter((u) => u.team === 'blue' && w.alive(u))
+            .sort((a, b) => threatCount(b) - threatCount(a) || a.id - b.id)[0]
+        : null;
+      if (matchMode && !focus) throw new Error('Checkpoint has no living blue camera subject');
+      v.center = focus ? { x: focus.x, y: focus.y } : { x: 0, y: 0 };
+      v.locked = false;
+      v.render(w, 1, w.time);
+      const startingTick = w.tick;
+      const sampleCount = matchMode ? 1800 : 180;
+      const warmupCount = matchMode ? 120 : 45;
+      const { GpuTimer } = gpuTiming ? await import('/tools/qa/gpu-timer.mjs') : {};
+      const gpu = gpuTiming ? new GpuTimer(v.renderer.getContext()) : null;
+      g.setPaused(false);
+      const nextFrame = () =>
+        new Promise((resolve) =>
+          requestAnimationFrame((timestamp) => resolve({ timestamp, delivered: performance.now() }))
         );
-      }
-    };
-    try {
-      let previous = performance.now();
-      for (let i = 0; i < sampleCount; i++) {
-        const now = await nextFrame();
-        frames.push(now - previous);
-        previous = now;
-      }
-    } finally {
-      w.step = step;
-      v.updateFog = updateFog;
-      g.hud.update = updateHud;
-      v.render = render;
-    }
-    const summarize = (values) => {
-      if (!values.length) throw new Error('Missing benchmark samples');
-      values.sort((a, b) => a - b);
-      return {
-        n: values.length,
-        median: values[Math.floor(values.length * 0.5)],
-        p95: values[Math.floor(values.length * 0.95)],
-        p99: values[Math.floor(values.length * 0.99)],
+      let lastFrame;
+      for (let i = 0; i < warmupCount; i++) lastFrame = await nextFrame();
+      const callbackIntervals = [];
+      const activity = {
+        maxProjectiles: 0,
+        maxSingularities: 0,
+        maxLuxBeams: 0,
+        maxVisibleChampions: 0,
       };
-    };
-    g.setPaused(true);
-    return {
-      fixture: matchMode
-        ? 'Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn'
-        : 'Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples',
-      startingTick,
-      warmupCount,
-      sampleCount,
-      cameraSubject: focus ? { id: focus.id, champion: focus.champion } : null,
-      championRoster: champions.map((u) => ({
-        id: u.id,
-        team: u.team,
-        champion: u.champion,
-        ai: u.ai,
-      })),
-      activity,
-      advanceMS,
-      time: w.time,
-      units: w.units.length,
-      frames: summarize(frames),
-      fog: summarize(fog),
-      simulationSteps: summarize(simulationSteps),
-      hudUpdates: summarize(hudUpdates),
-      renderCalls: summarize(renderCalls),
-      drawCalls: summarize(drawCalls),
-      renderedTriangles: summarize(triangles),
-      calls: v.renderer.info.render.calls,
-      triangles: v.renderer.info.render.triangles,
-      fogResolution: v.fogPixels.width,
-    };
-  }, !!snapshot);
+      const drawCalls = [],
+        triangles = [];
+      const step = w.step,
+        updateFog = v.updateFog,
+        updateHud = g.hud.update,
+        render = v.render;
+      w.step = function (...args) {
+        const t = performance.now();
+        const value = step.apply(this, args);
+        simulationSteps.push(performance.now() - t);
+        return value;
+      };
+      v.updateFog = function (...args) {
+        const t = performance.now();
+        const value = updateFog.apply(this, args);
+        fog.push(performance.now() - t);
+        return value;
+      };
+      g.hud.update = function (...args) {
+        const t = performance.now();
+        try {
+          return updateHud.apply(this, args);
+        } finally {
+          hudUpdates.push(performance.now() - t);
+        }
+      };
+      v.render = function (...args) {
+        const queried = gpu?.begin();
+        const t = performance.now();
+        try {
+          if (focus) this.center = { x: focus.x, y: focus.y };
+          return render.apply(this, args);
+        } finally {
+          if (queried) gpu.end();
+          renderCalls.push(performance.now() - t);
+          drawCalls.push(this.renderer.info.render.calls);
+          triangles.push(this.renderer.info.render.triangles);
+          activity.maxProjectiles = Math.max(activity.maxProjectiles, w.projectiles.length);
+          activity.maxSingularities = Math.max(activity.maxSingularities, w.singularities.length);
+          activity.maxLuxBeams = Math.max(activity.maxLuxBeams, w.luxBeams.length);
+          activity.maxVisibleChampions = Math.max(
+            activity.maxVisibleChampions,
+            champions.filter((u) => w.alive(u) && w.visible(u) && this.screenPoint(u, 1.55).visible)
+              .length
+          );
+        }
+      };
+      try {
+        let previous = lastFrame;
+        for (let i = 0; i < sampleCount; i++) {
+          const now = await nextFrame();
+          frames.push(now.timestamp - previous.timestamp);
+          callbackIntervals.push(now.delivered - previous.delivered);
+          previous = now;
+        }
+      } finally {
+        w.step = step;
+        v.updateFog = updateFog;
+        g.hud.update = updateHud;
+        v.render = render;
+      }
+      g.setPaused(true);
+      if (gpu) {
+        for (let i = 0; i < 30 && gpu.pending.length; i++) {
+          await nextFrame();
+          gpu.poll();
+        }
+      }
+      const gpuPending = gpu?.pending.length ?? 0;
+      gpu?.clear();
+      const summarize = (values) => {
+        if (!values.length) throw new Error('Missing benchmark samples');
+        values.sort((a, b) => a - b);
+        return {
+          n: values.length,
+          median: values[Math.floor(values.length * 0.5)],
+          p95: values[Math.floor(values.length * 0.95)],
+          p99: values[Math.floor(values.length * 0.99)],
+        };
+      };
+      return {
+        fixture: matchMode
+          ? 'Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn'
+          : 'Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples',
+        startingTick,
+        warmupCount,
+        sampleCount,
+        cameraSubject: focus ? { id: focus.id, champion: focus.champion } : null,
+        championRoster: champions.map((u) => ({
+          id: u.id,
+          team: u.team,
+          champion: u.champion,
+          ai: u.ai,
+        })),
+        activity,
+        advanceMS,
+        time: w.time,
+        units: w.units.length,
+        frames: summarize(frames),
+        frameClock: 'requestAnimationFrame timestamp; not physical display presentation time',
+        callbackDeliveryIntervals: summarize(callbackIntervals),
+        intervalsAbove25MS: frames.filter((ms) => ms > 25).length,
+        fog: summarize(fog),
+        simulationSteps: summarize(simulationSteps),
+        hudUpdates: summarize(hudUpdates),
+        renderCalls: summarize(renderCalls),
+        gpu: gpu
+          ? {
+              supported: !!gpu.ext,
+              milliseconds: gpu.samples.length ? summarize(gpu.samples) : null,
+              discarded: gpu.discarded,
+              skipped: gpu.skipped,
+              unresolved: gpuPending,
+              scope:
+                'Elapsed query around application render; includes its GPU commands and submission gaps, not pure GPU utilization or compositor time',
+            }
+          : null,
+        drawCalls: summarize(drawCalls),
+        renderedTriangles: summarize(triangles),
+        calls: v.renderer.info.render.calls,
+        triangles: v.renderer.info.render.triangles,
+        fogResolution: v.fogPixels.width,
+      };
+    },
+    { matchMode: !!snapshot, gpuTiming }
+  );
   if (profiler) {
     const { profile } = await profiler.send('Profiler.stop');
     await writeFile(output + '.cpuprofile', JSON.stringify(profile));
@@ -221,6 +256,7 @@ try {
   const result = {
     cpuProfileEnabled: profileCPU,
     rawBoneTracks,
+    gpuTiming,
     revision: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
     snapshotPath: snapshotPath ?? null,
     snapshotSHA256: snapshot ? createHash('sha256').update(snapshot).digest('hex') : null,

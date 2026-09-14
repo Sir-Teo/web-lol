@@ -1,0 +1,474 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "87e043423f0095c7d1c83f76490846d53e640d0f",
+  "scope": "Tools/documentation only; development Chrome at 1920x1080, same exact mixed ten-champion checkpoint. No physical presentation or full-match certification.",
+  "clockCorrection": "Historical frames fields before this change used performance.now at callback delivery; new frames uses rAF timestamp and retains callbackDeliveryIntervals separately. Old tails do not establish missed frames.",
+  "sources": {
+    "tools/qa/benchmark-rift.mjs": "8303bbfbbc6b456f33c4f4e6c40a6b5a2864fa0ee2e1ee67861237ca693ca9a2",
+    "tools/qa/gpu-timer.mjs": "8a780cf505f73280f65e2219d9c7d3e0c03ca07b52a22420182ae3112636b716",
+    "tools/qa/gpu-timer.test.mjs": "977ca40e944dca08aca229912ade7f00602aaf7e1abbfb2b0fa0aba8be49620c"
+  },
+  "apiReferences": [
+    "https://registry.khronos.org/webgl/extensions/EXT_disjoint_timer_query_webgl2/",
+    "https://html.spec.whatwg.org/multipage/imagebitmap-and-animations.html#run-the-animation-frame-callbacks"
+  ],
+  "gpuRun": {
+    "path": "artifacts/rift-gpu-final.json",
+    "sha256": "6989953e42df24e99cf255d1eb95691460f2c88257555e924839185ff42c2331",
+    "result": {
+      "cpuProfileEnabled": false,
+      "rawBoneTracks": false,
+      "gpuTiming": true,
+      "revision": "87e043423f0095c7d1c83f76490846d53e640d0f",
+      "snapshotPath": "artifacts/rift-lost-chapter-simulation.snapshot.json",
+      "snapshotSHA256": "778e7b5b580f7be808bd85f46bacab527e586a1d4df3e1cc6896af696b0bd599",
+      "benchmarkSHA256": "8303bbfbbc6b456f33c4f4e6c40a6b5a2864fa0ee2e1ee67861237ca693ca9a2",
+      "browser": "152.0.7977.83",
+      "hardware": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M5 Pro",
+        "memoryGiB": 64
+      },
+      "viewport": [
+        1920,
+        1080
+      ],
+      "fixture": "Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn",
+      "startingTick": 72000,
+      "warmupCount": 120,
+      "sampleCount": 1800,
+      "cameraSubject": {
+        "id": 35,
+        "champion": "lux"
+      },
+      "championRoster": [
+        {
+          "id": 1,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 32,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 33,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 34,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 35,
+          "team": "blue",
+          "champion": "lux",
+          "ai": true
+        },
+        {
+          "id": 36,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 37,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 38,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 39,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 40,
+          "team": "red",
+          "champion": "lux",
+          "ai": true
+        }
+      ],
+      "activity": {
+        "maxProjectiles": 42,
+        "maxSingularities": 2,
+        "maxLuxBeams": 1,
+        "maxVisibleChampions": 9
+      },
+      "advanceMS": 0,
+      "time": 1232,
+      "units": 99,
+      "frames": {
+        "n": 1800,
+        "median": 16.69999999999891,
+        "p95": 16.799999999999272,
+        "p99": 16.80000000000109
+      },
+      "frameClock": "requestAnimationFrame timestamp; not physical display presentation time",
+      "callbackDeliveryIntervals": {
+        "n": 1800,
+        "median": 16.600000001490116,
+        "p95": 19.5,
+        "p99": 21.100000001490116
+      },
+      "intervalsAbove25MS": 1,
+      "fog": {
+        "n": 226,
+        "median": 2.399999998509884,
+        "p95": 3.6999999955296516,
+        "p99": 4
+      },
+      "simulationSteps": {
+        "n": 1801,
+        "median": 0.30000000447034836,
+        "p95": 0.5999999940395355,
+        "p99": 1
+      },
+      "hudUpdates": {
+        "n": 529,
+        "median": 0.29999999701976776,
+        "p95": 0.30000000447034836,
+        "p99": 0.3999999985098839
+      },
+      "renderCalls": {
+        "n": 1800,
+        "median": 4.100000001490116,
+        "p95": 7.199999995529652,
+        "p99": 9.399999998509884
+      },
+      "gpu": {
+        "supported": true,
+        "milliseconds": {
+          "n": 1800,
+          "median": 1.800749,
+          "p95": 3.41425,
+          "p99": 4.845958
+        },
+        "discarded": 0,
+        "skipped": 0,
+        "unresolved": 0,
+        "scope": "Elapsed query around application render; includes its GPU commands and submission gaps, not pure GPU utilization or compositor time"
+      },
+      "drawCalls": {
+        "n": 1800,
+        "median": 196,
+        "p95": 215,
+        "p99": 218
+      },
+      "renderedTriangles": {
+        "n": 1800,
+        "median": 410244,
+        "p95": 438020,
+        "p99": 444056
+      },
+      "calls": 212,
+      "triangles": 409521,
+      "fogResolution": 256
+    }
+  },
+  "ordinaryRun": {
+    "path": "artifacts/rift-cadence-final.json",
+    "sha256": "59414d1f70830395c325895d9ec98d2c1adb7a92c62d5ab15973480a30d9429e",
+    "result": {
+      "cpuProfileEnabled": false,
+      "rawBoneTracks": false,
+      "gpuTiming": false,
+      "revision": "87e043423f0095c7d1c83f76490846d53e640d0f",
+      "snapshotPath": "artifacts/rift-lost-chapter-simulation.snapshot.json",
+      "snapshotSHA256": "778e7b5b580f7be808bd85f46bacab527e586a1d4df3e1cc6896af696b0bd599",
+      "benchmarkSHA256": "8303bbfbbc6b456f33c4f4e6c40a6b5a2864fa0ee2e1ee67861237ca693ca9a2",
+      "browser": "152.0.7977.83",
+      "hardware": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M5 Pro",
+        "memoryGiB": 64
+      },
+      "viewport": [
+        1920,
+        1080
+      ],
+      "fixture": "Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn",
+      "startingTick": 72000,
+      "warmupCount": 120,
+      "sampleCount": 1800,
+      "cameraSubject": {
+        "id": 35,
+        "champion": "lux"
+      },
+      "championRoster": [
+        {
+          "id": 1,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 32,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 33,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 34,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 35,
+          "team": "blue",
+          "champion": "lux",
+          "ai": true
+        },
+        {
+          "id": 36,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 37,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 38,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 39,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        },
+        {
+          "id": 40,
+          "team": "red",
+          "champion": "lux",
+          "ai": true
+        }
+      ],
+      "activity": {
+        "maxProjectiles": 42,
+        "maxSingularities": 2,
+        "maxLuxBeams": 1,
+        "maxVisibleChampions": 9
+      },
+      "advanceMS": 0,
+      "time": 1231.9833333333333,
+      "units": 99,
+      "frames": {
+        "n": 1800,
+        "median": 16.69999999999891,
+        "p95": 16.799999999999272,
+        "p99": 16.80000000000291
+      },
+      "frameClock": "requestAnimationFrame timestamp; not physical display presentation time",
+      "callbackDeliveryIntervals": {
+        "n": 1800,
+        "median": 16.600000001490116,
+        "p95": 19.399999998509884,
+        "p99": 21
+      },
+      "intervalsAbove25MS": 1,
+      "fog": {
+        "n": 225,
+        "median": 2.399999998509884,
+        "p95": 4,
+        "p99": 4.299999997019768
+      },
+      "simulationSteps": {
+        "n": 1801,
+        "median": 0.30000000447034836,
+        "p95": 0.5,
+        "p99": 1.1000000014901161
+      },
+      "hudUpdates": {
+        "n": 518,
+        "median": 0.20000000298023224,
+        "p95": 0.30000000447034836,
+        "p99": 0.4000000059604645
+      },
+      "renderCalls": {
+        "n": 1800,
+        "median": 4.100000001490116,
+        "p95": 7.0999999940395355,
+        "p99": 9.100000001490116
+      },
+      "gpu": null,
+      "drawCalls": {
+        "n": 1800,
+        "median": 196,
+        "p95": 215,
+        "p99": 218
+      },
+      "renderedTriangles": {
+        "n": 1800,
+        "median": 410244,
+        "p95": 438020,
+        "p99": 444056
+      },
+      "calls": 212,
+      "triangles": 409521,
+      "fogResolution": 256
+    }
+  },
+  "practiceSmoke": {
+    "path": "artifacts/rift-benchmark.json",
+    "sha256": "8fcc801e03c8913546b4909f120382c2e382a91abd71c6ccc8eb0233aea5061b",
+    "result": {
+      "cpuProfileEnabled": false,
+      "rawBoneTracks": false,
+      "gpuTiming": false,
+      "revision": "87e043423f0095c7d1c83f76490846d53e640d0f",
+      "snapshotPath": null,
+      "snapshotSHA256": null,
+      "benchmarkSHA256": "8303bbfbbc6b456f33c4f4e6c40a6b5a2864fa0ee2e1ee67861237ca693ca9a2",
+      "browser": "152.0.7977.83",
+      "hardware": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M5 Pro",
+        "memoryGiB": 64
+      },
+      "viewport": [
+        1920,
+        1080
+      ],
+      "fixture": "Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples",
+      "startingTick": 5400,
+      "warmupCount": 45,
+      "sampleCount": 180,
+      "cameraSubject": null,
+      "championRoster": [
+        {
+          "id": 1,
+          "team": "blue",
+          "champion": "ashe",
+          "ai": false
+        },
+        {
+          "id": 32,
+          "team": "red",
+          "champion": "ashe",
+          "ai": true
+        }
+      ],
+      "activity": {
+        "maxProjectiles": 7,
+        "maxSingularities": 0,
+        "maxLuxBeams": 0,
+        "maxVisibleChampions": 0
+      },
+      "advanceMS": 462,
+      "time": 93.71666666666667,
+      "units": 101,
+      "frames": {
+        "n": 180,
+        "median": 16.699999999999818,
+        "p95": 16.700000000000728,
+        "p99": 16.800000000000182
+      },
+      "frameClock": "requestAnimationFrame timestamp; not physical display presentation time",
+      "callbackDeliveryIntervals": {
+        "n": 180,
+        "median": 16.69999999552965,
+        "p95": 18.100000001490116,
+        "p99": 22.399999998509884
+      },
+      "intervalsAbove25MS": 0,
+      "fog": {
+        "n": 22,
+        "median": 1.2000000029802322,
+        "p95": 1.7000000029802322,
+        "p99": 1.7000000029802322
+      },
+      "simulationSteps": {
+        "n": 180,
+        "median": 0.30000000447034836,
+        "p95": 0.5,
+        "p99": 0.6000000014901161
+      },
+      "hudUpdates": {
+        "n": 51,
+        "median": 0.29999999701976776,
+        "p95": 0.3999999985098839,
+        "p99": 0.4000000059604645
+      },
+      "renderCalls": {
+        "n": 180,
+        "median": 3.5,
+        "p95": 4.899999998509884,
+        "p99": 9.299999997019768
+      },
+      "gpu": null,
+      "drawCalls": {
+        "n": 180,
+        "median": 215,
+        "p95": 231,
+        "p99": 231
+      },
+      "renderedTriangles": {
+        "n": 180,
+        "median": 363205,
+        "p95": 379797,
+        "p99": 379797
+      },
+      "calls": 229,
+      "triangles": 379773,
+      "fogResolution": 256
+    }
+  },
+  "validation": {
+    "helperTests": 3,
+    "helperFailures": 0,
+    "logSHA256": "e9337e93858a745996aa06b969e83356e1815c1d39788d3bcaf1080628d46ff8",
+    "browserRuns": "Both final encounter runs and default practice smoke exited 0; benchmark rejects page errors. Runs were sequential without concurrent browser tests.",
+    "visualInspection": "artifacts/rift-gpu-final.png: bottom-lane encounter inspected; no new missing assets or HUD obstruction observed.",
+    "screenshotSHA256": "e2f7b97466c471df70780c13f2c0dec83fd000ce3e074404b34ecf0534bfa8d5",
+    "applicationTests": "Not rerun: no application changes; previous 598 checks and focused animation/production validation remain scoped to their recorded revision."
+  },
+  "preliminaryRuns": [
+    {
+      "path": "artifacts/rift-gpu-benchmark.json",
+      "sha256": "b64f6d06d04b2ea66349b89ea2ab7c31aa7fa2cd7d0738aa4005e381ac4e7247",
+      "status": "Old callback clock; GPU exploratory measurement only."
+    },
+    {
+      "path": "artifacts/rift-gpu-cadence.json",
+      "sha256": "552ed44075f8e22fc74824f54bf5bdb517d7b376fb95b64a676a4b92026839ad",
+      "status": "Superseded: helper import was after warmup, so setup could affect first interval; moved before warmup in final source."
+    }
+  ],
+  "limitations": [
+    "GPU elapsed spans submitted application render commands and submission gaps, not pure utilization or compositor work.",
+    "One RAF interval above 25 ms in each final encounter run; percentiles alone do not imply every frame meets budget.",
+    "No demonstrated FPS improvement; this change corrects measurement and adds attribution.",
+    "Full match, other hardware/browsers, native visual parity, delivery and texture budgets remain open."
+  ]
+}
