@@ -78,3 +78,22 @@ npx playwright test e2e/lux-impact-rings.spec.ts
 ```
 
 Next integration work is still spark emission/motion and direction alignment, followed by target-attached saved impact playback and comparison with native captures.
+
+## Five-spark burst and composed component preview
+
+The component preview now includes the shared five-spark burst alongside all four ring/flash profiles. `export-lux-impact-sparks.py` checks that both complete spark records match, verifies the single-particle flag and rate of five, and exports exact birth distributions, drag, color/scale curves, binding and direction-scale fields. In the [pinned emission reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts), `isSingleParticle` makes the first emission a burst of `max(trunc(rate),1)`, then suppresses later births. The inspector continues to use age since that common birth, not impact-event timing.
+
+Each indexed spark draws one stable visual hash value, reused across all of its birth probability channels. The distribution gives lifetime endpoints approximately 0.16–0.4 seconds, velocity endpoints `[800,-400,-1800]` to `[-800,800,1800]`, and anisotropic scale endpoints `[10,20,0]` to `[20,60,0]`. The zero/empty Z-scale table remains zero. A single shared chance intentionally correlates these channels. The visual hash is the existing hoop hash; it does not consume combat randomness or claim to reproduce the native sequence.
+
+`luxImpactSparks` reconstructs positions with 60 Hz drag: decay velocity by `1-8/60`, then advance position. Fractional display time interpolates the next position segment. Velocity for direction and stretching is the derivative of that displayed segment. Particle color and relative scale sample their authored lifetime curves, and particles expire at their individual exact lifetimes. Binding is exported but unapplied in this stationary-source stage.
+
+`LuxImpactSparkCloud` draws up to five instances with the verified green-channel palette replacement at row 0.95, source alpha, lifetime color and ADD tint premultiplication. Camera-plane up follows projected velocity. The [direction-stretch reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/docs/plans/vfx-particle-renderer.md#251-a-stop-waits-on-emitterlinger-a-system-builds-up-before-it-draws-and-travel-stretches) uses `max(directionVelocityMinScale, speed*directionVelocityScale)` on the up extent; its author explicitly notes that the scale formula lacks a native reading. This implementation preserves that limitation rather than treating the stretch heuristic as certified. The native basis, sampler state, pass ordering, flex shape and moving target attachment also remain unverified.
+
+The preview shows equal spark states in normal and critical hits, allows changing the spark seed independently of ring birth chance, and retires all particles by 0.401 seconds. The composed screenshot was visually reviewed. New tests verify correlated distribution endpoints, a separate iterative drag reference including fractional age, seek stability, individual expiry, camera-facing normals and long-axis alignment under a rotated camera, instance retirement and borrowed texture ownership. The browser checks seed changes, equality across variants, seeking and retirement. All 687 unit tests and both focused browser tests pass; the QA module passes its direct TypeScript check.
+
+```sh
+python3 tools/assets/export-lux-impact-sparks.py
+npx playwright test e2e/lux-impact-rings.spec.ts e2e/particle-palette.spec.ts
+```
+
+The next step is saved impact state and moving-target binding, followed by gameplay composition and native capture comparison. No gameplay hit effect has been replaced by this component preview yet.

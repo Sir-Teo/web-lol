@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { LuxImpactSparkCloud } from '../../src/render/lux-impact-spark-cloud';
 import profiles from '../../src/content/lux-impact-rings.json';
 import { luxImpactRings } from '../../src/render/lux-impact-rings';
 import { particleAtlasUv } from '../../src/render/particle-atlas';
@@ -23,9 +24,25 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
 });
 renderer.setSize(1000, 500, false);
-const camera = new THREE.OrthographicCamera(-5, 5, 2.5, -2.5, 0.1, 10);
-camera.position.z = 1;
+const camera = new THREE.OrthographicCamera(-5, 5, 2.5, -2.5, 0.1, 50);
+camera.position.z = 10;
 const scene = new THREE.Scene();
+const sparkTextures = await Promise.all(
+  ['lux_base_r_spark', 'flame_trail_gradient'].map(async (name) => {
+    const t = await new THREE.TextureLoader().loadAsync(`/assets/effects/lux-hit-${name}.png`);
+    t.flipY = false;
+    t.colorSpace = THREE.NoColorSpace;
+    t.generateMipmaps = false;
+    t.minFilter = t.magFilter = THREE.LinearFilter;
+    return t;
+  })
+);
+const sparks = [-2.5, 2.5].map((x) => {
+  const cloud = new LuxImpactSparkCloud(sparkTextures[0], sparkTextures[1], white);
+  cloud.mesh.position.x = x;
+  scene.add(cloud.mesh);
+  return cloud;
+});
 const variants = [false, true].map((critical) =>
   profiles
     .filter((p) => critical || !p.criticalOnly)
@@ -79,10 +96,12 @@ function draw() {
       mesh.material.uniforms.lookupUv.value.fromArray(state.lookup);
     })
   );
+  const seed = Number(document.querySelector<HTMLInputElement>('#seed')!.value);
+  const sparkStates = sparks.map((cloud) => cloud.draw(seed, Number(age.value), camera));
   renderer.render(scene, camera);
   document.querySelector('#status')!.textContent =
-    `${Number(age.value).toFixed(3)} s · normal ${states[0].length} layers · critical ${states[1].length} layers`;
-  return states;
+    `${Number(age.value).toFixed(3)} s · normal ${states[0].length} layers · critical ${states[1].length} layers · ${sparkStates[0].length} sparks per hit`;
+  return { rings: states, sparks: sparkStates };
 }
 age.addEventListener('input', () => {
   playing = false;
@@ -90,6 +109,7 @@ age.addEventListener('input', () => {
   draw();
 });
 chance.addEventListener('input', draw);
+document.querySelector('#seed')!.addEventListener('input', draw);
 play.addEventListener('click', () => {
   playing = !playing;
   if (playing && Number(age.value) >= 0.55) age.value = '0';

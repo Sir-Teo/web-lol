@@ -9,6 +9,13 @@ test('Lux ring composition seeks, plays and retires normal and critical layers',
   await expect(page.locator('#status')).toContainText('normal 2 layers · critical 4 layers');
   await page.screenshot({ path: 'artifacts/lux-impact-rings.png', fullPage: true });
   const initial = await page.evaluate(() => (window as any).__LUX_IMPACT_RINGS__.state());
+  expect(initial.sparks[0]).toHaveLength(5);
+  expect(initial.sparks[1]).toEqual(initial.sparks[0]);
+  await page.locator('#seed').fill('73');
+  expect(
+    (await page.evaluate(() => (window as any).__LUX_IMPACT_RINGS__.state())).sparks[0]
+  ).not.toEqual(initial.sparks[0]);
+  await page.locator('#seed').fill('42');
   await page.locator('#age').fill('0.11');
   await expect(page.locator('#status')).toContainText('normal 2 layers · critical 3 layers');
   await page.locator('#age').fill('0.26');
@@ -17,6 +24,10 @@ test('Lux ring composition seeks, plays and retires normal and critical layers',
   await expect(page.locator('#status')).toContainText('normal 0 layers · critical 1 layers');
   await page.locator('#age').fill('0.5');
   await expect(page.locator('#status')).toContainText('normal 0 layers · critical 0 layers');
+  expect((await page.evaluate(() => (window as any).__LUX_IMPACT_RINGS__.state())).sparks).toEqual([
+    [],
+    [],
+  ]);
   await page.locator('#age').fill('0.045');
   expect(await page.evaluate(() => (window as any).__LUX_IMPACT_RINGS__.state())).toEqual(initial);
   await page.getByRole('button', { name: 'Play at 0.25×' }).click();

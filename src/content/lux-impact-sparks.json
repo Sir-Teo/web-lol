@@ -1,0 +1,191 @@
+{
+  "count": 5,
+  "life": {
+    "value": 0.4000000059604645,
+    "probabilities": [
+      {
+        "keyTimes": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "keyValues": [
+          0.4000000059604645,
+          0.699999988079071,
+          1.0
+        ],
+        "__type": "VfxProbabilityTableData"
+      }
+    ]
+  },
+  "velocity": {
+    "value": [
+      -400.0,
+      400.0,
+      300.0
+    ],
+    "probabilities": [
+      {
+        "keyTimes": [
+          0.0,
+          1.0
+        ],
+        "keyValues": [
+          -2.0,
+          2.0
+        ],
+        "__type": "VfxProbabilityTableData"
+      },
+      {
+        "keyTimes": [
+          0.0,
+          0.800000011920929,
+          1.0
+        ],
+        "keyValues": [
+          -1.0,
+          1.0,
+          2.0
+        ],
+        "__type": "VfxProbabilityTableData"
+      },
+      {
+        "keyTimes": [
+          0.0,
+          1.0
+        ],
+        "keyValues": [
+          -6.0,
+          6.0
+        ],
+        "__type": "VfxProbabilityTableData"
+      }
+    ]
+  },
+  "scale": {
+    "value": [
+      20.0,
+      40.0,
+      0.0
+    ],
+    "probabilities": [
+      {
+        "keyTimes": [
+          0.0,
+          1.0
+        ],
+        "keyValues": [
+          0.5,
+          1.0
+        ],
+        "__type": "VfxProbabilityTableData"
+      },
+      {
+        "keyTimes": [
+          0.0,
+          1.0
+        ],
+        "keyValues": [
+          0.5,
+          1.5
+        ],
+        "__type": "VfxProbabilityTableData"
+      },
+      {
+        "__type": "VfxProbabilityTableData"
+      }
+    ]
+  },
+  "drag": [
+    8.0,
+    8.0,
+    8.0
+  ],
+  "color": {
+    "times": [
+      0.0,
+      0.20000000298023224,
+      0.4000000059604645,
+      0.6000000238418579,
+      0.800000011920929,
+      1.0
+    ],
+    "values": [
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.8509799838066101,
+        0.01960800029337406,
+        0.7490040063858032
+      ],
+      [
+        0.06666699796915054,
+        0.9254900217056274,
+        0.784313976764679,
+        1.0
+      ],
+      [
+        0.09411799907684326,
+        0.7450979948043823,
+        0.9254900217056274,
+        1.0
+      ],
+      [
+        0.07451000064611435,
+        0.10980399698019028,
+        0.7960780262947083,
+        0.5058979988098145
+      ],
+      [
+        0.5372549891471863,
+        0.09019599854946136,
+        0.7960780262947083,
+        0.0
+      ]
+    ],
+    "__type": "VfxAnimatedColorVariableData"
+  },
+  "relativeScale": {
+    "times": [
+      0.0,
+      0.10000000149011612,
+      1.0
+    ],
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "__type": "VfxAnimatedVector3fVariableData"
+  },
+  "binding": {
+    "times": [
+      0.20000000298023224,
+      0.5
+    ],
+    "values": [
+      0.5,
+      0.0
+    ],
+    "__type": "VfxAnimatedFloatVariableData"
+  },
+  "directionScale": 0.004000000189989805,
+  "directionMin": 1.2999999523162842
+}
