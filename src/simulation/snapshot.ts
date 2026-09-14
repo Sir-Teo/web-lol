@@ -29,6 +29,7 @@ import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { GAREN_Q } from '../content/garen-q';
+import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
@@ -38,7 +39,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 69;
+export const SNAPSHOT_VERSION = 70;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -316,6 +317,7 @@ const player: z.ZodType<PlayerState> = z
     qStacks: z.number().int().min(0).max(4),
     qUntil: deadline,
     qStackExpiry: deadline,
+    garenPassiveReadyTick: tick,
     garenQ: z
       .strictObject({
         startTick: tick,
@@ -1243,6 +1245,13 @@ export function decodeSnapshot(text: string) {
         ? ['q', 'w', 'e', 'r'].includes(ability)
         : champion.champion === 'ashe' && ability !== 'q';
     const garenQ = owner.garenQ;
+    if (
+      ((champion.champion !== 'garen' || champion.deadAt !== null) &&
+        owner.garenPassiveReadyTick !== 0) ||
+      owner.garenPassiveReadyTick >
+        state.tick + Math.round(GAREN_PASSIVE.interruptionSeconds * TICK_RATE)
+    )
+      throw new Error('Saved match contains invalid Perseverance timing.');
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&

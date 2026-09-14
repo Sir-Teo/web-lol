@@ -62,7 +62,7 @@ test('Garen progression, regeneration and pending melee attacks survive restorat
   const { w, garen, target } = setup();
   garen.hp -= 100;
   w.step(60);
-  expect(garen.hp).toBeCloseTo(591.6);
+  expect(garen.hp).toBeCloseTo(593.67);
   w.gainExperience(1e6, garen.id);
   expect(garen.maxHp).toBe(2356);
   expect(garen.maxMana).toBe(0);

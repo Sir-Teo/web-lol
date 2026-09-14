@@ -29,6 +29,7 @@ import { LUX_R } from '../content/lux-r';
 import { championProfile } from '../content/champion-profiles';
 import { garenAttackWindupTicks, garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { GAREN_Q } from '../content/garen-q';
+import { GAREN_PASSIVE } from '../content/garen-passive';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
 import { DORANS_BLADE_OMNIVAMP, MINION_AREA_OMNIVAMP_MULTIPLIER } from '../content/omnivamp';
@@ -636,7 +637,8 @@ export class World {
       h.hp = Math.min(
         h.maxHp,
         h.hp +
-          (fountain ? h.maxHp * 0.09 : profile.healthRegen + profile.healthRegenGrowth * growth) *
+          ((fountain ? h.maxHp * 0.09 : profile.healthRegen + profile.healthRegenGrowth * growth) +
+            this.perseveranceRegenPerSecond(h)) *
             DT
       );
       h.mana = Math.min(
@@ -1725,6 +1727,27 @@ export class World {
       (q && q.speedUntil > this.tick ? GAREN_Q.movementSpeedBonus : 0);
     return u.speed * this.slowFactor(u) * haste;
   }
+  perseveranceRegenPerSecond(u: Unit): number {
+    if (u.champion !== 'garen' || !this.alive(u)) return 0;
+    const state = this.championState(u.id)!;
+    if (this.tick < state.garenPassiveReadyTick) return 0;
+    return (
+      (u.maxHp * GAREN_PASSIVE.maxHealthFractionByLevel[state.level - 1]) /
+      GAREN_PASSIVE.ratePeriodSeconds
+    );
+  }
+  private interruptPerseverance(source: Unit, target: Unit): void {
+    if (
+      this.winner ||
+      target.champion !== 'garen' ||
+      !this.alive(target) ||
+      source.team === target.team
+    )
+      return;
+    const state = this.championState(target.id)!;
+    state.garenPassiveReadyTick =
+      this.tick + Math.round(GAREN_PASSIVE.interruptionSeconds * TICK_RATE);
+  }
   slowFactor(u: Unit): number {
     // Retain the old diagnostic fields, but all new combat applications also
     // retain independent source/effect state so later hits cannot erase them.
@@ -1789,6 +1812,7 @@ export class World {
       endMultiplier,
     };
     const index = target.slows.findIndex((s) => s.sourceId === source.id && s.kind === kind);
+    this.interruptPerseverance(source, target);
     if (index === -1) target.slows.push(effect);
     else target.slows[index] = effect;
     return true;
@@ -2300,6 +2324,7 @@ export class World {
           if (source) {
             this.damage(source, unit, p.damage, 'magic', 'area');
             this.applyRoot(unit, LUX_BINDING.rootSeconds * TICK_RATE);
+            this.interruptPerseverance(source, unit);
             this.applyIllumination(source, unit);
           }
           if (p.bindingHits!.length === LUX_BINDING.maximumTargets) {
@@ -2645,6 +2670,8 @@ export class World {
     const resistance =
       kind === 'physical' ? target.armor : kind === 'magic' ? target.magicResist : 0;
     const amount = damageAfterResistance(raw, resistance);
+    if (amount > 0 && (source.kind === 'champion' || source.kind === 'turret'))
+      this.interruptPerseverance(source, target);
     let remainder = Math.max(0, amount);
     let absorbed = 0;
     // Earliest-expiring shield first; stable insertion order breaks equal-deadline ties.
@@ -2750,6 +2777,7 @@ export class World {
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
         targetState.garenQ = null;
+        targetState.garenPassiveReadyTick = 0;
       }
       const lastDamage = targetState?.damageContributors
         .slice()
@@ -2886,6 +2914,7 @@ export class World {
   private respawn(u: Unit): void {
     const state = this.championState(u.id);
     if (state) {
+      state.garenPassiveReadyTick = 0;
       state.damageContributors = [];
       state.supportContributors = [];
       state.revealContributors = [];
