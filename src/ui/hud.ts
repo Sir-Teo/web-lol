@@ -571,6 +571,11 @@ export class Hud {
           id: u.id,
           name: u.name,
           champion: u.champion!,
+          dead: !this.world.alive(u),
+          respawnSeconds:
+            !this.world.alive(u) && u.respawnTick !== null
+              ? Math.max(0, Math.ceil((u.respawnTick - this.world.tick) / TICK_RATE))
+              : null,
           level: observed?.level ?? null,
           team: u.team,
           kills: state.kills,
@@ -590,8 +595,9 @@ export class Hud {
       const row = document.createElement('div');
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;
       row.dataset.champion = String(data.id);
+      row.classList.toggle('dead', data.dead);
       row.innerHTML =
-        '<span class="scoreboard-portrait"><img><span class="scoreboard-level"></span></span><span class="scoreboard-summoners" role="group" aria-label="Summoner spells"></span><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span><span class="scoreboard-items"></span>';
+        '<span class="scoreboard-portrait" role="img"><img><span class="scoreboard-death-timer" aria-hidden="true"></span><span class="scoreboard-level"></span></span><span class="scoreboard-summoners" role="group" aria-label="Summoner spells"></span><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span><span class="scoreboard-items"></span>';
       const level = row.querySelector('.scoreboard-level')!;
       level.textContent = data.level === null ? '?' : String(data.level);
       level.setAttribute(
@@ -601,6 +607,19 @@ export class Hud {
       const portrait = row.querySelector('img')!;
       portrait.src = `assets/icons/${data.champion}.png`;
       portrait.alt = data.champion === 'lux' ? 'Lux' : 'Ashe';
+      const deathTimer = row.querySelector<HTMLElement>('.scoreboard-death-timer')!;
+      deathTimer.hidden = !data.dead;
+      deathTimer.textContent = data.respawnSeconds === null ? '†' : String(data.respawnSeconds);
+      const identity = `${portrait.alt}, ${data.level === null ? 'level unknown' : `level ${data.level}`}`;
+      row
+        .querySelector('.scoreboard-portrait')!
+        .setAttribute(
+          'aria-label',
+          data.dead
+            ? `${identity}, dead${data.respawnSeconds === null ? '' : `, respawns in ${data.respawnSeconds} seconds`}`
+            : identity
+        );
+
       const summoners = row.querySelector('.scoreboard-summoners')!;
       // All supported champions currently equip D: Flash and F: Heal.
       // Identities are public; enemy cooldown state is not exposed here.

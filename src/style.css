@@ -1682,3 +1682,22 @@ button {
   height: 18px;
   border: 1px solid #665c40;
 }
+
+.scoreboard-row.dead .scoreboard-portrait > img {
+  filter: grayscale(1) brightness(0.5);
+}
+.scoreboard-death-timer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff2d2;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow:
+    0 1px 3px #000,
+    0 0 5px #000;
+}
+.scoreboard-death-timer[hidden] {
+  display: none;
+}

@@ -6,7 +6,7 @@ Last updated: September 13, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Latest validation is nine focused Chrome minimap/scoreboard/tooltip scenarios and nested-path production smoke. The unchanged simulation has 603 passing source/simulation checks from the preceding verification. The last complete Chrome run passed 205 scenarios before the new item-inspection interactions. The browser audit and its repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md); gameplay diagnostics retain their individual revision and scope below. Historical counts do not describe the current build.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Latest validation is five focused Chrome scoreboard, item-inspection and death/save scenarios plus nested-path production smoke. The unchanged simulation has 603 passing source/simulation checks from the preceding verification. The last complete Chrome run passed 205 scenarios before the new item-inspection interactions. The browser audit and its repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md); gameplay diagnostics retain their individual revision and scope below. Historical counts do not describe the current build.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -1592,3 +1592,11 @@ Added Flash and Heal source icons beside every champion portrait, with accessibl
 Nine focused scoreboard, item-inspection and minimap browser cases plus production smoke pass. The expanded roster test verifies both decoded icons for every team member and unchanged spell markup after enemy cooldowns change. The complete 1366×768 roster capture was visually inspected; all rows, item slots and spell identities remain legible without scrolling. Simulation and save format are unchanged; the existing 603 simulation checks were not repeated for this presentation-only change.
 
 Customizable summoner loadouts, allied cooldown indicators, trinkets, champion selection and native scoreboard pixel comparison remain unfinished. Full production scope remains open. See [summoner identity evidence](reference/scoreboard-summoners-verification.json).
+
+## Scoreboard death and respawn presentation
+
+Dead champions now have a grayscale/dimmed portrait and an integer countdown derived from their existing respawn tick. The row signature includes alive/dead state and rounded remaining seconds, so the counter changes with simulation time and disappears on respawn. A dead champion without a scheduled deadline uses a death mark. The portrait's accessible label includes identity, observed level and death/countdown status.
+
+The final five-case browser run, standalone TypeScript check and production smoke pass. A new case kills Lux, verifies the dead portrait, saves through the actual menu, reloads the exact frozen state, checks countdown progress and the tick immediately before respawn, then verifies color/label restoration on the exact respawn tick. Dead and respawned captures were visually inspected. The existing 603 simulation checks were not repeated for this presentation-only change; no simulation or snapshot schema changed.
+
+This exposes the current simulation's public death/respawn state; native typography, exact countdown display conventions and broader scoreboard parity still require reference comparison. Full production match requirements remain unfinished. See [death presentation evidence](reference/scoreboard-death-verification.json).

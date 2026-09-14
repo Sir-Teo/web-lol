@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "b5bcd94e24baf5649961eaff5a5315f737130543",
+  "change": "Dead scoreboard portraits, simulation-derived respawn countdowns and combined accessible identity/level/death labels.",
+  "sourceSHA256": {
+    "src/ui/hud.ts": "f0d6f2ae2f841f68b84ab4dd5f535959e7625fac0a32d337d31fa431dd7e54ac",
+    "src/style.css": "84303a8556b4234c8137d63fcc8810ac8d13006e0c163368a7667c0d2bf26afb",
+    "e2e/scoreboard-death.spec.ts": "2fc9664f617635bf2c46afa33c9abc199bd084403504ef864e944631280e4261"
+  },
+  "validation": {
+    "browserScenarios": 5,
+    "browserPassed": true,
+    "browserLogSHA256": "1ac0c0c68903654210c699310a1ce88e473bf8d9a7cd967cb78ef9b4d6a41b92",
+    "productionPassed": true,
+    "productionLogSHA256": "7d4f2bcfba0ad1368ecd3e7d4771557574e5fbdc494f20f0de15fda0875d36d9",
+    "captures": {
+      "artifacts/scoreboard-dead.png": "87341fd023891f67643bab953eb7822dae2d36d74f2ee122831de4a8d1a755b7",
+      "artifacts/scoreboard-respawned.png": "62003aa11a881615e1688daec645e1fa2a226c25b7c09126daacc8ecfacbf4d6"
+    },
+    "visualInspection": "Countdown legible on dimmed Lux portrait; normal color returns after respawn.",
+    "coverage": "Actual death, menu save/reload, exact frozen snapshot, one-second decrement, one tick before respawn and exact respawn boundary.",
+    "simulation": "Unchanged; existing 603 checks not repeated. Standalone TypeScript and production build passed."
+  },
+  "limits": [
+    "Native countdown display conventions and styling not certified.",
+    "No full production match completion claim."
+  ]
+}
