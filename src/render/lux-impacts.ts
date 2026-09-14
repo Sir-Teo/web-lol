@@ -82,11 +82,17 @@ export class LuxImpacts {
     private scene: THREE.Scene,
     private ground: (p: Vec2) => number
   ) {}
-  update(world: World, alpha: number, camera: THREE.Camera) {
+  update(world: World, alpha: number, camera: THREE.Camera, terminalAge = 0) {
     if (!textures) return;
     const active = new Set<number>(),
-      tick = world.tick - 1 + alpha;
+      tick = world.tick - 1 + alpha + (world.winner ? terminalAge * 60 : 0);
     for (const effect of world.luxImpactVisuals) {
+      const birthTick = effect.startTick + 1,
+        age = (tick - birthTick) / 60;
+      const states = luxImpactRings(age, effect.critical, luxHoopChance(effect.id, 0));
+      const sourceParticles = luxImpactSparks(effect.id, age);
+      // Terminal simulation history stays frozen; retired presentation resources do not.
+      if (age >= 0 && !states.length && !sourceParticles.length) continue;
       active.add(effect.id);
       let cloud = this.clouds.get(effect.id);
       if (cloud && cloud.rig !== effect.targetRig) {
@@ -98,12 +104,9 @@ export class LuxImpacts {
         this.clouds.set(effect.id, cloud);
         this.scene.add(...cloud.rings.map((r) => r.mesh), cloud.sparks.mesh);
       }
-      const birthTick = effect.startTick + 1,
-        age = (tick - birthTick) / 60;
       const pointAt = (at: number) => cloud!.attachments.point(effect, at);
       const birth = pointAt(birthTick),
         current = pointAt(tick);
-      const states = luxImpactRings(age, effect.critical, luxHoopChance(effect.id, 0));
       for (const { profile, mesh } of cloud.rings) {
         const state = states.find((p) => p.name === profile.name);
         const point = birth.clone().lerp(current, profile.bind);
@@ -131,7 +134,7 @@ export class LuxImpacts {
       const segmentEnd = luxImpactSparkAnchor(effect.startTick, Math.ceil(tick), pointAt);
       // Particle velocities/positions are source units; attachments are world units.
       const parentVelocity = segmentEnd.sub(segmentStart).multiplyScalar(6000).toArray();
-      const particles = luxImpactSparks(effect.id, age)
+      const particles = sourceParticles
         .map((p) => ({
           ...p,
           velocity: p.velocity.map((v, i) => v + parentVelocity[i]),

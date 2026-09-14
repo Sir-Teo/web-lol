@@ -274,3 +274,16 @@ npx playwright test e2e/lux-impact-depth.spec.ts e2e/lux-turret-impact.spec.ts e
 ```
 
 Native draw ordering, complete material state, emitter orientation, structure-specific hit dispatch, missing-bone behavior and post-victory particle playback remain unverified. This change resolves the identified depth override without claiming full native pixel parity.
+
+
+## Impact playback after victory
+
+Lux impacts now receive the renderer's existing terminal animation age, shared with destruction presentation. Once a winner is set, this advances their presentation tick beyond the frozen simulation endpoint. A lethal Nexus contact can therefore reach its next-step particle birth and play its rings/sparks through their authored lifetimes. Attachment sampling clamps to the final retained frame, preserving the existing detached-target policy. The world, damage, event history and save format do not advance or change.
+
+When both ring and spark samplers return no particles after birth, the adapter releases the cloud's geometry, materials and private attachment sampler. Terminal history remains available, so seeking the presentation time backward reconstructs the same deterministic particles. The terminal clock remains session-local under the existing destruction presentation policy; this is not a persisted cinematic timeline or a claim about native victory sequencing. Other effect families still require a separate terminal playback audit.
+
+Two browser scenarios produce actual lethal Nexus attacks (normal and a forced critical visual variant), then verify delayed birth, all expected rings and five sparks, exact repeated draws, expiry/resource retirement, deterministic reconstruction after seeking backward, and an unchanged serialized match after rendering and attempted simulation steps. Three existing impact browser checks cover normal/critical mobile attachments and fog. All 718 unit tests and the production subpath smoke test pass.
+
+```sh
+npx playwright test e2e/lux-impact-terminal.spec.ts e2e/lux-impact-gameplay.spec.ts e2e/lux-impact-bones.spec.ts
+```

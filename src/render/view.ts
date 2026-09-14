@@ -590,7 +590,7 @@ export class GameView {
     this.luxAttackHoops.update(world, alpha, this.camera);
     this.luxAttackTrails.update(world, alpha);
     this.luxAttackCrescents.update(world, alpha);
-    this.luxImpacts.update(world, alpha, this.camera);
+    this.luxImpacts.update(world, alpha, this.camera, terminalAge);
     this.luxSingularities.update(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);
