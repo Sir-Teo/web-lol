@@ -1,0 +1,39 @@
+{
+  "emitter": "END_Beam_ROTATING",
+  "source": "lux-beam-complete.json",
+  "profile": "src/content/lux-charge-rays.json",
+  "profileSha256": "42737c2cb095bf6c93dd6745afcd781e69351386aa27a393705383691c613ab3",
+  "count": 10,
+  "life": 0.949999988079071,
+  "interpretation": {
+    "cameraSpinComponent": "birthRotation0.x plus accumulated rotation0.x and birthRotationalVelocity0.x",
+    "angularVelocityDegreesPerSecond": 150,
+    "animatedRateScale": 60,
+    "integration": "60 Hz right-endpoint rate samples with fractional next-step interpolation; same local deterministic policy as stepped particle motion.",
+    "referenceViewRoll": "Negative source spin in radians, as assigned by Quads.tsx."
+  },
+  "references": [
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts",
+      "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/Quads.tsx",
+      "sha256": "6984424775169b81692541a16988d7d5e5080144607306efd94de4a5b9d3c0f8"
+    },
+    {
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts",
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+    }
+  ],
+  "validation": "727 unit tests and TypeScript pass; analytical first-segment and terminal angular-rate checks, source size growth, birth distributions, phase integration, fade and retirement.",
+  "remaining": [
+    "Camera-facing quad geometry with reference roll sign, source UV rotation and nonuniform dimensions.",
+    "Batched per-particle attributes and source material composition.",
+    "Gameplay, save, cancellation, fog, terminal retirement and visual checks."
+  ],
+  "limitations": [
+    "Native frame frequency, PRNG and attachment height remain unverified.",
+    "This sampler is not yet attached to gameplay; coverage remains twenty active emitters."
+  ]
+}
