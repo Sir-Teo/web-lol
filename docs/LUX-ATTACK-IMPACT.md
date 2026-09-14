@@ -121,3 +121,20 @@ Rendering uses the same source atlas, lookup and palette materials verified in t
 This adapter deliberately uses target centres plus the existing `ground+0.9` height convention, and world-axis spark emission. The native target-bone transform, system orientation, flex-shape contribution, complete material/pass ordering, sampler state, emitter timing and stretch formula still need native capture comparison. The implementation is a source-informed gameplay reconstruction, not a pixel-parity claim.
 
 The browser checkpoint test now compares normal-hit ring transforms/colors and spark instance matrices/tints across a real save/reload and checks complete retirement. A separate critical-hit test verifies four visible rings, five sparks, bound-versus-unbound movement, exact restored spark matrices and fog suppression/reappearance for every layer. The gameplay critical screenshot was visually reviewed. An additional unit test verifies saved-frame interpolation, cumulative binding and reverse-seek stability; all 691 unit tests pass. Both focused browser tests pass. The initial browser run exposed an outdated expected empty-result shape after adding impact buffers; that test expectation was corrected and rerun successfully.
+
+## Authored hit bones and target-pose audit
+
+The two ordinary Lux basic-attack spell records both set `bHaveHitBone=true` and name `C_BuffBone_Glb_Center_Loc`. The critical spell also enables its hit bone but names `C_BUFFBONE_GLB_CHEST_LOC`. This is a material normal/critical attachment difference beyond the emitter additions. `lux-hit-bones.json` is generated from those preserved records; `luxHitBone` resolves the requested name with case-folding, leaves missing attachments explicit, and rejects ambiguous duplicate matches.
+
+`audit-lux-hit-attachments.mjs` checks each of the sixteen shipped unit GLBs against its existing metadata byte count and SHA-256 before inspecting nodes. The resulting reference report pins the input spell JSONs and GLBs and records the actual node name, model-local rest position, ancestor chain and clips with varying ancestor channels. Both attachments exist in Ashe, Lux, all eight minion models and both turrets. Neither exists in either nexus or inhibitor model. Procedural fixture targets are outside this source-model inventory.
+
+The centre is not universally static: both champion models have varying ancestor channels affecting the centre attachment, as do some minion and turret clips. A chest attachment generally follows additional animated joints. In model-local rest transforms, Ashe's centre is near Y=1.21 and chest near Y=1.452; Lux's centre is near Y=1.181 and chest near Y=1.450. These are **rest positions**, not constant replacement heights or sampled gameplay poses. The varying-clip report identifies authored changing channels, not a measured positional range.
+
+`/tools/qa/lux-hit-attachments.html` now loads a selected target and animation and displays the actual posed centre/chest nodes as cyan/gold markers. It supports all sixteen models, reversible pose seeking and explicit missing-bone status. Replaced and superseded model loads release their geometry, materials and textures. The browser test verifies distinct animated attachments, exact reverse-seek state, both champion models, a minion model and missing inhibitor nodes. The Ashe run-pose screenshot was visually reviewed; the QA module also passes its direct TypeScript check.
+
+```sh
+node tools/assets/audit-lux-hit-attachments.mjs
+npx playwright test e2e/lux-hit-attachments.spec.ts
+```
+
+The next attachment change must reconstruct the target pose at particle birth and subsequent bound frames, including death and save/load. Simply reading the target's current bone for an unbound old ring would drag that ring with later animation. A rest-height substitution would discard the newly verified animation. Native missing-bone fallback also remains unresolved. The gameplay centre-height adapter is therefore still present pending that historical-pose work.

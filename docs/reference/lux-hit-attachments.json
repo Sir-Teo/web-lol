@@ -1,0 +1,637 @@
+{
+  "sources": [
+    {
+      "path": "docs/reference/lux-attack-variants.json",
+      "sha256": "333c08f7b41eb7e32df7e5beced0bff0a6864cb0f74c1680ddab1594c8fd0275"
+    },
+    {
+      "path": "docs/reference/critical-attacks.json",
+      "sha256": "37bdfcfd2e4ba11ea29c4844b01b220e79b2ee6fe7f9edbe70a48d4d7cacd040"
+    }
+  ],
+  "bones": {
+    "normal": "C_BuffBone_Glb_Center_Loc",
+    "critical": "C_BUFFBONE_GLB_CHEST_LOC"
+  },
+  "models": [
+    {
+      "name": "ashe-base",
+      "path": "public/assets/models/ashe-base.glb",
+      "sha256": "e45069db38b628d9113faa284bce54a5b1ddb7170e2b5029ad5994e1e81a46d5",
+      "attachments": {
+        "normal": {
+          "node": "C_BUFFBONE_GLB_CENTER_LOC",
+          "restPosition": [
+            -1.7257559374047519e-16,
+            1.2100000262260437,
+            0
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_BUFFBONE_GLB_CENTER_LOC"
+          ],
+          "varyingClips": [
+            "death",
+            "run3",
+            "taunt",
+            "entry_5c168ec9",
+            "run2",
+            "entry_9416c333",
+            "attack2",
+            "run",
+            "attack1",
+            "channel",
+            "idle2",
+            "spell2",
+            "spell3",
+            "idle3",
+            "spell1",
+            "idle4",
+            "spell4",
+            "laugh",
+            "idle5",
+            "channel_wndup",
+            "crit",
+            "joke",
+            "dance",
+            "spell1_in"
+          ]
+        },
+        "critical": {
+          "node": "C_BUFFBONE_GLB_CHEST_LOC",
+          "restPosition": [
+            -0.06268435224152948,
+            1.4517773804664267,
+            0.07692552970962516
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "root",
+            "spine",
+            "C_BUFFBONE_GLB_CHEST_LOC"
+          ],
+          "varyingClips": [
+            "death",
+            "run3",
+            "taunt",
+            "entry_5c168ec9",
+            "run2",
+            "entry_9416c333",
+            "attack2",
+            "run",
+            "attack1",
+            "channel",
+            "idle2",
+            "spell2",
+            "spell3",
+            "idle3",
+            "idle1",
+            "spell1",
+            "idle4",
+            "spell4",
+            "laugh",
+            "idle5",
+            "channel_wndup",
+            "crit",
+            "joke",
+            "dance",
+            "spell1_in"
+          ]
+        }
+      }
+    },
+    {
+      "name": "lux-base",
+      "path": "public/assets/models/lux-base.glb",
+      "sha256": "d063e8b7435eede85f1a8617c5bf6ff3571590cb19f22a314281fe2e43cb6bee",
+      "attachments": {
+        "normal": {
+          "node": "C_BUFFBONE_GLB_CENTER_LOC",
+          "restPosition": [
+            0,
+            1.18104795,
+            0.060180975
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_BUFFBONE_GLB_CENTER_LOC"
+          ],
+          "varyingClips": [
+            "death",
+            "taunt",
+            "recall_winddown",
+            "attack2",
+            "attack1",
+            "idle2",
+            "spell2",
+            "spell3",
+            "idle3",
+            "idle1",
+            "spell1",
+            "idle4",
+            "spell4",
+            "laugh",
+            "respawn",
+            "channel_wndup",
+            "entry_b4dcde19",
+            "crit",
+            "joke",
+            "dance"
+          ]
+        },
+        "critical": {
+          "node": "C_BUFFBONE_GLB_CHEST_LOC",
+          "restPosition": [
+            0,
+            1.4498006318272485,
+            -0.07186685234318603
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "root",
+            "spine",
+            "chest",
+            "C_BUFFBONE_GLB_CHEST_LOC"
+          ],
+          "varyingClips": [
+            "death",
+            "taunt",
+            "recall_winddown",
+            "attack2",
+            "run",
+            "attack1",
+            "channel",
+            "idle2",
+            "spell2",
+            "spell3",
+            "idle3",
+            "idle1",
+            "spell1",
+            "idle4",
+            "spell4",
+            "laugh",
+            "respawn",
+            "channel_wndup",
+            "entry_b4dcde19",
+            "crit",
+            "joke",
+            "dance"
+          ]
+        }
+      }
+    },
+    {
+      "name": "blue-melee",
+      "path": "public/assets/models/blue-melee.glb",
+      "sha256": "274fd87c0181db308592ca924eeac19659da61ce79307e904fb938ffed7cb98b",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.2582140356026411,
+            0.09815980132834852
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": []
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00006999999180790724,
+            0.34428542513685406,
+            0.09815980132834853
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "run",
+            "attack1",
+            "idle1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "blue-caster",
+      "path": "public/assets/models/blue-caster.glb",
+      "sha256": "ff550b7d9b25224b0c721f65e622a3100425d627001e5966e0c677200f709ee5",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.28034666848211287,
+            0.10657349906267881
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": [
+            "death"
+          ]
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00007599999144632578,
+            0.3737956061094832,
+            0.10657349906267881
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "run",
+            "attack1",
+            "idle1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "blue-siege",
+      "path": "public/assets/models/blue-siege.glb",
+      "sha256": "66a4f8679d695444725f6c02947d3e4075fc5a5e7232a06d0f010393c054f29c",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.23456786702299118,
+            -0.19240212997958064
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": []
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00009249999194209278,
+            0.8229593663558811,
+            -0.1033994542100595
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Bottom",
+            "Root_Minion",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "run",
+            "attack1",
+            "idle1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "blue-super",
+      "path": "public/assets/models/blue-super.glb",
+      "sha256": "0ad412436a18756a4e08f9ade8789192cbb5932cd97c04fe814d36cc867b859e",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.9189869432659865,
+            0.2587595522489357
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": [
+            "attack2"
+          ]
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00010499999523162842,
+            1.2253153206046759,
+            0.2587595574989355
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Root_Minion",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "attack2",
+            "run",
+            "attack1",
+            "idle1",
+            "death2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "blue-turret",
+      "path": "public/assets/models/blue-turret.glb",
+      "sha256": "9d16305c0687e78bdbdfaccbc6c81269e4bbdfd02772ee7f1d5b43d12d360d4e",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.5273819860291481,
+            0
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": []
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00008999999761581421,
+            2.344283937897682,
+            0
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "root",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "respawn"
+          ]
+        }
+      }
+    },
+    {
+      "name": "blue-nexus",
+      "path": "public/assets/models/blue-nexus.glb",
+      "sha256": "068f03acfca1ee2f8bcab30c2ec117a53f472b67cf6328a69f9e668ebcb02ae0",
+      "attachments": {
+        "normal": null,
+        "critical": null
+      }
+    },
+    {
+      "name": "blue-inhibitor",
+      "path": "public/assets/models/blue-inhibitor.glb",
+      "sha256": "5fb43a919fa3d98548dc62c6234629bb4f56ede60b182429976283160ef4c95b",
+      "attachments": {
+        "normal": null,
+        "critical": null
+      }
+    },
+    {
+      "name": "red-melee",
+      "path": "public/assets/models/red-melee.glb",
+      "sha256": "ed2e1dc508ebb5d96e73904501e72599cdbe167b325840cb33d3211d1a37e536",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.27296913151788715,
+            0.10376893593732119
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": []
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00007399999355367424,
+            0.36395888889051675,
+            0.10376893593732119
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "run",
+            "attack1",
+            "idle1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "red-caster",
+      "path": "public/assets/models/red-caster.glb",
+      "sha256": "bddd62e8113229de501afa313f642a0163d7608f3002abf4b170e4ecd8b59178",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.3209231657589436,
+            0.12199861296866059
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": []
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00008699999177683711,
+            0.42789760944525834,
+            0.12199861296866059
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "run",
+            "attack1",
+            "idle1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "red-siege",
+      "path": "public/assets/models/red-siege.glb",
+      "sha256": "9b21a8cbd9351f12ee40d513b001493616bb7b837e20cc78e72e57b65df390ff",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.23456786702299118,
+            -0.19240212997958064
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": []
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00009249999194209278,
+            0.8229593663558811,
+            -0.1033994542100595
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Bottom",
+            "Root_Minion",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "run",
+            "attack1",
+            "idle1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "red-super",
+      "path": "public/assets/models/red-super.glb",
+      "sha256": "d3fc25fd36ef7f53ed0b77c9d500e7d9035468bb7068d2e644a90529725b9c90",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            0.9189869432659865,
+            0.2587595522489357
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": [
+            "attack2"
+          ]
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            0.00010499999523162842,
+            1.2253153206046759,
+            0.2587595574989355
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "Root_Minion",
+            "Spine1",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "death",
+            "attack2",
+            "run",
+            "attack1",
+            "idle1",
+            "death2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "red-turret",
+      "path": "public/assets/models/red-turret.glb",
+      "sha256": "a7febe0579fd49c2b213ed9fc16470f0daf011220af2e1340eda030c7a421e02",
+      "attachments": {
+        "normal": {
+          "node": "C_Buffbone_Glb_Center_Loc",
+          "restPosition": [
+            0,
+            1.452,
+            0
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "C_Buffbone_Glb_Center_Loc"
+          ],
+          "varyingClips": [
+            "respawn"
+          ]
+        },
+        "critical": {
+          "node": "C_Buffbone_Glb_Chest_Loc",
+          "restPosition": [
+            -0.0001,
+            2.24190998,
+            0
+          ],
+          "ancestors": [
+            "skinned_mesh",
+            "Root",
+            "C_Buffbone_Glb_Chest_Loc"
+          ],
+          "varyingClips": [
+            "cloth_stage1",
+            "respawn"
+          ]
+        }
+      }
+    },
+    {
+      "name": "red-nexus",
+      "path": "public/assets/models/red-nexus.glb",
+      "sha256": "d49216fd563b18e1a6cf3f7752416b2d4cd45ef45f1b38955971b52326341e08",
+      "attachments": {
+        "normal": null,
+        "critical": null
+      }
+    },
+    {
+      "name": "red-inhibitor",
+      "path": "public/assets/models/red-inhibitor.glb",
+      "sha256": "9eef6c5e808f0c948ee7e794800d123ffa884f0a0d244917cfe96c2758ea0373",
+      "attachments": {
+        "normal": null,
+        "critical": null
+      }
+    }
+  ],
+  "limitations": [
+    "Case-folded name lookup is an adapter policy",
+    "Rest positions are model-local world transforms, not animated hit positions",
+    "Missing bones require a separately validated native fallback",
+    "Varying clips identify changing ancestor channels, not their sampled positional range"
+  ]
+}
