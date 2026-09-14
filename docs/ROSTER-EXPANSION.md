@@ -163,3 +163,13 @@ ongoing Q strike. Snapshot version 71 retains the defenses. See [GAREN-W.md](GAR
 for the supported behavior, explicit local policies and remaining passive/native/
 presentation work. All 862 tests across 184 files pass; the three Q/W browser
 scenarios pass and the new binding-contact capture was visually reviewed.
+
+## Courage defensive AI
+
+Garen now responds to visible champion/turret windups and launched basic-attack
+missiles forecast to arrive inside W's short shield window. It preserves ordinary
+movement/attack decisions, rejects hidden intent and unavailable casts, and does
+not spend W simply because a champion is nearby. The follow-up tenacity correction
+also synchronizes Ashe's legacy slow clocks, with an actual Volley regression.
+All 867 tests pass; production build and nested static-hosting smoke pass. See
+[GAREN-W.md](GAREN-W.md) for the forecast's current limits and remaining kit work.

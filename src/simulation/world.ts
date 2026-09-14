@@ -531,6 +531,7 @@ export class World {
       const thinkNow = u.ai && this.tick >= u.nextThink;
       if (thinkNow) {
         this.planDefensiveHeal(u);
+        this.planGarenW(u);
         u.nextThink = this.tick + 18;
       }
       const state = this.championState(u.id);
@@ -891,6 +892,51 @@ export class World {
     );
     if (threatened)
       this.enqueue({ type: 'cast', unit: u.id, ability: 'f', point: { x: u.x, y: u.y } });
+  }
+  private planGarenW(u: Unit): void {
+    if (u.champion !== 'garen' || u.stunUntil > this.tick || u.silenceUntil > this.tick) return;
+    const state = this.championState(u.id)!;
+    if (!state.spellRanks.w || state.garenW || this.abilityCooldownTicks('w', u.id) > 0) return;
+    // Leave a small margin inside the shield window for next-tick command dispatch.
+    // Forecast only observable, committed attacks against a stationary target.
+    const horizon = Math.floor(GAREN_W.upfrontSeconds * TICK_RATE) - 3;
+    const incoming = this.projectiles.some((p) => {
+      if (
+        p.type !== 'attack' ||
+        p.team === u.team ||
+        p.target !== u.id ||
+        p.speed <= 0 ||
+        !this.projectileVisible(p, u.team)
+      )
+        return false;
+      const source = this.unit(p.source);
+      if (!source || (source.kind !== 'champion' && source.kind !== 'turret')) return false;
+      const travel = Math.max(0, distance(p, u) - p.radius - u.radius);
+      const ticks = Math.ceil(travel / (p.speed * DT));
+      return travel <= p.remaining && ticks > 1 && ticks <= horizon;
+    });
+    const windingUp = this.units.some((source) => {
+      if (
+        source.team === u.team ||
+        !this.alive(source) ||
+        (source.kind !== 'champion' && source.kind !== 'turret') ||
+        source.attackTarget !== u.id ||
+        source.releaseTick === null ||
+        !this.visible(source, u.team)
+      )
+        return false;
+      if (source.stunUntil > this.tick && source.attackCycle?.garenQRank === undefined)
+        return false;
+      if (distance(source, u) > source.range + u.radius) return false;
+      const flight =
+        source.missileSpeed > 0
+          ? Math.ceil(Math.max(0, distance(source, u) - u.radius - 8) / (source.missileSpeed * DT))
+          : 0;
+      const ticks = source.releaseTick - this.tick + flight;
+      return ticks > 1 && ticks <= horizon;
+    });
+    if (incoming || windingUp)
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'w', point: { x: u.x, y: u.y } });
   }
   private estimatedAttackDelay(u: Unit, target: Unit): number {
     // Stationary-target estimate shared by farming and incoming-missile decisions.

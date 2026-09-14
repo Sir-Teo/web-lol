@@ -75,10 +75,9 @@ Snapshot version 71 stores the captured rank and both deadlines. It rejects
 foreign/dead ownership, unlearned ranks, future starts, expired defense state and
 changed duration relationships. Shields use the existing independent shield
 records. Death and respawn clear the active buff. Bots use a temporary Q-then-W
-learning order instead of inheriting Ashe's recommendation; defensive W decisions
-are not yet implemented.
+learning order instead of inheriting Ashe's recommendation; defensive W decisions are described below.
 
-Nine simulation cases cover the independent deadlines, resource/cooldown behavior,
+Ten simulation cases cover the independent deadlines, resource/cooldown behavior,
 mitigation order and true damage, bonus-health basis, rank capture, tenacity and
 its boundary cases, Q coexistence, cast rejection, death and checkpoint integrity.
 The browser scenario uses an actual queued Lux Q: Courage absorbs its damage and
@@ -93,3 +92,27 @@ The follow-up Volley regression also checks the legacy slow diagnostics used by
 movement. Actual Frost, critical Frost and Crystal Arrow splash now shorten those
 clocks with the same sampled tenacity as their independent slow records. This
 prevents a legacy timer from keeping the unit slowed after the reduced duration.
+
+## Defensive bot decisions
+
+On its existing think cadence, Garen observes hostile champion/turret attack
+windups aimed at him and visible launched basic-attack missiles. It estimates
+arrival against his current position and queues W only when arrival is more than
+one tick away and within 42 ticks (the 45-tick shield window minus a small dispatch
+margin). It does not inspect hidden attack intent, spend W solely on proximity,
+or react to lane-minion attacks. The normal command path validates the queued
+cast next tick; planning does not reset his attack or force an idle order.
+
+Stun, silence, an unlearned W, cooldown and an existing Courage buff prevent the
+plan. Visible windups that are currently stunned are ignored except for Garen's
+already committed Q, which the combat adapter lets finish while stunned. Launched
+missiles remain eligible after their source stops attacking. This is a local bot
+policy, not a model of Riot bot behavior. Movement, skillshot trajectories and
+teamfight threat aggregation remain improvements to make.
+
+Four AI cases verify actual protected impact, deterministic queued-command save
+continuation, launched missiles, hidden/other-target/distant threats, cast gates
+and proximity without an attack. All 867 tests across 185 files pass. Production
+build and the nested static-hosting smoke check pass; the existing large-bundle
+warning remains. That production smoke covers loading and existing Ashe/Lux flows;
+Garen-specific gameplay is covered by the simulation and dedicated browser checks.
