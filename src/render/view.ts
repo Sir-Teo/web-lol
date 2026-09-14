@@ -1,3 +1,8 @@
+import { LUX_BINDING } from '../content/lux-binding';
+import { LUX_W } from '../content/lux-w';
+import { LUX_R } from '../content/lux-r';
+import { LUX_E_SOURCE } from '../content/lux-e';
+import { LUX_E_POLICY } from '../content/lux-e-policy';
 import * as THREE from 'three';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { animateRecall } from './recall-animation';
@@ -827,7 +832,42 @@ export class GameView {
       dir = Math.atan2(this.aimPoint.y - hero.y, this.aimPoint.x - hero.x);
     const positions = this.aimLine.geometry.attributes.position as THREE.BufferAttribute;
     positions.setXYZ(0, 0, 0.1, 0);
-    if (this.aimMode === 'w') {
+    if (hero.champion === 'lux' && ['q', 'w', 'e', 'r'].includes(this.aimMode)) {
+      if (this.aimMode === 'e') {
+        const length = Math.min(
+          LUX_E_SOURCE.castRange,
+          Math.hypot(this.aimPoint.x - hero.x, this.aimPoint.y - hero.y)
+        );
+        for (let i = 0; i <= 32; i++) {
+          const angle = (i / 32) * Math.PI * 2;
+          positions.setXYZ(
+            i,
+            (Math.cos(dir) * length + Math.cos(angle) * LUX_E_POLICY.radius) * SCALE,
+            0.1,
+            (Math.sin(dir) * length + Math.sin(angle) * LUX_E_POLICY.radius) * SCALE
+          );
+        }
+        this.aimLine.geometry.setDrawRange(0, 33);
+      } else {
+        const spell = this.aimMode === 'q' ? LUX_BINDING : this.aimMode === 'w' ? LUX_W : LUX_R;
+        const width = 'radius' in spell ? spell.radius : spell.halfWidth;
+        for (const [index, [along, across]] of [
+          [0, -width],
+          [spell.range, -width],
+          [spell.range, width],
+          [0, width],
+          [0, -width],
+        ].entries()) {
+          positions.setXYZ(
+            index,
+            (Math.cos(dir) * along - Math.sin(dir) * across) * SCALE,
+            0.1,
+            (Math.sin(dir) * along + Math.cos(dir) * across) * SCALE
+          );
+        }
+        this.aimLine.geometry.setDrawRange(0, 5);
+      }
+    } else if (this.aimMode === 'w') {
       for (let i = 0; i <= 32; i++) {
         const a = dir - 0.4 + (i / 32) * 0.8;
         positions.setXYZ(i + 1, Math.cos(a) * 12, 0.1, Math.sin(a) * 12);

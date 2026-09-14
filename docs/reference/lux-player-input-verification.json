@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-09-14T03:49:52.521133+00:00",
+  "baseRevision": "45c80c618264693590ea772a5ea60db83469e475",
+  "feature": "Champion-aware player cast gestures and Lux aiming guides",
+  "validation": {
+    "typeScript": "passed",
+    "simulationTests": 615,
+    "existingAsheBrowserCases": 19,
+    "finalLuxBrowserCases": 4,
+    "production": "passed nested path: nine recordings, navigation, real Hawkshot, no development hook",
+    "testCorrections": [
+      "Wait for rendered guide before reading its draw range.",
+      "Wait for Prismatic Barrier cast lock to end before issuing Final Spark."
+    ]
+  },
+  "limitations": [
+    "Lux remains diagnostic-only until HUD, icons, tooltips, practice controls and selection are complete.",
+    "Aim geometry matches provisional local simulation values, not verified native indicators.",
+    "Lux minimap-targeting policy still requires native verification; local aimed casts require battlefield pointer.",
+    "Simulation format 49 and fingerprint unchanged."
+  ],
+  "sha256": {
+    "src/input/input.ts": "e6a5ff9aea451be82371e447421367aea1c55209c7c8ae1259a8a84c3865c7fc",
+    "src/input/spell-controls.ts": "9619c562dc2ca90e8e85cad69e0de80de981e012a06102e64373554e2bb2dd78",
+    "src/render/view.ts": "5e686274fc5ddfbbb57ab967d87041b2cc7de0b8acf7b1de61ddf2663b03786c",
+    "src/ui/hud.ts": "cf767251661c383be02e7a250f6e07e2b26d74f298262ceb4f1dab8830847a3a",
+    "e2e/lux-player-input.spec.ts": "87291c8a8bbff60376392df1267e2811b2c0d22fddb0bb47c41470033ec904d8",
+    "artifacts/lux-player-input-check.log": "02cb8d675257ec7b2e89a9836330b96b2d937f747486026f56a71903f3af1826",
+    "artifacts/lux-player-input-integration.log": "9e185880d00d70ec542073cca9619a26943d5348d0c494836efe03293f296578",
+    "artifacts/lux-player-input-final.log": "eb79bb69c290ab03a1699ed737fcb22de46ca1fbc78a30afad67db578e118328",
+    "artifacts/lux-player-input-production.log": "55dca55161084866ad9e3696fa3c49655de88ab8fbf0c6b8728c68d7fc7c7d33",
+    "artifacts/lux-player-binding-aim.png": "8bab9c92e220bdb46ed48ae22ba7fe0d23d2d1c013dd5a9783e41fe63ef4fc9d",
+    "artifacts/lux-player-singularity-aim.png": "573f9eb83ae9c06b5a7d4bb93718d33f78bbfb750b34fc35436c50b8728ec33a"
+  }
+}

@@ -1671,3 +1671,14 @@ node tools/qa/restore-match.mjs http://127.0.0.1:5173 artifacts/lane-match-termi
 ```
 
 The restore diagnostic requires a development server and a terminal lane-mode checkpoint from the same simulation build. No native client comparison or broader production completion is implied.
+
+
+## Champion-aware player input foundation
+
+The input path no longer assumes that every Q is Ashe's instant Focus or every W is Volley. Lux Q/W/E/R use hold-to-aim and release-to-cast through the existing command queue. Her active E switches to a point-free instant recast, including queued detonation during flight, using only her own undetonated zone. Heal remains instant and Ashe's existing control behavior remains intact. Lux aimed spells currently require a battlefield cursor; inheriting the global Ashe E/R minimap policy would be incorrect without separate verification.
+
+Lux Q/W/R draw straight corridor guides using the current simulation's range and width; E draws its current zone radius at the cursor position clamped to cast range. The guides reuse the existing dynamic geometry and sample terrain heights. They intentionally reflect current local geometry, whose native targeter relationships remain unresolved in the individual Lux source audits. These lines are not native effect assets or certified pixel matches.
+
+The development fixture exercises a human-controlled Lux via the diagnostic hook: Q remains unspent while held, Escape cancels it, release roots and marks the dummy; W shields the caster; R damages its target; E release creates the zone and another press detonates it without a second mana charge or cooldown reset. The binding and zone guide screenshots were inspected. The still-Ashe HUD visible in these diagnostic captures is an explicit remaining dependency: champion selection, Lux icons/tooltips/title/resources and practice controls must be completed before presenting this as a supported playable Lux mode.
+
+Validation: all 615 source/simulation checks passed. Nineteen existing Ashe tooltip, attack-move and minimap browser cases passed; the final four Lux input cases passed after correcting test timing around the first rendered guide and W's existing cast lock. Production smoke passed on the final input revision. Simulation schema 49 and its fingerprint remain unchanged. Evidence hashes: `docs/reference/lux-player-input-verification.json`.

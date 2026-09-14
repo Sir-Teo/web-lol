@@ -2,7 +2,7 @@ import type { Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 import type { Hud } from '../ui/hud';
-import { ABILITIES } from '../content/rules';
+import { instantSpell, minimapSpell } from './spell-controls';
 
 export class GameInput {
   pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -115,7 +115,8 @@ export class GameInput {
         canvas.classList.add('aiming');
       }
       if (key === 'b') world.enqueue({ type: 'recall', unit: world.player.id });
-      if (['q', 'f'].includes(key)) {
+      const spell = ['q', 'w', 'e', 'r', 'd', 'f'].includes(key) ? (key as Ability) : null;
+      if (spell && instantSpell(world, spell)) {
         const point =
           key === 'f' && document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
             ? (view.pick(world, this.pointer.x, this.pointer.y) ??
@@ -129,7 +130,7 @@ export class GameInput {
           point: { x: point.x, y: point.y },
         });
       }
-      if (['w', 'e', 'r', 'd'].includes(key)) {
+      if (spell && !instantSpell(world, spell)) {
         this.aiming = key as Ability;
         canvas.classList.add('aiming');
         view.setAim(this.aiming, this.castPoint(this.aiming));
@@ -161,7 +162,7 @@ export class GameInput {
   private castPoint(ability: Ability): { x: number; y: number } | null {
     const { x, y } = this.pointer;
     const minimap = this.hud.minimapPoint(x, y);
-    if (minimap) return ABILITIES[ability].minimapTargeting ? minimap : null;
+    if (minimap) return minimapSpell(this.world, ability) ? minimap : null;
     if (document.elementFromPoint(x, y) !== this.view.renderer.domElement) return null;
     return this.view.worldPoint(x, y);
   }

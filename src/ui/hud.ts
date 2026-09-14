@@ -1,3 +1,4 @@
+import { instantSpell } from '../input/spell-controls';
 import type { PreparedMatchImport } from '../storage/match-files';
 import { ScoreboardItemTooltip } from './scoreboard-item-tooltip';
 import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
@@ -142,7 +143,9 @@ export class Hud {
         ? `Cannot learn yet: ${reason}.`
         : `Press Ctrl+${ability.toUpperCase()} to learn.`;
     }
-    return ['q', 'f'].includes(ability) ? 'Press to cast' : 'Hold the key to aim. Release to cast.';
+    return instantSpell(this.world, ability)
+      ? 'Press to cast'
+      : 'Hold the key to aim. Release to cast.';
   }
   private updateShopPurchases(): void {
     this.root.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
@@ -302,7 +305,7 @@ export class Hud {
       });
       button.addEventListener('click', () => {
         if (this.paused || this.modal) return;
-        if (ability === 'q' || ability === 'f')
+        if (instantSpell(this.world, ability))
           this.world.enqueue({
             type: 'cast',
             unit: this.world.player.id,
