@@ -1323,6 +1323,7 @@ button {
   color: #d88a7e;
 }
 .scoreboard {
+  pointer-events: auto;
   position: absolute;
   top: 17%;
   left: 50%;
@@ -1656,4 +1657,18 @@ button {
   top: 0;
   height: 100%;
   background: linear-gradient(#f4f4ec, #c0c7cf);
+}
+
+.scoreboard-item-tooltip {
+  position: fixed;
+  z-index: 20;
+  width: 290px;
+}
+.scoreboard-item:focus-visible {
+  outline: 2px solid #c8aa6e;
+  outline-offset: 2px;
+}
+
+.hud .scoreboard-item-tooltip {
+  pointer-events: none;
 }

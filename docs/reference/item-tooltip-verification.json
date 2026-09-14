@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "f6f42ea603df44d6e269735144fd14a722470e24",
+  "change": "Catalog-backed scoreboard item tooltip; displayed enemy item knowledge only, viewport positioning, hover/focus ownership and stable focus across row replacement.",
+  "sourceSHA256": {
+    "src/ui/scoreboard-item-tooltip.ts": "47bbc617d5527e8d9bbd6e1ae105f166661e2bd060aece9d67f83ca03c8c156f",
+    "src/ui/hud.ts": "4107fbe03c9ad9516fd59e1e11ebce487bb4567dd826200d3a36693a7d8efe0f",
+    "src/style.css": "81dfd80efe3ff2617873b0622adc69b2a70465ecadf6d4899aa5efad5237be7c",
+    "e2e/scoreboard-item-tooltip.spec.ts": "f6ef0e72dbb77695da80bdfaf4d682636bb8528e1eaed59c88b0e41c3ad76c9f"
+  },
+  "validation": {
+    "checks": 603,
+    "checkLogSHA256": "ff8b964fdaa0285f7eaaeeabe9e4f07c8b072b0c9d089677494bf1892063a636",
+    "checkScope": "Before final presentation/focus repairs; final production build includes TypeScript.",
+    "browserScenarios": 10,
+    "browserLogSHA256": "2e8ff29a61e97c3aa22ea532ffb4ad892893f4213479732fa9b79cf45504cabf",
+    "productionPassed": true,
+    "productionLogSHA256": "d18ae16a048a937f675fd258e3c56be446730223daf262e3f695eb6d4c7129de",
+    "screenshotSHA256": "02e254a7a53342772926d9d56a4644f5a559b9afca439a1b277d6e54e7f324cf",
+    "visualInspection": "Lost Chapter catalog text and base price readable inside the laptop viewport.",
+    "initialFailures": [
+      "Scoreboard inherited pointer-events:none and battlefield intercepted hover.",
+      "Focused item disconnected during row rebuilding before tooltip could restore focus."
+    ],
+    "initialLogHashes": [
+      "745bddd83abfccb9a7ed5b5038dcc610f123068e0670bfcf8e6d38bb7f5dedbe",
+      "a5e977092ffd379bee362d243a2c801ef5c903bf8b4ed374c67f64b279879962"
+    ]
+  },
+  "limits": [
+    "Native tooltip styling and dynamic item-specific statistics are not certified.",
+    "No complete keyboard navigation mode for the held-Tab scoreboard is claimed.",
+    "Full production match, roster, source comparison and delivery remain unfinished."
+  ]
+}

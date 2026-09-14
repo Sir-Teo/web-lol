@@ -1,3 +1,4 @@
+import { ScoreboardItemTooltip } from './scoreboard-item-tooltip';
 import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
 import { ASHE_E } from '../content/ashe-e';
@@ -33,6 +34,7 @@ export class Hud {
   sound = true;
   private mini: HTMLCanvasElement;
   private tip: HTMLDivElement;
+  private itemTooltip: ScoreboardItemTooltip;
   private hoveredAbility: HTMLButtonElement | null = null;
   private focusedAbility: HTMLButtonElement | null = null;
   private floating: HTMLDivElement;
@@ -80,6 +82,7 @@ export class Hud {
     this.tip.setAttribute('role', 'tooltip');
     this.tip.hidden = true;
     this.root.append(this.tip);
+    this.itemTooltip = new ScoreboardItemTooltip(this.root);
     this.floating = document.createElement('div');
     this.floating.className = 'floating-layer';
     host.append(this.floating);
@@ -349,6 +352,7 @@ export class Hud {
       return;
     }
     this.modal = which;
+    this.itemTooltip.clear();
     this.hoveredAbility = null;
     this.focusedAbility = null;
     this.refreshTooltip();
@@ -549,7 +553,10 @@ export class Hud {
       this.root.append(panel);
     }
     panel.hidden = !show;
-    if (!show) return;
+    if (!show) {
+      this.itemTooltip.clear();
+      return;
+    }
     const rows = this.world.units
       .filter((u) => u.kind === 'champion')
       .sort((a, b) => Number(a.team === 'red') - Number(b.team === 'red') || a.id - b.id)
@@ -575,6 +582,7 @@ export class Hud {
     const signature = JSON.stringify(rows);
     if (signature === this.lastScoreboard) return;
     this.lastScoreboard = signature;
+    const focusedItem = this.itemTooltip.focusKey();
     panel.innerHTML =
       '<div class="scoreboard-title">PRACTICE MATCH</div><div class="scoreboard-teams"><section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section></div>';
     for (const data of rows) {
@@ -613,6 +621,10 @@ export class Hud {
           item?.name ??
           (data.inventory === null ? 'Inventory unknown' : `Empty item slot ${slot + 1}`);
         if (item) {
+          cell.removeAttribute('title');
+          cell.tabIndex = 0;
+          cell.dataset.scoreboardItem = item.id;
+          cell.dataset.itemKey = `${data.id}:${slot}`;
           const image = document.createElement('img');
           image.src = `assets/icons/${item.icon}.png`;
           image.alt = item.name;
@@ -625,6 +637,7 @@ export class Hud {
       }
       panel.querySelector(`[data-team="${data.team}"]`)!.append(row);
     }
+    this.itemTooltip.refresh(focusedItem);
   }
 
   update(fps: number): void {
