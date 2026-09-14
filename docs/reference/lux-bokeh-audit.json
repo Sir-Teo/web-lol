@@ -1,7 +1,7 @@
 {
   "emitter": "Bokeh",
   "source": "lux-beam-complete.json",
-  "status": "Source texture and deterministic sampler verified; not rendered. Active coverage remains 21 of 39.",
+  "status": "Rendered; active coverage is 22 of 39.",
   "resolvedFields": {
     "2431d42c": "particleLinger",
     "e09d5ebb": "isRandomStartFrame",
@@ -47,11 +47,17 @@
     }
   ],
   "remaining": [
-    "Implement camera-quad batch and atlas-aware material, then verify GPU cells, visibility, save reconstruction and retirement.",
     "Native PRNG, update cadence, attachment height and full composition remain unverified."
   ],
   "profile": "src/content/lux-bokeh.json",
   "profileSha256": "a5baec0fd0b1f7b689c02dd13450ea302e630755dda642f9f4b6894b123f1c8a",
   "sampler": "src/render/lux-bokeh-particles.ts",
-  "validation": "732 unit tests and TypeScript pass. Four bokeh tests verify source endpoints, independent stepped motion, uniform scale, stable four-cell selection and flicker knots. Extracted 128x128 texture visually reviewed and matches a 2x2 grid."
+  "validation": "732 unit tests and TypeScript pass. Browser checks verify all 270 vertices, camera alignment under two viewpoints, source cells/color/offsets, save reconstruction, visibility and victory retirement. GPU checks verify raw composition, all four base cells and cell-aligned red-channel erosion. Production subpath smoke passes.",
+  "renderer": "src/render/lux-bokeh.ts",
+  "rendererDetails": {
+    "geometry": "Camera right/up basis with negative source X spin; one batch per fired beam, independent color, multiplier phase and atlas offset per particle.",
+    "sampling": "Wrap base UV inside the authored 2x2 cell before applying its offset; erosion reads the unwrapped base texture coordinate including cell offset. Multiplier uses its own full-texture divisions and source scale/scroll.",
+    "lifecycle": "Uses fired-beam age and terminal presentation age; filters enemy particle centers by visibility and releases empty/expired batches. All particles expire within existing 1.3-second beam retention.",
+    "material": "Raw source textures, linear filtering without mipmaps, source-alpha additive blend in RGB and alpha, pass 9, depth test disabled."
+  }
 }

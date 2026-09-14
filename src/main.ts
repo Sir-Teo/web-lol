@@ -14,6 +14,7 @@ import { loadInterfaceFonts } from './ui/fonts';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
 import { loadLuxChargeRayTextures } from './render/lux-charge-rays';
+import { loadLuxBokehTextures } from './render/lux-bokeh';
 import { loadLuxRStreakTextures } from './render/lux-r-streaks';
 import { loadLuxBeamTextures } from './render/lux-beams';
 import { loadReferenceModels } from './render/models';
@@ -116,6 +117,7 @@ async function boot(): Promise<void> {
     loadReferenceModels(),
     loadLuxBeamTextures(),
     loadLuxRStreakTextures(),
+    loadLuxBokehTextures(),
     loadLuxChargeRayTextures(),
     loadLuxAttackTextures(),
     loadLuxImpactTextures(),
