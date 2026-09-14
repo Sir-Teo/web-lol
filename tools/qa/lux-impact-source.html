@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lux impact source audit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        background: #0d1c25;
+        color: #dce5e8;
+        font: 14px system-ui;
+      }
+      main {
+        max-width: 1280px;
+        margin: auto;
+        padding: 28px;
+      }
+      h1 {
+        font-size: 25px;
+        margin: 0 0 8px;
+      }
+      p {
+        color: #a8c0c9;
+        line-height: 1.5;
+      }
+      h2 {
+        font-size: 18px;
+        color: #ebd59e;
+        margin: 24px 0 12px;
+      }
+      .variants {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #132a36;
+      }
+      th,
+      td {
+        padding: 9px 12px;
+        text-align: left;
+        border-bottom: 1px solid #29414b;
+      }
+      th {
+        color: #b3cdd5;
+      }
+      tr[data-disabled='true'] {
+        color: #7e9199;
+      }
+      #textures {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+      figure {
+        margin: 0;
+        padding: 12px;
+        background: #172e39;
+        border: 1px solid #39515c;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: 125px;
+        object-fit: contain;
+        background: repeating-conic-gradient(#31434c 0% 25%, #243740 0% 50%) 0/16px 16px;
+      }
+      figcaption {
+        margin-top: 9px;
+        overflow-wrap: anywhere;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      #status {
+        padding: 12px;
+        border: 1px solid #53707b;
+        color: #cce0e5;
+      }
+      small {
+        color: #9bb5c0;
+      }
+      @media (max-width: 800px) {
+        .variants {
+          grid-template-columns: 1fr;
+        }
+        #textures {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Lux · normal and critical impact sources</h1>
+      <p>
+        Source definitions and lossless texture inspection. Disabled layers remain listed for audit.
+        These images are individual inputs, not a composed native hit effect.
+      </p>
+      <div id="status">Loading…</div>
+      <div class="variants" id="variants"></div>
+      <h2>Texture inputs</h2>
+      <div id="textures"></div>
+    </main>
+    <script type="module">
+      const pin = await fetch('/docs/reference/lux-attack-impact.json').then((r) => r.json());
+      const audit = await fetch('/docs/reference/lux-attack-impact-audit.json').then((r) =>
+        r.json()
+      );
+      for (const [key, emitters] of Object.entries(audit.variants)) {
+        const section = document.createElement('section'),
+          heading = document.createElement('h2');
+        heading.textContent = key.endsWith('_crit')
+          ? 'Critical hit · 5 active layers'
+          : 'Normal hit · 3 active layers';
+        section.append(heading);
+        const table = document.createElement('table');
+        table.innerHTML =
+          '<thead><tr><th>Emitter</th><th>State</th><th>Life (s)</th></tr></thead><tbody></tbody>';
+        for (const e of emitters) {
+          const tr = document.createElement('tr');
+          tr.dataset.disabled = String(e.disabled);
+          for (const text of [
+            e.name,
+            e.disabled ? 'Disabled' : 'Active',
+            Number(e.particleLife.toFixed(3)),
+          ]) {
+            const td = document.createElement('td');
+            td.textContent = String(text);
+            tr.append(td);
+          }
+          table.querySelector('tbody').append(tr);
+        }
+        section.append(table);
+        document.querySelector('#variants').append(section);
+      }
+      for (const texture of pin.textures) {
+        const figure = document.createElement('figure'),
+          img = document.createElement('img'),
+          caption = document.createElement('figcaption');
+        img.src = '/' + texture.output.replace(/^public\//, '');
+        img.alt = texture.path.split('/').at(-1);
+        await img.decode();
+        caption.textContent = `${img.alt} · ${texture.width} × ${texture.height} · ${texture.bytes.toLocaleString()} bytes`;
+        figure.append(img, caption);
+        document.querySelector('#textures').append(figure);
+      }
+      document.querySelector('#status').textContent =
+        `${audit.textureCount} verified textures · ${audit.textureBytes.toLocaleString()} bytes · 3 identical shared emitters · 2 additional critical emitters`;
+      window.__LUX_IMPACT_SOURCE__ = {
+        ready: true,
+        textures: pin.textures.length,
+        active: Object.values(audit.variants).map((list) => list.filter((e) => !e.disabled).length),
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,317 @@
+{
+  "sourcePinSha256": "bbb271c4495e87f83b0e8e0703158d4525ce0f6ff666d04a1db52bb26639d5ee",
+  "schema": {
+    "revision": "76bf57bf4fd195343dec610bf0f912a06b910914",
+    "path": ".tools/league-toolkit/src/LeagueToolkit.Meta.Classes/Classes.cs",
+    "sha256": "7019bed2520e3749762e2cc0d53e8e7612687f5619e30a56668085d03a1ff77a"
+  },
+  "resolvedFields": {
+    "33f36f05": "disabled",
+    "76f8ad24": "startFrame",
+    "6563bee8": "miscRenderFlags",
+    "8aa1ffc1": "paletteDefinition",
+    "7ad984a5": "directionVelocityScale",
+    "ebd44083": "directionVelocityMinScale",
+    "4ffce322": "FlexShapeDefinition"
+  },
+  "variants": {
+    "Lux_Base_BA_tar": [
+      {
+        "name": "blastring",
+        "disabled": false,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.30000001192092896,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Particles/starfilter.tex",
+        "colorLookup": null,
+        "palette": null,
+        "startFrame": 0,
+        "texDiv": [
+          1,
+          1
+        ],
+        "numFrames": 1,
+        "blendMode": 0
+      },
+      {
+        "name": "star",
+        "disabled": true,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.20000000298023224,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
+        "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__star__p-rgba.tex",
+        "palette": null,
+        "startFrame": 1,
+        "texDiv": [
+          2.0,
+          3.0
+        ],
+        "numFrames": 6,
+        "blendMode": 0
+      },
+      {
+        "name": "star2",
+        "disabled": true,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.20000000298023224,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
+        "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__star2__p-rgba.tex",
+        "palette": null,
+        "startFrame": 1,
+        "texDiv": [
+          2.0,
+          3.0
+        ],
+        "numFrames": 6,
+        "blendMode": 0
+      },
+      {
+        "name": "outerring",
+        "disabled": true,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.25,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
+        "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__outerring__p-rgba.tex",
+        "palette": null,
+        "startFrame": 4,
+        "texDiv": [
+          2.0,
+          3.0
+        ],
+        "numFrames": 6,
+        "blendMode": 0
+      },
+      {
+        "name": "innerring",
+        "disabled": true,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.20000000298023224,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
+        "colorLookup": "ASSETS/Shared/Particles/globalhit_blue_tar__innerring__p-rgba.tex",
+        "palette": null,
+        "startFrame": 3,
+        "texDiv": [
+          2.0,
+          3.0
+        ],
+        "numFrames": 6,
+        "blendMode": 0
+      },
+      {
+        "name": "innerring1",
+        "disabled": true,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.4000000059604645,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_StarFilter_01.tex",
+        "colorLookup": null,
+        "palette": null,
+        "startFrame": 0,
+        "texDiv": [
+          1,
+          1
+        ],
+        "numFrames": 1,
+        "blendMode": 0
+      },
+      {
+        "name": "outerring1",
+        "disabled": false,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.25,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
+        "colorLookup": "ASSETS/Shared/Particles/color-rainbowbell.tex",
+        "palette": null,
+        "startFrame": 4,
+        "texDiv": [
+          2.0,
+          3.0
+        ],
+        "numFrames": 6,
+        "blendMode": 0
+      },
+      {
+        "name": "sparks",
+        "disabled": false,
+        "single": true,
+        "rate": 5.0,
+        "particleLife": 0.4000000059604645,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_spark.tex",
+        "colorLookup": null,
+        "palette": {
+          "{ffa711fb}": "ASSETS/Characters/Lux/Skins/Base/Particles/Flame_trail_gradient.tex",
+          "{143f06d1}": {
+            "constantValue": [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueColor"
+          },
+          "{8bd46035}": {
+            "constantValue": [
+              9.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "{9e52382f}": 10,
+          "__type": "{a8ad8317}"
+        },
+        "startFrame": 0,
+        "texDiv": [
+          1,
+          1
+        ],
+        "numFrames": 1,
+        "blendMode": 0
+      }
+    ],
+    "Lux_Base_BA_tar_crit": [
+      {
+        "name": "flash",
+        "disabled": false,
+        "single": true,
+        "rate": 1.0,
+        "particleLife": 0.10000000149011612,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/HitEffect.tex",
+        "colorLookup": "ASSETS/Shared/Particles/color-firefade.tex",
+        "palette": null,
+        "startFrame": 0,
+        "texDiv": [
+          1,
+          1
+        ],
+        "numFrames": 1,
+        "blendMode": 4
+      },
+      {
+        "name": "ring",
+        "disabled": false,
+        "single": true,
+        "rate": 1.0,
+        "particleLife": 0.5,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/blast_nova_bunny_04.tex",
+        "colorLookup": "ASSETS/Particles/color-rampdown.tex",
+        "palette": null,
+        "startFrame": 0,
+        "texDiv": [
+          1,
+          1
+        ],
+        "numFrames": 1,
+        "blendMode": 0
+      },
+      {
+        "name": "blastring",
+        "disabled": false,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.30000001192092896,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Particles/starfilter.tex",
+        "colorLookup": null,
+        "palette": null,
+        "startFrame": 0,
+        "texDiv": [
+          1,
+          1
+        ],
+        "numFrames": 1,
+        "blendMode": 0
+      },
+      {
+        "name": "outerring",
+        "disabled": false,
+        "single": false,
+        "rate": 1.0,
+        "particleLife": 0.25,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Shared/Particles/GlobalTargetHit01.tex",
+        "colorLookup": "ASSETS/Shared/Particles/color-rainbowbell.tex",
+        "palette": null,
+        "startFrame": 4,
+        "texDiv": [
+          2.0,
+          3.0
+        ],
+        "numFrames": 6,
+        "blendMode": 0
+      },
+      {
+        "name": "sparks",
+        "disabled": false,
+        "single": true,
+        "rate": 5.0,
+        "particleLife": 0.4000000059604645,
+        "emitterLife": 1.0,
+        "texture": "ASSETS/Characters/Lux/Skins/Base/Particles/Lux_Base_R_spark.tex",
+        "colorLookup": null,
+        "palette": {
+          "{ffa711fb}": "ASSETS/Characters/Lux/Skins/Base/Particles/Flame_trail_gradient.tex",
+          "{143f06d1}": {
+            "constantValue": [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueColor"
+          },
+          "{8bd46035}": {
+            "constantValue": [
+              9.0,
+              0.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "{9e52382f}": 10,
+          "__type": "{a8ad8317}"
+        },
+        "startFrame": 0,
+        "texDiv": [
+          1,
+          1
+        ],
+        "numFrames": 1,
+        "blendMode": 0
+      }
+    ]
+  },
+  "identicalCriticalEmitters": {
+    "blastring": [
+      "blastring"
+    ],
+    "outerring": [
+      "outerring1"
+    ],
+    "sparks": [
+      "sparks"
+    ]
+  },
+  "textureCount": 14,
+  "textureBytes": 279435,
+  "limitations": [
+    "Source metadata only; exact native material variants remain unverified",
+    "Palette definition is preserved, not substituted with color multiplication",
+    "Target bone attachment, target-follow binding and impact playback are not integrated"
+  ]
+}
