@@ -21,3 +21,26 @@ Snapshot 38 requires a mark list on every unit and validates distinct enemy Lux 
 All 533 source/simulation checks pass. Seven new cases cover level 1/18 mixed damage and repeat attacks, Q refresh, exact saved continuation, expiry on the impact tick, owner isolation/caster death/target respawn, and malformed snapshots. Three focused Chrome cases cover binding, the Lux rig/cast/recall and Q → mark readout → attack consumption. Production build and nested-path smoke pass.
 
 The native mark/trigger particles, passive attack animation selection and any special attack projectile behavior are unfinished. The child spell's older-looking missile metadata is retained without replacing the independently pinned basic attack. Impact-time AP sampling, component ordering, duplicate-Lux ownership and native visual timing remain comparison targets. R now consumes and refreshes marks (`LUX-R.md`); E application, spell shields, cleanse and other unimplemented systems still need integration; this milestone does not complete Lux's kit. No full browser, full-match or performance rerun was performed.
+
+## Native mark asset extraction
+
+The complete base mark definition and original textures are now pinned in [lux-illumination-vfx.json](reference/lux-illumination-vfx.json). The Skin0 resource alias `Lux_P_debuff` points to `Characters/Lux/Skins/Skin0/Particles/Lux_Base_P_debuff`, inside `lux_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin4_skins_skin5.bin`. The selective extractor verifies the original six source files against the frozen release manifest, re-parses the binary and requires exact equality with the complete recorded definition. This is the persistent mark, not the separate `Lux_P_tar` trigger burst.
+
+| Emitter | Authored behavior retained in the record |
+|---|---|
+| `luxdebuff1` | One six-second starburst; half-size 60; X rotation velocity −10 degrees/second; pass 1; full target binding; `color-eyefade` lookup. |
+| `luxdebuff2` | Same lifetime/size/lookup; initial X rotation 20 degrees and velocity +10 degrees/second. |
+| `rays` | `VfxPrimitiveRay`; rate 10, six-second emitter lifetime, particle lifetimes sampled from 0.5–1 second; random rotation/scale, alpha and size curves. |
+| `smallball` | Rate 1, six-second emitter lifetime, 0.4-second particles; pass 3, blend mode 4, color curves and scrolling rainbow multiplier. |
+
+The small glow's hashed filtering record resolves to `VfxEmitterFiltering.keywordsExcluded = ["SteelLegionLux"]`; it is an exclusion, not an instruction to render this layer only on that skin. The exporter verifies those field/type hashes directly. The ray type hash is also verified against `VfxPrimitiveRay`. Raw fields and all probability curves remain in the audit; the extract does not flatten them into guessed playback defaults.
+
+Five texture payloads are exported with exact decoded RGBA verification, including alpha: 512×512 `starburst-spectral`, 64×64 `color-eyefade`, 256×256 `Lux_Base_P_RainbowRay`, 256×256 `Diana_Base_R_Glow`, and the existing 64×4 rainbow multiplier shared with Final Spark. Four new PNGs are checked in; the multiplier reuses `lux-r-4.png`. The starburst texture was visually inspected.
+
+Reproduce and verify:
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-lux-illumination-vfx.py
+```
+
+This milestone prepares the complete source asset set; **the mark particles are not yet rendered in gameplay**. Native attachment origin/bone, lookup coordinates, default blend/sampler behavior, the ray primitive basis, emission cadence and refresh/restart policy require explicit treatment. Current simulation records only owner and expiry; reconstructing a particle age from expiry would restart it on refresh, which must be labeled and checked rather than silently treated as native behavior. The eventual renderer must respect visibility, expiry, target death and passive consumption without granting sight. Source/texture re-extraction and exact equality pass; runtime suites were not repeated for this asset-only addition.
