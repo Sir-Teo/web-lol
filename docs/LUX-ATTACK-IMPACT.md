@@ -27,3 +27,15 @@ npx playwright test e2e/lux-impact-source.spec.ts
 ```
 
 This package does not change gameplay impact rendering. Next work must compose the three shared active emitters and two critical additions, verify atlas-frame and palette behavior, and connect them to saved impact state and target-bone attachment. Target-follow binding, native height/orientation, material variants and timing remain unverified. The current generic hit feedback is not presented as a native Lux impact.
+
+## Static atlas inspection
+
+The atlas inspector now isolates any of the six `GlobalTargetHit01` cells, initially frame 4. Both active outer-ring records explicitly author `texDiv=[2,3]`, `numFrames=6` and `startFrame=4`. The row-major, top-down convention follows the [pinned LeagueToolkit UV reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/uvTransform.ts) and its [source-coordinate discussion](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/docs/plans/vfx-particle-renderer.md#213-the-palette-and-erosion-readings-and-what-a-review-found). This is reconstruction evidence, not a captured native frame comparison.
+
+`particleAtlasUv` maps local top-down coordinates directly into geometry UVs; source textures use `flipY=false`. This avoids relying on `Texture.offset/repeat`, which the initial-color-product custom shader does not apply. The helper only selects a static cell, with explicit invalid-input rejection. Animation rate, random phase, wrapping inside a cell, scrolling, rotation and native filtering remain separate work. UV boundaries use exact normalized thirds: the 512-pixel atlas height is not divisible by three, so rounded image crops would change the authored sampling region.
+
+The browser test pins both active emitters' atlas fields and checks every RGBA byte of all six cells of an asymmetric synthetic texture through the actual particle shader. Its CPU reference crops texture rows directly and accounts for bottom-up WebGL readback; a zero-alpha colored texel checks preservation of hidden RGB. The source frame-4 screenshot was also visually reviewed. The preview uses nearest filtering and displays the raw cell's aspect ratio, not the final particle's world-space dimensions or framebuffer blend. Gameplay remains unchanged.
+
+```sh
+npx playwright test e2e/particle-atlas.spec.ts e2e/lux-impact-source.spec.ts
+```

@@ -102,9 +102,32 @@
       </p>
       <div id="status">Loading…</div>
       <div class="variants" id="variants"></div>
+      <h2>Target-hit atlas · active outer ring</h2>
+      <p>
+        The active normal and critical outer rings select start frame 4 in a 2 × 3 atlas. This view
+        isolates source RGBA with nearest sampling; it does not compose the hit effect. Cell
+        boundaries divide the 512-pixel height into thirds without rounding.
+      </p>
+      <label
+        >Atlas frame
+        <select id="atlas-frame">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4" selected>4 · active outer ring</option>
+          <option value="5">5</option>
+        </select></label
+      >
+      <p id="atlas-status"></p>
+      <canvas
+        id="atlas-cell"
+        style="display: block; width: 256px; height: 340px; max-width: 100%; background: black"
+      ></canvas>
       <h2>Texture inputs</h2>
       <div id="textures"></div>
     </main>
+    <script type="module" src="./lux-impact-atlas.ts"></script>
     <script type="module">
       const pin = await fetch('/docs/reference/lux-attack-impact.json').then((r) => r.json());
       const audit = await fetch('/docs/reference/lux-attack-impact-audit.json').then((r) =>
