@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-09-14T05:00:30.912955+00:00",
+  "baseRevision": "ad00c6f9c47695b57d13b6beb10b04b4cc2dcfcd",
+  "scope": "Local stationary hoop emitter; no gameplay integration",
+  "validation": {
+    "checks": 627,
+    "testFiles": 128,
+    "browserCases": 3,
+    "retainedGpuColorSamples": 36,
+    "build": "passed",
+    "cloudDrawCalls": 1,
+    "sceneDrawCalls": 2,
+    "visualReview": "1440x900 local cloud inspected",
+    "seededReplay": "exact state after backward seeks and changed/restored seed",
+    "retirement": "empty after explicit emission stop and all sampled lives expire",
+    "moteAlphaRange": [
+      255,
+      255
+    ]
+  },
+  "policiesNotNativeClaims": [
+    "60 Hz grid and first emission on tick one",
+    "Indexed hash random sequence",
+    "Billboard half-extent and orientation",
+    "ADD reconstruction and source sampler state",
+    "Explicit stop without source linger modes"
+  ],
+  "sha256": {
+    "src/render/lux-hoop-particles.ts": "66cc3e5d819d257293ac458045be2e90b39d649d72362e670ee4d39c6090e96a",
+    "src/render/lux-hoop-cloud.ts": "dedfaa990c08db05696455b0843a85c19e4bc954c668d7e71fdd4519fde71643",
+    "src/render/particle-color-product.ts": "ad04d1b85670094f717970e3e5cc67851374c090d5bf770c81973515c5c62a13",
+    "tests/lux-hoop-particles.test.ts": "988d15d30392b05a85b2532014ec2d1eb08e01fca8f50addadeffe79528c6108",
+    "e2e/lux-hoop-playback.spec.ts": "4b07a39a9ddd1197c129a45d7587a925fbaeb00e3e97f4ca9860b34badffa098",
+    "tools/qa/lux-hoop-playback.html": "487598471801697d1b03f0cf3dc783de696437933456cbc0872efb0df3c4d4d9",
+    "tools/qa/lux-hoop-playback.ts": "092690ee825d4b2e95ebbede3b2a2f288344c7f325d984ceda30650241ebf79f",
+    "artifacts/lux-hoop-emission-check.log": "37d54a1cf5724bee9c43a04ca7ada055915592608d1d390a90ea64d10118aaa1",
+    "artifacts/lux-hoop-emission-browser.log": "eab8cd972f38abf40bc528b74af47c6cae2e547d55c9a7bd2af11c5be1b50f1c",
+    "artifacts/lux-hoop-emission-build.log": "7b53877b4cf8102a727964abc51c5e9cc3682f75f13e508af8f5b2ff976f343b",
+    "artifacts/lux-hoop-cloud.png": "a2b9d0a6f1df28e08bbafcbbb7cd9e4a6a03d1bc2ccdd5dff4b667e6c496369a"
+  }
+}

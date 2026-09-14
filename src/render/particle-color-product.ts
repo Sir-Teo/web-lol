@@ -40,7 +40,11 @@ export function createParticleColorProductMaterial(
         #else
           colorUv = lookupUv;
         #endif
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        vec4 localPosition = vec4(position, 1.0);
+        #ifdef USE_INSTANCING
+          localPosition = instanceMatrix * localPosition;
+        #endif
+        gl_Position = projectionMatrix * modelViewMatrix * localPosition;
       }
     `,
     fragmentShader: `

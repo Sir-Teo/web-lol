@@ -1733,3 +1733,9 @@ Added the trail source/multiplier pair and explicit raw-RGB versus alpha-composi
 Pinned a more detailed particle-renderer reconstruction reference and implemented the four lookup-axis modes without the approximate velocity divisor found in another viewer. A source-checked hoop profile now drives lookup, birth color and relative scale in a seekable, slowed lifetime inspector. Switching emitters or returning to manual mode restores the appropriate controls and appearance.
 
 Validation: 622 source/simulation tests across 127 files, two focused browser cases (including all 36 existing GPU color samples), production build, and visual review of the lifetime inspector. External reconstruction evidence and the absence of a native-client capture remain explicit. Particle emission/motion and gameplay integration are unfinished. See [PARTICLE-PLAYBACK.md](PARTICLE-PLAYBACK.md).
+
+## Deterministic emitted hoop cloud
+
+Implemented the hoop's correlated birth distributions, fixed-grid emission, per-axis drag, radian orbital displacement and source-driven lifetime appearance. The live window reconstructs directly from seed/time/stop inputs, preserving exact state across arbitrary seeks without accumulating renderer history. A pooled instanced renderer now displays the moving cloud in a local 3D inspection scene, and particles retire after emission stops.
+
+Validation: 627 tests across 128 files, three focused browser cases (including all 36 shader GPU samples), production build and a reviewed 1440×900 screenshot. The cloud adds one draw call above the reference grid; seeded seek/restore, playback, restart, retirement and geometry-count stability pass. Native RNG/update rate, orientation/extent and final blend appearance remain unverified. Missile attachment, the crescent/trail emitters and gameplay integration remain next. See [PARTICLE-PLAYBACK.md](PARTICLE-PLAYBACK.md).
