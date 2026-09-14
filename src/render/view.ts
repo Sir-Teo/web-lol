@@ -1,3 +1,4 @@
+import { LuxImpacts } from './lux-impacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { luxAttackAnimation } from '../content/lux-attack-animation';
 import { LuxAttackTrails } from './lux-attack-trails';
@@ -52,6 +53,7 @@ export class GameView {
   luxAttackCrescents = new LuxAttackCrescents(this.scene, (p) => this.ground(p));
   luxAttackTrails = new LuxAttackTrails(this.scene, (p) => this.ground(p));
   luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));
+  luxImpacts = new LuxImpacts(this.scene, (p) => this.ground(p));
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -656,6 +658,7 @@ export class GameView {
     this.luxAttackHoops.update(world, alpha, this.camera);
     this.luxAttackTrails.update(world, alpha);
     this.luxAttackCrescents.update(world, alpha);
+    this.luxImpacts.update(world, alpha, this.camera);
     this.luxSingularities.update(world, alpha);
     this.wind.update(world);
     this.dust.update(world, this.camera);

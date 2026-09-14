@@ -1,3 +1,4 @@
+import { loadLuxImpactTextures } from './render/lux-impacts';
 import { loadLuxCrescentAssets } from './render/lux-attack-crescents';
 import { loadLuxTrailTextures } from './render/lux-attack-trails';
 import { loadLuxAttackTextures } from './render/lux-attack-hoops';
@@ -113,6 +114,7 @@ async function boot(): Promise<void> {
     loadReferenceModels(),
     loadLuxBeamTextures(),
     loadLuxAttackTextures(),
+    loadLuxImpactTextures(),
     loadLuxTrailTextures(),
     loadLuxCrescentAssets(),
     loadHawkshot(),

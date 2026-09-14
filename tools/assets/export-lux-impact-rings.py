@@ -22,7 +22,7 @@ for e in critical:
     lookup_scale = e.get('{f02bd44d}', [1,.5])
     lookup_offset = e.get('{cd5a323e}', [0,0])
     profiles.append(dict(name=e['emitterName'], criticalOnly=e['emitterName'] in ['flash','ring'],
-        life=e['particleLifetime']['constantValue'], blend=e.get('blendMode',0),
+        life=e['particleLifetime']['constantValue'], blend=e.get('blendMode',0), bind=e.get('bindWeight',{'constantValue':0})['constantValue'],
         source=textures[e['texture'].lower()], lookup=textures.get(e.get('particleColorTexture','').lower()),
         scale=e['birthScale0']['constantValue'][0], scaleTimes=scale['times'], scales=[v[0] for v in scale['values']],
         colorTimes=color['times'], colors=color['values'], rotation=rotation['constantValue'][0], randomRotation=bool(chance),

@@ -85,6 +85,18 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
       const g = (window as any).__GAME__;
       g.view.render(g.world, 1, 0);
       return {
+        impacts: [...g.view.luxImpacts.clouds.values()].map((c: any) => ({
+          rings: c.rings.map((r: any) => ({
+            visible: r.mesh.visible,
+            position: r.mesh.position.toArray(),
+            quaternion: r.mesh.quaternion.toArray(),
+            scale: r.mesh.scale.toArray(),
+            color: r.mesh.material.uniforms.particleColor.value.toArray(),
+          })),
+          count: c.sparks.mesh.count,
+          matrices: [...c.sparks.mesh.instanceMatrix.array],
+          tint: [...c.sparks.mesh.geometry.attributes.particleTint.array],
+        })),
         hoops: [...g.view.luxAttackHoops.clouds.values()].map((cloud: any) => ({
           count: cloud.mesh.count,
           matrices: [...cloud.mesh.instanceMatrix.array].slice(0, cloud.mesh.count * 16),
@@ -105,6 +117,9 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
       };
     });
   const tail = await matrices();
+  expect(tail.impacts).toHaveLength(1);
+  expect(tail.impacts[0].rings.filter((r: any) => r.visible)).toHaveLength(2);
+  expect(tail.impacts[0].count).toBeGreaterThan(0);
   expect(tail.hoops[0].count).toBeGreaterThan(0);
   expect(tail.ribbons[0].count).toBeGreaterThan(0);
   expect(tail.crescents[0].count).toBeGreaterThan(0);
@@ -157,6 +172,6 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
   });
   expect(end.before).toBe(impact.after);
   expect(end.count).toBe(0);
-  expect(await matrices()).toEqual({ hoops: [], ribbons: [], crescents: [] });
+  expect(await matrices()).toEqual({ hoops: [], ribbons: [], crescents: [], impacts: [] });
   expect(errors).toEqual([]);
 });

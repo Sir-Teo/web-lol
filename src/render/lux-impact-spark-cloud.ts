@@ -38,6 +38,10 @@ export class LuxImpactSparkCloud {
   }
   draw(seed: number, age: number, camera: THREE.Camera) {
     const particles = luxImpactSparks(seed, age);
+    return this.drawParticles(particles, camera);
+  }
+  drawParticles(particles: ReturnType<typeof luxImpactSparks>, camera: THREE.Camera) {
+    if (particles.length > 5) throw new RangeError('Lux spark capacity exceeded');
     camera.getWorldQuaternion(this.cameraRotation);
     this.inverseCameraRotation.copy(this.cameraRotation).invert();
     particles.forEach((p, i) => {
