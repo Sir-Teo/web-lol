@@ -764,6 +764,36 @@ export class World {
     if (threatened)
       this.enqueue({ type: 'cast', unit: u.id, ability: 'f', point: { x: u.x, y: u.y } });
   }
+  private incomingAttacksClaimMinion(u: Unit, target: Unit): boolean {
+    if (!isLaneMinionKind(target.kind) || !this.visible(target, u.team)) return false;
+    // Stationary-target estimate, using only already launched allied basic attacks.
+    const windup = Math.round(u.windupTicks / this.attackSpeedMultiplier(u, target));
+    const flight = u.missileSpeed
+      ? Math.ceil(Math.max(0, distance(u, target) - target.radius - 8) / (u.missileSpeed * DT))
+      : 0;
+    const arrival = Math.max(0, u.nextAttackTick - this.tick) + windup + flight;
+    let damage = 0;
+    for (const p of this.projectiles) {
+      if (p.type !== 'attack' || p.team !== u.team || p.target !== target.id || p.speed <= 0)
+        continue;
+      const source = this.unit(p.source);
+      if (!source || (!isLaneMinionKind(source.kind) && source.kind !== 'turret')) continue;
+      if (!this.projectileVisible(p, u.team)) continue;
+      const travel = Math.max(0, distance(p, target) - target.radius - p.radius);
+      if (travel > p.remaining || Math.ceil(travel / (p.speed * DT)) >= arrival) continue;
+      const ratio =
+        source.kind === 'turret' && source.structure
+          ? this.battlefield.turretMinionHealthDamage?.[target.kind]?.[source.structure.role]
+          : undefined;
+      // Ignore bonus current-health damage, expiring shields and unlaunched attacks.
+      // Underestimating allied damage avoids unnecessarily abandoning a possible last hit.
+      damage += damageAfterResistance(
+        ratio === undefined ? p.damage : target.maxHp * ratio,
+        target.armor
+      );
+    }
+    return damage >= target.hp + this.shieldAmount(target);
+  }
   private lastHitTarget(u: Unit): Unit | undefined {
     if (this.tick < u.nextAttackTick) return;
     const state = this.championState(u.id)!;
@@ -778,7 +808,8 @@ export class World {
       if (
         d > u.range ||
         target.hp + this.shieldAmount(target) > damageAfterResistance(raw, target.armor) ||
-        !this.safeAttackPosition(u, target)
+        !this.safeAttackPosition(u, target) ||
+        this.incomingAttacksClaimMinion(u, target)
       )
         continue;
       // Preserve valuable last hits; equal-value choices prefer shorter flight.
@@ -1204,7 +1235,8 @@ export class World {
     }
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planLuxCombat(u, false)) return;
-    const safeTarget = (target: Unit) => this.safeAttackPosition(u, target);
+    const safeTarget = (target: Unit) =>
+      this.safeAttackPosition(u, target) && !this.incomingAttacksClaimMinion(u, target);
     const nearest = this.nearest(u, 1150, false, safeTarget);
     const closeThreat = this.nearest(u, 380, true, safeTarget);
     // An immediate champion threat keeps priority over farming.

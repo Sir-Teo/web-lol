@@ -62,7 +62,7 @@ A visible champion within the existing 380-unit close-threat threshold takes pri
 
 Five simulation scenarios cover both teams securing the farther last hit with exact checkpoint continuation, armor/visibility/range exclusions, high-value minion selection without interrupting a committed attack, close-threat priority, and conservative Q estimates. A browser scenario verifies target choice, delivered kill, CS/gold gain and the nearer minion retaining full HP.
 
-This is a local farming heuristic, not a native bot implementation. Minion HP at impact, allied pending damage, deliberate waiting to freeze a wave, tower safety, lane assignments, and role-specific farm sharing still require tactical policies. In particular, a currently lethal target may die to another unit during windup or projectile travel; the bot does not yet forecast that race.
+This is a local farming heuristic, not a native bot implementation. Broader minion HP prediction, deliberate wave freezing and role-specific farm sharing still require tactical policies. Launched allied minion/turret attacks now participate in the conservative forecast below; future attacks and champion-spell damage remain unpredicted.
 
 ## Safe retreat recalls
 
@@ -141,3 +141,16 @@ On an AI decision tick, a champion below the existing 22% retreat threshold, out
 Defensive decisions now occur before pending-cast and stun handling, allowing Heal while disabled or casting as the shared spell rules permit. The 18-tick AI deadline advances even while stunned or winding up. Offensive/movement decisions still wait until those states permit them. Commands execute next tick and retain ordinary validation.
 
 Four simulation scenarios cover defensive activation/haste with exact checkpoint continuation, stunned decisions without movement, Heal during Volley windup, and exclusion conditions. A Chrome case observes the bot's actual cast, health gain, haste deadline and independent cooldown while its stunned position remains unchanged. Broader Flash/E/R tactics, threat damage estimation, coordinated healing and incoming-projectile anticipation remain outstanding.
+
+
+## Avoiding minions already claimed by allied missiles
+
+Before choosing a lane-minion target, a bot estimates its own next basic-attack arrival from remaining recovery, current windup/attack-speed multiplier, missile speed and collision distance. It compares that with already launched allied basic-attack missiles targeting the same visible minion. Only missiles from minions and turrets are considered, and only if they have enough remaining travel and are estimated to arrive strictly earlier. The comparison assumes the target stays at its current position.
+
+Incoming physical damage uses the minion's visible armor and current shield total. Authored turret/minion max-health ratios override captured turret AD, matching the current damage path. Positive minion current-health bonuses and expiring shields are omitted, reducing the chance of abandoning a still-available last hit. Unlaunched attacks, champion on-hit effects, spells, target movement and future healing/shields are not forecast. This is an authored bot heuristic, not a native AI constant or a guaranteed impact prediction.
+
+If this conservative damage sum already covers the minion's HP and shields, both last-hit selection and fallback pursuit exclude it. A safe alternative can be selected; with only a claimed minion nearby the bot holds, then resumes travel after the minion dies. A committed valid windup still has priority and is not canceled by this estimate. Hidden enemies never become prediction candidates.
+
+Five additional simulation cases cover both teams obtaining the alternate last hit with exact saved continuation, nonlethal/slow/exhausted missiles, fallback selection and holding/resuming when no alternative exists. Disabling the forecast in an otherwise identical controlled snapshot makes the bots choose the higher-value claimed target, confirming that the new test exercises the policy. A browser case observes a real allied caster launch, the bot's alternate attack and delivered CS. All 608 simulation checks, the two focused browser cases and production smoke pass. The controlled practice capture was visually inspected; it is not a full-match performance or native visual-fidelity measurement.
+
+No snapshot fields changed (format 48). The simulation fingerprint changed, so previous-build checkpoints remain incompatible under the existing conservative same-build policy.

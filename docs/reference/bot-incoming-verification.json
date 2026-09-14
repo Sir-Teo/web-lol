@@ -1,0 +1,28 @@
+{
+  "recordedAt": "2026-09-14T02:40:34.720202+00:00",
+  "baseRevision": "b9bb636de9881ce6872257173da3abec5a23788c",
+  "feature": "Bot avoidance of visible minions already claimed by launched allied attacks",
+  "validation": {
+    "simulationTests": 608,
+    "typeScript": "passed",
+    "browserScenarios": 2,
+    "browser": "passed",
+    "production": "passed /nested/rift/: 9 recordings, navigation, real Hawkshot, no development hook",
+    "visualReview": "Controlled practice scene at the alternate attack windup"
+  },
+  "limitations": [
+    "Authored stationary-target prediction; no future attacks or champion spells.",
+    "No full-match performance certification.",
+    "Snapshot schema 48 unchanged; simulation fingerprint changes same-build save compatibility.",
+    "Full production fidelity incomplete."
+  ],
+  "sha256": {
+    "src/simulation/world.ts": "c147dcd07bab2c2e3b06f3b842bcaea6a5c938b7dad5ec39412e8b9d709d2068",
+    "tests/bot-last-hit.test.ts": "549aad600843833ffcb035c35ca4b0b019b7690e373e7343a93145f005c3e647",
+    "e2e/bot-last-hit.spec.ts": "5dce3b54b5322e50686e9965d27d2dce685dc5b46cdeb88cb3534f1ce34dccd4",
+    "artifacts/bot-incoming-complete-check.log": "98e12f81b21d9cb0006bd8a2f1002d4822bb6e7f2367b0cc9e007bbe364d946c",
+    "artifacts/bot-incoming-final-browser.log": "1f377b2cff952826dfc0667380ab440e54504183a7e0a2cf9a9716c7fecd4789",
+    "artifacts/bot-incoming-production.log": "dbb5acc443496ef5f5d1283d69d4a75eba89bfcaabbf7f7e984d77f5662beb2d",
+    "artifacts/bot-incoming-last-hit.png": "fb4f05fb2c67cfc5d7f6a3bbb135ef0041e5eb9aee09111d45e3241b62e4e020"
+  }
+}
