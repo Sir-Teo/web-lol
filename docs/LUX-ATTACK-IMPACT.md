@@ -175,3 +175,15 @@ npx playwright test e2e/idle-clock.spec.ts e2e/run-clock.spec.ts e2e/attack-rele
 ```
 
 Steady mobile idle/run phase is now recoverable. Remaining historical-pose work includes transition layer weights/times, per-impact target pose capture, structure animation state and applying the isolated bone sampler to the saved impact path. This does not certify native animation-graph parity.
+
+## Shared primary mobile-pose selection
+
+`mobilePose` is now the live renderer's single primary-pose selector for mobile source rigs. It resolves death, an active cast, recall sequencing, attacks and locomotion in that priority order, using the existing attack-cycle conditions, champion clip mapping and source durations. It returns the chosen clip, explicit local time, playback rate, loop mode and the current cut/fade policy. Loaded models cache their clip-duration map once. Recall sequence selection is now a shared pure function; the unused separate mixer-driven recall implementation was removed.
+
+The selector preserves Lux's deterministic ordinary attack variants, critical clips, Ashe empowered-attack priority, saved run/idle clocks, cast timestamps, source recall ordering and terminal death age. It distinguishes the primary action from a transition mixture: incoming/outgoing fade layers still live in the renderer. A missing required duration fails explicitly rather than silently choosing a different pose. Initial or newly entered locomotion with no clock uses phase zero until its fixed-step clock exists.
+
+The renderer applies that descriptor through the existing mixer. Cast/recall use immediate full-weight selection. Normal transitions keep the current 80 ms fade, and already-settled primary poses do not restart a fade on late visibility/restoration. This also makes late death poses correct on a render with zero elapsed render time; the death browser regression now exercises that case directly, including fresh restored rigs.
+
+Two pure-selector unit tests check mode precedence, explicit attack timing, recall hold, run interpolation/rate and missing-clip errors. All 700 unit tests pass. Fourteen distinct browser checks cover both steady clocks, all mobile rig speed variants, normal/critical attacks, source attack variants, cast/recall, death and terminal playback; the production smoke check also passes. No snapshot schema change was needed for this consolidation.
+
+This provides a common primary-pose description for the forthcoming saved transition history. It does not yet save mixtures of outgoing and incoming animations, nor replace the impact renderer's target-centre height with historical bone positions.

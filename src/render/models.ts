@@ -15,6 +15,7 @@ export interface UnitModel {
   destructionTick?: number;
   mixer?: THREE.AnimationMixer;
   actions?: Record<string, THREE.AnimationAction>;
+  clipDurations?: Readonly<Record<string, number>>;
   actionName?: string;
   animationAttackTick?: number;
   barHeight?: number;
@@ -171,6 +172,7 @@ export function makeModel(u: Unit): UnitModel {
       deadIdleClip: model.userData.deadIdleClip,
       mixer,
       actions,
+      clipDurations: Object.fromEntries(reference.clips.map((clip) => [clip.name, clip.duration])),
       actionName: 'idle1',
       barHeight: u.structure
         ? u.structure.healthBarHeight * 0.01

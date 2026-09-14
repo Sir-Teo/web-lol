@@ -36,7 +36,7 @@ test('mobile death poses seek on late render and match fresh restored rigs witho
     v.render(w, 1, v.previousElapsed + 0.1);
     for (const u of units) w.damage(w.hero, u, 1e6, 'true');
     w.step(24);
-    v.render(w, 1, v.previousElapsed + 0.1);
+    v.render(w, 1, v.previousElapsed);
     const before = units.map((u: any) => ({
       id: u.id,
       pose: pose(u.id),
@@ -51,7 +51,7 @@ test('mobile death poses seek on late render and match fresh restored rigs witho
       v.scene.remove(model.root);
       v.models.delete(u.id);
     }
-    v.render(restored, 1, v.previousElapsed + 0.1);
+    v.render(restored, 1, v.previousElapsed);
     return before.map((b: any, i: number) => ({
       time: b.time,
       frozen: frozen[i],

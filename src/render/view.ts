@@ -1,7 +1,6 @@
-import { castAnimationName } from '../content/cast-animation';
+import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
-import { luxAttackAnimation } from '../content/lux-attack-animation';
 import { LuxAttackTrails } from './lux-attack-trails';
 import { LuxAttackHoops } from './lux-attack-hoops';
 import { LUX_BINDING } from '../content/lux-binding';
@@ -10,9 +9,7 @@ import { LUX_R } from '../content/lux-r';
 import { LUX_E_SOURCE } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import * as THREE from 'three';
-import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
-import { animateRecall } from './recall-animation';
-import { ASHE_Q } from '../content/ashe-q';
+import { TICK_RATE } from '../content/rules';
 import { LuxSingularities } from './lux-singularities';
 import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
@@ -545,109 +542,53 @@ export class GameView {
           model.mixer.update(0);
         } else if (!destroyed) model.mixer.update(animationDelta);
       }
-      const moving = Math.hypot(u.x - u.previous.x, u.y - u.previous.y) > 0.01;
-      if (!isStructureKind(u.kind) && model.mixer && model.actions) {
-        const state = world.championState(u.id);
-        const recalling = u.deadAt === null && state !== undefined && state.recallEnd !== null;
-        const cast = u.deadAt === null ? state?.castAnimation : null;
-        const castAge = cast ? Math.max(0, world.tick - cast.startTick + alpha - 1) / TICK_RATE : 0;
-        const castName = cast ? castAnimationName(u.champion, cast.ability) : null;
-        if (castName && castAge < model.actions[castName].getClip().duration) {
-          const name = castName,
-            action = model.actions[name];
-          if (model.actionName !== name) {
+      if (!isStructureKind(u.kind) && model.mixer && model.actions && model.clipDurations) {
+        const pose = mobilePose(
+          u,
+          world.championState(u.id),
+          world.tick,
+          alpha,
+          model.clipDurations,
+          terminalAge
+        );
+        const action = model.actions[pose.clip];
+        if (pose.cut) {
+          if (model.actionName !== pose.clip) {
             model.mixer.stopAllAction();
             action.reset().setLoop(THREE.LoopOnce, 1).play();
-            model.actionName = name;
+            model.actionName = pose.clip;
           }
-          action.time = castAge;
+          action.clampWhenFinished = true;
           action.setEffectiveWeight(1);
-          action.paused = true;
-          model.mixer.update(0);
-        } else if (recalling) {
-          const start = state!.recallEnd! - RECALL_DURATION_TICKS;
-          animateRecall(model, Math.max(0, world.tick - start + alpha - 1) / TICK_RATE);
         } else {
-          let clip = u.deadAt !== null ? 'death' : moving ? 'run' : 'idle1';
-          const cycle = u.attackCycle;
-          const attacking =
-            !moving && u.deadAt === null && cycle !== null && world.tick < cycle.endTick;
-          const attackName =
-            u.champion === 'lux' && cycle
-              ? cycle.critical
-                ? 'crit'
-                : luxAttackAnimation(u.id, cycle.startTick)
-              : cycle?.empowered
-                ? ASHE_Q.empoweredAttackAnimation
-                : cycle?.critical
-                  ? 'crit'
-                  : 'attack1';
-          if (attacking) {
-            const attack = model.actions[attackName];
-            if (model.animationAttackTick !== cycle.startTick) {
-              model.animationAttackTick = cycle.startTick;
-              attack.reset();
-              attack.setLoop(THREE.LoopOnce, 1);
-              attack.clampWhenFinished = true;
-            }
-            attack.timeScale = attack.getClip().duration / ((cycle.endTick - cycle.startTick) / 60);
-            clip = attackName;
+          if (pose.kind === 'attack' && model.animationAttackTick !== u.attackCycle!.startTick) {
+            model.animationAttackTick = u.attackCycle!.startTick;
+            action.reset();
           }
-          if (model.actions[clip] && clip !== model.actionName) {
-            const next = model.actions[clip],
-              previous = model.actions[model.actionName ?? 'idle1'];
-            next.reset();
-            next.setEffectiveWeight(1);
-            if (clip === 'death') {
-              next.setLoop(THREE.LoopOnce, 1);
-              next.clampWhenFinished = true;
-            }
+          action.setLoop(pose.loop ? THREE.LoopRepeat : THREE.LoopOnce, pose.loop ? Infinity : 1);
+          action.clampWhenFinished = !pose.loop;
+          if (model.actionName !== pose.clip) {
+            const previous = model.actions[model.actionName ?? 'idle1'];
+            action.reset().setEffectiveWeight(1);
             previous?.fadeOut(0.08);
-            next.fadeIn(0.08).play();
-            model.actionName = clip;
+            action.fadeIn(0.08).play();
+            model.actionName = pose.clip;
           }
-          if (attacking && clip === attackName) {
-            const attack = model.actions[attackName];
-            // Drive attack pose from the scheduled cycle, including after restore or missed frames.
-            const ticks = Math.max(0, world.tick - cycle.startTick + alpha - 1);
-            attack.time =
-              attack.getClip().duration * Math.min(1, ticks / (cycle.endTick - cycle.startTick));
-            attack.paused = true;
-            // A restored or newly visible attack may already be past its transition.
-            // Mixer-clock fades must not hide its saved pose for another 80 ms.
-            if (ticks / TICK_RATE >= 0.08) {
-              for (const other of Object.values(model.actions))
-                if (other !== attack && other.isScheduled()) other.stop();
-              attack.stopFading();
-              attack.setEffectiveWeight(1);
-            }
+          if (pose.settled) {
+            for (const other of Object.values(model.actions))
+              if (other !== action && other.isScheduled()) other.stop();
+            action.stopFading();
+            action.setEffectiveWeight(1);
           }
-          if (clip === 'death' && model.actions.death) {
-            const death = model.actions.death;
-            death.time = Math.min(death.getClip().duration, deathAge);
-            death.paused = true;
-          }
-          const clock = clip === 'run' ? u.runClock : clip === 'idle1' ? u.idleClock : null;
-          if (clock && model.actions[clip]) {
-            const action = model.actions[clip],
-              seconds = lerp(clock.previous, clock.current, alpha),
-              duration = action.getClip().duration;
-            action.time = duration > 0 ? seconds % duration : 0;
-            action.timeScale = 1;
-            action.paused = true;
-            if ((world.tick - clock.startTick + alpha) / TICK_RATE >= 0.08) {
-              for (const other of Object.values(model.actions))
-                if (other !== action && other.isScheduled()) other.stop();
-              action.stopFading();
-              action.setEffectiveWeight(1);
-            }
-          }
-          // Outgoing locomotion retains the existing transition policy until
-          // complete transition layers are stored in the simulation.
-          for (const name of ['run', 'idle1'])
-            if (clip !== name && model.actions[name]) model.actions[name].paused = false;
-          model.mixer.update(animationDelta);
         }
+        action.time = pose.time;
+        action.timeScale = pose.kind === 'attack' ? pose.rate : 1;
+        action.paused = true;
+        // Outgoing locomotion retains the existing transition policy until
+        // complete transition layers are stored in the simulation.
+        for (const name of ['run', 'idle1'])
+          if (pose.clip !== name && model.actions[name]) model.actions[name].paused = false;
+        model.mixer.update(pose.cut ? 0 : animationDelta);
       }
       this.updateBar(u, world, { x, y });
     }
