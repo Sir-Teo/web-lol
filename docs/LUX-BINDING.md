@@ -181,3 +181,17 @@ The verified `readValue.ts` defaults an omitted particle lifetime to three secon
 Five field hashes remain unresolved: `{3aae4707}`, `{4ffce322}`, `{95111b29}`, `{c0bf561e}` and `{dddde180}`. Unnamed type identifiers are also retained. Reproduce with `node tools/assets/audit-lux-binding-target-fields.mjs` and `node tools/assets/verify-particle-color-lookup.mjs`; repeat output is byte-identical. A regression case verifies the hashed timer scales against the original source record. TypeScript and all 803 unit tests pass. Target rendering remains unfinished.
 
 The production build also passes. This step changes source metadata/export handling rather than the live target renderer.
+
+## Seekable target-particle births
+
+`export-lux-binding-target-births.py` now exports all eleven emitters' birth-only profiles from the verified, hash-resolved definition. It checks source-pin linkage, constant rates, zero emission delay and the currently supported probability-table forms. Profiles retain life, size, initial rotation, spin, velocity, birth tint, emitter position, raw spawn offset, spawn axes/angles and complete per-axis multiplier tables. The four ring emitters use the pinned reader's omitted-lifetime default of three seconds. Exact source floats remain in the generated data.
+
+`luxBindingTargetBirths` reconstructs indexed births on the existing local 60 Hz Lux emission grid. Continuous emitters use the established first-update/rate accounting; single emitters emit their authored rate-sized burst together on the first tick. Thus `energy_Float` starts ten particles, and each cylinder emitter starts three. The energy particles' sampled life ranges from 0.75 to approximately 1.95 seconds. Its birth parameters and retained float32 color draw remain stable during seeking while age changes. The local indexed/shared chance convention is inherited from the existing Lux reconstruction and is not a claim of native random-stream/correlation equivalence.
+
+An explicit stop time prevents new births; already-born particles retain their sampled lifetimes. For example, after stopping emission at 0.25 seconds, the three-second ring particles remain alive at 2.8 seconds. This numerical behavior does not yet establish the correct root-removal/linger policy for native gameplay.
+
+Several source spawn records use unnamed type `{ee39916f}` with a literal vector `emitOffset`. The exporter retains the type and raw vector and rejects unexpected additional fields. It does not relabel that type or apply an assumed shape transform. Legacy records retain their authored axis-angle data as well. Shape placement, lifetime curves, texture/atlas behavior, motion, mesh/quad orientation, ground-layer handling and target attachment remain downstream work.
+
+Four numerical cases verify eleven-layer first emission and burst counts, random-lifetime endpoints, default ring life and raw offsets, exact repeatable seeking, emission-stop boundaries, retained tails, and fixed birth values/color draw while age advances. All 807 unit tests pass. Repeat export is byte-identical. Run `.tools/cdtb-venv/bin/python tools/assets/export-lux-binding-target-births.py` to regenerate. This birth timeline is not yet connected to a target-effect renderer.
+
+The production build also passes for this data/sampler addition.
