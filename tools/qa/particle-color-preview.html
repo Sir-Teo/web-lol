@@ -52,6 +52,27 @@
         font-variant-numeric: tabular-nums;
         min-width: 40px;
       }
+      fieldset {
+        border: 1px solid #314b53;
+        margin: 0 0 22px;
+        padding: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+      fieldset small {
+        flex-basis: 100%;
+      }
+      fieldset:disabled {
+        opacity: 0.5;
+      }
+      button {
+        color: #eee1b2;
+        background: #182a32;
+        border: 1px solid #657060;
+        padding: 8px 14px;
+        cursor: pointer;
+      }
       main {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -87,6 +108,27 @@
         body {
           padding: 18px;
         }
+        fieldset {
+          border: 1px solid #314b53;
+          margin: 0 0 22px;
+          padding: 16px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 18px;
+        }
+        fieldset small {
+          flex-basis: 100%;
+        }
+        fieldset:disabled {
+          opacity: 0.5;
+        }
+        button {
+          color: #eee1b2;
+          background: #182a32;
+          border: 1px solid #657060;
+          padding: 8px 14px;
+          cursor: pointer;
+        }
         main {
           grid-template-columns: 1fr;
         }
@@ -96,8 +138,8 @@
   <body>
     <h1>Lux · particle color inspection</h1>
     <p>
-      Source texture × particle color × second texture sample. Coordinates are manual; this isolates
-      the verified shader stage, not the complete attack animation.
+      Source texture × particle color × second texture sample. Coordinates are manual or driven by
+      the isolated hoop lifetime. This is not the complete attack animation.
     </p>
     <div class="controls">
       <label
@@ -128,6 +170,24 @@
         </select></label
       >
     </div>
+    <fieldset id="life-controls" disabled>
+      <legend>Hoop · isolated particle lifetime</legend>
+      <label
+        ><input type="checkbox" id="use-life" checked /> Use source lookup, color and relative
+        scale</label
+      >
+      <label
+        >Normalized age <input type="range" id="age" min="0" max="1" step="0.01" value="0" /><output
+          id="age-value"
+          >0.00</output
+        ></label
+      >
+      <button id="play" type="button">Play at 0.1×</button>
+      <small
+        >Nominal lifetime only. Spawn randomness, motion, native additive blending and the complete
+        emitter are not shown.</small
+      >
+    </fieldset>
     <main>
       <figure>
         <canvas id="source" width="384" height="384"></canvas>

@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { particleLookupCoordinate } from '../../src/render/particle-lookup';
+import { LUX_BASIC_HOOP_APPEARANCE as hoop } from '../../src/content/lux-basic-lookups';
 import { createParticleColorProductMaterial } from '../../src/render/particle-color-product';
 
 const canvas = (id: string) => document.querySelector<HTMLCanvasElement>(`#${id}`)!;
@@ -40,7 +42,31 @@ const emitter = document.querySelector<HTMLSelectElement>('#emitter')!;
 const display = document.querySelector<HTMLSelectElement>('#display')!;
 const x = document.querySelector<HTMLInputElement>('#x')!;
 const y = document.querySelector<HTMLInputElement>('#y')!;
+const lifeControls = document.querySelector<HTMLFieldSetElement>('#life-controls')!;
+const useLife = document.querySelector<HTMLInputElement>('#use-life')!;
+const age = document.querySelector<HTMLInputElement>('#age')!;
+const play = document.querySelector<HTMLButtonElement>('#play')!;
+let playing = false;
+let phase = 0;
+let previousFrame = performance.now();
 function redraw() {
+  lifeControls.disabled = emitter.value !== 'hoop';
+  const lifeDriven = emitter.value === 'hoop' && useLife.checked;
+  x.disabled = y.disabled = lifeDriven;
+  if (!lifeDriven) playing = false;
+  play.textContent = playing ? 'Pause' : 'Play at 0.1×';
+  material.uniforms.particleColor.value.set(1, 1, 1, 1);
+  mesh.scale.setScalar(1);
+  if (lifeDriven) {
+    const state = { age01: Number(age.value), travelPerSecond: [0, 0, 0] as const, birthRandom: 0 };
+    x.value = String(particleLookupCoordinate(hoop.lookupX, state));
+    y.value = String(particleLookupCoordinate(hoop.lookupY, state));
+    material.uniforms.particleColor.value.fromArray(hoop.birthColor);
+    mesh.scale.setScalar(
+      hoop.relativeScale[0] + (hoop.relativeScale[1] - hoop.relativeScale[0]) * state.age01
+    );
+  }
+  document.querySelector('#age-value')!.textContent = Number(age.value).toFixed(2);
   const composite = display.value === 'over-black';
   material.transparent = composite;
   material.blending = composite ? THREE.NormalBlending : THREE.NoBlending;
@@ -77,9 +103,28 @@ function redraw() {
   renderer.render(scene, camera);
   document.querySelector('#source-name')!.textContent = pair.name;
   document.querySelector('#status')!.textContent =
-    `Ready · ${emitter.value} · lookup (${x.value}, ${y.value}) · source coordinates remain unresolved`;
+    `Ready · ${emitter.value} · lookup (${x.value}, ${y.value}) · ${lifeDriven ? 'source hoop lifetime · native capture pending' : 'manual coordinates · native mapping pending'}`;
 }
-for (const el of [emitter, x, y, display]) el.addEventListener('input', redraw);
+for (const el of [emitter, x, y, display, useLife]) el.addEventListener('input', redraw);
+age.addEventListener('input', () => {
+  phase = Number(age.value);
+  redraw();
+});
+play.addEventListener('click', () => {
+  useLife.checked = true;
+  playing = !playing;
+  previousFrame = performance.now();
+  redraw();
+});
+renderer.setAnimationLoop(() => {
+  const now = performance.now();
+  if (playing) {
+    phase = (phase + (((now - previousFrame) / 1000) * 0.1) / hoop.nominalLifetime) % 1;
+    age.value = String(phase);
+    redraw();
+  }
+  previousFrame = now;
+});
 redraw();
 
 /** Read actual GPU RGBA with source texels and explicit inspection sampler state.
@@ -143,4 +188,14 @@ async function probe(options: {
   }
   return Array.from(result);
 }
-(window as any).__PARTICLE_COLOR__ = { ready: true, probe };
+(window as any).__PARTICLE_COLOR__ = {
+  ready: true,
+  probe,
+  appearance: () => ({
+    playing,
+    age: Number(age.value),
+    lookup: material.uniforms.lookupUv.value.toArray(),
+    color: material.uniforms.particleColor.value.toArray(),
+    scale: mesh.scale.x,
+  }),
+};

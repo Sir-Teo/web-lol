@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-09-14T04:52:29.702648+00:00",
+  "baseRevision": "45c35478a26cab6bf79065886337776f48b0ef81",
+  "scope": "Source-driven isolated hoop lifetime appearance; no game simulation or emission changes",
+  "reference": {
+    "repository": "https://github.com/LeagueToolkit/ltk-manager",
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "files": {
+      "src/modules/workshop/bin/vfx/colorLookup.ts": "7a24072b8d4c68478036f9249897f666618c8b9b5005167ddcea0d9c5ea003ca",
+      "src/modules/workshop/bin/vfx/enums.ts": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0",
+      "docs/plans/vfx-particle-renderer.md": "0dec1227d324e927ca66c0e22b850fd8e8bc803285874e605bc2db468455d523"
+    },
+    "evidenceClass": "External renderer reconstruction; not a native-client capture"
+  },
+  "validation": {
+    "sourceAndSimulationTests": 622,
+    "testFiles": 127,
+    "browserCases": 2,
+    "gpuColorSamplesRetained": 36,
+    "build": "passed",
+    "visualReview": "Hoop midpoint, relative scale and source lookup controls inspected at 1440x960",
+    "replay": "Exact backward-seek state, nominal playback and pause, manual override and emitter switching"
+  },
+  "limitations": [
+    "No emission, spawn randomness, orbital motion, drag, binding or native blend integration",
+    "Velocity and birth-random inputs tested independently, not yet supplied by real attack particles",
+    "Game still uses generic Lux attack projectile"
+  ],
+  "sha256": {
+    "src/render/particle-lookup.ts": "d222caed084d535aa8a9d43e111bcd28a6361dbabb7ad62e3f420c7c2c8ff157",
+    "src/content/lux-basic-lookups.ts": "dfebd9ed1835fd388220914fe66c0d5b8549048eef5be001ac5e3b3ea2d5f97d",
+    "tests/particle-lookup.test.ts": "675262ef20b89e159a8781a2168cdd63ce2a75b741ef8212cc8176b66bce1ba6",
+    "e2e/particle-lifetime.spec.ts": "c5185f5d53b6964d8ba215d76b664d8aeace7c312278f8b813646dbf440d3843",
+    "tools/qa/particle-color-preview.ts": "9cfc043dc6d34df772bcf55a67bbe85debd46f53f0cc1e636f28bc00aa5ba461",
+    "tools/qa/particle-color-preview.html": "ac1318c67f5a11b30e7c612862cd7f682d47963be1472a338f70198307089e6f",
+    "artifacts/particle-lookup-check.log": "9636ec3b241d4a0f1fc1f21e3bce50f8bb3a496f23984623233757b1476b3852",
+    "artifacts/particle-lifetime-browser.log": "5f2456e95ef093c58d873d2e98267745eb34429996b851de72e4d2e54b0f7873",
+    "artifacts/particle-lifetime-final-browser.log": "ada33046ae377d9d390f89196312bea1755e978ffc3a61e755a01552b59ca3f8",
+    "artifacts/particle-lifetime-build.log": "671952ed931e0919500836db44307d3103c0f8f1ffd65bdae20650f6ca9655de",
+    "artifacts/particle-hoop-lifetime.png": "61f03e22328a3cfca531728734217bc0da259fccf7828e41a6d8e5459476c320"
+  }
+}
