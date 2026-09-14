@@ -107,3 +107,15 @@ This consolidation does not change saved fields or certify native animation grap
 Structure-target impact history now records the shared pose and authored map transform. Lux turret attachments use those saved poses and the same map-matrix conversion as live structures; inhibitors/Nexuses preserve explicit missing-bone fallback. See [the impact implementation and remaining fidelity limitations](LUX-ATTACK-IMPACT.md#structure-impact-poses-and-turret-attachments).
 
 Lux impact geometry occlusion is now corrected by preserving the authored `miscRenderFlags` depth setting. Both turret screenshots show the bone-attached rings over the structure geometry; fog visibility remains independently enforced. See [source depth evidence and GPU validation](LUX-ATTACK-IMPACT.md#source-depth-flags). Native draw ordering and structure-specific effect dispatch remain unverified.
+
+## Stable terminal interpolation
+
+At victory the simulation stops producing new intervals, but the frame loop can continue cycling its accumulator fraction. The renderer previously combined that fraction with a frozen world tick and an advancing terminal age. This repeatedly revisited the final simulation interval, jittering last-step unit/camera placement and particle phases beneath the victory presentation.
+
+`GameView.render` now fixes simulation interpolation at the completed tick whenever a winner exists. Terminal age still advances destruction poses and the migrated Lux particle families. Normal-match interpolation is unchanged. The correction is at the shared rendering boundary, so paused views, the regular frame loop and diagnostic renders all use the same terminal endpoint.
+
+A browser regression creates a lethal Nexus projectile while the hero is moving, holds presentation age constant and varies the supplied interpolation fraction across five values. Before the fix, exact pose/particle comparisons failed. Afterward, Nexus bone matrices, hero placement, camera transform, impact rings/sparks and flight hoops/crescents match the completed-tick render exactly. The saved match is unchanged. Four existing terminal particle scenarios also pass, along with all 718 unit tests. This verifies stable interpolation rather than native victory cinematic parity.
+
+```sh
+npx playwright test e2e/terminal-interpolation.spec.ts e2e/lux-flight-terminal.spec.ts e2e/lux-impact-terminal.spec.ts
+```

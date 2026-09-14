@@ -441,6 +441,9 @@ export class GameView {
     this.center.y += dy * dt * 1500 * this.zoom;
   }
   render(world: World, alpha: number, elapsed: number): void {
+    // No new simulation interval follows victory. A cycling accumulator alpha
+    // would repeatedly rewind the last movement/pose beneath terminal playback.
+    if (world.winner) alpha = 1;
     if (!world.winner) this.terminalWorld = undefined;
     else if (this.terminalWorld !== world) {
       this.terminalWorld = world;
