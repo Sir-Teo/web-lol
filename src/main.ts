@@ -1,3 +1,4 @@
+import { loadLuxGroundWarningTextures } from './render/lux-ground-warnings';
 import { loadLuxGroundChargeTextures } from './render/lux-ground-charge';
 import { loadLuxScorchTextures } from './render/lux-scorches';
 import { loadLuxImpactTextures } from './render/lux-impacts';
@@ -122,6 +123,7 @@ async function boot(): Promise<void> {
     loadLuxBokehTextures(),
     loadLuxScorchTextures(),
     loadLuxGroundChargeTextures(),
+    loadLuxGroundWarningTextures(),
     loadLuxChargeRayTextures(),
     loadLuxAttackTextures(),
     loadLuxImpactTextures(),

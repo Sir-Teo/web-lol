@@ -46,5 +46,11 @@
     "Native ground-layer pass camera/projection and render-target composition.",
     "Actual charge capture across camera angle and terrain slope to distinguish vertical projection from a top-down pass."
   ],
-  "status": "Both ground warnings remain unimplemented; ordinary camera-facing geometry is not an equivalent substitute."
+  "status": "Both ground warning beams rendered through local vertical terrain projection; native projection parity remains unverified.",
+  "localImplementation": {
+    "geometry": "src/render/ground-beam.ts",
+    "renderer": "src/render/lux-ground-warnings.ts",
+    "policy": "Extend source endpoint by -150 along cast, preserve width/length UV axes, sample terrain across a fixed maximum-width grid, and draw in the ground display list.",
+    "validation": "743 unit tests, eight browser checks and production smoke pass; source widths/offsets, saved visibility, cancellation, base scroll transposition and mask clamping verified."
+  }
 }

@@ -3336,6 +3336,8 @@
     "END_Ground_Core",
     "CHARGE_GROUND_LIGHT1",
     "WIDTH_Refraction_L1",
-    "WIDTH_Refraction_R1"
+    "WIDTH_Refraction_R1",
+    "warning_beam_3",
+    "warning_beam_4"
   ]
 }
