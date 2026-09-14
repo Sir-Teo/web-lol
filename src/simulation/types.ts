@@ -209,6 +209,7 @@ export interface ChampionState {
   eRechargeTick: number | null;
   eRechargeDurationTicks: number;
   recallEnd: number | null;
+  enlighten: { startTick: number; endTick: number; totalMana: number } | null;
   /** Presentation can finish after the gameplay windup, until another action takes over. */
   castAnimation: { ability: 'q' | 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {

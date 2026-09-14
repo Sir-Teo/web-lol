@@ -10,12 +10,13 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL } from './progression';
+import { LOST_CHAPTER } from '../content/mage-items';
 import { hastedCooldownTicks } from './ability-haste';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 44;
+export const SNAPSHOT_VERSION = 45;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -203,6 +204,9 @@ const player: z.ZodType<PlayerState> = z
     eRechargeTick: tick.nullable(),
     eRechargeDurationTicks: tick.refine((value) => rechargeDurations.has(value)),
     recallEnd: deadline.nullable(),
+    enlighten: z
+      .strictObject({ startTick: tick, endTick: tick, totalMana: z.number().positive() })
+      .nullable(),
     castAnimation: z
       .strictObject({ ability: z.enum(['q', 'w', 'e', 'r']), startTick: tick })
       .nullable(),
@@ -231,6 +235,10 @@ const player: z.ZodType<PlayerState> = z
           .nullable()
       )
       .max(6)
+      .refine(
+        (items) => items.filter((item) => item === 'chapter').length <= 1,
+        'Only one Lost Chapter is ownable'
+      )
       .refine(
         (items) => items.filter((item) => item === 'deathcap').length <= 1,
         'Only one Deathcap is ownable'
@@ -720,6 +728,15 @@ export function decodeSnapshot(text: string) {
       (owner.eCharges === ASHE_E.maximumCharges) !== (owner.eRechargeTick === null)
     )
       throw new Error('Saved Hawkshot has invalid recharge state.');
+    const enlighten = owner.enlighten;
+    if (
+      enlighten &&
+      (champion.deadAt !== null ||
+        enlighten.startTick > state.tick ||
+        enlighten.endTick <= state.tick ||
+        enlighten.endTick !== enlighten.startTick + LOST_CHAPTER.durationSeconds * TICK_RATE)
+    )
+      throw new Error('Saved match contains invalid Enlighten restoration.');
     const compatibleCast = (ability: string) =>
       champion.champion === 'lux' ? ['q', 'w', 'e', 'r'].includes(ability) : ability !== 'q';
     const cast = owner.pendingCast;

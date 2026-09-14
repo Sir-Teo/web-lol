@@ -91,19 +91,19 @@ test('Lux bot completes the two-rod recipe at its actual completion cost and doe
   const lux = w.spawn('champion', 'blue', w.battlefield.spawns.blue, 'lux');
   const state = w.championState(lux.id)!;
   state.gold = 5000;
-  for (const id of ['tome', 'boots', 'rod', 'rod']) w.buy(id, lux.id);
+  for (const id of ['chapter', 'boots', 'rod', 'rod']) w.buy(id, lux.id);
   state.gold = 1100;
   lux.ai = true;
   lux.nextThink = 0;
   w.step();
   expect(state.inventory).toContain('deathcap');
   expect(state.inventory).not.toContain('rod');
-  expect(w.abilityPower(lux)).toBe(195);
+  expect(w.abilityPower(lux)).toBe(221);
   state.gold = 850;
   lux.nextThink = 0;
   w.step();
   expect(state.inventory).toContain('wand');
-  expect(w.abilityPower(lux)).toBe(253.5);
+  expect(w.abilityPower(lux)).toBe(279.5);
 });
 
 test('Lux recalls for an affordable completion even when components fill all six slots', () => {
@@ -112,7 +112,7 @@ test('Lux recalls for an affordable completion even when components fill all six
   const lux = w.spawn('champion', 'blue', w.battlefield.spawns.blue, 'lux');
   const state = w.championState(lux.id)!;
   state.gold = 10000;
-  for (const id of ['tome', 'boots', 'rod', 'rod', 'cloth', 'ruby'])
+  for (const id of ['chapter', 'boots', 'rod', 'rod', 'cloth', 'ruby'])
     expect(w.buy(id, lux.id)).toBeNull();
   state.gold = 1100;
   lux.x += 3000;

@@ -1,5 +1,7 @@
 # Mage equipment
 
+The current mana/haste build also includes [Lost Chapter and Enlighten](LOST-CHAPTER.md). Its three-component recipe and level-up restoration extend the foundations recorded below.
+
 The catalog now includes Blasting Wand, Needlessly Large Rod and Rabadon's Deathcap. Their complete Data Dragon entries and corresponding raw item/group records are retained in [reference/mage-items.json](reference/mage-items.json). Both cached full-response hashes were checked. Sources are [Data Dragon 16.18.1](https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json) and [CommunityDragon 16.18](https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json), using standard map-11 availability.
 
 | Item | Flat AP | Total gold | Sell gold | Recipe |

@@ -3,7 +3,7 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
 import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
-import { DEATHCAP_AP_AMPLIFICATION } from '../content/mage-items';
+import { DEATHCAP_AP_AMPLIFICATION, LOST_CHAPTER } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
@@ -496,6 +496,15 @@ export class World {
     }
     for (const h of this.units) {
       if (h.kind !== 'champion' || !this.alive(h)) continue;
+      const owner = this.championState(h.id)!;
+      const enlighten = owner.enlighten;
+      if (enlighten && this.tick > enlighten.startTick) {
+        h.mana = Math.min(
+          h.maxMana,
+          h.mana + enlighten.totalMana / (LOST_CHAPTER.durationSeconds * TICK_RATE)
+        );
+        if (this.tick >= enlighten.endTick) owner.enlighten = null;
+      }
       const fountain = distance(h, this.battlefield.spawns[h.team]) < 220;
       const growth = growthAtLevel(this.championState(h.id)?.level ?? 1);
       const profile = h.champion === 'lux' ? LUX : ASHE;
@@ -887,8 +896,17 @@ export class World {
     const state = this.championState(u.id)!;
     if (u.champion === 'lux') {
       let id: string | undefined = LUX_BOT_POLICY.purchases.find(
-        (id) => !state.inventory.includes(id)
+        (id) =>
+          !state.inventory.includes(id) && !(id === 'tome' && state.inventory.includes('chapter'))
       );
+      if (!id && !state.inventory.includes('chapter')) {
+        const plan = this.purchasePlan('chapter', u.id)!;
+        id =
+          state.gold >= plan.cost
+            ? 'chapter'
+            : (['sapphire', 'mote'].find((component) => !state.inventory.includes(component)) ??
+              'chapter');
+      }
       if (!id && !state.inventory.includes('deathcap')) {
         const plan = this.purchasePlan('deathcap', u.id)!;
         id =
@@ -2227,6 +2245,7 @@ export class World {
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
       }
       if (targetState) {
+        targetState.enlighten = null;
         targetState.deaths++;
         targetState.pendingCast = null;
         targetState.castAnimation = null;
@@ -2345,6 +2364,12 @@ export class World {
       if (living) {
         h.hp = Math.min(h.maxHp, h.hp + hp);
         h.mana = Math.min(h.maxMana, h.mana + mana);
+        if (state.inventory.includes('chapter'))
+          state.enlighten = {
+            startTick: this.tick,
+            endTick: this.tick + LOST_CHAPTER.durationSeconds * TICK_RATE,
+            totalMana: h.maxMana * LOST_CHAPTER.manaFraction,
+          };
       }
       h.damage = statPrecision(h.damage + profile.damageGrowth * factor);
       h.armor = statPrecision(h.armor + profile.armorGrowth * factor);
@@ -2745,6 +2770,8 @@ export class World {
     if (item.id === 'deathcap' && state.inventory.includes('deathcap'))
       return 'You already own Rabadon’s Deathcap';
     if (item.id === 'boots' && state.inventory.includes('boots')) return 'You already own boots';
+    if (item.id === 'chapter' && state.inventory.includes('chapter'))
+      return 'You already own Lost Chapter';
     if (item.id === 'blade' && state.inventory.includes('blade'))
       return 'You already own a Doran item';
     return null;

@@ -275,6 +275,61 @@
         "Effect1Amount": "-0.1"
       },
       "depth": 2
+    },
+    "3802": {
+      "name": "Lost Chapter",
+      "description": "<mainText><stats><attention>40</attention> Ability Power<br><attention>300</attention> Mana<br><attention>10</attention> Ability Haste</stats><br><br><passive>Enlighten</passive><br>Levelling up restores <scaleMana>20% max Mana</scaleMana> over 3 seconds.</mainText>",
+      "colloq": ";",
+      "plaintext": "Restores Mana upon levelling up.",
+      "from": [
+        "1052",
+        "1027",
+        "2022"
+      ],
+      "into": [
+        "2522",
+        "323003",
+        "6656",
+        "3003",
+        "6655",
+        "2503",
+        "3118",
+        "4644"
+      ],
+      "image": {
+        "full": "3802.png",
+        "sprite": "item4.png",
+        "group": "item",
+        "x": 96,
+        "y": 336,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 250,
+        "purchasable": true,
+        "total": 1200,
+        "sell": 840
+      },
+      "tags": [
+        "SpellDamage",
+        "Mana",
+        "ManaRegen",
+        "CooldownReduction",
+        "AbilityHaste"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMPPoolMod": 300,
+        "FlatMagicDamageMod": 40
+      },
+      "depth": 2
     }
   },
   "communityDragon": {
@@ -655,6 +710,109 @@
           "__type": "ItemDataClient"
         },
         "__type": "ItemData"
+      },
+      "Items/3802": {
+        "mDisplayName": "Item_3802_Name",
+        "itemID": 3802,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default",
+          "Items/ItemGroups/MythicItems"
+        ],
+        "price": 250,
+        "mCanBeSold": true,
+        "epicness": 4,
+        "recipeItemLinks": [
+          "Items/1052",
+          "Items/1027",
+          "Items/2022"
+        ],
+        "mEffectAmount": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mDataValues": [
+          {
+            "mName": "ManaRestorePercent",
+            "mValue": 0.20000000298023224,
+            "__type": "ItemDataValue"
+          },
+          {
+            "mName": "RestorationDuration",
+            "mValue": 3.0,
+            "__type": "ItemDataValue"
+          }
+        ],
+        "mAbilityHasteMod": 10.0,
+        "mFlatMagicDamageMod": 40.0,
+        "flatMPPoolMod": 300.0,
+        "mCategories": [
+          "SpellDamage",
+          "Mana",
+          "ManaRegen",
+          "CooldownReduction",
+          "AbilityHaste"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          16
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "3802",
+            "mFormat": "{32559c50}",
+            "EnableExtendedTooltip": false,
+            "mLocKeys": {
+              "keyName": "Item_3802_Name",
+              "keyTooltip": "Item_3802_Tooltip",
+              "keyColloquialism": "Item_3802_Colloquialism",
+              "keySecondaryBrief": "Item_Unique_Enlighten"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "AbilityPower",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "Mana",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "AbilityHaste",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_3802_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_3802_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_3802_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/3802_mage_tier2_lostchapter.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/3802_Mage_Tier2_LostChapter.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/3802_Mage_Tier2_LostChapter.png",
+          "epicness": 4,
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "Items/ItemGroups/MythicItems": {
+        "mItemGroupID": "MythicItems",
+        "mMaxGroupOwnable": 1,
+        "__type": "ItemGroup"
       }
     }
   }

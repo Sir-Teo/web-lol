@@ -1,0 +1,91 @@
+{
+  "fixture": "Ten automated champions (eight Ashe, two Lux), 2 top / 1 mid / 2 bottom per team, source Rift, ordinary starting resources. Diagnostic only: no jungle roles or complete roster.",
+  "revision": "769e914e29ef4902877c77bd3555d6f22b7de233",
+  "requestedSeconds": 1200,
+  "simulatedSeconds": 1200,
+  "wallSeconds": 14.112920124999999,
+  "winner": null,
+  "violations": [],
+  "restoredEqual": true,
+  "castCounts": {
+    "ashe:w": 137,
+    "lux:e": 63,
+    "lux:f": 8,
+    "ashe:f": 33,
+    "ashe:q": 99,
+    "lux:q": 66,
+    "ashe:e": 69,
+    "lux:w": 34,
+    "ashe:r": 34,
+    "lux:r": 10
+  },
+  "snapshotSHA256": "778e7b5b580f7be808bd85f46bacab527e586a1d4df3e1cc6896af696b0bd599",
+  "command": "node tools/qa/simulate-rift.mjs 1200 artifacts/rift-lost-chapter-simulation.json mixed",
+  "sourceSHA256": {
+    "src/simulation/world.ts": "eafa306e880ca6c3c4d52ddaa4285b3fcaf7d8631eccaf2202a3328fb0f58878",
+    "src/simulation/snapshot.ts": "e522da2dc4db17be152a42d6bd1eb966fc58f375c40aa0072768d20aeaf9efa0",
+    "src/simulation/champion-state.ts": "bd073b56dc70e25e466c7506dbe1a254df8cd5be01d397674af1b1d7d6bb5b7c",
+    "src/simulation/types.ts": "6815060184c5e79774d5b24cbabcf57d19e5dfcd131beefdc0f701af1a5c541a",
+    "src/content/rules.ts": "69a240302a28c11cbb8c372ea95f9cc8a22d8967e0acfb628c16d96b0322130d",
+    "src/content/mage-items.ts": "b39910557a6c9a270dd1002cc876e40d5e4498e58140725ea82c5aaaf90ae2c8",
+    "tools/qa/simulate-rift.mjs": "5af5739d9fec59ee1ac985a0e52723c50b97d010d16003698e8778dfdcd0ae0e"
+  },
+  "reportSHA256": "00779c0856df472bcd5c8bbe44bc37bd146f296e35e06cdac96327e77cd3491c",
+  "luxFinal": [
+    {
+      "id": 35,
+      "champion": "lux",
+      "team": "blue",
+      "lane": "bot",
+      "x": 4453.443664192182,
+      "y": 5660.834948723306,
+      "hp": 643.8717533763561,
+      "level": 11,
+      "gold": 723.4,
+      "cs": 59,
+      "kills": 8,
+      "deaths": 6,
+      "inventory": [
+        "chapter",
+        "boots",
+        "deathcap",
+        "wand"
+      ],
+      "order": {
+        "type": "attack",
+        "target": 63882
+      },
+      "retreating": false,
+      "stationarySeconds": 5.216666666666667
+    },
+    {
+      "id": 40,
+      "champion": "lux",
+      "team": "red",
+      "lane": "bot",
+      "x": 6273.67142671252,
+      "y": -457.0234582696055,
+      "hp": 1247.26,
+      "level": 9,
+      "gold": 822.4,
+      "cs": 33,
+      "kills": 4,
+      "deaths": 8,
+      "inventory": [
+        "chapter",
+        "boots",
+        "rod",
+        "rod"
+      ],
+      "order": {
+        "type": "move",
+        "point": {
+          "x": 6284.999389708042,
+          "y": 248.00066614151
+        }
+      },
+      "retreating": false,
+      "stationarySeconds": 0
+    }
+  ]
+}

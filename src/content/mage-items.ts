@@ -96,5 +96,23 @@ export const MAGE_ITEMS = [
     hp: 0,
     speed: 0,
   },
+  {
+    id: 'chapter',
+    name: 'Lost Chapter',
+    price: 1200,
+    sell: 840,
+    description:
+      '+40 Ability Power \u00b7 +300 Mana \u00b7 +10 Ability Haste \u00b7 Enlighten: leveling restores 20% max Mana over 3s',
+    icon: '3802',
+    abilityPower: 40,
+    mana: 300,
+    abilityHaste: 10,
+    damage: 0,
+    armor: 0,
+    magicResist: 0,
+    hp: 0,
+    speed: 0,
+  },
 ] as const;
 export const DEATHCAP_AP_AMPLIFICATION = 0.3;
+export const LOST_CHAPTER = { manaFraction: 0.2, durationSeconds: 3.0 } as const;

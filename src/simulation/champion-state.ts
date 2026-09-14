@@ -28,6 +28,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     eRechargeTick: null,
     eRechargeDurationTicks: ASHE_E.rechargeSecondsByRank[0] * TICK_RATE,
     recallEnd: null,
+    enlighten: null,
     castAnimation: null,
     pendingCast: null,
     inventory: [],
