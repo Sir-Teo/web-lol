@@ -264,7 +264,8 @@ async function boot(): Promise<void> {
     );
     audio.update(
       world.events.filter((event) => world.eventVisible(event)),
-      world.tick
+      world.tick,
+      view.center
     );
   });
   if (import.meta.env.DEV) {

@@ -2355,6 +2355,7 @@ export class World {
     }
   }
   private captureIlluminationVisual(source: Unit, target: Unit): void {
+    this.emit('illumination', target, { unit: target.id, team: source.team, champion: 'lux' });
     this.luxIlluminationVisuals.push({
       id: this.nextId++,
       sourceId: source.id,

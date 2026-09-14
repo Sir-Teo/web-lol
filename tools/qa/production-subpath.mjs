@@ -90,8 +90,8 @@ try {
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.equal(
     recordings.size,
-    9,
-    'Every source Hawkshot recording must load beneath the host prefix'
+    12,
+    'Every source Hawkshot and Illumination recording must load beneath the host prefix'
   );
   await page.mouse.click(880, 480, { button: 'right' });
   await page.waitForTimeout(1800);

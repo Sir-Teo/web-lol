@@ -80,6 +80,9 @@ test('detonation audience remains fixed when later vision changes', () => {
   lux.previous = { x: 2900, y: 0 };
   w.step();
   expect(w.visible(target)).toBe(true);
+  const sound = w.events.find((event) => event.type === 'illumination')!;
+  expect(sound.audience).toEqual(['red']);
+  expect(w.eventVisible(sound)).toBe(false);
   expect(w.luxIlluminationVisuals[0].audience).toEqual(['red']);
   expect(
     World.fromSnapshot(w.snapshot(), w.battlefield).luxIlluminationVisuals[0].audience

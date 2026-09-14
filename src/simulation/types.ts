@@ -231,7 +231,8 @@ export interface SimEvent extends Vec2 {
     | 'level'
     | 'heal'
     | 'message'
-    | 'scout-arrival';
+    | 'scout-arrival'
+    | 'illumination';
   unit?: number;
   value?: number;
   text?: string;
