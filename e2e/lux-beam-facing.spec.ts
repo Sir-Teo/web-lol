@@ -28,7 +28,8 @@ test('warning and fired beams face the camera while preserving source width', as
         v.luxBeams.update(w, 1, camera);
         for (const group of v.luxBeams.models.values())
           for (const mesh of group.children) {
-            if (!mesh.visible || mesh.name === 'WOOSH') continue;
+            if (!mesh.visible || LUX_BEAM_LAYERS.find((p: any) => p.name === mesh.name)?.quad)
+              continue;
             const positions = mesh.geometry.getAttribute('position');
             const a = new THREE.Vector3().fromBufferAttribute(positions, 0),
               b = new THREE.Vector3().fromBufferAttribute(positions, 1);

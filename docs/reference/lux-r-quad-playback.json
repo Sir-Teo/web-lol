@@ -1,36 +1,71 @@
 {
-  "selected": "WOOSH",
+  "selected": [
+    "WOOSH",
+    "RainbowGlow"
+  ],
   "source": "lux-beam-layers.json",
   "primitive": "VfxPrimitiveArbitraryQuad",
   "fieldNames": {
     "3bf0b4ed": "SpawnShape",
     "e5f268dd": "emitOffset",
     "5932ff9c": "birthRotation0",
-    "fa41ab8d": "birthVelocity"
+    "fa41ab8d": "birthVelocity",
+    "eddebb48": "uvScale",
+    "cd124686": "uvScaleMult"
   },
   "interpretation": {
-    "rotation": [
-      90,
-      0,
-      0
-    ],
-    "quadHalfExtents": [
-      350,
-      800
-    ],
-    "emitOffset": [
-      0,
-      0,
-      2800
-    ],
-    "velocity": [
-      0,
-      0,
-      -20000
-    ],
-    "burstCount": 2,
-    "uv": "Source corner x,y in [-1,1]: u=(y+1)/2, v=(1-x)/2; cast frame includes source Z reflection.",
-    "frame": "Cast origin and direction; height uses existing ground(origin)+0.18 reconstruction."
+    "WOOSH": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "quadHalfExtents": [
+        350,
+        800
+      ],
+      "emitOffset": [
+        0,
+        0,
+        2800
+      ],
+      "velocity": [
+        0,
+        0,
+        -20000
+      ],
+      "burstCount": 2,
+      "uv": "Source corner x,y in [-1,1]: u=(y+1)/2, v=(1-x)/2; cast frame includes source Z reflection.",
+      "frame": "Cast origin and direction; height uses existing ground(origin)+0.18 reconstruction."
+    },
+    "RainbowGlow": {
+      "quadHalfExtents": [
+        300,
+        1600
+      ],
+      "offset": [
+        0,
+        0,
+        1500
+      ],
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "burstCount": 2,
+      "life": 0.30000001192092896,
+      "uvScale": [
+        0.4000000059604645,
+        1
+      ],
+      "scroll": [
+        2,
+        0
+      ],
+      "alpha": "0.6200045943260193 * (1 - age/life)",
+      "transform": "Quad UVs scale around [0.5,0.5], then translate directly. Beam transforms retain their axis transpose."
+    }
   },
   "externalReference": {
     "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
@@ -46,12 +81,20 @@
       {
         "path": "docs/plans/vfx-particle-renderer.md",
         "sha256": "0dec1227d324e927ca66c0e22b850fd8e8bc803285874e605bc2db468455d523"
+      },
+      {
+        "path": "src/modules/workshop/bin/vfx/readSurface.ts",
+        "sha256": "7493b13c0f3fa6a8d9fc8efe6e2ac02d5d872f1f7db5f3a47722f1039e4148a2"
+      },
+      {
+        "path": "src/modules/workshop/bin/vfx/uvTransform.ts",
+        "sha256": "72373e2d9022b96a6d451c4a5f5110154c7d6500e0bce0ee2eb7ef2d88878b53"
       }
     ]
   },
   "limitations": [
     "Native attachment height and full visual composition remain unverified.",
-    "Quad support is restricted to this source record; exporter rejects other arbitrary quad names and rotations.",
+    "Quad support is restricted to WOOSH and RainbowGlow with 90-degree X rotation; animated UV scale is rejected by the exporter.",
     "Burst geometry duplication is valid for these deterministic particles; independent random properties require per-particle sampling."
   ]
 }
