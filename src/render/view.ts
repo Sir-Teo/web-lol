@@ -495,9 +495,8 @@ export class GameView {
       }
       if (isStructureKind(u.kind) && model.mixer && model.actions) {
         const destroyed = knownDestroyed ?? u.deadAt !== null;
+        model.destructionTick = destroyed ? world.knownStructureDeathTick(u)! : undefined;
         if (model.destroyed !== destroyed) {
-          const duration = model.actions[model.destroyedClip!].getClip().duration;
-          model.destructionTick = destroyed ? (u.deadAt ?? world.tick - duration * 60) : undefined;
           for (const part of model.submeshes ?? [])
             part.visible = destroyed
               ? part.userData.destroyedVisible

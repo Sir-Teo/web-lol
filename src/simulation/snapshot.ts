@@ -31,7 +31,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 60;
+export const SNAPSHOT_VERSION = 61;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -193,7 +193,7 @@ const unit: z.ZodType<Unit> = z
     nextThink: deadline,
     respawnTick: deadline.nullable(),
     structureTransform: z.array(z.number()).length(16).optional(),
-    structureKnowledge: z.strictObject({ blue: z.boolean(), red: z.boolean() }).optional(),
+    structureKnowledge: z.strictObject({ blue: tick.nullable(), red: tick.nullable() }).optional(),
     structureIdle: z
       .strictObject({
         startTick: tick,
@@ -601,6 +601,22 @@ export function decodeSnapshot(text: string) {
   for (const unit of state.units) {
     const fixed = ['turret', 'inhibitor', 'nexus'].includes(unit.kind);
     const idle = unit.structureIdle;
+    const knowledge = unit.structureKnowledge;
+    if (
+      !!knowledge !== fixed ||
+      (knowledge &&
+        idle &&
+        (['blue', 'red'] as const).some((team) => {
+          const knownDeath = knowledge[team];
+          if (knownDeath !== null && knownDeath > state.tick) return true;
+          if (unit.deadAt !== null) return knownDeath !== unit.deadAt;
+          return (
+            knownDeath !== null &&
+            (knownDeath < idle.observedStartTicks[team] || knownDeath >= idle.startTick)
+          );
+        }))
+    )
+      throw new Error('Saved match contains invalid structure destruction knowledge.');
     if (
       !!idle !== fixed ||
       (idle &&

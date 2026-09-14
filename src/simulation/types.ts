@@ -35,8 +35,8 @@ export interface Unit extends Vec2 {
   /** Authored source matrix for fixed structures; independent of attack facing. */
   structureTransform?: readonly number[];
   structure?: StructureState;
-  /** Public initial placement, then last known intact/destroyed state per team. */
-  structureKnowledge?: Record<Team, boolean>;
+  /** Public initial placement; null means known intact, otherwise the known destruction tick. */
+  structureKnowledge?: Record<Team, number | null>;
   /** Actual idle entry and each team's observed entry; regrowth can remain hidden. */
   structureIdle?: { startTick: number; observedStartTicks: Record<Team, number> };
   radius: number;

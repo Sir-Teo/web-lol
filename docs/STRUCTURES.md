@@ -74,3 +74,16 @@ The renderer seeks the source `idle1` clip from the known entry tick and display
 The decoder requires the clock on the three structure kinds, checks actual entry against match/death chronology, and rejects observations newer than the actual entry. Simulation tests cover both teams' hidden inhibitor regrowth, saved observation state, sight acquisition/loss and malformed clocks. All 711 unit tests pass.
 
 A browser check covers both teams' turret, inhibitor and nexus rigs on the full Rift, verifying three interpolation phases, exact paused bone matrices and real browser save/reload. Six existing browser regressions cover source placement, victory/defeat, destruction phase and hidden structure state; all seven browser checks and the production subpath smoke check pass. This is temporal groundwork for historical turret hit-bone attachment; structure impacts still use the documented fallback until the full pose path is implemented.
+
+
+## Saved destruction knowledge
+
+Schema 61 replaces each boolean `structureKnowledge` value with a nullable destruction tick. Null means known intact; an integer records the public destruction event, including tick zero. Damage publishes that timestamp to both teams under the existing public-destruction policy. Visible regrowth clears the observing team's record; hidden regrowth retains it. `knownStructureDestroyed` still returns the same boolean/null presentation result, and `knownStructureDeathTick` supplies the event timestamp appropriate to the observer.
+
+The renderer now derives its destruction clock from this saved knowledge on every draw. A rebuilt or reloaded model no longer invents an elapsed destruction duration when the actual structure is alive but remembered as rubble. A second public destruction also restarts the correct source phase even if the rendered destroyed/intact flag never changed between events. Submesh selection, the source destruction/dead-idle sequence and terminal presentation remain on their existing policy.
+
+Snapshot validation requires knowledge on structures only, rejects future timestamps, requires public knowledge to match a currently destroyed structure, and checks a remembered destruction against the observer's idle entry and actual regrowth entry. Both teams' hidden-regrowth unit scenarios verify retention, restoration and clearing on sight; malformed timestamp cases include the old boolean shape. All 712 unit tests pass.
+
+The rebuilt-model regression first reproduced a different inferred destruction tick after hidden regrowth. Its updated check compares the rebuilt clock and dead-idle phase with the original. A separate browser scenario uses actual inhibitor regrowth, confirms that the enemy remains unseen and remembered as destroyed, then checks exact bone/phase restoration through a real browser checkpoint. It also verifies a second public destruction while the model's destroyed flag remains true. All eight structure browser checks and the production subpath smoke check pass.
+
+This makes structure destruction timing reproducible from the saved observer state. Historical turret impact poses still need a common structure pose sampler and saved attachment placement; source event-graph reconstruction, native regrowth sequencing and missing-bone fallback remain incomplete.

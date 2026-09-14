@@ -171,6 +171,7 @@ describe('known structure state versus live sight', () => {
       if (team === 'blue') Object.assign(w.hero, { x: 0, y: 0 });
       openBase(w, team);
       const inhibitor = find(w, team, 'inhibitor', 'mid');
+      const destroyedAt = inhibitor.deadAt;
       w.tick = inhibitor.respawnTick! - 1;
       w.step();
       expect(w.alive(inhibitor)).toBe(true);
@@ -186,7 +187,12 @@ describe('known structure state versus live sight', () => {
         JSON.parse(w.snapshot()).units.find((u: any) => u.id === inhibitor.id).structureKnowledge[
           observer
         ]
-      ).toBe(true);
+      ).toBe(destroyedAt);
+      expect(w.knownStructureDeathTick(inhibitor, observer)).toBe(destroyedAt);
+      expect(w.knownStructureDeathTick(inhibitor, team)).toBeNull();
+      expect(restored.knownStructureDeathTick(restored.unit(inhibitor.id)!, observer)).toBe(
+        destroyedAt
+      );
       w.visionAreas.push({
         kind: 'scout',
         x: inhibitor.x,
@@ -198,12 +204,14 @@ describe('known structure state versus live sight', () => {
       });
       w.step();
       expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(false);
+      expect(w.knownStructureDeathTick(inhibitor, observer)).toBeNull();
       expect(w.knownStructureIdleStartTick(inhibitor, observer)).toBe(
         inhibitor.structureIdle!.startTick
       );
       w.step();
       expect(w.visible(inhibitor, observer)).toBe(false);
       expect(w.knownStructureDestroyed(inhibitor, observer)).toBe(false);
+      expect(w.knownStructureDeathTick(inhibitor, observer)).toBeNull();
       expect(w.knownStructureIdleStartTick(inhibitor, observer)).toBe(
         inhibitor.structureIdle!.startTick
       );
@@ -228,6 +236,28 @@ it('rejects missing, misplaced and future structure idle clocks', () => {
   ]) {
     const s = JSON.parse(w.snapshot());
     mutate(s);
+    expect(() => World.fromSnapshot(JSON.stringify(s), w.battlefield)).toThrow();
+  }
+});
+
+it('validates saved public destruction timestamps instead of ambiguous boolean knowledge', () => {
+  const w = setup(),
+    tower = find(w, 'red', 'outer-turret', 'mid');
+  w.damage(w.hero, tower, 1e6, 'true');
+  expect(tower.structureKnowledge).toEqual({ blue: w.tick, red: w.tick });
+  expect(w.knownStructureDeathTick(tower)).toBe(w.tick);
+  for (const mutate of [
+    (u: any) => delete u.structureKnowledge,
+    (u: any) => (u.structureKnowledge.blue = null),
+    (u: any) => (u.structureKnowledge.blue = true),
+    (u: any) => (u.structureKnowledge.blue = w.tick + 1),
+    (u: any) => {
+      u.deadAt = w.tick + 1;
+      u.structureKnowledge = { blue: w.tick + 1, red: w.tick + 1 };
+    },
+  ]) {
+    const s = JSON.parse(w.snapshot());
+    mutate(s.units.find((u: any) => u.id === tower.id));
     expect(() => World.fromSnapshot(JSON.stringify(s), w.battlefield)).toThrow();
   }
 });

@@ -75,11 +75,11 @@ test('preserves hidden structure knowledge and regrowth deadlines', () => {
   inhibitor.hp = 0;
   inhibitor.deadAt = 0;
   inhibitor.respawnTick = 4;
-  inhibitor.structureKnowledge = { blue: true, red: true };
+  inhibitor.structureKnowledge = { blue: 0, red: 0 };
   const restored = continueIdentically(w, 60);
   const revived = restored.unit(inhibitor.id)!;
   expect(revived.hp).toBeGreaterThan(0);
-  expect(revived.structureKnowledge).toEqual({ blue: true, red: false });
+  expect(revived.structureKnowledge).toEqual({ blue: 0, red: null });
 });
 
 test('restores recall and terminal match state without accidental advancement', () => {

@@ -54,21 +54,30 @@ test('inhibitor destruction seeks on restore and its remembered clock survives h
       if (team === 'red') {
         u.deadAt = null;
         u.hp = u.maxHp;
-        u.structureKnowledge.blue = true;
+        u.structureKnowledge.blue = originalClock;
       }
       w.tick += 600;
       v.render(w, 1, v.previousElapsed + 0.1);
       const action = fresh.actions[fresh.deadIdleClip];
       const duration = fresh.actions[fresh.destroyedClip].getClip().duration;
       const expected = ((w.tick - originalClock) / 60 - duration) % action.getClip().duration;
+      const idleTime = action.time;
+      v.scene.remove(fresh.root);
+      fresh.mixer.stopAllAction();
+      v.models.delete(u.id);
+      v.render(w, 1, v.previousElapsed);
+      const rebuilt = v.models.get(u.id);
       results.push({
+        rebuiltClock: rebuilt.destructionTick,
+        originalClock,
+        rebuiltTime: rebuilt.actions[rebuilt.deadIdleClip].time,
         time,
         difference,
         values: before.length,
         sameClock: fresh.destructionTick === originalClock,
         action: fresh.actionName,
         expectedAction: fresh.deadIdleClip,
-        idleTime: action.time,
+        idleTime,
         expected,
       });
     }
@@ -79,6 +88,8 @@ test('inhibitor destruction seeks on restore and its remembered clock survives h
     expect(result.values).toBeGreaterThan(100);
     expect(result.difference).toBeLessThan(1e-7);
     expect(result.sameClock).toBe(true);
+    expect(result.rebuiltClock).toBe(result.originalClock);
+    expect(result.rebuiltTime).toBeCloseTo(result.expected);
     expect(result.action).toBe(result.expectedAction);
     expect(result.idleTime).toBeCloseTo(result.expected);
   }

@@ -310,7 +310,7 @@ export class World {
     }
     if (kind === 'super') u.name = 'Super minion';
     if (structure) {
-      u.structureKnowledge = { blue: false, red: false };
+      u.structureKnowledge = { blue: null, red: null };
       u.structureIdle = {
         startTick: this.tick,
         observedStartTicks: { blue: this.tick, red: this.tick },
@@ -545,7 +545,7 @@ export class World {
       if (!unit.structureKnowledge) continue;
       for (const team of ['blue', 'red'] as const) {
         if (!this.visible(unit, team)) continue;
-        unit.structureKnowledge[team] = !this.alive(unit);
+        unit.structureKnowledge[team] = this.alive(unit) ? null : unit.deadAt;
         if (unit.structureIdle && this.alive(unit))
           unit.structureIdle.observedStartTicks[team] = unit.structureIdle.startTick;
       }
@@ -672,7 +672,11 @@ export class World {
   }
   knownStructureDestroyed(u: Unit, team: Team = 'blue'): boolean | null {
     if (!u.structureKnowledge) return null;
-    return this.visible(u, team) ? !this.alive(u) : u.structureKnowledge[team];
+    return this.visible(u, team) ? !this.alive(u) : u.structureKnowledge[team] !== null;
+  }
+  knownStructureDeathTick(u: Unit, team: Team = 'blue'): number | null {
+    if (!u.structureKnowledge) return null;
+    return this.visible(u, team) ? u.deadAt : u.structureKnowledge[team];
   }
   knownStructureIdleStartTick(u: Unit, team: Team = 'blue'): number | null {
     if (!u.structureIdle) return null;
@@ -2507,7 +2511,8 @@ export class World {
       this.emit('death', target, { unit: target.id });
       // Structure destruction is public map knowledge. It grants no live sight
       // and does not broaden the audience of the preceding damage event.
-      if (target.structureKnowledge) target.structureKnowledge = { blue: true, red: true };
+      if (target.structureKnowledge)
+        target.structureKnowledge = { blue: this.tick, red: this.tick };
       if (target.kind === 'champion') {
         const level = targetState?.level ?? 1;
         target.respawnTick = this.tick + championDeathTicks(level, this.tick);
