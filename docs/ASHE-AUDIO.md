@@ -149,3 +149,9 @@ All nine prepared source recordings now have runtime paths across cast, launch, 
 ## Attenuation curve preparation
 
 The inherited source attenuation now has a generated profile, standalone evaluator and 86 independent pinned-parser reference samples. The stored values require nonlinear scaling: the 2,000/2,300-unit knots evaluate to approximately −12/−24 dB, while the exact −1 endpoint maps to the parser's −96.3 dB floor. Boundary sampling also exposes a parser discontinuity near that floor. This evaluator is not yet connected to playback; listener placement, distance units, shared buses and native scaling remain unverified. See [attenuation evidence and calibration plan](ASHE-ATTENUATION.md).
+
+## Events arriving during asynchronous resume
+
+The mixer records when an AudioContext resume operation is pending. While audio is enabled and logically unpaused but the context has not started running, event updates leave the consumption cursor unchanged. Once running, the normal event path can schedule the retained event once, with existing source-buffer age offsets. The flag clears even if resume rejects. Intentional pause, mute, missing contexts and restored event history retain their existing consumption policy; no new persistent event queue or save fields were added.
+
+A full browser audit exposed an arrival event being marked consumed during this transition. The controlled regression delays the real resume promise and verifies no cursor advancement while pending, one arrival voice after resumption, deduplication on repeated update, and history consumption while paused. The existing arrival lifetime and node-cleanup test remains intact. Nine audio cases and the final 221-case complete browser suite passed, together with 612 source/simulation checks and production smoke. This repairs scheduling; it does not complete the remaining source audio inventory or certify native mix fidelity.

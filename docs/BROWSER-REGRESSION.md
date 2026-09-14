@@ -1,6 +1,18 @@
 # Browser integration audits
 
-## Current complete run after scoreboard and checkpoint integration
+## Current complete run: 221 scenarios and audio-resume repair
+
+The final Chrome run passed **all 221 scenarios** in one complete run, with one worker and no retries, in 9.8 minutes. The baseline was `870badd`; final source adds the audio-resume repair described here. No files changed during this final run. The 612 source/simulation checks and nested-path production smoke also passed on the repaired source.
+
+The initial complete run passed 219 of 220 cases and found a stale pause-menu focus expectation: it skipped the newly added Match files button. The test now checks every button in both forward and reverse Tab order. A subsequent run exposed a timing-dependent tooltip assertion after closing the shop with the pointer still over Volley. The browser can correctly send a fresh hover event when the button is uncovered; the test now moves the pointer away before closing to isolate clearing of old ownership. Both corrected UI cases passed five consecutive focused runs. These were test repairs, not removals of keyboard or tooltip behavior.
+
+A later audit attempt found a real audio race: `GameAudio.update` advanced its event cursor while the context was awaiting `resume()`, silently consuming the arrival event before audio could play. The mixer now defers live event consumption during the asynchronous resume, while deliberate pause/mute continues to discard history. A deterministic delayed-resume browser case failed before the fix and now verifies unchanged event identity while pending, one source-buffer voice after resume, no duplicate voice on repeated update, and normal paused-history consumption. All nine audio cases passed before the final complete audit. Intermediate runs were explicitly stopped after their failures were diagnosed; none is counted as a successful full run.
+
+The final all-source animation report again contains zero sampled matrix error across 16 rigs, 114 matching pixel comparisons and no failures. Fresh laptop, ten-champion scoreboard and full-Rift recovery-dialog screenshots were inspected. Expected asset/recovery fault injections and diagnostic module-import warnings remain in the raw log; this is not a blanket console-clean claim.
+
+This is an integration baseline for the current implementation, not proof of a complete five-role match, native pixel parity, cross-browser deterministic replay, offline asset delivery or sustained full-match performance. See [final audit evidence](reference/browser-regression-221-verification.json).
+
+## Earlier complete run after scoreboard and checkpoint integration
 
 At runtime revision `b01bb24`, all **205 Chrome scenarios passed** in one complete run with one worker and no retries, taking 7.4 minutes. No source edits or repairs were made during this audit. This is the first full suite run since the constant bone-channel optimization, accepted-command pause repair and observed scoreboard level/CS/inventory integration.
 

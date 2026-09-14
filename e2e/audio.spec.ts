@@ -465,3 +465,48 @@ test('both flight layers complete the arrival fade without restarting on a delay
   expect(result.stops).toHaveLength(2);
   for (const stop of result.stops) expect(stop).toBeCloseTo(0.15, 2);
 });
+
+test('an event waits for a pending audio resume and plays exactly once afterward', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  const result = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      a = g.audio;
+    g.setPaused(true);
+    a.unlock();
+    await a.transition;
+    const resume = a.context.resume.bind(a.context);
+    let release!: () => void;
+    a.context.resume = () =>
+      new Promise<void>((resolve, reject) => {
+        release = () => {
+          void resume().then(resolve, reject);
+        };
+      });
+    a.setPaused(false);
+    await Promise.resolve();
+    const before = a.lastId;
+    const event = { id: before + 100, tick: g.world.tick, type: 'scout-arrival', x: 0, y: 0 };
+    a.update([event], g.world.tick);
+    const pending = { lastId: a.lastId, voices: a.voices.size };
+    release();
+    await a.transition;
+    a.context.resume = resume;
+    a.update([event], g.world.tick);
+    a.update([event], g.world.tick);
+    const played = [...a.voices.keys()].filter(
+      (voice: any) => voice.buffer === a.arrivalBuffer
+    ).length;
+    a.setPaused(true);
+    await a.transition;
+    a.update([{ ...event, id: event.id + 1 }], g.world.tick);
+    const pausedLastId = a.lastId;
+    a.enabled = false;
+    return { before, pending, eventId: event.id, played, pausedLastId };
+  });
+  expect(result.pending).toEqual({ lastId: result.before, voices: 0 });
+  expect(result.played).toBe(1);
+  expect(result.pausedLastId).toBe(result.eventId + 1);
+});

@@ -1,0 +1,55 @@
+{
+  "recordedAt": "2026-09-14T03:19:05.205867+00:00",
+  "baseRevision": "870badd0a9c88733e75d87fc2da639980509481a",
+  "runtimeChange": "Defer live event consumption while AudioContext resume is pending",
+  "testRepairs": [
+    "Include Match files in forward/reverse pause-menu focus order",
+    "Move pointer off HUD before asserting cleared tooltip ownership after closing shop"
+  ],
+  "validation": {
+    "completeBrowserRun": {
+      "passed": 221,
+      "failed": 0,
+      "workers": 1,
+      "retries": 0,
+      "duration": "9.8m"
+    },
+    "initialCompleteRun": {
+      "passed": 219,
+      "failed": 1,
+      "finding": "Outdated pause-menu focus sequence"
+    },
+    "intermediateRuns": "Explicitly interrupted after tooltip timing and audio resume failures were diagnosed",
+    "focusedUiRepetitions": 10,
+    "focusedAudioCases": 9,
+    "sourceSimulationChecks": 612,
+    "typeScript": "passed",
+    "production": "passed /nested/rift/: 9 recordings, map navigation, real Hawkshot, no development hook",
+    "animation": {
+      "rigs": 16,
+      "worstMatrixError": 0,
+      "pixelComparisons": 114,
+      "failures": []
+    }
+  },
+  "sourceAndTestDigest": "f50ccefb2ee2373fbb33356bce2c7337a82af7491f1264e671bbc05a25ab5c4b",
+  "sourceAndTestDigestEncoding": "SHA-256 of sorted path/sha256 entries encoded as compact JSON; git-tracked src, e2e, configs and package files",
+  "scope": "Current Chrome integration only; full match, native pixel parity, other browsers, offline delivery and full-match performance remain incomplete.",
+  "sha256": {
+    "src/audio/audio.ts": "065c51d6f9e55aedb8dd1acafc8f19d30b327bae399742898b343c390ea519a8",
+    "e2e/audio.spec.ts": "3a44813123ee4665af3d668717c0c0ad91097faacab40a858967586d4f5e24f2",
+    "e2e/ability-tooltips.spec.ts": "3fb7069a102f99ed65e7e288dbd44ff2162cdfc24dc2f58d5655e4dd6775f26b",
+    "e2e/game.spec.ts": "954dbf7588cec25a377e6ef479e88ac12a38102c268cb7cd50764acbcab18894",
+    "artifacts/browser-regression-latest.log": "65a066ccb5464ddf7e16caf716c6f53f4155f37ddfa330da3dcba7e081532797",
+    "artifacts/browser-audit-focus-verified.log": "0438b87ce9d63b569fc28245390f7e5b2850c1353dccd14d847dcecba19eb522",
+    "artifacts/audio-resume-before.log": "08366a9d5cc2dc7c0fe6521ed8dfd5f9fc04ac1bf407f488b28163efdc7156bb",
+    "artifacts/audio-resume-verified.log": "1ae8c2ca04652acedd5e1a3db60bb239ce9bb1052f258ab14ef416daf933bd33",
+    "artifacts/audio-resume-check.log": "64f2b3897d3bbe81a069883dbefd760f734dc22d8546d8b0bccc89f3ce605e42",
+    "artifacts/audio-resume-production.log": "56ef490a41a1d54e454f4b6bc1573d2a6924ba4c22876b355e48f97f9316be5c",
+    "artifacts/browser-regression-221-final.log": "73285c7b20a978da447be01c3407a2ca494b6c99ba39a1c29c4a9457b2e2741e",
+    "artifacts/constant-bone-tracks.json": "249662972b72a19a44704ecd84e29ccb5594cf92f8a1604051bcb8d7252e3b74",
+    "artifacts/browser-laptop.png": "eca3b23e9fde3ef57a002775e65740c75a667a09f930ea98014584176ccc12a5",
+    "artifacts/scoreboard-mixed-champions.png": "cf9b481ec5d9c871dd16ed9801557f93b8719a42f95282ed7a2484721dad5f0f",
+    "artifacts/browser-graphics-restored.png": "9f683aa8ec2bcfd1153cc0a4317ae54b5d6d2375b9f319444192ec8eba002256"
+  }
+}

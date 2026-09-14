@@ -37,6 +37,9 @@ test('tooltip ownership survives mixed pointer and keyboard interaction and clea
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(tip).toBeHidden();
   await expect(w).not.toHaveAttribute('aria-describedby');
+  // Uncovering a stationary pointer can legitimately produce a fresh hover.
+  // Keep it off the HUD to test that the old ownership was cleared.
+  await page.mouse.move(500, 300);
   await page.keyboard.press('Escape');
   await expect(tip).toBeHidden();
   await q.focus();

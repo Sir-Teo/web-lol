@@ -147,18 +147,28 @@ test('dialog keeps keyboard focus inside its controls', async ({ page }) => {
   await boot(page);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'Return to the Rift', exact: true })).toBeFocused();
-  await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Save match', exact: true })).toBeFocused();
-  await page.keyboard.press('Tab');
-  await expect(
-    page.getByRole('button', { name: 'Controls & keybindings', exact: true })
-  ).toBeFocused();
-  await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Restart practice', exact: true })).toBeFocused();
-  await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Close menu', exact: true })).toBeFocused();
-  await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Return to the Rift', exact: true })).toBeFocused();
+  for (const label of [
+    'Save match',
+    'Match files',
+    'Controls & keybindings',
+    'Restart practice',
+    'Close menu',
+    'Return to the Rift',
+  ]) {
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: label, exact: true })).toBeFocused();
+  }
+  for (const label of [
+    'Close menu',
+    'Restart practice',
+    'Controls & keybindings',
+    'Match files',
+    'Save match',
+    'Return to the Rift',
+  ]) {
+    await page.keyboard.press('Shift+Tab');
+    await expect(page.getByRole('button', { name: label, exact: true })).toBeFocused();
+  }
 });
 
 test('brush visibility agrees across battlefield, picking, HUD, effects, and fog', async ({

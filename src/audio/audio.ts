@@ -12,6 +12,7 @@ export class GameAudio {
   context: AudioContext | null = null;
   private audible = true;
   private paused = false;
+  private resuming = false;
   private lastId: number;
   private buffers: AudioBuffer[] = [];
   private bag: number[] = [];
@@ -110,7 +111,14 @@ export class GameAudio {
         const context = this.context;
         if (!context || context.state === 'closed') return;
         if (this.paused) await context.suspend();
-        else if (context.state !== 'running') await context.resume();
+        else if (context.state !== 'running') {
+          this.resuming = true;
+          try {
+            await context.resume();
+          } finally {
+            this.resuming = false;
+          }
+        }
       })
       .catch(() => {
         /* A later user gesture can retry a blocked resume. */
@@ -280,6 +288,9 @@ export class GameAudio {
     this.syncContext();
   }
   update(events: SimEvent[], tick: number): void {
+    // A resume promise can span animation frames. Keep live events eligible until
+    // audio is running; intentional pause/mute still consumes history below.
+    if (this.resuming && this.enabled && !this.paused && this.context?.state !== 'running') return;
     for (const event of events)
       if (event.id > this.lastId) {
         this.lastId = event.id;
