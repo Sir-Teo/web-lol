@@ -41,6 +41,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)
+- [Latest quality-first design review](docs/DESIGN-REVIEW.md)
 - [Recommended build strategy and research priorities](docs/BUILD-STRATEGY.md)
 - [Game and technical design](docs/DESIGN.md)
 - [Fidelity priorities, reference captures, and production gates](docs/FIDELITY-PLAN.md)
