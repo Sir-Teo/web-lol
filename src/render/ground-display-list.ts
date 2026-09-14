@@ -1,3 +1,4 @@
+import { stableOpaqueSort, type OpaqueItem } from './stable-opaque-order';
 import * as THREE from 'three';
 
 /** Ground effects blend between environment surfaces and ordinary scene objects.
@@ -26,29 +27,16 @@ function stage(object: THREE.Object3D): number {
   return 3;
 }
 
-interface Item {
-  object: THREE.Object3D;
-  groupOrder: number;
-  renderOrder: number;
-  material: { id: number };
-  materialVariant?: number;
-  z: number;
-  id: number;
-}
 /** Source pass order applies within a display list, never across lists. The remaining
  * comparison follows Three.js's stable opaque ordering for the pinned runtime. */
-export function groundDisplayListSort(a: Item, b: Item): number {
+export function groundDisplayListSort(a: OpaqueItem, b: OpaqueItem): number {
   return (
     stage(a.object) - stage(b.object) ||
     a.groupOrder - b.groupOrder ||
     a.renderOrder - b.renderOrder ||
     // Blended terrain retains the transparent queue's back-to-front ordering.
     (stage(a.object) === 1 ? b.z - a.z || a.id - b.id : 0) ||
-    a.material.id - b.material.id ||
-    // materialVariant is a runtime field not yet present in @types/three.
-    (a.materialVariant ?? 0) - (b.materialVariant ?? 0) ||
-    a.z - b.z ||
-    a.id - b.id
+    stableOpaqueSort(a, b)
   );
 }
 

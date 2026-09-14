@@ -1,3 +1,4 @@
+import { setStableMaterialOrder, setStableObjectOrder } from './stable-opaque-order';
 import { MapTexturePrefetch } from './map-texture-prefetch';
 import { MapTextureResidency } from './map-texture-residency';
 import { installMapGeometryTransport } from './map-geometry-transport';
@@ -132,10 +133,15 @@ export async function loadRift(
   };
   gltf.scene.userData.textureResidency = residency;
   const meshTextures = new Map<THREE.Object3D, Map<THREE.Texture, number>>();
+  let sourceObjectIndex = 0;
   gltf.scene.traverse((object) => {
     if (!(object instanceof THREE.Mesh)) return;
+    setStableObjectOrder(object, sourceObjectIndex++);
     const textures = new Map<THREE.Texture, number>();
     for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+      const sourceMaterial = gltf.parser.associations.get(material)?.materials;
+      if (sourceMaterial === undefined) throw new Error('Map material lacks a source index');
+      setStableMaterialOrder(material, sourceMaterial);
       const basic = material as THREE.MeshBasicMaterial;
       if (basic.map) textures.set(basic.map, bytesFor(basic.map));
       if (material.name.endsWith('/VertexDeform_inst'))

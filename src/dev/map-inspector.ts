@@ -1,3 +1,4 @@
+import { stableOpaqueSort } from '../render/stable-opaque-order';
 import type { MapTexturePrefetch } from '../render/map-texture-prefetch';
 import type { MapTextureResidency } from '../render/map-texture-residency';
 import * as THREE from 'three';
@@ -16,6 +17,7 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.setSize(innerWidth, innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.NoToneMapping;
+renderer.setOpaqueSort(stableOpaqueSort);
 host.prepend(renderer.domElement);
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#0a151c');
