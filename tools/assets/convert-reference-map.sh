@@ -27,4 +27,5 @@ PATH="$map_root/.tools/dotnet10:$PATH" DOTNET_ROLL_FORWARD=Major \
 node tools/assets/pack-reference-map.mjs
 node tools/assets/pack-map-geometry.mjs
 .tools/cdtb-venv/bin/python tools/assets/export-rift-layout.py
+.tools/cdtb-venv/bin/python tools/assets/export-map-initial-visibility.py
 node tools/assets/validate-map.mjs

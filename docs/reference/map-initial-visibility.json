@@ -1,0 +1,208 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "sources": {
+    ".cache/map-materials.json": "b2ba02f51824f5d2a1a3a6101d0bfa989d37aae1b91a90335cd4cbc6d551505b",
+    ".cache/map-mesh-info.json": "e8a4c9343a37f88b855a11aee6a2e87b92bc5021ae7d5c41cc0ad1724cb7eba0",
+    "public/assets/maps/rift.gltf": "68586f75e3244217d278f70505da60cd0d74ae50631f1d759030926bc8b27fa8"
+  },
+  "mapGeometry": {
+    "path": "data/maps/mapgeometry/map11/base_srx.mapgeo",
+    "wadPathHash": "f906e4fcae07efa9",
+    "sha256": "3887eb3811bb68db02a0516895ab8e6ee5ea3b35e0dd121b492e7b600c8b1ac5",
+    "bytes": 91726524
+  },
+  "controllers": {
+    "{1b3399aa}": {
+      "PathHash": "{1b3399aa}",
+      "name": "{d1751a06}",
+      "DefaultVisible": false,
+      "{8bff8cdf}": 4,
+      "__type": "{ec733fe2}"
+    },
+    "{5e652742}": {
+      "PathHash": "{5e652742}",
+      "Parents": [
+        "{8e6a128e}",
+        "{4f0b2a3e}",
+        "{48106271}",
+        "{d1a17399}",
+        "{2b8dbdee}",
+        "{3c5b24f7}"
+      ],
+      "ParentMode": 3,
+      "__type": "ChildMapVisibilityController"
+    },
+    "{48106271}": {
+      "PathHash": "{48106271}",
+      "name": "{dba9fcb3}",
+      "DefaultVisible": false,
+      "{27639032}": 4,
+      "__type": "{c406a533}"
+    },
+    "{76c50391}": {
+      "PathHash": "{76c50391}",
+      "MutatorName": "SR_Hall_Of_Legends",
+      "__type": "MutatorMapVisibilityController"
+    },
+    "{f4968631}": {
+      "PathHash": "{f4968631}",
+      "name": "{6204d1e5}",
+      "{8bff8cdf}": 1,
+      "__type": "{ec733fe2}"
+    },
+    "{21d36b37}": {
+      "PathHash": "{21d36b37}",
+      "Parents": [
+        "{1b3399aa}"
+      ],
+      "ParentMode": 3,
+      "__type": "ChildMapVisibilityController"
+    },
+    "{c11c84e8}": {
+      "PathHash": "{c11c84e8}",
+      "name": "{a28a5af4}",
+      "DefaultVisible": false,
+      "{8bff8cdf}": 2,
+      "__type": "{ec733fe2}"
+    },
+    "{68fe7644}": {
+      "PathHash": "{68fe7644}",
+      "name": "{7067adc8}",
+      "DefaultVisible": false,
+      "{8bff8cdf}": 8,
+      "__type": "{ec733fe2}"
+    },
+    "{3c5b24f7}": {
+      "PathHash": "{3c5b24f7}",
+      "name": "{5cba1be9}",
+      "DefaultVisible": false,
+      "{27639032}": 8,
+      "__type": "{c406a533}"
+    },
+    "{0c210e40}": {
+      "PathHash": "{0c210e40}",
+      "Parents": [
+        "{48106271}"
+      ],
+      "ParentMode": 3,
+      "__type": "ChildMapVisibilityController"
+    },
+    "{6f187e01}": {
+      "PathHash": "{6f187e01}",
+      "Parents": [
+        "{8e6a128e}",
+        "{48106271}",
+        "{d1a17399}",
+        "{2b8dbdee}"
+      ],
+      "ParentMode": 3,
+      "__type": "ChildMapVisibilityController"
+    }
+  },
+  "hidden": [
+    {
+      "node": "MapGeo_Instance_8",
+      "controller": "{1b3399aa}"
+    },
+    {
+      "node": "MapGeo_Instance_46",
+      "controller": "{48106271}"
+    },
+    {
+      "node": "MapGeo_Instance_47",
+      "controller": "{48106271}"
+    },
+    {
+      "node": "MapGeo_Instance_111",
+      "controller": "{1b3399aa}"
+    },
+    {
+      "node": "MapGeo_Instance_117",
+      "controller": "{c11c84e8}"
+    },
+    {
+      "node": "MapGeo_Instance_128",
+      "controller": "{68fe7644}"
+    },
+    {
+      "node": "MapGeo_Instance_140",
+      "controller": "{3c5b24f7}"
+    },
+    {
+      "node": "MapGeo_Instance_235",
+      "controller": "{1b3399aa}"
+    },
+    {
+      "node": "MapGeo_Instance_237",
+      "controller": "{68fe7644}"
+    },
+    {
+      "node": "MapGeo_Instance_244",
+      "controller": "{c11c84e8}"
+    },
+    {
+      "node": "MapGeo_Instance_261",
+      "controller": "{68fe7644}"
+    },
+    {
+      "node": "MapGeo_Instance_262",
+      "controller": "{c11c84e8}"
+    },
+    {
+      "node": "Layer1.MapGeo_Instance_271",
+      "controller": "{3c5b24f7}"
+    },
+    {
+      "node": "MapGeo_Instance_274",
+      "controller": "{1b3399aa}"
+    },
+    {
+      "node": "MapGeo_Instance_294",
+      "controller": "{48106271}"
+    },
+    {
+      "node": "MapGeo_Instance_311",
+      "controller": "{48106271}"
+    },
+    {
+      "node": "MapGeo_Instance_324",
+      "controller": "{3c5b24f7}"
+    },
+    {
+      "node": "MapGeo_Instance_365",
+      "controller": "{3c5b24f7}"
+    },
+    {
+      "node": "MapGeo_Instance_400",
+      "controller": "{48106271}"
+    },
+    {
+      "node": "MapGeo_Instance_431",
+      "controller": "{48106271}"
+    }
+  ],
+  "unresolved": {
+    "{5e652742}": [
+      "Layer1.MapGeo_Instance_19"
+    ],
+    "{76c50391}": [
+      "MapGeo_Instance_48",
+      "MapGeo_Instance_173"
+    ],
+    "{21d36b37}": [
+      "Layer1.MapGeo_Instance_112"
+    ],
+    "{0c210e40}": [
+      "Layer1.MapGeo_Instance_200",
+      "Layer1.MapGeo_Instance_295",
+      "Layer1.MapGeo_Instance_427",
+      "Layer1.MapGeo_Instance_539"
+    ],
+    "{6f187e01}": [
+      "Layer1.MapGeo_Instance_447",
+      "Layer1.MapGeo_Instance_470"
+    ]
+  },
+  "policy": "Apply explicit DefaultVisible false. Preserve child and mutator states until their evaluation is recovered. No dynamic terrain transition implementation.",
+  "outputSHA256": "90649128b7ef5df5514d2b7e3e98d3fd980223c5489a741758a7389159e52e62"
+}

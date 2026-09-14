@@ -10,7 +10,7 @@ The [Base_SRX map container](https://raw.communitydragon.org/16.18/game/data/map
 
 `docs/reference/map-extraction.json` pins 184 source files and 989 compressed patch chunks, including their SHA-256 hashes and CDN byte ranges. Extraction reads 184.35 MB of compressed patch chunks and produces 509.68 MB of geometry, materials, navigation, and texture sources. It never downloads the complete 2.49 GB WAD. The 185 required path-hash resolutions are committed separately; future rebuilds do not require CommunityDragon’s moving full hash list.
 
-The map source contains all eight terrain visibility bits. The artifact retains bit 0 and shared geometry, removes duplicate instances from the other seven layers, and prunes their unreachable resources. The result contains 196 meshes, 137 materials, 137 terrain textures, and 645,491 submitted triangles when the entire map is visible. Original vertex precision is preserved.
+The map source contains all eight terrain visibility bits. The artifact retains bit 0 and shared geometry, removes duplicate instances from the other seven layers, and prunes their unreachable resources. The result contains 196 meshes, 137 materials, 137 terrain textures, and 645,491 triangles in the retained artifact before controller-based visibility filtering. The loader additionally honors the 20 explicit default-hidden instances described below. Original vertex precision is preserved.
 
 ## Texture preservation and browser memory
 
@@ -92,7 +92,7 @@ The reconstructed textured intermediate GLB was rebuilt byte-for-byte after repl
 - Brush uses the source grass tint image in a static shader approximation. Its UV fit, brightness, motion, and see-through response still require reference calibration.
 - The twelve procedural Faelights indicator meshes are explicitly omitted and listed in the artifact manifest; their shader is not implemented.
 - Dynamic terrain materials use their diffuse texture without their authored state transitions. This is visible in the audit manifest and prevents a pixel-parity claim.
-- Active event/map mutators have not been fully reconciled. The artifact is the pinned default container and initial visibility mask, not a claim about every live match configuration.
+- Active event/map mutators have not been fully reconciled. The artifact is the pinned default container and initial visibility mask, with explicit default-hidden controller states applied at load time; child/mutator evaluation and live transitions remain incomplete.
 - The full-map simulation now shares geometry coordinates, elevation, grid collision, brush, and vision. Dynamic grid overlays, local unit avoidance, exact Riot steering, and expanded route/region reference checks remain required.
 - Region-based download/CPU texture streaming, broader GPU support, reference camera matching, and complete-match performance remain production work. GPU residency is managed separately as described below.
 
@@ -154,3 +154,15 @@ The loader now tags each map material with its pinned glTF material index and ea
 All six post-fix DXT diagnostic loads produced the same framebuffer hash. The committed browser regression verifies identical camera matrices, draw names/order and framebuffer hashes across normal/delayed responses for **both** DXT and WebP; it also checks that the schedules actually produce different material IDs. The pan, ground/effect queue and blended terrain regressions pass. TypeScript and 750 unit tests pass, including source-key ordering and unchanged ordering for untagged objects. The production subpath smoke passes, and the stable DXT mid-lane capture was visually reviewed.
 
 This establishes repeatability for the tested source map and view. The chosen order comes from the frozen glTF, not a recovered native Riot render queue; native material/pass matching and the map-state fidelity gaps above remain open.
+
+### Explicit controller defaults
+
+A mesh's all-layer flag does not make its visibility controller irrelevant. The previous loader rendered every retained instance, including 20 meshes whose linked source controller explicitly says `DefaultVisible: false`. Those included Tunnel/Cup/Upgraded Baron terrain variants and Mountain/Ocean features. This could show mutually exclusive geometry together even after draw ordering became deterministic.
+
+`export-map-initial-visibility.py` verifies the pinned material JSON, converter mesh/controller table and extracted mapgeo hashes, joins retained glTF node names to their source controller hashes, and exports the explicit false defaults. The [source audit](reference/map-initial-visibility.json) retains controller records, node mappings, input/output hashes and unresolved cases. Both source controller classes inherit the `DefaultVisible` field; the Toolkit metadata defines its omitted default as true. No false value is inferred from an absent field.
+
+`loadRift` applies the table through GLTFLoader's source-node associations before rendering. It fails if any expected hidden node cannot be resolved. The meshes and full-resolution assets remain intact for subsequent state work, but hidden meshes neither draw nor request speculative texture initialization. This changes the rendered map state, not source geometry or texture quality. The map validator checks the table's artifact/input hashes, complete node coverage and explicit source evidence for each false default. The converter pipeline regenerates the table.
+
+Five retained child/mutator controllers remain unresolved and keep their previous visibility. In particular, `ParentMode: 3` has not been assigned guessed boolean semantics, and the active Hall of Legends mutator state has not been assumed. Dynamic elemental/Baron transitions, controller evaluation and matching navigation overlays remain unfinished. Applying explicit defaults improves the initial scene without certifying a complete live map state.
+
+Validation: 750 unit tests and TypeScript; six browser checks covering all 20 hidden instances, exclusion from draws/preparation, DXT/WebP load-order determinism, panning and exact overview restoration. The map asset validator reports zero errors/warnings. The production subpath smoke passes, and the default-visibility overview was visually inspected. The original-DXT overview now uses an estimated 293.75 MiB of resident map texture data versus 327.42 MiB when the extra variants were all drawn; initial downloads and CPU asset storage remain unchanged.

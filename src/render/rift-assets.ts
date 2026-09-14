@@ -1,3 +1,4 @@
+import initialVisibility from '../content/rift-initial-visibility.json';
 import { setStableMaterialOrder, setStableObjectOrder } from './stable-opaque-order';
 import { MapTexturePrefetch } from './map-texture-prefetch';
 import { MapTextureResidency } from './map-texture-residency';
@@ -133,10 +134,15 @@ export async function loadRift(
   };
   gltf.scene.userData.textureResidency = residency;
   const meshTextures = new Map<THREE.Object3D, Map<THREE.Texture, number>>();
+  const pendingHidden = new Set(initialVisibility.hiddenNodes);
   let sourceObjectIndex = 0;
   gltf.scene.traverse((object) => {
     if (!(object instanceof THREE.Mesh)) return;
     setStableObjectOrder(object, sourceObjectIndex++);
+    const sourceNode = gltf.parser.associations.get(object)?.nodes;
+    const sourceName =
+      sourceNode === undefined ? undefined : gltf.parser.json.nodes[sourceNode].name;
+    if (sourceName && pendingHidden.delete(sourceName)) object.visible = false;
     const textures = new Map<THREE.Texture, number>();
     for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
       const sourceMaterial = gltf.parser.associations.get(material)?.materials;
@@ -178,6 +184,8 @@ export async function loadRift(
       }
     }
   });
+  if (pendingHidden.size)
+    throw new Error(`Missing default-hidden map nodes: ${[...pendingHidden]}`);
   gltf.scene.userData.texturePrefetch = new MapTexturePrefetch(gltf.scene, residency, meshTextures);
   gltf.scene.userData.textureEncoding = native ? 'original-dxt' : 'lossless-webp';
   gltf.scene.userData.textureGpuBytes = native

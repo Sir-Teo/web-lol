@@ -24,6 +24,36 @@ if (
   !decoded.equals(await fs.readFile(base + transport.source.uri))
 )
   throw new Error('Compressed geometry verification failed');
+const visibilityAudit = JSON.parse(
+  await fs.readFile('docs/reference/map-initial-visibility.json', 'utf8')
+);
+const visibilityBytes = await fs.readFile('src/content/rift-initial-visibility.json');
+const visibility = JSON.parse(visibilityBytes);
+if (
+  hash(json) !== visibilityAudit.sources['public/assets/maps/rift.gltf'] ||
+  hash(visibilityBytes) !== visibilityAudit.outputSHA256
+)
+  throw new Error('Map initial visibility source/output hash mismatch');
+const sourceNodeNames = new Set(
+  JSON.parse(json)
+    .nodes.filter((n) => n.mesh !== undefined)
+    .map((n) => n.name)
+);
+const expectedHidden = visibilityAudit.hidden
+  .map((record) => {
+    if (
+      !sourceNodeNames.has(record.node) ||
+      visibilityAudit.controllers[record.controller]?.DefaultVisible !== false
+    )
+      throw new Error(`Unsupported default-hidden map node: ${record.node}`);
+    return record.node;
+  })
+  .sort();
+if (
+  new Set(expectedHidden).size !== expectedHidden.length ||
+  JSON.stringify(visibility.hiddenNodes) !== JSON.stringify(expectedHidden)
+)
+  throw new Error('Map initial visibility node coverage mismatch');
 const navigation = JSON.parse(await fs.readFile(`${base}rift-nav.json`, 'utf8'));
 if (hash(await fs.readFile(`${base}rift-nav.bin`)) !== navigation.output.sha256)
   throw new Error('Navigation payload hash mismatch');
