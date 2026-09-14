@@ -166,3 +166,11 @@ A mesh's all-layer flag does not make its visibility controller irrelevant. The 
 Five retained child/mutator controllers remain unresolved and keep their previous visibility. In particular, `ParentMode: 3` has not been assigned guessed boolean semantics, and the active Hall of Legends mutator state has not been assumed. Dynamic elemental/Baron transitions, controller evaluation and matching navigation overlays remain unfinished. Applying explicit defaults improves the initial scene without certifying a complete live map state.
 
 Validation: 750 unit tests and TypeScript; six browser checks covering all 20 hidden instances, exclusion from draws/preparation, DXT/WebP load-order determinism, panning and exact overview restoration. The map asset validator reports zero errors/warnings. The production subpath smoke passes, and the default-visibility overview was visually inspected. The original-DXT overview now uses an estimated 293.75 MiB of resident map texture data versus 327.42 MiB when the extra variants were all drawn; initial downloads and CPU asset storage remain unchanged.
+
+### Residency after WebGL context restoration
+
+The residency tracker now clears its allocation records on `webglcontextrestored`. Three recreates GPU resources in the new context, so previously resident textures must not remain counted or be skipped by near-view preparation. Original CPU texture data and lifetime eviction diagnostics are retained; clearing bookkeeping does not dispose source textures.
+
+The browser regression first fills the map cache, moves to blue base, forces a real context loss/restoration, and examines residency before the first restored draw. Before this fix it incorrectly retained 267,475,704 bytes. It now starts at zero and counts only textures uploaded by that draw; the restored framebuffer hash exactly matches the pre-loss view. The unit regression also verifies that previously resident nearby textures become eligible for preparation again.
+
+Validation: TypeScript and 751 unit tests, four browser checks covering context restoration, preparation and residency/re-entry, plus the production subpath smoke. This supplements the game's existing graphics-recovery behavior; it does not implement any of the unresolved map visibility-controller logic.

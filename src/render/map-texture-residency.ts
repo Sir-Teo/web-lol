@@ -10,6 +10,11 @@ export class MapTextureResidency {
   >();
   evictions = 0;
   constructor(readonly budgetBytes = 256 * 1024 * 1024) {}
+  /** The restored WebGL context has no old allocations. Keep original CPU
+   * textures and lifetime eviction counters, but forget all residency claims. */
+  contextRestored() {
+    this.entries.clear();
+  }
   beginFrame() {
     this.frame++;
   }

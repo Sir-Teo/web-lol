@@ -131,3 +131,26 @@ test('prefetch stops after its count or elapsed-time limit', () => {
   expect(residency.prefetch(nearby, slowUpload, () => clock)).toBe(1);
   expect(residency.residentBytes).toBe(30);
 });
+
+test('context restoration forgets GPU allocations and allows exact CPU data to upload again', () => {
+  const residency = new MapTextureResidency(20);
+  const visible = new Texture(),
+    nearby = new Texture();
+  const dispose = vi.spyOn(visible, 'dispose');
+  residency.beginFrame();
+  residency.touch(visible, 10);
+  residency.touch(nearby, 10);
+  residency.contextRestored();
+  expect(residency.residentBytes).toBe(0);
+  expect(residency.currentFrameBytes).toBe(0);
+  expect(residency.residentCount).toBe(0);
+  expect(residency.evictions).toBe(0);
+  expect(dispose).not.toHaveBeenCalled();
+  residency.beginFrame();
+  residency.touch(visible, 10);
+  const upload = vi.fn();
+  expect(residency.prefetch(new Map([[nearby, 10]]), upload, () => 0)).toBe(1);
+  expect(upload).toHaveBeenCalledWith(nearby);
+  expect(residency.residentBytes).toBe(20);
+  expect(residency.currentFrameBytes).toBe(10);
+});

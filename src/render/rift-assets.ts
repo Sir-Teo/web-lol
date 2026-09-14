@@ -118,6 +118,7 @@ export async function loadRift(
   grassTint.colorSpace = THREE.SRGBColorSpace;
   grassTint.wrapS = grassTint.wrapT = THREE.ClampToEdgeWrapping;
   const residency = new MapTextureResidency();
+  renderer.domElement.addEventListener('webglcontextrestored', () => residency.contextRestored());
   const bytesFor = (texture: THREE.Texture) => {
     if (native) return records[texture.name].gpuBytes;
     const image = texture.image as { width: number; height: number };
