@@ -23,6 +23,7 @@ import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { DEATHCAP_AP_AMPLIFICATION, LOST_CHAPTER } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
+import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX } from '../content/lux-progression';
@@ -1319,6 +1320,28 @@ export class World {
     }
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
+    const observedChampions = this.units.filter(
+      (other) =>
+        other.id !== u.id &&
+        other.kind === 'champion' &&
+        this.alive(other) &&
+        this.visible(other, u.team)
+    );
+    const disengage = botDisengagePoint(
+      u,
+      observedChampions.filter((other) => other.team === u.team),
+      observedChampions.filter((other) => other.team !== u.team),
+      this.battlefield.spawns[u.team],
+      (point) =>
+        this.battlefield.lineWalkable(u, point, u.radius, u.team) &&
+        !this.threateningTower(u, point, true)
+    );
+    if (disengage) {
+      if (this.planLuxCombat(u, true) || this.planCrystalArrow(u, 'peel')) return;
+      if (u.order.type !== 'move' || distance(u.order.point, disengage) > 50)
+        this.setOrder(u, { type: 'move', point: disengage });
+      return;
+    }
     const state = this.championState(u.id)!;
     const nextPurchase = this.nextBotPurchase(u);
     const nextPlan = nextPurchase ? this.purchasePlan(nextPurchase.id, u.id) : null;

@@ -13,6 +13,9 @@ test('bot pursues a safe alternative while another target is protected by a towe
       w = g.world;
     g.setPaused(true);
     w.nextWaveTick = Infinity;
+    // Exclude the fixture sparring partner: a second enemy now correctly invokes
+    // group disengagement, which is tested separately from tower target choice.
+    w.units = [w.hero];
     // Isolate tower-safe target choice from the fixture's brush occlusion.
     w.battlefield.lineOfSight = () => true;
     for (const u of w.units) {

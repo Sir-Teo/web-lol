@@ -38,6 +38,7 @@ The playable includes the full reference Rift terrain, the pinned patch 16.18 ba
 See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. The target-dummy model remains temporary; camps and full-match bot behavior are still missing. Both bases now include their Nexus and inhibitors, with protected structures, regrowth, and a local Victory/Defeat result. See the [asset pipeline](docs/ASSETS.md) for the matching minion sources and reproducible conversion. Champion animation transitions, event timing, lighting and reference-pixel calibration remain unfinished.
 
 - [Local match checkpoints and compatibility](docs/SAVES.md)
+- [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)
