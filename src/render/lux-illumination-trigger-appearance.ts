@@ -1,3 +1,4 @@
+import { particleColorLookup } from './particle-color-lookup';
 import { LUX_ILLUMINATION_TRIGGER_VFX } from '../content/lux-illumination-trigger-vfx';
 import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import type { luxIlluminationTriggerBirths } from './lux-illumination-trigger-births';
@@ -21,12 +22,11 @@ export function luxIlluminationTriggerAppearance(particle: TriggerParticle) {
   const color = particle.color.map(
     (value, axis) => value * sampleParticleCurve(profile.color, phase, axis)
   );
-  const lookup = profile.lookupTypes.map((type, axis) => {
-    // This pinned set uses only constant and normalized particle lifetime.
-    if (type === 0) return profile.lookupScales[axis];
-    if (type === 1) return profile.lookupScales[axis] * phase + profile.lookupOffsets[axis];
+  // This pinned set uses only constant/lifetime lookup; velocity-driven lookup
+  // must receive final particle travel from the motion/attachment stage.
+  if (profile.lookupTypes.some((type) => type !== 0 && type !== 1))
     throw new RangeError('Unsupported Illumination trigger lookup selector');
-  });
+  const lookup = particleColorLookup(profile, phase, particle.chance);
   const palette = profile.palette
     ? {
         texture: profile.palette.texture,
