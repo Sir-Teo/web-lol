@@ -128,3 +128,33 @@ test('detonation preview renders palette changes and supports play, pause, and s
   await expect(page.locator('#status')).toContainText('0 particles');
   await expect(page.getByRole('button', { name: 'Play', exact: true })).toBeVisible();
 });
+
+test('moving origin reaches ray geometry while rings retain birth placement', async ({ page }) => {
+  await page.goto('/tools/qa/lux-illumination-trigger.html');
+  await page.waitForFunction(() => (window as any).__ILLUMINATION_TRIGGER__?.ready);
+  const sample = () =>
+    page.evaluate(() => {
+      const p = (window as any).__ILLUMINATION_TRIGGER__;
+      p.draw(0.1);
+      return p.cloud.meshes.map((m: any) =>
+        [...m.geometry.attributes.position.array].slice(0, m.geometry.drawRange.count * 3)
+      );
+    });
+  const stationary = await sample();
+  await page.getByLabel('Moving origin').check();
+  const moving = await sample();
+  for (let vertex = 0; vertex < moving[0].length; vertex += 3)
+    expect(moving[0][vertex] - stationary[0][vertex]).toBeCloseTo(-1.5 * Math.sin(4 / 60), 5);
+  // Ray width rotates toward the camera when its origin moves. The midpoint of
+  // the near edge isolates the attachment translation from that correct turn.
+  for (let first = 0; first < moving[4].length; first += 18)
+    for (let axis = 0; axis < 3; axis++) {
+      const near = (a: number[]) => (a[first + axis] + a[first + 3 + axis]) / 2;
+      expect(near(moving[4]) - near(stationary[4])).toBeCloseTo(
+        axis === 0 ? -1.5 * Math.sin(0.4) : 0,
+        5
+      );
+    }
+  await page.getByLabel('Moving origin').uncheck();
+  expect(await sample()).toEqual(stationary);
+});

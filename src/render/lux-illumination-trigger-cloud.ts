@@ -6,6 +6,7 @@ import { luxIlluminationTriggerStaticMotion } from './lux-illumination-trigger-m
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { particleAtlasUv } from './particle-atlas';
 import { writeRayQuad } from './ray-quad';
+import { luxIlluminationTriggerAttachment } from './lux-illumination-trigger-attachment';
 
 export async function loadIlluminationTriggerTextures(base = import.meta.env.BASE_URL) {
   const textures = new Map<string, THREE.Texture>();
@@ -40,8 +41,8 @@ const corners = [
   [-1, 1],
 ] as const;
 
-/** Five-layer static detonation study. Borrowed textures; no gameplay event or
- * moving attachment handling. The unresolved outer-ring block is not interpreted. */
+/** Five-layer detonation study. Borrowed textures; optional source-space origin
+ * history applies per-emitter binding. No gameplay event or bone selection. The unresolved outer-ring block is not interpreted. */
 export class LuxIlluminationTriggerCloud {
   readonly root = new THREE.Group();
   readonly meshes: THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>[] = [];
@@ -110,7 +111,8 @@ export class LuxIlluminationTriggerCloud {
       this.root.add(mesh);
     }
   }
-  /** center/frame describe a stationary origin. frame is reflected and orthonormal;
+  /** center/frame convert source coordinates to the scene. Optional origin history
+   * supplies translation in source units. frame is reflected and orthonormal;
    * source lengths convert at 0.01. Motion is evaluated before scene conversion. */
   draw(
     seed: number,
@@ -118,7 +120,8 @@ export class LuxIlluminationTriggerCloud {
     camera: THREE.Camera,
     center: THREE.Vector3,
     frame: THREE.Matrix3,
-    stopSeconds = Infinity
+    stopSeconds = Infinity,
+    origin?: (seconds: number) => THREE.Vector3
   ) {
     camera.updateMatrixWorld();
     camera.getWorldPosition(this.eye);
@@ -138,8 +141,19 @@ export class LuxIlluminationTriggerCloud {
       selected.forEach((p, ordinal) => {
         const appearance = luxIlluminationTriggerAppearance(p)!,
           motion = luxIlluminationTriggerStaticMotion(p)!;
+        const attachment = origin ? luxIlluminationTriggerAttachment(p, origin)! : null;
+        const travel = motion.travel.map(
+          (v, axis) => v + (attachment?.travel.getComponent(axis) ?? 0)
+        );
+        const speed = Math.hypot(...travel);
+        const stretch =
+          profile.directionOriented && speed > 0
+            ? Math.max(profile.directionMin, speed * profile.directionScale)
+            : 1;
         const first = ordinal * 6;
-        this.place.fromArray(motion.position).applyMatrix3(frame).multiplyScalar(0.01).add(center);
+        this.place.fromArray(motion.position);
+        if (attachment) this.place.add(attachment.position);
+        this.place.applyMatrix3(frame).multiplyScalar(0.01).add(center);
         if (profile.primitive === 'ray') {
           this.rotation.set(
             (appearance.rotation[0] * Math.PI) / 180,
@@ -165,7 +179,7 @@ export class LuxIlluminationTriggerCloud {
           let dx = 0,
             dy = 1;
           if (profile.directionOriented) {
-            this.direction.fromArray(motion.travel);
+            this.direction.fromArray(travel);
             if (this.direction.lengthSq() === 0) this.direction.set(0, 1, 0);
             this.rotation.set(
               motion.orbitRadians[0],
@@ -190,7 +204,7 @@ export class LuxIlluminationTriggerCloud {
             s = Math.sin(roll);
           corners.forEach(([x, y], i) => {
             const sx = appearance.size[0] * 0.01,
-              sy = appearance.size[1] * motion.stretch * 0.01;
+              sy = appearance.size[1] * stretch * 0.01;
             const a = profile.directionOriented ? dy * x * sx + dx * y * sy : (x * c - y * s) * sx;
             const b = profile.directionOriented ? -dx * x * sx + dy * y * sy : (x * s + y * c) * sy;
             position.setXYZ(

@@ -19,13 +19,22 @@ scene.add(cloud.root);
 const frame = new THREE.Matrix3().set(-1, 0, 0, 0, 1, 0, 0, 0, 1),
   center = new THREE.Vector3();
 const age = document.querySelector<HTMLInputElement>('#age')!;
+const moving = document.querySelector<HTMLInputElement>('#moving')!;
 let currentTime = Number(age.value);
 let playing = false,
   last = performance.now();
 function draw(time: number) {
   currentTime = time;
   age.value = String(time);
-  const particles = cloud.draw(123, time, camera, center, frame, Infinity);
+  const particles = cloud.draw(
+    123,
+    time,
+    camera,
+    center,
+    frame,
+    Infinity,
+    moving.checked ? (t) => new THREE.Vector3(150 * Math.sin(t * 4), 0, 0) : undefined
+  );
   renderer.render(scene, camera);
   document.querySelector('#status')!.textContent =
     `${time.toFixed(2)} s · ${particles.length} particles · ${cloud.meshes.map((mesh) => `${mesh.name}: ${mesh.geometry.drawRange.count / 6}`).join(' · ')}`;
@@ -36,6 +45,7 @@ age.oninput = () => {
   document.querySelector('#play')!.textContent = 'Play';
   draw(Number(age.value));
 };
+moving.onchange = () => draw(currentTime);
 document.querySelector('#play')!.addEventListener('click', () => {
   playing = !playing;
   document.querySelector('#play')!.textContent = playing ? 'Pause' : 'Play';

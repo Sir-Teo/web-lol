@@ -158,3 +158,13 @@ The material reuses the verified particle color-product shader, including RGB pa
 With the development server running, `/tools/qa/lux-illumination-trigger.html` provides Play/Pause and a 0–1.7-second age scrubber. It is a stationary-origin study, not gameplay integration. The wider preview camera keeps the inspected 0.12-second burst within the frame.
 
 TypeScript and all 773 unit tests pass. Two Chrome cases verify every layer contributes pixels, exact framebuffer equality after seeking, stable geometry/texture allocations, empty draws after expiry, geometry disposal/shared texture ownership, visible palette changes and restoration, and preview controls. The combined screenshot was visually inspected after widening the camera. Moving-target attachment, gameplay consumption events, sound, unresolved fields and native capture comparison remain outstanding; no production gameplay behavior changed in this preview milestone.
+
+## Moving-origin detonation study
+
+`luxIlluminationTriggerAttachment` now reconstructs per-particle translation from a caller-supplied origin history in source units. It starts at each particle's birth origin and accumulates endpoint displacement multiplied by the emitter-phase binding curve on the local 60 Hz grid. Fractional steps interpolate the same interval; callback-owned vectors remain untouched. The callback supplies historical endpoint samples and fractional current-origin samples, rather than only the target's latest position.
+
+Rays inherit full movement, rings retain their birth origin, and sparks accumulate their fading share of target travel. Applying the final binding weight to the entire displacement would erase movement inherited earlier, so the helper preserves that history. Motes additionally orbit their retained birth origin around the system's current origin. The renderer combines binding travel with static travel before directional stretching and orbiting the directional basis.
+
+The preview's **Moving origin** control supplies a synthetic horizontal path. This demonstrates translation/binding only; it does not establish a native attachment bone or implement consumption events. A GPU check measures the ray near-edge midpoint, because the ray's camera-facing width correctly changes as its origin moves. It independently verifies the ring's retained birth placement and exact restoration when motion is disabled.
+
+Five numerical cases cover full/zero/fading binding, later births, fractional interpolation, moving orbit centers, callback ownership, repeatability and expiry. TypeScript, all 778 unit tests and three preview browser cases pass. Gameplay event capture, saved target pose history, bone selection, sound and native comparison remain outstanding.
