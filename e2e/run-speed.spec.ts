@@ -13,7 +13,7 @@ test('all mobile source rigs scale run playback with gameplay speed, slows and h
     w.nextWaveTick = Infinity;
     w.units = [w.hero];
     w.battlefield.findPath = (_from: any, to: any) => [{ x: to.x, y: to.y }];
-    const units = [w.hero];
+    const units = [w.hero, w.spawn('champion', 'blue', { x: 0, y: 0 }, 'lux')];
     for (const team of ['blue', 'red'])
       for (const kind of ['melee', 'caster', 'siege', 'super']) {
         const u = w.spawn(kind, team, { x: 0, y: 0 });
@@ -45,7 +45,9 @@ test('all mobile source rigs scale run playback with gameplay speed, slows and h
         const model = v.models.get(u.id);
         results.push({
           clip: model.actionName,
-          rate: model.actions.run.timeScale,
+          rate: (u.runClock.current - u.runClock.previous) * 60,
+          phase: model.actions.run.time,
+          expectedPhase: u.runClock.current % model.actions.run.getClip().duration,
           multiplier,
           distance: Math.hypot(u.x - before.x, u.y - before.y),
           expectedDistance: (nominal * multiplier) / 60,
@@ -54,10 +56,11 @@ test('all mobile source rigs scale run playback with gameplay speed, slows and h
     }
     return results;
   });
-  expect(results).toHaveLength(36);
+  expect(results).toHaveLength(40);
   for (const result of results) {
     expect(result.clip).toBe('run');
     expect(result.rate).toBeCloseTo(result.multiplier);
+    expect(result.phase).toBeCloseTo(result.expectedPhase, 10);
     expect(result.distance).toBeCloseTo(result.expectedDistance);
   }
 });

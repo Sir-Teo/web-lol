@@ -198,6 +198,7 @@ export class World {
       y: point.y,
       previous: { x: point.x, y: point.y },
       facing: team === 'blue' ? 2.2 : -0.95,
+      runClock: null,
       radius: champion ? 35 : turret ? 95 : dummy ? 40 : 27,
       hp,
       maxHp: hp,
@@ -489,6 +490,7 @@ export class World {
       if (thinkNow) this.think(u);
       this.advanceUnit(u);
       if (this.winner) {
+        this.advanceRunClocks();
         this.advanceImpactVisuals();
         return;
       }
@@ -497,7 +499,10 @@ export class World {
     this.advanceProjectiles(unseen);
     this.advanceSingularities();
     this.advanceImpactVisuals();
-    if (this.winner) return;
+    if (this.winner) {
+      this.advanceRunClocks();
+      return;
+    }
     for (const unit of this.units) {
       const champion = this.championState(unit.id);
       if (champion) {
@@ -567,6 +572,7 @@ export class World {
           state.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
         );
     for (const state of this.activeChampionStates()) expireChampionFocus(state, this.tick);
+    this.advanceRunClocks();
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
       (u) =>
@@ -1906,6 +1912,23 @@ export class World {
         if (entry) entry.lastRevealTick = this.tick;
         else state.revealContributors.push({ sourceId, lastRevealTick: this.tick });
       }
+    }
+  }
+  private advanceRunClocks(): void {
+    for (const unit of this.units) {
+      if (
+        isStructureKind(unit.kind) ||
+        !this.alive(unit) ||
+        Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) <= 0.01
+      ) {
+        unit.runClock = null;
+        continue;
+      }
+      const nominal = this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed ?? 325;
+      const clock = unit.runClock ?? { startTick: this.tick, previous: 0, current: 0 };
+      clock.previous = clock.current;
+      clock.current += DT * (nominal > 0 ? this.movementSpeed(unit) / nominal : 1);
+      unit.runClock = clock;
     }
   }
   private advanceImpactVisuals(): void {

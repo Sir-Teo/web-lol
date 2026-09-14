@@ -635,11 +635,26 @@ export class GameView {
             death.time = Math.min(death.getClip().duration, deathAge);
             death.paused = true;
           }
-          if (clip === 'run' && model.actions.run) {
-            const nominalSpeed = world.battlefield.unitStats?.[u.kind]?.[u.team]?.speed ?? 325;
-            model.actions.run.timeScale =
-              nominalSpeed > 0 ? world.movementSpeed(u) / nominalSpeed : 1;
+          if (clip === 'run' && model.actions.run && u.runClock) {
+            const run = model.actions.run,
+              clock = u.runClock;
+            const seconds = lerp(clock.previous, clock.current, alpha);
+            const duration = run.getClip().duration;
+            run.time = duration > 0 ? seconds % duration : 0;
+            run.timeScale = 1;
+            run.paused = true;
+            // Match the existing 80 ms transition, but a late first draw or
+            // restore must not restart an already completed fade.
+            if ((world.tick - clock.startTick + alpha) / TICK_RATE >= 0.08) {
+              for (const other of Object.values(model.actions))
+                if (other !== run && other.isScheduled()) other.stop();
+              run.stopFading();
+              run.setEffectiveWeight(1);
+            }
           }
+          // Outgoing run actions retain the existing mixer-driven fade policy
+          // until transition state is moved into the simulation too.
+          if (clip !== 'run' && model.actions.run) model.actions.run.paused = false;
           model.mixer.update(animationDelta);
         }
       }
