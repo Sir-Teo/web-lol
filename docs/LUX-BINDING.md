@@ -79,3 +79,15 @@ As with passive audio, the local listener is the camera ground focus, the emitte
 Three added numerical cases compare source linkage and attenuation against the independent parser, including invalid input handling. Three Chrome cases cover actual queued Q dispatch with the 100 ms delay and no synthesized oscillator, delayed-event seek, duplicate suppression, three-variant exclusion, voice stealing, pause/mute, pending-start cancellation, elapsed-event silence and natural completion. All 793 unit tests and fourteen distinct audio browser cases pass, including nine Hawkshot and two passive regressions. Full Light Binding missile/root/release playback and native listening comparison remain outstanding.
 
 The production build/nested-path smoke passes with fifteen integrated source recordings loaded under `/nested/rift/`, including a real Lux Q cast and lane restart. This confirms deployment-path loading and existing gameplay smoke behavior, not native listening equivalence.
+
+## Saved missile stop history
+
+Light Binding now retains a `BindingFlightStop` after projectile removal. It stores the original projectile ID, caster/team, launch origin and tick, stop tick, endpoint and whether the second contact or maximum range stopped flight. On the second contact, the endpoint is the swept-circle intersection within the tick, not the tick's full travel endpoint. This presentation capture does not change damage ordering, root application or the existing two-target limit.
+
+The generated `LUX_BINDING_FLIGHT_AUDIO` profile independently selects launch event/container 1155 and its matching Stop action. It preserves two recordings, −7 dB makeup gain, single-play container policy and the authored three-second Linear stop transition. The recordings are not marked as loops. `LUX_BINDING_STOP_HISTORY_TICKS` retains the stop record for 180 ticks from that transition; a recording can naturally end before the retained deadline.
+
+Snapshot version 64 includes these records and rejects prior formats. Validation checks unique allocated identities (including conflicts with live entities and other retained presentation), champion ownership/team, launch/stop chronology, flight duration, tail expiry, maximum distance, plausible travelled distance and the exact range endpoint for a range stop. Removed projectiles cannot remain live under the same ID. The stopped descriptor survives caster death and serializes without replaying a transient cast event.
+
+Four added simulation cases cover the exact second-contact intersection and untouched third target, actual queued-cast range completion, save/reload through the expiry boundary, a saved live flight finishing after caster death, and malformed identities, ownership, timing and geometry. TypeScript and all 797 unit tests pass. This is the saved lifetime foundation; missile sound scheduling, stopping, visibility and reload playback remain to be connected.
+
+The existing browser binding-resolution case and all three source-cast audio cases pass, as does the production nested-path smoke with fifteen integrated recordings and a real Lux Q cast.

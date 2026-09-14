@@ -1,3 +1,4 @@
+import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { isStructureKind } from './types';
 import { LUX_ILLUMINATION_HISTORY_TICKS } from '../content/lux-illumination-presentation';
 import { impactTargetRig, type ImpactRig } from '../content/impact-target';
@@ -35,7 +36,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 63;
+export const SNAPSHOT_VERSION = 64;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -485,6 +486,20 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  bindingStops: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        origin: point,
+        point,
+        launchTick: tick,
+        stopTick: tick,
+        reason: z.enum(['hit-limit', 'range']),
+      })
+    )
+    .max(10000),
   luxImpactVisuals: z.array(luxTargetVisual(LUX_IMPACT_HISTORY_TICKS)).max(10000),
   luxIlluminationVisuals: z
     .array(
@@ -846,6 +861,30 @@ export function decodeSnapshot(text: string) {
     )
       throw new Error('Saved Lux attack lacks presentation history.');
   }
+  const bindingStopIds = new Set<number>();
+  for (const flight of state.bindingStops) {
+    const source = state.units.find((u) => u.id === flight.sourceId);
+    const length = Math.hypot(flight.point.x - flight.origin.x, flight.point.y - flight.origin.y);
+    const maxFlightTicks = Math.ceil((LUX_BINDING.range / LUX_BINDING.speed) * TICK_RATE);
+    if (
+      bindingStopIds.has(flight.id) ||
+      flight.id >= state.nextId ||
+      source?.kind !== 'champion' ||
+      source.team !== flight.team ||
+      flight.launchTick > flight.stopTick ||
+      flight.stopTick > state.tick ||
+      flight.stopTick - flight.launchTick > maxFlightTicks ||
+      state.tick >= flight.stopTick + LUX_BINDING_STOP_HISTORY_TICKS ||
+      length > LUX_BINDING.range + 1e-6 ||
+      length > ((flight.stopTick - flight.launchTick + 1) * LUX_BINDING.speed) / TICK_RATE + 1e-6 ||
+      (flight.reason === 'range' && Math.abs(length - LUX_BINDING.range) > 1e-6) ||
+      state.luxAttackVisuals.some((v) => v.id === flight.id) ||
+      state.luxImpactVisuals.some((v) => v.id === flight.id) ||
+      state.scoutVisuals.some((v) => v.flight.id === flight.id)
+    )
+      throw new Error('Saved match contains an invalid Light Binding stop.');
+    bindingStopIds.add(flight.id);
+  }
   const visualIds = new Set<number>();
   for (const effect of state.scoutVisuals) {
     const f = effect.flight;
@@ -868,6 +907,7 @@ export function decodeSnapshot(text: string) {
     ...state.luxBeams,
     ...state.singularities,
     ...state.luxIlluminationVisuals,
+    ...state.bindingStops,
   ].map((u) => u.id);
   for (const p of state.pendingAttackProjectiles) {
     if (

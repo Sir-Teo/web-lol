@@ -169,6 +169,17 @@ export interface Projectile extends Vec2 {
   launchTick?: number;
   origin?: Vec2;
 }
+/** Stopped Light Binding flight retained for presentation; ID belongs to its removed projectile. */
+export interface BindingFlightStop {
+  id: number;
+  sourceId: number;
+  team: Team;
+  origin: Vec2;
+  point: Vec2;
+  launchTick: number;
+  stopTick: number;
+  reason: 'hit-limit' | 'range';
+}
 /** A released Lux basic attack's presentation path, retained briefly after removal.
  * IDs are the originating projectile ID; this record is not a gameplay entity.
  */

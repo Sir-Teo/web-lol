@@ -1,3 +1,5 @@
+import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
+import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
 import { structurePose } from '../render/structure-pose';
 import { structureAnimationProfile } from '../content/structure-animation';
@@ -122,6 +124,7 @@ export class World {
   volleyHits: Record<number, number[]> = {};
   visionAreas: VisionArea[] = [];
   scoutVisuals: ScoutVisual[] = [];
+  bindingStops: BindingFlightStop[] = [];
 
   pendingSpawns: { tick: number; kind: UnitKind; team: Team; lane: number; offset: number }[] = [];
 
@@ -429,6 +432,9 @@ export class World {
     // newly restored charge can be used on its deadline tick.
     for (const state of this.activeChampionStates()) rechargeChampion(state, this.tick);
     this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
+    this.bindingStops = this.bindingStops.filter(
+      (flight) => this.tick < flight.stopTick + LUX_BINDING_STOP_HISTORY_TICKS
+    );
     this.scoutVisuals = this.scoutVisuals.filter((effect) => effect.endTick > this.tick);
     for (const unit of this.units) unit.previous = { x: unit.x, y: unit.y };
     for (const zone of this.singularities)
@@ -2142,20 +2148,35 @@ export class World {
             return t === null ? [] : [{ unit: u, t }];
           })
           .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id);
-        for (const { unit } of hits) {
+        let stopPoint = end;
+        for (const { unit, t } of hits) {
           p.bindingHits!.push(unit.id);
           if (source) {
             this.damage(source, unit, p.damage, 'magic', 'area');
             this.applyRoot(unit, LUX_BINDING.rootSeconds * TICK_RATE);
             this.applyIllumination(source, unit);
           }
-          if (p.bindingHits!.length === LUX_BINDING.maximumTargets) break;
+          if (p.bindingHits!.length === LUX_BINDING.maximumTargets) {
+            stopPoint = { x: p.x + (end.x - p.x) * t, y: p.y + (end.y - p.y) * t };
+            break;
+          }
         }
         p.x = end.x;
         p.y = end.y;
         p.remaining = Math.max(0, p.remaining - travel);
         if (p.bindingHits!.length < LUX_BINDING.maximumTargets && p.remaining > 1e-8)
           survivors.push(p);
+        else
+          this.bindingStops.push({
+            id: p.id,
+            sourceId: p.source,
+            team: p.team,
+            origin: { ...p.origin! },
+            point: { ...stopPoint },
+            launchTick: p.launchTick!,
+            stopTick: this.tick,
+            reason: p.bindingHits!.length === LUX_BINDING.maximumTargets ? 'hit-limit' : 'range',
+          });
         continue;
       }
       let contact: Unit | undefined,
@@ -3313,6 +3334,7 @@ export class World {
       reveal: this.reveal,
       visionAreas: this.visionAreas,
       scoutVisuals: this.scoutVisuals,
+      bindingStops: this.bindingStops,
       volleyHits: this.volleyHits,
       commands: this.commands,
     });
