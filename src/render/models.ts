@@ -1,3 +1,5 @@
+import { TargetPoseSampler } from './target-pose-sampler';
+import type { MobileRig } from '../content/mobile-clip-durations';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
@@ -91,6 +93,12 @@ export async function loadReferenceModels(): Promise<void> {
       });
     })
   );
+}
+/** Sampler owns a private skeleton; loaded geometry, materials and clips stay shared. */
+export function createMobileTargetPoseSampler(rig: MobileRig): TargetPoseSampler {
+  const reference = references.get(rig);
+  if (!reference) throw new Error(`Model not loaded: ${rig}`);
+  return new TargetPoseSampler(reference.scene, reference.clips);
 }
 const materials = new Map<number, THREE.MeshStandardMaterial>();
 function mat(color: number, metalness = 0): THREE.MeshStandardMaterial {

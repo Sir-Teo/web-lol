@@ -1,3 +1,6 @@
+import { LuxImpactAttachments } from './lux-impact-attachments';
+import { createMobileTargetPoseSampler } from './models';
+import type { MobileRig } from '../content/mobile-clip-durations';
 import * as THREE from 'three';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
@@ -6,7 +9,7 @@ import sparkProfile from '../content/lux-impact-sparks.json';
 import { luxImpactRings } from './lux-impact-rings';
 import { luxImpactSparks } from './lux-impact-sparks';
 import { LuxImpactSparkCloud } from './lux-impact-spark-cloud';
-import { luxImpactFrame, luxImpactSparkAnchor } from './lux-impact-frame';
+import { luxImpactSparkAnchor } from './lux-impact-frame';
 import { luxHoopChance } from './lux-hoop-particles';
 import { particleAtlasUv } from './particle-atlas';
 import { createParticleColorProductMaterial } from './particle-color-product';
@@ -36,7 +39,7 @@ export async function loadLuxImpactTextures() {
   white.needsUpdate = true;
   textures = loaded;
 }
-function createCloud() {
+function createCloud(rig: MobileRig | null, ground: (p: Vec2) => number) {
   const rings = profiles.map((p) => {
     const geometry = new THREE.PlaneGeometry(2, 2),
       uv = geometry.getAttribute('uv');
@@ -62,10 +65,15 @@ function createCloud() {
     white
   );
   (sparks.mesh.material as THREE.Material).depthTest = true;
-  return { rings, sparks };
+  return {
+    rings,
+    sparks,
+    rig,
+    attachments: new LuxImpactAttachments(rig ? createMobileTargetPoseSampler(rig) : null, ground),
+  };
 }
-/** Saved-frame gameplay adapter. Heights use the existing +0.9 ground offset;
- * native target bones, flex shape and source-frame orientation remain unverified.
+/** Saved mobile bone paths drive emitter placement and inherited translation.
+ * Unsupported structure/dummy poses retain +0.9; source orientation is uncalibrated.
  */
 export class LuxImpacts {
   readonly clouds = new Map<number, ReturnType<typeof createCloud>>();
@@ -80,25 +88,29 @@ export class LuxImpacts {
     for (const effect of world.luxImpactVisuals) {
       active.add(effect.id);
       let cloud = this.clouds.get(effect.id);
+      if (cloud && cloud.rig !== effect.targetRig) {
+        this.release(cloud);
+        cloud = undefined;
+      }
       if (!cloud) {
-        cloud = createCloud();
+        cloud = createCloud(effect.targetRig, this.ground);
         this.clouds.set(effect.id, cloud);
         this.scene.add(...cloud.rings.map((r) => r.mesh), cloud.sparks.mesh);
       }
       const birthTick = effect.startTick + 1,
         age = (tick - birthTick) / 60;
-      const birth = luxImpactFrame(effect, birthTick),
-        current = luxImpactFrame(effect, tick);
+      const pointAt = (at: number) => cloud!.attachments.point(effect, at);
+      const birth = pointAt(birthTick),
+        current = pointAt(tick);
       const states = luxImpactRings(age, effect.critical, luxHoopChance(effect.id, 0));
       for (const { profile, mesh } of cloud.rings) {
         const state = states.find((p) => p.name === profile.name);
-        const point = {
-          x: birth.x + (current.x - birth.x) * profile.bind,
-          y: birth.y + (current.y - birth.y) * profile.bind,
-        };
-        mesh.visible = !!state && (effect.team === 'blue' || world.pointVisible(point));
+        const point = birth.clone().lerp(current, profile.bind);
+        mesh.visible =
+          !!state &&
+          (effect.team === 'blue' || world.pointVisible({ x: point.x * 100, y: point.z * 100 }));
         if (!state || !mesh.visible) continue;
-        mesh.position.set(point.x * 0.01, this.ground(point) + 0.9, point.y * 0.01);
+        mesh.position.copy(point);
         camera.getWorldQuaternion(mesh.quaternion);
         mesh.rotateZ((-state.rotation * Math.PI) / 180);
         mesh.scale.setScalar(state.size * 0.01);
@@ -113,14 +125,11 @@ export class LuxImpacts {
         );
         mesh.material.uniforms.lookupUv.value.fromArray(state.lookup);
       }
-      const anchor = luxImpactSparkAnchor(effect, tick);
-      const segmentStart = luxImpactSparkAnchor(effect, Math.ceil(tick) - 1);
-      const segmentEnd = luxImpactSparkAnchor(effect, Math.ceil(tick));
-      const parentVelocity = [
-        (segmentEnd.x - segmentStart.x) * 60,
-        (this.ground(segmentEnd) - this.ground(segmentStart)) * 6000,
-        (segmentEnd.y - segmentStart.y) * 60,
-      ];
+      const anchor = luxImpactSparkAnchor(effect.startTick, tick, pointAt);
+      const segmentStart = luxImpactSparkAnchor(effect.startTick, Math.ceil(tick) - 1, pointAt);
+      const segmentEnd = luxImpactSparkAnchor(effect.startTick, Math.ceil(tick), pointAt);
+      // Particle velocities/positions are source units; attachments are world units.
+      const parentVelocity = segmentEnd.sub(segmentStart).multiplyScalar(6000).toArray();
       const particles = luxImpactSparks(effect.id, age)
         .map((p) => ({
           ...p,
@@ -131,9 +140,9 @@ export class LuxImpacts {
               sparkProfile.directionScale
           ),
           position: [
-            p.position[0] + anchor.x,
-            p.position[1] + 100 * (this.ground(anchor) + 0.9),
-            p.position[2] + anchor.y,
+            p.position[0] + anchor.x * 100,
+            p.position[1] + anchor.y * 100,
+            p.position[2] + anchor.z * 100,
           ],
         }))
         .filter(
@@ -144,14 +153,18 @@ export class LuxImpacts {
     }
     for (const [id, cloud] of this.clouds)
       if (!active.has(id)) {
-        for (const { mesh } of cloud.rings) {
-          this.scene.remove(mesh);
-          mesh.geometry.dispose();
-          mesh.material.dispose();
-        }
-        this.scene.remove(cloud.sparks.mesh);
-        cloud.sparks.dispose();
+        this.release(cloud);
         this.clouds.delete(id);
       }
+  }
+  private release(cloud: ReturnType<typeof createCloud>) {
+    for (const { mesh } of cloud.rings) {
+      this.scene.remove(mesh);
+      mesh.geometry.dispose();
+      mesh.material.dispose();
+    }
+    this.scene.remove(cloud.sparks.mesh);
+    cloud.sparks.dispose();
+    cloud.attachments.dispose();
   }
 }
