@@ -1,4 +1,4 @@
-/** Extract R_Hand in the pinned attack1 GLB; independently verify an adaptive
+/** Extract R_Hand in the pinned attack GLB; independently verify an adaptive
  * position curve against the original hierarchical Three.js animation sampler.
  */
 import { readFile, writeFile } from 'node:fs/promises';
@@ -7,6 +7,9 @@ import assert from 'node:assert/strict';
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import * as THREE from 'three';
+const clipName = process.argv[2] ?? 'attack1';
+assert(['attack1', 'attack2'].includes(clipName), 'Unsupported clip');
+const suffix = clipName === 'attack1' ? '' : '-2';
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const glbPath = 'public/assets/models/lux-base.glb';
 const bytes = await readFile(glbPath),
@@ -14,7 +17,9 @@ const bytes = await readFile(glbPath),
 assert.equal(hash(bytes), manifest.output.sha256);
 assert.equal(bytes.length, manifest.output.bytes);
 const characterBytes = await readFile('docs/reference/lux-character.json');
-const spell = JSON.parse(characterBytes).records['Characters/Lux/Spells/LuxBasicAttack'].mSpell;
+const variantsBytes = await readFile('docs/reference/lux-attack-variants.json');
+const spellName = clipName === 'attack1' ? 'LuxBasicAttack' : 'LuxBasicAttack2';
+const spell = JSON.parse(variantsBytes).records[`Characters/Lux/Spells/${spellName}`].mSpell;
 const doc = await new NodeIO().registerExtensions(ALL_EXTENSIONS).read(glbPath);
 const nodes = doc.getRoot().listNodes();
 const bone = nodes.find(
@@ -37,7 +42,7 @@ for (const n of chain) {
 const animation = doc
   .getRoot()
   .listAnimations()
-  .find((a) => a.getName() === 'attack1');
+  .find((a) => a.getName() === clipName);
 assert(animation);
 const duration = Math.max(
   ...animation.listSamplers().map((s) => Math.max(...s.getInput().getArray()))
@@ -65,7 +70,7 @@ for (const channel of animation.listChannels()) {
   );
 }
 const mixer = new THREE.AnimationMixer(scene);
-const action = mixer.clipAction(new THREE.AnimationClip('attack1', duration, tracks));
+const action = mixer.clipAction(new THREE.AnimationClip(clipName, duration, tracks));
 action.setLoop(THREE.LoopOnce, 1);
 action.clampWhenFinished = true;
 action.play();
@@ -117,19 +122,20 @@ for (let i = 0; i <= 8000; i++) {
 }
 assert(maxError <= tolerance, `Position curve exceeds error budget: ${maxError}`);
 const output = {
-  clip: 'attack1',
+  clip: clipName,
   bone: bone.getName(),
   duration,
   times: samples.map((p) => p.time),
   positions: samples.map((p) => p.position),
 };
-const outPath = 'src/content/lux-attack-origin.json';
+const outPath = `src/content/lux-attack-origin${suffix}.json`;
 await writeFile(outPath, JSON.stringify(output) + '\n');
 const provenance = {
   source: {
     glbPath,
     sha256: hash(bytes),
     characterSha256: hash(characterBytes),
+    variantsSha256: hash(variantsBytes),
     modelManifestSha256: hash(await readFile('public/assets/models/lux-base.json')),
   },
   attachment: {
@@ -139,7 +145,7 @@ const provenance = {
     hitEffect: spell.mHitEffectKey,
   },
   chain: chain.map((n) => n.getName()),
-  clip: 'attack1',
+  clip: clipName,
   duration,
   units: 'world units, same converted skeleton as gameplay',
   sampleCount: samples.length,
@@ -154,13 +160,13 @@ const provenance = {
     bytes: (await readFile(outPath)).length,
   },
   limitations: [
-    'Current attack1 animation only; game attack-cycle timing is not native timing certification',
+    `${clipName} animation only; game attack-cycle timing is not native timing certification`,
     'No animation transition blending',
     'Flight height/target augmentation semantics not inferred from field names',
   ],
 };
 await writeFile(
-  'docs/reference/lux-attack-origin.json',
+  `docs/reference/lux-attack-origin${suffix}.json`,
   JSON.stringify(provenance, null, 2) + '\n'
 );
 console.log(JSON.stringify(provenance));

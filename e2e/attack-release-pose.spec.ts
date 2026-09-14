@@ -23,18 +23,20 @@ for (const renderStart of [false, true]) {
       if (renderStart) {
         w.step();
         g.view.render(w, 1, 0);
-        initialWeight = g.view.models.get(lux.id).actions.attack1.getEffectiveWeight();
+        initialWeight = g.view.models
+          .get(lux.id)
+          .actions[g.view.models.get(lux.id).actionName].getEffectiveWeight();
       }
       for (let i = 0; i < 60 && !w.projectiles.length; i++) w.step();
       if (!w.projectiles.length || !lux.attackCycle) throw new Error('Missing released attack');
       const cycle = lux.attackCycle;
       g.view.render(w, 1, 0);
       const model = g.view.models.get(lux.id),
-        action = model.actions.attack1;
+        action = model.actions[model.actionName];
       const poseTime =
         (action.getClip().duration * (w.tick - cycle.startTick)) /
         (cycle.endTick - cycle.startTick);
-      const expected = luxAttackOrigin(poseTime);
+      const expected = luxAttackOrigin(poseTime, model.actionName);
       const hand = model.root.getObjectByName('R_Hand');
       const actual = hand.position.clone();
       hand.getWorldPosition(actual);

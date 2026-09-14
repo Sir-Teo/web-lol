@@ -68,6 +68,7 @@ export async function loadReferenceModels(): Promise<void> {
                 'idle1',
                 'run',
                 'attack1',
+                'attack2',
                 'death',
                 'spell1',
                 'spell2',

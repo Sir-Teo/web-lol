@@ -1,4 +1,5 @@
 import { LuxAttackCrescents } from './lux-attack-crescents';
+import { luxAttackAnimation } from '../content/lux-attack-animation';
 import { LuxAttackTrails } from './lux-attack-trails';
 import { LuxAttackHoops } from './lux-attack-hoops';
 import { LUX_BINDING } from '../content/lux-binding';
@@ -577,7 +578,12 @@ export class GameView {
           const cycle = u.attackCycle;
           const attacking =
             !moving && u.deadAt === null && cycle !== null && world.tick < cycle.endTick;
-          const attackName = cycle?.empowered ? ASHE_Q.empoweredAttackAnimation : 'attack1';
+          const attackName =
+            u.champion === 'lux' && cycle
+              ? luxAttackAnimation(u.id, cycle.startTick)
+              : cycle?.empowered
+                ? ASHE_Q.empoweredAttackAnimation
+                : 'attack1';
           if (attacking) {
             const attack = model.actions[attackName];
             if (model.animationAttackTick !== cycle.startTick) {

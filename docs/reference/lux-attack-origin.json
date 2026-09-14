@@ -3,6 +3,7 @@
     "glbPath": "public/assets/models/lux-base.glb",
     "sha256": "d063e8b7435eede85f1a8617c5bf6ff3571590cb19f22a314281fe2e43cb6bee",
     "characterSha256": "861a5cd8b81d30c84f9cf0856d0db8016a2dcacdef83b89b6ec424f204283102",
+    "variantsSha256": "333c08f7b41eb7e32df7e5beced0bff0a6864cb0f74c1680ddab1594c8fd0275",
     "modelManifestSha256": "55019f8d56c2f0c8f30a361020dccd1832a9020b9c75c26e9d78a2295634971f"
   },
   "attachment": {
@@ -44,7 +45,7 @@
     "bytes": 181350
   },
   "limitations": [
-    "Current attack1 animation only; game attack-cycle timing is not native timing certification",
+    "attack1 animation only; game attack-cycle timing is not native timing certification",
     "No animation transition blending",
     "Flight height/target augmentation semantics not inferred from field names"
   ]

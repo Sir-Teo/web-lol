@@ -1,10 +1,15 @@
-import curve from './lux-attack-origin.json';
+import first from './lux-attack-origin.json';
+import second from './lux-attack-origin-2.json';
 
-/** Model-local R_Hand position for the unblended, pinned attack1 clip.
+/** Model-local R_Hand position for either unblended, pinned ordinary attack clip.
  * Seconds are animation time, not elapsed attack-cycle time. No world transform,
  * gameplay launch timing or missile target-height policy is inferred here.
  */
-export function luxAttackOrigin(seconds: number): [number, number, number] {
+export function luxAttackOrigin(
+  seconds: number,
+  clip: 'attack1' | 'attack2' = 'attack1'
+): [number, number, number] {
+  const curve = clip === 'attack1' ? first : second;
   if (!Number.isFinite(seconds)) throw new RangeError('Animation time must be finite');
   const time = Math.max(0, Math.min(curve.duration, seconds));
   let low = 0,
