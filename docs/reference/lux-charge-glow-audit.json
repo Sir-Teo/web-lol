@@ -1,0 +1,60 @@
+{
+  "sourceBinSha256": "c2087e2b9100cc2d9f75151775679983953e95c8b389d6e111fb0eb5b72cd3a9",
+  "layers": [
+    {
+      "name": "END_Beam_1",
+      "count": 3,
+      "life": 0.949999988079071,
+      "offset": [
+        0.0,
+        0.0,
+        -120.0
+      ],
+      "halfSize": [
+        100.0,
+        300.0,
+        1.0
+      ],
+      "uvRotation": 90.0,
+      "isUniformScale": true,
+      "multScale": [
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    {
+      "name": "END_Beam_Core",
+      "count": 3,
+      "life": 0.949999988079071,
+      "offset": [
+        0.0,
+        0.0,
+        -120.0
+      ],
+      "halfSize": [
+        30.0,
+        300.0,
+        1.0
+      ],
+      "uvRotation": 90.0,
+      "isUniformScale": true,
+      "multScale": [
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  ],
+  "fieldNames": {
+    "968279e0": "uvRotation",
+    "33b8543e": "uvRotationMult",
+    "3559e15b": "isUniformScale",
+    "22c3cf3e": "ParticleIntegratedUvScrollMult"
+  },
+  "completedPrerequisite": "Constant centered base/multiplier UV rotation in LuxBeams; source beam transpose conjugates the angle sign.",
+  "remaining": [
+    "Interpret and preserve isUniformScale in animated quad dimensions.",
+    "Independent multiplier birth offsets per particle and integrated multiplier scroll.",
+    "Enable source layers and verify charge playback, cancellation, geometry and material composition."
+  ],
+  "status": "Not yet rendered; total active emitter coverage remains eighteen."
+}

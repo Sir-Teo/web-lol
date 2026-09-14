@@ -14,6 +14,8 @@ interface Curve {
   readonly values: readonly (readonly number[])[];
 }
 interface Layer {
+  readonly uvRotation: number;
+  readonly uvRotationMult: number;
   readonly uvScale: readonly number[];
   readonly uvScaleMult: readonly number[];
   readonly count: number;
@@ -157,6 +159,8 @@ export class LuxBeams {
         blendSrcAlpha: THREE.SrcAlphaFactor,
         blendDstAlpha: layer.blend === 4 ? THREE.OneFactor : THREE.OneMinusSrcAlphaFactor,
         uniforms: {
+          baseRotation: { value: ((layer.uvRotation * Math.PI) / 180) * (layer.quad ? 1 : -1) },
+          multRotation: { value: ((layer.uvRotationMult * Math.PI) / 180) * (layer.quad ? 1 : -1) },
           quadUv: { value: !!layer.quad },
           baseScale: {
             value: new THREE.Vector2().fromArray(
@@ -201,8 +205,9 @@ export class LuxBeams {
         vertexShader:
           'varying vec2 beamUv; void main(){ beamUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
         // Source beam transforms act on (along, across), then transpose to (u, v).
-        fragmentShader: `uniform bool quadUv; uniform vec2 baseScale; uniform vec2 multScale; uniform vec4 erosionMixer; uniform sampler2D erosionMap; uniform bool erosionEnabled; uniform float erosionDrive; uniform vec2 erosionRates; uniform float erosionSlice; uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
-          void main(){ vec2 b=(beamUv-0.5)*baseScale+0.5+(quadUv?offset:offset.yx); vec2 m=(beamUv-0.5)*multScale+0.5+(quadUv?multOffset:multOffset.yx); m=clampMult ? clamp(m,vec2(0.001),vec2(0.999)) : fract(m); gl_FragColor=texture2D(base,fract(b)*baseCell)*texture2D(mult,m*multCell)*tint;
+        fragmentShader: `uniform float baseRotation; uniform float multRotation; uniform bool quadUv; uniform vec2 baseScale; uniform vec2 multScale; uniform vec4 erosionMixer; uniform sampler2D erosionMap; uniform bool erosionEnabled; uniform float erosionDrive; uniform vec2 erosionRates; uniform float erosionSlice; uniform sampler2D base; uniform sampler2D mult; uniform vec4 tint; uniform vec2 offset; uniform vec2 multOffset; uniform bool clampMult; uniform vec2 baseCell; uniform vec2 multCell; varying vec2 beamUv;
+          vec2 turnUv(vec2 uv,vec2 scale,float angle){vec2 p=(uv-0.5)*scale;float c=cos(angle),s=sin(angle);return vec2(c*p.x-s*p.y,s*p.x+c*p.y)+0.5;}
+          void main(){ vec2 b=turnUv(beamUv,baseScale,baseRotation)+(quadUv?offset:offset.yx); vec2 m=turnUv(beamUv,multScale,multRotation)+(quadUv?multOffset:multOffset.yx); m=clampMult ? clamp(m,vec2(0.001),vec2(0.999)) : fract(m); gl_FragColor=texture2D(base,fract(b)*baseCell)*texture2D(mult,m*multCell)*tint;
           if(erosionEnabled){
             vec2 erodeUv=1.0-abs(mod(b*baseCell,2.0)-1.0);
             float value=clamp(dot(texture2D(erosionMap,erodeUv),erosionMixer),0.0,1.0);
