@@ -109,3 +109,26 @@ Original compressed mip arrays or decoded WebP images remain in CPU memory for e
 At 1440×900, the inspector sequence overview → blue → mid → river → red → overview measured 327.42 MiB for the complete overview and approximately 254–255 MiB retained in the close views. Seventy-one evictions occurred; returning to the overview restored all visible textures. SHA-256 of the actual overview framebuffer was identical before and after that sequence. A separate GPU test alternates two textures through an eviction budget, verifies identical restored pixels, and checks that only one GPU texture allocation remains after each frame. Unit checks cover LRU order, shared textures, re-entry and visible working sets larger than the target.
 
 Validation: TypeScript and 745 unit tests; eight browser checks covering residency, both map texture encodings, pointer/elevation agreement and fog. The production subpath smoke also passes. The restored overview capture was visually reviewed.
+
+### Camera re-entry measurement
+
+`tools/qa/benchmark-map-residency.mjs` compares a 256 MiB target with unlimited residency in four fresh browser contexts, ordered bounded → unlimited → unlimited → bounded. Each context warms the full overview for 30 frames, then visits blue → red → mid → river twice, rendering 30 frames at each view. The inspector's normal animation loop is stopped; the benchmark renders once per requested animation frame. CPU timing covers residency bookkeeping and the renderer call. Actual compressed upload calls/bytes are instrumented for both `compressedTexImage2D` and the WebGL2 immutable-storage `compressedTexSubImage2D` path. The script rejects bounded runs without measured re-uploads and warmed unlimited runs with unexpected uploads.
+
+Reproduce with a development server running, without other browser or performance jobs:
+
+```sh
+node tools/qa/benchmark-map-residency.mjs http://127.0.0.1:5198 artifacts/map-residency-benchmark.json
+```
+
+The [recorded raw samples](reference/map-residency-benchmark.json) pin runtime revision, script hash, map input hashes, browser and hardware. On Apple M5 Pro / Chrome 152 / ANGLE Metal at 1920×1080, device scale 1:
+
+| Run | Target | Camera-jump CPU median / maximum | Steady CPU median / p95 | Re-uploaded bytes |
+|---|---|---|---|---|
+| 1 | 256 MiB | 11.9 / 17.5 ms | 0.7 / 1.3 ms | 262,844,376 |
+| 2 | Unlimited | 1.1 / 1.2 ms | 0.8 / 1.3 ms | 0 |
+| 3 | Unlimited | 0.7 / 1.1 ms | 0.4 / 1.1 ms | 0 |
+| 4 | 256 MiB | 8.5 / 13.7 ms | 0.3 / 0.9 ms | 262,844,376 |
+
+Each bounded run made 128 texture evictions and 1,164 mip-level upload calls across eight camera jumps. The 240 GPU queries per run all resolved without disjoint, skipped or unresolved samples. GPU elapsed p95 ranged from 1.65 to 2.45 ms across the four runs. Animation-frame timestamp intervals remained at or below 16.8 ms in this sample; these timestamps do not measure physical display presentation. Eight transition samples per run are too few for a robust tail estimate, so maxima are reported explicitly.
+
+This establishes a material synchronous re-upload cost despite unchanged pixels and lower residency. It does **not** establish that complete matches meet a frame budget: champions, combat, fog updates, minimap jumps in play, slow devices and WebP fallback are outside this static-map experiment. The run-to-run CPU/GPU variation also prevents attributing small steady-frame differences to the eviction policy. Budget-aware pre-upload scheduling and full-game camera traversal measurements remain needed; texture detail has not been reduced to hide the cost.
