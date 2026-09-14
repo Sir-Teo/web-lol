@@ -1,4 +1,10 @@
-import { mobileClipDurations } from '../content/mobile-clip-durations';
+import {
+  mobileClipDurations,
+  mobileRig,
+  MOBILE_CLIP_DURATIONS,
+  type MobileRig,
+} from '../content/mobile-clip-durations';
+import type { AnimationTimeline } from './animation-timeline';
 import { ANIMATION_FADE_TICKS } from './animation-timeline';
 import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
@@ -25,7 +31,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 57;
+export const SNAPSHOT_VERSION = 58;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -440,8 +446,19 @@ const snapshot = z.strictObject({
         startTick: tick,
         critical: z.boolean(),
         detachedTick: tick.nullable(),
+        targetRig: z
+          .enum(Object.keys(MOBILE_CLIP_DURATIONS) as [MobileRig, ...MobileRig[]])
+          .nullable(),
         frames: z
-          .array(z.strictObject({ tick, x: z.number(), y: z.number() }))
+          .array(
+            z.strictObject({
+              tick,
+              x: z.number(),
+              y: z.number(),
+              facing: z.number(),
+              animationTimeline: animationTimeline.nullable(),
+            })
+          )
           .min(1)
           .max(LUX_IMPACT_HISTORY_TICKS),
       })
@@ -529,6 +546,29 @@ const snapshot = z.strictObject({
   volleyHits: z.record(z.string().regex(/^\d+$/), z.array(id).max(10000)),
   commands: z.array(command).max(10000),
 });
+function validAnimationTimeline(
+  timeline: AnimationTimeline | null,
+  durations: Readonly<Record<string, number>> | undefined,
+  at: number
+): boolean {
+  if (!!durations !== !!timeline) return false;
+  if (!timeline || !durations) return true;
+  const layers = [timeline.primary, ...(timeline.transition?.outgoing ?? [])];
+  const outgoing = timeline.transition?.outgoing ?? [];
+  return !(
+    timeline.tick > at ||
+    layers.some(
+      (layer) => !Object.hasOwn(durations, layer.clip) || layer.time > durations[layer.clip] + 1e-7
+    ) ||
+    new Set(outgoing.map((layer) => layer.clip)).size !== outgoing.length ||
+    outgoing.some((layer) => layer.clip === timeline.primary.clip) ||
+    outgoing.reduce((sum, layer) => sum + layer.weight, 0) > 1 + 1e-7 ||
+    (timeline.transition &&
+      (timeline.primary.cut ||
+        timeline.transition.startTick > timeline.tick ||
+        timeline.tick - 1 >= timeline.transition.startTick + ANIMATION_FADE_TICKS))
+  );
+}
 export function decodeSnapshot(text: string) {
   if (text.length > 16 * 1024 * 1024) throw new Error('Saved match is too large.');
   let parsed: unknown;
@@ -546,26 +586,8 @@ export function decodeSnapshot(text: string) {
   for (const unit of state.units) {
     const timeline = unit.animationTimeline,
       durations = mobileClipDurations(unit);
-    if (!!durations !== !!timeline) throw new Error('Saved match lacks mobile animation timeline.');
-    if (timeline && durations) {
-      const layers = [timeline.primary, ...(timeline.transition?.outgoing ?? [])];
-      const outgoing = timeline.transition?.outgoing ?? [];
-      if (
-        timeline.tick > state.tick ||
-        layers.some(
-          (layer) =>
-            !Object.hasOwn(durations, layer.clip) || layer.time > durations[layer.clip] + 1e-7
-        ) ||
-        new Set(outgoing.map((layer) => layer.clip)).size !== outgoing.length ||
-        outgoing.some((layer) => layer.clip === timeline.primary.clip) ||
-        outgoing.reduce((sum, layer) => sum + layer.weight, 0) > 1 + 1e-7 ||
-        (timeline.transition &&
-          (timeline.primary.cut ||
-            timeline.transition.startTick > timeline.tick ||
-            timeline.tick - 1 >= timeline.transition.startTick + ANIMATION_FADE_TICKS))
-      )
-        throw new Error('Saved match contains an invalid animation timeline.');
-    }
+    if (!validAnimationTimeline(timeline, durations, state.tick))
+      throw new Error('Saved match contains an invalid animation timeline.');
     for (const clock of [unit.runClock, unit.idleClock])
       if (clock && (clock.startTick > state.tick || clock.previous > clock.current))
         throw new Error('Saved match contains an invalid animation clock.');
@@ -581,7 +603,7 @@ export function decodeSnapshot(text: string) {
       visual.id >= state.nextId ||
       source?.champion !== 'lux' ||
       source.team !== visual.team ||
-      (target && target.team === visual.team) ||
+      (target && (target.team === visual.team || mobileRig(target) !== visual.targetRig)) ||
       visual.targetId >= state.nextId ||
       !flight ||
       flight.sourceId !== visual.sourceId ||
@@ -592,14 +614,31 @@ export function decodeSnapshot(text: string) {
       (visual.detachedTick !== null &&
         (visual.detachedTick < visual.startTick || visual.detachedTick > state.tick)) ||
       (visual.detachedTick === null &&
-        (!target || target.hp <= 0 || last.x !== target.x || last.y !== target.y)) ||
+        (!target ||
+          target.hp <= 0 ||
+          last.x !== target.x ||
+          last.y !== target.y ||
+          last.facing !== target.facing ||
+          JSON.stringify(last.animationTimeline) !== JSON.stringify(target.animationTimeline))) ||
       visual.frames.some(
         (f, i) =>
           f.tick !== visual.startTick + i ||
+          !validAnimationTimeline(
+            f.animationTimeline,
+            visual.targetRig === null ? undefined : MOBILE_CLIP_DURATIONS[visual.targetRig],
+            f.tick
+          ) ||
+          (f.animationTimeline !== null &&
+            (visual.detachedTick === null || f.tick < visual.detachedTick) &&
+            f.animationTimeline.tick !== f.tick) ||
           (i > 0 &&
             visual.detachedTick !== null &&
             f.tick > visual.detachedTick &&
-            (f.x !== visual.frames[i - 1].x || f.y !== visual.frames[i - 1].y))
+            (f.x !== visual.frames[i - 1].x ||
+              f.y !== visual.frames[i - 1].y ||
+              f.facing !== visual.frames[i - 1].facing ||
+              JSON.stringify(f.animationTimeline) !==
+                JSON.stringify(visual.frames[i - 1].animationTimeline)))
       )
     )
       throw new Error('Saved match contains an invalid Lux impact visual.');

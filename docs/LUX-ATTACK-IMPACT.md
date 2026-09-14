@@ -200,3 +200,18 @@ The renderer now seeks every mobile layer explicitly at simulation tick plus dis
 Three unit cases cover interpolation, interrupted mixtures, cuts, immutable sampling, save continuation and malformed snapshots. The browser test constructs a three-layer interrupted fade, compares its chest-bone position with the independent skeleton sampler to within `1e-7` model units, and verifies identical layers and bone matrices after repeated paused renders and a real save/reload. All 703 unit tests pass, alongside nine existing attack/cast/recall/death/run/idle browser regressions and the new transition browser test. The production subpath smoke check also passes.
 
 This saves the current local 80 ms transition policy. Native animation-graph timing and blending are still uncalibrated. Historical impact attachment still requires per-impact target pose capture, structure animation handling and applying bone samples to the impact path; gameplay impacts continue using the documented target-centre height.
+
+
+## Historical mobile target poses
+
+Schema 58 records the target's mobile rig identity on each impact and saves facing plus a deep copy of its animation timeline in each retained frame. Both champion rigs and the eight team/minion rigs use the source duration table. Structures and the procedural practice dummy explicitly have null mobile rig/pose fields; this does not infer a structure animation or a missing attachment bone.
+
+Impact capture now runs after recall placement and animation-clock updates, including terminal update paths. The initial contact frame is finalized at that same endpoint after damage, so a lethal hit captures the death transition. A missing target reuses its previous pose. Detachment freezes facing and the entire animation timeline along with position; later corpse animation, relocation or respawn cannot change earlier attachments. Historical poses are sampled at their saved timeline tick, which remains frozen after detachment.
+
+The decoder reuses the live timeline's clip, weight and chronology checks for every saved frame, requires attached pose captures to match their frame tick, verifies the current attached endpoint against the live target, and rejects changes to frozen pose or facing. Rig identity survives target removal. The fixed history lifetime and frame limit are unchanged.
+
+The simulation regression covers moving poses, independent history copies, exact continuation after restoration, recall endpoint placement, lethal detachment, later corpse relocation and malformed historical poses. The navigation path in that focused test is a direct route so geometry does not prevent the intended movement scenario. A separate removal case verifies that a vanished minion retains its rig identity and final pose through restoration. All 705 unit tests pass.
+
+Ten browser scenarios cover both champions and all eight minion rigs. Each records both actual live attachment-bone world positions through movement, interrupted transitions and death, then reconstructs those positions from saved frames with an independent skeleton. Every coordinate agrees within `1e-7` world units; frozen samples and snapshots remain identical after a real browser save/reload. The two existing Lux flight/impact browser regressions and production subpath smoke check also pass.
+
+This makes historical mobile bone reconstruction possible without reading the current target skeleton. Gameplay impact rendering still uses the documented target-centre height. Applying these samples to birth positions, bound rings and accumulated spark motion, handling structures and calibrating native attachment/orientation behavior remain outstanding.

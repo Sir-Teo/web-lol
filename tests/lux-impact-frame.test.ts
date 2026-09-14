@@ -10,8 +10,11 @@ it('accumulates binding along the saved path instead of scaling total displaceme
     critical: false,
     startTick: 100,
     detachedTick: null,
+    targetRig: null,
     frames: Array.from({ length: 32 }, (_, i) => ({
       tick: 100 + i,
+      facing: 0,
+      animationTimeline: null,
       x: i * 10,
       y: i < 15 ? 0 : (i - 15) * 20,
     })),

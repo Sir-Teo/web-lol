@@ -1,5 +1,5 @@
 import { mobilePose } from '../render/mobile-pose';
-import { mobileClipDurations } from '../content/mobile-clip-durations';
+import { mobileClipDurations, mobileRig } from '../content/mobile-clip-durations';
 import { advanceAnimationTimeline } from './animation-timeline';
 import { castAnimationDuration } from '../content/cast-animation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
@@ -512,9 +512,9 @@ export class World {
     this.creditHawkshotReveals(unseen);
     this.advanceProjectiles(unseen);
     this.advanceSingularities();
-    this.advanceImpactVisuals();
     if (this.winner) {
       this.advanceAnimationClocks();
+      this.advanceImpactVisuals();
       return;
     }
     for (const unit of this.units) {
@@ -587,6 +587,7 @@ export class World {
         );
     for (const state of this.activeChampionStates()) expireChampionFocus(state, this.tick);
     this.advanceAnimationClocks();
+    this.advanceImpactVisuals();
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
     this.units = this.units.filter(
       (u) =>
@@ -1964,15 +1965,29 @@ export class World {
         );
     }
   }
+  private captureImpactFrame(target: Unit) {
+    return {
+      tick: this.tick,
+      x: target.x,
+      y: target.y,
+      facing: target.facing,
+      animationTimeline: structuredClone(target.animationTimeline),
+    };
+  }
   private advanceImpactVisuals(): void {
     for (const visual of this.luxImpactVisuals) {
       const target = this.unit(visual.targetId);
       const previous = visual.frames.at(-1)!;
-      const point = visual.detachedTick === null && target ? target : previous;
+      const attached = visual.detachedTick === null && target;
+      const frame = attached
+        ? this.captureImpactFrame(target)
+        : { ...structuredClone(previous), tick: this.tick };
       if (visual.detachedTick === null && (!target || !this.alive(target)))
         visual.detachedTick = this.tick;
-      if (previous.tick !== this.tick)
-        visual.frames.push({ tick: this.tick, x: point.x, y: point.y });
+      // Contact is discovered before damage; finalize even the first frame after
+      // animation clocks and recall placement have reached this tick's endpoint.
+      if (previous.tick === this.tick) visual.frames[visual.frames.length - 1] = frame;
+      else visual.frames.push(frame);
     }
   }
   private advanceProjectiles(unseen: Map<Team, Set<number>>): void {
@@ -2135,7 +2150,8 @@ export class World {
               startTick: this.tick,
               critical: p.critical === true,
               detachedTick: null,
-              frames: [{ tick: this.tick, x: contact.x, y: contact.y }],
+              targetRig: mobileRig(contact),
+              frames: [this.captureImpactFrame(contact)],
             });
           }
           const level = this.championState(source.id)?.level ?? 1;
