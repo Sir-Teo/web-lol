@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-09-14T05:33:48.462203+00:00",
+  "baseRevision": "65ad8fcdb5427f5a05fcf3bf5f75df754eaf87c4",
+  "scope": "Integrated source-reconstructed Lux arbitrary ribbon and motion inspector",
+  "validation": {
+    "checks": 645,
+    "testFiles": 132,
+    "browserCases": 4,
+    "priorSourceGpuSamples": 36,
+    "newVertexTintGpuSamples": 2,
+    "gpuToleranceBytes": 1,
+    "productionNestedPath": "passed",
+    "postImpactReload": "all ribbon attributes and counts exact",
+    "visibility": "hidden segments omitted, full geometry restored on reveal",
+    "previewDrawCalls": 2,
+    "ribbonDrawCalls": 1,
+    "previewGeometryCount": "stable across seeks and retirement",
+    "visualReview": "1440x900 textured/wireframe preview and flight/tail gameplay captures"
+  },
+  "remaining": [
+    "Crescent and generic core replacement",
+    "Native frame/orientation/height",
+    "Native material and sampler capture",
+    "Linger rules and pixel comparison"
+  ],
+  "sha256": {
+    "src/render/lux-trail-ribbon.ts": "17f436580fc85e5b9c2499d4e6c694b9e831912f363f5387e49456760699e647",
+    "src/render/lux-attack-trails.ts": "b8a3b6a5541d1137c07018c463da7de61aed0501bf06bc09d1fd2f259e46b93c",
+    "src/render/particle-color-product.ts": "a4bf777a61379c7e686cb7d2c5e8d1c39f6fcd445303d56af9bf43ec8e1ef941",
+    "src/render/view.ts": "9ca56c7f10283419f4f5f9193db3c2852805466a2ba352d1ac705ab015b7fc02",
+    "src/main.ts": "c9f9615590f3159b5fadeaf3f857fa833a7981096bdccdc20ea8d5dcacb33202",
+    "tests/lux-trail-ribbon.test.ts": "56d5e5d40975dc4bc1fd43238fa0127aac8e4ea9efe0cfb8be4f75c274748f59",
+    "e2e/lux-attack-history.spec.ts": "19fbc798f17d67fc0fe79339c29e4e17e46932be273115cbf00e6bfc827fe8ba",
+    "e2e/lux-trail-material.spec.ts": "c28a86684f08f18e1b24002cef4544dae1e4160b78322792929d93e7f6cae318",
+    "e2e/lux-trail-playback.spec.ts": "68a8560b81f4cb80b59a67b7b6ef1fdfd040fe955da001f76d005cd047066fbd",
+    "tools/qa/lux-trail-playback.html": "f5199b0c48a60052ad2e659699672983dddd84d535ff3f9efcc530a56c633264",
+    "tools/qa/lux-trail-playback.ts": "adfe9c4589ee094d082e741cc08bd4fba163186683745bc7b58ef15dfa7c32bd",
+    "artifacts/lux-trail-ribbon-check.log": "e905d16fc3d11b43396b8b284eb33ff287b2b1239f53fdb67603d01efe77dddd",
+    "artifacts/lux-trail-ribbon-browser.log": "c7f690b86072d58739ba25744d0571fdb2cfae4bbd2b82999697aa5718941159",
+    "artifacts/lux-trail-ribbon-production.log": "af372754851546a9468123c6922aad179591092fef56ba6f92594a6ad5fc085a",
+    "artifacts/lux-trail-preview.png": "18ee4de7656d102406ffe94e126b390ed2ee6f7975b2fc9080301fe3909bc75a",
+    "artifacts/lux-trail-wireframe.png": "1cdddf31b93d172a3f0032d5ac736b833a0a11f4ef52d5e1c2d5ca3a807c156a",
+    "artifacts/lux-trail-gameplay.png": "08a329c0e96f4d9a44a56e370571643d615c3c31f173944ae0fa14212345234d",
+    "artifacts/lux-trail-gameplay-flight.png": "9674b23950b89e45cbd08738034ad82c5f7a7a1193216b64a370e0da4ebc6d7c"
+  }
+}

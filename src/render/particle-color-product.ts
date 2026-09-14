@@ -11,7 +11,8 @@ export function createParticleColorProductMaterial(
   texture: THREE.Texture,
   lookup: THREE.Texture,
   coordinates: 'uniform' | 'vertex' = 'uniform',
-  quadMultiplier?: THREE.Texture
+  quadMultiplier?: THREE.Texture,
+  vertexTint = false
 ) {
   return new THREE.ShaderMaterial({
     name: 'Native particle initial color product',
@@ -24,17 +25,25 @@ export function createParticleColorProductMaterial(
     },
     defines: {
       ...(coordinates === 'vertex' ? { VERTEX_LOOKUP: 1 } : {}),
+      ...(vertexTint ? { VERTEX_TINT: 1 } : {}),
       ...(quadMultiplier ? { QUAD_MULT_PASS: 1 } : {}),
     },
     vertexShader: `
       varying vec2 sourceUv;
       varying vec2 colorUv;
       uniform vec2 lookupUv;
+      #ifdef VERTEX_TINT
+        attribute vec4 particleTint;
+        varying vec4 vertexColor;
+      #endif
       #ifdef VERTEX_LOOKUP
         attribute vec2 particleLookupUv;
       #endif
       void main() {
         sourceUv = uv;
+        #ifdef VERTEX_TINT
+          vertexColor = particleTint;
+        #endif
         #ifdef VERTEX_LOOKUP
           colorUv = particleLookupUv;
         #else
@@ -56,9 +65,15 @@ export function createParticleColorProductMaterial(
       #endif
       varying vec2 sourceUv;
       varying vec2 colorUv;
+      #ifdef VERTEX_TINT
+        varying vec4 vertexColor;
+      #endif
       void main() {
         gl_FragColor = texture2D(sourceTexture, sourceUv)
           * particleColor * texture2D(particleColorTexture, colorUv);
+        #ifdef VERTEX_TINT
+          gl_FragColor *= vertexColor;
+        #endif
         #ifdef QUAD_MULT_PASS
           gl_FragColor *= texture2D(multiplierTexture, colorUv);
         #endif

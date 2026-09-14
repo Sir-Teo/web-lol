@@ -1,3 +1,4 @@
+import { loadLuxTrailTextures } from './render/lux-attack-trails';
 import { loadLuxAttackTextures } from './render/lux-attack-hoops';
 import './style.css';
 import { readMatch, writeMatch } from './storage/match-store';
@@ -111,6 +112,7 @@ async function boot(): Promise<void> {
     loadReferenceModels(),
     loadLuxBeamTextures(),
     loadLuxAttackTextures(),
+    loadLuxTrailTextures(),
     loadHawkshot(),
     loadAsheAttackArrow(),
     loadHawkshotWind(),
