@@ -415,3 +415,11 @@ Rechecking the pinned `readValue.ts` against a fresh upstream download confirmed
 `reference/lux-bokeh-audit.json` records the resolved linger and atlas fields and the next implementation design. Bokeh authors 45 camera-facing particles, 0.5–1 second lifetimes, a 2×2 four-frame random-start atlas and uniform scale. Its two-second `particleLinger` is not an unconditional lifetime extension: the reference's default stop policy caps existing lifetime. Source reconstruction is still distinguished from native verification. Bokeh remains unrendered and active coverage stays at 21 of 39.
 
 Validation: 728 unit tests and TypeScript pass, including unchanged color channels, explicit single multipliers and mismatched table lengths. Six browser checks pass for streak and rotating-ray geometry, saved reconstruction, visibility and terminal retirement. Production build and subpath smoke testing also pass.
+
+## Bokeh texture and particle sampler
+
+The original 128×128 bokeh texture is pinned and losslessly exported. Visual inspection confirms four distinct circles in a 2×2 atlas despite its 4x4 filename. The source exporter verifies the full Lux binary and exports the 45-particle burst, correlated birth distributions, raw color, uniform size, motion, atlas and material settings. Previously pinned extraction records and chunk hashes were preserved.
+
+`luxBokehParticles` reconstructs 0.5–1 second particles with 60 Hz stepped drag, fractional interpolation, source spawn/emitter translation, birth color multiplied by the animated flicker, and uniform scale applied after birth/animated multiplication. A separate deterministic indexed draw selects one static atlas frame per particle; this is a local reconstruction policy, not a native PRNG claim. Particle ordinals and cells remain stable as shorter-lived particles retire.
+
+Four tests check distribution endpoints, independent iterative drag, translation, uniform scale, four-cell coverage, repeatability, stable choices after retirement, invalid ages and exact flicker knots. All 732 unit tests and TypeScript pass. No gameplay rendering has been added in this step; active emitter coverage remains 21 of 39. Camera-facing geometry and material atlas sampling are next, followed by gameplay and native visual comparison.

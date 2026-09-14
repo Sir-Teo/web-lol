@@ -3074,6 +3074,13 @@
       "height": 256,
       "rgbaSha256": "f1acf55a3c0371675327d651f9516ce336ea6b88dd20908ebacb28c980b1855c",
       "output": "public/assets/effects/lux-r-lux_base_r_erosionshapes01.png"
+    },
+    {
+      "path": "assets/characters/lux/skins/base/particles/lux_base_z_bokeh_dots_4x4.tex",
+      "width": 128,
+      "height": 128,
+      "rgbaSha256": "14d042a22d9ac5a27aa5b28309a6d84438b0f88600475d5d6fd1ec1f45fcca6f",
+      "output": "public/assets/effects/lux-r-lux_base_z_bokeh_dots_4x4.png"
     }
   ],
   "extraction": {
@@ -3191,6 +3198,12 @@
         "offset": 16927008,
         "bytes": 16620,
         "sha256": "2d708c3346f149749f8801c1acee0a511e51455b085460b495092e1337bb4e9f"
+      },
+      "8B27BE99C564C59E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/51F3FDA08D1676D3.bundle",
+        "offset": 13712906,
+        "bytes": 4869,
+        "sha256": "aec545f25489173557c2d6e53eca94c354ece74a6f8033d717dc41f4472c15f7"
       }
     },
     "files": [
@@ -3277,6 +3290,12 @@
         "wadPathHash": "ecf4bb522cfcd868",
         "sha256": "1129e317c149b9675d7561afc1caa58407a3e4b98e7a4924f87c4f3daa3f1bc0",
         "bytes": 43716
+      },
+      {
+        "path": "assets/characters/lux/skins/base/particles/lux_base_z_bokeh_dots_4x4.tex",
+        "wadPathHash": "ba07351485b091b2",
+        "sha256": "c7b2478580109da3a6f2367ab6bc5d5b6ba83b9b5092204cb9abdfd1c7788e4a",
+        "bytes": 10948
       }
     ]
   },
