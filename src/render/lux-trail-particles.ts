@@ -69,7 +69,10 @@ export function luxTrailParticles(effect: LuxAttackVisual, tick: number): LuxTra
       birthTick,
       age,
       position: [frame.x, trail.offset[1], frame.y],
-      facing: frame.facing + (sample(trail.birthRotationDegrees, birthPhase) * Math.PI) / 180,
+      // Shape rotation affects spawn offset and velocity, not the particle's
+      // standing frame. Both are zero here; the authored Y-axis emitter offset
+      // is applied after the shape turn. No birthRotation0 is authored.
+      facing: frame.facing,
       halfWidth: sample(trail.birthWidth, birthPhase) * sample(trail.relativeWidth, phase),
       color: lifeColor.map((v, i) => v * birthColor[i]),
       distance: frame.distance,

@@ -1,0 +1,34 @@
+{
+  "recordedAt": "2026-09-14T05:52:59.398976+00:00",
+  "baseRevision": "9d08a2c7f62d9aab68763d5a9bfd454c15855f2e",
+  "scope": "Remove erroneous shape-angle rotation from Lux ribbon particle frame",
+  "validation": {
+    "checks": 655,
+    "testFiles": 134,
+    "browserCases": 3,
+    "productionNestedPath": "passed",
+    "birthFrameRegression": "headings before and after a turn retained independently of shape angle",
+    "visualReview": "1440x900 isolated ribbon and combined preview"
+  },
+  "source": {
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "emitSha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+  },
+  "openFindings": [
+    "Conflicting isLocalOrientation defaults",
+    "Forced first emission not yet implemented",
+    "Per-emission-batch odometer differs from current every-tick sum",
+    "Native comparison"
+  ],
+  "sha256": {
+    "src/content/lux-basic-trail.ts": "e6b5612fde83358c3b283b7cf569475d80c47113c59c8a761d5254bc734af9fc",
+    "src/render/lux-trail-particles.ts": "72910bea96748707f1769ea85caa604fad76e6b4c9dee7994bc07a576e2eb91f",
+    "tests/lux-trail-particles.test.ts": "bf19c6ec9a81b558206cea416d144199edc6fa3696f9c0ef239044c6acf86e50",
+    "tools/qa/lux-trail-playback.html": "4779158a20fddf97dfbcb13a4dc1a0c69dc3887002d3874bf4a9c8d537e4645f",
+    "artifacts/lux-trail-orientation-check.log": "d0dccf1aeaa46c8b54049ceaf17e5897eb7c3f6a1981cf2e682058b8a3550ff7",
+    "artifacts/lux-trail-orientation-browser.log": "e9b7b293425fcb651d582d85414578236e7bf4931bb0987e11ed28c4493d2137",
+    "artifacts/lux-trail-orientation-production.log": "0bc9c3bf17c65f44ba1ca0ebef0b9988dc6b9f891a5db6d41233c16327e63163",
+    "artifacts/lux-trail-preview.png": "313fdc8f6a42f031606d56493032a44d69a8644d6c7aa924d715f88e11af3057",
+    "artifacts/lux-basic-preview.png": "6fa4a36962fd19444ceac8f212eafd0ecccf6a41405a6b11752b25e46b1ea243"
+  }
+}

@@ -45,7 +45,7 @@ export const LUX_BASIC_TRAIL = {
     times: [0.0, 0.10000000149011612, 1.0],
     values: [0.0, 1.0, 1.5],
   },
-  birthRotationDegrees: {
+  shapeRotationDegrees: {
     times: [0.0, 1.0],
     values: [360.0, 1400.0],
   },

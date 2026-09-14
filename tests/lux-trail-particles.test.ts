@@ -36,7 +36,7 @@ it('matches the binary-verified trail source profile, including authored curve v
   for (const [profile, field] of [
     [trail.birthColor, s.birthColor],
     [trail.color, s.Color],
-    [trail.birthRotationDegrees, s.SpawnShape.emitRotationAngles[0]],
+    [trail.shapeRotationDegrees, s.SpawnShape.emitRotationAngles[0]],
   ] as const) {
     expect(profile.times).toEqual(field.dynamics.times);
     expect(profile.values).toEqual(field.dynamics.values);
@@ -49,7 +49,7 @@ it('matches the binary-verified trail source profile, including authored curve v
     expect(profile.values).toEqual(field.dynamics.values.map((v: number[]) => v[0]));
   }
 });
-it('uses birth-time width/rotation and particle-age color/scale independently', () => {
+it('uses birth-time width and particle-age color/scale without turning the particle frame', () => {
   const point = luxTrailParticles(effect(), 12).find((p) => p.ordinal === 5)!;
   expect(point.birthTick).toBe(6);
   expect(point.age).toBeCloseTo(0.1);
@@ -59,7 +59,7 @@ it('uses birth-time width/rotation and particle-age color/scale independently', 
     (10 + (40 * (0.1 / 1.05)) / 0.2) * (1 + (0.5 * (0.2 - 0.1)) / 0.9),
     4
   );
-  expect(point.facing).toBeCloseTo(Math.PI / 2 + ((360 + 1040 * (0.1 / 1.05)) * Math.PI) / 180, 4);
+  expect(point.facing).toBe(Math.PI / 2);
   expect(point.color[3]).toBeCloseTo(0.345, 4);
   expect(point.multScroll).toEqual([0.1, 0]);
 });
@@ -85,4 +85,16 @@ it('stops births at impact, restores exact points, and retires the final point',
     expect(points.every((p) => p.birthTick <= 12)).toBe(true);
   }
   expect(luxTrailParticles(e, 42)).toEqual([]);
+});
+
+it('retains each birth heading through a turn without inheriting shape rotation or later heading', () => {
+  const e = effect();
+  for (const frame of e.frames) frame.facing = frame.tick < 8 ? 0 : Math.PI / 2;
+  const points = luxTrailParticles(e, 16);
+  expect(points.length).toBeGreaterThan(5);
+  for (const point of points) expect(point.facing).toBe(point.birthTick < 8 ? 0 : Math.PI / 2);
+  const s: any = source.data.complexEmitterDefinitionData.find((v) => v.emitterName === 'Trail');
+  expect(s).not.toHaveProperty('birthRotation0');
+  expect(s).not.toHaveProperty('birthVelocity');
+  expect(s.SpawnShape).not.toHaveProperty('emitOffset');
 });
