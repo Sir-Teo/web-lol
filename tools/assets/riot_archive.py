@@ -62,8 +62,10 @@ class RiotArchive:
         self.wad = Wad(str(path), hashes={})
         self.wad.resolve_paths({int(h, 16): p for h, p in paths.items()})
         self.entries = {e.path: e for e in self.wad.files if e.path}
-        toc = next(e for e in self.wad.files if e.path and e.path.endswith(".subchunktoc"))
-        self.toc = toc.read_data(self)
+        toc = next((e for e in self.wad.files if e.path and e.path.endswith(".subchunktoc")), None)
+        if toc is None and any(e.type == 4 for e in self.wad.files):
+            raise ValueError("Subchunked archive requires a resolved .subchunktoc path")
+        self.toc = toc.read_data(self) if toc else None
 
     def chunks_for(self, offset, size):
         end = offset + size

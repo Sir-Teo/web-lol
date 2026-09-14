@@ -21,3 +21,5 @@ npm run assets:validate
 With the development server running, open `/tools/qa/lux-basic-attack-preview.html`. The browser test loads the GLB and all six textures, checks the converted attribute counts, and captures the inspection board. The source crescent and texture board were visually inspected.
 
 Gameplay still uses the generic attack projectile. Next work must reconstruct lookup/shader behavior, particle primitive semantics, binding/orbital motion, emission lifetime, attachment orientation and saved animation phase, then compare the composed effect against native references. The package is deliberately not advertised as pixel-authentic or runtime-complete. Riot-owned source content remains subject to the production design's unresolved distribution authorization.
+
+The follow-up [particle shader audit](PARTICLE-SHADERS.md) now identifies lookup scale/offset hashes and reconstructs the initial RGBA product from pinned native Metal disassembly. The particle-color lookup is distinct from the shader's optional palette replacement. Its CPU-generated coordinates and Lux's exact shader/blend selection remain unresolved.

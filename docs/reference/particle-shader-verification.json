@@ -1,0 +1,150 @@
+{
+  "pinSha256": "fbbf1ee2dfe2ff214c0ed38f11c2f114dfddac93f4d66a996cb06922e99ec676",
+  "llvmDisVersion": "LLVM (http://llvm.org/):\n  LLVM version 22.0.0git\n  Optimized build.",
+  "programs": [
+    {
+      "source": ".cache/particle-shaders/mesh_ps.ps-metal-740.metallib",
+      "sourceSha256": "051c2dee057ca6a8f9cf5dd0993c17b1adf9ffc48faf6582d8a76952085cafc5",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 5352,
+      "bitcodeSha256": "5a7f121b9c58b99e759afe72847f947813be5a592fb8eb5ade32f3d92a1ea49c",
+      "disassembly": ".cache/particle-shaders/mesh_ps.ps-metal-740.ll",
+      "disassemblySha256": "b39ca48e90ebd8d86dae1cca2754fde22e65c746560b8932b09a9954050f6f8e"
+    },
+    {
+      "source": ".cache/particle-shaders/mesh_ps.ps-metal-9.metallib",
+      "sourceSha256": "6f497054a40a4ce2d84f7e217872ce4ec3a482e2c01361a70f82d546924e63f3",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 3672,
+      "bitcodeSha256": "6c9399e9087005fe9e8efe4d4e15db842dd52acabd3457b7eaa3498809c659ba",
+      "disassembly": ".cache/particle-shaders/mesh_ps.ps-metal-9.ll",
+      "disassemblySha256": "a8dfe634182d3e38acac3874aa30168ae012325a4809c3ae763f19b519408100"
+    },
+    {
+      "source": ".cache/particle-shaders/mesh_ps.ps-metal-787.metallib",
+      "sourceSha256": "83d9f9288a8a0eb46d1eeebb38a1a594aaa5ea6551c1c721cf79bcf6ee69a5ac",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 5680,
+      "bitcodeSha256": "ccb80488f4f59421192563d19ebf4d90a2b1f249cd777c244b66fdfc521fec24",
+      "disassembly": ".cache/particle-shaders/mesh_ps.ps-metal-787.ll",
+      "disassemblySha256": "d05894dc9f457bd10578bef6ec8edcced2dd405328d9db401cb728c377577198"
+    },
+    {
+      "source": ".cache/particle-shaders/mesh_ps.ps-metal-52.metallib",
+      "sourceSha256": "0f1709038d7932075684d2893c816509fbda303294a9aa1429286b5a8a0035d4",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 4004,
+      "bitcodeSha256": "f1356e8d7a035a7fc0389580875163ae7c58e261348bf7d89b57de1a0b58e093",
+      "disassembly": ".cache/particle-shaders/mesh_ps.ps-metal-52.ll",
+      "disassemblySha256": "41e6ad857858950186427d0702a6397e85b923dfd1f8e437f140bed2de262718"
+    },
+    {
+      "source": ".cache/particle-shaders/mesh_ps.ps-metal-783.metallib",
+      "sourceSha256": "81b5e8dadf02e96124798467d43bd19531573dea58dc1e338897d395e881aa33",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 5660,
+      "bitcodeSha256": "4cfedab87ac50a3582c463c42949fd6fffbfe2838b3878cdd6d1883b904b48de",
+      "disassembly": ".cache/particle-shaders/mesh_ps.ps-metal-783.ll",
+      "disassemblySha256": "7e7f405b515193b1436a589a2eb6e5267d9ac6308bdcf357c73c915a94933be9"
+    },
+    {
+      "source": ".cache/particle-shaders/mesh_vs.vs-metal-20.metallib",
+      "sourceSha256": "48a8ed62ce6c1ff964c61d96cac63af11f511c4b543c7c09d5b9034936de00d4",
+      "bitcodeOffset": 301,
+      "bitcodeBytes": 5424,
+      "bitcodeSha256": "3f049fd6b4e49c15dbe7c92fdaa4a20f8b22a77315271030e30a97baf108c885",
+      "disassembly": ".cache/particle-shaders/mesh_vs.vs-metal-20.ll",
+      "disassemblySha256": "f3b5a83adcf3a033a10f7baabb94718c6bf3d06db9c2b8da310ac7b8219daf7d"
+    },
+    {
+      "source": ".cache/particle-shaders/mesh_vs.vs-metal-1.metallib",
+      "sourceSha256": "6b86adbd5b6f807e71248eff97c03fd42b5db82e9de81578dfebca0cb60dfb12",
+      "bitcodeOffset": 301,
+      "bitcodeBytes": 5264,
+      "bitcodeSha256": "0b8ffac40fef20ae025401b1436531f4d11398596c0953f2fd4ca8fe0f998b18",
+      "disassembly": ".cache/particle-shaders/mesh_vs.vs-metal-1.ll",
+      "disassemblySha256": "0246f6957649e7bdac131e76dac3137698c6ba90d58f4d50e3452a336dcb465d"
+    },
+    {
+      "source": ".cache/particle-shaders/quad_ps.ps-metal-2.metallib",
+      "sourceSha256": "e65c284f990e569f98e72685c19e71f51fa5379b5b392cd61ee5e11597d65996",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 3368,
+      "bitcodeSha256": "a121dd1f4d16f524c7ccec1e552b892cc8cddb53830aa6f0a75f0c0f818f1df9",
+      "disassembly": ".cache/particle-shaders/quad_ps.ps-metal-2.ll",
+      "disassemblySha256": "f7d21704a46099411be0e782f993633c71516ef3152f49eccd4cbbd3d5197d0d"
+    },
+    {
+      "source": ".cache/particle-shaders/quad_ps.ps-metal-0.metallib",
+      "sourceSha256": "3f2f0e9b9c9eeec9954f236bed6382f47caba1aa349fe5d36d3282b6bef140bc",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 3208,
+      "bitcodeSha256": "0843cba4fa79e713d90d545e3acdc822ffec87cccfbfe31d1a8d2fe8ca3bc779",
+      "disassembly": ".cache/particle-shaders/quad_ps.ps-metal-0.ll",
+      "disassemblySha256": "1f631c54a90ba2ddcd5499cd9d5a2190d97b65adfcb4414036584d5ac0225138"
+    },
+    {
+      "source": ".cache/particle-shaders/quad_ps.ps-metal-23.metallib",
+      "sourceSha256": "2610b81ff50b04a062bb3252d6810fc563364141e079b5b58daf5badc4d6b1d5",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 3948,
+      "bitcodeSha256": "53df470dd8f8df32860ba9b4a11b6a1352c03977213c69df60ad0d4f1efcc883",
+      "disassembly": ".cache/particle-shaders/quad_ps.ps-metal-23.ll",
+      "disassemblySha256": "bf0105b23dd0bf8afbfae5aa656e07b0069dc2b6cfbcf2c715d30db32972d1c5"
+    },
+    {
+      "source": ".cache/particle-shaders/quad_ps.ps-metal-12.metallib",
+      "sourceSha256": "64372231ea7c1c5d781b247f4654c83c6bf50b87116c542ccfcb6d5a0d0915a2",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 3788,
+      "bitcodeSha256": "73a8f4de4da6c8aa43f4abdd03e74e68b9fa9390ce28e5163b69a05abe4bd904",
+      "disassembly": ".cache/particle-shaders/quad_ps.ps-metal-12.ll",
+      "disassemblySha256": "e0fcefb96ca374776c46f81c616d2c1032dea3b34a479a095140c3f3de39a98f"
+    },
+    {
+      "source": ".cache/particle-shaders/quad_ps.ps-metal-33.metallib",
+      "sourceSha256": "f3c78440d61d267e1fbc6888cd97091b0a8ecd88fe9a4dc23a560727c4df55a0",
+      "bitcodeOffset": 258,
+      "bitcodeBytes": 4044,
+      "bitcodeSha256": "8177269f4c07d8e4b017de0599c1fe5fda72391bb726c1b786459d5f66bc7d7e",
+      "disassembly": ".cache/particle-shaders/quad_ps.ps-metal-33.ll",
+      "disassemblySha256": "fb585b2ac89efc4b5300e2038841c6e86ed5f0e24b70e79198025ec8ed7c39a6"
+    },
+    {
+      "source": ".cache/particle-shaders/quad_vs.vs-metal-1.metallib",
+      "sourceSha256": "236469863433fb3bc58b4ac5077c1af050e2d375d0ee4679088c0427a82f7703",
+      "bitcodeOffset": 310,
+      "bitcodeBytes": 4204,
+      "bitcodeSha256": "82fb97c3f753b3130c2ea653b750d01e6dbb7d776e536e686756cfb9da062d47",
+      "disassembly": ".cache/particle-shaders/quad_vs.vs-metal-1.ll",
+      "disassemblySha256": "8f50e428ac9bbd68e56c0d6b948449237118d286f00917261ce8efeba8a425f9"
+    },
+    {
+      "source": ".cache/particle-shaders/quad_vs.vs-metal-0.metallib",
+      "sourceSha256": "e35d35fe08a495bd9dff70846aed99f9a3553807dc44533079a88f1c8484b615",
+      "bitcodeOffset": 310,
+      "bitcodeBytes": 4156,
+      "bitcodeSha256": "6d46f205c6f1f1e6faf28837c3769685edb04460d7c4401e9b5c26fa5389bab4",
+      "disassembly": ".cache/particle-shaders/quad_vs.vs-metal-0.ll",
+      "disassemblySha256": "99f8031501d81e5393dbab9068e1fe6973b4ab89abaafef00afbeda3d9baa8d6"
+    }
+  ],
+  "recordedAt": "2026-09-14T04:31:37.551171+00:00",
+  "baseRevision": "40818134603b98c7cca534572a204fd9165571ed",
+  "validation": {
+    "allVariantHashes": 2576,
+    "framedMetalPrograms": 416,
+    "disassembledPrograms": 14,
+    "repeatExtraction": "exact match",
+    "existingLuxExport": "passed; source pin and assets unchanged",
+    "unresolvedSubchunkTable": "rejected",
+    "lookupFieldHashes": 4,
+    "pythonCompilation": "passed",
+    "runtimeChanges": false
+  },
+  "toolSha256": {
+    "tools/assets/riot_archive.py": "63f9f7aa1c03dbf1b70840237aefe00c037a4ed7630540a402465b7d9ae7158c",
+    "tools/assets/export-particle-shaders.py": "bb30becc6ca9ee2df86cc15d6ac6c3b555c2775bddff4d9b8438eebee0ba1b69",
+    "tools/assets/inspect-particle-shaders.py": "15d3b36e7ac607b8f965c0ee7b270725e016b9570821adefc60a5c8252fb81d4"
+  }
+}
