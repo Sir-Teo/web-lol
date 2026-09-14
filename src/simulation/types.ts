@@ -1,4 +1,5 @@
-import type { MobileRig } from '../content/mobile-clip-durations';
+import type { ImpactRig } from '../content/impact-target';
+import type { structurePose } from '../render/structure-pose';
 import type { AnimationTimeline } from './animation-timeline';
 import type { Vec2 } from './math';
 export type Team = 'blue' | 'red';
@@ -187,8 +188,9 @@ export interface LuxImpactFrame {
   facing: number;
   /** Independent end-of-tick mobile pose; frozen with placement after detachment. */
   animationTimeline: AnimationTimeline | null;
+  structurePose: ReturnType<typeof structurePose> | null;
 }
-/** Confirmed Lux basic-attack hit; target placement and mobile pose history.
+/** Confirmed Lux basic-attack hit; target placement and source pose history.
  * The originating projectile ID is shared with its retained flight history.
  */
 export interface LuxImpactVisual {
@@ -199,7 +201,8 @@ export interface LuxImpactVisual {
   startTick: number;
   critical: boolean;
   detachedTick: number | null;
-  targetRig: MobileRig | null;
+  targetRig: ImpactRig | null;
+  targetTransform: readonly number[] | null;
   frames: LuxImpactFrame[];
 }
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';

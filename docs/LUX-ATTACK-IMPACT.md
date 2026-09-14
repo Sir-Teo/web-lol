@@ -243,3 +243,18 @@ Three focused unit regressions cover primary/outgoing wrap boundaries, newly bor
 The browser boundary fixture starts an active run or idle segment, seeds its clock just before the source duration, and lets a real simulation step produce the crossing interval. It compares five display interpolation values against the clock's expected phase, then checks repeated draws and real save/reload bone matrices. All ten rig cases pass for both run and idle, covering twenty source-duration boundaries. Seven browser regressions cover death, recall, interrupted transitions and bone-attached Lux impacts; the production subpath smoke check also passes. This targets boundary sampling; normal clock accumulation and movement remain covered by the existing run/idle scenarios.
 
 This corrects the local adapter's temporal sampling. Native animation graph transitions, structure animation clocks and native subframe behavior still require calibration.
+
+
+## Structure impact poses and turret attachments
+
+Schema 62 extends confirmed-impact history to all six structure rigs. Each impact copies the target's authored structure matrix when present, and each frame captures the common selector's actual structure pose after the tick's damage and animation updates. A lethal hit captures the destroyed pose, then detachment freezes it. Mobile targets retain their timeline representation; procedural dummies retain null pose/rig fields. The decoder validates source clip names, pose kind and loop mode, duration bounds, current attached state, map-transform identity and frozen history.
+
+Turret impact endpoints now sample their authored centre/chest bone on a private reference skeleton. `structureModelMatrix` is shared with live model placement: it preserves authored scale/rotation, converts the map translation and reflects the source Z axis. Fixture structures without an authored matrix use the same fixed reflected-Z placement as their live model, independent of their attack-facing angle. The existing 3D ring/spark adapter consumes these endpoints. Samplers are created for the saved rig and disposed with the effect.
+
+The source audit finds no centre/chest attachment bones in the four inhibitor/Nexus rigs. Their explicit pose history is saved and sampled, while placement retains the documented target-centre plus 0.9 fallback. Missing bones on a mobile or turret rig fail explicitly instead of quietly changing attachment behavior.
+
+New unit scenarios cover copied turret transforms, exact save continuation, frozen destruction poses and malformed histories; ordinary/lethal inhibitor and Nexus contacts, including a terminal Nexus snapshot; and analytical scale/translation/axis conversion, fixture placement and missing-bone fallback. All 718 unit tests pass.
+
+Two full-Rift browser scenarios compare both sampled turret bones with the live source bones before and after destruction, to within `1e-7` world units per coordinate. They check normal ring placement and exact visible-particle restoration through a real browser save/reload. The blue-turret death can remove player sight, so the comparison includes only active spark instances, not unused GPU buffer slots. Eight structure regressions, four existing Lux flight/impact checks and the production subpath smoke check also pass.
+
+Screenshots `artifacts/lux-blue-turret-impact.png` and `artifacts/lux-red-turret-impact.png` are visually reviewed. Much of the ring effect is occluded by the turret under the current depth policy. These checks establish geometric attachment and reproducibility, not native pixel parity. Native depth/material policy, emitter orientation, structure-specific hit dispatch, missing-bone behavior and post-victory particle playback remain fidelity work.

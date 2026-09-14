@@ -9,6 +9,7 @@ function effect(): LuxImpactVisual {
     x,
     y: 0,
     facing,
+    structurePose: null,
     animationTimeline: {
       tick,
       primary: {
@@ -29,6 +30,7 @@ function effect(): LuxImpactVisual {
     sourceId: 1,
     targetId: 2,
     targetRig: 'ashe-base',
+    targetTransform: null,
     team: 'blue',
     critical: true,
     startTick: 0,
@@ -78,4 +80,35 @@ it('retains an explicit centre fallback for unsupported poses, including elevati
   expect(path.point(e, 0).toArray()).toEqual([0, 0.9, 0]);
   expect(path.point(e, 0.5).toArray()).toEqual([0.5, 1.4, 0]);
   path.dispose();
+});
+
+it('applies authored scale, translation and axis conversion to structure bones, with explicit missing-bone fallback', () => {
+  const root = new THREE.Group(),
+    chest = new THREE.Bone();
+  chest.name = 'C_BUFFBONE_GLB_CHEST_LOC';
+  chest.position.set(1, 2, 3);
+  root.add(chest);
+  const clip = new THREE.AnimationClip('idle1', 1, []);
+  const path = new LuxImpactAttachments(new TargetPoseSampler(root, [clip]), () => 999);
+  const e = effect();
+  e.targetRig = 'blue-turret';
+  e.targetTransform = [2, 0, 0, 0, 0, 3, 0, 0, 0, 0, 4, 0, 8000, 500, 7000, 1];
+  for (const frame of e.frames) {
+    frame.animationTimeline = null;
+    frame.structurePose = { kind: 'idle', clip: 'idle1', time: 0, loop: true };
+  }
+  expect(path.point(e, 0).toArray()).toEqual([7.75, 11, -7.75]);
+  const fixture = structuredClone(e);
+  fixture.targetTransform = null;
+  expect(path.point(fixture, 0).toArray()).toEqual([1, 1001, -3]);
+  const missing = new LuxImpactAttachments(
+    new TargetPoseSampler(new THREE.Group(), [clip]),
+    () => 4
+  );
+  const noBone = structuredClone(e);
+  noBone.targetRig = 'blue-inhibitor';
+  expect(missing.point(noBone, 0).toArray()).toEqual([0, 4.9, 0]);
+  expect(() => missing.point(e, 0)).toThrow('turret rig');
+  path.dispose();
+  missing.dispose();
 });

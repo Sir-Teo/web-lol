@@ -1,5 +1,8 @@
+import { impactTargetRig } from '../content/impact-target';
+import { structurePose } from '../render/structure-pose';
+import { structureAnimationProfile } from '../content/structure-animation';
 import { mobilePose } from '../render/mobile-pose';
-import { mobileClipDurations, mobileRig } from '../content/mobile-clip-durations';
+import { mobileClipDurations } from '../content/mobile-clip-durations';
 import { advanceAnimationTimeline } from './animation-timeline';
 import { castAnimationDuration } from '../content/cast-animation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
@@ -1991,6 +1994,18 @@ export class World {
       y: target.y,
       facing: target.facing,
       animationTimeline: structuredClone(target.animationTimeline),
+      structurePose: isStructureKind(target.kind)
+        ? structurePose(
+            {
+              destroyed: !this.alive(target),
+              deathTick: target.deadAt,
+              idleStartTick: target.structureIdle!.startTick,
+            },
+            structureAnimationProfile(target),
+            this.tick,
+            1
+          )
+        : null,
     };
   }
   private advanceImpactVisuals(): void {
@@ -2169,7 +2184,8 @@ export class World {
               startTick: this.tick,
               critical: p.critical === true,
               detachedTick: null,
-              targetRig: mobileRig(contact),
+              targetRig: impactTargetRig(contact),
+              targetTransform: contact.structureTransform ? [...contact.structureTransform] : null,
               frames: [this.captureImpactFrame(contact)],
             });
           }

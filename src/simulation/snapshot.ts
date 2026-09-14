@@ -1,9 +1,11 @@
+import { impactTargetRig, type ImpactRig } from '../content/impact-target';
 import {
-  mobileClipDurations,
-  mobileRig,
-  MOBILE_CLIP_DURATIONS,
-  type MobileRig,
-} from '../content/mobile-clip-durations';
+  STRUCTURE_ANIMATION_PROFILES,
+  structureAnimationProfile,
+  type StructureRig,
+} from '../content/structure-animation';
+import { structurePose } from '../render/structure-pose';
+import { mobileClipDurations, MOBILE_CLIP_DURATIONS } from '../content/mobile-clip-durations';
 import type { AnimationTimeline } from './animation-timeline';
 import { ANIMATION_FADE_TICKS } from './animation-timeline';
 import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
@@ -31,7 +33,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 61;
+export const SNAPSHOT_VERSION = 62;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -455,8 +457,12 @@ const snapshot = z.strictObject({
         critical: z.boolean(),
         detachedTick: tick.nullable(),
         targetRig: z
-          .enum(Object.keys(MOBILE_CLIP_DURATIONS) as [MobileRig, ...MobileRig[]])
+          .enum([
+            ...Object.keys(MOBILE_CLIP_DURATIONS),
+            ...Object.keys(STRUCTURE_ANIMATION_PROFILES),
+          ] as [ImpactRig, ...ImpactRig[]])
           .nullable(),
+        targetTransform: z.array(z.number()).length(16).nullable(),
         frames: z
           .array(
             z.strictObject({
@@ -464,6 +470,14 @@ const snapshot = z.strictObject({
               x: z.number(),
               y: z.number(),
               facing: z.number(),
+              structurePose: z
+                .strictObject({
+                  kind: z.enum(['idle', 'destroyed', 'dead-idle']),
+                  clip: z.string().max(100),
+                  time: nonnegative,
+                  loop: z.boolean(),
+                })
+                .nullable(),
               animationTimeline: animationTimeline.nullable(),
             })
           )
@@ -639,12 +653,24 @@ export function decodeSnapshot(text: string) {
     const target = state.units.find((u) => u.id === visual.targetId);
     const flight = state.luxAttackVisuals.find((v) => v.id === visual.id);
     const last = visual.frames.at(-1)!;
+    const structureProfile =
+      visual.targetRig && Object.hasOwn(STRUCTURE_ANIMATION_PROFILES, visual.targetRig)
+        ? STRUCTURE_ANIMATION_PROFILES[visual.targetRig as StructureRig]
+        : undefined;
+    const mobileDurations =
+      visual.targetRig && Object.hasOwn(MOBILE_CLIP_DURATIONS, visual.targetRig)
+        ? MOBILE_CLIP_DURATIONS[visual.targetRig as keyof typeof MOBILE_CLIP_DURATIONS]
+        : undefined;
     if (
+      (!structureProfile && visual.targetTransform !== null) ||
+      (target &&
+        JSON.stringify(visual.targetTransform) !==
+          JSON.stringify(target.structureTransform ?? null)) ||
       impactIds.has(visual.id) ||
       visual.id >= state.nextId ||
       source?.champion !== 'lux' ||
       source.team !== visual.team ||
-      (target && (target.team === visual.team || mobileRig(target) !== visual.targetRig)) ||
+      (target && (target.team === visual.team || impactTargetRig(target) !== visual.targetRig)) ||
       visual.targetId >= state.nextId ||
       !flight ||
       flight.sourceId !== visual.sourceId ||
@@ -660,15 +686,52 @@ export function decodeSnapshot(text: string) {
           last.x !== target.x ||
           last.y !== target.y ||
           last.facing !== target.facing ||
-          JSON.stringify(last.animationTimeline) !== JSON.stringify(target.animationTimeline))) ||
+          JSON.stringify(last.animationTimeline) !== JSON.stringify(target.animationTimeline) ||
+          (structureProfile &&
+            JSON.stringify(last.structurePose) !==
+              JSON.stringify(
+                structurePose(
+                  {
+                    destroyed: false,
+                    deathTick: null,
+                    idleStartTick: target.structureIdle!.startTick,
+                  },
+                  structureAnimationProfile(target),
+                  state.tick,
+                  1
+                )
+              )))) ||
       visual.frames.some(
         (f, i) =>
           f.tick !== visual.startTick + i ||
-          !validAnimationTimeline(
-            f.animationTimeline,
-            visual.targetRig === null ? undefined : MOBILE_CLIP_DURATIONS[visual.targetRig],
-            f.tick
-          ) ||
+          !!f.structurePose !== !!structureProfile ||
+          (f.structurePose !== null &&
+            structureProfile !== undefined &&
+            (() => {
+              const p = f.structurePose,
+                duration =
+                  structureProfile.durations[p.clip as keyof typeof structureProfile.durations];
+              if (!Object.hasOwn(structureProfile.durations, p.clip) || p.time > duration)
+                return true;
+              if (
+                (visual.detachedTick === null || f.tick < visual.detachedTick) &&
+                p.kind !== 'idle'
+              )
+                return true;
+              if (p.kind === 'idle') return p.clip !== 'idle1' || !p.loop;
+              if (p.kind === 'dead-idle')
+                return (
+                  p.clip !== structureProfile.deadIdleClip ||
+                  !p.loop ||
+                  !structureProfile.animateDestruction
+                );
+              return (
+                p.clip !== structureProfile.destroyedClip ||
+                p.loop ||
+                (!structureProfile.animateDestruction && p.time !== 0)
+              );
+            })()) ||
+          !validAnimationTimeline(f.animationTimeline, mobileDurations, f.tick) ||
           (f.animationTimeline !== null &&
             (visual.detachedTick === null || f.tick < visual.detachedTick) &&
             f.animationTimeline.tick !== f.tick) ||
@@ -679,7 +742,9 @@ export function decodeSnapshot(text: string) {
               f.y !== visual.frames[i - 1].y ||
               f.facing !== visual.frames[i - 1].facing ||
               JSON.stringify(f.animationTimeline) !==
-                JSON.stringify(visual.frames[i - 1].animationTimeline)))
+                JSON.stringify(visual.frames[i - 1].animationTimeline) ||
+              JSON.stringify(f.structurePose) !==
+                JSON.stringify(visual.frames[i - 1].structurePose)))
       )
     )
       throw new Error('Saved match contains an invalid Lux impact visual.');

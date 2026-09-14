@@ -1,4 +1,6 @@
 import profiles from './structure-animation-profiles.json';
+export const STRUCTURE_ANIMATION_PROFILES = profiles;
+export type StructureRig = keyof typeof profiles;
 import type { Unit } from '../simulation/types';
 export interface StructureAnimationProfile {
   destroyedClip: string;

@@ -2,7 +2,10 @@ import { expect, it } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { LUX_IMPACT_HISTORY_TICKS } from '../src/content/lux-impact-presentation';
-function launch(critical = false, kind: 'dummy' | 'champion' | 'melee' = 'dummy') {
+function launch(
+  critical = false,
+  kind: 'dummy' | 'champion' | 'melee' | 'turret' | 'inhibitor' | 'nexus' = 'dummy'
+) {
   const w = new World(false, {
     ...PRACTICE_FIXTURE,
     initialUnits: [],
@@ -12,8 +15,14 @@ function launch(critical = false, kind: 'dummy' | 'champion' | 'melee' = 'dummy'
   w.nextWaveTick = Infinity;
   const lux = w.spawn('champion', 'blue', { x: 500, y: 500 }, 'lux');
   const target = w.spawn(kind, 'red', { x: 1000, y: 500 });
+  if (kind === 'nexus') {
+    const gate = w.spawn('inhibitor', 'red', { x: 1500, y: 500 });
+    w.damage(lux, gate, 1e6, 'true');
+  }
   target.hp = target.maxHp = 10000;
   target.ai = false;
+  if (kind === 'turret')
+    target.structureTransform = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 8425, 0, 6925, 1];
   w.setOrder(lux, { type: 'attack', target: target.id });
   for (let i = 0; i < 60 && !w.projectiles.length; i++) w.step();
   w.setOrder(lux, { type: 'idle' });
@@ -38,7 +47,14 @@ it('records actual contacts with normal/critical identity and resumes target mot
       detachedTick: null,
     });
     expect(v.frames).toEqual([
-      { tick: w.tick, x: target.x, y: target.y, facing: target.facing, animationTimeline: null },
+      {
+        tick: w.tick,
+        x: target.x,
+        y: target.y,
+        facing: target.facing,
+        animationTimeline: null,
+        structurePose: null,
+      },
     ]);
     expect(w.luxAttackVisuals[0].stopTick).toBe(v.startTick);
     const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
@@ -61,7 +77,13 @@ it('does not invent impact when the flight loses a target; freezes after death o
   expect(lost.w.luxImpactVisuals).toEqual([]);
   for (const remove of [false, true]) {
     const { w, target } = hit();
-    const point = { x: target.x, y: target.y, facing: target.facing, animationTimeline: null };
+    const point = {
+      x: target.x,
+      y: target.y,
+      facing: target.facing,
+      animationTimeline: null,
+      structurePose: null,
+    };
     if (remove) w.units = w.units.filter((u) => u.id !== target.id);
     else target.hp = 0;
     w.step();
@@ -162,4 +184,60 @@ it('retains rig identity and the final mobile pose when the target disappears', 
   expect(effect.detachedTick).toBe(captured.tick + 1);
   expect(effect.frames.at(-1)).toEqual({ ...captured, tick: w.tick });
   expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
+});
+
+it('saves turret poses and map placement, freezes destruction and rejects malformed structure histories', () => {
+  const { w, lux, target } = launch(false, 'turret');
+  while (w.projectiles.length) w.step();
+  const effect = w.luxImpactVisuals[0];
+  expect(effect.targetRig).toBe('red-turret');
+  expect(effect.targetTransform).toEqual(target.structureTransform);
+  expect(effect.targetTransform).not.toBe(target.structureTransform);
+  expect(effect.frames[0].animationTimeline).toBeNull();
+  expect(effect.frames[0].structurePose).toMatchObject({ kind: 'idle', clip: 'idle1', loop: true });
+  const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+  w.step(3);
+  restored.step(3);
+  expect(restored.snapshot()).toBe(w.snapshot());
+  w.damage(lux, target, 1e6, 'true');
+  w.step();
+  const frozen = structuredClone(effect.frames.at(-1)!);
+  expect(frozen.structurePose).toMatchObject({ kind: 'destroyed', time: 0, loop: false });
+  target.facing += 1;
+  w.step(2);
+  expect(effect.frames.at(-1)).toEqual({ ...frozen, tick: w.tick });
+  expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
+  for (const mutate of [
+    (e: any) => e.targetTransform[12]++,
+    (e: any) => (e.targetRig = 'blue-turret'),
+    (e: any) => (e.frames[0].structurePose = null),
+    (e: any) => (e.frames[0].structurePose.clip = 'toString'),
+    (e: any) => (e.frames[0].structurePose.time = 1000),
+    (e: any) => (e.frames[0].structurePose.loop = false),
+    (e: any) => e.frames.at(-1).structurePose.time++,
+  ]) {
+    const s = JSON.parse(w.snapshot());
+    mutate(s.luxImpactVisuals[0]);
+    expect(() => World.fromSnapshot(JSON.stringify(s), w.battlefield)).toThrow();
+  }
+});
+
+it('retains inhibitor and Nexus pose history through ordinary and lethal contacts, including terminal saves', () => {
+  for (const kind of ['inhibitor', 'nexus'] as const)
+    for (const lethal of [false, true]) {
+      const { w, target } = launch(false, kind);
+      if (lethal) target.hp = 1;
+      while (w.projectiles.length) w.step();
+      const effect = w.luxImpactVisuals[0];
+      expect(effect.targetRig).toBe(`red-${kind}`);
+      expect(effect.frames[0].structurePose!.kind).toBe(lethal ? 'destroyed' : 'idle');
+      expect(effect.detachedTick).toBe(lethal ? w.tick : null);
+      expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
+      if (kind === 'nexus' && lethal) {
+        expect(w.winner).toBe('blue');
+        const snapshot = w.snapshot();
+        w.step();
+        expect(w.snapshot()).toBe(snapshot);
+      }
+    }
 });

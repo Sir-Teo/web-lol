@@ -1,6 +1,6 @@
 import { LuxImpactAttachments } from './lux-impact-attachments';
-import { createMobileTargetPoseSampler } from './models';
-import type { MobileRig } from '../content/mobile-clip-durations';
+import { createTargetPoseSampler } from './models';
+import type { ImpactRig } from '../content/impact-target';
 import * as THREE from 'three';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
@@ -39,7 +39,7 @@ export async function loadLuxImpactTextures() {
   white.needsUpdate = true;
   textures = loaded;
 }
-function createCloud(rig: MobileRig | null, ground: (p: Vec2) => number) {
+function createCloud(rig: ImpactRig | null, ground: (p: Vec2) => number) {
   const rings = profiles.map((p) => {
     const geometry = new THREE.PlaneGeometry(2, 2),
       uv = geometry.getAttribute('uv');
@@ -69,11 +69,11 @@ function createCloud(rig: MobileRig | null, ground: (p: Vec2) => number) {
     rings,
     sparks,
     rig,
-    attachments: new LuxImpactAttachments(rig ? createMobileTargetPoseSampler(rig) : null, ground),
+    attachments: new LuxImpactAttachments(rig ? createTargetPoseSampler(rig) : null, ground),
   };
 }
-/** Saved mobile bone paths drive emitter placement and inherited translation.
- * Unsupported structure/dummy poses retain +0.9; source orientation is uncalibrated.
+/** Saved mobile and turret bone paths drive placement and inherited translation.
+ * Missing structure bones/dummies retain +0.9; source orientation is uncalibrated.
  */
 export class LuxImpacts {
   readonly clouds = new Map<number, ReturnType<typeof createCloud>>();

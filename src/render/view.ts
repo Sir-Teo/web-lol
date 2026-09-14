@@ -1,3 +1,4 @@
+import { structureModelMatrix } from './structure-transform';
 import { structurePose } from './structure-pose';
 import { structureAnimationProfile } from '../content/structure-animation';
 import { advanceAnimationTimeline, animationLayers } from '../simulation/animation-timeline';
@@ -462,12 +463,7 @@ export class GameView {
         if (u.structureTransform) {
           // Geometry already has centimeters baked in; preserve source rotation
           // and scale while converting the authored translation and Z direction.
-          model.root.matrix.fromArray(u.structureTransform);
-          model.root.matrix.premultiply(new THREE.Matrix4().makeScale(SCALE, SCALE, -SCALE));
-          model.root.matrix.premultiply(new THREE.Matrix4().makeTranslation(-74.25, 0, 74.25));
-          model.root.matrix.multiply(
-            new THREE.Matrix4().makeScale(1 / SCALE, 1 / SCALE, 1 / SCALE)
-          );
+          model.root.matrix.copy(structureModelMatrix(u.structureTransform));
           model.root.matrix.decompose(model.root.position, model.root.quaternion, model.root.scale);
           model.root.matrixAutoUpdate = false;
         }
