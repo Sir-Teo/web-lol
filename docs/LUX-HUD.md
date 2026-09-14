@@ -1,0 +1,13 @@
+# Lux player HUD
+
+The HUD now builds its portrait, champion title, spell icons, names and learning labels from the current player identity. Lux uses the four spell image names in the pinned [Data Dragon 16.18.1 Lux record](https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Lux.json): `LuxLightBinding`, `LuxPrismaticWave`, `LuxLightStrikeKugel`, and `LuxR`. They are fetched as local PNGs by `tools/assets/fetch-reference-icons.py`, with URLs, sizes and SHA-256 hashes retained in `public/assets/reference-manifest.json`. Existing manifest records are preserved.
+
+Descriptions read the current local Q/W/E/R and Illumination constants, player level, spell rank and AP. They distinguish base damage from resistance-adjusted impact, include the passive mark interaction, and show rank-one resource previews before learning. Learned resources come from the simulation; rank-one Lux cooldown previews account for current ability haste. Open tooltip resource metadata refreshes when it changes, including haste and the E recast transition.
+
+While E is pending or has an undetonated zone, its button shows **RECAST**, uses the existing empowered border, hides the normal cooldown shade and mana cost, and announces **Detonate Lucent Singularity**. The tooltip shows no additional cost and the E detonation instruction. Clicking this button uses the same instant-recast policy as the keyboard. Once detonation completes, the normal name, remaining cooldown and cost return. The simulation still owns the original cooldown deadline.
+
+Lux does not show Ashe's Focus pips or Hawkshot charge/recharge widgets. Health regeneration uses Lux's progression. Controls explain Q/W/E/R aiming and E detonation. Practice cooldown reset does not inject Ashe's Focus stacks or Hawkshot charges into Lux's saved state.
+
+The browser diagnostic restores a valid Lux-player checkpoint before constructing the HUD, verifies loaded icon images and rank-one Q preview, learns Q with the real button, and checks that practice reset produces a valid exact save. A second case casts E with the keyboard, observes its live recast tooltip, clicks the recast button and verifies the return to cooldown without a second mana charge. Laptop screenshots show the source Rift and are visually inspected.
+
+Champion selection and mode-preserving Lux match initialization remain the next integration step. This HUD work does not certify native tooltip wording, effects, audio, geometry or pixel parity; the current mechanics retain the limitations in the individual Lux audits. The reference assets are not a cleared production distribution.

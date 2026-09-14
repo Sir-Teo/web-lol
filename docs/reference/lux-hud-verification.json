@@ -1,0 +1,36 @@
+{
+  "recordedAt": "2026-09-14T03:57:16.778327+00:00",
+  "baseRevision": "a51a946143f5334093cc7142d0b6fe6ef99e88c4",
+  "feature": "Lux player HUD, source icons and dynamic free E recast display",
+  "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Lux.json",
+  "validation": {
+    "typeScript": "passed",
+    "simulationTests": 615,
+    "browserScenarios": 14,
+    "production": "passed nested path, nine recordings, navigation, real Hawkshot, no development hook",
+    "visualReview": "1366x768 full-Rift restored Lux HUD, rank-one Q tooltip, E recast tooltip"
+  },
+  "limitations": [
+    "Match selection and restart still initialize Ashe; playable Lux selection is the next integration step.",
+    "Native visual/tooltip parity is not certified.",
+    "Simulation format 49 and fingerprint unchanged."
+  ],
+  "sha256": {
+    "src/ui/hud.ts": "b88dcc7c7e95e655edac5fd0bac96c617c6caa75704038c62d815df1082a61b2",
+    "src/ui/lux-spells.ts": "1710dfb28c7408d92cab0f46f013c1ac82e67b735d92f43140234d93a1432bd8",
+    "src/style.css": "02b64dd091c7e42bfdc53450e8bd96a7cfd4e9b6e621584e9a4af071cb3896c0",
+    "e2e/lux-hud.spec.ts": "9195cfba1ed024190fa0bdf3b30054c5040ec713058acf9f579cf101097cd05f",
+    "tools/assets/fetch-reference-icons.py": "ebdc25c9628dca40b9c1a1163ca9f2b8fe45e28a5f66043a5565cefc74206f14",
+    "public/assets/reference-manifest.json": "ae4b6fa9268890b9fc2ce8ea96808adbfd0b07c54eb9785178684d96ba173260",
+    "public/assets/icons/LuxLightBinding.png": "06abdcb3edede637b6fd076e69381f2ff538a30c788c3ec857d4834742c2b424",
+    "public/assets/icons/LuxPrismaticWave.png": "9eec398494b60cb908ca2a5635463ad3ee63bce31521a7a3ce657dbc2c6627e2",
+    "public/assets/icons/LuxLightStrikeKugel.png": "c5900b892f0065d9b19ce4d584b7633c23235dbfd0bf55cb7444fe0162fa0138",
+    "public/assets/icons/LuxR.png": "392a1ed2da41f165ae79c2c3e00b8796ff017f6ce9d55e37d401d63606cb2a86",
+    "artifacts/lux-ddragon-hud.json": "d8cc49a6ebc72344755cc15d39a569b41bd96482fa2073f397fd65303fc9d210",
+    "artifacts/lux-hud-check.log": "dd774a6de9d3fcf6ce92308d96e00070547a564b22dc9210eb7d5035dd9ffdaf",
+    "artifacts/lux-hud-integration.log": "60c39f626bcd34c60f345f90f20967e86f76b9e4c7893efc8ab85691ca1c8af4",
+    "artifacts/lux-hud-production.log": "e3dedf8d9c2a782d666a89dbad43f1af8509cd4fc8d7b8f77f1e23e613323aa8",
+    "artifacts/lux-hud-preview.png": "790990603bf7eaf26ad9c1074c4440dbddd786192311d226d1c3b75318f29e02",
+    "artifacts/lux-hud-recast.png": "a22eae7755ab29c3741e2b78be1ab389a6799661283e01188bccba45a7eb6901"
+  }
+}

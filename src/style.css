@@ -1702,3 +1702,9 @@ button {
 .scoreboard-death-timer[hidden] {
   display: none;
 }
+
+.ability.recasting .cooldown-text {
+  font-size: 9px;
+  align-items: end;
+  padding-bottom: 12px;
+}

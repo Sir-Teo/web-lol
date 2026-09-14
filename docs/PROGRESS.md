@@ -1682,3 +1682,12 @@ Lux Q/W/R draw straight corridor guides using the current simulation's range and
 The development fixture exercises a human-controlled Lux via the diagnostic hook: Q remains unspent while held, Escape cancels it, release roots and marks the dummy; W shields the caster; R damages its target; E release creates the zone and another press detonates it without a second mana charge or cooldown reset. The binding and zone guide screenshots were inspected. The still-Ashe HUD visible in these diagnostic captures is an explicit remaining dependency: champion selection, Lux icons/tooltips/title/resources and practice controls must be completed before presenting this as a supported playable Lux mode.
 
 Validation: all 615 source/simulation checks passed. Nineteen existing Ashe tooltip, attack-move and minimap browser cases passed; the final four Lux input cases passed after correcting test timing around the first rendered guide and W's existing cast lock. Production smoke passed on the final input revision. Simulation schema 49 and its fingerprint remain unchanged. Evidence hashes: `docs/reference/lux-player-input-verification.json`.
+
+
+## Lux player HUD and source spell icons
+
+The restored Lux-player HUD now shows Lux's portrait/title and four pinned source spell icons, correct spell and upgrade names, current rank/AP/level descriptions, rank-one previews and champion-specific health regeneration. E switches between normal cooldown and a free **RECAST** state, including live tooltip updates and clickable detonation. Ashe Focus and Hawkshot charge widgets are absent for Lux; practice reset keeps those Ashe-only fields zero. Controls now describe Lux's aimed Q and E recast. See [LUX-HUD.md](LUX-HUD.md) for provenance and boundaries.
+
+This completes the HUD dependency for the next champion-selection step; ordinary match initialization still selects Ashe. Native tooltip/effect parity and the wider production scope remain incomplete.
+
+Validation: 615 source/simulation checks, 14 focused Chrome scenarios and nested-path production smoke passed. The Lux rank-one Q preview and active E recast screenshots were inspected at 1366×768. Simulation format 49 and fingerprint are unchanged. Evidence: `docs/reference/lux-hud-verification.json`.

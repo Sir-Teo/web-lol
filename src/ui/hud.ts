@@ -1,3 +1,5 @@
+import { LUX } from '../content/lux-progression';
+import { LUX_SPELLS, isLuxSpell, luxDescription, luxPreviewResources } from './lux-spells';
 import { instantSpell } from '../input/spell-controls';
 import type { PreparedMatchImport } from '../storage/match-files';
 import { ScoreboardItemTooltip } from './scoreboard-item-tooltip';
@@ -67,9 +69,9 @@ export class Hud {
       <div class="target-panel" id="target-panel" hidden><span class="target-label">SELECTED TARGET</span><strong id="target-name"></strong><div class="target-health"><i></i></div><span id="target-hp"></span></div>
       <div class="practice-corner"><button class="quiet-button" id="practice-button">◇ <span>Practice tools</span></button><button class="quiet-button" id="help-button">? <span>Controls</span></button><small>REFERENCE BUILD 0.1</small></div>
       <section class="champion-hud" aria-label="Champion controls">
-        <div class="champion-portrait"><img src="assets/icons/ashe.png" alt="Ashe"><span id="level">1</span><div class="portrait-frame"></div></div>
+        <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${world.hero.champion === 'lux' ? 'Lux' : 'Ashe'}"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
-        <div class="champion-core"><div class="champion-title"><strong>ASHE</strong><span>THE FROST ARCHER</span><div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div></div>
+        <div class="champion-core"><div class="champion-title"><strong>${world.hero.champion === 'lux' ? 'LUX' : 'ASHE'}</strong><span>${world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'lux' ? '' : '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>'}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
           <div class="resource mana"><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
@@ -98,10 +100,29 @@ export class Hud {
     this.root.querySelector<HTMLButtonElement>('#practice-button')!.hidden =
       world.matchMode === 'lanes';
   }
+  private spellSpec(a: Ability) {
+    return this.world.hero.champion === 'lux' && isLuxSpell(a) ? LUX_SPELLS[a] : ABILITIES[a];
+  }
+  private isLuxRecast(a: Ability): boolean {
+    return this.world.hero.champion === 'lux' && a === 'e' && instantSpell(this.world, a);
+  }
+  private tooltipResources(a: Ability) {
+    if (this.isLuxRecast(a)) return { mana: 0, cooldownSeconds: 0 };
+    if (a === 'd' || a === 'f' || this.world.abilityRank(a)) return this.world.abilityResources(a);
+    if (this.world.hero.champion === 'lux' && isLuxSpell(a)) {
+      const preview = luxPreviewResources(a);
+      return {
+        ...preview,
+        cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
+      };
+    }
+    return asheSpellResources(a, 1);
+  }
   private abilityMarkup(a: Ability): string {
-    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${ABILITIES[a].name}"><img src="assets/icons/${ABILITIES[a].icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${ABILITIES[a].cost || ''}</span>${a === 'e' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    const spec = this.spellSpec(a);
+    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${a === 'e' && this.world.hero.champion !== 'lux' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
     if (a === 'd' || a === 'f') return button;
-    return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${ABILITIES[a].name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
+    return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${spec.name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
   }
   private positionTooltip(): void {
     if (this.tip.hidden) return;
@@ -119,6 +140,8 @@ export class Hud {
     return `${learned ? '' : 'This ability has not been learned. Rank 1 preview: '}${this.rankedAbilityDescription(ability, Math.max(1, learned))}`;
   }
   private rankedAbilityDescription(ability: Ability, rank: number): string {
+    if (this.world.hero.champion === 'lux' && isLuxSpell(ability))
+      return luxDescription(ability, rank, this.world.abilityPower(), this.world.player.level);
     if (ability === 'q') {
       const values = asheFocusValues(rank);
       return `Build 4 Focus with attacks. Consume Focus to gain ${Math.round(values.bonusAttackSpeed * 100)}% attack speed for ${ASHE_Q.durationSeconds} seconds and empower attacks to deal ${Math.round(values.damageMultiplier * 100)}% damage. Activating resets your attack timer.`;
@@ -143,6 +166,7 @@ export class Hud {
         ? `Cannot learn yet: ${reason}.`
         : `Press Ctrl+${ability.toUpperCase()} to learn.`;
     }
+    if (this.isLuxRecast(ability)) return 'Press E to detonate. No additional mana cost.';
     return instantSpell(this.world, ability)
       ? 'Press to cast'
       : 'Hold the key to aim. Release to cast.';
@@ -330,11 +354,9 @@ export class Hud {
       return;
     }
     const ability = button.dataset.ability as Ability;
-    const spec = ABILITIES[ability];
-    const resources =
-      this.world.abilityRank(ability) || ability === 'd' || ability === 'f'
-        ? this.world.abilityResources(ability)
-        : asheSpellResources(ability, 1);
+    const spec = this.spellSpec(ability);
+    const resources = this.tooltipResources(ability);
+    this.tip.dataset.tooltipResources = JSON.stringify(resources);
     this.tip.innerHTML = `<span class="tooltip-key">${ability.toUpperCase()}</span><strong>${spec.name}</strong><div class="tooltip-meta">${resources.mana ? `${resources.mana} MANA` : 'NO COST'} <span>·</span> ${resources.cooldownSeconds ? `${Number(resources.cooldownSeconds.toFixed(2))}s COOLDOWN` : 'NO COOLDOWN'}</div><p>${this.abilityDescription(ability)}</p><small>${this.tooltipInstruction(ability)}</small>`;
     this.tip.dataset.tooltipAbility = ability;
     this.tip.dataset.tooltipRank = String(this.world.abilityRank(ability));
@@ -414,9 +436,16 @@ export class Hud {
         ['A → click', 'Attack move'],
         ['Shift + right-click', 'Attack move immediately'],
         ['S', 'Stop'],
-        ['Q', 'Activate Focus at 4 stacks'],
-        ['Hold W / E / R', 'Aim, then release to cast'],
-        ['E / R over minimap', 'Aim across the map without moving the camera'],
+        ...(this.world.hero.champion === 'lux'
+          ? [
+              ['Hold Q / W / E / R', 'Aim, then release to cast'],
+              ['E again', 'Detonate Lucent Singularity'],
+            ]
+          : [
+              ['Q', 'Activate Focus at 4 stacks'],
+              ['Hold W / E / R', 'Aim, then release to cast'],
+              ['E / R over minimap', 'Aim across the map without moving the camera'],
+            ]),
         ['D / F', 'Flash / Heal'],
         ['B', 'Recall to fountain'],
         ['P', 'Open item shop'],
@@ -513,11 +542,15 @@ export class Hud {
           for (const a of Object.keys(this.world.player.cooldowns) as Ability[])
             this.world.player.cooldowns[a] = 0;
           const state = this.world.player;
-          state.qStacks = state.spellRanks.q > 0 ? ASHE_Q.maxStacks : 0;
+          state.qStacks =
+            this.world.hero.champion === 'ashe' && state.spellRanks.q > 0 ? ASHE_Q.maxStacks : 0;
           state.qStackExpiry = state.qStacks
             ? this.world.tick + ASHE_Q.stackSeconds * TICK_RATE
             : 0;
-          state.eCharges = state.spellRanks.e > 0 ? ASHE_E.maximumCharges : 0;
+          state.eCharges =
+            this.world.hero.champion === 'ashe' && state.spellRanks.e > 0
+              ? ASHE_E.maximumCharges
+              : 0;
           this.world.player.eRechargeTick = null;
           this.toast('Learned abilities are ready');
         }
@@ -802,7 +835,9 @@ export class Hud {
     if (!this.tip.hidden && this.tip.dataset.tooltipAbility) {
       if (
         this.tip.dataset.tooltipRank !==
-        String(w.abilityRank(this.tip.dataset.tooltipAbility as Ability))
+          String(w.abilityRank(this.tip.dataset.tooltipAbility as Ability)) ||
+        this.tip.dataset.tooltipResources !==
+          JSON.stringify(this.tooltipResources(this.tip.dataset.tooltipAbility as Ability))
       )
         this.refreshTooltip();
       const description = this.abilityDescription(this.tip.dataset.tooltipAbility as Ability);
@@ -830,7 +865,7 @@ export class Hud {
     text('mana-text', `${Math.floor(h.mana)} / ${Math.floor(h.maxMana)}`);
     text(
       'health-regen',
-      `+${(ASHE.healthRegen + ASHE.healthRegenGrowth * growthAtLevel(p.level)).toFixed(1)}`
+      `+${((h.champion === 'lux' ? LUX : ASHE).healthRegen + (h.champion === 'lux' ? LUX : ASHE).healthRegenGrowth * growthAtLevel(p.level)).toFixed(1)}`
     );
     width('health-fill', h.hp / h.maxHp);
     width('mana-fill', h.mana / h.maxMana);
@@ -866,16 +901,27 @@ export class Hud {
       .forEach((pip, i) => pip.classList.toggle('charged', i < p.qStacks));
     this.root.querySelectorAll<HTMLButtonElement>('[data-ability]').forEach((button) => {
       const a = button.dataset.ability as Ability,
-        cd = w.abilityCooldownTicks(a) / TICK_RATE;
-      button.querySelector('.cooldown-text')!.textContent = cd > 0 ? String(Math.ceil(cd)) : '';
+        recast = this.isLuxRecast(a),
+        cd = recast ? 0 : w.abilityCooldownTicks(a) / TICK_RATE;
+      button.querySelector('.cooldown-text')!.textContent = recast
+        ? 'RECAST'
+        : cd > 0
+          ? String(Math.ceil(cd))
+          : '';
+      button.classList.toggle('recasting', recast);
       button.classList.toggle('cooling', cd > 0);
-      const resources = w.abilityResources(a);
+      const resources = recast ? { mana: 0 } : w.abilityResources(a);
       button.querySelector('.ability-cost')!.textContent = resources.mana
         ? String(resources.mana)
         : '';
       button.classList.toggle('insufficient', !w.abilityRank(a) || h.mana < resources.mana);
-      button.classList.toggle('empowered', a === 'q' && p.qUntil > w.tick);
-      if (a === 'e') {
+      button.classList.toggle('empowered', recast || (a === 'q' && p.qUntil > w.tick));
+      if (h.champion === 'lux' && a === 'e')
+        button.setAttribute(
+          'aria-label',
+          recast ? 'Detonate Lucent Singularity' : 'Lucent Singularity'
+        );
+      if (a === 'e' && h.champion !== 'lux') {
         const remaining = Math.max(0, (p.eRechargeTick ?? w.tick) - w.tick) / TICK_RATE;
         button.querySelector('.ability-charges')!.textContent = String(p.eCharges);
         const recharge = button.querySelector<HTMLElement>('.ability-recharge')!;

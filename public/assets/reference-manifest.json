@@ -200,6 +200,30 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Lux.png",
       "sha256": "64639bea2aa7d622dd07287de7a7820950e567f0993c7dcc422e1e699fd743fd",
       "bytes": 29188
+    },
+    {
+      "path": "/assets/icons/LuxLightBinding.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LuxLightBinding.png",
+      "sha256": "06abdcb3edede637b6fd076e69381f2ff538a30c788c3ec857d4834742c2b424",
+      "bytes": 6820
+    },
+    {
+      "path": "/assets/icons/LuxPrismaticWave.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LuxPrismaticWave.png",
+      "sha256": "9eec398494b60cb908ca2a5635463ad3ee63bce31521a7a3ce657dbc2c6627e2",
+      "bytes": 6679
+    },
+    {
+      "path": "/assets/icons/LuxLightStrikeKugel.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LuxLightStrikeKugel.png",
+      "sha256": "c5900b892f0065d9b19ce4d584b7633c23235dbfd0bf55cb7444fe0162fa0138",
+      "bytes": 6567
+    },
+    {
+      "path": "/assets/icons/LuxR.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LuxR.png",
+      "sha256": "392a1ed2da41f165ae79c2c3e00b8796ff017f6ce9d55e37d401d63606cb2a86",
+      "bytes": 5520
     }
   ]
 }
