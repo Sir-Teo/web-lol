@@ -1739,3 +1739,12 @@ Validation: 622 source/simulation tests across 127 files, two focused browser ca
 Implemented the hoop's correlated birth distributions, fixed-grid emission, per-axis drag, radian orbital displacement and source-driven lifetime appearance. The live window reconstructs directly from seed/time/stop inputs, preserving exact state across arbitrary seeks without accumulating renderer history. A pooled instanced renderer now displays the moving cloud in a local 3D inspection scene, and particles retire after emission stops.
 
 Validation: 627 tests across 128 files, three focused browser cases (including all 36 shader GPU samples), production build and a reviewed 1440×900 screenshot. The cloud adds one draw call above the reference grid; seeded seek/restore, playback, restart, retirement and geometry-count stability pass. Native RNG/update rate, orientation/extent and final blend appearance remain unverified. Missile attachment, the crescent/trail emitters and gameplay integration remain next. See [PARTICLE-PLAYBACK.md](PARTICLE-PLAYBACK.md).
+
+
+## Saved Lux attack trajectories
+
+Real Lux basic attacks now retain their launch origin and a contiguous, bounded history of missile positions and headings. Each frame records the post-step pose at its world tick. Swept hits retain the contact point rather than the full-step overshoot; disappearing targets stop the effect at its last position. Stopped records survive 37 ticks, covering the longest currently reconstructed natural particle lifetime. The 40-frame history includes interpolation margin. These limits are reconstruction policy, not a verified native linger rule.
+
+The frame evaluator interpolates position and the shortest angular turn, rejects requests before the retained prefix and freezes at the terminal pose. Schema 50 saves this history and rejects missing active records, duplicate identities, invalid owners, inconsistent endpoints/origins, gaps and expired tails. The records do not apply damage or replay sounds. Gameplay particle attachment is still the next step; the generic Lux projectile remains visible.
+
+Validation: 632 checks across 129 files, nine focused browser cases and the nested-path production smoke passed. Real browser checkpoints restored exact world state both during flight and after impact, continued deterministically and retired the tail on schedule. Other focused cases covered existing saves, champion selection and Lux HUD. No visual rendering changed in this step. Evidence: `docs/reference/lux-attack-history-verification.json`.

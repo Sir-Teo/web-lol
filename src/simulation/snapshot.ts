@@ -1,3 +1,7 @@
+import {
+  LUX_ATTACK_PATH_FRAMES,
+  LUX_ATTACK_VISUAL_TAIL_TICKS,
+} from '../content/lux-attack-presentation';
 import { z } from 'zod';
 import { ITEMS, TICK_RATE } from '../content/rules';
 import { ASHE_CASTS } from '../content/ashe-casting';
@@ -16,7 +20,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 49;
+export const SNAPSHOT_VERSION = 50;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -382,6 +386,22 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  luxAttackVisuals: z
+    .array(
+      z.strictObject({
+        origin: point,
+        id,
+        sourceId: id,
+        team,
+        launchTick: tick,
+        stopTick: tick.nullable(),
+        frames: z
+          .array(z.strictObject({ tick, x: z.number(), y: z.number(), facing: z.number() }))
+          .min(1)
+          .max(LUX_ATTACK_PATH_FRAMES),
+      })
+    )
+    .max(10000),
   luxBeams: z
     .array(z.strictObject({ id, sourceId: id, team, origin: point, point, startTick: tick }))
     .max(10000),
@@ -454,6 +474,52 @@ export function decodeSnapshot(text: string) {
       cause: result.error,
     });
   const state = result.data;
+  const attackVisualIds = new Set<number>();
+  for (const visual of state.luxAttackVisuals) {
+    const source = state.units.find((u) => u.id === visual.sourceId);
+    const p = state.projectiles.find((p) => p.id === visual.id);
+    const lastTick = visual.stopTick ?? state.tick;
+    const firstTick = Math.max(visual.launchTick, lastTick - LUX_ATTACK_PATH_FRAMES + 1);
+    if (
+      attackVisualIds.has(visual.id) ||
+      visual.id >= state.nextId ||
+      [
+        ...state.units,
+        ...state.pendingAttackProjectiles,
+        ...state.luxBeams,
+        ...state.singularities,
+      ].some((e) => e.id === visual.id) ||
+      state.scoutVisuals.some((v) => v.flight.id === visual.id) ||
+      source?.champion !== 'lux' ||
+      source.team !== visual.team ||
+      visual.launchTick > lastTick ||
+      lastTick > state.tick ||
+      (visual.stopTick !== null && state.tick >= visual.stopTick + LUX_ATTACK_VISUAL_TAIL_TICKS) ||
+      visual.frames.length !== lastTick - firstTick + 1 ||
+      visual.frames.some((f, i) => f.tick !== firstTick + i) ||
+      (visual.stopTick === null
+        ? !p ||
+          p.type !== 'attack' ||
+          p.source !== visual.sourceId ||
+          p.team !== visual.team ||
+          p.launchTick !== visual.launchTick ||
+          p.origin?.x !== visual.origin.x ||
+          p.origin?.y !== visual.origin.y ||
+          p.x !== visual.frames.at(-1)!.x ||
+          p.y !== visual.frames.at(-1)!.y
+        : !!p)
+    )
+      throw new Error('Saved match contains an invalid Lux attack visual.');
+    attackVisualIds.add(visual.id);
+  }
+  for (const p of state.projectiles) {
+    if (
+      p.type === 'attack' &&
+      state.units.find((u) => u.id === p.source)?.champion === 'lux' &&
+      !attackVisualIds.has(p.id)
+    )
+      throw new Error('Saved Lux attack lacks presentation history.');
+  }
   const visualIds = new Set<number>();
   for (const effect of state.scoutVisuals) {
     const f = effect.flight;

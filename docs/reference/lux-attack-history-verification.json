@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-09-14T05:14:14.502499+00:00",
+  "baseRevision": "301d8aeb57f0ab149e04789a39516eed38845921",
+  "scope": "Saved Lux basic-attack presentation history; no renderer attachment yet",
+  "snapshotVersion": 50,
+  "validation": {
+    "checks": 632,
+    "testFiles": 129,
+    "browserCases": 9,
+    "productionNestedPath": "passed",
+    "activeAndStoppedCheckpointContinuation": "exact",
+    "historyFrames": 40,
+    "retirementTicks": 37
+  },
+  "limitations": [
+    "Retention follows reconstructed natural particle lifetime, not native linger policy",
+    "No gameplay particle attachment or native pixel comparison in this step"
+  ],
+  "sha256": {
+    "src/content/lux-attack-presentation.ts": "30f591f2d5da48a8ecddf665e069eb9c1fa1322a9ac9f23eaee8916f6dcfaec6",
+    "src/render/lux-attack-frame.ts": "404057709c63b7e00ead5f46b8ce6846107c451a28e52b07082a135c84b505fa",
+    "src/simulation/types.ts": "d553eadf7ba82c58b0bd5df91d1bf2fd8bde1e98c607f65cae295dda650616ab",
+    "src/simulation/world.ts": "a3fe81166e677e2a7bb83415719543d519a3beec4fd3fea31da626630eb667a4",
+    "src/simulation/snapshot.ts": "6f358afb7db3657b2f7053e77bd55ceb8d0288fad4eeb945d0f04e75dd198600",
+    "tests/lux-attack-history.test.ts": "254d6648a1b0c53caa50a5b372b9053af2f35f971be4f5efb8bc74a37360db95",
+    "e2e/lux-attack-history.spec.ts": "abf2a33461319dc60be93310ff83048318110de24439fd2df71eb0308d7c38a4",
+    "artifacts/lux-attack-history-check.log": "70a1274d11866145f85be3da94dda500738155565342eb09421164f55694ef6b",
+    "artifacts/lux-attack-history-browser.log": "2b158c2ce51ca609b3a3043e952ef153db558f5ca37f5d3c33f85a9ca92fef44",
+    "artifacts/lux-attack-history-production.log": "8ce86aa5ca9825e54b99c22ac1d899c00f09db0d1571895ab88c743e55a5dc2a",
+    "artifacts/lux-attack-history-checkpoint-browser.log": "27c743fe32cea17fcd021dbc9626549965e308042ec43938eb27e6eb68579907"
+  }
+}

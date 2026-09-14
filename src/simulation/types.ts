@@ -158,6 +158,18 @@ export interface Projectile extends Vec2 {
   launchTick?: number;
   origin?: Vec2;
 }
+/** A released Lux basic attack's presentation path, retained briefly after removal.
+ * IDs are the originating projectile ID; this record is not a gameplay entity.
+ */
+export interface LuxAttackVisual {
+  origin: Vec2;
+  id: number;
+  sourceId: number;
+  team: Team;
+  launchTick: number;
+  stopTick: number | null;
+  frames: { tick: number; x: number; y: number; facing: number }[];
+}
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =
   | { type: 'order'; unit: number; order: Order }

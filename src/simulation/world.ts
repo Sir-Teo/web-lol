@@ -1,3 +1,8 @@
+import {
+  LUX_ATTACK_VISUAL_TAIL_TICKS,
+  LUX_ATTACK_PATH_FRAMES,
+} from '../content/lux-attack-presentation';
+import type { LuxAttackVisual } from './types';
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
 import { LUX_ILLUMINATION } from '../content/lux-illumination';
@@ -81,6 +86,7 @@ export class World {
   units: Unit[] = [];
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
+  luxAttackVisuals: LuxAttackVisual[] = [];
   singularities: Singularity[] = [];
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
@@ -355,6 +361,9 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    this.luxAttackVisuals = this.luxAttackVisuals.filter(
+      (v) => v.stopTick === null || this.tick < v.stopTick + LUX_ATTACK_VISUAL_TAIL_TICKS
+    );
     for (const unit of this.units)
       if (unit.slows.length) unit.slows = unit.slows.filter((slow) => slow.endTick > this.tick);
     for (const unit of this.units)
@@ -1382,6 +1391,16 @@ export class World {
                 volleyId: null,
               };
               (index === 0 ? this.projectiles : this.pendingAttackProjectiles).push(projectile);
+              if (u.champion === 'lux')
+                this.luxAttackVisuals.push({
+                  origin: { x: u.x, y: u.y },
+                  id: projectile.id,
+                  sourceId: u.id,
+                  team: u.team,
+                  launchTick: this.tick,
+                  stopTick: null,
+                  frames: [],
+                });
             }
         }
         return;
@@ -1859,8 +1878,19 @@ export class World {
     }
     this.pendingAttackProjectiles = pending;
     const survivors: Projectile[] = [];
+    const visualFrames = new Map<number, { tick: number; x: number; y: number; facing: number }>();
+    const visualIds = new Set(
+      this.luxAttackVisuals.filter((v) => v.stopTick === null).map((v) => v.id)
+    );
     for (const p of this.projectiles) {
       p.previous = { x: p.x, y: p.y };
+      if (visualIds.has(p.id))
+        visualFrames.set(p.id, {
+          tick: this.tick,
+          x: p.x,
+          y: p.y,
+          facing: Math.atan2(p.direction.x, p.direction.y),
+        });
       const source = this.unit(p.source);
       if (p.type === 'prismatic') {
         if (source && this.advancePrismatic(p, source)) survivors.push(p);
@@ -1883,6 +1913,12 @@ export class World {
       }
       const travel = Math.min(stepDistance, p.remaining);
       const end = { x: p.x + p.direction.x * travel, y: p.y + p.direction.y * travel };
+      if (visualIds.has(p.id))
+        visualFrames.set(p.id, {
+          tick: this.tick,
+          ...end,
+          facing: Math.atan2(p.direction.x, p.direction.y),
+        });
       if (p.type === 'hawkshot') {
         p.x = end.x;
         p.y = end.y;
@@ -1975,6 +2011,13 @@ export class World {
         }
       }
       if (contact) {
+        if (visualIds.has(p.id))
+          visualFrames.set(p.id, {
+            tick: this.tick,
+            x: p.x + (end.x - p.x) * first,
+            y: p.y + (end.y - p.y) * first,
+            facing: Math.atan2(p.direction.x, p.direction.y),
+          });
         if (source && (p.volleyId === null || !this.volleyHits[p.volleyId]?.includes(contact.id))) {
           const level = this.championState(source.id)?.level ?? 1;
           const slow =
@@ -2062,6 +2105,14 @@ export class World {
       }
     }
     this.projectiles = this.winner ? [] : survivors;
+    const survivingIds = new Set(this.projectiles.map((p) => p.id));
+    for (const visual of this.luxAttackVisuals) {
+      if (visual.stopTick !== null) continue;
+      const frame = visualFrames.get(visual.id) ?? { ...visual.frames.at(-1)!, tick: this.tick };
+      visual.frames.push(frame);
+      if (visual.frames.length > LUX_ATTACK_PATH_FRAMES) visual.frames.shift();
+      if (!survivingIds.has(visual.id)) visual.stopTick = this.tick;
+    }
   }
   attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {
     const state = this.championState(source.id);
@@ -3000,6 +3051,7 @@ export class World {
       otherChampions: this.activeChampionStates().filter((p) => p.id !== this.player.id),
       projectiles: this.projectiles,
       luxBeams: this.luxBeams,
+      luxAttackVisuals: this.luxAttackVisuals,
       singularities: this.singularities,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,
