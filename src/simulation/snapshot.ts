@@ -16,7 +16,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 47;
+export const SNAPSHOT_VERSION = 48;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -167,6 +167,22 @@ const unit: z.ZodType<Unit> = z
   )
   .refine((u) => u.hp <= u.maxHp && u.mana <= u.maxMana, 'Invalid unit resources')
   .refine((u) => !u.attackCycle?.empowered || u.champion === 'ashe', 'Invalid empowered attacker');
+const inventorySchema = z
+  .array(
+    z
+      .string()
+      .refine((value) => ITEMS.some((item) => item.id === value))
+      .nullable()
+  )
+  .max(6)
+  .refine(
+    (items) => items.filter((item) => item === 'chapter').length <= 1,
+    'Only one Lost Chapter is ownable'
+  )
+  .refine(
+    (items) => items.filter((item) => item === 'deathcap').length <= 1,
+    'Only one Deathcap is ownable'
+  );
 const player: z.ZodType<PlayerState> = z
   .strictObject({
     id,
@@ -177,8 +193,20 @@ const player: z.ZodType<PlayerState> = z
     xp: nonnegative,
     level: z.number().int().min(1).max(MAX_LEVEL),
     observedStats: z.strictObject({
-      blue: z.strictObject({ level: z.number().int().min(1).max(MAX_LEVEL), cs: tick }).nullable(),
-      red: z.strictObject({ level: z.number().int().min(1).max(MAX_LEVEL), cs: tick }).nullable(),
+      blue: z
+        .strictObject({
+          level: z.number().int().min(1).max(MAX_LEVEL),
+          cs: tick,
+          inventory: inventorySchema,
+        })
+        .nullable(),
+      red: z
+        .strictObject({
+          level: z.number().int().min(1).max(MAX_LEVEL),
+          cs: tick,
+          inventory: inventorySchema,
+        })
+        .nullable(),
     }),
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
@@ -231,22 +259,7 @@ const player: z.ZodType<PlayerState> = z
         'Invalid spell windup'
       )
       .nullable(),
-    inventory: z
-      .array(
-        z
-          .string()
-          .refine((value) => ITEMS.some((item) => item.id === value))
-          .nullable()
-      )
-      .max(6)
-      .refine(
-        (items) => items.filter((item) => item === 'chapter').length <= 1,
-        'Only one Lost Chapter is ownable'
-      )
-      .refine(
-        (items) => items.filter((item) => item === 'deathcap').length <= 1,
-        'Only one Deathcap is ownable'
-      ),
+    inventory: inventorySchema,
   })
   .refine(
     (p) =>

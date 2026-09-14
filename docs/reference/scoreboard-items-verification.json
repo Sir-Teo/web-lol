@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-13",
+  "baseRevision": "08eb9aec8d98a832a0fb9432f9da54aea25220e0",
+  "snapshotVersion": 48,
+  "change": "Six-slot scoreboard inventories with source icons and item-name tooltips; copied per-team observed inventories preserve hidden changes and slot order through saves.",
+  "sourceSHA256": {
+    "src/simulation/types.ts": "292a5324eaf40979bdee1fdf23e6ae34ee7dd623aa2fcf6e837ea3ba77494100",
+    "src/simulation/world.ts": "7f4e5847dd061aca4c4a8c88dc1839182a1f5916b45aa62065251c7144ac7c8a",
+    "src/simulation/snapshot.ts": "877d2e72d19af7623b0c4dbc8ac9be717706ade1308661c153e46fed2c02f744",
+    "src/ui/hud.ts": "0a1a454fbc64c63cff901aff4d83a802f77d39b7c6b964f51f347ee1cbe7837b",
+    "src/style.css": "93605e3b4c95f0605fb424b9219d134f46440ad453d17dc1d753d73b42f01651",
+    "tests/observed-levels.test.ts": "a60c9bc6d617d25200105f291abfe167911c8756a66bddaf07d93a24d142f938",
+    "e2e/scoreboard-ownership.spec.ts": "309d7634f073f10f5029f781b5288be76c0acef8dc91409920c7b2da0a597c43"
+  },
+  "validation": {
+    "checks": 603,
+    "checkLogSHA256": "3908539d79acb2f6f617554c3fef9ea8e1aefbf43d5e4325996e506066df0b83",
+    "browserScenarios": 8,
+    "browserLogSHA256": "b1f4d6f4c3ade9039e9992fa4a75a8d745eb4df4e5364840c39078d895ebb33a",
+    "productionPassed": true,
+    "productionLogSHA256": "932070ae5a66e8b3e99d741989bd538dade4e7138fcdcd311d49bd755d90f936",
+    "screenshotSHA256": "805f51e611f13e6aea14a2f5c8437465a34b70dca835f115f5ade4b2122e693a",
+    "observedItemsScreenshotSHA256": "0d274f37fe7e99d657cb6bce8aad47bff4a3319e3d87a6471b118e69eae5d93c",
+    "visualInspection": "Ten champion rows, level badges and six item slots fit without scrolling at 1366x768; source icons visible and decoded.",
+    "initialFailure": "Strict no-scroll check failed after adding inventory rows; reduced row padding. First run overlapped an accessibility edit; final full selected browser run used stable source."
+  },
+  "limits": [
+    "No detailed item-stat tooltip, summoner or trinket columns yet.",
+    "Native pixel parity and precise enemy inventory refresh timing remain unverified.",
+    "Earlier checkpoints require regeneration; production match and broader fidelity gates remain open."
+  ]
+}

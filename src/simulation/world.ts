@@ -482,8 +482,17 @@ export class World {
         for (const team of ['blue', 'red'] as const)
           if (unit.team === team || this.visible(unit, team)) {
             const previous = champion.observedStats[team];
-            if (previous?.level !== champion.level || previous.cs !== champion.cs)
-              champion.observedStats[team] = { level: champion.level, cs: champion.cs };
+            if (
+              previous?.level !== champion.level ||
+              previous.cs !== champion.cs ||
+              previous.inventory.length !== champion.inventory.length ||
+              previous.inventory.some((item, i) => item !== champion.inventory[i])
+            )
+              champion.observedStats[team] = {
+                level: champion.level,
+                cs: champion.cs,
+                inventory: [...champion.inventory],
+              };
           }
       }
       if (!unit.structureKnowledge) continue;

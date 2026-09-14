@@ -74,6 +74,7 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
           champion
         );
         unit.ai = false;
+        w.championState(unit.id).inventory = ['blade', 'boots', 'tome', 'rod', 'wand', 'chapter'];
         // Player-facing names must not determine champion artwork or accessible identity.
         if (champion === 'lux' && team === 'red') unit.name = 'Enemy player';
       }
@@ -87,7 +88,7 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
   await expect(page.locator('.scoreboard-row')).toHaveCount(10);
   for (const member of roster) {
     const row = page.locator(`[data-champion="${member.id}"]`);
-    const portrait = row.locator('img');
+    const portrait = row.locator('.scoreboard-portrait img');
     await expect(portrait).toHaveAttribute('src', `assets/icons/${member.champion}.png`);
     await expect(portrait).toHaveAttribute('alt', member.champion === 'lux' ? 'Lux' : 'Ashe');
     await expect
@@ -97,6 +98,15 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
       member.id === roster[0].id ? 'You' : member.team === 'blue' ? 'Ally' : 'Opponent'
     );
   }
+  await expect
+    .poll(() =>
+      page
+        .locator('.scoreboard-item img')
+        .evaluateAll((images) =>
+          images.every((image) => (image as HTMLImageElement).naturalWidth > 0)
+        )
+    )
+    .toBe(true);
   const bounds = await page.locator('.scoreboard').boundingBox();
   expect(bounds!.y).toBeGreaterThanOrEqual(0);
   expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(768);
@@ -125,7 +135,10 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
   }, lux.id);
   const updated = page.locator(`[data-champion="${lux.id}"]`);
   await expect(updated.locator('.scoreboard-cs')).toHaveText('42 CS');
-  await expect(updated.locator('img')).toHaveAttribute('src', 'assets/icons/lux.png');
+  await expect(updated.locator('.scoreboard-portrait img')).toHaveAttribute(
+    'src',
+    'assets/icons/lux.png'
+  );
   await page.keyboard.up('Tab');
   await expect(page.locator('.scoreboard')).toBeHidden();
   expect(errors).toEqual([]);
@@ -153,6 +166,9 @@ test('scoreboard retains observed enemy level and creep score through hidden gai
   const badge = page.locator(`[data-champion="${id}"] .scoreboard-level`);
   const cs = page.locator(`[data-champion="${id}"] .scoreboard-cs`);
   await expect(cs).toHaveText('? CS');
+  const items = page.locator(`[data-champion="${id}"] .scoreboard-items`);
+  await expect(items).toHaveAttribute('aria-label', 'Inventory unknown');
+  await expect(items.locator('img')).toHaveCount(0);
   await expect(badge).toHaveText('?');
   await expect(badge).toHaveAttribute('aria-label', 'Level unknown');
   await page.evaluate((id) => {
@@ -161,22 +177,37 @@ test('scoreboard retains observed enemy level and creep score through hidden gai
     Object.assign(w.hero, { x: -800, y: -50 });
     w.gainExperience(280, id);
     w.championState(id).cs = 4;
+    w.championState(id).inventory = ['tome', null, 'boots'];
     w.step();
     g.hud.update(60);
   }, id);
   await expect(badge).toHaveText('2');
   await expect(cs).toHaveText('4 CS');
+  await expect(items.locator('img')).toHaveCount(2);
+  await expect(items.locator('img').first()).toHaveAttribute('alt', 'Amplifying Tome');
+  await expect(items.locator('.scoreboard-item').nth(1)).toHaveAttribute(
+    'aria-label',
+    'Empty item slot 2'
+  );
   await page.evaluate((id) => {
     const g = (window as any).__GAME__,
       w = g.world;
     Object.assign(w.hero, { x: -820, y: 450 });
     w.gainExperience(380, id);
     w.championState(id).cs = 6;
+    w.championState(id).inventory[0] = 'wand';
+    w.championState(id).inventory[2] = null;
     w.step();
     g.hud.update(60);
   }, id);
   await expect(badge).toHaveText('2');
   await expect(cs).toHaveText('4 CS');
+  await expect(items.locator('img')).toHaveCount(2);
+  await expect(items.locator('img').first()).toHaveAttribute('alt', 'Amplifying Tome');
+  await expect(items.locator('.scoreboard-item').nth(1)).toHaveAttribute(
+    'aria-label',
+    'Empty item slot 2'
+  );
   await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world;
@@ -186,6 +217,11 @@ test('scoreboard retains observed enemy level and creep score through hidden gai
   });
   await expect(badge).toHaveText('3');
   await expect(cs).toHaveText('6 CS');
+  await expect(items.locator('img')).toHaveCount(1);
+  await expect(items.locator('img')).toHaveAttribute('alt', 'Blasting Wand');
+  await expect
+    .poll(() => items.locator('img').evaluate((img: HTMLImageElement) => img.naturalWidth))
+    .toBeGreaterThan(0);
   await expect(badge).toHaveAttribute('aria-label', 'Level 3');
-  await page.screenshot({ path: 'artifacts/scoreboard-observed-stats.png' });
+  await page.screenshot({ path: 'artifacts/scoreboard-observed-items.png' });
 });

@@ -1371,15 +1371,36 @@ button {
   display: grid;
   grid-template-columns: 38px minmax(0, 1fr) 72px 48px;
   align-items: center;
-  gap: 10px;
+  column-gap: 10px;
+  row-gap: 4px;
   background: #20373788;
   border: 1px solid #58726b77;
-  padding: 8px;
+  padding: 6px 8px;
   font-size: 13px;
 }
 .scoreboard-row.enemy {
   background: #39272b77;
   border-color: #74594f77;
+}
+.scoreboard-items {
+  grid-column: 2 / -1;
+  display: flex;
+  gap: 3px;
+}
+.scoreboard-item {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #665c40;
+  background: #071519;
+  color: #9eacaa;
+}
+.scoreboard-row .scoreboard-item img {
+  width: 20px;
+  height: 20px;
+  border: 0;
 }
 .scoreboard-portrait {
   position: relative;

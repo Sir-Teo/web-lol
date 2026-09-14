@@ -569,6 +569,7 @@ export class Hud {
           deaths: state.deaths,
           assists: state.assists,
           cs: observed?.cs ?? null,
+          inventory: observed?.inventory ?? null,
         };
       });
     const signature = JSON.stringify(rows);
@@ -581,7 +582,7 @@ export class Hud {
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;
       row.dataset.champion = String(data.id);
       row.innerHTML =
-        '<span class="scoreboard-portrait"><img><span class="scoreboard-level"></span></span><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span>';
+        '<span class="scoreboard-portrait"><img><span class="scoreboard-level"></span></span><strong></strong><span class="scoreboard-kda"></span><span class="scoreboard-cs"></span><span class="scoreboard-items"></span>';
       const level = row.querySelector('.scoreboard-level')!;
       level.textContent = data.level === null ? '?' : String(data.level);
       level.setAttribute(
@@ -601,6 +602,27 @@ export class Hud {
       row.querySelector('.scoreboard-kda')!.textContent =
         `${data.kills} / ${data.deaths} / ${data.assists}`;
       row.querySelector('.scoreboard-cs')!.textContent = `${data.cs ?? '?'} CS`;
+      const inventory = row.querySelector('.scoreboard-items')!;
+      inventory.setAttribute('role', 'group');
+      inventory.setAttribute('aria-label', data.inventory === null ? 'Inventory unknown' : 'Items');
+      for (let slot = 0; slot < 6; slot++) {
+        const cell = document.createElement('span');
+        cell.className = 'scoreboard-item';
+        const item = ITEMS.find((item) => item.id === data.inventory?.[slot]);
+        cell.title =
+          item?.name ??
+          (data.inventory === null ? 'Inventory unknown' : `Empty item slot ${slot + 1}`);
+        if (item) {
+          const image = document.createElement('img');
+          image.src = `assets/icons/${item.icon}.png`;
+          image.alt = item.name;
+          cell.append(image);
+        } else {
+          cell.setAttribute('aria-label', cell.title);
+          if (data.inventory === null) cell.textContent = '?';
+        }
+        inventory.append(cell);
+      }
       panel.querySelector(`[data-team="${data.team}"]`)!.append(row);
     }
   }

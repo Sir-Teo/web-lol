@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 48 adds ordered inventory copies to team observations. Known empty slots remain null and never-observed inventories remain unknown. Observed inventories use the same catalog, six-slot and unique-item validation as current inventories, but need not match current ownership: hidden purchases, sales and recipes must retain old knowledge. Earlier formats are incompatible.
+
 Version 47 replaces level-only observations with nullable per-team `{ level, cs }` records. Both fields are captured together when observed and retained through hidden gains and reloads. Creep score must be a nonnegative integer no greater than actual CS; the existing level bounds remain enforced. Earlier formats are incompatible.
 
 Version 46 adds per-team nullable observed champion levels. Observations must be integers from 1 through the champion’s current level. Hidden level gains retain the earlier observation, and save/load preserves that knowledge exactly. Earlier formats are incompatible under the existing same-build checkpoint policy; old diagnostic checkpoints must be regenerated.
