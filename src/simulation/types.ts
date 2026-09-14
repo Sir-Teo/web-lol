@@ -280,6 +280,7 @@ export interface ChampionState {
   qUntil: number;
   qStackExpiry: number;
   garenPassiveReadyTick: number;
+  garenW: { startTick: number; rank: number; upfrontUntil: number; defenseUntil: number } | null;
   garenQ: {
     startTick: number;
     rank: number;

@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 71 adds Garen Courage active state: captured rank, activation tick, upfront deadline and defense deadline. Validation checks live Garen ownership, learned rank and exact source-duration relationships. W ranks are now accepted; E/R remain unavailable. Earlier formats are incompatible.
+
 Version 70 requires Garen’s independent Perseverance-ready tick. The decoder rejects foreign/dead ownership and future deadlines beyond one interruption interval. Past deadlines are retained, and restore preserves the recovery boundary. Earlier formats are incompatible.
 
 Version 69 captures Garen Q’s release tick in its attack cycle. The decoder requires rank/release pairing, checks release and cycle deadlines against the unit, and permits only timing pairs produced at the owner’s current or earlier levels. This preserves a swing started before level-up and keeps its animation contact marker aligned after restoration. Earlier formats are incompatible.

@@ -28,6 +28,7 @@ import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
+import { GAREN_W } from '../content/garen-w';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
@@ -39,7 +40,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 70;
+export const SNAPSHOT_VERSION = 71;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -318,6 +319,14 @@ const player: z.ZodType<PlayerState> = z
     qUntil: deadline,
     qStackExpiry: deadline,
     garenPassiveReadyTick: tick,
+    garenW: z
+      .strictObject({
+        startTick: tick,
+        rank: z.number().int().min(1).max(5),
+        upfrontUntil: tick,
+        defenseUntil: tick,
+      })
+      .nullable(),
     garenQ: z
       .strictObject({
         startTick: tick,
@@ -1244,6 +1253,20 @@ export function decodeSnapshot(text: string) {
       champion.champion === 'lux'
         ? ['q', 'w', 'e', 'r'].includes(ability)
         : champion.champion === 'ashe' && ability !== 'q';
+    const courage = owner.garenW;
+    if (
+      courage &&
+      (champion.champion !== 'garen' ||
+        champion.deadAt !== null ||
+        courage.rank > owner.spellRanks.w ||
+        courage.startTick > state.tick ||
+        courage.defenseUntil <= state.tick ||
+        courage.upfrontUntil !==
+          courage.startTick + Math.round(GAREN_W.upfrontSeconds * TICK_RATE) ||
+        courage.defenseUntil !==
+          courage.startTick + Math.round(GAREN_W.damageReductionSeconds * TICK_RATE))
+    )
+      throw new Error('Saved match contains invalid Courage state.');
     const garenQ = owner.garenQ;
     if (
       ((champion.champion !== 'garen' || champion.deadAt !== null) &&
@@ -1295,7 +1318,7 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved Decisive Strike has an unavailable rank.');
     if (
       champion.champion === 'garen' &&
-      ['w', 'e', 'r'].some((key) => owner.spellRanks[key as 'w' | 'e' | 'r'] !== 0)
+      ['e', 'r'].some((key) => owner.spellRanks[key as 'e' | 'r'] !== 0)
     )
       throw new Error('Saved Garen contains an unavailable spell rank.');
     const cast = owner.pendingCast;

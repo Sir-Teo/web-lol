@@ -154,3 +154,12 @@ scenarios pass, including the new AI-driven minion kill with the source sword
 animation and no page errors. The fixture screenshot was reviewed at
 `artifacts/browser-garen-q-farming.png`. No new champion-selection option is
 exposed; Garen's remaining kit and Ahri's gameplay integration are still open.
+
+## Courage active integration
+
+Garen NPCs can learn and cast W, gaining its independent short shield/tenacity and
+longer damage-reduction windows. The shield uses bonus health, and W preserves an
+ongoing Q strike. Snapshot version 71 retains the defenses. See [GAREN-W.md](GAREN-W.md)
+for the supported behavior, explicit local policies and remaining passive/native/
+presentation work. All 862 tests across 184 files pass; the three Q/W browser
+scenarios pass and the new binding-contact capture was visually reviewed.

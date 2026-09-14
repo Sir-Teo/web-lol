@@ -1,7 +1,8 @@
 # Courage source contract
 
-This is preparation for W integration. W is still unavailable in the simulation;
-these exported constants do not make Garen's kit complete.
+Courage's active defenses are integrated for Garen NPCs. Passive resistance
+stacks, source presentation and native-client parity remain unfinished. Garen
+is still excluded from player selection and the default roster.
 
 `tools/assets/export-garen-w.py` reads only the root `GarenW` record in the
 [frozen character pin](reference/garen-character.json). It checks the five-rank
@@ -44,3 +45,46 @@ universal replacement enum, or Q attack-speed units, from one health calculation
   reward; do not import that old mechanic without additional current evidence.
 - Preserve all active deadlines and passive stacks in validated snapshots.
 - Add observed-threat AI, source visuals and browser verification with integration.
+
+## Active runtime adapter
+
+W can be learned and activated by queued commands. Activation costs no mana,
+starts the ranked cooldown (with existing item haste), cancels recall and
+preserves movement orders and committed attacks. It grants the shield immediately,
+with no attack reset or substitute Ashe/Lux cast animation. Existing silence and
+stun gates reject activation; roots permit it and are not cleansed. These cast
+permissions and instant activation remain a local adapter pending native tracing.
+
+The shield samples rank and bonus health at activation. Bonus health is current
+maximum health minus Garen's base plus level-growth health; negative values are
+clamped to zero. Physical/magic damage is mitigated by resistance and then the
+captured W reduction before shields absorb it. True damage bypasses those
+reductions but can be absorbed by the shield. No current damage source represents
+an execution or fountain exception, so those cases are not claimed as supported.
+
+Tenacity samples the independent upfront deadline when a root, silence, slow or
+Crystal Arrow stun is applied. Existing controls are unchanged; removing the
+shield or expiring W does not lengthen an already shortened control. Slow strength
+is unchanged. The local duration policy rounds to 60 Hz, uses a 0.3-second minimum,
+and never lengthens an originally shorter control. This minimum and rounding,
+continuous-zone refresh behavior, additional control categories and special-case
+exceptions still need version-matched native validation. These rules are explicit
+adapter choices, not proved by the exported numeric values.
+
+Snapshot version 71 stores the captured rank and both deadlines. It rejects
+foreign/dead ownership, unlearned ranks, future starts, expired defense state and
+changed duration relationships. Shields use the existing independent shield
+records. Death and respawn clear the active buff. Bots use a temporary Q-then-W
+learning order instead of inheriting Ashe's recommendation; defensive W decisions
+are not yet implemented.
+
+Nine simulation cases cover the independent deadlines, resource/cooldown behavior,
+mitigation order and true damage, bonus-health basis, rank capture, tenacity and
+its boundary cases, Q coexistence, cast rejection, death and checkpoint integrity.
+The browser scenario uses an actual queued Lux Q: Courage absorbs its damage and
+reduces the root to 48 ticks. Shield expiry leaves both the captured root and the
+remaining defense window intact, with identical save continuation. The reviewed
+fixture capture is `artifacts/browser-garen-courage-binding.png`.
+
+No Courage-specific particles or source audio are added in this increment. The
+existing generic cast tone and shared damage/status presentation remain temporary.
