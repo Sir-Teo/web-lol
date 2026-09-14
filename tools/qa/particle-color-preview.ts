@@ -11,13 +11,20 @@ const load = async (name: string) => {
   texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
   return texture;
 };
-const [ring, ramp, mote, spectral] = await Promise.all([
+const [ring, ramp, mote, spectral, trail, rainbow] = await Promise.all([
   load('ring04'),
   load('color-rampdown'),
   load('lux_base_r_mote'),
   load('color-spectralbell'),
+  load('lux_base_q_trail'),
+  load('lux_base_r_rainbowmult'),
 ]);
 const pairs = {
+  trail: {
+    source: trail,
+    lookup: rainbow,
+    name: 'Lux Q trail · 128 × 128 · mesh MULT_PASS inspection',
+  },
   crescent: { source: ring, lookup: ramp, name: 'Ring04 · 256 × 256' },
   hoop: { source: mote, lookup: spectral, name: 'Lux R mote · 128 × 128' },
 };
@@ -30,9 +37,16 @@ const material = createParticleColorProductMaterial(ring, ramp);
 const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
 scene.add(mesh);
 const emitter = document.querySelector<HTMLSelectElement>('#emitter')!;
+const display = document.querySelector<HTMLSelectElement>('#display')!;
 const x = document.querySelector<HTMLInputElement>('#x')!;
 const y = document.querySelector<HTMLInputElement>('#y')!;
 function redraw() {
+  const composite = display.value === 'over-black';
+  material.transparent = composite;
+  material.blending = composite ? THREE.NormalBlending : THREE.NoBlending;
+  document.querySelector('#product-caption')!.textContent = composite
+    ? 'Color product · RGBA over black'
+    : 'Color product · raw RGB';
   const pair = pairs[emitter.value as keyof typeof pairs];
   material.uniforms.sourceTexture.value = pair.source;
   material.uniforms.particleColorTexture.value = pair.lookup;
@@ -65,7 +79,7 @@ function redraw() {
   document.querySelector('#status')!.textContent =
     `Ready · ${emitter.value} · lookup (${x.value}, ${y.value}) · source coordinates remain unresolved`;
 }
-for (const el of [emitter, x, y]) el.addEventListener('input', redraw);
+for (const el of [emitter, x, y, display]) el.addEventListener('input', redraw);
 redraw();
 
 /** Read actual GPU RGBA with source texels and explicit inspection sampler state.
@@ -77,13 +91,19 @@ async function probe(options: {
   lookupPixel: [number, number];
   color: [number, number, number, number];
   coordinates: 'uniform' | 'vertex';
+  quadMultiplier?: boolean;
 }) {
   const pair = pairs[options.emitter];
   const base = pair.source.clone(),
     lookup = pair.lookup.clone();
   base.minFilter = base.magFilter = lookup.minFilter = lookup.magFilter = THREE.NearestFilter;
   base.needsUpdate = lookup.needsUpdate = true;
-  const tested = createParticleColorProductMaterial(base, lookup, options.coordinates);
+  const multiplier = options.quadMultiplier ? rainbow.clone() : undefined;
+  if (multiplier) {
+    multiplier.minFilter = multiplier.magFilter = THREE.NearestFilter;
+    multiplier.needsUpdate = true;
+  }
+  const tested = createParticleColorProductMaterial(base, lookup, options.coordinates, multiplier);
   tested.uniforms.particleColor.value.fromArray(options.color);
   const uv = new THREE.Vector2(
     (options.lookupPixel[0] + 0.5) / lookup.image.width,
@@ -118,6 +138,7 @@ async function probe(options: {
     tested.dispose();
     base.dispose();
     lookup.dispose();
+    multiplier?.dispose();
     redraw();
   }
   return Array.from(result);

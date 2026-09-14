@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Lux particle color inspection</title>
+    <link rel="icon" href="data:," />
     <style>
       * {
         box-sizing: border-box;
@@ -95,8 +96,8 @@
   <body>
     <h1>Lux · particle color inspection</h1>
     <p>
-      Source texture × particle color × lookup sample. Coordinates are manual; this isolates the
-      verified shader stage, not the complete attack animation.
+      Source texture × particle color × second texture sample. Coordinates are manual; this isolates
+      the verified shader stage, not the complete attack animation.
     </p>
     <div class="controls">
       <label
@@ -104,6 +105,7 @@
         <select id="emitter">
           <option value="crescent">Crescent</option>
           <option value="hoop">Hoop</option>
+          <option value="trail">Trail · mesh MULT_PASS</option>
         </select></label
       >
       <label
@@ -118,21 +120,31 @@
           >0.50</output
         ></label
       >
+      <label
+        >Display
+        <select id="display">
+          <option value="over-black">RGBA over black</option>
+          <option value="rgb">Raw RGB</option>
+        </select></label
+      >
     </div>
     <main>
       <figure>
         <canvas id="source" width="384" height="384"></canvas>
-        <figcaption>Source texture</figcaption>
+        <figcaption>Source texture · RGBA over black</figcaption>
         <small id="source-name"></small>
       </figure>
       <figure>
         <canvas id="product" width="384" height="384"></canvas>
-        <figcaption>Color product · RGB</figcaption>
-        <small>White particle color. No fog, palette replacement, blend or display transfer.</small>
+        <figcaption id="product-caption">Color product · RGBA over black</figcaption>
+        <small
+          >White particle color. Optional alpha compositing is an inspection setting; native
+          blending is unresolved.</small
+        >
       </figure>
       <figure>
         <canvas id="lookup" width="384" height="384"></canvas>
-        <figcaption>Lookup texture</figcaption>
+        <figcaption>Second texture · lookup or multiplier</figcaption>
         <small
           >Crosshair marks the sample coordinate. Linear filtering, clamped edges and raw texture
           bytes are inspection settings.</small

@@ -4,6 +4,7 @@ Run with PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python.
 No shader is executed or shipped to the browser. Variant selection is exploratory,
 not evidence of the flags selected by a particular native emitter.
 """
+import argparse
 import hashlib
 import itertools
 import json
@@ -74,12 +75,15 @@ def programs(data):
     return result
 
 
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--extend-pin', action='store_true', help='Add samples while preserving every existing pinned source and selection')
+args = parser.parse_args()
 old = json.loads(PIN.read_text()) if PIN.exists() else None
 # Shader caches have ordinary entries and no subchunk table. Include all possible
 # bundle paths for these four TOCs; only required bundles are actually extracted.
 paths = TOCS + [p + f'_{i}' for p in TOCS for i in range(0, 2100, 100)]
 archive = RiotArchive({f'{xxh64_intdigest(p):016x}': p for p in paths},
-                      old['extraction'] if old else None,
+                      old['extraction'] if old and not args.extend_pin else None,
                       archive_name='DATA/FINAL/ShaderCache.metal.wad.client')
 archive.extract(TOCS, ROOT)
 tables, selections, bundles = [], [], set()
@@ -87,7 +91,7 @@ for path in TOCS:
     defines, lookup, stage, bundled_count = decode_toc((ROOT / path).read_bytes())
     tables.append({'path': path, 'stage': stage, 'variantCount': len(lookup),
                    'uniqueProgramCount': bundled_count, 'defines': dict(defines)})
-    requested = [[], ['DISABLE_FOW']]
+    requested = [[], ['DISABLE_FOW'], ['MULT_PASS']]
     if stage == 1:
         requested += [['PALETTIZE_TEXTURES'], ['PALETTIZE_TEXTURES', 'DISABLE_FOW'],
                       ['PALETTIZE_TEXTURES', 'MULT_PASS']]
@@ -120,10 +124,19 @@ report = {
     'bundlePrograms': {p: len(v) for p, v in decoded.items()},
     'extraction': archive.provenance(),
 }
-if old:
+if old and args.extend_pin:
+    assert report['reader'] == old['reader'] and report['tables'] == old['tables']
+    assert all(sample in report['selections'] for sample in old['selections'])
+    for key in ('referenceVersion', 'manifest', 'archive'):
+        assert report['extraction'][key] == old['extraction'][key]
+    assert all(item in report['extraction']['files'] for item in old['extraction']['files'])
+    assert all(report['extraction']['chunks'].get(k) == v for k, v in old['extraction']['chunks'].items())
+    assert all(report['bundlePrograms'].get(k) == v for k, v in old['bundlePrograms'].items())
+    PIN.write_text(json.dumps(report, indent=2) + '\n')
+elif old:
     assert report == old, 'Shader metadata or selected programs changed'
 else:
     PIN.write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps({'tables': len(tables), 'verifiedVariantHashes': sum(t['variantCount'] for t in tables),
                   'bundles': len(bundles), 'inspectedPrograms': sum(map(len, decoded.values())),
-                  'selectedPrograms': len(selections), 'repeatMatches': old is not None}))
+                  'selectedPrograms': len(selections), 'repeatMatches': old == report}))

@@ -101,6 +101,19 @@
     {
       "toc": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
       "defines": {
+        "MULT_PASS": "1"
+      },
+      "definesHash": "04dd012859553eab",
+      "shaderId": 615,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_600",
+      "index": 15,
+      "bytes": 5278,
+      "sha256": "89d27cfe069412d144cbd4a70006429e916131fa5578d3e315f0c5174c92d633",
+      "output": ".cache/particle-shaders/mesh_ps.ps-metal-615.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
         "PALETTIZE_TEXTURES": "1"
       },
       "definesHash": "be4660e655ff12fa",
@@ -164,6 +177,19 @@
       "output": ".cache/particle-shaders/mesh_vs.vs-metal-1.metallib"
     },
     {
+      "toc": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "MULT_PASS": "1"
+      },
+      "definesHash": "04dd012859553eab",
+      "shaderId": 49,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 49,
+      "bytes": 5833,
+      "sha256": "6e5a41ebbd6e284ff361e8efd8f241246fc41e74c94bf6d9d431574ce404fb02",
+      "output": ".cache/particle-shaders/mesh_vs.vs-metal-49.metallib"
+    },
+    {
       "toc": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
       "defines": {},
       "definesHash": "ef46db3751d8e999",
@@ -186,6 +212,19 @@
       "bytes": 3470,
       "sha256": "3f2f0e9b9c9eeec9954f236bed6382f47caba1aa349fe5d36d3282b6bef140bc",
       "output": ".cache/particle-shaders/quad_ps.ps-metal-0.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "MULT_PASS": "1"
+      },
+      "definesHash": "04dd012859553eab",
+      "shaderId": 4,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 4,
+      "bytes": 3726,
+      "sha256": "a32d4625e98e8d298fe3c577904ce3c5723993cd6c4916b839c8e0d5a6aad5b9",
+      "output": ".cache/particle-shaders/quad_ps.ps-metal-4.metallib"
     },
     {
       "toc": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
@@ -251,10 +290,24 @@
       "bytes": 4466,
       "sha256": "e35d35fe08a495bd9dff70846aed99f9a3553807dc44533079a88f1c8484b615",
       "output": ".cache/particle-shaders/quad_vs.vs-metal-0.metallib"
+    },
+    {
+      "toc": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "defines": {
+        "MULT_PASS": "1"
+      },
+      "definesHash": "04dd012859553eab",
+      "shaderId": 8,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "index": 8,
+      "bytes": 4610,
+      "sha256": "bda27907a07f232da6a6f9a97bbb6e2c5a099763b823c1cca62ed266b73ab5b3",
+      "output": ".cache/particle-shaders/quad_vs.vs-metal-8.metallib"
     }
   ],
   "bundlePrograms": {
     "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0": 100,
+    "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_600": 100,
     "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700": 100,
     "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0": 100,
     "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0": 100,
@@ -303,6 +356,12 @@
         "offset": 1073240,
         "bytes": 52572,
         "sha256": "d1a0616bc8922e3eaedc1eccc99fafd6a3aafeb24f2c0a561ac370f1774b8223"
+      },
+      "673E9427C8902A3F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 15006,
+        "bytes": 75836,
+        "sha256": "9a4e4364aaf73c548ebdd69c59ef333d142c0ecff7d371d6811a1e588f116233"
       },
       "24B88C8DB26EC663": {
         "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9336F6644B7D44D0.bundle",
@@ -359,6 +418,12 @@
         "wadPathHash": "76f231675a2e43df",
         "sha256": "f11dab5e01ff4779842a87a7f44063de3093b8f66210508f93007994a1d3efc8",
         "bytes": 423160
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_600",
+        "wadPathHash": "c06dd63307a8f7d1",
+        "sha256": "adaca1dbe93937e0ec98e8eea780009c6ea52a0e8b1e98306a3572938c68b394",
+        "bytes": 535640
       },
       {
         "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
