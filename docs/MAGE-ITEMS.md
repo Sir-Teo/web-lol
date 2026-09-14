@@ -1,4 +1,4 @@
-# Mage AP equipment
+# Mage equipment
 
 The catalog now includes Blasting Wand, Needlessly Large Rod and Rabadon's Deathcap. Their complete Data Dragon entries and corresponding raw item/group records are retained in [reference/mage-items.json](reference/mage-items.json). Both cached full-response hashes were checked. Sources are [Data Dragon 16.18.1](https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json) and [CommunityDragon 16.18](https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json), using standard map-11 availability.
 
@@ -20,7 +20,17 @@ Recipe planning consumes two distinct Rod slots, never the same slot twice. A th
 
 The shop displays the same remaining-cost quote as the transaction, loads the three source icons, and updates effective AP. Duplicate ownership disables the purchase. Existing fountain/death access rules and inventory handling apply.
 
-Lux's local bot policy starts with Tome and boots, then buys Rods toward Deathcap or completes it directly when the remaining price is affordable, followed by Wand. It does not rebuild consumed Rods after completion. Shopping recalls use remaining recipe cost and permit a full inventory when recipe components provide space. This path is an interim use of implemented equipment, not a claim that Deathcap-first is the optimal native build. Mana, haste, penetration, active items, richer passives and complete six-item plans remain outstanding.
+Lux's local bot policy starts with Tome and boots, then buys Rods toward Deathcap or completes it directly when the remaining price is affordable, followed by Wand. It does not rebuild consumed Rods after completion. Shopping recalls use remaining recipe cost and permit a full inventory when recipe components provide space. This path is an interim use of implemented equipment, not a claim that Deathcap-first is the optimal native build. Haste, penetration, active items, richer passives and complete six-item plans remain outstanding.
+
+## Sapphire Crystal and bonus mana
+
+The same pinned source bundle and generator now include Sapphire Crystal (`1027`): 300 mana, 300 total gold, 210 sell gold, no recipe. Data Dragon's `FlatMPPoolMod` agrees with raw `flatMPPoolMod`; both full-response hashes were checked before retaining the complete records. The original icon is local and hashed in the asset manifest. Multiple copies occupy separate slots and add their mana independently.
+
+Purchasing applies net item mana after subtracting consumed components. Selling removes the selected copy's mana. The current **local resource policy** adds the stat delta to living owners' current mana, preserving missing mana unless removal would go below zero. Maximum mana uses the shared stat precision helper. Dead owners retain current mana, clamped to the new maximum, until respawn restores the equipped maximum. Level growth remains additive; recall and fountain regeneration already use that maximum. No new snapshot fields or schema version are needed: inventory, current mana and maximum mana were already serialized.
+
+Native current-mana behavior for ordinary item purchases, sales and recipe completion still requires calibration. Riot's [10.13 Ornn notes](https://www.leagueoflegends.com/en-us/news/game-updates/patch-10-13-notes/) describe percentage preservation for Ornn's field crafting; that champion-specific rule does not establish ordinary fountain transactions. No Ornn crafting or mana-item recipe is implemented here. Sapphire is available to human purchases and the shared owner API; the interim Lux bot build remains the AP path above until its mana-item upgrades are implemented.
+
+Validation at this addition: 584 source/simulation checks, four focused Chrome shop scenarios, source regeneration and nested-path production smoke pass. New cases cover source agreement, multiple copies, low-mana sale clamping, both champions' growth, independent ownership, exact living/dead checkpoints, respawn, recall and atomic failures. The browser case verifies source icon loading, price, buy/sell balance and mana readouts. `artifacts/mana-shop.png` was inspected. No full-match, full-browser or rendered-performance rerun was performed for this stat/catalog addition.
 
 ## Validation
 

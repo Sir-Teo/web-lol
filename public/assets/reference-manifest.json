@@ -170,6 +170,12 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3089.png",
       "sha256": "ad77331bb9a325db9536f5614f3ca3516e24279406123f2892eb33ee419d369b",
       "bytes": 6981
+    },
+    {
+      "path": "/assets/icons/1027.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1027.png",
+      "sha256": "422333d78764d15ea87106ca5b4eb37f85045ca3d1b98239d08bc7d515956e95",
+      "bytes": 4212
     }
   ]
 }

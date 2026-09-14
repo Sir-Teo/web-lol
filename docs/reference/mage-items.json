@@ -132,6 +132,45 @@
         "FlatMagicDamageMod": 130
       },
       "depth": 2
+    },
+    "1027": {
+      "name": "Sapphire Crystal",
+      "description": "<mainText><stats><attention>300</attention> Mana</stats><br><br></mainText>",
+      "colloq": ";blue",
+      "plaintext": "Increases Mana",
+      "into": [
+        "3024",
+        "3802",
+        "3803"
+      ],
+      "image": {
+        "full": "1027.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 288,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 300,
+        "purchasable": true,
+        "total": 300,
+        "sell": 210
+      },
+      "tags": [
+        "Mana"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMPPoolMod": 300
+      }
     }
   },
   "communityDragon": {
@@ -323,6 +362,58 @@
         "mItemGroupID": "APMultiplier",
         "mMaxGroupOwnable": 1,
         "__type": "ItemGroup"
+      },
+      "Items/1027": {
+        "mDisplayName": "Item_1027_Name",
+        "itemID": 1027,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Default"
+        ],
+        "price": 300,
+        "mCanBeSold": true,
+        "flatMPPoolMod": 300.0,
+        "mCategories": [
+          "Mana"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          16,
+          8
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "1027",
+            "mFormat": "{32559c50}",
+            "mLocKeys": {
+              "keyName": "Item_1027_Name",
+              "keyColloquialism": "Item_1027_Colloquialism"
+            },
+            "mLists": {
+              "Stats": {
+                "Elements": [
+                  {
+                    "type": "Mana",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_1027_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_1027_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_1027_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/1027_base_t1_saphirecrystal.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/1027_Base_T1_SaphireCrystal.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/1027_Base_T1_SaphireCrystal.png",
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
       }
     }
   }

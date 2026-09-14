@@ -232,6 +232,45 @@
         "FlatMagicDamageMod": 130
       },
       "depth": 2
+    },
+    "1027": {
+      "name": "Sapphire Crystal",
+      "description": "<mainText><stats><attention>300</attention> Mana</stats><br><br></mainText>",
+      "colloq": ";blue",
+      "plaintext": "Increases Mana",
+      "into": [
+        "3024",
+        "3802",
+        "3803"
+      ],
+      "image": {
+        "full": "1027.png",
+        "sprite": "item0.png",
+        "group": "item",
+        "x": 288,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 300,
+        "purchasable": true,
+        "total": 300,
+        "sell": 210
+      },
+      "tags": [
+        "Mana"
+      ],
+      "maps": {
+        "11": true,
+        "12": true,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {
+        "FlatMPPoolMod": 300
+      }
     }
   }
 }

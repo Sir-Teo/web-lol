@@ -1490,3 +1490,9 @@ Extended the headless Rift diagnostic with an optional mixed roster and champion
 Added pinned Blasting Wand (45 AP/850 gold), Needlessly Large Rod (65 AP/1200), and Rabadon's Deathcap (130 AP/3500 total, two Rods plus 1100). Deathcap's source APAmp=0.3 amplifies all current flat inventory AP, is applied once, and disappears when sold. Source item groups enforce one owned Deathcap, including save validation. Imported three hashed Data Dragon icons. Lux bot buying progresses through Rods/Deathcap/Wand; recall shopping uses remaining recipe cost and recognizes space freed by components.
 
 All 579 checks and two focused shop browser cases pass; source exporter/hash checks and production smoke pass. Inspected the shop capture. The twenty-minute eight-Ashe/two-Lux Rift diagnostic had no finite/resource violations and exact checkpoint restoration; both Lux bots completed Deathcap and Wand. It did not finish the match or measure rendering. Complete mage builds, mana/haste systems, advanced item effects and remaining production gates are still open. See [MAGE-ITEMS.md](MAGE-ITEMS.md) and the pinned compact verification report.
+
+## Sapphire Crystal and item mana
+
+Added Sapphire Crystal with dual-source 300 mana, 300 gold and 210 sell value, full pinned records and a hashed source icon. Shared purchases apply net mana after component consumption; sales remove one copy. Living transactions use an explicitly provisional missing-mana policy with zero clamping, while dead purchases do not refill resources. Existing growth, recall, respawn and checkpoint behavior preserve the equipped pool. Native transaction semantics still need direct calibration; mana upgrades and Lux mana-build decisions remain unfinished.
+
+All 584 checks, four focused Chrome shop cases, source regeneration and nested-path production smoke pass. Inspected the mana-shop capture. Full-browser, full-match and performance gates were not rerun. See [MAGE-ITEMS.md](MAGE-ITEMS.md).

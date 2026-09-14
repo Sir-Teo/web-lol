@@ -2787,6 +2787,7 @@ export class World {
       magicResist: number = item.magicResist,
       damage: number = item.damage,
       hp: number = item.hp,
+      mana: number = 'mana' in item ? item.mana : 0,
       speed: number = item.speed;
     for (const slot of plan.consumed) {
       const component = ITEMS.find((entry) => entry.id === state.inventory[slot])!;
@@ -2794,6 +2795,7 @@ export class World {
       magicResist -= component.magicResist;
       damage -= component.damage;
       hp -= component.hp;
+      mana -= 'mana' in component ? component.mana : 0;
       speed -= component.speed;
       state.inventory[slot] = null;
     }
@@ -2804,8 +2806,17 @@ export class World {
     champion.damage += damage;
     champion.maxHp += hp;
     if (this.alive(champion)) champion.hp += hp;
+    this.changeItemMana(champion, mana);
     champion.speed += speed;
     return null;
+  }
+  /** Local item policy: preserve missing mana, clamp at zero, and do not refill dead owners. */
+  private changeItemMana(champion: Unit, delta: number): void {
+    champion.maxMana = statPrecision(champion.maxMana + delta);
+    champion.mana = Math.min(
+      champion.maxMana,
+      Math.max(0, champion.mana + (this.alive(champion) ? delta : 0))
+    );
   }
   moveItem(from: number, to: number, championId = this.player.id): string | null {
     if (this.winner) return 'The game has ended';
@@ -2840,6 +2851,7 @@ export class World {
     champion.damage -= item.damage;
     champion.speed -= item.speed;
     champion.maxHp -= item.hp;
+    this.changeItemMana(champion, -('mana' in item ? item.mana : 0));
     // Local health-removal policy; native missing-health behavior needs calibration.
     if (this.alive(champion))
       champion.hp = Math.min(champion.maxHp, Math.max(1, champion.hp - item.hp));
