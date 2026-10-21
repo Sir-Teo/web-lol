@@ -53,7 +53,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 84;
+export const SNAPSHOT_VERSION = 85;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -425,6 +425,7 @@ const player: z.ZodType<PlayerState> = z
                   .nullable(),
                 impact: z.strictObject({ tick, point, facing: z.number() }).nullable(),
                 landing: z.strictObject({ tick, point, facing: z.number() }).nullable(),
+                silenceEndTick: tick.nullable(),
               })
             )
             .max(Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE)),
@@ -1658,8 +1659,29 @@ export function decodeSnapshot(text: string) {
       for (const a of r.attacks) {
         const landingTick = garenQLandingTick(a),
           landed = state.tick >= landingTick && (a.stopTick === null || a.stopTick > landingTick),
-          canLand = state.tick >= landingTick && (a.stopTick === null || a.stopTick >= landingTick);
+          canLand = state.tick >= landingTick && (a.stopTick === null || a.stopTick >= landingTick),
+          recipient = state.units.find((u) => u.id === a.targetId),
+          silenceTicks = Math.round(GAREN_Q.silenceSeconds * TICK_RATE),
+          silenceDurations = [
+            silenceTicks,
+            Math.max(
+              Math.round(0.3 * TICK_RATE),
+              Math.round(silenceTicks * (1 - GAREN_W.upfrontTenacity))
+            ),
+          ];
         if (
+          (a.silenceEndTick === null
+            ? a.impact &&
+              recipient &&
+              !isStructureKind(recipient.kind) &&
+              ((recipient.deadAt === null && state.tick < a.impact.tick + silenceTicks) ||
+                (recipient.deadAt !== null && recipient.deadAt > a.impact.tick))
+            : !a.impact ||
+              !silenceDurations.includes(a.silenceEndTick - a.impact.tick) ||
+              (recipient && isStructureKind(recipient.kind)) ||
+              (recipient?.deadAt === null &&
+                a.silenceEndTick > state.tick &&
+                recipient.silenceUntil < a.silenceEndTick)) ||
           (a.landing === null ? landed : !canLand || a.landing.tick !== landingTick) ||
           a.startTick <= previousAttack ||
           a.startTick < r.startTick ||

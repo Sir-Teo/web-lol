@@ -185,7 +185,22 @@ for key in ['Garen_Q_Jump','Garen_Q_Land']:
             blend=e.get('blendMode',0),renderOrder=e.get('pass',0),uvMode=e.get('uvMode',0),miscRenderFlags=e.get('miscRenderFlags',0),explicitFields=sorted(e)))
 assert len(ground)==5
 ground_path=Path('src/content/garen-q-ground-particles.json');write_changed(ground_path,ground)
-selected=[dict(system=system,index=0)]+[dict(system=p['system'],index=p['index']) for p in [*cast,*impact,*ground]]
+e,=pin['resources']['Garen_Q_Silence']['definition']['complexEmitterDefinitionData']
+assert set(e)==set(['rate','particleLifetime','isSingleParticle','emitterName','bindWeight','SpawnShape',
+    'FlexShapeDefinition','particleColorTexture','blendMode','pass','meshRenderFlags','miscRenderFlags',
+    'isUniformScale','isLocalOrientation','birthScale0','scale0','texture','texDiv','__type'])
+assert e['isSingleParticle']==1 and e['rate']['constantValue']==1 and e['bindWeight']['constantValue']==1
+assert e['blendMode']==1 and e['miscRenderFlags']==1 and e['isUniformScale']==1 and e['isLocalOrientation']==0
+silence=dict(system='Garen_Q_Silence',index=0,name=e['emitterName'],mesh=None,
+    texture=textures[e['texture'].lower()],lookup=textures[e['particleColorTexture'].lower()],
+    count=1,life=e['particleLifetime']['constantValue'],emitterLife=None,
+    offset=e['SpawnShape']['emitOffset'],flexShape=e['FlexShapeDefinition'],bindWeight=e['bindWeight']['constantValue'],
+    size=e['birthScale0']['constantValue'],scale=curve(e['scale0'],[1,1,1]),color=defaults['color'],
+    local=False,uniform=True,blend=e['blendMode'],renderOrder=e['pass'],miscRenderFlags=e['miscRenderFlags'],
+    lookupTypes=defaults['lookupTypes'],lookupScales=defaults['lookupScales'],lookupOffsets=defaults['lookupOffsets'],
+    atlas=dict(grid=e['texDiv'],frames=1,start=0,random=False),explicitFields=sorted(e))
+silence_path=Path('src/content/garen-q-silence-particles.json');write_changed(silence_path,silence)
+selected=[dict(system=system,index=0)]+[dict(system=p['system'],index=p['index']) for p in [*cast,*impact,*ground,silence]]
 selected_keys={(p['system'],p['index']) for p in selected}
 deferred=[]
 for key,r in pin['resources'].items():
@@ -196,7 +211,7 @@ for key,r in pin['resources'].items():
             'recipient size/atlas/stop integration' if key=='Garen_Q_Silence' else
             'appearance, attachment and dispatch integration pending')
         deferred.append(dict(system=key,index=i,reason=reason))
-assert len(deferred)==10
+assert len(deferred)==9
 from PIL import Image
 samples=[]
 for index,p in enumerate(cast):
@@ -233,6 +248,11 @@ for index,p in enumerate(ground):
     ground_samples.append(dict(profileIndex=index,impact=False,ground=True,sourceUv=[(at[0]+0.5)/image.width,(at[1]+0.5)/image.height],
         rawUv=[(raw[0]+0.5)/image.width,(raw[1]+0.5)/image.height],lookupUv=[0.5,0.5],
         tint=[0.6,0.8,0.4,0.7],sourceRgba=list(image.getpixel(at)),alphaRgba=list(image.getpixel(raw)),lookupRgba=[255]*4))
+image=Image.open('public/'+silence['texture']).convert('RGBA');lookup=Image.open('public/'+silence['lookup']).convert('RGBA')
+at=max(((x,y) for y in range(image.height//2) for x in range(image.width//2)),key=lambda xy:sum(image.getpixel(xy)))
+silence_samples=[dict(profileIndex=0,silence=True,ground=False,impact=False,
+    sourceUv=[(at[0]+0.5)/image.width,(at[1]+0.5)/image.height],lookupUv=[0.5,0.5],tint=[0.6,0.8,0.4,0.7],
+    sourceRgba=list(image.getpixel(at)),lookupRgba=list(lookup.getpixel((lookup.width//2,lookup.height//2))))]
 def max_life(p):
     tables=p['life']['probabilities']
     factor=max(tables[0]['values'],default=tables[0]['single']) if tables else 1
@@ -252,10 +272,12 @@ write_changed(Path('docs/reference/garen-q-particle-profiles.json'),dict(
     castOutput=dict(path=str(cast_path),sha256=sha(cast_path.read_bytes())),readerEvidenceSha256=sha(reader_path.read_bytes()),
     impactOutput=dict(path=str(impact_path),sha256=sha(impact_path.read_bytes())),impactReaderEvidenceSha256=sha(impact_reader_path.read_bytes()),
     groundOutput=dict(path=str(ground_path),sha256=sha(ground_path.read_bytes())),groundReaderEvidenceSha256=sha(ground_reader_path.read_bytes()),
+    silenceOutput=dict(path=str(silence_path),sha256=sha(silence_path.read_bytes())),silenceFlexApplied=False,
     implemented=selected,deferred=deferred,emptySystems=['Garen_Q_Buf'],castRetentionBoundTicks=cast_retention_ticks,gpuSamples=samples,
     impactGpuSamples=impact_samples,
     impactRetentionBoundTicks=impact_retention_ticks,
     groundRetentionBoundTicks=ground_retention_ticks,
     groundGpuSamples=ground_samples,
-    status='Twenty-one Q emitters reconstructed: weapon, activation/armed, confirmed-contact and ground events. Native dispatch, attachment and rendering parity unverified.'))
-print('Exported twenty-one Q emitters; ten emitter records remain deferred.')
+    silenceGpuSamples=silence_samples,
+    status='Twenty-two Q emitters locally reconstructed. Silence uses an explicit health-bar anchor; Flex bound-size offset, native dispatch/attachment/rendering parity remain unverified.'))
+print('Exported twenty-two Q emitters; nine emitter records and native silence Flex sizing remain deferred.')

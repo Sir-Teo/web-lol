@@ -63,6 +63,7 @@ import { HawkshotLingerAurora } from './hawkshot-linger-aurora';
 import { HawkshotEchoes } from './hawkshot-echo';
 import { buildTerrain, SCALE } from './terrain';
 import { disposeModel, makeModel, type UnitModel } from './models';
+import { unitBarHeight } from './unit-bar-height';
 
 export class GameView {
   renderer: THREE.WebGLRenderer;
@@ -735,7 +736,7 @@ export class GameView {
     }
     const screen = this.screenPoint(
       u.structureTransform ? u : p,
-      this.models.get(u.id)?.barHeight ?? (isStructureKind(u.kind) ? 4.3 : 1.55)
+      unitBarHeight(u, this.models.get(u.id))
     );
     const hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
     if (bar.hidden !== hidden) bar.hidden = hidden;

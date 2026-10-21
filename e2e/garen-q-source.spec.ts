@@ -119,6 +119,7 @@ test('Q graphics load only selected cast, trail and impact assets on Garen prese
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
   expect(requests.sort()).toEqual([
+    '/assets/effects/color-white32.png',
     '/assets/effects/garen_base_q_cas_activate.png',
     '/assets/effects/garen_base_q_cas_bubble.png',
     '/assets/effects/garen_base_q_cas_bubble_2.png',
@@ -133,6 +134,7 @@ test('Q graphics load only selected cast, trail and impact assets on Garen prese
     '/assets/effects/garen_base_q_tar_slash.png',
     '/assets/effects/garen_base_q_wpn_trail.png',
     '/assets/effects/garen_sparks-orange.png',
+    '/assets/effects/silence03.png',
     '/assets/models/garen-q-impact.glb',
     '/assets/models/garen-q-jump.glb',
     '/assets/models/garen-q-sword-scroll.glb',
@@ -155,16 +157,28 @@ test('Q materials reproduce independent PNG products, locked alpha and all selec
   const groundProfiles = await import('../src/content/garen-q-ground-particles.json', {
     with: { type: 'json' },
   });
+  const silenceProfile = await import('../src/content/garen-q-silence-particles.json', {
+    with: { type: 'json' },
+  });
   await page.goto('/tools/qa/garen-q-source-preview.html');
   await page.waitForFunction(() => (window as any).__GAREN_Q_SOURCE__?.ready);
   const background = [96, 144, 192, 224];
   for (const sample of [
-    ...playback.default.gpuSamples.map((s) => ({ ...s, impact: false, ground: false })),
-    ...playback.default.impactGpuSamples.map((s) => ({ ...s, ground: false })),
-    ...playback.default.groundGpuSamples,
+    ...playback.default.gpuSamples.map((s) => ({
+      ...s,
+      impact: false,
+      ground: false,
+      silence: false,
+    })),
+    ...playback.default.impactGpuSamples.map((s) => ({ ...s, ground: false, silence: false })),
+    ...playback.default.groundGpuSamples.map((s) => ({ ...s, silence: false })),
+    ...playback.default.silenceGpuSamples,
   ]) {
-    const profile = (sample.ground ? groundProfiles : sample.impact ? impactProfiles : profiles)
-        .default[sample.profileIndex],
+    const profile = sample.silence
+        ? silenceProfile.default
+        : (sample.ground ? groundProfiles : sample.impact ? impactProfiles : profiles).default[
+            sample.profileIndex
+          ],
       blend = profile.blend;
     const tint = [...sample.tint];
     if (blend === 0 || blend === 2) {

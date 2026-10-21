@@ -4,6 +4,7 @@ import profile from '../content/garen-q-particles.json';
 import castProfiles from '../content/garen-q-cast-particles.json';
 import impactProfiles from '../content/garen-q-impact-particles.json';
 import groundProfiles from '../content/garen-q-ground-particles.json';
+import silenceProfile from '../content/garen-q-silence-particles.json';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import type { UnitModel } from './models';
@@ -12,8 +13,10 @@ import { createParticleColorProductMaterial } from './particle-color-product';
 import { garenQImpactParticles } from './garen-q-impact-particles';
 import { writeRayQuad } from './ray-quad';
 import { garenQGroundParticles } from './garen-q-ground-particles';
+import { garenQSilenceParticles } from './garen-q-silence-particles';
+import { unitBarHeight } from './unit-bar-height';
 
-const selectedProfiles = [...castProfiles, ...impactProfiles, ...groundProfiles];
+const selectedProfiles = [...castProfiles, ...impactProfiles, ...groundProfiles, silenceProfile];
 const geometries = new Map<string, THREE.BufferGeometry>();
 let ready = false;
 const textures = new Map<string, THREE.Texture>();
@@ -171,6 +174,9 @@ export function createGarenQGroundMaterial(
 ) {
   const p = groundProfiles[index];
   return createQMaterial(p, `Decisive Strike ${p.role} ${p.index}`, base, lookup);
+}
+export function createGarenQSilenceMaterial(base: THREE.Texture, lookup: THREE.Texture) {
+  return createQMaterial(silenceProfile, 'Decisive Strike silence', base, lookup);
 }
 export class GarenDecisiveStrike {
   readonly models = new Map<string, THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>();
@@ -548,6 +554,63 @@ export class GarenDecisiveStrike {
           );
         }
       }
+    if (ready && !world.winner) {
+      const tick = world.tick - 1 + alpha;
+      const sources = world.units
+        .filter((u) => u.champion === 'garen')
+        .map((u) => ({ id: u.id, records: world.championState(u.id)!.garenQVisuals }));
+      for (const particle of garenQSilenceParticles(sources, tick)) {
+        const target = world.unit(particle.targetId),
+          model = unitModels.get(particle.targetId);
+        if (
+          !target ||
+          !world.alive(target) ||
+          tick >= target.silenceUntil ||
+          !model?.root.visible ||
+          (target.team !== 'blue' && !world.visible(target))
+        )
+          continue;
+        const key = `silence:${target.id}`;
+        active.add(key);
+        let mesh = this.models.get(key);
+        if (!mesh) {
+          mesh = new THREE.Mesh(
+            billboard,
+            createGarenQSilenceMaterial(
+              textures.get(silenceProfile.texture)!,
+              textures.get(silenceProfile.lookup)!
+            )
+          );
+          mesh.name = 'Garen Q Silence';
+          mesh.renderOrder = silenceProfile.renderOrder;
+          mesh.frustumCulled = false;
+          this.models.set(key, mesh);
+          this.scene.add(mesh);
+        }
+        Object.assign(mesh.userData, {
+          sourceId: particle.sourceId,
+          targetId: target.id,
+          castTick: particle.castTick,
+          startTick: particle.startTick,
+          attackTick: particle.attackTick,
+          endTick: particle.endTick,
+          attachment: 'local-health-bar-plus-source-offset',
+          silence: true,
+        });
+        model.root.getWorldPosition(mesh.position);
+        this.offset.fromArray(silenceProfile.offset).multiplyScalar(0.01);
+        this.offset.y += unitBarHeight(target, model);
+        mesh.position.add(this.offset);
+        mesh.quaternion.copy(camera.quaternion);
+        mesh.scale.fromArray(particle.scale).multiplyScalar(0.01);
+        const uniforms = mesh.material.uniforms,
+          [columns, rows] = silenceProfile.atlas.grid;
+        uniforms.particleColor.value.fromArray(silenceProfile.color);
+        uniforms.lookupUv.value.fromArray(particle.lookup);
+        uniforms.sourceUvScale.value.set(1 / columns, 1 / rows);
+        uniforms.sourceUvOffset.value.set(0, 0);
+      }
+    }
     for (const [key, mesh] of this.models)
       if (!active.has(key)) {
         this.scene.remove(mesh);

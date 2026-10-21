@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,030 passing source/simulation checks, 38 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,038 passing source/simulation checks, 41 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -675,6 +675,65 @@ fixture/selection gate retained. The Q particle chunk is 51.25 KB
 (8.79 KB gzip), loaded on Garen presence; the ordinary game entry is 583.44 KB
 (160.41 KB gzip). The existing large-bundle warning remains. Full Q/Garen/native
 comparison and production/full-match acceptance remain in scope.
+
+## Decisive Strike recipient silence — October 21, 2026
+
+The [recipient silence emitter](GAREN-Q-PARTICLES.md#recipient-silence-and-accepted-control-history--october-21-2026)
+now brings Q to twenty-two locally rendered records. Schema 85 records
+`silenceEndTick` on each Q attack only after control is accepted. The captured
+90/36-tick deadline uses the actual Courage tenacity at contact, independently
+of a longer generic silence. Planned/cancelled swings, lethal hits and structures
+retain null. The decoder requires contact/acceptance consistency, supported
+durations and an adequate current living-recipient deadline. It allows legitimate
+same-tick death orderings and expired history after possible respawn. Combat,
+damage, recall and silence rules are unchanged; this is captured presentation
+state. Older checkpoints follow the existing incompatibility/retention policy.
+
+One icon per recipient selects the oldest still-active Q contact, with source-ID
+tie-breaking. Overlap handoff uses each original age/deadline. Generic silence
+cannot create or prolong Q's icon. Caster death/recast preserves accepted control;
+recipient death, actual recipient fog and match end remove it without respawn
+replay. The source ten-second particle life and 0.1/0.2/0.3-second scale pop are
+retained, rather than compressing its curves into the CC duration. The missing
+atlas frame count remains the reader's one-frame default on the 2×2 grid. Source
+alpha blend, pass one, disabled depth test and white lookup are retained. A
+first-cell PNG sample brings Q GPU verification to forty-two product/framebuffer
+comparisons with all channels within one byte.
+
+The source Flex bound-size coefficient is preserved exactly and explicitly not
+applied: the available schema establishes the field, not its computation or the
+native bound metric. The adapter uses a provisional local health-bar-plus-source-
+offset anchor; a shared helper preserves the existing HUD height policy. Native
+recipient bone/Flex sizing, label clearance and script overlap/stop semantics
+remain open. The reviewed 1440×900 capture places the source icon near the unit
+name; this is not native visual acceptance. The prior landing quad boundaries,
+all other material/attachment calibration and nine unimplemented emitter records
+also remain open.
+
+All 1,038 tests across 210 files and TypeScript pass. Eight new cases cover source
+fields/absences and unresolved Flex state, source appearance/stops, deterministic
+coalescing, accepted/rejected control, tenacity versus generic deadlines, caster/
+victim death, practice recasts, malformed saves and a real checkpoint with two
+Garen sources whose committed contact lands after the player's armed expiry.
+All 41 focused Chrome cases pass across Q presentation/audio/mechanics, player
+controls, W/E/R and saves. Three new cases independently verify local placement,
+atlas/depth, camera/recipient following, exact save/reload, generic deadline
+separation, caster/victim death, respawn, actual fog, overlap handoff and frozen
+match end. Materials dispose while shared geometry/textures remain retained.
+
+The loader now covers four meshes and twenty-one texture paths, disposing four
+completed geometries and twenty images on an injected image failure and sharing
+a cached retry. Sixteen prepared new Q PNGs/four Q GLBs are requested on Garen
+presence; five image paths overlap W/E/R. Ordinary startup requests no new Q
+graphics. All 36 GLBs and the map validate with zero errors/warnings. Repeated
+extraction/conversion/export reproduces all 48 source/audit/profile/PNG/GLB/sidecar
+outputs byte-for-byte. Every existing binary remains unchanged, and all 37 static
+production Q files match public bytes. Production build and strict `/nested/rift/`
+smoke pass with seventeen recordings, real Ashe/Lux input and the Garen gate
+retained. The Q particle chunk is 54.14 KB (9.70 KB gzip), loaded on Garen presence;
+the ordinary game entry is 584.01 KB (160.57 KB gzip). The existing large-bundle
+warning remains. Full Q/Garen, native rendering and production/full-match
+acceptance remain in scope.
 
 ## Historical baseline verification
 

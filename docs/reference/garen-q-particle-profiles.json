@@ -21,6 +21,11 @@
     "sha256": "99885dbbe7bfb5f0a9a69c884ded62ee6619aac7a946e302914af7bda04f3e63"
   },
   "groundReaderEvidenceSha256": "5fee3f377861095b6b5363dd39e7aef4f8490ae4d65fed90e4264167b5e2523d",
+  "silenceOutput": {
+    "path": "src/content/garen-q-silence-particles.json",
+    "sha256": "49d59d695d2ce541328ddae13803fa66de86a54041ab2cb41f8bc63bb3ccab02"
+  },
+  "silenceFlexApplied": false,
   "implemented": [
     {
       "system": "Garen_Q_Sword_Trail",
@@ -105,14 +110,13 @@
     {
       "system": "Garen_Q_Land",
       "index": 3
+    },
+    {
+      "system": "Garen_Q_Silence",
+      "index": 0
     }
   ],
   "deferred": [
-    {
-      "system": "Garen_Q_Silence",
-      "index": 0,
-      "reason": "recipient size/atlas/stop integration"
-    },
     {
       "system": "Garen_Q_mis_axis_01",
       "index": 0,
@@ -828,5 +832,39 @@
       ]
     }
   ],
-  "status": "Twenty-one Q emitters reconstructed: weapon, activation/armed, confirmed-contact and ground events. Native dispatch, attachment and rendering parity unverified."
+  "silenceGpuSamples": [
+    {
+      "profileIndex": 0,
+      "silence": true,
+      "ground": false,
+      "impact": false,
+      "sourceUv": [
+        0.251953125,
+        0.189453125
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        222,
+        255
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        254
+      ]
+    }
+  ],
+  "status": "Twenty-two Q emitters locally reconstructed. Silence uses an explicit health-bar anchor; Flex bound-size offset, native dispatch/attachment/rendering parity remain unverified."
 }

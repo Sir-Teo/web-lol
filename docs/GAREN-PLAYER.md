@@ -146,3 +146,12 @@ commitment policy. Accepted ground bursts finish naturally through later movemen
 death and reload. RGB scrolling and locked unscrolled alpha now have independent
 GPU checks, including the existing sword mesh. Ten emitter records and native
 timing/attachment/material calibration remain open.
+
+The Q silence icon now follows the living recipient from accepted control
+history. Schema 85 retains its actual deadline, including Courage tenacity;
+generic silence cannot create or extend it. Overlapping Q sources coalesce one
+icon using the oldest active contact's clock. Target fog/death and match end
+remove the icon, while caster death/recast leaves accepted control intact.
+The local health-bar-plus-source-offset anchor is provisional: source Flex
+bound-size offset scaling and native attachment remain unverified. Q now renders
+twenty-two emitter records; nine others remain deferred.

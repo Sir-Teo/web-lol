@@ -31,6 +31,7 @@ const records: ChampionState['garenQVisuals'] = [
         endReason: null,
         impact: null,
         landing: { tick: 28, point: { x: 40, y: 20 }, facing: 0.6 },
+        silenceEndTick: null,
       },
     ],
   },
@@ -52,8 +53,8 @@ test('five ground profiles retain complete fields, source absent jump frame/bone
   const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
   expect(hash(audit.groundOutput.path)).toBe(audit.groundOutput.sha256);
   expect(hash('docs/reference/garen-q-ground-reader.json')).toBe(audit.groundReaderEvidenceSha256);
-  expect(audit.implemented).toHaveLength(21);
-  expect(audit.deferred).toHaveLength(10);
+  expect(audit.implemented).toHaveLength(22);
+  expect(audit.deferred).toHaveLength(9);
   expect(audit.groundRetentionBoundTicks).toBeLessThan(GAREN_Q_AUDIO_TAIL_TICKS);
   for (let level = 1; level <= 18; level++)
     expect(
@@ -194,7 +195,7 @@ test('target loss before the event suppresses landing; loss/death after dispatch
   expect(garenQGroundParticles(w.hero.id, w.player.garenQVisuals, w.tick)).toEqual([]);
 });
 
-test('schema 84 rejects missing, future, wrong-frame, malformed and obligatorily absent landing anchors', () => {
+test('schema 85 rejects missing, future, wrong-frame, malformed and obligatorily absent landing anchors', () => {
   const { w, event } = setup(),
     early = JSON.parse(w.snapshot());
   const attack = (s: any) => s.player.garenQVisuals[0].attacks[0];
@@ -208,7 +209,7 @@ test('schema 84 rejects missing, future, wrong-frame, malformed and obligatorily
   }
   w.step(event - w.tick);
   const late = JSON.parse(w.snapshot());
-  expect(late.version).toBe(84);
+  expect(late.version).toBe(85);
   for (const mutate of [
     (s: any) => (attack(s).landing = null),
     (s: any) => attack(s).landing.tick++,

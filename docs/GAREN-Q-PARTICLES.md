@@ -3,11 +3,12 @@
 All eleven base Q resource keys now have frozen source definitions, including
 31 emitter records, 29 lossless textures and four exact mesh conversions. The
 development inspector exposes all assets and definitions. This is source
-preparation plus twenty-one live emitters: the weapon trail, eight activation/armed,
-seven confirmed-contact and five jump/landing layers. Ten emitter records and native
-rendering remain open. Gameplay values are unchanged; schema 84 retains attack
-outcomes, presentation stops and the landing event's ground anchor. Garen remains
-outside production selection.
+preparation plus twenty-two local emitters: the weapon trail, eight activation/armed,
+seven confirmed-contact, five jump/landing and one recipient-silence layer. Nine
+emitter records, silence Flex sizing/attachment and native rendering remain open.
+Gameplay values are unchanged; schema 85 retains attack outcomes, presentation
+stops, landing anchors and accepted silence deadlines. Garen remains outside
+production selection.
 
 ## Frozen dependency closure
 
@@ -68,7 +69,7 @@ The 29 PNGs total 1,250,707 bytes. Six existing images are reused only after exa
 dimension/RGBA comparison; 23 new images add 1,119,506 bytes. The decoded audit
 records source/output/RGBA hashes and dimensions, including lookup, distortion,
 sprite and mesh maps. Four GLBs add 50,208 bytes. The live adapter requests all four
-meshes and nineteen textures only on Garen presence. The ordinary fixture requests
+meshes and twenty-one textures only on Garen presence. The ordinary fixture requests
 none of the new Q graphics. Unused textures remain inspection assets. Shared
 textures retain their existing W/E/R consumers.
 
@@ -152,12 +153,12 @@ the actual release, one successful contact per activation, chronological stops,
 recasts, terminal reasons and ongoing-cycle correspondence. Impacts are captured
 before lethal damage can clear attack state or end a match. They survive target
 loss, caster death, later orders and reload. Confirmed contacts now drive the
-separate target adapter below; silence dispatch remains open. Retention remains
+separate target adapter below; accepted silence has its own deadline below. Retention remains
 the existing 200-tick sound tail, which also covers this short mesh life.
 
 `export-garen-q-particles.py` pins the trail and cast profiles and accounts
-explicitly for all ten deferred emitter records and the empty buff system.
-Renderer/profiles, four GLBs and nineteen textures load on Garen presence, with shared
+explicitly for all nine deferred emitter records and the empty buff system.
+Renderer/profiles, four GLBs and twenty-one textures load on Garen presence, with shared
 concurrent loads, partial-failure cleanup and cached successful reuse. Each live particle
 owns its material; geometry/textures remain shared when a particle retires or
 fog removes it. Native timing, other Q layers, distortion, shader/attachment
@@ -391,3 +392,78 @@ reviewed. The close-up landing composite still shows visible quad boundaries;
 native sampling, material/pass composition and attachment calibration remain open.
 The ten remaining emitter records and full Garen/production acceptance are not
 certified by these checks. See [PROGRESS](PROGRESS.md) for current validation.
+
+## Recipient silence and accepted control history — October 21, 2026
+
+`Garen_Q_Silence` now draws one camera-facing icon on a living recipient. Schema
+**85** adds `attacks[].silenceEndTick`, recorded only after `applySilence` accepts
+an actual Q contact. Planned/cancelled swings, lethal contacts and structures
+retain null. The saved deadline uses the actual current Courage tenacity result,
+90 or 36 local ticks. It is independent of a longer generic `silenceUntil`.
+The original CC calculation and spell/recall rules are unchanged; this field
+records the accepted result for presentation.
+
+The decoder requires the field, an actual contact, a supported duration and a
+consistent living recipient deadline. It rejects invented pre-contact control,
+missing known acceptance, invalid durations and contradictory global state.
+A same-tick recipient death can precede or follow application, so both lethal
+rejection and accepted-then-killed histories remain valid. After a possible
+respawn, old historical acceptance cannot always be inferred from the current
+recipient; expired history remains bounded by the existing retention. The
+90-tick maximum CC fits the saved 200-tick Q tail, including late committed
+pre-expiry swings. Old snapshots follow the existing version/ruleset rejection
+and retention policy.
+
+The renderer derives active applications from saved source histories. It coalesces
+one icon per recipient by selecting the oldest active Q contact, breaking ties by
+source ID. When that application ends, another active source continues at its
+original age. A practice recast, a new shorter application or caster death cannot
+lengthen or erase an earlier accepted application's deadline. Generic silence
+alone creates no Q icon, and longer generic control cannot keep it after its own
+Q deadline. This is explicit local overlap/dispatch policy, not verified native
+buff-script behavior. Source particle life stays ten seconds: the pop reaches its
+source 1.2/0.8/1 scale keys around 0.1/0.2/0.3 seconds rather than being compressed
+to the CC duration. Local status stopping removes the icon immediately. No
+unverified fade or automatic loop is added.
+
+The single source record retains every field, including bind weight one,
+`isLocalOrientation=false`, a 50-unit uniform birth size, source scale curve,
+white color lookup, alpha blend, pass one and disabled depth test. Its 2×2 atlas
+has no authored frame count, frame rate or random-start flag. The pinned reader
+default therefore selects cell zero; four grid cells are not treated as four
+animation frames. The source texture/lookup are the unchanged `Silence03` and
+`color-white32` images, adding two selected texture paths but no binary assets.
+An independent first-cell PNG sample adds two GPU product/blend comparisons,
+bringing Q's total to forty-two comparisons.
+
+The source `FlexShapeDefinition.scaleEmitOffsetByBoundObjectSize` value
+`0.004999999888241291` is preserved in full, with `silenceFlexApplied=false` in
+the audit. The [schema declaration](https://leaguetoolkit.github.io/LeagueToolkit/api/LeagueToolkit.Meta.Classes.VfxFlexShapeDefinitionData.html)
+confirms the field but does not establish its computation or the native bound
+size metric. No formula is inferred from the name. The current explicit local
+anchor follows the recipient's interpolated model root, adds the existing HUD
+health-bar height and then the unchanged `(10,55,0)` source offset at 0.01 scale.
+Its offset is not rotated with recipient yaw; the quad faces the camera. The
+health-bar helper was extracted without changing its existing height policy.
+This is a provisional readable overhead anchor, not a native bone or a verified
+Flex implementation. The close-up capture still places the icon near the name
+label; native size/attachment and label clearance require calibration.
+
+Recipient visibility/model presence gates the draw, independently of caster
+visibility. A friendly victim can display its known silence even when its enemy
+caster is hidden or dead. Enemy-recipient fog disposes the owned material; reveal
+reconstructs the current source age. Recipient death or match end removes the
+icon, and respawn cannot replay the expired application. Geometry/textures remain
+shared on disposal. Loading now includes four meshes and twenty-one texture paths;
+ordinary Ashe/Lux startup requests none of the new Q graphics.
+
+Eight new unit cases cover source fields and unresolved Flex state, source pop
+and stopping, deterministic coalescing/handoff, actual accepted/rejected contacts,
+Courage tenacity versus generic control, late armed expiry with multiple sources,
+death/recast/reload and malformed saves.
+Three new real-game Chrome cases check the icon's atlas/depth, independent local
+placement, camera/recipient following, exact checkpoints, original CC expiry,
+caster/victim death, respawn, actual fog, multiple sources and match end. The
+1440×900 capture was visually reviewed. Twenty-two emitter records now draw
+locally; nine others, native silence Flex/script/attachment and broader visual
+calibration remain open. Current complete validation is recorded in [PROGRESS](PROGRESS.md).

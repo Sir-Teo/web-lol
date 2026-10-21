@@ -1894,8 +1894,11 @@ export class World {
               expireGarenQ(state, this.tick);
             }
             this.hitBasicAttack(u, target, payloads.reduce((sum, p) => sum + p.damage, 0) + qBonus);
-            if (qRank !== undefined)
-              this.applySilence(target, Math.round(GAREN_Q.silenceSeconds * TICK_RATE));
+            if (qRank !== undefined) {
+              const duration = Math.round(GAREN_Q.silenceSeconds * TICK_RATE);
+              if (this.applySilence(target, duration) && history)
+                history.silenceEndTick = this.tick + this.controlDurationTicks(target, duration);
+            }
           } else
             for (const [index, payload] of payloads.entries()) {
               const projectile: Projectile = {
@@ -2002,6 +2005,7 @@ export class World {
               endReason: null,
               impact: null,
               landing: null,
+              silenceEndTick: null,
             });
         }
         return;

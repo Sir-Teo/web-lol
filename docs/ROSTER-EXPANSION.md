@@ -618,3 +618,27 @@ captures were reviewed; visible quad boundaries in the landing composite and
 native material/attachment calibration remain open. See [Q ground events](GAREN-Q-PARTICLES.md#jump-and-landing-ground-events--october-21-2026)
 and [current validation](PROGRESS.md#decisive-strike-jump-and-landing-particles--october-21-2026).
 Ten emitters and full Garen/production/full-match acceptance remain unfinished.
+
+## Decisive Strike recipient silence — October 21, 2026
+
+Q's recipient icon now uses a saved accepted-control deadline, including Courage
+tenacity, independently of generic silence. Schema 85 adds the nullable deadline
+to each captured attack. Rejected/lethal/structure hits remain null. Source
+ten-second appearance, cell-zero atlas, blend/pass/depth and white lookup are
+retained; overlapping Q applications coalesce one icon with original clocks.
+Recipient visibility/death/match end gates the icon independently of its caster.
+Combat and silence rules are unchanged.
+
+All 1,038 checks, 41 focused Chrome cases, forty-two GPU product/blend comparisons,
+model/map validation and 48-output byte-identical reproduction pass. Production
+build/nested-path smoke passes with seventeen recordings, real Ashe/Lux input and
+the Garen gate intact. New status checks cover tenacity/generic separation, late
+armed expiry, multiple sources and
+checkpoints, target/caster death, respawn, actual fog and overlap handoff. The
+reviewed capture uses a provisional health-bar-plus-source-offset anchor; native
+Flex sizing/attachment and label clearance remain open. Twenty-two emitters now
+draw locally, loading four meshes/twenty-one textures only on Garen presence.
+See [silence details](GAREN-Q-PARTICLES.md#recipient-silence-and-accepted-control-history--october-21-2026)
+and [current validation](PROGRESS.md#decisive-strike-recipient-silence--october-21-2026).
+Nine emitter records and full Garen/native/production/full-match acceptance remain
+unfinished.

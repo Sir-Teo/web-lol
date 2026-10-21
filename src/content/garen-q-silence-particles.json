@@ -1,0 +1,115 @@
+{
+  "system": "Garen_Q_Silence",
+  "index": 0,
+  "name": "Silence",
+  "mesh": null,
+  "texture": "assets/effects/silence03.png",
+  "lookup": "assets/effects/color-white32.png",
+  "count": 1,
+  "life": 10.0,
+  "emitterLife": null,
+  "offset": [
+    10.0,
+    55.0,
+    0.0
+  ],
+  "flexShape": {
+    "scaleEmitOffsetByBoundObjectSize": 0.004999999888241291,
+    "__type": "VfxFlexShapeDefinitionData"
+  },
+  "bindWeight": 1.0,
+  "size": [
+    50.0,
+    50.0,
+    50.0
+  ],
+  "scale": {
+    "times": [
+      0.0,
+      0.009999999776482582,
+      0.019999999552965164,
+      0.029999999329447746,
+      1.0
+    ],
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158
+      ],
+      [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      [
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0
+      ]
+    ]
+  },
+  "color": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "local": false,
+  "uniform": true,
+  "blend": 1,
+  "renderOrder": 1,
+  "miscRenderFlags": 1,
+  "lookupTypes": [
+    1,
+    0
+  ],
+  "lookupScales": [
+    1,
+    1
+  ],
+  "lookupOffsets": [
+    0,
+    0
+  ],
+  "atlas": {
+    "grid": [
+      2.0,
+      2.0
+    ],
+    "frames": 1,
+    "start": 0,
+    "random": false
+  },
+  "explicitFields": [
+    "FlexShapeDefinition",
+    "SpawnShape",
+    "__type",
+    "bindWeight",
+    "birthScale0",
+    "blendMode",
+    "emitterName",
+    "isLocalOrientation",
+    "isSingleParticle",
+    "isUniformScale",
+    "meshRenderFlags",
+    "miscRenderFlags",
+    "particleColorTexture",
+    "particleLifetime",
+    "pass",
+    "rate",
+    "scale0",
+    "texDiv",
+    "texture"
+  ]
+}
