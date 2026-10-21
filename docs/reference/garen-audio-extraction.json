@@ -1,0 +1,102 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Champions/Garen.wad.client",
+  "chunks": {
+    "DA567E4A92CDAEA7": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+      "offset": 32228838,
+      "bytes": 67713,
+      "sha256": "ea3fe3ef4a84f728ab7bfd514e5b8abb1a818a9cc4e9ea113d0e09d26066a41f"
+    },
+    "5941DBBE0BBF6E07": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 7845061,
+      "bytes": 35639,
+      "sha256": "b731fafe45fd27c912e47009d8483ad653384ee86728b687f84642c109d4b42c"
+    },
+    "3CC0886AA7959266": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23038628,
+      "bytes": 143418,
+      "sha256": "b4d0f61e40dd195bce257403242ef82d07b4c2e382e26401acbb863dddb532d4"
+    },
+    "4A2F6BC83AD6C667": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23182046,
+      "bytes": 172587,
+      "sha256": "ec31a6c0232bb6e95491ad5c8a03ac55e5d6bfde409e5fa6bd016093ed5acf53"
+    },
+    "CFCC3DC276BD3413": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23354633,
+      "bytes": 79451,
+      "sha256": "48122688fb9f4041318814905210a366d7769c49a3efd024bb6da6f6c703bec8"
+    },
+    "FBDE25764277CD33": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23434084,
+      "bytes": 62243,
+      "sha256": "f83ad0e875cdfd3a63662a7d67faac3fc1e9fe9369e758ac889ba47b73eec8dd"
+    },
+    "4496D8C3CC55CD3A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23496327,
+      "bytes": 168511,
+      "sha256": "ed938348d7105dabbb7345ad37d94cdbe0b35a17d26dd967dc964b64b2cb8e06"
+    },
+    "DA7D5DDEF2501DB5": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23664838,
+      "bytes": 124131,
+      "sha256": "05a4fcf55cf0c68431b5b7210e282aa7cf6983e07b54399ed5e2c9b8010d2750"
+    },
+    "1742C6F3EDC9A8ED": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23788969,
+      "bytes": 108544,
+      "sha256": "90d49f318047b1ce3386ec6828b0e0bbe7b9769b1096cd9f14f6f06eecfe45c1"
+    },
+    "DFC3A8875E1BE410": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 23897513,
+      "bytes": 259692,
+      "sha256": "85872ff7b09847949c3a1608b2591ed985ca32e1c3d1daed186a752d8a642982"
+    },
+    "6A810BDB17930956": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 24157205,
+      "bytes": 376300,
+      "sha256": "0565ff6de6010a6da574a6c59d6ccd16d6aca2cd038b5f6be7baf8a46791b6b3"
+    },
+    "7653AC37530CEE59": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 24533505,
+      "bytes": 73441,
+      "sha256": "6f1ced574ac8130c85bcd0fb6d29264af256601c51552b1cb924792b1028495d"
+    },
+    "F6B28500CDE85509": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+      "offset": 37447973,
+      "bytes": 3949,
+      "sha256": "f3e180f80f299047de141b24c8e1ef060a5013a4bf2bc35da52f892630b7d4cf"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/garen/skins/base/garen_base_sfx_audio.bnk",
+      "wadPathHash": "e01fe1f4e1a99402",
+      "sha256": "5af59f84279984a490cc3c5acc5252c6ae532fb7eb007a9e5e8ce5d33dd6655b",
+      "bytes": 1596249
+    },
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/garen/skins/base/garen_base_sfx_events.bnk",
+      "wadPathHash": "0f5422929fb720a1",
+      "sha256": "961fafe52335fdb85eb3ea7fdf8520aaaa208962141f1bbe3da1a81b08cc0217",
+      "bytes": 14533
+    }
+  ]
+}
