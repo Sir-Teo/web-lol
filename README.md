@@ -15,7 +15,7 @@ Open the localhost address printed by Vite. The game opens directly into Ashe pr
 
 Open `/map.html` on the same server to inspect the full reference terrain, original compressed textures, and matching navigation overlay. The default game uses this same terrain and navigation grid. The original small scene remains available at `/?scene=fixture` in development for regression tests. See [map assets and fidelity audit](docs/MAP-ASSETS.md) for source selection, reproducible conversion, and remaining work.
 
-The development-only `/?scene=fixture&champion=garen` fixture adds human Garen controls and HUD for kit testing. Q/W/E activate directly; hold R over a visible enemy champion in range and release. Garen is still excluded from production selection while full presentation and native calibration remain open. See [Garen player fixture](docs/GAREN-PLAYER.md) for learning, setup and checkpoint behavior.
+The development-only `/?scene=fixture&champion=garen` fixture adds human Garen controls and HUD for kit testing. Q/W/E activate directly; hold R over a visible enemy champion in range and release. Judgment now draws four [source mesh/trail layers](docs/GAREN-SPIN.md), with checkpoint-stable particle tails. Garen is still excluded from production selection while full presentation and native calibration remain open. See [Garen player fixture](docs/GAREN-PLAYER.md) for learning, setup and checkpoint behavior.
 
 ```sh
 npm run check

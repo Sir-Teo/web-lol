@@ -39,6 +39,18 @@ simulation/source checks and 21 focused player/HUD/import browser cases pass.
 Production continues to reject the fixture flags and Garen roster selection;
 complete presentation, native calibration and full role integration remain open.
 
+[Judgment's source-particle adapter](GAREN-SPIN.md) now renders two source mesh
+layers and two rotating trail quads, using frozen Riot assets and authored
+appearance curves. Active particles and stopped tails survive schema-76
+checkpoints; hidden enemy effects are suppressed and expired materials are
+disposed. The two ground-glow emitters and native composition remain open.
+All 918 source/simulation tests and 29 focused Garen/Ashe/Lux/input/import browser
+scenarios pass. Production build/nested-host smoke and all model/map validators
+pass. The validation entry point also now reads the shared conversion ledger for
+the three existing Lux target meshes. The source spin capture was visually
+reviewed. Garen remains excluded from production selection; complete effects,
+audio, native calibration and full-match work remain in scope.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

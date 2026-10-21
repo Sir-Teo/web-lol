@@ -1,0 +1,47 @@
+{
+  "output": {
+    "path": "/assets/models/garen-spin.glb",
+    "bytes": 89540,
+    "sha256": "e2d09e1950417d078331a3c399b25f8c0ef2ad70934b334318d1c7a363914af8"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_base_e_spin.scb",
+    "wadPathHash": "11599f0f26f63cfb",
+    "sha256": "8c86ab50979512f9a597a043b2d02ed1a0ac9b43f504800a7965170599603bbc",
+    "bytes": 140976
+  },
+  "auxiliaryAssets": [
+    {
+      "path": "/assets/effects/garen_base_e_spin_edge.png",
+      "bytes": 33246,
+      "sha256": "3dcc3da4d80432efb811719be1e977f7fc52966d53f329358aa17a400c1c5ba5"
+    },
+    {
+      "path": "/assets/effects/garen_base_e_spin_topdown.png",
+      "bytes": 103269,
+      "sha256": "9453d5a671a870d06e1aae84df926f22c58e90ef8b241e6f82dc85971486517a"
+    },
+    {
+      "path": "/assets/effects/garen_base_e_sword_trail.png",
+      "bytes": 116087,
+      "sha256": "3d5b72cad487edec50a4683a4093bc5822ba96dbd5d5ad44914c49bd89a45908"
+    },
+    {
+      "path": "/assets/effects/garen_base_w_ground_glow.png",
+      "bytes": 11365,
+      "sha256": "39b4595fac6147e7abd925dce09a241b319b73712cd22da26a33c9ec54b921f2"
+    },
+    {
+      "path": "/assets/effects/garen_color-rampdown.png",
+      "bytes": 277,
+      "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe"
+    }
+  ],
+  "sourceVertices": 612,
+  "triangles": 1224,
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

@@ -30,7 +30,12 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { GAREN_W } from '../content/garen-w';
 import { GAREN_E } from '../content/garen-e';
-import { GAREN_E_DURATION_TICKS, garenEStrikes, garenEStrikeTick } from './garen-e';
+import {
+  GAREN_E_DURATION_TICKS,
+  GAREN_E_VISUAL_TAIL_TICKS,
+  garenEStrikes,
+  garenEStrikeTick,
+} from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 import { GAREN_PASSIVE } from '../content/garen-passive';
@@ -43,7 +48,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 75;
+export const SNAPSHOT_VERSION = 76;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -325,6 +330,9 @@ const player: z.ZodType<PlayerState> = z
     qUntil: deadline,
     qStackExpiry: deadline,
     garenRReveal: z.strictObject({ targetId: id, startTick: tick, endTick: tick }).nullable(),
+    garenEVisual: z
+      .strictObject({ startTick: tick, stopTick: tick.nullable(), facing: z.number().finite() })
+      .nullable(),
     garenE: z
       .strictObject({
         startTick: tick,
@@ -1304,6 +1312,22 @@ export function decodeSnapshot(text: string) {
           ? ability === 'r'
           : champion.champion === 'ashe' && ability !== 'q';
     const spin = owner.garenE;
+    const visual = owner.garenEVisual;
+    if (visual) {
+      if (
+        champion.champion !== 'garen' ||
+        !owner.spellRanks.e ||
+        visual.startTick > state.tick ||
+        (visual.stopTick === null
+          ? !spin || spin.startTick !== visual.startTick
+          : !!spin ||
+            visual.stopTick < visual.startTick ||
+            visual.stopTick > state.tick ||
+            visual.stopTick > visual.startTick + GAREN_E_DURATION_TICKS ||
+            state.tick >= visual.stopTick + GAREN_E_VISUAL_TAIL_TICKS)
+      )
+        throw new Error('Saved match contains invalid Judgment visual state.');
+    } else if (spin) throw new Error('Saved Judgment spin is missing its visual state.');
     if (spin) {
       const expectedCompleted = Array.from({ length: spin.strikes }, (_, i) => i + 1).filter(
         (i) => garenEStrikeTick(spin.startTick, spin.strikes, i) <= state.tick

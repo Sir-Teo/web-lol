@@ -1,0 +1,96 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Champions/Garen.wad.client",
+  "chunks": {
+    "DA567E4A92CDAEA7": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+      "offset": 32228838,
+      "bytes": 67713,
+      "sha256": "ea3fe3ef4a84f728ab7bfd514e5b8abb1a818a9cc4e9ea113d0e09d26066a41f"
+    },
+    "5941DBBE0BBF6E07": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+      "offset": 7845061,
+      "bytes": 35639,
+      "sha256": "b731fafe45fd27c912e47009d8483ad653384ee86728b687f84642c109d4b42c"
+    },
+    "EAF80DABBAEB2768": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+      "offset": 37358799,
+      "bytes": 9271,
+      "sha256": "e5e7f841d8f03b1b30d4484183ac991eac335534323012203781522f9521253e"
+    },
+    "4F685B419A7BF0B1": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/EE1B26E23E4A56A3.bundle",
+      "offset": 29806528,
+      "bytes": 33187,
+      "sha256": "b88f4f6085d7fa1bd80f8d86bb2469ae56389bc364251ef9412891b4e86fd7c5"
+    },
+    "1C6CDB452FF623BC": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/EE1B26E23E4A56A3.bundle",
+      "offset": 16241784,
+      "bytes": 87974,
+      "sha256": "c67661b423b8cf3120d2a25f07664b18cce0e84a0ef626acf283c5d44050e6d5"
+    },
+    "3234CAE3FB210492": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+      "offset": 42884351,
+      "bytes": 107598,
+      "sha256": "a5f114325d8a1312b001ca60aa6e2a792489a2e51feb0fd37753d35b5122db1d"
+    },
+    "DBF15D8099BEDC33": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/EE1B26E23E4A56A3.bundle",
+      "offset": 1216522,
+      "bytes": 9416,
+      "sha256": "90a339bb71fbb888550f29b14660c23ea079df39b6aa261ed41540703f787e3e"
+    },
+    "3756931D8FC2CEEE": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/18B263098BDB71CF.bundle",
+      "offset": 12006527,
+      "bytes": 227,
+      "sha256": "4994fa5de4926fab0ab1c000e6e0b7dedafbad3a853ce316653adfa02910d849"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_base_e_spin.scb",
+      "wadPathHash": "11599f0f26f63cfb",
+      "sha256": "8c86ab50979512f9a597a043b2d02ed1a0ac9b43f504800a7965170599603bbc",
+      "bytes": 140976
+    },
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_base_e_spin_edge.tex",
+      "wadPathHash": "48cedfeeda81043a",
+      "sha256": "522d4bae335281f2e1af48adc9bdc5dcb84b1efe762d902a3e649db1631c2017",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_base_e_spin_topdown.tex",
+      "wadPathHash": "b1aa4d220792964a",
+      "sha256": "0c792c3ed311f856bd1f1a25280e75625d64d82564cfb052b5f18472ca11d088",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_base_e_sword_trail.tex",
+      "wadPathHash": "9764953fc07aa9d0",
+      "sha256": "b57906a29a5cda0e0edfaa69bf3e4432a15e8aa242b044c407b6ab21f720c3b3",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_base_w_ground_glow.tex",
+      "wadPathHash": "8296782e14ae13dc",
+      "sha256": "2925f5b43af40fcaeea6788bbef0a5966f10c22b67ce4594d2177e2592982d28",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_color-rampdown.tex",
+      "wadPathHash": "c7431fd60c1f3b28",
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+      "bytes": 2756
+    }
+  ]
+}

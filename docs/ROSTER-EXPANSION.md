@@ -238,3 +238,12 @@ All 911 source/simulation tests, TypeScript and 21 focused browser cases pass;
 wide/small HUD captures were visually reviewed. Production/nested-host smoke
 checks that diagnostic flags do not change the ordinary player/roster. Effects,
 source audio, native calibration, directional spin and full role AI remain open.
+
+## Judgment source mesh and trails
+
+[GAREN-SPIN.md](GAREN-SPIN.md) adds four of the six inline E emitters with the
+frozen Riot mesh, lossless source textures, authored appearance curves and
+deterministic particle sampling. Schema 76 preserves active and stopped visual
+intervals, including tails after recast, R, natural completion and death. The two
+glow emitters and native composition remain open. This increment keeps Garen's
+production selection gate in place.

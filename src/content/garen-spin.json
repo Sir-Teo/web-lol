@@ -1,0 +1,702 @@
+[
+  {
+    "index": 0,
+    "name": "Outer_mesh",
+    "kind": "mesh",
+    "rate": 7.0,
+    "delay": 0,
+    "life": {
+      "value": 0.75,
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            2.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "linger": 0.8500000238418579,
+    "offset": [
+      0.0,
+      170.0,
+      0.0
+    ],
+    "velocity": {
+      "value": [
+        0.0,
+        -70.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.10000000149011612,
+            1.2999999523162842
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotationalVelocity": {
+      "value": [
+        0.0,
+        -60.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.0
+          ],
+          "values": [
+            0.25,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "birthScale": [
+      3.5,
+      4.5,
+      3.5
+    ],
+    "scale": {
+      "dynamics": {
+        "times": [
+          0.0,
+          0.20000000298023224,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.20000000298023224,
+            0.20000000298023224,
+            0.20000000298023224
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.10000000149011612
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "__type": "VfxAnimatedColorVariableData"
+    },
+    "scroll": {
+      "value": [
+        -3.0,
+        0.10000000149011612
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.5
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "blend": 4,
+    "renderOrder": 100,
+    "texture": "assets/effects/garen_base_e_spin_edge.png"
+  },
+  {
+    "index": 1,
+    "name": "inner_mesh",
+    "kind": "mesh",
+    "rate": 4.0,
+    "delay": 0,
+    "life": {
+      "value": 0.699999988079071,
+      "probabilities": null
+    },
+    "linger": 0.5,
+    "offset": [
+      0.0,
+      110.0,
+      0.0
+    ],
+    "velocity": {
+      "value": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            90.0,
+            -360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotationalVelocity": {
+      "value": [
+        0.0,
+        -300.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.0
+          ],
+          "values": [
+            0.25,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "birthScale": [
+      1.2000000476837158,
+      4.0,
+      1.2000000476837158
+    ],
+    "scale": {
+      "dynamics": {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            2.0,
+            2.0,
+            2.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        0.5,
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "__type": "VfxAnimatedColorVariableData"
+    },
+    "scroll": {
+      "value": [
+        0.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.20000000298023224
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "blend": 4,
+    "renderOrder": 3,
+    "texture": "assets/effects/garen_base_e_spin_edge.png"
+  },
+  {
+    "index": 2,
+    "name": "edge",
+    "kind": "quad",
+    "rate": 4.0,
+    "delay": 0.20999999344348907,
+    "life": {
+      "value": 0.6000000238418579,
+      "probabilities": null
+    },
+    "linger": 0.15000000596046448,
+    "offset": [
+      0.0,
+      160.0,
+      0.0
+    ],
+    "velocity": {
+      "value": [
+        0.0,
+        -130.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        1.0,
+        90.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            -360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotationalVelocity": {
+      "value": [
+        0.0,
+        -600.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.8500000238418579
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "birthScale": [
+      250.0,
+      250.0,
+      250.0
+    ],
+    "scale": {
+      "dynamics": {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.800000011920929,
+          0.800000011920929,
+          0.5
+        ]
+      ],
+      "__type": "VfxAnimatedColorVariableData"
+    },
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "blend": 4,
+    "renderOrder": -10,
+    "texture": "assets/effects/garen_base_e_sword_trail.png"
+  },
+  {
+    "index": 3,
+    "name": "Top_Down_base",
+    "kind": "quad",
+    "rate": 2.0,
+    "delay": 0.20999999344348907,
+    "life": {
+      "value": 1.0,
+      "probabilities": null
+    },
+    "linger": 0.15000000596046448,
+    "offset": [
+      0.0,
+      160.0,
+      0.0
+    ],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        1.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "rotationalVelocity": {
+      "value": [
+        0.0,
+        -1500.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.8500000238418579
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "birthScale": [
+      290.0,
+      290.0,
+      290.0
+    ],
+    "scale": {
+      "constantValue": [
+        1,
+        1,
+        1
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        0.4000000059604645,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7099999785423279
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "__type": "VfxAnimatedColorVariableData"
+    },
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "blend": 1,
+    "renderOrder": 50,
+    "texture": "assets/effects/garen_base_e_spin_topdown.png"
+  }
+]

@@ -6,6 +6,8 @@ import { growthAtLevel } from './progression';
 export const GAREN_E_DURATION_TICKS = Math.round(GAREN_E.durationSeconds * TICK_RATE);
 // Local recast lock; native script timing still requires a capture.
 export const GAREN_E_RECAST_TICKS = TICK_RATE;
+// Bounds the selected source particles (largest stop-life cap is 0.85 seconds).
+export const GAREN_E_VISUAL_TAIL_TICKS = TICK_RATE;
 
 /** The current item catalog supplies no attack speed. Temporary attack-speed
  * multipliers do not count as item or level growth for Judgment. */

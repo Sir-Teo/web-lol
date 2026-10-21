@@ -1,5 +1,12 @@
 # Local match checkpoints
 
+Version 76 adds Garen Judgment's required nullable visual interval: original start,
+captured facing and nullable stop tick. Active intervals must agree with the
+ongoing spin; stopped intervals must have valid bounded timing and expire after
+one second. Recast, R, death and natural completion preserve particle tails
+through save/reload. Earlier builds remain incompatible under the same-build
+policy. See [GAREN-SPIN.md](GAREN-SPIN.md).
+
 Version 75 permits a Garen player only on `practice-fixture`, retaining all existing kit, targeted-cast, rank and ownership checks. The constructor/decoder reject a Rift Garen player, and fixture imports cannot cross the battlefield boundary. Matching Garen fixture saves restore paused, and restart retains the diagnostic champion. Production selection still excludes Garen. Earlier builds remain incompatible under the same-build policy. See [GAREN-PLAYER.md](GAREN-PLAYER.md).
 
 Version 74 adds active Judgment state: captured rank/count/cooldown, completed-strike cadence and per-champion contact counts, plus required per-unit source-owned armor debuffs. Validation checks ownership, ranks, exact timelines, reachable counts/cooldowns, unique enemy recipients and incompatible actions. Stored armor is restored without reapplying the derived debuff. This version also rejects Courage stacks before W is learned, following Riot's 25.23 bug fix. All Garen spell ranks are now supported for NPCs; player Garen remains unavailable. Earlier formats are incompatible.

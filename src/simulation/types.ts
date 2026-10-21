@@ -284,6 +284,8 @@ export interface ChampionState {
   garenCourageStacks: number;
   /** Target-only sight persists independently of the caster's windup and life. */
   garenRReveal: { targetId: number; startTick: number; endTick: number } | null;
+  /** Retained independently so stopped Judgment particles survive a checkpoint. */
+  garenEVisual: { startTick: number; stopTick: number | null; facing: number } | null;
   garenE: {
     startTick: number;
     endTick: number;

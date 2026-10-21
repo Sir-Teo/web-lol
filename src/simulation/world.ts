@@ -39,6 +39,7 @@ import {
   GAREN_E_RECAST_TICKS,
   garenEStrikes,
   garenEStrikeTick,
+  GAREN_E_VISUAL_TAIL_TICKS,
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_PASSIVE } from '../content/garen-passive';
@@ -465,6 +466,12 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
+      if (
+        state.garenEVisual &&
+        state.garenEVisual.stopTick !== null &&
+        this.tick >= state.garenEVisual.stopTick + GAREN_E_VISUAL_TAIL_TICKS
+      )
+        state.garenEVisual = null;
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
@@ -1668,6 +1675,7 @@ export class World {
   }
   private finishGarenE(state: ChampionState): void {
     if (!state.garenE) return;
+    if (state.garenEVisual) state.garenEVisual.stopTick = this.tick;
     state.cooldowns.e = this.tick + state.garenE.cooldownTicks;
     state.garenE = null;
     const source = this.unit(state.id);
@@ -3404,6 +3412,7 @@ export class World {
         ),
         hits: [],
       };
+      state.garenEVisual = { startTick: this.tick, stopTick: null, facing: u.facing };
       this.emit('cast', u, { unit: u.id, champion: 'garen', text: 'e', team: u.team });
       return;
     }

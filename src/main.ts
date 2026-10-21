@@ -34,6 +34,7 @@ import { loadLingerAurora } from './render/hawkshot-linger-aurora';
 import { loadHawkshot } from './render/hawkshot';
 import { loadRiftBattlefield } from './content/rift';
 import { PRACTICE_FIXTURE } from './content/practice-fixture';
+import { loadGarenSpin } from './render/garen-spin';
 
 const host = document.querySelector<HTMLElement>('#app')!;
 const loading = document.querySelector<HTMLDivElement>('#loading')!;
@@ -123,6 +124,7 @@ async function boot(): Promise<void> {
     loadInterfaceFonts(),
     audio.load(),
     loadReferenceModels(),
+    loadGarenSpin(),
     loadLuxBeamTextures(),
     loadLuxRStreakTextures(),
     loadLuxBokehTextures(),
