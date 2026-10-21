@@ -1,7 +1,9 @@
 # Demacian Justice integration contract
 
-R is not yet available to cast. This source contract precedes its targeted-cast,
-reveal, animation, AI and save integration.
+Garen NPCs can now learn and cast R through an explicit champion-target command.
+His source cast animation, target-only sight, execute decisions and checkpoint
+continuation are integrated. Player selection remains Ashe/Lux while Garen's E,
+complete input/HUD and audiovisual presentation remain unfinished.
 
 `tools/assets/export-garen-r.py` reads the frozen character BIN and the versioned
 [Data Dragon R record](reference/garen-r-ddragon.json). The latter was retained
@@ -51,27 +53,65 @@ damage values in that historical article do not replace the frozen current value
   multiplication involving `ExecuteDamage`. It is not a safe replacement for the
   documented damage formula without understanding its stat units and semantics.
 
-## Runtime work
+## Initial runtime integration — October 21, 2026
 
-1. Add explicit target identity to the cast command or a dedicated validated
-   champion-target command. Capture the target at acceptance; do not reselect
-   whichever unit happens to be closest to an old ground point at release.
-2. Validate enemy champion, visibility, vulnerability, range, learned rank,
-   cooldown and control gates before accepting the cast.
-3. Preserve a committed cast through ordinary movement/retarget commands under
-   the selected adapter; verify native hard-CC, displacement, death and target
-   disappearance behavior. Determine failure cooldown/refund and range-leash
-   policy from PC evidence, not Wild Rift rules.
-4. Add target-specific reveal through existing team vision. Do not use a broad
-   area reveal that leaks nearby units or hidden terrain. Native true-sight
-   semantics remain separate from ordinary fog visibility.
-5. Sample target missing health at the established damage event, use the captured
-   rank, and route true damage through shared shields, kill credit and Courage
-   stacking. Verify healing during windup, lethal/nonlethal boundaries and a target
-   dying before release.
-6. Retain target, rank, release and reveal deadlines in versioned snapshots with
-   ownership, chronology and reference validation.
-7. Teach bots to estimate the supported true-damage formula including shields,
-   without reading hidden target health or casting through an unsafe approach.
-8. Add source animation, particles, audio and browser checks. Keep Garen out of
-   player selection until his full kit and input/presentation flows are integrated.
+The existing cast command accepts an optional `targetId`. Only Garen R consumes
+that field; its target is required and is never inferred from the supplied ground
+point. Acceptance checks a living, vulnerable, visible enemy champion, learned
+rank, cooldown and control gates. Range currently uses a center-to-center 400-unit
+check. Dummies, lane minions, structures and allies cannot receive R. No resources
+or cooldown are spent on rejection. Learning uses the existing level 6/11/16 gates;
+Garen's unsupported E remains blocked.
+
+The local adapter rounds authored cast time upward to 27 ticks (0.45 seconds).
+It captures target/rank at acceptance, starts the hasted cooldown immediately and
+interrupts recall and ordinary basic-attack windups. An already committed Q strike
+rejects R until its release. Accepted R persists through ordinary orders, a new
+root/stun/silence, subsequent loss of sight, and target movement beyond cast range.
+The caster stays still during the windup and resumes its retained order afterward.
+Heal remains available; Flash and other new champion casts are blocked while R is
+pending. Caster death cancels damage; a target dying or disappearing never redirects
+R to another unit. These failures retain the cooldown under the current adapter.
+Native cancellation, leash, displacement and refund behavior remain unverified.
+
+One source-owned reveal record grants only the caster's team sight of the selected
+champion for exactly 60 ticks from acceptance. Unit rendering, targeting, observed
+stats and unit-attached combat feedback use this sight; terrain, neighboring units,
+and unrelated projectile visibility receive no new vision source. The record
+survives caster death and can retain the target's corpse until expiration. Target
+disappearance retires it and its pending cast. This implements ordinary target-only
+fog sight; stealth/true-sight rules are still outside the supported simulation.
+
+Damage samples missing health at release using the captured rank. Shared true
+damage processing supplies shields, kill/assist credit, Perseverance interruption,
+and Courage's independent kill counter. R launches no gameplay missile and applies
+no basic-attack on-hit or silence behavior. Source `spell4_base` playback maps its
+18.5/30-second cast marker to the 27-tick release, then plays the remaining clip
+at source speed. A subsequent action can replace the presentation. This piecewise
+playback is a local contact-marker policy; neither the source total-time field nor
+native animation precedence has been established by a matched capture.
+
+Bots prioritize learning available R ranks and consider a visible champion already
+within range only when current true damage covers health plus active shields.
+Existing retreat/group-combat and tower-avoidance decisions take precedence. The
+decision does not path into R range or read hidden health, and its queued command
+passes ordinary cast validation on the following tick. Healing, future shield
+expiry and other incoming damage are not forecast for this execute estimate.
+
+Snapshot version 73 retains the optional queued target, captured pending target/rank/
+release, and required nullable reveal state. Validation checks spell ownership,
+target references/team, exact timing, learned ranks, reveal/cast consistency and
+foreign payloads. The remaining windup and reveal continue identically on restore;
+earlier checkpoints are incompatible under the existing same-build policy.
+
+Validation: 14 new simulation cases cover all ranks, healing, shields/resistance,
+range/target/control rejection, committed orders/CC, isolated sight, rewards,
+death/disappearance, queued/pending restoration, forged saves, source animation,
+Q interaction and both teams' execute decisions. The complete 886-test suite and
+TypeScript pass. Four focused Q/W/R browser scenarios pass. The R capture at
+`artifacts/browser-garen-r-contact.png` was visually reviewed. Production build and
+nested static-hosting smoke pass with 17 source recordings and real Ashe/Lux casts.
+The existing large-bundle warning remains.
+
+Next work includes R particles/audio, native cast/reveal/cancellation comparison,
+Garen E, player input/HUD, and complete kit/role integration before roster selection.

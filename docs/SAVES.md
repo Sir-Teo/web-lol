@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 73 adds Garen R's required nullable target-only reveal record and optional target identity on queued/pending casts. The decoder checks champion ownership, enemy champion references, exact cast/reveal deadlines, captured rank and reveal/cast consistency. Reveals can survive caster death; dead target windups finish without redirecting damage. Garen R ranks are now accepted; E and player Garen remain unavailable. Earlier formats are incompatible.
+
 Version 72 adds the independent Courage stack counter. It accepts integer values from zero through the source-derived 150-stack cap on Garen only, including pre-learning and dead owners. Existing unit resistance totals are restored without reapplying the counter. Earlier formats are incompatible.
 
 Version 71 adds Garen Courage active state: captured rank, activation tick, upfront deadline and defense deadline. Validation checks live Garen ownership, learned rank and exact source-duration relationships. W ranks are now accepted; E/R remain unavailable. Earlier formats are incompatible.

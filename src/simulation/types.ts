@@ -233,7 +233,7 @@ export interface LuxIlluminationVisual extends LuxImpactVisual {
 export type Ability = 'q' | 'w' | 'e' | 'r' | 'd' | 'f';
 export type Command =
   | { type: 'order'; unit: number; order: Order }
-  | { type: 'cast'; unit: number; ability: Ability; point: Vec2 }
+  | { type: 'cast'; unit: number; ability: Ability; point: Vec2; targetId?: number }
   | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
@@ -281,6 +281,8 @@ export interface ChampionState {
   qStackExpiry: number;
   garenPassiveReadyTick: number;
   garenCourageStacks: number;
+  /** Target-only sight persists independently of the caster's windup and life. */
+  garenRReveal: { targetId: number; startTick: number; endTick: number } | null;
   garenW: { startTick: number; rank: number; upfrontUntil: number; defenseUntil: number } | null;
   garenQ: {
     startTick: number;
@@ -297,6 +299,7 @@ export interface ChampionState {
   /** Presentation can finish after the gameplay windup, until another action takes over. */
   castAnimation: { ability: 'q' | 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {
+    targetId?: number;
     detonateRequested?: boolean;
     shield?: number;
     origin?: Vec2;

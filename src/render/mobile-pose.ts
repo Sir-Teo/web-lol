@@ -5,6 +5,7 @@ import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { luxAttackAnimation } from '../content/lux-attack-animation';
 import { ASHE_Q } from '../content/ashe-q';
 import { GAREN_Q } from '../content/garen-q';
+import { GAREN_R_ANIMATION_CONTACT, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 
 export interface MobilePose {
   kind: 'cast' | 'recall' | 'attack' | 'run' | 'idle' | 'death';
@@ -58,7 +59,12 @@ export function mobilePose(
   if (cast) {
     const clip = castAnimationName(unit.champion, cast.ability),
       age = Math.max(0, (at - cast.startTick) / TICK_RATE);
-    if (age < duration(clip)) return fixed('cast', clip, age, true);
+    if (unit.champion === 'garen' && cast.ability === 'r') {
+      const windup = GAREN_R_WINDUP_TICKS / TICK_RATE;
+      const rate = age < windup ? GAREN_R_ANIMATION_CONTACT / windup : 1;
+      const time = age < windup ? age * rate : GAREN_R_ANIMATION_CONTACT + age - windup;
+      if (time < duration(clip)) return fixed('cast', clip, time, true, rate);
+    } else if (age < duration(clip)) return fixed('cast', clip, age, true);
   }
   if (state?.recallEnd != null) {
     const age = Math.max(0, (at - (state.recallEnd - RECALL_DURATION_TICKS)) / TICK_RATE);

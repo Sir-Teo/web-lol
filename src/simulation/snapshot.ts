@@ -30,6 +30,7 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { GAREN_W } from '../content/garen-w';
 import { GAREN_Q } from '../content/garen-q';
+import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
@@ -40,7 +41,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 72;
+export const SNAPSHOT_VERSION = 73;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -318,6 +319,7 @@ const player: z.ZodType<PlayerState> = z
     qStacks: z.number().int().min(0).max(4),
     qUntil: deadline,
     qStackExpiry: deadline,
+    garenRReveal: z.strictObject({ targetId: id, startTick: tick, endTick: tick }).nullable(),
     garenPassiveReadyTick: tick,
     garenCourageStacks: z
       .number()
@@ -353,6 +355,7 @@ const player: z.ZodType<PlayerState> = z
       .nullable(),
     pendingCast: z
       .strictObject({
+        targetId: id.optional(),
         ability: z.enum(['q', 'w', 'e', 'r']),
         origin: point.optional(),
         rank: z.number().int().min(1).max(5),
@@ -459,7 +462,7 @@ const projectile: z.ZodType<Projectile> = z
   );
 const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
-  z.strictObject({ type: z.literal('cast'), unit: id, ability, point }),
+  z.strictObject({ type: z.literal('cast'), unit: id, ability, point, targetId: id.optional() }),
   z.strictObject({ type: z.literal('recall'), unit: id }),
   z.strictObject({ type: z.literal('learn'), unit: id, ability: z.enum(['q', 'w', 'e', 'r']) }),
 ]);
@@ -1257,7 +1260,24 @@ export function decodeSnapshot(text: string) {
     const compatibleCast = (ability: string) =>
       champion.champion === 'lux'
         ? ['q', 'w', 'e', 'r'].includes(ability)
-        : champion.champion === 'ashe' && ability !== 'q';
+        : champion.champion === 'garen'
+          ? ability === 'r'
+          : champion.champion === 'ashe' && ability !== 'q';
+    const justiceReveal = owner.garenRReveal;
+    if (justiceReveal) {
+      const target = champions.find((u) => u.id === justiceReveal.targetId);
+      if (
+        champion.champion !== 'garen' ||
+        !owner.spellRanks.r ||
+        !target ||
+        target.team === champion.team ||
+        justiceReveal.startTick > state.tick ||
+        justiceReveal.endTick <= state.tick ||
+        justiceReveal.endTick !== justiceReveal.startTick + GAREN_R_REVEAL_TICKS ||
+        (target.deadAt !== null && target.deadAt < justiceReveal.startTick)
+      )
+        throw new Error('Saved match contains invalid Demacian Justice reveal.');
+    }
     if (champion.champion !== 'garen' && owner.garenCourageStacks !== 0)
       throw new Error('Saved match contains foreign Courage stacks.');
     const courage = owner.garenW;
@@ -1323,30 +1343,38 @@ export function decodeSnapshot(text: string) {
       champion.attackCycle.garenQRank > owner.spellRanks.q
     )
       throw new Error('Saved Decisive Strike has an unavailable rank.');
-    if (
-      champion.champion === 'garen' &&
-      ['e', 'r'].some((key) => owner.spellRanks[key as 'e' | 'r'] !== 0)
-    )
+    if (champion.champion === 'garen' && owner.spellRanks.e !== 0)
       throw new Error('Saved Garen contains an unavailable spell rank.');
     const cast = owner.pendingCast;
     if (cast) {
+      const garenR = champion.champion === 'garen' && cast.ability === 'r';
       const luxR = champion.champion === 'lux' && cast.ability === 'r';
       const luxW = champion.champion === 'lux' && cast.ability === 'w';
       const luxE = champion.champion === 'lux' && cast.ability === 'e';
-      const seconds = luxR
-        ? LUX_R.castSeconds
-        : luxW
-          ? LUX_W.castSeconds
-          : luxE
-            ? LUX_E.castSeconds
-            : cast.ability === 'q'
-              ? LUX_BINDING.castSeconds
-              : ASHE_CASTS[cast.ability].castSeconds;
+      const seconds = garenR
+        ? GAREN_R_WINDUP_TICKS / TICK_RATE
+        : luxR
+          ? LUX_R.castSeconds
+          : luxW
+            ? LUX_W.castSeconds
+            : luxE
+              ? LUX_E.castSeconds
+              : cast.ability === 'q'
+                ? LUX_BINDING.castSeconds
+                : ASHE_CASTS[cast.ability].castSeconds;
       if (
         cast.releaseTick !== cast.startTick + seconds * TICK_RATE ||
         luxR !== (cast.origin !== undefined) ||
         luxW !== (cast.shield !== undefined) ||
         luxE !== (cast.detonateRequested !== undefined) ||
+        garenR !== (cast.targetId !== undefined) ||
+        (garenR &&
+          (cast.damage !== 0 ||
+            !justiceReveal ||
+            justiceReveal.targetId !== cast.targetId ||
+            justiceReveal.startTick !== cast.startTick ||
+            champion.releaseTick !== null ||
+            champion.attackCycle !== null)) ||
         (luxW && cast.damage !== 0) ||
         (cast.origin &&
           Math.abs(
@@ -1386,6 +1414,12 @@ export function decodeSnapshot(text: string) {
     const source = champions.find((u) => u.id === area.sourceId);
     if (area.kind !== 'scout' || !source || source.team !== area.team)
       throw new Error('Saved match contains invalid scout ownership.');
+  }
+  for (const command of state.commands) {
+    if (command.type !== 'cast' || command.targetId === undefined) continue;
+    const source = champions.find((u) => u.id === command.unit);
+    if (source?.champion !== 'garen' || command.ability !== 'r')
+      throw new Error('Saved match contains incompatible targeted cast data.');
   }
   return state;
 }

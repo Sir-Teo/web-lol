@@ -100,7 +100,7 @@ test('levelling during a melee windup preserves committed deadlines and changes 
 });
 test('Garen cannot inherit Ashe abilities or player selection through saved state', () => {
   const { w, garen, state } = setup();
-  for (const ability of ['e', 'r'] as const) {
+  for (const ability of ['e'] as const) {
     expect(w.learnSpell(ability, garen.id)).toContain('development');
     w.enqueue({ type: 'cast', unit: garen.id, ability, point: { x: 600, y: 0 } });
   }

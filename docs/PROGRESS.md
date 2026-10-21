@@ -1,6 +1,6 @@
 # Development status
 
-Last updated: September 14, 2026 (America/New_York).
+Last updated: October 21, 2026 (America/New_York).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
@@ -17,6 +17,14 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+Latest roster increment: Garen NPC R now has explicit champion targeting, captured
+rank/timing, release-time missing-health true damage, isolated target sight, source
+cast playback, execute decisions and validated checkpoint continuation. All 886
+simulation tests, TypeScript, four focused Q/W/R browser cases and the nested-path
+production smoke pass. [GAREN-R.md](GAREN-R.md) records supported behavior and
+unverified native timing/cancellation policies. E and full player presentation are
+still required before exposing Garen in champion selection.
 
 ## Historical baseline verification
 

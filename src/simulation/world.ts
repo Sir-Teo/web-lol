@@ -30,6 +30,9 @@ import { championProfile } from '../content/champion-profiles';
 import { garenAttackWindupTicks, garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { GAREN_W } from '../content/garen-w';
 import { GAREN } from '../content/garen-progression';
+import { GAREN_R } from '../content/garen-r';
+import { GAREN_R_WINDUP_TICKS, GAREN_R_REVEAL_TICKS } from '../content/garen-r-policy';
+import { garenRDamage } from './garen-r';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { damageAfterResistance } from './damage-math';
@@ -178,10 +181,14 @@ export class World {
   emit(type: SimEvent['type'], p: Vec2, data: Partial<SimEvent> = {}): void {
     const unit = data.unit === undefined ? undefined : this.unit(data.unit);
     const privateFeedback = ['move', 'gold', 'message', 'level'].includes(type);
+    // Hawkshot arrival belongs to its remote point, even when its owner is revealed.
+    const unitAttached = unit !== undefined && type !== 'scout-arrival';
     const audience = (['blue', 'red'] as const).filter((team) =>
       privateFeedback
         ? team === (data.team ?? 'blue')
-        : unit?.team === team || this.pointVisible(p, team)
+        : unit?.team === team ||
+          this.pointVisible(p, team) ||
+          (unitAttached && this.visible(unit, team))
     );
     this.events.push({
       id: this.nextId++,
@@ -376,6 +383,7 @@ export class World {
         unit: command.unit,
         ability: command.ability,
         point: { x: command.point.x, y: command.point.y },
+        ...(command.targetId !== undefined ? { targetId: command.targetId } : {}),
       });
     } else if (command.type === 'order') {
       const order = command.order;
@@ -449,7 +457,7 @@ export class World {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
         const recommendation =
           this.unit(state.id)?.champion === 'garen'
-            ? { early: ['q', 'w'] as const, priority: ['q', 'w'] as const }
+            ? { early: ['q', 'w'] as const, priority: ['r', 'q', 'w'] as const }
             : this.unit(state.id)?.champion === 'lux'
               ? LUX_BOT_POLICY
               : ASHE_SKILL_RECOMMENDATION;
@@ -466,6 +474,16 @@ export class World {
       rechargeChampion(state, this.tick);
       expireGarenQ(state, this.tick);
       if (state.garenW && this.tick >= state.garenW.defenseUntil) state.garenW = null;
+      if (
+        state.garenRReveal &&
+        (this.tick >= state.garenRReveal.endTick || !this.unit(state.garenRReveal.targetId))
+      ) {
+        if (state.pendingCast?.targetId === state.garenRReveal.targetId) {
+          state.pendingCast = null;
+          state.castAnimation = null;
+        }
+        state.garenRReveal = null;
+      }
     }
     this.visionAreas = this.visionAreas.filter((area) => area.endTick > this.tick);
     this.bindingStops = this.bindingStops.filter(
@@ -495,7 +513,8 @@ export class World {
         this.setOrder(u, command.order);
         if (command.order.type === 'move' || command.order.type === 'attackMove')
           this.emit('move', command.order.point, { team: u.team });
-      } else if (command.type === 'cast') this.cast(u, command.ability, command.point);
+      } else if (command.type === 'cast')
+        this.cast(u, command.ability, command.point, command.targetId);
       else {
         const state = this.championState(u.id);
         if (state && !state.pendingCast && u.silenceUntil <= this.tick) {
@@ -539,7 +558,11 @@ export class World {
         const cast = state.pendingCast;
         if (this.tick < cast.releaseTick) continue;
         state.pendingCast = null;
-        if (u.champion === 'lux' && cast.ability === 'r')
+        if (u.champion === 'garen' && cast.ability === 'r') {
+          const target = this.unit(cast.targetId!);
+          if (target && target.kind === 'champion' && target.team !== u.team && this.alive(target))
+            this.damage(u, target, garenRDamage(cast.rank, target.hp, target.maxHp), 'true');
+        } else if (u.champion === 'lux' && cast.ability === 'r')
           this.releaseFinalSpark(u, cast.origin!, cast.point, cast.damage);
         else if (u.champion === 'lux' && cast.ability === 'w')
           this.releasePrismatic(u, cast.point, cast.shield!, cast.startTick);
@@ -735,7 +758,12 @@ export class World {
     }
   }
   visible(u: Unit, team: Team = 'blue'): boolean {
-    return u.team === team || this.pointVisible(u, team);
+    if (u.team === team || this.pointVisible(u, team)) return true;
+    return this.units.some((source) => {
+      if (source.champion !== 'garen' || source.team !== team) return false;
+      const reveal = this.championState(source.id)?.garenRReveal;
+      return !!reveal && reveal.targetId === u.id && this.tick < reveal.endTick;
+    });
   }
   knownStructureDestroyed(u: Unit, team: Team = 'blue'): boolean | null {
     if (!u.structureKnowledge) return null;
@@ -1477,6 +1505,7 @@ export class World {
       }
     }
     if (this.planCrystalArrow(u, 'finish')) return;
+    if (this.planGarenR(u)) return;
     if (this.planLuxCombat(u, false)) return;
     this.planGarenQ(u, false);
     const safeTarget = (target: Unit) =>
@@ -1570,6 +1599,33 @@ export class World {
     if (!retreating && (distance(u, target) > chaseRange || !this.safeAttackPosition(u, target)))
       return false;
     this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point: { x: u.x, y: u.y } });
+    return true;
+  }
+  private planGarenR(u: Unit): boolean {
+    if (u.champion !== 'garen' || u.stunUntil > this.tick || u.silenceUntil > this.tick)
+      return false;
+    const state = this.championState(u.id)!;
+    if (!state.spellRanks.r || state.pendingCast || this.abilityCooldownTicks('r', u.id) > 0)
+      return false;
+    const target = this.units
+      .filter(
+        (enemy) =>
+          enemy.kind === 'champion' &&
+          this.validTarget(u, enemy) &&
+          distance(u, enemy) <= GAREN_R.castRange &&
+          garenRDamage(state.spellRanks.r, enemy.hp, enemy.maxHp) >=
+            enemy.hp + this.shieldAmount(enemy) &&
+          !this.threateningTower(u, u, true)
+      )
+      .sort((a, b) => a.hp - b.hp || a.id - b.id)[0];
+    if (!target) return false;
+    this.enqueue({
+      type: 'cast',
+      unit: u.id,
+      ability: 'r',
+      point: { x: target.x, y: target.y },
+      targetId: target.id,
+    });
     return true;
   }
   private advanceUnit(u: Unit): void {
@@ -3057,7 +3113,7 @@ export class World {
     return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
   }
   spellLearningError(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
-    if (this.unit(championId)?.champion === 'garen' && ability !== 'q' && ability !== 'w')
+    if (this.unit(championId)?.champion === 'garen' && ability === 'e')
       return 'Garen abilities are still in development';
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
@@ -3122,7 +3178,9 @@ export class World {
             ? GAREN_Q.cooldownSeconds
             : ability === 'w'
               ? GAREN_W.cooldownSecondsByRank[rank - 1]
-              : 0,
+              : ability === 'r'
+                ? GAREN_R.cooldownSecondsByRank[rank - 1]
+                : 0,
       };
     if (this.unit(championId)?.champion === 'lux' && ability === 'e')
       return {
@@ -3146,10 +3204,11 @@ export class World {
       };
     return rank ? asheSpellResources(ability, rank) : { mana: 0, cooldownSeconds: 0 };
   }
-  private cast(u: Unit, ability: Ability, point: Vec2): void {
+  private cast(u: Unit, ability: Ability, point: Vec2, targetId?: number): void {
     const state = this.championState(u.id);
     if (!state) return;
-    if (u.champion === 'garen' && !['q', 'w', 'd', 'f'].includes(ability)) return;
+    if (u.champion === 'garen' && ability === 'e') return;
+    if (targetId !== undefined && !(u.champion === 'garen' && ability === 'r')) return;
     // Check before Lux's E-recast shortcut as well as ordinary casts.
     if (u.silenceUntil > this.tick && !ABILITIES[ability].canCastWhileSilenced) {
       this.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });
@@ -3198,6 +3257,41 @@ export class World {
       return;
     }
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    if (u.champion === 'garen' && ability === 'r') {
+      const target = targetId === undefined ? undefined : this.unit(targetId);
+      if (
+        !target ||
+        target.kind !== 'champion' ||
+        !this.validTarget(u, target) ||
+        distance(u, target) > GAREN_R.castRange ||
+        (u.attackCycle?.garenQRank !== undefined && u.releaseTick !== null)
+      )
+        return;
+      state.recallEnd = null;
+      state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
+      u.releaseTick = null;
+      u.attackTarget = null;
+      u.attackCycle = null;
+      u.facing = Math.atan2(target.x - u.x, target.y - u.y);
+      state.garenRReveal = {
+        targetId: target.id,
+        startTick: this.tick,
+        endTick: this.tick + GAREN_R_REVEAL_TICKS,
+      };
+      state.castAnimation = { ability: 'r', startTick: this.tick };
+      state.pendingCast = {
+        ability: 'r',
+        rank: state.spellRanks.r,
+        targetId: target.id,
+        startTick: this.tick,
+        releaseTick: this.tick + GAREN_R_WINDUP_TICKS,
+        point: { x: target.x, y: target.y },
+        damage: 0,
+      };
+      this.emit('cast', u, { unit: u.id, champion: 'garen', text: 'r', team: u.team });
+      return;
+    }
     if (u.champion === 'garen' && ability === 'w') {
       const rank = state.spellRanks.w;
       const upfrontTicks = Math.round(GAREN_W.upfrontSeconds * TICK_RATE);

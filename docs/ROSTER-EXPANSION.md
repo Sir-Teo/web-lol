@@ -195,3 +195,15 @@ as cached after a fresh request returned HTTP 403. The exporter also resolves
 precedence is asserted. [GAREN-R.md](GAREN-R.md) describes the targeting, reveal,
 cast-state, AI and presentation work that must follow. R remains unavailable.
 The exporter and TypeScript check pass; no runtime behavior changes in this step.
+
+## Demacian Justice first gameplay integration
+
+Garen NPCs can now learn and cast R on an explicitly captured enemy champion.
+The initial runtime includes release-time missing-health true damage, shared shield/
+reward processing, isolated one-second target sight, source `spell4_base` playback,
+visible execute decisions and snapshot version 73. [GAREN-R.md](GAREN-R.md) records
+the exact supported rules and provisional timing/cancellation/range policies.
+All 886 simulation checks, TypeScript, four focused Q/W/R browser scenarios, the
+production build and nested static-host smoke pass. The contact capture was visually
+reviewed. R effects/audio, native calibration, E and player input/HUD remain open;
+Garen is still excluded from player selection and the default lane roster.

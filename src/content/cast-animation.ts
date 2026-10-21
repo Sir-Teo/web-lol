@@ -1,9 +1,13 @@
 import { ASHE_CASTS } from './ashe-casting';
 import durations from './champion-clip-durations.json';
+import { GAREN_R } from './garen-r';
+import { GAREN_R_ANIMATION_CONTACT, GAREN_R_WINDUP_TICKS } from './garen-r-policy';
+import { TICK_RATE } from './rules';
 export function castAnimationName(
   champion: 'ashe' | 'lux' | 'garen' | undefined,
   ability: 'q' | 'w' | 'e' | 'r'
 ) {
+  if (champion === 'garen' && ability === 'r') return GAREN_R.animationClip;
   if (ability === 'q') return 'spell1';
   if (champion === 'lux' && (ability === 'w' || ability === 'e'))
     return ability === 'w' ? 'spell2' : 'spell3';
@@ -17,5 +21,7 @@ export function castAnimationDuration(
     castAnimationName(champion, ability)
   ];
   if (!Number.isFinite(value)) throw new Error(`Missing ${champion} cast animation: ${ability}`);
+  if (champion === 'garen' && ability === 'r')
+    return value - GAREN_R_ANIMATION_CONTACT + GAREN_R_WINDUP_TICKS / TICK_RATE;
   return value;
 }

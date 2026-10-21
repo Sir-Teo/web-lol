@@ -27,6 +27,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     qStackExpiry: 0,
     garenPassiveReadyTick: 0,
     garenCourageStacks: 0,
+    garenRReveal: null,
     garenQ: null,
     garenW: null,
     eCharges: unlocked ? ASHE_E.maximumCharges : 0,
