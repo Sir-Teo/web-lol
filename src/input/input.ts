@@ -2,7 +2,7 @@ import type { Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 import type { Hud } from '../ui/hud';
-import { instantSpell, minimapSpell } from './spell-controls';
+import { instantSpell, minimapSpell, targetedSpell, garenRTarget } from './spell-controls';
 
 export class GameInput {
   pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -144,8 +144,21 @@ export class GameInput {
       if (key === this.aiming) {
         if (!hud.paused && !hud.modal) {
           const point = this.castPoint(this.aiming);
-          if (point)
-            world.enqueue({ type: 'cast', unit: world.player.id, ability: this.aiming, point });
+          if (point) {
+            const target = targetedSpell(world, this.aiming)
+              ? garenRTarget(world, view.pick(world, this.pointer.x, this.pointer.y))
+              : undefined;
+            if (targetedSpell(world, this.aiming) && !target)
+              hud.toast('Choose a visible enemy champion within 400 range');
+            else
+              world.enqueue({
+                type: 'cast',
+                unit: world.player.id,
+                ability: this.aiming,
+                point,
+                ...(target ? { targetId: target.id } : {}),
+              });
+          }
         }
         this.cancelAim();
       }

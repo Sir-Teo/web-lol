@@ -154,8 +154,10 @@ export class World {
   constructor(
     populate = true,
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
-    playerChampion: 'ashe' | 'lux' = 'ashe'
+    playerChampion: 'ashe' | 'lux' | 'garen' = 'ashe'
   ) {
+    if (playerChampion === 'garen' && battlefield.id !== 'practice-fixture')
+      throw new Error('Garen player kit is available only in the development practice fixture.');
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
     const champion = this.spawn('champion', 'blue', battlefield.spawns.blue, playerChampion);
     this.player = this.championRecords.get(champion.id)!;

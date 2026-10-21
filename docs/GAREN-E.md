@@ -1,8 +1,9 @@
 # Judgment integration
 
 Garen NPCs can learn and cast E. His passive and all four spells now have initial
-simulation foundations. Complete player input/HUD, spell effects/audio, native
-timing comparisons and role integration remain required before selection.
+simulation foundations. A [development player fixture](GAREN-PLAYER.md) now
+exercises input/HUD and checkpoint flows. Complete spell effects/audio, native
+timing comparisons and role integration remain required before production selection.
 
 ## Verified source foundation
 

@@ -32,6 +32,13 @@ checks and five focused browser scenarios pass. A source-backed Courage correcti
 also prevents stacks before W is learned. Full player presentation and native
 calibration remain required before exposing Garen in champion selection.
 
+The development-only [Garen player fixture](GAREN-PLAYER.md) now exercises real
+Q/W/E keys, mouse-targeted R, resource-free HUD/tooltips, active-state displays,
+source spell icons, passive recovery, and schema-75 save/restart flows. All 911
+simulation/source checks and 21 focused player/HUD/import browser cases pass.
+Production continues to reject the fixture flags and Garen roster selection;
+complete presentation, native calibration and full role integration remain open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

@@ -43,7 +43,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 74;
+export const SNAPSHOT_VERSION = 75;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -709,8 +709,11 @@ export function decodeSnapshot(text: string) {
       cause: result.error,
     });
   const state = result.data;
-  if (state.units.find((u) => u.id === state.player.id)?.champion === 'garen')
-    throw new Error('Garen player kit is still in development.');
+  if (
+    state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
+    state.battlefield !== 'practice-fixture'
+  )
+    throw new Error('Garen player kit is available only in the development practice fixture.');
   for (const unit of state.units) {
     const fixed = ['turret', 'inhibitor', 'nexus'].includes(unit.kind);
     const idle = unit.structureIdle;

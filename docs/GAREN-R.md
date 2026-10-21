@@ -3,7 +3,9 @@
 Garen NPCs can now learn and cast R through an explicit champion-target command.
 His source cast animation, target-only sight, execute decisions and checkpoint
 continuation are integrated. Player selection remains Ashe/Lux while Garen's
-complete input/HUD and audiovisual presentation remain unfinished.
+complete audiovisual presentation and native comparison remain unfinished. The
+[development player fixture](GAREN-PLAYER.md) now validates mouse-targeted input,
+range guidance, HUD and checkpoint flows independently of production selection.
 
 `tools/assets/export-garen-r.py` reads the frozen character BIN and the versioned
 [Data Dragon R record](reference/garen-r-ddragon.json). A fresh October 21, 2026

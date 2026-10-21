@@ -42,13 +42,15 @@ async function boot(): Promise<void> {
   const fixture =
     import.meta.env.DEV && new URLSearchParams(location.search).get('scene') === 'fixture';
   const battlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
-  let world = new World(true, battlefield);
+  const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
+  let world = new World(true, battlefield, garenFixture ? 'garen' : 'ashe');
   let restored = false,
     saveNotice = '';
   try {
     const saved = await readMatch(battlefield.id);
-    if (saved) {
-      world = World.fromSnapshot(saved, battlefield);
+    const candidate = saved ? World.fromSnapshot(saved, battlefield) : null;
+    if (candidate && (!garenFixture || candidate.hero.champion === 'garen')) {
+      world = candidate;
       restored = true;
     }
   } catch (error) {
@@ -85,8 +87,8 @@ async function boot(): Promise<void> {
         battlefield.id,
         world.matchMode === 'lanes'
           ? createLaneMatch(battlefield, selectableChampion(world.hero.champion)).snapshot()
-          : world.hero.champion === 'lux'
-            ? new World(true, battlefield, 'lux').snapshot()
+          : world.hero.champion === 'lux' || world.hero.champion === 'garen'
+            ? new World(true, battlefield, world.hero.champion).snapshot()
             : null
       )
         .then(() => window.location.reload())

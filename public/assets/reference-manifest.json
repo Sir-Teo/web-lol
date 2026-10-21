@@ -230,6 +230,30 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Garen.png",
       "sha256": "53018603962e1867b391071f159bb4c60d57919422585c33bfd36551e97f3752",
       "bytes": 30705
+    },
+    {
+      "path": "/assets/icons/GarenQ.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/GarenQ.png",
+      "sha256": "5ba32b3c14ed850b447a6cb54cf243144823e1ac61cf071ed9920cd26700ff8d",
+      "bytes": 6105
+    },
+    {
+      "path": "/assets/icons/GarenW.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/GarenW.png",
+      "sha256": "4b653d35ceedddc2fc715e934307114c567c92aebd5b34708bdc5c077ce410eb",
+      "bytes": 5947
+    },
+    {
+      "path": "/assets/icons/GarenE.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/GarenE.png",
+      "sha256": "87526f9005c608b7b776128fc4526b28f615b782c3429c3d6bc200209c25f2da",
+      "bytes": 6473
+    },
+    {
+      "path": "/assets/icons/GarenR.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/GarenR.png",
+      "sha256": "82031c7b445c6bced255fcc91b9a8570a8215f96092c766cb1a0e519cac5e949",
+      "bytes": 5230
     }
   ]
 }

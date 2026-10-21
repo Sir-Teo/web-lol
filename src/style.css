@@ -129,6 +129,7 @@ button {
 .hud {
   position: fixed;
   inset: 0;
+  z-index: 1;
   pointer-events: none;
   text-shadow: 0 1px 3px #000;
 }
@@ -618,6 +619,16 @@ button {
 }
 .resource.mana i {
   background: linear-gradient(#3789ac, #256081);
+}
+.resource.garen-resource {
+  height: 12px;
+  margin-top: 3px;
+  background: #10241c;
+}
+.garen-resource span {
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  color: #b8d9a3;
 }
 .resource span {
   position: absolute;

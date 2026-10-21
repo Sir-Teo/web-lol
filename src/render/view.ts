@@ -28,6 +28,8 @@ import { LuxChargeRays } from './lux-charge-rays';
 import { LuxRStreaks } from './lux-r-streaks';
 import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
+import { GAREN } from '../content/garen-progression';
+import { GAREN_R } from '../content/garen-r';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
 import { flurryFlight } from './flurry-flight';
@@ -419,9 +421,11 @@ export class GameView {
       if (!world.alive(u) || !world.visible(u)) continue;
       const champion = u.kind === 'champion';
       const selection =
-        u.champion === 'lux'
-          ? { radius: LUX.selectionRadius, height: LUX.selectionHeight }
-          : ASHE_SELECTION;
+        u.champion === 'garen'
+          ? { radius: GAREN.selectionRadius, height: GAREN.selectionHeight }
+          : u.champion === 'lux'
+            ? { radius: LUX.selectionRadius, height: LUX.selectionHeight }
+            : ASHE_SELECTION;
       const base = champion
         ? (this.models.get(u.id)?.root.position ?? {
             x: u.x * SCALE,
@@ -839,7 +843,18 @@ export class GameView {
       dir = Math.atan2(this.aimPoint.y - hero.y, this.aimPoint.x - hero.x);
     const positions = this.aimLine.geometry.attributes.position as THREE.BufferAttribute;
     positions.setXYZ(0, 0, 0.1, 0);
-    if (hero.champion === 'lux' && ['q', 'w', 'e', 'r'].includes(this.aimMode)) {
+    if (hero.champion === 'garen' && this.aimMode === 'r') {
+      for (let i = 0; i <= 32; i++) {
+        const angle = (i / 32) * Math.PI * 2;
+        positions.setXYZ(
+          i,
+          Math.cos(angle) * GAREN_R.castRange * SCALE,
+          0.1,
+          Math.sin(angle) * GAREN_R.castRange * SCALE
+        );
+      }
+      this.aimLine.geometry.setDrawRange(0, 33);
+    } else if (hero.champion === 'lux' && ['q', 'w', 'e', 'r'].includes(this.aimMode)) {
       if (this.aimMode === 'e') {
         const length = Math.min(
           LUX_E_SOURCE.castRange,

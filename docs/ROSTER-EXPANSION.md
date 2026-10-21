@@ -225,3 +225,16 @@ The current 904 simulation tests, TypeScript, five focused browser cases and
 production/nested-host smoke pass. The spin/armor screenshot was visually reviewed.
 Fresh Data Dragon retrieval through the correct `champion/` URL also verifies the
 existing full-response hash and updates R's previously cached provenance.
+
+## Garen human-control fixture
+
+`/?scene=fixture&champion=garen` now opens a development-only Garen player scenario.
+Instant Q/W/E, explicit mouse-selected R identity, range guidance, source icons,
+rank/resource-free tooltips, Q/W/E activity, Perseverance/Courage status and
+save/restart flows are integrated. Schema 75 allows that player only on the
+development battlefield; Rift construction/import and ordinary roster selection
+still exclude him. [GAREN-PLAYER.md](GAREN-PLAYER.md) records setup and boundaries.
+All 911 source/simulation tests, TypeScript and 21 focused browser cases pass;
+wide/small HUD captures were visually reviewed. Production/nested-host smoke
+checks that diagnostic flags do not change the ordinary player/roster. Effects,
+source audio, native calibration, directional spin and full role AI remain open.

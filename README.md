@@ -15,6 +15,8 @@ Open the localhost address printed by Vite. The game opens directly into Ashe pr
 
 Open `/map.html` on the same server to inspect the full reference terrain, original compressed textures, and matching navigation overlay. The default game uses this same terrain and navigation grid. The original small scene remains available at `/?scene=fixture` in development for regression tests. See [map assets and fidelity audit](docs/MAP-ASSETS.md) for source selection, reproducible conversion, and remaining work.
 
+The development-only `/?scene=fixture&champion=garen` fixture adds human Garen controls and HUD for kit testing. Q/W/E activate directly; hold R over a visible enemy champion in range and release. Garen is still excluded from production selection while full presentation and native calibration remain open. See [Garen player fixture](docs/GAREN-PLAYER.md) for learning, setup and checkpoint behavior.
+
 ```sh
 npm run check
 npm run assets:validate
@@ -29,7 +31,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.
 
-`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, all nine source audio requests, real-input Hawkshot and Lux Binding casts, Lux selection and lane restart, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
+`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, all 17 source recordings, real-input Hawkshot and Lux Binding casts, Lux selection and lane restart, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
 
 ## Current build
 

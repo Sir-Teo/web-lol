@@ -1,12 +1,20 @@
 import { selectableChampion } from '../content/champion-profiles';
+import { championProfile } from '../content/champion-profiles';
+import { GAREN } from '../content/garen-progression';
+import { GAREN_W } from '../content/garen-w';
+import { garenEStrikes } from '../simulation/garen-e';
+import {
+  GAREN_SPELLS,
+  isGarenSpell,
+  garenDescription,
+  garenPreviewResources,
+} from './garen-spells';
 import { AttackStatTooltip } from './attack-stat-tooltip';
-import { LUX } from '../content/lux-progression';
 import { LUX_SPELLS, isLuxSpell, luxDescription, luxPreviewResources } from './lux-spells';
-import { instantSpell } from '../input/spell-controls';
+import { instantSpell, targetedSpell, garenRecastLockTicks } from '../input/spell-controls';
 import type { PreparedMatchImport } from '../storage/match-files';
 import { ScoreboardItemTooltip } from './scoreboard-item-tooltip';
 import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
-import { ASHE } from '../content/ashe-progression';
 import { ASHE_E } from '../content/ashe-e';
 import { ASHE_Q } from '../content/ashe-q';
 import {
@@ -72,12 +80,13 @@ export class Hud {
       <div class="target-panel" id="target-panel" hidden><span class="target-label">SELECTED TARGET</span><strong id="target-name"></strong><div class="target-health"><i></i></div><span id="target-hp"></span></div>
       <div class="practice-corner"><button class="quiet-button" id="practice-button">◇ <span>Practice tools</span></button><button class="quiet-button" id="help-button">? <span>Controls</span></button><small>REFERENCE BUILD 0.1</small></div>
       <section class="champion-hud" aria-label="Champion controls">
-        <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${world.hero.champion === 'lux' ? 'Lux' : 'Ashe'}"><span id="level">1</span><div class="portrait-frame"></div></div>
+        <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${championProfile(world.hero.champion!).name}"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
-        <div class="champion-core"><div class="champion-title"><strong>${world.hero.champion === 'lux' ? 'LUX' : 'ASHE'}</strong><span>${world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'lux' ? '' : '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>'}</div>
+        <div class="champion-core"><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : ''}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
-          <div class="resource mana"><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
+          <div class="resource mana" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
+          <div class="resource garen-resource" ${world.hero.champion === 'garen' ? '' : 'hidden'}><span id="garen-passive"></span></div>
           <div class="experience"><i id="xp-fill"></i></div>
         </div>
         <div class="inventory-panel"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${i + 1}</span></div>`).join('')}</div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
@@ -109,10 +118,14 @@ export class Hud {
       world.matchMode === 'lanes';
   }
   private spellSpec(a: Ability) {
+    if (this.world.hero.champion === 'garen' && isGarenSpell(a)) return GAREN_SPELLS[a];
     return this.world.hero.champion === 'lux' && isLuxSpell(a) ? LUX_SPELLS[a] : ABILITIES[a];
   }
   private isLuxRecast(a: Ability): boolean {
     return this.world.hero.champion === 'lux' && a === 'e' && instantSpell(this.world, a);
+  }
+  private isGarenRecast(a: Ability): boolean {
+    return this.world.hero.champion === 'garen' && a === 'e' && !!this.world.player.garenE;
   }
   private tooltipResources(a: Ability) {
     if (this.isLuxRecast(a)) return { mana: 0, cooldownSeconds: 0 };
@@ -124,11 +137,18 @@ export class Hud {
         cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
       };
     }
+    if (this.world.hero.champion === 'garen' && isGarenSpell(a)) {
+      const preview = garenPreviewResources(a);
+      return {
+        ...preview,
+        cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
+      };
+    }
     return asheSpellResources(a, 1);
   }
   private abilityMarkup(a: Ability): string {
     const spec = this.spellSpec(a);
-    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${a === 'e' && this.world.hero.champion !== 'lux' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${a === 'e' && this.world.hero.champion === 'ashe' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
     if (a === 'd' || a === 'f') return button;
     return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${spec.name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
   }
@@ -148,6 +168,20 @@ export class Hud {
     return `${learned ? '' : 'This ability has not been learned. Rank 1 preview: '}${this.rankedAbilityDescription(ability, Math.max(1, learned))}`;
   }
   private rankedAbilityDescription(ability: Ability, rank: number): string {
+    if (this.world.hero.champion === 'garen' && isGarenSpell(ability)) {
+      const h = this.world.hero;
+      const bonusHealth = Math.max(
+        0,
+        h.maxHp - GAREN.hp - GAREN.hpGrowth * growthAtLevel(this.world.player.level)
+      );
+      return garenDescription(
+        ability,
+        rank,
+        h.damage,
+        bonusHealth,
+        garenEStrikes(this.world.player.level)
+      );
+    }
     if (this.world.hero.champion === 'lux' && isLuxSpell(ability))
       return luxDescription(ability, rank, this.world.abilityPower(), this.world.player.level);
     if (ability === 'q') {
@@ -175,6 +209,12 @@ export class Hud {
         : `Press Ctrl+${ability.toUpperCase()} to learn.`;
     }
     if (this.isLuxRecast(ability)) return 'Press E to detonate. No additional mana cost.';
+    if (this.isGarenRecast(ability))
+      return garenRecastLockTicks(this.world)
+        ? 'Press E again after the first second to end Judgment.'
+        : 'Press E to end Judgment. Its full cooldown then starts.';
+    if (targetedSpell(this.world, ability))
+      return 'Hold R, point at an enemy champion in range, then release.';
     return instantSpell(this.world, ability)
       ? 'Press to cast'
       : 'Hold the key to aim. Release to cast.';
@@ -344,7 +384,12 @@ export class Hud {
             ability,
             point: this.world.hero,
           });
-        else this.toast(`Hold ${ability.toUpperCase()} to aim, then release to cast`);
+        else
+          this.toast(
+            targetedSpell(this.world, ability)
+              ? 'Hold R, point at an enemy champion in range, then release'
+              : `Hold ${ability.toUpperCase()} to aim, then release to cast`
+          );
       });
     });
   }
@@ -400,7 +445,10 @@ export class Hud {
     this.refreshTooltip();
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
-    let chosenChampion = selectableChampion(this.world.hero.champion);
+    let chosenChampion =
+      this.world.hero.champion === 'garen'
+        ? ('ashe' as const)
+        : selectableChampion(this.world.hero.champion);
     const laneDescription = () =>
       `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and neutral objectives are not available yet.`;
     let content = '',
@@ -446,16 +494,22 @@ export class Hud {
         ['A → click', 'Attack move'],
         ['Shift + right-click', 'Attack move immediately'],
         ['S', 'Stop'],
-        ...(this.world.hero.champion === 'lux'
+        ...(this.world.hero.champion === 'garen'
           ? [
-              ['Hold Q / W / E / R', 'Aim, then release to cast'],
-              ['E again', 'Detonate Lucent Singularity'],
+              ['Q / W / E', 'Activate Decisive Strike / Courage / Judgment'],
+              ['E again', 'End Judgment after its first second'],
+              ['Hold R', 'Point at an enemy champion in range, then release'],
             ]
-          : [
-              ['Q', 'Activate Focus at 4 stacks'],
-              ['Hold W / E / R', 'Aim, then release to cast'],
-              ['E / R over minimap', 'Aim across the map without moving the camera'],
-            ]),
+          : this.world.hero.champion === 'lux'
+            ? [
+                ['Hold Q / W / E / R', 'Aim, then release to cast'],
+                ['E again', 'Detonate Lucent Singularity'],
+              ]
+            : [
+                ['Q', 'Activate Focus at 4 stacks'],
+                ['Hold W / E / R', 'Aim, then release to cast'],
+                ['E / R over minimap', 'Aim across the map without moving the camera'],
+              ]),
         ['D / F', 'Flash / Heal'],
         ['B', 'Recall to fountain'],
         ['P', 'Open item shop'],
@@ -888,10 +942,22 @@ export class Hud {
     text('mana-text', `${Math.floor(h.mana)} / ${Math.floor(h.maxMana)}`);
     text(
       'health-regen',
-      `+${((h.champion === 'lux' ? LUX : ASHE).healthRegen + (h.champion === 'lux' ? LUX : ASHE).healthRegenGrowth * growthAtLevel(p.level)).toFixed(1)}`
+      `+${(championProfile(h.champion!).healthRegen + championProfile(h.champion!).healthRegenGrowth * growthAtLevel(p.level) + w.perseveranceRegenPerSecond(h)).toFixed(1)}`
     );
     width('health-fill', h.hp / h.maxHp);
-    width('mana-fill', h.mana / h.maxMana);
+    width('mana-fill', h.maxMana ? h.mana / h.maxMana : 0);
+    if (h.champion === 'garen') {
+      const readyIn = Math.max(0, p.garenPassiveReadyTick - w.tick);
+      const passive = !w.alive(h)
+        ? 'DEFEATED'
+        : readyIn
+          ? `PERSEVERANCE IN ${Math.ceil(readyIn / TICK_RATE)}s`
+          : 'PERSEVERANCE READY';
+      const courage = p.spellRanks.w
+        ? `COURAGE ${p.garenCourageStacks}/${Math.ceil(GAREN_W.maxResistGain / GAREN_W.resistGainPerStack)}`
+        : 'COURAGE UNLEARNED';
+      text('garen-passive', `${passive} · ${courage}`);
+    }
     width('xp-fill', p.level === MAX_LEVEL ? 1 : p.xp / experienceToNextLevel(p.level));
     text('level', p.level);
     text('gold', Math.floor(p.gold));
@@ -924,8 +990,10 @@ export class Hud {
       .forEach((pip, i) => pip.classList.toggle('charged', i < p.qStacks));
     this.root.querySelectorAll<HTMLButtonElement>('[data-ability]').forEach((button) => {
       const a = button.dataset.ability as Ability,
-        recast = this.isLuxRecast(a),
-        cd = recast ? 0 : w.abilityCooldownTicks(a) / TICK_RATE;
+        spinning = this.isGarenRecast(a),
+        lock = spinning ? garenRecastLockTicks(w) : 0,
+        recast = this.isLuxRecast(a) || (spinning && lock === 0),
+        cd = spinning ? lock / TICK_RATE : recast ? 0 : w.abilityCooldownTicks(a) / TICK_RATE;
       button.querySelector('.cooldown-text')!.textContent = recast
         ? 'RECAST'
         : cd > 0
@@ -938,13 +1006,30 @@ export class Hud {
         ? String(resources.mana)
         : '';
       button.classList.toggle('insufficient', !w.abilityRank(a) || h.mana < resources.mana);
-      button.classList.toggle('empowered', recast || (a === 'q' && p.qUntil > w.tick));
+      button.classList.toggle(
+        'empowered',
+        recast ||
+          (a === 'q' && p.qUntil > w.tick) ||
+          (h.champion === 'garen' &&
+            ((a === 'q' && !!p.garenQ && !p.garenQ.consumed && w.tick < p.garenQ.attackUntil) ||
+              (a === 'w' && !!p.garenW && w.tick < p.garenW.defenseUntil) ||
+              spinning))
+      );
       if (h.champion === 'lux' && a === 'e')
         button.setAttribute(
           'aria-label',
           recast ? 'Detonate Lucent Singularity' : 'Lucent Singularity'
         );
-      if (a === 'e' && h.champion !== 'lux') {
+      if (h.champion === 'garen' && a === 'e')
+        button.setAttribute(
+          'aria-label',
+          spinning
+            ? lock
+              ? `Judgment, spinning, recast in ${Math.ceil(lock / TICK_RATE)} seconds`
+              : 'End Judgment'
+            : 'Judgment'
+        );
+      if (a === 'e' && h.champion === 'ashe') {
         const remaining = Math.max(0, (p.eRechargeTick ?? w.tick) - w.tick) / TICK_RATE;
         button.querySelector('.ability-charges')!.textContent = String(p.eCharges);
         const recharge = button.querySelector<HTMLElement>('.ability-recharge')!;

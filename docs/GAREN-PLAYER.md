@@ -1,0 +1,80 @@
+# Garen player-control fixture
+
+During `npm run dev`, open `/?scene=fixture&champion=garen` to exercise Garen as
+the human-controlled champion on the small development map. This is the player
+integration instrument for the source-backed kit described in
+[ROSTER-EXPANSION.md](ROSTER-EXPANSION.md). The production roster and lane matches
+remain Ashe/Lux while Garen's complete effects/audio and native comparisons are open.
+
+Garen begins at level one with one skill point and no learned abilities. Use the
+upgrade buttons or Ctrl+Q/W/E/R to learn, subject to the ordinary level gates.
+The existing development `window.__GAME__` hook supplies fixed-step setup and
+experience grants for controlled high-level cases. Regular farming still grants
+experience through the shared simulation.
+
+## Input and presentation
+
+- Q/W/E activate immediately from their keys or HUD buttons. E retains its
+  one-second recast lock; the button displays the lock, then `RECAST`, then its
+  actual post-spin cooldown when the effect ends.
+- Hold R, point at a visible enemy champion within 400 units, and release. The
+  guide is a ground-following circle at the accepted center-distance range.
+  Keyboard release captures that unit's ID. Ground, dummies, allies, dead/hidden
+  champions and the minimap do not supply an R target. The simulation revalidates
+  the queued identity and all cast gates before spending cooldown.
+- Existing movement, attack-move, stop, Flash, Heal, learning, pause and recall
+  controls continue through the common input path. A valid R retains its captured
+  identity through the committed windup; it never reselects from an old point.
+- Portrait/title, spell names, rank previews, tooltips, cooldowns and active Q/W/E
+  states use Garen data. The mana bar, Ashe Focus pips and Hawkshot charges are
+  absent. A passive strip displays Perseverance readiness/recovery and learned
+  Courage stacks. Regeneration includes current Perseverance when available.
+
+Garen's source selection cylinder uses the pinned 120-unit radius and
+188.8889-unit height instead of Ashe's dimensions. The four local spell icons
+come from Data Dragon 16.18.1. Names, IDs and title are retained in
+[garen-player-ui.json](reference/garen-player-ui.json); icon URLs, byte counts and
+hashes extend `public/assets/reference-manifest.json`. The icon importer includes
+all four files. Runtime needs no CDN requests.
+
+This HUD describes the implemented kit, including captured E count, current AD,
+bonus-health W shielding and the current R formula. It does not establish native
+event timing, source particle/audio playback or animation-graph equivalence.
+Those remaining limits in the individual ability documents still apply.
+
+## Fixture and checkpoint boundaries
+
+The URL flag is considered only when Vite's development build has selected
+`practice-fixture`. Production ignores both diagnostic flags. The World
+constructor and decoder permit a Garen player only on that battlefield; a Garen
+player on Rift is rejected. `selectableChampion` and ordinary new-match UI still
+exclude him. This is not a newly certified production roster entry.
+
+An explicit Garen fixture URL starts Garen when an older fixture checkpoint uses
+another champion; it does not overwrite that checkpoint until Save or Restart.
+A matching Garen checkpoint restores paused. Pause → Save match, file transfer,
+reload, and Restart practice retain the Garen identity. Restart creates a fresh
+level-one Garen fixture. Fixture files remain incompatible with the Rift map.
+
+Snapshot version 75 permits this constrained player identity and retains the
+existing kit state and targeted-command schema. No spell-state validation is
+bypassed. Earlier builds are incompatible under the same-build checkpoint policy.
+
+Validation: all 911 simulation/source tests and TypeScript pass. Seven new tests
+cover the fixture boundary, controls, target eligibility, recast deadline,
+player-owned spell/save continuation, live tooltip calculations, and icon metadata/
+hashes. Twenty-one focused browser cases pass across Garen player controls,
+Ashe tooltips, Lux controls/HUD, champion choice and match-file/recovery flows.
+Garen's real Q/W/E keys, targeted R, active-spin save/reload, restart, passive
+recovery and Courage display are exercised. Captures at 1440×900 and 1120×720
+were visually reviewed. Production smoke additionally opens the diagnostic flags
+and verifies that Ashe and the ordinary roster remain in use.
+
+Small-window review also exposed combat text painting over the HUD. The HUD now
+has an explicit stacking level above world labels/combat text. A browser hit-test
+probe verifies tooltip paint order over the combat layer, in addition to bounds.
+
+The production build and nested static-host smoke pass with 17 source recordings;
+the existing large-bundle warning remains. Spell effects/audio, directional spin
+blending, native timing/cancellation captures, complete build/role policy and
+full-match certification remain required before Garen's production selection.

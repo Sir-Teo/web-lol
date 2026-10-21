@@ -1,0 +1,29 @@
+{
+  "version": "16.18.1",
+  "sourceUrl": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Garen.json",
+  "fullResponseSha256": "17c0ee01c176374d581ac9d1bee250d9d8256ff12a6e86259e223e21f61f2902",
+  "name": "Garen",
+  "title": "The Might of Demacia",
+  "spells": [
+    {
+      "id": "GarenQ",
+      "name": "Decisive Strike",
+      "icon": "GarenQ.png"
+    },
+    {
+      "id": "GarenW",
+      "name": "Courage",
+      "icon": "GarenW.png"
+    },
+    {
+      "id": "GarenE",
+      "name": "Judgment",
+      "icon": "GarenE.png"
+    },
+    {
+      "id": "GarenR",
+      "name": "Demacian Justice",
+      "icon": "GarenR.png"
+    }
+  ]
+}

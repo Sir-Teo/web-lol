@@ -88,6 +88,10 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(page.url(), base);
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.goto(`${base}?scene=fixture&champion=garen`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.equal(
     recordings.size,
     17,
@@ -111,6 +115,7 @@ try {
   await page.screenshot({ path: 'artifacts/production-subpath.png' });
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
+  assert.equal(await page.getByRole('button', { name: 'Garen', exact: true }).count(), 0);
   await page.getByRole('button', { name: 'Lux', exact: true }).click();
   await Promise.all([
     page.waitForEvent('load'),
@@ -165,6 +170,7 @@ try {
       realLuxBindingCast: true,
       luxLaneRestart: true,
       developmentHook: false,
+      garenFixtureInProduction: false,
       screenshot: 'artifacts/production-subpath.png',
     })
   );
