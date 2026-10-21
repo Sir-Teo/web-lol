@@ -1,0 +1,61 @@
+{
+  "output": {
+    "path": "/assets/models/garen-q-weapon-trail.glb",
+    "bytes": 37892,
+    "sha256": "b717e2081fc100d70bbeaf9c753bce2279214694645ae0ce6890dcbc22c6f315"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_hecarim_weapontrail_1.scb",
+    "wadPathHash": "f3db1db5cfe61b37",
+    "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+    "bytes": 57716
+  },
+  "sourceAliases": [
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_hecarim_weapontrail_1.scb",
+      "wadPathHash": "f3db1db5cfe61b37",
+      "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+      "bytes": 57716
+    }
+  ],
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 250,
+  "triangles": 500,
+  "exportedCorners": 1500,
+  "centralPoint": [
+    0.81854248046875,
+    108.53469848632812,
+    96.66189575195312
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -244.35769653320312,
+    1.9384000301361084,
+    -206.14410400390625,
+    245.9947967529297,
+    215.13099670410156,
+    399.4678955078125
+  ],
+  "tailHex": "3789513fc411d942f252c142000000000000000000000000",
+  "positionFloat32Sha256": "daed22bea5386c3970716477e553d52701797fe38304ea2f14631b1ae0e0d114",
+  "uvFloat32Sha256": "5daff7bed11e03c5bc3d22d83824a80d459f54488af54ff371d60753651b72ed",
+  "faceRgbSha256": "01061ebf87db809151544920c6f2a870ea272d4de35c5566a186c3cf6d2ea47b",
+  "materials": [
+    ""
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

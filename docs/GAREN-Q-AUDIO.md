@@ -72,7 +72,7 @@ inspectable below its controls.
 
 Ordinary Ashe/Lux startup does not request these WAVs or import Q controller/
 profile code. Garen presence loads one cached thirteen-file resource set; later
-Garen spawns trigger the same lazy path. Source Q particles, basic/voice audio
+Garen spawns trigger the same lazy path. Live Q particles, basic/voice audio
 and complete native and production acceptance remain open.
 
 ## Live audio adapter — October 21, 2026

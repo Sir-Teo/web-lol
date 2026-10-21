@@ -122,4 +122,9 @@ Schema 82 preserves original clocks, stop fades and accepted swings through
 target loss, death, practice recasts and reload. Source-ready casts/attacks bypass
 their generic cues; late-loading fallback does not double those keys. The
 development audition page remains available for explicit variant selection.
-Native script/mix/listening calibration and source Q particles remain open.
+Native script/mix/listening calibration and live Q particle playback remain open.
+
+[Decisive Strike particle sources](GAREN-Q-PARTICLES.md) now include every base Q
+resource key, 29 lossless textures, four meshes and four unchanged Spell1 bindings.
+The development source inspector shows the complete set. Current audio histories
+do not establish confirmed impacts or cancellation clocks for visual dispatch.

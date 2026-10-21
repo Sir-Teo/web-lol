@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decisive Strike source assets</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: system-ui, sans-serif;
+        background: #0b1320;
+        color: #e4eaf4;
+      }
+      body {
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 28px;
+      }
+      h1 {
+        margin: 6px 0 12px;
+        font-size: 30px;
+      }
+      h2 {
+        font-size: 20px;
+        margin-top: 32px;
+      }
+      p {
+        color: #a8b8cd;
+        max-width: 88ch;
+        line-height: 1.5;
+      }
+      .tag {
+        color: #e8c874;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .controls {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 20px 0 12px;
+      }
+      button {
+        background: #16243a;
+        color: #dce6f4;
+        padding: 10px 16px;
+        border: 1px solid #40516b;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      button[aria-pressed='true'] {
+        border-color: #e8c874;
+        color: #ffe0a0;
+      }
+      label {
+        margin-left: auto;
+        font-size: 14px;
+      }
+      #viewer {
+        height: 420px;
+        border: 1px solid #35445a;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      #status {
+        font:
+          13px ui-monospace,
+          monospace;
+        color: #e8c874;
+        min-height: 20px;
+      }
+      #textures {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+        gap: 12px;
+      }
+      figure {
+        margin: 0;
+        border: 1px solid #35445a;
+        border-radius: 6px;
+        overflow: hidden;
+        background: #101c2e;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: 140px;
+        object-fit: contain;
+        background: repeating-conic-gradient(#172236 0% 25%, #223047 0% 50%) 0 0 / 16px 16px;
+      }
+      figcaption {
+        padding: 9px;
+        font-size: 11px;
+        overflow-wrap: anywhere;
+        color: #b8c7db;
+      }
+      figcaption span {
+        display: block;
+        color: #e8c874;
+        margin-top: 5px;
+      }
+      .system-label {
+        display: block;
+        margin: 0;
+      }
+      select {
+        font: inherit;
+        padding: 8px;
+        background: #16243a;
+        color: #e4eaf4;
+        border: 1px solid #40516b;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      td,
+      th {
+        text-align: left;
+        padding: 10px 8px;
+        border-bottom: 1px solid #35445a;
+      }
+      .table-wrap,
+      pre {
+        overflow: auto;
+      }
+      pre {
+        max-height: 440px;
+        padding: 12px;
+        background: #101c2e;
+        font-size: 12px;
+      }
+      details {
+        margin-top: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tag">Asset inspection · frozen Riot 16.18.8175716</div>
+    <h1>Decisive Strike</h1>
+    <p>
+      Eleven frozen source systems, twenty-nine lossless textures and four exact mesh conversions.
+      Drag to inspect geometry; scroll to zoom. These are raw assets, with no emitter transform,
+      native material or animation dispatch applied. The buff record has no emitter array. Native
+      rendering and live particle integration remain open.
+    </p>
+    <div class="controls" id="controls">
+      <label><input id="wireframe" type="checkbox" /> Wireframe</label>
+    </div>
+    <div id="viewer"></div>
+    <p id="status">Loading verified assets…</p>
+    <h2>Source systems</h2>
+    <label class="system-label"
+      >System
+      <select id="system" aria-label="System"></select
+    ></label>
+    <p id="system-status"></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Primitive / material role</th>
+            <th>Rate</th>
+            <th>Emitter lifetime</th>
+            <th>Particle lifetime</th>
+          </tr>
+        </thead>
+        <tbody id="emitters"></tbody>
+      </table>
+    </div>
+    <details>
+      <summary>Complete frozen definition</summary>
+      <pre id="definition"></pre>
+    </details>
+    <h2>Spell1 particle bindings</h2>
+    <p>
+      Optional frame, bone and kill fields retain their source presence. Absent values do not
+      establish native defaults or dispatch behavior.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Start frame</th>
+            <th>Bone</th>
+            <th>Loop</th>
+            <th>Kill event</th>
+          </tr>
+        </thead>
+        <tbody id="bindings"></tbody>
+      </table>
+    </div>
+    <h2>Source textures</h2>
+    <p>
+      Includes sprite sheets, lookups, distortion maps and mesh textures. These have distinct
+      material roles; they are displayed here as raw images.
+    </p>
+    <div id="textures"></div>
+    <script type="module">
+      import * as THREE from 'three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      import audit from '../../docs/reference/garen-q-particles-decoded.json';
+      import pin from '../../docs/reference/garen-q-particles.json';
+      const base = import.meta.env.BASE_URL;
+      const models = [
+        { suffix: 'impact', name: 'Impact', texture: 'garen_base_r_spikes.png' },
+        { suffix: 'jump', name: 'Jump', texture: 'garen_base_q_dirt_spike.png' },
+        { suffix: 'sword-scroll', name: 'Sword scroll', texture: 'garen_base_q_sword_scroll.png' },
+        { suffix: 'weapon-trail', name: 'Weapon trail', texture: 'garen_base_q_wpn_trail.png' },
+      ];
+      const host = document.querySelector('#viewer');
+      const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.setClearColor(0x101c2e);
+      renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+      host.append(renderer.domElement);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(40, 1, 0.01, 1000);
+      const orbit = new OrbitControls(camera, renderer.domElement);
+      const wireframe = document.querySelector('#wireframe');
+      let current;
+      const state = {
+        ready: false,
+        selected: null,
+        triangles: 0,
+        bounds: [],
+        textures: audit.textures.length,
+        system: null,
+        sourceVersion: null,
+        wireframe: false,
+        revision: 0,
+        renderedRevision: -1,
+        glError: null,
+        draw: { calls: 0, triangles: 0, lines: 0 },
+      };
+      window.__GAREN_Q_SOURCE__ = state;
+      const loaded = await Promise.all(
+        models.map(async (m) => {
+          const output = audit.meshes.find((o) =>
+            o.output.path.endsWith(`garen-q-${m.suffix}.glb`)
+          );
+          const gltf = await new GLTFLoader().loadAsync(base + output.output.path.slice(1));
+          let geometry;
+          gltf.scene.traverse((o) => {
+            if (!o.isMesh) return;
+            geometry = o.geometry;
+            for (const material of Array.isArray(o.material) ? o.material : [o.material])
+              material.dispose();
+          });
+          if (!geometry) throw new Error(`Missing geometry: ${m.name}`);
+          // Three r186's nonindexed wireframe path reads position.array.length,
+          // which includes other fields in GLTFLoader's interleaved buffer.
+          // A sequential inspection-only index preserves every face and corner.
+          geometry.setIndex(
+            Array.from({ length: geometry.getAttribute('position').count }, (_, i) => i)
+          );
+          let texture;
+          if (m.texture) {
+            texture = await new THREE.TextureLoader().loadAsync(
+              base + 'assets/effects/' + m.texture
+            );
+            texture.colorSpace = THREE.NoColorSpace;
+            texture.flipY = false;
+            texture.generateMipmaps = false;
+            texture.minFilter = texture.magFilter = THREE.LinearFilter;
+            texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+          }
+          const material = new THREE.MeshBasicMaterial({
+            map: texture ?? null,
+            color: m.texture ? 0xffffff : 0xc1d4e8,
+            transparent: !!m.texture,
+            depthWrite: !m.texture,
+            side: THREE.DoubleSide,
+            toneMapped: false,
+          });
+          material.forceSinglePass = true;
+          const mesh = new THREE.Mesh(geometry, material);
+          geometry.computeBoundingBox();
+          mesh.position.copy(geometry.boundingBox.getCenter(new THREE.Vector3())).negate();
+          return { ...m, mesh, output, texture };
+        })
+      );
+      function select(m) {
+        if (current) scene.remove(current.mesh);
+        current = m;
+        scene.add(m.mesh);
+        applyWireframe(m);
+        const size = m.mesh.geometry.boundingBox.getSize(new THREE.Vector3());
+        const radius = size.length() / 2;
+        orbit.target.set(0, 0, 0);
+        camera.position.set(radius * 0.5, radius * 0.4, radius * 3.4);
+        camera.near = Math.max(0.0001, radius / 100);
+        camera.far = radius * 100;
+        camera.updateProjectionMatrix();
+        orbit.update();
+        Object.assign(state, {
+          selected: m.suffix,
+          triangles: m.output.triangles,
+          bounds: size.toArray(),
+          sourceVersion: m.output.sourceVersion,
+          wireframe: wireframe.checked,
+        });
+        document.querySelector('#status').textContent =
+          `${m.name} · ${m.output.sourceVertices} source vertices · ${m.output.triangles} triangles · SCB ${m.output.sourceVersion.join('.')} · 0.01 source scale`;
+        for (const b of document.querySelectorAll('#controls button'))
+          b.setAttribute('aria-pressed', String(b.textContent === m.name));
+      }
+      for (const m of loaded) {
+        const b = document.createElement('button');
+        b.textContent = m.name;
+        b.setAttribute('aria-pressed', 'false');
+        b.addEventListener('click', () => select(m));
+        document.querySelector('#controls').insertBefore(b, wireframe.parentElement);
+      }
+      function applyWireframe(m) {
+        const material = m.mesh.material;
+        material.wireframe = wireframe.checked;
+        material.map = wireframe.checked ? null : m.texture;
+        material.color.set(wireframe.checked ? 0xc1d4e8 : 0xffffff);
+        material.needsUpdate = true;
+        state.revision++;
+      }
+      wireframe.addEventListener('change', () => {
+        applyWireframe(current);
+        state.wireframe = wireframe.checked;
+      });
+      const systems = document.querySelector('#system');
+      for (const key of Object.keys(pin.resources)) {
+        const option = document.createElement('option');
+        option.value = key;
+        option.textContent = key;
+        systems.append(option);
+      }
+      function selectSystem() {
+        const key = systems.value,
+          record = pin.resources[key];
+        state.system = key;
+        document.querySelector('#definition').textContent = JSON.stringify(
+          record.definition,
+          null,
+          2
+        );
+        const data = record.definition.complexEmitterDefinitionData ?? [];
+        document.querySelector('#system-status').textContent =
+          `${data.length} source layers · ${Object.hasOwn(record.definition, 'complexEmitterDefinitionData') ? 'emitter array declared' : 'emitter array absent'} · linked multi-skin record · dispatch/attachment unverified`;
+        document.querySelector('#emitters').replaceChildren(
+          ...data.map((e, index) => {
+            const row = document.createElement('tr');
+            const values = [
+              index + ': ' + e.emitterName,
+              e.materialOverrideDefinitions
+                ? 'Character material override'
+                : (e.primitive?.__type ?? 'No explicit primitive'),
+              e.rate ? JSON.stringify(e.rate.constantValue ?? e.rate) : 'Not declared',
+              e.lifetime === undefined ? 'Not declared' : e.lifetime.toFixed(3) + ' s',
+              e.particleLifetime
+                ? JSON.stringify(e.particleLifetime.constantValue ?? e.particleLifetime) + ' s'
+                : 'Not declared',
+            ];
+            for (const value of values) {
+              const td = document.createElement('td');
+              td.textContent = value;
+              row.append(td);
+            }
+            return row;
+          })
+        );
+      }
+      systems.value = 'Garen_Q_Cas';
+      systems.addEventListener('change', selectSystem);
+      selectSystem();
+      for (const event of Object.values(audit.animationParticleEvents)) {
+        const row = document.createElement('tr');
+        const present = (value) => (value === undefined ? 'Absent' : String(value));
+        const values = [
+          event.mEffectKey,
+          present(event.mStartFrame),
+          event.mParticleEventDataPairList.map((pair) => present(pair.mBoneName)).join(', '),
+          present(event.mIsLoop),
+          present(event.mIsKillEvent),
+        ];
+        for (const value of values) {
+          const cell = document.createElement('td');
+          cell.textContent = value;
+          row.append(cell);
+        }
+        document.querySelector('#bindings').append(row);
+      }
+      const pictures = audit.textures.map((t) => {
+        const figure = document.createElement('figure'),
+          img = new Image(),
+          caption = document.createElement('figcaption');
+        img.alt = t.path.split('/').at(-1);
+        img.src = base + t.path.replace(/^public\//, '');
+        caption.textContent = img.alt;
+        const size = document.createElement('span');
+        size.textContent = `${t.width} × ${t.height}`;
+        caption.append(size);
+        figure.append(img, caption);
+        document.querySelector('#textures').append(figure);
+        return img.decode();
+      });
+      new ResizeObserver(() => {
+        const { width, height } = host.getBoundingClientRect();
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }).observe(host);
+      renderer.setAnimationLoop(() => {
+        renderer.render(scene, camera);
+        if (state.renderedRevision !== state.revision)
+          state.glError = renderer.getContext().getError();
+        state.renderedRevision = state.revision;
+        state.draw = { ...renderer.info.render };
+      });
+      select(loaded[0]);
+      await Promise.all(pictures);
+      state.ready = true;
+    </script>
+  </body>
+</html>

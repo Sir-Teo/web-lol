@@ -429,3 +429,41 @@ Chrome scenarios across sequential runs. After requiring a matching history pair
 for ongoing Q cycles, all 999 tests and seventeen Q/player/save browser cases pass
 again. Production/nested-host smoke passes with 17 ordinary recordings and the
 Garen roster gate retained. PROGRESS records bundle sizes and verification scope.
+
+## Decisive Strike particle source closure — October 21, 2026
+
+[Q particle sources](GAREN-Q-PARTICLES.md) now pin every base Q resource key:
+eleven linked systems, 31 emitter records, 29 TEX dependencies and four SCB
+meshes. Six frozen BINs supply the definitions. The extraction records all 39
+source files and their archive/chunk/file hashes. The buff definition's absent
+emitter array stays absent. The weapon trail retains its authored 500-triangle
+mesh, rather than acquiring a procedural ribbon from its name.
+
+Four exact GLBs preserve UVs/face RGB and float32 positions at 0.01 source scale,
+with pivot, bounds, materials and trailing bytes retained as metadata. Six
+existing PNGs pass exact pixel comparison; 23 new PNGs add 1,119,506 bytes. Four
+GLBs add 50,208 bytes. Four Spell1 particle events retain optional frame/bone/kill
+fields exactly. No missing frame is relabeled an authored zero. A development
+inspector exposes all meshes, textures and definitions, including the absent
+buff emitter array. This changes no gameplay, schema or runtime loader.
+
+The full 1,003-test suite across 204 files and TypeScript pass. All 36 model GLBs
+and the map validate with zero errors/warnings. Repeated frozen extraction and
+conversion reproduce all 39 source/audit/PNG/GLB/sidecar outputs byte-for-byte.
+Live target/animation dispatch requires confirmed impact and cancellation
+history beyond the current audio commitment clocks. Native timing/materials,
+Q playback, W body effects and full production/match acceptance remain open.
+
+All 21 unique focused Chrome scenarios pass across sequential runs: the two new
+source-inspection/startup cases, Q source/live audio and PCM, Q mechanics,
+Garen player controls and match-file continuation. The inspector also shows all
+four animation bindings. Visual review found that Three r186's nonindexed
+wireframe builder uses the entire interleaved position array length, generating
+out-of-range indices and WebGL INVALID_OPERATION. A sequential inspection-only
+index fixes the draw without changing any exported GLB. The final browser check
+requires a rendered line frame, visible canvas pixels and zero WebGL error;
+raw/wireframe captures were visually reviewed. The initial copied W bounds
+threshold was also replaced with comparison against each Q mesh's measured bounds.
+Production build/nested-host smoke passes with 17 ordinary recordings, real
+Ashe/Lux input and the Garen gate retained. The ordinary game entry remains
+579.60 KB (159.49 KB gzip); the existing large-bundle warning remains.

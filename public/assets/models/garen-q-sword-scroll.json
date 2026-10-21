@@ -1,0 +1,61 @@
+{
+  "output": {
+    "path": "/assets/models/garen-q-sword-scroll.glb",
+    "bytes": 7352,
+    "sha256": "b26e43d675a0e8f3a2160344756665f14b31a951bf80215f43ac96dfeda37232"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_base_q_sword_scroll.scb",
+    "wadPathHash": "46d32771e0a6b84a",
+    "sha256": "f856220e2c07306efbeceb14523d1f333146b05fe8a21af9f3fc122f5b0acd38",
+    "bytes": 9460
+  },
+  "sourceAliases": [
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_base_q_sword_scroll.scb",
+      "wadPathHash": "46d32771e0a6b84a",
+      "sha256": "f856220e2c07306efbeceb14523d1f333146b05fe8a21af9f3fc122f5b0acd38",
+      "bytes": 9460
+    }
+  ],
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 80,
+  "triangles": 76,
+  "exportedCorners": 228,
+  "centralPoint": [
+    9.374710083007812,
+    102.93724822998047,
+    5.180145263671875
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -148.40589904785156,
+    -8.767999649047852,
+    -128.19110107421875,
+    167.15530395507812,
+    214.6425018310547,
+    138.55140686035156
+  ],
+  "tailHex": "ddb53041ac0dd64248e1fa3fddb53041c3a4054348e1fa3f",
+  "positionFloat32Sha256": "2274b77bd42cded9fb7c16059801aa375823c8ad1b286853c8850d5c6c4710f7",
+  "uvFloat32Sha256": "9b41ac7aedad6eaae6d0d408704e629770c9f82f08e5d5923e9e8d3405f7bc86",
+  "faceRgbSha256": "101bb8aeab946925b14006ee79fbfa56dcf5b2a65c44ca9b435abbd1abe3a22b",
+  "materials": [
+    ""
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

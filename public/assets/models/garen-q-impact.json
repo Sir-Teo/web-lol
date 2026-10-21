@@ -1,0 +1,61 @@
+{
+  "output": {
+    "path": "/assets/models/garen-q-impact.glb",
+    "bytes": 2012,
+    "sha256": "822667c8283c75255c4d7f0fa551bae21e0bdf8da4650a545b82f562cfde229c"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_base_q_impact.scb",
+    "wadPathHash": "56599b325955a6d8",
+    "sha256": "d2e29398278839187425395e706786d9d8196a6c433868dd52d8ef3471afcdb4",
+    "bytes": 482
+  },
+  "sourceAliases": [
+    {
+      "path": "assets/characters/garen/skins/base/particles/garen_base_q_impact.scb",
+      "wadPathHash": "56599b325955a6d8",
+      "sha256": "d2e29398278839187425395e706786d9d8196a6c433868dd52d8ef3471afcdb4",
+      "bytes": 482
+    }
+  ],
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 4,
+  "triangles": 2,
+  "exportedCorners": 6,
+  "centralPoint": [
+    -0.021499991416931152,
+    2.2014000415802,
+    -0.03274999558925629
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -1.1519999504089355,
+    0.4106999933719635,
+    -0.1720000058412552,
+    1.1089999675750732,
+    3.9921000003814697,
+    0.10649999976158142
+  ],
+  "tailHex": "7ac7a9bd5f980c40f775e0bc7ac7a9bd8cb92740994cf53e",
+  "positionFloat32Sha256": "db07f902df9d1c88af67f7177c02df8cc10e49119ec3715860d6013e0c940df9",
+  "uvFloat32Sha256": "bfad8d78e16e87735a78d22e9d21c651d46061c1e8697067881a581c847ee1a2",
+  "faceRgbSha256": "60daa3a5f7dbfa200f8c82840ecf5b42640b70f3b7218a4c6bbd67db542e75a4",
+  "materials": [
+    ""
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}
