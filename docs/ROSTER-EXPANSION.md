@@ -328,3 +328,23 @@ validators and production/nested-host smoke pass. Twenty-four converted/pin
 outputs reproduce byte-for-byte. Live material overrides, attached-skin slicing,
 dispatch/attachment and native comparison remain open; gameplay/schema 80 and
 the production roster gate are unchanged.
+
+## Courage live cast and sustained particles — October 21, 2026
+
+[Courage's live adapter](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
+now reconstructs seven source emitter definitions from the existing schema-80
+start/stop history. The cast follows the rig center; sustained effects follow
+terrain position. Those attachment and stopped-particle linger policies remain
+local choices pending native comparison. Thirteen definitions remain deferred,
+including shoulders, deflection, body material/attached-skin operations and four
+minimal declarations. The shared arrow reference is not rendered as a character
+surface. Gameplay and schema are unchanged.
+
+All 976 checks, TypeScript, 36 focused Chrome scenarios and production/nested-host
+smoke pass; PROGRESS records the verification scope and sequential trace-cleanup
+rerun. Four independent W GPU samples, saved/death/fog/terminal continuation,
+practice recasts and late loading are covered. Both generated profile/audit files
+reproduce byte-for-byte. One shield mesh and ten PNGs load on Garen presence;
+ordinary startup retains 17 recordings and no W graphics requests. Native
+calibration, the remaining W operations and full production roster acceptance
+remain open.

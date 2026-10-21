@@ -3,6 +3,8 @@ import audit from '../docs/reference/garen-w-particles-decoded.json' with { type
 import r from '../docs/reference/garen-r-particles-decoded.json' with { type: 'json' };
 import kill from '../docs/reference/garen-r-kill-particles.json' with { type: 'json' };
 import spin from '../docs/reference/garen-spin.json' with { type: 'json' };
+import profiles from '../src/content/garen-w-particles.json' with { type: 'json' };
+import playback from '../docs/reference/garen-w-particle-profiles.json' with { type: 'json' };
 
 test('Courage inspection loads all frozen textures, both mesh versions and all seven source systems', async ({
   page,
@@ -54,7 +56,7 @@ test('Courage inspection loads all frozen textures, both mesh versions and all s
   expect(errors).toEqual([]);
 });
 
-test('Courage packaging adds no automatic geometry/texture requests to ordinary or Garen fixture startup', async ({
+test('Courage graphics load only their selected mesh/texture subset on Garen presence', async ({
   page,
 }) => {
   const shared = new Set(
@@ -69,10 +71,35 @@ test('Courage packaging adds no automatic geometry/texture requests to ordinary 
     const path = new URL(request.url()).pathname;
     if (path.includes('/assets/models/garen-w-') || newTextures.includes(path)) requests.push(path);
   });
-  for (const path of ['/?scene=fixture', '/?scene=fixture&champion=garen']) {
-    await page.goto(path);
-    await page.waitForFunction(() => (window as any).__GAME__?.ready);
-    await page.locator('#loading').waitFor({ state: 'detached' });
-  }
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
   expect(requests).toEqual([]);
+  await page.goto('/?scene=fixture&champion=garen');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const selected = new Set(
+    profiles.flatMap((p) => [p.texture, ...(p.lookup ? [p.lookup] : [])]).map((p) => '/' + p)
+  );
+  expect(requests.sort()).toEqual(
+    ['/assets/models/garen-w-shield.glb', ...newTextures.filter((p) => selected.has(p))].sort()
+  );
+  expect(requests).toHaveLength(6);
+});
+
+test('Courage live materials reproduce independent PNG texel products in every RGBA channel', async ({
+  page,
+}) => {
+  await page.goto('/tools/qa/garen-w-source-preview.html');
+  await page.waitForFunction(() => (window as any).__GAREN_W_SOURCE__?.ready);
+  for (const sample of playback.gpuSamples) {
+    const actual = await page.evaluate(
+      async (sample) => (window as any).__GAREN_W_MATERIAL__.probe(sample),
+      sample
+    );
+    const expected = sample.sourceRgba.map((v, i) =>
+      Math.round((v * sample.tint[i] * sample.lookupRgba[i]) / 255)
+    );
+    for (let i = 0; i < 4; i++) expect(Math.abs(actual[i] - expected[i])).toBeLessThanOrEqual(1);
+  }
 });

@@ -221,6 +221,37 @@ shape data remain unexpanded. Source particle lives of 2.25/6/7 seconds do not
 by themselves establish the modern gameplay or rendering timeline. Full
 production/match acceptance remains open.
 
+[Courage's live cast and sustained adapter](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
+now selects seven of the twenty source emitter definitions: shield, cast ground
+glow, rising energy, flash, sustained ground glow, symbol and waves. Deterministic
+particles reconstruct from the existing schema-80 W history, including saved
+active/death intervals, practice recasts, visibility and terminal presentation.
+The cast uses the rig's center bone; sustained layers follow interpolated terrain
+position. This attachment choice and the existing total-age linger cap are local
+adapter policies pending native comparison. Gameplay and snapshot schema stay
+unchanged. Thirteen other emitter definitions remain deferred, including shoulders,
+deflection, character material/attached-skin work and four minimal declarations.
+
+All 976 tests across 199 files and TypeScript pass with four workers and a
+30-second test deadline. Thirty-six focused Chrome scenarios pass across player,
+W mechanics/audio/source/live particles, Judgment, R visuals/audio and match-file
+coverage, with a 60-second browser deadline. An overlapping browser invocation
+caused a Judgment trace-cleanup error; the sequential rerun passes Judgment and
+all four live Courage cases. Four independent W GPU texel probes agree within
+one byte per channel. Cast and sustained captures were visually reviewed. Both
+generated profile/audit outputs reproduce byte-for-byte; source binaries and
+converted assets are unchanged.
+
+Production build and nested-host smoke pass. The W graphics chunk is 14.90 KB
+(3.97 KB gzip); the ordinary game entry is 573.99 KB (158.43 KB gzip), retaining
+the existing large-bundle warning. W presence requests one shield GLB and ten
+PNGs, with five PNGs shared with E/R; ordinary startup still has no W graphics
+requests and retains 17 audio recordings. Late Garen loading, partial-failure
+disposal/retry and borrowed-resource ownership are covered. Garen remains excluded
+from production selection. Native dispatch/attachment/material composition,
+remaining W layers, Q/basic/voice presentation and full production/match
+acceptance remain open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

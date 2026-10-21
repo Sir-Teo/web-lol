@@ -1,0 +1,224 @@
+{
+  "sourcePinSha256": "60432efa52634038bde6c7b5e330b57b8887946b673a60a527cf758dfeaa9ce9",
+  "decodedAssetsSha256": "2af1bbc440ef18458b42c3579b5e0eec88a3b66407900e3180b6856f8377b107",
+  "defaultsEvidenceSha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb",
+  "output": {
+    "path": "src/content/garen-w-particles.json",
+    "sha256": "49df9ff6eebc32baae96aee23c5c4a0a5235e72347fc99e3081a0aaa5f2a146d"
+  },
+  "implemented": [
+    {
+      "system": "Garen_W_Cas",
+      "index": 0
+    },
+    {
+      "system": "Garen_W_Cas",
+      "index": 1
+    },
+    {
+      "system": "Garen_W_Cas",
+      "index": 2
+    },
+    {
+      "system": "Garen_W_Cas",
+      "index": 3
+    },
+    {
+      "system": "Garen_W_Buff",
+      "index": 0
+    },
+    {
+      "system": "Garen_W_Buff",
+      "index": 1
+    },
+    {
+      "system": "Garen_W_Buff",
+      "index": 2
+    }
+  ],
+  "deferred": [
+    {
+      "system": "Garen_W_Buff",
+      "index": 3,
+      "reason": "minimal declaration without rate, texture or particle lifetime"
+    },
+    {
+      "system": "Garen_W_Buff",
+      "index": 4,
+      "reason": "minimal declaration without rate, texture or particle lifetime"
+    },
+    {
+      "system": "Garen_W_Buff",
+      "index": 5,
+      "reason": "minimal declaration without rate, texture or particle lifetime"
+    },
+    {
+      "system": "Garen_W_Buff",
+      "index": 6,
+      "reason": "minimal declaration without rate, texture or particle lifetime"
+    },
+    {
+      "system": "Garen_W_Avatar",
+      "index": 0,
+      "reason": "character material/attached-skin rendering"
+    },
+    {
+      "system": "Garen_W_Avatar",
+      "index": 1,
+      "reason": "character material/attached-skin rendering"
+    },
+    {
+      "system": "Garen_W_Avatar_Fade",
+      "index": 0,
+      "reason": "character material/attached-skin rendering"
+    },
+    {
+      "system": "Garen_W_Avatar_Fade",
+      "index": 1,
+      "reason": "character material/attached-skin rendering"
+    },
+    {
+      "system": "Garen_W_Deflect",
+      "index": 0,
+      "reason": "deflection event history and dispatch"
+    },
+    {
+      "system": "Garen_W_Shoulder_L",
+      "index": 0,
+      "reason": "shoulder attachment and dispatch"
+    },
+    {
+      "system": "Garen_W_Shoulder_L",
+      "index": 1,
+      "reason": "shoulder attachment and dispatch"
+    },
+    {
+      "system": "Garen_W_Shoulder_R",
+      "index": 0,
+      "reason": "shoulder attachment and dispatch"
+    },
+    {
+      "system": "Garen_W_Shoulder_R",
+      "index": 1,
+      "reason": "shoulder attachment and dispatch"
+    }
+  ],
+  "gpuSamples": [
+    {
+      "profileIndex": 0,
+      "sourceUv": [
+        0.404296875,
+        0.134765625
+      ],
+      "lookupUv": [
+        0.31640625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        165,
+        187
+      ],
+      "lookupRgba": [
+        216,
+        220,
+        216,
+        255
+      ]
+    },
+    {
+      "profileIndex": 2,
+      "sourceUv": [
+        0.4931640625,
+        0.51953125
+      ],
+      "lookupUv": [
+        0.58984375,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        82,
+        81,
+        82,
+        255
+      ]
+    },
+    {
+      "profileIndex": 5,
+      "sourceUv": [
+        0.8447265625,
+        0.4677734375
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        206,
+        166,
+        0,
+        102
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 6,
+      "sourceUv": [
+        0.7841796875,
+        0.4814453125
+      ],
+      "lookupUv": [
+        0.5078125,
+        0.5078125
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        159,
+        159,
+        159,
+        223
+      ],
+      "lookupRgba": [
+        239,
+        121,
+        0,
+        255
+      ]
+    }
+  ]
+}

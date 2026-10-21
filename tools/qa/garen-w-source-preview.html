@@ -150,8 +150,9 @@
     <p>
       Seven frozen source systems, eighteen lossless textures and two exact mesh conversions. Drag
       to inspect geometry; scroll to zoom. The shared arrow is an attached-mesh reference, shown
-      here as an asset only. Character material replacement, attached-skin slicing, spell dispatch
-      and native rendering remain unimplemented.
+      here as an asset only. The live adapter selects seven cast/ground layers; this view inspects
+      raw assets. Character material replacement, attached-skin slicing and native rendering remain
+      open.
     </p>
     <div class="controls" id="controls">
       <label><input id="wireframe" type="checkbox" /> Wireframe</label>
@@ -194,6 +195,8 @@
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
       import audit from '../../docs/reference/garen-w-particles-decoded.json';
       import pin from '../../docs/reference/garen-w-particles.json';
+      import profiles from '../../src/content/garen-w-particles.json';
+      import { createGarenCourageMaterial } from '../../src/render/garen-courage';
       const base = import.meta.env.BASE_URL;
       const models = [
         { suffix: 'shield', name: 'Shield', texture: 'garen_base_w_shield_txt.png' },
@@ -221,6 +224,54 @@
         wireframe: false,
       };
       window.__GAREN_W_SOURCE__ = state;
+      const probeTextures = new Map();
+      const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
+      white.needsUpdate = true;
+      async function probeTexture(path, clamp = false) {
+        if (!path) return white;
+        if (!probeTextures.has(path)) {
+          const t = await new THREE.TextureLoader().loadAsync(base + path);
+          t.colorSpace = THREE.NoColorSpace;
+          t.flipY = false;
+          t.generateMipmaps = false;
+          t.minFilter = t.magFilter = THREE.LinearFilter;
+          t.wrapS = t.wrapT = clamp ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
+          probeTextures.set(path, t);
+        }
+        return probeTextures.get(path);
+      }
+      window.__GAREN_W_MATERIAL__ = {
+        probe: async (sample) => {
+          const p = profiles[sample.profileIndex];
+          const [base, lookup] = await Promise.all([
+            probeTexture(p.texture),
+            probeTexture(p.lookup, true),
+          ]);
+          const material = createGarenCourageMaterial(sample.profileIndex, base, lookup);
+          material.blending = THREE.NoBlending;
+          material.uniforms.particleColor.value.fromArray(sample.tint);
+          material.uniforms.lookupUv.value.fromArray(sample.lookupUv);
+          const geometry = new THREE.PlaneGeometry(2, 2),
+            uv = geometry.getAttribute('uv');
+          for (let i = 0; i < uv.count; i++) uv.setXY(i, ...sample.sourceUv);
+          const probeScene = new THREE.Scene();
+          probeScene.add(new THREE.Mesh(geometry, material));
+          const probeCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+          probeCamera.position.z = 1;
+          const target = new THREE.WebGLRenderTarget(1, 1),
+            previous = renderer.getRenderTarget();
+          renderer.setRenderTarget(target);
+          renderer.clear();
+          renderer.render(probeScene, probeCamera);
+          const bytes = new Uint8Array(4);
+          renderer.readRenderTargetPixels(target, 0, 0, 1, 1, bytes);
+          renderer.setRenderTarget(previous);
+          target.dispose();
+          geometry.dispose();
+          material.dispose();
+          return [...bytes];
+        },
+      };
       const loaded = await Promise.all(
         models.map(async (m) => {
           const output = audit.meshes.find((o) =>

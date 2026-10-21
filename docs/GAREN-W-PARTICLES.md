@@ -6,10 +6,12 @@ shield and shared attached-mesh reference have exact GLB conversions, and all
 eighteen textures have lossless RGBA PNGs. A development inspection page exposes
 the meshes, raw textures and complete system definitions.
 
-This increment prepares the full source set. W's live particle dispatch,
-character material replacement, attached-skin slicing, attachment transforms and
-native composition remain unfinished. Gameplay and snapshot schema 80 are
-unchanged; Garen remains outside production selection.
+The live adapter now renders seven cast/ground layers from that set: the shield,
+activation glow, rising energy, flash, sustained ground glow, wings and waves.
+Shoulders, deflection and character-surface effects remain separate open work.
+Dispatch/attachment/stop policies are local and native composition remains
+unverified. Gameplay and snapshot schema 80 are unchanged; Garen remains outside
+production selection.
 
 ## Frozen source closure
 
@@ -74,8 +76,10 @@ an exact dimension/RGBA comparison; thirteen new files add 908,324 bytes. These
 include the shield and shoulder maps, energy wave/color map, wings, two alpha
 lookups, material replacement/transition maps and the attached shimmer texture.
 The decoded ledger retains source/output/RGBA hashes and dimensions for each.
-The two GLBs add 104,008 bytes. None of the new W graphics is requested by either
-ordinary startup or the existing Garen fixture yet.
+The two GLBs add 104,008 bytes. The live adapter now requests the shield and ten
+used textures on Garen presence; the shared attached-mesh reference and eight
+unused textures remain prepared assets. Ordinary Ashe/Lux startup adds no W
+graphics requests.
 
 The development page `/tools/qa/garen-w-source-preview.html` provides orbit/zoom,
 wireframe, both source mesh versions, a seven-system selector with emitter
@@ -142,3 +146,89 @@ without errors or warnings. Production build/nested-host smoke passes with the
 ordinary 17 recordings, unchanged entry bundles and the Garen roster gate intact.
 Native dispatch, material/attached-skin rendering and complete production/match
 acceptance remain open.
+
+## Live cast and sustained adapter — October 21, 2026
+
+`export-garen-w-particles.py` derives seven playback profiles from the verified
+source and decoded ledgers, using the existing pinned reader defaults. Its audit
+accounts for every source declaration: seven selected, thirteen explicitly
+deferred. The four minimal buff records retain their missing fields; shoulders,
+deflection and Avatar material/attached-skin operations are not substituted with
+generic particles.
+
+| Selected layer | Birth policy | Natural life |
+| --- | --- | --- |
+| Cast shield | One source burst particle | 2.25 seconds |
+| Activation glow | Two source burst particles | 0.2 seconds |
+| Rising energy | Rate 90 over 0.5 seconds | Source random lifetime/scale/velocity |
+| Flash | First rate-budget birth | 1 second |
+| Sustained ground glow | Two source burst particles | 6 seconds |
+| Wings | One source burst particle | 6 seconds |
+| Ground waves | Rate 5 while W's defense interval is active | Source random lifetime 0.6–1.5 seconds |
+
+Both systems start at accepted W activation. This is a local script-dispatch
+policy, independent of the absent W animation particle event. Cast layers follow
+the actual case-folded `C_Buffbone_GLB_Center_Loc` node, with a root fallback for
+a replacement rig lacking it. The source rig contains that center node; its
+selection for W is a local attachment policy, not an authored native W event.
+The buff layers follow the interpolated caster ground point and terrain height.
+Source position offsets use current caster facing. Arbitrary quads/meshes retain
+local versus world orientation and the established `Ry Rx Rz`/UV convention;
+flash uses the camera frame. Bone-axis inheritance and actual birth-frame
+orientation remain unverified.
+
+The pure sampler retains source scale/color curves, velocity, spawn rotation,
+angular velocity, UV offset/scroll and independently indexed color-lookup random
+coordinates. Source single emitters produce rate-sized bursts. Other emitters
+use the existing local first-birth/rate-budget convention on a 60 Hz grid.
+The wave emitter's missing lifetime is bounded by the local four-second defense
+interval. There is no render-driven integration and no simulation RNG use.
+Current sampling and indexed identities reconstruct after any render order or
+checkpoint restoration.
+
+Shield depletion does not stop these particles. Natural defense expiry, death
+or match end uses existing schema-80 `garenWVisual.stopTick` to stop new births.
+As with the earlier Judgment adapter, stopped particles cap **total particle
+age** by their declared linger, retaining their original natural curve phase.
+The cast shield's `particleLingerType = 1` is preserved but not assigned a separate
+unverified native meaning. This stop interpretation is local and requires native
+comparison. It removes long-lived ground/wings layers and bounds final waves and
+already-born cast particles. The existing 189-tick presentation history covers
+every selected stopped draw; no schema or gameplay-duration change is needed.
+Practice cooldown resets can replace the single retained interval and retire
+its old keyed particles.
+
+Enemy draws require current caster visibility. Friendly cast tails can finish
+through death; expired/hidden draws dispose their owned materials while shared
+source geometry/textures remain cached. Pausing freezes particle time. After a
+winner freezes simulation, existing terminal presentation time lets already-born
+particles finish without replaying a frozen step.
+
+Materials use raw linear source images, linear filtering, repeat source UVs and
+clamped lookup coordinates. The shared initial RGBA product preserves independent
+base scroll/lookup coordinates, authored passes and blend factors, double-sided
+single-pass rendering, depth testing and no depth writes. Source face RGB,
+UV_MODE lock-alpha and complete native framebuffer composition remain open.
+
+Controller/profiles load through a dynamic import only on Garen presence. The
+loader requests one shield GLB (92,972 bytes) and ten PNGs (350,886 bytes); five
+PNGs are already shared with Judgment/R. Ordinary startup retains its 17 audio
+recordings and no W graphics requests. Initial Garen fixtures await readiness;
+a later Garen loads the same cached resource set and reconstructs the currently
+live phase. Partial failures dispose completed owned geometry/textures and allow
+the existing five-second lazy retry policy.
+
+```sh
+.tools/cdtb-venv/bin/python tools/assets/export-garen-w-particles.py
+npm run test:browser -- e2e/garen-courage.spec.ts e2e/garen-w-source.spec.ts
+```
+
+Playback export reproduces both generated profile/audit files byte-for-byte.
+Six source/sampler/loading tests check source coverage, burst/rate clocks,
+randomized motion/lookup, stop bounds, saved active/death continuation, RNG
+independence and partial-load ownership/retry. Chrome observes all seven layers,
+rig/ground attachment and movement, exact keyed poses/material uniforms after
+death/save/reload, fog disposal, expiry, terminal-time completion and late-NPC
+loading. Four independent GPU texel probes agree within one byte per RGBA channel.
+Cast and sustained captures are reviewed separately from native calibration.
+Final verification scope is recorded in [PROGRESS.md](PROGRESS.md).

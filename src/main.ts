@@ -125,7 +125,9 @@ async function boot(): Promise<void> {
     audio.load(world.units.some((u) => u.champion === 'garen')),
     loadReferenceModels(),
     loadGarenSpin(),
-    ...(world.units.some((u) => u.champion === 'garen') ? [view.garenJustice.load()] : []),
+    ...(world.units.some((u) => u.champion === 'garen')
+      ? [view.garenJustice.load(), view.garenCourage.load()]
+      : []),
     loadLuxBeamTextures(),
     loadLuxRStreakTextures(),
     loadLuxBokehTextures(),
