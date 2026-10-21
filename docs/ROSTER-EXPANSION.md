@@ -266,3 +266,14 @@ The frame-10 caster particle event is distinct from the damage animation marker;
 sword/impact dispatch timing and attachment remain unverified. Runtime effects,
 persisted release history and native comparison are still required. Garen remains
 a development-only player choice.
+
+## Demacian Justice live source-particle adapter — October 21, 2026
+
+The [R particle adapter](GAREN-R-PARTICLES.md) now renders 16 source layers in
+player/NPC fixtures, with a persisted valid release point and independent
+cancellation history in schema 78. Killed recipients, later caster death, normal
+orders and save/reload retain impact tails. Source caster attachment, falling
+mesh motion, lookup/multiplier paths, random rock atlas and fog/disposal are
+exercised in Chrome. The seventeenth emitter requires scene distortion, and
+native dispatch/motion/material comparison plus R source audio remain open.
+Garen stays excluded from production selection.

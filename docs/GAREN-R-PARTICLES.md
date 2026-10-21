@@ -1,11 +1,15 @@
 # Demacian Justice source particle assets
 
-The three primary R systems are now verified against the frozen Riot archive and
-packaged for the browser: two cast emitters, three sword emitters, and twelve
-impact emitters. Four source meshes and all 21 texture dependencies have lossless
-exports. **Live R particle dispatch is not implemented by this increment.** The
-current gameplay, cast pose, reveal, checkpoint schema 77 and production roster
-gate are unchanged.
+Garen R now renders 16 source layers in the development player and NPC fixtures:
+the caster flash/ground glow, three sword layers, and eleven impact layers. They
+use the previously verified four source meshes and 21 texture dependencies.
+The seventeenth source emitter is scene distortion, which remains explicitly
+deferred. This is an initial source-backed adapter, not native presentation
+certification. Garen remains excluded from production selection.
+
+Snapshot version 78 records accepted R, a valid release and pre-release
+cancellation independently of the cast pose and target reveal. The existing
+27-tick damage/reveal gameplay policy is unchanged.
 
 ## Frozen definitions and dependencies
 
@@ -71,9 +75,9 @@ native composition.
 The development inspection page at `/tools/qa/garen-r-source-preview.html`
 shows all textures and provides orbit/zoom and wireframe views for every mesh.
 It centers each mesh and pairs it with one authored texture for UV inspection.
-It is not an animated R preview. The page imports no game runtime and adds no
-R asset requests to ordinary gameplay. Files are local static assets; extraction
-dependencies remain authoring tools.
+It is not an animated R preview. Its GPU probe exercises the same live material
+extension against independent PNG texels. Authoring tools remain build-time only;
+the application uses local static assets.
 
 ## Timing and attachment evidence
 
@@ -95,16 +99,85 @@ a simple additive mesh approximation would omit those fields. One shape type
 remains the unresolved hash `{ee39916f}` in the cast/impact definitions. Preserve
 these unknowns until their defaults and semantics have evidence.
 
+## Runtime adapter and persistence
+
 The [existing R gameplay contract](GAREN-R.md) remains authoritative for the local
-27-tick windup and target-only reveal. Further integration should explicitly
-capture acceptance, target identity, facing, successful release tick/point and
-pre-release cancellation in a separate persisted presentation record. Pending
-casts and cast animations can clear before a sword/impact tail ends; reveal or
-cooldown cannot prove that damage released. A release record should survive a
-killed target, subsequent caster actions and save/restore. Choosing frozen-ground
-versus target-following anchors, cancellation tails and emission start offsets
-requires an explicit local policy until native behavior is verified. No new save
-fields or cancellation semantics are introduced here.
+27-tick windup and target-only reveal. Both the caster event and target sword
+start at the frame-10 time under the existing warped pose. The caster start is
+source-derived; activating the target sword at that same time is a **local
+script-dispatch policy**, since its source invocation is still unknown. Impact
+starts only when the simulation releases R onto its captured living enemy
+champion. A shielded or invulnerable recipient can still receive the released
+presentation; damage processing remains authoritative for health changes.
+
+The caster flash attaches to the actual case-folded
+`C_Buffbone_GLB_Layout_Loc` node, with an explicit root fallback if a replacement
+rig lacks it. Translation follows the animated attachment; the source-space
+frame uses captured caster facing rather than guessed bone-axis inheritance.
+Enemy caster draws require caster sight. The target sword follows the selected
+champion's interpolated ground position during windup, then freezes at the
+release point. Impact shares that frozen point and ground elevation. These
+world-space target anchors do not inherit target rotation or hit-bone offsets.
+Target effects from an enemy source require sight of the pending target or the
+released ground point; friendly source effects follow the existing shared
+presentation visibility policy. Native per-pixel fog composition remains open.
+
+The pure sampler reconstructs source rate-sized single bursts, non-single
+rate-budget births, float32 delay boundaries, indexed probability tables, shape
+offsets/rotations, scale/color curves, UV scroll and static/random atlas cells.
+It consumes no simulation RNG and depends on no prior rendered frame. Omitted
+scalar/vector/color defaults follow the already pinned reader. The unresolved
+shape class keeps only its explicit offset; no unknown shape defaults are added.
+A random atlas start adds an indexed frame offset and wraps within the declared
+cell grid. Native PRNG, random-frame selection and emission cadence still need
+matched execution evidence.
+
+Motion uses **local analytic constant acceleration with exponential birth drag**.
+For the undamped sword drop this retains authored initial velocity -2,100 and
+acceleration -123,300 source units. This interpretation of `IntegratedValueVector3` is provisional;
+it does not inherit the separate Lux study's draw-time acceleration policy.
+Velocity-oriented particles align their long axis with computed travel. Camera
+quads use the camera frame, while arbitrary quads retain the established Garen
+UV/rotation convention. These transforms require native comparison.
+
+The initial RGBA product uses raw linear textures, authored tint/lookup and an
+independently scrolling sword multiplier. Static atlas scale/offset modifies
+only source UVs. Source passes and add/alpha/alpha-add modes, alpha-reference
+cutoffs, depth testing, no depth writes and double-sided single-pass draws are
+retained. Additive tint alpha attenuates RGB under the existing adapter policy.
+The shader does **not** yet establish native UV_MODE lock-alpha, source face-RGB,
+full remap/palette semantics or framebuffer composition. The distortion emitter
+needs a verified scene-sampling render pass; drawing its normal map as an ordinary
+colored billboard would be incorrect, so it stays absent from live draws.
+
+A shared loader fetches four meshes and the 19 textures used by the selected
+layers. Ordinary Ashe/Lux startup adds no R-specific requests; two PNGs are already
+shared with the existing Judgment loader. The renderer and generated profiles
+also load through an on-presence dynamic import. Initial Garen matches await their assets; a later Garen NPC triggers the same cached
+resource set on presence. Partial failed loads dispose their completed resources;
+late loading can retry after five seconds. Per-particle materials dispose on
+expiry/hiding while borrowed geometries and textures stay cached.
+
+`garenRVisual` stores start tick, target ID, captured facing, initial target point,
+nullable release tick and nullable cancellation tick. A valid release freezes the
+actual recipient position before damage. Killing the target, later caster death,
+movement/orders, pose replacement, reveal expiry and target disappearance cannot
+create or erase that release. Caster death, target disappearance or match end
+cancel an unreleased cast; a dead/missing target at the deadline never manufactures
+an impact. Cancellation immediately removes the target sword while already-born
+caster particles finish naturally. The record retires 180 ticks after release or
+cancellation, covering the longest selected impact envelope (about 2.32 seconds)
+plus interpolation. Individual particles still expire on their own source lives.
+
+The decoder requires Garen ownership, learned R, compatible target references,
+exact release timing, mutually exclusive release/cancellation, valid pending
+cast geometry/facing and matching reveal history. It rejects missing active
+history, foreign payloads, future/expired intervals and contradictory clocks.
+Released/cancelled history may outlive a removed target; pending history may not.
+Restore rebuilds keyed particles and their clocks exactly, independent of map
+insertion order. Earlier same-build saves are incompatible under the existing
+version/ruleset policy. Practice cooldown resets can replace the single retained
+R history; ordinary cooldowns do not permit overlapping R casts.
 
 ## Reproduction and validation
 
@@ -117,17 +190,29 @@ PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/dis
 # Repeatable committed source/asset pipeline:
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-garen-r-particles.py
 node tools/assets/convert-garen-r-particles.mjs
+.tools/cdtb-venv/bin/python tools/assets/export-garen-r-particles.py
 
 npm run check
-npm run test:browser -- e2e/garen-r-source.spec.ts
+npm run test:browser -- e2e/garen-justice.spec.ts e2e/garen-r-source.spec.ts
 npm run assets:validate
 ```
 
-Repeated frozen extraction and conversion produced byte-identical output across
-both ledgers, four GLBs, four sidecars and 21 PNGs. Three new source checks verify
-resource resolution, complete dependency closure, recorded output bytes and the
-separate frame-10 caster event. All 931 source/simulation tests and TypeScript
-pass. Browser/model/production checks for this increment are recorded in
-[PROGRESS.md](PROGRESS.md). Native visual parity, runtime R particles/audio,
-Garen's remaining effects and complete production/full-match acceptance remain
-open.
+The original source conversion reproduced 31 byte-identical outputs; repeated
+playback export also reproduces its two generated files exactly. Source checks
+verify resolution, dependency closure and the separate frame-10 event. Ten
+new state cases exercise pending/released/cancelled restoration, killing release,
+later caster death, missing recipients, match-end cancellation, expiry and
+malformed histories. Six new
+sampler/source cases cover all sixteen layer identities, source burst sizes,
+sword acceleration, deterministic random atlas selection and the full decal life.
+
+Chrome observes every implemented layer with actual meshes/textures and finite
+transforms; checks the authored attachment and independent multiplier; saves a
+killing R after caster death and compares particles by stable identity after
+reload; tests enemy fog/disposal and late NPC loading; and captures caster flash,
+falling sword and impact for visual review. Three independent GPU samples verify
+all RGBA channels within one byte against source PNG texel products, covering
+separate sword scroll coordinates and the rock atlas. Wider check results are
+recorded in [PROGRESS.md](PROGRESS.md). Native timing/attachment/composition,
+distortion, R source audio, other Garen effects and complete production/full-match
+acceptance remain open.

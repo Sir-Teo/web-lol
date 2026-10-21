@@ -1,0 +1,232 @@
+{
+  "sourcePinSha256": "492b811cc643f3a44e7ec4b6a6832e71f03456b043e514f1c8ea85ffc09cd9ed",
+  "defaultsEvidenceSha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb",
+  "output": {
+    "path": "src/content/garen-r-particles.json",
+    "sha256": "5f3d078bca1b6a3448ad82d1c45553f55761ee094d47195847966b53c0b6a11d"
+  },
+  "implemented": [
+    {
+      "role": "cast",
+      "index": 0
+    },
+    {
+      "role": "cast",
+      "index": 1
+    },
+    {
+      "role": "sword",
+      "index": 0
+    },
+    {
+      "role": "sword",
+      "index": 1
+    },
+    {
+      "role": "sword",
+      "index": 2
+    },
+    {
+      "role": "impact",
+      "index": 0
+    },
+    {
+      "role": "impact",
+      "index": 1
+    },
+    {
+      "role": "impact",
+      "index": 2
+    },
+    {
+      "role": "impact",
+      "index": 3
+    },
+    {
+      "role": "impact",
+      "index": 4
+    },
+    {
+      "role": "impact",
+      "index": 5
+    },
+    {
+      "role": "impact",
+      "index": 6
+    },
+    {
+      "role": "impact",
+      "index": 7
+    },
+    {
+      "role": "impact",
+      "index": 8
+    },
+    {
+      "role": "impact",
+      "index": 9
+    },
+    {
+      "role": "impact",
+      "index": 11
+    }
+  ],
+  "deferred": [
+    {
+      "role": "impact",
+      "index": 10,
+      "reason": "scene distortion requires a separate verified render pass"
+    }
+  ],
+  "gpuSamples": [
+    {
+      "profileIndex": 4,
+      "rawUv": [
+        0.501953125,
+        0.4697265625
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "sourceOffset": [
+        0.0,
+        0.15625
+      ],
+      "multiplierOffset": [
+        0.0,
+        -0.0937500037252903
+      ],
+      "tint": [
+        0.4,
+        0.7,
+        0.3,
+        0.5
+      ],
+      "sourcePixel": [
+        128,
+        320
+      ],
+      "multiplierPixel": [
+        128,
+        192
+      ],
+      "sourceRgba": [
+        71,
+        38,
+        0,
+        210
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "multiplierRgba": [
+        247,
+        162,
+        0,
+        254
+      ]
+    },
+    {
+      "profileIndex": 4,
+      "rawUv": [
+        0.501953125,
+        0.4697265625
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "sourceOffset": [
+        0.0,
+        0.3125
+      ],
+      "multiplierOffset": [
+        0.0,
+        -0.1875000074505806
+      ],
+      "tint": [
+        0.8,
+        0.3,
+        0.5,
+        0.7
+      ],
+      "sourcePixel": [
+        128,
+        400
+      ],
+      "multiplierPixel": [
+        128,
+        144
+      ],
+      "sourceRgba": [
+        82,
+        52,
+        0,
+        230
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "multiplierRgba": [
+        255,
+        206,
+        0,
+        254
+      ]
+    },
+    {
+      "profileIndex": 10,
+      "rawUv": [
+        0.41015625,
+        0.58984375
+      ],
+      "scale": [
+        0.5,
+        0.5
+      ],
+      "sourceOffset": [
+        0.5,
+        0.5
+      ],
+      "multiplierOffset": [
+        0,
+        0
+      ],
+      "tint": [
+        0.5,
+        0.6,
+        0.7,
+        0.8
+      ],
+      "sourcePixel": [
+        180,
+        203
+      ],
+      "sourceRgba": [
+        33,
+        33,
+        33,
+        150
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "multiplierRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    }
+  ]
+}

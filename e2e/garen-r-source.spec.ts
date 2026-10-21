@@ -40,3 +40,35 @@ test('Demacian Justice source inspection loads all meshes and texture roles with
   await page.screenshot({ path: 'artifacts/garen-r-source-preview.png', fullPage: true });
   expect(errors).toEqual([]);
 });
+
+test('R atlas cells and independently scrolling sword multiplication match source PNG texels on the GPU', async ({
+  page,
+}) => {
+  const audit = await import('../docs/reference/garen-r-particle-profiles.json', {
+    with: { type: 'json' },
+  });
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  page.on('console', (m) => {
+    if (m.type() === 'error') errors.push(m.text());
+  });
+  await page.goto('/tools/qa/garen-r-source-preview.html');
+  await page.waitForFunction(() => (window as any).__GAREN_R_SOURCE__?.ready);
+  for (const sample of audit.default.gpuSamples) {
+    const actual = await page.evaluate(
+      async (sample) => (window as any).__GAREN_R_MATERIAL__.probe(sample),
+      sample
+    );
+    const expected = sample.sourceRgba.map((v, i) =>
+      Math.round(
+        v * sample.tint[i] * (sample.lookupRgba[i] / 255) * (sample.multiplierRgba[i] / 255)
+      )
+    );
+    for (let i = 0; i < 4; i++)
+      expect(
+        Math.abs(actual[i] - expected[i]),
+        `profile ${sample.profileIndex} channel ${i}`
+      ).toBeLessThanOrEqual(1);
+  }
+  expect(errors).toEqual([]);
+});

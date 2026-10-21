@@ -30,6 +30,7 @@ import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
 import { GAREN } from '../content/garen-progression';
 import { GAREN_R } from '../content/garen-r';
+import { LazyGarenJustice } from './lazy-garen-justice';
 import { GarenSpin } from './garen-spin';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
@@ -79,6 +80,7 @@ export class GameView {
   luxStreaks = new LuxRStreaks(this.scene, (p) => this.ground(p));
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
+  garenJustice = new LazyGarenJustice(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
   smoke = new HawkshotSmoke(this.scene, (p) => this.ground(p));
@@ -639,6 +641,7 @@ export class GameView {
     this.luxSingularities.update(world, alpha);
     this.wind.update(world);
     this.garenSpin.update(world, alpha, terminalAge);
+    this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);
     this.echoes.update(world);

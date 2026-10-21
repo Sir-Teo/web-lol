@@ -88,6 +88,31 @@ gate intact. The existing large-bundle warning remains. Runtime release history,
 particle timing/attachment, materials and native comparison are the next R
 presentation work; this increment changes no gameplay or snapshot schema.
 
+[Demacian Justice's live adapter](GAREN-R-PARTICLES.md) now reconstructs 16
+source layers: caster flash/glow, three sword layers and eleven impact layers.
+Schema 78 records release/cancellation separately from cast poses and target
+reveals, preserving killed-target impacts through later caster death, orders and
+reload. A pre-release failure or match end cannot manufacture an impact. Four
+source meshes and 19 used textures load on Garen presence; ordinary startup adds
+no R-specific resource requests. Scene distortion remains the explicit deferred
+seventeenth layer. Local dispatch, motion and attachment policies are documented
+without claiming native timing or composition.
+
+All 947 source/simulation tests and TypeScript pass. Twenty-four focused Chrome
+scenarios cover the complete current Garen kit/player/save surface, Judgment
+audio and shared particle tools. The R cases observe every implemented layer,
+compare saved particles by stable identity, exercise fog/material disposal and
+late NPC loading, and capture caster flash, sword descent and impact for visual
+review. Three new GPU probes match all RGBA channels within one byte against
+independent source PNG texels for sword multiplication and the rock atlas.
+Playback export reproduces both generated files byte-for-byte. All 30 models
+and the map validate cleanly. Production build/nested-host smoke passes with
+17 ordinary recordings and the production Garen gate intact. R now occupies a
+separate on-presence 35.14 KB chunk (5.88 KB gzip); the ordinary game entry is
+569.16 KB instead of the first static integration's 602.12 KB. The existing
+large-bundle warning remains. Full production/match and native acceptance stay
+open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

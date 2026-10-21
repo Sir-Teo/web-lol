@@ -133,6 +133,8 @@
       import * as THREE from 'three';
       import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      import { createGarenJusticeMaterial } from '../../src/render/garen-justice';
+      import profiles from '../../src/content/garen-r-particles.json';
       import audit from '../../docs/reference/garen-r-particles-decoded.json';
       const base = import.meta.env.BASE_URL;
       const models = [
@@ -160,6 +162,63 @@
         textures: audit.textures.length,
       };
       window.__GAREN_R_SOURCE__ = state;
+      const probeTextures = new Map();
+      const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
+      white.needsUpdate = true;
+      async function probeTexture(path, clamp = false) {
+        if (!path) return white;
+        if (!probeTextures.has(path)) {
+          const t = await new THREE.TextureLoader().loadAsync(base + path);
+          t.flipY = false;
+          t.colorSpace = THREE.NoColorSpace;
+          t.generateMipmaps = false;
+          t.minFilter = t.magFilter = THREE.LinearFilter;
+          t.wrapS = t.wrapT = clamp ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
+          probeTextures.set(path, t);
+        }
+        return probeTextures.get(path);
+      }
+      window.__GAREN_R_MATERIAL__ = {
+        probe: async (sample) => {
+          const p = profiles[sample.profileIndex];
+          const [source, lookup, multiplier] = await Promise.all([
+            probeTexture(p.texture),
+            probeTexture(p.lookup, true),
+            p.multiplier ? probeTexture(p.multiplier) : undefined,
+          ]);
+          const material = createGarenJusticeMaterial(
+            sample.profileIndex,
+            source,
+            lookup,
+            multiplier
+          );
+          material.blending = THREE.NoBlending;
+          material.uniforms.sourceUvScale.value.fromArray(sample.scale);
+          material.uniforms.sourceUvOffset.value.fromArray(sample.sourceOffset);
+          material.uniforms.multiplierUvOffset.value.fromArray(sample.multiplierOffset);
+          material.uniforms.particleColor.value.fromArray(sample.tint);
+          material.uniforms.lookupUv.value.set(0.5, 0.5);
+          const geometry = new THREE.PlaneGeometry(2, 2),
+            uv = geometry.getAttribute('uv');
+          for (let i = 0; i < uv.count; i++) uv.setXY(i, ...sample.rawUv);
+          const probeScene = new THREE.Scene();
+          probeScene.add(new THREE.Mesh(geometry, material));
+          const probeCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+          probeCamera.position.z = 1;
+          const target = new THREE.WebGLRenderTarget(1, 1);
+          const previous = renderer.getRenderTarget();
+          renderer.setRenderTarget(target);
+          renderer.clear();
+          renderer.render(probeScene, probeCamera);
+          const bytes = new Uint8Array(4);
+          renderer.readRenderTargetPixels(target, 0, 0, 1, 1, bytes);
+          renderer.setRenderTarget(previous);
+          target.dispose();
+          geometry.dispose();
+          material.dispose();
+          return [...bytes];
+        },
+      };
       const loaded = await Promise.all(
         models.map(async (m) => {
           const output = audit.meshes.find((o) =>

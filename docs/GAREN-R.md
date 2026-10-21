@@ -115,9 +115,9 @@ TypeScript pass. Four focused Q/W/R browser scenarios pass. The R capture at
 nested static-hosting smoke pass with 17 source recordings and real Ashe/Lux casts.
 The existing large-bundle warning remains.
 
-Judgment is now integrated separately in [GAREN-E.md](GAREN-E.md). Next work includes
-live R particles/audio, native cast/reveal/cancellation comparison, and complete
-kit/role integration before roster selection. The development player input/HUD
-fixture is documented above. [R source-particle packaging](GAREN-R-PARTICLES.md)
-now supplies verified cast/sword/impact definitions, four meshes and 21 textures;
-runtime dispatch remains open.
+Judgment is integrated separately in [GAREN-E.md](GAREN-E.md). The
+[R source-particle adapter](GAREN-R-PARTICLES.md) now renders 16 cast/sword/impact
+layers with schema-78 release history, actual source geometry/textures and
+checkpoint-stable tails. Scene distortion, native timing/attachment/composition,
+R source audio and complete kit/role integration remain required before roster
+selection. Development player input/HUD is documented above.

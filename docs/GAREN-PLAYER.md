@@ -81,3 +81,8 @@ source cast/active/ending/hit cues and schema-77 shared presentation history.
 Complete spell effects/audio, directional spin
 blending, native timing/cancellation captures, complete build/role policy and
 full-match certification remain required before Garen's production selection.
+
+[R particles](GAREN-R-PARTICLES.md) now exercise the source caster flash, falling
+sword and impact layers in this fixture, including schema-78 release persistence
+through kills, later caster death and reload. Distortion and native audiovisual
+comparison remain open; production selection stays Ashe/Lux.

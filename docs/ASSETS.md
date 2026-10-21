@@ -45,7 +45,7 @@ Pinned tools:
 - Python dependencies are pinned in `tools/assets/requirements.txt`; glTF Transform 4.5.0 is locked in `package-lock.json`.
 - Python 3.14 uses the standard-library Zstandard implementation through pyzstd; the pinned backport is conditional on Python below 3.14.
 - [Judgment source audio](GAREN-E-AUDIO.md) records the pinned wwiser/vgmstream and static Ogg/Vorbis authoring pipeline. Its 13 unnormalized float WAVs load only when Garen is present; native dispatch/mix comparison remains open.
-- [Demacian Justice particles](GAREN-R-PARTICLES.md) documents the repeatable frozen BIN/SCB/TEX extraction, four source mesh conversions, 21 textures and development inspection page. Runtime R particle dispatch remains open.
+- [Demacian Justice particles](GAREN-R-PARTICLES.md) documents the repeatable frozen BIN/SCB/TEX extraction, four source mesh conversions, 21 textures and development inspection page. Its 16-layer runtime adapter loads four meshes/19 used textures on Garen presence; scene distortion and native comparison remain open.
 
 For an existing checked-out toolchain:
 
