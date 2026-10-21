@@ -1,5 +1,12 @@
 # Local match checkpoints
 
+Version 77 retains Judgment's shared particle/audio interval for 154 ticks after
+stop, covering the source cast/ending recordings as well as the shorter particle
+and active-sound fades. Decoder expiry checks use that bound; particle lifetimes
+remain unchanged. Ongoing cast/active/ending voices resume at their saved age.
+Hit cues remain transient events and are not replayed after restoration. Earlier
+builds remain incompatible. See [GAREN-E-AUDIO.md](GAREN-E-AUDIO.md).
+
 Version 76 adds Garen Judgment's required nullable visual interval: original start,
 captured facing and nullable stop tick. Active intervals must agree with the
 ongoing spin; stopped intervals must have valid bounded timing and expire after

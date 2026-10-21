@@ -32,7 +32,7 @@ import { GAREN_W } from '../content/garen-w';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
-  GAREN_E_VISUAL_TAIL_TICKS,
+  GAREN_E_PRESENTATION_TAIL_TICKS,
   garenEStrikes,
   garenEStrikeTick,
 } from './garen-e';
@@ -48,7 +48,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 76;
+export const SNAPSHOT_VERSION = 77;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -1324,7 +1324,7 @@ export function decodeSnapshot(text: string) {
             visual.stopTick < visual.startTick ||
             visual.stopTick > state.tick ||
             visual.stopTick > visual.startTick + GAREN_E_DURATION_TICKS ||
-            state.tick >= visual.stopTick + GAREN_E_VISUAL_TAIL_TICKS)
+            state.tick >= visual.stopTick + GAREN_E_PRESENTATION_TAIL_TICKS)
       )
         throw new Error('Saved match contains invalid Judgment visual state.');
     } else if (spin) throw new Error('Saved Judgment spin is missing its visual state.');

@@ -62,6 +62,18 @@ lookup captures were visually reviewed. Production/nested-host smoke and all
 model/map validators pass. Full native composition, other Garen effects/audio and
 the production roster gate remain open. See [GAREN-SPIN.md](GAREN-SPIN.md).
 
+[Judgment source audio](GAREN-E-AUDIO.md) now integrates 13 float recordings for
+cast, active, ending and recipient hits. All six source play/stop events retain
+their policy, including gains, attenuation, global caps and independent 800/125 ms
+fades. On-presence loading preserves the ordinary 17-recording startup. Schema 77
+retains sound tails after particles end. All 928 source/simulation tests and 23
+focused audio/Garen browser cases pass; Chrome preserves every source float
+sample. Repeated extraction/mapping/decode/export yields identical pins. The
+production build/nested-host smoke passes. An existing Hawkshot browser check
+now advances descriptor expiry explicitly instead of comparing simulation and
+audio clocks under CPU load. Native dispatch/listening/bus mix, other Garen
+effects/audio and production/full-match certification remain open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

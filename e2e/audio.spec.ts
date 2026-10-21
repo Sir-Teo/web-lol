@@ -182,16 +182,29 @@ test('source arrival outlasts its visual descriptor and releases its audio nodes
     const [voice, gain] = [...a.voices.entries()].find(
       ([v]: any) => v.buffer === a.arrivalBuffer
     ) as any;
-    return { status: a.arrivalStatus, frames: voice.buffer.length, gain: gain.gain.value };
+    // Expire the simulation descriptor explicitly. Web Audio owns a separate
+    // clock, so an overloaded browser must not determine their relative ordering.
+    const endTick = Math.max(...w.scoutVisuals.map((v: any) => v.endTick));
+    w.step(endTick - w.tick);
+    return {
+      status: a.arrivalStatus,
+      frames: voice.buffer.length,
+      gain: gain.gain.value,
+      remainingVisuals: w.scoutVisuals.length,
+      voicesAfterVisuals: a.voices.size,
+      duration: voice.buffer.duration,
+    };
   });
   expect(initial.status).toBe('ready');
   expect(initial.frames).toBe(317887);
   expect(initial.gain).toBeCloseTo(0.2 * 10 ** (-9 / 20), 6);
-  await page.waitForFunction(() => (window as any).__GAME__.world.scoutVisuals.length === 0, null, {
-    timeout: 12000,
-  });
-  expect(await page.evaluate(() => (window as any).__GAME__.audio.voices.size)).toBe(1);
-  await expect.poll(() => page.evaluate(() => (window as any).__GAME__.audio.voices.size)).toBe(0);
+  expect(initial.remainingVisuals).toBe(0);
+  expect(initial.voicesAfterVisuals).toBe(1);
+  await expect
+    .poll(() => page.evaluate(() => (window as any).__GAME__.audio.voices.size), {
+      timeout: Math.ceil((initial.duration + 2) * 1000),
+    })
+    .toBe(0);
 });
 
 test('late arrival seeks to its age and fully elapsed arrival is silent', async ({ page }) => {

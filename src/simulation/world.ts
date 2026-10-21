@@ -39,7 +39,7 @@ import {
   GAREN_E_RECAST_TICKS,
   garenEStrikes,
   garenEStrikeTick,
-  GAREN_E_VISUAL_TAIL_TICKS,
+  GAREN_E_PRESENTATION_TAIL_TICKS,
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_PASSIVE } from '../content/garen-passive';
@@ -469,7 +469,7 @@ export class World {
       if (
         state.garenEVisual &&
         state.garenEVisual.stopTick !== null &&
-        this.tick >= state.garenEVisual.stopTick + GAREN_E_VISUAL_TAIL_TICKS
+        this.tick >= state.garenEVisual.stopTick + GAREN_E_PRESENTATION_TAIL_TICKS
       )
         state.garenEVisual = null;
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
@@ -1726,6 +1726,11 @@ export class World {
             'physical',
             'area'
           );
+          this.emit('judgment-hit', target, {
+            unit: target.id,
+            champion: 'garen',
+            team: source.team,
+          });
           if (target.kind !== 'champion' || !this.alive(target)) continue;
           let hit = spin.hits.find((hit) => hit.targetId === target.id);
           if (!hit) {

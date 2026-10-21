@@ -254,7 +254,8 @@ export interface SimEvent extends Vec2 {
     | 'heal'
     | 'message'
     | 'scout-arrival'
-    | 'illumination';
+    | 'illumination'
+    | 'judgment-hit';
   unit?: number;
   value?: number;
   text?: string;
@@ -284,7 +285,7 @@ export interface ChampionState {
   garenCourageStacks: number;
   /** Target-only sight persists independently of the caster's windup and life. */
   garenRReveal: { targetId: number; startTick: number; endTick: number } | null;
-  /** Retained independently so stopped Judgment particles survive a checkpoint. */
+  /** Shared Judgment particle/audio interval, retained through stopped sound tails. */
   garenEVisual: { startTick: number; stopTick: number | null; facing: number } | null;
   garenE: {
     startTick: number;

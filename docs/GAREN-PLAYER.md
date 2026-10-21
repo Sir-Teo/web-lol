@@ -76,6 +76,8 @@ probe verifies tooltip paint order over the combat layer, in addition to bounds.
 
 The production build and nested static-host smoke pass with 17 source recordings;
 the existing large-bundle warning remains. A later [Judgment particle increment](GAREN-SPIN.md)
-now covers all six source spin layers and schema-76 particle-tail restoration. Complete spell effects/audio, directional spin
+now covers all six source spin layers. [Judgment audio](GAREN-E-AUDIO.md) adds
+source cast/active/ending/hit cues and schema-77 shared presentation history.
+Complete spell effects/audio, directional spin
 blending, native timing/cancellation captures, complete build/role policy and
 full-match certification remain required before Garen's production selection.

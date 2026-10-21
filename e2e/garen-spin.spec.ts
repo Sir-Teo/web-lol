@@ -119,19 +119,23 @@ test('Judgment draws source layers, hides enemy particles, restores tails and di
     const snapshot = w.snapshot();
     w.step(60);
     g.view.render(w, 1, g.view.previousElapsed);
+    const visual = w.player.garenEVisual;
+    w.step(120);
     return {
       snapshot,
       before: tailDraws.length,
       disposed,
       after: [...g.view.garenSpin.models.keys()].filter((k: any) => k.startsWith(`${w.hero.id}:`))
         .length,
-      visual: w.player.garenEVisual,
+      visual,
+      expiredVisual: w.player.garenEVisual,
     };
   });
   expect(restored.snapshot).toBe(saved);
   expect(restored.before).toBe(visibility.tail);
   expect(restored.disposed).toBe(restored.before);
   expect(restored.after).toBe(0);
-  expect(restored.visual).toBeNull();
+  expect(restored.visual).not.toBeNull();
+  expect(restored.expiredVisual).toBeNull();
   expect(errors).toEqual([]);
 });

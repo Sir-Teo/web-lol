@@ -1,4 +1,6 @@
 import { LuxBindingFlightAudio } from './lux-binding-flight';
+import { GarenJudgmentAudio } from './garen-e';
+import type { World } from '../simulation/world';
 import { LUX_BINDING_CAST_AUDIO } from '../content/lux-binding-cast-audio';
 import { luxBindingCastAttenuation } from './lux-binding-cast-attenuation';
 import { SourceAudioVariants } from './source-audio-variants';
@@ -14,10 +16,11 @@ import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding cast/flight and Illumination audio; other event cues remain synthesized. */
+/** Source Hawkshot, Light Binding, Illumination and Judgment audio; other cues remain synthesized. */
 export class GameAudio {
   context: AudioContext | null = null;
   bindingFlight = new LuxBindingFlightAudio();
+  garenE = new GarenJudgmentAudio();
   private audible = true;
   private paused = false;
   private resuming = false;
@@ -59,7 +62,7 @@ export class GameAudio {
     this.audible = value;
     if (!value) this.stopVoices();
   }
-  async load(): Promise<void> {
+  async load(garenPresent = false): Promise<void> {
     await Promise.all([
       this.loadCast(),
       this.loadArrival(),
@@ -68,6 +71,7 @@ export class GameAudio {
       this.loadIllumination(),
       this.loadBindingCast(),
       this.bindingFlight.load(),
+      ...(garenPresent ? [this.garenE.load()] : []),
     ]);
   }
   private async loadBindingCast(): Promise<void> {
@@ -251,6 +255,7 @@ export class GameAudio {
   }
   private stopVoices(): void {
     this.bindingFlight.stop();
+    this.garenE.stop();
     for (const [voice, gain] of this.voices) {
       voice.stop();
       voice.disconnect();
@@ -432,6 +437,28 @@ export class GameAudio {
     this.context ??= new AudioContext();
     this.syncContext();
   }
+  updateGaren(world: World, listener = { x: 0, y: 0 }) {
+    const garens = world.units.filter((u) => u.champion === 'garen');
+    if (garens.length && this.garenE.status === 'idle') void this.garenE.load();
+    const records = garens
+      .filter((u) => world.visible(u))
+      .flatMap((u) => {
+        const effect = world.championState(u.id)?.garenEVisual;
+        return effect
+          ? [
+              {
+                id: u.id,
+                x: u.x,
+                y: u.y,
+                deadAt: u.deadAt,
+                startTick: effect.startTick,
+                stopTick: effect.stopTick,
+              },
+            ]
+          : [];
+      });
+    this.garenE.update(this.context, this.enabled && !this.paused, records, world.tick, listener);
+  }
   update(events: SimEvent[], tick: number, listener = { x: 0, y: 0 }): void {
     for (const [voice, point] of this.illuminationVoices) {
       // Local 20ms smoothing avoids steps as the camera moves.
@@ -461,9 +488,16 @@ export class GameAudio {
         if (!this.enabled || this.paused || !this.context || this.context.state !== 'running')
           continue;
         if (event.type === 'illumination') this.illumination(event, tick, listener);
+        if (event.type === 'judgment-hit') this.garenE.hit(this.context, event, tick, listener);
         if (event.type === 'attack') this.tone(650, 260, 0.065, 0.012, 'triangle');
         if (event.type === 'cast') {
-          if (event.text === 'e' && event.champion === 'ashe' && this.sourceStatus === 'ready')
+          if (event.text === 'e' && event.champion === 'garen' && this.garenE.status === 'ready') {
+            // Stateful source playback owns cast/active/stop phases, including restore.
+          } else if (
+            event.text === 'e' &&
+            event.champion === 'ashe' &&
+            this.sourceStatus === 'ready'
+          )
             this.hawkshot(event, tick);
           else if (
             event.text === 'q' &&

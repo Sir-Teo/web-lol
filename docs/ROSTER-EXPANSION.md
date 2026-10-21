@@ -248,3 +248,10 @@ intervals, including tails after recast, R, natural completion and death. Both g
 layers use pinned reader defaults and lifetime lookup; native composition remains
 open. This increment keeps Garen's
 production selection gate in place.
+
+[Judgment source audio](GAREN-E-AUDIO.md) follows with 13 unnormalized float
+recordings mapped through all six E play/stop events. Source gains, attenuation,
+voice caps and distinct 800/125 ms fades feed a local dispatch adapter. Files load
+only when Garen is present; cast/active/ending phases restore from schema-77
+presentation history, and recipient hit cues retain fixed audience. Other Garen
+audio, native timing/mix and the production roster gate remain open.

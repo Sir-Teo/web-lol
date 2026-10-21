@@ -74,12 +74,15 @@ per-pixel fog clipping at a visible effect's boundary remains open.
 
 On stop, no new particles spawn. The selected source linger values cap total
 particle age rather than extending life from the stop. Natural color/scale phase
-is retained. A one-second simulation retention bound covers the longest selected
-stop-life cap (approximately 0.85 seconds). Snapshot version 76 adds required
+is retained. The original one-second simulation retention bound covered the longest selected
+particle stop-life cap (approximately 0.85 seconds). Snapshot version 76 added required
 nullable `garenEVisual` with original start, captured facing and nullable stop
 tick. Validation requires matching active E ownership or a valid, unexpired
 stopped interval. Restore reconstructs active particles and tails exactly;
 expired materials are disposed while shared geometry/textures stay cached.
+The subsequent [source audio integration](GAREN-E-AUDIO.md) extends that shared
+presentation history to 154 ticks in version 77. Particle caps stay unchanged;
+the retained record can outlast every draw while its sound finishes.
 
 The two `ground_glow` emitters (indices 4/5, which share a name) have distinct keys
 and draw names. Index 4's omitted birth scale resolves to `[1,1,1]`; index 5 keeps
@@ -102,7 +105,7 @@ Garen now uses the shared initial RGBA-product shader for all six layers, with a
 white lookup for the four emitters that have none. Its new base UV offset retains
 scrolling without moving the independent lookup coordinate. The inspection page
 at `/tools/qa/particle-color-preview.html` includes Garen's glow and lifetime ramp.
-Native composition remains open. Q/W/R effects and Garen spell audio also
+Native composition remains open. Q/W/R effects and source audio also
 remain unfinished. A source-backed appearance and passing checks do not establish
 native visual parity or production/full-match certification.
 

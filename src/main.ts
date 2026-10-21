@@ -122,7 +122,7 @@ async function boot(): Promise<void> {
   window.addEventListener('resize', () => view.resize());
   const assetsReady = Promise.all([
     loadInterfaceFonts(),
-    audio.load(),
+    audio.load(world.units.some((u) => u.champion === 'garen')),
     loadReferenceModels(),
     loadGarenSpin(),
     loadLuxBeamTextures(),
@@ -273,6 +273,7 @@ async function boot(): Promise<void> {
       ),
       world.tick
     );
+    audio.updateGaren(world, view.center);
     audio.update(
       world.events.filter((event) => world.eventVisible(event)),
       world.tick,

@@ -7,6 +7,7 @@ import mesh from '../public/assets/models/garen-spin.json';
 import { garenSpinParticles } from '../src/render/garen-spin-particles';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
+import { GAREN_E_PRESENTATION_TAIL_TICKS } from '../src/simulation/garen-e';
 
 const effect = { startTick: 100, stopTick: null, facing: 0.3 };
 test('both glow identities retain schema defaults and use lifetime lookup without inventing a larger scale', () => {
@@ -116,8 +117,8 @@ for (const stop of ['recast', 'natural', 'death'] as const) {
     expect(garenSpinParticles(w.hero.id, w.player.garenEVisual!, w.tick)).toEqual(
       garenSpinParticles(restored.hero.id, restored.player.garenEVisual!, restored.tick)
     );
-    w.step(45);
-    restored.step(45);
+    w.step(GAREN_E_PRESENTATION_TAIL_TICKS - 15);
+    restored.step(GAREN_E_PRESENTATION_TAIL_TICKS - 15);
     expect(w.player.garenEVisual).toBeNull();
     expect(restored.snapshot()).toBe(w.snapshot());
   });
@@ -139,7 +140,7 @@ test('checkpoint decoder rejects foreign, missing, inconsistent and expired Judg
     (s: any) => (s.player.garenEVisual.stopTick = s.tick + 1),
     (s: any) => (s.player.garenEVisual.stopTick = s.player.garenEVisual.startTick - 1),
     (s: any) => {
-      s.player.garenEVisual.stopTick = s.tick - 60;
+      s.player.garenEVisual.stopTick = s.tick - GAREN_E_PRESENTATION_TAIL_TICKS;
     },
   ]) {
     const data = JSON.parse(w.snapshot());

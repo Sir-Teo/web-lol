@@ -81,9 +81,12 @@ target death/respawn clears them.
 
 Source `spell3_0` playback takes precedence over movement/ordinary cast poses and
 loops at a rate scaled by captured strikes. Directional parameter blending,
-source graph execution, exact damage contact and audio remain open. The subsequent
+source graph execution, exact damage contact and native audio timing remain open. The subsequent
 [source-particle adapter](GAREN-SPIN.md) now covers all six inline spin layers with
 retained stop tails; native composition remains open.
+[Judgment source audio](GAREN-E-AUDIO.md) now covers cast, active, ending and hit
+cues with source gains/caps/fades and validated phase restoration. Native dispatch
+and full bus/listener composition remain unverified.
 Bots learn E after early Q/W points, then prioritize R/E ranks. Existing retreat,
 tower, recall and lethal-R decisions take precedence. E activates for a safe
 visible champion already in the circle or three safe visible lane minions; queued
