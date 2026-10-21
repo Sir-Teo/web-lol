@@ -1,5 +1,14 @@
 # Local match checkpoints
 
+Version 78 adds required nullable Demacian Justice presentation history: accepted
+start/target/facing/point and mutually exclusive release/cancellation clocks.
+Release captures the actual recipient point before damage, survives target kills,
+later caster actions/death and reveal expiry, and retires after 180 ticks.
+Validation checks Garen ownership, learned R, exact deadlines, pending cast/reveal
+consistency, references and unexpired history. Keyed source particles reconstruct
+identically after restore. Older checkpoints remain incompatible under the
+same-build policy. See [GAREN-R-PARTICLES.md](GAREN-R-PARTICLES.md).
+
 Version 77 retains Judgment's shared particle/audio interval for 154 ticks after
 stop, covering the source cast/ending recordings as well as the shorter particle
 and active-sound fades. Decoder expiry checks use that bound; particle lifetimes

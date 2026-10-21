@@ -38,6 +38,7 @@ import {
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
+import { GAREN_R_VISUAL_TAIL_TICKS } from './garen-r';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
@@ -48,7 +49,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 77;
+export const SNAPSHOT_VERSION = 78;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -330,6 +331,16 @@ const player: z.ZodType<PlayerState> = z
     qUntil: deadline,
     qStackExpiry: deadline,
     garenRReveal: z.strictObject({ targetId: id, startTick: tick, endTick: tick }).nullable(),
+    garenRVisual: z
+      .strictObject({
+        startTick: tick,
+        targetId: id,
+        facing: z.number().finite(),
+        point,
+        releaseTick: tick.nullable(),
+        stopTick: tick.nullable(),
+      })
+      .nullable(),
     garenEVisual: z
       .strictObject({ startTick: tick, stopTick: tick.nullable(), facing: z.number().finite() })
       .nullable(),
@@ -1371,6 +1382,39 @@ export function decodeSnapshot(text: string) {
         hitIds.add(hit.targetId);
       }
     }
+    const justiceVisual = owner.garenRVisual;
+    const justicePending =
+      champion.champion === 'garen' && owner.pendingCast?.ability === 'r'
+        ? owner.pendingCast
+        : null;
+    if (justiceVisual) {
+      const target = state.units.find((u) => u.id === justiceVisual.targetId);
+      const ended = justiceVisual.releaseTick ?? justiceVisual.stopTick;
+      if (
+        champion.champion !== 'garen' ||
+        !owner.spellRanks.r ||
+        justiceVisual.startTick > state.tick ||
+        (target && (target.kind !== 'champion' || target.team === champion.team)) ||
+        (justiceVisual.releaseTick !== null &&
+          (justiceVisual.stopTick !== null ||
+            justiceVisual.releaseTick !== justiceVisual.startTick + GAREN_R_WINDUP_TICKS ||
+            justiceVisual.releaseTick > state.tick)) ||
+        (justiceVisual.stopTick !== null &&
+          (justiceVisual.stopTick < justiceVisual.startTick ||
+            justiceVisual.stopTick > state.tick ||
+            justiceVisual.stopTick > justiceVisual.startTick + GAREN_R_WINDUP_TICKS)) ||
+        (ended === null
+          ? !justicePending ||
+            justicePending.startTick !== justiceVisual.startTick ||
+            justicePending.targetId !== justiceVisual.targetId ||
+            justicePending.point.x !== justiceVisual.point.x ||
+            justicePending.point.y !== justiceVisual.point.y ||
+            champion.facing !== justiceVisual.facing
+          : !!justicePending || state.tick >= ended + GAREN_R_VISUAL_TAIL_TICKS)
+      )
+        throw new Error('Saved match contains invalid Demacian Justice presentation.');
+    } else if (justicePending)
+      throw new Error('Saved Demacian Justice cast is missing its presentation.');
     const justiceReveal = owner.garenRReveal;
     if (justiceReveal) {
       const target = champions.find((u) => u.id === justiceReveal.targetId);
@@ -1379,6 +1423,9 @@ export function decodeSnapshot(text: string) {
         !owner.spellRanks.r ||
         !target ||
         target.team === champion.team ||
+        !justiceVisual ||
+        justiceVisual.startTick !== justiceReveal.startTick ||
+        justiceVisual.targetId !== justiceReveal.targetId ||
         justiceReveal.startTick > state.tick ||
         justiceReveal.endTick <= state.tick ||
         justiceReveal.endTick !== justiceReveal.startTick + GAREN_R_REVEAL_TICKS ||

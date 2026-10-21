@@ -28,6 +28,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     garenPassiveReadyTick: 0,
     garenCourageStacks: 0,
     garenRReveal: null,
+    garenRVisual: null,
     garenEVisual: null,
     garenE: null,
     garenQ: null,

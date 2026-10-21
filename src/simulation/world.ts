@@ -32,7 +32,7 @@ import { GAREN_W } from '../content/garen-w';
 import { GAREN } from '../content/garen-progression';
 import { GAREN_R } from '../content/garen-r';
 import { GAREN_R_WINDUP_TICKS, GAREN_R_REVEAL_TICKS } from '../content/garen-r-policy';
-import { garenRDamage } from './garen-r';
+import { garenRDamage, GAREN_R_VISUAL_TAIL_TICKS } from './garen-r';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
@@ -472,6 +472,12 @@ export class World {
         this.tick >= state.garenEVisual.stopTick + GAREN_E_PRESENTATION_TAIL_TICKS
       )
         state.garenEVisual = null;
+      const justice = state.garenRVisual;
+      if (justice) {
+        const ended = justice.releaseTick ?? justice.stopTick;
+        if (ended !== null && this.tick >= ended + GAREN_R_VISUAL_TAIL_TICKS)
+          state.garenRVisual = null;
+      }
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
@@ -499,6 +505,7 @@ export class World {
         (this.tick >= state.garenRReveal.endTick || !this.unit(state.garenRReveal.targetId))
       ) {
         if (state.pendingCast?.targetId === state.garenRReveal.targetId) {
+          this.cancelGarenRVisual(state);
           state.pendingCast = null;
           state.castAnimation = null;
         }
@@ -580,8 +587,18 @@ export class World {
         state.pendingCast = null;
         if (u.champion === 'garen' && cast.ability === 'r') {
           const target = this.unit(cast.targetId!);
-          if (target && target.kind === 'champion' && target.team !== u.team && this.alive(target))
+          if (
+            target &&
+            target.kind === 'champion' &&
+            target.team !== u.team &&
+            this.alive(target)
+          ) {
+            if (state.garenRVisual) {
+              state.garenRVisual.releaseTick = this.tick;
+              state.garenRVisual.point = { x: target.x, y: target.y };
+            }
             this.damage(u, target, garenRDamage(cast.rank, target.hp, target.maxHp), 'true');
+          } else this.cancelGarenRVisual(state);
         } else if (u.champion === 'lux' && cast.ability === 'r')
           this.releaseFinalSpark(u, cast.origin!, cast.point, cast.damage);
         else if (u.champion === 'lux' && cast.ability === 'w')
@@ -1673,6 +1690,12 @@ export class World {
     this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: u.x, y: u.y } });
     return true;
   }
+  private cancelGarenRVisual(state: ChampionState) {
+    const effect = state.garenRVisual;
+    if (effect && effect.releaseTick === null && effect.stopTick === null)
+      effect.stopTick = this.tick;
+  }
+
   private finishGarenE(state: ChampionState): void {
     if (!state.garenE) return;
     if (state.garenEVisual) state.garenEVisual.stopTick = this.tick;
@@ -3040,6 +3063,7 @@ export class World {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
           this.finishGarenE(state);
+          this.cancelGarenRVisual(state);
           state.pendingCast = null;
           state.castAnimation = null;
         }
@@ -3051,6 +3075,7 @@ export class World {
       }
       if (targetState) {
         this.finishGarenE(targetState);
+        this.cancelGarenRVisual(targetState);
         targetState.enlighten = null;
         targetState.deaths++;
         targetState.pendingCast = null;
@@ -3443,6 +3468,14 @@ export class World {
         targetId: target.id,
         startTick: this.tick,
         endTick: this.tick + GAREN_R_REVEAL_TICKS,
+      };
+      state.garenRVisual = {
+        startTick: this.tick,
+        targetId: target.id,
+        facing: u.facing,
+        point: { x: target.x, y: target.y },
+        releaseTick: null,
+        stopTick: null,
       };
       state.castAnimation = { ability: 'r', startTick: this.tick };
       state.pendingCast = {

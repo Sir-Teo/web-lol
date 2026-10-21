@@ -285,6 +285,15 @@ export interface ChampionState {
   garenCourageStacks: number;
   /** Target-only sight persists independently of the caster's windup and life. */
   garenRReveal: { targetId: number; startTick: number; endTick: number } | null;
+  /** Accepted R and its independent release/cancellation presentation history. */
+  garenRVisual: {
+    startTick: number;
+    targetId: number;
+    facing: number;
+    point: Vec2;
+    releaseTick: number | null;
+    stopTick: number | null;
+  } | null;
   /** Shared Judgment particle/audio interval, retained through stopped sound tails. */
   garenEVisual: { startTick: number; stopTick: number | null; facing: number } | null;
   garenE: {
