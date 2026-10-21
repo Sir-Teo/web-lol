@@ -155,3 +155,9 @@ remove the icon, while caster death/recast leaves accepted control intact.
 The local health-bar-plus-source-offset anchor is provisional: source Flex
 bound-size offset scaling and native attachment remain unverified. Q now renders
 twenty-two emitter records; nine others remain deferred.
+
+The recipient icon now clears its own measured DOM info bar by four CSS pixels,
+including wrapped names and minions with hidden names. The local screen-space
+lift preserves source scale/appearance and the original control clock through
+zoom, resizing and checkpoints. Native attachment/Flex sizing remains open; see
+[label clearance](GAREN-Q-PARTICLES.md#recipient-label-clearance--october-21-2026).

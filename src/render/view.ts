@@ -84,7 +84,11 @@ export class GameView {
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   garenJustice = new LazyGarenJustice(this.scene, (p) => this.ground(p));
-  garenDecisiveStrike = new LazyGarenDecisiveStrike(this.scene, (p) => this.ground(p));
+  garenDecisiveStrike = new LazyGarenDecisiveStrike(
+    this.scene,
+    (p) => this.ground(p),
+    (id) => this.overheadLabelBounds(id)
+  );
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -715,6 +719,13 @@ export class GameView {
     this.renderer.render(this.scene, this.camera);
     this.mapTextureResidency?.endFrame();
     this.mapTexturePrefetch?.update(this.renderer, this.camera);
+  }
+  private overheadLabelBounds(id: number) {
+    const bar = this.healthBars.get(id);
+    if (!bar || bar.hidden) return undefined;
+    const label = bar.getBoundingClientRect();
+    if (label.width <= 0 || label.height <= 0) return undefined;
+    return { label, viewport: this.renderer.domElement.getBoundingClientRect() };
   }
   private updateBar(u: Unit, world: World, p: Vec2): void {
     let bar = this.healthBars.get(u.id);

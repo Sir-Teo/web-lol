@@ -445,9 +445,10 @@ anchor follows the recipient's interpolated model root, adds the existing HUD
 health-bar height and then the unchanged `(10,55,0)` source offset at 0.01 scale.
 Its offset is not rotated with recipient yaw; the quad faces the camera. The
 health-bar helper was extracted without changing its existing height policy.
-This is a provisional readable overhead anchor, not a native bone or a verified
-Flex implementation. The close-up capture still places the icon near the name
-label; native size/attachment and label clearance require calibration.
+This is a provisional overhead anchor, not a native bone or a verified Flex
+implementation. The original close-up capture overlapped the recipient's name;
+the local clearance policy below now keeps that readout visible. Native
+size/attachment still requires calibration.
 
 Recipient visibility/model presence gates the draw, independently of caster
 visibility. A friendly victim can display its known silence even when its enemy
@@ -467,3 +468,33 @@ caster/victim death, respawn, actual fog, multiple sources and match end. The
 1440×900 capture was visually reviewed. Twenty-two emitter records now draw
 locally; nine others, native silence Flex/script/attachment and broader visual
 calibration remain open. Current complete validation is recorded in [PROGRESS](PROGRESS.md).
+
+## Recipient label clearance — October 21, 2026
+
+After updating the recipient's DOM info bar, the view supplies its full measured
+rectangle and the canvas rectangle to the Q adapter. This includes wrapped names,
+health/resource bars and status text; minions with hidden names still have their
+health bar protected. The adapter projects all four camera-facing icon corners
+into CSS pixels. If the icon overlaps that bar horizontally and its bottom is
+below the bar's top minus four pixels, it lifts the icon by the required screen
+distance. Unprojecting at the original depth preserves projected X, world scale,
+atlas, materials and source appearance clocks. Device pixel density does not
+change the four-CSS-pixel gap.
+
+Each frame starts from the original health-bar-plus-source-offset anchor, retained
+as `preferredPosition` for inspection; the screen lift cannot accumulate across
+frames or reloads. Missing/hidden/empty labels, clipped centers and horizontally
+separate or already-clear quads receive no lift. The layout changes no simulation
+or serialized state. The source Flex field remains preserved and unapplied.
+This is an explicit local readability policy. Packing against other units,
+screen-edge placement and native attachment/sizing/composition remain open.
+
+Four geometry checks cover perspective/orthographic projection, zoom, canvas
+offsets, idempotence, zero-size birth, invalid labels and clipping. Two Chrome
+cases independently project the actual mesh vertices against the measured DOM
+bar at peak pop size across three recipient kinds, three viewport sizes, three
+zooms and two display densities (54 combinations), then check six settled-size
+cases. Existing exact checkpoint, fog, overlap and lifetime cases also pass.
+Before/after 1440×900 captures were visually reviewed: the recipient name and
+health bar are clear after placement. This comparison establishes local label
+clearance, not native visual parity. Validation is recorded in [PROGRESS](PROGRESS.md).

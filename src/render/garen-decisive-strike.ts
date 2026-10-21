@@ -15,6 +15,7 @@ import { writeRayQuad } from './ray-quad';
 import { garenQGroundParticles } from './garen-q-ground-particles';
 import { garenQSilenceParticles } from './garen-q-silence-particles';
 import { unitBarHeight } from './unit-bar-height';
+import { clearBillboardLabel, type OverheadLabelReader } from './billboard-label-clearance';
 
 const selectedProfiles = [...castProfiles, ...impactProfiles, ...groundProfiles, silenceProfile];
 const geometries = new Map<string, THREE.BufferGeometry>();
@@ -202,7 +203,8 @@ export class GarenDecisiveStrike {
   );
   constructor(
     private scene: THREE.Scene,
-    private ground: (p: Vec2) => number
+    private ground: (p: Vec2) => number,
+    private labels?: OverheadLabelReader
   ) {}
   update(
     world: World,
@@ -603,6 +605,11 @@ export class GarenDecisiveStrike {
         mesh.position.add(this.offset);
         mesh.quaternion.copy(camera.quaternion);
         mesh.scale.fromArray(particle.scale).multiplyScalar(0.01);
+        mesh.position.toArray((mesh.userData.preferredPosition ??= []));
+        const label = this.labels?.(target.id);
+        mesh.userData.layoutLiftPixels = label
+          ? clearBillboardLabel(mesh.position, mesh.scale, camera, label.viewport, label.label)
+          : 0;
         const uniforms = mesh.material.uniforms,
           [columns, rows] = silenceProfile.atlas.grid;
         uniforms.particleColor.value.fromArray(silenceProfile.color);

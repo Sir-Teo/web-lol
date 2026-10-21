@@ -642,3 +642,15 @@ See [silence details](GAREN-Q-PARTICLES.md#recipient-silence-and-accepted-contro
 and [current validation](PROGRESS.md#decisive-strike-recipient-silence--october-21-2026).
 Nine emitter records and full Garen/native/production/full-match acceptance remain
 unfinished.
+
+## Decisive Strike recipient label clearance — October 21, 2026
+
+The local Q icon now clears its recipient's full measured info bar by four CSS
+pixels, including multiline names and minion health bars. Projection/unprojection
+preserves source world scale, projected X/depth and appearance/control clocks;
+each frame derives placement from the original provisional anchor. Four geometry
+checks and two Chrome cases cover peak/settled size, three recipient kinds,
+three viewports, three zooms and 1×/2× display density. The before/after capture
+was reviewed. Native Flex sizing/attachment and broader composition remain open.
+See [placement details](GAREN-Q-PARTICLES.md#recipient-label-clearance--october-21-2026)
+and [current validation](PROGRESS.md#q-silence-label-clearance--october-21-2026).

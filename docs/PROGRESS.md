@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,038 passing source/simulation checks, 41 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,042 passing source/simulation/geometry checks, 43 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -734,6 +734,49 @@ retained. The Q particle chunk is 54.14 KB (9.70 KB gzip), loaded on Garen prese
 the ordinary game entry is 584.01 KB (160.57 KB gzip). The existing large-bundle
 warning remains. Full Q/Garen, native rendering and production/full-match
 acceptance remain in scope.
+
+## Q silence label clearance — October 21, 2026
+
+The prior `503c1da` capture showed the recipient silence icon overlapping its own
+name. The [local placement correction](GAREN-Q-PARTICLES.md#recipient-label-clearance--october-21-2026)
+now measures the complete recipient DOM info bar after its current-frame update
+and projects the source billboard's four corners into CSS pixels. A vertical
+lift places its bottom at least four CSS pixels above that bar when they overlap
+horizontally. This protects wrapped names and minion health bars while preserving
+projected X/depth, world scale, geometry, material and source appearance clocks.
+Every frame starts from the original provisional source-offset anchor, preventing
+accumulation. No simulation, snapshot, combat, audio or source profile changed.
+Schema 85 and twenty-two of 31 locally rendered emitter records remain current.
+
+Four new geometry cases exercise perspective/orthographic cameras, multiple
+zooms, offset canvases, exact clearance, idempotence, zero-size birth and invalid/
+clipped inputs. Two Chrome cases independently compare transformed mesh corners
+against real DOM rectangles: three recipient kinds × three viewports × three
+zooms × two display densities give 54 peak-pop combinations, plus six settled-size
+checks. The source scale/UV/material/geometry and simulation snapshot stay fixed
+across layout changes. Existing exact checkpoint, control expiry, fog, overlap,
+death/respawn and frozen-match checks pass with the new placement. All 1,042 tests
+across 211 files and TypeScript pass; all 43 focused Chrome cases pass across Q
+graphics/audio/mechanics, Garen player/W/E/R and saved matches.
+
+Both 1440×900 captures were visually reviewed. The updated icon leaves the target
+name and health bar clear. Local evidence is
+`artifacts/browser-garen-q-silence-before-label-clearance.png` (prior placement)
+and `artifacts/browser-garen-q-silence.png` (current placement). This establishes
+readability in the local view, not native fidelity. Source Flex bound-size math
+remains unapplied and native sizing/attachment/script behavior remains open.
+Other-unit packing, screen-edge placement, prior landing quad boundaries and
+broader native material/composition calibration are also unfinished.
+
+All 48 existing source/profile/audit/asset SHA-256 values match the pre-change
+record, and all 37 static production Q assets match public bytes. Source tooling
+and binary assets were unchanged; the prior 36-GLB/map validation still applies
+to those identical bytes. Production build and strict `/nested/rift/` smoke pass
+with seventeen ordinary recordings, real Ashe/Lux input and the Garen fixture/
+selection gate intact. The on-presence Q graphics chunk is 55.14 KB (10.09 KB
+gzip); the ordinary game entry is 584.29 KB (160.66 KB gzip). The existing large-
+bundle warning remains. Complete Garen/native and production/full-match acceptance
+remain in scope.
 
 ## Historical baseline verification
 

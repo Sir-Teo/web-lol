@@ -27,6 +27,8 @@ async function poses(page: Page) {
         start: m.userData.startTick,
         end: m.userData.endTick,
         position: m.position.toArray(),
+        preferred: m.userData.preferredPosition,
+        lift: m.userData.layoutLiftPixels,
         rotation: m.quaternion.toArray(),
         scale: m.scale.toArray(),
         lookup: m.material.uniforms.lookupUv.value.toArray(),
@@ -66,7 +68,8 @@ test('the source silence icon follows its living recipient, restores the origina
   const before = await poses(page);
   expect(before).toHaveLength(1);
   expect(first.global).toBeGreaterThan(first.end);
-  expect(before[0].position).toEqual([1.1, first.ground + 1.55 + 0.55, 0]);
+  expect(before[0].preferred).toEqual([1.1, first.ground + 1.55 + 0.55, 0]);
+  expect(before[0].lift).toBeGreaterThan(0);
   expect(before[0]).toMatchObject({
     uvScale: [0.5, 0.5],
     uvOffset: [0, 0],
@@ -96,8 +99,8 @@ test('the source silence icon follows its living recipient, restores the origina
     Object.assign(target, { x: 200, y: 80, previous: { x: 200, y: 80 }, facing: 2 });
   });
   const moved = (await poses(page))[0];
-  expect(moved.position[0] - before[0].position[0]).toBeCloseTo(1);
-  expect(moved.position[2] - before[0].position[2]).toBeCloseTo(0.8);
+  expect(moved.preferred[0] - before[0].preferred[0]).toBeCloseTo(1);
+  expect(moved.preferred[2] - before[0].preferred[2]).toBeCloseTo(0.8);
   expect(moved.rotation).toEqual(before[0].rotation);
   const camera = await page.evaluate(() => {
     const g = (window as any).__GAME__;
