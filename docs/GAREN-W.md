@@ -5,6 +5,11 @@ in development player/NPC fixtures. [Source audio](GAREN-W-AUDIO.md) now covers
 cast, authored sustained loops and ending playback. Source particles and native
 calibration remain unfinished; Garen remains outside production selection.
 
+The complete [Courage particle source set](GAREN-W-PARTICLES.md) is now prepared:
+all seven systems, twenty emitter records, eighteen textures and the shield/shared
+mesh conversions. The development inspector exposes these definitions without
+claiming live W graphics, material override or attached-skin behavior.
+
 `tools/assets/export-garen-w.py` reads only the root `GarenW` record in the
 [frozen character pin](reference/garen-character.json). It checks the five-rank
 declaration, self targeting and exact shield calculation shape. Arena/ARAM

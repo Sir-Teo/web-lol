@@ -193,6 +193,34 @@ gzip); the ordinary game entry is 573.17 KB. The existing large-bundle warning
 remains. Source W particles, Q/basic/voice audio, native script/spatialization/
 listening and full production/match acceptance remain open.
 
+[Courage particle sources](GAREN-W-PARTICLES.md) now pin all seven base W
+systems and twenty emitter records, including the two inline Avatar systems.
+Three frozen BINs close every named dependency: eighteen TEX files and three
+SCB paths. Two exact GLBs preserve the 1,264-triangle shield and the byte-identical
+124-triangle attached-mesh reference aliases. The new decoder handles their
+separate 3.2/2.2 layouts without losing face RGB, pivots, real bounds or tails.
+Thirteen new lossless PNGs add 908,324 bytes; five existing images are reused
+after exact pixel comparison. Both mesh outputs add 104,008 bytes.
+
+All 970 source/simulation checks and TypeScript pass with four workers and a
+30-second per-test deadline. Thirteen focused Chrome scenarios pass with a
+60-second browser deadline, covering all source systems/textures/meshes and
+inspection controls, no automatic W graphics requests, existing W audio/PCM/
+defense behavior and shared R source/GPU inspection. The shield/texture capture
+was visually reviewed. Re-extraction/conversion reproduces twenty-four output
+pins/ledgers/PNGs/GLBs/sidecars byte-for-byte. All 32 models and the map validate
+without errors or warnings. Production build/nested-host smoke passes with
+17 ordinary recordings, unchanged entry bundles and Garen excluded from production.
+
+This increment prepares complete W source assets; it does not render them live
+or change gameplay/snapshot schema 80. Character material overrides, attached-skin
+slice rendering, native script dispatch/bones/deflection/cleanup and matching
+client comparison remain open. The shared arrow reference is not substituted
+for a posed character surface. Four minimal buff declarations and unresolved
+shape data remain unexpanded. Source particle lives of 2.25/6/7 seconds do not
+by themselves establish the modern gameplay or rendering timeline. Full
+production/match acceptance remains open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

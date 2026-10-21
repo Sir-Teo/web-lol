@@ -1,20 +1,24 @@
-"""Inspect frozen skin-linked BINs for Garen's base R particle records.
+"""Inspect frozen skin-linked BINs for a selected Garen spell's base particles.
 
 Names from existing verified pins and hash-checked CDragon field/type dictionaries
 are labels only. Definitions and asset paths are decoded from frozen Riot bytes.
-This discovery cache is input to the narrower repeatable R extraction pipeline.
+Each discovery cache feeds a narrower repeatable spell extraction pipeline.
 """
 from pathlib import Path
 import hashlib
 import io
 import json
 import subprocess
+import argparse
 from cdtb import binfile
 from xxhash import xxh64_intdigest
 from riot_archive import RiotArchive
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--ability', choices=['q', 'w', 'r'], default='r')
+ability = parser.parse_args().ability
 skin = json.loads(Path('docs/reference/garen-model.json').read_text())['skin']['data']
-resources = {k: v for k, v in skin['Characters/Garen/Skins/Skin0/Resources']['resourceMap'].items() if k.startswith('Garen_R_')}
+resources = {k: v for k, v in skin['Characters/Garen/Skins/Skin0/Resources']['resourceMap'].items() if k.startswith(f'Garen_{ability.upper()}_')}
 paths = [p.lower() for p in skin['__linked'] if '/garen_multi_' in p.lower()]
 cache = Path('.cache/garen-particle-bins'); cache.mkdir(exist_ok=True)
 fields, types, names, assets = {}, {}, {}, {}
@@ -53,5 +57,5 @@ for path in paths:
     for k in matches: assert k not in selected, k
     selected.update({k: dict(sourceBin=path, **v) for k, v in matches.items()})
     if matches: print(json.dumps(dict(key=key, resources=list(matches))))
-(cache / 'discovered.json').write_text(json.dumps(dict(resources=selected, extraction=archive.provenance()), indent=2) + '\n')
-print(f'Located {len(selected)} R records in {len(paths)} frozen skin-linked BINs.')
+(cache / ('discovered.json' if ability == 'r' else f'discovered-{ability}.json')).write_text(json.dumps(dict(resources=selected, extraction=archive.provenance()), indent=2) + '\n')
+print(f'Located {len(selected)} {ability.upper()} records in {len(paths)} frozen skin-linked BINs.')

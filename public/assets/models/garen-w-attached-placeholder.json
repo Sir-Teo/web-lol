@@ -1,0 +1,67 @@
+{
+  "output": {
+    "path": "/assets/models/garen-w-attached-placeholder.glb",
+    "bytes": 11036,
+    "sha256": "1088e17e1c22802b3be56f4ba73265a6236f3577c6b8b8bb0e7912ec766b26c8"
+  },
+  "source": {
+    "path": "assets/particles/arrow01.scb",
+    "wadPathHash": "50fb4a8223d4df99",
+    "sha256": "0fc7bbc8903cd6531305f9c7050547ec6ee6ae7c7d9642bda323d0325beb05af",
+    "bytes": 14616
+  },
+  "sourceAliases": [
+    {
+      "path": "assets/particles/arrow01.scb",
+      "wadPathHash": "50fb4a8223d4df99",
+      "sha256": "0fc7bbc8903cd6531305f9c7050547ec6ee6ae7c7d9642bda323d0325beb05af",
+      "bytes": 14616
+    },
+    {
+      "path": "assets/shared/particles/arrow01.scb",
+      "wadPathHash": "83c2eba025d83335",
+      "sha256": "0fc7bbc8903cd6531305f9c7050547ec6ee6ae7c7d9642bda323d0325beb05af",
+      "bytes": 14616
+    }
+  ],
+  "sourceVersion": [
+    2,
+    2
+  ],
+  "sourceVertices": 76,
+  "triangles": 124,
+  "exportedCorners": 372,
+  "centralPoint": [
+    0,
+    0,
+    0.48529911041259766
+  ],
+  "rawSourceBounds": [
+    -1.4003000259399414,
+    -1.5535999536514282,
+    -8.630900382995605,
+    2.800600051879883,
+    3.1071999073028564,
+    18.232398986816406
+  ],
+  "measuredMinMax": [
+    -1.4003000259399414,
+    -1.5535999536514282,
+    -8.630900382995605,
+    1.4003000259399414,
+    1.5535999536514282,
+    9.601499557495117
+  ],
+  "tailHex": "",
+  "positionFloat32Sha256": "40da69406f1b5245e7078ce7d47bc742db1226b48f845830a28168176186ca42",
+  "uvFloat32Sha256": "e4f2914f9545dbf370cff54ccddb73882e4541171caf912fabe5a4edea99f5a2",
+  "faceRgbSha256": "f5ea79165516de2e7e1efb53d016983f5d18c3184413f044a4002f4b751c918b",
+  "materials": [
+    "Arrow_"
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

@@ -127,3 +127,8 @@ recordings. Save/transfer verification uses a 60-second browser deadline; the
 full check uses four workers and a 30-second per-test deadline. Default test
 settings remain unchanged. Native dispatch/loop-boundary listening and complete
 production/full-match acceptance remain open.
+
+The subsequent [Courage particle preparation](GAREN-W-PARTICLES.md) pins all
+seven source systems and their mesh/texture dependencies. It changes no audio
+dispatch or checkpoint state. Its character-material and attached-mesh fields
+remain separate from the current audio adapter's local buff timing policy.

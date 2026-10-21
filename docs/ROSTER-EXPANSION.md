@@ -315,3 +315,16 @@ PROGRESS records deadline overrides and the repaired transfer timestamp check.
 The eight unchanged float WAVs load only on Garen presence. Source W particles,
 Q/basic/voice audio and native audiovisual calibration remain open before
 production roster acceptance.
+
+
+## Courage source-particle closure — October 21, 2026
+
+[Courage's full particle source set](GAREN-W-PARTICLES.md) now includes all seven
+systems and twenty emitter records, eighteen lossless textures and two exact
+GLB outputs. The legacy shared arrow paths are byte-identical and retain both
+aliases; their attached-mesh declaration is not treated as a live arrow effect.
+All 970 source/simulation checks, thirteen focused Chrome cases, model/map
+validators and production/nested-host smoke pass. Twenty-four converted/pin
+outputs reproduce byte-for-byte. Live material overrides, attached-skin slicing,
+dispatch/attachment and native comparison remain open; gameplay/schema 80 and
+the production roster gate are unchanged.
