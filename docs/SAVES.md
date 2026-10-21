@@ -1,5 +1,7 @@
 # Local match checkpoints
 
+Version 74 adds active Judgment state: captured rank/count/cooldown, completed-strike cadence and per-champion contact counts, plus required per-unit source-owned armor debuffs. Validation checks ownership, ranks, exact timelines, reachable counts/cooldowns, unique enemy recipients and incompatible actions. Stored armor is restored without reapplying the derived debuff. This version also rejects Courage stacks before W is learned, following Riot's 25.23 bug fix. All Garen spell ranks are now supported for NPCs; player Garen remains unavailable. Earlier formats are incompatible.
+
 Version 73 adds Garen R's required nullable target-only reveal record and optional target identity on queued/pending casts. The decoder checks champion ownership, enemy champion references, exact cast/reveal deadlines, captured rank and reveal/cast consistency. Reveals can survive caster death; dead target windups finish without redirecting damage. Garen R ranks are now accepted; E and player Garen remain unavailable. Earlier formats are incompatible.
 
 Version 72 adds the independent Courage stack counter. It accepts integer values from zero through the source-derived 150-stack cap on Garen only, including pre-learning and dead owners. Existing unit resistance totals are restored without reapplying the counter. Earlier formats are incompatible.

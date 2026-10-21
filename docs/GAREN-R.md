@@ -2,14 +2,15 @@
 
 Garen NPCs can now learn and cast R through an explicit champion-target command.
 His source cast animation, target-only sight, execute decisions and checkpoint
-continuation are integrated. Player selection remains Ashe/Lux while Garen's E,
+continuation are integrated. Player selection remains Ashe/Lux while Garen's
 complete input/HUD and audiovisual presentation remain unfinished.
 
 `tools/assets/export-garen-r.py` reads the frozen character BIN and the versioned
-[Data Dragon R record](reference/garen-r-ddragon.json). The latter was retained
-from an earlier successful session download; a fresh fetch returned HTTP 403.
-Its version, full-response hash and cached status are explicit in the pin. The
-exporter checks matching three-rank declarations and cooldowns across both sources.
+[Data Dragon R record](reference/garen-r-ddragon.json). A fresh October 21, 2026
+download through the correct `data/en_US/champion/Garen.json` path matches the
+earlier cached hash. The previous URL omitted `champion/` and returned HTTP 403.
+The pin records the corrected URL, retrieval date and complete-response hash.
+The exporter checks matching three-rank declarations and cooldowns.
 
 | Property | Value and source |
 | --- | --- |
@@ -113,5 +114,6 @@ TypeScript pass. Four focused Q/W/R browser scenarios pass. The R capture at
 nested static-hosting smoke pass with 17 source recordings and real Ashe/Lux casts.
 The existing large-bundle warning remains.
 
-Next work includes R particles/audio, native cast/reveal/cancellation comparison,
-Garen E, player input/HUD, and complete kit/role integration before roster selection.
+Judgment is now integrated separately in [GAREN-E.md](GAREN-E.md). Next work includes
+R particles/audio, native cast/reveal/cancellation comparison, player input/HUD,
+and complete kit/role integration before roster selection.

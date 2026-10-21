@@ -97,6 +97,7 @@ export interface Unit extends Vec2 {
   silenceUntil: number;
   shields: { sourceId: number; amount: number; endTick: number; prismaticCastTick?: number }[];
   illumination: { sourceId: number; endTick: number }[];
+  garenEShreds: { sourceId: number; startTick: number; endTick: number }[];
   summonerHealReductionUntil: number;
   summonerHealSpeedUntil: number;
   deadAt: number | null;
@@ -283,6 +284,15 @@ export interface ChampionState {
   garenCourageStacks: number;
   /** Target-only sight persists independently of the caster's windup and life. */
   garenRReveal: { targetId: number; startTick: number; endTick: number } | null;
+  garenE: {
+    startTick: number;
+    endTick: number;
+    rank: number;
+    strikes: number;
+    completedStrikes: number;
+    cooldownTicks: number;
+    hits: { targetId: number; count: number }[];
+  } | null;
   garenW: { startTick: number; rank: number; upfrontUntil: number; defenseUntil: number } | null;
   garenQ: {
     startTick: number;

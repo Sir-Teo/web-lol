@@ -1,0 +1,150 @@
+{
+  "sourceUrl": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Garen.json",
+  "version": "16.18.1",
+  "fullResponseSha256": "17c0ee01c176374d581ac9d1bee250d9d8256ff12a6e86259e223e21f61f2902",
+  "retrievedAt": "2026-10-21",
+  "retrievalNote": "Fresh versioned response retrieved through the champion/ path; hash matches the earlier cached response.",
+  "spell": {
+    "id": "GarenE",
+    "name": "Judgment",
+    "description": "Garen rapidly spins his sword around his body, dealing physical damage to nearby enemies.",
+    "tooltip": "Garen rapidly spins his sword for {{ duration }} seconds, dealing <physicalDamage>{{ totaldamage }} physical damage</physicalDamage> {{ f1 }} times over the duration. The nearest enemy takes <physicalDamage>{{ nearestenemybonus*100 }}% increased damage</physicalDamage>. Champions hit by {{ stackstoshred }} strikes lose <scaleArmor>{{ shredamount*100 }}% Armor</scaleArmor> for {{ shredduration }} seconds.<br /><br /><recast>Recast</recast>: Garen ends this Ability early.{{ spellmodifierdescriptionappend }}",
+    "leveltip": {
+      "label": [
+        "Base Damage Per Spin",
+        "Attack Damage Scaling Per Spin",
+        "Cooldown"
+      ],
+      "effect": [
+        "{{ basedamagepertick }} -> {{ basedamagepertickNL }}",
+        "{{ adratiopertick*100.000000 }}% -> {{ adratioperticknl*100.000000 }}%",
+        "{{ cooldown }} -> {{ cooldownNL }}"
+      ]
+    },
+    "maxrank": 5,
+    "cooldown": [
+      9,
+      8.25,
+      7.5,
+      6.75,
+      6
+    ],
+    "cooldownBurn": "9/8.25/7.5/6.75/6",
+    "cost": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "costBurn": "0",
+    "datavalues": {},
+    "effect": [
+      null,
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "effectBurn": [
+      null,
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "vars": [],
+    "costType": "No Cost",
+    "maxammo": "-1",
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "rangeBurn": "325",
+    "image": {
+      "full": "GarenE.png",
+      "sprite": "spell4.png",
+      "group": "spell",
+      "x": 384,
+      "y": 96,
+      "w": 48,
+      "h": 48
+    },
+    "resource": "No Cost"
+  }
+}

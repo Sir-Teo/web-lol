@@ -98,18 +98,19 @@ test('levelling during a melee windup preserves committed deadlines and changes 
   restored.step(w.tick - restored.tick);
   expect(restored.snapshot()).toBe(w.snapshot());
 });
-test('Garen cannot inherit Ashe abilities or player selection through saved state', () => {
+test('Garen E uses its own spell state and player selection remains blocked', () => {
   const { w, garen, state } = setup();
   for (const ability of ['e'] as const) {
-    expect(w.learnSpell(ability, garen.id)).toContain('development');
+    expect(w.learnSpell(ability, garen.id)).toBeNull();
     w.enqueue({ type: 'cast', unit: garen.id, ability, point: { x: 600, y: 0 } });
   }
   w.step();
   expect(state.pendingCast).toBeNull();
+  expect(state.garenE).not.toBeNull();
   expect(w.projectiles).toHaveLength(0);
   const invalid = JSON.parse(w.snapshot());
   const owner = invalid.otherChampions.find((s: { id: number }) => s.id === garen.id);
-  owner.spellRanks.e = 1;
+  owner.eCharges = 1;
   expect(() => World.fromSnapshot(JSON.stringify(invalid), w.battlefield)).toThrow();
   const crossed = JSON.parse(w.snapshot());
   crossed.units.find((u: { id: number }) => u.id === w.hero.id).champion = 'garen';

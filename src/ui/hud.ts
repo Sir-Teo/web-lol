@@ -904,7 +904,7 @@ export class Hud {
     if (shopBalance && shopBalance.textContent !== balanceLabel)
       shopBalance.textContent = balanceLabel;
     text('ad', Math.round(h.damage));
-    text('armor', Math.round(h.armor));
+    text('armor', Math.round(w.effectiveArmor(h)));
     text('mr', Math.round(h.magicResist));
     text('ap', Math.round(w.abilityPower()));
     text('ms', Math.round(statPrecision(w.movementSpeed(h))));

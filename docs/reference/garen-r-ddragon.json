@@ -1,8 +1,9 @@
 {
-  "sourceUrl": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/Garen.json",
+  "sourceUrl": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/champion/Garen.json",
   "version": "16.18.1",
   "fullResponseSha256": "17c0ee01c176374d581ac9d1bee250d9d8256ff12a6e86259e223e21f61f2902",
-  "retrievalNote": "Retained from the earlier successful session download. A fresh fetch during R research returned HTTP 403; this is a cached versioned response, not a fresh verification.",
+  "retrievedAt": "2026-10-21",
+  "retrievalNote": "Fresh versioned response retrieved through the champion/ path; hash matches the earlier cached response.",
   "spell": {
     "id": "GarenR",
     "name": "Demacian Justice",

@@ -176,9 +176,10 @@ All 867 tests pass; production build and nested static-hosting smoke pass. See
 
 ## Courage passive integration
 
-Garen now banks a separate, capped counter for credited champion and lane-minion
-kills. Learning W applies the accumulated resistances once; later kills add only
-the new earned amount. Death and respawn preserve the counter and resistance
+Garen has a separate, capped counter for credited champion and lane-minion kills.
+The initial increment banked kills before W was learned; the source-backed
+October 21 correction below removes that policy. New kills add only the new
+earned amount. Death and respawn preserve the counter and resistance
 stats. Snapshot version 72 validates ownership and range without double-applying
 stats on restore. The old completion multiplier is excluded based on Riot's
 25.11 removal. See [GAREN-W.md](GAREN-W.md) for sources and explicit lifecycle
@@ -207,3 +208,20 @@ All 886 simulation checks, TypeScript, four focused Q/W/R browser scenarios, the
 production build and nested static-host smoke pass. The contact capture was visually
 reviewed. R effects/audio, native calibration, E and player input/HUD remain open;
 Garen is still excluded from player selection and the default lane roster.
+
+## Judgment first gameplay integration and Courage correction
+
+Garen NPC E now supports moving periodic area damage, current ranked/critical
+formulas, a nearest-enemy bonus, source-owned armor reduction, full post-spin
+cooldowns, recast and kit/control interactions. Source spin playback and visible
+champion/grouped-minion AI accompany schema-74 continuation. [GAREN-E.md](GAREN-E.md)
+records verified values separately from unmeasured cadence, cancellation and
+presentation policies. All four abilities have simulation foundations; player
+input/HUD, complete effects/audio, role AI and native calibration remain open.
+
+The same review confirms Riot's 25.23 fix for Courage stacking before W is learned.
+Runtime and save validation now require learned W; earlier kills are not banked.
+The current 904 simulation tests, TypeScript, five focused browser cases and
+production/nested-host smoke pass. The spin/armor screenshot was visually reviewed.
+Fresh Data Dragon retrieval through the correct `champion/` URL also verifies the
+existing full-response hash and updates R's previously cached provenance.

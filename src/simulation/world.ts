@@ -33,6 +33,13 @@ import { GAREN } from '../content/garen-progression';
 import { GAREN_R } from '../content/garen-r';
 import { GAREN_R_WINDUP_TICKS, GAREN_R_REVEAL_TICKS } from '../content/garen-r-policy';
 import { garenRDamage } from './garen-r';
+import { GAREN_E } from '../content/garen-e';
+import {
+  GAREN_E_DURATION_TICKS,
+  GAREN_E_RECAST_TICKS,
+  garenEStrikes,
+  garenEStrikeTick,
+} from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { damageAfterResistance } from './damage-math';
@@ -277,6 +284,7 @@ export class World {
       silenceUntil: 0,
       shields: [],
       illumination: [],
+      garenEShreds: [],
       summonerHealReductionUntil: 0,
       summonerHealSpeedUntil: 0,
       deadAt: null,
@@ -451,13 +459,16 @@ export class World {
     for (const unit of this.units)
       if (unit.illumination.length)
         unit.illumination = unit.illumination.filter((mark) => mark.endTick > this.tick);
+    for (const unit of this.units)
+      if (unit.garenEShreds.length)
+        unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
         const recommendation =
           this.unit(state.id)?.champion === 'garen'
-            ? { early: ['q', 'w'] as const, priority: ['r', 'q', 'w'] as const }
+            ? { early: ['q', 'w', 'e'] as const, priority: ['r', 'e', 'q', 'w'] as const }
             : this.unit(state.id)?.champion === 'lux'
               ? LUX_BOT_POLICY
               : ASHE_SKILL_RECOMMENDATION;
@@ -517,7 +528,7 @@ export class World {
         this.cast(u, command.ability, command.point, command.targetId);
       else {
         const state = this.championState(u.id);
-        if (state && !state.pendingCast && u.silenceUntil <= this.tick) {
+        if (state && !state.pendingCast && !state.garenE && u.silenceUntil <= this.tick) {
           this.setOrder(u, { type: 'idle' });
           state.recallEnd = this.tick + RECALL_DURATION_TICKS;
           this.emit('message', u, { text: 'Recalling…', unit: u.id, team: u.team });
@@ -605,6 +616,7 @@ export class World {
       }
     }
     this.creditHawkshotReveals(unseen);
+    this.advanceGarenSpins();
     this.advanceProjectiles(unseen);
     this.advanceSingularities();
     if (this.winner) {
@@ -1506,6 +1518,7 @@ export class World {
     }
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
+    if (this.planGarenE(u)) return;
     if (this.planLuxCombat(u, false)) return;
     this.planGarenQ(u, false);
     const safeTarget = (target: Unit) =>
@@ -1628,6 +1641,103 @@ export class World {
     });
     return true;
   }
+  private planGarenE(u: Unit): boolean {
+    if (u.champion !== 'garen' || u.stunUntil > this.tick || u.silenceUntil > this.tick)
+      return false;
+    const state = this.championState(u.id)!;
+    if (
+      !state.spellRanks.e ||
+      state.garenE ||
+      state.pendingCast ||
+      this.abilityCooldownTicks('e', u.id) > 0
+    )
+      return false;
+    const targets = this.units.filter(
+      (enemy) =>
+        !isStructureKind(enemy.kind) &&
+        enemy.kind !== 'dummy' &&
+        this.validTarget(u, enemy) &&
+        distance(u, enemy) <= GAREN_E.radius + enemy.radius &&
+        this.safeAttackPosition(u, enemy)
+    );
+    if (!targets.some((enemy) => enemy.kind === 'champion') && targets.length < 3) return false;
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: u.x, y: u.y } });
+    return true;
+  }
+  private finishGarenE(state: ChampionState): void {
+    if (!state.garenE) return;
+    state.cooldowns.e = this.tick + state.garenE.cooldownTicks;
+    state.garenE = null;
+    const source = this.unit(state.id);
+    if (source) this.setOrder(source, { type: 'idle' });
+  }
+  private advanceGarenSpins(): void {
+    for (const state of this.activeChampionStates()) {
+      const spin = state.garenE;
+      if (!spin) continue;
+      const source = this.unit(state.id)!;
+      if (!this.alive(source)) {
+        this.finishGarenE(state);
+        continue;
+      }
+      while (
+        spin.completedStrikes < spin.strikes &&
+        this.tick >= garenEStrikeTick(spin.startTick, spin.strikes, spin.completedStrikes + 1)
+      ) {
+        spin.completedStrikes++;
+        const targets = this.units
+          .filter(
+            (target) =>
+              target.team !== source.team &&
+              this.alive(target) &&
+              !isStructureKind(target.kind) &&
+              this.vulnerable(target) &&
+              distance(source, target) <= GAREN_E.radius + target.radius
+          )
+          .sort((a, b) => distance(source, a) - distance(source, b) || a.id - b.id);
+        // One roll per damaging spin, shared by its simultaneous recipients.
+        const critical =
+          targets.length > 0 &&
+          this.criticalChance(source) > 0 &&
+          this.random.next() < this.criticalChance(source);
+        const criticalMultiplier = critical
+          ? 1 +
+            GAREN_E.bonusCriticalDamageRatio * (this.basicAttackDamageMultiplier(source, true) - 1)
+          : 1;
+        const raw =
+          (GAREN_E.baseDamageByRank[spin.rank - 1] +
+            GAREN_E.attackDamageRatioByRank[spin.rank - 1] * source.damage) *
+          criticalMultiplier;
+        for (const [index, target] of targets.entries()) {
+          this.damage(
+            source,
+            target,
+            raw * (index === 0 ? 1 + GAREN_E.nearestEnemyBonus : 1),
+            'physical',
+            'area'
+          );
+          if (target.kind !== 'champion' || !this.alive(target)) continue;
+          let hit = spin.hits.find((hit) => hit.targetId === target.id);
+          if (!hit) {
+            hit = { targetId: target.id, count: 0 };
+            spin.hits.push(hit);
+          }
+          hit.count++;
+          const shred = target.garenEShreds.find((shred) => shred.sourceId === source.id);
+          if (hit.count >= GAREN_E.strikesToShred || shred) {
+            const effect = {
+              sourceId: source.id,
+              startTick: this.tick,
+              endTick: this.tick + Math.round(GAREN_E.shredSeconds * TICK_RATE),
+            };
+            if (shred) Object.assign(shred, effect);
+            else target.garenEShreds.push(effect);
+          }
+        }
+      }
+      if (this.tick >= spin.endTick) this.finishGarenE(state);
+    }
+  }
   private advanceUnit(u: Unit): void {
     const state = this.championState(u.id);
     let target = u.attackTarget === null ? undefined : this.unit(u.attackTarget);
@@ -1736,9 +1846,10 @@ export class World {
       target = this.nearest(u, u.kind === 'turret' ? u.range : 650);
     else target = undefined;
     if (target) {
-      const inRange = distance(u, target) <= u.range + target.radius;
+      const inRange = distance(u, target) <= (state?.garenE ? 100 : u.range) + target.radius;
       if (inRange) {
         u.facing = Math.atan2(target.x - u.x, target.y - u.y);
+        if (state?.garenE) return;
         if (this.tick >= u.nextAttackTick) {
           const speed = this.attackSpeedMultiplier(u, target);
           const state = this.championState(u.id);
@@ -2277,10 +2388,11 @@ export class World {
       const state = this.championState(unit.id),
         cast = state?.castAnimation;
       const casting =
-        !!cast &&
-        !!unit.champion &&
-        (this.tick - cast.startTick) / TICK_RATE <
-          castAnimationDuration(unit.champion, cast.ability);
+        !!state?.garenE ||
+        (!!cast &&
+          !!unit.champion &&
+          (this.tick - cast.startTick) / TICK_RATE <
+            castAnimationDuration(unit.champion, cast.ability));
       const attacking = unit.attackCycle !== null && this.tick < unit.attackCycle.endTick;
       if (mobileAlive && !moving && !casting && !attacking && state?.recallEnd == null) {
         const clock = unit.idleClock ?? { startTick: this.tick, previous: 0, current: 0 };
@@ -2781,6 +2893,13 @@ export class World {
       0
     );
   }
+  /** Same named armor reduction does not stack across Garen owners. Stored
+   * armor remains untouched, so growth and item transactions cannot drift. */
+  effectiveArmor(target: Unit): number {
+    return target.armor > 0 && target.garenEShreds.some((shred) => shred.endTick > this.tick)
+      ? target.armor * (1 - GAREN_E.armorReduction)
+      : target.armor;
+  }
   /** Independent shield grants; ability-specific stacking belongs to the spell adapter. */
   applyShield(source: Unit, target: Unit, amount: number, durationTicks: number): void {
     if (
@@ -2810,7 +2929,7 @@ export class World {
   ): void {
     if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;
     const resistance =
-      kind === 'physical' ? target.armor : kind === 'magic' ? target.magicResist : 0;
+      kind === 'physical' ? this.effectiveArmor(target) : kind === 'magic' ? target.magicResist : 0;
     const courage = this.championState(target.id)?.garenW;
     const reduction =
       kind !== 'true' && courage && this.tick < courage.defenseUntil
@@ -2905,6 +3024,7 @@ export class World {
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
+          this.finishGarenE(state);
           state.pendingCast = null;
           state.castAnimation = null;
         }
@@ -2915,6 +3035,7 @@ export class World {
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
       }
       if (targetState) {
+        this.finishGarenE(targetState);
         targetState.enlighten = null;
         targetState.deaths++;
         targetState.pendingCast = null;
@@ -2927,6 +3048,7 @@ export class World {
         targetState.garenW = null;
         targetState.garenPassiveReadyTick = 0;
       }
+      target.garenEShreds = [];
       const lastDamage = targetState?.damageContributors
         .slice()
         .reverse()
@@ -2944,6 +3066,7 @@ export class World {
       if (sourceState && rewardSource && rewardSource.team !== target.team) {
         if (
           rewardSource.champion === 'garen' &&
+          sourceState.spellRanks.w > 0 &&
           (isLaneMinionKind(target.kind) || target.kind === 'champion')
         ) {
           const before = this.courageResistances(sourceState);
@@ -3099,6 +3222,7 @@ export class World {
     u.silenceUntil = 0;
     u.shields = [];
     u.illumination = [];
+    u.garenEShreds = [];
     u.aiRetreating = false;
     u.slowUntil = 0;
     u.slows = [];
@@ -3113,8 +3237,6 @@ export class World {
     return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
   }
   spellLearningError(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
-    if (this.unit(championId)?.champion === 'garen' && ability === 'e')
-      return 'Garen abilities are still in development';
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
@@ -3180,7 +3302,7 @@ export class World {
               ? GAREN_W.cooldownSecondsByRank[rank - 1]
               : ability === 'r'
                 ? GAREN_R.cooldownSecondsByRank[rank - 1]
-                : 0,
+                : GAREN_E.cooldownSecondsByRank[rank - 1],
       };
     if (this.unit(championId)?.champion === 'lux' && ability === 'e')
       return {
@@ -3207,11 +3329,14 @@ export class World {
   private cast(u: Unit, ability: Ability, point: Vec2, targetId?: number): void {
     const state = this.championState(u.id);
     if (!state) return;
-    if (u.champion === 'garen' && ability === 'e') return;
     if (targetId !== undefined && !(u.champion === 'garen' && ability === 'r')) return;
     // Check before Lux's E-recast shortcut as well as ordinary casts.
     if (u.silenceUntil > this.tick && !ABILITIES[ability].canCastWhileSilenced) {
       this.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });
+      return;
+    }
+    if (u.champion === 'garen' && ability === 'e' && state.garenE) {
+      if (this.tick >= state.garenE.startTick + GAREN_E_RECAST_TICKS) this.finishGarenE(state);
       return;
     }
     if (u.champion === 'lux' && ability === 'e') {
@@ -3257,6 +3382,29 @@ export class World {
       return;
     }
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    if (u.champion === 'garen' && ability === 'e') {
+      if (u.releaseTick !== null && u.attackCycle?.garenQRank !== undefined) return;
+      if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
+      u.releaseTick = null;
+      u.attackTarget = null;
+      u.attackCycle = null;
+      state.castAnimation = null;
+      state.recallEnd = null;
+      state.garenE = {
+        startTick: this.tick,
+        endTick: this.tick + GAREN_E_DURATION_TICKS,
+        rank: state.spellRanks.e,
+        strikes: garenEStrikes(state.level),
+        completedStrikes: 0,
+        cooldownTicks: hastedCooldownTicks(
+          GAREN_E.cooldownSecondsByRank[state.spellRanks.e - 1],
+          itemAbilityHaste(state)
+        ),
+        hits: [],
+      };
+      this.emit('cast', u, { unit: u.id, champion: 'garen', text: 'e', team: u.team });
+      return;
+    }
     if (u.champion === 'garen' && ability === 'r') {
       const target = targetId === undefined ? undefined : this.unit(targetId);
       if (
@@ -3267,6 +3415,7 @@ export class World {
         (u.attackCycle?.garenQRank !== undefined && u.releaseTick !== null)
       )
         return;
+      this.finishGarenE(state);
       state.recallEnd = null;
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);

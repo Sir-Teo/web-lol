@@ -23,8 +23,14 @@ rank/timing, release-time missing-health true damage, isolated target sight, sou
 cast playback, execute decisions and validated checkpoint continuation. All 886
 simulation tests, TypeScript, four focused Q/W/R browser cases and the nested-path
 production smoke pass. [GAREN-R.md](GAREN-R.md) records supported behavior and
-unverified native timing/cancellation policies. E and full player presentation are
-still required before exposing Garen in champion selection.
+unverified native timing/cancellation policies.
+
+Judgment's first runtime integration follows in [GAREN-E.md](GAREN-E.md): moving
+area damage, per-target armor reduction, source spin playback, kit/control
+interactions, tactical decisions and schema-74 continuation. All 904 simulation
+checks and five focused browser scenarios pass. A source-backed Courage correction
+also prevents stacks before W is learned. Full player presentation and native
+calibration remain required before exposing Garen in champion selection.
 
 ## Historical baseline verification
 

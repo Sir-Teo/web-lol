@@ -38,7 +38,7 @@ universal replacement enum, or Q attack-speed units, from one health calculation
 - Verify damage-type exceptions and mitigation/shield order before wiring damage.
 - Verify which controls tenacity shortens, minimum duration and application timing.
 - Verify W's cast permissions during stun and an existing Q windup.
-- Verify the passive kill-class and pre-learning policies below against native
+- Verify the passive kill-class policies below against native
   behavior; extend them as monsters and other unit classes are implemented.
 - `NormalResistKillValue` has no values in the root source. Do not invent its value.
 - The historical 10% completion reward was removed in Riot patch 25.11, as
@@ -134,24 +134,28 @@ and their source stack values are not yet consumed. The missing
 `NormalResistKillValue` remains unknown; the adapter uses the explicitly authored
 `BuffCounterPerKill` for the supported classes rather than filling in that field.
 
-The local lifecycle policy banks kills before W is learned and applies their
-resistances once on learning rank one. Later ranks do not add the existing stacks
-again. Each subsequent kill applies only the difference in total earned
+Kills count only after learning W. [Riot patch 25.23](https://www.leagueoflegends.com/en-us/news/game-updates/patch-25-23-notes/)
+explicitly fixed stacking without learning W. The October 21 source review
+therefore replaces the earlier local pre-learning bank policy. Earlier kills
+remain in CS/rewards but never become Courage stacks retroactively. Later ranks
+do not add existing stacks again. Each subsequent kill applies only the difference in total earned
 resistance, normalized through the existing stat-precision helper. This avoids
 accumulating source float noise. Level growth and purchased item stats remain
 additive. Stacks and their applied stats persist through death and respawn.
-Pre-learning timing, kill-class exceptions and posthumous/execution credit still
+Kill-class exceptions and posthumous/execution credit still
 need a version-matched native comparison; the Riot patch notes establish the
 numeric curve, not those lifecycle details.
 
-Snapshot version 72 stores the counter and rejects missing, fractional, negative,
+Snapshot version 72 introduced the counter and rejected missing, fractional, negative,
 above-cap or foreign-owned stacks. Restoring the existing unit stats never
 reapplies stack gains. The decoder does not reconstruct all item/growth/debuff
 stats from scratch; these checks establish counter ownership and range, not
-native stat parity or tamper-proof saves.
+native stat parity or tamper-proof saves. Version 74 additionally rejects nonzero
+Courage stacks on a Garen who has not learned W.
 
 Five added simulation cases cover the cap, effective physical mitigation,
-pre-learning saves, learning exactly once, rank-up, death/respawn and repeated
+pre-learning rejection, post-learning gains, rank-up, death/respawn and repeated
 restoration, champion kills versus CS, excluded victims, assists, duplicate deaths
 and malformed counters. The actual Q-farming browser scenario also verifies its
-banked pre-W stack. All 872 simulation tests pass.
+absence of pre-W stacks. The original increment had 872 passing checks; the
+current Judgment/Courage integration has 904 passing simulation tests.

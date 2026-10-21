@@ -91,6 +91,7 @@ export async function loadReferenceModels(): Promise<void> {
                   'crit',
                   'spell1',
                   'spell4_base',
+                  'spell3_0',
                   'death',
                   'recall',
                 ]

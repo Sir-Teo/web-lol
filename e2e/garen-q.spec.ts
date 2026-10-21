@@ -53,8 +53,8 @@ test('Garen bot spends an armed Q on a farther minion it can last-hit', async ({
   expect(result.weakHp).toBe(0);
   expect(result.healthyHp).toBe(result.healthyMax);
   expect(result.cs).toBe(1);
-  expect(result.courageStacks).toBe(1);
-  expect(result.armor).toBe(38); // Stack is banked until W is learned.
+  expect(result.courageStacks).toBe(0);
+  expect(result.armor).toBe(38); // Unlearned W earns no stacks.
   expect(result.clip).toBe('spell1');
   await page.screenshot({ path: 'artifacts/browser-garen-q-farming.png' });
   expect(errors).toEqual([]);

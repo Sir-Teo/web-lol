@@ -29,6 +29,8 @@ import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { GAREN_W } from '../content/garen-w';
+import { GAREN_E } from '../content/garen-e';
+import { GAREN_E_DURATION_TICKS, garenEStrikes, garenEStrikeTick } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 import { GAREN_PASSIVE } from '../content/garen-passive';
@@ -41,7 +43,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 73;
+export const SNAPSHOT_VERSION = 74;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -208,6 +210,9 @@ const unit: z.ZodType<Unit> = z
       )
       .max(10000),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
+    garenEShreds: z
+      .array(z.strictObject({ sourceId: id, startTick: tick, endTick: tick }))
+      .max(10000),
     summonerHealReductionUntil: tick,
     summonerHealSpeedUntil: deadline,
     deadAt: tick.nullable(),
@@ -320,6 +325,19 @@ const player: z.ZodType<PlayerState> = z
     qUntil: deadline,
     qStackExpiry: deadline,
     garenRReveal: z.strictObject({ targetId: id, startTick: tick, endTick: tick }).nullable(),
+    garenE: z
+      .strictObject({
+        startTick: tick,
+        endTick: tick,
+        rank: z.number().int().min(1).max(5),
+        strikes: z.number().int().min(7).max(9),
+        completedStrikes: z.number().int().min(0).max(8),
+        cooldownTicks: tick,
+        hits: z
+          .array(z.strictObject({ targetId: id, count: z.number().int().min(1).max(9) }))
+          .max(10000),
+      })
+      .nullable(),
     garenPassiveReadyTick: tick,
     garenCourageStacks: z
       .number()
@@ -1161,6 +1179,25 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved match contains invalid Illumination marks.');
       sources.add(mark.sourceId);
     }
+    const shredSources = new Set<number>();
+    for (const shred of target.garenEShreds) {
+      const source = state.units.find((u) => u.id === shred.sourceId);
+      if (
+        target.kind !== 'champion' ||
+        target.deadAt !== null ||
+        source?.champion !== 'garen' ||
+        source.team === target.team ||
+        ![state.player, ...state.otherChampions].some(
+          (owner) => owner.id === source.id && owner.spellRanks.e > 0
+        ) ||
+        shredSources.has(shred.sourceId) ||
+        shred.startTick > state.tick ||
+        shred.endTick <= state.tick ||
+        shred.endTick !== shred.startTick + Math.round(GAREN_E.shredSeconds * TICK_RATE)
+      )
+        throw new Error('Saved match contains invalid Judgment armor reduction.');
+      shredSources.add(shred.sourceId);
+    }
   }
   const owners = [state.player, ...state.otherChampions];
   const ownerIds = new Set(owners.map((p) => p.id));
@@ -1263,6 +1300,50 @@ export function decodeSnapshot(text: string) {
         : champion.champion === 'garen'
           ? ability === 'r'
           : champion.champion === 'ashe' && ability !== 'q';
+    const spin = owner.garenE;
+    if (spin) {
+      const expectedCompleted = Array.from({ length: spin.strikes }, (_, i) => i + 1).filter(
+        (i) => garenEStrikeTick(spin.startTick, spin.strikes, i) <= state.tick
+      ).length;
+      if (
+        champion.champion !== 'garen' ||
+        champion.deadAt !== null ||
+        state.winner !== null ||
+        spin.startTick > state.tick ||
+        spin.endTick <= state.tick ||
+        spin.endTick !== spin.startTick + GAREN_E_DURATION_TICKS ||
+        spin.rank > owner.spellRanks.e ||
+        spin.completedStrikes !== expectedCompleted ||
+        owner.pendingCast ||
+        owner.castAnimation ||
+        owner.recallEnd !== null ||
+        champion.releaseTick !== null ||
+        champion.attackCycle !== null ||
+        owner.cooldowns.e > spin.startTick ||
+        !Array.from({ length: owner.level }, (_, i) => garenEStrikes(i + 1)).includes(
+          spin.strikes
+        ) ||
+        ![...reachableHaste].some(
+          (haste) =>
+            spin.cooldownTicks ===
+            hastedCooldownTicks(GAREN_E.cooldownSecondsByRank[spin.rank - 1], haste)
+        )
+      )
+        throw new Error('Saved match contains invalid Judgment spin state.');
+      const hitIds = new Set<number>();
+      for (const hit of spin.hits) {
+        const target = champions.find((u) => u.id === hit.targetId);
+        if (
+          !target ||
+          target.team === champion.team ||
+          hitIds.has(hit.targetId) ||
+          hit.count > spin.completedStrikes ||
+          (target.deadAt !== null && target.deadAt < spin.startTick)
+        )
+          throw new Error('Saved match contains invalid Judgment hit counts.');
+        hitIds.add(hit.targetId);
+      }
+    }
     const justiceReveal = owner.garenRReveal;
     if (justiceReveal) {
       const target = champions.find((u) => u.id === justiceReveal.targetId);
@@ -1278,7 +1359,10 @@ export function decodeSnapshot(text: string) {
       )
         throw new Error('Saved match contains invalid Demacian Justice reveal.');
     }
-    if (champion.champion !== 'garen' && owner.garenCourageStacks !== 0)
+    if (
+      (champion.champion !== 'garen' || owner.spellRanks.w === 0) &&
+      owner.garenCourageStacks !== 0
+    )
       throw new Error('Saved match contains foreign Courage stacks.');
     const courage = owner.garenW;
     if (
@@ -1343,8 +1427,6 @@ export function decodeSnapshot(text: string) {
       champion.attackCycle.garenQRank > owner.spellRanks.q
     )
       throw new Error('Saved Decisive Strike has an unavailable rank.');
-    if (champion.champion === 'garen' && owner.spellRanks.e !== 0)
-      throw new Error('Saved Garen contains an unavailable spell rank.');
     const cast = owner.pendingCast;
     if (cast) {
       const garenR = champion.champion === 'garen' && cast.ability === 'r';

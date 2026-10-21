@@ -36,18 +36,23 @@ test('Courage gains separate capped stacks and changes actual incoming damage', 
   expect(hp - garen.hp).toBeCloseTo(100 / 1.68);
 });
 
-test('kills before learning W are banked and apply once when the first rank is learned', () => {
+test('kills before learning W grant no stacks; new kills start counting after learning', () => {
   const { w, garen, state, minion } = setup(false);
   minion();
   minion();
   minion();
-  expect(state.garenCourageStacks).toBe(3);
+  expect(state.garenCourageStacks).toBe(0);
   expect(garen.armor).toBe(38);
   const saved = World.fromSnapshot(w.snapshot(), w.battlefield);
   for (const world of [w, saved]) {
     expect(world.learnSpell('w', garen.id)).toBeNull();
-    expect(world.unit(garen.id)!.armor).toBe(38.6);
-    expect(world.unit(garen.id)!.magicResist).toBe(32.6);
+    expect(world.unit(garen.id)!.armor).toBe(38);
+    expect(world.unit(garen.id)!.magicResist).toBe(32);
+    const target = world.spawn('melee', 'blue', { x: 150, y: 0 });
+    world.damage(world.unit(garen.id)!, target, 100000, 'true');
+    expect(world.championState(garen.id)!.garenCourageStacks).toBe(1);
+    expect(world.unit(garen.id)!.armor).toBe(38.2);
+    expect(world.unit(garen.id)!.magicResist).toBe(32.2);
     world.gainExperience(1000, garen.id);
     const armor = world.unit(garen.id)!.armor;
     expect(world.learnSpell('w', garen.id)).toBeNull();
@@ -105,4 +110,7 @@ test('stack saves reject missing, foreign, fractional, negative and above-cap co
   const foreign = JSON.parse(w.snapshot());
   foreign.player.garenCourageStacks = 1;
   expect(() => World.fromSnapshot(JSON.stringify(foreign), w.battlefield)).toThrow();
+  const unlearned = JSON.parse(w.snapshot());
+  unlearned.otherChampions[0].spellRanks.w = 0;
+  expect(() => World.fromSnapshot(JSON.stringify(unlearned), w.battlefield)).toThrow();
 });

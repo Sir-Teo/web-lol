@@ -5,6 +5,7 @@ import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
 import { luxAttackAnimation } from '../content/lux-attack-animation';
 import { ASHE_Q } from '../content/ashe-q';
 import { GAREN_Q } from '../content/garen-q';
+import { GAREN_E } from '../content/garen-e';
 import { GAREN_R_ANIMATION_CONTACT, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 
 export interface MobilePose {
@@ -55,6 +56,13 @@ export function mobilePose(
   });
   if (unit.deadAt !== null)
     return fixed('death', 'death', Math.max(0, (at - unit.deadAt) / TICK_RATE) + terminalAge);
+  if (state?.garenE) {
+    const spin = state.garenE,
+      clip = GAREN_E.animationClip;
+    const rate = ((duration(clip) / GAREN_E.durationSeconds) * spin.strikes) / GAREN_E.baseStrikes;
+    const time = Math.max(0, (at - spin.startTick) / TICK_RATE) * rate;
+    return { ...fixed('cast', clip, time, true, rate), time: time % duration(clip), loop: true };
+  }
   const cast = state?.castAnimation;
   if (cast) {
     const clip = castAnimationName(unit.champion, cast.ability),
