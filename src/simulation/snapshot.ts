@@ -39,6 +39,7 @@ import {
   garenEStrikeTick,
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
+import { GAREN_Q_AUDIO_TAIL_TICKS } from '../content/garen-q-audio-timing';
 import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 import { GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_PASSIVE } from '../content/garen-passive';
@@ -51,7 +52,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 81;
+export const SNAPSHOT_VERSION = 82;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -393,6 +394,19 @@ const player: z.ZodType<PlayerState> = z
         consumed: z.boolean(),
       })
       .nullable(),
+    garenQVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          stopTick: tick.nullable(),
+          endReason: z.enum(['consumed', 'expired', 'death', 'match-end', 'recast']).nullable(),
+          attacks: z
+            .array(z.strictObject({ startTick: tick, releaseTick: tick }))
+            .max(Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE)),
+        })
+      )
+      .max(Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE) + GAREN_Q_AUDIO_TAIL_TICKS),
     eCharges: z.number().int().min(0).max(ASHE_E.maximumCharges),
     eRechargeTick: tick.nullable(),
     eRechargeDurationTicks: tick.refine((value) => rechargeDurations.has(value)),
@@ -1568,6 +1582,81 @@ export function decodeSnapshot(text: string) {
         (garenQ.speedUntil <= state.tick && (garenQ.consumed || garenQ.attackUntil <= state.tick)))
     )
       throw new Error('Saved match contains invalid Decisive Strike state.');
+    const qHistory = owner.garenQVisuals,
+      latestQ = qHistory.at(-1);
+    if (
+      garenQ &&
+      (!latestQ ||
+        latestQ.startTick !== garenQ.startTick ||
+        latestQ.rank !== garenQ.rank ||
+        (garenQ.consumed
+          ? latestQ.endReason !== 'consumed'
+          : latestQ.stopTick !== null &&
+            !(state.winner !== null && latestQ.endReason === 'match-end')))
+    )
+      throw new Error('Saved match lacks matching Decisive Strike presentation.');
+    let previousQStart = -1;
+    for (const [index, r] of qHistory.entries()) {
+      const expiry = r.startTick + Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE),
+        next = qHistory[index + 1];
+      if (
+        champion.champion !== 'garen' ||
+        r.rank > owner.spellRanks.q ||
+        r.startTick <= previousQStart ||
+        r.startTick > state.tick ||
+        (champion.deadAt !== null && r.startTick > champion.deadAt) ||
+        (r.stopTick === null
+          ? r.endReason !== null ||
+            next !== undefined ||
+            !garenQ ||
+            garenQ.consumed ||
+            champion.deadAt !== null ||
+            state.winner !== null ||
+            state.tick >= expiry
+          : r.endReason === null ||
+            r.stopTick < r.startTick ||
+            r.stopTick > state.tick ||
+            r.stopTick > expiry ||
+            state.tick >= r.stopTick + GAREN_Q_AUDIO_TAIL_TICKS ||
+            (next !== undefined && r.stopTick > next.startTick) ||
+            (champion.deadAt !== null && r.stopTick > champion.deadAt) ||
+            (r.endReason === 'expired' && r.stopTick !== expiry) ||
+            (r.endReason === 'death' && (r.stopTick >= expiry || champion.deadAt !== r.stopTick)) ||
+            (r.endReason === 'match-end' && (state.winner === null || r.stopTick !== state.tick)) ||
+            (r.endReason === 'recast' && (!next || r.stopTick !== next.startTick)) ||
+            (r.endReason === 'consumed' &&
+              (r.stopTick >= expiry || r.attacks.at(-1)?.releaseTick !== r.stopTick)))
+      )
+        throw new Error('Saved match contains invalid Decisive Strike presentation.');
+      let previousAttack = -1;
+      for (const a of r.attacks) {
+        if (
+          a.startTick <= previousAttack ||
+          a.startTick < r.startTick ||
+          a.startTick >= expiry ||
+          a.startTick > state.tick ||
+          (r.stopTick !== null && a.startTick > r.stopTick) ||
+          !Array.from({ length: owner.level }, (_, i) => garenQAttackTimingAtLevel(i + 1)).some(
+            (timing) => a.releaseTick === a.startTick + timing.windupTicks
+          )
+        )
+          throw new Error('Saved match contains invalid Decisive Strike attack presentation.');
+        previousAttack = a.startTick;
+      }
+      previousQStart = r.startTick;
+    }
+    if (
+      qCycle?.garenQRank !== undefined &&
+      state.tick < qCycle.endTick &&
+      !qHistory.some(
+        (r) =>
+          r.rank === qCycle.garenQRank &&
+          r.attacks.some(
+            (a) => a.startTick === qCycle.startTick && a.releaseTick === qCycle.garenQReleaseTick
+          )
+      )
+    )
+      throw new Error('Saved match lacks captured Decisive Strike attack presentation.');
     if (
       champion.attackCycle?.garenQRank !== undefined &&
       champion.attackCycle.garenQRank > owner.spellRanks.q

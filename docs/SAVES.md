@@ -1,5 +1,17 @@
 # Local match checkpoints
 
+Version 82 adds required per-champion `garenQVisuals` intervals, including captured
+activation rank, stop tick/reason and committed swing start/release pairs. Cast,
+one-shot active, ending and both bank-delayed attack cues reconstruct independently
+of later orders, target loss or caster death. Stopped intervals remain for 200
+ticks, covering all source tails. Practice recasts retain earlier intervals.
+Validation checks Garen ownership, learned rank, active Q correspondence, ordered
+clocks, expiry/consumption/death/match-end/recast consistency and compatible
+captured windups. Missing, foreign, future, duplicate, contradictory or expired
+records are rejected. An ongoing captured Q attack cycle must have its matching
+rank/start/release pair in retained history. Earlier formats are incompatible.
+See [Q audio](GAREN-Q-AUDIO.md).
+
 Version 81 adds required per-champion `garenWDeflects` records with reaction and
 originating cast ticks. The local damage-reaction policy coalesces reduced
 physical/magic hits per victim/tick. Records remain for 51 simulation ticks,

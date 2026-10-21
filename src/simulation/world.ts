@@ -35,6 +35,7 @@ import { GAREN_R_WINDUP_TICKS, GAREN_R_REVEAL_TICKS } from '../content/garen-r-p
 import { garenRDamage, GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_W_AUDIO_TAIL_TICKS } from '../content/garen-w-audio-timing';
 import { GAREN_W_DEFLECT_TAIL_TICKS } from '../content/garen-w-particle-timing';
+import { GAREN_Q_AUDIO_TAIL_TICKS } from '../content/garen-q-audio-timing';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
@@ -56,6 +57,7 @@ import {
   rechargeChampion,
   expireChampionFocus,
   expireGarenQ,
+  finishGarenQPresentation,
 } from './champion-state';
 import { hastedCooldownTicks, itemAbilityHaste } from './ability-haste';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
@@ -468,6 +470,10 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
+      if (state.garenQVisuals.length)
+        state.garenQVisuals = state.garenQVisuals.filter(
+          (r) => r.stopTick === null || this.tick < r.stopTick + GAREN_Q_AUDIO_TAIL_TICKS
+        );
       if (
         state.garenEVisual &&
         state.garenEVisual.stopTick !== null &&
@@ -1816,7 +1822,13 @@ export class World {
               team: target.team,
               endTick: this.tick + 120,
             });
-          this.emit('attack', u, { unit: u.id, team: u.team });
+          this.emit('attack', u, {
+            unit: u.id,
+            team: u.team,
+            ...(u.attackCycle?.garenQRank !== undefined
+              ? { champion: 'garen' as const, garenQStartTick: u.attackCycle.startTick }
+              : {}),
+          });
           if (
             u.champion === 'ashe' &&
             state &&
@@ -1935,6 +1947,13 @@ export class World {
               ? { critical: true as const }
               : {}),
           };
+          const history = state?.garenQVisuals.at(-1);
+          if (
+            qTiming &&
+            history?.stopTick === null &&
+            history.startTick === state?.garenQ?.startTick
+          )
+            history.attacks.push({ startTick: this.tick, releaseTick: u.releaseTick });
         }
         return;
       }
@@ -3091,6 +3110,7 @@ export class World {
         for (const state of this.activeChampionStates()) {
           this.finishGarenE(state);
           this.finishGarenW(state, 'match-end');
+          finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
           state.pendingCast = null;
           state.castAnimation = null;
@@ -3113,6 +3133,7 @@ export class World {
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
         targetState.garenQ = null;
+        finishGarenQPresentation(targetState, this.tick, 'death');
         this.finishGarenW(targetState, 'death');
         targetState.garenPassiveReadyTick = 0;
       }
@@ -3543,6 +3564,14 @@ export class World {
       return;
     }
     if (u.champion === 'garen' && ability === 'q') {
+      finishGarenQPresentation(state, this.tick, 'recast');
+      state.garenQVisuals.push({
+        startTick: this.tick,
+        rank: state.spellRanks.q,
+        stopTick: null,
+        endReason: null,
+        attacks: [],
+      });
       state.garenQ = {
         startTick: this.tick,
         rank: state.spellRanks.q,

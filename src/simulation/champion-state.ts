@@ -32,6 +32,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     garenEVisual: null,
     garenE: null,
     garenQ: null,
+    garenQVisuals: [],
     garenW: null,
     garenWVisual: null,
     garenWDeflects: [],
@@ -62,7 +63,20 @@ export function rechargeChampion(state: ChampionState, tick: number): void {
 /** Also run on consumption so a match-ending hit cannot retain an expired buff. */
 export function expireGarenQ(state: ChampionState, tick: number): void {
   const q = state.garenQ;
+  if (q?.consumed) finishGarenQPresentation(state, tick, 'consumed');
+  else if (q && tick >= q.attackUntil) finishGarenQPresentation(state, tick, 'expired');
   if (q && tick >= q.speedUntil && (q.consumed || tick >= q.attackUntil)) state.garenQ = null;
+}
+export function finishGarenQPresentation(
+  state: ChampionState,
+  tick: number,
+  reason: NonNullable<ChampionState['garenQVisuals'][number]['endReason']>
+): void {
+  const record = state.garenQVisuals.at(-1);
+  if (record && record.stopTick === null) {
+    record.stopTick = tick;
+    record.endReason = reason;
+  }
 }
 /** Focus expiry follows combat so a fresh attack can refresh the deadline. */
 export function expireChampionFocus(state: ChampionState, tick: number): void {

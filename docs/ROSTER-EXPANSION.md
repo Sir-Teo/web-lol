@@ -405,3 +405,27 @@ unchanged ordinary game-entry size. PROGRESS records complete verification. This
 increment leaves live Q audio/history integration, W body rendering, native
 calibration and production roster acceptance open. Gameplay and schema 81 stay
 unchanged.
+
+## Decisive Strike live source audio — October 21, 2026
+
+[Q audio](GAREN-Q-AUDIO.md#live-audio-adapter--october-21-2026) now uses all five
+source action profiles from saved activation/stop/commitment history. Both attack
+layers retain the exact bank delay; active playback is nonlooping and uses the
+authored stop fade. Schema 82 keeps earlier practice casts and accepted swings
+through target loss, death and reload. Local dispatch follows the armed interval,
+with consumption/expiry ending cues; native script and cancellation behavior
+remain unverified. Gameplay damage, attack timing, speed and cooldown are unchanged.
+
+All 999 checks and TypeScript pass. Ten focused Q Chrome cases cover source PCM,
+on-presence loading, real audio scheduling, fade/reload, fog, fallback and finite
+terminal tails. Seventeen source outputs reproduce byte-for-byte with unchanged
+modification times. Source-ready Q casts/attacks bypass generic cues; late source
+readiness cannot double synthesized keys. PROGRESS records the full verification
+scope. Native calibration, source Q particles, W body operations and production
+roster acceptance remain open.
+
+The surrounding 31 Garen/match-file browser cases also pass, for 41 focused
+Chrome scenarios across sequential runs. After requiring a matching history pair
+for ongoing Q cycles, all 999 tests and seventeen Q/player/save browser cases pass
+again. Production/nested-host smoke passes with 17 ordinary recordings and the
+Garen roster gate retained. PROGRESS records bundle sizes and verification scope.

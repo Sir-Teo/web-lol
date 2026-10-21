@@ -129,9 +129,7 @@ test('all thirteen Decisive Strike recordings decode with exact source floats, f
   }
 });
 
-test('prepared Q audio remains outside ordinary startup and the current Garen runtime', async ({
-  page,
-}) => {
+test('Q audio loads all thirteen masters only on Garen presence', async ({ page }) => {
   const requests: string[] = [];
   page.on('request', (r) => {
     if (r.url().includes('/assets/audio/garen-q-')) requests.push(r.url());
@@ -140,6 +138,14 @@ test('prepared Q audio remains outside ordinary startup and the current Garen ru
     await page.goto(url);
     await page.waitForFunction(() => (window as any).__GAME__?.ready);
     await page.locator('#loading').waitFor({ state: 'detached' });
+    if (url === '/?scene=fixture') expect(requests).toEqual([]);
   }
-  expect(requests).toEqual([]);
+  expect(requests).toHaveLength(13);
+  expect(new Set(requests.map((r) => new URL(r).pathname))).toEqual(
+    new Set(
+      [P.cast, P.active, P.end, P.attack, P.attackDelayed].flatMap((p) =>
+        p.variants.map((v) => '/' + v.url)
+      )
+    )
+  );
 });

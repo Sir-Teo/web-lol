@@ -238,6 +238,8 @@ export type Command =
   | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
+  /** Captured Q swing identity for source/fallback coordination at release. */
+  garenQStartTick?: number;
   champion?: 'ashe' | 'lux' | 'garen';
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
   audience: Team[];
@@ -322,6 +324,13 @@ export interface ChampionState {
     speedUntil: number;
     consumed: boolean;
   } | null;
+  garenQVisuals: {
+    startTick: number;
+    rank: number;
+    stopTick: number | null;
+    endReason: 'consumed' | 'expired' | 'death' | 'match-end' | 'recast' | null;
+    attacks: { startTick: number; releaseTick: number }[];
+  }[];
   eCharges: number;
   eRechargeTick: number | null;
   eRechargeDurationTicks: number;

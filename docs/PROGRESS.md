@@ -362,6 +362,56 @@ operations; their shader/dispatch contracts remain unresolved. No `llvm-dis`
 executable was found on PATH or in the checked repository/Homebrew/bundled tool
 locations; that bounded search does not establish its absence elsewhere.
 
+[Decisive Strike live source audio](GAREN-Q-AUDIO.md#live-audio-adapter--october-21-2026)
+now uses the thirteen prepared masters for activation, one-shot active, ending
+and both committed-swing actions. The bank's delayed action is scheduled exactly
+230 ms after the immediate action from one AudioContext time sample; later seeks
+retain the proper offset. Source-ready activation and Q attack release bypass
+their generic tones. Late-loading fallback marks both attack keys and the cast
+key, so readiness cannot double already synthesized cues. Failed assets do not
+produce repeated frame-driven fetches.
+
+Schema 82 adds ordered `garenQVisuals` intervals with captured rank, stop/reason
+and accepted swing start/planned-release pairs. Local dispatch follows the armed
+Q interval, independently of movement speed: consumption/expiry add ending audio,
+while death/match-end/recast only stop the active. Committed attack one-shots
+survive target loss and death without inventing a hit. Practice recasts retain
+earlier clocks. Generated 200-tick post-stop retention covers all source tails.
+The decoder checks ownership, live Q correspondence, chronology, bounded history,
+exact expiry/recast/consumption/terminal relationships and accepted local windups.
+Earlier saves are incompatible under the existing same-build policy. Damage,
+speed, attack timing and cooldown mechanics are unchanged.
+
+All 999 tests across 203 files and TypeScript pass with four workers and a
+30-second test deadline. Ten focused Q Chrome scenarios pass across the source
+inspector/PCM/startup checks and seven live audio cases, with a 60-second browser
+deadline. Live checks cover exact dual-action scheduling, source gain/envelope
+separation, mute/partial-fade reload, target loss/death, late loading/fallback,
+fog, and natural completion without replay at a frozen terminal tick. The first
+browser fade checks read AudioParam values before the audio thread applied their
+scheduled value; recording actual automation calls resolves that timing-sensitive
+observation without changing fade behavior. Seventeen source graph/decode/profile/
+timing/WAV outputs reproduce byte-for-byte with unchanged modification times;
+the original graph/media pins and all thirteen WAV bytes are unchanged.
+
+All 31 surrounding Garen player/Q/W mechanics/audio/PCM/Judgment/R/match-file
+browser cases pass, for 41 unique focused Chrome scenarios across sequential
+runs. Final decoder review additionally requires an ongoing captured Q cycle to
+retain its matching rank/start/release pair. The full 999-test suite and seventeen
+Q/player/match-file browser scenarios pass again with that consistency check.
+Production build and nested-host smoke pass with 17 ordinary recordings and
+real Ashe/Lux input; Garen fixture flags remain rejected in production. The Q-only
+chunk is 10.78 KB (4.19 KB gzip). The ordinary game entry is 579.60 KB (159.49 KB
+gzip), including the new history/schema checks and lazy wrapper. The existing
+large-bundle warning remains. No WAV/source graph bytes or gameplay mechanics
+change, and Garen's production roster gate stays in place.
+
+Q code/profiles/recordings load only on Garen presence. Ordinary startup retains
+its seventeen recordings. Source shuffle, native script dispatch, pending-action
+cancellation, listener/bus mix and listening comparison remain unverified. Source
+Q particles, W character-surface operations, basic/voice audio and full production/
+match acceptance remain open; Garen remains outside production selection.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

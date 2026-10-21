@@ -2,9 +2,10 @@
 
 The frozen Garen soundbank now has a complete Q/QAttack source pack: five declared
 events, six play/stop actions, thirty-two retained hierarchy nodes and thirteen
-unaltered float masters. This is source preparation and audition tooling. Q's
-live gameplay audio remains the existing fallback; no Q sound dispatch or save
-schema is changed by this increment. Garen remains outside production selection.
+unaltered float masters. The live adapter now connects those actions to saved
+activation, buff-stop and committed-swing clocks. Source dispatch policies are
+local; native timing/mix/listening remain unverified. Schema 82 preserves these
+clocks, and Garen remains outside production selection.
 
 ## Frozen event and media contract
 
@@ -69,11 +70,57 @@ native mix calibration. Each audition replaces the prior one, so the page does
 not implement native overlapping-voice limits or shuffle. Source profiles remain
 inspectable below its controls.
 
-Ordinary Ashe/Lux and current Garen startup do not request these WAVs or import
-the Q profiles. Live Q cast/buff/attack history, interruption/end policies,
-on-presence loading, fallback coordination and saved playback are the subsequent
-integration work. Source Q particles, basic/voice audio and complete native and
-production acceptance remain open.
+Ordinary Ashe/Lux startup does not request these WAVs or import Q controller/
+profile code. Garen presence loads one cached thirteen-file resource set; later
+Garen spawns trigger the same lazy path. Source Q particles, basic/voice audio
+and complete native and production acceptance remain open.
+
+## Live audio adapter — October 21, 2026
+
+Local dispatch starts cast and the nonlooping active master on accepted Q. The
+active sound follows the armed-attack interval, independently of the shorter
+ranked movement-speed boost. Consumption and natural expiry stop it with the
+authored 250 ms fade and start the ending master. Death, match end and replacement
+by a practice recast stop the active without an ending cue. These choices are
+local script policies; the bank alone does not identify the native buff or
+dispatch event. Source recording lengths do not change gameplay deadlines.
+
+Each committed empowered swing captures its start and planned release. Both
+QAttack actions use the commitment clock, preserving their exact 230 ms delay
+in seconds. The controller schedules the two actions from one AudioContext time
+sample, including a future delayed start. A later seek starts an elapsed action
+at the proper buffer offset. Source cues are never retimed to the provisional
+gameplay release or promoted into a confirmed hit. Target loss, an aborted swing
+or caster death retain already accepted one-shots; native delayed-action
+cancellation remains unverified.
+
+Schema 82 requires per-champion `garenQVisuals`: ordered activation records with
+captured rank, nullable stop/reason and committed `{ startTick, releaseTick }`
+swings. The latest armed interval agrees with live Q state; older records survive
+practice recasts. The decoder validates ownership/rank, chronology, exact expiry,
+recast linkage, death/match-end and consumption consistency, accepted local
+windups, and bounded retained history. An ongoing Q cycle must retain its matching
+recorded rank/start/release pair. `GAREN_Q_AUDIO_TAIL_TICKS = 200` is generated
+from cast/ending/attack durations, the bank delay and stop fade. Each stopped
+record remains for that many ticks; source clocks do not mutate simulation RNG.
+Old snapshots remain incompatible under the existing same-build policy.
+
+Every action keeps an indexed cosmetic variant, independent sound/container
+gain, the common source attenuation and its own global instance cap. Equal-priority
+caps retire the oldest local voice. Native shuffle/bus/listener/mixing remain open.
+Separate spatial and stop-envelope nodes let listener movement preserve a pending
+fade. Active masters always play once. Fog suppresses enemy caster audio; pause,
+mute and reload seek from the original simulation clocks. Natural completion is
+remembered while history remains, preventing repeated source tails at a frozen
+match-end tick.
+
+Source-ready Q activation and empowered attacks bypass their generic synthesized
+cues. Failed assets establish bounded fallback without frame-driven retries.
+If cast/attack cues were synthesized during late loading, their original source
+keys are suppressed when readiness arrives, while remaining active/ending phases
+can seek correctly. A later new Q can still use source playback. No recordings
+are fetched a second time by frame updates. The ordinary seventeen-recording
+startup is unchanged.
 
 ## Reproduction and verification
 
@@ -85,7 +132,7 @@ PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/ext
 .tools/cdtb-venv/bin/python tools/assets/decode-garen-q-audio.py
 .tools/cdtb-venv/bin/python tools/assets/export-garen-q-audio.py
 npm run check -- --maxWorkers=4 --testTimeout=30000
-npm run test:browser -- e2e/garen-q-audio-source.spec.ts
+npm run test:browser -- e2e/garen-q-audio-source.spec.ts e2e/garen-q-audio.spec.ts
 ```
 
 Source checks require the complete event/action/media closure, both attack

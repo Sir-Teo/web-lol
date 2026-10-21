@@ -116,8 +116,10 @@ one simulation tick and excludes true damage. Schema 81 keeps independent
 reaction clocks through practice recasts, defense expiry, death and reload.
 Native dispatch and the remaining body effects remain open.
 
-[Decisive Strike source audio](GAREN-Q-AUDIO.md) is now prepared for inspection:
-thirteen untouched masters, both QAttack actions with their authored delay and
-the separate active stop fade. The development audition page allows variant
-selection. These prepared files do not change current Q gameplay playback;
-accepted-event history and live audio integration remain open.
+[Decisive Strike source audio](GAREN-Q-AUDIO.md) now supplies activation, one-shot
+active, ending and both committed-swing actions with their authored delay.
+Schema 82 preserves original clocks, stop fades and accepted swings through
+target loss, death, practice recasts and reload. Source-ready casts/attacks bypass
+their generic cues; late-loading fallback does not double those keys. The
+development audition page remains available for explicit variant selection.
+Native script/mix/listening calibration and source Q particles remain open.

@@ -1,6 +1,7 @@
 import { LuxBindingFlightAudio } from './lux-binding-flight';
 import { LazyGarenJusticeAudio } from './garen-r-lazy';
 import { LazyGarenCourageAudio } from './garen-w-lazy';
+import { LazyGarenDecisiveStrikeAudio } from './garen-q-lazy';
 import { GarenJudgmentAudio } from './garen-e';
 import type { World } from '../simulation/world';
 import { LUX_BINDING_CAST_AUDIO } from '../content/lux-binding-cast-audio';
@@ -18,7 +19,7 @@ import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding, Illumination and Garen W/E/R cues.
+/** Source Hawkshot, Light Binding, Illumination and Garen Q/W/E/R cues.
  * Other cues retain synthesized feedback. */
 export class GameAudio {
   context: AudioContext | null = null;
@@ -26,6 +27,7 @@ export class GameAudio {
   garenE = new GarenJudgmentAudio();
   garenR = new LazyGarenJusticeAudio();
   garenW = new LazyGarenCourageAudio();
+  garenQ = new LazyGarenDecisiveStrikeAudio();
   private audible = true;
   private paused = false;
   private resuming = false;
@@ -76,7 +78,9 @@ export class GameAudio {
       this.loadIllumination(),
       this.loadBindingCast(),
       this.bindingFlight.load(),
-      ...(garenPresent ? [this.garenW.load(), this.garenE.load(), this.garenR.load()] : []),
+      ...(garenPresent
+        ? [this.garenQ.load(), this.garenW.load(), this.garenE.load(), this.garenR.load()]
+        : []),
     ]);
   }
   private async loadBindingCast(): Promise<void> {
@@ -263,6 +267,7 @@ export class GameAudio {
     this.garenE.stop();
     this.garenR.stop();
     this.garenW.stop();
+    this.garenQ.stop();
     for (const [voice, gain] of this.voices) {
       voice.stop();
       voice.disconnect();
@@ -446,6 +451,17 @@ export class GameAudio {
   }
   updateGaren(world: World, listener = { x: 0, y: 0 }) {
     const garens = world.units.filter((u) => u.champion === 'garen');
+    if (garens.length && this.garenQ.status === 'idle') void this.garenQ.load();
+    const decisive = garens.flatMap((u) =>
+      world.championState(u.id)!.garenQVisuals.map((r) => ({
+        ...r,
+        id: u.id,
+        x: u.x,
+        y: u.y,
+        visible: u.team === 'blue' || world.visible(u),
+      }))
+    );
+    this.garenQ.update(this.context, this.enabled && !this.paused, decisive, world.tick, listener);
     if (garens.length && this.garenE.status === 'idle') void this.garenE.load();
     if (garens.length && this.garenR.status === 'idle') void this.garenR.load();
     if (garens.length && this.garenW.status === 'idle') void this.garenW.load();
@@ -523,9 +539,25 @@ export class GameAudio {
           continue;
         if (event.type === 'illumination') this.illumination(event, tick, listener);
         if (event.type === 'judgment-hit') this.garenE.hit(this.context, event, tick, listener);
-        if (event.type === 'attack') this.tone(650, 260, 0.065, 0.012, 'triangle');
+        if (event.type === 'attack') {
+          if (
+            event.champion !== 'garen' ||
+            event.garenQStartTick === undefined ||
+            this.garenQ.status !== 'ready'
+          ) {
+            if (event.garenQStartTick !== undefined && event.unit !== undefined)
+              this.garenQ.suppressAttack(event.unit, event.garenQStartTick);
+            this.tone(650, 260, 0.065, 0.012, 'triangle');
+          }
+        }
         if (event.type === 'cast') {
-          if (event.text === 'w' && event.champion === 'garen' && this.garenW.status === 'ready') {
+          if (event.text === 'q' && event.champion === 'garen' && this.garenQ.status === 'ready') {
+            // Saved Q activation/commitment history owns all five source actions.
+          } else if (
+            event.text === 'w' &&
+            event.champion === 'garen' &&
+            this.garenW.status === 'ready'
+          ) {
             // Saved Courage history owns cast, authored loop and ending phases.
           } else if (
             event.text === 'r' &&
@@ -552,6 +584,8 @@ export class GameAudio {
           )
             this.bindingCast(event, tick, listener);
           else {
+            if (event.text === 'q' && event.champion === 'garen' && event.unit !== undefined)
+              this.garenQ.suppressCast(event.unit, event.tick);
             if (event.text === 'r' && event.champion === 'garen' && event.unit !== undefined)
               this.garenR.suppressCast(event.unit, event.tick);
             if (event.text === 'w' && event.champion === 'garen' && event.unit !== undefined)
