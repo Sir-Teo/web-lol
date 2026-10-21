@@ -29,7 +29,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 [Decisive Strike source audio](docs/GAREN-Q-AUDIO.md) now follows accepted Q activation, buff stops and committed swings, including both QAttack layers and their authored delay. Saved clocks retain stop fades and source tails; the development audition page remains at `/tools/qa/garen-q-audio-preview.html`.
 
-[Decisive Strike particle sources](docs/GAREN-Q-PARTICLES.md) now include all eleven systems, 29 textures and four meshes. Inspect them at `/tools/qa/garen-q-source-preview.html`; live Q particle playback remains open.
+[Decisive Strike particle sources](docs/GAREN-Q-PARTICLES.md) now include all eleven systems, 29 textures and four meshes. Inspect them at `/tools/qa/garen-q-source-preview.html`. The first live weapon-trail mesh now follows the saved frame-8 event and explicit center-bone binding; the other Q layers and native calibration remain open.
 
 ## Deployment
 

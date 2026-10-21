@@ -21,7 +21,7 @@ function setup(attack = false) {
 test('Q history starts on acceptance, captures actual swing commitment and stops on consumption independently of speed', () => {
   const { w } = setup(true),
     release = w.hero.releaseTick!;
-  expect(w.player.garenQVisuals).toEqual([
+  expect(w.player.garenQVisuals).toMatchObject([
     {
       startTick: 1,
       rank: 1,
@@ -51,7 +51,7 @@ test('Q natural expiry retains ending history and committed pre-expiry swing wit
   w.step(stop - w.tick);
   const r = w.player.garenQVisuals.at(-1)!;
   expect(r.endReason).toBe('expired');
-  expect(r.attacks).toEqual([{ startTick: stop - 1, releaseTick: release }]);
+  expect(r.attacks).toMatchObject([{ startTick: stop - 1, releaseTick: release }]);
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   w.step(release - w.tick);
   restored.step(release - restored.tick);
@@ -73,7 +73,7 @@ test('target loss and caster death retain accepted swing clocks, never invent co
     restored.step(steps);
     expect(restored.snapshot()).toBe(w.snapshot());
   }
-  expect(w.player.garenQVisuals).toEqual([]);
+  expect(w.player.garenQVisuals).toMatchObject([]);
 });
 test('practice recasts retain prior activation and swing history with independent stop clocks', () => {
   const { w, cast } = setup(true);
@@ -81,6 +81,8 @@ test('practice recasts retain prior activation and swing history with independen
   w.step(20);
   const previous = structuredClone(w.player.garenQVisuals[0]);
   cast();
+  previous.attacks[0].stopTick = w.tick;
+  previous.attacks[0].endReason = 'recast';
   expect(w.player.garenQVisuals[0]).toEqual(previous);
   w.setOrder(w.hero, { type: 'idle' });
   w.step(20);
@@ -140,4 +142,111 @@ test('Q presentation rejects missing, foreign, future, contradictory, expired an
     s = JSON.parse(foreign.snapshot());
   s.player.garenQVisuals = base.player.garenQVisuals;
   expect(() => World.fromSnapshot(JSON.stringify(s), foreign.battlefield)).toThrow();
+});
+
+test('Q captures the resolved target point before lethal damage and retains it after order/death and reload', () => {
+  const { w, target } = setup(true);
+  const a = w.player.garenQVisuals[0].attacks[0];
+  expect(a).toMatchObject({
+    targetId: target.id,
+    origin: { x: 0, y: 0 },
+    impact: null,
+    stopTick: null,
+    endReason: null,
+  });
+  target.x = 110;
+  target.y = 20;
+  target.hp = 1;
+  w.step(a.releaseTick - w.tick);
+  expect(target.deadAt).toBe(w.tick);
+  expect(a.impact).toEqual({ tick: w.tick, point: { x: 110, y: 20 }, facing: Math.atan2(110, 20) });
+  w.setOrder(w.hero, { type: 'idle' });
+  expect(a).toMatchObject({ stopTick: w.tick, endReason: 'order' });
+  w.damage(w.hero, w.hero, 1e6, 'true');
+  expect(a.endReason).toBe('order');
+  expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
+});
+test('Q attack cancellation is separate from buff stops, never manufactures a hit, and resumes exactly', () => {
+  for (const reason of ['target-lost', 'death', 'recast', 'match-end'] as const) {
+    const { w, target, cast } = setup(true),
+      a = w.player.garenQVisuals[0].attacks[0];
+    if (reason === 'target-lost') {
+      w.damage(w.hero, target, 1e6, 'true');
+      w.step();
+    } else if (reason === 'death') w.damage(target, w.hero, 1e6, 'true');
+    else if (reason === 'recast') cast();
+    else w.damage(w.hero, w.spawn('nexus', 'red', { x: 800, y: 0 }), 1e6, 'true');
+    expect(a).toMatchObject({ impact: null, stopTick: w.tick, endReason: reason });
+    const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
+    for (const steps of [1, 20, 80]) {
+      w.step(steps);
+      restored.step(steps);
+      expect(restored.snapshot()).toBe(w.snapshot());
+    }
+  }
+});
+test('a completed Q pose preserves contact and its captured period while a stun after contact stops the pose as an action', () => {
+  for (const stun of [false, true]) {
+    const { w } = setup(true),
+      a = w.player.garenQVisuals[0].attacks[0];
+    w.setOrder(w.hero, { type: 'idle' }); // Committed Q cannot be cancelled by this order.
+    expect(a.stopTick).toBeNull();
+    w.step(a.releaseTick - w.tick);
+    if (stun) {
+      w.hero.stunUntil = w.tick + 20;
+      w.step();
+    } else w.step(a.endTick - w.tick);
+    expect(a.endReason).toBe(stun ? 'action' : 'complete');
+    expect(a.stopTick).toBe(stun ? a.releaseTick + 1 : a.endTick);
+    expect(a.impact?.tick).toBe(a.releaseTick);
+    expect(() => World.fromSnapshot(w.snapshot(), w.battlefield)).not.toThrow();
+  }
+});
+test('Q checkpoints reject invented contact, mismatched target/period and contradictory pose stops', () => {
+  const { w } = setup(true),
+    base = JSON.parse(w.snapshot());
+  for (const mutate of [
+    (a: any) => delete a.impact,
+    (a: any) => (a.targetId = w.hero.id),
+    (a: any) => (a.targetId = 100000),
+    (a: any) => a.endTick++,
+    (a: any) => (a.impact = { tick: a.releaseTick, point: a.origin, facing: 0 }),
+    (a: any) => {
+      a.stopTick = w.tick;
+      a.endReason = 'action';
+    },
+  ]) {
+    const s = structuredClone(base);
+    mutate(s.player.garenQVisuals[0].attacks[0]);
+    expect(() => World.fromSnapshot(JSON.stringify(s), w.battlefield)).toThrow();
+  }
+  w.step(w.hero.releaseTick! - w.tick);
+  const hit = JSON.parse(w.snapshot());
+  for (const mutate of [
+    (a: any) => (a.impact = null),
+    (a: any) => a.impact.tick--,
+    (a: any) => {
+      a.stopTick = a.startTick;
+      a.endReason = 'target-lost';
+    },
+  ]) {
+    const s = structuredClone(hit);
+    mutate(s.player.garenQVisuals[0].attacks[0]);
+    expect(() => World.fromSnapshot(JSON.stringify(s), w.battlefield)).toThrow();
+  }
+});
+
+test('post-contact chasing hard-stops Q presentation while retaining its cadence cycle and confirmed impact', () => {
+  const { w, target } = setup(true),
+    a = w.player.garenQVisuals[0].attacks[0];
+  w.step(a.releaseTick - w.tick);
+  target.x = 400;
+  const before = w.hero.x;
+  w.step();
+  expect(w.hero.x).toBeGreaterThan(before);
+  expect(a).toMatchObject({ stopTick: w.tick, endReason: 'action' });
+  expect(w.hero.attackCycle?.endTick).toBe(a.endTick);
+  expect(w.hero.nextAttackTick).toBe(a.endTick);
+  expect(a.impact?.point.x).toBe(100);
+  expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
 });

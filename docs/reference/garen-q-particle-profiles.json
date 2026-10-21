@@ -1,0 +1,171 @@
+{
+  "sourcePinSha256": "1244519d87867631fba497a6e945aa935fe6341c04af94c900736fdf75886472",
+  "decodedAssetsSha256": "b6b7b1d2964380f21614d76aa0a6b6cd2c77e52a37a9de7b0ec43774375278f3",
+  "defaultsEvidenceSha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb",
+  "output": {
+    "path": "src/content/garen-q-particles.json",
+    "sha256": "b42fe0f74283e8a9eb07dcca515fe8df84f1fb08178f2caa9a4879e1fe48122a"
+  },
+  "implemented": [
+    {
+      "system": "Garen_Q_Sword_Trail",
+      "index": 0
+    }
+  ],
+  "deferred": [
+    {
+      "system": "Garen_Q_Silence",
+      "index": 0,
+      "reason": "recipient size/atlas/stop integration"
+    },
+    {
+      "system": "Garen_Q_mis_axis_01",
+      "index": 0,
+      "reason": "dispatch unverified"
+    },
+    {
+      "system": "Garen_Q_mis_axis_01",
+      "index": 1,
+      "reason": "dispatch unverified"
+    },
+    {
+      "system": "Garen_Q_mis_axis_01",
+      "index": 2,
+      "reason": "dispatch unverified"
+    },
+    {
+      "system": "Garen_Q_Sword_Swipe_Blur",
+      "index": 0,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Sword_Swipe_Blur",
+      "index": 1,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Jump",
+      "index": 0,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Jump",
+      "index": 1,
+      "reason": "scene distortion"
+    },
+    {
+      "system": "Garen_Q_Jump_Blur",
+      "index": 0,
+      "reason": "scene distortion"
+    },
+    {
+      "system": "Garen_Q_Land",
+      "index": 0,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Land",
+      "index": 1,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Land",
+      "index": 2,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Land",
+      "index": 3,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Land",
+      "index": 4,
+      "reason": "scene distortion"
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 0,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 1,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 2,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 3,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 0,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 1,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 2,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 3,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 0,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 1,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 2,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 3,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 4,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 5,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 6,
+      "reason": "appearance, attachment and dispatch integration pending"
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 7,
+      "reason": "scene distortion"
+    }
+  ],
+  "emptySystems": [
+    "Garen_Q_Buf"
+  ],
+  "status": "One animation-bound weapon mesh reconstructed. Local timing, heading and hard-stop policy; native parity unverified."
+}

@@ -3,8 +3,9 @@
 All eleven base Q resource keys now have frozen source definitions, including
 31 emitter records, 29 lossless textures and four exact mesh conversions. The
 development inspector exposes all assets and definitions. This is source
-preparation; live Q particles and native rendering remain open. Gameplay and
-schema 82 are unchanged, and Garen remains outside production selection.
+preparation plus the first live weapon-trail mesh. Thirty emitter records and
+native rendering remain open. Gameplay values are unchanged; schema 83 adds
+attack outcomes and presentation stops. Garen remains outside production selection.
 
 ## Frozen dependency closure
 
@@ -64,9 +65,10 @@ weapon trail remains a 500-triangle mesh rather than a procedural ribbon.
 The 29 PNGs total 1,250,707 bytes. Six existing images are reused only after exact
 dimension/RGBA comparison; 23 new images add 1,119,506 bytes. The decoded audit
 records source/output/RGBA hashes and dimensions, including lookup, distortion,
-sprite and mesh maps. Four GLBs add 50,208 bytes. These prepared Q graphics have
-no live loader yet; startup requests none of the new files in either the ordinary
-fixture or Garen fixture. Shared textures retain their existing W/E/R consumers.
+sprite and mesh maps. Four GLBs add 50,208 bytes. The live trail requests one mesh
+and two textures only on Garen presence. The ordinary fixture requests none of
+the new Q graphics. All other Q meshes/new textures remain source assets. Shared
+textures retain their existing W/E/R consumers.
 
 `/tools/qa/garen-q-source-preview.html` offers orbit/zoom, wireframe, all four
 meshes, an eleven-system selector, complete definitions and every raw image. Its
@@ -96,13 +98,12 @@ differences. An omitted frame is not recorded as an authored zero; an omitted
 bone is not relabeled Root.
 
 The current Q animation maps its provisional frame-10 contact marker to a saved
-local release deadline. Schema 82 audio history records accepted activation,
-stop and committed swing start/planned-release pairs. It does not record actual
-impact points, confirmed hits or swing cancellation clocks. A planned release
-cannot dispatch target-impact or silence particles, and cancelled animations
-must not emit later frame events solely because time elapsed. Live integration
-therefore needs explicit history/dispatch and attachment policies alongside the
-source appearance curves. Native timing, distortion, particle defaults,
+local release deadline. Schema 83 now records accepted activation,
+committed swing start/release/end, target ID, origin/heading, confirmed impact
+point/heading and independent presentation stops. A planned release still cannot
+dispatch target-impact or silence particles. The first adapter uses these saved
+clocks for the explicitly bound weapon trail; further systems need their own
+dispatch and appearance treatment. Native timing, distortion, particle defaults,
 materials and pixel comparison remain open.
 
 ## Reproduction and verification
@@ -110,6 +111,7 @@ materials and pixel comparison remain open.
 ```sh
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-garen-q-particles.py
 node tools/assets/convert-garen-q-particles.mjs
+.tools/cdtb-venv/bin/python tools/assets/export-garen-q-particles.py
 ```
 
 Discovery, if needed independently of the pin, uses
@@ -118,3 +120,43 @@ resource/dependency closure, exact output hashes and GLB attributes, absent buff
 fields, primitive declarations and all four unchanged animation bindings.
 Chrome checks all meshes/images/system selections, wireframe and startup
 isolation. Full validation results are recorded in [PROGRESS](PROGRESS.md).
+
+## Live weapon-trail adapter — October 21, 2026
+
+The source `Garen_Q_Sword_Trail` emits its two mesh particles after the saved
+frame-8 event, using the existing provisional frame-10-to-release animation map.
+The event clock is rounded up to a simulation update, followed by the shared
+first-update birth convention. The mesh retains its 0.25-second life, source
+rotation/scale, UV scroll, color lookup and source-alpha additive blend. No
+particle lifetime is stretched to the gameplay windup. The renderer follows the
+explicit center bone's world position, with captured swing heading and authored
+YXZ rotation. It does not inherit the bone's live rotation or invent a root
+fallback. Missing bindings produce no mesh. Parent-heading and native attachment
+semantics still need comparison. All source face-RGB bytes in these four meshes
+are zero. They remain preserved metadata; the reader establishes their presence,
+not a requirement to multiply them into the live material.
+
+The local adapter hard-stops the bone-bound trail when its primary attack pose
+is interrupted; it does not claim a native linger mode from an absent field.
+A stop before frame 8 suppresses the future birth entirely. Order changes during
+an uninterruptible windup retain that swing; target loss, death, recasts and match
+end stop it. After contact, orders, actions and movement may stop presentation
+without deleting the confirmed impact or changing attack cadence. Natural pose
+completion has its own captured deadline. Audio keeps its existing accepted
+one-shots independently of these visual stops.
+
+Schema 83 validates target identity, same-level captured timing pairs, impact at
+the actual release, one successful contact per activation, chronological stops,
+recasts, terminal reasons and ongoing-cycle correspondence. Impacts are captured
+before lethal damage can clear attack state or end a match. They survive target
+loss, caster death, later orders and reload. Source target/silence dispatch has
+not been added merely because this history is now available. Retention remains
+the existing 200-tick sound tail, which also covers this short mesh life.
+
+`export-garen-q-particles.py` pins the selected profile and accounts explicitly
+for all thirty deferred emitter records and the empty buff system. Controller,
+profile, one GLB and two textures load on Garen presence, with shared concurrent
+loads, partial-failure cleanup and cached successful reuse. Each live particle
+owns its material; geometry/textures remain shared when a particle retires or
+fog removes it. Native timing, other Q layers, distortion, shader/attachment
+comparison, W body operations and production/full-match acceptance remain open.

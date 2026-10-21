@@ -1,0 +1,52 @@
+{
+  "system": "Garen_Q_Sword_Trail",
+  "index": 0,
+  "name": "WeaponTrail",
+  "bone": "C_Buffbone_Glb_Center_Loc",
+  "startFrame": 8,
+  "mesh": "assets/models/garen-q-weapon-trail.glb",
+  "texture": "assets/effects/garen_base_q_wpn_trail.png",
+  "lookup": "assets/effects/garen_color-rampdown.png",
+  "count": 2,
+  "life": 0.25,
+  "emitterLife": 1.0,
+  "position": [
+    0.0,
+    0.0,
+    -10.0
+  ],
+  "rotation": [
+    10.0,
+    30.0,
+    -80.0
+  ],
+  "scale": [
+    2.0999999046325684,
+    0.699999988079071,
+    0.699999988079071
+  ],
+  "scroll": [
+    -1.5,
+    0.0
+  ],
+  "color": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "lookupTypes": [
+    1,
+    0
+  ],
+  "lookupScales": [
+    1,
+    1
+  ],
+  "lookupOffsets": [
+    0,
+    0
+  ],
+  "blend": 4,
+  "doubleSided": true
+}

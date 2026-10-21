@@ -91,9 +91,7 @@ test('Decisive Strike inspection loads all frozen textures, all four meshes and 
 });
 
 // Shared W/E/R texture dependencies already have live consumers. Check only newly packaged Q assets.
-test('Q source-only graphics stay outside both ordinary and Garen fixture startup', async ({
-  page,
-}) => {
+test('Q graphics load only the bound weapon trail on Garen presence', async ({ page }) => {
   const reused = new Set([
     'garen_alpha_12.png',
     'garen_aura_self.png',
@@ -111,10 +109,15 @@ test('Q source-only graphics stay outside both ordinary and Garen fixture startu
     const path = new URL(request.url()).pathname;
     if (path.includes('/assets/models/garen-q-') || newTextures.includes(path)) requests.push(path);
   });
-  for (const url of ['/?scene=fixture', '/?scene=fixture&champion=garen']) {
-    await page.goto(url);
-    await page.waitForFunction(() => (window as any).__GAME__?.ready);
-    await page.locator('#loading').waitFor({ state: 'detached' });
-    expect(requests).toEqual([]);
-  }
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  expect(requests).toEqual([]);
+  await page.goto('/?scene=fixture&champion=garen');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  expect(requests.sort()).toEqual([
+    '/assets/effects/garen_base_q_wpn_trail.png',
+    '/assets/models/garen-q-weapon-trail.glb',
+  ]);
 });

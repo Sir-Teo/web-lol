@@ -52,7 +52,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 82;
+export const SNAPSHOT_VERSION = 83;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -402,7 +402,29 @@ const player: z.ZodType<PlayerState> = z
           stopTick: tick.nullable(),
           endReason: z.enum(['consumed', 'expired', 'death', 'match-end', 'recast']).nullable(),
           attacks: z
-            .array(z.strictObject({ startTick: tick, releaseTick: tick }))
+            .array(
+              z.strictObject({
+                startTick: tick,
+                releaseTick: tick,
+                endTick: tick,
+                targetId: id,
+                origin: point,
+                facing: z.number(),
+                stopTick: tick.nullable(),
+                endReason: z
+                  .enum([
+                    'complete',
+                    'target-lost',
+                    'death',
+                    'match-end',
+                    'recast',
+                    'order',
+                    'action',
+                  ])
+                  .nullable(),
+                impact: z.strictObject({ tick, point, facing: z.number() }).nullable(),
+              })
+            )
             .max(Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE)),
         })
       )
@@ -1600,6 +1622,8 @@ export function decodeSnapshot(text: string) {
       const expiry = r.startTick + Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE),
         next = qHistory[index + 1];
       if (
+        r.attacks.filter((a) => a.impact !== null).length > 1 ||
+        r.attacks.some((a, i) => a.impact !== null && i !== r.attacks.length - 1) ||
         champion.champion !== 'garen' ||
         r.rank > owner.spellRanks.q ||
         r.startTick <= previousQStart ||
@@ -1625,7 +1649,7 @@ export function decodeSnapshot(text: string) {
             (r.endReason === 'match-end' && (state.winner === null || r.stopTick !== state.tick)) ||
             (r.endReason === 'recast' && (!next || r.stopTick !== next.startTick)) ||
             (r.endReason === 'consumed' &&
-              (r.stopTick >= expiry || r.attacks.at(-1)?.releaseTick !== r.stopTick)))
+              (r.stopTick >= expiry || r.attacks.at(-1)?.impact?.tick !== r.stopTick)))
       )
         throw new Error('Saved match contains invalid Decisive Strike presentation.');
       let previousAttack = -1;
@@ -1636,8 +1660,36 @@ export function decodeSnapshot(text: string) {
           a.startTick >= expiry ||
           a.startTick > state.tick ||
           (r.stopTick !== null && a.startTick > r.stopTick) ||
+          a.targetId >= state.nextId ||
+          a.targetId === champion.id ||
+          a.endTick <= a.releaseTick ||
+          (a.stopTick === null
+            ? a.endReason !== null ||
+              a.endTick <= state.tick ||
+              champion.deadAt !== null ||
+              state.winner !== null ||
+              champion.attackCycle?.startTick !== a.startTick
+            : a.endReason === null ||
+              a.stopTick < a.startTick ||
+              a.stopTick > state.tick ||
+              a.stopTick > a.endTick ||
+              (a.endReason === 'complete' && a.stopTick !== a.endTick) ||
+              (a.endReason === 'target-lost' &&
+                (a.impact !== null || a.stopTick > a.releaseTick)) ||
+              (a.endReason === 'death' && a.stopTick !== champion.deadAt) ||
+              (a.endReason === 'match-end' &&
+                (state.winner === null || a.stopTick !== state.tick)) ||
+              (a.endReason === 'recast' &&
+                !qHistory.some((q) => q.startTick === a.stopTick && q.startTick > r.startTick))) ||
+          (a.impact === null
+            ? state.tick >= a.releaseTick && (a.stopTick === null || a.stopTick > a.releaseTick)
+            : a.impact.tick !== a.releaseTick ||
+              a.impact.tick > state.tick ||
+              (a.stopTick !== null && a.impact.tick > a.stopTick)) ||
           !Array.from({ length: owner.level }, (_, i) => garenQAttackTimingAtLevel(i + 1)).some(
-            (timing) => a.releaseTick === a.startTick + timing.windupTicks
+            (timing) =>
+              a.releaseTick === a.startTick + timing.windupTicks &&
+              a.endTick === a.startTick + timing.periodTicks
           )
         )
           throw new Error('Saved match contains invalid Decisive Strike attack presentation.');
@@ -1652,7 +1704,12 @@ export function decodeSnapshot(text: string) {
         (r) =>
           r.rank === qCycle.garenQRank &&
           r.attacks.some(
-            (a) => a.startTick === qCycle.startTick && a.releaseTick === qCycle.garenQReleaseTick
+            (a) =>
+              a.startTick === qCycle.startTick &&
+              a.releaseTick === qCycle.garenQReleaseTick &&
+              a.endTick === qCycle.endTick &&
+              (a.stopTick === null || (a.endReason === 'action' && a.impact !== null)) &&
+              (champion.releaseTick === null || a.targetId === champion.attackTarget)
           )
       )
     )

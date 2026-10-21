@@ -329,7 +329,18 @@ export interface ChampionState {
     rank: number;
     stopTick: number | null;
     endReason: 'consumed' | 'expired' | 'death' | 'match-end' | 'recast' | null;
-    attacks: { startTick: number; releaseTick: number }[];
+    attacks: {
+      startTick: number;
+      releaseTick: number;
+      endTick: number;
+      targetId: number;
+      origin: Vec2;
+      facing: number;
+      stopTick: number | null;
+      endReason:
+        'complete' | 'target-lost' | 'death' | 'match-end' | 'recast' | 'order' | 'action' | null;
+      impact: { tick: number; point: Vec2; facing: number } | null;
+    }[];
   }[];
   eCharges: number;
   eRechargeTick: number | null;

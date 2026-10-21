@@ -3,7 +3,8 @@ import type { ChampionState } from '../simulation/types';
 
 export const GAREN_Q_AUDIO_KINDS = ['cast', 'active', 'end', 'attack', 'attackDelayed'] as const;
 export type GarenQAudioKind = (typeof GAREN_Q_AUDIO_KINDS)[number];
-export interface GarenQAudioRecord extends NonNullable<ChampionState['garenQVisuals'][number]> {
+export interface GarenQAudioRecord extends Omit<ChampionState['garenQVisuals'][number], 'attacks'> {
+  attacks: { startTick: number; releaseTick: number }[];
   id: number;
   x: number;
   y: number;

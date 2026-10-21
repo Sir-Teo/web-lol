@@ -1,3 +1,4 @@
+import { LazyGarenDecisiveStrike } from './lazy-garen-decisive-strike';
 import { LuxIlluminationTriggers } from './lux-illumination-triggers';
 import { LuxIllumination } from './lux-illumination';
 import type { MapTexturePrefetch } from './map-texture-prefetch';
@@ -82,6 +83,7 @@ export class GameView {
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   garenJustice = new LazyGarenJustice(this.scene, (p) => this.ground(p));
+  garenDecisiveStrike = new LazyGarenDecisiveStrike(this.scene);
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -645,6 +647,7 @@ export class GameView {
     this.garenSpin.update(world, alpha, terminalAge);
     this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
+    this.garenDecisiveStrike.update(world, alpha, this.models, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);
     this.echoes.update(world);

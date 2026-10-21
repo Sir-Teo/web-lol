@@ -126,7 +126,7 @@ async function boot(): Promise<void> {
     loadReferenceModels(),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')
-      ? [view.garenJustice.load(), view.garenCourage.load()]
+      ? [view.garenJustice.load(), view.garenCourage.load(), view.garenDecisiveStrike.load()]
       : []),
     loadLuxBeamTextures(),
     loadLuxRStreakTextures(),

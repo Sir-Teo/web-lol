@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The current champion-selection change has 617 passing source/simulation checks, with focused browser and production validation recorded below. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,012 passing source/simulation checks, 27 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -451,6 +451,61 @@ threshold was also replaced with comparison against each Q mesh's measured bound
 Production build/nested-host smoke passes with 17 ordinary recordings, real
 Ashe/Lux input and the Garen gate retained. The ordinary game entry remains
 579.60 KB (159.49 KB gzip); the existing large-bundle warning remains.
+
+
+## Decisive Strike weapon trail and attack outcomes — October 21, 2026
+
+The first [live Q particle layer](GAREN-Q-PARTICLES.md#live-weapon-trail-adapter--october-21-2026)
+uses the authored 500-triangle weapon mesh and its explicit frame-8 center-bone
+binding. Two source particles retain their 0.25-second life, authored scale,
+rotation, scrolling UVs and lifetime lookup. The renderer uses the bone's current
+world position plus captured heading; native parent orientation and frame timing
+remain provisional. One mesh/two textures and the renderer/profile load only on
+Garen presence. Ordinary startup adds none of these Q-specific graphics.
+
+Schema 83 extends Q history with target identity, captured origin/heading and
+attack period, confirmed contact point/heading and separate presentation stops.
+Contact is captured before lethal damage can clear attack state or finish a
+match. Target loss, caster death, practice recasts and terminal matches cannot
+manufacture a future frame event or hit. Post-contact orders/actions/movement
+hard-stop this bone-bound visual while retaining contact and cadence. Natural
+completion uses the captured period. Audio deliberately retains its original
+accepted one-shots and independent buff/stop clocks. Gameplay damage, timing,
+movement and cooldown values are unchanged; older snapshots remain incompatible
+under the existing same-build policy.
+
+The exporter accounts for one selected emitter, thirty deferred emitters and
+the empty buff system. All four source SCBs contain zero face-RGB bytes; these
+remain metadata because reader presence alone does not establish their native
+material use. Native dispatch, hard-stop/linger behavior, exact heading/bone
+inheritance, other Q layers, distortion, W body operations, and production/full-
+match acceptance remain open. This is the first Q visual integration, not full
+Decisive Strike presentation or Garen roster acceptance.
+
+All 1,012 tests across 206 files and TypeScript pass. The new checks cover source
+profile/default pins, frame-8 births, two-particle counts, scroll/lookup/lifetime,
+pre/post-birth stops, partial-loader cleanup/reuse, lethal contact, target loss,
+recast/death/match-end stops, natural completion, chasing after contact and
+malformed outcome saves. All 36 GLBs and the map validate without errors or
+warnings. Repeated frozen extraction/conversion/profile export produces 41
+byte-identical Q outputs, with all original source/asset bytes unchanged.
+
+All 27 focused Chrome scenarios pass across Q source/live audio and PCM,
+particle/inspector/startup, Q mechanics, Garen player controls, W/E/R and saved
+matches. After avoiding history allocation/scans for ordinary attacks and
+movement, the full 1,012-test suite and seven Q particle/inspector/mechanics
+scenarios pass again. The real trail restores exact transforms/material clocks
+from a checkpoint, disposes owned materials while retaining shared geometry,
+obeys actual unit fog, and suppresses future graphics after target loss. The
+source gold-trail gameplay capture was visually reviewed at 1440×900.
+
+
+Production build and nested static-host smoke pass with the ordinary seventeen
+recordings, real Ashe/Lux input and the Garen fixture/roster gate retained. The
+new Garen-only particle chunk is 3.65 KB (1.86 KB gzip); the ordinary game entry
+is 582.87 KB (160.28 KB gzip), including the expanded history/validation and lazy
+wrapper. The existing large-bundle warning remains. No source PNG, GLB, WAV or
+pinned BIN bytes changed.
 
 ## Historical baseline verification
 

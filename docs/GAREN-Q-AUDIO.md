@@ -72,7 +72,7 @@ inspectable below its controls.
 
 Ordinary Ashe/Lux startup does not request these WAVs or import Q controller/
 profile code. Garen presence loads one cached thirteen-file resource set; later
-Garen spawns trigger the same lazy path. Live Q particles, basic/voice audio
+Garen spawns trigger the same lazy path. Remaining Q particles, basic/voice audio
 and complete native and production acceptance remain open.
 
 ## Live audio adapter — October 21, 2026
@@ -142,3 +142,10 @@ against the WAV data and observe actual Web Audio calls for dual-action timing,
 nonlooping playback, sound gain and the stop fade. These checks establish local
 decoding/scheduling, not native event dispatch or listening parity. Full
 verification scope is recorded in [PROGRESS.md](PROGRESS.md).
+
+
+Schema 83 extends the shared Q history with target/origin, captured period,
+confirmed impact and independent pose-stop data for the first weapon-trail
+renderer. The audio controller deliberately reads only its original commitment
+and armed-buff clocks; visual stops do not cancel accepted sound one-shots or
+change the bank's delayed action. See [Q particles](GAREN-Q-PARTICLES.md).
