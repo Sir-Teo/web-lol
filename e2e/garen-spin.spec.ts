@@ -36,20 +36,42 @@ test('Judgment draws source layers, hides enemy particles, restores tails and di
         .filter((m) => m.name.endsWith('_mesh'))
         .map((m) => m.geometry.getAttribute('position').count),
       loaded: draws.every(
-        (m) => m.material.uniforms.map.value.image.width > 0 && m.material.forceSinglePass
+        (m) => m.material.uniforms.sourceTexture.value.image.width > 0 && m.material.forceSinglePass
       ),
       finite: draws.every((m) =>
         [...m.position, ...m.quaternion, ...m.scale].every(Number.isFinite)
       ),
       count: draws.length,
+      glows: draws
+        .filter((m) => m.name.endsWith('ground_glow'))
+        .map((m) => ({
+          name: m.name,
+          scale: m.scale.toArray(),
+          pass: m.renderOrder,
+          lookup: m.material.uniforms.lookupUv.value.toArray(),
+          lookupWidth: m.material.uniforms.particleColorTexture.value.image.width,
+          color: m.material.uniforms.particleColor.value.toArray(),
+        })),
     };
   });
   expect(source.names.sort()).toEqual(
-    ['Outer_mesh', 'inner_mesh', 'edge', 'Top_Down_base'].map((n) => `Garen Judgment ${n}`).sort()
+    ['Outer_mesh', 'inner_mesh', 'edge', 'Top_Down_base', 'ground_glow', 'ground_glow']
+      .map((n, i) => `Garen Judgment ${i} ${n}`)
+      .sort()
   );
   expect(source.count).toBeGreaterThan(5);
   expect(source.meshVertices.every((n) => n === 3672)).toBe(true);
   expect(source.loaded && source.finite).toBe(true);
+  expect(source.glows.length).toBeGreaterThanOrEqual(2);
+  for (const glow of source.glows) {
+    expect(glow.lookupWidth).toBe(64);
+    expect(glow.lookup[0]).toBeGreaterThan(0);
+    expect(glow.lookup[0]).toBeLessThan(1);
+    expect(glow.lookup[1]).toBe(1);
+    expect(glow.pass).toBe(-100);
+    expect(glow.color).toEqual([1, 1, 1, 1]);
+    expect(glow.scale).toEqual(Array(3).fill(glow.name.includes(' 4 ') ? 0.01 : 1.5));
+  }
   await page.screenshot({ path: 'artifacts/browser-garen-judgment-source.png' });
   const visibility = await page.evaluate(() => {
     const g = (window as any).__GAME__,

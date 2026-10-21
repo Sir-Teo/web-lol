@@ -4,9 +4,12 @@ import profiles from '../content/garen-spin.json';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import { garenSpinParticles } from './garen-spin-particles';
+import { createParticleColorProductMaterial } from './particle-color-product';
 
 let sourceMesh: THREE.BufferGeometry | undefined;
 const textures = new Map<string, THREE.Texture>();
+const whiteLookup = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
+whiteLookup.needsUpdate = true;
 const quad = new THREE.PlaneGeometry(2, 2);
 // Source arbitrary-quad UV convention: local Y is U, reversed local X is V.
 const quadUv = quad.getAttribute('uv');
@@ -28,7 +31,14 @@ export async function loadGarenSpin() {
         });
         if (!sourceMesh) throw new Error('Judgment source mesh is missing');
       }),
-    ...[...new Set(profiles.map((p) => p.texture))].map(async (path) => {
+    ...[
+      ...new Set(
+        profiles.flatMap((p) => [
+          p.texture,
+          ...(p.colorLookup.texture ? [p.colorLookup.texture] : []),
+        ])
+      ),
+    ].map(async (path) => {
       const texture = await new THREE.TextureLoader().loadAsync(
         `${import.meta.env.BASE_URL}${path}`
       );
@@ -36,7 +46,9 @@ export async function loadGarenSpin() {
       texture.flipY = false;
       texture.minFilter = texture.magFilter = THREE.LinearFilter;
       texture.generateMipmaps = false;
-      texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      texture.wrapS = texture.wrapT = profiles.some((p) => p.colorLookup.texture === path)
+        ? THREE.ClampToEdgeWrapping
+        : THREE.RepeatWrapping;
       textures.set(path, texture);
     }),
   ]);
@@ -69,17 +81,12 @@ export class GarenSpin {
         active.add(key);
         let mesh = this.models.get(key);
         if (!mesh) {
-          const material = new THREE.ShaderMaterial({
-            name: `Judgment ${profile.name}`,
-            uniforms: {
-              map: { value: textures.get(profile.texture) },
-              tint: { value: new THREE.Vector4() },
-              scroll: { value: new THREE.Vector2() },
-            },
-            vertexShader:
-              'varying vec2 at;void main(){at=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
-            fragmentShader:
-              'uniform sampler2D map;uniform vec4 tint;uniform vec2 scroll;varying vec2 at;void main(){gl_FragColor=texture2D(map,at+scroll)*tint;}',
+          const material = createParticleColorProductMaterial(
+            textures.get(profile.texture)!,
+            profile.colorLookup.texture ? textures.get(profile.colorLookup.texture)! : whiteLookup
+          );
+          Object.assign(material, {
+            name: `Judgment ${profile.index} ${profile.name}`,
             transparent: true,
             depthWrite: false,
             depthTest: true,
@@ -93,7 +100,7 @@ export class GarenSpin {
           // Match a source no-cull draw without Three's two-pass transparent path.
           material.forceSinglePass = true;
           mesh = new THREE.Mesh(profile.kind === 'mesh' ? sourceMesh : quad, material);
-          mesh.name = `Garen Judgment ${profile.name}`;
+          mesh.name = `Garen Judgment ${profile.index} ${profile.name}`;
           mesh.renderOrder = profile.renderOrder;
           mesh.frustumCulled = false;
           this.models.set(key, mesh);
@@ -113,8 +120,9 @@ export class GarenSpin {
         mesh.quaternion.copy(this.frame.quaternion).multiply(this.rotation);
         // GLB is already in world units; quad extents are authored in source units.
         mesh.scale.fromArray(p.scale).multiplyScalar(profile.kind === 'mesh' ? 1 : 0.01);
-        mesh.material.uniforms.tint.value.fromArray(p.color);
-        mesh.material.uniforms.scroll.value.fromArray(p.scroll);
+        mesh.material.uniforms.particleColor.value.fromArray(p.color);
+        mesh.material.uniforms.sourceUvOffset.value.fromArray(p.scroll);
+        mesh.material.uniforms.lookupUv.value.fromArray(p.lookup);
       }
     }
     for (const [key, mesh] of this.models)

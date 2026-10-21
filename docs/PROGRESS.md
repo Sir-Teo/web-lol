@@ -51,6 +51,17 @@ the three existing Lux target meshes. The source spin capture was visually
 reviewed. Garen remains excluded from production selection; complete effects,
 audio, native calibration and full-match work remain in scope.
 
+The two previously deferred Judgment ground glows now use pinned reader defaults
+and the source lifetime color ramp, bringing the inline spin record to six
+rendered emitters. Missing scale stays at one source unit; the other glow retains
+its authored 150-unit half-extents. Shared RGBA-product rendering preserves base
+UV scrolling independently of lookup coordinates. All 920 source/simulation
+tests and 11 focused browser cases pass, including sixteen GPU texel probes,
+Garen controls/tails, Lux Illumination and shared particle playback. Gameplay and
+lookup captures were visually reviewed. Production/nested-host smoke and all
+model/map validators pass. Full native composition, other Garen effects/audio and
+the production roster gate remain open. See [GAREN-SPIN.md](GAREN-SPIN.md).
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

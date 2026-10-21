@@ -9,6 +9,30 @@ import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 
 const effect = { startTick: 100, stopTick: null, facing: 0.3 };
+test('both glow identities retain schema defaults and use lifetime lookup without inventing a larger scale', () => {
+  expect(audit.sourceEmitters[4]).not.toHaveProperty('birthScale0');
+  expect(profiles[4].birthScale).toEqual([1, 1, 1]);
+  expect(profiles[5].birthScale).toEqual([150, 150, 150]);
+  expect(profiles.slice(4).map((p) => p.emitterLifetime)).toEqual([4, 4]);
+  expect(audit.lookupIdenticalRows).toBe(true);
+  for (const index of [4, 5]) {
+    const born = garenSpinParticles(2, effect, 101).find((p) => p.emitterIndex === index)!;
+    const half = garenSpinParticles(2, effect, 131).find(
+      (p) => p.emitterIndex === index && p.ordinal === born.ordinal
+    )!;
+    expect(born.lookup).toEqual([0, 1]);
+    expect(half.lookup).toEqual([0.5, 1]);
+    expect(half.color).toEqual([1, 1, 1, 1]);
+    expect(half.scale).toEqual(profiles[index].birthScale);
+    expect(half.offset).toEqual([0, 20, 0]);
+  }
+});
+test('stopped glow particles expire by the authored quarter-second total-life cap', () => {
+  const stopped = { ...effect, stopTick: 180 };
+  expect(garenSpinParticles(2, stopped, 180).filter((p) => p.emitterIndex >= 4)).toHaveLength(2);
+  expect(garenSpinParticles(2, stopped, 196).filter((p) => p.emitterIndex >= 4)).toEqual([]);
+  expect(garenSpinParticles(2, stopped, 196).length).toBeGreaterThan(0);
+});
 function setup() {
   const w = new World(false, PRACTICE_FIXTURE, 'garen');
   w.nextWaveTick = Infinity;
@@ -31,18 +55,21 @@ test('Judgment mesh, textures and profiles match their source export hashes', ()
     'inner_mesh',
     'edge',
     'Top_Down_base',
+    'ground_glow',
+    'ground_glow',
   ]);
-  expect(audit.deferredIndices).toEqual([4, 5]);
+  expect(audit.deferredIndices).toEqual([]);
+  expect(hash('docs/reference/garen-spin-defaults.json')).toBe(audit.defaultsEvidenceSha256);
 });
 test('Judgment births honor source delays and reconstruct bounded particles without consuming simulation RNG', () => {
   expect(garenSpinParticles(2, effect, 100)).toEqual([]);
-  expect(garenSpinParticles(2, effect, 101).map((p) => p.emitterIndex)).toEqual([0, 1]);
+  expect(garenSpinParticles(2, effect, 101).map((p) => p.emitterIndex)).toEqual([0, 1, 4, 5]);
   expect(garenSpinParticles(2, effect, 113).map((p) => p.emitterIndex)).not.toContain(2);
   expect(garenSpinParticles(2, effect, 114).map((p) => p.emitterIndex)).toContain(2);
   const particles = garenSpinParticles(2, effect, 170.5);
   expect(particles.length).toBeGreaterThan(5);
-  expect(particles.length).toBeLessThan(25);
-  expect(new Set(particles.map((p) => p.emitterIndex)).size).toBe(4);
+  expect(particles.length).toBeLessThan(40);
+  expect(new Set(particles.map((p) => p.emitterIndex)).size).toBe(6);
   for (const p of particles) {
     expect(p.life).toBeGreaterThanOrEqual(0.375);
     expect(p.life).toBeLessThanOrEqual(1.5);

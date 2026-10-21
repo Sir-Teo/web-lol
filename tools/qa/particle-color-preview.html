@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lux particle color inspection</title>
+    <title>Particle color inspection</title>
     <link rel="icon" href="data:," />
     <style>
       * {
@@ -136,10 +136,10 @@
     </style>
   </head>
   <body>
-    <h1>Lux · particle color inspection</h1>
+    <h1>Particle color inspection</h1>
     <p>
       Source texture × particle color × second texture sample. Coordinates are manual or driven by
-      the isolated hoop lifetime. This is not the complete attack animation.
+      the isolated particle lifetime. Full emitter playback is inspected in the game fixture.
     </p>
     <div class="controls">
       <label
@@ -148,6 +148,7 @@
           <option value="crescent">Crescent</option>
           <option value="hoop">Hoop</option>
           <option value="trail">Trail · mesh MULT_PASS</option>
+          <option value="garenGlow">Garen E ground glow</option>
         </select></label
       >
       <label
@@ -171,7 +172,7 @@
       >
     </div>
     <fieldset id="life-controls" disabled>
-      <legend>Hoop · isolated particle lifetime</legend>
+      <legend>Isolated particle lifetime</legend>
       <label
         ><input type="checkbox" id="use-life" checked /> Use source lookup, color and relative
         scale</label

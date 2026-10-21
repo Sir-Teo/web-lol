@@ -978,15 +978,15 @@
     0,
     1,
     2,
-    3
-  ],
-  "deferredIndices": [
+    3,
     4,
     5
   ],
+  "deferredIndices": [],
+  "defaultsEvidenceSha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb",
   "profile": {
     "path": "src/content/garen-spin.json",
-    "sha256": "faca882355149b27cb3e2c48b5347f6908ad182c90051a10fcb964dc2a2760da"
+    "sha256": "8558717eb220ad0e6954ef7ab7063f20ea32bec0cd3f319e9fdb5c11b9864b3a"
   },
   "textures": [
     {
@@ -1068,6 +1068,137 @@
         "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
         "bytes": 2756
       }
+    }
+  ],
+  "lookupIdenticalRows": true,
+  "gpuSamples": [
+    {
+      "sourcePixel": [
+        32,
+        128
+      ],
+      "sourceRgba": [
+        5,
+        2,
+        0,
+        255
+      ],
+      "shiftedSourcePixel": [
+        128,
+        128
+      ],
+      "shiftedSourceRgba": [
+        74,
+        45,
+        0,
+        255
+      ],
+      "lookupPixel": [
+        0,
+        32
+      ],
+      "lookupRgba": [
+        0,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "sourcePixel": [
+        32,
+        128
+      ],
+      "sourceRgba": [
+        5,
+        2,
+        0,
+        255
+      ],
+      "shiftedSourcePixel": [
+        128,
+        128
+      ],
+      "shiftedSourceRgba": [
+        74,
+        45,
+        0,
+        255
+      ],
+      "lookupPixel": [
+        8,
+        32
+      ],
+      "lookupRgba": [
+        233,
+        235,
+        233,
+        255
+      ]
+    },
+    {
+      "sourcePixel": [
+        32,
+        128
+      ],
+      "sourceRgba": [
+        5,
+        2,
+        0,
+        255
+      ],
+      "shiftedSourcePixel": [
+        128,
+        128
+      ],
+      "shiftedSourceRgba": [
+        74,
+        45,
+        0,
+        255
+      ],
+      "lookupPixel": [
+        32,
+        32
+      ],
+      "lookupRgba": [
+        123,
+        125,
+        123,
+        255
+      ]
+    },
+    {
+      "sourcePixel": [
+        32,
+        128
+      ],
+      "sourceRgba": [
+        5,
+        2,
+        0,
+        255
+      ],
+      "shiftedSourcePixel": [
+        128,
+        128
+      ],
+      "shiftedSourceRgba": [
+        74,
+        45,
+        0,
+        255
+      ],
+      "lookupPixel": [
+        63,
+        32
+      ],
+      "lookupRgba": [
+        0,
+        0,
+        0,
+        255
+      ]
     }
   ],
   "mesh": {

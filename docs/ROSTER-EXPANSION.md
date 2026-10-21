@@ -241,9 +241,10 @@ source audio, native calibration, directional spin and full role AI remain open.
 
 ## Judgment source mesh and trails
 
-[GAREN-SPIN.md](GAREN-SPIN.md) adds four of the six inline E emitters with the
+[GAREN-SPIN.md](GAREN-SPIN.md) covers all six inline E emitters with the
 frozen Riot mesh, lossless source textures, authored appearance curves and
 deterministic particle sampling. Schema 76 preserves active and stopped visual
-intervals, including tails after recast, R, natural completion and death. The two
-glow emitters and native composition remain open. This increment keeps Garen's
+intervals, including tails after recast, R, natural completion and death. Both glow
+layers use pinned reader defaults and lifetime lookup; native composition remains
+open. This increment keeps Garen's
 production selection gate in place.

@@ -5,23 +5,31 @@ import { createParticleColorProductMaterial } from '../../src/render/particle-co
 
 const canvas = (id: string) => document.querySelector<HTMLCanvasElement>(`#${id}`)!;
 const loader = new THREE.TextureLoader();
-const load = async (name: string) => {
-  const texture = await loader.loadAsync(`/assets/effects/lux-ba-${name}.png`);
+const load = async (name: string, garen = false) => {
+  const texture = await loader.loadAsync(`/assets/effects/${garen ? '' : 'lux-ba-'}${name}.png`);
+  texture.flipY = !garen;
   texture.colorSpace = THREE.NoColorSpace;
   texture.generateMipmaps = false;
   texture.minFilter = texture.magFilter = THREE.LinearFilter;
   texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
   return texture;
 };
-const [ring, ramp, mote, spectral, trail, rainbow] = await Promise.all([
+const [ring, ramp, mote, spectral, trail, rainbow, garenGlow, garenRamp] = await Promise.all([
   load('ring04'),
   load('color-rampdown'),
   load('lux_base_r_mote'),
   load('color-spectralbell'),
   load('lux_base_q_trail'),
   load('lux_base_r_rainbowmult'),
+  load('garen_base_w_ground_glow', true),
+  load('garen_color-rampdown', true),
 ]);
 const pairs = {
+  garenGlow: {
+    source: garenGlow,
+    lookup: garenRamp,
+    name: 'Garen E ground glow · 256 × 256 · lifetime lookup',
+  },
   trail: {
     source: trail,
     lookup: rainbow,
@@ -50,8 +58,8 @@ let playing = false;
 let phase = 0;
 let previousFrame = performance.now();
 function redraw() {
-  lifeControls.disabled = emitter.value !== 'hoop';
-  const lifeDriven = emitter.value === 'hoop' && useLife.checked;
+  lifeControls.disabled = !['hoop', 'garenGlow'].includes(emitter.value);
+  const lifeDriven = !lifeControls.disabled && useLife.checked;
   x.disabled = y.disabled = lifeDriven;
   if (!lifeDriven) playing = false;
   play.textContent = playing ? 'Pause' : 'Play at 0.1×';
@@ -59,12 +67,17 @@ function redraw() {
   mesh.scale.setScalar(1);
   if (lifeDriven) {
     const state = { age01: Number(age.value), travelPerSecond: [0, 0, 0] as const, birthRandom: 0 };
-    x.value = String(particleLookupCoordinate(hoop.lookupX, state));
-    y.value = String(particleLookupCoordinate(hoop.lookupY, state));
-    material.uniforms.particleColor.value.fromArray(hoop.birthColor);
-    mesh.scale.setScalar(
-      hoop.relativeScale[0] + (hoop.relativeScale[1] - hoop.relativeScale[0]) * state.age01
-    );
+    if (emitter.value === 'garenGlow') {
+      x.value = String(state.age01);
+      y.value = '1';
+    } else {
+      x.value = String(particleLookupCoordinate(hoop.lookupX, state));
+      y.value = String(particleLookupCoordinate(hoop.lookupY, state));
+      material.uniforms.particleColor.value.fromArray(hoop.birthColor);
+      mesh.scale.setScalar(
+        hoop.relativeScale[0] + (hoop.relativeScale[1] - hoop.relativeScale[0]) * state.age01
+      );
+    }
   }
   document.querySelector('#age-value')!.textContent = Number(age.value).toFixed(2);
   const composite = display.value === 'over-black';
@@ -103,7 +116,7 @@ function redraw() {
   renderer.render(scene, camera);
   document.querySelector('#source-name')!.textContent = pair.name;
   document.querySelector('#status')!.textContent =
-    `Ready · ${emitter.value} · lookup (${x.value}, ${y.value}) · ${lifeDriven ? 'source hoop lifetime · native capture pending' : 'manual coordinates · native mapping pending'}`;
+    `Ready · ${emitter.value} · lookup (${x.value}, ${y.value}) · ${lifeDriven ? 'source lifetime · native capture pending' : 'manual coordinates · native mapping pending'}`;
 }
 for (const el of [emitter, x, y, display, useLife]) el.addEventListener('input', redraw);
 age.addEventListener('input', () => {
@@ -119,7 +132,11 @@ play.addEventListener('click', () => {
 renderer.setAnimationLoop(() => {
   const now = performance.now();
   if (playing) {
-    phase = (phase + (((now - previousFrame) / 1000) * 0.1) / hoop.nominalLifetime) % 1;
+    phase =
+      (phase +
+        (((now - previousFrame) / 1000) * 0.1) /
+          (emitter.value === 'garenGlow' ? 1 : hoop.nominalLifetime)) %
+      1;
     age.value = String(phase);
     redraw();
   }
@@ -137,6 +154,7 @@ async function probe(options: {
   color: [number, number, number, number];
   coordinates: 'uniform' | 'vertex';
   quadMultiplier?: boolean;
+  sourceOffset?: [number, number];
 }) {
   const pair = pairs[options.emitter];
   const base = pair.source.clone(),
@@ -150,9 +168,12 @@ async function probe(options: {
   }
   const tested = createParticleColorProductMaterial(base, lookup, options.coordinates, multiplier);
   tested.uniforms.particleColor.value.fromArray(options.color);
+  tested.uniforms.sourceUvOffset.value.fromArray(options.sourceOffset ?? [0, 0]);
   const uv = new THREE.Vector2(
     (options.lookupPixel[0] + 0.5) / lookup.image.width,
-    1 - (options.lookupPixel[1] + 0.5) / lookup.image.height
+    lookup.flipY
+      ? 1 - (options.lookupPixel[1] + 0.5) / lookup.image.height
+      : (options.lookupPixel[1] + 0.5) / lookup.image.height
   );
   tested.uniforms.lookupUv.value.copy(uv);
   if (options.coordinates === 'vertex') tested.uniforms.lookupUv.value.set(-1, -1);
@@ -162,7 +183,9 @@ async function probe(options: {
     sourceUv.setXY(
       i,
       (options.sourcePixel[0] + 0.5) / base.image.width,
-      1 - (options.sourcePixel[1] + 0.5) / base.image.height
+      base.flipY
+        ? 1 - (options.sourcePixel[1] + 0.5) / base.image.height
+        : (options.sourcePixel[1] + 0.5) / base.image.height
     );
   geometry.setAttribute(
     'particleLookupUv',

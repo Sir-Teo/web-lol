@@ -15,6 +15,8 @@ export interface ParticlePalette {
  * framebuffer blending, remap, fog and native sampler state are caller concerns.
  * Optional palette replacement precedes that product (native quad PS 12/23/33).
  * Textures are borrowed. Disposing the material does not dispose any texture.
+ * sourceUvOffset scrolls only the base texture; lookup/multiplier coordinates
+ * retain their independent mapping. The default zero preserves unscrolled draws.
  */
 export function createParticleColorProductMaterial(
   texture: THREE.Texture,
@@ -28,6 +30,7 @@ export function createParticleColorProductMaterial(
     name: 'Native particle initial color product',
     uniforms: {
       sourceTexture: { value: texture },
+      sourceUvOffset: { value: new THREE.Vector2() },
       ...(palette
         ? {
             paletteTexture: { value: palette.texture },
@@ -51,6 +54,7 @@ export function createParticleColorProductMaterial(
       varying vec2 sourceUv;
       varying vec2 colorUv;
       uniform vec2 lookupUv;
+      uniform vec2 sourceUvOffset;
       #ifdef VERTEX_TINT
         attribute vec4 particleTint;
         varying vec4 vertexColor;
@@ -59,7 +63,7 @@ export function createParticleColorProductMaterial(
         attribute vec2 particleLookupUv;
       #endif
       void main() {
-        sourceUv = uv;
+        sourceUv = uv + sourceUvOffset;
         #ifdef VERTEX_TINT
           vertexColor = particleTint;
         #endif

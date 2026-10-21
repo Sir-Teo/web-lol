@@ -5,6 +5,7 @@
     "kind": "mesh",
     "rate": 7.0,
     "delay": 0,
+    "emitterLifetime": null,
     "life": {
       "value": 0.75,
       "probabilities": [
@@ -122,6 +123,7 @@
       4.5,
       3.5
     ],
+    "uniformScale": false,
     "scale": {
       "dynamics": {
         "times": [
@@ -192,6 +194,21 @@
       ],
       "__type": "VfxAnimatedColorVariableData"
     },
+    "colorLookup": {
+      "texture": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ]
+    },
     "scroll": {
       "value": [
         -3.0,
@@ -226,6 +243,7 @@
     "kind": "mesh",
     "rate": 4.0,
     "delay": 0,
+    "emitterLifetime": null,
     "life": {
       "value": 0.699999988079071,
       "probabilities": null
@@ -331,6 +349,7 @@
       4.0,
       1.2000000476837158
     ],
+    "uniformScale": false,
     "scale": {
       "dynamics": {
         "times": [
@@ -395,6 +414,21 @@
       ],
       "__type": "VfxAnimatedColorVariableData"
     },
+    "colorLookup": {
+      "texture": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ]
+    },
     "scroll": {
       "value": [
         0.0,
@@ -435,6 +469,7 @@
     "kind": "quad",
     "rate": 4.0,
     "delay": 0.20999999344348907,
+    "emitterLifetime": null,
     "life": {
       "value": 0.6000000238418579,
       "probabilities": null
@@ -518,6 +553,7 @@
       250.0,
       250.0
     ],
+    "uniformScale": false,
     "scale": {
       "dynamics": {
         "times": [
@@ -561,6 +597,21 @@
       ],
       "__type": "VfxAnimatedColorVariableData"
     },
+    "colorLookup": {
+      "texture": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ]
+    },
     "scroll": {
       "value": [
         0,
@@ -578,6 +629,7 @@
     "kind": "quad",
     "rate": 2.0,
     "delay": 0.20999999344348907,
+    "emitterLifetime": null,
     "life": {
       "value": 1.0,
       "probabilities": null
@@ -639,6 +691,7 @@
       290.0,
       290.0
     ],
+    "uniformScale": false,
     "scale": {
       "constantValue": [
         1,
@@ -688,6 +741,21 @@
       ],
       "__type": "VfxAnimatedColorVariableData"
     },
+    "colorLookup": {
+      "texture": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ]
+    },
     "scroll": {
       "value": [
         0,
@@ -698,5 +766,191 @@
     "blend": 1,
     "renderOrder": 50,
     "texture": "assets/effects/garen_base_e_spin_topdown.png"
+  },
+  {
+    "index": 4,
+    "name": "ground_glow",
+    "kind": "quad",
+    "rate": 5.0,
+    "delay": 0,
+    "emitterLifetime": 4.0,
+    "life": {
+      "value": 1.0,
+      "probabilities": null
+    },
+    "linger": 0.25,
+    "offset": [
+      0.0,
+      20.0,
+      0.0
+    ],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "rotationalVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "birthScale": [
+      1,
+      1,
+      1
+    ],
+    "uniformScale": false,
+    "scale": {
+      "constantValue": [
+        1,
+        1,
+        1
+      ]
+    },
+    "color": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "colorLookup": {
+      "texture": "assets/effects/garen_color-rampdown.png",
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ]
+    },
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "blend": 4,
+    "renderOrder": -100,
+    "texture": "assets/effects/garen_base_w_ground_glow.png"
+  },
+  {
+    "index": 5,
+    "name": "ground_glow",
+    "kind": "quad",
+    "rate": 5.0,
+    "delay": 0,
+    "emitterLifetime": 4.0,
+    "life": {
+      "value": 1.0,
+      "probabilities": null
+    },
+    "linger": 0.25,
+    "offset": [
+      0.0,
+      20.0,
+      0.0
+    ],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        -90.0,
+        90.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotationalVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "birthScale": [
+      150.0,
+      150.0,
+      150.0
+    ],
+    "uniformScale": true,
+    "scale": {
+      "constantValue": [
+        1,
+        1,
+        1
+      ]
+    },
+    "color": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "colorLookup": {
+      "texture": "assets/effects/garen_color-rampdown.png",
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ]
+    },
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "blend": 4,
+    "renderOrder": -100,
+    "texture": "assets/effects/garen_base_w_ground_glow.png"
   }
 ]

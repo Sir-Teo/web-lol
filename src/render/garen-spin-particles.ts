@@ -5,6 +5,7 @@ import { luxEmissionBirthTick, luxEmissionCount } from '../content/lux-emission'
 import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxHoopChance } from './lux-hoop-particles';
 import { sampleParticleCurve } from './particle-curves';
+import { particleColorLookup } from './particle-color-lookup';
 
 type Birth = {
   value: number | number[];
@@ -33,7 +34,7 @@ export function garenSpinParticles(
       now = tick - effect.startTick - delay,
       stopped = effect.stopTick !== null && tick >= effect.stopTick,
       stop = effect.stopTick === null ? Infinity : effect.stopTick - effect.startTick - delay,
-      count = luxEmissionCount(p.rate, now, GAREN_E.durationSeconds, stop),
+      count = luxEmissionCount(p.rate, now, p.emitterLifetime ?? GAREN_E.durationSeconds, stop),
       maxLife = p.life.value * Math.max(1, ...(p.life.probabilities?.[0]?.values ?? [])),
       seed = id ^ Math.imul(effect.startTick, 0x9e3779b9) ^ Math.imul(p.index + 1, 0x85ebca6b);
     const particles = [];
@@ -52,6 +53,13 @@ export function garenSpinParticles(
         velocity = birth(p.velocity, chance(3)),
         rotationalVelocity = birth(p.rotationalVelocity, chance(4)),
         scroll = birth(p.scroll, chance(5));
+      const scale = p.birthScale.map(
+        (v, axis) =>
+          v *
+          (p.scale.dynamics
+            ? sampleParticleCurve(p.scale.dynamics, phase, axis)
+            : p.scale.constantValue![axis])
+      );
       particles.push({
         emitterIndex: p.index,
         ordinal,
@@ -59,15 +67,10 @@ export function garenSpinParticles(
         life,
         offset: p.offset.map((v, axis) => v + velocity[axis] * age),
         rotation: rotation.map((v, axis) => v + rotationalVelocity[axis] * age),
-        scale: p.birthScale.map(
-          (v, axis) =>
-            v *
-            (p.scale.dynamics
-              ? sampleParticleCurve(p.scale.dynamics, phase, axis)
-              : p.scale.constantValue![axis])
-        ),
+        scale: p.uniformScale ? scale.map(() => scale[0]) : scale,
         color: [0, 1, 2, 3].map((axis) => sampleParticleCurve(p.color, phase, axis)),
         scroll: scroll.map((v) => v * age),
+        lookup: particleColorLookup(p.colorLookup, phase, chance(6)),
       });
     }
     return particles;
