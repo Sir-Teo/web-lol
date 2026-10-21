@@ -13,6 +13,7 @@ const effect = {
   point: { x: 200, y: 0 },
   releaseTick: 127,
   stopTick: null,
+  killed: false,
 };
 test('R playback retains every source profile and explicitly defers the scene-distortion pass', () => {
   const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');

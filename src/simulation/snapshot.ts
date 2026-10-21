@@ -38,7 +38,7 @@ import {
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
-import { GAREN_R_VISUAL_TAIL_TICKS } from './garen-r';
+import { GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
@@ -49,7 +49,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 78;
+export const SNAPSHOT_VERSION = 79;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -339,6 +339,7 @@ const player: z.ZodType<PlayerState> = z
         point,
         releaseTick: tick.nullable(),
         stopTick: tick.nullable(),
+        killed: z.boolean(),
       })
       .nullable(),
     garenEVisual: z
@@ -1394,6 +1395,7 @@ export function decodeSnapshot(text: string) {
         champion.champion !== 'garen' ||
         !owner.spellRanks.r ||
         justiceVisual.startTick > state.tick ||
+        (justiceVisual.killed && justiceVisual.releaseTick === null) ||
         (target && (target.kind !== 'champion' || target.team === champion.team)) ||
         (justiceVisual.releaseTick !== null &&
           (justiceVisual.stopTick !== null ||
@@ -1410,7 +1412,7 @@ export function decodeSnapshot(text: string) {
             justicePending.point.x !== justiceVisual.point.x ||
             justicePending.point.y !== justiceVisual.point.y ||
             champion.facing !== justiceVisual.facing
-          : !!justicePending || state.tick >= ended + GAREN_R_VISUAL_TAIL_TICKS)
+          : !!justicePending || state.tick >= ended + GAREN_R_PRESENTATION_TAIL_TICKS)
       )
         throw new Error('Saved match contains invalid Demacian Justice presentation.');
     } else if (justicePending)

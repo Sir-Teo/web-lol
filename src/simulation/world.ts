@@ -32,7 +32,7 @@ import { GAREN_W } from '../content/garen-w';
 import { GAREN } from '../content/garen-progression';
 import { GAREN_R } from '../content/garen-r';
 import { GAREN_R_WINDUP_TICKS, GAREN_R_REVEAL_TICKS } from '../content/garen-r-policy';
-import { garenRDamage, GAREN_R_VISUAL_TAIL_TICKS } from './garen-r';
+import { garenRDamage, GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
@@ -475,7 +475,7 @@ export class World {
       const justice = state.garenRVisual;
       if (justice) {
         const ended = justice.releaseTick ?? justice.stopTick;
-        if (ended !== null && this.tick >= ended + GAREN_R_VISUAL_TAIL_TICKS)
+        if (ended !== null && this.tick >= ended + GAREN_R_PRESENTATION_TAIL_TICKS)
           state.garenRVisual = null;
       }
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
@@ -598,6 +598,7 @@ export class World {
               state.garenRVisual.point = { x: target.x, y: target.y };
             }
             this.damage(u, target, garenRDamage(cast.rank, target.hp, target.maxHp), 'true');
+            if (state.garenRVisual) state.garenRVisual.killed = target.deadAt === this.tick;
           } else this.cancelGarenRVisual(state);
         } else if (u.champion === 'lux' && cast.ability === 'r')
           this.releaseFinalSpark(u, cast.origin!, cast.point, cast.damage);
@@ -3476,6 +3477,7 @@ export class World {
         point: { x: target.x, y: target.y },
         releaseTick: null,
         stopTick: null,
+        killed: false,
       };
       state.castAnimation = { ability: 'r', startTick: this.tick };
       state.pendingCast = {

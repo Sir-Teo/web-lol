@@ -113,6 +113,33 @@ separate on-presence 35.14 KB chunk (5.88 KB gzip); the ordinary game entry is
 large-bundle warning remains. Full production/match and native acceptance stay
 open.
 
+[Demacian Justice source audio](GAREN-R-AUDIO.md) now integrates seven untouched
+float recordings for cast, recipient hit and a lethal R result. The kill master
+retains both stereo channels. Its `buffactivate` name resolves through the frozen
+`Champ_Kill` particle's sound binding, distinct from the passive notification.
+Schema 79 captures whether R damage was lethal and retains shared presentation
+history for 303 ticks, so sound can finish after source particles disappear.
+Later caster/recipient death cannot invent a kill cue; release sounds retain the
+participating teams' audience after lethal loss of sight. Source-ready casts
+bypass synthesis, and a late-loading fallback cannot double that cast.
+
+All 956 source/simulation checks and TypeScript pass with four workers and a
+30-second per-test deadline. Concurrent host load tripped the default five-second
+wall limit in existing long full-Rift/determinism cases; bounded verification
+retained every assertion and simulated duration without changing test defaults.
+All 43 focused Chrome cases pass across Garen, new R audio, Judgment, Hawkshot
+and Lux audio. Every decoded float in all seven R WAVs, including stereo/headroom,
+matches the master. Runtime checks cover natural completion without replay,
+pause/mute, saved offsets, death, visibility, presence-based loading, failure and
+late-load suppression. Repeating the R source-link/map/decode/export yields
+12 identical outputs; the shared helper refactor also preserves all original
+Judgment pins/profile/masters byte-for-byte. All 30 models and the map validate
+cleanly. Production/nested-host smoke passes with the ordinary 17 recordings and
+Garen gate intact. R audio code/data occupies a separate on-presence 6.72 KB
+chunk; its seven WAVs add 5,328,644 bytes only for Garen presence. Native
+position/orientation panning, dispatch/listening/bus mix, optional kill-particle
+layers, scene distortion and full production/match acceptance remain open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

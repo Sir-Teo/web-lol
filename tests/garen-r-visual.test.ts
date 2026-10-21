@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
-import { GAREN_R_VISUAL_TAIL_TICKS } from '../src/simulation/garen-r';
+import { GAREN_R_PRESENTATION_TAIL_TICKS } from '../src/simulation/garen-r';
 
 function setup() {
   const w = new World(false, { ...PRACTICE_FIXTURE, initialUnits: [] }, 'garen');
@@ -26,6 +26,7 @@ test('R presentation captures acceptance and freezes the actual release point in
     point: { x: 250, y: 0 },
     releaseTick: null,
     stopTick: null,
+    killed: false,
   });
   target.x = 700;
   w.step(27);
@@ -46,8 +47,8 @@ for (const phase of ['windup', 'released', 'cancelled'] as const)
     if (phase === 'released') w.step(27);
     if (phase === 'cancelled') w.damage(target, w.hero, 1e6, 'true');
     const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
-    w.step(210);
-    restored.step(210);
+    w.step(GAREN_R_PRESENTATION_TAIL_TICKS + 30);
+    restored.step(GAREN_R_PRESENTATION_TAIL_TICKS + 30);
     expect(restored.snapshot()).toBe(w.snapshot());
     expect(w.player.garenRVisual).toBeNull();
   });
@@ -63,7 +64,7 @@ test('a killing R and later caster death retain released history through reveal 
   expect(w.player.garenRReveal).toBeNull();
   expect(w.player.garenRVisual?.releaseTick).toBe(28);
   expect(() => World.fromSnapshot(w.snapshot(), w.battlefield)).not.toThrow();
-  w.step(GAREN_R_VISUAL_TAIL_TICKS - 1);
+  w.step(GAREN_R_PRESENTATION_TAIL_TICKS - 1);
   expect(w.player.garenRVisual).toBeNull();
 });
 for (const failure of ['caster-death', 'target-death', 'target-removal'] as const)
@@ -101,7 +102,7 @@ test('R presentation decoder rejects missing, foreign, inconsistent and expired 
   released.player.garenRVisual.stopTick = released.tick;
   expect(() => World.fromSnapshot(JSON.stringify(released), w.battlefield)).toThrow();
   const expired = JSON.parse(w.snapshot());
-  expired.tick = 28 + GAREN_R_VISUAL_TAIL_TICKS;
+  expired.tick = 28 + GAREN_R_PRESENTATION_TAIL_TICKS;
   expect(() => World.fromSnapshot(JSON.stringify(expired), w.battlefield)).toThrow();
   const foreign = new World(false, PRACTICE_FIXTURE);
   const s = JSON.parse(foreign.snapshot());

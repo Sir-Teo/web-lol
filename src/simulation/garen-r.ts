@@ -7,6 +7,5 @@ export function garenRDamage(rank: number, hp: number, maxHp: number): number {
   );
 }
 
-/** Local retention bound: covers the source impact decal's ~2.32 s envelope
- * after release, with room for interpolation. Native system end timing is open. */
-export const GAREN_R_VISUAL_TAIL_TICKS = 180;
+/** Shared particle/audio history; particles still expire on their source lives. */
+export { GAREN_R_AUDIO_TAIL_TICKS as GAREN_R_PRESENTATION_TAIL_TICKS } from '../content/garen-r-audio-timing';

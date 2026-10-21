@@ -118,6 +118,8 @@ The existing large-bundle warning remains.
 Judgment is integrated separately in [GAREN-E.md](GAREN-E.md). The
 [R source-particle adapter](GAREN-R-PARTICLES.md) now renders 16 cast/sword/impact
 layers with schema-78 release history, actual source geometry/textures and
-checkpoint-stable tails. Scene distortion, native timing/attachment/composition,
-R source audio and complete kit/role integration remain required before roster
-selection. Development player input/HUD is documented above.
+checkpoint-stable tails. Scene distortion, native timing/attachment/composition
+and complete kit/role integration remain required before roster selection.
+[R source audio](GAREN-R-AUDIO.md) now adds cast, hit and stereo lethal-result
+cues with schema-79 continuation. Native audio dispatch/listening remains open.
+Development player input/HUD is documented above.

@@ -1,5 +1,14 @@
 # Local match checkpoints
 
+Version 79 records whether R's own release damage killed its recipient. The
+required `killed` flag cannot accompany a pending/canceled R, and a later target
+death never promotes an earlier hit into a kill. Shared R presentation history
+now remains for 303 ticks after release/cancellation to cover the full 5.03735-second
+stereo kill recording; particles retain their shorter source lives. Restore seeks
+source cast/hit/kill audio from the original clocks, independent of later caster
+death or target disappearance. The field remains named `garenRVisual`.
+Older saves remain incompatible. See [GAREN-R-AUDIO.md](GAREN-R-AUDIO.md).
+
 Version 78 adds required nullable Demacian Justice presentation history: accepted
 start/target/facing/point and mutually exclusive release/cancellation clocks.
 Release captures the actual recipient point before damage, survives target kills,

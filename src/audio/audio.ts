@@ -1,4 +1,5 @@
 import { LuxBindingFlightAudio } from './lux-binding-flight';
+import { LazyGarenJusticeAudio } from './garen-r-lazy';
 import { GarenJudgmentAudio } from './garen-e';
 import type { World } from '../simulation/world';
 import { LUX_BINDING_CAST_AUDIO } from '../content/lux-binding-cast-audio';
@@ -16,11 +17,13 @@ import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding, Illumination and Judgment audio; other cues remain synthesized. */
+/** Source Hawkshot, Light Binding, Illumination and Garen E/R cues.
+ * Other cues retain synthesized feedback. */
 export class GameAudio {
   context: AudioContext | null = null;
   bindingFlight = new LuxBindingFlightAudio();
   garenE = new GarenJudgmentAudio();
+  garenR = new LazyGarenJusticeAudio();
   private audible = true;
   private paused = false;
   private resuming = false;
@@ -71,7 +74,7 @@ export class GameAudio {
       this.loadIllumination(),
       this.loadBindingCast(),
       this.bindingFlight.load(),
-      ...(garenPresent ? [this.garenE.load()] : []),
+      ...(garenPresent ? [this.garenE.load(), this.garenR.load()] : []),
     ]);
   }
   private async loadBindingCast(): Promise<void> {
@@ -256,6 +259,7 @@ export class GameAudio {
   private stopVoices(): void {
     this.bindingFlight.stop();
     this.garenE.stop();
+    this.garenR.stop();
     for (const [voice, gain] of this.voices) {
       voice.stop();
       voice.disconnect();
@@ -440,6 +444,7 @@ export class GameAudio {
   updateGaren(world: World, listener = { x: 0, y: 0 }) {
     const garens = world.units.filter((u) => u.champion === 'garen');
     if (garens.length && this.garenE.status === 'idle') void this.garenE.load();
+    if (garens.length && this.garenR.status === 'idle') void this.garenR.load();
     const records = garens
       .filter((u) => world.visible(u))
       .flatMap((u) => {
@@ -458,6 +463,24 @@ export class GameAudio {
           : [];
       });
     this.garenE.update(this.context, this.enabled && !this.paused, records, world.tick, listener);
+    const justice = garens.flatMap((u) => {
+      const effect = world.championState(u.id)?.garenRVisual;
+      return effect
+        ? [
+            {
+              ...effect,
+              id: u.id,
+              x: u.x,
+              y: u.y,
+              castVisible: world.visible(u),
+              // R reveals its opposing champion through release: caster and recipient
+              // teams both observe the hit. Retain that audience after death/fog.
+              impactVisible: effect.releaseTick !== null,
+            },
+          ]
+        : [];
+    });
+    this.garenR.update(this.context, this.enabled && !this.paused, justice, world.tick, listener);
   }
   update(events: SimEvent[], tick: number, listener = { x: 0, y: 0 }): void {
     for (const [voice, point] of this.illuminationVoices) {
@@ -491,7 +514,13 @@ export class GameAudio {
         if (event.type === 'judgment-hit') this.garenE.hit(this.context, event, tick, listener);
         if (event.type === 'attack') this.tone(650, 260, 0.065, 0.012, 'triangle');
         if (event.type === 'cast') {
-          if (event.text === 'e' && event.champion === 'garen' && this.garenE.status === 'ready') {
+          if (event.text === 'r' && event.champion === 'garen' && this.garenR.status === 'ready') {
+            // Saved release history owns the source cast/hit/kill one-shots.
+          } else if (
+            event.text === 'e' &&
+            event.champion === 'garen' &&
+            this.garenE.status === 'ready'
+          ) {
             // Stateful source playback owns cast/active/stop phases, including restore.
           } else if (
             event.text === 'e' &&
@@ -505,7 +534,11 @@ export class GameAudio {
             this.bindingCastStatus === 'ready'
           )
             this.bindingCast(event, tick, listener);
-          else this.tone(event.text === 'r' ? 180 : 480, 1000, 0.2, 0.025, 'sine');
+          else {
+            if (event.text === 'r' && event.champion === 'garen' && event.unit !== undefined)
+              this.garenR.suppressCast(event.unit, event.tick);
+            this.tone(event.text === 'r' ? 180 : 480, 1000, 0.2, 0.025, 'sine');
+          }
         }
         if (event.type === 'scout-arrival' && this.arrivalBuffer)
           this.sample(this.arrivalBuffer, event, tick, HAWKSHOT_ARRIVAL_AUDIO);

@@ -293,6 +293,7 @@ export interface ChampionState {
     point: Vec2;
     releaseTick: number | null;
     stopTick: number | null;
+    killed: boolean;
   } | null;
   /** Shared Judgment particle/audio interval, retained through stopped sound tails. */
   garenEVisual: { startTick: number; stopTick: number | null; facing: number } | null;

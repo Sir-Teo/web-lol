@@ -113,7 +113,7 @@ test('Demacian Justice draws source cast, sword and impact layers and restores a
           position: m.position.toArray(),
           scale: m.scale.toArray(),
         }));
-    w.step(180);
+    w.step(360);
     g.view.render(w, 1, g.view.previousElapsed);
     return {
       snapshot,
@@ -166,7 +166,7 @@ test('enemy R impact visibility follows the frozen release point and expired dra
       draws = [...g.view.garenJustice.models.values()] as any[];
     let disposed = 0;
     for (const m of draws) m.material.addEventListener('dispose', () => disposed++);
-    w.step(180);
+    w.step(360);
     g.view.render(w, 1, g.view.previousElapsed);
     return { before, hidden, visible, after: count(), disposed, draws: draws.length };
   });

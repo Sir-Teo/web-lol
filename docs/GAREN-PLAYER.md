@@ -86,3 +86,8 @@ full-match certification remain required before Garen's production selection.
 sword and impact layers in this fixture, including schema-78 release persistence
 through kills, later caster death and reload. Distortion and native audiovisual
 comparison remain open; production selection stays Ashe/Lux.
+
+[R source audio](GAREN-R-AUDIO.md) adds three cast variants, three hit variants
+and a stereo lethal-result cue. Schema 79 retains sound after particles expire;
+source-ready casts bypass synthesis and missing/late files retain a single
+fallback cast. Q/W/basic/voice audio and native comparison remain unfinished.

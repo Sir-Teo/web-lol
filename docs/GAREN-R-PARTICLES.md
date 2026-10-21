@@ -153,8 +153,8 @@ colored billboard would be incorrect, so it stays absent from live draws.
 A shared loader fetches four meshes and the 19 textures used by the selected
 layers. Ordinary Ashe/Lux startup adds no R-specific requests; two PNGs are already
 shared with the existing Judgment loader. The renderer and generated profiles
-also load through an on-presence dynamic import. Initial Garen matches await their assets; a later Garen NPC triggers the same cached
-resource set on presence. Partial failed loads dispose their completed resources;
+also load through an on-presence dynamic import. Initial Garen matches await
+their assets; a later Garen NPC triggers the same cached resource set on presence. Partial failed loads dispose their completed resources;
 late loading can retry after five seconds. Per-particle materials dispose on
 expiry/hiding while borrowed geometries and textures stay cached.
 
@@ -168,6 +168,9 @@ an impact. Cancellation immediately removes the target sword while already-born
 caster particles finish naturally. The record retires 180 ticks after release or
 cancellation, covering the longest selected impact envelope (about 2.32 seconds)
 plus interpolation. Individual particles still expire on their own source lives.
+The subsequent [R audio adapter](GAREN-R-AUDIO.md) extends that shared bound to
+303 ticks and captures a lethal-result flag in schema 79; particle caps and the
+original release clock remain unchanged.
 
 The decoder requires Garen ownership, learned R, compatible target references,
 exact release timing, mutually exclusive release/cancellation, valid pending
@@ -214,5 +217,5 @@ falling sword and impact for visual review. Three independent GPU samples verify
 all RGBA channels within one byte against source PNG texel products, covering
 separate sword scroll coordinates and the rock atlas. Wider check results are
 recorded in [PROGRESS.md](PROGRESS.md). Native timing/attachment/composition,
-distortion, R source audio, other Garen effects and complete production/full-match
+distortion, native R audio comparison, other Garen effects and complete production/full-match
 acceptance remain open.

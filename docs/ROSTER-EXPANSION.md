@@ -277,3 +277,15 @@ mesh motion, lookup/multiplier paths, random rock atlas and fog/disposal are
 exercised in Chrome. The seventeenth emitter requires scene distortion, and
 native dispatch/motion/material comparison plus R source audio remain open.
 Garen stays excluded from production selection.
+
+## Demacian Justice source audio — October 21, 2026
+
+[R audio](GAREN-R-AUDIO.md) now uses the three frozen SFX event containers and
+seven unchanged float masters for cast, hit and a lethal-result cue. The stereo
+kill recording is linked from `Garen_R_Champ_Kill`; it is not treated as a passive
+notification merely from its event suffix. Schema 79 stores the actual R kill
+outcome and retains sound history for 303 ticks. All 956 checks and 43 focused
+Chrome cases pass with the verification conditions recorded in PROGRESS. Ordinary
+startup remains 17 recordings, with R code/data/assets loaded on Garen presence.
+Native spatialization/dispatch/listening, kill-particle visuals, distortion and
+Q/W/basic/voice audio remain open before production roster acceptance.
