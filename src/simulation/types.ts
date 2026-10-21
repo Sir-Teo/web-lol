@@ -313,6 +313,8 @@ export interface ChampionState {
     stopTick: number | null;
     endReason: 'expired' | 'death' | 'match-end' | null;
   } | null;
+  /** Local reduced-hit feedback, coalesced per tick; independent of later W casts. */
+  garenWDeflects: { tick: number; castTick: number }[];
   garenQ: {
     startTick: number;
     rank: number;

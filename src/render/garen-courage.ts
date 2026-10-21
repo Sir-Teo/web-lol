@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import profiles from '../content/garen-w-particles.json';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
-import { garenCourageParticles } from './garen-courage-particles';
+import { garenCourageParticles, garenCourageDeflectParticles } from './garen-courage-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { GAREN_W_PARTICLE_BONES } from '../content/garen-w-presentation';
 import type { UnitModel } from './models';
@@ -122,8 +122,8 @@ export class GarenCourage {
     const active = new Set<string>();
     if (ready)
       for (const unit of world.units) {
-        const effect = world.championState(unit.id)?.garenWVisual;
-        if (!effect) continue;
+        const state = world.championState(unit.id);
+        if (!state || (!state.garenWVisual && !state.garenWDeflects.length)) continue;
         const tick = world.tick - 1 + alpha + terminalAge * 60;
         if (unit.team !== 'blue' && !world.visible(unit)) continue;
         const point = {
@@ -131,7 +131,11 @@ export class GarenCourage {
           y: unit.previous.y + (unit.y - unit.previous.y) * alpha,
         };
         this.frame.setFromAxisAngle(THREE.Object3D.DEFAULT_UP, unit.facing);
-        for (const particle of garenCourageParticles(unit.id, effect, tick)) {
+        const particles = [
+          ...(state.garenWVisual ? garenCourageParticles(unit.id, state.garenWVisual, tick) : []),
+          ...garenCourageDeflectParticles(unit.id, state.garenWDeflects, tick),
+        ];
+        for (const particle of particles) {
           const p = profiles[particle.profileIndex];
           this.attachmentFrame.copy(this.frame);
           let attachment = 'local-caster-ground';
@@ -160,7 +164,7 @@ export class GarenCourage {
             }
             attachment = bone?.name ?? 'local-root-fallback';
           } else this.anchor.set(point.x * 0.01, this.ground(point), point.y * 0.01);
-          const key = `${unit.id}:${effect.startTick}:${particle.profileIndex}:${particle.ordinal}`;
+          const key = `${unit.id}:${particle.startTick}:${particle.profileIndex}:${particle.ordinal}`;
           active.add(key);
           let mesh = this.models.get(key);
           if (!mesh) {
@@ -174,7 +178,7 @@ export class GarenCourage {
             );
             mesh.name = `Garen W ${p.role} ${p.index} ${p.name}`;
             mesh.userData.sourceId = unit.id;
-            mesh.userData.startTick = effect.startTick;
+            mesh.userData.startTick = particle.startTick;
             mesh.renderOrder = p.renderOrder;
             mesh.frustumCulled = false;
             this.models.set(key, mesh);

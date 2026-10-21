@@ -4,7 +4,11 @@
   "defaultsEvidenceSha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb",
   "output": {
     "path": "src/content/garen-w-particles.json",
-    "sha256": "05af3add5d20b665c43c77fd54f92510d4d40960145cff60c8820f8d8723f264"
+    "sha256": "2da501ca590cfbbc4adb83ad58e588e00cdb25e6e9f0a73caf772c85c9f3a865"
+  },
+  "timingOutput": {
+    "path": "src/content/garen-w-particle-timing.ts",
+    "sha256": "f7aa75bfd8bf7ba6b8c0fb4e21b49cbb9c0ee17d2d9bdea985403140a6d8cefa"
   },
   "implemented": [
     {
@@ -50,6 +54,10 @@
     {
       "system": "Garen_W_Shoulder_R",
       "index": 1
+    },
+    {
+      "system": "Garen_W_Deflect",
+      "index": 0
     }
   ],
   "deferred": [
@@ -92,11 +100,6 @@
       "system": "Garen_W_Avatar_Fade",
       "index": 1,
       "reason": "character material/attached-skin rendering"
-    },
-    {
-      "system": "Garen_W_Deflect",
-      "index": 0,
-      "reason": "deflection event history and dispatch"
     }
   ],
   "gpuSamples": [
@@ -300,6 +303,35 @@
         87,
         87,
         231,
+        255
+      ]
+    },
+    {
+      "profileIndex": 11,
+      "sourceUv": [
+        0.404296875,
+        0.134765625
+      ],
+      "lookupUv": [
+        0.31640625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        165,
+        187
+      ],
+      "lookupRgba": [
+        216,
+        220,
+        216,
         255
       ]
     }

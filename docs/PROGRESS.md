@@ -283,6 +283,48 @@ startup adds no W graphics requests. Deflection, body material/attached-skin
 operations, four minimal declarations, native calibration and full
 production/match acceptance remain open.
 
+[Courage's damage-reaction adapter](GAREN-W-PARTICLES.md#damage-reaction-adapter--october-21-2026)
+now brings W to twelve selected source emitter definitions. The rotating shield
+retains its source float32 life, expansion, alpha, lookup and world-axis spin.
+It reuses the existing shield mesh/textures; no graphics assets or requests are
+added. Native dispatch remains unknown: the documented local policy accepts
+positive physical/magic hits actually reduced by W, including fully shielded
+and lethal hits, and coalesces qualifying hits per recipient/simulation tick.
+True/zero/negative damage, hits after defense expiry and post-match calls create
+no reaction. Gameplay damage and shield calculations are unchanged.
+
+Schema 81 adds independent `{ tick, castTick }` reaction history, retained for
+51 ticks using a generated source-life/first-birth/interpolation bound. Dense
+same-tick hits remain bounded; practice recasts preserve earlier clocks. The
+decoder rejects missing, foreign, unordered, duplicate, future, inconsistent and
+expired histories. Pure sampled particles preserve accepted identity through
+buff expiry, death and reload without consuming simulation RNG. Enemy draws
+obey caster sight, owned materials retire without disposing shared assets, late
+Garen loading reconstructs accepted reactions, and match-end presentation time
+finishes particles while simulation history stays frozen.
+
+All 986 tests across 200 files and TypeScript pass with four workers and a
+30-second per-test deadline. Eleven focused W Chrome scenarios pass across
+sequential runs with a 60-second browser deadline. The real attack case checks
+fully shielded contact, rotating geometry, recast survival, exact saved dead-caster
+poses and disposal. The first fixture used an unsupported `attackDamage` field;
+using the actual `damage` stat fixes checkpoint rejection. An exporter reproduction
+rewrote the watched timing file and restarted Vite during a separate loading
+check; that case passes sequentially. The exporter now preserves unchanged file
+modification times, verified along with byte-identical profiles/timing/audit.
+Eight independent W GPU probes pass within one byte per channel, and the damage
+reaction capture was visually reviewed. Eight declarations remain deferred:
+body material/attached-skin operations and four minimal buff records. Native
+trigger/composition and full production/match acceptance remain open.
+
+A separate sequential run passes all 29 existing Garen player/W mechanics/audio/
+PCM/Judgment/R/match-file browser cases, bringing focused Chrome coverage to
+40 scenarios. Production build and nested-host smoke pass with 17 ordinary
+recordings, real Ashe/Lux input and Garen fixture flags rejected in production.
+The W graphics chunk is 21.86 KB (4.54 KB gzip); the game entry is 574.78 KB
+(158.63 KB gzip). The existing large-bundle warning remains. Source binaries and
+converted assets are unchanged, and the production roster gate stays in place.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

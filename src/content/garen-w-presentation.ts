@@ -6,6 +6,7 @@ export const GAREN_W_CAST_PARTICLE_BONE = 'C_Buffbone_GLB_Center_Loc';
  * shoulder-frame inheritance are local policies, awaiting native comparison. */
 export const GAREN_W_PARTICLE_BONES: Readonly<Record<string, string | undefined>> = {
   cast: GAREN_W_CAST_PARTICLE_BONE,
+  deflect: GAREN_W_CAST_PARTICLE_BONE,
   'shoulder-left': 'L_Shoulder',
   'shoulder-right': 'R_Shoulder',
 };

@@ -106,5 +106,12 @@ Q/basic/voice audio, Q/W particles and native calibration remain unfinished.
 now add the source shield, activation glow/energy/flash and sustained glow/wings/
 waves, plus separate left/right shoulder streaks and hoop/glint layers. They follow
 posed rig/ground anchors, retain bounded death/stop tails and restore from the
-existing W presentation interval. Deflection and character material/attached-skin
+existing W presentation interval. Native deflection dispatch and character material/attached-skin
 effects remain open, as does native attachment/composition.
+
+[Courage damage reactions](GAREN-W-PARTICLES.md#damage-reaction-adapter--october-21-2026)
+now add the source rotating shield on positive physical/magic hits reduced by W,
+including fully shielded and lethal hits. The local policy coalesces hits within
+one simulation tick and excludes true damage. Schema 81 keeps independent
+reaction clocks through practice recasts, defense expiry, death and reload.
+Native dispatch and the remaining body effects remain open.

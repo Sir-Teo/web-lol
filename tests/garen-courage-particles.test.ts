@@ -4,7 +4,11 @@ import { readFileSync } from 'node:fs';
 import profiles from '../src/content/garen-w-particles.json';
 import audit from '../docs/reference/garen-w-particle-profiles.json';
 import source from '../docs/reference/garen-w-particles.json';
-import { garenCourageParticles } from '../src/render/garen-courage-particles';
+import { GAREN_W_DEFLECT_TAIL_TICKS } from '../src/content/garen-w-particle-timing';
+import {
+  garenCourageParticles,
+  garenCourageDeflectParticles,
+} from '../src/render/garen-courage-particles';
 import { GAREN_W_AUDIO_TAIL_TICKS } from '../src/content/garen-w-audio-timing';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
@@ -13,11 +17,12 @@ const effect = { startTick: 100, stopTick: null, endReason: null };
 test('Courage playback retains verified source/default pins and accounts for every selected/deferred declaration', () => {
   const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
   expect(hash(audit.output.path)).toBe(audit.output.sha256);
+  expect(hash(audit.timingOutput.path)).toBe(audit.timingOutput.sha256);
   expect(hash('docs/reference/garen-w-particles.json')).toBe(audit.sourcePinSha256);
   expect(hash('docs/reference/garen-w-particles-decoded.json')).toBe(audit.decodedAssetsSha256);
   expect(hash('docs/reference/garen-spin-defaults.json')).toBe(audit.defaultsEvidenceSha256);
-  expect(profiles).toHaveLength(11);
-  expect(audit.deferred).toHaveLength(9);
+  expect(profiles).toHaveLength(12);
+  expect(audit.deferred).toHaveLength(8);
   expect(profiles.map((p) => [p.role, p.index])).toEqual([
     ['cast', 0],
     ['cast', 1],
@@ -30,6 +35,7 @@ test('Courage playback retains verified source/default pins and accounts for eve
     ['shoulder-left', 1],
     ['shoulder-right', 0],
     ['shoulder-right', 1],
+    ['deflect', 0],
   ]);
   expect(
     new Set([...audit.implemented, ...audit.deferred].map((p) => `${p.system}:${p.index}`)).size
@@ -45,7 +51,7 @@ test('Courage emits the declared bursts and first rate-budget births without inv
   expect(garenCourageParticles(1, effect, 100)).toEqual([]);
   const born = garenCourageParticles(1, effect, 101);
   expect(profiles.map((_, i) => born.filter((p) => p.profileIndex === i).length)).toEqual([
-    1, 2, 1, 1, 2, 1, 1, 10, 1, 10, 1,
+    1, 2, 1, 1, 2, 1, 1, 10, 1, 10, 1, 0,
   ]);
   expect(born.every((p) => p.age === 0)).toBe(true);
   expect(born.find((p) => p.profileIndex === 0)!.offset).toEqual([0, -10, 0]);
@@ -109,7 +115,7 @@ test('Courage shoulders retain asymmetric source bursts, rates, bone-local orien
   const first = shoulders(101);
   expect(first).toHaveLength(22);
   expect(first.filter((p) => p.profileIndex === 7).every((p) => p.scale[0] === 0)).toBe(true);
-  expect(profiles.slice(7).every((p) => p.particleLocal && p.kind === 'billboard')).toBe(true);
+  expect(profiles.slice(7, 11).every((p) => p.particleLocal && p.kind === 'billboard')).toBe(true);
   expect(first.find((p) => p.profileIndex === 8)!.offset).toEqual([6, -19, 6]);
   expect(first.find((p) => p.profileIndex === 10)!.offset).toEqual([6, -9, 6]);
   expect(first.find((p) => p.profileIndex === 8)!.rotation).toEqual([90, 0, 90]);
@@ -126,6 +132,32 @@ test('Courage shoulders retain asymmetric source bursts, rates, bone-local orien
   expect(shoulders(161, stopped)).toEqual([]);
   expect(shoulders(219)).toHaveLength(1);
   expect(shoulders(220)).toEqual([]);
+});
+test('Courage damage reactions retain the independent rotating source mesh and bounded natural life', () => {
+  const reactions = [
+    { tick: 100, castTick: 1 },
+    { tick: 110, castTick: 1 },
+  ];
+  expect(garenCourageDeflectParticles(1, reactions, 100)).toEqual([]);
+  const born = garenCourageDeflectParticles(1, reactions, 101);
+  expect(born).toHaveLength(1);
+  expect(born[0]).toMatchObject({ startTick: 100, profileIndex: 11, offset: [0, -10, 0] });
+  const p = profiles[11],
+    e = source.resources.Garen_W_Deflect.definition.complexEmitterDefinitionData[0];
+  expect(p.life.value).toEqual([e.particleLifetime.constantValue]);
+  expect(p.angularVelocity.value).toEqual(e.birthRotationalVelocity0.constantValue);
+  expect(p.scale).toEqual({ times: e.scale0.dynamics.times, values: e.scale0.dynamics.values });
+  expect(p.local).toBe(false);
+  const at = garenCourageDeflectParticles(1, reactions, 131);
+  expect(at).toHaveLength(2);
+  expect(at[0].rotation).toEqual([0, 110, 0]);
+  expect(at[0].color).toEqual([1, 1, 1, e.Color.constantValue[3]]);
+  expect(at[0].scale[1]).toBeCloseTo(
+    e.birthScale0.constantValue[1] * e.scale0.dynamics.values[1][1]
+  );
+  expect(garenCourageDeflectParticles(1, reactions.slice(0, 1), 149)).toHaveLength(1);
+  expect(garenCourageDeflectParticles(1, reactions.slice(0, 1), 150)).toEqual([]);
+  expect(garenCourageDeflectParticles(1, reactions, 110 + GAREN_W_DEFLECT_TAIL_TICKS)).toEqual([]);
 });
 test('Courage stops further births, caps total age by source linger and retains natural color/scale phase', () => {
   const stopped = { ...effect, stopTick: 130, endReason: 'death' as const };

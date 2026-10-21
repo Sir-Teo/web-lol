@@ -1932,5 +1932,142 @@
     "renderOrder": 0,
     "uvMode": 0,
     "miscRenderFlags": 0
+  },
+  {
+    "system": "Garen_W_Deflect",
+    "role": "deflect",
+    "index": 0,
+    "name": "shield",
+    "kind": "mesh",
+    "mesh": "assets/models/garen-w-shield.glb",
+    "texture": "assets/effects/garen_base_w_shield_txt.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 10.800000190734863,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        0.800000011920929
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        2.200000047683716,
+        2.5,
+        2.200000047683716
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0.0,
+        220.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0.0,
+        -10.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0.0,
+        0.10000000149011612
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.1200000047683716,
+          1.1200000047683716,
+          1.1200000047683716
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.800000011920929
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": false,
+    "particleLocal": false,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "alphaRef": 0,
+    "renderOrder": 100,
+    "uvMode": 0,
+    "miscRenderFlags": 0
   }
 ]

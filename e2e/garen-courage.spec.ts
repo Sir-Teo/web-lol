@@ -349,9 +349,16 @@ test('a later Garen loads one Courage resource set and reconstructs an already a
     w.learnSpell('w', u.id);
     w.enqueue({ type: 'cast', unit: u.id, ability: 'w', point: u });
     w.step(40);
+    w.damage(w.hero, u, 10, 'physical');
+    w.step(2);
     g.view.render(w, 1, g.view.previousElapsed);
   });
   await page.waitForFunction(() => (window as any).__GAME__.view.garenCourage.models.size > 0);
+  await page.waitForFunction(() =>
+    [...(window as any).__GAME__.view.garenCourage.models.values()].some((m: any) =>
+      m.name.includes('deflect')
+    )
+  );
   expect(modules).toHaveLength(1);
   expect(requests).toHaveLength(1);
   expect(requests[0]).toContain('garen-w-shield.glb');

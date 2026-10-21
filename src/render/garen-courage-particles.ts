@@ -17,8 +17,35 @@ export function garenCourageParticles(
   effect: NonNullable<ChampionState['garenWVisual']>,
   tick: number
 ) {
+  return sampleCourageParticles(id, effect, tick, false);
+}
+
+/** Damage reactions have independent clocks and survive subsequent W casts,
+ * defense expiry and death. Stop does not stretch or truncate their source life. */
+export function garenCourageDeflectParticles(
+  id: number,
+  reactions: ChampionState['garenWDeflects'],
+  tick: number
+) {
+  return reactions.flatMap((reaction) =>
+    sampleCourageParticles(
+      id,
+      { startTick: reaction.tick, stopTick: null, endReason: null },
+      tick,
+      true
+    )
+  );
+}
+
+function sampleCourageParticles(
+  id: number,
+  effect: NonNullable<ChampionState['garenWVisual']>,
+  tick: number,
+  deflect: boolean
+) {
   if (!Number.isFinite(tick) || tick < effect.startTick) return [];
   return profiles.flatMap((p, profileIndex) => {
+    if ((p.role === 'deflect') !== deflect) return [];
     const delay = Math.ceil(p.delay * 60 - 1e-5),
       now = tick - effect.startTick - delay;
     const stop = effect.stopTick === null ? Infinity : effect.stopTick - effect.startTick - delay;
@@ -58,6 +85,7 @@ export function garenCourageParticles(
       const scroll = sample(p.scroll, 13),
         uvOffset = sample(p.uvOffset, 14);
       particles.push({
+        startTick: effect.startTick,
         profileIndex,
         ordinal,
         age,

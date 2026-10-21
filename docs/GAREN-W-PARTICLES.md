@@ -6,13 +6,13 @@ shield and shared attached-mesh reference have exact GLB conversions, and all
 eighteen textures have lossless RGBA PNGs. A development inspection page exposes
 the meshes, raw textures and complete system definitions.
 
-The live adapter now renders eleven cast/ground/shoulder layers from that set:
+The live adapter now renders twelve cast/ground/shoulder/reaction layers:
 the shield, activation glow, rising energy, flash, sustained ground glow, wings,
-waves, two shoulder streak bursts and left hoop/right glint layers. Deflection
-and character-surface effects remain separate open work.
+waves, two shoulder streak bursts, left hoop/right glint layers and a separate
+rotating damage-reaction shield. Character-surface effects remain open work.
 Dispatch/attachment/stop policies are local and native composition remains
-unverified. Gameplay and snapshot schema 80 are unchanged; Garen remains outside
-production selection.
+unverified. Gameplay is unchanged; schema 81 retains reaction history. Garen
+remains outside production selection.
 
 ## Frozen source closure
 
@@ -150,11 +150,11 @@ acceptance remain open.
 
 ## Live cast and sustained adapter — October 21, 2026
 
-`export-garen-w-particles.py` derives eleven playback profiles from the verified
+`export-garen-w-particles.py` derives twelve playback profiles from the verified
 source and decoded ledgers, using the existing pinned reader defaults. Its audit
-accounts for every source declaration: eleven selected, nine explicitly
+accounts for every source declaration: twelve selected, eight explicitly
 deferred. The four minimal buff records retain their missing fields;
-deflection and Avatar material/attached-skin operations are not substituted with
+Avatar material/attached-skin operations are not substituted with
 generic particles.
 
 | Selected layer | Birth policy | Natural life |
@@ -171,7 +171,7 @@ generic particles.
 | Right shoulder streaks | Ten source burst particles | 1 second |
 | Right shoulder glint | Rate 4 over 1 second | 1 second |
 
-All four selected systems start at accepted W activation. This is a local
+The four activation systems start at accepted W activation. This is a local
 script-dispatch policy, independent of the absent W animation particle event. Cast layers follow
 the actual case-folded `C_Buffbone_GLB_Center_Loc` node, with a root fallback for
 a replacement rig lacking it. The source rig contains that center node; its
@@ -211,7 +211,8 @@ The cast shield's `particleLingerType = 1` is preserved but not assigned a separ
 unverified native meaning. This stop interpretation is local and requires native
 comparison. It removes long-lived ground/wings layers and bounds final waves and
 already-born cast particles. The existing 189-tick presentation history covers
-every selected stopped draw; no schema or gameplay-duration change is needed.
+every selected stopped activation draw. The separate reaction history below
+requires schema 81; gameplay duration is unchanged.
 Practice cooldown resets can replace the single retained interval and retire
 its old keyed particles.
 
@@ -242,13 +243,52 @@ the existing five-second lazy retry policy.
 npm run test:browser -- e2e/garen-courage.spec.ts e2e/garen-w-source.spec.ts
 ```
 
-Playback export reproduces both generated profile/audit files byte-for-byte.
-Eight source/sampler/loading tests check source coverage, burst/rate clocks,
+Playback export reproduces the generated profiles, timing and audit byte-for-byte,
+preserving modification times when output bytes are unchanged.
+Source/sampler/loading tests check source coverage, burst/rate clocks,
 randomized motion/lookup, stop bounds, saved active/death continuation, RNG
 independence and partial-load ownership/retry. Chrome observes all eleven layers,
 posed joint/ground attachment, camera independence, replacement-rig fallback,
 movement, exact keyed poses/material uniforms after death/save/reload, fog
 disposal, expiry, terminal-time completion and late-NPC
-loading. Seven independent GPU texel probes agree within one byte per RGBA channel.
+loading. Eight independent GPU texel probes agree within one byte per RGBA channel.
 Cast, sustained and shoulder captures are reviewed separately from native calibration.
 Final verification scope is recorded in [PROGRESS.md](PROGRESS.md).
+
+## Damage-reaction adapter — October 21, 2026
+
+`Garen_W_Deflect` now has a separate playback clock from W activation. The local
+simulation records one reaction per recipient/tick when a positive physical or
+magic hit is actually reduced by active W. Fully shielded and lethal hits qualify;
+true, zero/negative, post-expiry and post-match damage do not. Coalescing within
+one 60 Hz simulation tick bounds dense same-tick hits without changing damage.
+The frozen system supplies appearance, not this trigger or frequency policy;
+matching native script dispatch remains unverified.
+
+The source emitter is one burst particle, with life `0.800000011920929`, alpha
+approximately 0.8, scale `[2.2, 2.5, 2.2]`, its authored expansion curve, angular
+velocity `[0, 220, 0]`, and world orientation. It uses the existing shield mesh,
+base texture and alpha lookup, adding no graphics asset requests. Birth follows
+the same local first-update convention as other W particles. The mesh follows
+the selected rig center position while its spin stays in world axes; this
+attachment choice is also local. Natural age and lookup phase are never stretched
+to the W defense interval or another hit.
+
+Schema 81 stores `{ tick, castTick }` in required per-champion `garenWDeflects`.
+Each accepted tick supplies the stable draw identity. Later practice recasts
+replace the main W interval but retain earlier reaction clocks. Generated
+`GAREN_W_DEFLECT_TAIL_TICKS = 51` covers the source float32 life, first-update
+birth and interpolation. Ordered, unique hit ticks bound retained history to 51
+records per champion. The snapshot decoder checks ownership, learned W,
+chronology, defense bounds, stop/death consistency and age. It rejects absent,
+foreign, duplicate, unordered, future and expired histories. Earlier saves are
+incompatible under the existing same-build checkpoint policy.
+
+The pure sampler consumes those accepted clocks independently of render cadence
+or simulation RNG. Reactions finish after shield loss, defense expiry or death;
+frozen match-end simulation uses the existing terminal presentation clock. Enemy
+draws require caster sight. Hidden/expired reactions dispose their materials and
+retain borrowed shield geometry/textures. The fourteen-texture, one-mesh Garen
+resource set and ordinary seventeen-recording startup remain unchanged. Body
+material/attached-skin operations and four minimal buff declarations remain the
+eight deferred emitters; no generic stand-in is introduced.

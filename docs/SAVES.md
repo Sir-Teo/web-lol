@@ -1,5 +1,16 @@
 # Local match checkpoints
 
+Version 81 adds required per-champion `garenWDeflects` records with reaction and
+originating cast ticks. The local damage-reaction policy coalesces reduced
+physical/magic hits per victim/tick. Records remain for 51 simulation ticks,
+covering the source float32 lifetime, first-update birth and interpolation.
+Independent clocks preserve earlier reactions through practice recasts, buff
+expiry, death and reload. Validation enforces Garen ownership, learned W,
+chronology, source defense-window bounds, retained presentation consistency and
+the bounded history; missing, duplicate, foreign, future or expired records are
+rejected. Native trigger/coalescing remains unverified. Earlier versions remain
+incompatible under the existing same-build policy. See [Courage particles](GAREN-W-PARTICLES.md).
+
 Version 80 adds required nullable Courage presentation history: original start,
 stop and end reason. Active records must agree with learned W and its live
 defense buff; stopped records distinguish exact natural expiry from earlier

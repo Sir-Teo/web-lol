@@ -30,6 +30,7 @@ import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { GAREN_W } from '../content/garen-w';
 import { GAREN_W_AUDIO_TAIL_TICKS } from '../content/garen-w-audio-timing';
+import { GAREN_W_DEFLECT_TAIL_TICKS } from '../content/garen-w-particle-timing';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
@@ -50,7 +51,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 80;
+export const SNAPSHOT_VERSION = 81;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -372,6 +373,9 @@ const player: z.ZodType<PlayerState> = z
         endReason: z.enum(['expired', 'death', 'match-end']).nullable(),
       })
       .nullable(),
+    garenWDeflects: z
+      .array(z.strictObject({ tick, castTick: tick }))
+      .max(GAREN_W_DEFLECT_TAIL_TICKS),
     garenW: z
       .strictObject({
         startTick: tick,
@@ -1497,6 +1501,30 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved match contains invalid Courage presentation.');
     }
     const garenQ = owner.garenQ;
+    let previousDeflectTick = -1;
+    for (const reaction of owner.garenWDeflects) {
+      if (
+        champion.champion !== 'garen' ||
+        owner.spellRanks.w === 0 ||
+        !courageVisual ||
+        reaction.tick <= previousDeflectTick ||
+        reaction.tick > state.tick ||
+        state.tick >= reaction.tick + GAREN_W_DEFLECT_TAIL_TICKS ||
+        reaction.castTick > reaction.tick ||
+        reaction.tick >=
+          reaction.castTick + Math.round(GAREN_W.damageReductionSeconds * TICK_RATE) ||
+        (champion.deadAt !== null && reaction.tick > champion.deadAt) ||
+        reaction.castTick > courageVisual.startTick ||
+        (reaction.castTick < courageVisual.startTick && reaction.tick > courageVisual.startTick) ||
+        (reaction.castTick === courageVisual.startTick &&
+          courageVisual.stopTick !== null &&
+          (courageVisual.endReason === 'expired'
+            ? reaction.tick >= courageVisual.stopTick
+            : reaction.tick > courageVisual.stopTick))
+      )
+        throw new Error('Saved match contains invalid Courage deflection history.');
+      previousDeflectTick = reaction.tick;
+    }
     if (
       ((champion.champion !== 'garen' || champion.deadAt !== null) &&
         owner.garenPassiveReadyTick !== 0) ||

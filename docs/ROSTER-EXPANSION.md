@@ -368,3 +368,22 @@ Four already prepared PNGs add 55,550 selected bytes; ordinary startup still
 makes no W graphics requests and retains 17 recordings. Deflection,
 character-surface operations, minimal buff declarations and native/production
 acceptance remain open.
+
+## Courage damage reactions — October 21, 2026
+
+[Courage](GAREN-W-PARTICLES.md#damage-reaction-adapter--october-21-2026) now selects
+twelve source emitter definitions. A separate rotating shield uses accepted
+damage clocks with the source natural life and appearance, sharing existing
+geometry/textures. Schema 81 retains bounded ordered reactions independently of
+later W casts, defense expiry and death. The local trigger accepts positive
+physical/magic hits actually reduced by W and coalesces same-tick hits; native
+dispatch remains unverified. Gameplay mitigation is unchanged.
+
+All 986 checks and TypeScript pass. Eleven focused W browser scenarios cover
+real shielded contact, stable save/reload poses, fog, disposal, late loading,
+terminal time and eight GPU samples. Three generated outputs reproduce exactly
+while preserving modification times. PROGRESS records fixture/exporter corrections
+and the complete verification scope. Another 29 existing Garen/match-file browser
+cases pass, for 40 focused Chrome scenarios in total. Production/nested-host
+smoke passes with 17 ordinary recordings and the Garen roster gate retained.
+The eight body/minimal declarations and native/production acceptance remain open.

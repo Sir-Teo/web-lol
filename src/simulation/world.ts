@@ -34,6 +34,7 @@ import { GAREN_R } from '../content/garen-r';
 import { GAREN_R_WINDUP_TICKS, GAREN_R_REVEAL_TICKS } from '../content/garen-r-policy';
 import { garenRDamage, GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_W_AUDIO_TAIL_TICKS } from '../content/garen-w-audio-timing';
+import { GAREN_W_DEFLECT_TAIL_TICKS } from '../content/garen-w-particle-timing';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
@@ -482,6 +483,10 @@ export class World {
       const courage = state.garenWVisual;
       if (courage?.stopTick != null && this.tick >= courage.stopTick + GAREN_W_AUDIO_TAIL_TICKS)
         state.garenWVisual = null;
+      if (state.garenWDeflects.length)
+        state.garenWDeflects = state.garenWDeflects.filter(
+          (reaction) => this.tick < reaction.tick + GAREN_W_DEFLECT_TAIL_TICKS
+        );
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
@@ -2988,6 +2993,14 @@ export class World {
         ? GAREN_W.damageReductionByRank[courage.rank - 1]
         : 0;
     const amount = damageAfterResistance(raw, resistance) * (1 - reduction);
+    // Local presentation policy: positive damage actually reduced by W emits
+    // one reaction per victim/tick, including fully shielded and lethal hits.
+    // True damage bypasses reduction. Native trigger/coalescing remain unverified.
+    if (amount > 0 && reduction > 0 && courage) {
+      const reactions = this.championState(target.id)!.garenWDeflects;
+      if (reactions.at(-1)?.tick !== this.tick)
+        reactions.push({ tick: this.tick, castTick: courage.startTick });
+    }
     if (amount > 0 && (source.kind === 'champion' || source.kind === 'turret'))
       this.interruptPerseverance(source, target);
     let remainder = Math.max(0, amount);

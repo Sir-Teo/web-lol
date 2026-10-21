@@ -10,9 +10,11 @@ all seven systems, twenty emitter records, eighteen textures and the shield/shar
 mesh conversions. The development inspector exposes these definitions without
 claiming native material override or attached-skin behavior. The subsequent
 [live cast/ground/shoulder adapter](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
-renders eleven source layers with existing schema-80 continuation. Shoulder
+renders twelve source layers. Schema 81 retains separate reduced-hit reactions
+alongside the existing start/stop presentation. Shoulder
 effects follow the posed left/right joints with local attachment/dispatch policies;
-deflection, character-surface effects and native calibration remain open.
+deflection uses the documented local damage-reaction policy below. Character-surface
+effects and native calibration remain open.
 
 `tools/assets/export-garen-w.py` reads only the root `GarenW` record in the
 [frozen character pin](reference/garen-character.json). It checks the five-rank
@@ -71,6 +73,14 @@ clamped to zero. Physical/magic damage is mitigated by resistance and then the
 captured W reduction before shields absorb it. True damage bypasses those
 reductions but can be absorbed by the shield. No current damage source represents
 an execution or fountain exception, so those cases are not claimed as supported.
+
+Positive physical/magic damage actually reduced by W also records a presentation
+reaction, even when shields absorb all of it or the hit is lethal. Zero/negative
+damage and true damage do not create reactions. Multiple qualifying hits within
+one simulation tick coalesce per recipient. This is a local trigger/frequency
+policy; the retained `Garen_W_Deflect` source does not establish native dispatch.
+The source rotating shield mesh retains its independent 0.8-second natural life,
+survives defense expiry/death and does not alter damage or shield calculations.
 
 Tenacity samples the independent upfront deadline when a root, silence, slow or
 Crystal Arrow stun is applied. Existing controls are unchanged; removing the
