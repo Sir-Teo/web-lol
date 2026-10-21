@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,023 passing source/simulation checks, 35 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,030 passing source/simulation checks, 38 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -609,6 +609,72 @@ The Q particle chunk is 37.15 KB (6.98 KB gzip), loaded on Garen presence; the
 ordinary game entry is 582.93 KB (160.28 KB gzip). The existing large-bundle
 warning remains. Complete Q presentation, native calibration, W body operations
 and production/full-match acceptance remain in scope.
+
+## Decisive Strike jump and landing particles — October 21, 2026
+
+Five [jump/landing emitters](GAREN-Q-PARTICLES.md#jump-and-landing-ground-events--october-21-2026)
+now bring Q's live selection to twenty-one of 31 source records: the source jump
+mesh, forty outward dirt particles, five waves, twenty smoke particles and three
+delayed decals. Jump's missing start frame stays absent in the profile; local
+commitment dispatch uses the saved attack origin/heading. Source frame-9 Land
+dispatch captures its own event-time caster point/heading. Subsequent movement,
+target loss, death or reload cannot relocate that anchor or manufacture a new
+landing. The frame-to-release map and ground attachment remain local policy,
+pending native calibration. Ten emitter records remain deferred.
+
+Schema 84 adds the nullable landing anchor to each captured Q attack. Validation
+requires the event after an uninterrupted frame boundary and rejects missing,
+future, wrong-frame and malformed data. Same-tick stops may occur before dispatch
+or afterward through an external action, so both states remain valid there. A
+committed pre-expiry swing retains enough history: the new conservative 99-tick
+ground tail plus the largest supported windup fits within the existing 200-tick
+record retention. The existing version/ruleset policy retains incompatible older
+checkpoints without loading them. Combat values, damage, silence and sound rules
+are unchanged.
+
+Source legacy shape turns compose in the retained order before rotating both
+offset and velocity. Dirt uses stepped drag and interpolation, independently
+verified against Euler steps; draw-time world acceleration adds `a * age * life`
+instead of a ballistic half-acceleration term. Direction-oriented dirt aligns
+its local Y to travel. Positive emission delays use the first eligible update:
+waves at event +1, decal at +6. Accepted ground bursts finish naturally under an
+explicit local policy; the source create/kill-event flag alone is not claimed to
+prove parent-stop behavior.
+
+UV mode 2 now samples RGB through its scroll/atlas coordinates and alpha through
+raw untranslated UV for these selected records. The existing armed sword mesh
+also declares mode 2 and now uses that correction. Two additional external shader
+files are hash-pinned to the prior thirteen reader files. Separate PNG texels
+with alpha 128 make the GPU tests sensitive to both coordinate selection and
+nontrivial alpha blending. Twenty independent samples produce forty product/
+framebuffer comparisons, all four channels within one byte. These establish the
+adapter's arithmetic rather than native composition.
+
+All 1,030 tests across 209 files and TypeScript pass. Seven new checks cover the
+source bindings/absences, motion, birth counts/delays, composed shape turns,
+deterministic finite seeks, capture/continuation, before/after-event target loss,
+same-tick death and malformed snapshots. All 38 focused Chrome cases pass across
+Q visuals/audio/gameplay, player controls, W/E/R and saves. Three new cases verify
+the two jump and all 68 landing particles, real checkpoints, independent placement
+and dirt direction, movement/death, actual point fog with a hidden caster,
+delayed birth, material retirement and finite frozen-match tails. Source/graphics
+cases were rerun after strengthening the alpha samples. Jump and landing captures
+were reviewed at 1440×900. The close-up landing composite still has visible quad
+boundaries; native sampling/material/pass/attachment calibration remains open.
+
+Loading now uses all four Q GLBs and nineteen texture paths. Partial failure
+disposes four completed geometries and eighteen images and shares a cached retry.
+Ordinary startup requests none of the new Q graphics. Ground particles dispose
+their materials while retaining shared geometry/textures. No binary assets
+changed. All 36 GLBs and the map validate without errors/warnings. Repeated
+extraction/conversion/export reproduces all 47 source/audit/profile/PNG/GLB/sidecar
+outputs byte-for-byte, including the final separate-alpha GPU samples. All 37
+production Q asset files match public bytes. Production build and strict nested-
+path smoke pass with seventeen recordings, real Ashe/Lux input and the Garen
+fixture/selection gate retained. The Q particle chunk is 51.25 KB
+(8.79 KB gzip), loaded on Garen presence; the ordinary game entry is 583.44 KB
+(160.41 KB gzip). The existing large-bundle warning remains. Full Q/Garen/native
+comparison and production/full-match acceptance remain in scope.
 
 ## Historical baseline verification
 

@@ -1,0 +1,1272 @@
+[
+  {
+    "system": "Garen_Q_Jump",
+    "index": 0,
+    "name": "spike",
+    "role": "jump",
+    "eventFrame": null,
+    "eventBone": null,
+    "killEvent": false,
+    "loop": false,
+    "kind": "mesh",
+    "mesh": "assets/models/garen-q-jump.glb",
+    "texture": "assets/effects/garen_base_q_dirt_spike.png",
+    "lookup": null,
+    "count": 2,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 10.300000190734863,
+    "life": {
+      "value": [
+        0.30000001192092896
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "worldAcceleration": {
+      "value": [
+        0.0,
+        30.0,
+        0.0
+      ],
+      "probabilities": []
+    },
+    "position": {
+      "value": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        [
+          1.0,
+          2.0,
+          1.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": false,
+    "local": true,
+    "uniform": false,
+    "scroll": {
+      "value": [
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 1,
+    "renderOrder": -100,
+    "uvMode": 2,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "birthUvScrollRate",
+      "birthVelocity",
+      "blendMode",
+      "disableBackfaceCull",
+      "emitterName",
+      "isSingleParticle",
+      "lifetime",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture",
+      "uvMode",
+      "worldAcceleration"
+    ]
+  },
+  {
+    "system": "Garen_Q_Land",
+    "index": 0,
+    "name": "dirt_spikes_out",
+    "role": "landing",
+    "eventFrame": 9,
+    "eventBone": null,
+    "killEvent": false,
+    "loop": false,
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_dirt_spike.png",
+    "lookup": null,
+    "count": 40,
+    "delay": 0,
+    "emitterLife": 0.10000000149011612,
+    "linger": 10.399999618530273,
+    "life": {
+      "value": [
+        0.4000000059604645
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.4000000059604645,
+            1.2000000476837158
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "value": [
+        1100.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "value": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "probabilities": null
+    },
+    "worldAcceleration": {
+      "value": [
+        0.0,
+        -20.0,
+        0.0
+      ],
+      "probabilities": []
+    },
+    "position": {
+      "value": [
+        0.0,
+        30.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        5.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ]
+    ],
+    "size": {
+      "value": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        90.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": true,
+    "local": true,
+    "uniform": false,
+    "scroll": {
+      "value": [
+        1.7999999523162842,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            -0.4000000059604645
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            0.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "value": [
+        0.5,
+        0.5
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            0.5
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            0.5
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 1,
+    "renderOrder": 10,
+    "uvMode": 2,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "SpawnShape",
+      "__type",
+      "birthDrag",
+      "birthRotation0",
+      "birthScale0",
+      "birthUVOffset",
+      "birthUvScrollRate",
+      "birthVelocity",
+      "blendMode",
+      "disableBackfaceCull",
+      "emitterName",
+      "isDirectionOriented",
+      "isSingleParticle",
+      "lifetime",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "primitive",
+      "rate",
+      "texture",
+      "uvMode",
+      "worldAcceleration"
+    ]
+  },
+  {
+    "system": "Garen_Q_Land",
+    "index": 1,
+    "name": "waves",
+    "role": "landing",
+    "eventFrame": 9,
+    "eventBone": null,
+    "killEvent": false,
+    "loop": false,
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_land_nova_white.png",
+    "lookup": null,
+    "count": 5,
+    "delay": 0.009999999776482582,
+    "emitterLife": 1.0,
+    "linger": 10.399999618530273,
+    "life": {
+      "value": [
+        0.4000000059604645
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "worldAcceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        120.0,
+        120.0,
+        120.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ],
+        [
+          0.6499999761581421,
+          0.6499999761581421,
+          0.6499999761581421
+        ],
+        [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.10000000149011612
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": false,
+    "local": true,
+    "uniform": false,
+    "scroll": {
+      "value": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 4,
+    "renderOrder": -10,
+    "uvMode": 2,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "birthUvScrollRate",
+      "blendMode",
+      "emitterName",
+      "isSingleParticle",
+      "lifetime",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture",
+      "timeBeforeFirstEmission",
+      "uvMode"
+    ]
+  },
+  {
+    "system": "Garen_Q_Land",
+    "index": 2,
+    "name": "land_smoke",
+    "role": "landing",
+    "eventFrame": 9,
+    "eventBone": null,
+    "killEvent": false,
+    "loop": false,
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_z_smoke_puffs.png",
+    "lookup": null,
+    "count": 20,
+    "delay": 0,
+    "emitterLife": 0.10000000149011612,
+    "linger": 10.5,
+    "life": {
+      "value": [
+        0.5
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        100.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.10000000149011612,
+            2.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "worldAcceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        40.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.6000000238418579,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spawnAngles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              -360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        0.0,
+        0.0,
+        1.0000001192092896
+      ],
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ]
+    ],
+    "size": {
+      "value": [
+        70.0,
+        70.0,
+        70.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.6000000238418579,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.10000000149011612
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": false,
+    "local": true,
+    "uniform": false,
+    "scroll": {
+      "value": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 4,
+      "start": 0,
+      "random": false
+    },
+    "blend": 1,
+    "renderOrder": 10,
+    "uvMode": 2,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "SpawnShape",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "birthUvScrollRate",
+      "birthVelocity",
+      "blendMode",
+      "emitterName",
+      "isSingleParticle",
+      "lifetime",
+      "numFrames",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "rate",
+      "texDiv",
+      "texture",
+      "uvMode"
+    ]
+  },
+  {
+    "system": "Garen_Q_Land",
+    "index": 3,
+    "name": "blasthole",
+    "role": "landing",
+    "eventFrame": 9,
+    "eventBone": null,
+    "killEvent": false,
+    "loop": false,
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_land_ground_decal.png",
+    "lookup": null,
+    "count": 3,
+    "delay": 0.10000000149011612,
+    "emitterLife": 1.0,
+    "linger": 10.0,
+    "life": {
+      "value": [
+        1.5
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "worldAcceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0.0,
+        3.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        120.0,
+        120.0,
+        120.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        -90.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "direction": false,
+    "local": false,
+    "uniform": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 2,
+    "renderOrder": 8,
+    "uvMode": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "SpawnShape",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "blendMode",
+      "emitterName",
+      "isLocalOrientation",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "primitive",
+      "rate",
+      "texture",
+      "timeBeforeFirstEmission"
+    ]
+  }
+]

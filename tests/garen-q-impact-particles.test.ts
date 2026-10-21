@@ -28,6 +28,7 @@ const records: ChampionState['garenQVisuals'] = [
         stopTick: 130,
         endReason: 'order',
         impact: { tick: 129, point: { x: 100, y: 30 }, facing: 1.2 },
+        landing: { tick: 128, point: { x: 0, y: 0 }, facing: 1 },
       },
     ],
   },

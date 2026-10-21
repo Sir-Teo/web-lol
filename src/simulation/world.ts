@@ -45,6 +45,7 @@ import {
   GAREN_E_PRESENTATION_TAIL_TICKS,
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
+import { garenQLandingTick } from '../content/garen-q-presentation';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { damageAfterResistance } from './damage-math';
 import { CHAMPION_BASE_KILL_GOLD, FIRST_BLOOD_BONUS } from '../content/champion-kill-gold';
@@ -2000,6 +2001,7 @@ export class World {
               stopTick: null,
               endReason: null,
               impact: null,
+              landing: null,
             });
         }
         return;
@@ -2499,6 +2501,14 @@ export class World {
   }
   private advanceAnimationClocks(): void {
     for (const unit of this.units) {
+      const attack = this.garenQAttack(unit);
+      if (
+        attack &&
+        attack.landing === null &&
+        this.tick === garenQLandingTick(attack) &&
+        (attack.stopTick === null || this.tick < attack.stopTick)
+      )
+        attack.landing = { tick: this.tick, point: { x: unit.x, y: unit.y }, facing: unit.facing };
       const mobileAlive = !isStructureKind(unit.kind) && this.alive(unit);
       const moving =
         mobileAlive && Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;

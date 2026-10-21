@@ -29,7 +29,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 [Decisive Strike source audio](docs/GAREN-Q-AUDIO.md) now follows accepted Q activation, buff stops and committed swings, including both QAttack layers and their authored delay. Saved clocks retain stop fades and source tails; the development audition page remains at `/tools/qa/garen-q-audio-preview.html`.
 
-[Decisive Strike particle sources](docs/GAREN-Q-PARTICLES.md) now include all eleven systems, 29 textures and four meshes. Inspect them at `/tools/qa/garen-q-source-preview.html`. Sixteen emitters now render: the frame-8 weapon trail, eight activation/armed layers and seven confirmed-hit impact layers, with saved clocks and finite tails. Silence, jump/landing, distortion and native calibration remain open.
+[Decisive Strike particle sources](docs/GAREN-Q-PARTICLES.md) now include all eleven systems, 29 textures and four meshes. Inspect them at `/tools/qa/garen-q-source-preview.html`. Twenty-one emitters now render: the weapon trail, eight activation/armed layers, seven confirmed-hit layers and five jump/landing layers. Schema 84 retains the landing event's ground point and heading through reload and later movement. Silence, blur/axis dispatch, distortion and native calibration remain open.
 
 ## Deployment
 

@@ -215,9 +215,11 @@
       import pin from '../../docs/reference/garen-q-particles.json';
       import castProfiles from '../../src/content/garen-q-cast-particles.json';
       import impactProfiles from '../../src/content/garen-q-impact-particles.json';
+      import groundProfiles from '../../src/content/garen-q-ground-particles.json';
       import {
         createGarenQCastMaterial,
         createGarenQImpactMaterial,
+        createGarenQGroundMaterial,
       } from '../../src/render/garen-decisive-strike';
       const base = import.meta.env.BASE_URL;
       const models = [
@@ -274,16 +276,20 @@
       }
       window.__GAREN_Q_CAST_MATERIAL__ = {
         probe: async (sample) => {
-          const p = (sample.impact ? impactProfiles : castProfiles)[sample.profileIndex];
+          const p = (
+            sample.ground ? groundProfiles : sample.impact ? impactProfiles : castProfiles
+          )[sample.profileIndex];
           const [base, lookup] = await Promise.all([
             probeTexture(p.texture),
             probeTexture(p.lookup, true),
           ]);
-          const material = (sample.impact ? createGarenQImpactMaterial : createGarenQCastMaterial)(
-            sample.profileIndex,
-            base,
-            lookup
-          );
+          const material = (
+            sample.ground
+              ? createGarenQGroundMaterial
+              : sample.impact
+                ? createGarenQImpactMaterial
+                : createGarenQCastMaterial
+          )(sample.profileIndex, base, lookup);
           if (sample.product) material.blending = THREE.NoBlending;
           const tint = [...sample.tint];
           if (p.blend === 0 || p.blend === 2) {
@@ -296,6 +302,10 @@
           material.uniforms.sourceUvOffset.value.fromArray(sample.sourceUv);
           const plane = new THREE.PlaneGeometry(2, 2),
             scene = new THREE.Scene();
+          if (sample.rawUv) {
+            const uv = plane.getAttribute('uv');
+            for (let i = 0; i < uv.count; i++) uv.setXY(i, ...sample.rawUv);
+          }
           scene.add(new THREE.Mesh(plane, material));
           const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
           camera.position.z = 1;

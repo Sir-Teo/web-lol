@@ -39,6 +39,7 @@ import {
   garenEStrikeTick,
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
+import { garenQLandingTick } from '../content/garen-q-presentation';
 import { GAREN_Q_AUDIO_TAIL_TICKS } from '../content/garen-q-audio-timing';
 import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 import { GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
@@ -52,7 +53,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 83;
+export const SNAPSHOT_VERSION = 84;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -423,6 +424,7 @@ const player: z.ZodType<PlayerState> = z
                   ])
                   .nullable(),
                 impact: z.strictObject({ tick, point, facing: z.number() }).nullable(),
+                landing: z.strictObject({ tick, point, facing: z.number() }).nullable(),
               })
             )
             .max(Math.round(GAREN_Q.attackWindowSeconds * TICK_RATE)),
@@ -1654,7 +1656,11 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved match contains invalid Decisive Strike presentation.');
       let previousAttack = -1;
       for (const a of r.attacks) {
+        const landingTick = garenQLandingTick(a),
+          landed = state.tick >= landingTick && (a.stopTick === null || a.stopTick > landingTick),
+          canLand = state.tick >= landingTick && (a.stopTick === null || a.stopTick >= landingTick);
         if (
+          (a.landing === null ? landed : !canLand || a.landing.tick !== landingTick) ||
           a.startTick <= previousAttack ||
           a.startTick < r.startTick ||
           a.startTick >= expiry ||

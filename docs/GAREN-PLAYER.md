@@ -133,8 +133,16 @@ death, recasts, terminal matches and post-contact pose changes stop that trail.
 Eight activation/armed emitters now add the source bubbles, flash, flare, rising
 glow, spinning sword mesh and activation quad. Their independent activation and
 armed-stop clocks restore from the same schema-83 history. Native attachment and
-stop dispatch, source silence/jump/landing layers remain open. Seven target-impact
+stop dispatch and the remaining source layers remain open. Seven target-impact
 layers now use confirmed contact history: two source-mesh layers, flash, slash,
 camera-facing ray and two directed spark emitters. They retain the contact point
 and heading through later movement, death and reload, with per-particle enemy
 fog gating. The target distortion layer and native attachment/composition remain open.
+
+Five jump/landing layers now add the source jump mesh, outward dirt spikes,
+waves, smoke and delayed ground decal. Schema 84 saves the frame-9 landing
+event's point/heading; the missing jump start frame remains an explicit local
+commitment policy. Accepted ground bursts finish naturally through later movement,
+death and reload. RGB scrolling and locked unscrolled alpha now have independent
+GPU checks, including the existing sword mesh. Ten emitter records and native
+timing/attachment/material calibration remain open.

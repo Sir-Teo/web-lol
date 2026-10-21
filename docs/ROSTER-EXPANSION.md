@@ -594,3 +594,27 @@ seventeen recordings, real Ashe/Lux input and the Garen gate retained.
 See [Q particle details](GAREN-Q-PARTICLES.md#confirmed-contact-impact-layers--october-21-2026)
 and [current validation](PROGRESS.md#decisive-strike-impact-particles--october-21-2026).
 Native calibration and complete Garen/full-match acceptance remain open.
+
+## Decisive Strike jump and landing particles — October 21, 2026
+
+Five more source emitters now add Jump's mesh and Land's dirt, waves, smoke and
+delayed decal, bringing Q to twenty-one of 31 emitter records. Schema 84 captures
+the frame-9 event's ground point/heading independently of later caster movement.
+The missing jump start frame remains absent and uses an explicit local commitment
+policy. Accepted bursts finish naturally through pose stops, death and reload.
+Source stepped drag, composed legacy rotations, draw-time world acceleration,
+atlas/scroll and locked alpha are retained. The existing armed sword mesh now
+uses its declared locked-alpha path too. Combat/silence/audio rules are unchanged.
+
+All 1,030 tests, 38 focused Chrome cases, forty independent GPU product/blend
+comparisons, model/map validation and 47-output byte-identical reproduction pass.
+Production build/nested-path smoke passes with seventeen recordings, real Ashe/Lux
+input and the Garen gate retained.
+New checks cover exact event anchors, real checkpoints, independently verified
+placement/direction, target loss, actual fog, death/terminal tails and material
+ownership. All four meshes/nineteen texture paths load on Garen presence with
+partial-failure cleanup. Ordinary startup adds no new Q graphics. The close-up
+captures were reviewed; visible quad boundaries in the landing composite and
+native material/attachment calibration remain open. See [Q ground events](GAREN-Q-PARTICLES.md#jump-and-landing-ground-events--october-21-2026)
+and [current validation](PROGRESS.md#decisive-strike-jump-and-landing-particles--october-21-2026).
+Ten emitters and full Garen/production/full-match acceptance remain unfinished.

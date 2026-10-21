@@ -3,9 +3,11 @@
 All eleven base Q resource keys now have frozen source definitions, including
 31 emitter records, 29 lossless textures and four exact mesh conversions. The
 development inspector exposes all assets and definitions. This is source
-preparation plus sixteen live emitters: the weapon trail, eight activation/armed
-layers and seven confirmed-contact layers. Fifteen emitter records and native rendering remain open. Gameplay values are unchanged; schema 83 adds
-attack outcomes and presentation stops. Garen remains outside production selection.
+preparation plus twenty-one live emitters: the weapon trail, eight activation/armed,
+seven confirmed-contact and five jump/landing layers. Ten emitter records and native
+rendering remain open. Gameplay values are unchanged; schema 84 retains attack
+outcomes, presentation stops and the landing event's ground anchor. Garen remains
+outside production selection.
 
 ## Frozen dependency closure
 
@@ -65,11 +67,10 @@ weapon trail remains a 500-triangle mesh rather than a procedural ribbon.
 The 29 PNGs total 1,250,707 bytes. Six existing images are reused only after exact
 dimension/RGBA comparison; 23 new images add 1,119,506 bytes. The decoded audit
 records source/output/RGBA hashes and dimensions, including lookup, distortion,
-sprite and mesh maps. Four GLBs add 50,208 bytes. The live adapter requests three meshes
-and fifteen textures only on Garen presence. The ordinary fixture requests none
-of the new Q graphics. The other Q meshes/new textures remain source assets. Shared
-textures retain their existing W/E/R consumers. Three of the four Q meshes now load
-in the live adapter; Jump remains an inspection asset.
+sprite and mesh maps. Four GLBs add 50,208 bytes. The live adapter requests all four
+meshes and nineteen textures only on Garen presence. The ordinary fixture requests
+none of the new Q graphics. Unused textures remain inspection assets. Shared
+textures retain their existing W/E/R consumers.
 
 `/tools/qa/garen-q-source-preview.html` offers orbit/zoom, wireframe, all four
 meshes, an eleven-system selector, complete definitions and every raw image. Its
@@ -155,8 +156,8 @@ separate target adapter below; silence dispatch remains open. Retention remains
 the existing 200-tick sound tail, which also covers this short mesh life.
 
 `export-garen-q-particles.py` pins the trail and cast profiles and accounts
-explicitly for all fifteen deferred emitter records and the empty buff system.
-Renderer/profiles, three GLBs and fifteen textures load on Garen presence, with shared
+explicitly for all ten deferred emitter records and the empty buff system.
+Renderer/profiles, four GLBs and nineteen textures load on Garen presence, with shared
 concurrent loads, partial-failure cleanup and cached successful reuse. Each live particle
 owns its material; geometry/textures remain shared when a particle retires or
 fog removes it. Native timing, other Q layers, distortion, shader/attachment
@@ -306,3 +307,87 @@ framebuffer probes bring the Q GPU total to thirty comparisons. The 1440×900
 close-up contact capture was visually inspected. Full verification is recorded
 in [PROGRESS](PROGRESS.md); native comparison and the remaining fifteen layers
 remain open.
+
+## Jump and landing ground events — October 21, 2026
+
+Five more color emitters now render: the Jump source mesh and Land's outward dirt,
+waves, smoke and delayed decal. The four scene-distortion emitters remain deferred.
+All selected profiles retain the complete fields, including missing frames/bones,
+empty lookup names, explicit create/kill-event flags and lifetime distributions.
+Jump's start frame is absent. The local adapter dispatches it at accepted attack
+commitment using the already saved origin/heading; this does not relabel the
+missing source frame as authored zero. Both selected animation events omit a bone,
+so these ground effects do not invent a Root attachment.
+
+Schema **84** adds `attacks[].landing`, a nullable `{tick, point, facing}` anchor.
+The simulation maps source Land frame 9 through the existing provisional
+frame-10 release timing and captures the caster's point/heading at that update's
+animation boundary. A lost target or stopped attack before dispatch retains no
+landing. A subsequent stop preserves the captured event. The decoder rejects a
+missing required field, future/wrong-frame anchors and a missing anchor after an
+uninterrupted event. A stop exactly on the event tick can occur before dispatch or
+after it through an external action, so either state is permitted at that boundary.
+The original committed timing pair, impacts and stop validation remain required.
+Old checkpoints remain incompatible under the existing version/ruleset policy.
+
+Accepted ground systems use a local natural one-shot policy: source lifetimes
+continue independently of later movement, recasts, death and terminal matches.
+The explicit `mIsKillEvent=false` describes an event that creates particles;
+it does not by itself prove native parent-stop behavior. The ground point and
+heading stay fixed. All enemy particles use their own point visibility, even
+when their caster is hidden. Reload reconstructs current ages without replaying
+births. No combat values, damage timing, silence or audio rules changed.
+
+Singles emit source-sized bursts (2 jump, 40 dirt, 5 waves, 20 smoke, 3 decal).
+The first eligible local update is `max(1, ceil(delay * 60))`, with float32 timing
+noise removed at the grid boundary. Thus the source 0.01-second wave delay is
+eligible at event +1, and the 0.1-second decal delay at +6; no extra empty update
+is appended after a positive delay. This implements the eligibility condition
+in the pinned [emission reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts)
+on the local 60 Hz grid, not a native-cadence measurement. A shared birth chance
+samples all birth distributions and shape angles; a separate roll remains fixed
+for atlas/lookups. No simulation RNG is consumed.
+
+Legacy rotations compose on the right before rotating both spawn offset and
+velocity. The smoke's two source axes therefore apply in the retained matrix
+order rather than accidentally reversing it. Dirt uses the source stepped drag,
+with a closed-form sum and interpolation of the next step. The system omits flags;
+the pinned reader's `0xd4` default leaves analytic drag off. The pinned
+[integrator](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts)
+damps travel before displacement. Separately, source `worldAcceleration` adds
+`acceleration * age * particleLifetime` at draw time, following the pinned
+[particle reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts).
+It is not substituted with a ballistic half-acceleration term. Direction-oriented
+dirt takes its local Y axis along travel; camera-facing smoke uses its sampled
+rotation. Source sizes, color/scale curves, atlas grids and passes are retained.
+The conservative ground tail is 99 ticks, covered by the existing 200-tick history.
+
+Source UV mode 2 now separates scrolled/atlas RGB from locked alpha. The selected
+quad records sample alpha at the original corner UV; meshes sample untranslated
+UV. None of these records animates UV rotation/scale, so both reduce to raw UV in
+this adapter. The existing armed sword mesh also declares mode 2 and now uses the
+same correction. The pinned [shared fragment reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/quad.ts)
+and [mesh path](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/mesh.ts)
+are hash-pinned in `reference/garen-q-ground-reader.json`, linked to the prior
+thirteen reader files. Independent PNG RGB/alpha texels verify the two coordinate
+paths and source alpha blend, in addition to the prior additive/darken modes.
+Twenty samples now produce forty product/framebuffer comparisons. These establish
+adapter arithmetic, not native material or scene composition.
+
+Loading now includes all four Q meshes and nineteen texture paths, with atomic
+partial-failure cleanup and shared cached retry. Fourteen prepared Q PNGs and
+four Q GLBs are requested on Garen presence; five image paths overlap W/E/R assets.
+Ordinary Ashe/Lux startup requests none of the new Q graphics. Ground particles
+own only materials; all geometry/textures remain shared through fog and retirement.
+Every prepared binary remains unchanged.
+
+Seven new unit cases cover source bindings/absence, motion, birth delays, composed
+shape rotation, exact saved event capture/continuation, before/after-event target
+loss, same-tick death and malformed snapshots. Three new Chrome cases check both
+jump particles and all 68 landing particles, exact real checkpoints, independent
+ground placement and direction, later movement/death, actual fog with a hidden
+caster, delayed birth and finite frozen-match tails. Both 1440×900 captures were
+reviewed. The close-up landing composite still shows visible quad boundaries;
+native sampling, material/pass composition and attachment calibration remain open.
+The ten remaining emitter records and full Garen/production acceptance are not
+certified by these checks. See [PROGRESS](PROGRESS.md) for current validation.

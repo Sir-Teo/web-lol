@@ -340,6 +340,7 @@ export interface ChampionState {
       endReason:
         'complete' | 'target-lost' | 'death' | 'match-end' | 'recast' | 'order' | 'action' | null;
       impact: { tick: number; point: Vec2; facing: number } | null;
+      landing: { tick: number; point: Vec2; facing: number } | null;
     }[];
   }[];
   eCharges: number;

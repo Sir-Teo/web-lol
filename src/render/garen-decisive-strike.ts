@@ -3,6 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import profile from '../content/garen-q-particles.json';
 import castProfiles from '../content/garen-q-cast-particles.json';
 import impactProfiles from '../content/garen-q-impact-particles.json';
+import groundProfiles from '../content/garen-q-ground-particles.json';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import type { UnitModel } from './models';
@@ -10,8 +11,9 @@ import { garenQTrailParticles, garenQCastParticles } from './garen-q-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { garenQImpactParticles } from './garen-q-impact-particles';
 import { writeRayQuad } from './ray-quad';
+import { garenQGroundParticles } from './garen-q-ground-particles';
 
-const selectedProfiles = [...castProfiles, ...impactProfiles];
+const selectedProfiles = [...castProfiles, ...impactProfiles, ...groundProfiles];
 const geometries = new Map<string, THREE.BufferGeometry>();
 let ready = false;
 const textures = new Map<string, THREE.Texture>();
@@ -113,7 +115,7 @@ export function createGarenQImpactMaterial(
   return createQMaterial(p, `Decisive Strike impact ${p.index}`, base, lookup);
 }
 function createQMaterial(
-  p: { blend: number; miscRenderFlags: number },
+  p: { blend: number; miscRenderFlags: number; uvMode?: number },
   name: string,
   base: THREE.Texture,
   lookup: THREE.Texture
@@ -126,6 +128,19 @@ function createQMaterial(
       'uniform vec2 sourceUvOffset;\nuniform vec2 sourceUvScale;'
     )
     .replace('sourceUv = uv + sourceUvOffset;', 'sourceUv = uv * sourceUvScale + sourceUvOffset;');
+  if (p.uvMode === 2) {
+    // These selected records have no UV rotation/scale animation. Both quad's
+    // corner alpha and mesh's untranslated alpha therefore read the raw UV.
+    material.vertexShader = material.vertexShader
+      .replace('varying vec2 sourceUv;', 'varying vec2 sourceUv;\nvarying vec2 rawUv;')
+      .replace('void main() {', 'void main() {\nrawUv = uv;');
+    material.fragmentShader = material.fragmentShader
+      .replace('varying vec2 sourceUv;', 'varying vec2 sourceUv;\nvarying vec2 rawUv;')
+      .replace(
+        'vec4 sourceColor = texture2D(sourceTexture, sourceUv);',
+        'vec4 sourceColor = texture2D(sourceTexture, sourceUv);\nsourceColor.a = texture2D(sourceTexture, rawUv).a;'
+      );
+  }
   Object.assign(material, {
     name,
     transparent: true,
@@ -149,6 +164,14 @@ function createQMaterial(
   });
   return material;
 }
+export function createGarenQGroundMaterial(
+  index: number,
+  base: THREE.Texture,
+  lookup: THREE.Texture
+) {
+  const p = groundProfiles[index];
+  return createQMaterial(p, `Decisive Strike ${p.role} ${p.index}`, base, lookup);
+}
 export class GarenDecisiveStrike {
   readonly models = new Map<string, THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>();
   private bones = new WeakMap<UnitModel, THREE.Object3D | null>();
@@ -163,6 +186,7 @@ export class GarenDecisiveStrike {
   private rayAcross = new THREE.Vector3();
   private rayEye = new THREE.Vector3();
   private rayOrigin = new THREE.Vector3();
+  private basis = new THREE.Matrix4();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   private rotation = new THREE.Quaternion().setFromEuler(
     new THREE.Euler(
@@ -425,6 +449,102 @@ export class GarenDecisiveStrike {
           uniforms.sourceUvOffset.value.set(
             (particle.frame % columns) / columns,
             Math.floor(particle.frame / columns) / rows
+          );
+        }
+      }
+    if (ready)
+      for (const unit of world.units) {
+        const records = world.championState(unit.id)?.garenQVisuals;
+        if (unit.champion !== 'garen' || !records?.length) continue;
+        for (const particle of garenQGroundParticles(
+          unit.id,
+          records,
+          world.tick - 1 + alpha + terminalAge * 60
+        )) {
+          const p = groundProfiles[particle.profileIndex];
+          this.heading.setFromAxisAngle(THREE.Object3D.DEFAULT_UP, particle.facing);
+          this.offset.fromArray(particle.offset).multiplyScalar(0.01).applyQuaternion(this.heading);
+          this.anchor
+            .set(particle.point.x * 0.01, this.ground(particle.point), particle.point.y * 0.01)
+            .add(this.offset);
+          if (
+            unit.team !== 'blue' &&
+            !world.pointVisible({ x: this.anchor.x * 100, y: this.anchor.z * 100 })
+          )
+            continue;
+          const key = `${unit.id}:ground:${particle.startTick}:${particle.profileIndex}:${particle.ordinal}`;
+          active.add(key);
+          let mesh = this.models.get(key);
+          if (!mesh) {
+            mesh = new THREE.Mesh(
+              p.mesh ? geometries.get(p.mesh)! : p.kind === 'quad' ? quad : billboard,
+              createGarenQGroundMaterial(
+                particle.profileIndex,
+                textures.get(p.texture)!,
+                p.lookup ? textures.get(p.lookup)! : white
+              )
+            );
+            mesh.name = `Garen Q ${p.role} ${p.index} ${p.name}`;
+            Object.assign(mesh.userData, {
+              sourceId: unit.id,
+              castTick: particle.castTick,
+              startTick: particle.startTick,
+              groundProfileIndex: particle.profileIndex,
+              eventTick: particle.eventTick,
+              bornTick: particle.bornTick,
+              attachment: 'saved-ground-event',
+            });
+            mesh.renderOrder = p.renderOrder;
+            mesh.frustumCulled = false;
+            this.models.set(key, mesh);
+            this.scene.add(mesh);
+          }
+          mesh.position.copy(this.anchor);
+          if (p.kind === 'billboard') {
+            mesh.quaternion.copy(camera.quaternion);
+            mesh.rotateZ(-THREE.MathUtils.degToRad(particle.rotation[0]));
+          } else {
+            if (p.direction && this.direction.fromArray(particle.travel).lengthSq() > 0) {
+              this.direction.normalize();
+              this.rayAcross
+                .set(
+                  ...((Math.abs(this.direction.y) < 0.99 ? [0, 1, 0] : [1, 0, 0]) as [
+                    number,
+                    number,
+                    number,
+                  ])
+                )
+                .cross(this.direction)
+                .normalize();
+              this.rayAxis.crossVectors(this.rayAcross, this.direction);
+              this.castRotation.setFromRotationMatrix(
+                this.basis.makeBasis(this.rayAcross, this.direction, this.rayAxis)
+              );
+            } else
+              this.castRotation.setFromEuler(
+                this.euler.set(
+                  ...(particle.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+                  'YXZ'
+                )
+              );
+            mesh.quaternion
+              .copy(p.local ? this.heading : this.identity)
+              .multiply(this.castRotation);
+          }
+          mesh.scale.fromArray(particle.scale).multiplyScalar(p.kind === 'mesh' ? 1 : 0.01);
+          const tint = [...particle.color];
+          if (p.blend === 0 || p.blend === 2) {
+            for (let i = 0; i < 3; i++) tint[i] *= tint[3];
+            tint[3] = 1;
+          }
+          const uniforms = mesh.material.uniforms,
+            [columns, rows] = p.atlas.grid;
+          uniforms.particleColor.value.fromArray(tint);
+          uniforms.lookupUv.value.fromArray(particle.lookup);
+          uniforms.sourceUvScale.value.set(1 / columns, 1 / rows);
+          uniforms.sourceUvOffset.value.set(
+            particle.scroll[0] + (particle.frame % columns) / columns,
+            particle.scroll[1] + Math.floor(particle.frame / columns) / rows
           );
         }
       }

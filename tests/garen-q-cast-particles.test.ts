@@ -22,8 +22,8 @@ test('all eight cast emitters preserve their source fields, reader pins and comp
   const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
   expect(hash(audit.castOutput.path)).toBe(audit.castOutput.sha256);
   expect(hash('docs/reference/garen-q-cast-reader.json')).toBe(audit.readerEvidenceSha256);
-  expect(audit.implemented).toHaveLength(16);
-  expect(audit.deferred).toHaveLength(15);
+  expect(audit.implemented).toHaveLength(21);
+  expect(audit.deferred).toHaveLength(10);
   expect(audit.castRetentionBoundTicks).toBeLessThan(GAREN_Q_AUDIO_TAIL_TICKS);
   expect(profiles).toHaveLength(8);
   for (const p of profiles) {

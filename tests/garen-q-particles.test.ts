@@ -24,6 +24,7 @@ const records: ChampionState['garenQVisuals'] = [
         stopTick: null,
         endReason: null,
         impact: null,
+        landing: null,
       },
     ],
   },

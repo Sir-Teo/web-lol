@@ -27,10 +27,10 @@ test('partial Q loading disposes completed resources and shares a cached success
       b = load();
     expect(a).toBe(b);
     await expect(a).rejects.toThrow('injected Q lookup failure');
-    expect([meshes, images, disposedMeshes, disposedImages]).toEqual([3, 15, 3, 14]);
+    expect([meshes, images, disposedMeshes, disposedImages]).toEqual([4, 19, 4, 18]);
     await Promise.all([load(), load()]);
     await load();
-    expect([meshes, images, disposedMeshes, disposedImages]).toEqual([6, 30, 3, 14]);
+    expect([meshes, images, disposedMeshes, disposedImages]).toEqual([8, 38, 4, 18]);
   } finally {
     vi.restoreAllMocks();
   }
