@@ -2,6 +2,11 @@ import { readFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import validator from 'gltf-validator';
 
+// These three source meshes share a conversion ledger instead of sidecar files.
+const bindingMeshes = JSON.parse(
+  await readFile('docs/reference/lux-binding-target-meshes.json', 'utf8')
+).outputs;
+
 for (const name of (await readdir('public/assets/models'))
   .filter((name) => name.endsWith('.glb'))
   .sort()) {
@@ -11,7 +16,10 @@ for (const name of (await readdir('public/assets/models'))
     name === 'ashe-q-arrow.glb'
       ? 'docs/reference/ashe-q-arrow-conversion.json'
       : path.replace('.glb', '.json');
-  const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+  const grouped = bindingMeshes.find((entry) => entry.path === path);
+  const manifest = grouped
+    ? { output: grouped, triangles: grouped.triangles }
+    : JSON.parse(await readFile(manifestPath, 'utf8'));
   if (createHash('sha256').update(bytes).digest('hex') !== manifest.output.sha256)
     throw new Error(`${name}: Asset does not match its recorded hash`);
   for (const asset of manifest.auxiliaryAssets ?? []) {

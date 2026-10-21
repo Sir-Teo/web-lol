@@ -43,6 +43,7 @@ Pinned tools:
 - Local .NET SDK 8.0.425, installed at `.tools/dotnet` with Microsoft's `dotnet-install.sh`.
 - The lol2gltf ImageSharp dependency is updated from 3.1.6 to 3.1.12 before publishing the converter. The rebuild no longer emits the earlier ImageSharp vulnerability warnings.
 - Python dependencies are pinned in `tools/assets/requirements.txt`; glTF Transform 4.5.0 is locked in `package-lock.json`.
+- Python 3.14 uses the standard-library Zstandard implementation through pyzstd; the pinned backport is conditional on Python below 3.14.
 
 For an existing checked-out toolchain:
 

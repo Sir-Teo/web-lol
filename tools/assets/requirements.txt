@@ -1,4 +1,4 @@
-backports.zstd==1.7.0
+backports.zstd==1.7.0; python_version < '3.14'
 certifi==2026.7.22
 charset-normalizer==3.5.1
 hachoir==3.3.0
