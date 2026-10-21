@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,018 passing source/simulation checks, 32 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,023 passing source/simulation checks, 35 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -558,6 +558,57 @@ gzip), loaded on Garen presence; the ordinary game entry is 582.88 KB (160.28 KB
 gzip). The existing large-bundle warning remains. Ordinary startup adds no Q
 mesh/texture requests. All source/native calibration, remaining Q layers, W body
 operations and production/full-match acceptance remain in scope.
+
+## Decisive Strike impact particles — October 21, 2026
+
+Seven [target-impact emitters](GAREN-Q-PARTICLES.md#confirmed-contact-impact-layers--october-21-2026)
+now join the Q trail and activation/armed layers, bringing the live selection to
+sixteen of 31 records. Both source mesh layers, flash, slash, forward-impact ray and
+two spark emitters start only from saved confirmed contacts. Planned release or
+target loss cannot manufacture a hit. The local one-shot retains the contact
+point, terrain height and heading independently of later pose stops, movement,
+death, recasts and frozen match-end clocks. Source bind-weight declarations and
+absences remain explicit; native recipient-bone attachment/following is still
+unverified. Fifteen emitters, including the target distortion, remain open.
+
+The generated profiles preserve the complete selected source fields, shared
+birth distributions, legacy offset/velocity turn, source lifetimes and appearance,
+atlas sheets, passes and blend factors. Spark speed stretches source Y size with
+the pinned default minimum of one. The ray keeps authored +Z orientation despite
+negative-Z travel and is excluded from direction stretch. The sparks' missing
+frame count remains the reader default of one even on a 2×2 grid. Five additional
+hash-pinned reconstruction files link to the prior eight-file reader evidence;
+none is represented as native-client verification. The conservative 75-tick
+contact tail fits within existing history. Schema 83, combat, silence and audio
+behavior and every binary asset are unchanged.
+
+All 1,023 tests across 208 files and TypeScript pass. Five new checks cover source
+profiles/accounting, confirmed-contact gating, first-update budgets, shared spawn
+motion/stretch, missing atlas fields, deterministic finite seeks and exact
+continuation after lethal contact/caster death. The atomic loader now covers
+three meshes and fifteen texture paths, including cleanup of three completed
+geometries and fourteen images when one image fails, and a shared cached retry.
+
+All 35 focused Chrome cases pass across Q particles/audio/gameplay, player controls,
+W/E/R and saves. Three new impact cases cover all seven emitters, real save/reload,
+later movement/death, actual fog with a hidden caster, target loss and frozen
+match-end retirement. Independent coordinate/ray-axis assertions were added and
+all three cases rerun. Each particle owns its material; the two ray particles own
+their dynamic geometry. Fog and expiry dispose both without disposing shared
+source geometry/textures. Seven new PNG samples bring Q GPU verification to
+thirty product/blend comparisons, all four channels within one byte. The close-up
+1440×900 hit capture was visually reviewed. The startup request expectation now
+includes the selected spark texture, without changing ordinary startup behavior.
+
+All 36 GLBs and the map validate with zero errors/warnings. Repeated extraction,
+conversion and export reproduce all 45 source/audit/profile/PNG/GLB/sidecar outputs
+byte-for-byte; all 37 static production Q files match the verified public bytes.
+Production build and strict `/nested/rift/` smoke pass with seventeen ordinary
+recordings, real Ashe/Lux input, and the Garen fixture/selection gate retained.
+The Q particle chunk is 37.15 KB (6.98 KB gzip), loaded on Garen presence; the
+ordinary game entry is 582.93 KB (160.28 KB gzip). The existing large-bundle
+warning remains. Complete Q presentation, native calibration, W body operations
+and production/full-match acceptance remain in scope.
 
 ## Historical baseline verification
 

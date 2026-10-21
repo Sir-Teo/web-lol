@@ -91,7 +91,7 @@ test('Decisive Strike inspection loads all frozen textures, all four meshes and 
 });
 
 // Shared W/E/R texture dependencies already have live consumers. Check only newly packaged Q assets.
-test('Q graphics load only selected cast and weapon trail assets on Garen presence', async ({
+test('Q graphics load only selected cast, trail and impact assets on Garen presence', async ({
   page,
 }) => {
   const reused = new Set([
@@ -126,13 +126,17 @@ test('Q graphics load only selected cast and weapon trail assets on Garen presen
     '/assets/effects/garen_base_q_cas_flare.png',
     '/assets/effects/garen_base_q_hit_flash.png',
     '/assets/effects/garen_base_q_sword_scroll.png',
+    '/assets/effects/garen_base_q_tar_impact.png',
+    '/assets/effects/garen_base_q_tar_slash.png',
     '/assets/effects/garen_base_q_wpn_trail.png',
+    '/assets/effects/garen_sparks-orange.png',
+    '/assets/models/garen-q-impact.glb',
     '/assets/models/garen-q-sword-scroll.glb',
     '/assets/models/garen-q-weapon-trail.glb',
   ]);
 });
 
-test('Q cast materials reproduce independent PNG products and ADD/SUBTRACT/alpha-add framebuffer results in every channel', async ({
+test('Q cast and impact materials reproduce independent PNG products and ADD/SUBTRACT/alpha-add framebuffer results in every channel', async ({
   page,
 }) => {
   const playback = await import('../docs/reference/garen-q-particle-profiles.json', {
@@ -141,11 +145,17 @@ test('Q cast materials reproduce independent PNG products and ADD/SUBTRACT/alpha
   const profiles = await import('../src/content/garen-q-cast-particles.json', {
     with: { type: 'json' },
   });
+  const impactProfiles = await import('../src/content/garen-q-impact-particles.json', {
+    with: { type: 'json' },
+  });
   await page.goto('/tools/qa/garen-q-source-preview.html');
   await page.waitForFunction(() => (window as any).__GAREN_Q_SOURCE__?.ready);
   const background = [96, 144, 192, 224];
-  for (const sample of playback.default.gpuSamples) {
-    const blend = profiles.default[sample.profileIndex].blend;
+  for (const sample of [
+    ...playback.default.gpuSamples.map((s) => ({ ...s, impact: false })),
+    ...playback.default.impactGpuSamples,
+  ]) {
+    const blend = (sample.impact ? impactProfiles : profiles).default[sample.profileIndex].blend;
     const tint = [...sample.tint];
     if (blend === 0 || blend === 2) {
       for (let i = 0; i < 3; i++) tint[i] *= tint[3];

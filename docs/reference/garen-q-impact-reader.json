@@ -1,0 +1,32 @@
+{
+  "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "baseEvidenceSha256": "01be616a7dc5a60b6ad35a6f2496ea275c051efaedcc76aeb61a6a5bf93af21e",
+  "files": [
+    {
+      "name": "readVfxSystem.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readVfxSystem.ts",
+      "sha256": "a5765fc5676e4f58d0ae156bad93bf5e84936fe181c8bfe47c503a37da52a844"
+    },
+    {
+      "name": "particleRead.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts",
+      "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da"
+    },
+    {
+      "name": "spawnShape.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/spawnShape.ts",
+      "sha256": "e7839cf92318311c68789b69cb7f78b2a974ba9e43b11536cf7f3567c2d2f2f8"
+    },
+    {
+      "name": "drawKind.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/drawKind.ts",
+      "sha256": "64a3b3cd78d91251159da7ae5b1f354df5060aa2b9cf2c8be8a6c57351da0025"
+    },
+    {
+      "name": "Quads.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/Quads.tsx",
+      "sha256": "6984424775169b81692541a16988d7d5e5080144607306efd94de4a5b9d3c0f8"
+    }
+  ],
+  "status": "External reconstruction evidence for direction stretch, legacy spawn rotation, ray orientation and missing defaults. Local contact-ground dispatch remains policy; native parity unverified."
+}

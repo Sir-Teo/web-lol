@@ -2,11 +2,16 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import profile from '../content/garen-q-particles.json';
 import castProfiles from '../content/garen-q-cast-particles.json';
+import impactProfiles from '../content/garen-q-impact-particles.json';
 import type { World } from '../simulation/world';
+import type { Vec2 } from '../simulation/math';
 import type { UnitModel } from './models';
 import { garenQTrailParticles, garenQCastParticles } from './garen-q-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
+import { garenQImpactParticles } from './garen-q-impact-particles';
+import { writeRayQuad } from './ray-quad';
 
+const selectedProfiles = [...castProfiles, ...impactProfiles];
 const geometries = new Map<string, THREE.BufferGeometry>();
 let ready = false;
 const textures = new Map<string, THREE.Texture>();
@@ -16,13 +21,13 @@ export function loadGarenDecisiveStrike(): Promise<void> {
   return (pending ??= (async () => {
     const candidates = new Map<string, THREE.BufferGeometry>();
     const meshPaths = [
-      ...new Set([profile.mesh, ...castProfiles.flatMap((p) => (p.mesh ? [p.mesh] : []))]),
+      ...new Set([profile.mesh, ...selectedProfiles.flatMap((p) => (p.mesh ? [p.mesh] : []))]),
     ];
     const imagePaths = [
       ...new Set([
         profile.texture,
         profile.lookup,
-        ...castProfiles.flatMap((p) => [p.texture, ...(p.lookup ? [p.lookup] : [])]),
+        ...selectedProfiles.flatMap((p) => [p.texture, ...(p.lookup ? [p.lookup] : [])]),
       ]),
     ];
     const images = new Map<string, THREE.Texture>();
@@ -43,7 +48,7 @@ export function loadGarenDecisiveStrike(): Promise<void> {
         texture.generateMipmaps = false;
         texture.minFilter = texture.magFilter = THREE.LinearFilter;
         texture.wrapS = texture.wrapT =
-          path === profile.lookup || castProfiles.some((p) => p.lookup === path)
+          path === profile.lookup || selectedProfiles.some((p) => p.lookup === path)
             ? THREE.ClampToEdgeWrapping
             : THREE.RepeatWrapping;
         images.set(path, texture);
@@ -96,8 +101,24 @@ export function createGarenQCastMaterial(
   base: THREE.Texture,
   lookup: THREE.Texture
 ) {
-  const p = castProfiles[index],
-    material = createParticleColorProductMaterial(base, lookup);
+  const p = castProfiles[index];
+  return createQMaterial(p, `Decisive Strike ${p.role} ${p.index}`, base, lookup);
+}
+export function createGarenQImpactMaterial(
+  index: number,
+  base: THREE.Texture,
+  lookup: THREE.Texture
+) {
+  const p = impactProfiles[index];
+  return createQMaterial(p, `Decisive Strike impact ${p.index}`, base, lookup);
+}
+function createQMaterial(
+  p: { blend: number; miscRenderFlags: number },
+  name: string,
+  base: THREE.Texture,
+  lookup: THREE.Texture
+) {
+  const material = createParticleColorProductMaterial(base, lookup);
   material.uniforms.sourceUvScale = { value: new THREE.Vector2(1, 1) };
   material.vertexShader = material.vertexShader
     .replace(
@@ -106,7 +127,7 @@ export function createGarenQCastMaterial(
     )
     .replace('sourceUv = uv + sourceUvOffset;', 'sourceUv = uv * sourceUvScale + sourceUvOffset;');
   Object.assign(material, {
-    name: `Decisive Strike ${p.role} ${p.index}`,
+    name,
     transparent: true,
     depthWrite: false,
     depthTest: (p.miscRenderFlags & 1) === 0,
@@ -116,10 +137,15 @@ export function createGarenQCastMaterial(
     blendEquationAlpha: THREE.AddEquation,
     blendSrc:
       p.blend === 2 ? THREE.ZeroFactor : p.blend === 0 ? THREE.OneFactor : THREE.SrcAlphaFactor,
-    blendDst: p.blend === 2 ? THREE.OneMinusSrcColorFactor : THREE.OneFactor,
+    blendDst:
+      p.blend === 2
+        ? THREE.OneMinusSrcColorFactor
+        : p.blend === 1
+          ? THREE.OneMinusSrcAlphaFactor
+          : THREE.OneFactor,
     blendSrcAlpha:
       p.blend === 2 ? THREE.ZeroFactor : p.blend === 0 ? THREE.OneFactor : THREE.SrcAlphaFactor,
-    blendDstAlpha: p.blend === 2 ? THREE.OneMinusSrcAlphaFactor : THREE.OneFactor,
+    blendDstAlpha: p.blend === 2 || p.blend === 1 ? THREE.OneMinusSrcAlphaFactor : THREE.OneFactor,
   });
   return material;
 }
@@ -131,6 +157,12 @@ export class GarenDecisiveStrike {
   private offset = new THREE.Vector3();
   private castRotation = new THREE.Quaternion();
   private identity = new THREE.Quaternion();
+  private direction = new THREE.Vector3();
+  private aim = new THREE.Quaternion();
+  private rayAxis = new THREE.Vector3();
+  private rayAcross = new THREE.Vector3();
+  private rayEye = new THREE.Vector3();
+  private rayOrigin = new THREE.Vector3();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   private rotation = new THREE.Quaternion().setFromEuler(
     new THREE.Euler(
@@ -138,7 +170,10 @@ export class GarenDecisiveStrike {
       'YXZ'
     )
   );
-  constructor(private scene: THREE.Scene) {}
+  constructor(
+    private scene: THREE.Scene,
+    private ground: (p: Vec2) => number
+  ) {}
   update(
     world: World,
     alpha: number,
@@ -265,10 +300,139 @@ export class GarenDecisiveStrike {
           );
         }
       }
+    // Impact is independent of the caster model/visibility/pose. Each world-space
+    // particle is sight-gated at its own position, including after lethal hits.
+    if (ready)
+      for (const unit of world.units) {
+        const records = world.championState(unit.id)?.garenQVisuals;
+        if (unit.champion !== 'garen' || !records?.length) continue;
+        const tick = world.tick - 1 + alpha + terminalAge * 60;
+        for (const particle of garenQImpactParticles(unit.id, records, tick)) {
+          const p = impactProfiles[particle.profileIndex];
+          this.heading.setFromAxisAngle(THREE.Object3D.DEFAULT_UP, particle.facing);
+          this.offset.fromArray(particle.offset).multiplyScalar(0.01).applyQuaternion(this.heading);
+          this.anchor
+            .set(particle.point.x * 0.01, this.ground(particle.point), particle.point.y * 0.01)
+            .add(this.offset);
+          if (
+            unit.team !== 'blue' &&
+            !world.pointVisible({ x: this.anchor.x * 100, y: this.anchor.z * 100 })
+          )
+            continue;
+          const key = `${unit.id}:impact:${particle.startTick}:${particle.profileIndex}:${particle.ordinal}`;
+          active.add(key);
+          let mesh = this.models.get(key);
+          if (!mesh) {
+            const geometry =
+              p.kind === 'ray'
+                ? new THREE.BufferGeometry()
+                    .setAttribute(
+                      'position',
+                      new THREE.BufferAttribute(new Float32Array(18), 3).setUsage(
+                        THREE.DynamicDrawUsage
+                      )
+                    )
+                    .setAttribute('uv', new THREE.BufferAttribute(new Float32Array(12), 2))
+                : p.mesh
+                  ? geometries.get(p.mesh)!
+                  : p.kind === 'quad'
+                    ? quad
+                    : billboard;
+            mesh = new THREE.Mesh(
+              geometry,
+              createGarenQImpactMaterial(
+                particle.profileIndex,
+                textures.get(p.texture)!,
+                p.lookup ? textures.get(p.lookup)! : white
+              )
+            );
+            mesh.name = `Garen Q impact ${p.index} ${p.name}`;
+            Object.assign(mesh.userData, {
+              sourceId: unit.id,
+              castTick: particle.castTick,
+              startTick: particle.startTick,
+              impactTick: particle.impactTick,
+              impactProfileIndex: particle.profileIndex,
+              attachment: 'local-confirmed-contact-ground',
+              ownedGeometry: p.kind === 'ray',
+            });
+            mesh.renderOrder = p.renderOrder;
+            mesh.frustumCulled = false;
+            this.models.set(key, mesh);
+            this.scene.add(mesh);
+          }
+          mesh.position.copy(this.anchor);
+          if (p.kind === 'ray') {
+            this.castRotation.setFromEuler(
+              this.euler.set(
+                ...(particle.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+                'YXZ'
+              )
+            );
+            if (p.local) this.castRotation.premultiply(this.heading);
+            this.rayAxis.set(0, 0, 1).applyQuaternion(this.castRotation);
+            this.rayAcross.set(1, 0, 0).applyQuaternion(this.castRotation);
+            camera.getWorldPosition(this.rayEye).sub(mesh.position);
+            const position = mesh.geometry.getAttribute('position') as THREE.BufferAttribute,
+              uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
+            writeRayQuad(
+              position,
+              uv,
+              0,
+              {
+                center: this.rayOrigin,
+                axis: this.rayAxis,
+                fallbackAcross: this.rayAcross,
+                size: particle.scale.map((v) => v * 0.01) as [number, number, number],
+              },
+              this.rayEye
+            );
+            position.needsUpdate = uv.needsUpdate = true;
+            mesh.quaternion.identity();
+            mesh.scale.setScalar(1);
+          } else if (p.kind === 'billboard') {
+            mesh.quaternion.copy(camera.quaternion);
+            this.direction
+              .fromArray(particle.travel)
+              .applyQuaternion(this.heading)
+              .applyQuaternion(this.aim.copy(camera.quaternion).invert());
+            if (p.direction && this.direction.lengthSq() > 0)
+              mesh.rotateZ(Math.atan2(-this.direction.x, this.direction.y));
+            else mesh.rotateZ(-THREE.MathUtils.degToRad(particle.rotation[0]));
+          } else {
+            this.castRotation.setFromEuler(
+              this.euler.set(
+                ...(particle.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+                'YXZ'
+              )
+            );
+            mesh.quaternion
+              .copy(p.local ? this.heading : this.identity)
+              .multiply(this.castRotation);
+          }
+          if (p.kind !== 'ray')
+            mesh.scale.fromArray(particle.scale).multiplyScalar(p.kind === 'mesh' ? 1 : 0.01);
+          const tint = [...particle.color];
+          if (p.blend === 0) {
+            for (let i = 0; i < 3; i++) tint[i] *= tint[3];
+            tint[3] = 1;
+          }
+          const uniforms = mesh.material.uniforms,
+            [columns, rows] = p.atlas.grid;
+          uniforms.particleColor.value.fromArray(tint);
+          uniforms.lookupUv.value.fromArray(particle.lookup);
+          uniforms.sourceUvScale.value.set(1 / columns, 1 / rows);
+          uniforms.sourceUvOffset.value.set(
+            (particle.frame % columns) / columns,
+            Math.floor(particle.frame / columns) / rows
+          );
+        }
+      }
     for (const [key, mesh] of this.models)
       if (!active.has(key)) {
         this.scene.remove(mesh);
         mesh.material.dispose();
+        if (mesh.userData.ownedGeometry) mesh.geometry.dispose();
         this.models.delete(key);
       }
   }

@@ -2,6 +2,7 @@ import type * as THREE from 'three';
 import type { World } from '../simulation/world';
 import type { GarenDecisiveStrike } from './garen-decisive-strike';
 import type { UnitModel } from './models';
+import type { Vec2 } from '../simulation/math';
 
 /** Keep Garen-only profiles/materials out of ordinary Ashe/Lux entry loading. */
 export class LazyGarenDecisiveStrike {
@@ -9,7 +10,10 @@ export class LazyGarenDecisiveStrike {
   private pending?: Promise<void>;
   private retryAfter = 0;
   private empty = new Map<string, THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>();
-  constructor(private scene: THREE.Scene) {}
+  constructor(
+    private scene: THREE.Scene,
+    private ground: (p: Vec2) => number
+  ) {}
   get models() {
     return this.renderer?.models ?? this.empty;
   }
@@ -17,7 +21,7 @@ export class LazyGarenDecisiveStrike {
     return (this.pending ??= (async () => {
       const module = await import('./garen-decisive-strike');
       await module.loadGarenDecisiveStrike();
-      this.renderer = new module.GarenDecisiveStrike(this.scene);
+      this.renderer = new module.GarenDecisiveStrike(this.scene, this.ground);
     })().catch((error) => {
       this.pending = undefined;
       throw error;

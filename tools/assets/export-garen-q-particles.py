@@ -1,4 +1,4 @@
-"""Derive the explicitly animation-bound Q weapon trail without inventing dispatch."""
+"""Derive Q profiles from frozen source; local dispatch is documented separately."""
 from pathlib import Path
 import hashlib
 import json
@@ -96,7 +96,48 @@ for key in ['Garen_Q_Cas','Garen_Q_Cas_Sword']:
             explicitFields=sorted(e)))
 assert len(cast)==8
 cast_path=Path('src/content/garen-q-cast-particles.json');write_changed(cast_path,cast)
-selected=[dict(system=system,index=0)]+[dict(system=p['system'],index=p['index']) for p in cast]
+impact_reader_path=Path('docs/reference/garen-q-impact-reader.json')
+impact_reader=json.loads(impact_reader_path.read_text())
+assert impact_reader['baseEvidenceSha256']==sha(reader_path.read_bytes())
+for f in impact_reader['files']:
+    cached=Path('.cache/garen-q-cast-readers')/f['name']
+    if not cached.exists():
+        import urllib.request
+        cached.write_bytes(urllib.request.urlopen(f['url'],timeout=30).read())
+    assert sha(cached.read_bytes())==f['sha256']
+impact=[]
+for index,e in enumerate(pin['resources']['Garen_Q_Tar']['definition']['complexEmitterDefinitionData']):
+    if 'distortionDefinition' in e:continue
+    shape=e.get('SpawnShape',{});primitive=e.get('primitive',{}).get('__type')
+    assert primitive in [None,'VfxPrimitiveArbitraryQuad','VfxPrimitiveMesh','VfxPrimitiveRay']
+    assert e.get('blendMode',0) in [0,4]
+    assert set(e)<=set(['rate','particleLifetime','particleLinger','lifetime','isSingleParticle','emitterName',
+        'birthVelocity','bindWeight','SpawnShape','EmitterPosition','primitive','particleColorTexture','Color',
+        'disableBackfaceCull','particleIsLocalOrientation','isRandomStartFrame','birthRotation0','birthScale0',
+        'scale0','texture','numFrames','startFrame','texDiv','blendMode','pass','colorLookUpTypeY',
+        'isDirectionOriented','directionVelocityScale','__type'])
+    assert e.get('bindWeight',{}).get('constantValue',0) in [0,1]
+    assert set(shape)<=set(['emitOffset','emitRotationAngles','emitRotationAxes','__type'])
+    impact.append(dict(system='Garen_Q_Tar',index=index,name=e['emitterName'],
+        kind='mesh' if primitive=='VfxPrimitiveMesh' else 'ray' if primitive=='VfxPrimitiveRay' else 'quad' if primitive else 'billboard',
+        mesh=meshes[e['primitive']['mMesh']['mSimpleMeshName'].lower()] if primitive=='VfxPrimitiveMesh' else None,
+        texture=textures[e['texture'].lower()],lookup=textures[e['particleColorTexture'].lower()] if e.get('particleColorTexture') else None,
+        rate=e['rate']['constantValue'],single=bool(e.get('isSingleParticle',False)),emitterLife=e['lifetime'],
+        linger=e.get('particleLinger',0),life=birth(e['particleLifetime'],3),
+        velocity=birth(e.get('birthVelocity',{}),[0,0,0]),position=birth(e.get('EmitterPosition',{}),[0,0,0]),
+        spawnOffset=birth(shape.get('emitOffset',{}),[0,0,0]),
+        spawnAngles=[birth(v,0) for v in shape.get('emitRotationAngles',[])],spawnAxes=shape.get('emitRotationAxes',[]),
+        size=birth(e.get('birthScale0',{}),defaults['birthScale']),rotation=birth(e.get('birthRotation0',{}),[0,0,0]),
+        scale=curve(e.get('scale0',{}),[1,1,1]),color=curve(e.get('Color',{}),[1,1,1,1]),
+        direction=bool(e.get('isDirectionOriented',False)),directionScale=e.get('directionVelocityScale',0),directionMinScale=1,
+        local=e.get('isLocalOrientation',True),particleLocal=bool(e.get('particleIsLocalOrientation',False)),
+        bindWeight=e.get('bindWeight',{}).get('constantValue'),
+        lookupTypes=[e.get('colorLookUpTypeX',1),e.get('colorLookUpTypeY',0)],lookupScales=e.get('colorLookUpScales',[1,1]),lookupOffsets=e.get('colorLookUpOffsets',[0,0]),
+        atlas=dict(grid=e.get('texDiv',[1,1]),frames=e.get('numFrames',1),start=e.get('startFrame',0),random=bool(e.get('isRandomStartFrame',False))),
+        blend=e.get('blendMode',0),renderOrder=e.get('pass',0),miscRenderFlags=e.get('miscRenderFlags',0),explicitFields=sorted(e)))
+assert len(impact)==7
+impact_path=Path('src/content/garen-q-impact-particles.json');write_changed(impact_path,impact)
+selected=[dict(system=system,index=0)]+[dict(system=p['system'],index=p['index']) for p in [*cast,*impact]]
 selected_keys={(p['system'],p['index']) for p in selected}
 deferred=[]
 for key,r in pin['resources'].items():
@@ -107,7 +148,7 @@ for key,r in pin['resources'].items():
             'recipient size/atlas/stop integration' if key=='Garen_Q_Silence' else
             'appearance, attachment and dispatch integration pending')
         deferred.append(dict(system=key,index=i,reason=reason))
-assert len(deferred)==22
+assert len(deferred)==15
 from PIL import Image
 samples=[]
 for index,p in enumerate(cast):
@@ -120,6 +161,15 @@ for index,p in enumerate(cast):
     samples.append(dict(profileIndex=index,sourceUv=[(at[0]+0.5)/image.width,(at[1]+0.5)/image.height],
         lookupUv=[(lookup_at[0]+0.5)/lookup.width,(lookup_at[1]+0.5)/lookup.height] if lookup else [0.5,0.5],
         tint=[0.6,0.8,0.4,0.7],sourceRgba=list(image.getpixel(at)),lookupRgba=list(lookup.getpixel(tuple(lookup_at))) if lookup else [255]*4))
+impact_samples=[]
+for index,p in enumerate(impact):
+    image=Image.open('public/'+p['texture']).convert('RGBA')
+    at=max(((x,y) for y in range(image.height) for x in range(image.width)),key=lambda xy:sum(image.getpixel(xy)))
+    lookup=Image.open('public/'+p['lookup']).convert('RGBA') if p['lookup'] else None
+    lookup_at=[lookup.width//2,lookup.height//2] if lookup else None
+    impact_samples.append(dict(profileIndex=index,impact=True,sourceUv=[(at[0]+0.5)/image.width,(at[1]+0.5)/image.height],
+        lookupUv=[(lookup_at[0]+0.5)/lookup.width,(lookup_at[1]+0.5)/lookup.height] if lookup else [0.5,0.5],
+        tint=[0.6,0.8,0.4,0.7],sourceRgba=list(image.getpixel(at)),lookupRgba=list(lookup.getpixel(tuple(lookup_at))) if lookup else [255]*4))
 # Conservative system-age wait plus capped total life, with first-update/interpolation margin.
 def max_life(p):
     tables=p['life']['probabilities']
@@ -130,10 +180,15 @@ cast_tail=max(max_life(p) if p['role']=='activation' else
     min(max_life(p),p['life']['value'][0]+10,max(p['linger'],0)) for p in cast)
 cast_retention_ticks=math.ceil(cast_tail*60)+2
 assert cast_retention_ticks==122
+impact_retention_ticks=math.ceil(max(p['emitterLife']+max_life(p) for p in impact)*60)+2
+assert impact_retention_ticks==75
 write_changed(Path('docs/reference/garen-q-particle-profiles.json'),dict(
     sourcePinSha256=sha(pin_path.read_bytes()),decodedAssetsSha256=sha(asset_path.read_bytes()),
     defaultsEvidenceSha256=sha(default_path.read_bytes()),output=dict(path=str(output),sha256=sha(output.read_bytes())),
     castOutput=dict(path=str(cast_path),sha256=sha(cast_path.read_bytes())),readerEvidenceSha256=sha(reader_path.read_bytes()),
+    impactOutput=dict(path=str(impact_path),sha256=sha(impact_path.read_bytes())),impactReaderEvidenceSha256=sha(impact_reader_path.read_bytes()),
     implemented=selected,deferred=deferred,emptySystems=['Garen_Q_Buf'],castRetentionBoundTicks=cast_retention_ticks,gpuSamples=samples,
-    status='One animation-bound weapon emitter and eight local activation/armed emitters reconstructed. Native dispatch, attachment and rendering parity unverified.'))
-print('Exported nine Q emitters; twenty-two emitter records remain deferred.')
+    impactGpuSamples=impact_samples,
+    impactRetentionBoundTicks=impact_retention_ticks,
+    status='One animation-bound weapon emitter, eight local activation/armed emitters and seven confirmed-contact emitters reconstructed. Native dispatch, attachment and rendering parity unverified.'))
+print('Exported sixteen Q emitters; fifteen emitter records remain deferred.')

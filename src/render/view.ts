@@ -83,7 +83,7 @@ export class GameView {
   luxBeams = new LuxBeams(this.scene, (p) => this.ground(p));
   wind = new HawkshotWind(this.scene, (p) => this.ground(p));
   garenJustice = new LazyGarenJustice(this.scene, (p) => this.ground(p));
-  garenDecisiveStrike = new LazyGarenDecisiveStrike(this.scene);
+  garenDecisiveStrike = new LazyGarenDecisiveStrike(this.scene, (p) => this.ground(p));
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));

@@ -571,3 +571,26 @@ gzip), loaded on Garen presence; the ordinary game entry is 582.88 KB (160.28 KB
 gzip). The existing large-bundle warning remains. Ordinary startup adds no Q
 mesh/texture requests. All source/native calibration, remaining Q layers, W body
 operations and production/full-match acceptance remain in scope.
+
+## Decisive Strike impact particles — October 21, 2026
+
+Seven target-impact color emitters now start from saved confirmed contacts: two
+source mesh layers, flash, slash, ray and two directed spark emitters. Sixteen
+of Q's 31 emitter records now render; target distortion and fourteen other records
+remain deferred. The local contact-ground/heading policy keeps effects independent
+of later caster/target movement, death and pose stops. Native recipient attachment
+and following remain unverified. Source spawn rotation, speed stretch, atlas
+absences, appearance and blend factors use separately pinned reconstruction
+evidence. No schema, combat, silence, sound or binary assets changed.
+
+All 1,023 tests, 35 focused Chrome cases, thirty GPU product/blend comparisons,
+model/map validation and 45-output byte-identical reproduction pass. Chrome
+checks exact save/reload, independent contact coordinates/ray direction, actual
+fog with a hidden caster, lethal contact and finite match-end tails, and disposal
+of owned materials/ray geometry. Shared loading now uses three meshes and fifteen
+texture paths; ordinary startup requests none of the new Q graphics. The contact
+capture was visually reviewed. Production build/nested-path smoke passes with
+seventeen recordings, real Ashe/Lux input and the Garen gate retained.
+See [Q particle details](GAREN-Q-PARTICLES.md#confirmed-contact-impact-layers--october-21-2026)
+and [current validation](PROGRESS.md#decisive-strike-impact-particles--october-21-2026).
+Native calibration and complete Garen/full-match acceptance remain open.

@@ -105,6 +105,7 @@ test('all eight Q cast layers restore their exact early phase and consumed sound
     let disposed = 0,
       geometryDisposed = 0;
     for (const m of g.view.garenDecisiveStrike.models.values()) {
+      if (m.userData.profileIndex === undefined) continue;
       m.material.addEventListener('dispose', () => disposed++);
       m.geometry.addEventListener('dispose', () => geometryDisposed++);
     }

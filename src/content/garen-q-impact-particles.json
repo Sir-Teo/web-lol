@@ -1,0 +1,1382 @@
+[
+  {
+    "system": "Garen_Q_Tar",
+    "index": 0,
+    "name": "SIDEWALL",
+    "kind": "mesh",
+    "mesh": "assets/models/garen-q-impact.glb",
+    "texture": "assets/effects/garen_base_r_spikes.png",
+    "lookup": null,
+    "rate": 5.0,
+    "single": false,
+    "emitterLife": 0.10000000149011612,
+    "linger": 10.199999809265137,
+    "life": {
+      "value": [
+        0.20000000298023224
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0.0,
+        -100.0,
+        -30.0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        30.0,
+        30.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        90.0,
+        50.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "times": [
+        0.0,
+        2.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          3.0,
+          8.0,
+          2.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.15000000596046448,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": false,
+    "directionScale": 0,
+    "directionMinScale": 1,
+    "local": true,
+    "particleLocal": true,
+    "bindWeight": 1.0,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        4.0,
+        1.0
+      ],
+      "frames": 4,
+      "start": 1,
+      "random": true
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "SpawnShape",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "birthVelocity",
+      "disableBackfaceCull",
+      "emitterName",
+      "isRandomStartFrame",
+      "lifetime",
+      "numFrames",
+      "particleIsLocalOrientation",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "startFrame",
+      "texDiv",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Tar",
+    "index": 1,
+    "name": "flash",
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_hit_flash.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "rate": 6.0,
+    "single": false,
+    "emitterLife": 0.10000000149011612,
+    "linger": 10.850000381469727,
+    "life": {
+      "value": [
+        0.8500000238418579
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        350.0,
+        300.0,
+        300.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            90.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.3499999940395355,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": false,
+    "directionScale": 0,
+    "directionMinScale": 1,
+    "local": true,
+    "particleLocal": false,
+    "bindWeight": 1.0,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "emitterName",
+      "lifetime",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Tar",
+    "index": 2,
+    "name": "slash",
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_tar_slash.png",
+    "lookup": null,
+    "rate": 2.0,
+    "single": true,
+    "emitterLife": 1.0,
+    "linger": 0,
+    "life": {
+      "value": [
+        0.20999999344348907
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        0.0,
+        250.0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        0.0,
+        -10.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        120.0,
+        120.0,
+        120.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        90.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          3.0,
+          2.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.3499999940395355,
+          0.10000000149011612,
+          0.0
+        ]
+      ]
+    },
+    "direction": false,
+    "directionScale": 0,
+    "directionMinScale": 1,
+    "local": true,
+    "particleLocal": false,
+    "bindWeight": 1.0,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 4,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "birthVelocity",
+      "blendMode",
+      "emitterName",
+      "isSingleParticle",
+      "lifetime",
+      "particleLifetime",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Tar",
+    "index": 3,
+    "name": "forward_Impact",
+    "kind": "ray",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_tar_impact.png",
+    "lookup": null,
+    "rate": 2.0,
+    "single": true,
+    "emitterLife": 1.0,
+    "linger": 10.210000038146973,
+    "life": {
+      "value": [
+        0.20999999344348907
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        0.0,
+        -40.0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        0.0,
+        -80.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        30.0,
+        100.0,
+        30.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.05000000074505806,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          3.0,
+          3.0,
+          0.0
+        ],
+        [
+          6.0,
+          6.0,
+          0.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.25,
+          0.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.25,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": true,
+    "directionScale": 0,
+    "directionMinScale": 1,
+    "local": true,
+    "particleLocal": false,
+    "bindWeight": null,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 4,
+    "renderOrder": -13,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "birthVelocity",
+      "blendMode",
+      "emitterName",
+      "isDirectionOriented",
+      "isSingleParticle",
+      "lifetime",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Tar",
+    "index": 4,
+    "name": "sparks",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_sparks-orange.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "rate": 150.0,
+    "single": false,
+    "emitterLife": 0.10000000149011612,
+    "linger": 1.0,
+    "life": {
+      "value": [
+        0.25
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            2.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "value": [
+        4.0,
+        0.0,
+        4.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            300.0,
+            0.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "value": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            25.0,
+            0.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            25.0,
+            0.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "spawnAngles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              -20.0,
+              20.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        1.0000001192092896,
+        0.0,
+        0.0
+      ]
+    ],
+    "size": {
+      "value": [
+        8.0,
+        15.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.6000000238418579,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": true,
+    "directionScale": 0.008999999612569809,
+    "directionMinScale": 1,
+    "local": true,
+    "particleLocal": false,
+    "bindWeight": null,
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": true
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "SpawnShape",
+      "__type",
+      "birthScale0",
+      "birthVelocity",
+      "colorLookUpTypeY",
+      "directionVelocityScale",
+      "emitterName",
+      "isDirectionOriented",
+      "isRandomStartFrame",
+      "lifetime",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "texDiv",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Tar",
+    "index": 5,
+    "name": "SIDEWALL",
+    "kind": "mesh",
+    "mesh": "assets/models/garen-q-impact.glb",
+    "texture": "assets/effects/garen_base_r_spikes.png",
+    "lookup": null,
+    "rate": 5.0,
+    "single": false,
+    "emitterLife": 0.10000000149011612,
+    "linger": 10.199999809265137,
+    "life": {
+      "value": [
+        0.20000000298023224
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0.0,
+        -100.0,
+        -30.0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "size": {
+      "value": [
+        30.0,
+        30.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        90.0,
+        50.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "times": [
+        0.0,
+        2.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          3.0,
+          8.0,
+          2.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.15000000596046448,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": false,
+    "directionScale": 0,
+    "directionMinScale": 1,
+    "local": true,
+    "particleLocal": true,
+    "bindWeight": 1.0,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        4.0,
+        1.0
+      ],
+      "frames": 4,
+      "start": 1,
+      "random": true
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "SpawnShape",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "birthVelocity",
+      "disableBackfaceCull",
+      "emitterName",
+      "isRandomStartFrame",
+      "lifetime",
+      "numFrames",
+      "particleIsLocalOrientation",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "startFrame",
+      "texDiv",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Tar",
+    "index": 6,
+    "name": "sparks",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_sparks-orange.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "rate": 150.0,
+    "single": false,
+    "emitterLife": 0.10000000149011612,
+    "linger": 1.0,
+    "life": {
+      "value": [
+        0.25
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            2.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "value": [
+        4.0,
+        0.0,
+        4.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            300.0,
+            0.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "value": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            25.0,
+            0.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            25.0,
+            0.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "spawnAngles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              -20.0,
+              20.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        1.0000001192092896,
+        0.0,
+        0.0
+      ]
+    ],
+    "size": {
+      "value": [
+        8.0,
+        15.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.6000000238418579,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": true,
+    "directionScale": 0.008999999612569809,
+    "directionMinScale": 1,
+    "local": true,
+    "particleLocal": false,
+    "bindWeight": null,
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": true
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "SpawnShape",
+      "__type",
+      "birthScale0",
+      "birthVelocity",
+      "colorLookUpTypeY",
+      "directionVelocityScale",
+      "emitterName",
+      "isDirectionOriented",
+      "isRandomStartFrame",
+      "lifetime",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "texDiv",
+      "texture"
+    ]
+  }
+]

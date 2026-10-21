@@ -3,8 +3,8 @@
 All eleven base Q resource keys now have frozen source definitions, including
 31 emitter records, 29 lossless textures and four exact mesh conversions. The
 development inspector exposes all assets and definitions. This is source
-preparation plus nine live emitters: the weapon trail and eight activation/armed
-layers. Twenty-two emitter records and native rendering remain open. Gameplay values are unchanged; schema 83 adds
+preparation plus sixteen live emitters: the weapon trail, eight activation/armed
+layers and seven confirmed-contact layers. Fifteen emitter records and native rendering remain open. Gameplay values are unchanged; schema 83 adds
 attack outcomes and presentation stops. Garen remains outside production selection.
 
 ## Frozen dependency closure
@@ -65,10 +65,11 @@ weapon trail remains a 500-triangle mesh rather than a procedural ribbon.
 The 29 PNGs total 1,250,707 bytes. Six existing images are reused only after exact
 dimension/RGBA comparison; 23 new images add 1,119,506 bytes. The decoded audit
 records source/output/RGBA hashes and dimensions, including lookup, distortion,
-sprite and mesh maps. Four GLBs add 50,208 bytes. The live adapter requests two meshes
-and eleven textures only on Garen presence. The ordinary fixture requests none
+sprite and mesh maps. Four GLBs add 50,208 bytes. The live adapter requests three meshes
+and fifteen textures only on Garen presence. The ordinary fixture requests none
 of the new Q graphics. The other Q meshes/new textures remain source assets. Shared
-textures retain their existing W/E/R consumers.
+textures retain their existing W/E/R consumers. Three of the four Q meshes now load
+in the live adapter; Jump remains an inspection asset.
 
 `/tools/qa/garen-q-source-preview.html` offers orbit/zoom, wireframe, all four
 meshes, an eleven-system selector, complete definitions and every raw image. Its
@@ -149,13 +150,13 @@ Schema 83 validates target identity, same-level captured timing pairs, impact at
 the actual release, one successful contact per activation, chronological stops,
 recasts, terminal reasons and ongoing-cycle correspondence. Impacts are captured
 before lethal damage can clear attack state or end a match. They survive target
-loss, caster death, later orders and reload. Source target/silence dispatch has
-not been added merely because this history is now available. Retention remains
+loss, caster death, later orders and reload. Confirmed contacts now drive the
+separate target adapter below; silence dispatch remains open. Retention remains
 the existing 200-tick sound tail, which also covers this short mesh life.
 
 `export-garen-q-particles.py` pins the trail and cast profiles and accounts
-explicitly for all twenty-two deferred emitter records and the empty buff system.
-Renderer/profiles, two GLBs and eleven textures load on Garen presence, with shared
+explicitly for all fifteen deferred emitter records and the empty buff system.
+Renderer/profiles, three GLBs and fifteen textures load on Garen presence, with shared
 concurrent loads, partial-failure cleanup and cached successful reuse. Each live particle
 owns its material; geometry/textures remain shared when a particle retires or
 fog removes it. Native timing, other Q layers, distortion, shader/attachment
@@ -235,3 +236,73 @@ restore exact material/transform state. Close-up cast and tail captures were
 visually reviewed. All 43 generated Q outputs reproduce byte-for-byte; the
 production copy of all 37 static Q files matches. [PROGRESS](PROGRESS.md) records
 scope, bundle sizes and the saved-menu browser helper correction.
+
+## Confirmed-contact impact layers — October 21, 2026
+
+Seven of the eight `Garen_Q_Tar` emitters now reconstruct from saved **confirmed**
+contacts: both SIDEWALL source-mesh layers, flash, slash, forward-impact ray and
+two directed spark emitters. The distortion record remains separate. An intended
+release, missed/cancelled swing or target lost before contact emits nothing.
+Once accepted, the local one-shot finishes independently of later armed/pose
+stops, recasts, target/caster movement and death. Finishing a match advances its
+bounded presentation clock without advancing the saved simulation. No schema,
+combat, silence or audio behavior changed.
+
+This adapter anchors the system at the saved target contact's terrain height and
+uses its saved caster heading. It retains source emitter/spawn offsets, rotated
+velocity, lifetime, scale/color curves, passes, atlas cells and blend modes.
+The explicit bind weights and the missing weights on other emitters remain
+in the generated profile; this initial fixed-contact policy does not establish
+native recipient-bone binding or subsequent target following. No arbitrary
+recipient-center height is invented. Native dispatch, attachment, heading and
+composition require comparison.
+
+The spark legacy shape rotates offset and velocity by the same sampled X-axis
+angle, using normalized source axes. Every birth-value table shares one indexed
+chance; a separate indexed roll chooses lookup/atlas values. This is repeatable
+cosmetic sampling rather than the native RNG stream. The pinned
+[shape reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/spawnShape.ts)
+and [emission code](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts)
+retain this shared turn. Straight-line motion is sufficient for these seven
+records: none declares acceleration, drag or orbital motion. Source singles emit
+the rate-sized burst on the first update; nonsingles use the existing 60 Hz rate
+budget through their authored 0.1-second emission window. Natural particle life
+is independent of the emission window. `particleLinger` remains source metadata;
+no script stop is fabricated at the end of emission.
+
+Spark length multiplies source Y size by `max(1, speed * directionVelocityScale)`;
+the pinned [draw reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts)
+uses that speed stretch, with the missing minimum default of one from the
+[system reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readVfxSystem.ts).
+The ray retains its authored +Z axis despite negative-Z travel; the
+[ray classification](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/drawKind.ts)
+excludes rays from direction orientation/stretch. The existing camera-facing ray
+builder supplies width, length and the near edge. Source 2×2 spark grids omit
+`numFrames`; the retained reader default of one therefore leaves their random
+start in cell zero. The mesh sheets retain four authored frames starting at one.
+Five additional reference files are hash-pinned in
+`reference/garen-q-impact-reader.json`, linked to the prior eight-file evidence.
+These are external reconstruction semantics, not native-client measurements.
+
+Each enemy particle is filtered at its own world position, independently of caster
+visibility or model presence. Reveal reconstructs the current age rather than
+restarting. Every particle owns its material; the two live ray particles also own
+their dynamic geometry. Fog, retirement and checkpoint removal dispose those
+resources while the source meshes, quads and textures stay shared. Loading now
+shares three GLBs and fifteen texture paths with atomic partial-failure cleanup.
+Only eleven of the new Q PNGs are requested, plus three Q GLBs; the other four
+textures overlap existing W/E/R assets. Ordinary Ashe/Lux startup requests none
+of the new Q graphics. No binary asset changed.
+
+The exporter accounts for sixteen implemented and fifteen deferred emitters. Its
+conservative 75-tick contact tail fits within the existing 200-tick history, even
+when a committed attack resolves shortly after armed expiry. Unit checks cover
+confirmed-contact gating, source fields, shared spawn motion, stretch, atlas
+absences, deterministic finite seeks, lethal contact and exact continuation after
+caster death. Three new real-game Chrome cases cover all seven layers, save/reload,
+independent movement/death, actual fog with a hidden caster, target loss, frozen
+match-end clocks and material/ray disposal. Seven new independent PNG product and
+framebuffer probes bring the Q GPU total to thirty comparisons. The 1440×900
+close-up contact capture was visually inspected. Full verification is recorded
+in [PROGRESS](PROGRESS.md); native comparison and the remaining fifteen layers
+remain open.

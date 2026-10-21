@@ -11,6 +11,11 @@
     "sha256": "a452f20d6f856fded3fd6a4ec215ebd7ead5e0ff02746e0b27190fb889500c5f"
   },
   "readerEvidenceSha256": "01be616a7dc5a60b6ad35a6f2496ea275c051efaedcc76aeb61a6a5bf93af21e",
+  "impactOutput": {
+    "path": "src/content/garen-q-impact-particles.json",
+    "sha256": "fcf078042e4258d518c2a50f5b528e0f2ef0d3a39f94d1654da76c6232e52101"
+  },
+  "impactReaderEvidenceSha256": "1651499bc3ac3f03e4ecdf9f2ed4ab6abd2bf5c34227102a12d58a528a8c78cf",
   "implemented": [
     {
       "system": "Garen_Q_Sword_Trail",
@@ -47,6 +52,34 @@
     {
       "system": "Garen_Q_Cas_Sword",
       "index": 3
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 0
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 1
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 2
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 3
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 4
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 5
+    },
+    {
+      "system": "Garen_Q_Tar",
+      "index": 6
     }
   ],
   "deferred": [
@@ -119,41 +152,6 @@
       "system": "Garen_Q_Land",
       "index": 4,
       "reason": "scene distortion"
-    },
-    {
-      "system": "Garen_Q_Tar",
-      "index": 0,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Tar",
-      "index": 1,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Tar",
-      "index": 2,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Tar",
-      "index": 3,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Tar",
-      "index": 4,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Tar",
-      "index": 5,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Tar",
-      "index": 6,
-      "reason": "appearance, attachment and dispatch integration pending"
     },
     {
       "system": "Garen_Q_Tar",
@@ -399,5 +397,218 @@
       ]
     }
   ],
-  "status": "One animation-bound weapon emitter and eight local activation/armed emitters reconstructed. Native dispatch, attachment and rendering parity unverified."
+  "impactGpuSamples": [
+    {
+      "profileIndex": 0,
+      "impact": true,
+      "sourceUv": [
+        0.6865234375,
+        0.318359375
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        239,
+        142,
+        0,
+        255
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 1,
+      "impact": true,
+      "sourceUv": [
+        0.517578125,
+        0.517578125
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        247,
+        219,
+        90,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    },
+    {
+      "profileIndex": 2,
+      "impact": true,
+      "sourceUv": [
+        0.802734375,
+        0.392578125
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        247,
+        231,
+        145
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 3,
+      "impact": true,
+      "sourceUv": [
+        0.478515625,
+        0.5126953125
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 4,
+      "impact": true,
+      "sourceUv": [
+        0.7265625,
+        0.6640625
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    },
+    {
+      "profileIndex": 5,
+      "impact": true,
+      "sourceUv": [
+        0.6865234375,
+        0.318359375
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        239,
+        142,
+        0,
+        255
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 6,
+      "impact": true,
+      "sourceUv": [
+        0.7265625,
+        0.6640625
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    }
+  ],
+  "impactRetentionBoundTicks": 75,
+  "status": "One animation-bound weapon emitter, eight local activation/armed emitters and seven confirmed-contact emitters reconstructed. Native dispatch, attachment and rendering parity unverified."
 }
