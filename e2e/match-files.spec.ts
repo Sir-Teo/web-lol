@@ -69,7 +69,10 @@ test('download transfers an exact paused checkpoint and pending command to anoth
       mimeType: 'application/json',
       buffer: Buffer.from(text),
     });
-    await expect(target.locator('.file-status')).toContainText('0:30 · Match in progress');
+    // The source match may advance during startup before the pause input lands.
+    const seconds = Math.floor(expected.tick / 60);
+    const timestamp = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+    await expect(target.locator('.file-status')).toContainText(`${timestamp} · Match in progress`);
     expect(await snapshot(target)).toBe(before);
     expect(await stored(target)).toBeUndefined();
     await target.screenshot({ path: 'artifacts/match-file-preview.png' });

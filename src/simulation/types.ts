@@ -307,6 +307,12 @@ export interface ChampionState {
     hits: { targetId: number; count: number }[];
   } | null;
   garenW: { startTick: number; rank: number; upfrontUntil: number; defenseUntil: number } | null;
+  /** Courage presentation survives the defense buff for source sound tails. */
+  garenWVisual: {
+    startTick: number;
+    stopTick: number | null;
+    endReason: 'expired' | 'death' | 'match-end' | null;
+  } | null;
   garenQ: {
     startTick: number;
     rank: number;

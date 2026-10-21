@@ -96,3 +96,8 @@ fallback cast. Q/W/basic/voice audio and native comparison remain unfinished.
 now add a shockwave, three rays and flash only on the recorded lethal R result.
 Those six draws retain their release point and clocks through caster death and
 checkpoint reload; both source distortion layers and native comparison remain open.
+
+[Courage source audio](GAREN-W-AUDIO.md) now supplies cast, sustained loop and
+ending phases. Schema 80 retains those clocks through shield loss, defense
+expiry and death, including saved loop offsets and a partial stop fade. Source
+Q/basic/voice audio, Q/W particles and native calibration remain unfinished.

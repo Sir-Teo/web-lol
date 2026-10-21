@@ -160,5 +160,5 @@ or warnings. Production build and nested-host smoke pass with 17 ordinary startu
 recordings and the production Garen gate intact. The R audio controller/profile
 occupies a separate 6.72 KB chunk (2.95 KB gzip); the existing large-bundle warning
 remains. [PROGRESS.md](PROGRESS.md) retains the broader project acceptance scope.
-Native listening/dispatch/bus comparison, scene distortion, Q/W/basic/voice audio
+Native listening/dispatch/bus comparison, scene distortion, Q/basic/voice audio
 and complete production/full-match acceptance remain open.

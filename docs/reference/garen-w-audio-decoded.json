@@ -1,0 +1,369 @@
+{
+  "sourceGraphSha256": "5e14b0ca5b7b5face8a07f64e7a6ed016603cc5384c59601ceac4666eef548bb",
+  "decoder": {
+    "repository": "https://github.com/vgmstream/vgmstream",
+    "revision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+    "binarySha256": "39ee0584ca90cd823bab8000d1546e5bdd50affeb118294a3a9d45618eb9f8bc",
+    "staticDependencies": [
+      {
+        "name": "ogg",
+        "revision": "fa80aae9d50096160f2b56ada35527d7aee3f746",
+        "libraries": [
+          {
+            "path": "libogg.a",
+            "sha256": "e50e35e81704cf6c2d557606cd1bc726594e4256a0e6fd0070ab09624ffbe28d"
+          }
+        ]
+      },
+      {
+        "name": "vorbis",
+        "revision": "2eac96b03ff67953354cb0a649c08aa3a23267ef",
+        "libraries": [
+          {
+            "path": "lib/libvorbis.a",
+            "sha256": "c3c24ec45de8346734141ebe94166d535c70755f97c7956c65ac39e16473e142"
+          },
+          {
+            "path": "lib/libvorbisfile.a",
+            "sha256": "6313b457f7f2e152667b1a9953eb1334d366c0784b78b82a9999587acd0fc105"
+          }
+        ]
+      }
+    ],
+    "flags": [
+      "-i",
+      "-W",
+      "4"
+    ],
+    "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+  },
+  "media": [
+    {
+      "id": 9695656,
+      "encodedSha256": "dd6167034fb0c12393bee3e0ce962893b861b6ecf39f6d07025c96c9cb7ee6e1",
+      "wavSha256": "fcea24a3eecebd0fa64760b176780f44860e94bccadbdeb9d2a2917ab0837f0d",
+      "pcmSha256": "0f7e13355d5e5da80ec059c80c7ecdf4caeed51287d4cca912b37aa728fdd146",
+      "wavBytes": 282572,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 70632,
+      "durationSeconds": 1.6016326530612246,
+      "peak": 1.2045865058898926,
+      "rms": 0.19164645270465222,
+      "samplesOutsideUnitRange": 173,
+      "endpointDelta": [
+        -1.575707256051828e-05
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": null,
+        "numberOfSamples": 70632,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 63485,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 70632
+      }
+    },
+    {
+      "id": 18282464,
+      "encodedSha256": "14241a8f3582bbc6d27706a505edf4b28be8b75954391a16b13233f901e943ef",
+      "wavSha256": "81734f542a44e5a1fe6830e0ea773f7aa5e99a3cb6cea2bf1a88b3d7ed15e038",
+      "pcmSha256": "876bd696551c24488a258f6d7adb50e107d5f28daaa6678e52a222293e5a1b89",
+      "wavBytes": 255620,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 63894,
+      "durationSeconds": 1.448843537414966,
+      "peak": 1.2769663333892822,
+      "rms": 0.19938277322300982,
+      "samplesOutsideUnitRange": 179,
+      "endpointDelta": [
+        -1.9962109945481643e-05
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": null,
+        "numberOfSamples": 63894,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 64343,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 63894
+      }
+    },
+    {
+      "id": 88666955,
+      "encodedSha256": "4f3d581649bcf25189d46a2a04a3dcd0de8f30aa754db1d94443b527e307dd39",
+      "wavSha256": "c29347d43b78610aca4edfb69f574cf7e7cd2998b638a38bad9bc966bce6e955",
+      "pcmSha256": "fca92c2d78329ac03595fc26bdf51f0c6997c003256644f5932335d046134e39",
+      "wavBytes": 882044,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 220500,
+      "durationSeconds": 5.0,
+      "peak": 0.17727047204971313,
+      "rms": 0.0416698388423316,
+      "samplesOutsideUnitRange": 0,
+      "endpointDelta": [
+        0.01800183206796646
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": {
+          "start": 26742,
+          "end": 219583
+        },
+        "numberOfSamples": 220500,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 64798,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 853424
+      }
+    },
+    {
+      "id": 135177858,
+      "encodedSha256": "0b2d63823e4985b57e9b59974b1303cce336a03b3e3d75f7550d634e69e33e13",
+      "wavSha256": "e33be4a5b9d3f48f2a7ad3d2d5a41b914f928a32eec5405f1eaff9c1d2e6af2e",
+      "pcmSha256": "7e1ba51e99e45aae3fd4e56e82d1bf4b03dc774ff23711b12c25270422f2517a",
+      "wavBytes": 527840,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 131949,
+      "durationSeconds": 2.9920408163265306,
+      "peak": 1.4869391918182373,
+      "rms": 0.29581963405001765,
+      "samplesOutsideUnitRange": 2152,
+      "endpointDelta": [
+        -2.7463802325655706e-05
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": null,
+        "numberOfSamples": 131949,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 60803,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 131949
+      }
+    },
+    {
+      "id": 174925804,
+      "encodedSha256": "529b9ed7f9dd414ed1c3d079a9ba4d2d8547af27bb8fd6756110f08a48a30dd4",
+      "wavSha256": "825ff1540f41c5b0d4795cca18a2378a99c116fb0f53387963d40396799dbd5c",
+      "pcmSha256": "e431300890f29d74b9245aec1d394b3869d0d8571d1a5c85825ecefb5345d841",
+      "wavBytes": 534352,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 133577,
+      "durationSeconds": 3.0289569160997734,
+      "peak": 1.502526879310608,
+      "rms": 0.3025077494867786,
+      "samplesOutsideUnitRange": 2415,
+      "endpointDelta": [
+        3.7264304410200566e-05
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": null,
+        "numberOfSamples": 133577,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 60937,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 133577
+      }
+    },
+    {
+      "id": 220792549,
+      "encodedSha256": "b8f475adc4ee3696a5776d912cf303d1b97a74b9cde88e5235a6cd888bdbc1f2",
+      "wavSha256": "9d76a4ccd2728b1608c34af7343bd074af49dc3b64dd3056d867b9ea1550892f",
+      "pcmSha256": "af521700b88382d89d94d8f308afc0e4f8c4c6bfcb333944ad8f37b9298b8288",
+      "wavBytes": 882044,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 220500,
+      "durationSeconds": 5.0,
+      "peak": 0.17908096313476562,
+      "rms": 0.04095645149642532,
+      "samplesOutsideUnitRange": 0,
+      "endpointDelta": [
+        -0.0027964338660240173
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": {
+          "start": 28276,
+          "end": 220402
+        },
+        "numberOfSamples": 220500,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 64612,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 853528
+      }
+    },
+    {
+      "id": 365103885,
+      "encodedSha256": "e49db123f8c9e473a91027944da712a5a5625f81a36ca31d410e66dcd60c6e39",
+      "wavSha256": "838130f5c5d0df3088793fca9a83a3fd709fdaa2739903ef9b138686e85b22f4",
+      "pcmSha256": "73fe13fb3d712bbce8d59b9f2dfa947dc3719dec30be1180a5fafc37d9da6876",
+      "wavBytes": 554364,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 138580,
+      "durationSeconds": 3.142403628117914,
+      "peak": 1.5950034856796265,
+      "rms": 0.3018063089801543,
+      "samplesOutsideUnitRange": 2318,
+      "endpointDelta": [
+        1.235083254869096e-05
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": null,
+        "numberOfSamples": 138580,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 60379,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 138580
+      }
+    },
+    {
+      "id": 414355549,
+      "encodedSha256": "a2b27fdf484822b50da7e46ee19083cc85a383cbb9d8a1d32b433cb1643209ff",
+      "wavSha256": "176a11bbfc7adac218bd0081af021cddab4348312c361931c951fdfd24eed8cd",
+      "pcmSha256": "059e32414b4e7868f7296e11399bc393879c0a2defd41598f555e794244b43b1",
+      "wavBytes": 265744,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 66425,
+      "durationSeconds": 1.506235827664399,
+      "peak": 1.1941826343536377,
+      "rms": 0.19069546086281647,
+      "samplesOutsideUnitRange": 114,
+      "endpointDelta": [
+        -3.992799247498624e-05
+      ],
+      "decoderMetadata": {
+        "version": "r2117",
+        "sampleRate": 44100,
+        "channels": 1,
+        "mixingInfo": {
+          "inputChannels": 1,
+          "outputChannels": 1
+        },
+        "channelLayout": 4,
+        "loopingInfo": null,
+        "numberOfSamples": 66425,
+        "encoding": "Custom Vorbis",
+        "layout": "flat",
+        "metadataSource": "Audiokinetic Wwise RIFF header",
+        "bitrate": 65540,
+        "streamInfo": {
+          "index": 0,
+          "name": null,
+          "total": 0
+        },
+        "playSamples": 66425
+      }
+    }
+  ],
+  "status": "Decoded source masters without gain, normalization, resampling, loop expansion or fades. Native mix/listening comparison remains unverified."
+}

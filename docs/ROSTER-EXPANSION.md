@@ -302,3 +302,16 @@ checks, TypeScript, 22 focused Chrome cases and production/nested-path smoke pas
 Save/death/fog/resource lifecycles and six independent GPU samples are covered.
 Native timing/attachment/composition and Q/W/basic/voice presentation remain open;
 Garen's production roster gate stays in place.
+
+
+## Courage source audio — October 21, 2026
+
+[Courage audio](GAREN-W-AUDIO.md) now retains three cast variants, two authored
+intro/loop masters and three ending variants, with the active stop fade and
+sound-level cast gain. Schema 80 persists the independent start/stop/reason
+history through shield loss, defense expiry, death and match end. All 966 source/
+simulation checks, 44 focused Chrome cases and production/nested-host smoke pass;
+PROGRESS records deadline overrides and the repaired transfer timestamp check.
+The eight unchanged float WAVs load only on Garen presence. Source W particles,
+Q/basic/voice audio and native audiovisual calibration remain open before
+production roster acceptance.

@@ -163,6 +163,36 @@ particle chunk is 42.38 KB (6.46 KB gzip); the ordinary game entry is 570.71 KB.
 The existing large-bundle warning remains. Native calibration, Q/W/basic/voice
 presentation and full production/match acceptance remain open.
 
+[Courage source audio](GAREN-W-AUDIO.md) now integrates all four frozen W
+play/stop events and eight unchanged mono float masters. Two active recordings
+retain their authored intro/loop regions and the declared 250 ms stop fade;
+the cast child's extra −0.2 dB gain is applied separately. Schema 80 adds a
+validated start/stop/reason history that survives shield loss, natural defense
+expiry and caster death, retaining 189 ticks for finite sound tails. Source-ready
+casts bypass synthesis; delayed loading preserves a single fallback cast while
+allowing the sustained phase. Code/data and recordings load only on Garen presence.
+
+All 966 source/simulation checks and TypeScript pass with four workers and a
+30-second per-test verification deadline. Forty-four focused Chrome cases pass
+across W audio/PCM integrity, existing Garen player/particles/E/R audio, browser
+checkpoints, file transfer and interruption/graphics recovery. The save/transfer
+reruns use a 60-second test deadline without changing committed defaults. A
+transfer test's fixed `0:30` preview expectation was repaired to derive the exact
+timestamp from the exported checkpoint, since startup can advance before pause.
+Eight new W browser cases verify every decoded float, Web Audio loop bounds,
+pause/mute, saved offsets/partial fade, natural completion without frozen-clock
+replay, death/match end, fog/distance, loading/failure and late-load suppression.
+The result menu retains the existing shared-context pause behavior; terminal
+sound tails finish when that context resumes or release on mute/page teardown.
+
+Repeating map/decode/export reproduces all twelve graph/provenance/profile/WAV
+outputs byte-for-byte. The eight WAVs add 4,184,580 bytes only for Garen presence.
+Production build/nested-host smoke passes with 17 ordinary recordings and Garen
+still excluded from production selection. The W-only chunk is 8.10 KB (3.38 KB
+gzip); the ordinary game entry is 573.17 KB. The existing large-bundle warning
+remains. Source W particles, Q/basic/voice audio, native script/spatialization/
+listening and full production/match acceptance remain open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

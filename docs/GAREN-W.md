@@ -1,8 +1,9 @@
 # Courage source contract
 
 Courage's active defenses and passive resistance stacks are integrated for Garen
-NPCs. Source presentation and native-client parity remain unfinished. Garen
-is still excluded from player selection and the default roster.
+in development player/NPC fixtures. [Source audio](GAREN-W-AUDIO.md) now covers
+cast, authored sustained loops and ending playback. Source particles and native
+calibration remain unfinished; Garen remains outside production selection.
 
 `tools/assets/export-garen-w.py` reads only the root `GarenW` record in the
 [frozen character pin](reference/garen-character.json). It checks the five-rank
@@ -85,8 +86,10 @@ reduces the root to 48 ticks. Shield expiry leaves both the captured root and th
 remaining defense window intact, with identical save continuation. The reviewed
 fixture capture is `artifacts/browser-garen-courage-binding.png`.
 
-No Courage-specific particles or source audio are added in this increment. The
-existing generic cast tone and shared damage/status presentation remain temporary.
+The active-gameplay increment added no Courage-specific particles or source audio.
+The later [source audio adapter](GAREN-W-AUDIO.md) replaces its generic cast tone
+when ready and preserves the original phases through schema-80 checkpoints.
+Shared damage/status presentation and missing source particles remain temporary.
 
 The follow-up Volley regression also checks the legacy slow diagnostics used by
 movement. Actual Frost, critical Frost and Crystal Arrow splash now shorten those

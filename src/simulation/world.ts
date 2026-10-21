@@ -33,6 +33,7 @@ import { GAREN } from '../content/garen-progression';
 import { GAREN_R } from '../content/garen-r';
 import { GAREN_R_WINDUP_TICKS, GAREN_R_REVEAL_TICKS } from '../content/garen-r-policy';
 import { garenRDamage, GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
+import { GAREN_W_AUDIO_TAIL_TICKS } from '../content/garen-w-audio-timing';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
@@ -478,6 +479,9 @@ export class World {
         if (ended !== null && this.tick >= ended + GAREN_R_PRESENTATION_TAIL_TICKS)
           state.garenRVisual = null;
       }
+      const courage = state.garenWVisual;
+      if (courage?.stopTick != null && this.tick >= courage.stopTick + GAREN_W_AUDIO_TAIL_TICKS)
+        state.garenWVisual = null;
       if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
@@ -499,7 +503,8 @@ export class World {
     for (const state of this.activeChampionStates()) {
       rechargeChampion(state, this.tick);
       expireGarenQ(state, this.tick);
-      if (state.garenW && this.tick >= state.garenW.defenseUntil) state.garenW = null;
+      if (state.garenW && this.tick >= state.garenW.defenseUntil)
+        this.finishGarenW(state, 'expired');
       if (
         state.garenRReveal &&
         (this.tick >= state.garenRReveal.endTick || !this.unit(state.garenRReveal.targetId))
@@ -1704,6 +1709,14 @@ export class World {
     state.garenE = null;
     const source = this.unit(state.id);
     if (source) this.setOrder(source, { type: 'idle' });
+  }
+  private finishGarenW(state: ChampionState, reason: 'expired' | 'death' | 'match-end'): void {
+    if (!state.garenW) return;
+    if (state.garenWVisual) {
+      state.garenWVisual.stopTick = this.tick;
+      state.garenWVisual.endReason = reason;
+    }
+    state.garenW = null;
   }
   private advanceGarenSpins(): void {
     for (const state of this.activeChampionStates()) {
@@ -3064,6 +3077,7 @@ export class World {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
           this.finishGarenE(state);
+          this.finishGarenW(state, 'match-end');
           this.cancelGarenRVisual(state);
           state.pendingCast = null;
           state.castAnimation = null;
@@ -3086,7 +3100,7 @@ export class World {
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
         targetState.garenQ = null;
-        targetState.garenW = null;
+        this.finishGarenW(targetState, 'death');
         targetState.garenPassiveReadyTick = 0;
       }
       target.garenEShreds = [];
@@ -3501,6 +3515,7 @@ export class World {
         upfrontUntil: this.tick + upfrontTicks,
         defenseUntil: this.tick + Math.round(GAREN_W.damageReductionSeconds * TICK_RATE),
       };
+      state.garenWVisual = { startTick: this.tick, stopTick: null, endReason: null };
       const baseHealth = GAREN.hp + GAREN.hpGrowth * growthAtLevel(state.level);
       const bonusHealth = Math.max(0, u.maxHp - baseHealth);
       this.applyShield(

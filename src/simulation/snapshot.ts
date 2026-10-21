@@ -29,6 +29,7 @@ import { LUX_R } from '../content/lux-r';
 import { LUX_BINDING } from '../content/lux-binding';
 import { ASHE_E } from '../content/ashe-e';
 import { GAREN_W } from '../content/garen-w';
+import { GAREN_W_AUDIO_TAIL_TICKS } from '../content/garen-w-audio-timing';
 import { GAREN_E } from '../content/garen-e';
 import {
   GAREN_E_DURATION_TICKS,
@@ -49,7 +50,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 79;
+export const SNAPSHOT_VERSION = 80;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -364,6 +365,13 @@ const player: z.ZodType<PlayerState> = z
       .int()
       .min(0)
       .max(Math.ceil(GAREN_W.maxResistGain / GAREN_W.resistGainPerStack)),
+    garenWVisual: z
+      .strictObject({
+        startTick: tick,
+        stopTick: tick.nullable(),
+        endReason: z.enum(['expired', 'death', 'match-end']).nullable(),
+      })
+      .nullable(),
     garenW: z
       .strictObject({
         startTick: tick,
@@ -1454,6 +1462,40 @@ export function decodeSnapshot(text: string) {
           courage.startTick + Math.round(GAREN_W.damageReductionSeconds * TICK_RATE))
     )
       throw new Error('Saved match contains invalid Courage state.');
+    const courageVisual = owner.garenWVisual;
+    if (
+      courage &&
+      (!courageVisual ||
+        courageVisual.startTick !== courage.startTick ||
+        courageVisual.stopTick !== null)
+    )
+      throw new Error('Saved match lacks active Courage presentation.');
+    if (courageVisual) {
+      const { startTick, stopTick, endReason } = courageVisual;
+      const expiry = startTick + Math.round(GAREN_W.damageReductionSeconds * TICK_RATE);
+      if (
+        champion.champion !== 'garen' ||
+        owner.spellRanks.w === 0 ||
+        startTick > state.tick ||
+        (stopTick === null
+          ? endReason !== null ||
+            !courage ||
+            champion.deadAt !== null ||
+            state.winner !== null ||
+            state.tick >= expiry
+          : endReason === null ||
+            stopTick < startTick ||
+            stopTick > state.tick ||
+            stopTick > expiry ||
+            state.tick >= stopTick + GAREN_W_AUDIO_TAIL_TICKS ||
+            courage !== null ||
+            (champion.deadAt !== null && champion.deadAt < stopTick) ||
+            (endReason === 'expired' && stopTick !== expiry) ||
+            (endReason === 'death' && (stopTick >= expiry || champion.deadAt !== stopTick)) ||
+            (endReason === 'match-end' && (state.winner === null || stopTick !== state.tick)))
+      )
+        throw new Error('Saved match contains invalid Courage presentation.');
+    }
     const garenQ = owner.garenQ;
     if (
       ((champion.champion !== 'garen' || champion.deadAt !== null) &&

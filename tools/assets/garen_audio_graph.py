@@ -12,7 +12,7 @@ sys.path.insert(0, '.tools/wwiser')
 from wwiser.wfnv import Fnv
 sha = lambda b: hashlib.sha256(b).hexdigest()
 def map_garen_audio(ability, expected_events):
-    assert ability in ['e', 'r']
+    assert ability in ['w', 'e', 'r']
     pin_path = Path('docs/reference/garen-audio-extraction.json')
     pin = json.loads(pin_path.read_text())
     subprocess.run([sys.executable, 'tools/assets/inspect-garen-audio.py'], check=True, stdout=subprocess.DEVNULL)

@@ -1,5 +1,15 @@
 # Local match checkpoints
 
+Version 80 adds required nullable Courage presentation history: original start,
+stop and end reason. Active records must agree with learned W and its live
+defense buff; stopped records distinguish exact natural expiry from earlier
+death or match end. History remains for 189 ticks after stop, covering source
+cast/ending/stop-fade tails even after immediate caster death. Restore seeks
+the original cast, authored loop span and remaining fade. Shield depletion does
+not end this interval. Missing, foreign, contradictory, future or expired records
+are rejected. Earlier same-build saves remain incompatible. See
+[GAREN-W-AUDIO.md](GAREN-W-AUDIO.md).
+
 Version 79 records whether R's own release damage killed its recipient. The
 required `killed` flag cannot accompany a pending/canceled R, and a later target
 death never promotes an earlier hit into a kill. Shared R presentation history
