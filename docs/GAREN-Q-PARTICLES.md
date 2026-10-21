@@ -3,8 +3,8 @@
 All eleven base Q resource keys now have frozen source definitions, including
 31 emitter records, 29 lossless textures and four exact mesh conversions. The
 development inspector exposes all assets and definitions. This is source
-preparation plus the first live weapon-trail mesh. Thirty emitter records and
-native rendering remain open. Gameplay values are unchanged; schema 83 adds
+preparation plus nine live emitters: the weapon trail and eight activation/armed
+layers. Twenty-two emitter records and native rendering remain open. Gameplay values are unchanged; schema 83 adds
 attack outcomes and presentation stops. Garen remains outside production selection.
 
 ## Frozen dependency closure
@@ -65,9 +65,9 @@ weapon trail remains a 500-triangle mesh rather than a procedural ribbon.
 The 29 PNGs total 1,250,707 bytes. Six existing images are reused only after exact
 dimension/RGBA comparison; 23 new images add 1,119,506 bytes. The decoded audit
 records source/output/RGBA hashes and dimensions, including lookup, distortion,
-sprite and mesh maps. Four GLBs add 50,208 bytes. The live trail requests one mesh
-and two textures only on Garen presence. The ordinary fixture requests none of
-the new Q graphics. All other Q meshes/new textures remain source assets. Shared
+sprite and mesh maps. Four GLBs add 50,208 bytes. The live adapter requests two meshes
+and eleven textures only on Garen presence. The ordinary fixture requests none
+of the new Q graphics. The other Q meshes/new textures remain source assets. Shared
 textures retain their existing W/E/R consumers.
 
 `/tools/qa/garen-q-source-preview.html` offers orbit/zoom, wireframe, all four
@@ -153,10 +153,85 @@ loss, caster death, later orders and reload. Source target/silence dispatch has
 not been added merely because this history is now available. Retention remains
 the existing 200-tick sound tail, which also covers this short mesh life.
 
-`export-garen-q-particles.py` pins the selected profile and accounts explicitly
-for all thirty deferred emitter records and the empty buff system. Controller,
-profile, one GLB and two textures load on Garen presence, with shared concurrent
-loads, partial-failure cleanup and cached successful reuse. Each live particle
+`export-garen-q-particles.py` pins the trail and cast profiles and accounts
+explicitly for all twenty-two deferred emitter records and the empty buff system.
+Renderer/profiles, two GLBs and eleven textures load on Garen presence, with shared
+concurrent loads, partial-failure cleanup and cached successful reuse. Each live particle
 owns its material; geometry/textures remain shared when a particle retires or
 fog removes it. Native timing, other Q layers, distortion, shader/attachment
 comparison, W body operations and production/full-match acceptance remain open.
+
+
+## Activation and armed layers — October 21, 2026
+
+All four `Garen_Q_Cas` and four `Garen_Q_Cas_Sword` emitters now render alongside
+the existing trail. The accepted activation starts the bubble/bubble-2/dark
+bubble/flash bursts. These one-shots finish naturally. The sword system starts
+at the same local activation clock and follows the saved armed interval, with
+its flare, rising glow, spinning source mesh and activation quad. All source
+rates, first-update births, life/size/rotation distributions, color/scale curves,
+passes, depth flags and scrolling UVs are retained. The cast sampler uses one
+indexed chance for birth-value probability tables and an independent roll for
+atlas/lookup selection, consuming no simulation RNG. This is repeatable cosmetic
+sampling, not the native RNG stream.
+
+These systems have no retained animation-bone event or modern script dispatch
+binding. The adapter anchors them at the current caster root and uses current
+caster yaw for locally oriented layers. Unoriented bubbles face the camera; the
+sword mesh's explicit global orientation keeps its authored rotation independent
+of caster yaw. Root translation follows the caster, consistently with the
+selected records' constant bind weight of one. These are explicit local dispatch
+and attachment policies. The weapon trail keeps its separate source event/bone
+binding and pose-stop policy.
+
+The dark bubble declares blend mode 2. The pinned
+[blend reconstruction](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/blend.ts)
+uses destination color times one minus source color, with an independent
+one-minus-source-alpha destination factor for alpha. The adapter follows those
+factors and the reference's ADD/SUBTRACT tint premultiplication. It does not
+replace the mode with reverse subtraction. Eight independent PNG texels are
+pinned for RGBA product and framebuffer checks across ADD, SUBTRACT and alpha-add.
+Those GPU checks establish this implementation's arithmetic, not native scene
+composition or pass order.
+
+The spinning mesh declares a multiplier-scroll block with **no named multiplier
+texture**. The pinned
+[asset reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readValue.ts)
+returns no texture for an absent name, and
+[pass selection](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/uniforms.ts)
+requires both a layer and a texture. The profile preserves its scroll metadata;
+no second texture sample is invented. The flare's four authored frames have no
+`texDiv`: the
+[reader](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readSurface.ts)
+uses a 1×1 grid, so the retained random frame selection wraps to the same cell.
+These missing-field interpretations remain reconstruction evidence.
+
+Armed-system stopping follows the pinned
+[settlement](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts)
+and [wait/cap definitions](https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/systemModel.ts).
+No stopped update emits a new particle. The mesh's one-second `emitterLinger`
+threshold is measured from system activation; it is not an extra second granted
+after every stop. On the first eligible simulation update after that threshold,
+type 0 caps **total** particle life at its one-second `particleLinger`. Existing
+age remains unchanged, and color/scale/lookup phase uses the capped lifetime.
+The other armed layers retain their shorter natural lives under their larger
+caps. The activation system is dispatched as an independent accepted one-shot,
+so its missing flash linger field does not fabricate a buff-driven early kill.
+
+A conservative 122-tick post-stop bound covers the cast adapter, below the
+existing 200-tick retained history. Schema 83 and gameplay values remain
+unchanged. Early consumption, natural expiry, recasts, death and match end all
+use the existing saved stop clock. Native script stop operations, emitter-frame
+inheritance, UV_MODE details, mesh color-slot selection, scene composition and
+pixel comparison remain open. Eight external reader files and hashes are pinned
+in `reference/garen-q-cast-reader.json`; export verifies them and downloads a
+missing cache entry from its exact revision URL.
+
+
+Validation: 1,018 unit/source checks and TypeScript, 32 focused Chrome scenarios,
+sixteen independent PNG product/blend GPU comparisons, all model/map validators
+and nested-path production smoke pass. Early-cast and consumed-tail checkpoints
+restore exact material/transform state. Close-up cast and tail captures were
+visually reviewed. All 43 generated Q outputs reproduce byte-for-byte; the
+production copy of all 37 static Q files matches. [PROGRESS](PROGRESS.md) records
+scope, bundle sizes and the saved-menu browser helper correction.

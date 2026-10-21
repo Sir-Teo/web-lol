@@ -213,6 +213,8 @@
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
       import audit from '../../docs/reference/garen-q-particles-decoded.json';
       import pin from '../../docs/reference/garen-q-particles.json';
+      import castProfiles from '../../src/content/garen-q-cast-particles.json';
+      import { createGarenQCastMaterial } from '../../src/render/garen-decisive-strike';
       const base = import.meta.env.BASE_URL;
       const models = [
         { suffix: 'impact', name: 'Impact', texture: 'garen_base_r_spikes.png' },
@@ -221,7 +223,11 @@
         { suffix: 'weapon-trail', name: 'Weapon trail', texture: 'garen_base_q_wpn_trail.png' },
       ];
       const host = document.querySelector('#viewer');
-      const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        preserveDrawingBuffer: true,
+        premultipliedAlpha: false,
+      });
       renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
       renderer.setClearColor(0x101c2e);
       renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
@@ -246,6 +252,66 @@
         draw: { calls: 0, triangles: 0, lines: 0 },
       };
       window.__GAREN_Q_SOURCE__ = state;
+      const probeTextures = new Map();
+      const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
+      white.needsUpdate = true;
+      async function probeTexture(path, clamp = false) {
+        if (!path) return white;
+        if (!probeTextures.has(path)) {
+          const texture = await new THREE.TextureLoader().loadAsync(base + path);
+          texture.colorSpace = THREE.NoColorSpace;
+          texture.flipY = false;
+          texture.generateMipmaps = false;
+          texture.minFilter = texture.magFilter = THREE.LinearFilter;
+          texture.wrapS = texture.wrapT = clamp ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
+          probeTextures.set(path, texture);
+        }
+        return probeTextures.get(path);
+      }
+      window.__GAREN_Q_CAST_MATERIAL__ = {
+        probe: async (sample) => {
+          const p = castProfiles[sample.profileIndex];
+          const [base, lookup] = await Promise.all([
+            probeTexture(p.texture),
+            probeTexture(p.lookup, true),
+          ]);
+          const material = createGarenQCastMaterial(sample.profileIndex, base, lookup);
+          if (sample.product) material.blending = THREE.NoBlending;
+          const tint = [...sample.tint];
+          if (p.blend === 0 || p.blend === 2) {
+            for (let i = 0; i < 3; i++) tint[i] *= tint[3];
+            tint[3] = 1;
+          }
+          material.uniforms.particleColor.value.fromArray(tint);
+          material.uniforms.lookupUv.value.fromArray(sample.lookupUv);
+          material.uniforms.sourceUvScale.value.set(0, 0);
+          material.uniforms.sourceUvOffset.value.fromArray(sample.sourceUv);
+          const plane = new THREE.PlaneGeometry(2, 2),
+            scene = new THREE.Scene();
+          scene.add(new THREE.Mesh(plane, material));
+          const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+          camera.position.z = 1;
+          const target = new THREE.WebGLRenderTarget(1, 1),
+            previous = renderer.getRenderTarget();
+          const clear = renderer.getClearColor(new THREE.Color()),
+            alpha = renderer.getClearAlpha();
+          renderer.setRenderTarget(target);
+          renderer.setClearColor(
+            new THREE.Color(...sample.background.slice(0, 3).map((v) => v / 255)),
+            sample.background[3] / 255
+          );
+          renderer.clear();
+          renderer.render(scene, camera);
+          const bytes = new Uint8Array(4);
+          renderer.readRenderTargetPixels(target, 0, 0, 1, 1, bytes);
+          renderer.setRenderTarget(previous);
+          renderer.setClearColor(clear, alpha);
+          target.dispose();
+          plane.dispose();
+          material.dispose();
+          return [...bytes];
+        },
+      };
       const loaded = await Promise.all(
         models.map(async (m) => {
           const output = audit.meshes.find((o) =>

@@ -1,0 +1,1733 @@
+[
+  {
+    "system": "Garen_Q_Cas",
+    "index": 0,
+    "name": "bubble",
+    "role": "activation",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_cas_bubble.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "multiplier": null,
+    "multiplierDeclared": false,
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rate": 2.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 10.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        0.30000001192092896
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "uvMode": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "emitterName",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Cas",
+    "index": 1,
+    "name": "bubble_2",
+    "role": "activation",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_cas_bubble_2.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "multiplier": null,
+    "multiplierDeclared": false,
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 10.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        0.23000000417232513
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "uvMode": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "emitterName",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Cas",
+    "index": 2,
+    "name": "bubble_black",
+    "role": "activation",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_cas_bubble_black.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "multiplier": null,
+    "multiplierDeclared": false,
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rate": 10.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 10.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        0.12999999523162842
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 2,
+    "renderOrder": 0,
+    "uvMode": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "blendMode",
+      "emitterName",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Cas",
+    "index": 3,
+    "name": "Hit",
+    "role": "activation",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_hit_flash.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "multiplier": null,
+    "multiplierDeclared": false,
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        0.5
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        140.0,
+        140.0,
+        140.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        0.800000011920929,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 0,
+    "renderOrder": 30,
+    "uvMode": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthScale0",
+      "emitterName",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "pass",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Cas_Sword",
+    "index": 0,
+    "name": "Activate",
+    "role": "armed",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_cas_flare.png",
+    "lookup": "assets/effects/garen_color-rampdown.png",
+    "multiplier": null,
+    "multiplierDeclared": false,
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rate": 2.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 0.5,
+    "emitterLinger": 0,
+    "linger": 10.399999618530273,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        0.4000000059604645
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        200.0,
+        180.0,
+        250.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            1.399999976158142
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.5,
+            0.5009999871253967,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            -1.0,
+            1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        2.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            1.2999999523162842
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "value": [
+        0.0,
+        55.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.3499999940395355,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1.0,
+      0.5
+    ],
+    "lookupOffsets": [
+      0.0,
+      0.5
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 4,
+      "start": 0,
+      "random": true
+    },
+    "blend": 4,
+    "renderOrder": 0,
+    "uvMode": 0,
+    "miscRenderFlags": 1,
+    "explicitFields": [
+      "EmitterPosition",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "birthVelocity",
+      "blendMode",
+      "colorLookUpOffsets",
+      "colorLookUpScales",
+      "colorLookUpTypeY",
+      "emitterName",
+      "isRandomStartFrame",
+      "isSingleParticle",
+      "lifetime",
+      "miscRenderFlags",
+      "numFrames",
+      "particleColorTexture",
+      "particleIsLocalOrientation",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Cas_Sword",
+    "index": 1,
+    "name": "Sword_Scroll1",
+    "role": "armed",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_w_ground_glow.png",
+    "lookup": "assets/effects/garen_alpha_12.png",
+    "multiplier": null,
+    "multiplierDeclared": false,
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rate": 16.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": null,
+    "emitterLinger": 0,
+    "linger": 11.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        1.0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        70.0,
+        70.0,
+        70.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        90.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        190.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            1.2999999523162842
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "value": [
+        0.0,
+        30.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.25,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.800000011920929,
+          0.699999988079071,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.20000000298023224,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 4,
+    "renderOrder": 0,
+    "uvMode": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "birthVelocity",
+      "blendMode",
+      "emitterName",
+      "particleColorTexture",
+      "particleIsLocalOrientation",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Garen_Q_Cas_Sword",
+    "index": 2,
+    "name": "mesh",
+    "role": "armed",
+    "kind": "mesh",
+    "mesh": "assets/models/garen-q-sword-scroll.glb",
+    "texture": "assets/effects/garen_base_q_sword_scroll.png",
+    "lookup": null,
+    "multiplier": null,
+    "multiplierDeclared": true,
+    "multScroll": {
+      "value": [
+        -1.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "rate": 7.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": null,
+    "emitterLinger": 1.0,
+    "linger": 1.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        3.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            1.2999999523162842
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "value": [
+        0.10000000149011612,
+        0.75,
+        0.09000000357627869
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.7999999523162842,
+            0.8500000238418579
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.8500000238418579
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.5,
+            0.8500000238418579
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        -180.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            -1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "value": [
+        0.0,
+        200.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.5,
+            0.6000000238418579,
+            1.0
+          ],
+          "values": [
+            1.0,
+            -1.0,
+            0.009999999776482582,
+            -0.009999999776482582
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        60.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            3.0,
+            0.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "value": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0.0,
+        2.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            -1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        0.800000011920929,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.25,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.800000011920929
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": false,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        -1.0,
+        -1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 4,
+    "renderOrder": 0,
+    "uvMode": 2,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "SpawnShape",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthRotationalVelocity0",
+      "birthScale0",
+      "birthUvScrollRate",
+      "birthVelocity",
+      "blendMode",
+      "disableBackfaceCull",
+      "emitterLinger",
+      "emitterName",
+      "isLocalOrientation",
+      "particleIsLocalOrientation",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture",
+      "textureMult",
+      "uvMode"
+    ]
+  },
+  {
+    "system": "Garen_Q_Cas_Sword",
+    "index": 3,
+    "name": "cas",
+    "role": "armed",
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_cas_activate.png",
+    "lookup": "assets/effects/garen_color-rampdown.png",
+    "multiplier": null,
+    "multiplierDeclared": false,
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 0.5,
+    "emitterLinger": 0,
+    "linger": 10.300000190734863,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        0.30000001192092896
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        200.0,
+        180.0,
+        250.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            1.399999976158142
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.5,
+            0.5009999871253967,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            -1.0,
+            1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0.0,
+        2.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            1.2999999523162842
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "value": [
+        0.0,
+        55.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.3499999940395355,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.6499999761581421,
+          1.2999999523162842,
+          1.2999999523162842
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1.0,
+      0.5
+    ],
+    "lookupOffsets": [
+      0.0,
+      0.5
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 0,
+    "renderOrder": 0,
+    "uvMode": 0,
+    "miscRenderFlags": 0,
+    "explicitFields": [
+      "EmitterPosition",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "birthVelocity",
+      "colorLookUpOffsets",
+      "colorLookUpScales",
+      "colorLookUpTypeY",
+      "emitterName",
+      "isSingleParticle",
+      "lifetime",
+      "particleColorTexture",
+      "particleIsLocalOrientation",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  }
+]

@@ -19,16 +19,18 @@ async function poses(page: Page) {
   return page.evaluate(() => {
     const g = (window as any).__GAME__;
     g.view.render(g.world, 1, g.view.previousElapsed);
-    return [...g.view.garenDecisiveStrike.models.entries()].map(([key, m]: any) => ({
-      key,
-      position: m.position.toArray(),
-      rotation: m.quaternion.toArray(),
-      scale: m.scale.toArray(),
-      lookup: m.material.uniforms.lookupUv.value.toArray(),
-      scroll: m.material.uniforms.sourceUvOffset.value.toArray(),
-      vertices: m.geometry.getAttribute('position').count,
-      bone: m.userData.bone,
-    }));
+    return [...g.view.garenDecisiveStrike.models.entries()]
+      .filter(([, m]: any) => m.name === 'Garen Q WeaponTrail')
+      .map(([key, m]: any) => ({
+        key,
+        position: m.position.toArray(),
+        rotation: m.quaternion.toArray(),
+        scale: m.scale.toArray(),
+        lookup: m.material.uniforms.lookupUv.value.toArray(),
+        scroll: m.material.uniforms.sourceUvOffset.value.toArray(),
+        vertices: m.geometry.getAttribute('position').count,
+        bone: m.userData.bone,
+      }));
   });
 }
 test('source Q trail follows frame 8 and its explicit bone, preserves real contact and restores exactly', async ({
@@ -82,6 +84,7 @@ test('source Q trail follows frame 8 and its explicit bone, preserves real conta
     let disposed = 0,
       geometryDisposed = 0;
     for (const m of g.view.garenDecisiveStrike.models.values()) {
+      if (m.name !== 'Garen Q WeaponTrail') continue;
       m.material.addEventListener('dispose', () => disposed++);
       m.geometry.addEventListener('dispose', () => geometryDisposed++);
     }
@@ -90,7 +93,9 @@ test('source Q trail follows frame 8 and its explicit bone, preserves real conta
     return {
       disposed,
       geometryDisposed,
-      count: g.view.garenDecisiveStrike.models.size,
+      count: [...g.view.garenDecisiveStrike.models.values()].filter(
+        (m: any) => m.name === 'Garen Q WeaponTrail'
+      ).length,
       impact: w.player.garenQVisuals[0].attacks[0].impact,
     };
   });
@@ -115,7 +120,9 @@ test('Q target loss before frame 8 cannot emit a future trail or manufacture a c
     g.view.render(w, 1, g.view.previousElapsed);
     return {
       history: w.player.garenQVisuals[0].attacks[0],
-      count: g.view.garenDecisiveStrike.models.size,
+      count: [...g.view.garenDecisiveStrike.models.values()].filter(
+        (m: any) => m.name === 'Garen Q WeaponTrail'
+      ).length,
     };
   });
   expect(result.count).toBe(0);
@@ -139,18 +146,24 @@ test('enemy Q trail obeys actual unit fog, resumes its original phase and dispos
     const born = Math.ceil(a.startTick + (a.releaseTick - a.startTick) * 0.8 - 1e-5) + 1;
     w.step(born + 1 - w.tick);
     g.view.render(w, 1, g.view.previousElapsed);
-    const original = [...g.view.garenDecisiveStrike.models.values()] as any[];
+    const original = [...g.view.garenDecisiveStrike.models.values()].filter(
+      (m: any) => m.name === 'Garen Q WeaponTrail'
+    ) as any[];
     let disposed = 0;
     original.forEach((m) => m.material.addEventListener('dispose', () => disposed++));
     const phase = original[0].material.uniforms.lookupUv.value.x;
     Object.assign(w.hero, { x: 5000, y: 0, previous: { x: 5000, y: 0 } });
     const visible = w.visible(enemy);
     g.view.render(w, 1, g.view.previousElapsed);
-    const hidden = g.view.garenDecisiveStrike.models.size;
+    const hidden = [...g.view.garenDecisiveStrike.models.values()].filter(
+      (m: any) => m.name === 'Garen Q WeaponTrail'
+    ).length;
     Object.assign(w.hero, { x: 0, y: 0, previous: { x: 0, y: 0 } });
     w.step();
     g.view.render(w, 1, g.view.previousElapsed);
-    const current = [...g.view.garenDecisiveStrike.models.values()] as any[];
+    const current = [...g.view.garenDecisiveStrike.models.values()].filter(
+      (m: any) => m.name === 'Garen Q WeaponTrail'
+    ) as any[];
     const restoredPhase = current[0].material.uniforms.lookupUv.value.x;
     w.setOrder(enemy, { type: 'idle' });
     g.view.render(w, 1, g.view.previousElapsed);
@@ -162,7 +175,9 @@ test('enemy Q trail obeys actual unit fog, resumes its original phase and dispos
       phase,
       restoredPhase,
       count: current.length,
-      after: g.view.garenDecisiveStrike.models.size,
+      after: [...g.view.garenDecisiveStrike.models.values()].filter(
+        (m: any) => m.name === 'Garen Q WeaponTrail'
+      ).length,
       stop: a.endReason,
     };
   });

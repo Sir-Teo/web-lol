@@ -6,10 +6,47 @@
     "path": "src/content/garen-q-particles.json",
     "sha256": "b42fe0f74283e8a9eb07dcca515fe8df84f1fb08178f2caa9a4879e1fe48122a"
   },
+  "castOutput": {
+    "path": "src/content/garen-q-cast-particles.json",
+    "sha256": "a452f20d6f856fded3fd6a4ec215ebd7ead5e0ff02746e0b27190fb889500c5f"
+  },
+  "readerEvidenceSha256": "01be616a7dc5a60b6ad35a6f2496ea275c051efaedcc76aeb61a6a5bf93af21e",
   "implemented": [
     {
       "system": "Garen_Q_Sword_Trail",
       "index": 0
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 0
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 1
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 2
+    },
+    {
+      "system": "Garen_Q_Cas",
+      "index": 3
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 0
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 1
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 2
+    },
+    {
+      "system": "Garen_Q_Cas_Sword",
+      "index": 3
     }
   ],
   "deferred": [
@@ -84,46 +121,6 @@
       "reason": "scene distortion"
     },
     {
-      "system": "Garen_Q_Cas",
-      "index": 0,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Cas",
-      "index": 1,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Cas",
-      "index": 2,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Cas",
-      "index": 3,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Cas_Sword",
-      "index": 0,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Cas_Sword",
-      "index": 1,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Cas_Sword",
-      "index": 2,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
-      "system": "Garen_Q_Cas_Sword",
-      "index": 3,
-      "reason": "appearance, attachment and dispatch integration pending"
-    },
-    {
       "system": "Garen_Q_Tar",
       "index": 0,
       "reason": "appearance, attachment and dispatch integration pending"
@@ -167,5 +164,240 @@
   "emptySystems": [
     "Garen_Q_Buf"
   ],
-  "status": "One animation-bound weapon mesh reconstructed. Local timing, heading and hard-stop policy; native parity unverified."
+  "castRetentionBoundTicks": 122,
+  "gpuSamples": [
+    {
+      "profileIndex": 0,
+      "sourceUv": [
+        0.4423828125,
+        0.1064453125
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        148,
+        105,
+        0,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    },
+    {
+      "profileIndex": 1,
+      "sourceUv": [
+        0.4794921875,
+        0.5380859375
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    },
+    {
+      "profileIndex": 2,
+      "sourceUv": [
+        0.4912109375,
+        0.5126953125
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    },
+    {
+      "profileIndex": 3,
+      "sourceUv": [
+        0.517578125,
+        0.517578125
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        247,
+        219,
+        90,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    },
+    {
+      "profileIndex": 4,
+      "sourceUv": [
+        0.501953125,
+        0.486328125
+      ],
+      "lookupUv": [
+        0.5078125,
+        0.5078125
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        123,
+        125,
+        123,
+        255
+      ]
+    },
+    {
+      "profileIndex": 5,
+      "sourceUv": [
+        0.509765625,
+        0.462890625
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        74,
+        45,
+        0,
+        255
+      ],
+      "lookupRgba": [
+        104,
+        105,
+        104,
+        255
+      ]
+    },
+    {
+      "profileIndex": 6,
+      "sourceUv": [
+        0.3115234375,
+        0.39453125
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        247,
+        207,
+        181,
+        73
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 7,
+      "sourceUv": [
+        0.494140625,
+        0.521484375
+      ],
+      "lookupUv": [
+        0.5078125,
+        0.5078125
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        247,
+        239,
+        255
+      ],
+      "lookupRgba": [
+        123,
+        125,
+        123,
+        255
+      ]
+    }
+  ],
+  "status": "One animation-bound weapon emitter and eight local activation/armed emitters reconstructed. Native dispatch, attachment and rendering parity unverified."
 }

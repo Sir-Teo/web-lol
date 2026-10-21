@@ -520,3 +520,54 @@ new Garen-only particle chunk is 3.65 KB (1.86 KB gzip); the ordinary game entry
 is 582.87 KB (160.28 KB gzip), including the expanded history/validation and lazy
 wrapper. The existing large-bundle warning remains. No source PNG, GLB, WAV or
 pinned BIN bytes changed.
+
+## Decisive Strike activation and armed particles — October 21, 2026
+
+All eight cast/sword emitters now join the existing
+[Q weapon trail](GAREN-Q-PARTICLES.md#activation-and-armed-layers--october-21-2026),
+bringing the live Q selection to nine of 31 emitter records. The activation
+bubbles/dark bubble/flash use an accepted one-shot clock; sword flare, rising
+glow, spinning source mesh and activation quad follow the saved armed interval.
+Source bursts, rates, life/size/rotation distributions, appearance curves, passes,
+depth flags and UV scrolling are preserved. The local caster-root/yaw policy is
+explicit; the trail retains its separate source frame/bone binding. Twenty-two
+emitters and native dispatch/composition remain open.
+
+The adapter resolves two source edge cases against pinned reconstruction code:
+mode 2 darkens destination RGB with one-minus-source-color and uses a separate
+alpha factor; the sword mesh's multiplier-scroll block has no named texture, so
+it adds no invented second sample. Four authored flare frames retain the reader's
+absent-grid default of 1×1. Type-0 stopping uses an absolute emitter-age wait and
+caps total particle life, rephasing curves against that cap. The mesh's one-second
+wait is not restarted at each buff stop. Export derives a conservative 122-tick
+post-stop bound, covered by the existing 200-tick history. Schema 83, gameplay
+values and source asset bytes are unchanged. Eight reference files/hashes are
+pinned separately from native-client evidence.
+
+All 1,018 tests across 207 files and TypeScript pass. Six new source/sampler/
+material checks cover complete profile accounting, bursts/cadence, absolute stop
+settlement and rephasing, activation/armed separation, deterministic finite
+replay, retention and absent multiplier behavior. Partial-loader checks cover
+two meshes and eleven textures, disposal of completed partial ownership and a
+shared cached retry. Source replay consumes no simulation RNG.
+
+All 32 focused Chrome scenarios pass across the full Garen fixture and saved
+matches, including four new cast cases and sixteen independent GPU product/blend
+comparisons. Early bursts and consumed tails restore exact transforms/material
+clocks through real save/reload. Camera/root placement, global mesh orientation,
+actual fog, recast overlap, death/match-end retirement and material ownership are
+covered. The repeated-save helper now checks whether the restored pause menu is
+already open; blindly pressing Escape had closed it and resumed the test. This
+was a test correction, with no runtime menu change. Close-up activation and
+post-consumption gameplay captures were visually reviewed at 1440×900.
+
+All 36 model GLBs and the map validate without errors or warnings. Repeated
+extraction/conversion/profile export reproduces all 43 Q source/audit/profile/
+PNG/GLB/sidecar outputs byte-for-byte. The 37 static Q files copied into
+the production build match the verified public files. Production build/nested-
+host smoke passes with seventeen ordinary recordings, real Ashe/Lux casts and
+the Garen fixture/roster gate retained. The Q particle chunk is 21.79 KB (4.94 KB
+gzip), loaded on Garen presence; the ordinary game entry is 582.88 KB (160.28 KB
+gzip). The existing large-bundle warning remains. Ordinary startup adds no Q
+mesh/texture requests. All source/native calibration, remaining Q layers, W body
+operations and production/full-match acceptance remain in scope.

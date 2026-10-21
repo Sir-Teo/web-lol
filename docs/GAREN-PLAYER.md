@@ -128,6 +128,9 @@ Native script/mix/listening calibration and the remaining Q particle layers rema
 resource key, 29 lossless textures, four meshes and four unchanged Spell1 bindings.
 The development source inspector shows the complete set. Schema 83 now records
 confirmed impacts and attack-presentation stop clocks independently of audio. The
-first live layer is the authored weapon-trail mesh, using its explicit frame-8
-event and center-bone binding. Target loss, death, recasts, terminal matches and
-post-contact pose changes stop it; source target/silence layers remain open.
+weapon trail uses its explicit frame-8 event and center-bone binding. Target loss,
+death, recasts, terminal matches and post-contact pose changes stop that trail.
+Eight activation/armed emitters now add the source bubbles, flash, flare, rising
+glow, spinning sword mesh and activation quad. Their independent activation and
+armed-stop clocks restore from the same schema-83 history. Native attachment and
+stop dispatch, source target/silence/jump/landing layers remain open.

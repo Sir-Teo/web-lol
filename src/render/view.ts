@@ -647,7 +647,7 @@ export class GameView {
     this.garenSpin.update(world, alpha, terminalAge);
     this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
-    this.garenDecisiveStrike.update(world, alpha, this.models, terminalAge);
+    this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);
     this.echoes.update(world);

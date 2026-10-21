@@ -23,8 +23,14 @@ export class LazyGarenDecisiveStrike {
       throw error;
     }));
   }
-  update(world: World, alpha: number, models: ReadonlyMap<number, UnitModel>, terminalAge = 0) {
-    if (this.renderer) this.renderer.update(world, alpha, models, terminalAge);
+  update(
+    world: World,
+    alpha: number,
+    camera: THREE.Camera,
+    models: ReadonlyMap<number, UnitModel>,
+    terminalAge = 0
+  ) {
+    if (this.renderer) this.renderer.update(world, alpha, camera, models, terminalAge);
     else if (
       performance.now() >= this.retryAfter &&
       world.units.some((u) => u.champion === 'garen')
