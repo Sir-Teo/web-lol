@@ -33,17 +33,17 @@ test('partial Courage asset failure disposes completed ownership, shares concurr
     expect(a).toBe(b);
     await expect(a).rejects.toThrow('injected W texture failure');
     expect(meshesLoaded).toBe(1);
-    expect(texturesLoaded).toBe(10);
+    expect(texturesLoaded).toBe(14);
     expect(geometryDisposals).toBe(1);
-    expect(imageDisposals).toBe(9);
+    expect(imageDisposals).toBe(13);
     await Promise.all([loadGarenCourage(), loadGarenCourage()]);
     expect(meshesLoaded).toBe(2);
-    expect(texturesLoaded).toBe(20);
+    expect(texturesLoaded).toBe(28);
     await loadGarenCourage();
     expect(meshesLoaded).toBe(2);
-    expect(texturesLoaded).toBe(20);
+    expect(texturesLoaded).toBe(28);
     expect(geometryDisposals).toBe(1);
-    expect(imageDisposals).toBe(9);
+    expect(imageDisposals).toBe(13);
   } finally {
     vi.restoreAllMocks();
   }

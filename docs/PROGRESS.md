@@ -18,7 +18,7 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-Latest roster increment: Garen NPC R now has explicit champion targeting, captured
+Earlier roster increment: Garen NPC R now has explicit champion targeting, captured
 rank/timing, release-time missing-health true damage, isolated target sight, source
 cast playback, execute decisions and validated checkpoint continuation. All 886
 simulation tests, TypeScript, four focused Q/W/R browser cases and the nested-path
@@ -251,6 +251,37 @@ disposal/retry and borrowed-resource ownership are covered. Garen remains exclud
 from production selection. Native dispatch/attachment/material composition,
 remaining W layers, Q/basic/voice presentation and full production/match
 acceptance remain open.
+
+[Courage shoulder layers](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
+now bring W to eleven selected source emitter definitions, with nine explicitly
+deferred. Left/right streak bursts retain ten independently sized particles and
+different scale curves; the left hoop and right glint retain their separate
+one/four birth budgets. Both systems start on the accepted W cast and follow the
+posed `L_Shoulder`/`R_Shoulder` joints. Case-insensitive joint selection, full
+joint-frame orientation for the declared local particles and root fallback are
+documented local policies pending native comparison. Decomposed joint quaternions
+are normalized before composing source rotations. The existing schema-80 history
+preserves natural one-second shoulder tails through early death and reload;
+gameplay and snapshot schema are unchanged.
+
+All 978 tests across 199 files and TypeScript pass with four workers and a
+30-second test deadline. Eight focused W Chrome scenarios pass with a 60-second
+browser deadline, covering all eleven layers, independently checked joint
+positions/rotations, camera independence, replacement-rig/fallback behavior,
+save/death/fog/terminal cleanup, late loading and the selected resource boundary.
+Seven independent W GPU texel probes agree within one byte per RGBA channel.
+The shoulder capture was visually reviewed. Both generated profile/audit files
+reproduce byte-for-byte. Four already prepared PNGs add 55,550 bytes to W's selected
+set: fourteen PNGs total 406,436 bytes, plus the existing shield mesh. No source
+binaries or converted assets change. A separate sequential run passes 29 existing
+player/W mechanics/audio/PCM/Judgment/R/match-file cases: 37 focused Chrome
+scenarios in total. Production build and nested-host smoke pass, retaining
+17 ordinary recordings and rejecting Garen production fixture flags. The W
+graphics chunk is 20.31 KB (4.35 KB gzip); the ordinary game entry remains
+573.99 KB (158.43 KB gzip), with the existing large-bundle warning. Ordinary
+startup adds no W graphics requests. Deflection, body material/attached-skin
+operations, four minimal declarations, native calibration and full
+production/match acceptance remain open.
 
 ## Historical baseline verification
 

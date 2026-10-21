@@ -6,9 +6,10 @@ shield and shared attached-mesh reference have exact GLB conversions, and all
 eighteen textures have lossless RGBA PNGs. A development inspection page exposes
 the meshes, raw textures and complete system definitions.
 
-The live adapter now renders seven cast/ground layers from that set: the shield,
-activation glow, rising energy, flash, sustained ground glow, wings and waves.
-Shoulders, deflection and character-surface effects remain separate open work.
+The live adapter now renders eleven cast/ground/shoulder layers from that set:
+the shield, activation glow, rising energy, flash, sustained ground glow, wings,
+waves, two shoulder streak bursts and left hoop/right glint layers. Deflection
+and character-surface effects remain separate open work.
 Dispatch/attachment/stop policies are local and native composition remains
 unverified. Gameplay and snapshot schema 80 are unchanged; Garen remains outside
 production selection.
@@ -76,9 +77,9 @@ an exact dimension/RGBA comparison; thirteen new files add 908,324 bytes. These
 include the shield and shoulder maps, energy wave/color map, wings, two alpha
 lookups, material replacement/transition maps and the attached shimmer texture.
 The decoded ledger retains source/output/RGBA hashes and dimensions for each.
-The two GLBs add 104,008 bytes. The live adapter now requests the shield and ten
-used textures on Garen presence; the shared attached-mesh reference and eight
-unused textures remain prepared assets. Ordinary Ashe/Lux startup adds no W
+The two GLBs add 104,008 bytes. The live adapter now requests the shield and
+fourteen used textures on Garen presence; the shared attached-mesh reference and
+four unused textures remain prepared assets. Ordinary Ashe/Lux startup adds no W
 graphics requests.
 
 The development page `/tools/qa/garen-w-source-preview.html` provides orbit/zoom,
@@ -91,8 +92,8 @@ live color lookup, emission, blending, attachment or frame composition.
 
 The source contains no W particle event in the retained animation clip event
 maps. That bounded absence does not establish modern script dispatch or the
-absence of native W effects. Shoulder bone selection, body material application,
-deflection triggers and stop/removal policy still need explicit treatment.
+absence of native W effects. Native shoulder bone selection, body material
+application, deflection triggers and stop/removal policy still need explicit treatment.
 
 The cast shield's base particle lifetime is 2.25 seconds; the buff ground/wings
 use six seconds; the Avatar override uses seven seconds. These authored lives
@@ -149,10 +150,10 @@ acceptance remain open.
 
 ## Live cast and sustained adapter — October 21, 2026
 
-`export-garen-w-particles.py` derives seven playback profiles from the verified
+`export-garen-w-particles.py` derives eleven playback profiles from the verified
 source and decoded ledgers, using the existing pinned reader defaults. Its audit
-accounts for every source declaration: seven selected, thirteen explicitly
-deferred. The four minimal buff records retain their missing fields; shoulders,
+accounts for every source declaration: eleven selected, nine explicitly
+deferred. The four minimal buff records retain their missing fields;
 deflection and Avatar material/attached-skin operations are not substituted with
 generic particles.
 
@@ -165,9 +166,13 @@ generic particles.
 | Sustained ground glow | Two source burst particles | 6 seconds |
 | Wings | One source burst particle | 6 seconds |
 | Ground waves | Rate 5 while W's defense interval is active | Source random lifetime 0.6–1.5 seconds |
+| Left shoulder streaks | Ten source burst particles | 1 second |
+| Left shoulder hoop | Rate 1 over 1 second | 1 second |
+| Right shoulder streaks | Ten source burst particles | 1 second |
+| Right shoulder glint | Rate 4 over 1 second | 1 second |
 
-Both systems start at accepted W activation. This is a local script-dispatch
-policy, independent of the absent W animation particle event. Cast layers follow
+All four selected systems start at accepted W activation. This is a local
+script-dispatch policy, independent of the absent W animation particle event. Cast layers follow
 the actual case-folded `C_Buffbone_GLB_Center_Loc` node, with a root fallback for
 a replacement rig lacking it. The source rig contains that center node; its
 selection for W is a local attachment policy, not an authored native W event.
@@ -176,6 +181,18 @@ Source position offsets use current caster facing. Arbitrary quads/meshes retain
 local versus world orientation and the established `Ry Rx Rz`/UV convention;
 flash uses the camera frame. Bone-axis inheritance and actual birth-frame
 orientation remain unverified.
+
+The shoulder systems select the existing `L_Shoulder` and `R_Shoulder` joints,
+case-insensitively, with a root fallback for a replacement rig missing a joint.
+This selection and activation timing are local policies; no retained W animation
+event establishes native script dispatch. Both position and full joint quaternion
+are sampled after the current pose, normalizing the decomposed quaternion. Their
+`particleIsLocalOrientation` declarations select a joint-frame plane using all
+three source rotation axes, independent of
+camera orientation. Spawn offsets rotate in the same joint frame. Exact native
+inheritance, primitive defaults and UV convention remain unverified. Left and
+right streaks retain different scale curves and independently randomized sizes;
+the right glint retains its own alpha curve and four-particle rate budget.
 
 The pure sampler retains source scale/color curves, velocity, spawn rotation,
 angular velocity, UV offset/scroll and independently indexed color-lookup random
@@ -198,7 +215,7 @@ every selected stopped draw; no schema or gameplay-duration change is needed.
 Practice cooldown resets can replace the single retained interval and retire
 its old keyed particles.
 
-Enemy draws require current caster visibility. Friendly cast tails can finish
+Enemy draws require current caster visibility. Friendly cast/shoulder tails can finish
 through death; expired/hidden draws dispose their owned materials while shared
 source geometry/textures remain cached. Pausing freezes particle time. After a
 winner freezes simulation, existing terminal presentation time lets already-born
@@ -211,8 +228,10 @@ single-pass rendering, depth testing and no depth writes. Source face RGB,
 UV_MODE lock-alpha and complete native framebuffer composition remain open.
 
 Controller/profiles load through a dynamic import only on Garen presence. The
-loader requests one shield GLB (92,972 bytes) and ten PNGs (350,886 bytes); five
-PNGs are already shared with Judgment/R. Ordinary startup retains its 17 audio
+loader requests one shield GLB (92,972 bytes) and fourteen PNGs (406,436 bytes);
+five PNGs are already shared with Judgment/R. The shoulder extension adds four
+already prepared PNGs (55,550 bytes) to the earlier cast/ground subset. No source
+assets are reconverted. Ordinary startup retains its 17 audio
 recordings and no W graphics requests. Initial Garen fixtures await readiness;
 a later Garen loads the same cached resource set and reconstructs the currently
 live phase. Partial failures dispose completed owned geometry/textures and allow
@@ -224,11 +243,12 @@ npm run test:browser -- e2e/garen-courage.spec.ts e2e/garen-w-source.spec.ts
 ```
 
 Playback export reproduces both generated profile/audit files byte-for-byte.
-Six source/sampler/loading tests check source coverage, burst/rate clocks,
+Eight source/sampler/loading tests check source coverage, burst/rate clocks,
 randomized motion/lookup, stop bounds, saved active/death continuation, RNG
-independence and partial-load ownership/retry. Chrome observes all seven layers,
-rig/ground attachment and movement, exact keyed poses/material uniforms after
-death/save/reload, fog disposal, expiry, terminal-time completion and late-NPC
-loading. Four independent GPU texel probes agree within one byte per RGBA channel.
-Cast and sustained captures are reviewed separately from native calibration.
+independence and partial-load ownership/retry. Chrome observes all eleven layers,
+posed joint/ground attachment, camera independence, replacement-rig fallback,
+movement, exact keyed poses/material uniforms after death/save/reload, fog
+disposal, expiry, terminal-time completion and late-NPC
+loading. Seven independent GPU texel probes agree within one byte per RGBA channel.
+Cast, sustained and shoulder captures are reviewed separately from native calibration.
 Final verification scope is recorded in [PROGRESS.md](PROGRESS.md).

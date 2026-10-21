@@ -102,8 +102,9 @@ ending phases. Schema 80 retains those clocks through shield loss, defense
 expiry and death, including saved loop offsets and a partial stop fade. Source
 Q/basic/voice audio, Q/W particles and native calibration remain unfinished.
 
-[Courage cast/ground particles](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
+[Courage cast/ground/shoulder particles](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
 now add the source shield, activation glow/energy/flash and sustained glow/wings/
-waves. They follow rig/ground anchors, retain bounded death/stop tails and restore
-from the existing W presentation interval. Shoulder, deflection and character
-material/attached-skin effects remain open, as does native attachment/composition.
+waves, plus separate left/right shoulder streaks and hoop/glint layers. They follow
+posed rig/ground anchors, retain bounded death/stop tails and restore from the
+existing W presentation interval. Deflection and character material/attached-skin
+effects remain open, as does native attachment/composition.

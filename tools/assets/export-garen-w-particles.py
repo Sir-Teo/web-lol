@@ -1,4 +1,4 @@
-"""Derive Courage cast/ground playback from its complete verified source set.
+"""Derive Courage cast/ground/shoulder playback from its verified source set.
 
 Other systems retain explicit deferred reasons, not guessed primitive fallbacks.
 """
@@ -36,18 +36,18 @@ profiles=[];deferred=[]
 for key, resource in sorted(pin['resources'].items(), key=lambda item: ({'Garen_W_Cas':0,'Garen_W_Buff':1}.get(item[0],2),item[0])):
     for index,e in enumerate(resource['definition']['complexEmitterDefinitionData']):
         reason = ('character material/attached-skin rendering' if 'Avatar' in key else
-                  'shoulder attachment and dispatch' if 'Shoulder' in key else
                   'deflection event history and dispatch' if key=='Garen_W_Deflect' else
                   'minimal declaration without rate, texture or particle lifetime' if 'texture' not in e else None)
         if reason:
             deferred.append(dict(system=key,index=index,reason=reason));continue
-        assert key in ['Garen_W_Cas','Garen_W_Buff']
+        assert key in ['Garen_W_Cas','Garen_W_Buff','Garen_W_Shoulder_L','Garen_W_Shoulder_R']
         shape=e.get('SpawnShape',{});primitive=e.get('primitive',{}).get('__type')
         assert primitive in [None,'VfxPrimitiveArbitraryQuad','VfxPrimitiveMesh']
         assert e.get('bindWeight',{}).get('constantValue')==1
         assert not any(k in e for k in ['worldAcceleration','birthDrag','textureMult'])
         assert e.get('frameRate',0)==0 and e.get('blendMode',0) in [0,1,4]
-        profiles.append(dict(system=key,role='cast' if key=='Garen_W_Cas' else 'buff',index=index,name=e['emitterName'],
+        role={'Garen_W_Cas':'cast','Garen_W_Buff':'buff','Garen_W_Shoulder_L':'shoulder-left','Garen_W_Shoulder_R':'shoulder-right'}[key]
+        profiles.append(dict(system=key,role=role,index=index,name=e['emitterName'],
             kind='mesh' if primitive=='VfxPrimitiveMesh' else 'quad' if primitive else 'billboard',
             mesh=meshes[e['primitive']['mMesh']['mSimpleMeshName'].lower()] if primitive=='VfxPrimitiveMesh' else None,
             texture=textures[e['texture'].lower()],lookup=textures[e['particleColorTexture'].lower()] if 'particleColorTexture' in e else None,
@@ -60,19 +60,21 @@ for key, resource in sorted(pin['resources'].items(), key=lambda item: ({'Garen_
             spawnAngles=[birth(v,0) for v in shape.get('emitRotationAngles',[])],spawnAxes=shape.get('emitRotationAxes',[]),
             scale=curve(e.get('scale0',{}),[1,1,1]),color=curve(e.get('Color',{}),[1,1,1,1]),
             uniform=bool(e.get('isUniformScale',False)),local=bool(e.get('isLocalOrientation',True)),
+            particleLocal=bool(e.get('particleIsLocalOrientation',False)),
             scroll=birth(e.get('birthUvScrollRate',{}),[0,0]),uvOffset=birth(e.get('birthUVOffset',{}),[0,0]),
             lookupTypes=[e.get('colorLookUpTypeX',1),e.get('colorLookUpTypeY',0)],
             lookupScales=e.get('colorLookUpScales',[1,1]),lookupOffsets=e.get('colorLookUpOffsets',[0,0]),
             blend=e.get('blendMode',0),alphaRef=e.get('alphaRef',0),renderOrder=e.get('pass',0),uvMode=e.get('uvMode',0),
             miscRenderFlags=e.get('miscRenderFlags',0)))
-assert len(profiles)==7 and len(deferred)==13
+assert len(profiles)==11 and len(deferred)==9
 path=Path('src/content/garen-w-particles.json');path.write_text(json.dumps(profiles,indent=2)+'\n')
 audit=dict(sourcePinSha256=sha(pin_path.read_bytes()),decodedAssetsSha256=sha(Path('docs/reference/garen-w-particles-decoded.json').read_bytes()),
     defaultsEvidenceSha256=sha(defaults_path.read_bytes()),output=dict(path=str(path),sha256=sha(path.read_bytes())),
     implemented=[dict(system=p['system'],index=p['index']) for p in profiles],deferred=deferred)
 # Independently pinned PNG texels for the live RGBA material's GPU checks.
 samples=[]
-for index,at,lookup_at in [(0,[103,34],[40,64]),(2,[252,66],[75,64]),(5,[432,239],None),(6,[401,246],[32,32])]:
+for index,at,lookup_at in [(0,[103,34],[40,64]),(2,[252,66],[75,64]),(5,[432,239],None),(6,[401,246],[32,32]),
+                           (7,[253,67],[16,252]),(8,[71,55],[16,252]),(10,[119,118],[16,252])]:
     p=profiles[index];image=Image.open('public/'+p['texture']).convert('RGBA')
     lookup=Image.open('public/'+p['lookup']).convert('RGBA') if p['lookup'] else None
     samples.append(dict(profileIndex=index,sourceUv=[(at[0]+0.5)/image.width,(at[1]+0.5)/image.height],
@@ -80,4 +82,4 @@ for index,at,lookup_at in [(0,[103,34],[40,64]),(2,[252,66],[75,64]),(5,[432,239
         tint=[0.6,0.8,0.4,0.7],sourceRgba=list(image.getpixel(tuple(at))),lookupRgba=list(lookup.getpixel(tuple(lookup_at))) if lookup else [255]*4))
 audit['gpuSamples']=samples
 Path('docs/reference/garen-w-particle-profiles.json').write_text(json.dumps(audit,indent=2)+'\n')
-print('Exported seven Courage cast/ground layers; thirteen other declarations remain explicitly deferred.')
+print('Exported eleven Courage cast/ground/shoulder layers; nine declarations remain explicitly deferred.')

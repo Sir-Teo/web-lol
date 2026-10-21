@@ -5,7 +5,7 @@ import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import { garenCourageParticles } from './garen-courage-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
-import { GAREN_W_CAST_PARTICLE_BONE } from '../content/garen-w-presentation';
+import { GAREN_W_PARTICLE_BONES } from '../content/garen-w-presentation';
 import type { UnitModel } from './models';
 
 const sourceMeshes = new Map<string, THREE.BufferGeometry>();
@@ -102,9 +102,10 @@ export function createGarenCourageMaterial(
 export class GarenCourage {
   readonly models = new Map<string, THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>();
   private anchor = new THREE.Vector3();
-  private attachments = new WeakMap<UnitModel, THREE.Object3D | undefined>();
+  private attachments = new WeakMap<UnitModel, Map<string, THREE.Object3D | undefined>>();
   private offset = new THREE.Vector3();
   private frame = new THREE.Quaternion();
+  private attachmentFrame = new THREE.Quaternion();
   private rotation = new THREE.Quaternion();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   constructor(
@@ -132,20 +133,31 @@ export class GarenCourage {
         this.frame.setFromAxisAngle(THREE.Object3D.DEFAULT_UP, unit.facing);
         for (const particle of garenCourageParticles(unit.id, effect, tick)) {
           const p = profiles[particle.profileIndex];
+          this.attachmentFrame.copy(this.frame);
           let attachment = 'local-caster-ground';
-          if (p.role === 'cast') {
+          const boneName = GAREN_W_PARTICLE_BONES[p.role];
+          if (boneName) {
             const model = unitModels.get(unit.id);
             if (!model?.root.visible) continue;
-            if (!this.attachments.has(model)) {
+            let bones = this.attachments.get(model);
+            if (!bones) this.attachments.set(model, (bones = new Map()));
+            if (!bones.has(boneName)) {
               let found: THREE.Object3D | undefined;
               model.root.traverse((o) => {
-                if (o.name.toLowerCase() === GAREN_W_CAST_PARTICLE_BONE.toLowerCase()) found = o;
+                if (o.name.toLowerCase() === boneName.toLowerCase()) found = o;
               });
-              this.attachments.set(model, found);
+              bones.set(boneName, found);
             }
-            const bone = this.attachments.get(model);
-            if (bone) bone.getWorldPosition(this.anchor);
-            else model.root.getWorldPosition(this.anchor);
+            const bone = bones.get(boneName);
+            if (bone) {
+              bone.getWorldPosition(this.anchor);
+              // Shoulder particles retain the complete posed joint frame, not
+              // just caster yaw. Native attachment inheritance remains open.
+              if (p.particleLocal) bone.getWorldQuaternion(this.attachmentFrame).normalize();
+            } else {
+              model.root.getWorldPosition(this.anchor);
+              if (p.particleLocal) model.root.getWorldQuaternion(this.attachmentFrame).normalize();
+            }
             attachment = bone?.name ?? 'local-root-fallback';
           } else this.anchor.set(point.x * 0.01, this.ground(point), point.y * 0.01);
           const key = `${unit.id}:${effect.startTick}:${particle.profileIndex}:${particle.ordinal}`;
@@ -163,15 +175,18 @@ export class GarenCourage {
             mesh.name = `Garen W ${p.role} ${p.index} ${p.name}`;
             mesh.userData.sourceId = unit.id;
             mesh.userData.startTick = effect.startTick;
-            mesh.userData.attachment = attachment;
             mesh.renderOrder = p.renderOrder;
             mesh.frustumCulled = false;
             this.models.set(key, mesh);
             this.scene.add(mesh);
           }
-          this.offset.fromArray(particle.offset).multiplyScalar(0.01).applyQuaternion(this.frame);
+          mesh.userData.attachment = attachment;
+          this.offset
+            .fromArray(particle.offset)
+            .multiplyScalar(0.01)
+            .applyQuaternion(this.attachmentFrame);
           mesh.position.copy(this.anchor).add(this.offset);
-          if (p.kind === 'billboard') {
+          if (p.kind === 'billboard' && !p.particleLocal) {
             mesh.quaternion.copy(camera.quaternion);
             mesh.rotateZ(-THREE.MathUtils.degToRad(particle.rotation[0]));
           } else {
@@ -181,7 +196,7 @@ export class GarenCourage {
                 'YXZ'
               )
             );
-            mesh.quaternion.copy(this.frame);
+            mesh.quaternion.copy(this.attachmentFrame);
             if (!p.local) mesh.quaternion.identity();
             mesh.quaternion.multiply(this.rotation);
           }

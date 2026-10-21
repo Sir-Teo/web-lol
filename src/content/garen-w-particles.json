@@ -110,6 +110,7 @@
     },
     "uniform": false,
     "local": false,
+    "particleLocal": false,
     "scroll": {
       "value": [
         0,
@@ -240,6 +241,7 @@
     },
     "uniform": false,
     "local": true,
+    "particleLocal": false,
     "scroll": {
       "value": [
         0,
@@ -503,6 +505,7 @@
     },
     "uniform": false,
     "local": true,
+    "particleLocal": false,
     "scroll": {
       "value": [
         -0.20000000298023224,
@@ -712,6 +715,7 @@
     },
     "uniform": true,
     "local": true,
+    "particleLocal": false,
     "scroll": {
       "value": [
         0,
@@ -842,6 +846,7 @@
     },
     "uniform": false,
     "local": true,
+    "particleLocal": false,
     "scroll": {
       "value": [
         0,
@@ -972,6 +977,7 @@
     },
     "uniform": false,
     "local": false,
+    "particleLocal": false,
     "scroll": {
       "value": [
         0.25,
@@ -1257,6 +1263,7 @@
     },
     "uniform": false,
     "local": false,
+    "particleLocal": false,
     "scroll": {
       "value": [
         0.10000000149011612,
@@ -1287,6 +1294,643 @@
     "alphaRef": 0,
     "renderOrder": -100,
     "uvMode": 2,
+    "miscRenderFlags": 0
+  },
+  {
+    "system": "Garen_W_Shoulder_L",
+    "role": "shoulder-left",
+    "index": 0,
+    "name": "Streak",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_slash_blue_flare.png",
+    "lookup": "assets/effects/garen_jayce_color_fade_range2.png",
+    "rate": 10.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 11.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        1.0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        40.0,
+        40.0,
+        40.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        0.800000011920929
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          5.0,
+          1.0,
+          5.0
+        ],
+        [
+          1.0,
+          0.10000000149011612,
+          1.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "alphaRef": 0,
+    "renderOrder": -100,
+    "uvMode": 0,
+    "miscRenderFlags": 0
+  },
+  {
+    "system": "Garen_W_Shoulder_L",
+    "role": "shoulder-left",
+    "index": 1,
+    "name": "hoop",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_w_glow_hoop.png",
+    "lookup": "assets/effects/garen_jayce_color_fade_range2.png",
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 11.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        1.0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        95.0,
+        95.0,
+        95.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        6.0,
+        -19.0,
+        6.0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "alphaRef": 0,
+    "renderOrder": 100,
+    "uvMode": 0,
+    "miscRenderFlags": 0
+  },
+  {
+    "system": "Garen_W_Shoulder_R",
+    "role": "shoulder-right",
+    "index": 0,
+    "name": "Streak",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_slash_blue_flare.png",
+    "lookup": "assets/effects/garen_jayce_color_fade_range2.png",
+    "rate": 10.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 11.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        1.0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        40.0,
+        40.0,
+        40.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        0.699999988079071
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          5.0,
+          1.0,
+          5.0
+        ],
+        [
+          1.0,
+          0.10000000149011612,
+          1.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "alphaRef": 0,
+    "renderOrder": -100,
+    "uvMode": 0,
+    "miscRenderFlags": 0
+  },
+  {
+    "system": "Garen_W_Shoulder_R",
+    "role": "shoulder-right",
+    "index": 1,
+    "name": "hoop",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_w_glow_glint.png",
+    "lookup": "assets/effects/garen_jayce_color_fade_range2.png",
+    "rate": 4.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 11.0,
+    "lingerType": 0,
+    "life": {
+      "value": [
+        1.0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        95.0,
+        95.0,
+        95.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        30.0,
+        -60.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        6.0,
+        -9.0,
+        6.0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.800000011920929,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.30000001192092896
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "alphaRef": 0,
+    "renderOrder": 0,
+    "uvMode": 0,
     "miscRenderFlags": 0
   }
 ]

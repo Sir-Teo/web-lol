@@ -84,7 +84,7 @@ test('Courage graphics load only their selected mesh/texture subset on Garen pre
   expect(requests.sort()).toEqual(
     ['/assets/models/garen-w-shield.glb', ...newTextures.filter((p) => selected.has(p))].sort()
   );
-  expect(requests).toHaveLength(6);
+  expect(requests).toHaveLength(10);
 });
 
 test('Courage live materials reproduce independent PNG texel products in every RGBA channel', async ({

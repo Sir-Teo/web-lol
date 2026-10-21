@@ -4,7 +4,7 @@
   "defaultsEvidenceSha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb",
   "output": {
     "path": "src/content/garen-w-particles.json",
-    "sha256": "49df9ff6eebc32baae96aee23c5c4a0a5235e72347fc99e3081a0aaa5f2a146d"
+    "sha256": "05af3add5d20b665c43c77fd54f92510d4d40960145cff60c8820f8d8723f264"
   },
   "implemented": [
     {
@@ -34,6 +34,22 @@
     {
       "system": "Garen_W_Buff",
       "index": 2
+    },
+    {
+      "system": "Garen_W_Shoulder_L",
+      "index": 0
+    },
+    {
+      "system": "Garen_W_Shoulder_L",
+      "index": 1
+    },
+    {
+      "system": "Garen_W_Shoulder_R",
+      "index": 0
+    },
+    {
+      "system": "Garen_W_Shoulder_R",
+      "index": 1
     }
   ],
   "deferred": [
@@ -81,26 +97,6 @@
       "system": "Garen_W_Deflect",
       "index": 0,
       "reason": "deflection event history and dispatch"
-    },
-    {
-      "system": "Garen_W_Shoulder_L",
-      "index": 0,
-      "reason": "shoulder attachment and dispatch"
-    },
-    {
-      "system": "Garen_W_Shoulder_L",
-      "index": 1,
-      "reason": "shoulder attachment and dispatch"
-    },
-    {
-      "system": "Garen_W_Shoulder_R",
-      "index": 0,
-      "reason": "shoulder attachment and dispatch"
-    },
-    {
-      "system": "Garen_W_Shoulder_R",
-      "index": 1,
-      "reason": "shoulder attachment and dispatch"
     }
   ],
   "gpuSamples": [
@@ -217,6 +213,93 @@
         239,
         121,
         0,
+        255
+      ]
+    },
+    {
+      "profileIndex": 7,
+      "sourceUv": [
+        0.4951171875,
+        0.52734375
+      ],
+      "lookupUv": [
+        0.064453125,
+        0.986328125
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        87,
+        87,
+        231,
+        255
+      ]
+    },
+    {
+      "profileIndex": 8,
+      "sourceUv": [
+        0.279296875,
+        0.216796875
+      ],
+      "lookupUv": [
+        0.064453125,
+        0.986328125
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        173,
+        247,
+        173,
+        255
+      ],
+      "lookupRgba": [
+        87,
+        87,
+        231,
+        255
+      ]
+    },
+    {
+      "profileIndex": 10,
+      "sourceUv": [
+        0.466796875,
+        0.462890625
+      ],
+      "lookupUv": [
+        0.064453125,
+        0.986328125
+      ],
+      "tint": [
+        0.6,
+        0.8,
+        0.4,
+        0.7
+      ],
+      "sourceRgba": [
+        255,
+        251,
+        255,
+        255
+      ],
+      "lookupRgba": [
+        87,
+        87,
+        231,
         255
       ]
     }

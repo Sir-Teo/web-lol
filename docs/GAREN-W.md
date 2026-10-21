@@ -9,9 +9,10 @@ The complete [Courage particle source set](GAREN-W-PARTICLES.md) is now prepared
 all seven systems, twenty emitter records, eighteen textures and the shield/shared
 mesh conversions. The development inspector exposes these definitions without
 claiming native material override or attached-skin behavior. The subsequent
-[live cast/ground adapter](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
-renders seven source layers with existing schema-80 continuation; shoulders,
-deflection and character-surface effects remain open.
+[live cast/ground/shoulder adapter](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
+renders eleven source layers with existing schema-80 continuation. Shoulder
+effects follow the posed left/right joints with local attachment/dispatch policies;
+deflection, character-surface effects and native calibration remain open.
 
 `tools/assets/export-garen-w.py` reads only the root `GarenW` record in the
 [frozen character pin](reference/garen-character.json). It checks the five-rank

@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('Courage renders all seven cast/ground layers, follows movement and restores early-death particles by stable identity', async ({
+test('Courage renders all eleven cast/ground/shoulder layers, follows movement and restores early-death particles by stable identity', async ({
   page,
 }) => {
   const errors: string[] = [];
@@ -47,8 +47,12 @@ test('Courage renders all seven cast/ground layers, follows movement and restore
     'Garen W cast 1 ground_glow',
     'Garen W cast 2 energy_up',
     'Garen W cast 3 flash',
+    'Garen W shoulder-left 0 Streak',
+    'Garen W shoulder-left 1 hoop',
+    'Garen W shoulder-right 0 Streak',
+    'Garen W shoulder-right 1 hoop',
   ]);
-  expect(cast.count).toBe(9);
+  expect(cast.count).toBe(31);
   expect(cast.finite && cast.loaded).toBe(true);
   for (const [i, value] of [1, 0, 1.5].entries()) expect(cast.delta[i]).toBeCloseTo(value, 10);
   expect(cast.bone.toLowerCase()).toBe('c_buffbone_glb_center_loc');
@@ -154,6 +158,111 @@ test('Courage renders all seven cast/ground layers, follows movement and restore
   expect(restored.geometryDisposed).toBe(0);
   expect(restored.remaining).toBe(0);
   expect(restored.history).toBeNull();
+  expect(errors).toEqual([]);
+});
+
+test('Courage shoulders follow independent posed joint frames, ignore camera rotation and recover across replacement rigs', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('/?scene=fixture&champion=garen');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(async () => {
+    const threeUrl = '/node_modules/three/build/three.module.js',
+      T = await import(threeUrl),
+      g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.pendingSpawns = [];
+    w.nextWaveTick = Infinity;
+    Object.assign(w.hero, { x: 0, y: 0, previous: { x: 0, y: 0 }, facing: 0.7 });
+    w.learnSpell('w');
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'w', point: w.hero });
+    w.step(25);
+    g.view.recenter({ x: 0, y: 0 });
+    g.view.render(w, 1, g.view.previousElapsed);
+    const courage = g.view.garenCourage,
+      rig = g.view.models.get(w.hero.id),
+      left = rig.root.getObjectByName('L_Shoulder'),
+      right = rig.root.getObjectByName('R_Shoulder'),
+      find = (side: string, index: number) =>
+        [...courage.models.values()].find((m: any) =>
+          m.name.startsWith(`Garen W shoulder-${side} ${index} `)
+        ) as any,
+      // Source offsets/rotations are independently taken from the frozen BIN,
+      // rather than the live sampler or generated playback profiles.
+      error = (bone: any, side: string, offset: number[], rotation: number[]) => {
+        const mesh = find(side, 1),
+          frame = bone.getWorldQuaternion(new T.Quaternion()).normalize(),
+          expectedPosition = bone
+            .getWorldPosition(new T.Vector3())
+            .add(new T.Vector3(...offset).multiplyScalar(0.01).applyQuaternion(frame)),
+          expectedRotation = frame.multiply(
+            new T.Quaternion().setFromEuler(
+              new T.Euler(...rotation.map(T.MathUtils.degToRad), 'YXZ')
+            )
+          );
+        return [
+          mesh.position.distanceTo(expectedPosition),
+          mesh.quaternion.angleTo(expectedRotation),
+        ];
+      },
+      originalErrors = [
+        ...error(left, 'left', [6, -19, 6], [90, 0, 90]),
+        ...error(right, 'right', [6, -9, 6], [90, 30, -60]),
+      ],
+      before = find('left', 0).position.clone();
+    left.position.y += 0.35;
+    left.rotateX(0.4);
+    courage.update(w, 1, g.view.camera, g.view.models);
+    const animatedError = error(left, 'left', [6, -19, 6], [90, 0, 90]),
+      movement = find('left', 0).position.distanceTo(before),
+      shoulderRotation = find('left', 1).quaternion.clone(),
+      originalCamera = g.view.camera.quaternion.clone();
+    g.view.camera.rotateY(0.6);
+    courage.update(w, 1, g.view.camera, g.view.models);
+    const cameraError = find('left', 1).quaternion.angleTo(shoulderRotation);
+    g.view.camera.quaternion.copy(originalCamera);
+
+    const replacement = { root: new T.Group() },
+      replacementLeft = new T.Bone();
+    replacement.root.position.set(4, 3, 2);
+    replacement.root.rotation.y = -0.6;
+    replacementLeft.name = 'l_sHoUlDeR';
+    replacementLeft.position.set(-0.3, 0.6, 0);
+    replacement.root.add(replacementLeft);
+    const replacementModels = new Map([[w.hero.id, replacement]]);
+    courage.update(w, 1, g.view.camera, replacementModels);
+    const replacementError = error(replacementLeft, 'left', [6, -19, 6], [90, 0, 90]),
+      fallbackError = error(replacement.root, 'right', [6, -9, 6], [90, 30, -60]),
+      labels = [find('left', 1).userData.attachment, find('right', 1).userData.attachment];
+    replacement.root.visible = false;
+    courage.update(w, 1, g.view.camera, replacementModels);
+    const hiddenRoles = [...courage.models.values()].map((m: any) => m.name);
+    g.view.render(w, 1, g.view.previousElapsed);
+    g.hud.update(60);
+    return {
+      errors: [...originalErrors, ...animatedError, ...replacementError, ...fallbackError],
+      movement,
+      cameraError,
+      labels,
+      hiddenRoles,
+      separation: left
+        .getWorldPosition(new T.Vector3())
+        .distanceTo(right.getWorldPosition(new T.Vector3())),
+    };
+  });
+  expect(Math.max(...result.errors), JSON.stringify(result)).toBeLessThan(1e-6);
+  expect(result.movement).toBeGreaterThan(0.1);
+  expect(result.cameraError).toBeLessThan(1e-6);
+  expect(result.separation).toBeGreaterThan(0.3);
+  expect(result.labels).toEqual(['l_sHoUlDeR', 'local-root-fallback']);
+  expect(result.hiddenRoles.length).toBeGreaterThan(0);
+  expect(result.hiddenRoles.every((name: string) => name.startsWith('Garen W buff '))).toBe(true);
+  await page.screenshot({ path: 'artifacts/browser-garen-courage-shoulders.png' });
   expect(errors).toEqual([]);
 });
 

@@ -348,3 +348,23 @@ reproduce byte-for-byte. One shield mesh and ten PNGs load on Garen presence;
 ordinary startup retains 17 recordings and no W graphics requests. Native
 calibration, the remaining W operations and full production roster acceptance
 remain open.
+
+## Courage posed shoulder layers — October 21, 2026
+
+[Courage](GAREN-W-PARTICLES.md#live-cast-and-sustained-adapter--october-21-2026)
+now selects eleven source emitter definitions, adding separate left/right streak
+bursts and hoop/glint layers. These retain source curves, random size tables,
+rates and natural one-second lives, following the current posed shoulder joints
+with normalized orientation. Activation dispatch, bone selection and full joint
+inheritance remain explicit local policies awaiting native comparison. Existing
+schema-80 history supports death/stop tails and checkpoint reconstruction.
+
+All 978 checks, TypeScript and eight focused W Chrome cases pass, including
+independent joint-frame checks, camera independence, case-insensitive lookup,
+replacement rigs and seven GPU texel products. Both generated profile/audit files
+reproduce byte-for-byte. Another 29 existing Garen/match-file browser cases and
+production/nested-host smoke pass. PROGRESS records the full verification scope.
+Four already prepared PNGs add 55,550 selected bytes; ordinary startup still
+makes no W graphics requests and retains 17 recordings. Deflection,
+character-surface operations, minimal buff declarations and native/production
+acceptance remain open.
