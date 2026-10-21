@@ -27,6 +27,8 @@ npm run test:production
 
 The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Match files can be downloaded and imported through **Pause → Match files**. Offline reload, autosaves and other-browser certification are not implemented yet.
 
+[Decisive Strike's source audio pack](docs/GAREN-Q-AUDIO.md) is prepared for inspection at `/tools/qa/garen-q-audio-preview.html`, including both QAttack layers and their authored delay. Live Q audio integration remains open.
+
 ## Deployment
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.

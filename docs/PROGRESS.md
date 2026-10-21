@@ -325,6 +325,43 @@ The W graphics chunk is 21.86 KB (4.54 KB gzip); the game entry is 574.78 KB
 (158.63 KB gzip). The existing large-bundle warning remains. Source binaries and
 converted assets are unchanged, and the production roster gate stays in place.
 
+[Decisive Strike source audio](GAREN-Q-AUDIO.md) now closes all five declared
+Q/QAttack events with six actions, thirty-two hierarchy nodes and thirteen
+unaltered float masters. QAttack's two independent play actions retain the second
+layer's authored 230 ms delay. The active masters are nonlooping, with a separate
+250 ms linear stop action; their 7.71068/7.85-second source lengths do not change
+Q's gameplay windows. Container and sound-level gains, shuffle policy, global
+caps, priorities, attenuation and the unresolved output bus remain explicit.
+
+The thirteen WAVs total 7,630,148 bytes and retain all 8,092 samples outside ±1.
+The development audition page supports explicit variants, individual actions,
+dual-action scheduling, monitor gain and the active stop fade. Chrome compares
+every decoded sample and observes actual Web Audio start/gain/stop calls. Explicit
+accessible variant labels fix the first inspection test's ambiguous select name.
+The page capture was visually reviewed. All 988 tests across 201 files and
+TypeScript pass with four workers and a 30-second per-test deadline; all three
+new source-audio browser cases pass with a 60-second browser deadline.
+
+Re-extraction, mapping, decoding and export reproduce all sixteen Q graph/decode/
+profile/WAV outputs byte-for-byte. Re-mapping and decoding W/E/R preserve all six
+existing spell pins plus the shared extraction and inventory pins. Ten existing
+Q/player/match-file browser cases pass, for thirteen focused Chrome scenarios in
+total. The source pack remains separate from gameplay activation and schema 81.
+Production build and nested-host smoke pass with 17 ordinary recordings, real
+Ashe/Lux input and the production Garen gate retained. The ordinary game entry
+remains 574.78 KB (158.63 KB gzip), and no Q audio/controller chunk is added to
+startup. The existing large-bundle warning remains.
+
+This increment prepares source audio and audition tooling. It adds no Q playback
+to current gameplay, requests no Q WAVs during ordinary or Garen startup, and
+does not change schema 81 or Q mechanics. Accepted Q cast/buff/attack histories,
+live audio dispatch/fallback/save continuation, source Q particles, W body
+material/attached-skin operations and native/full production acceptance remain open.
+The W body definitions require material-transition and posed-mesh slice
+operations; their shader/dispatch contracts remain unresolved. No `llvm-dis`
+executable was found on PATH or in the checked repository/Homebrew/bundled tool
+locations; that bounded search does not establish its absence elsewhere.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

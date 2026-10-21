@@ -21,7 +21,7 @@ def chunks(raw):
     assert offset == len(raw)
     return result
 def decode_garen_audio(ability):
-    assert ability in ['w', 'e', 'r']
+    assert ability in ['q', 'w', 'e', 'r']
     source_path = Path(f'docs/reference/garen-{ability}-audio.json')
     source = json.loads(source_path.read_text())
     out = Path(f'.cache/garen-{ability}-audio-decoded'); out.mkdir(exist_ok=True)

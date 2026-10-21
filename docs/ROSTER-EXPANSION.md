@@ -387,3 +387,21 @@ and the complete verification scope. Another 29 existing Garen/match-file browse
 cases pass, for 40 focused Chrome scenarios in total. Production/nested-host
 smoke passes with 17 ordinary recordings and the Garen roster gate retained.
 The eight body/minimal declarations and native/production acceptance remain open.
+
+## Decisive Strike audio source pack — October 21, 2026
+
+[Q audio](GAREN-Q-AUDIO.md) now pins all five declared Q/QAttack events, including
+both attack play actions and their authored 230 ms separation. Thirteen unchanged
+mono float WAVs preserve source headroom. Active masters retain their one-shot
+authoring and separate 250 ms stop fade; their lengths do not redefine Q buffs.
+The development audition page exposes explicit variants and source scheduling.
+
+All 988 tests and TypeScript pass. Three new Chrome cases check every decoded
+sample, real Web Audio scheduling/gains/stop fade and absence of Q requests from
+current startup. Another ten Q/player/match-file browser cases pass. Sixteen Q
+outputs reproduce byte-for-byte and eight existing W/E/R/shared pins stay
+identical. Production/nested-host smoke passes with 17 ordinary recordings and
+unchanged ordinary game-entry size. PROGRESS records complete verification. This source-preparation
+increment leaves live Q audio/history integration, W body rendering, native
+calibration and production roster acceptance open. Gameplay and schema 81 stay
+unchanged.

@@ -115,3 +115,9 @@ including fully shielded and lethal hits. The local policy coalesces hits within
 one simulation tick and excludes true damage. Schema 81 keeps independent
 reaction clocks through practice recasts, defense expiry, death and reload.
 Native dispatch and the remaining body effects remain open.
+
+[Decisive Strike source audio](GAREN-Q-AUDIO.md) is now prepared for inspection:
+thirteen untouched masters, both QAttack actions with their authored delay and
+the separate active stop fade. The development audition page allows variant
+selection. These prepared files do not change current Q gameplay playback;
+accepted-event history and live audio integration remain open.

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>Decisive Strike source audio</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: system-ui, sans-serif;
+        background: #09121d;
+        color: #d9e6ed;
+      }
+      body {
+        max-width: 1040px;
+        margin: 44px auto;
+        padding: 0 24px;
+      }
+      h1 {
+        color: #ebd39b;
+        font-size: 38px;
+        margin-bottom: 12px;
+      }
+      p {
+        line-height: 1.6;
+        color: #aabfce;
+        max-width: 900px;
+      }
+      .tag {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        color: #ba9a58;
+      }
+      .controls,
+      .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin: 18px 0;
+      }
+      button,
+      select {
+        font: inherit;
+        background: #162839;
+        color: #ecdfbf;
+        border: 1px solid #517288;
+        border-radius: 4px;
+        padding: 9px 12px;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: wait;
+      }
+      article {
+        background: #101e2c;
+        border: 1px solid #2c4355;
+        border-radius: 8px;
+        padding: 18px 22px;
+        margin: 16px 0;
+      }
+      article h2 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        color: #e5cf9c;
+      }
+      article p {
+        margin: 8px 0;
+        font-size: 14px;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      #status {
+        padding: 14px;
+        border-left: 3px solid #b7a06b;
+      }
+      code {
+        color: #d3dce3;
+      }
+      details {
+        margin-top: 24px;
+      }
+      pre {
+        overflow: auto;
+        max-height: 400px;
+        font-size: 12px;
+        background: #101e2c;
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tag">Source audition · frozen Riot 16.18.8175716</div>
+    <h1>Decisive Strike</h1>
+    <p>
+      Thirteen untouched float recordings across five declared events. Select a variant and audition
+      a source action, or play both QAttack actions with their authored 230 ms delay. Active masters
+      play once and support the separate 250 ms stop fade.
+    </p>
+    <p>
+      This inspector uses a monitor level at nominal distance. Gameplay dispatch, native shuffle,
+      spatialization and bus mix remain unverified. Each audition replaces the previous one.
+    </p>
+    <div class="controls">
+      <label
+        >Monitor level <input id="level" type="range" min="0" max="1" step="0.01" value="0.2"
+      /></label>
+      <button id="attack" disabled>Play attack event</button>
+      <button id="stop-active" disabled>Stop active (250 ms)</button>
+      <button id="stop-all" disabled>Stop all</button>
+    </div>
+    <p id="status" role="status">Loading source recordings…</p>
+    <main id="actions"></main>
+    <details>
+      <summary>Frozen playback profiles</summary>
+      <pre id="profile"></pre>
+    </details>
+    <script type="module" src="./garen-q-audio-preview.ts"></script>
+  </body>
+</html>
