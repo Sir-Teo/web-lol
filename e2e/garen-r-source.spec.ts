@@ -10,7 +10,7 @@ test('Demacian Justice source inspection loads all meshes and texture roles with
   });
   await page.goto('/tools/qa/garen-r-source-preview.html');
   await page.waitForFunction(() => (window as any).__GAREN_R_SOURCE__?.ready);
-  await expect(page.locator('#textures img')).toHaveCount(21);
+  await expect(page.locator('#textures img')).toHaveCount(23);
   expect(
     await page
       .locator('#textures img')

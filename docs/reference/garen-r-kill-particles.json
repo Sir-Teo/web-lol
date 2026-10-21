@@ -1,0 +1,217 @@
+{
+  "sourceLinkSha256": "e38e3e4361b8fec4ae76fad1d871e0090e9b3d39101d0ae6777372af5074bfe7",
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Garen.wad.client",
+    "chunks": {
+      "DA567E4A92CDAEA7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32228838,
+        "bytes": 67713,
+        "sha256": "ea3fe3ef4a84f728ab7bfd514e5b8abb1a818a9cc4e9ea113d0e09d26066a41f"
+      },
+      "5941DBBE0BBF6E07": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+        "offset": 7845061,
+        "bytes": 35639,
+        "sha256": "b731fafe45fd27c912e47009d8483ad653384ee86728b687f84642c109d4b42c"
+      },
+      "F704A5B0252A502F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 33641824,
+        "bytes": 888,
+        "sha256": "ddf29299e365adf08cacdfa3847028709aec5c75a1c315413cf7f9cb15b6ec76"
+      },
+      "F185E26D59266078": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/18B263098BDB71CF.bundle",
+        "offset": 14323368,
+        "bytes": 5328,
+        "sha256": "ec94584eea1acaec7a40d7b205f0732f2e248aa8051156b581f16ce2567e843a"
+      },
+      "3F4BEEDD72B65665": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 38003816,
+        "bytes": 71591,
+        "sha256": "4ef407d5a7b55e5a2788c1efbd7caed2788959ab31d702d861de7ae12c8f74d3"
+      },
+      "138BB213123DE083": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DFFF40873788215.bundle",
+        "offset": 42440824,
+        "bytes": 67277,
+        "sha256": "17436fde5ea88888d4444a4ce1e79419d44726459b8a7310ce69eed07356cafb"
+      },
+      "9014F60011726428": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DFFF40873788215.bundle",
+        "offset": 42508101,
+        "bytes": 125478,
+        "sha256": "e8923e15780472708492dce7e751b15c537117d84d00ac5530d603a5544c9e6a"
+      },
+      "DBF15D8099BEDC33": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/EE1B26E23E4A56A3.bundle",
+        "offset": 1216522,
+        "bytes": 9416,
+        "sha256": "90a339bb71fbb888550f29b14660c23ea079df39b6aa261ed41540703f787e3e"
+      },
+      "0F386AFE6B1FFDD5": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/18B263098BDB71CF.bundle",
+        "offset": 11351712,
+        "bytes": 181,
+        "sha256": "bd12dfbffe51bcf451299d21c8090bdf64789bf05ccc718f6736d19e1b19f070"
+      },
+      "0E34A3730CB529CC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B77CA1DEC5D636C6.bundle",
+        "offset": 1472077,
+        "bytes": 24007,
+        "sha256": "0a85463940f511eeb92d64162355614726fc51ccff8cb5e1b010f15ae7d49900"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_alpha_18.tex",
+        "wadPathHash": "6bbfc8eb5cb7dc23",
+        "sha256": "2182c52d0a324b19dd16748bb802e5b897411e8f3983726693e4b7de6669bb58",
+        "bytes": 10948
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_aura_self.tex",
+        "wadPathHash": "590b83cb68983a85",
+        "sha256": "41241eafa700d7aa8a280bc7d943c090005324d146d33777a5b8b4bda3ab977b",
+        "bytes": 21884
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_dirt_spike_2.tex",
+        "wadPathHash": "5f29e1a9ce399579",
+        "sha256": "9e2a910a035425b6f0f765db8b0be12742de995d0e47ffef67cab606831c4480",
+        "bytes": 174812
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_land_nova.tex",
+        "wadPathHash": "9d64c2954742a948",
+        "sha256": "272ae64a4f4a8bbb37b9fa9d7f72a5e9f78a11089cadb3661c8abc6752bbdf81",
+        "bytes": 349564
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_w_ground_glow.tex",
+        "wadPathHash": "8296782e14ae13dc",
+        "sha256": "2925f5b43af40fcaeea6788bbef0a5966f10c22b67ce4594d2177e2592982d28",
+        "bytes": 43716
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-rampdown32.tex",
+        "wadPathHash": "d4dd947d578ac29f",
+        "sha256": "6251a66108ce6a5ef1c816d2e4632898bf7f28cb24dd8949a89a4ff48d9d3430",
+        "bytes": 5500
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_distort-soft-shockwave.tex",
+        "wadPathHash": "fbd5814b118df048",
+        "sha256": "38e97daffd711e55af080f42a51f1b4326b1706b6b9b19d36d40c7010e156e19",
+        "bytes": 43716
+      }
+    ]
+  },
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_alpha_18.tex",
+        "wadPathHash": "6bbfc8eb5cb7dc23",
+        "sha256": "2182c52d0a324b19dd16748bb802e5b897411e8f3983726693e4b7de6669bb58",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/garen_alpha_18.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1567,
+      "sha256": "d2da018f230cb25b0a74f7f3f2be7d31a90876a208c38b79b88c5679f7b436da",
+      "rgbaSha256": "19fb53b787941eaf9d6f2479700f485cbfe213458ff9d6e7c601d946bfe11997"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_aura_self.tex",
+        "wadPathHash": "590b83cb68983a85",
+        "sha256": "41241eafa700d7aa8a280bc7d943c090005324d146d33777a5b8b4bda3ab977b",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/garen_aura_self.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 5196,
+      "sha256": "cc27e89b201e548f544cd4844d9b0b27e5e4c5b615e92b78a36aa60ec603aa5e",
+      "rgbaSha256": "99424f5b612c9431e432d0d51d08dd45c8fcb2b0191586392dcfc3b208b46845"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_dirt_spike_2.tex",
+        "wadPathHash": "5f29e1a9ce399579",
+        "sha256": "9e2a910a035425b6f0f765db8b0be12742de995d0e47ffef67cab606831c4480",
+        "bytes": 174812
+      },
+      "path": "public/assets/effects/garen_base_q_dirt_spike_2.png",
+      "width": 256,
+      "height": 512,
+      "bytes": 63124,
+      "sha256": "99b031f4b428d7bf566b05531245806106b706d96196a3f683356dfa914da270",
+      "rgbaSha256": "932977fe9246962a62e28f67c7faef9330521af29fa203d87c57ad79997af0f7"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_land_nova.tex",
+        "wadPathHash": "9d64c2954742a948",
+        "sha256": "272ae64a4f4a8bbb37b9fa9d7f72a5e9f78a11089cadb3661c8abc6752bbdf81",
+        "bytes": 349564
+      },
+      "path": "public/assets/effects/garen_base_q_land_nova.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 236846,
+      "sha256": "788b38dfd731de228d2ce1491cd929f22436148d6f15f27d011183ce2876a1e7",
+      "rgbaSha256": "47c477b8f55d4685b41cb461898055c7c7089e1bb73536008ab6bf97aa3e9dc3"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_w_ground_glow.tex",
+        "wadPathHash": "8296782e14ae13dc",
+        "sha256": "2925f5b43af40fcaeea6788bbef0a5966f10c22b67ce4594d2177e2592982d28",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/garen_base_w_ground_glow.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 11365,
+      "sha256": "39b4595fac6147e7abd925dce09a241b319b73712cd22da26a33c9ec54b921f2",
+      "rgbaSha256": "7afab85984dca7625b8a81cf24cfb8c26ae1e8d131fbf1e382eb9b5a19844344"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-rampdown32.tex",
+        "wadPathHash": "d4dd947d578ac29f",
+        "sha256": "6251a66108ce6a5ef1c816d2e4632898bf7f28cb24dd8949a89a4ff48d9d3430",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/garen_color-rampdown32.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 232,
+      "sha256": "29fced3875029e5f28c51c727c73f4dedeb7d807d6ac27a0196740bb0cd03383",
+      "rgbaSha256": "5ba41fdd0a2fd47af4349e323dcd1fe0ca19a01beee00135305c3393b177f9d3"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_distort-soft-shockwave.tex",
+        "wadPathHash": "fbd5814b118df048",
+        "sha256": "38e97daffd711e55af080f42a51f1b4326b1706b6b9b19d36d40c7010e156e19",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/garen_distort-soft-shockwave.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 32782,
+      "sha256": "8b1480df64a977053ef4bc9e3df7436f029254c9ea1b3c5bfd6225395b858a52",
+      "rgbaSha256": "c658d5362cac4d310198d469c94f8a797208813c882b4088faefba2b65c39b13"
+    }
+  ]
+}

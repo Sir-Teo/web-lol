@@ -289,3 +289,16 @@ Chrome cases pass with the verification conditions recorded in PROGRESS. Ordinar
 startup remains 17 recordings, with R code/data/assets loaded on Garen presence.
 Native spatialization/dispatch/listening, kill-particle visuals, distortion and
 Q/W/basic/voice audio remain open before production roster acceptance.
+
+
+## Demacian Justice lethal-result particles — October 21, 2026
+
+[R kill particles](GAREN-R-PARTICLES.md#lethal-result-particle-adapter--october-21-2026)
+now reconstruct the source shockwave, three camera-facing ray particles and
+flash from schema 79's recorded R kill result. R has 19 selected layers; two
+scene-distortion emitters remain deferred. Two new PNGs load only on Garen
+presence; frozen primary/audio pins are unchanged. All 958 source/simulation
+checks, TypeScript, 22 focused Chrome cases and production/nested-path smoke pass.
+Save/death/fog/resource lifecycles and six independent GPU samples are covered.
+Native timing/attachment/composition and Q/W/basic/voice presentation remain open;
+Garen's production roster gate stays in place.

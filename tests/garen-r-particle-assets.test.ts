@@ -4,6 +4,8 @@ import { createHash } from 'node:crypto';
 import source from '../docs/reference/garen-r-particles.json';
 import decoded from '../docs/reference/garen-r-particles-decoded.json';
 import model from '../docs/reference/garen-model.json';
+import kill from '../docs/reference/garen-r-kill-particles.json';
+import killLink from '../docs/reference/garen-r-kill-audio-link.json';
 
 const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
 function strings(value: unknown): string[] {
@@ -72,4 +74,28 @@ test('the sole authored R particle event remains a frame-10 caster attachment', 
   });
   expect(decoded.systems.Garen_R_Sword_Tar.unresolvedIdentifiers).toEqual([]);
   expect(decoded.systems.Garen_R_Tar_Impact.unresolvedIdentifiers).toEqual(['{ee39916f}']);
+});
+
+test('Champ_Kill closes its seven frozen texture dependencies without changing the sound binding pin', () => {
+  expect(hash('docs/reference/garen-r-kill-audio-link.json')).toBe(kill.sourceLinkSha256);
+  expect(killLink.particlePinSha256).toBe(hash('docs/reference/garen-r-particles.json'));
+  expect(source.extraction.files).toContainEqual(killLink.sourceFile);
+  expect(
+    model.skin.data['Characters/Garen/Skins/Skin0/Resources'].resourceMap.Garen_R_Champ_Kill
+  ).toBe(killLink.record);
+  const dependencies = [
+    ...new Set(
+      strings(killLink.definition)
+        .filter((s) => s.toLowerCase().startsWith('assets/'))
+        .map((s) => s.toLowerCase())
+    ),
+  ].sort();
+  expect(kill.extraction.files.map((f) => f.path).sort()).toEqual(dependencies);
+  expect(kill.textures.map((t) => t.source.path).sort()).toEqual(dependencies);
+  expect(kill.textures).toHaveLength(7);
+  for (const t of kill.textures) {
+    expect(hash(t.path)).toBe(t.sha256);
+    expect(readFileSync(t.path).length).toBe(t.bytes);
+    expect(kill.extraction.files).toContainEqual(t.source);
+  }
 });

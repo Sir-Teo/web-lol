@@ -43,12 +43,15 @@ export function garenJusticeParticles(
   return profiles.flatMap((p, profileIndex) => {
     if (
       p.deferred ||
-      (p.role === 'impact' && effect.releaseTick === null) ||
+      ((p.role === 'impact' || p.role === 'kill') && effect.releaseTick === null) ||
+      (p.role === 'kill' && !effect.killed) ||
       (p.role === 'sword' && effect.stopTick !== null)
     )
       return [];
     const start =
-      p.role === 'impact' ? effect.releaseTick! : effect.startTick + GAREN_R_PARTICLE_START_TICKS;
+      p.role === 'impact' || p.role === 'kill'
+        ? effect.releaseTick!
+        : effect.startTick + GAREN_R_PARTICLE_START_TICKS;
     // Remove only float32 representation noise around exact 60 Hz boundaries.
     const delay = Math.ceil(p.delay * 60 - 1e-5),
       now = tick - start - delay;

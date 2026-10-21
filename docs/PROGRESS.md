@@ -140,6 +140,29 @@ chunk; its seven WAVs add 5,328,644 bytes only for Garen presence. Native
 position/orientation panning, dispatch/listening/bus mix, optional kill-particle
 layers, scene distortion and full production/match acceptance remain open.
 
+[Demacian Justice kill particles](GAREN-R-PARTICLES.md#lethal-result-particle-adapter--october-21-2026)
+now add the frozen Champ_Kill shockwave, three ray particles and flash, taking R
+to 19 selected source layers. The existing schema-79 lethal-result flag gates
+all six kill draws; nonfatal release, later unrelated death and cancellation
+cannot invent them. Seven texture dependencies are pinned to the same frozen
+Garen archive; two new PNGs add 64,691 bytes only on Garen presence. Existing
+primary BIN/particle and audio pins remain unchanged. Both scene-distortion
+layers remain deferred, and native dispatch/attachment/composition is unverified.
+
+All 958 source/simulation checks and TypeScript pass with four workers and the
+existing 30-second bounded verification override. Twenty-two focused Chrome
+cases pass across Garen kit/player/particles/R audio and the shared ray primitive.
+The final R checks also cover kill-ray fog disposal/recreation, saved lethal
+tails after caster death, camera-facing geometry with stable buffers, loading
+only on presence and all 23 inspection textures. All six independent R GPU
+samples agree within one byte per RGBA channel. The gameplay impact capture was
+visually reviewed. Re-extraction/export reproduces ten pins/profiles/texture
+outputs byte-for-byte. Production build/nested-host smoke passes with 17 ordinary
+recordings and Garen excluded from production selection. The on-presence R
+particle chunk is 42.38 KB (6.46 KB gzip); the ordinary game entry is 570.71 KB.
+The existing large-bundle warning remains. Native calibration, Q/W/basic/voice
+presentation and full production/match acceptance remain open.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

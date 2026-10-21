@@ -7,6 +7,7 @@ import type { Vec2 } from '../simulation/math';
 import type { UnitModel } from './models';
 import { garenJusticeParticles } from './garen-justice-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
+import { writeRayQuad } from './ray-quad';
 
 const sourceMeshes = new Map<string, THREE.BufferGeometry>();
 const textures = new Map<string, THREE.Texture>();
@@ -116,7 +117,7 @@ export function createGarenJusticeMaterial(
     name: `Demacian Justice ${p.role} ${p.index} ${p.name}`,
     transparent: true,
     depthWrite: false,
-    depthTest: true,
+    depthTest: (p.miscRenderFlags & 1) === 0,
     forceSinglePass: true,
     blending: THREE.CustomBlending,
     blendEquation: THREE.AddEquation,
@@ -136,6 +137,10 @@ export class GarenJustice {
   private rotation = new THREE.Quaternion();
   private frame = new THREE.Quaternion();
   private aim = new THREE.Quaternion();
+  private rayAxis = new THREE.Vector3();
+  private rayAcross = new THREE.Vector3();
+  private rayEye = new THREE.Vector3();
+  private rayOrigin = new THREE.Vector3();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   constructor(
     private scene: THREE.Scene,
@@ -193,8 +198,23 @@ export class GarenJustice {
           active.add(key);
           let mesh = this.models.get(key);
           if (!mesh) {
+            const geometry =
+              p.kind === 'ray'
+                ? new THREE.BufferGeometry()
+                    .setAttribute(
+                      'position',
+                      new THREE.BufferAttribute(new Float32Array(18), 3).setUsage(
+                        THREE.DynamicDrawUsage
+                      )
+                    )
+                    .setAttribute('uv', new THREE.BufferAttribute(new Float32Array(12), 2))
+                : p.mesh
+                  ? sourceMeshes.get(p.mesh)!
+                  : p.kind === 'quad'
+                    ? quad
+                    : billboard;
             mesh = new THREE.Mesh(
-              p.mesh ? sourceMeshes.get(p.mesh)! : p.kind === 'quad' ? quad : billboard,
+              geometry,
               createGarenJusticeMaterial(
                 particle.profileIndex,
                 textures.get(p.texture)!,
@@ -205,6 +225,7 @@ export class GarenJustice {
             mesh.name = `Garen R ${p.role} ${p.index} ${p.name}`;
             mesh.userData.sourceId = unit.id;
             mesh.userData.startTick = effect.startTick;
+            mesh.userData.ownedGeometry = p.kind === 'ray';
             mesh.userData.attachment =
               p.role === 'cast'
                 ? (this.attachments.get(unitModels.get(unit.id)!)?.name ?? 'local-root-fallback')
@@ -216,7 +237,35 @@ export class GarenJustice {
           }
           this.offset.fromArray(particle.offset).multiplyScalar(0.01).applyQuaternion(this.frame);
           mesh.position.copy(this.anchor).add(this.offset);
-          if (p.kind === 'billboard') {
+          if (p.kind === 'ray') {
+            this.rotation.setFromEuler(
+              this.euler.set(
+                ...(particle.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+                'YXZ'
+              )
+            );
+            if (p.local) this.rotation.premultiply(this.frame);
+            this.rayAxis.set(0, 0, 1).applyQuaternion(this.rotation);
+            this.rayAcross.set(1, 0, 0).applyQuaternion(this.rotation);
+            camera.getWorldPosition(this.rayEye).sub(mesh.position);
+            const position = mesh.geometry.getAttribute('position') as THREE.BufferAttribute,
+              uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
+            writeRayQuad(
+              position,
+              uv,
+              0,
+              {
+                center: this.rayOrigin,
+                axis: this.rayAxis,
+                fallbackAcross: this.rayAcross,
+                size: particle.scale.map((v) => v * 0.01) as [number, number, number],
+              },
+              this.rayEye
+            );
+            position.needsUpdate = uv.needsUpdate = true;
+            mesh.quaternion.identity();
+            mesh.scale.setScalar(1);
+          } else if (p.kind === 'billboard') {
             mesh.quaternion.copy(camera.quaternion);
             if (p.direction) {
               this.direction
@@ -242,7 +291,8 @@ export class GarenJustice {
               .copy(p.local ? this.frame : this.aim.identity())
               .multiply(this.rotation);
           }
-          mesh.scale.fromArray(particle.scale).multiplyScalar(p.kind === 'mesh' ? 1 : 0.01);
+          if (p.kind !== 'ray')
+            mesh.scale.fromArray(particle.scale).multiplyScalar(p.kind === 'mesh' ? 1 : 0.01);
           const uniforms = mesh.material.uniforms;
           const color = [...particle.color];
           if (p.blend === 0) {
@@ -264,6 +314,7 @@ export class GarenJustice {
       if (!active.has(key)) {
         this.scene.remove(mesh);
         mesh.material.dispose();
+        if (mesh.userData.ownedGeometry) mesh.geometry.dispose();
         this.models.delete(key);
       }
   }

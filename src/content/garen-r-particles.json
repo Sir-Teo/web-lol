@@ -315,7 +315,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": -100,
-    "uvMode": 2
+    "uvMode": 2,
+    "miscRenderFlags": 0
   },
   {
     "role": "cast",
@@ -477,7 +478,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": 0,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "sword",
@@ -660,7 +662,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": 100,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "sword",
@@ -822,7 +825,8 @@
     "blend": 0,
     "alphaRef": 0,
     "renderOrder": 100,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "sword",
@@ -1005,7 +1009,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": 100,
-    "uvMode": 2
+    "uvMode": 2,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -1194,7 +1199,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": 100,
-    "uvMode": 2
+    "uvMode": 2,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -1513,7 +1519,8 @@
     "blend": 1,
     "alphaRef": 0,
     "renderOrder": -10,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -1823,7 +1830,8 @@
     "blend": 1,
     "alphaRef": 0,
     "renderOrder": 10,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -2006,7 +2014,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": -18,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -2216,7 +2225,8 @@
     "blend": 0,
     "alphaRef": 0,
     "renderOrder": 1,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -2582,7 +2592,8 @@
     "blend": 1,
     "alphaRef": 16,
     "renderOrder": 50,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -2770,7 +2781,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": 10,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -3080,7 +3092,8 @@
     "blend": 4,
     "alphaRef": 12,
     "renderOrder": 10,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -3313,7 +3326,8 @@
     "blend": 4,
     "alphaRef": 0,
     "renderOrder": 1,
-    "uvMode": 2
+    "uvMode": 2,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -3508,7 +3522,8 @@
     "blend": 0,
     "alphaRef": 0,
     "renderOrder": 10,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
   },
   {
     "role": "impact",
@@ -3676,7 +3691,8 @@
     "blend": 1,
     "alphaRef": 0,
     "renderOrder": 1000,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 1
   },
   {
     "role": "impact",
@@ -3838,6 +3854,783 @@
     "blend": 0,
     "alphaRef": 0,
     "renderOrder": 0,
-    "uvMode": 0
+    "uvMode": 0,
+    "miscRenderFlags": 0
+  },
+  {
+    "role": "kill",
+    "index": 0,
+    "name": "shockwave",
+    "deferred": null,
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_land_nova.png",
+    "lookup": "assets/effects/garen_alpha_18.png",
+    "multiplier": null,
+    "rate": 2.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 0,
+    "life": {
+      "value": [
+        0.550000011920929
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        500.0,
+        500.0,
+        500.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ],
+        [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        [
+          1.399999976158142,
+          1.399999976158142,
+          1.399999976158142
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": false,
+    "direction": false,
+    "local": false,
+    "scroll": {
+      "value": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 4,
+    "alphaRef": 0,
+    "renderOrder": 1,
+    "uvMode": 2,
+    "miscRenderFlags": 0
+  },
+  {
+    "role": "kill",
+    "index": 1,
+    "name": "fireLine",
+    "deferred": null,
+    "kind": "ray",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_q_dirt_spike_2.png",
+    "lookup": null,
+    "multiplier": null,
+    "rate": 3.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 10.600000381469727,
+    "life": {
+      "value": [
+        0.6000000238418579
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        800.0,
+        1600.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        -90.0,
+        0.0,
+        -90.0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.6000000238418579,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "direction": false,
+    "local": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 4,
+    "alphaRef": 0,
+    "renderOrder": 3,
+    "uvMode": 0,
+    "miscRenderFlags": 0
+  },
+  {
+    "role": "kill",
+    "index": 2,
+    "name": "flash",
+    "deferred": null,
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_base_w_ground_glow.png",
+    "lookup": "assets/effects/garen_alpha_18.png",
+    "multiplier": null,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 0,
+    "life": {
+      "value": [
+        0.30000001192092896
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "direction": false,
+    "local": false,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 0,
+    "alphaRef": 0,
+    "renderOrder": 1,
+    "uvMode": 0,
+    "miscRenderFlags": 1
+  },
+  {
+    "role": "kill",
+    "index": 3,
+    "name": "distort",
+    "deferred": "scene distortion requires a separate verified render pass",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/garen_aura_self.png",
+    "lookup": "assets/effects/garen_color-rampdown32.png",
+    "multiplier": null,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 0,
+    "life": {
+      "value": [
+        1.25
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        1200.0,
+        1200.0,
+        1200.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angularVelocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        200.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawnOffset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ]
+      ]
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "direction": false,
+    "local": true,
+    "scroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "multScroll": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false
+    },
+    "blend": 1,
+    "alphaRef": 0,
+    "renderOrder": 1000,
+    "uvMode": 0,
+    "miscRenderFlags": 0
   }
 ]

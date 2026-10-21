@@ -1,9 +1,11 @@
 {
   "sourcePinSha256": "492b811cc643f3a44e7ec4b6a6832e71f03456b043e514f1c8ea85ffc09cd9ed",
+  "killAssetsSha256": "4a0e9a8676abbe89aca82d9678a7ec4def95e0dc848a19d4c27ce310d2fd204d",
+  "killSourceLinkSha256": "e38e3e4361b8fec4ae76fad1d871e0090e9b3d39101d0ae6777372af5074bfe7",
   "defaultsEvidenceSha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb",
   "output": {
     "path": "src/content/garen-r-particles.json",
-    "sha256": "5f3d078bca1b6a3448ad82d1c45553f55761ee094d47195847966b53c0b6a11d"
+    "sha256": "ed5f2b5ef37668d38556d91c6ee19616ca00a4de809814302b18cbf9c0a965ea"
   },
   "implemented": [
     {
@@ -69,12 +71,29 @@
     {
       "role": "impact",
       "index": 11
+    },
+    {
+      "role": "kill",
+      "index": 0
+    },
+    {
+      "role": "kill",
+      "index": 1
+    },
+    {
+      "role": "kill",
+      "index": 2
     }
   ],
   "deferred": [
     {
       "role": "impact",
       "index": 10,
+      "reason": "scene distortion requires a separate verified render pass"
+    },
+    {
+      "role": "kill",
+      "index": 3,
       "reason": "scene distortion requires a separate verified render pass"
     }
   ],
@@ -219,6 +238,159 @@
         255,
         255,
         255,
+        255
+      ],
+      "multiplierRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 17,
+      "rawUv": [
+        0.1708984375,
+        0.3271484375
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "sourceOffset": [
+        0,
+        0
+      ],
+      "multiplierOffset": [
+        0,
+        0
+      ],
+      "tint": [
+        0.7,
+        0.5,
+        0.3,
+        0.8
+      ],
+      "sourcePixel": [
+        87,
+        167
+      ],
+      "sourceRgba": [
+        255,
+        219,
+        173,
+        245
+      ],
+      "lookupRgba": [
+        239,
+        235,
+        239,
+        255
+      ],
+      "multiplierRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 18,
+      "rawUv": [
+        0.423828125,
+        0.5810546875
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "lookupUv": [
+        0.5,
+        0.5
+      ],
+      "sourceOffset": [
+        0,
+        0
+      ],
+      "multiplierOffset": [
+        0,
+        0
+      ],
+      "tint": [
+        0.7,
+        0.5,
+        0.3,
+        0.8
+      ],
+      "sourcePixel": [
+        108,
+        297
+      ],
+      "sourceRgba": [
+        255,
+        247,
+        214,
+        96
+      ],
+      "lookupRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "multiplierRgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "profileIndex": 19,
+      "rawUv": [
+        0.509765625,
+        0.462890625
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "lookupUv": [
+        0.50390625,
+        0.50390625
+      ],
+      "sourceOffset": [
+        0,
+        0
+      ],
+      "multiplierOffset": [
+        0,
+        0
+      ],
+      "tint": [
+        0.7,
+        0.5,
+        0.3,
+        0.8
+      ],
+      "sourcePixel": [
+        130,
+        118
+      ],
+      "sourceRgba": [
+        74,
+        45,
+        0,
+        255
+      ],
+      "lookupRgba": [
+        239,
+        235,
+        239,
         255
       ],
       "multiplierRgba": [

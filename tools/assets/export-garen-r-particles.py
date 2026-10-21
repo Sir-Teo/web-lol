@@ -13,10 +13,15 @@ pin_path = Path('docs/reference/garen-r-particles.json')
 pin = json.loads(pin_path.read_text())
 assets = json.loads(Path('docs/reference/garen-r-particles-decoded.json').read_text())
 assert assets['sourcePinSha256'] == sha(pin_path.read_bytes())
+kill_path = Path('docs/reference/garen-r-kill-particles.json')
+kill = json.loads(kill_path.read_text())
+kill_link_path = Path('docs/reference/garen-r-kill-audio-link.json')
+kill_link = json.loads(kill_link_path.read_text())
+assert kill['sourceLinkSha256'] == sha(kill_link_path.read_bytes())
 defaults = json.loads(Path('docs/reference/garen-spin-defaults.json').read_text())
-textures = {t['source']['path']: t['path'].removeprefix('public/') for t in assets['textures']}
+textures = {t['source']['path']: t['path'].removeprefix('public/') for t in [*assets['textures'], *kill['textures']]}
 meshes = {m['source']['path']: m['output']['path'].removeprefix('/') for m in assets['meshes']}
-for t in assets['textures']: assert sha(Path(t['path']).read_bytes()) == t['sha256']
+for t in [*assets['textures'], *kill['textures']]: assert sha(Path(t['path']).read_bytes()) == t['sha256']
 for m in assets['meshes']: assert sha(Path('public'+m['output']['path']).read_bytes()) == m['output']['sha256']
 def vector(v): return v if isinstance(v, list) else [v]
 def birth(value, fallback):
@@ -34,17 +39,20 @@ def curve(value, fallback):
         return dict(times=dynamics['times'], values=[vector(v) for v in dynamics['values']])
     return dict(times=[0], values=[vector(value.get('constantValue', fallback))])
 profiles = []
-for key, role in [('Garen_R_Cas','cast'),('Garen_R_Sword_Tar','sword'),('Garen_R_Tar_Impact','impact')]:
-    for index, e in enumerate(pin['resources'][key]['definition']['complexEmitterDefinitionData']):
+systems = [(pin['resources'][key]['definition'], role) for key, role in
+    [('Garen_R_Cas','cast'),('Garen_R_Sword_Tar','sword'),('Garen_R_Tar_Impact','impact')]]
+systems.append((kill_link['definition'], 'kill'))
+for definition, role in systems:
+    for index, e in enumerate(definition['complexEmitterDefinitionData']):
         shape = e.get('SpawnShape', {})
         primitive = e.get('primitive', {}).get('__type')
         mult = e.get('textureMult')
         assert e.get('frameRate', 0) == 0
         assert e.get('blendMode', 0) in [0, 1, 4]
-        assert primitive in [None, 'VfxPrimitiveMesh', 'VfxPrimitiveArbitraryQuad']
+        assert primitive in [None, 'VfxPrimitiveMesh', 'VfxPrimitiveArbitraryQuad', 'VfxPrimitiveRay']
         profiles.append(dict(role=role, index=index, name=e['emitterName'],
             deferred='scene distortion requires a separate verified render pass' if 'distortionDefinition' in e else None,
-            kind='mesh' if primitive=='VfxPrimitiveMesh' else 'quad' if primitive else 'billboard',
+            kind='mesh' if primitive=='VfxPrimitiveMesh' else 'ray' if primitive=='VfxPrimitiveRay' else 'quad' if primitive else 'billboard',
             mesh=meshes[e['primitive']['mMesh']['mSimpleMeshName'].lower()] if primitive=='VfxPrimitiveMesh' else None,
             texture=textures[e['texture'].lower()], lookup=textures[e['particleColorTexture'].lower()] if 'particleColorTexture' in e else None,
             multiplier=textures[mult['textureMult'].lower()] if mult else None,
@@ -68,10 +76,12 @@ for key, role in [('Garen_R_Cas','cast'),('Garen_R_Sword_Tar','sword'),('Garen_R
             lookupTypes=[e.get('colorLookUpTypeX',1),e.get('colorLookUpTypeY',0)],
             lookupScales=e.get('colorLookUpScales',[1,1]), lookupOffsets=e.get('colorLookUpOffsets',[0,0]),
             atlas=dict(grid=e.get('texDiv',[1,1]),frames=e.get('numFrames',1),start=e.get('startFrame',0),random=bool(e.get('isRandomStartFrame',False))),
-            blend=e.get('blendMode',0), alphaRef=e.get('alphaRef',0), renderOrder=e.get('pass',0), uvMode=e.get('uvMode',0)))
-assert len(profiles)==17 and sum(p['deferred'] is None for p in profiles)==16
+            blend=e.get('blendMode',0), alphaRef=e.get('alphaRef',0), renderOrder=e.get('pass',0), uvMode=e.get('uvMode',0),
+            miscRenderFlags=e.get('miscRenderFlags',0)))
+assert len(profiles)==21 and sum(p['deferred'] is None for p in profiles)==19
 path=Path('src/content/garen-r-particles.json');path.write_text(json.dumps(profiles,indent=2)+'\n')
-audit=dict(sourcePinSha256=assets['sourcePinSha256'], defaultsEvidenceSha256=sha(Path('docs/reference/garen-spin-defaults.json').read_bytes()),
+audit=dict(sourcePinSha256=assets['sourcePinSha256'], killAssetsSha256=sha(kill_path.read_bytes()), killSourceLinkSha256=sha(kill_link_path.read_bytes()),
+    defaultsEvidenceSha256=sha(Path('docs/reference/garen-spin-defaults.json').read_bytes()),
     output=dict(path=str(path),sha256=sha(path.read_bytes())), implemented=[dict(role=p['role'], index=p['index']) for p in profiles if p['deferred'] is None],
     deferred=[dict(role=p['role'], index=p['index'],reason=p['deferred']) for p in profiles if p['deferred']])
 # Independent PNG texels for GPU verification of the new UV paths.
@@ -90,6 +100,15 @@ p=profiles[10]
 gpu_samples.append(dict(profileIndex=10,rawUv=[(180.5/256-0.5)*2,(203.5/256-0.5)*2],scale=[0.5,0.5],
     sourceOffset=[0.5,0.5],multiplierOffset=[0,0],tint=[0.5,0.6,0.7,0.8],sourcePixel=[180,203],
     sourceRgba=pixel(p['texture'],[180,203]),lookupRgba=pixel(p['lookup'],[4,4]),multiplierRgba=[255]*4))
+for index, at in [(17,[87,167]),(18,[108,297]),(19,[130,118])]:
+    p=profiles[index]
+    image=Image.open('public/'+p['texture'])
+    lookup_image=Image.open('public/'+p['lookup']) if p['lookup'] else None
+    lookup_pixel=[lookup_image.width//2,lookup_image.height//2] if lookup_image else [0,0]
+    gpu_samples.append(dict(profileIndex=index,rawUv=[(at[0]+0.5)/image.width,(at[1]+0.5)/image.height],scale=[1,1],
+        lookupUv=[(lookup_pixel[0]+0.5)/lookup_image.width,(lookup_pixel[1]+0.5)/lookup_image.height] if lookup_image else [0.5,0.5],
+        sourceOffset=[0,0],multiplierOffset=[0,0],tint=[0.7,0.5,0.3,0.8],sourcePixel=at,
+        sourceRgba=pixel(p['texture'],at),lookupRgba=pixel(p['lookup'],lookup_pixel) if p['lookup'] else [255]*4,multiplierRgba=[255]*4))
 audit['gpuSamples']=gpu_samples
 Path('docs/reference/garen-r-particle-profiles.json').write_text(json.dumps(audit,indent=2)+'\n')
-print('Exported 17 R playback profiles; 16 visual layers selected, distortion separately deferred.')
+print('Exported 21 R playback profiles; 19 visual layers selected, two distortion layers separately deferred.')

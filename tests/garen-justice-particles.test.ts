@@ -5,6 +5,7 @@ import profiles from '../src/content/garen-r-particles.json';
 import audit from '../docs/reference/garen-r-particle-profiles.json';
 import { garenJusticeParticles, garenJusticeTravel } from '../src/render/garen-justice-particles';
 import { GAREN_R_PARTICLE_START_TICKS } from '../src/content/garen-r-presentation';
+import type { ChampionState } from '../src/simulation/types';
 
 const effect = {
   startTick: 100,
@@ -19,12 +20,19 @@ test('R playback retains every source profile and explicitly defers the scene-di
   const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
   expect(hash(audit.output.path)).toBe(audit.output.sha256);
   expect(hash('docs/reference/garen-r-particles.json')).toBe(audit.sourcePinSha256);
+  expect(hash('docs/reference/garen-r-kill-particles.json')).toBe(audit.killAssetsSha256);
+  expect(hash('docs/reference/garen-r-kill-audio-link.json')).toBe(audit.killSourceLinkSha256);
   expect(hash('docs/reference/garen-spin-defaults.json')).toBe(audit.defaultsEvidenceSha256);
-  expect(audit.implemented).toHaveLength(16);
+  expect(audit.implemented).toHaveLength(19);
   expect(audit.deferred).toEqual([
     {
       role: 'impact',
       index: 10,
+      reason: 'scene distortion requires a separate verified render pass',
+    },
+    {
+      role: 'kill',
+      index: 3,
       reason: 'scene distortion requires a separate verified render pass',
     },
   ]);
@@ -71,7 +79,7 @@ test('all sixteen selected layer identities reconstruct deterministically with b
     }
   }
   expect([...seen].sort((a, b) => a - b)).toEqual(
-    profiles.flatMap((p, i) => (p.deferred ? [] : [i]))
+    profiles.flatMap((p, i) => (p.deferred || p.role === 'kill' ? [] : [i]))
   );
   const at = garenJusticeParticles(1, effect, 136);
   garenJusticeParticles(1, effect, 200);
@@ -100,4 +108,37 @@ test('impact decal follows its release clock and retains its full natural lifeti
   expect(born.offset).toEqual([0, 3, 0]);
   expect(garenJusticeParticles(1, effect, 265).some((p) => p.profileIndex === index)).toBe(true);
   expect(garenJusticeParticles(1, effect, 266).some((p) => p.profileIndex === index)).toBe(false);
+});
+
+test('only a captured lethal release emits the three kill layers at their source counts and lifetimes', () => {
+  const lethal = { ...effect, killed: true };
+  const kill = (tick: number, state: NonNullable<ChampionState['garenRVisual']> = lethal) =>
+    garenJusticeParticles(1, state, tick).filter((p) => profiles[p.profileIndex].role === 'kill');
+  expect(kill(127)).toEqual([]);
+  const born = kill(128);
+  expect(born.map((p) => [profiles[p.profileIndex].name, p.age])).toEqual([
+    ['shockwave', 0],
+    ['shockwave', 0],
+    ['fireLine', 0],
+    ['fireLine', 0],
+    ['fireLine', 0],
+    ['flash', 0],
+  ]);
+  expect(born.filter((p) => profiles[p.profileIndex].kind === 'ray')).toHaveLength(3);
+  expect(kill(150).map((p) => profiles[p.profileIndex].name)).not.toContain('flash');
+  expect(kill(165)).toEqual([]);
+  // particleLinger is retained as source metadata, not guessed extra visible life.
+  expect(profiles.find((p) => p.role === 'kill' && p.kind === 'ray')!.linger).toBeGreaterThan(10);
+  expect(kill(129, effect)).toEqual([]);
+  expect(kill(129, { ...lethal, releaseTick: null })).toEqual([]);
+  expect(kill(129, { ...effect, releaseTick: null, stopTick: 120 })).toEqual([]);
+  const restored = JSON.parse(JSON.stringify(lethal));
+  const sampled = kill(136);
+  kill(200);
+  expect(kill(136, restored)).toEqual(sampled);
+  expect(
+    sampled
+      .flatMap((p) => [...p.offset, ...p.scale, ...p.rotation, ...p.scroll, ...p.color])
+      .every(Number.isFinite)
+  ).toBe(true);
 });

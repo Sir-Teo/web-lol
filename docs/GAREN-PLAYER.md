@@ -91,3 +91,8 @@ comparison remain open; production selection stays Ashe/Lux.
 and a stereo lethal-result cue. Schema 79 retains sound after particles expire;
 source-ready casts bypass synthesis and missing/late files retain a single
 fallback cast. Q/W/basic/voice audio and native comparison remain unfinished.
+
+[R kill particles](GAREN-R-PARTICLES.md#lethal-result-particle-adapter--october-21-2026)
+now add a shockwave, three rays and flash only on the recorded lethal R result.
+Those six draws retain their release point and clocks through caster death and
+checkpoint reload; both source distortion layers and native comparison remain open.

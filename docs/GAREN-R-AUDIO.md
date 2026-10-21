@@ -33,8 +33,10 @@ The passive notification resources name a different event.
 
 This link establishes the source particle-to-sound dependency; it does **not**
 prove when the modern spell script creates that particle. The local adapter plays
-its sound only when R's own damage is lethal. The optional `Champ_Kill` particle
-system's extra visual layers are not implemented by this audio increment.
+its sound only when R's own damage is lethal. The subsequent
+[kill-particle adapter](GAREN-R-PARTICLES.md#lethal-result-particle-adapter--october-21-2026)
+adds its shockwave, rays and flash using that same recorded result; distortion
+remains deferred.
 
 All three containers declare equal playlist weights, random/shuffle mode, reset
 on play, no avoidance, one play and no continuous sequence. Child sounds have no
@@ -158,6 +160,5 @@ or warnings. Production build and nested-host smoke pass with 17 ordinary startu
 recordings and the production Garen gate intact. The R audio controller/profile
 occupies a separate 6.72 KB chunk (2.95 KB gzip); the existing large-bundle warning
 remains. [PROGRESS.md](PROGRESS.md) retains the broader project acceptance scope.
-Native listening/dispatch/bus comparison, the optional kill-particle visuals,
-scene distortion, Q/W/basic/voice audio and complete production/full-match
-acceptance remain open.
+Native listening/dispatch/bus comparison, scene distortion, Q/W/basic/voice audio
+and complete production/full-match acceptance remain open.

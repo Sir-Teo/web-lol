@@ -1,10 +1,10 @@
 # Demacian Justice source particle assets
 
-Garen R now renders 16 source layers in the development player and NPC fixtures:
-the caster flash/ground glow, three sword layers, and eleven impact layers. They
-use the previously verified four source meshes and 21 texture dependencies.
-The seventeenth source emitter is scene distortion, which remains explicitly
-deferred. This is an initial source-backed adapter, not native presentation
+Garen R now renders 19 source layers in the development player and NPC fixtures:
+the caster flash/ground glow, three sword layers, eleven impact layers and three
+lethal-result layers. They use four source meshes and 21 runtime textures from
+23 pinned texture dependencies. Two scene-distortion emitters remain explicitly
+deferred. This is a source-backed adapter, not native presentation
 certification. Garen remains excluded from production selection.
 
 Snapshot version 78 records accepted R, a valid release and pre-release
@@ -219,3 +219,62 @@ separate sword scroll coordinates and the rock atlas. Wider check results are
 recorded in [PROGRESS.md](PROGRESS.md). Native timing/attachment/composition,
 distortion, native R audio comparison, other Garen effects and complete production/full-match
 acceptance remain open.
+
+## Lethal-result particle adapter — October 21, 2026
+
+The existing `garen-r-kill-audio-link.json` retains the complete frozen
+`Garen_R_Champ_Kill` definition and sound binding. The new
+`reference/garen-r-kill-particles.json` closes all seven texture dependencies
+against the same patch manifest and Garen WAD. Existing BIN, primary-particle
+and audio pins remain byte-identical. Source definitions are rechecked by
+`pin-garen-r-kill-audio.py`; the new extractor retains archive ranges, file hashes,
+decoded PNG hashes and RGBA hashes. Five textures are reused after exact pixel
+comparison. The two new PNGs, `garen_alpha_18` and `garen_base_q_dirt_spike_2`, add
+64,691 bytes, requested only on Garen presence. The inspection page exposes
+all 23 unique primary/kill textures.
+
+| Layer | Source burst | Particle lifetime | Runtime primitive |
+| --- | ---: | ---: | --- |
+| shockwave | 2 | 0.55 seconds | Arbitrary quad, authored growth/rotation/scroll and alpha lookup |
+| fireLine | 3 | 0.60 seconds | Ray, 800-unit full width and 1,600-unit full length before scale curves |
+| flash | 1 | 0.30 seconds | Camera quad, uniform 1,000-unit birth scale, authored shrink and alpha lookup |
+| distort | 1 | 1.25 seconds | Deferred scene distortion |
+
+Kill layers start from a valid R release only when schema 79's captured `killed`
+flag is true. They share the frozen recipient ground point and existing impact
+visibility policy. A nonfatal release, later unrelated recipient death,
+pre-release cancellation or missing release cannot manufacture the kill layers.
+Caster death, recipient removal and save/reload retain indexed births and clocks.
+No simulation or checkpoint-schema change is needed.
+
+The ray uses shared `writeRayQuad`: transformed source +Z supplies the axis, the
+camera supplies transverse width, and source X is the axial-eye fallback. The
+current Garen source/world orientation and shared transverse sign are local
+presentation policies requiring native comparison. Source rotation, full extents,
+UV direction, growth and fade are retained. One six-vertex geometry per live ray
+is reused across frames; hiding or expiry disposes it with its material. Source
+meshes and quad geometries remain borrowed. The source `particleLinger` value of
+10.6 is metadata, not ten extra seconds of visible ray life. Following the
+existing shared convention, `miscRenderFlags & 1` disables depth testing for the
+kill flash and primary impact flash. Native depth/framebuffer behavior remains open.
+
+Both kill and primary distortion layers remain absent from live draws. Source
+`uvMode` is recorded without certifying native lock-alpha behavior. Modern script
+dispatch, target-bone attachment, native ray orientation, material composition
+and matched-client comparison remain unresolved.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/pin-garen-r-kill-audio.py
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-garen-r-kill-particles.py
+.tools/cdtb-venv/bin/python tools/assets/export-garen-r-particles.py
+```
+
+Repeating these steps reproduces ten pins, profiles and texture outputs
+byte-for-byte. Two new source/sampler cases verify dependency closure, lethal
+gating, burst counts/lifetimes and deterministic reconstruction. Chrome exercises
+all 19 selected layers, canceled/nonfatal/later-death cases, camera-facing rays
+with stable buffers, kill-tail restore after caster death, and fog hide/reveal
+with geometry disposal. Three added independent GPU probes check the kill
+layers' RGBA products against source PNG texels; all six R probes agree within
+one byte per channel. The impact capture was visually reviewed. Wider results
+are recorded in [PROGRESS.md](PROGRESS.md).

@@ -113,10 +113,10 @@
     <div class="tag">Asset inspection · frozen Riot 16.18.8175716</div>
     <h1>Demacian Justice</h1>
     <p>
-      Four source meshes and 21 lossless textures for the cast, sword and impact systems. Drag to
-      inspect geometry; scroll to zoom. This view centers each mesh for inspection and pairs it with
-      one authored texture. It does not apply emitter transforms, animated materials or live spell
-      timing.
+      Four source meshes and 23 lossless textures for the cast, sword, impact and kill systems. Drag
+      to inspect geometry; scroll to zoom. This view centers each mesh for inspection and pairs it
+      with one authored texture. It does not apply emitter transforms, animated materials or live
+      spell timing.
     </p>
     <div class="controls" id="controls">
       <label><input id="wireframe" type="checkbox" /> Wireframe</label>
@@ -136,6 +136,10 @@
       import { createGarenJusticeMaterial } from '../../src/render/garen-justice';
       import profiles from '../../src/content/garen-r-particles.json';
       import audit from '../../docs/reference/garen-r-particles-decoded.json';
+      import killAudit from '../../docs/reference/garen-r-kill-particles.json';
+      const textureAssets = [
+        ...new Map([...audit.textures, ...killAudit.textures].map((t) => [t.path, t])).values(),
+      ];
       const base = import.meta.env.BASE_URL;
       const models = [
         { suffix: 'sword-plane', name: 'Sword', texture: 'garen_base_r_sword_plane.png' },
@@ -159,7 +163,7 @@
         selected: null,
         triangles: 0,
         bounds: [],
-        textures: audit.textures.length,
+        textures: textureAssets.length,
       };
       window.__GAREN_R_SOURCE__ = state;
       const probeTextures = new Map();
@@ -197,7 +201,7 @@
           material.uniforms.sourceUvOffset.value.fromArray(sample.sourceOffset);
           material.uniforms.multiplierUvOffset.value.fromArray(sample.multiplierOffset);
           material.uniforms.particleColor.value.fromArray(sample.tint);
-          material.uniforms.lookupUv.value.set(0.5, 0.5);
+          material.uniforms.lookupUv.value.fromArray(sample.lookupUv ?? [0.5, 0.5]);
           const geometry = new THREE.PlaneGeometry(2, 2),
             uv = geometry.getAttribute('uv');
           for (let i = 0; i < uv.count; i++) uv.setXY(i, ...sample.rawUv);
@@ -293,7 +297,7 @@
         current.mesh.material.wireframe = wireframe.checked;
         state.wireframe = wireframe.checked;
       });
-      const pictures = audit.textures.map((t) => {
+      const pictures = textureAssets.map((t) => {
         const figure = document.createElement('figure'),
           img = new Image(),
           caption = document.createElement('figcaption');
