@@ -1,0 +1,49 @@
+{
+  "output": {
+    "path": "/assets/models/garen-r-sphere.glb",
+    "bytes": 156924,
+    "sha256": "ee50dff3299d6932a26fb5b09531ac96f397646a1b4c077ab2b9dd774db7ce29"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_ha_ap_sphere_geo.scb",
+    "wadPathHash": "a3a73a73a1a0036f",
+    "sha256": "2a2f0b3cfb4fe1943b306a5c665d04de6916aab330ea77d11c79d33a05042b16",
+    "bytes": 248192
+  },
+  "sourceVertices": 1081,
+  "triangles": 2156,
+  "exportedCorners": 6468,
+  "centralPoint": [
+    0.5738525390625,
+    0.7442550659179688,
+    -0.35344696044921875
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -79.345703125,
+    -79.47859954833984,
+    -80.32679748535156,
+    80.49340057373047,
+    80.96710205078125,
+    79.61990356445312
+  ],
+  "tailHex": "6a4d8b40aa827d4054e3e53e6a4d8b40aa827d4054e3e53e",
+  "positionFloat32Sha256": "ffeab2a7939eb9e6220ad17ad9c9290d0766a61499451dc91693b17657b4aff3",
+  "uvFloat32Sha256": "c7f7b1ba5d6769710a176a8fe4068184531def67c4def990f14ecfc9cc36d33c",
+  "faceRgbSha256": "a486811dccc1268387842c49d2d142873aa4111c0890291b91533b2a24cc101f",
+  "materials": [
+    ""
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

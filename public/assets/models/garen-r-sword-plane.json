@@ -1,0 +1,49 @@
+{
+  "output": {
+    "path": "/assets/models/garen-r-sword-plane.glb",
+    "bytes": 1852,
+    "sha256": "caa2df0fce44db30e295cfc51e019fc2ffedd91ed1512ed7e88866c88a935c4b"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_base_r_sword_plane.scb",
+    "wadPathHash": "b55c00857a2dd62c",
+    "sha256": "35b55834560e5b709c151a04398bf797433eeb76d4af2843eff8046b692999af",
+    "bytes": 482
+  },
+  "sourceVertices": 4,
+  "triangles": 2,
+  "exportedCorners": 6,
+  "centralPoint": [
+    0.026050567626953125,
+    11.107597351074219,
+    -2.7074999809265137
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -30.896799087524414,
+    -97.02320098876953,
+    -2.7074999809265137,
+    30.94890022277832,
+    119.2384033203125,
+    -2.7074999809265137
+  ],
+  "tailHex": "f4fdd43cbbb83141ae472dc0000000000000000000000000",
+  "positionFloat32Sha256": "bc3c0ce4ba01e0a382ab16ea57a6ab82f60cf3d3c298d7d51035128e94a7a478",
+  "uvFloat32Sha256": "498552d31875c62b8e9cd1f9a8f2bc020145ab833001fe3ed4085dc67c6fdd08",
+  "faceRgbSha256": "60daa3a5f7dbfa200f8c82840ecf5b42640b70f3b7218a4c6bbd67db542e75a4",
+  "materials": [
+    ""
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

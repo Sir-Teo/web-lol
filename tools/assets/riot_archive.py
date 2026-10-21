@@ -138,7 +138,7 @@ class RiotArchive:
         self.position += size
         return data
 
-    def extract(self, paths, output):
+    def extract(self, paths, output, flat=False):
         selected = [self.entries[path.lower()] for path in paths]
         self.prefetch([(e.offset, e.compressed_size) for e in selected])
         for entry in selected:
@@ -148,7 +148,10 @@ class RiotArchive:
             item = {"path": entry.path, "wadPathHash": f"{entry.path_hash:016x}", "sha256": sha(data), "bytes": len(data)}
             if self.pinned and item not in self.pinned["files"]:
                 raise ValueError(f"Source file differs: {entry.path}")
-            target = Path(output) / entry.path
+            # Deduplicated multi-skin virtual BIN paths can exceed filesystem
+            # filename limits. A flat cache keeps the original WAD path in the
+            # ledger and uses its already verified path hash as the local name.
+            target = Path(output) / (f'{entry.path_hash:016x}{Path(entry.path).suffix}' if flat else entry.path)
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
             self.outputs.append(item)

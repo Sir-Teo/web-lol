@@ -74,6 +74,20 @@ now advances descriptor expiry explicitly instead of comparing simulation and
 audio clocks under CPU load. Native dispatch/listening/bus mix, other Garen
 effects/audio and production/full-match certification remain open.
 
+[Demacian Justice particle assets](GAREN-R-PARTICLES.md) now pin all 17 emitters
+in the main cast/sword/impact systems to two frozen linked BINs. Four exact mesh
+conversions and 21 lossless texture dependencies are available in a development
+inspection page; live R particle dispatch remains open. Repeated extraction and
+conversion yields 31 byte-identical outputs. All 931 source/simulation checks
+and TypeScript pass. Chrome loads every inspection mesh and texture, exercises
+selection/wireframe controls and reports no errors after fixing a missing
+favicon request; the sword/texture capture was visually reviewed. All 30 GLBs
+and the map validate without errors or warnings. Production build and nested
+static-hosting smoke pass with the ordinary 17 recordings and the Garen roster
+gate intact. The existing large-bundle warning remains. Runtime release history,
+particle timing/attachment, materials and native comparison are the next R
+presentation work; this increment changes no gameplay or snapshot schema.
+
 ## Historical baseline verification
 
 The table below records the earlier baseline. Subsequent milestones below contain later test counts and validation scope.

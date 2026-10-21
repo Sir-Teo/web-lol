@@ -1,0 +1,49 @@
+{
+  "output": {
+    "path": "/assets/models/garen-r-praxis.glb",
+    "bytes": 24616,
+    "sha256": "f7e1bf7105cf7573d69ed41868394585af71ee6ebf2425fb251acfb5fcab90a8"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_base_r_praxis.scb",
+    "wadPathHash": "b9b388414d369167",
+    "sha256": "c5f55a4c2119830d2d20b6e11c1153eea12d95262fc9b02af0636f045b245c43",
+    "bytes": 37496
+  },
+  "sourceVertices": 200,
+  "triangles": 320,
+  "exportedCorners": 960,
+  "centralPoint": [
+    0,
+    0,
+    0
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -125.3750991821289,
+    0,
+    -125.3750991821289,
+    125.3750991821289,
+    0,
+    125.3750991821289
+  ],
+  "tailHex": "000000000000000000000000000000000000000000000000",
+  "positionFloat32Sha256": "6222c0dc4de484ac788404c98854c25a538072463adac9cfe52eae4c116fbddd",
+  "uvFloat32Sha256": "89d6dc5ef8e6d5836a7225f58df20d28eee13aba27a5549651ab4ee5853a3c09",
+  "faceRgbSha256": "39a68c2004ed4a20edb148b72e5aabd663f15cce54b30d2ea1c106e839761ed5",
+  "materials": [
+    ""
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

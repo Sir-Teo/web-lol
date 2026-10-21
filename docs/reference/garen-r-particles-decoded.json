@@ -1,0 +1,1000 @@
+{
+  "sourcePinSha256": "492b811cc643f3a44e7ec4b6a6832e71f03456b043e514f1c8ea85ffc09cd9ed",
+  "modelPinSha256": "192a7d7b696ed983b6bf25564a688ea3ac35dfdb5ff5b2a89d5eca285125cf71",
+  "unitScale": 0.01,
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_alpha_12.tex",
+        "wadPathHash": "4f7f814f07e1db5c",
+        "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/garen_alpha_12.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 2299,
+      "sha256": "a111485a4415036eb83f76743db272ccfb6a5dd7c6bcd09ca089ee9d89cea54f",
+      "rgbaSha256": "3be55ea512eb94adbfaf7307c201cbd4457b1ba906838572296a8b458f01c31b"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_aura_self.tex",
+        "wadPathHash": "590b83cb68983a85",
+        "sha256": "41241eafa700d7aa8a280bc7d943c090005324d146d33777a5b8b4bda3ab977b",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/garen_aura_self.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 5196,
+      "sha256": "cc27e89b201e548f544cd4844d9b0b27e5e4c5b615e92b78a36aa60ec603aa5e",
+      "rgbaSha256": "99424f5b612c9431e432d0d51d08dd45c8fcb2b0191586392dcfc3b208b46845"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_land_nova.tex",
+        "wadPathHash": "9d64c2954742a948",
+        "sha256": "272ae64a4f4a8bbb37b9fa9d7f72a5e9f78a11089cadb3661c8abc6752bbdf81",
+        "bytes": 349564
+      },
+      "path": "public/assets/effects/garen_base_q_land_nova.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 236846,
+      "sha256": "788b38dfd731de228d2ce1491cd929f22436148d6f15f27d011183ce2876a1e7",
+      "rgbaSha256": "47c477b8f55d4685b41cb461898055c7c7089e1bb73536008ab6bf97aa3e9dc3"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_dome_color.tex",
+        "wadPathHash": "307695ad91a79e6c",
+        "sha256": "ecda33183dd56678ca789378859f3da1a183f6858bee95d0c69294237fd55e73",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/garen_base_r_dome_color.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 59268,
+      "sha256": "43f6df3012066e95b906f58f44338c8208b3065c51acf8292fe19f06286e1c8c",
+      "rgbaSha256": "3f2653dd55677acfdedfe968d3d4f1d718a7b71ffa24f9be8420e8b7a176abe0"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_explosion_scroll.tex",
+        "wadPathHash": "46fb72540c0e54ba",
+        "sha256": "6c441a059b07053afd34901e6c6315ad5ce633f3d4dfa5a069e4aa959ea5208e",
+        "bytes": 11036
+      },
+      "path": "public/assets/effects/garen_base_r_explosion_scroll.png",
+      "width": 32,
+      "height": 256,
+      "bytes": 1915,
+      "sha256": "fba4a5f54481f64b5e0ddc1742f4daf2b16b13c1a807e01a0861ed08f0b6108d",
+      "rgbaSha256": "d0edab3bc6fbaf78abbb50d040e0203bf11f7c9946385b415e2a7f7cfaae7c52"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_ground_decal.tex",
+        "wadPathHash": "0dfa9251cb315886",
+        "sha256": "d7a96d510c366a726125934e7a4bac7de9175b9e572af565d757d1de820bd81c",
+        "bytes": 349564
+      },
+      "path": "public/assets/effects/garen_base_r_ground_decal.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 157345,
+      "sha256": "d1b5615b44821786b9c594d845a96d19316d4d5ae3e25892a8af5f831ea56aee",
+      "rgbaSha256": "f93a0b6c09888f4f41267b3d9e4d6b2036b2c12aaf8cc6d074a774206ff9e876"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_impact_dome.tex",
+        "wadPathHash": "1beb4b7519e21da0",
+        "sha256": "2b2e41202d8bc7419bfdfe7345c01155ea075385b3f8f4b56b6eb6c8fed1869a",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/garen_base_r_impact_dome.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 49075,
+      "sha256": "22bde5b3df1ed5ff1c24561601cdc6baef2d7211fff3b52f8cd0d8f3581bff83",
+      "rgbaSha256": "8d71e8b56e7ebcdb3d41eb2610520d6afcc356849232a53a1ea998afcc3338ee"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_praxis_scroll.tex",
+        "wadPathHash": "e6c886896b974e77",
+        "sha256": "df28074dd65756425d260af854fcfe9fca89f72bbe724b698c776971eca744b0",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/garen_base_r_praxis_scroll.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 14331,
+      "sha256": "88682a15437e34dd67cce7f99da386134861e94bf560efa66fb0bee6e73b23cf",
+      "rgbaSha256": "db858447e45e1e39f4d14c2e91311333c7175a6453ed885f60cd1889f927d5a2"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_spikes.tex",
+        "wadPathHash": "4a7e51c30c207701",
+        "sha256": "d98d97e6c7fa89964dbbf7816f863b6e34fbc56a09418ea8ce0f1c4fe61c51cf",
+        "bytes": 174812
+      },
+      "path": "public/assets/effects/garen_base_r_spikes.png",
+      "width": 512,
+      "height": 256,
+      "bytes": 22093,
+      "sha256": "8521902e6c0fbddbcb75c5405bb7d6a4dc7afc415f2d784b792354d8be8be577",
+      "rgbaSha256": "71647f18da3425b1cfd47e159fda61c7a69af2707fb7ed150df7edbb09754cf7"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_sword_fade.tex",
+        "wadPathHash": "56b3d6a884b5408d",
+        "sha256": "f1b1ccaef40169bfa4f5c60007492aa41909fde2acadbdee39d2318798e02ec9",
+        "bytes": 174812
+      },
+      "path": "public/assets/effects/garen_base_r_sword_fade.png",
+      "width": 256,
+      "height": 512,
+      "bytes": 123909,
+      "sha256": "86e8de74a38976eb1c396b6bf9d390f4377dbc4e301c75633d9d41ae76489001",
+      "rgbaSha256": "f9bffd6ff95ea71b67bf8bf8dde5689e72df00534524bc562440281ae692a33b"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_sword_plane.tex",
+        "wadPathHash": "102a1ccd6167fc05",
+        "sha256": "28f87895cd72ba4a52fae2163958e91cbea56b13551fdab07e0c99844adccd52",
+        "bytes": 174812
+      },
+      "path": "public/assets/effects/garen_base_r_sword_plane.png",
+      "width": 256,
+      "height": 512,
+      "bytes": 71518,
+      "sha256": "c1f144f62f8bfc0d937f4ae5c2117005e02794d002ebf999439770870267d449",
+      "rgbaSha256": "46c9479753968286c6cbad3ac0fbbeb6761bd1e3d98cf090a23d7acc841a5c6e"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_sword_plane_fire.tex",
+        "wadPathHash": "b9a8d4aa894808a8",
+        "sha256": "d397eada2e40fae5489905ed9f9c37a5be85b12c9f4db4816050c058ec66a4c6",
+        "bytes": 174812
+      },
+      "path": "public/assets/effects/garen_base_r_sword_plane_fire.png",
+      "width": 256,
+      "height": 512,
+      "bytes": 112724,
+      "sha256": "a0adccc1236fcebf75194905c2214e89dc7a01186c3cf1f5fe6d5ac5af3ab3d6",
+      "rgbaSha256": "47359a7bbec42879cdfe110991aa45d6b379fe66b0925a7ad9c6f99937a657f1"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_w_ground_glow.tex",
+        "wadPathHash": "8296782e14ae13dc",
+        "sha256": "2925f5b43af40fcaeea6788bbef0a5966f10c22b67ce4594d2177e2592982d28",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/garen_base_w_ground_glow.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 11365,
+      "sha256": "39b4595fac6147e7abd925dce09a241b319b73712cd22da26a33c9ec54b921f2",
+      "rgbaSha256": "7afab85984dca7625b8a81cf24cfb8c26ae1e8d131fbf1e382eb9b5a19844344"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_z_impact_spike.tex",
+        "wadPathHash": "0331e5bc3d63bbdd",
+        "sha256": "c83d1f069c2bfc683d359cc429e8db61d816a1d06d51f7e5d80a14176588a626",
+        "bytes": 43740
+      },
+      "path": "public/assets/effects/garen_base_z_impact_spike.png",
+      "width": 128,
+      "height": 256,
+      "bytes": 10701,
+      "sha256": "e51ef3b9f6ef4df89f56fcbef5c6840beb7060ca2ac3a176710451926597fb4c",
+      "rgbaSha256": "eafe153c0f9578b5826b3d581814588a870b18e87b7ae4219f259ab67a615a25"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_z_rock_bits_2x2.tex",
+        "wadPathHash": "88322035ae019e9c",
+        "sha256": "c067921286cbcbd995b2c793bd851ee77128834cc27a82f234f4bd0cccb2849e",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/garen_base_z_rock_bits_2x2.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 40125,
+      "sha256": "7d2620c4bb7f3ad4df979841b31e2c605fb962141f8c3941e975281014bd0ca9",
+      "rgbaSha256": "66cd5d9892677794614488573c42f4954c4990c4ccf3caa8e148c6316e4ab161"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_z_slash_flare.tex",
+        "wadPathHash": "0c4e3248c555f04c",
+        "sha256": "4a8898f97c6367a97db57ec89e22e54377e3e43501208670f0b869097a19cd2e",
+        "bytes": 87452
+      },
+      "path": "public/assets/effects/garen_base_z_slash_flare.png",
+      "width": 512,
+      "height": 128,
+      "bytes": 11769,
+      "sha256": "dc7ef9ee73b0089ced9e67093078eef826b3dcc7a7125aed8f86f755e3084d6e",
+      "rgbaSha256": "dec0c2617b325978d7e1150328ba06756388db8aa64f0dd80358ff919cce22af"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_z_smoke_puffs.tex",
+        "wadPathHash": "fa493e548e638d6f",
+        "sha256": "ff837b8e2bfde178caa6fe61cf27e12a5e7e92c741fb85cca41e8681d28290d8",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/garen_base_z_smoke_puffs.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 89971,
+      "sha256": "4362c463e1f8de106b095bef48bcac5529e00a9841928cd61aa266c6cc5d2e3d",
+      "rgbaSha256": "22cd539f045dc67b062f7dc500ba379a57b3fe47d52b1da80c0f56fa84d45d8c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-hold.tex",
+        "wadPathHash": "cba19bb03693af59",
+        "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8",
+        "bytes": 68
+      },
+      "path": "public/assets/effects/garen_color-hold.png",
+      "width": 8,
+      "height": 8,
+      "bytes": 79,
+      "sha256": "38fb43fbd4b078237a94650903231de41f9ac8ed0c2550b3581cd41b6e9ff501",
+      "rgbaSha256": "3d6876a0146de8576eb2395a858de1213d1b92c65b779df3a331cfd5a4584546"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-rampdown.tex",
+        "wadPathHash": "c7431fd60c1f3b28",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/garen_color-rampdown.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 277,
+      "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe",
+      "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-rampdown32.tex",
+        "wadPathHash": "d4dd947d578ac29f",
+        "sha256": "6251a66108ce6a5ef1c816d2e4632898bf7f28cb24dd8949a89a4ff48d9d3430",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/garen_color-rampdown32.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 232,
+      "sha256": "29fced3875029e5f28c51c727c73f4dedeb7d807d6ac27a0196740bb0cd03383",
+      "rgbaSha256": "5ba41fdd0a2fd47af4349e323dcd1fe0ca19a01beee00135305c3393b177f9d3"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_distort-soft-shockwave.tex",
+        "wadPathHash": "fbd5814b118df048",
+        "sha256": "38e97daffd711e55af080f42a51f1b4326b1706b6b9b19d36d40c7010e156e19",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/garen_distort-soft-shockwave.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 32782,
+      "sha256": "8b1480df64a977053ef4bc9e3df7436f029254c9ea1b3c5bfd6225395b858a52",
+      "rgbaSha256": "c658d5362cac4d310198d469c94f8a797208813c882b4088faefba2b65c39b13"
+    }
+  ],
+  "meshes": [
+    {
+      "output": {
+        "path": "/assets/models/garen-r-halfdome.glb",
+        "bytes": 29028,
+        "sha256": "b723212a495f773399ef9c1cf2e36b308f81fb2ecadea62b139b005a148a2668"
+      },
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_halfdome.scb",
+        "wadPathHash": "6c1bb23ab18c1bc2",
+        "sha256": "4e8615de4022bbea1dccbe3137090f518638ecc0a1974822ef7cab91b2a9c815",
+        "bytes": 44048
+      },
+      "sourceVertices": 201,
+      "triangles": 380,
+      "exportedCorners": 1140,
+      "centralPoint": [
+        -2.0610504150390625,
+        36.32939910888672,
+        0.6798477172851562
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -74.71990203857422,
+        0,
+        -71.97899627685547,
+        70.5978012084961,
+        72.65879821777344,
+        73.33869934082031
+      ],
+      "tailHex": "6de703c011b62a425f072e3f0000000011b62a4200000000",
+      "positionFloat32Sha256": "70e005e81377198d51a1f89fedddce877c1ea59f44669410a93881e12523b6b5",
+      "uvFloat32Sha256": "105cfa5167752329024b647eb3ea2fffb934b30dddb80cecafbeec080e216209",
+      "faceRgbSha256": "b6c9197dbe4a567acc686afde889f4885bb1bdf62a2a8a2bd135592b14d00740",
+      "materials": [
+        ""
+      ],
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    {
+      "output": {
+        "path": "/assets/models/garen-r-praxis.glb",
+        "bytes": 24616,
+        "sha256": "f7e1bf7105cf7573d69ed41868394585af71ee6ebf2425fb251acfb5fcab90a8"
+      },
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_praxis.scb",
+        "wadPathHash": "b9b388414d369167",
+        "sha256": "c5f55a4c2119830d2d20b6e11c1153eea12d95262fc9b02af0636f045b245c43",
+        "bytes": 37496
+      },
+      "sourceVertices": 200,
+      "triangles": 320,
+      "exportedCorners": 960,
+      "centralPoint": [
+        0,
+        0,
+        0
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -125.3750991821289,
+        0,
+        -125.3750991821289,
+        125.3750991821289,
+        0,
+        125.3750991821289
+      ],
+      "tailHex": "000000000000000000000000000000000000000000000000",
+      "positionFloat32Sha256": "6222c0dc4de484ac788404c98854c25a538072463adac9cfe52eae4c116fbddd",
+      "uvFloat32Sha256": "89d6dc5ef8e6d5836a7225f58df20d28eee13aba27a5549651ab4ee5853a3c09",
+      "faceRgbSha256": "39a68c2004ed4a20edb148b72e5aabd663f15cce54b30d2ea1c106e839761ed5",
+      "materials": [
+        ""
+      ],
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    {
+      "output": {
+        "path": "/assets/models/garen-r-sword-plane.glb",
+        "bytes": 1852,
+        "sha256": "caa2df0fce44db30e295cfc51e019fc2ffedd91ed1512ed7e88866c88a935c4b"
+      },
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_r_sword_plane.scb",
+        "wadPathHash": "b55c00857a2dd62c",
+        "sha256": "35b55834560e5b709c151a04398bf797433eeb76d4af2843eff8046b692999af",
+        "bytes": 482
+      },
+      "sourceVertices": 4,
+      "triangles": 2,
+      "exportedCorners": 6,
+      "centralPoint": [
+        0.026050567626953125,
+        11.107597351074219,
+        -2.7074999809265137
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -30.896799087524414,
+        -97.02320098876953,
+        -2.7074999809265137,
+        30.94890022277832,
+        119.2384033203125,
+        -2.7074999809265137
+      ],
+      "tailHex": "f4fdd43cbbb83141ae472dc0000000000000000000000000",
+      "positionFloat32Sha256": "bc3c0ce4ba01e0a382ab16ea57a6ab82f60cf3d3c298d7d51035128e94a7a478",
+      "uvFloat32Sha256": "498552d31875c62b8e9cd1f9a8f2bc020145ab833001fe3ed4085dc67c6fdd08",
+      "faceRgbSha256": "60daa3a5f7dbfa200f8c82840ecf5b42640b70f3b7218a4c6bbd67db542e75a4",
+      "materials": [
+        ""
+      ],
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    {
+      "output": {
+        "path": "/assets/models/garen-r-sphere.glb",
+        "bytes": 156924,
+        "sha256": "ee50dff3299d6932a26fb5b09531ac96f397646a1b4c077ab2b9dd774db7ce29"
+      },
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_ha_ap_sphere_geo.scb",
+        "wadPathHash": "a3a73a73a1a0036f",
+        "sha256": "2a2f0b3cfb4fe1943b306a5c665d04de6916aab330ea77d11c79d33a05042b16",
+        "bytes": 248192
+      },
+      "sourceVertices": 1081,
+      "triangles": 2156,
+      "exportedCorners": 6468,
+      "centralPoint": [
+        0.5738525390625,
+        0.7442550659179688,
+        -0.35344696044921875
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -79.345703125,
+        -79.47859954833984,
+        -80.32679748535156,
+        80.49340057373047,
+        80.96710205078125,
+        79.61990356445312
+      ],
+      "tailHex": "6a4d8b40aa827d4054e3e53e6a4d8b40aa827d4054e3e53e",
+      "positionFloat32Sha256": "ffeab2a7939eb9e6220ad17ad9c9290d0766a61499451dc91693b17657b4aff3",
+      "uvFloat32Sha256": "c7f7b1ba5d6769710a176a8fe4068184531def67c4def990f14ecfc9cc36d33c",
+      "faceRgbSha256": "a486811dccc1268387842c49d2d142873aa4111c0890291b91533b2a24cc101f",
+      "materials": [
+        ""
+      ],
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    }
+  ],
+  "systems": {
+    "Garen_R_Cas": {
+      "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Cas",
+      "emitterCount": 2,
+      "emitters": [
+        {
+          "index": 0,
+          "name": "energy_up",
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "explicitFields": [
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "birthUVOffset",
+            "birthUvScrollRate",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "uvMode"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "ground_glow",
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "explicitFields": [
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "primitive",
+            "rate",
+            "texture"
+          ]
+        }
+      ],
+      "unresolvedIdentifiers": [
+        "{ee39916f}"
+      ]
+    },
+    "Garen_R_Sword_Tar": {
+      "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Sword_Tar",
+      "emitterCount": 3,
+      "emitters": [
+        {
+          "index": 0,
+          "name": "sword_base",
+          "primitive": "VfxPrimitiveMesh",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthScale0",
+            "blendMode",
+            "disableBackfaceCull",
+            "emitterName",
+            "importance",
+            "isLocalOrientation",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "texture",
+            "timeBeforeFirstEmission"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "sword_drop",
+          "primitive": "VfxPrimitiveMesh",
+          "explicitFields": [
+            "EmitterPosition",
+            "__type",
+            "birthScale0",
+            "birthVelocity",
+            "disableBackfaceCull",
+            "emitterName",
+            "isLocalOrientation",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "texture",
+            "timeBeforeFirstEmission",
+            "worldAcceleration"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "sword_base_fade",
+          "primitive": "VfxPrimitiveMesh",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthScale0",
+            "birthUvScrollRate",
+            "birthVelocity",
+            "blendMode",
+            "disableBackfaceCull",
+            "emitterName",
+            "isLocalOrientation",
+            "lifetime",
+            "particleLifetime",
+            "pass",
+            "primitive",
+            "rate",
+            "texture",
+            "textureMult",
+            "timeBeforeFirstEmission",
+            "uvMode"
+          ]
+        }
+      ],
+      "unresolvedIdentifiers": []
+    },
+    "Garen_R_Tar_Impact": {
+      "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_R_Tar_Impact",
+      "emitterCount": 12,
+      "emitters": [
+        {
+          "index": 0,
+          "name": "prixas",
+          "primitive": "VfxPrimitiveMesh",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "birthUvScrollRate",
+            "blendMode",
+            "emitterName",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission",
+            "uvMode"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "land_smoke",
+          "primitive": null,
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "birthDrag",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "emitterLinger",
+            "emitterName",
+            "importance",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "lifetime",
+            "numFrames",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "timeBeforeFirstEmission"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "dirt_spikes_out",
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "birthDrag",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "emitterName",
+            "importance",
+            "isDirectionOriented",
+            "isSingleParticle",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "worldAcceleration"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "ground_decal",
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "texture",
+            "timeBeforeFirstEmission"
+          ]
+        },
+        {
+          "index": 4,
+          "name": "hagasphere",
+          "primitive": "VfxPrimitiveMesh",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "birthUvScrollRate",
+            "disableBackfaceCull",
+            "emitterName",
+            "importance",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission"
+          ]
+        },
+        {
+          "index": 5,
+          "name": "dirt",
+          "primitive": null,
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "birthDrag",
+            "birthRotation0",
+            "birthRotationalVelocity0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "emitterName",
+            "importance",
+            "isDirectionOriented",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "numFrames",
+            "particleColorTexture",
+            "particleLifetime",
+            "pass",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "timeBeforeFirstEmission",
+            "worldAcceleration"
+          ]
+        },
+        {
+          "index": 6,
+          "name": "dome",
+          "primitive": "VfxPrimitiveMesh",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission"
+          ]
+        },
+        {
+          "index": 7,
+          "name": "inner_spikes",
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "bindWeight",
+            "birthDrag",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "emitterName",
+            "isDirectionOriented",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "lifetime",
+            "numFrames",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "startFrame",
+            "texDiv",
+            "texture",
+            "worldAcceleration"
+          ]
+        },
+        {
+          "index": 8,
+          "name": "nova",
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "explicitFields": [
+            "Color",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "birthUvScrollRate",
+            "blendMode",
+            "emitterName",
+            "importance",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleLifetime",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission",
+            "uvMode"
+          ]
+        },
+        {
+          "index": 9,
+          "name": "shockwave",
+          "primitive": null,
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "emitterName",
+            "isSingleParticle",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission"
+          ]
+        },
+        {
+          "index": 10,
+          "name": "distort",
+          "primitive": null,
+          "explicitFields": [
+            "EmitterPosition",
+            "__type",
+            "bindWeight",
+            "birthScale0",
+            "blendMode",
+            "distortionDefinition",
+            "emitterName",
+            "importance",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "miscRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "pass",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission"
+          ]
+        },
+        {
+          "index": 11,
+          "name": "ground_glow",
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "explicitFields": [
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "emitterName",
+            "importance",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "primitive",
+            "rate",
+            "texture"
+          ]
+        }
+      ],
+      "unresolvedIdentifiers": [
+        "{ee39916f}"
+      ]
+    }
+  },
+  "animationParticleEvents": {
+    "{d0452dec}": {
+      "mName": "{d0452dec}",
+      "mStartFrame": 10,
+      "mEffectKey": "Garen_R_Cas",
+      "mParticleEventDataPairList": [
+        {
+          "mBoneName": "C_Buffbone_GLB_Layout_Loc",
+          "__type": "ParticleEventDataPair"
+        }
+      ],
+      "mIsLoop": false,
+      "mIsKillEvent": false,
+      "__type": "ParticleEventData"
+    }
+  },
+  "status": "Source packaging only. No runtime dispatch, particle defaults, material semantics, native timing or rendered parity are established by this conversion."
+}

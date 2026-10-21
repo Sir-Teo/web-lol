@@ -63,8 +63,7 @@ that field; its target is required and is never inferred from the supplied groun
 point. Acceptance checks a living, vulnerable, visible enemy champion, learned
 rank, cooldown and control gates. Range currently uses a center-to-center 400-unit
 check. Dummies, lane minions, structures and allies cannot receive R. No resources
-or cooldown are spent on rejection. Learning uses the existing level 6/11/16 gates;
-Garen's unsupported E remains blocked.
+or cooldown are spent on rejection. Learning uses the existing level 6/11/16 gates.
 
 The local adapter rounds authored cast time upward to 27 ticks (0.45 seconds).
 It captures target/rank at acceptance, starts the hasted cooldown immediately and
@@ -117,5 +116,8 @@ nested static-hosting smoke pass with 17 source recordings and real Ashe/Lux cas
 The existing large-bundle warning remains.
 
 Judgment is now integrated separately in [GAREN-E.md](GAREN-E.md). Next work includes
-R particles/audio, native cast/reveal/cancellation comparison, player input/HUD,
-and complete kit/role integration before roster selection.
+live R particles/audio, native cast/reveal/cancellation comparison, and complete
+kit/role integration before roster selection. The development player input/HUD
+fixture is documented above. [R source-particle packaging](GAREN-R-PARTICLES.md)
+now supplies verified cast/sword/impact definitions, four meshes and 21 textures;
+runtime dispatch remains open.

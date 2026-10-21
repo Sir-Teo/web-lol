@@ -1,0 +1,49 @@
+{
+  "output": {
+    "path": "/assets/models/garen-r-halfdome.glb",
+    "bytes": 29028,
+    "sha256": "b723212a495f773399ef9c1cf2e36b308f81fb2ecadea62b139b005a148a2668"
+  },
+  "source": {
+    "path": "assets/characters/garen/skins/base/particles/garen_base_r_halfdome.scb",
+    "wadPathHash": "6c1bb23ab18c1bc2",
+    "sha256": "4e8615de4022bbea1dccbe3137090f518638ecc0a1974822ef7cab91b2a9c815",
+    "bytes": 44048
+  },
+  "sourceVertices": 201,
+  "triangles": 380,
+  "exportedCorners": 1140,
+  "centralPoint": [
+    -2.0610504150390625,
+    36.32939910888672,
+    0.6798477172851562
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -74.71990203857422,
+    0,
+    -71.97899627685547,
+    70.5978012084961,
+    72.65879821777344,
+    73.33869934082031
+  ],
+  "tailHex": "6de703c011b62a425f072e3f0000000011b62a4200000000",
+  "positionFloat32Sha256": "70e005e81377198d51a1f89fedddce877c1ea59f44669410a93881e12523b6b5",
+  "uvFloat32Sha256": "105cfa5167752329024b647eb3ea2fffb934b30dddb80cecafbeec080e216209",
+  "faceRgbSha256": "b6c9197dbe4a567acc686afde889f4885bb1bdf62a2a8a2bd135592b14d00740",
+  "materials": [
+    ""
+  ],
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

@@ -255,3 +255,14 @@ voice caps and distinct 800/125 ms fades feed a local dispatch adapter. Files lo
 only when Garen is present; cast/active/ending phases restore from schema-77
 presentation history, and recipient hit cues retain fixed audience. Other Garen
 audio, native timing/mix and the production roster gate remain open.
+
+
+## Demacian Justice source-particle packaging — October 21, 2026
+
+[R source-particle assets](GAREN-R-PARTICLES.md) now pin the complete cast, sword
+and impact definitions to two frozen linked multi-skin BINs. Four exact source
+meshes and all 21 texture dependencies are converted and available for inspection.
+The frame-10 caster particle event is distinct from the damage animation marker;
+sword/impact dispatch timing and attachment remain unverified. Runtime effects,
+persisted release history and native comparison are still required. Garen remains
+a development-only player choice.
