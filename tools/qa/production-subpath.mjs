@@ -61,12 +61,15 @@ try {
   const errors = [],
     failed = [],
     outside = [],
+    junglePreviewRequests = [],
     recordings = new Set();
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (/sru-(blue|gromp)-base|jungle-character-source|jungle-characters/.test(request.url()))
+      junglePreviewRequests.push(request.url());
     if (/^https?:/.test(request.url()) && !request.url().startsWith(base))
       outside.push(request.url());
   });
@@ -166,6 +169,11 @@ try {
     true
   );
   assert.deepEqual(outside, [], 'Requests must stay beneath the static host prefix');
+  assert.deepEqual(
+    junglePreviewRequests,
+    [],
+    'Production must not request jungle review data or rigs'
+  );
   assert.deepEqual(failed, [], 'All production resources must load successfully');
   assert.deepEqual(errors, [], 'No production JavaScript or console errors');
   console.log(
@@ -179,6 +187,7 @@ try {
       luxLaneRestart: true,
       developmentHook: false,
       garenFixtureInProduction: false,
+      junglePreviewRequests: junglePreviewRequests.length,
       screenshot: 'artifacts/production-subpath.png',
     })
   );

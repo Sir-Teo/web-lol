@@ -1,0 +1,510 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sru-blue-base.glb",
+    "bytes": 2400224,
+    "sha256": "965d1d125f3aec5e19178fc4f286b9b132ee17f8ad12a22b94f24003bf69604c"
+  },
+  "definitionsSha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_blue/sru_blue.bin",
+      "wadPathHash": "0cca7a8b0d08f792",
+      "sha256": "8a1d7ac4af3f12f8fecce5b04de75347175ddab120b638f753dcd481587d843d",
+      "bytes": 4163
+    },
+    {
+      "path": "data/characters/sru_red/sru_red.bin",
+      "wadPathHash": "8d2a714ebe508d57",
+      "sha256": "3e83d941668cadfe01b89a3b7daba6c1252b4ee466d61a338e4888c416363935",
+      "bytes": 4229
+    },
+    {
+      "path": "data/characters/sru_gromp/sru_gromp.bin",
+      "wadPathHash": "f7c16c53f8ece074",
+      "sha256": "bd21ff1392f453e823c86e2a7de788ad9ae7338ba42f8202b3f2c5515c93ec6a",
+      "bytes": 5117
+    },
+    {
+      "path": "data/characters/sru_murkwolf/sru_murkwolf.bin",
+      "wadPathHash": "95c6da91776ed330",
+      "sha256": "6c274bfcf89b7674888f5ffb50f5a03c503de904759e0bf4399aaf6cddadcc9f",
+      "bytes": 4291
+    },
+    {
+      "path": "data/characters/sru_murkwolfmini/sru_murkwolfmini.bin",
+      "wadPathHash": "04fce94ffa55661a",
+      "sha256": "65fb7242370448a59b89ee19d0f1e2b1ef17e6261e57c8e24d70e816408471cb",
+      "bytes": 3611
+    },
+    {
+      "path": "data/characters/sru_razorbeak/sru_razorbeak.bin",
+      "wadPathHash": "0bbaf95c1ffc07c8",
+      "sha256": "fb5e3965712e8e80c81dcd13dc5475d59c1b0e582a60749786f49fabf15f96ab",
+      "bytes": 3950
+    },
+    {
+      "path": "data/characters/sru_razorbeakmini/sru_razorbeakmini.bin",
+      "wadPathHash": "09811271583e7dd9",
+      "sha256": "01034986538df54147e70bffbdd4cd4262ff5b395bac8d89c62b5c03233da13e",
+      "bytes": 3557
+    },
+    {
+      "path": "data/characters/sru_krug/sru_krug.bin",
+      "wadPathHash": "c177bfdcc824ed58",
+      "sha256": "299e21815ebc035d25972e79b937dbbfc74f3b3f754d4307105a01e3f4f6951d",
+      "bytes": 4994
+    },
+    {
+      "path": "data/characters/sru_krugmini/sru_krugmini.bin",
+      "wadPathHash": "5a493754228332e9",
+      "sha256": "ac422873944301e3c9a94458d40bd921d96a76accb3202892f082de50a920a02",
+      "bytes": 6543
+    },
+    {
+      "path": "data/characters/sru_krugminimini/sru_krugminimini.bin",
+      "wadPathHash": "17a8b0ed2ce4a1b6",
+      "sha256": "79ec35f19ca727e4fc4d06dde288236587f48f791ca0cdbaed7a1a445363ab15",
+      "bytes": 5734
+    },
+    {
+      "path": "data/characters/sru_crab/sru_crab.bin",
+      "wadPathHash": "94435315bf4b90f4",
+      "sha256": "bd8029fced3ed0bb139f24f9d722e117473ae0abefe1310908abfa3d9e83012b",
+      "bytes": 3545
+    },
+    {
+      "path": "data/characters/sru_blue/skins/skin0.bin",
+      "wadPathHash": "838c4b3f8a9c1e19",
+      "sha256": "abd7b445aaf25c07c1e5c61ad1b33c491e927df3277c11185779a29e70bb5bf8",
+      "bytes": 733
+    },
+    {
+      "path": "data/characters/sru_blue/animations/skin0.bin",
+      "wadPathHash": "cba144543d65caae",
+      "sha256": "13f11001a1d3de1ab9adc8b99b59f11cc7d1108ed344dc08099b55c1441b217b",
+      "bytes": 4715
+    },
+    {
+      "path": "data/characters/sru_gromp/skins/skin0.bin",
+      "wadPathHash": "8213f16cbe449863",
+      "sha256": "a091825bf69f60d0454e8d16f3fe87ba94e653c371573e9452db68e93f51a437",
+      "bytes": 763
+    },
+    {
+      "path": "data/characters/sru_gromp/animations/skin0.bin",
+      "wadPathHash": "2d0fe003268b27b1",
+      "sha256": "75bc409e6acae80144d6272f80ce01e465a1c163825823bab9b0f1f3c7bf7251",
+      "bytes": 8367
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/brush_test_bb_a.anm",
+      "wadPathHash": "ecc551586eabd65f",
+      "sha256": "4367006e4dea7cf352deae1be81a7d2616b2ac6766c2464862be5a1bb3080134",
+      "bytes": 57794
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack1.anm",
+      "wadPathHash": "3d09a0989aecb33d",
+      "sha256": "c2d81a894418d60b80337525992704552f2eabd849b2d1388c2b99a0c3a6688d",
+      "bytes": 32272
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack2.anm",
+      "wadPathHash": "fd3a09727078550c",
+      "sha256": "d21ddc043a6816ce70f4699493b899698045b759772338de78ea6873e1e1648d",
+      "bytes": 28752
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack3.anm",
+      "wadPathHash": "f73febd573849929",
+      "sha256": "c471b3ecaf47196e373dccc80fd7fd4da34b53c14a8127fab2f7ceb9161e7b18",
+      "bytes": 27742
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_death.anm",
+      "wadPathHash": "80d1b45112c43ff8",
+      "sha256": "0bedb6ced6cb51fa59ae61356f455268ff53b528c9fa204df2fdb3f2236ef941",
+      "bytes": 44458
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_a2n.anm",
+      "wadPathHash": "c96c5454ac3a712b",
+      "sha256": "ab32b9c5897be405ed167d0b0207e0ef8f1cbbc803a2ce1924e94dca466d5327",
+      "bytes": 22956
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro.anm",
+      "wadPathHash": "6d5103668050139a",
+      "sha256": "931d31e89ed2d298bd131dd2a45319a49d2430926d08d30c06e6cd3645cb2cbd",
+      "bytes": 10490
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro2.anm",
+      "wadPathHash": "d0175ad6b8a9f88c",
+      "sha256": "b9174672b600e7bf859c6ee61070f0451eef581ac06d9e552202710d2c3014b9",
+      "bytes": 14946
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro3.anm",
+      "wadPathHash": "2603d430a95df748",
+      "sha256": "7f6946836cb3b9ee9af1076763160a2eca4f6c35f692e49b1d2900f38ed621d2",
+      "bytes": 15436
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_l.anm",
+      "wadPathHash": "ba33192f0026ad48",
+      "sha256": "d106d42ce5b3a783455cc9f6f971a37234d304518eb179e178adf8d2eaf4d078",
+      "bytes": 1280
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_m.anm",
+      "wadPathHash": "2bf9489a3aa128d9",
+      "sha256": "52c32bd3adc6ecd00d3a1e549c3ca7c49b00045af059cc19e58ef1c32699d49a",
+      "bytes": 1250
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_r.anm",
+      "wadPathHash": "fa07f8704d1e6255",
+      "sha256": "c030b80126c4ab7f29e2bc3844c2c2b4419b6ff4921561fde405c074c527bd62",
+      "bytes": 1304
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_n2a.anm",
+      "wadPathHash": "70fb0388a8b0835f",
+      "sha256": "3adf8f4d849211c73dac716656ff9b4b5efa9f14144c5551ccc3bbb0ce5cc947",
+      "bytes": 27902
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_normal.anm",
+      "wadPathHash": "c9b47887b8faf35f",
+      "sha256": "a77dbe97b324937b022fbb73f70476988dcaccd1109e4b0b85d9328e5c36ef1b",
+      "bytes": 9600
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_run.anm",
+      "wadPathHash": "ccc9a602bcdf83bc",
+      "sha256": "573958625ca4c25e0cb875f2e6bfb541ab8c228f1dbc1c18062ba4de769867f6",
+      "bytes": 18366
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/animations/sru_blue_spawn.anm",
+      "wadPathHash": "d73bde27ce3aca93",
+      "sha256": "b53e9d26c7c550de36375a173a510f038dec8df9cdfa8d9940ade5dbb25bef48",
+      "bytes": 55814
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/sru_blue.skl",
+      "wadPathHash": "7b767f1a3ee96af8",
+      "sha256": "1bd812c9000818d8f64f458f3e564d415f90bf7012d021f84eb97f77461442e8",
+      "bytes": 8016
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/sru_blue.skn",
+      "wadPathHash": "908808a6798697a2",
+      "sha256": "997fc3a02d23f708bc08ab7675bc770db1de02f28b7e954010a53364d1e02989",
+      "bytes": 322820
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/sru_blue_bird.tex",
+      "wadPathHash": "0e3984042837d320",
+      "sha256": "3bcb613102eb0651d8d89ad0841c989671f69183297dd46213978bc9986201ce",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_blue/skins/base/sru_blue_golem_v2.tex",
+      "wadPathHash": "ce67cde14d0844c3",
+      "sha256": "8984ddb7c63f3ec29cd011661f7e0579470cc6ae24a02f6042473d2f48d6743c",
+      "bytes": 699076
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_attack1.anm",
+      "wadPathHash": "8f697dc3012396d3",
+      "sha256": "b3127b30582eba8f4d9da77c0c117089886da00f433158c85aa5c482982d04b3",
+      "bytes": 45768
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_attack1_left.anm",
+      "wadPathHash": "56d7913feb1f130a",
+      "sha256": "2bbc4f5c753d648864b4220b006f689fed24e176ad216237c387fb3551f51494",
+      "bytes": 45868
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_attack1_right.anm",
+      "wadPathHash": "ac5c271188b3b282",
+      "sha256": "75d65e230426d35cdf01ac614f74be8f0c7cf1ec8cbf0c2cc37f1124da12f1eb",
+      "bytes": 45648
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_attack1b.anm",
+      "wadPathHash": "49f2254a7645079c",
+      "sha256": "a8a81a74e901b767212fa16e3f8c135f3024d357a211877623603e550f6bee4b",
+      "bytes": 43608
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_attack1b_left.anm",
+      "wadPathHash": "dbda140a6f15ac3f",
+      "sha256": "2436ecde0bde73d13c5983834465278bc889e5cf949d45f700f45887c080728c",
+      "bytes": 43658
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_attack1b_right.anm",
+      "wadPathHash": "3dfa80dd008bfe5c",
+      "sha256": "6ce67436bfda419352ecdb7d9a772e5600e25b36d72da0b24e6df6528e1890fe",
+      "bytes": 43618
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_death.anm",
+      "wadPathHash": "c858b7d7bdf6a922",
+      "sha256": "944a037e8bb0a01fb0fb927157bc02497eb9ec22be5e5285c959bfd369bbf4b0",
+      "bytes": 44348
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1.anm",
+      "wadPathHash": "59c1b1691aadbaba",
+      "sha256": "044edc5da68e67b6086077a9c10d1123662ff1e9c87672ca3e6fa9fb6bb51dd6",
+      "bytes": 23082
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_a2n.anm",
+      "wadPathHash": "cdacf0ad3f486fb2",
+      "sha256": "09ddbc635d8a25c7c1e06feb5ea5ddd414675ab77bf5b466e187cfcfd6ec7cbf",
+      "bytes": 23422
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_aggro.anm",
+      "wadPathHash": "b5aa366fe57ffa48",
+      "sha256": "e7201c87a90ffae875a8b13a45d398d92ff11f45567aee38833af158740fba2b",
+      "bytes": 16672
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_aggro2.anm",
+      "wadPathHash": "3e7e50816b55790f",
+      "sha256": "2f555b5025a2ee26fb5753a0a811f139c3ec7f7721c4372a7f89d760faad9a70",
+      "bytes": 28140
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_aggro3.anm",
+      "wadPathHash": "39c60fbd739f69f1",
+      "sha256": "afd3b97d2ca0c7290f39e1df2ba842d8da084ce791e1c1362d3b4a59af1239f6",
+      "bytes": 24082
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_aggro4.anm",
+      "wadPathHash": "252858cdf06a939c",
+      "sha256": "0b88f28e7e7aaa4e9d53cff9faea1acd7d075b59d37294d26b1fe0f524b65b09",
+      "bytes": 23366
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_aggro_lookat_l.anm",
+      "wadPathHash": "a1618cd855ebd9a9",
+      "sha256": "8be09383c9d0b761748660ee3cbfc45521b18844e1b8573a453ee2004c789bf0",
+      "bytes": 1802
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_aggro_lookat_mid.anm",
+      "wadPathHash": "67dc37fb152d48b5",
+      "sha256": "5ff4e0af3b4eb4d63dd74a68580ad344d65029ad674137e90637dde2ad4aeb5d",
+      "bytes": 1592
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_aggro_lookat_r.anm",
+      "wadPathHash": "c9510cb699232d9d",
+      "sha256": "8ffc19d06dc5571e2d32140a3b2dff19ffaaae1f2f7d516d34ea2b56eef728c9",
+      "bytes": 1754
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle1_n2a.anm",
+      "wadPathHash": "fbbd079be9c539a2",
+      "sha256": "61c0ef5c2954ddb110dbefb37522ced50970823c73eb418f812b772509ae9b7c",
+      "bytes": 18776
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle2.anm",
+      "wadPathHash": "00287f6cfdabf4d8",
+      "sha256": "c80206d5b67416353ad1c05c56eee67f9dbc5e1e9d6752ea602579a7165c0d9b",
+      "bytes": 30760
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle3.anm",
+      "wadPathHash": "2d1ca7cf22421f25",
+      "sha256": "d55e6fe4402d7eb6150d51dd6399a831b429273ab8ffca9229c775c7582cb4fb",
+      "bytes": 50714
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle4.anm",
+      "wadPathHash": "7b4677fce899e3d1",
+      "sha256": "0721a7910ccc79e36ad2533a5d6a1e83cca720adb76066903634af71942d4363",
+      "bytes": 39278
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle5.anm",
+      "wadPathHash": "aaea2cb83ddf5eee",
+      "sha256": "e2240d2505b0e9d048b3abbb6327f3277869c6a8c48c4b9922dfb9c3450f5676",
+      "bytes": 24342
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_idle6.anm",
+      "wadPathHash": "e3bcfab683ca5689",
+      "sha256": "a4d8a317cc70ecb81c52b54e807b1310211c30d5679e72bc233de66aa6172a67",
+      "bytes": 30638
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_run.anm",
+      "wadPathHash": "d46dfe311c341adc",
+      "sha256": "8b39c8e66deac69fe29c38c93a32058a7c2f13987be9c73dc267b5f2b7f74855",
+      "bytes": 17726
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_spawn.anm",
+      "wadPathHash": "562290d35493b2d9",
+      "sha256": "0e9f1c670cb5fef2bf7e90c57c26a9a4941df90860b5eaaf5bcc85070c3f7b20",
+      "bytes": 89880
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/sru_gromp.skl",
+      "wadPathHash": "5011cf404d0c1295",
+      "sha256": "ce9e929bc52f626673d52f99d65b78364f24e1cd96a9c2a39f7415f2b74231a4",
+      "bytes": 10112
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/sru_gromp.skn",
+      "wadPathHash": "74d23d56d40087e1",
+      "sha256": "e17787fd44dfc8093ee82e0c99bb2dea4b2a7558d294a84edfaf53ede7cb3042",
+      "bytes": 260748
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/sru_gromp_base_tx_cm.tex",
+      "wadPathHash": "3f10cc5430067152",
+      "sha256": "cf8d46ed2fbd13c888a5e6259974b5ceb5dd02f02329575bb97686d9a2a09f50",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/sru_gromp_base_tx_gm.tex",
+      "wadPathHash": "55242a69629da429",
+      "sha256": "0c743dee90bc6fa822f60f1839786def7143112ba8c935e46f35ea9ac26775fe",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_gromp/skins/base/sru_gromp_mini_tx_cm.tex",
+      "wadPathHash": "97c5cdafe186df39",
+      "sha256": "94babd011bb3a092b63352a0d98eaba5e29689a229d27b27ac2e7c25bf4bf806",
+      "bytes": 10948
+    }
+  ],
+  "unitScale": 0.013700000047683717,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1.3700000047683716,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "Blue_Golem_CM": "assets/characters/sru_blue/skins/base/sru_blue_golem_v2.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_56b1e924",
+      "state": "{56b1e924}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack1.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack2.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "entry_e4cb0f58",
+      "state": "{e4cb0f58}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_spawn.anm",
+      "durationSeconds": 5.633333683013916
+    },
+    {
+      "name": "entry_6c2b2ee6",
+      "state": "{6c2b2ee6}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_normal.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "attack3",
+      "state": "Attack3",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack3.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "entry_b6a527d3",
+      "state": "{b6a527d3}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_2acd4eca",
+      "state": "{2acd4eca}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_run.anm",
+      "durationSeconds": 1.2666667699813843
+    },
+    {
+      "name": "entry_d81015fa",
+      "state": "{d81015fa}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_n2a.anm",
+      "durationSeconds": 2.3000001907348633
+    },
+    {
+      "name": "entry_daf79fee",
+      "state": "{daf79fee}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_a2n.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "entry_bd28bd4d",
+      "state": "{bd28bd4d}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_death.anm",
+      "durationSeconds": 4.933333396911621
+    },
+    {
+      "name": "entry_c1859e94",
+      "state": "{c1859e94}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro2.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "entry_eaadec65",
+      "state": "{eaadec65}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro3.anm",
+      "durationSeconds": 3.3000001907348633
+    },
+    {
+      "name": "entry_f815289c",
+      "state": "{f815289c}",
+      "source": "assets/characters/sru_blue/skins/base/animations/brush_test_bb_a.anm",
+      "durationSeconds": 7.033333778381348
+    },
+    {
+      "name": "entry_317a4a65",
+      "state": "{317a4a65}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_l.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_1df94e06",
+      "state": "{1df94e06}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_m.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_c7cda7d1",
+      "state": "{c7cda7d1}",
+      "source": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_r.anm",
+      "durationSeconds": 0.03333333507180214
+    }
+  ],
+  "triangles": 8354,
+  "bones": 64
+}

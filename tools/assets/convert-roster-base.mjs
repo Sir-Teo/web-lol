@@ -1,4 +1,4 @@
-/** Convert pinned Garen/Ahri base rigs; preview materials preserve source diffuse assignments. */
+/** Convert pinned base rigs; preview materials preserve source diffuse assignments. */
 import { readFile, writeFile, mkdir, copyFile, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -7,15 +7,27 @@ import { ALL_EXTENSIONS, KHRMaterialsUnlit } from '@gltf-transform/extensions';
 import { resample, dedup, prune } from '@gltf-transform/functions';
 const hash = (b) => createHash('sha256').update(b).digest('hex');
 const champion = process.argv[2];
-if (!['Garen', 'Ahri'].includes(champion)) throw new Error('Expected Garen or Ahri');
-const slug = champion.toLowerCase();
-const pinBytes = await readFile(`docs/reference/${slug}-model.json`);
-const pin = JSON.parse(pinBytes);
-const root = `.cache/${slug}-current-sources`;
+if (!['Garen', 'Ahri', 'SRU_Blue', 'SRU_Gromp'].includes(champion))
+  throw new Error('Expected Garen, Ahri, SRU_Blue or SRU_Gromp');
+const jungle = champion.startsWith('SRU_');
+const sourceSlug = champion.toLowerCase();
+const slug = sourceSlug.replaceAll('_', '-');
+const pinBytes = await readFile(
+  jungle ? 'docs/reference/jungle-character-source.json' : `docs/reference/${slug}-model.json`
+);
+const sourcePin = JSON.parse(pinBytes);
+const pin = jungle
+  ? {
+      extraction: sourcePin.extraction,
+      skin: { data: sourcePin.records[`data/characters/${sourceSlug}/skins/skin0.bin`] },
+      atomicClips: sourcePin.models[champion].atomicClips,
+    }
+  : sourcePin;
+const root = jungle ? '.cache/jungle-characters' : `.cache/${slug}-current-sources`;
 for (const f of pin.extraction.files) {
   const b = await readFile(`${root}/${f.path}`);
   if (b.length !== f.bytes || hash(b) !== f.sha256)
-    throw new Error(`Lux source differs: ${f.path}`);
+    throw new Error(`${champion} source differs: ${f.path}`);
 }
 const skin = pin.skin.data[`Characters/${champion}/Skins/Skin0`].skinMeshProperties;
 const base = `.cache/${slug}-current-converted`;
@@ -38,7 +50,9 @@ const materials = Array.from(
       .split('\0')[0]
 );
 function diffuse(name) {
-  const override = skin.materialOverride?.find((o) => o.submesh === name);
+  const override = skin.materialOverride?.find((o) =>
+    jungle ? o.submesh.toLowerCase() === name.toLowerCase() : o.submesh === name
+  );
   if (override?.texture) return override.texture.toLowerCase();
   if (override?.Material) {
     const definition = pin.skin.data[override.Material];
@@ -48,7 +62,7 @@ function diffuse(name) {
   }
   return skin.texture.toLowerCase();
 }
-const hidden = (skin.initialSubmeshToHide ?? '').split(' ').filter(Boolean);
+const hidden = (skin.initialSubmeshToHide ?? '').split(jungle ? /[,\s]+/ : ' ').filter(Boolean);
 const raw = `${base}/${slug}.glb`;
 execFileSync(
   '.tools/dotnet/dotnet',
@@ -76,7 +90,12 @@ const unlit = doc.createExtension(KHRMaterialsUnlit);
 for (const material of doc.getRoot().listMaterials()) {
   material.setExtension('KHR_materials_unlit', unlit.createUnlit());
   const name = material.getName();
-  material.setExtras({ sourceSubmesh: name, defaultHidden: hidden.includes(name) });
+  material.setExtras({
+    sourceSubmesh: name,
+    defaultHidden: hidden.some((entry) =>
+      jungle ? entry.toLowerCase() === name.toLowerCase() : entry === name
+    ),
+  });
   const override = skin.materialOverride?.find((o) => o.submesh === name);
   const definition = override?.Material && pin.skin.data[override.Material];
   if (definition?.techniques?.[0]?.passes?.[0]?.blendEnable) material.setAlphaMode('BLEND');

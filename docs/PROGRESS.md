@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,046 source/simulation/geometry checks and five focused Chrome checks for the new jungle source inspection. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,050 source/simulation/geometry checks, two new focused Chrome character-review checks and two existing jungle map-inspection checks. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -883,6 +883,61 @@ remains. Binary assets were unchanged. The earlier full-browser audit was not
 repeated for this bounded development-only increment. Legacy progression text
 was also corrected to point to the already implemented champion-kill XP path.
 Full role-match, native, offline and performance acceptance remain open.
+
+## Jungle character definitions and base rigs — October 21, 2026
+
+The [character-source increment](JUNGLE-CHARACTERS.md) retains eleven ordinary
+monster BINs with all 35 CharacterRecord variants, spell records, and the complete
+Blue/Gromp base skin and animation graphs. Original-archive extraction pins 64
+files totaling 2,898,228 bytes against the same 16.18 manifest as the map. The
+extractor reproduces exact records without the discovery dictionaries and
+prevents newly resolved literal names from silently renaming hash keys/values.
+
+The separate development review page exposes every Root/alternate record,
+preserves absent fields, and loads two rigs on demand. Blue has 16 atomic clips,
+8,354 triangles and 64 bones; Gromp has 25 clips, 6,640 triangles and 82 bones.
+Their GLBs total 4,511,400 bytes. Source skinScale, diffuse assignments and
+Gromp's comma-separated hidden submeshes are retained in the preview. Constant
+idle/look poses remain static rather than receiving invented motion. Clip
+choices include original filenames alongside unresolved state hashes.
+
+The map objects reference Blue skin 4 and Gromp skin 0; the isolated base review
+explicitly shows skin 0. No base Blue was substituted into map objects. Alternate
+record health values and raw reward scalars do not select gameplay mode or final
+rewards. Camp membership/calendar, neutral faction, scaling, leash/reset,
+buffs/Smite, presentation/audio and role AI remain required work.
+
+Validation:
+
+- TypeScript and all 1,050 checks across 213 files pass. The new QA module also
+  passes a separate strict TypeScript invocation because tools/qa is outside the
+  ordinary application tsconfig.
+- Both new Chrome cases pass: all 41 clip poses are finite; every nonconstant
+  sampled clip moves; authored hidden submeshes, raw records, missing values,
+  alternate selection, real playback/scrubbing, rewind after terminal pose,
+  cached reuse, failed-request retry, late-load isolation and 800px layout pass.
+- The existing two jungle map-inspection cases also passed during the initial
+  combined run. The new pose test initially assumed more moving clips than the
+  source contains; the corrected check names the constant source poses. A second
+  test correction opens the collapsed raw-record details before reading them.
+  Final filename labels also exposed a resize transition with an oversized inline
+  canvas; CSS now caps its width and the check waits for the completed layout.
+  The combined run was not repeated after these test corrections; the focused
+  new cases were rerun successfully.
+- Both rig captures were visually reviewed:
+  `artifacts/jungle-sru_blue-base.png` and `artifacts/jungle-sru_gromp-base.png`.
+  Preview materials/native appearance remain distinct.
+- Repeated source extraction and both GLB/manifest conversions are byte-identical
+  across the source pin and four exported files. All 38 GLBs and the map validate
+  without errors or warnings.
+- Production build and nested-host smoke pass with 17 ordinary recordings, real
+  Ashe/Lux input, existing roster/development gates and zero jungle-review data
+  or rig requests. Production JavaScript is byte-identical to the preceding
+  build; the existing large-bundle warning remains.
+
+`reference/jungle-character-verification.json` retains this scope and hashes.
+No simulation, snapshot schema or playable roster changed. Full-match completion
+and native visual certification remain unproven; the goal remains active.
 
 ## Historical baseline verification
 

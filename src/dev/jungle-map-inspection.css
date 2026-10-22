@@ -20,6 +20,9 @@
   color: #b9c6cb;
   line-height: 1.5;
 }
+.jungle-source-panel a {
+  color: #ddc58e;
+}
 .jungle-source-panel label {
   display: block;
   margin: 12px 0;

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jungle character source review</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #101b23;
+        color: #e5e6df;
+        font: 14px system-ui;
+      }
+      header {
+        padding: 16px 24px;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      a {
+        color: #ddc58e;
+      }
+      select,
+      button {
+        background: #233743;
+        color: inherit;
+        border: 1px solid #687980;
+        padding: 8px;
+        max-width: 100%;
+      }
+      label {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        min-width: 0;
+        max-width: 100%;
+      }
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 350px;
+      }
+      #stage {
+        min-width: 0;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        touch-action: none;
+      }
+      aside {
+        padding: 16px;
+        overflow: auto;
+        max-height: calc(100dvh - 90px);
+        border-left: 1px solid #354650;
+      }
+      aside label {
+        display: block;
+      }
+      aside select {
+        display: block;
+        width: 100%;
+        margin: 8px 0 16px;
+      }
+      #controls {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 12px 24px;
+        align-items: center;
+      }
+      #controls input {
+        width: 160px;
+      }
+      #clip {
+        min-width: 0;
+      }
+      p {
+        color: #b5c5ca;
+        line-height: 1.5;
+      }
+      #stage p {
+        margin: 12px 24px;
+      }
+      pre {
+        font-size: 11px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      td {
+        padding: 5px 8px 5px 0;
+        vertical-align: top;
+      }
+      td:last-child {
+        color: #e9cf9e;
+        overflow-wrap: anywhere;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media (max-width: 850px) {
+        main {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        aside {
+          max-height: none;
+          border: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Jungle character source review</h1>
+      <label
+        >Character
+        <select id="character"></select
+      ></label>
+      <a href="../../map.html">Map sources ↗</a>
+    </header>
+    <main>
+      <section id="stage" aria-label="Base rig preview">
+        <canvas></canvas>
+        <div id="controls">
+          <label
+            >Animation
+            <select id="clip"></select
+          ></label>
+          <button id="play">Play</button>
+          <label
+            >Time <input id="time" type="range" min="0" max="1" step="0.001" value="0"
+          /></label>
+        </div>
+        <p id="status" role="status">Loading source rig…</p>
+        <p>
+          Base skin only, with source diffuse textures and manual atomic clips. Drag to orbit;
+          scroll to zoom. Native shading, particles, sound and animation dispatch remain unfinished.
+        </p>
+        <p>
+          Map objects reference Blue skin 4 and Gromp skin 0. This separate base-skin preview does
+          not establish camp activation, membership or live gameplay.
+        </p>
+        <button id="retry" hidden>Retry model load</button>
+      </section>
+      <aside aria-label="Original character records">
+        <label
+          >Source record
+          <select id="record"></select
+        ></label>
+        <p>
+          Original client values. Alternate records retain unresolved names. Mode selection, server
+          scaling and final rewards are unverified. “Absent” is not zero.
+        </p>
+        <table aria-label="Authored character values">
+          <tbody id="values"></tbody>
+        </table>
+        <details>
+          <summary>Complete selected record</summary>
+          <pre id="details"></pre>
+        </details>
+      </aside>
+    </main>
+    <script type="module" src="./jungle-characters.ts"></script>
+  </body>
+</html>

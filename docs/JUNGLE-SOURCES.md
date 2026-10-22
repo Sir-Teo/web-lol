@@ -6,6 +6,11 @@ development map inspector displays these layers independently. Live neutral
 camp spawning, combat, rewards, resets, objectives and jungle-role AI remain
 unfinished. This preparation supplies source data for those systems.
 
+The next [character-source increment](JUNGLE-CHARACTERS.md) adds eleven ordinary
+monster definitions with 35 CharacterRecord variants and isolated Blue/Gromp
+base-rig review. It preserves the distinction between the placed Blue skin 4
+objects and the separately converted base skin 0.
+
 ## Original client files
 
 `reference/jungle-map-source.json` pins two BINs in Riot 16.18.8175716's

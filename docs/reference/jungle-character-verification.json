@@ -1,0 +1,112 @@
+{
+  "recordedAt": "2026-10-22T00:58:01.980949+00:00",
+  "baseRevision": "269542326385b10ea83f0458408f68d9dedab330",
+  "scope": "Ordinary monster client records and isolated base-rig review. Live camps, neutral combat and full-role matches remain unfinished.",
+  "source": {
+    "referenceVersion": "16.18.8175716",
+    "files": 64,
+    "bytes": 2898228,
+    "compressedChunks": 74,
+    "characters": 11,
+    "characterRecordVariants": 35,
+    "convertedBaseRigs": 2,
+    "atomicGraphEntries": 41
+  },
+  "validation": {
+    "typeScript": "passed",
+    "qaStrictTypeScript": "passed",
+    "sourceSimulationGeometryPassed": 1050,
+    "testFiles": 213,
+    "allGlbs": {
+      "count": 38,
+      "errors": 0,
+      "warnings": 0
+    },
+    "map": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "byteIdenticalRepeatedExtraction": true,
+    "byteIdenticalRepeatedConversions": true,
+    "repeatedFiles": [
+      "docs/reference/jungle-character-source.json",
+      "public/assets/models/sru-blue-base.glb",
+      "public/assets/models/sru-blue-base.json",
+      "public/assets/models/sru-gromp-base.glb",
+      "public/assets/models/sru-gromp-base.json"
+    ],
+    "newChrome": {
+      "passed": 2,
+      "failed": 0,
+      "workers": 1,
+      "retries": 0,
+      "command": "npx playwright test e2e/jungle-characters.spec.ts --timeout=60000"
+    },
+    "existingMapChrome": {
+      "passed": 2,
+      "scope": "The two jungle-map-inspection cases passed in the initial combined run; no combined rerun after new-case test corrections."
+    },
+    "findings": [
+      "Static source poses require explicit expected unchanged clips, not a motion-percentage assertion.",
+      "Open collapsed record details before reading rendered text.",
+      "Limit canvas width during resize; poll completed layout and verify long animation labels at 800px."
+    ],
+    "production": {
+      "status": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 17,
+      "junglePreviewRequests": 0,
+      "productionJavaScriptByteIdentical": true,
+      "inspectionCodeDataAbsent": true,
+      "realAsheLuxInput": true,
+      "developmentAndGarenGates": true,
+      "existingLargeBundleWarning": true
+    },
+    "completeBrowserSuiteRerun": false,
+    "simulationAndSnapshotChanged": false
+  },
+  "toolchain": {
+    "dotnetSdk": "8.0.425",
+    "lol2gltfCommit": "7fe8d5c9b82fd0a86ea682fced28f8021bb3e063",
+    "imageSharp": "3.1.12",
+    "note": "Restored the existing pinned build-time toolchain. NuGet reports current advisory warnings for historical ImageSharp 3.1.12; this is not an application runtime dependency."
+  },
+  "visualReview": {
+    "viewports": [
+      [
+        1440,
+        900
+      ],
+      [
+        800,
+        720
+      ]
+    ],
+    "captures": [
+      "artifacts/jungle-sru_blue-base.png",
+      "artifacts/jungle-sru_gromp-base.png",
+      "artifacts/jungle-characters-small.png"
+    ],
+    "result": "Source rigs, hidden Gromp submeshes, readable record values and clip filenames reviewed. Small layout stacks record panel below the stage without horizontal overflow.",
+    "nativeParity": false
+  },
+  "sha256": {
+    "tools/assets/extract-jungle-characters.py": "b2d32ee2e6343023540e66d9b07866607aaea167f21b8aba2336be546fd12985",
+    "tools/assets/convert-roster-base.mjs": "b2bb4d47e55972f4ef0557d1ec84bbcec4602a03be96bbe27e059d0d34f9e217",
+    "docs/reference/jungle-character-source.json": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+    "tools/qa/jungle-characters.ts": "dd9d3ee484af726ba8a8eb579092c1f7ae89c4c8b919af62170a816a7a26db80",
+    "tools/qa/jungle-characters.html": "e8ef43cbc751fd969e9c7502b3b5c207043cea33aa349da063604d8806589c7d",
+    "tests/jungle-character-source.test.ts": "dd20fec86790b9ac40e8ba915ff97365d4c84681ab1f725c9d8046412fe2a689",
+    "e2e/jungle-characters.spec.ts": "91febac557a3fc050360682aed8cb18bb3849da3b9d5380aa508af9dcb0de49f",
+    "tools/qa/production-subpath.mjs": "eca114a0c58197cd6e8cea9982d31765e62b0496e0f531f2167c49cff3b63bcb",
+    "src/dev/jungle-map-inspection.ts": "fa2e6729bfe03eb4e3561de0172de28dbf1f6f0fb87f5ac9b18c977e9117e239",
+    "src/dev/jungle-map-inspection.css": "9bac06c675c7eabaabbb84dee6118cf23d55a6e57da0ef4097733bec34302972",
+    "public/assets/models/sru-blue-base.glb": "965d1d125f3aec5e19178fc4f286b9b132ee17f8ad12a22b94f24003bf69604c",
+    "public/assets/models/sru-blue-base.json": "03f6ef203ab8d2e76471aa00045f7d917c2853ab8b0cb1298d8b1755a197616b",
+    "public/assets/models/sru-gromp-base.glb": "b49e3fd2b7cd3820a429bbc2ff9b72dd19a8e68cbae55e4c7409dcdf39414af9",
+    "public/assets/models/sru-gromp-base.json": "2bc2de44c2afe1373bbe51f8bb88a5351ade7c0e1a92e8ff73f276e5ddfb684b",
+    "artifacts/jungle-sru_blue-base.png": "a703b5a6a52381b5b4400dd28e0592446b2350fd9428091d0d616f302b590ab1",
+    "artifacts/jungle-sru_gromp-base.png": "19713796751f354b5bccf0801cdba044b874e7e1b6cf882a1928fda076e5cdc3",
+    "artifacts/jungle-characters-small.png": "96dbdadfcda291d202ae04b169e2e4c2a4df8598f0fc25bbcbfa54ffcbf66293"
+  }
+}

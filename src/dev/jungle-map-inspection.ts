@@ -78,6 +78,7 @@ export class JungleMapInspection {
       <label><input id="jungle-recommendations" type="checkbox"> Recommendation positions (16)</label>
       <p>Gold: camp anchors · Cyan: character objects · Pink: recommendations.</p>
       <p>Character objects include faelight pads and off-map templates. These do not define a live spawn roster.</p>
+      <p><a href="./tools/qa/jungle-characters.html">Review character records and base rigs ↗</a></p>
       <pre id="jungle-details"></pre>`;
     const select = this.panel.querySelector<HTMLSelectElement>('#jungle-camp')!;
     for (const camp of catalog.camps) {

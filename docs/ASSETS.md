@@ -41,10 +41,11 @@ Pinned tools:
 - [CDTB](https://github.com/CommunityDragon/CDTB), commit `ba981db2a2c814a0d78e55f6483e0636b527850f`.
 - [lol2gltf](https://github.com/Crauzer/lol2gltf), commit `7fe8d5c9b82fd0a86ea682fced28f8021bb3e063`.
 - Local .NET SDK 8.0.425, installed at `.tools/dotnet` with Microsoft's `dotnet-install.sh`.
-- The lol2gltf ImageSharp dependency is updated from 3.1.6 to 3.1.12 before publishing the converter. The rebuild no longer emits the earlier ImageSharp vulnerability warnings.
+- The lol2gltf ImageSharp dependency is pinned to 3.1.12 before publishing the converter. Restoring this historical toolchain now emits NuGet advisory warnings for that version; it is an isolated build-time dependency, not an application runtime package. The jungle verification ledger records the toolchain used for its byte-identical conversions.
 - Python dependencies are pinned in `tools/assets/requirements.txt`; glTF Transform 4.5.0 is locked in `package-lock.json`.
 - Python 3.14 uses the standard-library Zstandard implementation through pyzstd; the pinned backport is conditional on Python below 3.14.
 - [Courage source audio](GAREN-W-AUDIO.md) retains eight unnormalized float masters, including two authored loop regions and the cast child gain. Controller/profile and recordings load on Garen presence; source/native dispatch and mix remain distinct.
+- [Jungle character sources](JUNGLE-CHARACTERS.md) retain eleven ordinary monster definitions and Blue/Gromp base rigs, including all 41 atomic graph entries. Repeated original-archive extraction and both GLB/manifest conversions are byte-identical. The development review keeps source variants and absent fields separate; live neutral camps remain unfinished.
 - [Decisive Strike audio](GAREN-Q-AUDIO.md) integrates all five Q/QAttack events and thirteen unchanged float masters, with a separate inspection page. Original clocks retain both attack actions with the authored 230 ms delay, nonlooping active masters and a separate 250 ms stop fade. Controller/profiles and WAVs load only on Garen presence; ordinary startup requests none of them.
 - [Decisive Strike particles](GAREN-Q-PARTICLES.md) pin all eleven linked systems, 31 emitter records, 29 textures and four meshes, including the authored mesh weapon trail. Four Spell1 bindings retain absent fields exactly. Twenty-two local emitters now include recipient silence and load four meshes/twenty-one textures on Garen presence. Schema 85 retains accepted Q silence deadlines independently of generic control. Nine emitter records and native silence Flex sizing/attachment remain deferred; source blend/default/linger/direction/locked-alpha evidence and GPU verification are pinned.
 - [Courage particles](GAREN-W-PARTICLES.md) pins all seven systems, eighteen textures and three SCB paths. A twelve-layer live cast/ground/shoulder/reaction adapter requests the shield and fourteen used textures only on Garen presence. Native deflection dispatch, character material replacement and attached-skin rendering remain open; the inspector retains the complete source set.
@@ -68,7 +69,7 @@ npm run assets:validate
 npm run test:browser
 ```
 
-The extractor rejects changes to the pinned manifest, compressed chunks, or extracted source bytes. Conversion checks source bytes against their recorded provenance before reading them. The asset validator checks every GLB's output hash and runs the Khronos validator. All 17 current model GLBs have zero errors and warnings. Blue caster retains four source degenerate triangles, reported at informational severity; no geometry repair was guessed.
+The extractor rejects changes to the pinned manifest, compressed chunks, or extracted source bytes. Conversion checks source bytes against their recorded provenance before reading them. The asset validator checks every GLB's output hash and runs the Khronos validator. At the jungle-rig milestone, all 38 model GLBs have zero errors and warnings. Blue caster retains four source degenerate triangles, reported at informational severity; no geometry repair was guessed.
 
 The browser suite includes a six-model gallery, distinct mixer behavior, complete death playback and removal, and attack-windup cancellation. Screenshot evidence is stored locally in `artifacts/browser-minion-gallery.png`.
 
