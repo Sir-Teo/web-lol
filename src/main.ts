@@ -19,6 +19,7 @@ import { equipSummoners } from './simulation/smite';
 import { grantCompanion } from './simulation/owned-companions';
 import { COMPANION_SOURCE, type CompanionKind } from './content/companion-policy';
 import { loadOwnedCompanions } from './render/owned-companions';
+import { companionItemKind } from './content/companion-items-policy';
 import { GameView } from './render/view';
 import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
@@ -81,8 +82,9 @@ async function boot(): Promise<void> {
       candidate &&
       (!garenFixture || candidate.hero.champion === 'garen') &&
       candidate.encounter === (grompEncounter ? 'gromp' : null) &&
-      (candidate.companions.find((p) => p.ownerId === candidate.player.id)?.kind ?? null) ===
-        companionKind
+      (candidate.companions.find(
+        (p) => p.ownerId === candidate.player.id && p.acquisition.kind === 'fixture'
+      )?.kind ?? null) === companionKind
     ) {
       world = candidate;
       restored = true;
@@ -116,6 +118,20 @@ async function boot(): Promise<void> {
   };
   const hud = new Hud(host, world, view, {
     pause: setPaused,
+    buyItem: async (itemId) => {
+      const error = world.purchaseError(itemId);
+      if (error) return error;
+      const kind = companionItemKind(itemId);
+      if (kind) {
+        try {
+          await loadOwnedCompanions([kind]);
+        } catch {
+          return 'Companion could not be prepared. Try again.';
+        }
+      }
+      // The match continues while preparing; revalidate gold, ownership and shop access.
+      return world.buy(itemId);
+    },
     reset: () => {
       void writeMatch(
         battlefield.id,

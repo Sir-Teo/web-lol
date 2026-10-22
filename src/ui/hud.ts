@@ -51,6 +51,7 @@ import {
 } from '../content/companion-policy';
 import { companionMovementBonus } from '../simulation/companion-passives';
 import { ownedCompanion } from '../simulation/owned-companions';
+import { companionItemKind } from '../content/companion-items-policy';
 import {
   SUMMONERS,
   isSummonerSlot,
@@ -69,6 +70,7 @@ import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 
 export interface HudActions {
+  buyItem: (itemId: string) => Promise<string | null>;
   pause: (value: boolean) => void;
   reset: () => void;
   startMatch: (
@@ -101,6 +103,7 @@ export class Hud {
   private lastWelcomeTick = -1;
   private lastInventory = '';
   private lastScoreboard = '';
+  private buyingItem = false;
   private toastUntil = 0;
   constructor(
     host: HTMLElement,
@@ -223,7 +226,7 @@ export class Hud {
               : 'Gain 3 Ember every 0.5 seconds, up to 100. At 100, your next Attack or Ability hit on an enemy champion burns nearby enemies for 5% max health true damage over 4 seconds and slows by 30%, decaying over 3 seconds. Large monster kills ready this immediately.';
         return `Deal ${companionSmiteDamage(p.fed)} true damage to a large or medium monster or enemy lane minion.${stage > 0 ? ' Against champions, deal 40 true damage and slow by 20% for 2 seconds.' : ''}${stage === 2 ? ' Damages monsters within 425 units of the target.' : ''} Companion fed ${p.fed}/35 treats. Regains one charge every 90 seconds. ${stage === 2 ? passive : `At full growth: ${passive}`}`;
       }
-      return `${SUMMONERS.smite.description} Regains one charge every ${SUMMONER_SMITE.rechargeSeconds} seconds. Jungle companion upgrades are not available yet.`;
+      return `${SUMMONERS.smite.description} Regains one charge every ${SUMMONER_SMITE.rechargeSeconds} seconds. Purchase a jungle companion and feed it to upgrade Smite.`;
     }
     if (this.world.hero.champion === 'garen' && isGarenSpell(ability)) {
       const h = this.world.hero;
@@ -278,7 +281,7 @@ export class Hud {
   private updateShopPurchases(): void {
     this.root.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
       const id = button.dataset.buy!;
-      const reason = this.world.purchaseError(id);
+      const reason = this.buyingItem ? 'Preparing purchase…' : this.world.purchaseError(id);
       const unavailable = String(!!reason);
       if (button.getAttribute('aria-disabled') !== unavailable)
         button.setAttribute('aria-disabled', unavailable);
@@ -311,11 +314,16 @@ export class Hud {
         button.className = 'shop-item';
         button.dataset.sell = String(slot);
         button.dataset.item = id;
+        const unsellable = !!companionItemKind(item.id);
+        button.setAttribute('aria-disabled', String(unsellable));
+        button.title = unsellable ? 'Jungle companions cannot be sold' : 'Sell item';
         button.setAttribute(
           'aria-label',
-          `Sell ${item.name}, slot ${slot + 1}, for ${item.sell} gold`
+          unsellable
+            ? `${item.name}, slot ${slot + 1}, cannot be sold`
+            : `Sell ${item.name}, slot ${slot + 1}, for ${item.sell} gold`
         );
-        button.innerHTML = `<img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>Sell · slot ${slot + 1}</small></span><b>◆ ${item.sell}</b>`;
+        button.innerHTML = `<img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${unsellable ? 'Cannot be sold' : `Sell · slot ${slot + 1}`}</small></span><b>${unsellable ? '—' : `◆ ${item.sell}`}</b>`;
       }
       buttons.push(button);
     });
@@ -812,9 +820,18 @@ export class Hud {
       showShopResult(this.world.sell(Number(button.dataset.sell)), 'Item sold');
     });
     backdrop.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) =>
-      button.addEventListener('click', () => {
-        const result = this.world.buy(button.dataset.buy!);
-        showShopResult(result, 'Item purchased');
+      button.addEventListener('click', async () => {
+        if (this.buyingItem) return;
+        this.buyingItem = true;
+        this.updateShopPurchases();
+        backdrop.querySelector<HTMLElement>('.shop-message')!.textContent = 'Preparing purchase…';
+        try {
+          const result = await this.actions.buyItem(button.dataset.buy!);
+          if (backdrop.isConnected) showShopResult(result, 'Item purchased');
+        } finally {
+          this.buyingItem = false;
+          this.updateShopPurchases();
+        }
       })
     );
     const initialFocus =

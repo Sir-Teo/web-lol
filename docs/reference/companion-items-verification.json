@@ -1,0 +1,432 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "7f3a429ba089b04a34f4eb97e593f8272974cfab",
+  "scope": "Ordinary Rift starter-companion purchases, async selected-rig preparation, earned item consumption and persistent saved ownership. Formal jungle roles, ordinary practice camp calendars, native lifecycle calibration and full matches remain unfinished.",
+  "schema": 101,
+  "rulesetFingerprint": "6eaf19f26cad43e2a4fda2adf84bfb5c4e6cbae2c656c73690f694fa42c82d1e",
+  "sourcePin": {
+    "path": "docs/reference/companion-items-source.json",
+    "sha256": "ac9dd6190fd9a0bac4ff52208723bbc930f5674512ed753cda54a131fcf3ca89"
+  },
+  "catalog": {
+    "path": "src/content/companion-items.ts",
+    "sha256": "5b8134f49a94417007232edcdd355ec2494ac9273796e7598376538e1add4028"
+  },
+  "sourcePreparation": {
+    "command": ".tools/cdtb-venv/bin/python tools/assets/export-companion-items.py --check",
+    "result": "passed",
+    "originalIcons": 3,
+    "source": "Frozen 16.18 item records and Data Dragon 16.18.1 item PNGs; Doran Blade group read from the digest-matched full item mirror.",
+    "sellVerification": {
+      "command": "python3 tools/assets/verify-item-selling.py",
+      "items": 24,
+      "result": "passed",
+      "cache": "Verifier initially expected an absent legacy cache filename; a digest-checked copy of the already cached frozen Data Dragon mirror restored it. No source substitution."
+    }
+  },
+  "lifecycle": {
+    "cost": 450,
+    "requiresSmiteEitherSlot": true,
+    "starterGroup": "One companion; conflicts with current Doran Blade. Persistent entitlement survives full-growth item consumption.",
+    "shopBinding": "Current selected Smite requires a companion before other catalog equipment. All current catalog items are non-consumable; consumables and full role assignment remain unfinished.",
+    "sale": "Rejected, including while dead; UI labels the item as unsellable.",
+    "creation": "Separate owned actor with acquisition=purchase, createdTick captured at commit. Statless item does not create a neutral Unit.",
+    "firstEvolution": "15 earned feeds; starter stays in its current slot.",
+    "fullGrowth": "35 earned feeds; remove actual item slot, preserve other slot identities, trim only trailing holes, capture consumedTick=fullGrownTick.",
+    "afterConsumption": "Actor, stage, final passive and starter-group reservation persist; other equipment can use the released slot. New match resets ownership.",
+    "deadOwner": "Purchase and earned progression preserve death; full-growth consumption never grants health or a shield to a dead owner."
+  },
+  "assets": {
+    "preparation": "Validate before load, await selected original rig, then revalidate current match/gold/capacity/ownership/fountain access before committing. Preparation failure spends nothing and retries.",
+    "concurrency": "UI serializes purchase clicks. Rig loader shares pending requests, removes only its own pending entry and caches successful preparation.",
+    "unownedVariants": "Not preloaded; a model explicitly prepared for a rejected transaction may remain cached for retry."
+  },
+  "saves": {
+    "acquisitionKinds": ["fixture", "purchase"],
+    "purchaseBeforeFull": "Exactly one matching item, consumedTick=null.",
+    "purchaseAfterFull": "No companion item remains; captured consumption equals earned full-growth tick.",
+    "fixture": "Free grants remain restricted to the controlled development Gromp encounter.",
+    "restore": "Ordinary purchased actors restore without requiring a development query; rigs prepare before play resumes.",
+    "rejects": [
+      "Missing/mismatched/duplicate starters.",
+      "Orphan item without ownership, or Doran conflict.",
+      "Premature/invented consumption or retained full-growth starter."
+    ]
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "typecheck": "passed",
+    "files": 238,
+    "passed": 1253,
+    "newCases": 14,
+    "coverage": [
+      "Original prices/groups/icons and zero stat grants.",
+      "Both-slot Smite requirements and initial equipment shop gate.",
+      "All variants, persistent unique/starter restrictions and sale refusal.",
+      "Atomic failures for gold/capacity/access/end state.",
+      "Dead purchases, posthumous completion and exact continued saves.",
+      "Moved/interior/trailing slot consumption, bonus-feed crossing and idempotent removal.",
+      "Other-owner isolation and malformed purchase snapshots.",
+      "Imported Rift purchase, actual camp death rewards/calendar and saved continuation."
+    ]
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "command": "npx playwright test e2e/companion-items.spec.ts --reporter=line",
+    "passed": 5,
+    "failed": 0,
+    "regressionCommand": "npx playwright test e2e/shop-availability.spec.ts e2e/shop-layout.spec.ts e2e/shop-inventory-sync.spec.ts e2e/shop-idle.spec.ts e2e/item-selling.spec.ts e2e/item-recipes.spec.ts e2e/smite.spec.ts e2e/owned-companions.spec.ts e2e/companion-passives.spec.ts --reporter=line",
+    "regressionPassed": 18,
+    "regressionFailed": 0,
+    "visualFollowup": {
+      "command": "npx playwright test e2e/companion-items.spec.ts -g 'failed companion asset' --reporter=line",
+      "passed": 1,
+      "failed": 0,
+      "widths": [1280, 600]
+    },
+    "distinctCurrentPassingCases": 23,
+    "assertions": [
+      "All three variants bought for 450 via the ordinary real-Rift shop with selected F Smite.",
+      "No preloaded companion rigs; only the selected original GLB requested; Baby/Adult forms contribute GPU pixels.",
+      "Real F Smite kills a prepared actual Gromp, grants two feeds with bonus stock and starts the normal camp calendar.",
+      "First evolution keeps starter; full growth consumes it and frees space while retaining passive, evolved Smite and group reservation.",
+      "Exact ordinary-world purchase/camp/first/full checkpoints and restart into no ownership.",
+      "Asset 503 failure leaves full world snapshot unchanged; retry creates one actor and spends once.",
+      "Held asset request ignores repeated clicks, revalidates changed gold without charging and reuses the prepared model on legal retry.",
+      "Unsellable owned presentation and new catalog fit at 1280x720 and 600x700.",
+      "Eighteen preserved shop, recipe, sales, availability/focus/layout, Smite, ownership and passive regressions pass."
+    ],
+    "scope": "Camp approach/health, clock jumps, repeated lethal feed targets and later shop relocation are diagnostic. This is not a natural jungle route, full seeded role match, full browser audit or native/performance certification."
+  },
+  "browserDiagnostics": {
+    "gustwalker": {
+      "paid": {
+        "gold": 50,
+        "items": ["gustwalker"],
+        "p": {
+          "acquisition": {
+            "kind": "purchase",
+            "consumedTick": null
+          },
+          "passive": null,
+          "ownerId": 1,
+          "kind": "gustwalker",
+          "createdTick": 6,
+          "x": -7111.849640381959,
+          "y": 7022.850111725535,
+          "previous": {
+            "x": -7111.849640381959,
+            "y": 7022.850111725535
+          },
+          "facing": -0.9415926535899177,
+          "fed": 0,
+          "bonusTreats": 0,
+          "nextTreatTick": 5406,
+          "firstMonsterDone": false,
+          "firstEvolvedTick": null,
+          "fullGrownTick": null,
+          "targetId": null,
+          "activeUntil": 0,
+          "nextStrikeTick": 6,
+          "releaseTick": null,
+          "pose": {
+            "action": "idle",
+            "startTick": 165
+          },
+          "path": [],
+          "nextPathTick": 187
+        }
+      },
+      "baby": {
+        "count": 501,
+        "forms": ["Baby"],
+        "kind": "gustwalker",
+        "acquisition": {
+          "kind": "purchase",
+          "consumedTick": null
+        },
+        "fed": 0,
+        "battlefield": "rift"
+      },
+      "clear": {
+        "fed": 2,
+        "charges": 1,
+        "camp": {
+          "id": "order-gromp",
+          "unitIds": [null],
+          "cleanupTicks": [null],
+          "nextSpawnTick": 13521,
+          "splitWaves": []
+        }
+      },
+      "adult": {
+        "count": 515,
+        "forms": ["Adult"],
+        "kind": "gustwalker",
+        "acquisition": {
+          "kind": "purchase",
+          "consumedTick": 5422
+        },
+        "fed": 35,
+        "battlefield": "rift"
+      },
+      "rigs": [
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb"
+      ]
+    },
+    "scorchclaw": {
+      "paid": {
+        "gold": 50,
+        "items": ["scorchclaw"],
+        "p": {
+          "acquisition": {
+            "kind": "purchase",
+            "consumedTick": null
+          },
+          "passive": null,
+          "ownerId": 1,
+          "kind": "scorchclaw",
+          "createdTick": 2,
+          "x": -7111.849640381959,
+          "y": 7022.850111725535,
+          "previous": {
+            "x": -7111.849640381959,
+            "y": 7022.850111725535
+          },
+          "facing": -0.9415926535899177,
+          "fed": 0,
+          "bonusTreats": 0,
+          "nextTreatTick": 5402,
+          "firstMonsterDone": false,
+          "firstEvolvedTick": null,
+          "fullGrownTick": null,
+          "targetId": null,
+          "activeUntil": 0,
+          "nextStrikeTick": 2,
+          "releaseTick": null,
+          "pose": {
+            "action": "idle",
+            "startTick": 141
+          },
+          "path": [],
+          "nextPathTick": 183
+        }
+      },
+      "baby": {
+        "count": 492,
+        "forms": ["Baby"],
+        "kind": "scorchclaw",
+        "acquisition": {
+          "kind": "purchase",
+          "consumedTick": null
+        },
+        "fed": 0,
+        "battlefield": "rift"
+      },
+      "clear": {
+        "fed": 2,
+        "charges": 1,
+        "camp": {
+          "id": "order-gromp",
+          "unitIds": [null],
+          "cleanupTicks": [null],
+          "nextSpawnTick": 13517,
+          "splitWaves": []
+        }
+      },
+      "adult": {
+        "count": 548,
+        "forms": ["Adult"],
+        "kind": "scorchclaw",
+        "acquisition": {
+          "kind": "purchase",
+          "consumedTick": 5418
+        },
+        "fed": 35,
+        "battlefield": "rift"
+      },
+      "rigs": [
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb"
+      ]
+    },
+    "mosstomper": {
+      "paid": {
+        "gold": 50,
+        "items": ["mosstomper"],
+        "p": {
+          "acquisition": {
+            "kind": "purchase",
+            "consumedTick": null
+          },
+          "passive": null,
+          "ownerId": 1,
+          "kind": "mosstomper",
+          "createdTick": 6,
+          "x": -7111.849640381959,
+          "y": 7022.850111725535,
+          "previous": {
+            "x": -7111.849640381959,
+            "y": 7022.850111725535
+          },
+          "facing": -0.9415926535899177,
+          "fed": 0,
+          "bonusTreats": 0,
+          "nextTreatTick": 5406,
+          "firstMonsterDone": false,
+          "firstEvolvedTick": null,
+          "fullGrownTick": null,
+          "targetId": null,
+          "activeUntil": 0,
+          "nextStrikeTick": 6,
+          "releaseTick": null,
+          "pose": {
+            "action": "idle",
+            "startTick": 145
+          },
+          "path": [],
+          "nextPathTick": 187
+        }
+      },
+      "baby": {
+        "count": 402,
+        "forms": ["Baby"],
+        "kind": "mosstomper",
+        "acquisition": {
+          "kind": "purchase",
+          "consumedTick": null
+        },
+        "fed": 0,
+        "battlefield": "rift"
+      },
+      "clear": {
+        "fed": 2,
+        "charges": 1,
+        "camp": {
+          "id": "order-gromp",
+          "unitIds": [null],
+          "cleanupTicks": [null],
+          "nextSpawnTick": 13520,
+          "splitWaves": []
+        }
+      },
+      "adult": {
+        "count": 564,
+        "forms": ["Adult"],
+        "kind": "mosstomper",
+        "acquisition": {
+          "kind": "purchase",
+          "consumedTick": 5424
+        },
+        "fed": 35,
+        "battlefield": "rift"
+      },
+      "rigs": [
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb"
+      ]
+    }
+  },
+  "validation": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "scope": "All GLBs/map and navigation hash; new PNGs validated by source digests/signatures."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "companionPurchaseAndRestore": true,
+    "unrequestedCompanionPreloads": 0,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "preparedCompanionRequests": 2,
+    "scheduledGrompRequests": 51,
+    "scheduledBlueRequests": 3,
+    "scheduledRedRequests": 3,
+    "scheduledWolfRequests": 6,
+    "scheduledRaptorRequests": 6,
+    "scheduledKrugRequests": 9,
+    "scheduledScuttlerRequests": 3,
+    "screenshot": "artifacts/production-subpath.png",
+    "gameChunkKb": 689.14,
+    "threeChunkKb": 659.92,
+    "purchaseScreenshot": "artifacts/production-companion-purchase.png",
+    "warning": "Existing chunks above 500 KB warning remains."
+  },
+  "captures": [
+    {
+      "path": "artifacts/companion-item-gustwalker-rift.png",
+      "sha256": "79b4619e3c0469a69bfeb536d163ddff0b296f137f3b4ee3e5ef47efdba7d9b3",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-item-gustwalker-grown.png",
+      "sha256": "06b96fd2770514f001889a749abf2db229b811938b75a2c570af44eaacc36cab",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-item-scorchclaw-rift.png",
+      "sha256": "b07f399844a3f6f55e00da88182aa9784247edd292a912e9e0ec568351585ae8",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-item-scorchclaw-grown.png",
+      "sha256": "abbc0d421738f92ce83ee053964abb0c341b526de3674e0fd55167acb7730a01",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-item-mosstomper-rift.png",
+      "sha256": "076720dc3a5ffa234b2026ac46a286465756e64fdbf4b369bd4c3c93eef4236c",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-item-mosstomper-grown.png",
+      "sha256": "4afe2aa96b074c19827c228a6e54db263fd803d668b45ae977f043347cea7c20",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-item-shop-1280.png",
+      "sha256": "0df67c9798cff6671eee92218845b2ff029edda2a893ef2fd1d520820ec47596",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-item-shop-600.png",
+      "sha256": "52b8318bcddd485c15b22bb3003a87c90f83b2aa53c31c0372ba132b42acae64",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-companion-purchase.png",
+      "sha256": "5983b96546ca7c896755f6a34d5c2dfe331b3f9eadfb439305ca9230f9eadd22",
+      "visuallyReviewed": true
+    }
+  ],
+  "remaining": [
+    "Formal role selection/binding, team constraints, jungle bot plans and full seeded role matches.",
+    "Ordinary practice camp calendars.",
+    "Consumables, support starters and limited undo.",
+    "Native shop/consumption callbacks, bonus/post-quest treat/reward lifecycle, role modifiers and existing passive timing/area discrepancies.",
+    "Complete source effects/audio, native visual comparison, epic objectives and full browser/offline/performance acceptance."
+  ],
+  "goalStatus": "active"
+}

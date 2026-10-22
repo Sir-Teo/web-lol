@@ -8,6 +8,7 @@ import {
 import { championProfile } from '../content/champion-profiles';
 import { growthAtLevel, statPrecision } from './progression';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
+import { isDoranStarter } from '../content/companion-items-policy';
 import { advanceCompanionPassive, companionPassiveMonsterKill } from './companion-passives';
 import { distance, type Vec2 } from './math';
 import type { World } from './world';
@@ -16,20 +17,26 @@ export const ownedCompanion = (w: World, id: number) => w.companions.find((p) =>
 export function grantCompanion(
   w: World,
   kind: CompanionKind,
-  ownerId = w.player.id
+  ownerId = w.player.id,
+  acquisition: OwnedCompanion['acquisition'] = { kind: 'fixture' }
 ): OwnedCompanion {
   const owner = w.unit(ownerId);
   if (
-    w.battlefield.id !== 'practice-fixture' ||
-    w.matchMode !== 'practice' ||
-    w.encounter !== 'gromp' ||
+    (acquisition.kind === 'fixture' &&
+      (w.battlefield.id !== 'practice-fixture' ||
+        w.matchMode !== 'practice' ||
+        w.encounter !== 'gromp')) ||
+    (acquisition.kind === 'purchase' &&
+      (acquisition.consumedTick !== null || !w.championState(ownerId)?.inventory.includes(kind))) ||
+    w.championState(ownerId)?.inventory.some(isDoranStarter) ||
     !owner ||
     owner.kind !== 'champion' ||
     !w.summonerSlot('smite', ownerId) ||
     ownedCompanion(w, ownerId)
   )
-    throw new Error('Owned companion requires a Smite-equipped controlled Gromp encounter.');
+    throw new Error('Owned companion requires a valid Smite-equipped owner and acquisition.');
   const p: OwnedCompanion = {
+    acquisition: { ...acquisition },
     passive: null,
     ownerId,
     kind,
@@ -167,6 +174,17 @@ export function companionKilledMonster(w: World, source: Unit, target: Unit): vo
         60;
   } else pose(p, 'heal', w.tick);
   if (p.fed === S.fullGrowthFeeds) p.nextTreatTick = null;
+  if (
+    p.fed === S.fullGrowthFeeds &&
+    p.acquisition.kind === 'purchase' &&
+    p.acquisition.consumedTick === null
+  ) {
+    const slot = owner.inventory.indexOf(p.kind);
+    if (slot < 0) throw new Error('Missing companion item at full growth.');
+    owner.inventory[slot] = null;
+    while (owner.inventory.length && owner.inventory.at(-1) === null) owner.inventory.pop();
+    p.acquisition.consumedTick = w.tick;
+  }
   companionPassiveMonsterKill(w, p, source);
 }
 export function companionSmitePose(w: World, u: Unit): void {

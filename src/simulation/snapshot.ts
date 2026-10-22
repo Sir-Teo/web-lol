@@ -1,5 +1,6 @@
 import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
+import { companionItemKind, isDoranStarter } from '../content/companion-items-policy';
 import { isSummonerSlot } from '../content/summoners';
 import {
   COMPANION_SOURCE,
@@ -88,7 +89,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 100;
+export const SNAPSHOT_VERSION = 101;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -780,6 +781,10 @@ const snapshot = z.strictObject({
           ])
           .nullable(),
         ownerId: id,
+        acquisition: z.discriminatedUnion('kind', [
+          z.strictObject({ kind: z.literal('fixture') }),
+          z.strictObject({ kind: z.literal('purchase'), consumedTick: tick.nullable() }),
+        ]),
         kind: z.enum(['gustwalker', 'scorchclaw', 'mosstomper']),
         createdTick: tick,
         x: z.number().finite(),
@@ -1077,12 +1082,12 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     });
   const state = result.data;
   if (
-    state.companions.length &&
+    state.companions.some((p) => p.acquisition.kind === 'fixture') &&
     (state.battlefield !== 'practice-fixture' ||
       state.encounter !== 'gromp' ||
       state.matchMode !== 'practice')
   )
-    throw new Error('Saved companions require the controlled Gromp encounter.');
+    throw new Error('Saved fixture companions require the controlled Gromp encounter.');
   if (new Set(state.companions.map((p) => p.ownerId)).size !== state.companions.length)
     throw new Error('Saved companions have duplicate owners.');
   for (const p of state.companions) {
@@ -1150,6 +1155,17 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       (p.targetId !== null && !state.units.some((u) => u.id === p.targetId && u.kind === 'monster'))
     )
       throw new Error('Saved companion contains invalid ownership, feeding or combat clocks.');
+    if (owner.inventory.some(isDoranStarter))
+      throw new Error('Saved companion conflicts with the starter item group.');
+    if (p.acquisition.kind === 'purchase') {
+      const count = owner.inventory.filter((item) => item === p.kind).length;
+      if (
+        p.fed < 35
+          ? count !== 1 || p.acquisition.consumedTick !== null
+          : count !== 0 || p.acquisition.consumedTick !== p.fullGrownTick
+      )
+        throw new Error('Saved companion item and consumption state disagree.');
+    }
     const passive = p.passive;
     if (passive?.kind === 'gustwalker') {
       for (const t of [passive.lastBrushTick, passive.killTick])
@@ -1180,6 +1196,16 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       )
         throw new Error('Saved Mosstomper contains invalid shield recharge.');
     }
+  }
+  for (const owner of [state.player, ...state.otherChampions]) {
+    const items = owner.inventory.filter((item) => item !== null && companionItemKind(item));
+    const p = state.companions.find((p) => p.ownerId === owner.id);
+    if (
+      items.length > 1 ||
+      (items.length === 1 &&
+        (!p || p.acquisition.kind !== 'purchase' || p.kind !== items[0] || p.fed === 35))
+    )
+      throw new Error('Saved inventory contains an invalid jungle companion item.');
   }
   if (state.matchMode === 'lanes' && state.battlefield !== 'rift')
     throw new Error('Lane matches require Summoner’s Rift.');

@@ -1,4 +1,5 @@
 import { MAGE_ITEMS } from './mage-items';
+import { COMPANION_ITEMS } from './companion-items';
 import { CRITICAL_ATTACKS } from './critical-attacks';
 import { CRITICAL_ITEMS } from './critical-items';
 import type { Ability } from '../simulation/types';
@@ -259,6 +260,7 @@ export const ITEMS = [
   },
   ...MAGE_ITEMS,
   ...CRITICAL_ITEMS,
+  ...COMPANION_ITEMS,
 ] as const;
 export const ITEM_RECIPES: Readonly<Record<string, readonly string[]>> = {
   'infinity-edge': ['bf-sword', 'pickaxe', 'agility'],

@@ -215,6 +215,48 @@ try {
     [],
     'Prepared companions must not preload into ordinary matches'
   );
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.keyboard.press('p');
+  await page.locator('.shop-catalog').waitFor({ state: 'visible' });
+  await page.waitForFunction(
+    () => document.querySelector('[data-buy="boots"]')?.title === 'Buy a jungle companion first'
+  );
+  assert.equal(
+    await page.locator('[data-buy="boots"]').getAttribute('title'),
+    'Buy a jungle companion first'
+  );
+  await page.locator('[data-buy="gustwalker"]').click();
+  await page.waitForFunction(
+    () => document.querySelector('.shop-message')?.textContent === 'Item purchased'
+  );
+  await page.waitForFunction(() =>
+    document.querySelector('#companion-status')?.textContent.includes('Gustwalker Hatchling')
+  );
+  assert.equal(
+    await page.locator('.shop-owned [data-item="gustwalker"]').getAttribute('aria-disabled'),
+    'true'
+  );
+  await page.locator('.close-button').click();
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Save match', exact: true }).click();
+  await page.waitForFunction(
+    () => document.querySelector('#toast')?.textContent === 'Match saved on this browser.'
+  );
+  await page.reload();
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  await page.waitForFunction(
+    () => !!document.querySelector('#inventory img[alt="Gustwalker Hatchling"]')
+  );
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.equal(await page.locator('#inventory img[alt="Gustwalker Hatchling"]').count(), 1);
+  assert((await page.locator('#companion-status').textContent()).includes('0/35 treats'));
+  assert(preparedCompanionRequests.length >= 2);
+  assert(
+    preparedCompanionRequests.every((url) => url.endsWith('/sru-jungle-companions-skin0-base.glb'))
+  );
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.screenshot({ path: 'artifacts/production-companion-purchase.png' });
+  assert.deepEqual(outside, [], 'Purchased companion assets must stay beneath the host prefix');
   assert.deepEqual(
     junglePreviewRequests,
     [],
@@ -263,6 +305,8 @@ try {
       realLuxBindingCast: true,
       luxLaneRestart: true,
       selectedSmiteLoadoutAndRestart: true,
+      companionPurchaseAndRestore: true,
+      unrequestedCompanionPreloads: 0,
       developmentHook: false,
       garenFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,

@@ -47,7 +47,7 @@ monster or enemy lane minion. Monster eligibility follows pinned Root tags:
 medium Krugs are valid; small wolves, raptors and mini Krugs are not. The two
 hashed required tags resolve to `Monster_Epic` and `Monster_Medium` by their exact
 FNV hash. Epic monsters are not yet implemented. Base Smite cannot target a
-champion, structure or dummy. Champion pets are also not yet implemented.
+champion, structure or dummy. Targetable champion summons remain unfinished.
 
 Target range compares center distance against 500 plus both gameplay radii.
 Shared team sight is sufficient; a visible target can be cast on across terrain.
@@ -94,14 +94,14 @@ unresolved counter-direction discrepancy and metadata-only callback boundary.
 The later [owned companion encounter](OWNED-COMPANIONS.md) adds schema-99 owned
 actors, feeding, 15/35-feed evolution, upgraded champion targeting and final
 monster-area damage in the controlled development Gromp fixture. No champion-level
-substitution or manual upgrade selector is provided. Ordinary production matches
-still use base Smite until companion purchases and standard roles are implemented.
+substitution or manual upgrade selector is provided. Ordinary Rift matches now
+support [companion purchases](COMPANION-ITEMS.md) and earned upgrades. Smite stays at its base stage while unowned.
 
-All three final passive adapters now run in that controlled encounter.
-Purchased-item lifecycle, standard role modifiers, targetable
+All three final passive adapters also run for purchased Rift companions.
+Native lifecycle comparison, standard role modifiers, targetable
 champion pets, native forgiveness/latency, effects/audio, role AI, epic objectives
 and complete seeded matches remain unfinished. The
 [base-Smite verification ledger](reference/summoner-smite-verification.json)
-retains historical results; current companion results are in
-[their separate ledger](reference/owned-companions-verification.json). These do not
+retains historical results; current purchase and companion results are in
+[the lifecycle ledger](reference/companion-items-verification.json). These do not
 certify native or full-match completion. The full project goal remains active.

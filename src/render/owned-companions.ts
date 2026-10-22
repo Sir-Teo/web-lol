@@ -10,15 +10,29 @@ import type { World } from '../simulation/world';
 import { SCALE } from './terrain';
 import type { Vec2 } from '../simulation/math';
 const references = new Map<CompanionKind, { root: THREE.Group; clips: THREE.AnimationClip[] }>();
+const pending = new Map<CompanionKind, Promise<void>>();
 export async function loadOwnedCompanions(kinds: readonly CompanionKind[]): Promise<void> {
   await Promise.all(
     [...new Set(kinds)].map(async (kind) => {
       if (references.has(kind)) return;
-      const gltf = await new GLTFLoader().loadAsync(`assets/models/${S.profiles[kind].rig}.glb`);
-      for (const c of Object.values(S.profiles[kind].clips))
-        if (!gltf.animations.some((a) => a.name === c.name))
-          throw new Error(`Companion lacks ${c.name}`);
-      references.set(kind, { root: gltf.scene, clips: gltf.animations });
+      let request = pending.get(kind);
+      if (!request) {
+        request = (async () => {
+          const gltf = await new GLTFLoader().loadAsync(
+            `assets/models/${S.profiles[kind].rig}.glb`
+          );
+          for (const c of Object.values(S.profiles[kind].clips))
+            if (!gltf.animations.some((a) => a.name === c.name))
+              throw new Error(`Companion lacks ${c.name}`);
+          references.set(kind, { root: gltf.scene, clips: gltf.animations });
+        })();
+        pending.set(kind, request);
+      }
+      try {
+        await request;
+      } finally {
+        if (pending.get(kind) === request) pending.delete(kind);
+      }
     })
   );
 }

@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,239 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,253 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,14 +14,51 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-100 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-100 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-101 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-101 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
   wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-[Final companion passive adapters](OWNED-COMPANIONS.md#final-passive-adapters)
+[Companion purchases](COMPANION-ITEMS.md) now connect all three starters to the
+ordinary Rift shop. Each costs 450 and requires Smite; selected Smite supplies
+the interim shop binding before formal roles exist. The starter remains through
+first evolution and is consumed from its actual slot at full growth. Owned
+actors, final passives and the starter-group reservation persist after item
+removal. Other equipment can use the freed slot; another companion or Doran's
+Blade remains blocked. Sale is explicitly refused. Schema 101 captures purchase
+versus fixture acquisition and exact consumption, rejecting orphan/conflicting
+item records. Free development grants remain confined to their original fixture.
+
+The selected rig prepares before purchase commits. Loading failure spends
+nothing, repeated clicks serialize, and current eligibility is checked again
+after loading. Successful preparation is reused on retry. Ordinary purchased
+saves load their rig without a development query. All three original starter
+icons and their prices/groups are pinned; the shared sell ledger now verifies
+24 item records against the same original Data Dragon mirror.
+
+All 1,253 checks across 238 files and TypeScript pass, including fourteen new
+lifecycle/source cases. Five new real-Rift Chrome cases and eighteen preserved
+shop/Smite/companion regressions pass. The asset-failure case also passes again
+with shop layout review at 1280x720 and 600x700. Real shop input and a real F
+camp last hit are covered; clock jumps, health/approach setup and later repeated
+feed targets remain diagnostic. Exact early/first/full checkpoints, one-time
+consumption, persistent restrictions, GPU contribution, death, restart and
+failed/delayed loading are checked. All nine current captures were visually
+reviewed. All GLBs/map validate with zero errors/warnings. Catalog/source checks
+and all 24 sell values pass.
+
+Production build and `/nested/rift/` smoke pass, including purchase and reload
+of Gustwalker with no development hook. Unowned companions do not preload;
+the smoke makes two selected-rig requests for purchase and restore, retaining
+17 recordings. The existing bundle warning remains (689.14 KB game, 659.92 KB
+Three). Exact results are in [the lifecycle ledger](reference/companion-items-verification.json).
+Formal jungle roles, ordinary practice camp calendars, consumables/undo, native
+lifecycle/bonus/role reward calibration and full role matches remain unfinished.
+The full project goal stays active.
+
+[The historical passive foundation](OWNED-COMPANIONS.md#final-passive-adapters)
 now activate on earned full growth in the controlled encounter. Mosstomper uses
 one persistent, refreshing shield with a ten-second combat deadline; Gustwalker
 uses actual battlefield brush membership and saved linear exit/kill decay;
@@ -49,8 +86,9 @@ zero errors/warnings. Production build and `/nested/rift/` smoke pass, retaining
 17 recordings and zero companion requests in ordinary matches. The existing
 bundle warning remains (684.91 KB game, 659.92 KB Three). Exact evidence is in
 [the passive ledger](reference/companion-passives-verification.json). Companion
-purchases, role binding/modifiers, native effects/timing/visual comparison and
-complete jungle-role matches remain unfinished. The full project goal stays active.
+purchases were still unfinished at that schema-100 milestone. Current role
+binding/modifiers, native effects/timing/visual comparison and complete
+jungle-role matches remain unfinished. The full project goal stays active.
 
 [The ownership foundation](OWNED-COMPANIONS.md) established player following
 and assistance against monsters in the controlled development Gromp encounter. All three variants use

@@ -4,8 +4,8 @@ All three `SRU_Jungle_Companions` source skins can now be reviewed with their
 Adult/Baby geometry and atomic animations. This prepares the visual and data
 dependencies for earned Smite evolution. A separate
 [owned companion encounter](OWNED-COMPANIONS.md) now uses these rigs for following,
-combat and earned growth in the controlled Gromp fixture. Production matches do
-not yet grant companions, and their items are not advertised as working shop entries.
+combat and earned growth in the controlled Gromp fixture. Ordinary Rift matches now support
+[shop purchases and starter consumption](COMPANION-ITEMS.md).
 The full match goal remains active.
 
 ## Original sources
@@ -116,6 +116,6 @@ recorded in [the historical source-review ledger](reference/jungle-companions-ve
 The later [owned runtime ledger](reference/owned-companions-verification.json)
 covers the ownership foundation separately; its later
 [final passive adapters](OWNED-COMPANIONS.md#final-passive-adapters) remain controlled
-and require native comparison. Purchased-item consumption, standard
-role binding, native effects/audio and jungle-role matches remain
+and require native comparison. Standard role binding, native lifecycle comparison, effects/audio and jungle-role
+matches remain
 unfinished. Rendering and performance are not certified by this source review.

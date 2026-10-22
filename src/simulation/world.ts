@@ -13,6 +13,7 @@ import {
   type SummonerSlot,
 } from '../content/summoners';
 import { smiteTarget } from './smite';
+import { companionItemKind, isDoranStarter } from '../content/companion-items-policy';
 import {
   companionMovementBonus,
   noteCompanionPassiveCombat,
@@ -26,6 +27,7 @@ import {
   companionDamageMultiplier,
   companionKilledMonster,
   companionSmitePose,
+  grantCompanion,
 } from './owned-companions';
 import {
   COMPANION_SOURCE,
@@ -4575,6 +4577,18 @@ export class World {
     if (distance(champion, this.battlefield.spawns[champion.team]) > 400 && champion.hp > 0)
       return 'Return to your fountain to purchase items';
     const plan = this.purchasePlan(itemId, championId)!;
+    const kind = companionItemKind(itemId),
+      pet = ownedCompanion(this, championId);
+    if (kind) {
+      if (!this.summonerSlot('smite', championId)) return 'Requires Smite';
+      if (pet || state.inventory.some((id) => id !== null && companionItemKind(id)))
+        return 'You already own a jungle companion';
+      if (state.inventory.some(isDoranStarter)) return 'You already own a Doran item';
+    } else {
+      if (this.summonerSlot('smite', championId) && !pet) return 'Buy a jungle companion first';
+      if (isDoranStarter(itemId) && pet)
+        return 'Your jungle companion occupies the starter item group';
+    }
     const emptySlot = state.inventory.findIndex(
       (id, slot) => id === null || plan.consumed.includes(slot)
     );
@@ -4694,6 +4708,8 @@ export class World {
     if (this.alive(champion)) champion.hp += hp;
     this.changeItemMana(champion, mana);
     champion.speed += speed;
+    const kind = companionItemKind(itemId);
+    if (kind) grantCompanion(this, kind, championId, { kind: 'purchase', consumedTick: null });
     return null;
   }
   /** Local item policy: preserve missing mana, clamp at zero, and do not refill dead owners. */
@@ -4728,6 +4744,7 @@ export class World {
       return 'Return to your fountain to sell items';
     const item = ITEMS.find((entry) => entry.id === state.inventory[slot]);
     if (!item) return 'Unknown item';
+    if (companionItemKind(item.id)) return 'Jungle companions cannot be sold';
     state.inventory[slot] = null;
     // Omitted trailing slots are empty too; interior holes retain slot identity.
     while (state.inventory.length && state.inventory.at(-1) === null) state.inventory.pop();

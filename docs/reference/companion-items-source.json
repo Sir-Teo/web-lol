@@ -1,0 +1,126 @@
+{
+  "parent": {
+    "path": "docs/reference/jungle-companions-source.json",
+    "sha256": "392fc0c4c5d3d327cb811746c9b1c26c8a20c9013c7697cf3ad7c6ea69db167b"
+  },
+  "itemMirror": {
+    "url": "https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json",
+    "sha256": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb"
+  },
+  "groups": {
+    "Items/ItemGroups/GoldItems": {
+      "mItemGroupID": "GoldItems",
+      "mMaxGroupOwnable": 1,
+      "__type": "ItemGroup"
+    },
+    "Items/ItemGroups/DoransItems": {
+      "mItemGroupID": "DoransItems",
+      "mMaxGroupOwnable": 1,
+      "__type": "ItemGroup"
+    },
+    "Items/ItemGroups/BaseJungleItems": {
+      "mItemGroupID": "BaseJungleItems",
+      "mItemModifiers": [
+        "{63613d8a}"
+      ],
+      "__type": "ItemGroup"
+    }
+  },
+  "blade": {
+    "path": "Items/1055",
+    "record": {
+      "mDisplayName": "Item_1055_Name",
+      "itemID": 1055,
+      "maxStack": 1,
+      "mItemGroups": [
+        "Items/ItemGroups/Default",
+        "Items/ItemGroups/DoransItems"
+      ],
+      "price": 450,
+      "mCanBeSold": true,
+      "epicness": 1,
+      "mFlatHPPoolMod": 80.0,
+      "mFlatPhysicalDamageMod": 10.0,
+      "PercentOmnivampMod": 0.02500000037252903,
+      "sellBackModifier": 0.4000000059604645,
+      "mCategories": [
+        "Health",
+        "Damage",
+        "LifeSteal",
+        "SpellVamp",
+        "Lane"
+      ],
+      "mItemDataAvailability": {
+        "mInStore": true,
+        "__type": "ItemDataAvailability"
+      },
+      "mItemAttributes": [
+        1,
+        2,
+        4
+      ],
+      "mItemDataClient": {
+        "mTooltipData": {
+          "mObjectName": "1055",
+          "mFormat": "{32559c50}",
+          "mLocKeys": {
+            "keyName": "Item_1055_Name",
+            "keyBrief": "Item_1055_Brief",
+            "keyColloquialism": "Item_1055_Colloquialism",
+            "keySecondaryBrief": "Item_Unique_Doran"
+          },
+          "mLists": {
+            "Stats": {
+              "Elements": [
+                {
+                  "type": "AttackDamage",
+                  "__type": "TooltipInstanceListElement"
+                },
+                {
+                  "type": "Health",
+                  "__type": "TooltipInstanceListElement"
+                },
+                {
+                  "type": "Omnivamp",
+                  "__type": "TooltipInstanceListElement"
+                }
+              ],
+              "__type": "TooltipInstanceList"
+            }
+          },
+          "__type": "TooltipInstanceItem"
+        },
+        "mDescription": "GeneratedTip_Item_1055_Description",
+        "mDynamicTooltip": "GeneratedTip_Item_1055_TooltipInventory",
+        "mShopTooltip": "GeneratedTip_Item_1055_TooltipShop",
+        "inventoryIcon": "assets/items/icons2d/1055_marksman_t1_doransblade.dds",
+        "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/1055_Marksman_T1_DoransBlade.png",
+        "epicness": 0,
+        "__type": "ItemDataClient"
+      },
+      "__type": "ItemData"
+    }
+  },
+  "icons": [
+    {
+      "path": "public/assets/icons/1101.png",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1101.png",
+      "sha256": "b7b876f66f0af6e0db64027722d9e5c6ebf5593814df2e665e6a386444df147c"
+    },
+    {
+      "path": "public/assets/icons/1102.png",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1102.png",
+      "sha256": "fb631ad8c0662cc565d94d00b0574d58509ad4534034e9ac1025e00edf7bbbee"
+    },
+    {
+      "path": "public/assets/icons/1103.png",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1103.png",
+      "sha256": "ee8e02866f57d0448259264170797420c458ff8a46557f98e66b2e75c7e37415"
+    }
+  ],
+  "published": {
+    "url": "https://www.leagueoflegends.com/en-us/news/dev/dev-season-2-gameplay-changes-preview/",
+    "scope": "Published position binding context. Selected Smite is the interim purchase binding; specific Smite-first/no-sale/consumed-group lifecycle rules are explicit adapters until native purchase callbacks and full roles are reconstructed."
+  },
+  "callbackBoundary": "Parent scripts are metadata-only. Purchase/consumption phase and persistent group enforcement are explicit adapters; limited undo and the full role system remain unfinished."
+}

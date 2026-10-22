@@ -457,6 +457,33 @@
         "total": 1300,
         "sell": 910
       }
+    },
+    "1101": {
+      "name": "Scorchclaw Pup",
+      "gold": {
+        "base": 450,
+        "purchasable": true,
+        "total": 450,
+        "sell": 0
+      }
+    },
+    "1102": {
+      "name": "Gustwalker Hatchling",
+      "gold": {
+        "base": 450,
+        "purchasable": true,
+        "total": 450,
+        "sell": 0
+      }
+    },
+    "1103": {
+      "name": "Mosstomper Seedling",
+      "gold": {
+        "base": 450,
+        "purchasable": true,
+        "total": 450,
+        "sell": 0
+      }
     }
   }
 }

@@ -367,6 +367,7 @@ export type CompanionPassive =
   | { kind: 'mosstomper'; rechargeTick: number | null }
   | { kind: 'scorchclaw'; stacks: number; nextStackTick: number };
 export interface OwnedCompanion {
+  acquisition: { kind: 'fixture' } | { kind: 'purchase'; consumedTick: number | null };
   passive: CompanionPassive | null;
   ownerId: number;
   kind: import('../content/companion-policy').CompanionKind;

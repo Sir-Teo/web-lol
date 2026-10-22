@@ -1,10 +1,10 @@
-# Owned companion encounter
+# Owned companions
 
-The controlled development Gromp encounter now supports Gustwalker, Scorchclaw
-and Mosstomper ownership, following, monster combat assistance, feeding and earned
-Smite evolution. This is the shared runtime foundation for the jungle role.
-All three final passive adapters are now present in this encounter. Companion
-purchases, production role assignment and complete jungle matches remain unfinished. The full project goal stays active.
+Gustwalker, Scorchclaw and Mosstomper now support purchased ownership in ordinary
+Rift matches, following, monster assistance, feeding, earned Smite evolution and
+all three final passive adapters. [The shop lifecycle](COMPANION-ITEMS.md) handles
+starter restrictions and full-growth consumption. Standard role assignment and
+complete jungle matches remain unfinished. The full project goal stays active.
 
 Open one of these development URLs:
 
@@ -14,9 +14,11 @@ Open one of these development URLs:
 /?scene=fixture&encounter=gromp&companion=mosstomper
 ```
 
-The fixture grants the selected companion and equips D Flash/F Smite. Ordinary
-practice and lane matches do not grant companions. Production ignores the
-development query. There is no manual evolution selector or champion-level
+The fixture grants a free review companion and equips D Flash/F Smite. Ordinary
+Rift matches acquire companions through the shop. The lane match schedules the
+jungle camps used to earn growth; the ordinary practice camp calendar is still
+unfinished. Production ignores the development query and can restore purchased
+ownership normally. There is no manual evolution selector or champion-level
 upgrade: earned feeds determine the Smite stage.
 
 ## Source boundary
@@ -173,7 +175,8 @@ presentation remain unfinished; existing damage, slow and shield feedback is use
 
 ## Saves and verification
 
-Schema 100 captures owner, variant, movement interpolation/path clocks, target,
+Schema 101 captures acquisition, consumption, owner, variant, movement
+interpolation/path clocks, target,
 strike/release clocks, source pose, feed/bonus stock, first-monster flag, treat
 deadline and both evolution ticks. It also saves the discriminated final passive,
 marked Moss shield, independent per-owner Scorchclaw burns and Smite/Scorchclaw
@@ -183,9 +186,10 @@ deadlines and consistent earned evolution. Existing incompatible save handling
 applies.
 
 [The historical ownership ledger](reference/owned-companions-verification.json)
-records the schema-99 foundation. [The current passive ledger](reference/companion-passives-verification.json)
-records subsequent checks, setup limits, captures and production results. Unit
+records the schema-99 foundation. [The passive ledger](reference/companion-passives-verification.json) records
+the schema-100 milestone. [The purchase ledger](reference/companion-items-verification.json)
+records current lifecycle checks, setup limits, captures and production results. Unit
 and controlled Chrome checks do not certify native behavior, full-match balance
-or performance. Purchased-item consumption, standard role binding/modifiers,
-jungle bot decisions, epic objectives and complete seeded browser matches remain
-required work.
+or performance. Standard role binding/modifiers, ordinary practice camp calendars, consumables,
+limited undo, jungle bot decisions, epic objectives and complete seeded browser
+matches remain required work.
