@@ -1,0 +1,70 @@
+{
+  "recordedAt": "2026-10-22T00:36:46.488Z",
+  "baseRevision": "20297898a7061b43b3e3b6dcf7da5bf6cc8c14b5",
+  "scope": "Frozen client-source preparation and development map annotations. Live camps and full-role gameplay remain unfinished.",
+  "source": {
+    "referenceVersion": "16.18.8175716",
+    "files": 2,
+    "bytes": 6707457,
+    "compressedChunks": 9,
+    "campAnchors": 18,
+    "neutralCharacterObjects": 53,
+    "campIdentifiers": 20,
+    "recommendations": 16
+  },
+  "validation": {
+    "byteIdenticalRepeatedExtraction": true,
+    "byteIdenticalRepeatedExport": true,
+    "typeScript": "passed",
+    "sourceSimulationGeometryPassed": 1046,
+    "testFiles": 212,
+    "focusedChrome": {
+      "passed": 5,
+      "failed": 0,
+      "workers": 1,
+      "retries": 0,
+      "command": "npx playwright test e2e/jungle-map-inspection.spec.ts e2e/map.spec.ts e2e/map-context-recovery.spec.ts --timeout=60000"
+    },
+    "initialBrowserFinding": "Same-document import retry stayed rejected in Chrome; replaced with a tested explicit map reload.",
+    "production": {
+      "status": "passed",
+      "prefix": "/nested/rift/",
+      "inspectionButtonAbsent": true,
+      "inspectionJavaScriptAndDataAbsent": true,
+      "recordings": 17,
+      "realAsheLuxInput": true,
+      "developmentAndGarenGates": true,
+      "bundleNamesAndSizesUnchanged": true,
+      "gameKB": 584.49,
+      "gameGzipKB": 160.73,
+      "mapKB": 3.77,
+      "mapGzipKB": 1.95,
+      "existingLargeBundleWarning": true
+    },
+    "binaryAssetsChanged": false,
+    "completeBrowserSuiteRerun": false
+  },
+  "visualReview": {
+    "viewports": [
+      [1440, 900],
+      [960, 720]
+    ],
+    "captures": ["artifacts/jungle-map-blue-source.png", "artifacts/jungle-map-source-small.png"],
+    "result": "Markers, selected label, controls and scrollable source details were visible; actual and recommendation positions remain distinct.",
+    "nativeParity": false
+  },
+  "sha256": {
+    "tools/assets/extract-jungle-map.py": "ab957dc8c0760ca062c2db805093de52d975f8e0818bf73031cce196b2db8d04",
+    "tools/assets/export-jungle-map.py": "f3ee90273672ec1984296f27728f31921e944c46f4b9e1a060981461a06f22ab",
+    "docs/reference/jungle-map-source.json": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93",
+    "src/content/jungle-map-inspection.json": "1b650a5032c6b0ab46e40556c5c263162fe7653b0745dae5d8674c781cc29f19",
+    "src/dev/map-inspector.ts": "baa6ae5b403095cdc6fc7ce1ba0706833c448788729ba4bfe29147152f024ca9",
+    "src/dev/jungle-map-inspection.ts": "f40c44fcbda6360a8e1cc3d492500f25d134d9b026832d54ba8d82569ccb2888",
+    "src/dev/jungle-map-inspection.css": "892e56f0f9da72678d36584ecc5eccbc0ed4509511e832b5c004e60991629c11",
+    "tests/jungle-map-source.test.ts": "70c7d152885568552c7c3031cd3edd3983612b92784c9f5e12bab815225feec4",
+    "e2e/jungle-map-inspection.spec.ts": "74f27b8b90ae616069a088290926ca3d8e76a3b4d7f293da2fa02be73b671fd4",
+    "tools/qa/production-subpath.mjs": "66aac3631e197948bb37fbf25b9a68c06f2af9368ff18c6e0e58c8de3d8430c3",
+    "artifacts/jungle-map-blue-source.png": "09d1335feca85d1a049c2abdec8d06c0e6d53df842bd2b46473d6e1084ce87f4",
+    "artifacts/jungle-map-source-small.png": "335225aad823509bab44626bdc743c32f32bc41476413707bb7e4cc3f8a4c8cc"
+  }
+}

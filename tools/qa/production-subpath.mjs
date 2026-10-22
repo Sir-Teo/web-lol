@@ -78,6 +78,7 @@ try {
   });
   await page.goto(`${base}map.html`);
   await page.locator('#status').waitFor({ state: 'hidden', timeout: 60000 });
+  assert.equal(await page.getByRole('button', { name: 'Jungle sources' }).count(), 0);
   await page.getByRole('button', { name: 'Navigation', exact: true }).click();
   assert.equal(await page.locator('#grid').getAttribute('aria-pressed'), 'true');
   await page.getByRole('button', { name: 'Mid lane', exact: true }).click();

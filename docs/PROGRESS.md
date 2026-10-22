@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,042 source/simulation/geometry checks. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,046 source/simulation/geometry checks and five focused Chrome checks for the new jungle source inspection. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -833,6 +833,56 @@ All 37 built Q assets match public bytes. The Q graphics chunk stays 55.14 KB
 large-bundle warning remains. Binary assets and source tooling were unchanged;
 the prior model/map validation applies to those identical bytes. Full native,
 cross-browser, role-match, offline and performance acceptance remain unfinished.
+
+## Jungle map source catalog and inspection — October 21, 2026
+
+The [jungle foundation](JUNGLE-SOURCES.md) now pins the original Map11 definition
+and material BINs directly from the frozen Riot archive: two files totaling
+6,707,457 bytes, with nine compressed source chunks in the extraction ledger.
+The public JSON mirror returned 403, so reproduction does not rely on it.
+The material BIN matches the prior terrain pin. Exact repeated extraction and
+export reproduce both the source pin and inspection catalog byte-for-byte.
+The repeat path uses the pin and original naming seeds without discovery
+dictionaries, retaining unknown hashes rather than promoting new literal names.
+
+The catalog preserves eighteen camp anchors, 53 neutral character objects,
+twenty camp identifiers and sixteen separate recommendation positions. Actual
+anchor transforms, recommendation positions and minimap offsets remain distinct.
+Index/Location differences, absent route fields, faelight pads, off-map dragon
+templates and identifiers without separate anchors remain inspectable. Neither
+template count nor a recommendation is treated as an executable spawn roster.
+No supported first-spawn calendar is derived from these components; activation,
+membership, neutral faction, combat, rewards, reset/respawn and jungle-role AI
+still require implementation and further evidence. No simulation or schema
+change is introduced by this source-preparation increment.
+
+The development map page now offers an on-demand Jungle sources view. Gold rings
+show raw camp anchors, cyan dots show neutral character objects and pink rings
+show recommendations. Selection centers the actual source anchor and displays
+raw components/identifier definitions. Layer/panel toggles reuse resources.
+Chrome's failed-import cache made same-document retry ineffective; the tested
+failure path now offers an explicit map reload. Production excludes this button,
+module and catalog. Existing game/map bundle names and sizes remain unchanged.
+
+All 1,046 checks across 212 files and TypeScript pass. Four new contracts cover
+source provenance/mode links, exact anchor transforms versus recommendations,
+neutral-object/identifier distinctions and preserved absent fields. All five
+focused Chrome cases pass: the two new inspection/failed-load cases plus normal
+DXT/WebP map loading and graphics restoration. Actual marker coordinates are
+compared independently with raw source transforms, and material/geometry identity
+survives toggles. The 1440×900 and 960×720 captures were reviewed at
+`artifacts/jungle-map-blue-source.png` and `artifacts/jungle-map-source-small.png`.
+These verify local annotations, not native camp presentation or live behavior.
+
+Production build and strict `/nested/rift/` smoke pass, including absence of the
+inspection button, seventeen recordings, real Ashe/Lux input and the existing
+development/Garen gates. A production-JavaScript scan finds no inspection
+module/data/button strings. The game chunk remains 584.49 KB (160.73 KB gzip)
+and the map entry remains 3.77 KB (1.95 KB gzip); the existing large-bundle warning
+remains. Binary assets were unchanged. The earlier full-browser audit was not
+repeated for this bounded development-only increment. Legacy progression text
+was also corrected to point to the already implemented champion-kill XP path.
+Full role-match, native, offline and performance acceptance remain open.
 
 ## Historical baseline verification
 

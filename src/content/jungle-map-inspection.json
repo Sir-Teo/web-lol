@@ -1,0 +1,1979 @@
+{
+  "sourcePin": "docs/reference/jungle-map-source.json",
+  "sourcePinSha256": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93",
+  "camps": [
+    {
+      "key": "{8e4dbd20}",
+      "container": "{0395a48a}",
+      "identifier": "{eddb26de}",
+      "name": "Order Wolves",
+      "identifierDefinition": {
+        "CampName": "Order Wolves",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        3813.449951171875,
+        52.459999084472656,
+        6466.75
+      ],
+      "point": {
+        "x": -3611.550048828125,
+        "y": 958.25
+      },
+      "component": {
+        "CampIdentifier": "{eddb26de}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "CampLevel": 0,
+        "MinimapIconOffset": [
+          0.0,
+          0.0,
+          40.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{78373878}",
+      "container": "{0395a48a}",
+      "identifier": "{1d30f232}",
+      "name": "Order Blue",
+      "identifierDefinition": {
+        "CampName": "Order Blue",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        3893.85107421875,
+        28.06399917602539,
+        7869.8251953125
+      ],
+      "point": {
+        "x": -3531.14892578125,
+        "y": -444.8251953125
+      },
+      "component": {
+        "CampIdentifier": "{1d30f232}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{b941449b}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "BlueCamp",
+        "ScoreboardTimer": 1,
+        "{7d27af7f}": true,
+        "MinimapIconOffset": [
+          -80.0,
+          0.0,
+          40.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{163e525e}",
+      "container": "{0395a48a}",
+      "identifier": "{ecc1be77}",
+      "name": "Order OwlBear",
+      "identifierDefinition": {
+        "CampName": "Order OwlBear",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        2177.7919921875,
+        54.0,
+        8429.6884765625
+      ],
+      "point": {
+        "x": -5247.2080078125,
+        "y": -1004.6884765625
+      },
+      "component": {
+        "CampIdentifier": "{ecc1be77}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "CampLevel": 0,
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{b0528add}",
+      "container": "{0395a48a}",
+      "identifier": "{dfaf7d32}",
+      "name": "Chaos Blue",
+      "identifierDefinition": {
+        "CampName": "Chaos Blue",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        11031.728515625,
+        51.722999572753906,
+        6990.84423828125
+      ],
+      "point": {
+        "x": 3606.728515625,
+        "y": 434.15576171875
+      },
+      "component": {
+        "CampIdentifier": "{dfaf7d32}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{b941449b}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "BlueCamp",
+        "ScoreboardTimer": 3,
+        "{7d27af7f}": true,
+        "MinimapIconOffset": [
+          20.0,
+          0.0,
+          -100.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{5f8d7bea}",
+      "container": "{0395a48a}",
+      "identifier": "{a023664b}",
+      "name": "Order Red",
+      "identifierDefinition": {
+        "CampName": "Order Red",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        7765.244140625,
+        50.382999420166016,
+        4020.18701171875
+      ],
+      "point": {
+        "x": 340.244140625,
+        "y": 3404.81298828125
+      },
+      "component": {
+        "CampIdentifier": "{a023664b}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{b941449b}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "RedCamp",
+        "ScoreboardTimer": 2,
+        "{7d27af7f}": true,
+        "MinimapIconOffset": [
+          50.0,
+          0.0,
+          -90.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{c520876f}",
+      "container": "{0395a48a}",
+      "identifier": "{f15e2553}",
+      "name": "Chaos Red",
+      "identifierDefinition": {
+        "CampName": "Chaos Red",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        7101.869140625,
+        51.27000045776367,
+        10900.546875
+      ],
+      "point": {
+        "x": -323.130859375,
+        "y": -3475.546875
+      },
+      "component": {
+        "CampIdentifier": "{f15e2553}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{b941449b}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "RedCamp",
+        "ScoreboardTimer": 4,
+        "{7d27af7f}": true,
+        "MinimapIconOffset": [
+          -20.0,
+          0.0,
+          0.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{789acc87}",
+      "container": "{0395a48a}",
+      "identifier": "{da39a59f}",
+      "name": "Chaos OwlBear",
+      "identifierDefinition": {
+        "CampName": "Chaos OwlBear",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        12625.5615234375,
+        53.99991226196289,
+        6434.18896484375
+      ],
+      "point": {
+        "x": 5200.5615234375,
+        "y": 990.81103515625
+      },
+      "component": {
+        "CampIdentifier": "{da39a59f}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{f15c8aff}",
+      "container": "{0395a48a}",
+      "identifier": "{b2b16d8e}",
+      "name": "Chaos Wolves",
+      "identifierDefinition": {
+        "CampName": "Chaos Wolves",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        10979.7998046875,
+        62.38999938964844,
+        8356.8896484375
+      ],
+      "point": {
+        "x": 3554.7998046875,
+        "y": -931.8896484375
+      },
+      "component": {
+        "CampIdentifier": "{b2b16d8e}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "CampLevel": 0,
+        "MinimapIconOffset": [
+          20.0,
+          0.0,
+          0.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{9d0e7aac}",
+      "container": "{0395a48a}",
+      "identifier": "{254af814}",
+      "name": "Order Wraiths",
+      "identifierDefinition": {
+        "CampName": "Order Wraiths",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        6969.0,
+        52.0,
+        5422.0
+      ],
+      "point": {
+        "x": -456.0,
+        "y": 2003.0
+      },
+      "component": {
+        "CampIdentifier": "{254af814}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "CampLevel": 0,
+        "MinimapIconOffset": [
+          50.0,
+          0.0,
+          -40.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{9fc8e52d}",
+      "container": "{0395a48a}",
+      "identifier": "{26868b34}",
+      "name": "Chaos Wraiths",
+      "identifierDefinition": {
+        "CampName": "Chaos Wraiths",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        7861.0,
+        52.0,
+        9575.0
+      ],
+      "point": {
+        "x": 436.0,
+        "y": -2150.0
+      },
+      "component": {
+        "CampIdentifier": "{26868b34}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "CampLevel": 0,
+        "MinimapIconOffset": [
+          -50.0,
+          0.0,
+          0.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{44b899d1}",
+      "container": "{0395a48a}",
+      "identifier": "{fefc5e9c}",
+      "name": "Order Small Golems",
+      "identifierDefinition": {
+        "CampName": "Order Small Golems",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        8390.0,
+        51.0,
+        2675.0
+      ],
+      "point": {
+        "x": 965.0,
+        "y": 4750.0
+      },
+      "component": {
+        "CampIdentifier": "{fefc5e9c}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "CampLevel": 0,
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{4ca5f2bd}",
+      "container": "{0395a48a}",
+      "identifier": "{62f15c2c}",
+      "name": "Chaos Small Golems",
+      "identifierDefinition": {
+        "CampName": "Chaos Small Golems",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        6449.0,
+        56.0,
+        12199.0
+      ],
+      "point": {
+        "x": -976.0,
+        "y": -4774.0
+      },
+      "component": {
+        "CampIdentifier": "{62f15c2c}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{21ccf67f}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "CampLevel": 0,
+        "MinimapIconOffset": [
+          40.0,
+          0.0,
+          40.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{793dd0a6}",
+      "container": "{0395a48a}",
+      "identifier": "{33ac7588}",
+      "name": "Horde",
+      "identifierDefinition": {
+        "CampName": "Horde",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        4909.56494140625,
+        -122.93900299072266,
+        10487.3232421875
+      ],
+      "point": {
+        "x": -2515.43505859375,
+        "y": -3062.3232421875
+      },
+      "component": {
+        "CampIdentifier": "{33ac7588}",
+        "{1f2e5fd0}": {
+          "Group": "{78d56d59}",
+          "{752ff961}": "{25f16d5d}",
+          "__type": "{1f2e5fd0}"
+        },
+        "StopSpawnTimeSecs": 885.0,
+        "MinimapIcon": "Horde",
+        "CampLevel": 2,
+        "ScoreboardTimer": 8,
+        "RevealEvent": 2,
+        "{7d27af7f}": true,
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{41c28a15}",
+      "container": "{0395a48a}",
+      "identifier": "{8baae683}",
+      "name": "SRU_RiftHerald",
+      "identifierDefinition": {
+        "CampName": "SRU_RiftHerald",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        4909.56494140625,
+        -122.93900299072266,
+        10487.3232421875
+      ],
+      "point": {
+        "x": -2515.43505859375,
+        "y": -3062.3232421875
+      },
+      "component": {
+        "CampIdentifier": "{8baae683}",
+        "{1f2e5fd0}": {
+          "Group": "{78d56d59}",
+          "{752ff961}": "{25f16d5d}",
+          "__type": "{1f2e5fd0}"
+        },
+        "StopSpawnTimeSecs": 1185.0,
+        "MinimapIcon": "SRU_RiftHerald",
+        "CampLevel": 2,
+        "ScoreboardTimer": 6,
+        "RevealEvent": 2,
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{2443a268}",
+      "container": "{0395a48a}",
+      "identifier": "{6aa7fc76}",
+      "name": "Baron",
+      "identifierDefinition": {
+        "CampName": "Baron",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        5007.0,
+        24.0,
+        10471.0
+      ],
+      "point": {
+        "x": -2418.0,
+        "y": -3046.0
+      },
+      "component": {
+        "CampIdentifier": "{6aa7fc76}",
+        "{1f2e5fd0}": {
+          "Group": "{78d56d59}",
+          "{752ff961}": "{25f16d5d}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "Baron",
+        "CampLevel": 2,
+        "ScoreboardTimer": 7,
+        "RevealEvent": 3,
+        "{7d27af7f}": true,
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{75cd6c60}",
+      "container": "{0395a48a}",
+      "identifier": "{1bc07fa4}",
+      "name": "Baron Crab",
+      "identifierDefinition": {
+        "CampName": "Baron Crab",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        4400.0,
+        -62.0,
+        9600.0
+      ],
+      "point": {
+        "x": -3025.0,
+        "y": -2175.0
+      },
+      "component": {
+        "CampIdentifier": "{1bc07fa4}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{9739ed53}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "{7d27af7f}": true,
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{006ae501}",
+      "container": "{0395a48a}",
+      "identifier": "{03a70897}",
+      "name": "Dragon Crab",
+      "identifierDefinition": {
+        "CampName": "Dragon Crab",
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        10500.0,
+        -62.0,
+        5170.0
+      ],
+      "point": {
+        "x": 3075.0,
+        "y": 2255.0
+      },
+      "component": {
+        "CampIdentifier": "{03a70897}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{9739ed53}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "LesserCamp",
+        "{7d27af7f}": true,
+        "__type": "NeutralCampGeComponentDef"
+      }
+    },
+    {
+      "key": "{4a7f091d}",
+      "container": "{320a05d8}",
+      "identifier": "{7faa12bd}",
+      "name": "Dragon",
+      "identifierDefinition": {
+        "CampName": "Dragon",
+        "{7511a599}": [
+          {
+            "TypeName": "DragonFire",
+            "__type": "{db26669a}"
+          },
+          {
+            "TypeName": "DragonEarth",
+            "__type": "{db26669a}"
+          },
+          {
+            "TypeName": "DragonWater",
+            "__type": "{db26669a}"
+          },
+          {
+            "TypeName": "DragonAir",
+            "__type": "{db26669a}"
+          },
+          {
+            "TypeName": "DragonHextech",
+            "__type": "{db26669a}"
+          },
+          {
+            "TypeName": "DragonChemtech",
+            "__type": "{db26669a}"
+          },
+          {
+            "TypeName": "DragonElder",
+            "__type": "{db26669a}"
+          },
+          {
+            "TypeName": "DragonParty",
+            "{90373b91}": [
+              {
+                "Icon": "{27772d3e}",
+                "__type": "{c2afdb3d}"
+              }
+            ],
+            "__type": "{db26669a}"
+          }
+        ],
+        "__type": "NeutralCampIdentifier"
+      },
+      "position": [
+        9837.673828125,
+        -82.2770004272461,
+        4397.76123046875
+      ],
+      "point": {
+        "x": 2412.673828125,
+        "y": 3027.23876953125
+      },
+      "component": {
+        "CampIdentifier": "{7faa12bd}",
+        "{1f2e5fd0}": {
+          "{752ff961}": "{25f16d5d}",
+          "__type": "{1f2e5fd0}"
+        },
+        "MinimapIcon": "Dragon",
+        "CampLevel": 2,
+        "ScoreboardTimer": 5,
+        "RevealEvent": 1,
+        "{7d27af7f}": true,
+        "MinimapIconOffset": [
+          150.0,
+          0.0,
+          50.0
+        ],
+        "__type": "NeutralCampGeComponentDef"
+      }
+    }
+  ],
+  "neutralObjects": [
+    {
+      "key": "{df09baf6}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{e8c71151}",
+      "character": "Characters/SRU_Murkwolf/CharacterRecords/Root",
+      "skin": "Characters/SRU_Murkwolf/Skins/Skin0",
+      "position": [
+        3780.6279296875,
+        45.0,
+        6443.98388671875
+      ],
+      "point": {
+        "x": -3644.3720703125,
+        "y": 981.01611328125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{5f9b854b}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{0f765eb5}",
+      "character": "Characters/SRU_MurkwolfMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_MurkwolfMini/Skins/Skin0",
+      "position": [
+        3980.6279296875,
+        45.0,
+        6443.98388671875
+      ],
+      "point": {
+        "x": -3444.3720703125,
+        "y": 981.01611328125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{ce08c525}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{d85d3506}",
+      "character": "Characters/SRU_Blue/CharacterRecords/Root",
+      "skin": "Characters/SRU_Blue/Skins/Skin4",
+      "position": [
+        3821.488525390625,
+        51.8754997253418,
+        7901.05419921875
+      ],
+      "point": {
+        "x": -3603.511474609375,
+        "y": -476.05419921875
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{37430c88}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{b222f795}",
+      "character": "Characters/SRU_Gromp/CharacterRecords/Root",
+      "skin": "Characters/SRU_Gromp/Skins/Skin0",
+      "position": [
+        2110.6279296875,
+        54.0,
+        8450.984375
+      ],
+      "point": {
+        "x": -5314.3720703125,
+        "y": -1025.984375
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{fc23c489}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{948aa02e}",
+      "character": "Characters/SRU_Blue/CharacterRecords/Root",
+      "skin": "Characters/SRU_Blue/Skins/Skin4",
+      "position": [
+        11031.728515625,
+        51.722999572753906,
+        6990.84423828125
+      ],
+      "point": {
+        "x": 3606.728515625,
+        "y": 434.15576171875
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{500d52ca}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{1c74a29d}",
+      "character": "Characters/SRU_Red/CharacterRecords/Root",
+      "skin": "Characters/SRU_Red/Skins/Skin3",
+      "position": [
+        7765.244140625,
+        50.382999420166016,
+        4020.18701171875
+      ],
+      "point": {
+        "x": 340.244140625,
+        "y": 3404.81298828125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{bc66f813}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{2a4fa545}",
+      "character": "Characters/SRU_Red/CharacterRecords/Root",
+      "skin": "Characters/SRU_Red/Skins/Skin3",
+      "position": [
+        7101.869140625,
+        51.27000045776367,
+        10900.546875
+      ],
+      "point": {
+        "x": -323.130859375,
+        "y": -3475.546875
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{85d17e2b}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{2df9af1d}",
+      "character": "Characters/SRU_Gromp/CharacterRecords/Root",
+      "skin": "Characters/SRU_Gromp/Skins/Skin0",
+      "position": [
+        12679.630859375,
+        53.99930953979492,
+        6428.4287109375
+      ],
+      "point": {
+        "x": 5254.630859375,
+        "y": 996.5712890625
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{48ca738e}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{206b2bc9}",
+      "character": "Characters/SRU_Murkwolf/CharacterRecords/Root",
+      "skin": "Characters/SRU_Murkwolf/Skins/Skin0",
+      "position": [
+        11008.15234375,
+        51.2400016784668,
+        8387.408203125
+      ],
+      "point": {
+        "x": 3583.15234375,
+        "y": -962.408203125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{41e00209}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{9176630d}",
+      "character": "Characters/SRU_MurkwolfMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_MurkwolfMini/Skins/Skin0",
+      "position": [
+        10842.2314453125,
+        51.240333557128906,
+        8442.0068359375
+      ],
+      "point": {
+        "x": 3417.2314453125,
+        "y": -1017.0068359375
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{c2b3ed25}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{d2f27813}",
+      "character": "Characters/SRU_Razorbeak/CharacterRecords/Root",
+      "skin": "Characters/SRU_Razorbeak/Skins/Skin0",
+      "position": [
+        6785.81298828125,
+        50.278053283691406,
+        5483.47509765625
+      ],
+      "point": {
+        "x": -639.18701171875,
+        "y": 1941.52490234375
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{f202b3b2}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{a5c26197}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        7060.4580078125,
+        50.27799987792969,
+        5499.27392578125
+      ],
+      "point": {
+        "x": -364.5419921875,
+        "y": 1925.72607421875
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{5bfe3b26}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{a4c26004}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        7106.22900390625,
+        48.14400100708008,
+        5266.083984375
+      ],
+      "point": {
+        "x": -318.77099609375,
+        "y": 2158.916015625
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{1eb05f1d}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{a6c2632a}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        6852.22900390625,
+        48.14400100708008,
+        5227.083984375
+      ],
+      "point": {
+        "x": -572.77099609375,
+        "y": 2197.916015625
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{4f5ac5ca}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{a3c25e71}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        6949.86962890625,
+        50.27793884277344,
+        5585.83984375
+      ],
+      "point": {
+        "x": -475.13037109375,
+        "y": 1839.16015625
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{56f19fd0}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{a2c25cde}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        6962.7177734375,
+        51.14099884033203,
+        5354.35400390625
+      ],
+      "point": {
+        "x": -462.2822265625,
+        "y": 2070.64599609375
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{520033ef}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{6ac8f3ab}",
+      "character": "Characters/SRU_Razorbeak/CharacterRecords/Root",
+      "skin": "Characters/SRU_Razorbeak/Skins/Skin0",
+      "position": [
+        7986.9970703125,
+        48.79999923706055,
+        9471.388671875
+      ],
+      "point": {
+        "x": 561.9970703125,
+        "y": -2046.388671875
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{914a99a0}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{9b9b5aa2}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        7756.9970703125,
+        48.79999923706055,
+        9451.388671875
+      ],
+      "point": {
+        "x": 331.9970703125,
+        "y": -2026.388671875
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{b7dd47f5}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{9a9b590f}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        7886.99658203125,
+        48.800048828125,
+        9312.3896484375
+      ],
+      "point": {
+        "x": 461.99658203125,
+        "y": -1887.3896484375
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{401f71cb}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{999b577c}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        7724.22900390625,
+        52.14400100708008,
+        9724.083984375
+      ],
+      "point": {
+        "x": 299.22900390625,
+        "y": -2299.083984375
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{81c33d31}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{989b55e9}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        7997.22900390625,
+        52.14400100708008,
+        9772.083984375
+      ],
+      "point": {
+        "x": 572.22900390625,
+        "y": -2347.083984375
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{89261ede}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{979b5456}",
+      "character": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "position": [
+        7854.38916015625,
+        52.22600173950195,
+        9610.4736328125
+      ],
+      "point": {
+        "x": 429.38916015625,
+        "y": -2185.4736328125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{c7036db2}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{ba5d8915}",
+      "character": "Characters/SRU_Krug/CharacterRecords/Root",
+      "skin": "Characters/SRU_Krug/Skins/Skin0",
+      "position": [
+        8482.470703125,
+        50.65299987792969,
+        2705.947998046875
+      ],
+      "point": {
+        "x": 1057.470703125,
+        "y": 4719.052001953125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{d2f20a0a}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{294a01f0}",
+      "character": "Characters/SRU_KrugMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_KrugMini/Skins/Skin0",
+      "position": [
+        8275.470703125,
+        50.65299987792969,
+        2688.947998046875
+      ],
+      "point": {
+        "x": 850.470703125,
+        "y": 4736.052001953125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{55735079}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{c84fd45d}",
+      "character": "Characters/SRU_Krug/CharacterRecords/Root",
+      "skin": "Characters/SRU_Krug/Skins/Skin0",
+      "position": [
+        6317.09228515625,
+        47.6077880859375,
+        12146.4580078125
+      ],
+      "point": {
+        "x": -1107.90771484375,
+        "y": -4721.4580078125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{2f78c971}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{9d8ffed8}",
+      "character": "Characters/SRU_KrugMini/CharacterRecords/Root",
+      "skin": "Characters/SRU_KrugMini/Skins/Skin0",
+      "position": [
+        6547.09228515625,
+        47.6077880859375,
+        12156.4580078125
+      ],
+      "point": {
+        "x": -877.90771484375,
+        "y": -4731.4580078125
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{162b4a68}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{d9531d78}",
+      "character": "Characters/SRU_Horde/CharacterRecords/Root",
+      "skin": "Characters/SRU_Horde/Skins/Skin0",
+      "position": [
+        4841.94287109375,
+        -71.23991394042969,
+        10638.9501953125
+      ],
+      "point": {
+        "x": -2583.05712890625,
+        "y": -3213.9501953125
+      },
+      "tags": [
+        "{1b53855e}",
+        "{10496643}"
+      ]
+    },
+    {
+      "key": "{915afa1e}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{db53209e}",
+      "character": "Characters/SRU_Horde/CharacterRecords/Root",
+      "skin": "Characters/SRU_Horde/Skins/Skin0",
+      "position": [
+        5210.0,
+        -71.23999786376953,
+        10424.0
+      ],
+      "point": {
+        "x": -2215.0,
+        "y": -2999.0
+      },
+      "tags": [
+        "{1b53855e}",
+        "{10496643}"
+      ]
+    },
+    {
+      "key": "{44157dab}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{dc532231}",
+      "character": "Characters/SRU_Horde/CharacterRecords/Root",
+      "skin": "Characters/SRU_Horde/Skins/Skin0",
+      "position": [
+        4790.0,
+        -71.23999786376953,
+        10182.4462890625
+      ],
+      "point": {
+        "x": -2635.0,
+        "y": -2757.4462890625
+      },
+      "tags": [
+        "{1b53855e}",
+        "{10496643}"
+      ]
+    },
+    {
+      "key": "{68e88156}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{68f1690f}",
+      "character": "Characters/SRU_RiftHerald/CharacterRecords/Root",
+      "skin": "Characters/SRU_RiftHerald/Skins/Skin0",
+      "position": [
+        4938.71875,
+        -122.9393081665039,
+        10383.97265625
+      ],
+      "point": {
+        "x": -2486.28125,
+        "y": -2958.97265625
+      },
+      "tags": [
+        "{10496643}"
+      ]
+    },
+    {
+      "key": "{883858bc}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{dcc54346}",
+      "character": "Characters/SRU_Baron/CharacterRecords/Root",
+      "skin": "Characters/SRU_Baron/Skins/Skin0",
+      "position": [
+        5007.0,
+        24.0,
+        10471.0
+      ],
+      "point": {
+        "x": -2418.0,
+        "y": -3046.0
+      },
+      "tags": [
+        "{10496643}"
+      ]
+    },
+    {
+      "key": "{aeea5f52}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{85ac5d85}",
+      "character": "Characters/Sru_Crab/CharacterRecords/Root",
+      "skin": "Characters/Sru_Crab/Skins/Skin0",
+      "position": [
+        4400.0,
+        -62.0,
+        9600.0
+      ],
+      "point": {
+        "x": -3025.0,
+        "y": -2175.0
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{ae255984}",
+      "container": "{0395a48a}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{6ecff838}",
+      "character": "Characters/Sru_Crab/CharacterRecords/Root",
+      "skin": "Characters/Sru_Crab/Skins/Skin0",
+      "position": [
+        10500.0,
+        -62.0,
+        5170.0
+      ],
+      "point": {
+        "x": 3075.0,
+        "y": 2255.0
+      },
+      "tags": [
+        "{cec55a95}"
+      ]
+    },
+    {
+      "key": "{eb56cbf9}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{de24e0df}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        4972.3349609375,
+        45.97972869873047,
+        3094.697021484375
+      ],
+      "point": {
+        "x": -2452.6650390625,
+        "y": 4330.302978515625
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{4502359b}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{37766137}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        11822.138671875,
+        48.03218078613281,
+        9899.9794921875
+      ],
+      "point": {
+        "x": 4397.138671875,
+        "y": -2474.9794921875
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{c8ae64ec}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{2c318131}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        9823.904296875,
+        50.58005142211914,
+        11830.259765625
+      ],
+      "point": {
+        "x": 2398.904296875,
+        "y": -4405.259765625
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{ca7b86aa}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{26799392}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        12963.0029296875,
+        51.46598815917969,
+        5903.2529296875
+      ],
+      "point": {
+        "x": 5538.0029296875,
+        "y": 1521.7470703125
+      },
+      "tags": [
+        "{81b70e80}",
+        "{d45f523d}"
+      ]
+    },
+    {
+      "key": "{52724db7}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{27e1cec0}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        5294.79833984375,
+        47.15962219238281,
+        13021.9765625
+      ],
+      "point": {
+        "x": -2130.20166015625,
+        "y": -5596.9765625
+      },
+      "tags": [
+        "{81b70e80}",
+        "{d45f523d}"
+      ]
+    },
+    {
+      "key": "{6401674f}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{d291e1f9}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        2900.72802734375,
+        45.93109130859375,
+        5082.013671875
+      ],
+      "point": {
+        "x": -4524.27197265625,
+        "y": 2342.986328125
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{b10204b7}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{76e455da}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        9269.677734375,
+        51.42609405517578,
+        2148.41845703125
+      ],
+      "point": {
+        "x": 1844.677734375,
+        "y": 5276.58154296875
+      },
+      "tags": [
+        "{81b70e80}",
+        "{d45f523d}"
+      ]
+    },
+    {
+      "key": "{0459c9eb}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{7ac6fa08}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        2336.772705078125,
+        47.4896125793457,
+        9714.08984375
+      ],
+      "point": {
+        "x": -5088.227294921875,
+        "y": -2289.08984375
+      },
+      "tags": [
+        "{81b70e80}",
+        "{d45f523d}"
+      ]
+    },
+    {
+      "key": "{df1406bd}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{19352c9c}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        11531.494140625,
+        -0.0005657445872202516,
+        3853.630859375
+      ],
+      "point": {
+        "x": 4106.494140625,
+        "y": 3571.369140625
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{260eb56c}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{72f54d36}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        3345.0,
+        -0.0,
+        11379.0
+      ],
+      "point": {
+        "x": -4080.0,
+        "y": -3954.0
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{5b1c5417}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{9f76edce}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        10058.5380859375,
+        -0.0010011398699134588,
+        6066.490234375
+      ],
+      "point": {
+        "x": 2633.5380859375,
+        "y": 1358.509765625
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{b6ab5118}",
+      "container": "{0b8a6840}",
+      "sourceType": "{e64ff723}",
+      "name": "{344bdd2c}",
+      "character": "Characters/SRU_FaeLightWardPad/CharacterRecords/Root",
+      "skin": "Characters/SRU_FaeLightWardPad/Skins/Skin0",
+      "position": [
+        4914.42919921875,
+        -0.00020874654001090676,
+        8547.755859375
+      ],
+      "point": {
+        "x": -2510.57080078125,
+        "y": -1122.755859375
+      },
+      "tags": [
+        "{81b70e80}"
+      ]
+    },
+    {
+      "key": "{2f34a233}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{55b3bb50}",
+      "character": "Characters/sru_dragon_elder/CharacterRecords/Root",
+      "skin": "Characters/sru_dragon_elder/Skins/Skin0",
+      "position": [
+        10505.35546875,
+        -82.27497100830078,
+        -1893.6629638671875
+      ],
+      "point": {
+        "x": 3080.35546875,
+        "y": 9318.662963867188
+      },
+      "tags": null
+    },
+    {
+      "key": "{46b3de7c}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{9f132c30}",
+      "character": "Characters/sru_dragon_earth/CharacterRecords/Root",
+      "skin": "Characters/sru_dragon_earth/Skins/Skin0",
+      "position": [
+        11375.6064453125,
+        -82.27555084228516,
+        -1327.2508544921875
+      ],
+      "point": {
+        "x": 3950.6064453125,
+        "y": 8752.250854492188
+      },
+      "tags": null
+    },
+    {
+      "key": "{072e2211}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{df95bb1f}",
+      "character": "Characters/sru_dragon_chemtech/CharacterRecords/Root",
+      "skin": "Characters/sru_dragon_chemtech/Skins/Skin0",
+      "position": [
+        10532.8056640625,
+        -82.27574157714844,
+        -1334.8897705078125
+      ],
+      "point": {
+        "x": 3107.8056640625,
+        "y": 8759.889770507812
+      },
+      "tags": null
+    },
+    {
+      "key": "{0a5fd328}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{65cfc73b}",
+      "character": "Characters/sru_dragon_water/CharacterRecords/Root",
+      "skin": "Characters/sru_dragon_water/Skins/Skin0",
+      "position": [
+        8825.791015625,
+        -82.27576446533203,
+        -1827.8857421875
+      ],
+      "point": {
+        "x": 1400.791015625,
+        "y": 9252.8857421875
+      },
+      "tags": null
+    },
+    {
+      "key": "{2f7f0e7d}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{d969d4a1}",
+      "character": "Characters/sru_dragon_air/CharacterRecords/Root",
+      "skin": "Characters/sru_dragon_air/Skins/Skin0",
+      "position": [
+        11357.9404296875,
+        -82.27519226074219,
+        -1852.1939697265625
+      ],
+      "point": {
+        "x": 3932.9404296875,
+        "y": 9277.193969726562
+      },
+      "tags": null
+    },
+    {
+      "key": "{ae282425}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{017445dd}",
+      "character": "Characters/SRU_Dragon/CharacterRecords/Root",
+      "skin": "Characters/SRU_Dragon/Skins/Skin0",
+      "position": [
+        8858.361328125,
+        -82.27521514892578,
+        -1298.4169921875
+      ],
+      "point": {
+        "x": 1433.361328125,
+        "y": 8723.4169921875
+      },
+      "tags": null
+    },
+    {
+      "key": "{16580f57}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{e4e7feb2}",
+      "character": "Characters/sru_dragon_fire/CharacterRecords/Root",
+      "skin": "Characters/sru_dragon_fire/Skins/Skin0",
+      "position": [
+        9648.599609375,
+        -82.27571105957031,
+        -1321.3428955078125
+      ],
+      "point": {
+        "x": 2223.599609375,
+        "y": 8746.342895507812
+      },
+      "tags": null
+    },
+    {
+      "key": "{e8e5ef22}",
+      "container": "{320a05d8}",
+      "sourceType": "{ad65d8c4}",
+      "name": "{09984b09}",
+      "character": "Characters/sru_dragon_hextech/CharacterRecords/Root",
+      "skin": "Characters/sru_dragon_hextech/Skins/Skin0",
+      "position": [
+        9622.4052734375,
+        -82.27589416503906,
+        -1887.6136474609375
+      ],
+      "point": {
+        "x": 2197.4052734375,
+        "y": 9312.613647460938
+      },
+      "tags": null
+    }
+  ],
+  "recommendations": [
+    {
+      "name": "Order Owlbear",
+      "position": [
+        2200.0,
+        0.0,
+        8450.0
+      ],
+      "point": {
+        "x": -5225.0,
+        "y": -1025.0
+      },
+      "index": 13,
+      "location": null
+    },
+    {
+      "name": "Order Blue",
+      "position": [
+        3700.0,
+        0.0,
+        8000.0
+      ],
+      "point": {
+        "x": -3725.0,
+        "y": -575.0
+      },
+      "index": 1,
+      "location": 1
+    },
+    {
+      "name": "Order Wolves",
+      "position": [
+        3800.0,
+        0.0,
+        6500.0
+      ],
+      "point": {
+        "x": -3625.0,
+        "y": 925.0
+      },
+      "index": 2,
+      "location": 2
+    },
+    {
+      "name": "Order Wraiths",
+      "position": [
+        6950.0,
+        0.0,
+        5450.0
+      ],
+      "point": {
+        "x": -475.0,
+        "y": 1975.0
+      },
+      "index": 3,
+      "location": 3
+    },
+    {
+      "name": "Order Red",
+      "position": [
+        8000.0,
+        0.0,
+        4100.0
+      ],
+      "point": {
+        "x": 575.0,
+        "y": 3325.0
+      },
+      "index": 4,
+      "location": 4
+    },
+    {
+      "name": "Order Small Golems",
+      "position": [
+        8500.0,
+        0.0,
+        2820.0
+      ],
+      "point": {
+        "x": 1075.0,
+        "y": 4605.0
+      },
+      "index": 5,
+      "location": 5
+    },
+    {
+      "name": "Chaos OwlBear",
+      "position": [
+        12500.0,
+        0.0,
+        6500.0
+      ],
+      "point": {
+        "x": 5075.0,
+        "y": 925.0
+      },
+      "index": 14,
+      "location": 6
+    },
+    {
+      "name": "Chaos Blue",
+      "position": [
+        10900.0,
+        0.0,
+        7080.0
+      ],
+      "point": {
+        "x": 3475.0,
+        "y": 345.0
+      },
+      "index": 7,
+      "location": 7
+    },
+    {
+      "name": "Chaos Wolves",
+      "position": [
+        10900.0,
+        0.0,
+        9400.0
+      ],
+      "point": {
+        "x": 3475.0,
+        "y": -1975.0
+      },
+      "index": 8,
+      "location": 8
+    },
+    {
+      "name": "Chaos Wraiths",
+      "position": [
+        8000.0,
+        0.0,
+        9500.0
+      ],
+      "point": {
+        "x": 575.0,
+        "y": -2075.0
+      },
+      "index": 9,
+      "location": 9
+    },
+    {
+      "name": "Chaos Red",
+      "position": [
+        7050.0,
+        0.0,
+        11000.0
+      ],
+      "point": {
+        "x": -375.0,
+        "y": -3575.0
+      },
+      "index": 10,
+      "location": 10
+    },
+    {
+      "name": "Chaos Small Golems",
+      "position": [
+        6350.0,
+        0.0,
+        12100.0
+      ],
+      "point": {
+        "x": -1075.0,
+        "y": -4675.0
+      },
+      "index": 11,
+      "location": 11
+    },
+    {
+      "name": "Baron Crab",
+      "position": [
+        4400.0,
+        0.0,
+        9600.0
+      ],
+      "point": {
+        "x": -3025.0,
+        "y": -2175.0
+      },
+      "index": 16,
+      "location": 12
+    },
+    {
+      "name": "Dragon Crab",
+      "position": [
+        10500.0,
+        0.0,
+        5170.0
+      ],
+      "point": {
+        "x": 3075.0,
+        "y": 2255.0
+      },
+      "index": 15,
+      "location": 13
+    },
+    {
+      "name": "Dragon",
+      "position": [
+        9900.0,
+        0.0,
+        4350.0
+      ],
+      "point": {
+        "x": 2475.0,
+        "y": 3075.0
+      },
+      "index": null,
+      "location": 14
+    },
+    {
+      "name": "Baron",
+      "position": [
+        4900.0,
+        0.0,
+        10408.0
+      ],
+      "point": {
+        "x": -2525.0,
+        "y": -2983.0
+      },
+      "index": null,
+      "location": 15
+    }
+  ],
+  "routes": {
+    "OrderJunglePath": [
+      {
+        "kind": "TakeCamp",
+        "camp": 4
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 5
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 3
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 2
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 1
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": null
+      },
+      {
+        "kind": "TerminatePath",
+        "camp": null
+      }
+    ],
+    "ChaosJunglePath": [
+      {
+        "kind": "TakeCamp",
+        "camp": 7
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 6
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 8
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 9
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 10
+      },
+      {
+        "kind": "TakeCamp",
+        "camp": 11
+      },
+      {
+        "kind": "TerminatePath",
+        "camp": null
+      }
+    ]
+  },
+  "status": "Inspection only; recommendation coordinates and neutral templates are not a live spawn roster."
+}

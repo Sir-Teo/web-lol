@@ -1,0 +1,56 @@
+.jungle-source-panel {
+  position: fixed;
+  z-index: 3;
+  top: 125px;
+  left: 16px;
+  width: min(320px, calc(100vw - 32px));
+  max-height: calc(100dvh - 185px);
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid #b69a60;
+  border-radius: 5px;
+  background: #07151df2;
+  font-size: 12px;
+}
+.jungle-source-panel h2 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+.jungle-source-panel p {
+  color: #b9c6cb;
+  line-height: 1.5;
+}
+.jungle-source-panel label {
+  display: block;
+  margin: 12px 0;
+}
+.jungle-source-panel select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  color: #f4ead6;
+  background: #10222e;
+  border: 1px solid #637781;
+}
+.jungle-source-panel pre {
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.jungle-source-label {
+  position: fixed;
+  z-index: 2;
+  transform: translate(-50%, calc(-100% - 14px));
+  padding: 5px 8px;
+  background: #07151dee;
+  border: 1px solid #ddc58e;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+}
+.jungle-source-panel[hidden],
+.jungle-source-label[hidden] {
+  display: none;
+}

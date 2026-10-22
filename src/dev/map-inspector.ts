@@ -1,4 +1,5 @@
 import { stableOpaqueSort } from '../render/stable-opaque-order';
+import type { JungleMapInspection } from './jungle-map-inspection';
 import type { MapTexturePrefetch } from '../render/map-texture-prefetch';
 import type { MapTextureResidency } from '../render/map-texture-residency';
 import * as THREE from 'three';
@@ -141,6 +142,7 @@ async function navigationOverlay(): Promise<THREE.Mesh> {
 }
 
 let ready = false;
+let jungle: JungleMapInspection | undefined;
 let textureResidency: MapTextureResidency | undefined;
 let texturePrefetch: MapTexturePrefetch | undefined;
 async function load(): Promise<void> {
@@ -162,6 +164,10 @@ async function load(): Promise<void> {
   await renderer.compileAsync(scene, camera);
   ready = true;
   status.hidden = true;
+  if (import.meta.env.DEV) {
+    const button = document.querySelector<HTMLButtonElement>('#jungle-sources');
+    if (button) button.disabled = false;
+  }
 }
 void load().catch((error: unknown) => {
   status.textContent = 'Map loading failed. Reload to retry.';
@@ -173,6 +179,7 @@ renderer.setAnimationLoop(() => {
   renderer.render(scene, camera);
   textureResidency?.endFrame();
   texturePrefetch?.update(renderer, camera);
+  jungle?.update();
 });
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight;
@@ -190,6 +197,41 @@ if (import.meta.env.DEV) {
       camera,
       map,
       viewpoint,
+      get jungle() {
+        return jungle;
+      },
     },
+  });
+  const button = document.createElement('button');
+  button.id = 'jungle-sources';
+  button.textContent = 'Jungle sources';
+  button.disabled = !ready;
+  button.setAttribute('aria-pressed', 'false');
+  document.querySelector('nav')!.append(button);
+  let reloadRequired = false;
+  button.addEventListener('click', async () => {
+    if (reloadRequired) {
+      location.reload();
+      return;
+    }
+    button.disabled = true;
+    try {
+      if (!jungle) {
+        const { JungleMapInspection } = await import('./jungle-map-inspection');
+        jungle = new JungleMapInspection(host, scene, camera, controls, renderer.domElement);
+      }
+      const visible = button.getAttribute('aria-pressed') !== 'true';
+      jungle.setVisible(visible);
+      button.setAttribute('aria-pressed', String(visible));
+      if (ready) status.hidden = true;
+    } catch (error) {
+      status.hidden = false;
+      status.textContent = 'Jungle inspection could not load. Reload this map to retry.';
+      button.textContent = 'Reload map to retry';
+      reloadRequired = true;
+      console.error(error);
+    } finally {
+      button.disabled = false;
+    }
   });
 }
