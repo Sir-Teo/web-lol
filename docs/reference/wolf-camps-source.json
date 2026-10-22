@@ -1,0 +1,6069 @@
+{
+  "parents": {
+    "jungle-character-source": {
+      "path": "docs/reference/jungle-character-source.json",
+      "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b"
+    },
+    "jungle-script-source": {
+      "path": "docs/reference/jungle-script-source.json",
+      "sha256": "1a8dd82125b5834f7c459edb25216f03104f0e7bff8dfc057629fcf33fb6cbae"
+    },
+    "jungle-map-source": {
+      "path": "docs/reference/jungle-map-source.json",
+      "sha256": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93"
+    }
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+    "chunks": {
+      "A02D372F5DF76CAD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39736250,
+        "bytes": 223610,
+        "sha256": "497b48b952a25d9d549a9072d1b2968fced9ac4b0adb323b55d374bdb883ec4b"
+      },
+      "6C7FBEFDF21793B9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39959860,
+        "bytes": 258644,
+        "sha256": "f23ef45618318e6d6c3a909b86fc1846003544eeb901caeb4d180d5990932397"
+      },
+      "28395A168DBE5BA0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40218504,
+        "bytes": 183351,
+        "sha256": "70bced407e6680cc97032f924a5f3e16f886d1ac327f1146713dbfe168cc87c4"
+      },
+      "902BE54057D2F816": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40401855,
+        "bytes": 5831,
+        "sha256": "02c40cc44fd863d50514ee0ffd10a54d3ff9e9af1d6fac6ef4cb1d461f16d4d5"
+      },
+      "FEB9FC9832147ADC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 12867106,
+        "bytes": 266544,
+        "sha256": "5682b05473d220685c2b21546fb68b91041f0ebefc44b3c78b84ca10d62f61a0"
+      },
+      "E4080D4E8D9E4D1C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 1647800,
+        "bytes": 531,
+        "sha256": "049e1d878e42c37b578d23b645e4dd770ad5a28226711bedc46e4aca88028e38"
+      },
+      "A277A4F9BEBFC61C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+        "offset": 25652599,
+        "bytes": 1940,
+        "sha256": "fd2392ae8df0dd13fdd6faa3ca87192539c06961667487f813e0ec37b6bec90a"
+      },
+      "A19AF0B291FB2C15": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 6327531,
+        "bytes": 411,
+        "sha256": "f3c1594e92203ead8f69e8beadbe927cb6636c12a13a98716754598ed51caa31"
+      },
+      "4F9262C550D75FC8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+        "offset": 15954201,
+        "bytes": 2173,
+        "sha256": "05b736cf47720464881b9b0564263b9bd646e5efff542c8f0308dd16e4b5b2cb"
+      },
+      "059244E493AF4125": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 27619515,
+        "bytes": 22438,
+        "sha256": "18e6817a39342ef6a8bb9a49a4f2e2cd0fb57bcef49496845de45efeab4da828"
+      },
+      "D8DAA75616AEF50D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 17872705,
+        "bytes": 23709,
+        "sha256": "c2b474e343fe9387913a28e01e5f02008899e97a683f6fdd02448624a1ba64ce"
+      },
+      "254B5B469CB777B1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+        "offset": 22714703,
+        "bytes": 24088,
+        "sha256": "b57717eff0a490ac6e8616cf5c4158cb0da3c818266c59f2d73d310c3c741d74"
+      },
+      "FA8139C77E882EE6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+        "offset": 5622167,
+        "bytes": 25259,
+        "sha256": "afbdda5704115202b886dd716dbd851447e75ade093a86b2105b7869b995e9b7"
+      },
+      "F90387533CF9322E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+        "offset": 3101600,
+        "bytes": 27826,
+        "sha256": "26f962bf5eea33081fd3018468ccc8def02a5d58bebfe8fd76ac844fc8e363fd"
+      },
+      "34D48C86751471D1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+        "offset": 1742477,
+        "bytes": 25635,
+        "sha256": "a51ce9c8ddace6baed39db11ca3985ffda4af7c64b71137f2c387d0312e24d1b"
+      },
+      "02A70288F3D9386C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+        "offset": 2069224,
+        "bytes": 6268,
+        "sha256": "f0dfc1df0a230819cc0b578a576a3406ceb2a002bfea8f9c25a33a96a3f2c926"
+      },
+      "913CFEEB959DF33C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 30231446,
+        "bytes": 6812,
+        "sha256": "e5517a4e68228eb067f68c3e814c11eed78bd3c6ba15fad2603f62a8d74b4a5e"
+      },
+      "FA519081899F9C04": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 19625896,
+        "bytes": 6589,
+        "sha256": "890e0e241cae48254dbfdf431faa8b8ab8c11b0ea627eda887f3da1a229adc08"
+      },
+      "CDE74F32BAA4660E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 12870264,
+        "bytes": 6389,
+        "sha256": "5f92d389e65c761fde5df952a4e1796ce532b2732b1e3ab3c3cc083bc9b10a70"
+      },
+      "4ED56BFAD04B9B6F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 12823869,
+        "bytes": 6672,
+        "sha256": "eddda72cc14843856c8907e0edffaf4f610477607a1f5f4d38b81f366f659988"
+      },
+      "D1AB2432004CA0D1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+        "offset": 1795836,
+        "bytes": 17883,
+        "sha256": "9d1681683c93b8a1b55027649e8dac8380acbdd6a228dd5d61ed3923bc129369"
+      },
+      "7AA6AC73C8231289": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+        "offset": 16511419,
+        "bytes": 8124,
+        "sha256": "ec15a76797bb0c8e8d77944aa5779016b2515f0f632d7ec4d5c054181ef8bd5d"
+      },
+      "916F6F8B13DBC6A6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+        "offset": 5822391,
+        "bytes": 12502,
+        "sha256": "4c37e1e401ed91816b6504a7a23c4495e265f3a059081ebb189122bb2216a0e7"
+      },
+      "CB93A21A6EFD50D1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+        "offset": 13589434,
+        "bytes": 12679,
+        "sha256": "c39e9f1ee6e5b3517f8fccfa1c6679c0bda0aff4272591c752b524b6da85ce85"
+      },
+      "34EFDF19B9B5EE01": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 974806,
+        "bytes": 423,
+        "sha256": "31953b5ecaad18c38c38fc66fa6abb1b563ba6a768c9af21e7c373553ae4330e"
+      },
+      "95F0EBAEE8B5B0DD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 12495585,
+        "bytes": 514,
+        "sha256": "2136ea7cf895f5c5d94915db2fa217c78c31158fd1ae21fc2990b8d0af300fdd"
+      },
+      "8F60FE1F4DC963C0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 2934649,
+        "bytes": 485,
+        "sha256": "a203de1c88ad670215c2a5668231903b281b3ecfea11a80d39690dffc8d0c9d1"
+      },
+      "BA7BA1FDDCFA49F3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 19773552,
+        "bytes": 21354,
+        "sha256": "caa3a414c40c1afba394328cfc36e2200c90c4c3ff6cca120c11a6778feceade"
+      },
+      "BAF4A8E639F4E05D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+        "offset": 15437277,
+        "bytes": 8287,
+        "sha256": "10cf558b4ab618144ffad7ed4a492a984ee22e48a529bcb55f564436ef9abd95"
+      },
+      "A40AEC9F7F051352": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 20216541,
+        "bytes": 9526,
+        "sha256": "75f867e414496361c8327a88968632c6fc4a9bca418cc93a52975bcbee7e9171"
+      },
+      "80E1C7BCC3F1142D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 14131455,
+        "bytes": 29748,
+        "sha256": "c4435d409dbafaa6655da72232d0cfc323f0ee0576e7043235c50e7a4061425a"
+      },
+      "E3D1D7151A2A91FE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 7007809,
+        "bytes": 4203,
+        "sha256": "6fbfc7781a67e2fa0491f1d8601e6d46d9daf89d0c013571c75b8df791d3979f"
+      },
+      "1D34176736C1094A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+        "offset": 24479479,
+        "bytes": 98834,
+        "sha256": "5b57f75243438670d0d635667c1063a91dd5ab76de80844dbcbb01072f0cc164"
+      },
+      "6C8B6078B9218106": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+        "offset": 3548632,
+        "bytes": 118397,
+        "sha256": "0d774d8c3de0f42c85b5e9aa4c93252e4176c9e1c5fe40d04e962d805f8ecddc"
+      },
+      "3C261B372C8CE685": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 14477172,
+        "bytes": 21647,
+        "sha256": "e5a1b01b93956f601b58267583c6813fe17870ebf1990a6d50a61d34608521e3"
+      },
+      "87E051AF0A5F7648": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 12019000,
+        "bytes": 11514,
+        "sha256": "b2bb6204a312b3014e8a1402d86ddc6009f0893bc47673ae220e8b421e80307e"
+      },
+      "3E09EB62D68814D3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 17402181,
+        "bytes": 7078,
+        "sha256": "f1df15ac8109bb9e64afb1eead5bbdb7b02035d153458e3226f4d86b62730b02"
+      },
+      "6A5A59D6A7C30CD1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 20413189,
+        "bytes": 8814,
+        "sha256": "a9601c21ef71917cb06b9bb4148430bb53c43f325bcc5df13ae718e3b31380f0"
+      },
+      "29FA29DCA1838ADC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 941884,
+        "bytes": 398,
+        "sha256": "748719d7835a5fca71b86b6c30ba554175fc8c38c60b4c47684fc64b67b98eea"
+      },
+      "52B5C57F4AC5B621": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 213293,
+        "bytes": 402,
+        "sha256": "57c6ee1c76bd2b688d4c97c673b1642cf5ed5ca6a2d752fdd8806d44d295eb2c"
+      },
+      "EFC469B5FB8C0586": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 829714,
+        "bytes": 400,
+        "sha256": "e05dc9189bd3bd19c8067372b1d3bc730ceecc2abd7327ffad232e3c2294a1c6"
+      },
+      "721E764E046A9656": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+        "offset": 27619596,
+        "bytes": 11269,
+        "sha256": "557c0d963c93aab3405041ef83a9ea88c1830a122cc207272aa6090f6aeeb1e6"
+      },
+      "4932F8E0B4B107B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 7071645,
+        "bytes": 7212,
+        "sha256": "ff18acec2f5817c68ccdb90b60f667d8f9fcebfe1e7fa384750490f7208b703a"
+      },
+      "2FCFF097D2C05D99": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+        "offset": 16032456,
+        "bytes": 11014,
+        "sha256": "40db5d650afe984a23f90583ca35447f8ec4d919170f7eec78e60dfd21858d89"
+      },
+      "121317041B295D7C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 21629875,
+        "bytes": 7107,
+        "sha256": "225abbe1c0f506cb3716f717908a48067dbd15880c2552aec004c1f152ac300d"
+      },
+      "ED52521E1E09C63F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 26318803,
+        "bytes": 13555,
+        "sha256": "2a505cb3b2c333594e6a7de6e66aaf8b71006bdd582c2d6bce7ff939a9f2072d"
+      },
+      "3152B0AF25B8B0FD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+        "offset": 7101326,
+        "bytes": 6761,
+        "sha256": "8529833dc8caf1d22db7a9b34b4acbdd61929af2ec39ca415e504af8f0f46d00"
+      },
+      "5574751D94F5B697": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+        "offset": 18390234,
+        "bytes": 6777,
+        "sha256": "47ee33ae6881b1b89976d2575c09e612ff126c1234c54688e95ea8ea6ddf181c"
+      },
+      "32A8BEA20CBF1650": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+        "offset": 37864037,
+        "bytes": 7727,
+        "sha256": "b170914219da499d88607503fc63a724525a1183e712528d89481628ebbc30c9"
+      },
+      "9CC4D43BF869D7EE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 703325,
+        "bytes": 21784,
+        "sha256": "b10f1167d9718981ac650aaf5cb599884a203a298581dfa5e7ee269181c8608d"
+      },
+      "769FD30C98E7DE22": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 14603707,
+        "bytes": 8161,
+        "sha256": "a2a485ef02600f2d01836b94c11c2f5f479022c4a602534d5540fbb0b2297edb"
+      },
+      "AF72C60F431D4CB0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 13133650,
+        "bytes": 21421,
+        "sha256": "1808b3fc34e4435ceb51d88d85ee7eb8f8cde3409e8c874b55a577aab764044b"
+      },
+      "44D108254CC25B69": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 18065732,
+        "bytes": 20129,
+        "sha256": "62eb56ca44cc8d0b772bc882d25a3eb90a6fa08324e273773ff32d8a0f830265"
+      },
+      "84074C26D6505BBB": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+        "offset": 39022774,
+        "bytes": 3940,
+        "sha256": "7beda497eaf6814a172a24b060ccfaaa404868ced7c9991068b9606bd894fb38"
+      },
+      "F59DB152F3F7022C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3C895C1914F20F08.bundle",
+        "offset": 7003412,
+        "bytes": 69209,
+        "sha256": "6034ca24607aefd1d0a63697a537820aa006dfbc91e8991f2c4929bd4351ddad"
+      },
+      "1A10F9493127321B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+        "offset": 3147485,
+        "bytes": 117362,
+        "sha256": "4826fd37f91675608f375f9d92d11e34e474f91e6355a093c5fbf630bc243fe7"
+      }
+    },
+    "files": [
+      {
+        "path": "data/characters/sru_murkwolf/skins/skin0.bin",
+        "wadPathHash": "f976ba55e5d8fe8c",
+        "sha256": "f6ab6cbe116e80edde7c22ee154a5fdf2bc47457f5342d8b1f3b69e287739779",
+        "bytes": 1011
+      },
+      {
+        "path": "data/characters/sru_murkwolf/animations/skin0.bin",
+        "wadPathHash": "0e0d4ed228d952d3",
+        "sha256": "eabf8b3c2c85f63d6fbe23ce000c33532107b53c56a6f29926dfebe76f356c05",
+        "bytes": 10222
+      },
+      {
+        "path": "data/characters/sru_murkwolfmini/skins/skin0.bin",
+        "wadPathHash": "9199762fc031f08e",
+        "sha256": "5a4d414a4f4a9f997595cd47b658a10dbfe5d5b5ad3b497846ac66571b26bbe6",
+        "bytes": 672
+      },
+      {
+        "path": "data/characters/sru_murkwolfmini/animations/skin0.bin",
+        "wadPathHash": "ec19ce873dd5e3a0",
+        "sha256": "05974ac550dd227e469af0c06820724a1e2575a5a78ff5c41738a731633e0fa9",
+        "bytes": 12281
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack1.anm",
+        "wadPathHash": "10ff9925db9ba937",
+        "sha256": "457bdf9847768689923e20116e1d4298508a3d1b955bee2c24d18f68da80a052",
+        "bytes": 33324
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack2.anm",
+        "wadPathHash": "1e0549d9f7b1fca0",
+        "sha256": "506dd318328868859618731269b95c1caa4e52dcfd744b0c6414a0e583f28586",
+        "bytes": 34314
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack3.anm",
+        "wadPathHash": "267e4edfe4c58579",
+        "sha256": "d0fc169ca304cc6fe13874de8d7e7283ac33676d28ddcf182f5439f1baed09df",
+        "bytes": 35004
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack4.anm",
+        "wadPathHash": "4337625105db61e5",
+        "sha256": "2832ff3ba599fbfca1dd3a741b6d461b93e273937ccdc483b33e2879b35f299f",
+        "bytes": 37128
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death.anm",
+        "wadPathHash": "6900e069219a29be",
+        "sha256": "080c2a3ce8e33932dadb47be23cb9e59a324c428554b6549b7e176b52ed8ab6f",
+        "bytes": 41678
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death2.anm",
+        "wadPathHash": "7c471990d45b4f1b",
+        "sha256": "0d1d5f18dd4ad0933fe1b4ff2d51096adcae93d8d45e1490a4ce6789d629f832",
+        "bytes": 38378
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle1.anm",
+        "wadPathHash": "b08bb7d4e9816a04",
+        "sha256": "0ed35d3dd32eb50f18164d443a8f22bbfc6dcd4102d7c6c5553a1a163ed7f2d3",
+        "bytes": 13740
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle2.anm",
+        "wadPathHash": "9274c6730d870d90",
+        "sha256": "646974bc5e72385b130c25b6024b5ac56a6715dda3ef81ae51db772d5ea791a9",
+        "bytes": 14320
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle3.anm",
+        "wadPathHash": "32d754cfc6d47263",
+        "sha256": "b81b9c793b5d8df7db56ef3151aa99243a5ca77975c1762d3e100e82721e2add",
+        "bytes": 14040
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle4.anm",
+        "wadPathHash": "0efb2881b9994023",
+        "sha256": "757238eb8e1659f9d5723574abcb2842eb1b4fab4e914e72c6ec50894a99ebab",
+        "bytes": 13880
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle5.anm",
+        "wadPathHash": "abbc3606147675c1",
+        "sha256": "4b4f700d52f0f6ee733c497025f4a71e84d61882af4255cde3b6a7b802bfe92b",
+        "bytes": 14150
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_a2n.anm",
+        "wadPathHash": "6c8c11883ff48748",
+        "sha256": "30e9d8d94245422e8f94f155df43fdd055ffc4d59957040fb1e5bd87b91877f7",
+        "bytes": 27154
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro1.anm",
+        "wadPathHash": "6f577aa50482dd1f",
+        "sha256": "a23666c9b38126e829ed8c805858961eac86e9c3dace49cfad1bdff6520b4339",
+        "bytes": 15550
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro2.anm",
+        "wadPathHash": "fcb6a29161847cc8",
+        "sha256": "2bac29bcd6910ae558a2d3a915b147e67fa4048230205b31875f242524224310",
+        "bytes": 21150
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro3.anm",
+        "wadPathHash": "567eaae1aaf464a1",
+        "sha256": "ac7ba01a89c3d73a060aba39ad67df7d6cdc831e9f735987bce376d1e9801c42",
+        "bytes": 20790
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_0.anm",
+        "wadPathHash": "aa5234503300b71b",
+        "sha256": "35ca1349c98dc3be0658986f47796b7e7ee1c133087ac94ce1d8ceb865d2878c",
+        "bytes": 860
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_l45.anm",
+        "wadPathHash": "1ed72915d5630bbd",
+        "sha256": "6325e02b21ece01bf14147692081958ca8e4663b4005ac42f6dc9aacb0873b7e",
+        "bytes": 926
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_r45.anm",
+        "wadPathHash": "e873ea49d5af8790",
+        "sha256": "8eb8c22fac7d040ba6e4c4582700c2dab0def8f08c87baede605f54dcaf2c01e",
+        "bytes": 926
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_n2a.anm",
+        "wadPathHash": "db474641498a4df1",
+        "sha256": "47bae0bd3a6e2bd3e49761717a452b4a731b5c60d1c31cc71a07f19c04162ab2",
+        "bytes": 32654
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_pounce.anm",
+        "wadPathHash": "d608d22817cf43e8",
+        "sha256": "8e281bb3772ccda88042996405cb5254c1c0b95e00f8d2fa9b0e325bdb7a9131",
+        "bytes": 14222
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_run.anm",
+        "wadPathHash": "fbafaf8ef21fe310",
+        "sha256": "2cb392734106d8660aa241e6dd3de850e0598dc033b5c3dc26db36b1ce4a01d7",
+        "bytes": 17280
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_spawn.anm",
+        "wadPathHash": "4ac0d0e0528660e4",
+        "sha256": "e0bb72ae41f750fac94e1690f6aaaff1e2c6cac0663debe4b20d9dd58eaa67eb",
+        "bytes": 42898
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.skl",
+        "wadPathHash": "3c7b8d96370f2fce",
+        "sha256": "d4530f8bd86c7afc4e6860b7a185649950bf590d84521a01cf2f10fa1d625ca2",
+        "bytes": 7584
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.skn",
+        "wadPathHash": "e561a5d8263dc9f9",
+        "sha256": "b3385bfef9cb071276f10d31790a34e4469452051353cabd91894bc9186ebd96",
+        "bytes": 197972
+      },
+      {
+        "path": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.tex",
+        "wadPathHash": "d39172f016889a9e",
+        "sha256": "4d51c41ac57624f44ffd9255ee30d593d86fc1adeaa9d3fa45993473050482cf",
+        "bytes": 174788
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_death3.anm",
+        "wadPathHash": "aa139d6049e9bb97",
+        "sha256": "bcc7aa7b0db85d9a04745c0921c2fb2da31219a3babfa30d46ee3694f0452849",
+        "bytes": 32090
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_howl.anm",
+        "wadPathHash": "180082ec3d9180b3",
+        "sha256": "286ba08cb98d310df1c0cf6aba005a8073172e6e927dbc66976db746d524692f",
+        "bytes": 18912
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1.anm",
+        "wadPathHash": "982e7d60e3ddd590",
+        "sha256": "55cfa025576fa6c094548215b0265bd72e58916ddd93cf7efd686752f354b0cf",
+        "bytes": 14182
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_a2n.anm",
+        "wadPathHash": "9f50b532f199b767",
+        "sha256": "c94c8de704f77d55934c7603f2d9149e53c89d1a2049aa0bb998431eaab5baa2",
+        "bytes": 15572
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_0.anm",
+        "wadPathHash": "f00d07d15f944893",
+        "sha256": "54db3e2562242bba5e7f97615e7175f996ec4ef053f710a04ad769db93dc7b68",
+        "bytes": 796
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_l45.anm",
+        "wadPathHash": "650d7e0fd671eeed",
+        "sha256": "61ba62cc805383338bb352e8cf85320e19ac2a780b3d6c29ba4a9def1f32bb82",
+        "bytes": 832
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_r45.anm",
+        "wadPathHash": "455468525ca4a8ef",
+        "sha256": "f5528c4e4277f61aeb09926feb6fe0bbd31b2b3d0763f569dd4ac2162b71c27a",
+        "bytes": 832
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_n2a.anm",
+        "wadPathHash": "5fd0a51085870c21",
+        "sha256": "16296571a178d9e33255575548c563887f6c5d35f45eb6b0078815d68b71a82f",
+        "bytes": 18362
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle2.anm",
+        "wadPathHash": "cdf7d0cae2aabe18",
+        "sha256": "1a4dd0407f7b35427a946f3682271c07294ee38ef75c2c1688f267a09ca42890",
+        "bytes": 14432
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle3.anm",
+        "wadPathHash": "4f5a15a78cdb5ee1",
+        "sha256": "468ef848c42be46ea1fb680fa7494603b9e50762d96079768863755ddae208fe",
+        "bytes": 18732
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle4.anm",
+        "wadPathHash": "e2acf168ba770a88",
+        "sha256": "aef08d22acbf5ec039e3f81619cf1472d5c5403dfec50313876d34f23ef7752e",
+        "bytes": 14262
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle5.anm",
+        "wadPathHash": "b6a2b9199d765d9b",
+        "sha256": "e2706ab0d8e09f2e7d8d7fd1c654ed8bc2f776f3831314a656429e06cce23328",
+        "bytes": 21012
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle6.anm",
+        "wadPathHash": "f8d9e4aabcbefdb9",
+        "sha256": "a3c9805d6c415b705cf9327c544dc2721b6af1fb312d8bfb37df8f03e409c2ff",
+        "bytes": 13942
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle7.anm",
+        "wadPathHash": "ec04afc45232a77f",
+        "sha256": "125e07fdb1de7606702916262e80d4d7db52b3536f57041f22abfa9740b5119e",
+        "bytes": 13962
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro1.anm",
+        "wadPathHash": "b5d1066d24e96cf5",
+        "sha256": "d28781dfc31609a679429890be185f670571ac92aec5e7ee139c4dd8e1a822ef",
+        "bytes": 14902
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro2.anm",
+        "wadPathHash": "1ef41856186b1500",
+        "sha256": "34468a13f6044f778730674313017716b9b896d583e28fe4b45c91f08fd7a9df",
+        "bytes": 31090
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro3.anm",
+        "wadPathHash": "4ebdac1a2f3b08ea",
+        "sha256": "d35fbf014725cec8d597896893f939460fa64e4bd3d6e565bb7e9ccc5b460d1c",
+        "bytes": 14842
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_left.anm",
+        "wadPathHash": "a2fbad092b965ceb",
+        "sha256": "f63f4e2c91f2c5c475f8d22db717edd942e1abae10ebf3792fa8004fcaa06d06",
+        "bytes": 32110
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_right.anm",
+        "wadPathHash": "4c033f7cab8a1cca",
+        "sha256": "3b28e9e1f4fd652f2afc9154c3eebb274edb6c6cd1ccd2f4297b31445bdda36c",
+        "bytes": 30640
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/sru_murkwolfmini.skl",
+        "wadPathHash": "54b6417efd35f6b9",
+        "sha256": "3927f68209225b71b51b1f4b84e235a37b379ca22670757ecde44b89d60e41ac",
+        "bytes": 7048
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/sru_murkwolfmini.skn",
+        "wadPathHash": "84dc8a3f5c637e10",
+        "sha256": "aefc55598db6ee8f6b6c3e53905b12e0263624689b1de8307d554bfb334794a7",
+        "bytes": 144116
+      },
+      {
+        "path": "assets/characters/sru_murkwolfmini/skins/base/sru_murkwolfmini.tex",
+        "wadPathHash": "ba3fcd69f85ceb6d",
+        "sha256": "02cc0cbf22d7df01e808ed5e2251748bedf9889ea6c369409054ea4fcf6a08c9",
+        "bytes": 174788
+      }
+    ]
+  },
+  "labelEvidence": {
+    "dictionarySha256": "9e9370edecab87865e33b1cf90e8309248cced44ebe29d3f0875c237d8400081",
+    "dictionaryUrl": "https://raw.communitydragon.org/data/hashes/lol/hashes.game.txt",
+    "status": "Discovery labels only; every retained path is xxh64 checked. Reproduction uses pinned finite paths."
+  },
+  "records": {
+    "data/characters/sru_murkwolf/skins/skin0.bin": {
+      "Characters/SRU_Murkwolf/Skins/Skin0": {
+        "championSkinName": "SRU_Murkwolf",
+        "skinAudioProperties": {
+          "bankUnits": [
+            {
+              "name": "NPC_Map11_Murkwolf_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Murkwolf_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Murkwolf_SFX_events.bnk"
+              ],
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "{a08f9b0c}",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/SRU_Murkwolf/Skins/Base/SRU_Murkwolf.skl",
+          "simpleSkin": "ASSETS/Characters/SRU_Murkwolf/Skins/Base/SRU_Murkwolf.skn",
+          "texture": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.tex",
+          "skinScale": 1.2000000476837158,
+          "selfIllumination": 0.699999988079071,
+          "reflectionFresnelColor": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Flesh",
+        "idleParticlesEffects": [
+          {
+            "effectName": "DATA/Particles/SRU_Murkwolf_eyeglow_R.troy",
+            "boneName": "L_Buffbone_Cstm_R_Eye",
+            "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+          },
+          {
+            "effectName": "DATA/Particles/SRU_Murkwolf_eyeglow_L.troy",
+            "boneName": "L_Buffbone_Cstm_L_Eye",
+            "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+          },
+          {
+            "effectName": "DATA/Particles/SRU_Murkwolf_eyeglow_R.troy",
+            "boneName": "R_Buffbone_Cstm_R_Eye",
+            "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+          },
+          {
+            "effectName": "DATA/Particles/SRU_Murkwolf_eyeglow_L.troy",
+            "boneName": "R_Buffbone_Cstm_L_Eye",
+            "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+          }
+        ],
+        "iconCircle": "assets/characters/sru_murkwolf/hud/greatermurkwolf_circle.tex",
+        "iconSquare": "assets/characters/sru_murkwolf/hud/greatermurkwolf_square.tex",
+        "healthBarData": {
+          "unitHealthBarStyle": 5,
+          "__type": "CharacterHealthBarDataRecord"
+        },
+        "objectPath": "Characters/SRU_Murkwolf/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "__linked": [
+        "DATA/Characters/SRU_Murkwolf/SRU_Murkwolf.bin",
+        "DATA/Characters/SRU_Murkwolf/Animations/Skin0.bin"
+      ]
+    },
+    "data/characters/sru_murkwolf/animations/skin0.bin": {
+      "{a08f9b0c}": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "{92e3d68c}": {
+            "mFlags": 3,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{bd5d7a8f}": {
+                "mName": "{bd5d7a8f}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack1_base": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{865019f9}": {
+                "mName": "{865019f9}",
+                "mStartFrame": 11.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Bite_Jaw2.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{96b05e9e}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{83501540}": {
+                "mName": "{83501540}",
+                "mStartFrame": 9.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Bite_Jaw1.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{96b05e9e}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2_base": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{960516b9}": {
+                "mName": "{960516b9}",
+                "mStartFrame": 10.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Swipe.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{96b05e9e}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{23b3627c}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{511e3c93}": {
+                "mName": "{511e3c93}",
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Death.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{7cd8dbdd}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{4aa50760}": {
+                "mName": "{4aa50760}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "attack1": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "Attack1_base",
+                "mProbability": 1.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "Attack2_base",
+                "mProbability": 1.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{e4cb0f58}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{5aab3b2f}": {
+                "mName": "{5aab3b2f}",
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Spawn.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{7cd8dbdd}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 17.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{9675fb99}": {
+                "mName": "{9675fb99}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_spawn_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_spawn.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{2acd4eca}": {
+            "mFlags": 2,
+            "mClipNameList": [
+              "{ba373215}",
+              "{f112f5b2}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{64ae7bbd}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{5a647bf0}": {
+                "mName": "{5a647bf0}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle1_aggro3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{15db56e5}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0e2ed266}": {
+                "mName": "{0e2ed266}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle1_aggro3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{a8cc186b}": {
+            "mFlags": 8,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{00bb2e89}": {
+                "mName": "{00bb2e89}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle_n2a_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_n2a.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{419d82cf}": {
+            "mFlags": 8,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{174fa83d}": {
+                "mName": "{174fa83d}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle1_a2n_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_a2n.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{fa9ebad0}": {
+            "mFlags": 1,
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{64ae7bbd}",
+                "mProbability": 60.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{16021d4f}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{ec5a5b00}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{3a224d98}": {
+            "mClipNameList": [
+              "{e468f191}",
+              "{32b38b96}",
+              "{9dd9dc06}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{f112f5b2}": {
+            "mFlags": 2,
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_run.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{ba373215}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_pounce.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd31845b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{511e3c93}": {
+                "mName": "{511e3c93}",
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Death_left.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{7cd8dbdd}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{4aa50760}": {
+                "mName": "{4aa50760}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd28bd4d}": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{23b3627c}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{bd31845b}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{ecb30914}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0f2ed3f9}": {
+                "mName": "{0f2ed3f9}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle1_aggro3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{13f7c34d}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{be5d7c22}": {
+                "mName": "{be5d7c22}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{cf710bc2}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{bf5d7db5}": {
+                "mName": "{bf5d7db5}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{1a81260b}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{b85d72b0}": {
+                "mName": "{b85d72b0}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{c540f800}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{b95d7443}": {
+                "mName": "{b95d7443}",
+                "mEffectName": "DATA/Particles/SRU_Murkwolf_idle5_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle5.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{14c58fc7}": {
+            "mClipNameList": [
+              "{13f7c34d}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{bcb06286}": {
+            "mClipNameList": [
+              "{cf710bc2}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{1e81391d}": {
+            "mClipNameList": [
+              "{1a81260b}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{3f2b7ed4}": {
+            "mClipNameList": [
+              "{c540f800}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{2f4723e4}": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{92e3d68c}",
+                "mProbability": 25.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{14c58fc7}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{bcb06286}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{1e81391d}",
+                "mProbability": 15.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{3f2b7ed4}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{16021d4f}": {
+            "mClipNameList": [
+              "{15db56e5}",
+              "{64ae7bbd}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{ec5a5b00}": {
+            "mClipNameList": [
+              "{ecb30914}",
+              "{64ae7bbd}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{038b1222}": {
+            "mFlags": 2,
+            "mTrackDataName": "{eb8a0f73}",
+            "Updater": {
+              "__type": "LookAtInterestAngleParametricUpdater"
+            },
+            "mParametricPairDataList": [
+              {
+                "mClipName": "{0224ebad}",
+                "mValue": -180.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{da71f406}",
+                "mValue": -135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{da71f406}",
+                "mValue": -45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{0224ebad}",
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{f61be274}",
+                "mValue": 45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{f61be274}",
+                "mValue": 135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{0224ebad}",
+                "mValue": 180.0,
+                "__type": "ParametricPairData"
+              }
+            ],
+            "__type": "ParametricClipData"
+          },
+          "{da71f406}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_l45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{f61be274}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_r45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{0224ebad}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_0.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{32b38b96}": {
+            "mClipNameList": [
+              "{fa9ebad0}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{80e40cb7}": {
+            "mClipNameList": [
+              "{a8cc186b}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{9dd9dc06}": {
+            "mConditionFloatPairDataList": [
+              {
+                "mClipName": "{32b38b96}",
+                "mHoldAnimationToHigher": 2.0,
+                "__type": "ConditionFloatPairData"
+              },
+              {
+                "mClipName": "{2f4723e4}",
+                "mValue": 450.0,
+                "__type": "ConditionFloatPairData"
+              }
+            ],
+            "Updater": {
+              "__type": "LookAtInterestDistanceParametricUpdater"
+            },
+            "mChangeAnimationMidPlay": true,
+            "__type": "ConditionFloatClipData"
+          },
+          "{e468f191}": {
+            "mFlags": 8,
+            "mClipNameList": [
+              "{e4cb0f58}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "{933b5bde}": {
+            "__type": "TrackData"
+          },
+          "{eb8a0f73}": {
+            "mPriority": 1,
+            "mBlendMode": 1,
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "154507415535283117": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "154507416098267772": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "154507418672872781": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "154507418673448027": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317741174198818": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317741713711740": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317744288316749": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317744288891995": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833341783065421": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833341814757093": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1438833342047019644": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833343137217469": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1438833344280008811": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833344621624653": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833344622199899": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833345419217172": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1496760536380313543": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1496760539205385549": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948036578624333": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948036610316005": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948036688291339": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948036842578556": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948037344461519": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948038708024972": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948039417183565": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948039417758811": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948039552989184": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948039723912130": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1585862244296695119": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1585862247101021517": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849546034992869": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1909849546112968203": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849546267255420": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849547357453245": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1909849548500244587": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849548841860429": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849548842435675": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849549639452948": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "2198100890362132765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2198100893023911245": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508096910125997": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508096933597730": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508097209156429": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508097240848101": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508097318823435": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508097473110652": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508097974993615": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508098563308477": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508098712076587": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508099338557068": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508099706099819": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508099998331413": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100047715661": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100048290907": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100183521280": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100354444226": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100495449292": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100539053062": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100712664920": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100845308180": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508100918703538": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "2572508101003174516": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207950027116234": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207952482581837": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3406731106081776612": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3406731108462148941": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3653417199939586966": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3653417202262523213": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4188995919613676952": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4188995921811914061": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4551871298445999828": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4551871300559748429": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4728079009977688700": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4728079010479571663": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4728079012552293709": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4728079012552868955": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030500422183204": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502141246797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872101754487629": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872101864154635": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872102018441852": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872102520324815": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872103108639677": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872103883888268": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872104593046861": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872104593622107": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872104728852480": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872104899775426": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7893826269156172412": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826270395138347": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "7893826271730777421": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826271731352667": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826272178511052": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "9287562313825782967": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9287562314836917581": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539446401259237": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10584539446633521788": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539447723719613": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10584539448498968204": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539448866510955": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539449208126797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539449208702043": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539450005719316": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "11374364255402376525": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123542060393084": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123544293382251": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123544634998093": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123544635573339": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248681148342908": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248683673563669": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248683722947917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248683723523163": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13596475605862343302": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13596475605870230861": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413820501325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073440066477": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073463538210": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073739096909": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073770788581": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073848763915": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823074003051132": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823074504934095": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823075093248957": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823075242017067": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823075868497548": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076236040299": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076528271893": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076577656141": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076578231387": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076713461760": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076884384706": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077025389772": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077068993542": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077242605400": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077375248660": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077448644018": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077533114996": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633103231669989": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14213633103463932540": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633104554130365": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14213633105696921707": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633106038537549": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633106039112795": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633106174343168": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633106836130068": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14947741566437644005": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14947741566669906556": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741567760104381": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14947741568902895723": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741569244511565": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741569245086811": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741569551240130": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741570042104084": {
+            "mClipName": "{80e40cb7}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15553353713710228092": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15553353714949194027": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "15553353716284833101": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15553353716285408347": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15553353716732566732": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "15740630479842534012": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15740630482417139021": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15740630482417714267": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15740630482908476422": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16486287731886375757": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16486287731996042763": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16486287732150329980": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16486287734015776396": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16486287734724934989": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16486287734725510235": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16486287734860740608": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16486287735031663554": {
+            "mTime": 0.10000000149011612,
+            "__type": "TimeBlendData"
+          },
+          "16486287735389884248": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17031024999586643277": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17031025000378424064": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986195621200717": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986195730867723": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986195885154940": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986196387037903": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986197750601356": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986198459759949": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986198460335195": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986198595565568": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986198766488514": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986199257352468": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216857909412685": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17371216858173366908": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216860038813324": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17371216860747971917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216860748547163": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216861054700482": {
+            "mClipName": "{419d82cf}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17371216861618959794": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016946144502396": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016948719107405": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016948719682651": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016949674566260": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "18059076961491795277": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "18059076962522938064": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "{a08f9b0c}",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    },
+    "data/characters/sru_murkwolfmini/skins/skin0.bin": {
+      "Characters/SRU_MurkwolfMini/Skins/Skin0": {
+        "championSkinName": "SRU_MurkwolfMini",
+        "skinAudioProperties": {
+          "bankUnits": [
+            {
+              "name": "NPC_Map11_MurkwolfMini_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_MurkwolfMini_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_MurkwolfMini_SFX_events.bnk"
+              ],
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "{e2d70959}",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/SRU_MurkwolfMini/Skins/Base/SRU_MurkwolfMini.skl",
+          "simpleSkin": "ASSETS/Characters/SRU_MurkwolfMini/Skins/Base/SRU_MurkwolfMini.skn",
+          "texture": "assets/characters/sru_murkwolfmini/skins/base/sru_murkwolfmini.tex",
+          "skinScale": 0.949999988079071,
+          "selfIllumination": 0.8500000238418579,
+          "reflectionFresnelColor": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Flesh",
+        "iconCircle": "assets/characters/sru_murkwolfmini/hud/murkwolf_circle.tex",
+        "iconSquare": "assets/characters/sru_murkwolfmini/hud/murkwolf_square.tex",
+        "objectPath": "Characters/SRU_MurkwolfMini/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "__linked": [
+        "DATA/Characters/SRU_MurkwolfMini/Animations/Skin0.bin",
+        "DATA/Characters/SRU_MurkwolfMini/SRU_MurkwolfMini.bin"
+      ]
+    },
+    "data/characters/sru_murkwolfmini/animations/skin0.bin": {
+      "{e2d70959}": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "Attack1_base": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{06141bbd}": {
+                "mName": "{06141bbd}",
+                "mStartFrame": 14.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Mini_Swipe.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{96b05e9e}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2_base": {
+            "mFlags": 8,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{06141bbd}": {
+                "mName": "{06141bbd}",
+                "mStartFrame": 14.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Mini_Swipe.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{96b05e9e}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{ed749d7b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{bd28bd4d}": {
+                "mName": "{bd28bd4d}",
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Mini_Death.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{7cd8dbdd}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{4aa50760}": {
+                "mName": "{4aa50760}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_death3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "attack1": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "Attack1_base",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "Attack2_base",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{b15df4c3}": {
+            "mFlags": 2,
+            "mClipNameList": [
+              "{ba373215}",
+              "{f112f5b2}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{76cefaf0}": {
+            "mFlags": 1,
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{64ae7bbd}",
+                "mProbability": 70.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{d9c55dbf}",
+                "mProbability": 5.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{d8c55c2c}",
+                "mProbability": 25.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{f112f5b2}": {
+            "mFlags": 2,
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_run.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{ba373215}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_pounce.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{faab0d1a}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd31845b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{46224eed}": {
+                "mName": "{46224eed}",
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Mini_Death_left.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{7cd8dbdd}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{d3ca8616}": {
+                "mName": "{d3ca8616}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd28bd4d}": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{ed749d7b}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{bd31845b}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{99fc01f8}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 17.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Sub_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{86bb2e31}": {
+                "mName": "{86bb2e31}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_spawn_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_left.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{06891e07}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 17.0,
+                "mEffectName": "DATA/Particles/SRU_MurkWolf_Sub_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{9675fb99}": {
+                "mName": "{9675fb99}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_spawn_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_right.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{92e3d68c}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{7a201b3f}": {
+            "mFlags": 1,
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{92e3d68c}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{6b7b41b7}",
+                "mProbability": 5.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{b6195907}",
+                "mProbability": 10.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{020e01fa}",
+                "mProbability": 10.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{d63ad17d}",
+                "mProbability": 10.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{38e16a80}",
+                "mProbability": 15.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{045ca3a3}",
+                "mProbability": 15.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{906f2dd6}",
+                "mProbability": 15.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{0e12a68e}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{174fa83d}": {
+                "mName": "{174fa83d}",
+                "mEffectName": "doesnotexist.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_a2n.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{a8cc186b}": {
+            "mFlags": 1,
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{00bb2e89}": {
+                "mName": "{00bb2e89}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle_n2a_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_n2a.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{13f7c34d}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{be5d7c22}": {
+                "mName": "{be5d7c22}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{cf710bc2}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{bf5d7db5}": {
+                "mName": "{bf5d7db5}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{1a81260b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{b85d72b0}": {
+                "mName": "{b85d72b0}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle4_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{e8ab001d}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{d985fe77}": {
+                "mName": "{d985fe77}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle1_howl_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_howl.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{c540f800}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{b95d7443}": {
+                "mName": "{b95d7443}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle5_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle5.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{15db56e5}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0e2ed266}": {
+                "mName": "{0e2ed266}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle1_aggro2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{ecb30914}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0f2ed3f9}": {
+                "mName": "{0f2ed3f9}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle1_aggro3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{64ae7bbd}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{5a647bf0}": {
+                "mName": "{5a647bf0}",
+                "mEffectName": "DATA/Particles/SRU_MurkwolfMini_idle1_aggro_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{56dd2981}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle6.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{e99a7996}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle7.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{6b7b41b7}": {
+            "mClipNameList": [
+              "{e8ab001d}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{b6195907}": {
+            "mClipNameList": [
+              "{13f7c34d}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{020e01fa}": {
+            "mClipNameList": [
+              "{cf710bc2}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{d63ad17d}": {
+            "mClipNameList": [
+              "{1a81260b}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{38e16a80}": {
+            "mClipNameList": [
+              "{c540f800}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{045ca3a3}": {
+            "mClipNameList": [
+              "{56dd2981}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{906f2dd6}": {
+            "mClipNameList": [
+              "{e99a7996}",
+              "{92e3d68c}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{d8c55c2c}": {
+            "mClipNameList": [
+              "{ecb30914}",
+              "{64ae7bbd}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{d9c55dbf}": {
+            "mClipNameList": [
+              "{15db56e5}",
+              "{64ae7bbd}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{0ba9e4b1}": {
+            "mFlags": 8,
+            "mClipNameList": [
+              "{06891e07}",
+              "{f2ca7e97}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{08a9dff8}": {
+            "mFlags": 8,
+            "mClipNameList": [
+              "{99fc01f8}",
+              "{f2ca7e97}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{0224ebad}": {
+            "mTrackDataName": "{ca559d00}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_0.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{da71f406}": {
+            "mTrackDataName": "{ca559d00}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_l45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{f61be274}": {
+            "mTrackDataName": "{ca559d00}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_r45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{038b1222}": {
+            "mTrackDataName": "{ca559d00}",
+            "Updater": {
+              "__type": "LookAtInterestAngleParametricUpdater"
+            },
+            "mParametricPairDataList": [
+              {
+                "mClipName": "{0224ebad}",
+                "mValue": -180.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{da71f406}",
+                "mValue": -135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{da71f406}",
+                "mValue": -45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{0224ebad}",
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{f61be274}",
+                "mValue": 45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{f61be274}",
+                "mValue": 135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{0224ebad}",
+                "mValue": 180.0,
+                "__type": "ParametricPairData"
+              }
+            ],
+            "__type": "ParametricClipData"
+          },
+          "{f2ca7e97}": {
+            "mClipNameList": [
+              "{76cefaf0}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{2f4723e4}": {
+            "mClipNameList": [
+              "{7a201b3f}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{9a0b82ee}": {
+            "mClipNameList": [
+              "{0e12a68e}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{57ec26b2}": {
+            "mClipNameList": [
+              "{a8cc186b}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{2acd4eca}": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{f112f5b2}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{b15df4c3}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{9dd9dc06}": {
+            "mConditionFloatPairDataList": [
+              {
+                "mClipName": "{f2ca7e97}",
+                "mHoldAnimationToHigher": 2.0,
+                "__type": "ConditionFloatPairData"
+              },
+              {
+                "mClipName": "{2f4723e4}",
+                "mValue": 500.0,
+                "__type": "ConditionFloatPairData"
+              }
+            ],
+            "Updater": {
+              "__type": "LookAtInterestDistanceParametricUpdater"
+            },
+            "mChangeAnimationMidPlay": true,
+            "__type": "ConditionFloatClipData"
+          },
+          "{650ec1aa}": {
+            "mClipNameList": [
+              "{a8cc186b}",
+              "{038b1222}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{dc824039}": {
+            "mClipNameList": [
+              "{92e3d68c}",
+              "{cf710bc2}",
+              "{c540f800}",
+              "{56dd2981}",
+              "{e99a7996}",
+              "{ba373215}",
+              "Attack1_base",
+              "Attack2_base"
+            ],
+            "__type": "SequencerClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "{933b5bde}": {
+            "__type": "TrackData"
+          },
+          "{ca559d00}": {
+            "mPriority": 1,
+            "mBlendMode": 1,
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "148058011037729274": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "148058014176820557": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "154507415535283117": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "154507418672872781": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "154507418673448027": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "154507419483151739": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317741174198818": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317744288316749": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317744288891995": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "255317745098595707": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "314305994557268899": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "314305997657652557": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "470940651560181255": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "470940654624095565": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "470940654624670811": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "470940655434374523": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "624276279757758456": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "624276282785971533": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "840454254537335985": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "840454257515216205": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1014055995163453070": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1014055998100913485": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1014055998101488731": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1014055998911192443": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833341783065421": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833341814757093": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1438833343137217469": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1438833344621624653": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833344622199899": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1438833345419217172": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1438833345431903611": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948036578624333": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948036610316005": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948036688291339": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948037700954497": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948038708024972": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948039417183565": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948039417758811": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948039552989184": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948039723912130": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948040147140637": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948040162834838": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1574948040227462523": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1574948040449133850": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1909849546034992869": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1909849546112968203": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849547357453245": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1909849548841860429": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849548842435675": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1909849549639452948": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "1909849549652139387": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207950027116234": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207952482581837": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3406731106081776612": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3406731108462148941": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4098674234826517120": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "4098674237045783885": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030500422183204": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502141246797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6259204691509073637": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6259204692599712129": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6259204692831534013": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6259204694315941197": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6259204694316516443": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6259204695113533716": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6259204695126220155": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6335481323224573618": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6335481324923043149": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872101754487629": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872101864154635": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872102876817793": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872103108639677": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872103883888268": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872104593046861": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872104593622107": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872104728852480": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872104899775426": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872105323003933": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872105338698134": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7254872105403325819": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7254872105624997146": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "7744856240231760311": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7744856241602084173": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826270395138347": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826271730777421": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826271731352667": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826272178511052": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826272541056379": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8561055852370262768": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8561055853550550349": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8800063631327763263": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8800063632452402509": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10407587663445962198": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10407587664196320589": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539446401259237": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10584539447723719613": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10584539448498968204": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539449208126797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539449208702043": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10584539450005719316": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10584539450018405755": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11095745749181006328": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11095745749771140429": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11095745749771715675": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11095745750581419387": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11100109667882992366": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11100109668472110413": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11374364255402376525": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123544293382251": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123544634998093": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123544635573339": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12163123545445277051": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12780640438878860483": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12780640439076699469": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13121616878975408391": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13121616879093857613": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248683673563669": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248683722947917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248683723523163": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13418248684533226875": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413820501325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073440066477": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073463538210": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073513741831": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073640195726": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073739096909": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073770788581": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823073848763915": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823074861427073": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823075093248957": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823075242017067": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823075868497548": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823075987522040": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076236040299": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076528271893": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076577656141": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076578231387": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076713461760": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076884384706": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077025389772": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077068993542": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077307613213": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077323307414": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077375248660": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077387935099": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077448644018": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077533114996": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823077609606426": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633103231669989": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14213633104554130365": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14213633106038537549": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633106039112795": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633106174343168": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14213633106836130068": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14213633106848816507": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741566437644005": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14947741567760104381": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14947741569244511565": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741569245086811": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741569551240130": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14947741570042104084": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "14947741570054790523": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15436881010740477261": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15436881011161092477": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15553353716284833101": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15553353716285408347": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15553353716732566732": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15553353717095112059": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15619992229826313549": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15619992230289562668": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15692051554736061773": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15692051555216088511": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15740630482417139021": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15740630482417714267": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15740630482908476422": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15740630483227417979": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16765494162737551077": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "16765494164060011453": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "16765494165544418637": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16765494165544993883": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16765494166274375709": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16765494166342011156": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "16765494166354697595": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16832900242769401573": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "16832900244091861949": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "16832900245576269133": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16832900245576844379": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16832900246321920406": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16832900246373861652": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "16832900246386548091": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986195621200717": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986195730867723": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986196743530881": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986197750601356": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986198459759949": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986198460335195": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986198595565568": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986198766488514": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986199189717021": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986199205411222": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17055986199257352468": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986199270038907": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17055986199491710234": {
+            "mClipName": "{9a0b82ee}",
+            "__type": "TransitionClipBlendData"
+          },
+          "17110474035929869229": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474035953340962": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474036003544583": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474036129998478": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474036228899661": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474036260591333": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474036338566667": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474037351229825": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474037583051709": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474037731819819": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474038358300300": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474038477324792": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474038725843051": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039018074645": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039067458893": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039068034139": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039203264512": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039374187458": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039515192524": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039558796294": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039797415965": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039813110166": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039865051412": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039877737851": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039938446770": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474040022917748": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474040099409178": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216860747971917": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216860748547163": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216861558250875": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17371216861618959794": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17494934892652838221": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17494934893552631447": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016948719107405": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016948719682651": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016949529386363": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17734016949674566260": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "18062545136186513125": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "18062545137508973501": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "18062545138993380685": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "18062545138993955931": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "18062545139790973204": {
+            "mClipName": "{650ec1aa}",
+            "__type": "TransitionClipBlendData"
+          },
+          "18062545139803659643": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "18062545140025330970": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "{e2d70959}",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    }
+  },
+  "models": {
+    "SRU_Murkwolf": {
+      "skinKey": "Characters/SRU_Murkwolf/Skins/Skin0",
+      "graphKey": "{a08f9b0c}",
+      "atomicClips": {
+        "{92e3d68c}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle1.anm",
+        "Attack1_base": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack1.anm",
+        "Attack2_base": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack4.anm",
+        "{23b3627c}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death.anm",
+        "{e4cb0f58}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_spawn.anm",
+        "{64ae7bbd}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro1.anm",
+        "{15db56e5}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro2.anm",
+        "{a8cc186b}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_n2a.anm",
+        "{419d82cf}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_a2n.anm",
+        "{f112f5b2}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_run.anm",
+        "{ba373215}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_pounce.anm",
+        "{bd31845b}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death2.anm",
+        "{ecb30914}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro3.anm",
+        "{13f7c34d}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle2.anm",
+        "{cf710bc2}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle3.anm",
+        "{1a81260b}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle4.anm",
+        "{c540f800}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle5.anm",
+        "{da71f406}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_l45.anm",
+        "{f61be274}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_r45.anm",
+        "{0224ebad}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_0.anm"
+      }
+    },
+    "SRU_MurkwolfMini": {
+      "skinKey": "Characters/SRU_MurkwolfMini/Skins/Skin0",
+      "graphKey": "{e2d70959}",
+      "atomicClips": {
+        "Attack1_base": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack3.anm",
+        "Attack2_base": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack2.anm",
+        "{ed749d7b}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_death3.anm",
+        "{f112f5b2}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_run.anm",
+        "{ba373215}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_pounce.anm",
+        "{faab0d1a}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1.anm",
+        "{bd31845b}": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death2.anm",
+        "{99fc01f8}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_left.anm",
+        "{06891e07}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_right.anm",
+        "{92e3d68c}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1.anm",
+        "{0e12a68e}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_a2n.anm",
+        "{a8cc186b}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_n2a.anm",
+        "{13f7c34d}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle2.anm",
+        "{cf710bc2}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle3.anm",
+        "{1a81260b}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle4.anm",
+        "{e8ab001d}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_howl.anm",
+        "{c540f800}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle5.anm",
+        "{15db56e5}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro2.anm",
+        "{ecb30914}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro3.anm",
+        "{64ae7bbd}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro1.anm",
+        "{56dd2981}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle6.anm",
+        "{e99a7996}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle7.anm",
+        "{0224ebad}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_0.anm",
+        "{da71f406}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_l45.anm",
+        "{f61be274}": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_r45.anm"
+      }
+    }
+  },
+  "evidence": {
+    "orderGroup": {
+      "function": "<main>",
+      "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+      "firstPc": 889,
+      "lastPc": 904,
+      "instructions": [
+        {
+          "pc": 889,
+          "word": "00248045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "CAMPTYPE_WOLVES"
+            }
+          ]
+        },
+        {
+          "pc": 890,
+          "word": "0180008a",
+          "op": "NEWTABLE",
+          "operands": [
+            2,
+            3,
+            0
+          ]
+        },
+        {
+          "pc": 891,
+          "word": "010000ca",
+          "op": "NEWTABLE",
+          "operands": [
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 892,
+          "word": "0030c101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": "SRU_Murkwolf"
+            }
+          ]
+        },
+        {
+          "pc": 893,
+          "word": "002e4141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "Spawn"
+            }
+          ]
+        },
+        {
+          "pc": 894,
+          "word": "010040e2",
+          "op": "SETLIST",
+          "operands": [
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 895,
+          "word": "0100010a",
+          "op": "NEWTABLE",
+          "operands": [
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 896,
+          "word": "00310141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "SRU_MurkwolfMini"
+            }
+          ]
+        },
+        {
+          "pc": 897,
+          "word": "00314181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "spawn_mini1"
+            }
+          ]
+        },
+        {
+          "pc": 898,
+          "word": "01004122",
+          "op": "SETLIST",
+          "operands": [
+            4,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 899,
+          "word": "0100014a",
+          "op": "NEWTABLE",
+          "operands": [
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 900,
+          "word": "00310181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "SRU_MurkwolfMini"
+            }
+          ]
+        },
+        {
+          "pc": 901,
+          "word": "003181c1",
+          "op": "LOADK",
+          "operands": [
+            7,
+            {
+              "constant": "spawn_mini2"
+            }
+          ]
+        },
+        {
+          "pc": 902,
+          "word": "01004162",
+          "op": "SETLIST",
+          "operands": [
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 903,
+          "word": "018040a2",
+          "op": "SETLIST",
+          "operands": [
+            2,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 904,
+          "word": "00808009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        }
+      ]
+    },
+    "chaosGroup": {
+      "function": "<main>",
+      "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+      "firstPc": 905,
+      "lastPc": 920,
+      "instructions": [
+        {
+          "pc": 905,
+          "word": "0024c045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "CAMPTYPE_WOLVES2"
+            }
+          ]
+        },
+        {
+          "pc": 906,
+          "word": "0180008a",
+          "op": "NEWTABLE",
+          "operands": [
+            2,
+            3,
+            0
+          ]
+        },
+        {
+          "pc": 907,
+          "word": "010000ca",
+          "op": "NEWTABLE",
+          "operands": [
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 908,
+          "word": "0030c101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": "SRU_Murkwolf"
+            }
+          ]
+        },
+        {
+          "pc": 909,
+          "word": "002e4141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "Spawn"
+            }
+          ]
+        },
+        {
+          "pc": 910,
+          "word": "010040e2",
+          "op": "SETLIST",
+          "operands": [
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 911,
+          "word": "0100010a",
+          "op": "NEWTABLE",
+          "operands": [
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 912,
+          "word": "00310141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "SRU_MurkwolfMini"
+            }
+          ]
+        },
+        {
+          "pc": 913,
+          "word": "00318181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "spawn_mini2"
+            }
+          ]
+        },
+        {
+          "pc": 914,
+          "word": "01004122",
+          "op": "SETLIST",
+          "operands": [
+            4,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 915,
+          "word": "0100014a",
+          "op": "NEWTABLE",
+          "operands": [
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 916,
+          "word": "00310181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "SRU_MurkwolfMini"
+            }
+          ]
+        },
+        {
+          "pc": 917,
+          "word": "003141c1",
+          "op": "LOADK",
+          "operands": [
+            7,
+            {
+              "constant": "spawn_mini1"
+            }
+          ]
+        },
+        {
+          "pc": 918,
+          "word": "01004162",
+          "op": "SETLIST",
+          "operands": [
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 919,
+          "word": "018040a2",
+          "op": "SETLIST",
+          "operands": [
+            2,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 920,
+          "word": "00808009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        }
+      ]
+    },
+    "order": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 351,
+      "lastPc": 397,
+      "instructions": [
+        {
+          "pc": 351,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 352,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 353,
+          "word": "a0564009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Order Wolves"
+            }
+          ]
+        },
+        {
+          "pc": 354,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 355,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 356,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 357,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 358,
+          "word": "001680c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_WOLVES"
+            }
+          ]
+        },
+        {
+          "pc": 359,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 360,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 361,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 362,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 363,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 364,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 365,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 366,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 367,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 368,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 369,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 370,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 371,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 372,
+          "word": "0152c08e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 373,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 374,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 375,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 376,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 377,
+          "word": "00134045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_ORDER"
+            }
+          ]
+        },
+        {
+          "pc": 378,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 379,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 380,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 381,
+          "word": "9456c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 0.66
+            }
+          ]
+        },
+        {
+          "pc": 382,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 383,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 384,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 385,
+          "word": "00170081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 3547.62
+            }
+          ]
+        },
+        {
+          "pc": 386,
+          "word": "001740c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 52.48
+            }
+          ]
+        },
+        {
+          "pc": 387,
+          "word": "00178101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 6230.66
+            }
+          ]
+        },
+        {
+          "pc": 388,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 389,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 390,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 391,
+          "word": "00560006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 392,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 393,
+          "word": "0017c081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 3813.45
+            }
+          ]
+        },
+        {
+          "pc": 394,
+          "word": "001800c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 52.46
+            }
+          ]
+        },
+        {
+          "pc": 395,
+          "word": "00184101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 6466.75
+            }
+          ]
+        },
+        {
+          "pc": 396,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 397,
+          "word": "9d004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualCenter"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "chaos": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 752,
+      "lastPc": 798,
+      "instructions": [
+        {
+          "pc": 752,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 753,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 754,
+          "word": "a0674009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Chaos Wolves"
+            }
+          ]
+        },
+        {
+          "pc": 755,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 756,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 757,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 758,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 759,
+          "word": "002780c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_WOLVES2"
+            }
+          ]
+        },
+        {
+          "pc": 760,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 761,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 762,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 763,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 764,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 765,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 766,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 767,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 768,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 769,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 770,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 771,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 772,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 773,
+          "word": "0152c08e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 774,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 775,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 776,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 777,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 778,
+          "word": "00254045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_CHAOS"
+            }
+          ]
+        },
+        {
+          "pc": 779,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 780,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 781,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 782,
+          "word": "9456c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 0.66
+            }
+          ]
+        },
+        {
+          "pc": 783,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 784,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 785,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 786,
+          "word": "0027c081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 11216.68
+            }
+          ]
+        },
+        {
+          "pc": 787,
+          "word": "002800c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 62.15
+            }
+          ]
+        },
+        {
+          "pc": 788,
+          "word": "00284101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 8629.35
+            }
+          ]
+        },
+        {
+          "pc": 789,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 790,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 791,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 792,
+          "word": "00670006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 8.0
+            }
+          ]
+        },
+        {
+          "pc": 793,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 794,
+          "word": "00288081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 10979.81
+            }
+          ]
+        },
+        {
+          "pc": 795,
+          "word": "0028c0c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 62.39
+            }
+          ]
+        },
+        {
+          "pc": 796,
+          "word": "00290101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 8356.89
+            }
+          ]
+        },
+        {
+          "pc": 797,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 798,
+          "word": "9d004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualCenter"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "camps": [
+    {
+      "index": 2,
+      "name": "Order Wolves",
+      "anchorEntity": "{8e4dbd20}",
+      "members": [
+        {
+          "character": "SRU_Murkwolf",
+          "spawnClip": "spawn",
+          "lookup": "OrderWolves1",
+          "locator": {
+            "transform": [
+              [
+                -0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                3780.6279296875,
+                45.0,
+                6443.98388671875,
+                1.0
+              ]
+            ],
+            "name": "OrderWolves1",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 67,
+            "lastPc": 69,
+            "instructions": [
+              {
+                "pc": 67,
+                "word": "000800c5",
+                "op": "GETGLOBAL",
+                "operands": [
+                  3,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 68,
+                "word": "0008c101",
+                "op": "LOADK",
+                "operands": [
+                  4,
+                  {
+                    "constant": "OrderWolves1"
+                  }
+                ]
+              },
+              {
+                "pc": 69,
+                "word": "010080dc",
+                "op": "CALL",
+                "operands": [
+                  3,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_MurkwolfMini",
+          "spawnClip": "spawn_mini1",
+          "lookup": "OrderWolves2",
+          "locator": {
+            "transform": [
+              [
+                -0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                3980.6279296875,
+                45.0,
+                6443.98388671875,
+                1.0
+              ]
+            ],
+            "name": "OrderWolves2",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 70,
+            "lastPc": 72,
+            "instructions": [
+              {
+                "pc": 70,
+                "word": "00080105",
+                "op": "GETGLOBAL",
+                "operands": [
+                  4,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 71,
+                "word": "00090141",
+                "op": "LOADK",
+                "operands": [
+                  5,
+                  {
+                    "constant": "OrderWolves2"
+                  }
+                ]
+              },
+              {
+                "pc": 72,
+                "word": "0100811c",
+                "op": "CALL",
+                "operands": [
+                  4,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_MurkwolfMini",
+          "spawnClip": "spawn_mini2",
+          "lookup": "OrderWolves3",
+          "locator": {
+            "transform": [
+              [
+                -0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                3730.6279296875,
+                45.0,
+                6593.98388671875,
+                1.0
+              ]
+            ],
+            "name": "OrderWolves3",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 73,
+            "lastPc": 75,
+            "instructions": [
+              {
+                "pc": 73,
+                "word": "00080145",
+                "op": "GETGLOBAL",
+                "operands": [
+                  5,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 74,
+                "word": "00094181",
+                "op": "LOADK",
+                "operands": [
+                  6,
+                  {
+                    "constant": "OrderWolves3"
+                  }
+                ]
+              },
+              {
+                "pc": 75,
+                "word": "0100015c",
+                "op": "CALL",
+                "operands": [
+                  5,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "settings": {
+        "SpawnDuration": 0.66,
+        "VisualFacing": [
+          3547.62,
+          52.48,
+          6230.66
+        ]
+      },
+      "inheritedRespawnSeconds": 135.0
+    },
+    {
+      "index": 8,
+      "name": "Chaos Wolves",
+      "anchorEntity": "{f15c8aff}",
+      "members": [
+        {
+          "character": "SRU_Murkwolf",
+          "spawnClip": "spawn",
+          "lookup": "ChaosWolves1",
+          "locator": {
+            "transform": [
+              [
+                0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                11008.15234375,
+                51.2400016784668,
+                8387.408203125,
+                1.0
+              ]
+            ],
+            "name": "ChaosWolves1",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 133,
+            "lastPc": 135,
+            "instructions": [
+              {
+                "pc": 133,
+                "word": "00080245",
+                "op": "GETGLOBAL",
+                "operands": [
+                  9,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 134,
+                "word": "000d0281",
+                "op": "LOADK",
+                "operands": [
+                  10,
+                  {
+                    "constant": "ChaosWolves1"
+                  }
+                ]
+              },
+              {
+                "pc": 135,
+                "word": "0100825c",
+                "op": "CALL",
+                "operands": [
+                  9,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_MurkwolfMini",
+          "spawnClip": "spawn_mini2",
+          "lookup": "ChaosWolves2",
+          "locator": {
+            "transform": [
+              [
+                0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                11058.15234375,
+                51.2400016784668,
+                8217.408203125,
+                1.0
+              ]
+            ],
+            "name": "ChaosWolves2",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 136,
+            "lastPc": 138,
+            "instructions": [
+              {
+                "pc": 136,
+                "word": "00080285",
+                "op": "GETGLOBAL",
+                "operands": [
+                  10,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 137,
+                "word": "000d42c1",
+                "op": "LOADK",
+                "operands": [
+                  11,
+                  {
+                    "constant": "ChaosWolves2"
+                  }
+                ]
+              },
+              {
+                "pc": 138,
+                "word": "0100829c",
+                "op": "CALL",
+                "operands": [
+                  10,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_MurkwolfMini",
+          "spawnClip": "spawn_mini1",
+          "lookup": "ChaosWolves3",
+          "locator": {
+            "transform": [
+              [
+                0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                10808.15234375,
+                51.2400016784668,
+                8387.408203125,
+                1.0
+              ]
+            ],
+            "name": "ChaosWolves3",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 139,
+            "lastPc": 141,
+            "instructions": [
+              {
+                "pc": 139,
+                "word": "000802c5",
+                "op": "GETGLOBAL",
+                "operands": [
+                  11,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 140,
+                "word": "000d8301",
+                "op": "LOADK",
+                "operands": [
+                  12,
+                  {
+                    "constant": "ChaosWolves3"
+                  }
+                ]
+              },
+              {
+                "pc": 141,
+                "word": "010002dc",
+                "op": "CALL",
+                "operands": [
+                  11,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "settings": {
+        "SpawnDuration": 0.66,
+        "VisualFacing": [
+          11216.68,
+          62.15,
+          8629.35
+        ]
+      },
+      "inheritedRespawnSeconds": 135.0
+    }
+  ],
+  "status": "Original base rigs and legacy three-member construction. Active native initialization, scaling, patience, missing mini damage/CS and effects/audio remain unverified."
+}

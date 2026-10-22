@@ -1,0 +1,456 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sru-murkwolf-base.glb",
+    "bytes": 1675600,
+    "sha256": "86477140cba0f0becf10859a2978b7f46068a99f2c7807d9b2c6366ada59014e"
+  },
+  "definitionsSha256": "0357ac24d5c9a08f2d1001e9ea8963f008a361cc917717752a85f5ee0c7cb791",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_murkwolf/skins/skin0.bin",
+      "wadPathHash": "f976ba55e5d8fe8c",
+      "sha256": "f6ab6cbe116e80edde7c22ee154a5fdf2bc47457f5342d8b1f3b69e287739779",
+      "bytes": 1011
+    },
+    {
+      "path": "data/characters/sru_murkwolf/animations/skin0.bin",
+      "wadPathHash": "0e0d4ed228d952d3",
+      "sha256": "eabf8b3c2c85f63d6fbe23ce000c33532107b53c56a6f29926dfebe76f356c05",
+      "bytes": 10222
+    },
+    {
+      "path": "data/characters/sru_murkwolfmini/skins/skin0.bin",
+      "wadPathHash": "9199762fc031f08e",
+      "sha256": "5a4d414a4f4a9f997595cd47b658a10dbfe5d5b5ad3b497846ac66571b26bbe6",
+      "bytes": 672
+    },
+    {
+      "path": "data/characters/sru_murkwolfmini/animations/skin0.bin",
+      "wadPathHash": "ec19ce873dd5e3a0",
+      "sha256": "05974ac550dd227e469af0c06820724a1e2575a5a78ff5c41738a731633e0fa9",
+      "bytes": 12281
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack1.anm",
+      "wadPathHash": "10ff9925db9ba937",
+      "sha256": "457bdf9847768689923e20116e1d4298508a3d1b955bee2c24d18f68da80a052",
+      "bytes": 33324
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack2.anm",
+      "wadPathHash": "1e0549d9f7b1fca0",
+      "sha256": "506dd318328868859618731269b95c1caa4e52dcfd744b0c6414a0e583f28586",
+      "bytes": 34314
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack3.anm",
+      "wadPathHash": "267e4edfe4c58579",
+      "sha256": "d0fc169ca304cc6fe13874de8d7e7283ac33676d28ddcf182f5439f1baed09df",
+      "bytes": 35004
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack4.anm",
+      "wadPathHash": "4337625105db61e5",
+      "sha256": "2832ff3ba599fbfca1dd3a741b6d461b93e273937ccdc483b33e2879b35f299f",
+      "bytes": 37128
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death.anm",
+      "wadPathHash": "6900e069219a29be",
+      "sha256": "080c2a3ce8e33932dadb47be23cb9e59a324c428554b6549b7e176b52ed8ab6f",
+      "bytes": 41678
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death2.anm",
+      "wadPathHash": "7c471990d45b4f1b",
+      "sha256": "0d1d5f18dd4ad0933fe1b4ff2d51096adcae93d8d45e1490a4ce6789d629f832",
+      "bytes": 38378
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle1.anm",
+      "wadPathHash": "b08bb7d4e9816a04",
+      "sha256": "0ed35d3dd32eb50f18164d443a8f22bbfc6dcd4102d7c6c5553a1a163ed7f2d3",
+      "bytes": 13740
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle2.anm",
+      "wadPathHash": "9274c6730d870d90",
+      "sha256": "646974bc5e72385b130c25b6024b5ac56a6715dda3ef81ae51db772d5ea791a9",
+      "bytes": 14320
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle3.anm",
+      "wadPathHash": "32d754cfc6d47263",
+      "sha256": "b81b9c793b5d8df7db56ef3151aa99243a5ca77975c1762d3e100e82721e2add",
+      "bytes": 14040
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle4.anm",
+      "wadPathHash": "0efb2881b9994023",
+      "sha256": "757238eb8e1659f9d5723574abcb2842eb1b4fab4e914e72c6ec50894a99ebab",
+      "bytes": 13880
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle5.anm",
+      "wadPathHash": "abbc3606147675c1",
+      "sha256": "4b4f700d52f0f6ee733c497025f4a71e84d61882af4255cde3b6a7b802bfe92b",
+      "bytes": 14150
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_a2n.anm",
+      "wadPathHash": "6c8c11883ff48748",
+      "sha256": "30e9d8d94245422e8f94f155df43fdd055ffc4d59957040fb1e5bd87b91877f7",
+      "bytes": 27154
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro1.anm",
+      "wadPathHash": "6f577aa50482dd1f",
+      "sha256": "a23666c9b38126e829ed8c805858961eac86e9c3dace49cfad1bdff6520b4339",
+      "bytes": 15550
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro2.anm",
+      "wadPathHash": "fcb6a29161847cc8",
+      "sha256": "2bac29bcd6910ae558a2d3a915b147e67fa4048230205b31875f242524224310",
+      "bytes": 21150
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro3.anm",
+      "wadPathHash": "567eaae1aaf464a1",
+      "sha256": "ac7ba01a89c3d73a060aba39ad67df7d6cdc831e9f735987bce376d1e9801c42",
+      "bytes": 20790
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_0.anm",
+      "wadPathHash": "aa5234503300b71b",
+      "sha256": "35ca1349c98dc3be0658986f47796b7e7ee1c133087ac94ce1d8ceb865d2878c",
+      "bytes": 860
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_l45.anm",
+      "wadPathHash": "1ed72915d5630bbd",
+      "sha256": "6325e02b21ece01bf14147692081958ca8e4663b4005ac42f6dc9aacb0873b7e",
+      "bytes": 926
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_r45.anm",
+      "wadPathHash": "e873ea49d5af8790",
+      "sha256": "8eb8c22fac7d040ba6e4c4582700c2dab0def8f08c87baede605f54dcaf2c01e",
+      "bytes": 926
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_n2a.anm",
+      "wadPathHash": "db474641498a4df1",
+      "sha256": "47bae0bd3a6e2bd3e49761717a452b4a731b5c60d1c31cc71a07f19c04162ab2",
+      "bytes": 32654
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_pounce.anm",
+      "wadPathHash": "d608d22817cf43e8",
+      "sha256": "8e281bb3772ccda88042996405cb5254c1c0b95e00f8d2fa9b0e325bdb7a9131",
+      "bytes": 14222
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_run.anm",
+      "wadPathHash": "fbafaf8ef21fe310",
+      "sha256": "2cb392734106d8660aa241e6dd3de850e0598dc033b5c3dc26db36b1ce4a01d7",
+      "bytes": 17280
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_spawn.anm",
+      "wadPathHash": "4ac0d0e0528660e4",
+      "sha256": "e0bb72ae41f750fac94e1690f6aaaff1e2c6cac0663debe4b20d9dd58eaa67eb",
+      "bytes": 42898
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.skl",
+      "wadPathHash": "3c7b8d96370f2fce",
+      "sha256": "d4530f8bd86c7afc4e6860b7a185649950bf590d84521a01cf2f10fa1d625ca2",
+      "bytes": 7584
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.skn",
+      "wadPathHash": "e561a5d8263dc9f9",
+      "sha256": "b3385bfef9cb071276f10d31790a34e4469452051353cabd91894bc9186ebd96",
+      "bytes": 197972
+    },
+    {
+      "path": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.tex",
+      "wadPathHash": "d39172f016889a9e",
+      "sha256": "4d51c41ac57624f44ffd9255ee30d593d86fc1adeaa9d3fa45993473050482cf",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_death3.anm",
+      "wadPathHash": "aa139d6049e9bb97",
+      "sha256": "bcc7aa7b0db85d9a04745c0921c2fb2da31219a3babfa30d46ee3694f0452849",
+      "bytes": 32090
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_howl.anm",
+      "wadPathHash": "180082ec3d9180b3",
+      "sha256": "286ba08cb98d310df1c0cf6aba005a8073172e6e927dbc66976db746d524692f",
+      "bytes": 18912
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1.anm",
+      "wadPathHash": "982e7d60e3ddd590",
+      "sha256": "55cfa025576fa6c094548215b0265bd72e58916ddd93cf7efd686752f354b0cf",
+      "bytes": 14182
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_a2n.anm",
+      "wadPathHash": "9f50b532f199b767",
+      "sha256": "c94c8de704f77d55934c7603f2d9149e53c89d1a2049aa0bb998431eaab5baa2",
+      "bytes": 15572
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_0.anm",
+      "wadPathHash": "f00d07d15f944893",
+      "sha256": "54db3e2562242bba5e7f97615e7175f996ec4ef053f710a04ad769db93dc7b68",
+      "bytes": 796
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_l45.anm",
+      "wadPathHash": "650d7e0fd671eeed",
+      "sha256": "61ba62cc805383338bb352e8cf85320e19ac2a780b3d6c29ba4a9def1f32bb82",
+      "bytes": 832
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_lookat_r45.anm",
+      "wadPathHash": "455468525ca4a8ef",
+      "sha256": "f5528c4e4277f61aeb09926feb6fe0bbd31b2b3d0763f569dd4ac2162b71c27a",
+      "bytes": 832
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle1_n2a.anm",
+      "wadPathHash": "5fd0a51085870c21",
+      "sha256": "16296571a178d9e33255575548c563887f6c5d35f45eb6b0078815d68b71a82f",
+      "bytes": 18362
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle2.anm",
+      "wadPathHash": "cdf7d0cae2aabe18",
+      "sha256": "1a4dd0407f7b35427a946f3682271c07294ee38ef75c2c1688f267a09ca42890",
+      "bytes": 14432
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle3.anm",
+      "wadPathHash": "4f5a15a78cdb5ee1",
+      "sha256": "468ef848c42be46ea1fb680fa7494603b9e50762d96079768863755ddae208fe",
+      "bytes": 18732
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle4.anm",
+      "wadPathHash": "e2acf168ba770a88",
+      "sha256": "aef08d22acbf5ec039e3f81619cf1472d5c5403dfec50313876d34f23ef7752e",
+      "bytes": 14262
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle5.anm",
+      "wadPathHash": "b6a2b9199d765d9b",
+      "sha256": "e2706ab0d8e09f2e7d8d7fd1c654ed8bc2f776f3831314a656429e06cce23328",
+      "bytes": 21012
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle6.anm",
+      "wadPathHash": "f8d9e4aabcbefdb9",
+      "sha256": "a3c9805d6c415b705cf9327c544dc2721b6af1fb312d8bfb37df8f03e409c2ff",
+      "bytes": 13942
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle7.anm",
+      "wadPathHash": "ec04afc45232a77f",
+      "sha256": "125e07fdb1de7606702916262e80d4d7db52b3536f57041f22abfa9740b5119e",
+      "bytes": 13962
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro1.anm",
+      "wadPathHash": "b5d1066d24e96cf5",
+      "sha256": "d28781dfc31609a679429890be185f670571ac92aec5e7ee139c4dd8e1a822ef",
+      "bytes": 14902
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro2.anm",
+      "wadPathHash": "1ef41856186b1500",
+      "sha256": "34468a13f6044f778730674313017716b9b896d583e28fe4b45c91f08fd7a9df",
+      "bytes": 31090
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_idle_aggro3.anm",
+      "wadPathHash": "4ebdac1a2f3b08ea",
+      "sha256": "d35fbf014725cec8d597896893f939460fa64e4bd3d6e565bb7e9ccc5b460d1c",
+      "bytes": 14842
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_left.anm",
+      "wadPathHash": "a2fbad092b965ceb",
+      "sha256": "f63f4e2c91f2c5c475f8d22db717edd942e1abae10ebf3792fa8004fcaa06d06",
+      "bytes": 32110
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/animations/sru_murkwolfmini_spawn_right.anm",
+      "wadPathHash": "4c033f7cab8a1cca",
+      "sha256": "3b28e9e1f4fd652f2afc9154c3eebb274edb6c6cd1ccd2f4297b31445bdda36c",
+      "bytes": 30640
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/sru_murkwolfmini.skl",
+      "wadPathHash": "54b6417efd35f6b9",
+      "sha256": "3927f68209225b71b51b1f4b84e235a37b379ca22670757ecde44b89d60e41ac",
+      "bytes": 7048
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/sru_murkwolfmini.skn",
+      "wadPathHash": "84dc8a3f5c637e10",
+      "sha256": "aefc55598db6ee8f6b6c3e53905b12e0263624689b1de8307d554bfb334794a7",
+      "bytes": 144116
+    },
+    {
+      "path": "assets/characters/sru_murkwolfmini/skins/base/sru_murkwolfmini.tex",
+      "wadPathHash": "ba3fcd69f85ceb6d",
+      "sha256": "02cc0cbf22d7df01e808ed5e2251748bedf9889ea6c369409054ea4fcf6a08c9",
+      "bytes": 174788
+    }
+  ],
+  "unitScale": 0.012000000476837159,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1.2000000476837158,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "wolf_mat1": "assets/characters/sru_murkwolf/skins/base/sru_murkwolf.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_92e3d68c",
+      "state": "{92e3d68c}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle1.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "attack1_base",
+      "state": "Attack1_base",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack1.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "attack2_base",
+      "state": "Attack2_base",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_attack4.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_23b3627c",
+      "state": "{23b3627c}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death.anm",
+      "durationSeconds": 3.3000001907348633
+    },
+    {
+      "name": "entry_e4cb0f58",
+      "state": "{e4cb0f58}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_spawn.anm",
+      "durationSeconds": 2.433333396911621
+    },
+    {
+      "name": "entry_64ae7bbd",
+      "state": "{64ae7bbd}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro1.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_15db56e5",
+      "state": "{15db56e5}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro2.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "entry_a8cc186b",
+      "state": "{a8cc186b}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_n2a.anm",
+      "durationSeconds": 1.7666667699813843
+    },
+    {
+      "name": "entry_419d82cf",
+      "state": "{419d82cf}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_a2n.anm",
+      "durationSeconds": 2.6666667461395264
+    },
+    {
+      "name": "entry_f112f5b2",
+      "state": "{f112f5b2}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_run.anm",
+      "durationSeconds": 0.7666667103767395
+    },
+    {
+      "name": "entry_ba373215",
+      "state": "{ba373215}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_pounce.anm",
+      "durationSeconds": 0.6000000238418579
+    },
+    {
+      "name": "entry_bd31845b",
+      "state": "{bd31845b}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_death2.anm",
+      "durationSeconds": 3.3000001907348633
+    },
+    {
+      "name": "entry_ecb30914",
+      "state": "{ecb30914}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_aggro3.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "entry_13f7c34d",
+      "state": "{13f7c34d}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle2.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "entry_cf710bc2",
+      "state": "{cf710bc2}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle3.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "entry_1a81260b",
+      "state": "{1a81260b}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle4.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "entry_c540f800",
+      "state": "{c540f800}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle5.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "entry_da71f406",
+      "state": "{da71f406}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_l45.anm",
+      "durationSeconds": 0
+    },
+    {
+      "name": "entry_f61be274",
+      "state": "{f61be274}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_r45.anm",
+      "durationSeconds": 0
+    },
+    {
+      "name": "entry_0224ebad",
+      "state": "{0224ebad}",
+      "source": "assets/characters/sru_murkwolf/skins/base/animations/sru_murkwolf_idle_lookat_0.anm",
+      "durationSeconds": 0
+    }
+  ],
+  "triangles": 4706,
+  "bones": 61
+}

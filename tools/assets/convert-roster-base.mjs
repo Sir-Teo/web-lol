@@ -7,14 +7,30 @@ import { ALL_EXTENSIONS, KHRMaterialsUnlit } from '@gltf-transform/extensions';
 import { resample, dedup, prune } from '@gltf-transform/functions';
 const hash = (b) => createHash('sha256').update(b).digest('hex');
 const champion = process.argv[2];
-if (!['Garen', 'Ahri', 'SRU_Blue', 'SRU_Gromp', 'SRU_Red'].includes(champion))
-  throw new Error('Expected Garen, Ahri, SRU_Blue, SRU_Gromp or SRU_Red');
+if (
+  ![
+    'Garen',
+    'Ahri',
+    'SRU_Blue',
+    'SRU_Gromp',
+    'SRU_Red',
+    'SRU_Murkwolf',
+    'SRU_MurkwolfMini',
+  ].includes(champion)
+)
+  throw new Error('Expected a supported champion or ordinary jungle base rig');
 const jungle = champion.startsWith('SRU_');
 const sourceSlug = champion.toLowerCase();
 const slug = sourceSlug.replaceAll('_', '-');
-const pinBytes = await readFile(
+const sourceGroup =
   champion === 'SRU_Red'
-    ? 'docs/reference/red-brambleback-source.json'
+    ? 'red-brambleback'
+    : champion.startsWith('SRU_Murkwolf')
+      ? 'wolf-camps'
+      : null;
+const pinBytes = await readFile(
+  sourceGroup
+    ? `docs/reference/${sourceGroup}-source.json`
     : jungle
       ? 'docs/reference/jungle-character-source.json'
       : `docs/reference/${slug}-model.json`
@@ -27,12 +43,11 @@ const pin = jungle
       atomicClips: sourcePin.models[champion].atomicClips,
     }
   : sourcePin;
-const root =
-  champion === 'SRU_Red'
-    ? '.cache/red-brambleback'
-    : jungle
-      ? '.cache/jungle-characters'
-      : `.cache/${slug}-current-sources`;
+const root = sourceGroup
+  ? `.cache/${sourceGroup}`
+  : jungle
+    ? '.cache/jungle-characters'
+    : `.cache/${slug}-current-sources`;
 for (const f of pin.extraction.files) {
   const b = await readFile(`${root}/${f.path}`);
   if (b.length !== f.bytes || hash(b) !== f.sha256)
