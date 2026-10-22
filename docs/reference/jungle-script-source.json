@@ -1,0 +1,3831 @@
+{
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Scripts.wad.client",
+    "chunks": {
+      "9D6B139F5625E74C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35852845,
+        "bytes": 75450,
+        "sha256": "e4a4f61beea877cab9ed30be0b521a2c01e7f6af05f4b7d08f671d52e37d8512"
+      },
+      "70B13796F6370E48": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35928295,
+        "bytes": 183603,
+        "sha256": "9fbae2c2d3807eb7c27870f4501c9507acd95531ae0d44d14587704e864650b7"
+      },
+      "0A15B7F6D72C6848": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36111898,
+        "bytes": 90579,
+        "sha256": "18caaf1d6c0d94c2db7d820d10107b61abe7587263760709d51061c4240b175b"
+      },
+      "8DFE49A4492DA71F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36202477,
+        "bytes": 138822,
+        "sha256": "3cfdf55545a2898d937d694a29cfdc1623e143769f61c4446f635e4044e7c32a"
+      },
+      "D2860162132D3784": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36341299,
+        "bytes": 144181,
+        "sha256": "809f3aafcdd55c68050b689a201e707f863e20bd0075ea2cf1533509b5eb19f6"
+      },
+      "63611195382B0C7A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36485480,
+        "bytes": 95916,
+        "sha256": "2261825b9572b17d9586307244f9d821c29068e934410a279fdf41d957cfd8a1"
+      },
+      "F6B96CAAE2654A23": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36581396,
+        "bytes": 81491,
+        "sha256": "b20123e9a1c5439f1cb352cf61f38bb93d2474314b3998777ab3e53bc4429a8c"
+      },
+      "AC6C3E04B54120B0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36662887,
+        "bytes": 60523,
+        "sha256": "cec143c1ae0cd3df9803c26591b10d09e40589bbf32d833a6e637af1f7850c2b"
+      },
+      "035412E213D8C3D4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 1825449,
+        "bytes": 263,
+        "sha256": "887bbcac65e7e99295f57a876cf8cb00615631d5d50b962775e0f3d928a83ce5"
+      },
+      "3AC6AFFA204B6CB5": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 2113916,
+        "bytes": 8928,
+        "sha256": "9d49814b06f4d54a4af450305fc7a297576b88cd836c67f8a7a1bf58a1dc8555"
+      },
+      "985AADF3F638D44A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 1845171,
+        "bytes": 185,
+        "sha256": "65fa36ab345ef9eebdd3b0b2f96ff33dac9d602545b03109b42ca851856e7cd3"
+      },
+      "25A7413AE5278865": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 2065113,
+        "bytes": 408,
+        "sha256": "9ce1d31d2148a336707c1ec519673659131c8bdaea68058d5bbd0f68eb6a3301"
+      },
+      "188A760A7FCB63BF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FFE4576B475CD3F3.bundle",
+        "offset": 8716968,
+        "bytes": 48,
+        "sha256": "9a654fb069f636591c44871e4a3a52ad8f963354278b04b8efe838bc1631086b"
+      },
+      "E1A4A2B23A74A6DD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 402304,
+        "bytes": 191,
+        "sha256": "2e3b629a630f50446a2719781be385645b10117e77f9f8d800d42e6bea14332d"
+      },
+      "F4D44C0ECE244774": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 2132081,
+        "bytes": 10857,
+        "sha256": "32a22e7a565d0b45f4554b3f9bb426868696633ee87ab2f60de42131fdb80e1d"
+      },
+      "BB4C3C936ABA2671": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 1581166,
+        "bytes": 9574,
+        "sha256": "3e8327c7c0f05c7c07233f443eba2c3b51e7f5f4e447915c07da07777e69f4be"
+      }
+    },
+    "files": [
+      {
+        "path": "levels/map11/scripts/levelscript.luabin64",
+        "wadPathHash": "602c40b55cec0f73",
+        "sha256": "90db6fe3c29b9c95be53df41cb5b13240debafa9e6606e70f9f59b7cff80b04d",
+        "bytes": 580
+      },
+      {
+        "path": "levels/map11/scripts/neutralminionspawn.luabin64",
+        "wadPathHash": "60d7aa4cb4e649ba",
+        "sha256": "c5789c79ed76c4487ec34a5cc86623cfcf28b7456ab72fc6683ba7c0a89bccca",
+        "bytes": 27548
+      },
+      {
+        "path": "levels/map11/scripts/neutralminionspawn_srx.luabin64",
+        "wadPathHash": "6f2ae1a3c91062dd",
+        "sha256": "7ac4e5fe88b0ccd7bb84a14a6c0c638f6265364de019777e85bef6c216533b65",
+        "bytes": 351
+      },
+      {
+        "path": "levels/map11/scripts/campspawnmarkers.luabin64",
+        "wadPathHash": "9b4e69bfc800c6e4",
+        "sha256": "15ecc241657afd285f12e0345a37a080cd39bcaf22e11322c5d6daf42ae7a3d7",
+        "bytes": 616
+      },
+      {
+        "path": "data/characters/sru_gromp/charscriptsru_gromp.luabin64",
+        "wadPathHash": "b530893274acc84d",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      },
+      {
+        "path": "data/characters/sru_gromp/spells/sru_grompbasicattack.luabin64",
+        "wadPathHash": "9db901954fe4d0a8",
+        "sha256": "4e0809110d958ba871179cbe719a60a437ba5fb57eb76cd78cd827b489e0adff",
+        "bytes": 246
+      },
+      {
+        "path": "data/spells/modules/junglecampspawn.luabin64",
+        "wadPathHash": "dd45d7ac0fb27a2f",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      },
+      {
+        "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+        "wadPathHash": "df6222afb23359a2",
+        "sha256": "084855e95a1389ee57f4571596d99bd1cbef29fa5320c42216786fc16323d197",
+        "bytes": 35486
+      },
+      {
+        "path": "data/shared/scripts/sr_levelscript.luabin64",
+        "wadPathHash": "8d642514a6aabe27",
+        "sha256": "32cda360f13e962ea4a385c605b89c50a995987ae1d9dc9e159c2bb7705725fc",
+        "bytes": 34497
+      }
+    ]
+  },
+  "mapSourcePin": "docs/reference/jungle-map-source.json",
+  "mapSourcePinSha256": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93",
+  "sourceABI": "Lua 5.1 LE int4 size_t8 instruction4 number8 float",
+  "evidence": {
+    "defaults": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "SetupNeutralMinionSpawnDefaults",
+      "codeSha256": "874e09f1e3d680ae09983099cba6471f3c237a9c1294fa41d9a866cc3e97042b",
+      "firstPc": 1,
+      "lastPc": 8,
+      "instructions": [
+        {
+          "pc": 1,
+          "word": "00004001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": 65.0
+            }
+          ]
+        },
+        {
+          "pc": 2,
+          "word": "00000007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "MINION_SPAWN_START_TIME"
+            }
+          ]
+        },
+        {
+          "pc": 3,
+          "word": "0000c001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": 22.0
+            }
+          ]
+        },
+        {
+          "pc": 4,
+          "word": "00008007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 5,
+          "word": "00014001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": 2.0
+            }
+          ]
+        },
+        {
+          "pc": 6,
+          "word": "00010007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "RED_BLUE_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 7,
+          "word": "0001c001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 8,
+          "word": "00018007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        }
+      ]
+    },
+    "spawnLookups": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "<main>",
+      "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+      "firstPc": 190,
+      "lastPc": 216,
+      "instructions": [
+        {
+          "pc": 190,
+          "word": "0000034a",
+          "op": "NEWTABLE",
+          "operands": [
+            13,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 191,
+          "word": "00080385",
+          "op": "GETGLOBAL",
+          "operands": [
+            14,
+            {
+              "constant": "Get3DPointPosition"
+            }
+          ]
+        },
+        {
+          "pc": 192,
+          "word": "001103c1",
+          "op": "LOADK",
+          "operands": [
+            15,
+            {
+              "constant": "OrderOwlbear"
+            }
+          ]
+        },
+        {
+          "pc": 193,
+          "word": "0100039c",
+          "op": "CALL",
+          "operands": [
+            14,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 194,
+          "word": "00004362",
+          "op": "SETLIST",
+          "operands": [
+            13,
+            0,
+            1
+          ]
+        },
+        {
+          "pc": 195,
+          "word": "0000038a",
+          "op": "NEWTABLE",
+          "operands": [
+            14,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 196,
+          "word": "000803c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            15,
+            {
+              "constant": "Get3DPointPosition"
+            }
+          ]
+        },
+        {
+          "pc": 197,
+          "word": "00114401",
+          "op": "LOADK",
+          "operands": [
+            16,
+            {
+              "constant": "ChaosOwlbear"
+            }
+          ]
+        },
+        {
+          "pc": 198,
+          "word": "010003dc",
+          "op": "CALL",
+          "operands": [
+            15,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 199,
+          "word": "000043a2",
+          "op": "SETLIST",
+          "operands": [
+            14,
+            0,
+            1
+          ]
+        },
+        {
+          "pc": 200,
+          "word": "000003ca",
+          "op": "NEWTABLE",
+          "operands": [
+            15,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 201,
+          "word": "00080405",
+          "op": "GETGLOBAL",
+          "operands": [
+            16,
+            {
+              "constant": "Get3DPointPosition"
+            }
+          ]
+        },
+        {
+          "pc": 202,
+          "word": "00118441",
+          "op": "LOADK",
+          "operands": [
+            17,
+            {
+              "constant": "DragonEelCamp"
+            }
+          ]
+        },
+        {
+          "pc": 203,
+          "word": "0100041c",
+          "op": "CALL",
+          "operands": [
+            16,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 204,
+          "word": "000043e2",
+          "op": "SETLIST",
+          "operands": [
+            15,
+            0,
+            1
+          ]
+        },
+        {
+          "pc": 205,
+          "word": "0000040a",
+          "op": "NEWTABLE",
+          "operands": [
+            16,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 206,
+          "word": "00080445",
+          "op": "GETGLOBAL",
+          "operands": [
+            17,
+            {
+              "constant": "Get3DPointPosition"
+            }
+          ]
+        },
+        {
+          "pc": 207,
+          "word": "0011c481",
+          "op": "LOADK",
+          "operands": [
+            18,
+            {
+              "constant": "BaronEelCamp"
+            }
+          ]
+        },
+        {
+          "pc": 208,
+          "word": "0100045c",
+          "op": "CALL",
+          "operands": [
+            17,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 209,
+          "word": "00004422",
+          "op": "SETLIST",
+          "operands": [
+            16,
+            0,
+            1
+          ]
+        },
+        {
+          "pc": 210,
+          "word": "0000044a",
+          "op": "NEWTABLE",
+          "operands": [
+            17,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 211,
+          "word": "00080485",
+          "op": "GETGLOBAL",
+          "operands": [
+            18,
+            {
+              "constant": "Get3DPointPosition"
+            }
+          ]
+        },
+        {
+          "pc": 212,
+          "word": "001204c1",
+          "op": "LOADK",
+          "operands": [
+            19,
+            {
+              "constant": "RiftHerald"
+            }
+          ]
+        },
+        {
+          "pc": 213,
+          "word": "0100049c",
+          "op": "CALL",
+          "operands": [
+            18,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 214,
+          "word": "00004462",
+          "op": "SETLIST",
+          "operands": [
+            17,
+            0,
+            1
+          ]
+        },
+        {
+          "pc": 215,
+          "word": "08804022",
+          "op": "SETLIST",
+          "operands": [
+            0,
+            17,
+            1
+          ]
+        },
+        {
+          "pc": 216,
+          "word": "0007c007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "CampSpawnPoints"
+            }
+          ]
+        }
+      ]
+    },
+    "grompGroup": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "<main>",
+      "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+      "firstPc": 929,
+      "lastPc": 936,
+      "instructions": [
+        {
+          "pc": 929,
+          "word": "0025c045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "CAMPTYPE_OWLBEAR"
+            }
+          ]
+        },
+        {
+          "pc": 930,
+          "word": "0080008a",
+          "op": "NEWTABLE",
+          "operands": [
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 931,
+          "word": "010000ca",
+          "op": "NEWTABLE",
+          "operands": [
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 932,
+          "word": "00320101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": "SRU_Gromp"
+            }
+          ]
+        },
+        {
+          "pc": 933,
+          "word": "002cc141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "spawn"
+            }
+          ]
+        },
+        {
+          "pc": 934,
+          "word": "010040e2",
+          "op": "SETLIST",
+          "operands": [
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 935,
+          "word": "008040a2",
+          "op": "SETLIST",
+          "operands": [
+            2,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 936,
+          "word": "00808009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        }
+      ]
+    },
+    "campDefaults": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 53,
+      "lastPc": 113,
+      "instructions": [
+        {
+          "pc": 53,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 54,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 55,
+          "word": "0004c185",
+          "op": "GETGLOBAL",
+          "operands": [
+            6,
+            {
+              "constant": "CampSpawnPoints"
+            }
+          ]
+        },
+        {
+          "pc": 56,
+          "word": "0300c186",
+          "op": "GETTABLE",
+          "operands": [
+            6,
+            6,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 57,
+          "word": "89018149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "Positions"
+            },
+            {
+              "register": 6
+            }
+          ]
+        },
+        {
+          "pc": 58,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 59,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 60,
+          "word": "0000018a",
+          "op": "NEWTABLE",
+          "operands": [
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 61,
+          "word": "8a018149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "UniqueNames"
+            },
+            {
+              "register": 6
+            }
+          ]
+        },
+        {
+          "pc": 62,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 63,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 64,
+          "word": "8ac58149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "UniqueNameIsBaseName"
+            },
+            {
+              "constant": false
+            }
+          ]
+        },
+        {
+          "pc": 65,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 66,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 67,
+          "word": "0000018a",
+          "op": "NEWTABLE",
+          "operands": [
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 68,
+          "word": "8b818149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "AliveTracker"
+            },
+            {
+              "register": 6
+            }
+          ]
+        },
+        {
+          "pc": 69,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 70,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 71,
+          "word": "00064185",
+          "op": "GETGLOBAL",
+          "operands": [
+            6,
+            {
+              "constant": "TEAM_NEUTRAL"
+            }
+          ]
+        },
+        {
+          "pc": 72,
+          "word": "8c018149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "Team"
+            },
+            {
+              "register": 6
+            }
+          ]
+        },
+        {
+          "pc": 73,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 74,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 75,
+          "word": "8d43c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "DamageBonus"
+            },
+            {
+              "constant": 0.0
+            }
+          ]
+        },
+        {
+          "pc": 76,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 77,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 78,
+          "word": "8dc3c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "HealthBonus"
+            },
+            {
+              "constant": 0.0
+            }
+          ]
+        },
+        {
+          "pc": 79,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 80,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 81,
+          "word": "00074185",
+          "op": "GETGLOBAL",
+          "operands": [
+            6,
+            {
+              "constant": "INACTIVE"
+            }
+          ]
+        },
+        {
+          "pc": 82,
+          "word": "8e018149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "AIState"
+            },
+            {
+              "register": 6
+            }
+          ]
+        },
+        {
+          "pc": 83,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 84,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 85,
+          "word": "8f47c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "GroupsRespawnTime"
+            },
+            {
+              "constant": 135.0
+            }
+          ]
+        },
+        {
+          "pc": 86,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 87,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 88,
+          "word": "90484149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "CampLevel"
+            },
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 89,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 90,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 91,
+          "word": "9148c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "TimerType"
+            },
+            {
+              "constant": ""
+            }
+          ]
+        },
+        {
+          "pc": 92,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 93,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 94,
+          "word": "92494149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "MaxRespawn"
+            },
+            {
+              "constant": -1.0
+            }
+          ]
+        },
+        {
+          "pc": 95,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 96,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 97,
+          "word": "9343c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "SpawnCount"
+            },
+            {
+              "constant": 0.0
+            }
+          ]
+        },
+        {
+          "pc": 98,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 99,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 100,
+          "word": "93c58149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "UseSummonerScript"
+            },
+            {
+              "constant": false
+            }
+          ]
+        },
+        {
+          "pc": 101,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 102,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 103,
+          "word": "9443c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 0.0
+            }
+          ]
+        },
+        {
+          "pc": 104,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 105,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 106,
+          "word": "94ca8149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "MinimapIcon"
+            },
+            {
+              "constant": "LesserCamp"
+            }
+          ]
+        },
+        {
+          "pc": 107,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 108,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 109,
+          "word": "95cb0149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "LeashRadius"
+            },
+            {
+              "constant": 800.0
+            }
+          ]
+        },
+        {
+          "pc": 110,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 111,
+          "word": "0280c146",
+          "op": "GETTABLE",
+          "operands": [
+            5,
+            5,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 112,
+          "word": "96cb8149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "constant": "StopSpawnTime"
+            },
+            {
+              "constant": 25000.0
+            }
+          ]
+        },
+        {
+          "pc": 113,
+          "word": "00044145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        }
+      ]
+    },
+    "orderGromp": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 1046,
+      "lastPc": 1091,
+      "instructions": [
+        {
+          "pc": 1046,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1047,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1048,
+          "word": "004fc057",
+          "op": "EQ",
+          "operands": [
+            1,
+            {
+              "register": 0
+            },
+            {
+              "constant": null
+            }
+          ]
+        },
+        {
+          "pc": 1049,
+          "word": "800a4016",
+          "op": "JMP",
+          "operands": [
+            0,
+            {
+              "targetPc": 1092
+            }
+          ]
+        },
+        {
+          "pc": 1050,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1051,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1052,
+          "word": "a071c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Order OwlBear"
+            }
+          ]
+        },
+        {
+          "pc": 1053,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1054,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1055,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 1056,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1057,
+          "word": "003200c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_OWLBEAR"
+            }
+          ]
+        },
+        {
+          "pc": 1058,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 1059,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 1060,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1061,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1062,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1063,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 1064,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 1065,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 1066,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1067,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1068,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1069,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 1070,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 1071,
+          "word": "015e408e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 12.0
+            }
+          ]
+        },
+        {
+          "pc": 1072,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 1073,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1074,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1075,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1076,
+          "word": "00134045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_ORDER"
+            }
+          ]
+        },
+        {
+          "pc": 1077,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1078,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1079,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1080,
+          "word": "94724009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 3.2
+            }
+          ]
+        },
+        {
+          "pc": 1081,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1082,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1083,
+          "word": "95f28009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "LeashRadius"
+            },
+            {
+              "constant": 700.0
+            }
+          ]
+        },
+        {
+          "pc": 1084,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1085,
+          "word": "00718006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 13.0
+            }
+          ]
+        },
+        {
+          "pc": 1086,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 1087,
+          "word": "0032c081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 2457.61
+            }
+          ]
+        },
+        {
+          "pc": 1088,
+          "word": "003300c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 51.78
+            }
+          ]
+        },
+        {
+          "pc": 1089,
+          "word": "00334101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 8494.14
+            }
+          ]
+        },
+        {
+          "pc": 1090,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 1091,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "chaosGromp": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 1092,
+      "lastPc": 1137,
+      "instructions": [
+        {
+          "pc": 1092,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1093,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1094,
+          "word": "004fc057",
+          "op": "EQ",
+          "operands": [
+            1,
+            {
+              "register": 0
+            },
+            {
+              "constant": null
+            }
+          ]
+        },
+        {
+          "pc": 1095,
+          "word": "800a4016",
+          "op": "JMP",
+          "operands": [
+            0,
+            {
+              "targetPc": 1138
+            }
+          ]
+        },
+        {
+          "pc": 1096,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1097,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1098,
+          "word": "a073c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Chaos OwlBear"
+            }
+          ]
+        },
+        {
+          "pc": 1099,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1100,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1101,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 1102,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1103,
+          "word": "003200c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_OWLBEAR"
+            }
+          ]
+        },
+        {
+          "pc": 1104,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 1105,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 1106,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1107,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1108,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1109,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 1110,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 1111,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 1112,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1113,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1114,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1115,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 1116,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 1117,
+          "word": "015e408e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 12.0
+            }
+          ]
+        },
+        {
+          "pc": 1118,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 1119,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1120,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1121,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1122,
+          "word": "00254045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_CHAOS"
+            }
+          ]
+        },
+        {
+          "pc": 1123,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 1124,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1125,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1126,
+          "word": "94724009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 3.2
+            }
+          ]
+        },
+        {
+          "pc": 1127,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1128,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1129,
+          "word": "95f28009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "LeashRadius"
+            },
+            {
+              "constant": 700.0
+            }
+          ]
+        },
+        {
+          "pc": 1130,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1131,
+          "word": "00738006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 14.0
+            }
+          ]
+        },
+        {
+          "pc": 1132,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 1133,
+          "word": "00340081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 12375.05
+            }
+          ]
+        },
+        {
+          "pc": 1134,
+          "word": "003440c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 53.57
+            }
+          ]
+        },
+        {
+          "pc": 1135,
+          "word": "00348101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 6312.43
+            }
+          ]
+        },
+        {
+          "pc": 1136,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 1137,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "overrideAndDictionaries": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 1329,
+      "lastPc": 1380,
+      "instructions": [
+        {
+          "pc": 1329,
+          "word": "003b8005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionOverride"
+            }
+          ]
+        },
+        {
+          "pc": 1330,
+          "word": "0080401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 1331,
+          "word": "0000000a",
+          "op": "NEWTABLE",
+          "operands": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1332,
+          "word": "003bc007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralCampSpawnPosDict"
+            }
+          ]
+        },
+        {
+          "pc": 1333,
+          "word": "0000000a",
+          "op": "NEWTABLE",
+          "operands": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1334,
+          "word": "003c0007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralCampSpawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1335,
+          "word": "0000000a",
+          "op": "NEWTABLE",
+          "operands": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1336,
+          "word": "003c4007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralCampRespawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1337,
+          "word": "0000000a",
+          "op": "NEWTABLE",
+          "operands": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1338,
+          "word": "003c8007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralCampSpawnDurationDict"
+            }
+          ]
+        },
+        {
+          "pc": 1339,
+          "word": "0000000a",
+          "op": "NEWTABLE",
+          "operands": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1340,
+          "word": "003cc007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralCampLeashRadiusDict"
+            }
+          ]
+        },
+        {
+          "pc": 1341,
+          "word": "0000000a",
+          "op": "NEWTABLE",
+          "operands": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1342,
+          "word": "003d0007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralCampUnitIDDict"
+            }
+          ]
+        },
+        {
+          "pc": 1343,
+          "word": "0000000a",
+          "op": "NEWTABLE",
+          "operands": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1344,
+          "word": "003d4007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralCampMarkerIDDict"
+            }
+          ]
+        },
+        {
+          "pc": 1345,
+          "word": "003dc005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "ELDER_DRAGON_SPAWN_RATE"
+            }
+          ]
+        },
+        {
+          "pc": 1346,
+          "word": "003d8007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "ElderDragonRespawnTime"
+            }
+          ]
+        },
+        {
+          "pc": 1347,
+          "word": "00004005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "pairs"
+            }
+          ]
+        },
+        {
+          "pc": 1348,
+          "word": "00044045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 1349,
+          "word": "0101001c",
+          "op": "CALL",
+          "operands": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "pc": 1350,
+          "word": "8006c016",
+          "op": "JMP",
+          "operands": [
+            0,
+            {
+              "targetPc": 1379
+            }
+          ]
+        },
+        {
+          "pc": 1351,
+          "word": "003bc145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralCampSpawnPosDict"
+            }
+          ]
+        },
+        {
+          "pc": 1352,
+          "word": "02500186",
+          "op": "GETTABLE",
+          "operands": [
+            6,
+            4,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 1353,
+          "word": "003e01c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            7,
+            {
+              "constant": "CampCenterPoints"
+            }
+          ]
+        },
+        {
+          "pc": 1354,
+          "word": "0380c1c6",
+          "op": "GETTABLE",
+          "operands": [
+            7,
+            7,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 1355,
+          "word": "03c841c6",
+          "op": "GETTABLE",
+          "operands": [
+            7,
+            7,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 1356,
+          "word": "0301c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "register": 6
+            },
+            {
+              "register": 7
+            }
+          ]
+        },
+        {
+          "pc": 1357,
+          "word": "003c0145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralCampSpawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1358,
+          "word": "02500186",
+          "op": "GETTABLE",
+          "operands": [
+            6,
+            4,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 1359,
+          "word": "025201c6",
+          "op": "GETTABLE",
+          "operands": [
+            7,
+            4,
+            {
+              "constant": "GroupDelaySpawnTime"
+            }
+          ]
+        },
+        {
+          "pc": 1360,
+          "word": "003e4205",
+          "op": "GETGLOBAL",
+          "operands": [
+            8,
+            {
+              "constant": "MINION_SPAWN_START_TIME"
+            }
+          ]
+        },
+        {
+          "pc": 1361,
+          "word": "038201cc",
+          "op": "ADD",
+          "operands": [
+            7,
+            {
+              "register": 7
+            },
+            {
+              "register": 8
+            }
+          ]
+        },
+        {
+          "pc": 1362,
+          "word": "0301c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "register": 6
+            },
+            {
+              "register": 7
+            }
+          ]
+        },
+        {
+          "pc": 1363,
+          "word": "003c4145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralCampRespawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1364,
+          "word": "02500186",
+          "op": "GETTABLE",
+          "operands": [
+            6,
+            4,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 1365,
+          "word": "024781c6",
+          "op": "GETTABLE",
+          "operands": [
+            7,
+            4,
+            {
+              "constant": "GroupsRespawnTime"
+            }
+          ]
+        },
+        {
+          "pc": 1366,
+          "word": "0301c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "register": 6
+            },
+            {
+              "register": 7
+            }
+          ]
+        },
+        {
+          "pc": 1367,
+          "word": "003c8145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralCampSpawnDurationDict"
+            }
+          ]
+        },
+        {
+          "pc": 1368,
+          "word": "02500186",
+          "op": "GETTABLE",
+          "operands": [
+            6,
+            4,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 1369,
+          "word": "024a01c6",
+          "op": "GETTABLE",
+          "operands": [
+            7,
+            4,
+            {
+              "constant": "SpawnDuration"
+            }
+          ]
+        },
+        {
+          "pc": 1370,
+          "word": "0301c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "register": 6
+            },
+            {
+              "register": 7
+            }
+          ]
+        },
+        {
+          "pc": 1371,
+          "word": "003cc145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralCampLeashRadiusDict"
+            }
+          ]
+        },
+        {
+          "pc": 1372,
+          "word": "02500186",
+          "op": "GETTABLE",
+          "operands": [
+            6,
+            4,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 1373,
+          "word": "024ac1c6",
+          "op": "GETTABLE",
+          "operands": [
+            7,
+            4,
+            {
+              "constant": "LeashRadius"
+            }
+          ]
+        },
+        {
+          "pc": 1374,
+          "word": "0301c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "register": 6
+            },
+            {
+              "register": 7
+            }
+          ]
+        },
+        {
+          "pc": 1375,
+          "word": "003d0145",
+          "op": "GETGLOBAL",
+          "operands": [
+            5,
+            {
+              "constant": "NeutralCampUnitIDDict"
+            }
+          ]
+        },
+        {
+          "pc": 1376,
+          "word": "02500186",
+          "op": "GETTABLE",
+          "operands": [
+            6,
+            4,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 1377,
+          "word": "000001ca",
+          "op": "NEWTABLE",
+          "operands": [
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "pc": 1378,
+          "word": "0301c149",
+          "op": "SETTABLE",
+          "operands": [
+            5,
+            {
+              "register": 6
+            },
+            {
+              "register": 7
+            }
+          ]
+        },
+        {
+          "pc": 1379,
+          "word": "00008021",
+          "op": "TFORLOOP",
+          "operands": [
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "pc": 1380,
+          "word": "7ff84016",
+          "op": "JMP",
+          "operands": [
+            0,
+            {
+              "targetPc": 1351
+            }
+          ]
+        }
+      ]
+    },
+    "nativeBridgeGuard": {
+      "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 1383,
+      "lastPc": 1415,
+      "instructions": [
+        {
+          "pc": 1383,
+          "word": "003ec005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "GetIsGameFeatureEnabled"
+            }
+          ]
+        },
+        {
+          "pc": 1384,
+          "word": "003f0041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "RawLSDeprecationNeutralMinions"
+            }
+          ]
+        },
+        {
+          "pc": 1385,
+          "word": "0100801c",
+          "op": "CALL",
+          "operands": [
+            0,
+            2,
+            2
+          ]
+        },
+        {
+          "pc": 1386,
+          "word": "00430057",
+          "op": "EQ",
+          "operands": [
+            1,
+            {
+              "register": 0
+            },
+            {
+              "constant": true
+            }
+          ]
+        },
+        {
+          "pc": 1387,
+          "word": "8006c016",
+          "op": "JMP",
+          "operands": [
+            0,
+            {
+              "targetPc": 1416
+            }
+          ]
+        },
+        {
+          "pc": 1388,
+          "word": "003f4005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "SetWorldVar"
+            }
+          ]
+        },
+        {
+          "pc": 1389,
+          "word": "003bc041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralCampSpawnPosDict"
+            }
+          ]
+        },
+        {
+          "pc": 1390,
+          "word": "003bc085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "NeutralCampSpawnPosDict"
+            }
+          ]
+        },
+        {
+          "pc": 1391,
+          "word": "0180401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 1392,
+          "word": "003f4005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "SetWorldVar"
+            }
+          ]
+        },
+        {
+          "pc": 1393,
+          "word": "003c0041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralCampSpawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1394,
+          "word": "003c0085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "NeutralCampSpawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1395,
+          "word": "0180401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 1396,
+          "word": "003f4005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "SetWorldVar"
+            }
+          ]
+        },
+        {
+          "pc": 1397,
+          "word": "003c4041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralCampRespawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1398,
+          "word": "003c4085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "NeutralCampRespawnTimeDict"
+            }
+          ]
+        },
+        {
+          "pc": 1399,
+          "word": "0180401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 1400,
+          "word": "003f4005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "SetWorldVar"
+            }
+          ]
+        },
+        {
+          "pc": 1401,
+          "word": "003c8041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralCampSpawnDurationDict"
+            }
+          ]
+        },
+        {
+          "pc": 1402,
+          "word": "003c8085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "NeutralCampSpawnDurationDict"
+            }
+          ]
+        },
+        {
+          "pc": 1403,
+          "word": "0180401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 1404,
+          "word": "003f4005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "SetWorldVar"
+            }
+          ]
+        },
+        {
+          "pc": 1405,
+          "word": "003cc041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralCampLeashRadiusDict"
+            }
+          ]
+        },
+        {
+          "pc": 1406,
+          "word": "003cc085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "NeutralCampLeashRadiusDict"
+            }
+          ]
+        },
+        {
+          "pc": 1407,
+          "word": "0180401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 1408,
+          "word": "003f4005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "SetWorldVar"
+            }
+          ]
+        },
+        {
+          "pc": 1409,
+          "word": "003d0041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralCampUnitIDDict"
+            }
+          ]
+        },
+        {
+          "pc": 1410,
+          "word": "003d0085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "NeutralCampUnitIDDict"
+            }
+          ]
+        },
+        {
+          "pc": 1411,
+          "word": "0180401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            3,
+            1
+          ]
+        },
+        {
+          "pc": 1412,
+          "word": "003f4005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "SetWorldVar"
+            }
+          ]
+        },
+        {
+          "pc": 1413,
+          "word": "003d4041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralCampMarkerIDDict"
+            }
+          ]
+        },
+        {
+          "pc": 1414,
+          "word": "003d4085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "NeutralCampMarkerIDDict"
+            }
+          ]
+        },
+        {
+          "pc": 1415,
+          "word": "0180401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            3,
+            1
+          ]
+        }
+      ]
+    },
+    "dynamicSpawnScriptSelection": {
+      "path": "data/shared/scripts/sr_levelscript.luabin64",
+      "function": "OnLevelInit",
+      "codeSha256": "8336fc7272f2326fecb09ab3c200d21404f204c66c70ce48f4e1ee7201d9ca3f",
+      "firstPc": 209,
+      "lastPc": 216,
+      "instructions": [
+        {
+          "pc": 209,
+          "word": "00100085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "GetMutatorParameterString"
+            }
+          ]
+        },
+        {
+          "pc": 210,
+          "word": "001040c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": "NeutralMinionSpawnScript"
+            }
+          ]
+        },
+        {
+          "pc": 211,
+          "word": "0100809c",
+          "op": "CALL",
+          "operands": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pc": 212,
+          "word": "001080c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "LoadLevelScriptIntoScript"
+            }
+          ]
+        },
+        {
+          "pc": 213,
+          "word": "01000100",
+          "op": "MOVE",
+          "operands": [
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 214,
+          "word": "010040dc",
+          "op": "CALL",
+          "operands": [
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 215,
+          "word": "0010c0c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "NeutralMinionInit"
+            }
+          ]
+        },
+        {
+          "pc": 216,
+          "word": "008040dc",
+          "op": "CALL",
+          "operands": [
+            3,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "srxWrapper": {
+      "path": "levels/map11/scripts/neutralminionspawn_srx.luabin64",
+      "function": "<main>",
+      "codeSha256": "e58221274d922184487e8d9c33268a74a960c32a6727ab5640dee8b1fc89e814",
+      "firstPc": 1,
+      "lastPc": 10,
+      "instructions": [
+        {
+          "pc": 1,
+          "word": "00000005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "DoLuaShared"
+            }
+          ]
+        },
+        {
+          "pc": 2,
+          "word": "00004041",
+          "op": "LOADK",
+          "operands": [
+            1,
+            {
+              "constant": "SR_NeutralMinionSpawn"
+            }
+          ]
+        },
+        {
+          "pc": 3,
+          "word": "0100401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 4,
+          "word": "00000024",
+          "op": "CLOSURE",
+          "operands": [
+            0,
+            {
+              "prototype": 0
+            }
+          ]
+        },
+        {
+          "pc": 5,
+          "word": "00008007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "OverrideNeutralMinionSpawnDefaults"
+            }
+          ]
+        },
+        {
+          "pc": 6,
+          "word": "00004024",
+          "op": "CLOSURE",
+          "operands": [
+            0,
+            {
+              "prototype": 1
+            }
+          ]
+        },
+        {
+          "pc": 7,
+          "word": "0000c007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionOverride"
+            }
+          ]
+        },
+        {
+          "pc": 8,
+          "word": "00010005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionSpawnInit"
+            }
+          ]
+        },
+        {
+          "pc": 9,
+          "word": "0080401c",
+          "op": "CALL",
+          "operands": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 10,
+          "word": "0080001e",
+          "op": "RETURN",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "smallScriptInventory": {
+    "data/characters/sru_gromp/charscriptsru_gromp.luabin64": {
+      "<main>": {
+        "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+        "instructionCount": 1,
+        "constants": []
+      }
+    },
+    "data/characters/sru_gromp/spells/sru_grompbasicattack.luabin64": {
+      "<main>": {
+        "codeSha256": "4a633184ce7e936add74ee180e011c887816b55fc60ad865b8419141548e6ad1",
+        "instructionCount": 9,
+        "constants": [
+          "BuffTextureName",
+          "Gromp_Square.dds",
+          "BuffName",
+          "S5JungleMushroomArmor",
+          "SpellFXOverrideSkins",
+          "PantheonSkin06"
+        ]
+      }
+    },
+    "data/spells/modules/junglecampspawn.luabin64": {
+      "<main>": {
+        "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+        "instructionCount": 1,
+        "constants": []
+      }
+    }
+  },
+  "camps": [
+    {
+      "index": 13,
+      "name": "Order OwlBear",
+      "group": [
+        {
+          "character": "SRU_Gromp",
+          "animation": "spawn"
+        }
+      ],
+      "lookup": "OrderOwlbear",
+      "locator": {
+        "transform": [
+          [
+            0.447212815284729,
+            0.0,
+            0.8944275975227356,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.8944275975227356,
+            0.0,
+            0.447212815284729,
+            0.0
+          ],
+          [
+            2110.6279296875,
+            54.0,
+            8450.984375,
+            1.0
+          ]
+        ],
+        "name": "OrderOwlBear",
+        "__type": "MapLocator"
+      },
+      "anchorEntity": "{163e525e}",
+      "literalSettings": {
+        "GroupDelaySpawnTime": 34.0,
+        "GroupBuffSide": 100,
+        "SpawnDuration": 3.2,
+        "LeashRadius": 700.0,
+        "VisualFacing": [
+          2457.61,
+          51.78,
+          8494.14
+        ]
+      },
+      "legacyFirstSpawnSeconds": 99.0,
+      "legacyRespawnSeconds": 135.0
+    },
+    {
+      "index": 14,
+      "name": "Chaos OwlBear",
+      "group": [
+        {
+          "character": "SRU_Gromp",
+          "animation": "spawn"
+        }
+      ],
+      "lookup": "ChaosOwlbear",
+      "locator": {
+        "transform": [
+          [
+            -0.4472128748893738,
+            0.0,
+            -0.8944275379180908,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.8944275379180908,
+            0.0,
+            -0.4472128748893738,
+            0.0
+          ],
+          [
+            12703.62890625,
+            54.0,
+            6443.98388671875,
+            1.0
+          ]
+        ],
+        "name": "ChaosOwlBear",
+        "__type": "MapLocator"
+      },
+      "anchorEntity": "{789acc87}",
+      "literalSettings": {
+        "GroupDelaySpawnTime": 34.0,
+        "GroupBuffSide": 200,
+        "SpawnDuration": 3.2,
+        "LeashRadius": 700.0,
+        "VisualFacing": [
+          12375.05,
+          53.57,
+          6312.43
+        ]
+      },
+      "legacyFirstSpawnSeconds": 99.0,
+      "legacyRespawnSeconds": 135.0
+    }
+  ],
+  "status": "Static legacy script data. Active mutator selection and RawLSDeprecationNeutralMinions are unknown. The 99-second legacy first spawn conflicts with the published 26.1 67-second baseline; this pin is not an enabled live calendar."
+}
