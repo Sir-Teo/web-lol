@@ -7,6 +7,7 @@ import { clone } from 'three/addons/utils/SkeletonUtils.js';
 import { isStructureKind, type Unit } from '../simulation/types';
 import { prepareAnimationBounds } from './animation-bounds';
 import { removeConstantBoneTracks } from './constant-bone-tracks';
+import { monsterClipAliases } from './monster-clip-aliases';
 
 export interface UnitModel {
   root: THREE.Group;
@@ -65,11 +66,7 @@ export async function loadReferenceModels(
       const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
       const monster = Object.values(MONSTERS).find((p) => p.rig === name);
       if (monster) {
-        for (const [alias, source] of Object.entries(monster.clips)) {
-          const clip = gltf.animations.find((clip) => clip.name === source.name);
-          if (!clip) throw new Error(`${name} lacks ${source.name}`);
-          clip.name = alias;
-        }
+        gltf.animations = monsterClipAliases(gltf.animations, monster.clips, name);
         gltf.scene.traverse((object) => {
           if (object instanceof THREE.Mesh) {
             const materials = Array.isArray(object.material) ? object.material : [object.material];
