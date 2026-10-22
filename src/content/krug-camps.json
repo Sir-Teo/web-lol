@@ -1,0 +1,262 @@
+{
+  "sourcePin": "docs/reference/krug-camps-source.json",
+  "sourcePinSha256": "35d4b47edc3fd818ab64a4ff53eeb8ee9e016bb4d4cac1fa0b09df678294af1e",
+  "profiles": {
+    "krug": {
+      "rig": "sru-krug-base",
+      "modelSha256": "b02ffc8a014b54a9af69c7d5df5ba93d74fb5ca6514bf89b796583984bb49d0d",
+      "stats": {
+        "maxHp": 1400.0,
+        "armor": 42.0,
+        "magicResist": 42.0,
+        "speed": 250.0,
+        "range": 150.0,
+        "attackSpeed": 0.6129999756813049
+      },
+      "sourceDamage": 57.0,
+      "localDamage": 57.0,
+      "sourceMinionScore": 2.0,
+      "localMinionScore": 2.0,
+      "gold": 15.0,
+      "experience": 15.0,
+      "radius": 100.0,
+      "pathfindingRadius": 85.0,
+      "castFrame": 18.0,
+      "clips": {
+        "idle1": {
+          "name": "entry_5360a86d",
+          "durationSeconds": 0.6000000238418579,
+          "sourceState": "idle_normal_base"
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 0.6000000238418579,
+          "sourceState": "run"
+        },
+        "attack1": {
+          "name": "attack1",
+          "durationSeconds": 1.6000001430511475,
+          "sourceState": "attack1"
+        },
+        "death": {
+          "name": "entry_bd28bd4d",
+          "durationSeconds": 3.9333336353302,
+          "sourceState": "death"
+        },
+        "spawn": {
+          "name": "entry_3a224d98",
+          "durationSeconds": 1.3333333730697632,
+          "sourceState": "spawn"
+        },
+        "spawn_nj": {
+          "name": "entry_64f8c1c1",
+          "durationSeconds": 1.3000000715255737,
+          "sourceState": "spawn_nj"
+        }
+      }
+    },
+    "krug-medium": {
+      "rig": "sru-krugmini-base",
+      "modelSha256": "d7463d4f361d55a57a80271b6718f70c30c21fd1beee265cdcfc7aa3e0d40f11",
+      "stats": {
+        "maxHp": 650.0,
+        "armor": 20.0,
+        "magicResist": 20.0,
+        "speed": 400.0,
+        "range": 110.0,
+        "attackSpeed": 0.6129999756813049
+      },
+      "sourceDamage": 20.0,
+      "localDamage": 20.0,
+      "sourceMinionScore": 0.5,
+      "localMinionScore": 0.5,
+      "gold": 10.0,
+      "experience": 10.0,
+      "radius": 50.0,
+      "pathfindingRadius": 50.0,
+      "castFrame": 12.555000305175781,
+      "clips": {
+        "idle1": {
+          "name": "entry_2f4723e4",
+          "durationSeconds": 0.6000000238418579,
+          "sourceState": "{2f4723e4}"
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 0.6000000238418579,
+          "sourceState": "run"
+        },
+        "attack1": {
+          "name": "attack1_base",
+          "durationSeconds": 1.6000001430511475,
+          "sourceState": "attack1_base"
+        },
+        "death": {
+          "name": "entry_bd28bd4d",
+          "durationSeconds": 3.9333336353302,
+          "sourceState": "death"
+        },
+        "spawn": {
+          "name": "entry_3a224d98",
+          "durationSeconds": 1.633333444595337,
+          "sourceState": "spawn"
+        },
+        "spawn_north_jung": {
+          "name": "entry_c285e9f3",
+          "durationSeconds": 1.3000000715255737,
+          "sourceState": "spawn_north_jung"
+        }
+      }
+    },
+    "krug-mini": {
+      "rig": "sru-krugminimini-base",
+      "modelSha256": "e8be9260845b77406a66aa7801301de56349c0daa07855a74b1dfc0c948e7929",
+      "stats": {
+        "maxHp": 60.0,
+        "armor": 20.0,
+        "magicResist": 20.0,
+        "speed": 400.0,
+        "range": 110.0,
+        "attackSpeed": 0.6129999756813049
+      },
+      "sourceDamage": 13.0,
+      "localDamage": 13.0,
+      "sourceMinionScore": 0.25,
+      "localMinionScore": 0.25,
+      "gold": 14.0,
+      "experience": 16.0,
+      "radius": 25.0,
+      "pathfindingRadius": 30.0,
+      "castFrame": 12.555000305175781,
+      "clips": {
+        "idle1": {
+          "name": "entry_2f4723e4",
+          "durationSeconds": 0.6000000238418579,
+          "sourceState": "{2f4723e4}"
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 0.6000000238418579,
+          "sourceState": "run"
+        },
+        "attack1": {
+          "name": "attack1_base",
+          "durationSeconds": 1.6000001430511475,
+          "sourceState": "attack1_base"
+        },
+        "death": {
+          "name": "entry_bd28bd4d",
+          "durationSeconds": 3.9333336353302,
+          "sourceState": "death"
+        },
+        "spawn": {
+          "name": "entry_3a224d98",
+          "durationSeconds": 1.633333444595337,
+          "sourceState": "spawn"
+        },
+        "spawn_north_jung": {
+          "name": "entry_c285e9f3",
+          "durationSeconds": 1.3000000715255737,
+          "sourceState": "spawn_north_jung"
+        }
+      }
+    }
+  },
+  "firstReadySeconds": 67,
+  "respawnSeconds": 135,
+  "leashRadius": 650,
+  "cleanupSeconds": 10,
+  "camps": [
+    {
+      "id": "order-krugs",
+      "sourceIndex": 5,
+      "anchorEntity": "{44b899d1}",
+      "leadupSeconds": 0.86,
+      "facingPoint": {
+        "x": 994.75,
+        "y": 5094.719999999999
+      },
+      "members": [
+        {
+          "species": "krug",
+          "point": {
+            "x": 1057.470703125,
+            "y": 4719.052001953125
+          },
+          "spawnClip": "spawn"
+        },
+        {
+          "species": "krug-medium",
+          "point": {
+            "x": 850.470703125,
+            "y": 4736.052001953125
+          },
+          "spawnClip": "spawn"
+        }
+      ]
+    },
+    {
+      "id": "chaos-krugs",
+      "sourceIndex": 11,
+      "anchorEntity": "{4ca5f2bd}",
+      "leadupSeconds": 0.86,
+      "facingPoint": {
+        "x": -1009.8599999999997,
+        "y": -5095.02
+      },
+      "members": [
+        {
+          "species": "krug",
+          "point": {
+            "x": -1107.90771484375,
+            "y": -4721.4580078125
+          },
+          "spawnClip": "spawn_nj"
+        },
+        {
+          "species": "krug-medium",
+          "point": {
+            "x": -877.90771484375,
+            "y": -4731.4580078125
+          },
+          "spawnClip": "spawn_north_jung"
+        }
+      ]
+    }
+  ],
+  "splits": [
+    {
+      "parentSlot": 0,
+      "childSlots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "species": "krug-mini"
+    },
+    {
+      "parentSlot": 1,
+      "childSlots": [
+        6,
+        7
+      ],
+      "species": "krug-mini"
+    }
+  ],
+  "splitDelaySeconds": 1,
+  "splitRadius": 90,
+  "policies": [
+    "67s first ready uses the published 26.1 baseline; 135s respawn adopts the legacy default.",
+    "0.86s initial emergence rounds to 52 ticks; the legacy 900 leash is retained as evidence while local gameplay uses the published 650 baseline.",
+    "Published 12.22 changes Ancient Krug to four minis after one second. Medium-to-two-mini is a local retained splitting policy; current native callbacks remain unavailable in the character stubs/spawn-manager metadata.",
+    "Local split homes use a 90-unit radial layout at the parent death point, projected through the imported navigation grid. Mini launch missiles/particles and native placement remain unimplemented.",
+    "Local cleanup suppresses new split children and grants no rewards. Native cleanup/splitting ordering remains unverified.",
+    "Base skin 0 is a local selection; the legacy script reads an unresolved external SkinOverrides table.",
+    "Root stats/rewards, six-decimal CS and source clip durations are retained. Native scaling, attack-speed modifiers, percentage-health damage, full patience, graph transitions and effects/audio remain unfinished."
+  ],
+  "officialSources": [
+    "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+    "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/"
+  ]
+}

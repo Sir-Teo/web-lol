@@ -1,0 +1,342 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sru-krug-base.glb",
+    "bytes": 1041660,
+    "sha256": "b02ffc8a014b54a9af69c7d5df5ba93d74fb5ca6514bf89b796583984bb49d0d"
+  },
+  "definitionsSha256": "35d4b47edc3fd818ab64a4ff53eeb8ee9e016bb4d4cac1fa0b09df678294af1e",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_krug/skins/skin0.bin",
+      "wadPathHash": "45c2ca31ef3604bb",
+      "sha256": "f9ad139fa6ddf3df1144adc4dd0719d34290f7f3f3a762e8d344fa8455626f27",
+      "bytes": 11876
+    },
+    {
+      "path": "data/characters/sru_krug/animations/skin0.bin",
+      "wadPathHash": "59485f642cbcbb10",
+      "sha256": "ff87682c5f75dd21e2360bc6a8dafdfebc0e4612d1e1679a178956bf2d24ef4e",
+      "bytes": 5866
+    },
+    {
+      "path": "data/characters/sru_krugmini/skins/skin0.bin",
+      "wadPathHash": "930e5be6ec2c5db0",
+      "sha256": "1460742b127037a83bf966d4c3f95e2b763447cebfca02318292106470051929",
+      "bytes": 20658
+    },
+    {
+      "path": "data/characters/sru_krugmini/animations/skin0.bin",
+      "wadPathHash": "0aa43415a8fef4a6",
+      "sha256": "2ece61f75f035d14674a1c0cbed6d341f65e2e5407e8e08890d3b443ba4070a6",
+      "bytes": 4062
+    },
+    {
+      "path": "data/characters/sru_krugminimini/skins/skin0.bin",
+      "wadPathHash": "ffaf8414e833ac75",
+      "sha256": "2e14aa9c0ab6f58822cb4797fd01bbab80eb55d3bd6934b096c2db10fccc8037",
+      "bytes": 9661
+    },
+    {
+      "path": "data/characters/sru_krugminimini/animations/skin0.bin",
+      "wadPathHash": "e327517412aef3c0",
+      "sha256": "540d6c6769108eace5a6297029e360490dfb59d0b1a5f9fd83f82ea297774ea5",
+      "bytes": 3797
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_attack1.anm",
+      "wadPathHash": "bd4ba21491edcab9",
+      "sha256": "0f9c0e18e81c0993da5b93f40544bf6302368372f502fba0ace0c08a76bfd431",
+      "bytes": 20740
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_attack2.anm",
+      "wadPathHash": "1da2f78d16fc5af4",
+      "sha256": "49a4a3f6387866465ff04718dae385e0cb7190bb7e15858dc3921cee8d257cf9",
+      "bytes": 22920
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_attack3.anm",
+      "wadPathHash": "0d885828e6e0de32",
+      "sha256": "5fa7c5b3f072fddfd2d51a816fc3ea6d22db2bdf3ea841763e03f6134e7abec3",
+      "bytes": 20510
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_attack4.anm",
+      "wadPathHash": "25168d4864636c37",
+      "sha256": "38086d57487b76dd9478576c5763bab8a5d8a8afce7affeace6b6196d81f8069",
+      "bytes": 17980
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_attack5.anm",
+      "wadPathHash": "f8bffd311f6ab474",
+      "sha256": "b7ca6e2e9315c21a1aac062ae0fdeab10853b5ba0ae6db1710a397294fd7a57f",
+      "bytes": 21750
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_death.anm",
+      "wadPathHash": "4c8e134a0f1773d8",
+      "sha256": "6291db520df2b432831defcd1973fcccd7484d3c4a8d8567e55194092a22c7ae",
+      "bytes": 16970
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_death2.anm",
+      "wadPathHash": "93d654fd50ba8a1e",
+      "sha256": "eace32b8ad292944e842f6aa2810ab6add921fc57faabb7cc81cc18355d8545e",
+      "bytes": 19170
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_idle_ag2n.anm",
+      "wadPathHash": "57c0a00d702a3bfc",
+      "sha256": "8e99ad8aabab0be137e6aa35e62bab0197c3c7e58b029785e053ec2db184ae19",
+      "bytes": 15970
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro.anm",
+      "wadPathHash": "44e0c58a68f1f6a6",
+      "sha256": "8e99ad8aabab0be137e6aa35e62bab0197c3c7e58b029785e053ec2db184ae19",
+      "bytes": 15970
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro2.anm",
+      "wadPathHash": "71bade909fa34da9",
+      "sha256": "2d5f84502c735c3bc92de777dca285de54c296fcbffad20cc636226e6dd05894",
+      "bytes": 16090
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro3.anm",
+      "wadPathHash": "9fc97b224cc13bbb",
+      "sha256": "72719b7a56f3e55d0818ecbf8d4d1543d763a8bef7b0c5c0c08a6a0ca4d555c4",
+      "bytes": 16600
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro4.anm",
+      "wadPathHash": "e83411d9dedca546",
+      "sha256": "cff29a66dbcbdb046e325020644a4a1c4c8679f12fe993d7f8db72b0bc121941",
+      "bytes": 14500
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_idle_n2ag.anm",
+      "wadPathHash": "0590d0b7d9cc7ae4",
+      "sha256": "69a5a3839f400d4faa038d0a3790036ece494d7bdb79451ad66890c5ae5a49a2",
+      "bytes": 19830
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_idle_normal.anm",
+      "wadPathHash": "f280abd9c26e1795",
+      "sha256": "c207ba33c430961bdce9c0e26af4cae463a07e413a81cc1dc9b310acd295165a",
+      "bytes": 6936
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_run2.anm",
+      "wadPathHash": "750e1c253d1af035",
+      "sha256": "c2fa9bd628833ad974e6603860090f4b36b4f970f875591efdf86cd7ab022ef0",
+      "bytes": 11030
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_spawn.anm",
+      "wadPathHash": "2d47851e9dc8ff56",
+      "sha256": "971a293bab44e1c50ef616662f43a9a48c30868d082ac5a2e2dae57d2f6815f8",
+      "bytes": 19370
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/krug_spawn_nj.anm",
+      "wadPathHash": "b57c976c41092472",
+      "sha256": "d411a56865a2eb0b0e80a2502544512600eb74829a96c5ae8589a9e0172a2a55",
+      "bytes": 19200
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/sru_krug_idle_lookat_l.anm",
+      "wadPathHash": "ff2dd341b81866b5",
+      "sha256": "9642ece3f60fa6d695859e5b1bca1f27f48b58c1fc8dfe3d7ca53fa74ae03c6e",
+      "bytes": 920
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/sru_krug_idle_lookat_m.anm",
+      "wadPathHash": "eefc98d071f5ad3d",
+      "sha256": "515a59815fe8cc6b11c58653a2f023e142a3ffa814e65dae9b301aee3b6d9e62",
+      "bytes": 914
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/animations/sru_krug_idle_lookat_r.anm",
+      "wadPathHash": "0fa0e5b88391c181",
+      "sha256": "abfb0180a9fec0d3c203d7705dea3fb230edb0a93423a5fcf5a57363dad57be8",
+      "bytes": 920
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/sru_krug.skl",
+      "wadPathHash": "2a7bd2c8b5d6a439",
+      "sha256": "ebdbecfd0fab228af9505dab2692f46d38a1b7edbf9fbfbdd37b8a91e4aadad1",
+      "bytes": 5748
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/sru_krug.skn",
+      "wadPathHash": "7bf97eb0a7d5b732",
+      "sha256": "87d0e80f88fe58713a75dce1f34a559bac81bbb03aac2cd52aa0fe1c76e9c4a0",
+      "bytes": 107014
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/sru_krug_base_tx_cm.tex",
+      "wadPathHash": "73a15d30df7246ab",
+      "sha256": "806f596858accf2399ef3cc9a877f7162fd011c2695b212718f7485e55846fe9",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_krug/skins/base/sru_krugmini_base_tx_cm.tex",
+      "wadPathHash": "3df7d91d4ec2e610",
+      "sha256": "4654f971b0762130c065ac62ac6409c838f027bd1ce69f2d9e687dc4fd43eb0a",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_krugmini/skins/base/animations/krug_mini_idle_n2ag.anm",
+      "wadPathHash": "643dec25b16ffed2",
+      "sha256": "42472d451b47f41ac710380eee8fe40eace28ea942f0d421d7e3c05e0d72e7f0",
+      "bytes": 24484
+    },
+    {
+      "path": "assets/characters/sru_krugmini/skins/base/animations/krug_spawn_mini.anm",
+      "wadPathHash": "01a6194766f4b18b",
+      "sha256": "a3f9eff32e22b68698db895a41beb7d22ea89ef5c4bdabe1bdc3010f7ba34871",
+      "bytes": 17960
+    },
+    {
+      "path": "assets/characters/sru_krugmini/skins/base/animations/krug_spawn_mini_nj.anm",
+      "wadPathHash": "d7b1845159072d10",
+      "sha256": "df2ebb581d6d38df009dbb136dd2b37b648c4f574ab06382773a6dfb302dcea5",
+      "bytes": 18300
+    },
+    {
+      "path": "assets/characters/sru_krugmini/skins/base/sru_krug.skl",
+      "wadPathHash": "b430af812579ec96",
+      "sha256": "c23edb4879f58539403e12091baa395b31caeb878f5bc76fbca3b21e3c0a18b1",
+      "bytes": 5740
+    },
+    {
+      "path": "assets/characters/sru_krugmini/skins/base/sru_krug.skn",
+      "wadPathHash": "cd2a0d65c66182a8",
+      "sha256": "3d2694cc9187f8f6a99db547fcc6132110fafaf8440c81abefa35e01a8de3faa",
+      "bytes": 71060
+    }
+  ],
+  "unitScale": 0.011499999761581422,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1.149999976158142,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "SRU_Krugs_MD_Rockem_Mini2": "assets/characters/sru_krug/skins/base/sru_krug_base_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_64ae7bbd",
+      "state": "{64ae7bbd}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro.anm",
+      "durationSeconds": 3.4666669368743896
+    },
+    {
+      "name": "entry_2acd4eca",
+      "state": "{2acd4eca}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_run2.anm",
+      "durationSeconds": 0.6000000238418579
+    },
+    {
+      "name": "entry_6d782d21",
+      "state": "{6d782d21}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_idle_n2ag.anm",
+      "durationSeconds": 3.3000001907348633
+    },
+    {
+      "name": "entry_5360a86d",
+      "state": "{5360a86d}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_idle_normal.anm",
+      "durationSeconds": 0.6000000238418579
+    },
+    {
+      "name": "entry_15db56e5",
+      "state": "{15db56e5}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro2.anm",
+      "durationSeconds": 1.8666667938232422
+    },
+    {
+      "name": "entry_ecb30914",
+      "state": "{ecb30914}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro3.anm",
+      "durationSeconds": 2.4000000953674316
+    },
+    {
+      "name": "entry_130f732f",
+      "state": "{130f732f}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_idle_aggro4.anm",
+      "durationSeconds": 1.5000001192092896
+    },
+    {
+      "name": "entry_6993b439",
+      "state": "{6993b439}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_idle_ag2n.anm",
+      "durationSeconds": 3.4666669368743896
+    },
+    {
+      "name": "attack1",
+      "state": "attack1",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_attack1.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_attack4.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "entry_bd28bd4d",
+      "state": "{bd28bd4d}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_death2.anm",
+      "durationSeconds": 3.9333336353302
+    },
+    {
+      "name": "attack3",
+      "state": "Attack3",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_attack5.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "entry_3a224d98",
+      "state": "{3a224d98}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_spawn.anm",
+      "durationSeconds": 1.3333333730697632
+    },
+    {
+      "name": "entry_64f8c1c1",
+      "state": "{64f8c1c1}",
+      "source": "assets/characters/sru_krug/skins/base/animations/krug_spawn_nj.anm",
+      "durationSeconds": 1.3000000715255737
+    },
+    {
+      "name": "entry_c9aea644",
+      "state": "{c9aea644}",
+      "source": "assets/characters/sru_krug/skins/base/animations/sru_krug_idle_lookat_l.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_4616ab14",
+      "state": "{4616ab14}",
+      "source": "assets/characters/sru_krug/skins/base/animations/sru_krug_idle_lookat_m.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_6085d75f",
+      "state": "{6085d75f}",
+      "source": "assets/characters/sru_krug/skins/base/animations/sru_krug_idle_lookat_r.anm",
+      "durationSeconds": 0.03333333507180214
+    }
+  ],
+  "triangles": 2477,
+  "bones": 46
+}
