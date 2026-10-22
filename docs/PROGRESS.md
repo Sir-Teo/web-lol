@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,083 source/simulation/geometry checks, six focused Chrome Gromp combat/death/missile checks and ten existing input/save/fog regression cases. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,092 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,10 +14,36 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-87 continuation. A separate simulation diagnostic uses both actual Rift source positions. Standard-mode camp scheduling, remaining monster effects/audio and jungle-role matches remain unfinished.
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-88 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns and schema-88 calendars. Native activation/scaling, the remaining camps/effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+The [Rift Gromp camp increment](JUNGLE-CAMPS.md) adds two live lane-match camps
+at exact script-linked map locators. It uses the published 67-second first-spawn
+baseline and an explicitly provisional 135-second respawn policy. Death schedules
+only its own camp; resets leave the calendar unchanged, and corpse-free saves
+retain their pending deadlines. Schema 88 validates ownership, source homes and
+calendar relationships. Lane matches preload the existing rig/effects before
+simulation resumes; ordinary practice still requests no Gromp assets.
+
+Nine original Lua 5.1 scripts now have reproducible extraction and ten bytecode
+evidence windows. A static reader matches stock Lua 5.1.5 on 103 prototypes and
+10,252 opcode names. Repeated extraction/export is identical; five synthetic
+format checks pass. Legacy Lua gives a conflicting 99-second first spawn and
+conditionally exports native dictionaries. Current mutator/feature-flag values
+remain unknown; this is documented evidence, not certified native activation.
+The source-linked Chaos locator differs from its placed character and anchor.
+
+All 1,092 source/simulation/geometry checks and TypeScript pass. Four existing
+Chrome lane/neutral cases pass; the new real-menu spawn/fog/clear/reload/respawn
+case also verifies a mouse attack and retaliation, and passes after correcting its selector to distinguish the hidden opposite
+camp bar. Both Rift captures were visually reviewed. Production build and
+`/nested/rift/` smoke pass with 17 source recordings, no development hook or
+source-inspector requests, and Gromp rig/effect loading for lane start/restart
+(34 requests across both loads). The existing bundle-size warning remains.
+Full-match and native visual parity remain open. Source hashes, ruleset fingerprint
+and validation details are retained in [the camp verification ledger](reference/rift-gromp-camps-verification.json).
 
 Earlier roster increment: Garen NPC R now has explicit champion targeting, captured
 rank/timing, release-time missing-health true damage, isolated target sight, source

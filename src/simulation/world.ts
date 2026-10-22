@@ -1,5 +1,7 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { GROMP, GROMP_POLICY } from '../content/gromp';
+import { RIFT_GROMP_CAMPS, GROMP_RESPAWN_TICKS } from '../content/rift-gromp-camps';
+import type { JungleCampState } from './types';
 import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
 import { structurePose } from '../render/structure-pose';
@@ -138,6 +140,7 @@ export class World {
   nextId = 1;
   matchMode: 'practice' | 'lanes' = 'practice';
   encounter: 'gromp' | null = null;
+  jungleCamps: JungleCampState[] = [];
   units: Unit[] = [];
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
@@ -422,7 +425,7 @@ export class World {
     }
     return u;
   }
-  /** Explicit controlled encounter; this does not select a live map camp. */
+  /** Spawn a neutral unit. Camp ownership/calendar is tracked independently. */
   spawnMonster(point: Vec2): Extract<Unit, { kind: 'monster' }> {
     const base = this.createUnitBase('monster', 'neutral', point);
     const { attackSpeed, ...stats } = GROMP.stats;
@@ -457,6 +460,19 @@ export class World {
     );
     this.units.push(u);
     return u;
+  }
+  private advanceJungleCamps(): void {
+    for (const camp of this.jungleCamps) {
+      if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick) continue;
+      const definition = RIFT_GROMP_CAMPS.find((c) => c.id === camp.id)!;
+      const unit = this.spawnMonster(definition.point);
+      unit.facing = Math.atan2(
+        definition.facingPoint.x - unit.x,
+        definition.facingPoint.y - unit.y
+      );
+      camp.unitId = unit.id;
+      camp.nextSpawnTick = null;
+    }
   }
   private advanceMonster(u: Extract<Unit, { kind: 'monster' }>): boolean {
     const monster = u.monster,
@@ -700,6 +716,7 @@ export class World {
       this.nextWaveTick += Math.round(waveInterval * TICK_RATE);
     }
     this.releaseWaveUnits();
+    this.advanceJungleCamps();
     for (const u of this.units) {
       if (!this.alive(u)) {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
@@ -3312,6 +3329,11 @@ export class World {
       if (target.kind === 'monster') {
         target.monster.phase = 'idle';
         target.monster.targetId = null;
+        const camp = this.jungleCamps.find((c) => c.unitId === target.id);
+        if (camp) {
+          camp.unitId = null;
+          camp.nextSpawnTick = this.tick + GROMP_RESPAWN_TICKS;
+        }
       }
       target.shields = [];
       target.slows = [];
@@ -4274,6 +4296,7 @@ export class World {
       version: SNAPSHOT_VERSION,
       matchMode: this.matchMode,
       encounter: this.encounter,
+      jungleCamps: this.jungleCamps,
       ruleset: SNAPSHOT_RULESET,
       winner: this.winner,
       firstBloodClaimed: this.firstBloodClaimed,

@@ -14,6 +14,7 @@ export const rulesetFiles = [
   'src/content/gromp.json',
   'src/content/gromp-death.json',
   'src/content/gromp-attack.json',
+  'src/content/rift-gromp-camps.json',
   'public/assets/maps/rift-layout.json',
   'public/assets/maps/rift-nav.json',
   'public/assets/maps/rift-nav.bin',

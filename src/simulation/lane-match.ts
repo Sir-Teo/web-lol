@@ -1,5 +1,10 @@
 import type { Battlefield } from './battlefield';
 import { World } from './world';
+import {
+  RIFT_GROMP_CAMPS,
+  GROMP_FIRST_SPAWN_TICK,
+  type RiftGrompCampId,
+} from '../content/rift-gromp-camps';
 
 /** Interim lane-only roster: mirrors are deliberate until more complete kits ship. */
 export function createLaneMatch(
@@ -31,6 +36,11 @@ export function createLaneMatch(
     playerChampion
   );
   world.matchMode = 'lanes';
+  world.jungleCamps = RIFT_GROMP_CAMPS.map((camp) => ({
+    id: camp.id as RiftGrompCampId,
+    unitId: null,
+    nextSpawnTick: GROMP_FIRST_SPAWN_TICK,
+  }));
   for (const team of ['blue', 'red'] as const) {
     for (const [slot, assignment] of assignments.entries()) {
       // Human Lux takes mid; Ashe takes bottom. Neither receives an automatic lane order.

@@ -62,7 +62,9 @@ try {
     failed = [],
     outside = [],
     junglePreviewRequests = [],
+    scheduledGrompRequests = [],
     recordings = new Set();
+  let laneMatchStarted = false;
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(message.text());
@@ -73,7 +75,12 @@ try {
         request.url()
       )
     )
-      junglePreviewRequests.push(request.url());
+      if (
+        !laneMatchStarted ||
+        /sru-blue-base|jungle-character-source|jungle-characters/.test(request.url())
+      )
+        junglePreviewRequests.push(request.url());
+      else scheduledGrompRequests.push(request.url());
     if (/^https?:/.test(request.url()) && !request.url().startsWith(base))
       outside.push(request.url());
   });
@@ -132,6 +139,7 @@ try {
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   assert.equal(await page.getByRole('button', { name: 'Garen', exact: true }).count(), 0);
   await page.getByRole('button', { name: 'Lux', exact: true }).click();
+  laneMatchStarted = true;
   await Promise.all([
     page.waitForEvent('load'),
     page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
@@ -178,6 +186,10 @@ try {
     [],
     'Production must not request jungle review data or rigs'
   );
+  assert(
+    scheduledGrompRequests.some((url) => url.endsWith('/sru-gromp-base.glb')),
+    'Lane matches must prepare the scheduled Gromp rig beneath the host prefix'
+  );
   assert.deepEqual(failed, [], 'All production resources must load successfully');
   assert.deepEqual(errors, [], 'No production JavaScript or console errors');
   console.log(
@@ -192,6 +204,7 @@ try {
       developmentHook: false,
       garenFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
+      scheduledGrompRequests: scheduledGrompRequests.length,
       screenshot: 'artifacts/production-subpath.png',
     })
   );

@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-21",
+  "baseCommit": "16e76fccfae46a2df7678566b09d24b2fd128de0",
+  "rulesetFingerprint": "9da69fea5dae3c74143401374963bab6340ac0b149bb39755918b07ba9c3c64a",
+  "schema": 88,
+  "sourcePin": {
+    "path": "docs/reference/jungle-script-source.json",
+    "sha256": "1a8dd82125b5834f7c459edb25216f03104f0e7bff8dfc057629fcf33fb6cbae"
+  },
+  "sourceReproduction": {
+    "files": 9,
+    "instructionWindows": 10,
+    "repeatMatches": true,
+    "syntheticReaderChecks": 5,
+    "stockLuaVersion": "5.1.5",
+    "comparedPrototypes": 103,
+    "comparedOpcodeNames": 10252,
+    "luaVmUsed": false,
+    "method": "Static parsing and restricted data-block evaluation"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 220,
+    "passed": 1092,
+    "typecheck": "passed"
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "existingLaneAndNeutralCases": 4,
+    "scheduledCampCase": "passed: real lane menu, source rigs, fog, mouse attack/retaliation, clear, corpse-free reload, exact deadline and fresh spawn",
+    "scope": "Scripted boundary jumps and final kill. Not a complete seeded match or native visual comparison.",
+    "initialFinding": "Selector matched both the visible and hidden opposite camp bars; corrected to assert both states.",
+    "captureCorrection": "Closed the restored pause menu before the respawn capture."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "sourceRecordings": 17,
+    "developmentHook": false,
+    "jungleInspectorRequests": 0,
+    "scheduledGrompRequests": 34,
+    "warning": "Existing bundle-size warning remains."
+  },
+  "captures": [
+    {
+      "path": "artifacts/rift-gromp-camp.png",
+      "sha256": "bd54481306f5dd61329afe74f32786dac035e94efce2ec76635613ad6bc5714d",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/rift-gromp-respawn.png",
+      "sha256": "a38216365a49d8fa34956554e04486c6813da1e8897399ae426285a70e395831",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Current native activation and timing reconciliation",
+    "Spawn animation/protection",
+    "Monster level scaling and complete native attacks/rewards",
+    "Other camps, Smite and jungle-role AI",
+    "Full seeded match, native visual comparison and performance certification"
+  ]
+}

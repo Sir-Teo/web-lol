@@ -14,6 +14,9 @@ objects and the separately converted base skin 0.
 The [neutral Gromp encounter](NEUTRAL-GROMP.md) now supplies controlled combat and
 saved continuation in a separate development fixture. Standard-mode camp
 membership, activation and scheduling remain unresolved by these map records.
+The later [script and calendar increment](JUNGLE-CAMPS.md) links legacy Gromp
+membership to named map locators and adds two interim lane-match camps with
+explicit timing policies. Current native activation remains unverified.
 
 ## Original client files
 
@@ -78,7 +81,9 @@ uninterpreted. Riot's [26.1 Game Start Time notes](https://www.leagueoflegends.c
 provide a separate baseline: wolves/buffs/raptors at 55 seconds, krugs/gromp at
 67 seconds and scuttlers at 175 seconds. This published baseline is not an
 executable calendar here. Later changes, script initialization, respawn rules and
-current-mode activation must be reconciled before enabling live camps.
+current-mode activation remain open. The interim Gromp calendar uses the
+published baseline and separately identifies its provisional respawn policy;
+it does not treat the legacy script as a verified current calendar.
 
 ## Inspecting the coordinates
 

@@ -1,5 +1,10 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import {
+  RIFT_GROMP_CAMPS,
+  GROMP_FIRST_SPAWN_TICK,
+  GROMP_RESPAWN_TICKS,
+} from '../content/rift-gromp-camps';
+import {
   GROMP_ATTACK_PATH_FRAMES,
   GROMP_ATTACK_VISUAL_TAIL_TICKS,
 } from '../content/gromp-attack-presentation';
@@ -57,7 +62,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 87;
+export const SNAPSHOT_VERSION = 88;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -637,6 +642,15 @@ const luxTargetVisual = (historyTicks: number) =>
 const snapshot = z.strictObject({
   version: z.literal(SNAPSHOT_VERSION),
   encounter: z.literal('gromp').nullable(),
+  jungleCamps: z
+    .array(
+      z.strictObject({
+        id: z.enum(['order-gromp', 'chaos-gromp']),
+        unitId: id.nullable(),
+        nextSpawnTick: tick.nullable(),
+      })
+    )
+    .max(2),
   matchMode: z.enum(['practice', 'lanes']),
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),
@@ -843,6 +857,39 @@ export function decodeSnapshot(text: string) {
       cause: result.error,
     });
   const state = result.data;
+  if (state.matchMode === 'lanes' && state.battlefield !== 'rift')
+    throw new Error('Lane matches require Summoner’s Rift.');
+  if (
+    state.jungleCamps.length !== (state.matchMode === 'lanes' ? 2 : 0) ||
+    (state.jungleCamps.length > 0 && state.battlefield !== 'rift') ||
+    new Set(state.jungleCamps.map((c) => c.id)).size !== state.jungleCamps.length
+  )
+    throw new Error('Saved match has invalid jungle camps.');
+  for (const camp of state.jungleCamps) {
+    const definition = RIFT_GROMP_CAMPS.find((c) => c.id === camp.id)!;
+    const unit = state.units.find((u) => u.id === camp.unitId);
+    if (camp.unitId === null) {
+      if (
+        camp.nextSpawnTick === null ||
+        camp.nextSpawnTick <= state.tick ||
+        (state.tick < GROMP_FIRST_SPAWN_TICK
+          ? camp.nextSpawnTick !== GROMP_FIRST_SPAWN_TICK
+          : camp.nextSpawnTick > state.tick + GROMP_RESPAWN_TICKS)
+      )
+        throw new Error('Saved jungle camp has an invalid spawn deadline.');
+    } else if (
+      camp.nextSpawnTick !== null ||
+      state.tick < GROMP_FIRST_SPAWN_TICK ||
+      !unit ||
+      unit.kind !== 'monster' ||
+      unit.hp <= 0 ||
+      unit.monster.home.x !== definition.point.x ||
+      unit.monster.home.y !== definition.point.y ||
+      state.jungleCamps.some((c) => c.id !== camp.id && c.unitId === camp.unitId)
+    ) {
+      throw new Error('Saved jungle camp has an invalid active monster.');
+    }
+  }
   if (
     state.encounter &&
     (state.battlefield !== 'practice-fixture' || state.matchMode !== 'practice')
