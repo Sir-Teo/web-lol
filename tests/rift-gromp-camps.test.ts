@@ -10,7 +10,7 @@ import {
   GROMP_FIRST_SPAWN_TICK,
   GROMP_RESPAWN_TICKS,
 } from '../src/content/rift-gromp-camps';
-import { GROMP_POLICY } from '../src/content/gromp';
+import { GROMP_POLICY, GROMP_SPAWN_LEADUP_TICKS } from '../src/content/gromp';
 
 const bytes = readFileSync('public/assets/maps/rift-nav.bin');
 const rift = createRift(
@@ -34,13 +34,17 @@ function spawned() {
   return world;
 }
 
-test('both Gromps appear exactly on the baseline tick at their distinct source locators', () => {
+test('both Gromps emerge before their ready deadline at distinct source locators', () => {
   const world = match();
-  world.tick = GROMP_FIRST_SPAWN_TICK - 2;
+  world.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 2;
   world.step();
   expect(world.units.some((u) => u.kind === 'monster')).toBe(false);
   world.step();
   expect(world.units.filter((u) => u.kind === 'monster')).toHaveLength(2);
+  expect(world.jungleCamps.every((c) => world.unit(c.unitId!)?.monster?.phase === 'spawning')).toBe(
+    true
+  );
+  world.step(GROMP_SPAWN_LEADUP_TICKS);
   for (const [i, camp] of world.jungleCamps.entries()) {
     const unit = world.unit(camp.unitId!)!;
     const definition = RIFT_GROMP_CAMPS[i];
@@ -82,7 +86,8 @@ test('a clear schedules only its own camp from the death tick, surviving corpse 
   world.tick = restored.tick = deadline - 2;
   world.step();
   restored.step();
-  expect(camp.unitId).toBeNull();
+  expect(world.unit(camp.unitId!)?.monster?.phase).toBe('spawning');
+  expect(world.vulnerable(world.unit(camp.unitId!)!)).toBe(false);
   world.step();
   restored.step();
   const fresh = world.unit(camp.unitId!)!;
@@ -116,13 +121,14 @@ test('retaliation and a leash reset never restart the camp calendar', () => {
 
 test('a pre-spawn checkpoint resumes both camps once and game end freezes their calendar', () => {
   const world = match();
-  world.tick = GROMP_FIRST_SPAWN_TICK - 1;
+  world.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 1;
   const saved = world.snapshot(),
     restored = World.fromSnapshot(saved, rift);
   expect(restored.snapshot()).toBe(saved);
   world.step();
   restored.step();
   expect(restored.snapshot()).toBe(world.snapshot());
+  world.step(GROMP_SPAWN_LEADUP_TICKS);
   const target = world.unit(world.jungleCamps[0].unitId!)!;
   world.damage(world.hero, target, 99999, 'true');
   world.winner = 'blue';
@@ -165,7 +171,7 @@ test('checkpoint validation rejects missing, duplicate, premature and inconsiste
     s.jungleCamps[0].nextSpawnTick = s.tick + 1;
   });
   invalid((s) => {
-    s.tick = GROMP_FIRST_SPAWN_TICK - 1;
+    s.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 1;
   });
   invalid((s) => {
     s.units.find((u: any) => u.id === s.jungleCamps[0].unitId).monster.home.x++;

@@ -1,0 +1,327 @@
+{
+  "scriptSourcePin": "docs/reference/jungle-script-source.json",
+  "scriptSourcePinSha256": "1a8dd82125b5834f7c459edb25216f03104f0e7bff8dfc057629fcf33fb6cbae",
+  "characterSourcePin": "docs/reference/jungle-character-source.json",
+  "characterSourcePinSha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+  "modelManifest": "public/assets/models/sru-gromp-base.json",
+  "modelManifestSha256": "2bc2de44c2afe1373bbe51f8bb88a5351ade7c0e1a92e8ff73f276e5ddfb684b",
+  "timerEvidence": {
+    "path": "data/shared/scripts/sr_neutralminionspawn.luabin64",
+    "function": "NeutralMinionDeath",
+    "codeSha256": "5cd52a0009c7b16b6efacf06fd6afc07e8efbff2f3542e96aa8bf26a0ef59c94",
+    "firstPc": 371,
+    "lastPc": 392,
+    "instructions": [
+      {
+        "pc": 371,
+        "word": "000f8185",
+        "op": "GETGLOBAL",
+        "operands": [
+          6,
+          {
+            "constant": "InitNeutralMinionTimer"
+          }
+        ]
+      },
+      {
+        "pc": 372,
+        "word": "000601c5",
+        "op": "GETGLOBAL",
+        "operands": [
+          7,
+          {
+            "constant": "NeutralMinionCamps"
+          }
+        ]
+      },
+      {
+        "pc": 373,
+        "word": "038141c6",
+        "op": "GETTABLE",
+        "operands": [
+          7,
+          7,
+          {
+            "register": 5
+          }
+        ]
+      },
+      {
+        "pc": 374,
+        "word": "03cfc1c6",
+        "op": "GETTABLE",
+        "operands": [
+          7,
+          7,
+          {
+            "constant": "Timer"
+          }
+        ]
+      },
+      {
+        "pc": 375,
+        "word": "00060205",
+        "op": "GETGLOBAL",
+        "operands": [
+          8,
+          {
+            "constant": "NeutralMinionCamps"
+          }
+        ]
+      },
+      {
+        "pc": 376,
+        "word": "04014206",
+        "op": "GETTABLE",
+        "operands": [
+          8,
+          8,
+          {
+            "register": 5
+          }
+        ]
+      },
+      {
+        "pc": 377,
+        "word": "04500206",
+        "op": "GETTABLE",
+        "operands": [
+          8,
+          8,
+          {
+            "constant": "TimerType"
+          }
+        ]
+      },
+      {
+        "pc": 378,
+        "word": "00060245",
+        "op": "GETGLOBAL",
+        "operands": [
+          9,
+          {
+            "constant": "NeutralMinionCamps"
+          }
+        ]
+      },
+      {
+        "pc": 379,
+        "word": "04814246",
+        "op": "GETTABLE",
+        "operands": [
+          9,
+          9,
+          {
+            "register": 5
+          }
+        ]
+      },
+      {
+        "pc": 380,
+        "word": "04c64246",
+        "op": "GETTABLE",
+        "operands": [
+          9,
+          9,
+          {
+            "constant": "GroupsRespawnTime"
+          }
+        ]
+      },
+      {
+        "pc": 381,
+        "word": "00060285",
+        "op": "GETGLOBAL",
+        "operands": [
+          10,
+          {
+            "constant": "NeutralMinionCamps"
+          }
+        ]
+      },
+      {
+        "pc": 382,
+        "word": "05014286",
+        "op": "GETTABLE",
+        "operands": [
+          10,
+          10,
+          {
+            "register": 5
+          }
+        ]
+      },
+      {
+        "pc": 383,
+        "word": "05504286",
+        "op": "GETTABLE",
+        "operands": [
+          10,
+          10,
+          {
+            "constant": "SpawnDuration"
+          }
+        ]
+      },
+      {
+        "pc": 384,
+        "word": "0482824d",
+        "op": "SUB",
+        "operands": [
+          9,
+          {
+            "register": 9
+          },
+          {
+            "register": 10
+          }
+        ]
+      },
+      {
+        "pc": 385,
+        "word": "00060285",
+        "op": "GETGLOBAL",
+        "operands": [
+          10,
+          {
+            "constant": "NeutralMinionCamps"
+          }
+        ]
+      },
+      {
+        "pc": 386,
+        "word": "05014286",
+        "op": "GETTABLE",
+        "operands": [
+          10,
+          10,
+          {
+            "register": 5
+          }
+        ]
+      },
+      {
+        "pc": 387,
+        "word": "05504286",
+        "op": "GETTABLE",
+        "operands": [
+          10,
+          10,
+          {
+            "constant": "SpawnDuration"
+          }
+        ]
+      },
+      {
+        "pc": 388,
+        "word": "000002c2",
+        "op": "LOADBOOL",
+        "operands": [
+          11,
+          0,
+          0
+        ]
+      },
+      {
+        "pc": 389,
+        "word": "00060305",
+        "op": "GETGLOBAL",
+        "operands": [
+          12,
+          {
+            "constant": "NeutralMinionCamps"
+          }
+        ]
+      },
+      {
+        "pc": 390,
+        "word": "06014306",
+        "op": "GETTABLE",
+        "operands": [
+          12,
+          12,
+          {
+            "register": 5
+          }
+        ]
+      },
+      {
+        "pc": 391,
+        "word": "06508306",
+        "op": "GETTABLE",
+        "operands": [
+          12,
+          12,
+          {
+            "constant": "StopSpawnTime"
+          }
+        ]
+      },
+      {
+        "pc": 392,
+        "word": "0380419c",
+        "op": "CALL",
+        "operands": [
+          6,
+          7,
+          1
+        ]
+      }
+    ]
+  },
+  "atomicClip": {
+    "mFlags": 8,
+    "mTrackDataName": "{933b5bde}",
+    "mEventDataMap": {
+      "{e1829ec0}": {
+        "mName": "{e1829ec0}",
+        "mStartFrame": 90.0,
+        "mEffectName": "DATA/Particles/SRU_Gromp_Spawn_ReadyFlash.troy",
+        "mParticleEventDataPairList": [
+          {
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "ParticleEventData"
+      },
+      "{9675fb99}": {
+        "mName": "{9675fb99}",
+        "mEffectName": "DATA/Particles/SRU_Gromp_spawn_sound.troy",
+        "mParticleEventDataPairList": [
+          {
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsLoop": false,
+        "__type": "ParticleEventData"
+      }
+    },
+    "mTickDuration": 0.03333333879709244,
+    "mAnimationResourceData": {
+      "mAnimationFilePath": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_spawn.anm",
+      "__type": "AnimationResourceData"
+    },
+    "__type": "AtomicClipData"
+  },
+  "convertedClip": {
+    "name": "entry_e4cb0f58",
+    "state": "{e4cb0f58}",
+    "source": "assets/characters/sru_gromp/skins/base/animations/sru_gromp_spawn.anm",
+    "durationSeconds": 4.5
+  },
+  "cascadeBlendSeconds": 0.0,
+  "spawnBlendEntries": {
+    "16486287734724934989": {
+      "mTime": 0.0,
+      "__type": "TimeBlendData"
+    },
+    "16486287735389884248": {
+      "mTime": 0.0,
+      "__type": "TimeBlendData"
+    }
+  },
+  "legacySpawnDurationSeconds": 3.2,
+  "status": "Static source data. Timer call subtracts SpawnDuration from GroupsRespawnTime and passes SpawnDuration separately. Engine timer semantics and active native flags remain unknown. Local scheduling interprets duration as a protected lead-up to the existing ready deadline; clip playback continues until completion or combat interruption. Spawn submesh/events/audio remain separate work."
+}

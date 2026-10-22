@@ -10,7 +10,7 @@ import { GAREN_E } from '../content/garen-e';
 import { GAREN_R_ANIMATION_CONTACT, GAREN_R_WINDUP_TICKS } from '../content/garen-r-policy';
 
 export interface MobilePose {
-  kind: 'cast' | 'recall' | 'attack' | 'run' | 'idle' | 'death';
+  kind: 'spawn' | 'cast' | 'recall' | 'attack' | 'run' | 'idle' | 'death';
   clip: string;
   time: number;
   rate: number;
@@ -52,11 +52,13 @@ export function mobilePose(
     rate,
     loop: false,
     unclampedTime: Math.max(0, time),
-    cut,
+    cut: cut || (unit.kind === 'monster' && unit.animationTimeline?.primary.kind === 'spawn'),
     settled: cut || time >= 0.08,
   });
   if (unit.deadAt !== null)
     return fixed('death', 'death', Math.max(0, (at - unit.deadAt) / TICK_RATE) + terminalAge);
+  if (unit.kind === 'monster' && unit.monster.spawn)
+    return fixed('spawn', 'spawn', (at - unit.monster.spawn.startTick) / TICK_RATE, true);
   if (state?.garenE) {
     const spin = state.garenE,
       clip = GAREN_E.animationClip;
@@ -131,7 +133,7 @@ export function mobilePose(
     rate: moving && clock ? (clock.current - clock.previous) * TICK_RATE : 1,
     loop: true,
     unclampedTime: seconds,
-    cut: false,
+    cut: unit.kind === 'monster' && unit.animationTimeline?.primary.kind === 'spawn',
     settled: !!clock && (tick - clock.startTick + alpha) / TICK_RATE >= 0.08,
   };
 }

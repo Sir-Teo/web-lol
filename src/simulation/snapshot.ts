@@ -1,4 +1,5 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
+import { GROMP_SPAWN_LEADUP_TICKS, GROMP_SPAWN_CLIP_TICKS } from '../content/gromp';
 import {
   RIFT_GROMP_CAMPS,
   GROMP_FIRST_SPAWN_TICK,
@@ -62,7 +63,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 88;
+export const SNAPSHOT_VERSION = 89;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -77,7 +78,7 @@ const poseLayer = z.strictObject({
 const animationTimeline = z.strictObject({
   tick,
   primary: z.strictObject({
-    kind: z.enum(['cast', 'recall', 'attack', 'run', 'idle', 'death']),
+    kind: z.enum(['spawn', 'cast', 'recall', 'attack', 'run', 'idle', 'death']),
     clip: z.string().max(100),
     time: nonnegative,
     rate: nonnegative,
@@ -134,8 +135,9 @@ const unit = z
       .strictObject({
         species: z.literal('gromp'),
         home: point,
-        phase: z.enum(['idle', 'engaged', 'returning']),
+        phase: z.enum(['spawning', 'idle', 'engaged', 'returning']),
         targetId: id.nullable(),
+        spawn: z.strictObject({ startTick: tick, readyTick: tick }).nullable(),
       })
       .optional(),
     name: z.string().max(200),
@@ -306,7 +308,7 @@ const unit = z
     if (!u.monster) return true;
     if (u.monster.phase === 'engaged') return u.order.type === 'idle' || u.order.type === 'attack';
     if (u.releaseTick !== null || u.attackCycle !== null) return false;
-    return u.monster.phase === 'idle'
+    return u.monster.phase === 'idle' || u.monster.phase === 'spawning'
       ? u.order.type === 'idle'
       : u.order.type === 'move' &&
           u.order.point.x === u.monster.home.x &&
@@ -871,7 +873,7 @@ export function decodeSnapshot(text: string) {
     if (camp.unitId === null) {
       if (
         camp.nextSpawnTick === null ||
-        camp.nextSpawnTick <= state.tick ||
+        camp.nextSpawnTick - GROMP_SPAWN_LEADUP_TICKS <= state.tick ||
         (state.tick < GROMP_FIRST_SPAWN_TICK
           ? camp.nextSpawnTick !== GROMP_FIRST_SPAWN_TICK
           : camp.nextSpawnTick > state.tick + GROMP_RESPAWN_TICKS)
@@ -879,10 +881,12 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved jungle camp has an invalid spawn deadline.');
     } else if (
       camp.nextSpawnTick !== null ||
-      state.tick < GROMP_FIRST_SPAWN_TICK ||
+      state.tick < GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS ||
       !unit ||
       unit.kind !== 'monster' ||
       unit.hp <= 0 ||
+      (state.tick < GROMP_FIRST_SPAWN_TICK &&
+        unit.monster.spawn?.readyTick !== GROMP_FIRST_SPAWN_TICK) ||
       unit.monster.home.x !== definition.point.x ||
       unit.monster.home.y !== definition.point.y ||
       state.jungleCamps.some((c) => c.id !== camp.id && c.unitId === camp.unitId)
@@ -901,6 +905,28 @@ export function decodeSnapshot(text: string) {
   )
     throw new Error('Garen player kit is available only in the development practice fixture.');
   for (const unit of state.units) {
+    if (unit.kind === 'monster') {
+      const spawn = unit.monster.spawn;
+      if (
+        (unit.monster.phase === 'spawning' && !spawn) ||
+        (spawn &&
+          (spawn.startTick > state.tick ||
+            spawn.readyTick - spawn.startTick !== GROMP_SPAWN_LEADUP_TICKS ||
+            state.tick >= spawn.startTick + GROMP_SPAWN_CLIP_TICKS ||
+            (unit.monster.phase === 'spawning') !== state.tick < spawn.readyTick ||
+            unit.monster.phase === 'engaged' ||
+            unit.monster.phase === 'returning' ||
+            unit.hp !== unit.maxHp ||
+            unit.deadAt !== null ||
+            unit.x !== unit.monster.home.x ||
+            unit.y !== unit.monster.home.y ||
+            unit.releaseTick !== null ||
+            unit.attackCycle !== null ||
+            unit.runClock !== null ||
+            unit.idleClock !== null))
+      )
+        throw new Error('Saved monster contains an invalid spawn sequence.');
+    }
     if (unit.kind === 'monster' && unit.monster.targetId !== null) {
       const target = state.units.find((other) => other.id === unit.monster.targetId);
       if (

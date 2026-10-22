@@ -11,6 +11,7 @@ import { removeConstantBoneTracks } from './constant-bone-tracks';
 export interface UnitModel {
   root: THREE.Group;
   submeshes?: THREE.Object3D[];
+  spawnSubmeshes?: THREE.Object3D[];
   destroyedClip?: string;
   animateDestruction?: boolean;
   deadIdleClip?: string;
@@ -176,6 +177,7 @@ export function makeModel(u: Unit): UnitModel {
       model = clone(reference.scene);
     root.add(model);
     const submeshes: THREE.Object3D[] = [];
+    const spawnSubmeshes: THREE.Object3D[] = [];
     let sharedSkeleton: THREE.Skeleton | undefined;
     model.traverse((object) => {
       if (object.userData.submesh) {
@@ -188,6 +190,11 @@ export function makeModel(u: Unit): UnitModel {
           object.skeleton = sharedSkeleton;
       }
       if (object instanceof THREE.Mesh) {
+        if (u.kind === 'monster') {
+          const materials = Array.isArray(object.material) ? object.material : [object.material];
+          if (materials.some((material) => material.userData.sourceSubmesh === GROMP.spawn.submesh))
+            spawnSubmeshes.push(object);
+        }
         object.castShadow = true;
         object.frustumCulled = object.userData.animationBounds === true;
       }
@@ -210,6 +217,7 @@ export function makeModel(u: Unit): UnitModel {
     return {
       root,
       submeshes: isStructureKind(u.kind) ? submeshes : undefined,
+      spawnSubmeshes: u.kind === 'monster' ? spawnSubmeshes : undefined,
       destroyedClip: model.userData.destroyedClip,
       animateDestruction: model.userData.animateDestruction,
       deadIdleClip: model.userData.deadIdleClip,

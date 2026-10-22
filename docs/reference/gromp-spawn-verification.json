@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "2594810acc84d5c4e5d2fcadbfebb954fd9e5196",
+  "schema": 89,
+  "rulesetFingerprint": "11c7432307c59ab55796c64c03a1f2e24ac983e686ab0b278350f5cc813965c2",
+  "sourcePin": {
+    "path": "docs/reference/gromp-spawn-source.json",
+    "sha256": "4c36ad2c86b3b86a6a9984e420120eeaa3ad93b49ae710dfec292d48017da098"
+  },
+  "sourcePreparation": {
+    "repeatMatches": true,
+    "timerInstructions": 22,
+    "luaVmUsed": false,
+    "modelBinaryChanged": false
+  },
+  "policy": {
+    "leadupSeconds": 3.2,
+    "sourceClipSeconds": 4.5,
+    "firstReadySeconds": 67,
+    "respawnReadySecondsAfterDeath": 135,
+    "spawnMesh": "Toad_Spawn_Mat",
+    "nativeTimerAndVisibilityDispatch": "unverified"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 221,
+    "passed": 1101,
+    "newCases": 9,
+    "typecheck": "passed"
+  },
+  "findings": [
+    {
+      "issue": "Binding rejected damage but still rooted a protected monster and consumed a hit slot",
+      "repair": "Projectile collision and root/silence application honor vulnerability; Binding reaches two valid units behind the protected monster and Volley passes through without applying slows"
+    },
+    {
+      "issue": "Early spawn frames were empty with the source spawn submesh hidden",
+      "repair": "Show the source submesh during the spawn clip; hide on completion or interruption; mini mesh remains hidden",
+      "evidence": "GPU pixel contribution exceeds 10 pixels at the protected sample; native visibility dispatch remains unverified"
+    }
+  ],
+  "browser": {
+    "command": "npx playwright test e2e/gromp-spawn.spec.ts e2e/rift-gromp-camps.spec.ts e2e/neutral-gromp.spec.ts e2e/light-binding.spec.ts --workers=1 --timeout=60000",
+    "channel": "chrome",
+    "passed": 5,
+    "protectedReload": "exact snapshot and sampled deformed vertices",
+    "readiness": "protected immediately before deadline, targetable on deadline",
+    "spawnMesh": "GPU contribution and cleanup verified",
+    "scope": "Scripted boundary probes and final kill; not a full match or native visual comparison"
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "sourceRecordings": 17,
+    "scheduledGrompRequests": 34,
+    "jungleInspectorRequests": 0,
+    "developmentHook": false,
+    "warning": "Existing bundle-size warning remains."
+  },
+  "captures": [
+    {
+      "path": "artifacts/gromp-spawn-protected.png",
+      "sha256": "0c67f20055ace9039487025ffae7ec49bc2cc03c03c944492b8d64909e9b2c18",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/gromp-spawn-ready.png",
+      "sha256": "69df140014e4607f13ec8a5033e09b7d698cae52b98d2a42d166b6f15fce15ab",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Current native activation and timer/visibility calibration",
+    "Ready-flash particles and spawn audio",
+    "Other monster effects and native attacks/rewards/scaling",
+    "Smite, other camps and jungle-role bots",
+    "Full seeded matches and native visual/performance certification"
+  ]
+}

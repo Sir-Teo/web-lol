@@ -95,7 +95,7 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
     g.setPaused(true);
     w.tick = deadline - 2;
     w.step();
-    const before = w.jungleCamps[0].unitId;
+    const before = w.unit(w.jungleCamps[0].unitId).monster.phase;
     w.step();
     const unit = w.unit(w.jungleCamps[0].unitId);
     g.view.recenter(w.hero);
@@ -115,7 +115,7 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
     };
   });
   expect(resumed.savedCamp).toEqual(waiting.camp);
-  expect(resumed.before).toBeNull();
+  expect(resumed.before).toBe('spawning');
   expect(resumed.camps[0].unitId).not.toBe(spawned.camps[0].unitId);
   expect(resumed.camps[1].unitId).toBe(spawned.camps[1].unitId);
   expect(resumed.home).toEqual(spawned.home);

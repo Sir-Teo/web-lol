@@ -1,12 +1,12 @@
 # Development status
 
-Last updated: October 21, 2026 (America/New_York).
+Last updated: October 22, 2026 (America/New_York).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,092 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,101 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,10 +14,36 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-88 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns and schema-88 calendars. Native activation/scaling, the remaining camps/effects/audio and jungle-role matches remain unfinished.
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-89 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-89 clocks. Native activation/scaling, the remaining camps/effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Gromp emergence](GROMP-SPAWN.md) now uses the existing 4.5-second source clip
+and a separate, provisional 3.2-second protected lead-up. It preserves the
+67-second first-ready and death +135-second respawn deadlines. The source spawn
+submesh appears only during that clip; the mini mesh stays hidden. Playback
+continues after readiness until positive damage or clip completion, with direct
+spawn transitions supported by the graph's zero blend values. Schema 89 retains
+protected and ready-tail checkpoints, including exact sampled pose continuation.
+
+A new source pin retains 22 original timer instructions, the atomic animation
+record, source event frame, model clip and graph spawn blends. Repeated static
+extraction/export matches. Nine new unit cases cover clock/provenance boundaries,
+control immunity, exact-ready input, interpolation, saves, resets and lethal
+interruption. The protected Binding test exposed collision/control dispatch
+that still consumed a hit slot despite rejected damage. Collision and root/
+silence now honor vulnerability; Binding and Volley reach valid units behind
+the emergence. All 1,101 source/simulation/geometry checks and TypeScript pass.
+Five focused Chrome cases pass for source emergence/mesh GPU contribution,
+protected pose reload, normal camp combat/respawn, controlled neutral combat/death
+and two-target Binding. Both new Rift captures were visually reviewed. Production
+build and `/nested/rift/` smoke pass with 17 source recordings, 34 scheduled Gromp
+requests across lane start/restart, no source-inspector requests and no development
+hook. The existing bundle-size warning remains. Source/capture hashes and exact
+commands are retained in [the spawn ledger](reference/gromp-spawn-verification.json).
+Current native timer/visibility dispatch, ready-flash/spawn audio, level scaling,
+other camps and full jungle-role match certification remain open.
 
 The [Rift Gromp camp increment](JUNGLE-CAMPS.md) adds two live lane-match camps
 at exact script-linked map locators. It uses the published 67-second first-spawn

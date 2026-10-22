@@ -1,15 +1,17 @@
 # Interim Rift Gromp camps
 
 The lane match now schedules one Gromp on each half of the actual Rift. A camp
-appears at 67 seconds, uses the existing neutral combat/reset simulation, and
+becomes ready at 67 seconds, uses the existing neutral combat/reset simulation, and
 schedules a fresh unit 135 seconds after death. The two calendars are independent.
 Corpses can expire without losing a pending respawn. Practice and the controlled
-Gromp fixture retain their existing behavior.
+Gromp fixture retain their existing behavior. The later
+[emergence increment](GROMP-SPAWN.md) begins a protected source animation 3.2
+seconds before each ready deadline and retains the remaining animation tail.
 
 This is an incremental jungle implementation. The first spawn uses Riot's
 published [26.1 standard Rift baseline](https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/).
 Respawn is a provisional local policy adopted from a shipped legacy default.
-Later-patch timing changes, current native activation, spawn animation/protection,
+Later-patch timing changes, current native activation, native spawn calibration,
 level scaling, native attacks/rewards, Smite, remaining camps and jungle-role AI
 remain unfinished. See [NEUTRAL-GROMP](NEUTRAL-GROMP.md) for combat and presentation
 limits. This does not finish the full role match or certify native camp behavior.
@@ -72,9 +74,9 @@ points, first-spawn source and separate respawn policy. The JSON participates
 in the simulation fingerprint. Each camp stores its stable ID and either live
 unit ownership or a deadline. Death sets the deadline immediately; leash resets
 leave it unchanged. Respawn creates a new ID, full Root health and clean idle
-state. Match end freezes the calendar with the simulation.
+state after the protected emergence sequence. Match end freezes the calendar with the simulation.
 
-Schema 88 checks camp mode/cardinality/IDs, deadlines, live ownership and source
+Schema 89 checks camp mode/cardinality/IDs, deadlines, live ownership and source
 home points. Older saves remain incompatible without silent migration. Lane
 matches preload existing Gromp rigs/effects, including a checkpoint with only
 waiting camps. Ordinary practice still requests no Gromp assets. Calendars grant

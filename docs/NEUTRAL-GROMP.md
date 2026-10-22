@@ -3,7 +3,9 @@
 The simulation now has a real neutral faction and a playable controlled Gromp
 encounter. Blue and red can attack it, receive retaliation, clear it, and retain
 the encounter through saved continuation. This is a foundation for live jungle
-camps. Standard-mode camp scheduling, level scaling, jungle roles, buffs/Smite,
+camps. The later [camp calendar](JUNGLE-CAMPS.md) and
+[emergence](GROMP-SPAWN.md) increments add interim scheduled Rift Gromps.
+Current native activation, level scaling, jungle roles, buffs/Smite,
 complete monster presentation and full-match certification remain unfinished.
 
 ## Running the encounter
@@ -78,10 +80,11 @@ restart detection, so scalar/clip changes cannot retain a stale save identity.
 
 ## Presentation and saved state
 
-The existing Gromp base GLB loads only when a match contains a monster. Idle,
+The existing Gromp base GLB loads when a match contains or schedules a monster. Idle,
 run, ranged-attack-file and death aliases retain original converted clip names
 and durations in the source profile. Gromp's authored hidden mini/spawn meshes
-stay hidden. Shared animation timelines and target-pose sampling support the
+stay hidden in this controlled idle encounter. Scheduled emergence separately
+shows the source spawn submesh during its clip. Shared animation timelines and target-pose sampling support the
 rig, including its use as a Lux impact target. Existing gameplay collision,
 damage, slows, roots and shield checks remain authoritative.
 
@@ -97,7 +100,7 @@ actor overlap remain unresolved; hit effects/audio retain the generic combat
 path. Native shader/effect composition and broader champion-versus-monster kit
 interactions remain unfinished.
 
-Schema **87** retains encounter identity, neutral home, phase, target, attack,
+Schema **89** retains encounter identity, neutral home, phase, target, attack,
 projectiles, bounded released-attack paths, animation and independent clocks. It rejects crossed faction,
 unsupported species, missing/inconsistent aggressors, champion/AI/structure
 metadata, respawn state and homes outside the battlefield. The saved encounter

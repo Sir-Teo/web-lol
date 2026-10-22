@@ -596,6 +596,7 @@ export class GameView {
           model.clipDurations,
           terminalAge
         );
+        for (const mesh of model.spawnSubmeshes ?? []) mesh.visible = pose.kind === 'spawn';
         const endpoint = mobilePose(
           u,
           world.championState(u.id),

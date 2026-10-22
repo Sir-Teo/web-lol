@@ -12,11 +12,17 @@ attack = next(v['mSpell'] for v in records.values()
 manifest = json.loads(Path('public/assets/models/sru-gromp-base.json').read_text())
 clips = {}
 for alias, suffix in [('idle1', '_idle1.anm'), ('run', '_run.anm'),
-                      ('attack1', '_attack1.anm'), ('death', '_death.anm')]:
+                      ('attack1', '_attack1.anm'), ('death', '_death.anm'), ('spawn', '_spawn.anm')]:
     # The ranged basic-attack state references the same attack file as the
     # ordinary attack state. Preserve the original full graph in its model pin.
     clip = next(v for v in manifest['clips'] if v['source'].endswith(suffix))
     clips[alias] = dict(name=clip['name'], durationSeconds=clip['durationSeconds'])
+spawn_path = Path('docs/reference/gromp-spawn-source.json')
+spawn = json.loads(spawn_path.read_text())
+assert spawn['characterSourcePinSha256'] == hashlib.sha256(raw).hexdigest()
+skin = pin['records']['data/characters/sru_gromp/skins/skin0.bin']['Characters/SRU_Gromp/Skins/Skin0']
+spawn_submesh = next(v for v in skin['skinMeshProperties']['initialSubmeshToHide'].split(',')
+                     if v.lower() == 'toad_spawn_mat')
 result = dict(sourcePinSha256=hashlib.sha256(raw).hexdigest(),
     modelSha256=manifest['output']['sha256'],
     stats={key: root[field]['baseValue'] for key, field in [
@@ -29,7 +35,11 @@ result = dict(sourcePinSha256=hashlib.sha256(raw).hexdigest(),
     gold=root['goldGivenOnDeath'], experience=root['expGivenOnDeath'],
     minionScore=root['minionScoreValue'], missileSpeed=attack['missileSpeed'],
     castFrame=attack['castFrame'], clips=clips,
-    policy='Development encounter uses Root scalars and last-hit rewards. Frame conversion, leash/reset and animation selection are local policies, not verified native camp behavior.')
+    spawn=dict(sourcePin=str(spawn_path), sourcePinSha256=hashlib.sha256(spawn_path.read_bytes()).hexdigest(),
+               leadupSeconds=spawn['legacySpawnDurationSeconds'], blendSeconds=spawn['cascadeBlendSeconds'],
+               submesh=spawn_submesh,
+               policy='Local protected lead-up ends at the existing camp ready deadline. The source spawn submesh is shown only during the spawn clip. Native timer/visibility dispatch, events/audio and active flags remain unverified.'),
+    policy='Uses Root scalars and last-hit rewards. Frame conversion, leash/reset and spawn scheduling remain local policies, not verified native camp behavior.')
 path = Path('src/content/gromp.json')
 encoded = json.dumps(result, indent=2) + '\n'
 if not path.exists() or path.read_text() != encoded:

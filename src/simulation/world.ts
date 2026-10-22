@@ -1,5 +1,10 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
-import { GROMP, GROMP_POLICY } from '../content/gromp';
+import {
+  GROMP,
+  GROMP_POLICY,
+  GROMP_SPAWN_LEADUP_TICKS,
+  GROMP_SPAWN_CLIP_TICKS,
+} from '../content/gromp';
 import { RIFT_GROMP_CAMPS, GROMP_RESPAWN_TICKS } from '../content/rift-gromp-camps';
 import type { JungleCampState } from './types';
 import type { BindingFlightStop } from './types';
@@ -426,7 +431,10 @@ export class World {
     return u;
   }
   /** Spawn a neutral unit. Camp ownership/calendar is tracked independently. */
-  spawnMonster(point: Vec2): Extract<Unit, { kind: 'monster' }> {
+  spawnMonster(
+    point: Vec2,
+    spawn: { startTick: number; readyTick: number } | null = null
+  ): Extract<Unit, { kind: 'monster' }> {
     const base = this.createUnitBase('monster', 'neutral', point);
     const { attackSpeed, ...stats } = GROMP.stats;
     const u: Extract<Unit, { kind: 'monster' }> = {
@@ -444,11 +452,13 @@ export class World {
       experienceBounty: GROMP.experience,
       ai: false,
       corpseLifetimeTicks: GROMP_POLICY.corpseLifetimeTicks,
+      idleClock: spawn ? null : base.idleClock,
       monster: {
         species: 'gromp',
         home: { x: point.x, y: point.y },
-        phase: 'idle',
+        phase: spawn && this.tick < spawn.readyTick ? 'spawning' : 'idle',
         targetId: null,
+        spawn: spawn ? { ...spawn } : null,
       },
     };
     const clips = mobileClipDurations(u)!;
@@ -463,9 +473,13 @@ export class World {
   }
   private advanceJungleCamps(): void {
     for (const camp of this.jungleCamps) {
-      if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick) continue;
+      if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick - GROMP_SPAWN_LEADUP_TICKS)
+        continue;
       const definition = RIFT_GROMP_CAMPS.find((c) => c.id === camp.id)!;
-      const unit = this.spawnMonster(definition.point);
+      const unit = this.spawnMonster(definition.point, {
+        startTick: camp.nextSpawnTick - GROMP_SPAWN_LEADUP_TICKS,
+        readyTick: camp.nextSpawnTick,
+      });
       unit.facing = Math.atan2(
         definition.facingPoint.x - unit.x,
         definition.facingPoint.y - unit.y
@@ -477,6 +491,12 @@ export class World {
   private advanceMonster(u: Extract<Unit, { kind: 'monster' }>): boolean {
     const monster = u.monster,
       target = monster.targetId === null ? undefined : this.unit(monster.targetId);
+    if (monster.phase === 'spawning') {
+      if (monster.spawn && this.tick < monster.spawn.readyTick) return true;
+      monster.phase = 'idle';
+    }
+    if (monster.spawn && this.tick >= monster.spawn.startTick + GROMP_SPAWN_CLIP_TICKS)
+      monster.spawn = null;
     if (
       monster.phase === 'engaged' &&
       (!target ||
@@ -1035,6 +1055,12 @@ export class World {
     return event.audience.includes(team);
   }
   vulnerable(unit: Unit): boolean {
+    if (
+      unit.kind === 'monster' &&
+      unit.monster.phase === 'spawning' &&
+      this.tick < (unit.monster.spawn?.readyTick ?? Infinity)
+    )
+      return false;
     if (!unit.structure) return true;
     const peers = this.units.filter((u) => u.team === unit.team && u.structure);
     const aliveRole = (role: NonNullable<Unit['structure']>['role'], lane = unit.structure!.lane) =>
@@ -2342,6 +2368,7 @@ export class World {
     if (
       this.winner ||
       !this.alive(target) ||
+      !this.vulnerable(target) ||
       isStructureKind(target.kind) ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
@@ -2361,6 +2388,7 @@ export class World {
       this.winner ||
       !this.units.includes(target) ||
       !this.alive(target) ||
+      !this.vulnerable(target) ||
       isStructureKind(target.kind) ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
@@ -2691,7 +2719,14 @@ export class World {
           (this.tick - cast.startTick) / TICK_RATE <
             castAnimationDuration(unit.champion, cast.ability));
       const attacking = unit.attackCycle !== null && this.tick < unit.attackCycle.endTick;
-      if (mobileAlive && !moving && !casting && !attacking && state?.recallEnd == null) {
+      if (
+        mobileAlive &&
+        !moving &&
+        !casting &&
+        !attacking &&
+        state?.recallEnd == null &&
+        !(unit.kind === 'monster' && unit.monster.spawn)
+      ) {
         const clock = unit.idleClock ?? { startTick: this.tick, previous: 0, current: 0 };
         clock.previous = clock.current;
         clock.current += DT;
@@ -2850,6 +2885,7 @@ export class World {
           .flatMap((u) => {
             if (
               !this.alive(u) ||
+              !this.vulnerable(u) ||
               u.team === p.team ||
               isStructureKind(u.kind) ||
               p.bindingHits!.includes(u.id)
@@ -2895,7 +2931,7 @@ export class World {
       let contact: Unit | undefined,
         first = Infinity;
       for (const u of this.units) {
-        if (!this.alive(u) || u.team === p.team) continue;
+        if (!this.alive(u) || !this.vulnerable(u) || u.team === p.team) continue;
         if (p.target !== null && u.id !== p.target) continue;
         if (p.type === 'ultimate' && u.kind !== 'champion' && u.kind !== 'dummy') continue;
         if (p.type !== 'attack' && isStructureKind(u.kind)) continue;
@@ -3275,6 +3311,7 @@ export class World {
     );
     const healthLost = Math.min(target.hp, remainder);
     target.hp = Math.max(0, target.hp - remainder);
+    if (healthLost > 0 && target.kind === 'monster') target.monster.spawn = null;
     const attacker = this.championState(source.id);
     if (
       attacker?.inventory.includes('blade') &&

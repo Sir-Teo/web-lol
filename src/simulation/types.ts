@@ -22,8 +22,9 @@ export type UnitKind =
 export interface MonsterState {
   species: 'gromp';
   home: Vec2;
-  phase: 'idle' | 'engaged' | 'returning';
+  phase: 'spawning' | 'idle' | 'engaged' | 'returning';
   targetId: number | null;
+  spawn: { startTick: number; readyTick: number } | null;
 }
 export interface JungleCampState {
   id: RiftGrompCampId;

@@ -2,6 +2,8 @@ import profile from './gromp.json';
 import { TICK_RATE } from './rules';
 import { GROMP_DEATH_PARTICLE_RETENTION_TICKS } from './gromp-death-timing';
 export const GROMP = profile;
+export const GROMP_SPAWN_LEADUP_TICKS = Math.round(profile.spawn.leadupSeconds * TICK_RATE);
+export const GROMP_SPAWN_CLIP_TICKS = Math.round(profile.clips.spawn.durationSeconds * TICK_RATE);
 /** Local encounter policies. Full camp activation, level scaling and native
  * leash/reset/attack timing remain separate work. */
 export const GROMP_POLICY = {
