@@ -1,0 +1,217 @@
+{
+  "recordedAt": "2026-10-22T02:32:46.605599+00:00",
+  "baseRevision": "59cdec53bff1f1c0a63847347420d96256e5a452",
+  "scope": "All eight source Gromp death-pop emitters in the controlled encounter, with original paper mesh and bounded emitter batches. Native parity, the remaining monster systems and the full project goal remain unfinished.",
+  "schemaVersion": 86,
+  "source": {
+    "referenceVersion": "16.18.8175716",
+    "particleSourcePinSha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033",
+    "runtimeProfileSha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0",
+    "timingOutputSha256": "bec12acee17cd9527d61800d9335ef4b2c21ac8853e359dd17e8f547be740ad2",
+    "assetLedgerSha256": "d48165129b2f61aa29c52225dd6ab3841d45a82cd583bd8fba2589960e4d5686",
+    "meshManifestSha256": "5bad340324d1c096efdd5cd2061529fd1a0ce48280a94c0d3eeed8ee8b58c98b",
+    "meshSource": "data/particles/paper01.scb",
+    "sourceMeshVertices": 44,
+    "sourceMeshTriangles": 42,
+    "exportedMeshCorners": 126,
+    "meshAttributeRoundTripExact": true,
+    "meshPivotAndRawFaceColorsApplied": false,
+    "allDeathPopEmitterIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "originalSourcePinUnchanged": true,
+    "all20AssetDependenciesExported": true,
+    "extractionRepeatExact": true,
+    "conversionAndExportRepeatExact": true,
+    "repeatedOutputFilesChecked": 24
+  },
+  "localReconstruction": {
+    "firstBirthAfterDeathTicks": 1,
+    "gridHz": 60,
+    "chance": "indexed hash of corpse ID, death tick, original emitter index and birth ordinal; source birth multipliers share one chance, atlas roll is separate",
+    "motion": "acceleration then non-reversing per-axis drag then movement; fractional display interval interpolation",
+    "rotation": "right-endpoint source integrated rotation scaled by 60",
+    "scalarLifeXpAlias": true,
+    "singleEmitterBurst": "rate-sized burst, natural sampled lifetime",
+    "corpseRetentionTicks": 302,
+    "interpolationMarginTicks": 1,
+    "cameraAndArbitraryQuadExtent": "source size as half extent at 0.01 scale",
+    "rayExtent": "existing source-axis full width, length, displacement reading",
+    "groundAttachment": "current posed Buffbone_Glb_Ground_Loc; missing attachment skips effect",
+    "nativeRngCadenceDefaultsBindingAndCompositionCertified": false
+  },
+  "externalReconstructionEvidence": {
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "files": [
+      {
+        "name": "integrate.ts",
+        "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts",
+        "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+      },
+      {
+        "name": "systemModel.ts",
+        "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/systemModel.ts",
+        "sha256": "22476d4a0541b4f13631be19c8e49cb1db9b5024a29ab6b0b5a0d8bcbedbfcfd"
+      },
+      {
+        "name": "emit.ts",
+        "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts",
+        "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+      }
+    ],
+    "nativeClientCapture": false
+  },
+  "validation": {
+    "typeScript": "passed",
+    "unitCommand": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "unitPassed": 1077,
+    "unitFiles": 216,
+    "newUnitCases": 5,
+    "browserCommand": "npx playwright test e2e/gromp-death.spec.ts e2e/neutral-gromp.spec.ts --workers=1 --timeout=60000",
+    "browserPassed": 4,
+    "browserFailed": 0,
+    "gpu": {
+      "combined": 17012,
+      "individual": [
+        {
+          "name": "Gromp death flash",
+          "pixels": 16942
+        },
+        {
+          "name": "Gromp death lightring",
+          "pixels": 5110
+        },
+        {
+          "name": "Gromp death flashfrog",
+          "pixels": 9549
+        },
+        {
+          "name": "Gromp death chunks",
+          "pixels": 2504
+        },
+        {
+          "name": "Gromp death shadow",
+          "pixels": 610
+        },
+        {
+          "name": "Gromp death pop",
+          "pixels": 1252
+        },
+        {
+          "name": "Gromp death skinshards",
+          "pixels": 269
+        },
+        {
+          "name": "Gromp death popshards",
+          "pixels": 2582
+        }
+      ],
+      "anchored": true,
+      "births": [
+        1,
+        1,
+        1,
+        150,
+        1,
+        15,
+        20,
+        35
+      ],
+      "birthVertices": 3744,
+      "vertexCapacity": 3744,
+      "effectDraws": 8
+    },
+    "sameCheckpointActiveBuffersExact": true,
+    "activeBuffersChecked": [
+      "position",
+      "uv",
+      "particleTint",
+      "particleLookupUv"
+    ],
+    "fogGeometryDisposals": 8,
+    "fogMaterialDisposals": 8,
+    "expiredGeometryDisposals": 8,
+    "expiredMaterialDisposals": 8,
+    "expiredSceneObjects": 0,
+    "textureRequestsPerBoot": 9,
+    "meshRequestsPerBoot": 1,
+    "sharedLoadFailureDisposesCompletedGeometryAndTextures": true,
+    "cachedRetry": "passed",
+    "finalCorpseIntervalAndSavedContinuation": "passed",
+    "existingCombatClearAndRestart": "passed",
+    "productionCommand": "npm run test:production",
+    "production": "passed",
+    "productionPrefix": "/nested/rift/",
+    "productionRecordings": 17,
+    "productionGrompRequests": 0,
+    "fullBrowserSuiteRepeated": false,
+    "assetCommand": "npm run assets:validate",
+    "validatedGlbs": 39,
+    "assetErrors": 0,
+    "assetWarnings": 0,
+    "mapValidation": "passed",
+    "pythonReaderFixtureCases": 4
+  },
+  "captures": {
+    "burst": {
+      "path": "artifacts/gromp-death-burst.png",
+      "sha256": "1fdb5de10905bc80a2274f79e6080fff64ce74ccb91026a8409e70545776a23e",
+      "width": 1440,
+      "height": 900,
+      "visuallyReviewed": true,
+      "diagnosticDamage": 99999
+    },
+    "diagnostics": {
+      "path": "artifacts/gromp-death-burst-diagnostics.json",
+      "sha256": "9f6140b3b4f7b672ac559481966bd89f17432b293e26b31e8db613789364ee57"
+    }
+  },
+  "remaining": [
+    "native RNG, cadence, scalar XP alias, extent, orientation, defaults and binding comparison",
+    "legacy zero-linger termination and native intra-emitter sorting",
+    "mesh pivot/face-color interpretation, sampler/shader/final composition parity",
+    "death spores, original projectile/impact/audio, miniature/submesh dispatch",
+    "standard jungle camp scheduling, roles and full-match certification"
+  ],
+  "logs": {
+    "/tmp/web-lol-gromp-burst-check.log": {
+      "sha256": "581cec03f5b8675b294cc542613d2502ea9cdf197280469fbec03da52a47c201"
+    },
+    "/tmp/web-lol-gromp-burst-browser.log": {
+      "sha256": "cf04763b0ee52c37bfc93b0362ca4d550d64f05abd4c1d0cee92c741e8fa408f"
+    },
+    "/tmp/web-lol-gromp-burst-production.log": {
+      "sha256": "e9983f3804c054f1b326cc0e070863335812e2465760b9ee4f05c4389cf0fd2b"
+    },
+    "/tmp/web-lol-gromp-burst-assets.log": {
+      "sha256": "b79203c9e13bddb854ae336916288eb2f6cad7c1ad8848bc9829ba83f6f27ab9"
+    }
+  },
+  "files": {
+    "docs/GROMP-EFFECTS.md": "d7bc12d6e8335671bb275046840a996a66ed6eb3c13538a16addca70130c1684",
+    "docs/NEUTRAL-GROMP.md": "9c1c1ee1d8a1748308a629445ecc1b72e139f5ef87a413ce387d7791cfbacb50",
+    "docs/PROGRESS.md": "3275ad24b104dc26b1ad815e87eb232f53b3b33b133c2189d5fcd5d1e30e7f6a",
+    "docs/reference/gromp-effect-assets.json": "d48165129b2f61aa29c52225dd6ab3841d45a82cd583bd8fba2589960e4d5686",
+    "e2e/gromp-death.spec.ts": "633822c6ae2d650b95fbfc5321f2fbd69da08ad296cce5bda37bad284fe2bfcc",
+    "public/assets/models/gromp-death-paper01.glb": "453064aae894f7fba93cd44c7b6a25852ef3c81b2abd648da418030a6893e6bc",
+    "public/assets/models/gromp-death-paper01.json": "5bad340324d1c096efdd5cd2061529fd1a0ce48280a94c0d3eeed8ee8b58c98b",
+    "src/content/gromp-death-timing.ts": "bec12acee17cd9527d61800d9335ef4b2c21ac8853e359dd17e8f547be740ad2",
+    "src/content/gromp-death.json": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0",
+    "src/content/gromp.ts": "3c090b9016606ba01df843ca5c8913c46ac2b0ec717f5d2b2f5d4b28d7d50f2b",
+    "src/render/gromp-death-particles.ts": "8a16896c6a71b78c6dd1a91a767ef347d8c1ea5803f4f8b7eff24caa7ff79f3b",
+    "src/render/gromp-death.ts": "818c37f067d52dbf8d062064760dfc70d08d2a6ab17a278f5211889efd1bb135",
+    "src/simulation/world.ts": "405a8f53b0c4c9fc244953fe4b15e8b8c363460da17905c41047dd2586ad0c3c",
+    "tests/gromp-death-loading.test.ts": "f8fb0c21109b8e01f33333295c3d9bc1d19ae0d6bca17b40ff7e89684e6c0371",
+    "tests/gromp-death-particles.test.ts": "5cc73eea1e6af54827292e25abcf9ba1e2bec1d5b1fc08296dda806f119a522a",
+    "tools/assets/convert-gromp-mesh.mjs": "9e3a1d70e0ee8c99e3b142dcfc14a52d7d8d00bc03bd59112763376609eb3ccb",
+    "tools/assets/decode-gromp-mesh.py": "ec6db841851762b46b6937922ccaa0a05bdff66a974814a87fa4bd4ff92f9bca",
+    "tools/assets/export-gromp-death.py": "bed694b8f8607e4555357c8aeb3b2bbf00bfa34d750952d687f3f5396d370405"
+  }
+}

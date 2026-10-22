@@ -20,6 +20,10 @@
       "name": "flash",
       "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
       "sourceSection": "flash",
+      "sourceIndex": 0,
+      "kind": "billboard",
+      "count": 1,
+      "mesh": null,
       "texture": "assets/effects/gromp-legacy/particles/sr2_gromp_death_flash.png",
       "lookup": "assets/effects/gromp-legacy/particles/color-hold.png",
       "life": 0.30000000000000004,
@@ -69,6 +73,141 @@
         }
       ],
       "uniform": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "uvOffset": [
+        0,
+        0
+      ],
+      "scroll": [
+        0,
+        0
+      ],
+      "rotationRate": [
+        0,
+        0,
+        0
+      ],
+      "rotationCurve": [],
+      "probabilities": {
+        "life": {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              1,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "atlas": {
+        "grid": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "start": 0,
+        "random": false,
+        "fps": 0
+      },
+      "local": false,
+      "particleLocal": false,
+      "alphaRef": 0,
       "blend": 0,
       "priority": 10,
       "depthTest": false
@@ -77,6 +216,10 @@
       "name": "lightring",
       "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
       "sourceSection": "lightring",
+      "sourceIndex": 1,
+      "kind": "billboard",
+      "count": 1,
+      "mesh": null,
       "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_radialsuck.png",
       "lookup": null,
       "life": 0.2,
@@ -163,6 +306,136 @@
         }
       ],
       "uniform": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "uvOffset": [
+        0,
+        0
+      ],
+      "scroll": [
+        0,
+        0
+      ],
+      "rotationRate": [
+        0,
+        0,
+        0
+      ],
+      "rotationCurve": [],
+      "probabilities": {
+        "life": {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "atlas": {
+        "grid": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "start": 0,
+        "random": false,
+        "fps": 0
+      },
+      "local": true,
+      "particleLocal": false,
+      "alphaRef": 0,
       "blend": 4,
       "priority": 7,
       "depthTest": true
@@ -171,6 +444,10 @@
       "name": "flashfrog",
       "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
       "sourceSection": "flashfrog",
+      "sourceIndex": 4,
+      "kind": "billboard",
+      "count": 1,
+      "mesh": null,
       "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_explo_flash.png",
       "lookup": null,
       "life": 0.2,
@@ -257,10 +534,1499 @@
         }
       ],
       "uniform": true,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "uvOffset": [
+        0,
+        0
+      ],
+      "scroll": [
+        0,
+        0
+      ],
+      "rotationRate": [
+        0,
+        0,
+        0
+      ],
+      "rotationCurve": [],
+      "probabilities": {
+        "life": {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "atlas": {
+        "grid": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "start": 0,
+        "random": false,
+        "fps": 0
+      },
+      "local": false,
+      "particleLocal": false,
+      "alphaRef": 0,
       "blend": 1,
       "priority": 9,
       "depthTest": true
+    },
+    {
+      "name": "chunks",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "chunks",
+      "sourceIndex": 2,
+      "kind": "billboard",
+      "count": 150,
+      "mesh": null,
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_chunks.png",
+      "lookup": null,
+      "life": 0.4,
+      "size": [
+        120,
+        120,
+        0
+      ],
+      "offset": [
+        150,
+        0,
+        0
+      ],
+      "postOffset": [
+        0,
+        80,
+        0
+      ],
+      "rotation": [
+        1,
+        0,
+        0
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.3,
+          "value": [
+            0.6,
+            0.6,
+            0.6,
+            1
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "uniform": true,
+      "velocity": [
+        500,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        -800,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "uvOffset": [
+        0,
+        0
+      ],
+      "scroll": [
+        0,
+        0
+      ],
+      "rotationRate": [
+        0,
+        0,
+        0
+      ],
+      "rotationCurve": [],
+      "probabilities": {
+        "life": {
+          "times": [
+            0,
+            1
+          ],
+          "values": [
+            0.2,
+            1.0
+          ]
+        },
+        "size": [
+          {
+            "times": [
+              0,
+              0.8,
+              1
+            ],
+            "values": [
+              0.1,
+              0.5,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              360
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0.4,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "value": 1,
+          "probability": {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              360
+            ]
+          }
+        },
+        {
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "value": 1,
+          "probability": {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              180
+            ]
+          }
+        }
+      ],
+      "atlas": {
+        "grid": [
+          2,
+          2
+        ],
+        "frames": 4,
+        "start": 0,
+        "random": true,
+        "fps": 0
+      },
+      "local": false,
+      "particleLocal": false,
+      "alphaRef": 50,
+      "blend": 1,
+      "priority": 16,
+      "depthTest": true
+    },
+    {
+      "name": "shadow",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "shadow",
+      "sourceIndex": 3,
+      "kind": "quad",
+      "count": 1,
+      "mesh": null,
+      "texture": "assets/effects/gromp-legacy/particles/sru_dragon_ba1_grounddirt.png",
+      "lookup": null,
+      "life": 5,
+      "size": [
+        280,
+        280,
+        280
+      ],
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "postOffset": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.01,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.5,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.8,
+          "value": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 0.04,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "uniform": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "uvOffset": [
+        0,
+        0
+      ],
+      "scroll": [
+        0,
+        0
+      ],
+      "rotationRate": [
+        0,
+        0,
+        0
+      ],
+      "rotationCurve": [],
+      "probabilities": {
+        "life": {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "atlas": {
+        "grid": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "start": 0,
+        "random": false,
+        "fps": 0
+      },
+      "local": true,
+      "particleLocal": true,
+      "alphaRef": 0,
+      "blend": 1,
+      "priority": -50,
+      "depthTest": true
+    },
+    {
+      "name": "pop",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "pop",
+      "sourceIndex": 5,
+      "kind": "ray",
+      "count": 15,
+      "mesh": null,
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_pop_lines.png",
+      "lookup": null,
+      "life": 1,
+      "size": [
+        100,
+        350,
+        0
+      ],
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "postOffset": [
+        0,
+        20,
+        0
+      ],
+      "rotation": [
+        180,
+        180,
+        180
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.1,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.4,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            1,
+            0.5,
+            0
+          ]
+        },
+        {
+          "time": 0.1,
+          "value": [
+            1,
+            0.8,
+            0
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            0,
+            3,
+            0
+          ]
+        }
+      ],
+      "uniform": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "uvOffset": [
+        0,
+        0
+      ],
+      "scroll": [
+        0,
+        0
+      ],
+      "rotationRate": [
+        0,
+        0,
+        0
+      ],
+      "rotationCurve": [],
+      "probabilities": {
+        "life": {
+          "times": [
+            0,
+            1
+          ],
+          "values": [
+            0.3,
+            1.0
+          ]
+        },
+        "size": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0.8,
+              1.0
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -1,
+              1
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              1
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -1,
+              1
+            ]
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "atlas": {
+        "grid": [
+          4,
+          1
+        ],
+        "frames": 4,
+        "start": 0,
+        "random": true,
+        "fps": 0
+      },
+      "local": true,
+      "particleLocal": false,
+      "alphaRef": 0,
+      "blend": 1,
+      "priority": -5,
+      "depthTest": true
+    },
+    {
+      "name": "skinshards",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "skinshards",
+      "sourceIndex": 6,
+      "kind": "mesh",
+      "count": 20,
+      "mesh": "assets/models/gromp-death-paper01.glb",
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_whisps2.png",
+      "lookup": null,
+      "life": 4,
+      "size": [
+        80,
+        15,
+        0
+      ],
+      "offset": [
+        100,
+        200,
+        100
+      ],
+      "postOffset": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        180,
+        180,
+        180
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.1,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.7,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "uniform": false,
+      "velocity": [
+        1,
+        1,
+        1
+      ],
+      "acceleration": [
+        0,
+        -70,
+        0
+      ],
+      "drag": [
+        1,
+        1,
+        1
+      ],
+      "uvOffset": [
+        0,
+        1
+      ],
+      "scroll": [
+        0,
+        0.2
+      ],
+      "rotationRate": [
+        1,
+        0,
+        0
+      ],
+      "rotationCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            -10,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 0.4,
+          "value": [
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "probabilities": {
+        "life": {
+          "times": [
+            0,
+            1
+          ],
+          "values": [
+            0.5,
+            1
+          ]
+        },
+        "size": [
+          {
+            "times": [
+              0,
+              0.8,
+              1
+            ],
+            "values": [
+              0.1,
+              0.5,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -1,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -1,
+              1
+            ]
+          }
+        ],
+        "rotation": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -1,
+              1
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              1
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -1,
+              1
+            ]
+          }
+        ],
+        "velocity": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -200,
+              200
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              50,
+              100
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              -200,
+              200
+            ]
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              -0.6
+            ]
+          }
+        ]
+      },
+      "shape": [],
+      "atlas": {
+        "grid": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "start": 0,
+        "random": false,
+        "fps": 0
+      },
+      "local": true,
+      "particleLocal": false,
+      "alphaRef": 70,
+      "blend": 1,
+      "priority": 2,
+      "depthTest": true
+    },
+    {
+      "name": "popshards",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "popshards",
+      "sourceIndex": 7,
+      "kind": "ray",
+      "count": 35,
+      "mesh": null,
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_rays_soft.png",
+      "lookup": null,
+      "life": 0.4,
+      "size": [
+        25,
+        60,
+        60
+      ],
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "postOffset": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        1,
+        1,
+        0
+      ],
+      "color": [
+        0.4,
+        0.2,
+        0.8,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "time": 0.5,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0,
+          "value": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 0.2,
+          "value": [
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "time": 0.75,
+          "value": [
+            2,
+            4,
+            1
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            0,
+            5,
+            1
+          ]
+        }
+      ],
+      "uniform": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "uvOffset": [
+        0,
+        0
+      ],
+      "scroll": [
+        0,
+        0
+      ],
+      "rotationRate": [
+        0,
+        0,
+        0
+      ],
+      "rotationCurve": [],
+      "probabilities": {
+        "life": {
+          "times": [
+            0,
+            1
+          ],
+          "values": [
+            0.4,
+            0.75
+          ]
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0.5,
+              1.5
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              110,
+              -110
+            ]
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              110,
+              -110
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "uvOffset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "atlas": {
+        "grid": [
+          4,
+          1
+        ],
+        "frames": 4,
+        "start": 0,
+        "random": true,
+        "fps": 0
+      },
+      "local": true,
+      "particleLocal": false,
+      "alphaRef": 0,
+      "blend": 0,
+      "priority": 0,
+      "depthTest": true
     }
   ],
-  "status": "Three camera quads from the eight-emitter death-pop source. Death dispatch on the first fixed update, default-white tint, uniform-X scale, camera Euler convention and lookup coordinates are local adapters; five pop emitters, spores, audio and native composition remain unfinished."
+  "status": "All eight death-pop emitters. Fixed-update dispatch/motion/rotation, indexed correlated RNG, scalar XP lifetime alias, source extent/frames/defaults and native composition remain local reconstruction policies. Spores, projectile/impact, audio and miniature dispatch remain unfinished."
 }

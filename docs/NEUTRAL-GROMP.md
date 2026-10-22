@@ -68,8 +68,10 @@ The encounter uses the following **local policies**, pending native evidence:
   There is no proximity XP sharing, champion kill or first blood for killing it.
   Native level/role/jungle-item/clear bonuses and final reward rules remain open.
   Neutral champion executions use the existing recent-champion-credit path.
-- No respawn is scheduled. The full source death clip is retained before corpse
-  removal. A future camp scheduler must supply verified clear/respawn rules.
+- No respawn is scheduled. Corpse retention covers the full source death clip
+  and the reconstructed five-second death shadow, with birth/interpolation
+  margin (302 ticks). A future camp scheduler must supply verified clear/respawn
+  rules.
 
 The profile JSON participates in the ruleset fingerprint and development server
 restart detection, so scalar/clip changes cannot retain a stale save identity.
@@ -86,9 +88,9 @@ damage, slows, roots and shield checks remain authoritative.
 The live rig is confirmed to contribute GPU pixels. The combat capture shows
 its source mesh, neutral bar and slow feedback. The sampled death pose has no
 visible main-body geometry. The [legacy effect adapter](GROMP-EFFECTS.md) now
-renders three source death-pop layers from the saved death clock and original
-ground bone. Five other death-pop emitters, spores, miniature/submesh dispatch
-and source audio remain incomplete/unverified. Projectile appearance/audio use
+reconstructs all eight source death-pop emitters from the saved death clock and
+original ground bone. Native timing/composition, spores, miniature/submesh
+dispatch and source audio remain incomplete/unverified. Projectile appearance/audio use
 the existing generic combat path, and native Gromp shader/effect composition is
 not certified. Broader champion-versus-monster kit interactions also remain
 unfinished.

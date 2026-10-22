@@ -430,7 +430,7 @@ export class World {
       goldBounty: GROMP.gold,
       experienceBounty: GROMP.experience,
       ai: false,
-      corpseLifetimeTicks: Math.ceil(GROMP.clips.death.durationSeconds * TICK_RATE),
+      corpseLifetimeTicks: GROMP_POLICY.corpseLifetimeTicks,
       monster: {
         species: 'gromp',
         home: { x: point.x, y: point.y },

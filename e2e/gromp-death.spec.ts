@@ -1,25 +1,46 @@
 import { expect, test, type Page } from '@playwright/test';
+import { writeFileSync } from 'node:fs';
 
 async function poses(page: Page) {
-  return page.evaluate(() => {
+  return page.evaluate(async () => {
     const g = (window as any).__GAME__;
     g.view.render(g.world, 1, g.view.previousElapsed);
-    return [...g.view.grompDeath.models.entries()].map(([key, m]: any) => ({
-      key,
-      name: m.name,
-      position: m.position.toArray(),
-      scale: m.scale.toArray(),
-      quaternion: m.quaternion.toArray(),
-      color: m.material.uniforms.particleColor.value.toArray(),
-      lookup: m.material.uniforms.lookupUv.value.toArray(),
-      attachment: m.userData.attachment,
-      priority: m.renderOrder,
-      depthTest: m.material.depthTest,
-    }));
+    return Promise.all(
+      [...g.view.grompDeath.models.entries()].map(async ([key, m]: any) => ({
+        key,
+        name: m.name,
+        position: m.position.toArray(),
+        scale: m.scale.toArray(),
+        quaternion: m.quaternion.toArray(),
+        color: m.material.uniforms.particleColor.value.toArray(),
+        lookup: m.material.uniforms.lookupUv.value.toArray(),
+        attachment: m.userData.attachment,
+        priority: m.renderOrder,
+        depthTest: m.material.depthTest,
+        particleCount: m.userData.particleCount,
+        ordinals: m.userData.ordinals,
+        drawCount: m.geometry.drawRange.count,
+        buffers: await Promise.all(
+          ['position', 'uv', 'particleTint', 'particleLookupUv'].map(async (name) => {
+            const a = m.geometry.getAttribute(name),
+              bytes = new Uint8Array(
+                a.array.buffer,
+                a.array.byteOffset,
+                m.geometry.drawRange.count * a.itemSize * 4
+              ),
+              hash = await crypto.subtle.digest('SHA-256', bytes);
+            return {
+              name,
+              hash: [...new Uint8Array(hash)].map((v) => v.toString(16).padStart(2, '0')).join(''),
+            };
+          })
+        ),
+      }))
+    );
   });
 }
 
-test('source Gromp death quads contribute pixels, use the posed bone and restore exactly across fog/save/reload', async ({
+test('all eight Gromp death batches contribute pixels, use the posed bone and restore exact buffers across fog/save/reload', async ({
   page,
 }) => {
   const errors: string[] = [],
@@ -29,7 +50,8 @@ test('source Gromp death quads contribute pixels, use the posed bone and restore
     if (m.type() === 'error') errors.push(m.text());
   });
   page.on('request', (r) => {
-    if (r.url().includes('/gromp-legacy/')) requests.push(r.url());
+    if (r.url().includes('/gromp-legacy/') || r.url().endsWith('/gromp-death-paper01.glb'))
+      requests.push(r.url());
   });
   await page.goto('/?scene=fixture&encounter=gromp');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
@@ -42,8 +64,19 @@ test('source Gromp death quads contribute pixels, use the posed bone and restore
     w.step(480);
     const u = w.units.find((u: any) => u.kind === 'monster');
     w.damage(w.hero, u, 99999, 'true');
-    w.step(7);
     v.recenter(w.hero);
+    w.step(1);
+    v.render(w, 1, v.previousElapsed);
+    const births = [...v.grompDeath.models.values()].map((m: any) => m.userData.particleCount);
+    const birthVertices = [...v.grompDeath.models.values()].reduce(
+      (sum: number, m: any) => sum + m.geometry.drawRange.count,
+      0
+    );
+    const vertexCapacity = [...v.grompDeath.models.values()].reduce(
+      (sum: number, m: any) => sum + m.geometry.getAttribute('position').count,
+      0
+    );
+    w.step(6);
     v.render(w, 1, v.previousElapsed);
     g.hud.update(60);
     const meshes = [...v.grompDeath.models.values()] as any[];
@@ -53,7 +86,7 @@ test('source Gromp death quads contribute pixels, use the posed bone and restore
     const anchored = meshes.every(
       (m) =>
         Math.abs(m.position.x - anchor.x) < 1e-9 &&
-        Math.abs(m.position.y - anchor.y - 0.8) < 1e-9 &&
+        Math.abs(m.position.y - anchor.y) < 1e-9 &&
         Math.abs(m.position.z - anchor.z) < 1e-9
     );
     const renderer = v.renderer,
@@ -67,10 +100,12 @@ test('source Gromp death quads contribute pixels, use the posed bone and restore
       return bytes;
     };
     const combined = read();
+    const combinedCalls = renderer.info.render.calls;
     meshes.forEach((m) => {
       m.visible = false;
     });
     const absent = read();
+    const absentCalls = renderer.info.render.calls;
     const difference = (pixels: Uint8Array) => {
       let changed = 0;
       for (let i = 0; i < pixels.length; i += 4)
@@ -92,38 +127,71 @@ test('source Gromp death quads contribute pixels, use the posed bone and restore
       m.visible = true;
     });
     read();
-    return { combined: difference(combined), individual, anchored };
+    return {
+      combined: difference(combined),
+      individual,
+      anchored,
+      births,
+      birthVertices,
+      vertexCapacity,
+      effectDraws: combinedCalls - absentCalls,
+    };
   });
+  writeFileSync(
+    'artifacts/gromp-death-burst-diagnostics.json',
+    JSON.stringify(gpu, null, 2) + '\n'
+  );
   expect(gpu.anchored).toBe(true);
   expect(gpu.combined).toBeGreaterThan(60);
-  expect(gpu.individual).toHaveLength(3);
+  expect(gpu.births).toEqual([1, 1, 1, 150, 1, 15, 20, 35]);
+  expect(gpu.birthVertices).toBe(3744);
+  expect(gpu.vertexCapacity).toBe(3744);
+  expect(gpu.effectDraws).toBe(8);
+  expect(gpu.individual).toHaveLength(8);
   for (const layer of gpu.individual) expect(layer.pixels, layer.name).toBeGreaterThan(20);
   const original = await poses(page);
   expect(original.map((p) => p.name)).toEqual([
     'Gromp death flash',
     'Gromp death lightring',
     'Gromp death flashfrog',
+    'Gromp death chunks',
+    'Gromp death shadow',
+    'Gromp death pop',
+    'Gromp death skinshards',
+    'Gromp death popshards',
   ]);
-  expect(original.map((p) => p.priority)).toEqual([10, 7, 9]);
-  expect(original.map((p) => p.depthTest)).toEqual([false, true, true]);
-  expect(new Set(requests.map((url) => new URL(url).pathname)).size).toBe(4);
-  await page.screenshot({ path: 'artifacts/gromp-death-pop.png' });
+  expect(original.map((p) => p.priority)).toEqual([10, 7, 9, 16, -50, -5, 2, 0]);
+  expect(original.map((p) => p.depthTest)).toEqual([
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ]);
+  expect(new Set(requests.map((url) => new URL(url).pathname)).size).toBe(10);
+  await page.screenshot({ path: 'artifacts/gromp-death-burst.png' });
   const fog = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world,
       v = g.view;
-    let disposed = 0;
-    for (const m of v.grompDeath.models.values())
+    let disposed = 0,
+      geometries = 0;
+    for (const m of v.grompDeath.models.values()) {
       m.material.addEventListener('dispose', () => disposed++);
+      m.geometry.addEventListener('dispose', () => geometries++);
+    }
     const point = { x: w.hero.x, y: w.hero.y };
     Object.assign(w.hero, { x: -3000, y: -2000, previous: { x: -3000, y: -2000 } });
     v.render(w, 1, v.previousElapsed);
     const hidden = v.grompDeath.models.size;
     Object.assign(w.hero, { ...point, previous: { ...point } });
     v.render(w, 1, v.previousElapsed);
-    return { hidden, disposed, restored: v.grompDeath.models.size };
+    return { hidden, disposed, geometries, restored: v.grompDeath.models.size };
   });
-  expect(fog).toEqual({ hidden: 0, disposed: 3, restored: 3 });
+  expect(fog).toEqual({ hidden: 0, disposed: 8, geometries: 8, restored: 8 });
   expect(await poses(page)).toEqual(original);
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
@@ -137,18 +205,22 @@ test('source Gromp death quads contribute pixels, use the posed bone and restore
   const retired = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       v = g.view;
-    let disposed = 0;
-    for (const m of v.grompDeath.models.values())
+    let disposed = 0,
+      geometries = 0;
+    for (const m of v.grompDeath.models.values()) {
       m.material.addEventListener('dispose', () => disposed++);
-    g.world.step(20);
+      m.geometry.addEventListener('dispose', () => geometries++);
+    }
+    g.world.step(310);
     v.render(g.world, 1, v.previousElapsed);
     return {
       count: v.grompDeath.models.size,
       disposed,
+      geometries,
       attached: v.scene.children.filter((m: any) => m.name.startsWith('Gromp death ')).length,
     };
   });
-  expect(retired).toEqual({ count: 0, disposed: 3, attached: 0 });
+  expect(retired).toEqual({ count: 0, disposed: 8, geometries: 8, attached: 0 });
   expect(errors).toEqual([]);
 });
 
