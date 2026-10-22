@@ -4,6 +4,8 @@ import { Vector3 } from 'three';
 import { sampleParticleCurve, accumulateParticleCurve } from './particle-curves';
 import { luxHoopChance } from './lux-hoop-particles';
 import { luxBeamBirthOffset } from './lux-beam-birth-offset';
+import { particleTravel as grompDeathTravel } from './particle-motion';
+export { particleTravel as grompDeathTravel } from './particle-motion';
 
 function sample(keys: { time: number; value: number[] }[], phase: number, axis: number) {
   return keys.length
@@ -13,29 +15,6 @@ function sample(keys: { time: number; value: number[] }[], phase: number, axis: 
         axis
       )
     : 1;
-}
-
-/** Fixed-grid semi-implicit acceleration/drag, interpolating the final display
- * interval. Reconstructing from age makes random seeks independent of history.
- * This is the stepped reconstruction policy, not a native cadence claim. */
-export function grompDeathTravel(
-  velocity: number[],
-  acceleration: number[],
-  drag: number[],
-  age: number
-) {
-  const ticks = age * TICK_RATE,
-    whole = Math.floor(ticks),
-    fraction = ticks - whole;
-  const position = [0, 0, 0],
-    travel = [...velocity];
-  for (let step = 1; step <= whole + (fraction > 0 ? 1 : 0); step++)
-    for (let axis = 0; axis < 3; axis++) {
-      travel[axis] =
-        (travel[axis] + acceleration[axis] / TICK_RATE) * Math.max(0, 1 - drag[axis] / TICK_RATE);
-      position[axis] += (travel[axis] / TICK_RATE) * (step <= whole ? 1 : fraction);
-    }
-  return { position, travel };
 }
 
 /** All single emitters burst on death+1. Indexed chance/roll reproduce every

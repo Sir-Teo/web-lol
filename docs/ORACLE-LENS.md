@@ -132,6 +132,79 @@ scanner pixels, 72,006 radar pixels, 123,027 core-laser pixels and 2,662 laser
 pixels relative to hiding each object. These prove rendering contribution in
 this review scene, not gameplay visibility or native appearance.
 
+## Complete declaration preview — October 22, 2026
+
+`/tools/qa/oracle-particles.html` now reconstructs all seventeen frozen emitter
+declarations: twelve Buff, four Death and one Alert. Sixteen have visual geometry;
+the remaining Buff emitter is an invisible parent with an explicit
+`childEmitOnDeath` edge to Death. The preview can isolate any layer, scrub in either
+direction, play the combined sequence and test moving anchors or uneven ground.
+This renderer is not yet connected to the match. The existing live scanner/radar
+implementation and schema 104 remain the current gameplay boundary.
+
+[Normalized profiles](reference/oracle-particle-profiles.json) retain constant
+values, every temporal key and per-axis probability table, original dependency
+paths, shape axes, binding, local orientation, lifetime/linger, color lookups,
+atlas/UV fields, passes and render flags. The exporter checks every converted
+dependency hash and links the existing pinned default-reader evidence. Missing
+frame count remains **one**, independently of a 2×2 `texDiv`; the first exporter
+incorrectly inferred the cell count and was corrected after image review. Alert's
+`hudAnchorPositionFromWorldProjection` is explicitly **false** in the source.
+
+The playback adapters are explicit rather than native claims:
+
+- Birth values sample normalized emitter age; appearance samples normalized
+  particle age. Indexed random channels permit arbitrary seeks without touching
+  simulation RNG. Shared 60 Hz acceleration/drag reconstruction is reused by
+  existing Gromp death/missile playback without changing its stepping policy.
+- First-update emission respects delay and continuous budgets. Stopping prevents
+  subsequent births and caps surviving particles at stop plus authored linger,
+  without stretching their appearance curves. The invisible parent's first birth
+  is tick 1; an eight-second stop dispatches its child at tick 510 (8.5 seconds).
+  Canceling before that first birth dispatches no child. The child root captures
+  the parent's then-current anchor plus its 450-unit vertical offset.
+- Bind weight interpolates between each particle's birth and current anchor.
+  Motion, orbital radians, source rotations, camera-facing/direction-stretched
+  quads and source-unit half-extents are local reconstruction conventions.
+  RadarMesh and Ring vertically project each vertex onto the supplied height
+  field; native projection range/fade and navmesh masks remain unimplemented.
+- Unskinned layers use the existing initial RGBA product and local blend factors.
+  The original rig uses Three's skinning with local unlit shading. Atlas scale,
+  offset and scrolling remain separate from color-lookup coordinates. CoreLaser's
+  raw fractional UV divisor `[0.5099999904632568, 1]` is preserved and applied as
+  a reciprocal scale; the pinned reconstruction reader instead rounds atlas
+  divisions to whole cells. Native UV_MODE and this fractional mapping still need
+  calibration. Reflection/fresnel, complete blend/material behavior and audio
+  remain open.
+
+All sixteen visual layers contribute pixels in isolated fitted Chrome views;
+random seeks reproduce both normalized state and the framebuffer exactly. Four
+new browser checks cover those layers, explicit child timing, resource retirement,
+moving bound/unbound anchors and terrain projection. The source review requests
+exactly four GLBs and fifteen PNGs. Preparation shares pending requests, disposes
+successful partial loads after failure, permits retry and caches complete assets.
+The current revision passes TypeScript and all **1,301 tests across 244 files**,
+including nine new source/playback/loading checks. Twelve targeted Chrome cases
+pass, including the four preview cases, the original geometry review, four Gromp
+death/missile regressions and all three live Oracle encounters. Both generated
+files reproduce byte for byte. Production build and strict nested-path smoke pass
+with the existing live equipment/activation/restoration. Nine preview captures
+and the current production Oracle/companion captures were visually reviewed.
+These results remain separate from the historical runtime validation below.
+
+Image review retains a concrete fidelity gap: the source `sparks` texture and 2×2
+UV policy produce hard cropped edges on stretched quads. The combined view also
+keeps the authored dim early scanner fade and small ending at its original scale.
+Pixels establish contribution, not native appearance or match visibility. Do not
+promote this preview to visual parity. Alert's gameplay event/recipient remains
+unresolved and manual preview does not manufacture a detection trigger.
+
+Next connect the complete renderer to saved active/stopped presentation histories,
+retain the child anchor through reload/recasts/match end, and calibrate the noted
+UV/material/attachment behavior. Per-particle preview draws also require batching
+and match-scale performance verification. [The preview validation ledger](reference/oracle-particle-verification.json)
+records the commands and exact scope separately from live Oracle behavior.
+
 ## Reproduction and validation
 
 Run from the repository root, with the existing pinned export caches and tool
@@ -143,6 +216,7 @@ node tools/assets/convert-roster-base.mjs OracleLens
 node tools/assets/convert-oracle-lens.mjs
 node tools/assets/verify-oracle-lens.mjs
 PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-oracle-lens.py
+PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-oracle-particles.py
 ```
 
 The source import at `be04cd5` reproduced all 27 pin, ledger, profile and
@@ -155,7 +229,7 @@ that import. [The runtime validation ledger](reference/oracle-lens-runtime-verif
 records current simulation, browser, saved restoration and production scope.
 Neither establishes native parity or full-match completion.
 
-Current TypeScript and all **1,292 tests across 242 files** pass with one
+At the live-runtime milestone `ae39178`, TypeScript and all **1,292 tests across 242 files** passed with one
 worker, including fourteen new Oracle cases. The focused boundary run passes
 41 cases: those fourteen, fourteen Ward regressions and thirteen structure cases. Two long existing clock tests hit
 the default five-second limit with two workers; the serial run passes without

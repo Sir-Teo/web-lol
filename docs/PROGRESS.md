@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,292 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,301 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,24 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+The [complete Oracle declaration preview](ORACLE-LENS.md#complete-declaration-preview--october-22-2026)
+now reconstructs all seventeen source emitters, including the invisible child
+driver. All sixteen visual layers contribute pixels and reproduce the framebuffer
+after random seeks in fitted Chrome views. Original rig/mesh/texture dependencies,
+full temporal and probability tables, explicit parent-child timing, bound/unbound
+anchors, terrain projection and partial-load cleanup are covered. The missing
+frame-count default was corrected to one; Alert's source HUD projection flag is
+false. Cropped spark edges, native UV/material/attachment calibration, source audio
+and saved stopped histories remain unfinished. The preview is separate from the
+two live scanner/radar layers; it does not certify native appearance or full-match
+completion. Commands and boundaries are in the [preview ledger](reference/oracle-particle-verification.json).
+TypeScript and all 1,301 checks across 244 files pass. Twelve targeted Chrome
+cases pass: four new particle reviews, the original geometry review, two Gromp
+death, two Gromp missile and three live Oracle encounters. Exact profile export
+and nested-path production smoke pass; the 715.88 KB game/659.92 KB Three chunk
+warning remains. Nine preview and two current production captures were visually
+reviewed. No complete browser audit or natural full match was certified.
 
 [Oracle Lens](ORACLE-LENS.md) now equips for free at the fountain or while
 dead, prepares only its selected scanner/radar assets, activates through real key

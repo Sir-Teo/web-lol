@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oracle Lens particle reconstruction</title>
+    <style>
+      body {
+        margin: 0;
+        background: #101b23;
+        color: #e5e6df;
+        font: 14px system-ui;
+      }
+      header {
+        padding: 14px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      select,
+      button {
+        background: #233743;
+        color: inherit;
+        border: 1px solid #687980;
+        padding: 7px;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+      }
+      p {
+        margin: 10px 24px;
+        color: #b5c5ca;
+      }
+      label {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      #time {
+        width: 240px;
+      }
+      #status {
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Oracle Lens particles</h1>
+      <label
+        >System
+        <select id="system">
+          <option value="sequence">Buff → child Death</option>
+          <option value="buff">Buff</option>
+          <option value="death">Death</option>
+          <option value="alert">Alert · trigger unresolved</option>
+        </select></label
+      >
+      <label
+        >Layer
+        <select id="layer">
+          <option value="all">All authored layers</option>
+        </select></label
+      >
+      <label>Time <input id="time" type="range" min="0" max="13" step="0.001" value="0.3" /></label>
+      <button id="play">Play</button><button id="fit">Fit view</button>
+      <label><input id="move" type="checkbox" /> Moving anchor</label>
+      <label><input id="terrain" type="checkbox" /> Uneven ground</label>
+    </header>
+    <canvas></canvas>
+    <p id="status">Preparing original assets…</p>
+    <p>
+      Frozen source declarations with local deterministic timing, attachment, direction and material
+      adapters. The sequence stops Buff at 8 seconds and follows its explicit child-on-death link.
+      Alert is a manual preview. Native dispatch, shading, audio and visual calibration remain
+      unverified.
+    </p>
+    <script type="module" src="./oracle-particles.ts"></script>
+  </body>
+</html>

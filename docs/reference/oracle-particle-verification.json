@@ -1,0 +1,403 @@
+{
+  "date": "2026-10-22",
+  "baseline": "ae39178",
+  "scope": "Complete Oracle declaration preview; live match still uses two scanner/radar layers. No native parity or full-match certification.",
+  "schema": 104,
+  "ruleset": "a01dba44c9e1dbaf0ee7edf56fb702534eb8d49b4d527e0ebc245c3a4c9251ec",
+  "source": {
+    "pinSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+    "profilesAuditSha256": "45dc078aa57b0b94e68060a9dd188c86c13d86546b88eb5a8d1f1a99de7a7533",
+    "reproduction": {
+      "exact": true,
+      "files": {
+        "src/content/oracle-particles.json": "8dd728e40ce97c1f03f529d4676b93746d3eee9c4f21c3b336715e3e2fe7ec27",
+        "docs/reference/oracle-particle-profiles.json": "45dc078aa57b0b94e68060a9dd188c86c13d86546b88eb5a8d1f1a99de7a7533"
+      }
+    }
+  },
+  "implementation": [
+    {
+      "path": "tools/assets/export-oracle-particles.py",
+      "sha256": "7cac74a8cee4cd18459a6739844998b7e38aba90f40cd06556ce55f3a20bd0ed"
+    },
+    {
+      "path": "src/content/oracle-particles.json",
+      "sha256": "8dd728e40ce97c1f03f529d4676b93746d3eee9c4f21c3b336715e3e2fe7ec27"
+    },
+    {
+      "path": "src/render/oracle-particle-state.ts",
+      "sha256": "3bf34d6299a203a9b7459a21069729cb9d188561e36dd7c77176a55af5f0d381"
+    },
+    {
+      "path": "src/render/oracle-particles.ts",
+      "sha256": "9799564552a07ec1f736640e14f85bd2ad21df6b5e8d92b0218e7695c41bca3d"
+    },
+    {
+      "path": "src/render/particle-motion.ts",
+      "sha256": "79e9c081fd6e57e26b08e1ffeea07c7e77e27f19e7d206012321f2ce3ceda728"
+    },
+    {
+      "path": "src/render/gromp-death-particles.ts",
+      "sha256": "051c013b61e5e0741ba301f9166c82546b6984df6cf412e5f8e42ce13c6dfac1"
+    },
+    {
+      "path": "tools/qa/oracle-particles.html",
+      "sha256": "b5d63f896b9a1bea5bbbb38c1cf5c15a13b32734421420f93f31f30054963c62"
+    },
+    {
+      "path": "tools/qa/oracle-particles.ts",
+      "sha256": "db5ccef8cf5d368a7fd3a871bb00a42e77e327a4750ba64e74d73f6aa45d5561"
+    },
+    {
+      "path": "tests/oracle-particles.test.ts",
+      "sha256": "5bc4eb0db1131e83c4f10f6bfa213e565fb3b441e56f7363c829dbd593ba67d2"
+    },
+    {
+      "path": "tests/oracle-particles-loading.test.ts",
+      "sha256": "ec17fa8790a8b13bcaef925acab61b3787ec7f6007e6b6688607167e44a348b5"
+    },
+    {
+      "path": "e2e/oracle-particles.spec.ts",
+      "sha256": "51cc1cc34d38aa31c3e035af1b078536c219a66f9f7852c6292905719dc90593"
+    }
+  ],
+  "commands": [
+    {
+      "command": "npx tsc --noEmit",
+      "result": "passed"
+    },
+    {
+      "command": "npx vitest run --maxWorkers=1",
+      "result": "passed",
+      "files": 244,
+      "tests": 1301,
+      "addedTests": 9
+    },
+    {
+      "command": "npx playwright test e2e/oracle-particles.spec.ts e2e/oracle-lens-source.spec.ts e2e/gromp-death.spec.ts --reporter=json",
+      "stats": {
+        "startTime": "2026-10-22T20:53:27.639Z",
+        "duration": 20555.207,
+        "expected": 7,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npx playwright test e2e/gromp-attack.spec.ts e2e/oracle-lens.spec.ts --reporter=json",
+      "stats": {
+        "startTime": "2026-10-22T20:56:04.848Z",
+        "duration": 37880.558,
+        "expected": 5,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npm run test:production",
+      "result": {
+        "result": "passed",
+        "prefix": "/nested/rift/",
+        "recordings": 17,
+        "mapNavigation": true,
+        "practiceScheduledRigs": 11,
+        "realHawkshotCast": true,
+        "realLuxBindingCast": true,
+        "luxLaneRestart": true,
+        "selectedSmiteLoadoutAndRestart": true,
+        "companionPurchaseAndRestore": true,
+        "companionPurchaseInPractice": true,
+        "realWardPlacementAndRestore": true,
+        "oraclePurchaseActivationAndRestore": true,
+        "oracleRigRequests": 4,
+        "unrequestedOraclePreloads": 0,
+        "wardRigRequests": 7,
+        "unrequestedCompanionPreloads": 0,
+        "developmentHook": false,
+        "garenFixtureInProduction": false,
+        "junglePreviewRequests": 0,
+        "preparedCompanionRequests": 3,
+        "scheduledGrompRequests": 119,
+        "scheduledBlueRequests": 7,
+        "scheduledRedRequests": 7,
+        "scheduledWolfRequests": 14,
+        "scheduledRaptorRequests": 14,
+        "scheduledKrugRequests": 21,
+        "scheduledScuttlerRequests": 7,
+        "screenshot": "artifacts/production-subpath.png"
+      }
+    },
+    {
+      "command": "PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-oracle-particles.py",
+      "result": "Two generated files reproduce byte for byte"
+    }
+  ],
+  "gpu": {
+    "results": [
+      {
+        "index": 0,
+        "name": "IconGlow",
+        "role": "buff",
+        "changed": 249125,
+        "models": 2,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 1,
+        "name": "Trinket_Red",
+        "role": "buff",
+        "changed": 97050,
+        "models": 1,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 2,
+        "name": "Icon",
+        "role": "buff",
+        "changed": 131522,
+        "models": 1,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 3,
+        "name": "LaserBurst",
+        "role": "buff",
+        "changed": 2724,
+        "models": 5,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 4,
+        "name": "Lasers",
+        "role": "buff",
+        "changed": 2443,
+        "models": 2,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 5,
+        "name": "Sparkles",
+        "role": "buff",
+        "changed": 132772,
+        "models": 7,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 6,
+        "name": "CoreLaser",
+        "role": "buff",
+        "changed": 106033,
+        "models": 1,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 7,
+        "name": "Intro",
+        "role": "buff",
+        "changed": 14533,
+        "models": 3,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 8,
+        "name": "IntroSparks",
+        "role": "buff",
+        "changed": 50320,
+        "models": 20,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 10,
+        "name": "RadarMesh",
+        "role": "buff",
+        "changed": 69200,
+        "models": 1,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 11,
+        "name": "Ring",
+        "role": "buff",
+        "changed": 31066,
+        "models": 1,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 12,
+        "name": "Burst",
+        "role": "death",
+        "changed": 144352,
+        "models": 7,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 13,
+        "name": "Debris",
+        "role": "death",
+        "changed": 102869,
+        "models": 50,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 14,
+        "name": "Lasers",
+        "role": "death",
+        "changed": 18361,
+        "models": 10,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 15,
+        "name": "sparks",
+        "role": "death",
+        "changed": 79749,
+        "models": 40,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      },
+      {
+        "index": 16,
+        "name": "exclamation",
+        "role": "alert",
+        "changed": 17494,
+        "models": 1,
+        "exactSeek": true,
+        "exactPixels": true,
+        "finite": true
+      }
+    ],
+    "assets": [
+      "/assets/models/oracle-lens-base.glb",
+      "/assets/models/oracle-lens-laser.glb",
+      "/assets/models/oracle-lens-core-laser.glb",
+      "/assets/models/oracle-lens-radar.glb",
+      "/assets/effects/oracle-lens/global_trinket_icons.png",
+      "/assets/effects/oracle-lens/global_trinket_greaterspotter.png",
+      "/assets/effects/oracle-lens/global_trinket_spotter_laser.png",
+      "/assets/effects/oracle-lens/global_trinket_spotter_sparkle.png",
+      "/assets/effects/oracle-lens/global_trinket_spotter_corelaser.png",
+      "/assets/effects/oracle-lens/global_trinket_spotter_intro_2x5.png",
+      "/assets/effects/oracle-lens/sparks.png",
+      "/assets/effects/oracle-lens/color-sparks2.png",
+      "/assets/effects/oracle-lens/global_trinket_spotter_radarmesh.png",
+      "/assets/effects/oracle-lens/global_trinket_spotter_radar.png",
+      "/assets/effects/oracle-lens/global_trinket_spotter_color-radar.png",
+      "/assets/effects/oracle-lens/smoke_clouds_2x2_dense.png",
+      "/assets/effects/oracle-lens/red_sparkle.png",
+      "/assets/effects/oracle-lens/ping-danger.png",
+      "/assets/effects/oracle-lens/alpha_20_03.png"
+    ]
+  },
+  "captures": [
+    {
+      "path": "artifacts/oracle-particle-1.png",
+      "sha256": "a490e7bb1b5b8f251bf916009c2e628a44e74ee3d8c0ffdf00cfb3c5b52ee9c5",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-7.png",
+      "sha256": "03b2e675df8c80353d1345d40f6113ecfc57ec1263a54d8f1933568ec9472713",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-10.png",
+      "sha256": "24e3bcdbf797fdfe47185bb653379a77572950336f10fd85f991fe30789b0554",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-11.png",
+      "sha256": "99aa930776e1308af3af4fdc8fb7ee2efa26b2e2a0bb74515d5b45b2ece73385",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-13.png",
+      "sha256": "81ae59934ac40d6945110f8cc22c764d34e1174a8ca2639fb00d940b710aacf4",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-15.png",
+      "sha256": "ed7e21e03b08a2cdbc8cc894daeba69daf8a5d1848d7af14bbb3f8b8c1b8e1fe",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-16.png",
+      "sha256": "b9a8db81c05112ad14db2d68a24e3815f96f82c6aeb03e530df4b4b730bfb363",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-child-sequence.png",
+      "sha256": "140fb3f81b43b10c5eb63036121f965f31fee4acd896ec9b1768ad955976ac02",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-particle-ground-sequence.png",
+      "sha256": "ed302af5b2f0219b48d950711c3c2bb284866cbc80516b62d8e73cebf0cb4a79",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-oracle.png",
+      "sha256": "c335c41fc06fec1c8b3450a9f06e93cbc513600f3d8e72cd8ea6e56b2b4b10c6",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-companion-purchase.png",
+      "sha256": "9a61a2c5bef4aea9355e2be080c8890601287433a3c4ac80d1fb8154955bdf74",
+      "visuallyReviewed": true
+    }
+  ],
+  "findings": [
+    {
+      "issue": "Omitted numFrames incorrectly inferred from cell count",
+      "resolution": "Export now defaults to one using hash-checked pinned readSurface.ts; continuous/random atlas assertions rechecked."
+    },
+    {
+      "issue": "Particle map insertion order changed after partial expiry and recreation",
+      "resolution": "Seek comparison normalizes object keys; all sixteen isolated framebuffer replays also match exactly."
+    },
+    {
+      "issue": "Source spark atlas crops create hard edges on stretched quads",
+      "resolution": "Retained as unresolved visual calibration; source fields were not tuned to hide the finding."
+    }
+  ],
+  "limits": [
+    "No live saved active/stopped presentation histories, recast or match-end child persistence yet.",
+    "Alert dispatch and recipient are unresolved; original HUD world-projection flag is false.",
+    "First-update cadence, birth/live time domains, random channels, attachment/binding, orbital radians, stop+linger and child-anchor timing are local reconstruction policies.",
+    "Fractional CoreLaser UV division applies raw reciprocal; pinned reconstruction reader rounds divisions. Native UV_MODE, sampler, sprite extent/frame convention and spark crop behavior remain unverified.",
+    "Rig uses local unlit skinning; unskinned layers use initial RGBA product with local blend factors. Native material/reflectance/fresnel, ground projection range/fade/navmesh masks and audio remain unfinished.",
+    "Preview uses individual particle objects; batching and match-scale performance are not certified.",
+    "Only targeted browser cohorts were run. Full Chrome audit, natural full match and entire project completion remain unverified.",
+    "Production chunk warning remains: game 715.88 KB, Three 659.92 KB."
+  ]
+}

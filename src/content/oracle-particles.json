@@ -1,0 +1,5475 @@
+[
+  {
+    "role": "buff",
+    "index": 0,
+    "name": "IconGlow",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/global_trinket_icons.png",
+    "lookup": null,
+    "rate": 2.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 0.30000001192092896,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        10.300000190734863
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        50.0,
+        50.0,
+        50.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1.0,
+        0.5,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.5,
+          0.4000000059604645,
+          0.4000000059604645
+        ],
+        [
+          1.0,
+          0.5,
+          0.4000000059604645,
+          0.4000000059604645
+        ],
+        [
+          1.0,
+          0.5,
+          0.4000000059604645,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        550.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 4,
+      "start": 3,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "48ec9b136930637c9cc10f891e56505d221471b17b038a64f0e0b0dd69e06388"
+  },
+  {
+    "role": "buff",
+    "index": 1,
+    "name": "Trinket_Red",
+    "kind": "rig",
+    "mesh": "assets/models/oracle-lens-base.glb",
+    "texture": "assets/effects/oracle-lens/global_trinket_greaterspotter.png",
+    "lookup": null,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0.10000000149011612,
+    "emitterLife": 1.0,
+    "linger": 0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        10.5
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            -20.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        450.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": false,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 3,
+    "renderOrder": 1,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "5f30587cd0de35e6d5c17da755ef9f8bfd6e736bc9926ea619e6a220484543c1"
+  },
+  {
+    "role": "buff",
+    "index": 2,
+    "name": "Icon",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/global_trinket_icons.png",
+    "lookup": null,
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 0.8999999761581421,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        10.899999618530273
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        -200.0,
+        0.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        550.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 4,
+      "start": 1,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 0,
+    "renderOrder": 5,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "5bcb26c435207147c90b106b2cdcf8c7d28cda74499467b79a396fb072250b22"
+  },
+  {
+    "role": "buff",
+    "index": 3,
+    "name": "LaserBurst",
+    "kind": "mesh",
+    "mesh": "assets/models/oracle-lens-laser.glb",
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_laser.png",
+    "lookup": null,
+    "rate": 5.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 8.0,
+    "linger": 0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.699999988079071,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.15000000596046448,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.30000001192092896
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "color": {
+      "constant": [
+        1.0,
+        1.0,
+        1.0,
+        0.8500000238418579
+      ],
+      "times": [
+        0.0,
+        0.5,
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.8500000238418579
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.42500001192092896
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0.0,
+        1.0,
+        60.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          1.0,
+          60.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            180.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.75,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "constant": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.5,
+            0.5000010132789612,
+            1.0
+          ],
+          "values": [
+            -100.0,
+            -70.0,
+            70.0,
+            100.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        460.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        -1.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          -1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "constant": [
+        1.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 4,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": {
+      "fresnel": 0.30000001192092896,
+      "fresnelColor": [
+        1.0,
+        0.0,
+        0.0,
+        0.5099999904632568
+      ],
+      "__type": "VfxReflectionDefinitionData"
+    },
+    "childRole": null,
+    "rawEmitterSha256": "30415be53bb529c6ad8579c5b2e06a6695027d8fa4f551996ba19c4df36d2348"
+  },
+  {
+    "role": "buff",
+    "index": 4,
+    "name": "Lasers",
+    "kind": "mesh",
+    "mesh": "assets/models/oracle-lens-laser.glb",
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_laser.png",
+    "lookup": null,
+    "rate": 3.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 8.0,
+    "linger": 0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        2.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          2.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.699999988079071,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.15000000596046448,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.30000001192092896
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "color": {
+      "constant": [
+        1.0,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0.0,
+        1.0,
+        80.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          1.0,
+          80.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            180.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.550000011920929,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "constant": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -30.0,
+            -50.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        460.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": false,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        -1.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          -1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "constant": [
+        1.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 4,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "bf2ad88d5ad2096a393be7f57fd9a025edf08868c0be01b33cb7378541b3d8a0"
+  },
+  {
+    "role": "buff",
+    "index": 5,
+    "name": "Sparkles",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_sparkle.png",
+    "lookup": null,
+    "rate": 15.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 9.399999618530273,
+    "linger": 0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        1.0
+      ],
+      "times": [
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          1.0
+        ],
+        [
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        30.0,
+        30.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          30.0,
+          30.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.20000000298023224,
+        0.6000000238418579,
+        1.0
+      ],
+      "values": [
+        [
+          0.3100000023841858,
+          0.3100000023841858,
+          0.3100000023841858
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ],
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "constant": [
+        10.0,
+        0.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        3.0,
+        450.0,
+        -20.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": false,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 4,
+      "start": 0,
+      "random": true,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 1,
+    "renderOrder": 30,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "6ca424f82778f69dc97e062062fedc18649f16bb3b68f9f570736c63c1ece0b5"
+  },
+  {
+    "role": "buff",
+    "index": 6,
+    "name": "CoreLaser",
+    "kind": "mesh",
+    "mesh": "assets/models/oracle-lens-core-laser.glb",
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_corelaser.png",
+    "lookup": null,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 8.75,
+    "linger": 1.25,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        1.25
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.25,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        440.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0.20999999344348907,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        0.5099999904632568,
+        1.0
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 4,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 2,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "9acf48e297e1a77e8112754c64d9d79ff2286ec165415c7c25f7f1c8446990fd"
+  },
+  {
+    "role": "buff",
+    "index": 7,
+    "name": "Intro",
+    "kind": "quad",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_intro_2x5.png",
+    "lookup": null,
+    "rate": 3.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 0.30000001192092896,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        0.30000001192092896
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.30000001192092896
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        40.0,
+        100.0,
+        200.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.25,
+          0.25,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            90.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        450.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        2.0,
+        5.0
+      ],
+      "frames": 10,
+      "start": 0,
+      "random": false,
+      "fps": 24.0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 0,
+    "renderOrder": 500,
+    "miscRenderFlags": 1,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "0a075e101aeb39f3218761d91c231d207141ee603686099a12fcbe63282449a4"
+  },
+  {
+    "role": "buff",
+    "index": 8,
+    "name": "IntroSparks",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/sparks.png",
+    "lookup": "assets/effects/oracle-lens/color-sparks2.png",
+    "rate": 20.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 0.20000000298023224,
+    "linger": 0.4000000059604645,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        0.4000000059604645
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.4000000059604645
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.15000000596046448,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        5.0,
+        5.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          5.0,
+          5.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            2.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        -1000.0,
+        0.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          -1000.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.5,
+            0.5000010132789612,
+            1.0
+          ],
+          "values": [
+            -3.0,
+            -1.0,
+            1.0,
+            3.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "constant": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0.0,
+        -700.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          -700.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        90.0,
+        0.0,
+        90.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0.0,
+        450.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        200.0,
+        0.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          200.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spawnAngles": [
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              70.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9999999403953552,
+        0.0
+      ]
+    ],
+    "uniform": false,
+    "local": true,
+    "particleLocal": true,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": true,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": true,
+    "directionScale": 0.00800000037997961,
+    "directionMin": 1.2999999523162842,
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "fdde4d71553c92afa6b2f4f83c51027d88eff1b2fda05091591fc61314fec0dd"
+  },
+  {
+    "role": "buff",
+    "index": 9,
+    "name": "Death",
+    "kind": "child",
+    "mesh": null,
+    "texture": null,
+    "lookup": null,
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 0.20000000298023224,
+    "linger": 0.4950000047683716,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        10.494999885559082
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        450.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 1,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": "death",
+    "rawEmitterSha256": "b252d1e1a5ea0bc554c67c169826a8a4cb11970e942a1fd81f329f5124f698c6"
+  },
+  {
+    "role": "buff",
+    "index": 10,
+    "name": "RadarMesh",
+    "kind": "mesh",
+    "mesh": "assets/models/oracle-lens-radar.glb",
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_radarmesh.png",
+    "lookup": null,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        10.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1.5,
+        1.0,
+        1.0,
+        0.75
+      ],
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          1.5,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.5,
+          1.0,
+          1.0,
+          0.75
+        ],
+        [
+          1.5,
+          1.0,
+          1.0,
+          0.75
+        ],
+        [
+          1.5,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0.0,
+        4.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0.0,
+        -100.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": false,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0.125,
+        0.5
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 4,
+    "renderOrder": 10,
+    "miscRenderFlags": 1,
+    "ground": true,
+    "navmeshMask": true,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 2,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "c16e19ed9e6ab0eae2fd1d3b3d46d6ef27be42eee7371a8c0cacad39f9715251"
+  },
+  {
+    "role": "buff",
+    "index": 11,
+    "name": "Ring",
+    "kind": "projection",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_radar.png",
+    "lookup": "assets/effects/oracle-lens/global_trinket_spotter_color-radar.png",
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 8.0,
+    "linger": 1.0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        10.850000381469727
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        420.0,
+        420.0,
+        420.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        -90.0,
+        0.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0.0,
+        100.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": true,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1.0,
+      0.0
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": {
+      "mYRange": 150.0,
+      "mFading": 25.0,
+      "__type": "VfxProjectionDefinitionData"
+    },
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "58c7b55a2dcfc08c6d39c9b0376cf3f26bfe7b21521a812df1f15e526d0172d1"
+  },
+  {
+    "role": "death",
+    "index": 0,
+    "name": "Burst",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/smoke_clouds_2x2_dense.png",
+    "lookup": null,
+    "rate": 7.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 0.20000000298023224,
+    "linger": 10.899999618530273,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        0.8999999761581421
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.8999999761581421
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1.0,
+        0.5,
+        0.20000000298023224,
+        1.0
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.5,
+          0.20000000298023224,
+          1.0
+        ],
+        [
+          1.0,
+          0.5,
+          0.20000000298023224,
+          1.0
+        ],
+        [
+          1.0,
+          0.5,
+          0.20000000298023224,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0.0,
+        500.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          500.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.5,
+            0.5,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            -0.5,
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "constant": [
+        5.0,
+        7.0,
+        5.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        0.0,
+        0.0,
+        0.9999999403953552
+      ],
+      [
+        0.0,
+        0.9999999403953552,
+        0.0
+      ]
+    ],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 1,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "cd35cb2fa2ad55b9506598f4be4924b53d97d4e19911e88ee9a8c2d0fd180b66"
+  },
+  {
+    "role": "death",
+    "index": 1,
+    "name": "Debris",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/red_sparkle.png",
+    "lookup": null,
+    "rate": 50.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "linger": 11.0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.25,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        300.0,
+        0.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          300.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            2.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "constant": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0.0,
+        -200.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          -200.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "rotation": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        10.0,
+        0.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          10.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.800000011920929,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spawnAngles": [
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        0.0,
+        0.0,
+        0.9999999403953552
+      ],
+      [
+        0.0,
+        0.9999999403953552,
+        0.0
+      ]
+    ],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "315cdaa48372d8401ec991b00ae1cf5dbe012a33b6c28fc6020b2f50c836b1c7"
+  },
+  {
+    "role": "death",
+    "index": 2,
+    "name": "Lasers",
+    "kind": "mesh",
+    "mesh": "assets/models/oracle-lens-laser.glb",
+    "texture": "assets/effects/oracle-lens/global_trinket_spotter_laser.png",
+    "lookup": null,
+    "rate": 10.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 0.5,
+    "linger": 0.20000000298023224,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        0.550000011920929
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.550000011920929
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        0.75,
+        0.15000000596046448,
+        0.75
+      ],
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.75,
+          0.15000000596046448,
+          0.75
+        ],
+        [
+          0.15000000596046448,
+          0.030000001192092896,
+          0.15000000596046448
+        ]
+      ],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "angularVelocity": {
+      "constant": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -40.0,
+            40.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": false,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        -1.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          -1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "uvOffset": {
+      "constant": [
+        1.0,
+        1.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 4,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "f930c5471637d008d9842737340fda244da18c1b921e1a73abc3963f8ecd3d0e"
+  },
+  {
+    "role": "death",
+    "index": 3,
+    "name": "sparks",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/sparks.png",
+    "lookup": "assets/effects/oracle-lens/color-sparks2.png",
+    "rate": 40.0,
+    "single": true,
+    "delay": 0.019999999552965164,
+    "emitterLife": 0.30000001192092896,
+    "linger": 10.199999809265137,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        0.20000000298023224
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.20000000298023224
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.15000000596046448,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        5.0,
+        5.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          5.0,
+          5.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            2.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0.0,
+        550.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          550.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            0.5,
+            0.5000010132789612,
+            1.0
+          ],
+          "values": [
+            -3.0,
+            -1.0,
+            1.0,
+            3.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "constant": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0.0,
+        -700.0,
+        0.0
+      ],
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          -700.0,
+          0.0
+        ]
+      ],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        90.0,
+        0.0,
+        90.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              70.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "spawnAxes": [
+      [
+        0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9999999403953552,
+        0.0
+      ]
+    ],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": true,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": true,
+    "directionScale": 0.00800000037997961,
+    "directionMin": 0.5,
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "8a60e14e533d66f9e60c73550219cbb06d8bbfc3b7c177d67a1141cff362f9e7"
+  },
+  {
+    "role": "alert",
+    "index": 0,
+    "name": "exclamation",
+    "kind": "billboard",
+    "mesh": null,
+    "texture": "assets/effects/oracle-lens/ping-danger.png",
+    "lookup": "assets/effects/oracle-lens/alpha_20_03.png",
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": null,
+    "linger": 11.0,
+    "emitterLinger": null,
+    "life": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "size": {
+      "constant": [
+        30.0,
+        75.0,
+        0.0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "scale": {
+      "constant": [
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "birthColor": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "color": {
+      "constant": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "velocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "drag": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "acceleration": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "orbital": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "rotation": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "angularVelocity": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "position": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "offset": {
+      "constant": [
+        0,
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "spawnAngles": [],
+    "spawnAxes": [],
+    "uniform": false,
+    "local": true,
+    "particleLocal": false,
+    "scroll": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "uvOffset": {
+      "constant": [
+        0,
+        0
+      ],
+      "times": [],
+      "values": [],
+      "probabilities": []
+    },
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "start": 0,
+      "random": false,
+      "fps": 0
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "direction": false,
+    "directionScale": 0,
+    "directionMin": 0,
+    "blend": 1,
+    "renderOrder": 20,
+    "miscRenderFlags": 5,
+    "ground": false,
+    "navmeshMask": false,
+    "projection": null,
+    "hudProjection": false,
+    "uvMode": 0,
+    "reflection": null,
+    "childRole": null,
+    "rawEmitterSha256": "5a9bcfa280635dd7123cf245e973e232b07ceff60debefd191f51f0583662ce1"
+  }
+]
