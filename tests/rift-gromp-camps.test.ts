@@ -48,11 +48,11 @@ test('both Gromps emerge before their ready deadline at distinct source locators
   expect(
     world.jungleCamps
       .filter((c) => c.id.endsWith('gromp'))
-      .every((c) => world.unit(c.unitId!)?.monster?.phase === 'spawning')
+      .every((c) => world.unit(c.unitIds[0]!)?.monster?.phase === 'spawning')
   ).toBe(true);
   world.step(GROMP_SPAWN_LEADUP_TICKS);
   for (const [i, camp] of world.jungleCamps.filter((c) => c.id.endsWith('gromp')).entries()) {
-    const unit = world.unit(camp.unitId!)!;
+    const unit = world.unit(camp.unitIds[0]!)!;
     const definition = RIFT_GROMP_CAMPS[i];
     expect(unit).toMatchObject({
       kind: 'monster',
@@ -78,12 +78,12 @@ test('a clear schedules only its own camp from the death tick, surviving corpse 
   const world = spawned(),
     camp = world.jungleCamps[0],
     other = world.jungleCamps[1];
-  const corpse = world.unit(camp.unitId!)!,
-    untouched = other.unitId;
+  const corpse = world.unit(camp.unitIds[0]!)!,
+    untouched = other.unitIds[0];
   world.damage(world.hero, corpse, 99999, 'true');
   const deadline = world.tick + GROMP_RESPAWN_TICKS;
-  expect(camp).toMatchObject({ unitId: null, nextSpawnTick: deadline });
-  expect(other).toMatchObject({ unitId: untouched, nextSpawnTick: null });
+  expect(camp).toMatchObject({ unitIds: [null], nextSpawnTick: deadline });
+  expect(other).toMatchObject({ unitIds: [untouched], nextSpawnTick: null });
   const gold = world.player.gold;
   world.damage(world.hero, corpse, 99999, 'true');
   expect(world.player.gold).toBe(gold);
@@ -94,24 +94,24 @@ test('a clear schedules only its own camp from the death tick, surviving corpse 
   world.tick = restored.tick = deadline - 2;
   world.step();
   restored.step();
-  expect(world.unit(camp.unitId!)?.monster?.phase).toBe('spawning');
-  expect(world.vulnerable(world.unit(camp.unitId!)!)).toBe(false);
+  expect(world.unit(camp.unitIds[0]!)?.monster?.phase).toBe('spawning');
+  expect(world.vulnerable(world.unit(camp.unitIds[0]!)!)).toBe(false);
   world.step();
   restored.step();
-  const fresh = world.unit(camp.unitId!)!;
+  const fresh = world.unit(camp.unitIds[0]!)!;
   expect(fresh.id).not.toBe(corpse.id);
   expect(fresh).toMatchObject({
     hp: fresh.maxHp,
     monster: { home: RIFT_GROMP_CAMPS[0].point, phase: 'idle' },
   });
-  expect(other.unitId).toBe(untouched);
+  expect(other.unitIds[0]).toBe(untouched);
   expect(restored.snapshot()).toBe(world.snapshot());
 });
 
 test('retaliation and a leash reset never restart the camp calendar', () => {
   const world = spawned(),
     camp = world.jungleCamps[0],
-    target = world.unit(camp.unitId!)!;
+    target = world.unit(camp.unitIds[0]!)!;
   Object.assign(world.hero, { x: target.x + 250, y: target.y });
   world.damage(world.hero, target, 10, 'true');
   world.step();
@@ -123,7 +123,7 @@ test('retaliation and a leash reset never restart the camp calendar', () => {
   world.step(120);
   restored.step(120);
   expect(target.monster?.phase).toBe('idle');
-  expect(camp).toMatchObject({ unitId: target.id, nextSpawnTick: null });
+  expect(camp).toMatchObject({ unitIds: [target.id], nextSpawnTick: null });
   expect(restored.snapshot()).toBe(world.snapshot());
 });
 
@@ -138,7 +138,7 @@ test('a pre-spawn checkpoint resumes both camps once and game end freezes their 
   restored.step();
   expect(restored.snapshot()).toBe(world.snapshot());
   world.step(GROMP_SPAWN_LEADUP_TICKS);
-  const target = world.unit(world.jungleCamps[0].unitId!)!;
+  const target = world.unit(world.jungleCamps[0].unitIds[0]!)!;
   world.damage(world.hero, target, 99999, 'true');
   world.winner = 'blue';
   const ended = world.snapshot();
@@ -171,10 +171,10 @@ test('checkpoint validation rejects missing, duplicate, premature and inconsiste
     s.jungleCamps[1].id = s.jungleCamps[0].id;
   });
   invalid((s) => {
-    s.jungleCamps[1].unitId = s.jungleCamps[0].unitId;
+    s.jungleCamps[1].unitIds[0] = s.jungleCamps[0].unitIds[0];
   });
   invalid((s) => {
-    s.jungleCamps[0].unitId = s.player.id;
+    s.jungleCamps[0].unitIds[0] = s.player.id;
   });
   invalid((s) => {
     s.jungleCamps[0].nextSpawnTick = s.tick + 1;
@@ -183,7 +183,7 @@ test('checkpoint validation rejects missing, duplicate, premature and inconsiste
     s.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 1;
   });
   invalid((s) => {
-    s.units.find((u: any) => u.id === s.jungleCamps[0].unitId).monster.home.x++;
+    s.units.find((u: any) => u.id === s.jungleCamps[0].unitIds[0]).monster.home.x++;
   });
   invalid((s) => {
     s.matchMode = 'practice';
@@ -198,7 +198,7 @@ test('checkpoint validation rejects missing, duplicate, premature and inconsiste
   invalid((s) => {
     s.jungleCamps[0].nextSpawnTick = null;
   }, before);
-  world.damage(world.hero, world.unit(world.jungleCamps[0].unitId!)!, 99999, 'true');
+  world.damage(world.hero, world.unit(world.jungleCamps[0].unitIds[0]!)!, 99999, 'true');
   const waiting = JSON.parse(world.snapshot());
   invalid((s) => {
     s.jungleCamps[0].nextSpawnTick = s.tick;

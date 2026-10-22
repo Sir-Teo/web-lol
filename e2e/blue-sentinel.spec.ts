@@ -36,7 +36,7 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
     w.tick = definition.firstReadyTick - 1;
     w.step();
     const camp = w.jungleCamps.find((c: any) => c.id === 'order-blue'),
-      unit = w.unit(camp.unitId);
+      unit = w.unit(camp.unitIds[0]);
     const point = w.battlefield.reachable({ x: unit.x + 300, y: unit.y }, w.hero.radius, 'blue');
     Object.assign(w.hero, point, { previous: { ...point } });
     g.view.recenter(w.hero);
@@ -84,9 +84,11 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
   });
   expect(target.rig).toBe('sru-blue-base');
   expect(target.pixels).toBeGreaterThan(150);
-  expect(target.calendars).toHaveLength(6);
+  expect(target.calendars).toHaveLength(8);
   expect(
-    target.calendars.filter((c: any) => c.id.endsWith('gromp')).every((c: any) => c.unitId === null)
+    target.calendars
+      .filter((c: any) => c.id.endsWith('gromp'))
+      .every((c: any) => c.unitIds[0] === null)
   ).toBe(true);
   await expect(page.locator(`.unit-bar[data-unit="${target.id}"] .unit-name`)).toHaveText(
     'Blue Sentinel'
@@ -139,7 +141,7 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
     };
   }, target.id);
   expect(waiting.corpseGone).toBe(true);
-  expect(waiting.camp.unitId).toBeNull();
+  expect(waiting.camp.unitIds[0]).toBeNull();
   expect(waiting.gold).toBeGreaterThanOrEqual(90);
   expect(waiting.xp).toBe(95);
   expect(waiting.cs).toBe(4);
@@ -175,11 +177,11 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
     g.setPaused(true);
     w.tick = camp.nextSpawnTick - MONSTERS.blue.spawnLeadupTicks - 2;
     w.step();
-    const before = camp.unitId;
+    const before = camp.unitIds[0];
     w.step();
-    const protectedPhase = w.unit(camp.unitId).monster.phase;
+    const protectedPhase = w.unit(camp.unitIds[0]).monster.phase;
     w.step(MONSTERS.blue.spawnLeadupTicks);
-    const unit = w.unit(camp.unitId);
+    const unit = w.unit(camp.unitIds[0]);
     g.view.recenter(w.hero);
     g.view.render(w, 1, g.view.previousElapsed);
     g.hud.update(60);

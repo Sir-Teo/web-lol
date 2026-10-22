@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "c87e9d0",
+  "sourceCommit": "db7e11ce7281fdeeca306f62e6fc026eb8ab0d5a",
+  "aliasFixCommit": "513b4b245da4c0996d8f417bf1c7a7b1db8806da",
+  "schema": 94,
+  "rulesetFingerprint": "9d201c4244edf7a36b23ce04e60a319159f5677e054677b5e22edc1ae4bff924",
+  "sourcePin": {
+    "path": "docs/reference/wolf-camps-source.json",
+    "sha256": "0357ac24d5c9a08f2d1001e9ea8963f008a361cc917717752a85f5ee0c7cb791"
+  },
+  "sourcePreparation": {
+    "extractCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-wolf-camps.py",
+    "convertCommands": [
+      "node tools/assets/convert-roster-base.mjs SRU_Murkwolf",
+      "node tools/assets/convert-roster-base.mjs SRU_MurkwolfMini"
+    ],
+    "exportCommand": "PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-wolf-camps.py",
+    "repeatExtractionMatches": true,
+    "repeatGlbsManifestsAndExportByteIdentical": true,
+    "archiveMembers": 51,
+    "rawMemberBytes": 1536352,
+    "atomicClips": [
+      20,
+      25
+    ],
+    "staticLookAtClipsPerRig": 3,
+    "sourceMiniDamage": null,
+    "sourceMiniCs": null,
+    "placedSkin": 0,
+    "unchangedParentPins": [
+      "jungle-character-source",
+      "jungle-script-source",
+      "jungle-map-source"
+    ]
+  },
+  "rigs": [
+    {
+      "path": "public/assets/models/sru-murkwolf-base.glb",
+      "sha256": "86477140cba0f0becf10859a2978b7f46068a99f2c7807d9b2c6366ada59014e",
+      "triangles": 4706,
+      "bones": 61,
+      "unitScale": 0.012000000476837159
+    },
+    {
+      "path": "public/assets/models/sru-murkwolfmini-base.glb",
+      "sha256": "1ed2a284671aff2084ca0a5ba508a25a67e9a9e8f392460f70439f335c4c1c40",
+      "triangles": 3374,
+      "bones": 57,
+      "unitScale": 0.009499999880790711
+    }
+  ],
+  "policies": {
+    "firstReadySeconds": 55,
+    "localProtectedTicks": 40,
+    "localRespawnSeconds": 135,
+    "localMiniDamage": 20,
+    "localMiniCs": 1,
+    "leashBaseline": 650,
+    "nearbyLivingLeaderResetDistance": 700,
+    "markedCleanupSeconds": 10,
+    "cleanup": "individual survivor clocks, local champion-combat classification, no last-hit rewards",
+    "nativePatienceSoftResetScalingAndOnHit": "unfinished"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 227,
+    "passed": 1151,
+    "newCases": 9,
+    "typecheck": "passed"
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "newRigsErrors": 0,
+    "newRigsWarnings": 0,
+    "allGlbsAndMapValidated": true
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "bootAudit": {
+      "result": "intentionally interrupted after confirmed boot error",
+      "interrupted": 1,
+      "notRun": 4,
+      "finding": "Default mini spawn and spawn_mini1 share a source animation; in-place alias renaming consumed the name. Loader now clones aliases independently."
+    },
+    "fullFocusedRun": {
+      "command": "npx playwright test e2e/wolf-camps.spec.ts e2e/rift-gromp-camps.spec.ts e2e/blue-sentinel.spec.ts e2e/red-brambleback.spec.ts e2e/gromp-spawn.spec.ts --workers=1 --timeout=60000",
+      "passed": 5
+    },
+    "labelRefinement": {
+      "command": "npx playwright test e2e/wolf-camps.spec.ts --workers=1 --timeout=60000",
+      "passed": 1,
+      "policy": "Small-wolf names appear on hover/selection; leader name and all health bars remain visible."
+    },
+    "wolfAssertions": [
+      "ordinary practice requests no wolf rig",
+      "all three source rigs contribute more than 300 aggregate GPU pixels",
+      "real Lux basic attack alerts all three and receives retaliation",
+      "real Binding roots a pack member",
+      "exact fighting checkpoint reload",
+      "leader corpse expires while two saved small-wolf slots remain alive",
+      "partial checkpoint reload retains missing leader and survivors",
+      "complete corpse-free clear retains group respawn deadline",
+      "fresh three-member IDs and full Root health after protected respawn"
+    ],
+    "scope": "Five focused cases plus label rerun, with scripted final kills and calendar jumps; not a complete browser suite, seeded full-role match or native comparison"
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "jungleInspectorRequests": 0,
+    "developmentHook": false,
+    "warning": "Existing bundle-size warning remains"
+  },
+  "captures": [
+    {
+      "path": "artifacts/wolf-camps-combat.png",
+      "sha256": "97a65f2aa3862a649ba90c1068136f1c0a4734964006ea20e236d35471b9cdd6",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/wolf-camps-respawn.png",
+      "sha256": "9133be4503b90ba2ec16be9c0032d0047cd8eef80f7ce277c39d1e0d3acc674f",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Native small-wolf damage/CS bindings and complete reward modifiers",
+    "Native scaling, percentage-current-health on-hit damage, patience/soft-reset and cleanup calibration",
+    "Source wolf effects/audio and native visual/label comparison",
+    "Remaining camps, Smite and jungle-role bots",
+    "Full seeded matches, production roster, performance and offline/delivery certification"
+  ]
+}

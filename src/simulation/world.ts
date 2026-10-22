@@ -1,6 +1,11 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
-import { MONSTERS, type MonsterSpecies } from '../content/monsters';
-import { RIFT_CAMPS } from '../content/rift-camps';
+import {
+  MONSTERS,
+  monsterSpawnClipTicks,
+  type MonsterSpecies,
+  type MonsterSpawnClip,
+} from '../content/monsters';
+import { RIFT_CAMPS, campLeadupTicks } from '../content/rift-camps';
 import type { JungleCampState } from './types';
 import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
@@ -441,7 +446,7 @@ export class World {
   /** Spawn a neutral unit. Camp ownership/calendar is tracked independently. */
   spawnMonster(
     point: Vec2,
-    spawn: { startTick: number; readyTick: number } | null = null,
+    spawn: { startTick: number; readyTick: number; clip?: MonsterSpawnClip } | null = null,
     species: MonsterSpecies = 'gromp'
   ): Extract<Unit, { kind: 'monster' }> {
     const base = this.createUnitBase('monster', 'neutral', point);
@@ -468,7 +473,7 @@ export class World {
         home: { x: point.x, y: point.y },
         phase: spawn && this.tick < spawn.readyTick ? 'spawning' : 'idle',
         targetId: null,
-        spawn: spawn ? { ...spawn } : null,
+        spawn: spawn ? { ...spawn, clip: spawn.clip ?? 'spawn' } : null,
       },
     };
     const clips = mobileClipDurations(u)!;
@@ -484,24 +489,71 @@ export class World {
   private advanceJungleCamps(): void {
     for (const camp of this.jungleCamps) {
       const definition = RIFT_CAMPS.find((c) => c.id === camp.id)!;
-      const profile = MONSTERS[definition.species];
-      if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick - profile.spawnLeadupTicks)
-        continue;
-      const unit = this.spawnMonster(
-        definition.point,
-        {
-          startTick: camp.nextSpawnTick - profile.spawnLeadupTicks,
-          readyTick: camp.nextSpawnTick,
-        },
-        definition.species
-      );
-      unit.facing = Math.atan2(
-        definition.facingPoint.x - unit.x,
-        definition.facingPoint.y - unit.y
-      );
-      camp.unitId = unit.id;
+      for (const [slot, cleanup] of camp.cleanupTicks.entries()) {
+        if (cleanup === null) continue;
+        const unit = this.unit(camp.unitIds[slot]!)!;
+        const target = unit.monster?.targetId ? this.unit(unit.monster.targetId) : undefined;
+        const fighting =
+          unit.monster?.phase === 'engaged' &&
+          target?.kind === 'champion' &&
+          this.alive(target) &&
+          distance(target, unit.monster.home) <=
+            MONSTERS[unit.monster.species].policy.leashRadius &&
+          this.validTarget(unit, target);
+        if (fighting) camp.cleanupTicks[slot] = this.tick + definition.cleanupDelayTicks!;
+        else if (this.tick >= cleanup) {
+          unit.monster!.phase = 'idle';
+          this.damage(
+            unit,
+            unit,
+            unit.hp + unit.shields.reduce((n, s) => n + s.amount, 0),
+            'true',
+            'cleanup'
+          );
+        }
+      }
+      const leadup = campLeadupTicks(definition);
+      if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick - leadup) continue;
+      const readyTick = camp.nextSpawnTick;
+      camp.unitIds = definition.members.map((member) => {
+        const unit = this.spawnMonster(
+          member.point,
+          { startTick: readyTick - leadup, readyTick, clip: member.spawnClip },
+          member.species
+        );
+        unit.facing = Math.atan2(
+          definition.facingPoint.x - unit.x,
+          definition.facingPoint.y - unit.y
+        );
+        return unit.id;
+      });
+      camp.cleanupTicks = definition.members.map(() => null);
       camp.nextSpawnTick = null;
     }
+  }
+  private monsterGroup(
+    unit: Extract<Unit, { kind: 'monster' }>
+  ): Extract<Unit, { kind: 'monster' }>[] {
+    const camp = this.jungleCamps.find((c) => c.unitIds.includes(unit.id));
+    return camp
+      ? camp.unitIds
+          .map((id) => (id === null ? undefined : this.unit(id)))
+          .filter(
+            (u): u is Extract<Unit, { kind: 'monster' }> =>
+              !!u && u.kind === 'monster' && this.alive(u)
+          )
+      : [unit];
+  }
+  private monsterResetGroup(
+    unit: Extract<Unit, { kind: 'monster' }>
+  ): Extract<Unit, { kind: 'monster' }>[] {
+    const camp = this.jungleCamps.find((c) => c.unitIds.includes(unit.id));
+    const leader = camp?.unitIds[0] ? this.unit(camp.unitIds[0]) : undefined;
+    if (!leader || !this.alive(leader)) return [unit];
+    const nearby = this.monsterGroup(unit).filter(
+      (m) => m.id === leader.id || distance(m, leader) <= 700
+    );
+    return nearby.includes(unit) ? nearby : [unit];
   }
   private advanceMonster(u: Extract<Unit, { kind: 'monster' }>): boolean {
     const monster = u.monster,
@@ -511,7 +563,11 @@ export class World {
       if (monster.spawn && this.tick < monster.spawn.readyTick) return true;
       monster.phase = 'idle';
     }
-    if (monster.spawn && this.tick >= monster.spawn.startTick + profile.spawnClipTicks)
+    if (
+      monster.spawn &&
+      this.tick >=
+        monster.spawn.startTick + monsterSpawnClipTicks(monster.species, monster.spawn.clip)
+    )
       monster.spawn = null;
     if (
       monster.phase === 'engaged' &&
@@ -521,9 +577,11 @@ export class World {
         distance(target, monster.home) > profile.policy.leashRadius ||
         !this.validTarget(u, target))
     ) {
-      monster.phase = 'returning';
-      monster.targetId = null;
-      this.setOrder(u, { type: 'move', point: { ...monster.home } });
+      for (const member of this.monsterResetGroup(u)) {
+        member.monster.phase = 'returning';
+        member.monster.targetId = null;
+        this.setOrder(member, { type: 'move', point: { ...member.monster.home } });
+      }
     }
     if (monster.phase === 'returning') {
       u.releaseTick = null;
@@ -534,9 +592,12 @@ export class World {
       u.criticalSlow = null;
       u.hp = Math.min(u.maxHp, u.hp + u.maxHp * profile.policy.resetHealthFractionPerSecond * DT);
       this.move(u, monster.home);
-      if (distance(u, monster.home) < 3 && u.hp === u.maxHp) {
-        monster.phase = 'idle';
-        this.setOrder(u, { type: 'idle' });
+      const group = this.monsterResetGroup(u);
+      if (group.every((m) => distance(m, m.monster.home) < 3 && m.hp === m.maxHp)) {
+        for (const member of group) {
+          member.monster.phase = 'idle';
+          this.setOrder(member, { type: 'idle' });
+        }
       }
       return true;
     }
@@ -3346,7 +3407,7 @@ export class World {
     target: Unit,
     raw: number,
     kind: 'physical' | 'magic' | 'true',
-    category: 'direct' | 'area' = 'direct'
+    category: 'direct' | 'area' | 'cleanup' = 'direct'
   ): void {
     if (
       this.winner ||
@@ -3410,10 +3471,20 @@ export class World {
       }
     }
     if (healthLost > 0 && target.kind === 'monster' && source.team !== 'neutral') {
-      target.monster.phase = 'engaged';
-      target.monster.targetId = source.id;
+      for (const member of this.monsterGroup(target)) {
+        if (!this.alive(member) || !this.vulnerable(member) || member.monster.phase === 'returning')
+          continue;
+        member.monster.phase = 'engaged';
+        member.monster.targetId = source.id;
+        member.monster.spawn = null;
+      }
     }
-    this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
+    if (category !== 'cleanup')
+      this.emit('damage', target, {
+        unit: target.id,
+        value: Math.round(amount),
+        team: source.team,
+      });
     const targetState = this.championState(target.id);
     if (targetState) {
       if (
@@ -3451,10 +3522,19 @@ export class World {
       if (target.kind === 'monster') {
         target.monster.phase = 'idle';
         target.monster.targetId = null;
-        const camp = this.jungleCamps.find((c) => c.unitId === target.id);
+        const camp = this.jungleCamps.find((c) => c.unitIds.includes(target.id));
         if (camp) {
-          camp.unitId = null;
-          camp.nextSpawnTick = this.tick + RIFT_CAMPS.find((c) => c.id === camp.id)!.respawnTicks;
+          const definition = RIFT_CAMPS.find((c) => c.id === camp.id)!;
+          const slot = camp.unitIds.indexOf(target.id);
+          camp.unitIds[slot] = null;
+          camp.cleanupTicks[slot] = null;
+          if (camp.unitIds.every((id) => id === null)) {
+            camp.nextSpawnTick = this.tick + definition.respawnTicks;
+            camp.cleanupTicks = definition.members.map(() => null);
+          } else if (slot === 0 && definition.cleanupDelayTicks !== null)
+            camp.cleanupTicks = camp.unitIds.map((id) =>
+              id === null ? null : this.tick + definition.cleanupDelayTicks!
+            );
         }
       }
       target.shields = [];

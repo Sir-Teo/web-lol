@@ -34,7 +34,7 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
     w.nextWaveTick = 1_000_000_000;
     w.tick = RIFT_CAMPS.find((c) => c.id === 'order-red')!.firstReadyTick - 1;
     w.step();
-    const unit = w.unit(w.jungleCamps.find((c: any) => c.id === 'order-red').unitId);
+    const unit = w.unit(w.jungleCamps.find((c: any) => c.id === 'order-red').unitIds[0]);
     const point = w.battlefield.reachable({ x: unit.x + 300, y: unit.y }, w.hero.radius, 'blue');
     Object.assign(w.hero, point, { previous: { ...point } });
     g.view.recenter(w.hero);
@@ -80,7 +80,7 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
       calendars: w.jungleCamps.length,
     };
   });
-  expect(target.calendars).toBe(6);
+  expect(target.calendars).toBe(8);
   expect(target.rig).toBe('sru-red-base');
   expect(target.pixels).toBeGreaterThan(150);
   await expect(page.locator(`.unit-bar[data-unit="${target.id}"] .unit-name`)).toHaveText(
@@ -133,7 +133,7 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
   }, target.id);
   expect(waiting.othersUnchanged).toBe(true);
   expect(waiting.corpseGone).toBe(true);
-  expect(waiting.camp.unitId).toBeNull();
+  expect(waiting.camp.unitIds[0]).toBeNull();
   expect(waiting.gold).toBeGreaterThanOrEqual(90);
   expect(waiting.xp).toBe(95);
   expect(waiting.cs).toBe(4);
@@ -147,7 +147,7 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
     const g = (window as any).__GAME__,
       w = g.world;
     g.setPaused(true);
-    const blue = w.unit(w.jungleCamps.find((c: any) => c.id === 'chaos-blue').unitId);
+    const blue = w.unit(w.jungleCamps.find((c: any) => c.id === 'chaos-blue').unitIds[0]);
     w.damage(w.hero, blue, 99999, 'true');
     const point = w.battlefield.reachable(home, w.hero.radius, 'red');
     const enemy = w.spawn('champion', 'red', point, 'lux');
@@ -219,11 +219,11 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
     g.setPaused(true);
     w.tick = camp.nextSpawnTick - MONSTERS.red.spawnLeadupTicks - 2;
     w.step();
-    const before = camp.unitId;
+    const before = camp.unitIds[0];
     w.step();
-    const protectedPhase = w.unit(camp.unitId).monster.phase;
+    const protectedPhase = w.unit(camp.unitIds[0]).monster.phase;
     w.step(MONSTERS.red.spawnLeadupTicks);
-    const unit = w.unit(camp.unitId);
+    const unit = w.unit(camp.unitIds[0]);
     g.view.recenter(w.hero);
     g.view.render(w, 1, g.view.previousElapsed);
     g.hud.update(60);

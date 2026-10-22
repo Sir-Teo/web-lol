@@ -750,7 +750,7 @@ export class GameView {
     let bar = this.healthBars.get(u.id);
     if (!bar) {
       bar = document.createElement('div');
-      bar.className = `unit-bar ${u.team} ${u.kind}`;
+      bar.className = `unit-bar ${u.team} ${u.kind}${u.kind === 'monster' && u.monster.species === 'wolf-mini' ? ' small-monster' : ''}`;
       bar.dataset.unit = String(u.id);
       bar.innerHTML =
         '<div class="unit-name"></div><div class="unit-hp"><i></i><span class="unit-shield"></span></div><div class="unit-mana"><i></i></div><div class="unit-status"></div>';
@@ -771,6 +771,8 @@ export class GameView {
     const hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
     if (bar.hidden !== hidden) bar.hidden = hidden;
     if (bar.hidden) return;
+    if (bar.classList.contains('small-monster'))
+      bar.classList.toggle('show-name', this.hovered === u.id || this.selected === u.id);
     const shield = world.shieldAmount(u);
     const capacity = Math.max(u.maxHp, u.hp + shield);
     if (u.kind === 'champion' && bar.dataset.maxHealth !== String(capacity)) {

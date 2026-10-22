@@ -1,6 +1,6 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
-import { MONSTERS } from '../content/monsters';
-import { RIFT_CAMPS } from '../content/rift-camps';
+import { MONSTERS, monsterSpawnClipTicks } from '../content/monsters';
+import { RIFT_CAMPS, campLeadupTicks } from '../content/rift-camps';
 import {
   GROMP_ATTACK_PATH_FRAMES,
   GROMP_ATTACK_VISUAL_TAIL_TICKS,
@@ -70,7 +70,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 93;
+export const SNAPSHOT_VERSION = 94;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -144,11 +144,17 @@ const unit = z
     team: faction,
     monster: z
       .strictObject({
-        species: z.enum(['gromp', 'blue', 'red']),
+        species: z.enum(['gromp', 'blue', 'red', 'wolf', 'wolf-mini']),
         home: point,
         phase: z.enum(['spawning', 'idle', 'engaged', 'returning']),
         targetId: id.nullable(),
-        spawn: z.strictObject({ startTick: tick, readyTick: tick }).nullable(),
+        spawn: z
+          .strictObject({
+            startTick: tick,
+            readyTick: tick,
+            clip: z.enum(['spawn', 'spawn_mini1', 'spawn_mini2']),
+          })
+          .nullable(),
       })
       .optional(),
     name: z.string().max(200),
@@ -682,8 +688,11 @@ const snapshot = z.strictObject({
           'chaos-blue',
           'order-red',
           'chaos-red',
+          'order-wolves',
+          'chaos-wolves',
         ]),
-        unitId: id.nullable(),
+        unitIds: z.array(id.nullable()).min(1).max(3),
+        cleanupTicks: z.array(tick.nullable()).min(1).max(3),
         nextSpawnTick: tick.nullable(),
       })
     )
@@ -902,33 +911,58 @@ export function decodeSnapshot(text: string) {
     new Set(state.jungleCamps.map((c) => c.id)).size !== state.jungleCamps.length
   )
     throw new Error('Saved match has invalid jungle camps.');
+  const ownedMonsters = new Set<number>();
   for (const camp of state.jungleCamps) {
     const definition = RIFT_CAMPS.find((c) => c.id === camp.id)!;
-    const profile = MONSTERS[definition.species];
-    const unit = state.units.find((u) => u.id === camp.unitId);
-    if (camp.unitId === null) {
+    const leadup = campLeadupTicks(definition);
+    if (
+      camp.unitIds.length !== definition.members.length ||
+      camp.cleanupTicks.length !== definition.members.length
+    )
+      throw new Error('Saved camp has invalid member slots.');
+    if (camp.unitIds.every((id) => id === null)) {
       if (
+        camp.cleanupTicks.some((t) => t !== null) ||
         camp.nextSpawnTick === null ||
-        camp.nextSpawnTick - profile.spawnLeadupTicks <= state.tick ||
+        camp.nextSpawnTick - leadup <= state.tick ||
         (state.tick < definition.firstReadyTick
           ? camp.nextSpawnTick !== definition.firstReadyTick
           : camp.nextSpawnTick > state.tick + definition.respawnTicks)
       )
         throw new Error('Saved jungle camp has an invalid spawn deadline.');
-    } else if (
-      camp.nextSpawnTick !== null ||
-      state.tick < definition.firstReadyTick - profile.spawnLeadupTicks ||
-      !unit ||
-      unit.kind !== 'monster' ||
-      unit.monster.species !== definition.species ||
-      unit.hp <= 0 ||
-      (state.tick < definition.firstReadyTick &&
-        unit.monster.spawn?.readyTick !== definition.firstReadyTick) ||
-      unit.monster.home.x !== definition.point.x ||
-      unit.monster.home.y !== definition.point.y ||
-      state.jungleCamps.some((c) => c.id !== camp.id && c.unitId === camp.unitId)
-    ) {
-      throw new Error('Saved jungle camp has an invalid active monster.');
+      continue;
+    }
+    if (camp.nextSpawnTick !== null || state.tick < definition.firstReadyTick - leadup)
+      throw new Error('Saved jungle camp has invalid active members.');
+    for (const [slot, id] of camp.unitIds.entries()) {
+      const cleanup = camp.cleanupTicks[slot];
+      const marked =
+        id !== null && camp.unitIds[0] === null && definition.cleanupDelayTicks !== null;
+      if (
+        marked
+          ? cleanup === null ||
+            cleanup <= state.tick ||
+            cleanup > state.tick + definition.cleanupDelayTicks!
+          : cleanup !== null
+      )
+        throw new Error('Saved jungle camp has invalid marked cleanup.');
+      if (id === null) continue;
+      const unit = state.units.find((u) => u.id === id),
+        member = definition.members[slot];
+      if (
+        !unit ||
+        unit.kind !== 'monster' ||
+        unit.hp <= 0 ||
+        ownedMonsters.has(id) ||
+        unit.monster.species !== member.species ||
+        unit.monster.home.x !== member.point.x ||
+        unit.monster.home.y !== member.point.y ||
+        (unit.monster.spawn && unit.monster.spawn.clip !== member.spawnClip) ||
+        (state.tick < definition.firstReadyTick &&
+          unit.monster.spawn?.readyTick !== definition.firstReadyTick)
+      )
+        throw new Error('Saved jungle camp has an invalid active monster.');
+      ownedMonsters.add(id);
     }
   }
   if (
@@ -950,7 +984,8 @@ export function decodeSnapshot(text: string) {
         (spawn &&
           (spawn.startTick > state.tick ||
             spawn.readyTick - spawn.startTick !== profile.spawnLeadupTicks ||
-            state.tick >= spawn.startTick + profile.spawnClipTicks ||
+            state.tick >=
+              spawn.startTick + monsterSpawnClipTicks(unit.monster.species, spawn.clip) ||
             (unit.monster.phase === 'spawning') !== state.tick < spawn.readyTick ||
             unit.monster.phase === 'engaged' ||
             unit.monster.phase === 'returning' ||

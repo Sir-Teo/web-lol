@@ -3,7 +3,7 @@ import type { structurePose } from '../render/structure-pose';
 import type { AnimationTimeline } from './animation-timeline';
 import type { Vec2 } from './math';
 import type { RiftCampId } from '../content/rift-camps';
-import type { MonsterSpecies } from '../content/monsters';
+import type { MonsterSpecies, MonsterSpawnClip } from '../content/monsters';
 export type Team = 'blue' | 'red';
 export type Faction = Team | 'neutral';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
@@ -25,11 +25,12 @@ export interface MonsterState {
   home: Vec2;
   phase: 'spawning' | 'idle' | 'engaged' | 'returning';
   targetId: number | null;
-  spawn: { startTick: number; readyTick: number } | null;
+  spawn: { startTick: number; readyTick: number; clip: MonsterSpawnClip } | null;
 }
 export interface JungleCampState {
   id: RiftCampId;
-  unitId: number | null;
+  unitIds: (number | null)[];
+  cleanupTicks: (number | null)[];
   nextSpawnTick: number | null;
 }
 export type Unit = UnitBase &

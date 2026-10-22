@@ -1,0 +1,199 @@
+{
+  "sourcePin": "docs/reference/wolf-camps-source.json",
+  "sourcePinSha256": "0357ac24d5c9a08f2d1001e9ea8963f008a361cc917717752a85f5ee0c7cb791",
+  "profiles": {
+    "wolf": {
+      "rig": "sru-murkwolf-base",
+      "modelSha256": "86477140cba0f0becf10859a2978b7f46068a99f2c7807d9b2c6366ada59014e",
+      "stats": {
+        "maxHp": 1600.0,
+        "armor": 42.0,
+        "magicResist": 42.0,
+        "speed": 525.0,
+        "range": 175.0,
+        "attackSpeed": 0.625
+      },
+      "sourceDamage": 30.0,
+      "localDamage": 30.0,
+      "sourceMinionScore": 2.0,
+      "localMinionScore": 2.0,
+      "gold": 55.0,
+      "experience": 50.0,
+      "radius": 80.0,
+      "pathfindingRadius": 40.0,
+      "castFrame": 15.0,
+      "clips": {
+        "idle1": {
+          "name": "entry_92e3d68c",
+          "durationSeconds": 2.633333444595337,
+          "sourceState": "{92e3d68c}"
+        },
+        "run": {
+          "name": "entry_f112f5b2",
+          "durationSeconds": 0.7666667103767395,
+          "sourceState": "run_base"
+        },
+        "attack1": {
+          "name": "attack1_base",
+          "durationSeconds": 1.633333444595337,
+          "sourceState": "attack1_base"
+        },
+        "death": {
+          "name": "entry_23b3627c",
+          "durationSeconds": 3.3000001907348633,
+          "sourceState": "death1_base"
+        },
+        "spawn": {
+          "name": "entry_e4cb0f58",
+          "durationSeconds": 2.433333396911621,
+          "sourceState": "spawn_base"
+        }
+      }
+    },
+    "wolf-mini": {
+      "rig": "sru-murkwolfmini-base",
+      "modelSha256": "1ed2a284671aff2084ca0a5ba508a25a67e9a9e8f392460f70439f335c4c1c40",
+      "stats": {
+        "maxHp": 630.0,
+        "armor": 20.0,
+        "magicResist": 20.0,
+        "speed": 525.0,
+        "range": 175.0,
+        "attackSpeed": 0.625
+      },
+      "sourceDamage": null,
+      "localDamage": 20,
+      "sourceMinionScore": null,
+      "localMinionScore": 1,
+      "gold": 15.0,
+      "experience": 15.0,
+      "radius": 50.0,
+      "pathfindingRadius": 31.52079963684082,
+      "castFrame": 15.0,
+      "clips": {
+        "idle1": {
+          "name": "entry_92e3d68c",
+          "durationSeconds": 2.9666669368743896,
+          "sourceState": "{92e3d68c}"
+        },
+        "run": {
+          "name": "entry_f112f5b2",
+          "durationSeconds": 0.7666667103767395,
+          "sourceState": "run_base"
+        },
+        "attack1": {
+          "name": "attack1_base",
+          "durationSeconds": 1.633333444595337,
+          "sourceState": "attack1_base"
+        },
+        "death": {
+          "name": "entry_ed749d7b",
+          "durationSeconds": 3.9666669368743896,
+          "sourceState": "death_base"
+        },
+        "spawn": {
+          "name": "entry_06891e07",
+          "durationSeconds": 1.3000000715255737,
+          "sourceState": "spawn_mini1_base"
+        },
+        "spawn_mini1": {
+          "name": "entry_06891e07",
+          "durationSeconds": 1.3000000715255737,
+          "sourceState": "spawn_mini1_base"
+        },
+        "spawn_mini2": {
+          "name": "entry_99fc01f8",
+          "durationSeconds": 1.9666668176651,
+          "sourceState": "spawn_mini2_base"
+        }
+      }
+    }
+  },
+  "firstReadySeconds": 55,
+  "respawnSeconds": 135,
+  "leadupSeconds": 0.66,
+  "leashRadius": 650,
+  "cleanupSeconds": 10,
+  "camps": [
+    {
+      "id": "order-wolves",
+      "sourceIndex": 2,
+      "anchorEntity": "{8e4dbd20}",
+      "facingPoint": {
+        "x": -3877.38,
+        "y": 1194.3400000000001
+      },
+      "members": [
+        {
+          "species": "wolf",
+          "point": {
+            "x": -3644.3720703125,
+            "y": 981.01611328125
+          },
+          "spawnClip": "spawn"
+        },
+        {
+          "species": "wolf-mini",
+          "point": {
+            "x": -3444.3720703125,
+            "y": 981.01611328125
+          },
+          "spawnClip": "spawn_mini1"
+        },
+        {
+          "species": "wolf-mini",
+          "point": {
+            "x": -3694.3720703125,
+            "y": 831.01611328125
+          },
+          "spawnClip": "spawn_mini2"
+        }
+      ]
+    },
+    {
+      "id": "chaos-wolves",
+      "sourceIndex": 8,
+      "anchorEntity": "{f15c8aff}",
+      "facingPoint": {
+        "x": 3791.6800000000003,
+        "y": -1204.3500000000004
+      },
+      "members": [
+        {
+          "species": "wolf",
+          "point": {
+            "x": 3583.15234375,
+            "y": -962.408203125
+          },
+          "spawnClip": "spawn"
+        },
+        {
+          "species": "wolf-mini",
+          "point": {
+            "x": 3633.15234375,
+            "y": -792.408203125
+          },
+          "spawnClip": "spawn_mini2"
+        },
+        {
+          "species": "wolf-mini",
+          "point": {
+            "x": 3383.15234375,
+            "y": -962.408203125
+          },
+          "spawnClip": "spawn_mini1"
+        }
+      ]
+    }
+  ],
+  "policies": [
+    "Small-wolf Root omits damage and CS. Local 20 damage and 1 CS remain provisional; absent source fields remain null.",
+    "55s first spawn and 650-unit leash use published baselines; precise native patience/reset timing remains unverified.",
+    "0.66s lead-up rounds to 40 ticks; 135s respawn adopts a legacy default.",
+    "Camp retaliation is local; nearby members share resets only while the leader lives. Each survivor has its own ten-second marked clock using local combat classification; cleanup grants no last-hit rewards. Native timing, source animation selection, scaling and complete rewards remain unverified."
+  ],
+  "officialSources": [
+    "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+    "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/"
+  ]
+}

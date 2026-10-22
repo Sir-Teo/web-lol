@@ -911,6 +911,9 @@ button {
   transform: translateX(-50%);
   white-space: nowrap;
 }
+.small-monster:not(.show-name) .unit-name {
+  display: none;
+}
 .unit-hp {
   height: 5px;
   background: #081214;

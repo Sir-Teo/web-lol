@@ -14,6 +14,7 @@ export const rulesetFiles = [
   'src/content/gromp.json',
   'src/content/blue-sentinel.json',
   'src/content/red-brambleback.json',
+  'src/content/wolf-camps.json',
   'src/content/gromp-death.json',
   'src/content/gromp-attack.json',
   'src/content/rift-gromp-camps.json',

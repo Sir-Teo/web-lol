@@ -145,9 +145,9 @@ test('Red protection precedes both Blue births and keeps an exact saved source p
   w.step();
   expect(w.units.some((u) => u.kind === 'monster')).toBe(false);
   w.step();
-  expect(w.jungleCamps).toHaveLength(6);
+  expect(w.jungleCamps).toHaveLength(8);
   const camp = w.jungleCamps.find((c) => c.id === 'order-red')!;
-  const unit = w.unit(camp.unitId!)!;
+  const unit = w.unit(camp.unitIds[0]!)!;
   expect(w.units.filter((u) => u.kind === 'monster')).toHaveLength(2);
   expect(unit.monster).toMatchObject({ species: 'red', phase: 'spawning', home: definition.point });
   expect(rift.reachable(unit, red.pathfindingRadius)).toEqual(definition.point);
@@ -180,13 +180,18 @@ test('Red camps respawn independently after corpse-free saves, preserving the ot
   w.step();
   const camp = w.jungleCamps.find((c) => c.id === 'order-red')!;
   const other = w.jungleCamps.find((c) => c.id === 'chaos-red')!;
-  const unit = w.unit(camp.unitId!)!,
+  const unit = w.unit(camp.unitIds[0]!)!,
     id = unit.id,
-    otherId = other.unitId;
+    otherId = other.unitIds[0];
   const blue = structuredClone(w.jungleCamps.filter((c) => c.id.endsWith('blue')));
   w.damage(w.hero, unit, 99999, 'true');
   const deadline = w.tick + 300 * 60;
-  expect(camp).toEqual({ id: 'order-red', unitId: null, nextSpawnTick: deadline });
+  expect(camp).toEqual({
+    id: 'order-red',
+    unitIds: [null],
+    nextSpawnTick: deadline,
+    cleanupTicks: [null],
+  });
   expect(w.jungleCamps.filter((c) => c.id.endsWith('blue'))).toEqual(blue);
   w.step(400);
   expect(w.unit(id)).toBeUndefined();
@@ -194,10 +199,10 @@ test('Red camps respawn independently after corpse-free saves, preserving the ot
   w.tick = copy.tick = deadline - profile.spawnLeadupTicks - 1;
   w.step();
   copy.step();
-  const fresh = w.unit(camp.unitId!)!;
+  const fresh = w.unit(camp.unitIds[0]!)!;
   expect(fresh.monster?.phase).toBe('spawning');
   expect(fresh.id).not.toBe(id);
-  expect(other.unitId).toBe(otherId);
+  expect(other.unitIds[0]).toBe(otherId);
   w.step(profile.spawnLeadupTicks);
   copy.step(profile.spawnLeadupTicks);
   expect(fresh.monster).toMatchObject({ species: 'red', home: unit.monster!.home, phase: 'idle' });
@@ -215,9 +220,9 @@ test('schema rejects missing Red calendars, crossed species and shifted Red prot
       s.jungleCamps = s.jungleCamps.filter((c: any) => c.id !== 'order-red');
     },
     (s: any) => {
-      s.jungleCamps.find((c: any) => c.id === 'order-red').unitId = s.jungleCamps.find(
+      s.jungleCamps.find((c: any) => c.id === 'order-red').unitIds[0] = s.jungleCamps.find(
         (c: any) => c.id === 'order-blue'
-      ).unitId;
+      ).unitIds[0];
     },
     (s: any) => {
       s.units.find((u: any) => u.monster?.species === 'red').monster.species = 'blue';

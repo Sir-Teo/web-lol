@@ -27,7 +27,7 @@ test('Rift emergence preserves the source pose through protected reload and exac
     for (const u of w.units) u.ai = false;
     w.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 1;
     w.step();
-    const unit = w.unit(w.jungleCamps[0].unitId),
+    const unit = w.unit(w.jungleCamps[0].unitIds[0]),
       spawn = structuredClone(unit.monster.spawn);
     const point = w.battlefield.reachable({ x: unit.x + 300, y: unit.y }, w.hero.radius, 'blue');
     Object.assign(w.hero, point, { previous: { ...point } });
@@ -84,7 +84,7 @@ test('Rift emergence preserves the source pose through protected reload and exac
       vulnerable: w.vulnerable(unit),
       action: model.actionName,
       clipTime: unit.animationTimeline.primary.time,
-      hiddenOther: !g.view.models.get(w.jungleCamps[1].unitId).root.visible,
+      hiddenOther: !g.view.models.get(w.jungleCamps[1].unitIds[0]).root.visible,
       shown,
       spawnPixels,
     };

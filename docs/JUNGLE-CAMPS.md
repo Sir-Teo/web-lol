@@ -7,7 +7,8 @@ Corpses can expire without losing a pending respawn. Practice and the controlled
 Gromp fixture retain their existing behavior. A later
 [Blue Sentinel increment](BLUE-SENTINEL.md) adds two independently configured Blue
 camps. [Red Brambleback](RED-BRAMBLEBACK.md) adds two more, for six independent
-calendars in the lane match. The later
+calendars in the lane match. [Wolf camps](WOLF-CAMPS.md) now add two three-member
+groups, for eight calendars in total, with partial-clear and marked-cleanup saves. The later
 [emergence increment](GROMP-SPAWN.md) begins a protected source animation 3.2
 seconds before each ready deadline and retains the remaining animation tail.
 
@@ -79,7 +80,7 @@ unit ownership or a deadline. Death sets the deadline immediately; leash resets
 leave it unchanged. Respawn creates a new ID, full Root health and clean idle
 state after the protected emergence sequence. Match end freezes the calendar with the simulation.
 
-Schema 93 checks camp mode/cardinality/IDs, deadlines, live ownership and source
+Schema 94 checks camp mode/cardinality/IDs, deadlines, live ownership and source
 home points. Older saves remain incompatible without silent migration. Lane
 matches preload existing Gromp rigs/effects, including a checkpoint with only
 waiting camps. Ordinary practice still requests no Gromp assets. Calendars grant

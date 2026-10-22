@@ -65,6 +65,7 @@ try {
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
+    scheduledWolfRequests = [],
     recordings = new Set();
   let laneMatchStarted = false;
   page.on('pageerror', (error) => errors.push(error.message));
@@ -73,7 +74,7 @@ try {
   });
   page.on('request', (request) => {
     if (
-      /sru-(blue|red|gromp)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
+      /sru-(blue|red|gromp|murkwolf|murkwolfmini)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
         request.url()
       )
     )
@@ -81,6 +82,7 @@ try {
         junglePreviewRequests.push(request.url());
       else if (request.url().includes('sru-blue-base')) scheduledBlueRequests.push(request.url());
       else if (request.url().includes('sru-red-base')) scheduledRedRequests.push(request.url());
+      else if (request.url().includes('sru-murkwolf')) scheduledWolfRequests.push(request.url());
       else scheduledGrompRequests.push(request.url());
     if (/^https?:/.test(request.url()) && !request.url().startsWith(base))
       outside.push(request.url());
@@ -201,6 +203,11 @@ try {
     'Lane matches must prepare the normal Red Brambleback rig beneath the host prefix'
   );
   assert.deepEqual(errors, [], 'No production JavaScript or console errors');
+  for (const rig of ['sru-murkwolf-base', 'sru-murkwolfmini-base'])
+    assert(
+      scheduledWolfRequests.some((url) => url.endsWith(`/${rig}.glb`)),
+      'Lane matches must prepare both wolf rigs'
+    );
   console.log(
     JSON.stringify({
       result: 'passed',
@@ -216,6 +223,7 @@ try {
       scheduledGrompRequests: scheduledGrompRequests.length,
       scheduledBlueRequests: scheduledBlueRequests.length,
       scheduledRedRequests: scheduledRedRequests.length,
+      scheduledWolfRequests: scheduledWolfRequests.length,
       screenshot: 'artifacts/production-subpath.png',
     })
   );

@@ -147,7 +147,7 @@ test('Blue keeps species-specific first-ready, protection and clear/respawn cale
   expect(world.units.some((u) => u.kind === 'monster' && u.monster.species === 'blue')).toBe(false);
   world.step();
   const camp = world.jungleCamps.find((c) => c.id === 'order-blue')!;
-  const unit = world.unit(camp.unitId!)!;
+  const unit = world.unit(camp.unitIds[0]!)!;
   expect(
     world.units.filter((u) => u.kind === 'monster' && u.monster.species === 'blue')
   ).toHaveLength(2);
@@ -164,7 +164,7 @@ test('Blue keeps species-specific first-ready, protection and clear/respawn cale
   expect(restoredBirth.snapshot()).toBe(world.snapshot());
   expect(world.vulnerable(unit)).toBe(true);
   expect(
-    world.jungleCamps.filter((c) => c.id.endsWith('gromp')).every((c) => c.unitId === null)
+    world.jungleCamps.filter((c) => c.id.endsWith('gromp')).every((c) => c.unitIds[0] === null)
   ).toBe(true);
   const oldId = unit.id;
   world.damage(world.hero, unit, 99999, 'true');
@@ -176,10 +176,10 @@ test('Blue keeps species-specific first-ready, protection and clear/respawn cale
   world.tick = restored.tick = deadline - profile.spawnLeadupTicks - 2;
   world.step();
   restored.step();
-  expect(camp.unitId).toBeNull();
+  expect(camp.unitIds[0]).toBeNull();
   world.step();
   restored.step();
-  const fresh = world.unit(camp.unitId!)!;
+  const fresh = world.unit(camp.unitIds[0]!)!;
   expect(fresh.monster?.phase).toBe('spawning');
   expect(fresh.id).not.toBe(oldId);
   world.step(profile.spawnLeadupTicks);

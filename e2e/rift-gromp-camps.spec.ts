@@ -31,7 +31,7 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
     w.nextWaveTick = 1_000_000_000;
     w.tick = GROMP_FIRST_SPAWN_TICK - 1;
     w.step();
-    const unit = w.unit(w.jungleCamps[0].unitId);
+    const unit = w.unit(w.jungleCamps[0].unitIds[0]);
     const point = w.battlefield.reachable({ x: unit.x + 300, y: unit.y }, w.hero.radius, 'blue');
     Object.assign(w.hero, point, { previous: { ...point } });
     g.view.recenter(w.hero);
@@ -41,9 +41,9 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
       camps: structuredClone(w.jungleCamps),
       models: w.jungleCamps
         .filter((c: any) => c.id.endsWith('gromp'))
-        .map((c: any) => g.view.models.get(c.unitId).referenceAsset),
+        .map((c: any) => g.view.models.get(c.unitIds[0]).referenceAsset),
       visible: g.view.models.get(unit.id).root.visible,
-      hiddenOther: !g.view.models.get(w.jungleCamps[1].unitId).root.visible,
+      hiddenOther: !g.view.models.get(w.jungleCamps[1].unitIds[0]).root.visible,
       home: unit.monster.home,
       screen: g.view.screenPoint(unit),
     };
@@ -60,14 +60,14 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
   await page.mouse.click(spawned.screen.x, spawned.screen.y, { button: 'right' });
   await page.waitForFunction(() => {
     const w = (window as any).__GAME__.world,
-      u = w.unit(w.jungleCamps[0].unitId);
+      u = w.unit(w.jungleCamps[0].unitIds[0]);
     return u.hp < u.maxHp && u.monster.phase === 'engaged' && w.hero.hp < w.hero.maxHp;
   });
   await page.evaluate(() => (window as any).__GAME__.setPaused(true));
   const waiting = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world;
-    const unit = w.unit(w.jungleCamps[0].unitId);
+    const unit = w.unit(w.jungleCamps[0].unitIds[0]);
     w.damage(w.hero, unit, 99999, 'true');
     w.step(400);
     g.view.render(w, 1, g.view.previousElapsed);
@@ -79,7 +79,7 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
       cs: w.player.cs,
     };
   });
-  expect(waiting.camp.unitId).toBeNull();
+  expect(waiting.camp.unitIds[0]).toBeNull();
   expect(waiting.corpseGone).toBe(true);
   expect(waiting.cs).toBe(4);
   await page.keyboard.press('Escape');
@@ -99,9 +99,9 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
     g.setPaused(true);
     w.tick = deadline - 2;
     w.step();
-    const before = w.unit(w.jungleCamps[0].unitId).monster.phase;
+    const before = w.unit(w.jungleCamps[0].unitIds[0]).monster.phase;
     w.step();
-    const unit = w.unit(w.jungleCamps[0].unitId);
+    const unit = w.unit(w.jungleCamps[0].unitIds[0]);
     g.view.recenter(w.hero);
     g.view.render(w, 1, g.view.previousElapsed);
     g.hud.update(60);
@@ -120,8 +120,8 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
   });
   expect(resumed.savedCamp).toEqual(waiting.camp);
   expect(resumed.before).toBe('spawning');
-  expect(resumed.camps[0].unitId).not.toBe(spawned.camps[0].unitId);
-  expect(resumed.camps[1].unitId).toBe(spawned.camps[1].unitId);
+  expect(resumed.camps[0].unitIds[0]).not.toBe(spawned.camps[0].unitIds[0]);
+  expect(resumed.camps[1].unitIds[0]).toBe(spawned.camps[1].unitIds[0]);
   expect(resumed.home).toEqual(spawned.home);
   expect(resumed.hp).toBe(resumed.maxHp);
   expect(resumed.model).toBe('sru-gromp-base');

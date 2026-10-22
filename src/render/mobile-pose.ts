@@ -58,7 +58,12 @@ export function mobilePose(
   if (unit.deadAt !== null)
     return fixed('death', 'death', Math.max(0, (at - unit.deadAt) / TICK_RATE) + terminalAge);
   if (unit.kind === 'monster' && unit.monster.spawn)
-    return fixed('spawn', 'spawn', (at - unit.monster.spawn.startTick) / TICK_RATE, true);
+    return fixed(
+      'spawn',
+      unit.monster.spawn.clip,
+      (at - unit.monster.spawn.startTick) / TICK_RATE,
+      true
+    );
   if (state?.garenE) {
     const spin = state.garenE,
       clip = GAREN_E.animationClip;

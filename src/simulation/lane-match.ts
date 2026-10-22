@@ -34,7 +34,8 @@ export function createLaneMatch(
   world.matchMode = 'lanes';
   world.jungleCamps = RIFT_CAMPS.map((camp) => ({
     id: camp.id as RiftCampId,
-    unitId: null,
+    unitIds: camp.members.map(() => null),
+    cleanupTicks: camp.members.map(() => null),
     nextSpawnTick: camp.firstReadyTick,
   }));
   for (const team of ['blue', 'red'] as const) {
