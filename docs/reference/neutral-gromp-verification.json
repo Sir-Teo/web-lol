@@ -1,0 +1,124 @@
+{
+  "recordedAt": "2026-10-22T01:35:09.528929+00:00",
+  "baseRevision": "45bcbe6d26b43738c3c6f74dc02c3a160174af57",
+  "scope": "Neutral faction and controlled Gromp encounter with source rig, Root scalars, local combat/reset policies and saved continuation. Standard-mode camps and full-role matches remain unfinished.",
+  "schemaVersion": 86,
+  "source": {
+    "referenceVersion": "16.18.8175716",
+    "characterPinSha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+    "mapPinSha256": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93",
+    "grompModelSha256": "b49e3fd2b7cd3820a429bbc2ff9b72dd19a8e68cbae55e4c7409dcdf39414af9",
+    "unitScale": 0.01,
+    "runtimeProfileReproducesExactly": true,
+    "gameplayRadius": 120,
+    "pathfindingRadius": 40
+  },
+  "localPolicies": {
+    "leashRadius": 700,
+    "sightRadius": 1000,
+    "resetHealthFractionPerSecond": 0.2,
+    "castFrameFps": 30,
+    "lastHitRootRewards": {
+      "gold": 80,
+      "experience": 120,
+      "minionScore": 4
+    },
+    "nativeCalibration": false,
+    "standardModeSpawnOrRespawn": false
+  },
+  "validation": {
+    "typeScript": "passed",
+    "sourceSimulationGeometryPassed": 1067,
+    "testFiles": 214,
+    "newNeutralTests": 16,
+    "newRiftNavigationDiagnostic": {
+      "cases": 1,
+      "sourcePlacements": 2,
+      "movementSegmentsChecked": 640,
+      "savedEngagementsExact": true
+    },
+    "newChrome": {
+      "passed": 2,
+      "failed": 0,
+      "command": "npx playwright test e2e/neutral-gromp.spec.ts --timeout=60000",
+      "gpuPixelDifferenceGreaterThan": 60,
+      "mouseAttack": true,
+      "retaliation": true,
+      "saveReloadExact": true,
+      "clearContinuationAndRestart": true
+    },
+    "existingChrome": {
+      "passed": 10,
+      "failed": 0,
+      "command": "npx playwright test e2e/saves.spec.ts e2e/lux-player-input.spec.ts e2e/structure-vision.spec.ts --timeout=60000"
+    },
+    "initialFindings": [
+      "Two historical schema-85 assertions were updated to 86; malformed-history gates still pass.",
+      "The initial combat capture was blurred by the pause modal; the final capture freezes the simulation without an overlay.",
+      "Final code review added an explicit monster command guard and regression assertion."
+    ],
+    "production": {
+      "status": "passed",
+      "command": "npm run test:production",
+      "prefix": "/nested/rift/",
+      "recordings": 17,
+      "junglePreviewRequests": 0,
+      "developmentEncounterAndGarenQueriesRejected": true,
+      "realAsheLuxInput": true,
+      "existingLargeBundleWarning": true
+    },
+    "binaryAssetsChanged": false,
+    "precedingUnchangedAssetValidation": {
+      "glbs": 38,
+      "map": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    "completeBrowserSuiteRerun": false
+  },
+  "visualReview": {
+    "viewport": [
+      1440,
+      900
+    ],
+    "captures": [
+      "artifacts/neutral-gromp-combat.png",
+      "artifacts/neutral-gromp-death.png"
+    ],
+    "combat": "Live source Gromp mesh, neutral bar and combat feedback reviewed; GPU comparison confirms rendered contribution.",
+    "death": "Source death clip dispatch verified, but sampled main-body geometry is not visible. Source pop/spore particles, miniature/submesh dispatch and audio remain incomplete/unverified.",
+    "nativeParity": false
+  },
+  "sha256": {
+    "src/simulation/types.ts": "92f0edbfbeba72fa65abe14f3aefe462c5aa3bbb46adfb6be65c0e1b79220b5c",
+    "src/simulation/world.ts": "006317e1beeaeed2442c36c6130e8dd5516e92beadcaef5ca36dc547205856c2",
+    "src/simulation/snapshot.ts": "990706ed35b9a9f58ce19b72842ccb24bce158e82045a731479acafd8158e7a4",
+    "src/simulation/vision.ts": "facb637b2082999be23a23d2bac288e240a666669d40637f835df437ab296d16",
+    "src/simulation/battlefield.ts": "cddd1a281c81d9b6c6d0cbb98ced0b33d2954411b92d7a2b0efdd494e540817a",
+    "src/simulation/gromp-encounter.ts": "ce7738a2dfe303f279576b5927246d3c942c0bbf2dc1491501563db846925329",
+    "src/content/gromp.ts": "e807782d0b9ec243e2f040ed33937604754e0d84741cdf73daebd6604db73c66",
+    "src/content/gromp.json": "5efee5dcddc941ed46be75086f27f11ca0c9c31f383794d1d3eea8a577d8aef0",
+    "src/content/mobile-clip-durations.ts": "ca38b6735df23fcbb5d3303e2996466cfeff841e34ded2188edd0a67ac8c7dd5",
+    "src/render/models.ts": "fa216945fce7ea8d63658854e2dab0c866d50478be933d25a16855f5d0e370a0",
+    "src/render/mobile-pose.ts": "5c034fe057fde87e530282e1305014b9077c8263f77c8d444f9d656162f2d68d",
+    "src/main.ts": "663858f814d9fe2c35b256a2e1608b09c58bcc79d69dd377d91009b0305823ce",
+    "src/ui/hud.ts": "9bca8f8914b082adf63ba55d406a6ddbd262109e7ea437833ce1f2828457a0d7",
+    "src/style.css": "40b50354de279688c2ec79df0383c795ea65baa3dd1b5ff9247db28a6dc471e4",
+    "tools/assets/export-gromp.py": "894ba405c773ecc20f935897a8407f0068608de859152401f9ce0071e19d4c1d",
+    "tools/ruleset-fingerprint.ts": "250ded9b12271418a89c4714098adcec61864f6c0d5f95e8e584ed63c748263d",
+    "tools/qa/production-subpath.mjs": "41e2e4150e49edf54375ab0df49171773783a806c807c0dfa12ef43da84bdc81",
+    "tests/neutral-monsters.test.ts": "2b66571e8eef248c830da24ea2ce94dd3d6ee916ffd3e6abbe95849042fca5b2",
+    "tests/rift-world.test.ts": "fac62dd5d88d5b6d3e1be3794bfca19ebc69bf12260b37803bf13f152f34f3ad",
+    "tests/slow-priority.test.ts": "8b80337abadec9676bb3ccc7be786b7bd54c0c03327804b252f7c192f488764a",
+    "tests/super-minions.test.ts": "1379591a266b4687569662d4e87561b91ba0ac985fefcb0fda2de0249b3b40ef",
+    "tests/garen-q-ground-particles.test.ts": "7956da7b758997213c2eb745f03d51559c5a355f7ad3bacd133ab25a1f8128b8",
+    "tests/garen-q-silence-particles.test.ts": "cb7057ff4f7df70d008dafca48604d877758ed1e829baf282d9fd5135fd8b927",
+    "e2e/neutral-gromp.spec.ts": "444c9a4ff68bad87d715d14b398f62581325e04a73319f3c2667d945daf4ea40",
+    "docs/NEUTRAL-GROMP.md": "77db9b2b807cb1781afe26b932e3b75815ce7cfd9334a518f531cf697a64716f",
+    "docs/reference/jungle-map-source.json": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93",
+    "docs/reference/jungle-character-source.json": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+    "public/assets/models/sru-gromp-base.glb": "b49e3fd2b7cd3820a429bbc2ff9b72dd19a8e68cbae55e4c7409dcdf39414af9",
+    "artifacts/neutral-gromp-combat.png": "f4c04b68045fc07841d7fde88601abfa3373251ec3089bfa41ba6fbd07757b12",
+    "artifacts/neutral-gromp-death.png": "008015e26e76049b007e133753d84fd715bf17b50aa7a780d4dbdef4c50958be"
+  }
+}

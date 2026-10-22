@@ -1,0 +1,39 @@
+{
+  "sourcePinSha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+  "modelSha256": "b49e3fd2b7cd3820a429bbc2ff9b72dd19a8e68cbae55e4c7409dcdf39414af9",
+  "stats": {
+    "maxHp": 2050.0,
+    "damage": 70.0,
+    "armor": 42.0,
+    "magicResist": 42.0,
+    "range": 150.0,
+    "speed": 330.0,
+    "attackSpeed": 0.42500001192092896
+  },
+  "radius": 120.0,
+  "pathfindingRadius": 40.0,
+  "gold": 80.0,
+  "experience": 120.0,
+  "minionScore": 4.0,
+  "missileSpeed": 1800.0,
+  "castFrame": 12.0,
+  "clips": {
+    "idle1": {
+      "name": "entry_90c6bb8a",
+      "durationSeconds": 1.5666667222976685
+    },
+    "run": {
+      "name": "entry_2acd4eca",
+      "durationSeconds": 0.5333333611488342
+    },
+    "attack1": {
+      "name": "entry_de8faaa9",
+      "durationSeconds": 1.5666667222976685
+    },
+    "death": {
+      "name": "entry_bd28bd4d",
+      "durationSeconds": 4.9666666984558105
+    }
+  },
+  "policy": "Development encounter uses Root scalars and last-hit rewards. Frame conversion, leash/reset and animation selection are local policies, not verified native camp behavior."
+}

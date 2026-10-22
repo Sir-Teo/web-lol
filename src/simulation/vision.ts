@@ -1,6 +1,6 @@
 import { BRUSH, OBSTACLES } from '../content/map';
 import { distance, segmentDistance, type Vec2 } from './math';
-import type { Team, Unit, ScoutFlight } from './types';
+import type { Faction, Unit, ScoutFlight } from './types';
 
 export interface VisionSource extends Vec2 {
   radius: number;
@@ -11,7 +11,7 @@ export interface VisionSource extends Vec2 {
 export interface VisionArea extends VisionSource {
   sourceId?: number;
   kind: 'attack' | 'scout';
-  team: Team;
+  team: Faction;
   endTick: number;
   flight?: ScoutFlight;
 }

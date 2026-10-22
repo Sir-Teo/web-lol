@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,050 source/simulation/geometry checks, two new focused Chrome character-review checks and two existing jungle map-inspection checks. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,067 source/simulation/geometry checks, two new focused Chrome neutral-combat checks and ten existing input/save/fog regression cases. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,6 +14,7 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, Root-scalar last-hit rewards and schema-86 continuation. A separate simulation diagnostic uses both actual Rift source positions. Standard-mode camp scheduling and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
@@ -938,6 +939,68 @@ Validation:
 `reference/jungle-character-verification.json` retains this scope and hashes.
 No simulation, snapshot schema or playable roster changed. Full-match completion
 and native visual certification remain unproven; the goal remains active.
+
+## Neutral faction and controlled Gromp combat — October 21, 2026
+
+The [neutral Gromp foundation](NEUTRAL-GROMP.md) now distinguishes neutral
+monsters from blue/red units throughout targeting, events, vision, movement,
+presentation and saved state. Monsters do not grant team vision or pooled
+neutral vision. Lane minions, turrets and lane bots avoid automatic pulls;
+human attacks and explicitly ordered champion attacks can engage them.
+
+`?scene=fixture&encounter=gromp` creates a separate development encounter with
+one Gromp and no lane waves. Its health/defenses/movement, gameplay/pathfinding
+radii, attack speed, ranged-missile speed, cast frame and reward scalars come
+from the pinned Root/spell records. Frame conversion, latest-aggressor
+selection, 700-unit leash, reset recovery/immunity and last-hit reward policy
+remain local decisions. No standard-mode camp activation, scaling, respawn,
+role items, buffs or Smite is inferred. Those remain full-match requirements.
+
+The existing base rig loads only when a match contains Gromp. Four aliases retain
+original source clip identity/duration; shared animation and target-pose paths
+support the monster. The neutral health bar and visible minimap dot remain
+local HUD policies. GPU pixel comparison verifies that the live rig actually
+renders. The clear combat capture was visually reviewed. In the sampled death
+pose the main body is not visible; source death pop/spores, miniature/submesh
+dispatch, particles/audio and native composition remain incomplete/unverified.
+Generic combat projectile/audio presentation is not native Gromp certification.
+
+Schema 86 retains neutral home, phase, private target, independent attack and
+animation state, and durable encounter identity. A cleared save stays cleared
+after its corpse leaves the simulation, and restart recreates the encounter.
+Crossed faction, invalid species/aggressors, champion/AI/structure metadata,
+respawn state, contradictory orders and out-of-map homes are rejected. Runtime
+profile JSON also participates in the ruleset identity and server reload watch.
+
+Validation:
+
+- TypeScript and all 1,067 checks across 214 files pass. Sixteen new neutral
+  source/simulation cases cover provenance, both teams, sight, lane exclusion,
+  rewards, Lux Binding, reset, exact continuation and malformed snapshots.
+- A further Rift diagnostic moves/resets Gromp at both original character-object
+  positions, checks every movement segment with its separate 40-unit navigation
+  radius, and round-trips each live engagement. This is explicit source-position
+  testing, not a live camp roster or calendar.
+- Two new Chrome cases pass real mouse attacks, GPU visibility, retaliation,
+  hidden submeshes, neutral UI, exact save/reload, death dispatch, cleared
+  continuation without a rig request and restart. Ten existing Lux-input,
+  full-Rift/practice save and fogged-structure scenarios pass. The complete
+  browser suite was not rerun.
+- Initial full checks found two historical hard-coded schema-85 assertions;
+  both now verify 86 and their detailed malformed-history tests still pass.
+  Final review added and verified an explicit command guard so direct queued
+  commands cannot bypass the monster controller.
+- The small runtime profile reproduces byte-identically from its source/model
+  pins. No binary assets changed; the preceding 38-GLB/map validation applies to
+  those unchanged bytes.
+- Production build/nested-host smoke passes with 17 ordinary recordings, real
+  Ashe/Lux input, existing development/Garen gates and zero Gromp/inspection
+  resource requests even when the diagnostic query is supplied. The existing
+  large-bundle warning remains.
+
+`reference/neutral-gromp-verification.json` retains scope, commands and hashes.
+Native camp mechanics/presentation, the remaining monster set, role AI, complete
+matches and release certification remain open. The goal remains active.
 
 ## Historical baseline verification
 

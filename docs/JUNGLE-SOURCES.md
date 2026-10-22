@@ -11,6 +11,10 @@ monster definitions with 35 CharacterRecord variants and isolated Blue/Gromp
 base-rig review. It preserves the distinction between the placed Blue skin 4
 objects and the separately converted base skin 0.
 
+The [neutral Gromp encounter](NEUTRAL-GROMP.md) now supplies controlled combat and
+saved continuation in a separate development fixture. Standard-mode camp
+membership, activation and scheduling remain unresolved by these map records.
+
 ## Original client files
 
 `reference/jungle-map-source.json` pins two BINs in Riot 16.18.8175716's

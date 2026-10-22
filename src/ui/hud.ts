@@ -1131,7 +1131,14 @@ export class Hud {
         continue;
       const p = xy(u),
         r = u.kind === 'champion' ? 5 : isStructureKind(u.kind) ? 4 : 1.5;
-      ctx.fillStyle = u.id === w.player.id ? '#f4dc88' : u.team === 'blue' ? '#60d1e5' : '#ee7b81';
+      ctx.fillStyle =
+        u.id === w.player.id
+          ? '#f4dc88'
+          : u.team === 'neutral'
+            ? '#dfba6a'
+            : u.team === 'blue'
+              ? '#60d1e5'
+              : '#ee7b81';
       ctx.strokeStyle = '#102228';
       ctx.lineWidth = 1.5;
       ctx.beginPath();

@@ -53,7 +53,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 85;
+export const SNAPSHOT_VERSION = 86;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -95,6 +95,7 @@ const rechargeDurations = new Set(
   )
 );
 const team = z.enum(['blue', 'red']);
+const faction = z.enum(['blue', 'red', 'neutral']);
 const point = z.strictObject({ x: z.number(), y: z.number() });
 const kind = z.enum([
   'champion',
@@ -106,6 +107,7 @@ const kind = z.enum([
   'inhibitor',
   'nexus',
   'dummy',
+  'monster',
 ]);
 const ability = z.enum(['q', 'w', 'e', 'r', 'd', 'f']);
 const order: z.ZodType<Order> = z.discriminatedUnion('type', [
@@ -113,12 +115,20 @@ const order: z.ZodType<Order> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.enum(['move', 'attackMove']), point }),
   z.strictObject({ type: z.literal('attack'), target: id }),
 ]);
-const unit: z.ZodType<Unit> = z
+const unit = z
   .strictObject({
     id,
     kind,
     champion: z.enum(['ashe', 'lux', 'garen']).optional(),
-    team,
+    team: faction,
+    monster: z
+      .strictObject({
+        species: z.literal('gromp'),
+        home: point,
+        phase: z.enum(['idle', 'engaged', 'returning']),
+        targetId: id.nullable(),
+      })
+      .optional(),
     name: z.string().max(200),
     x: z.number(),
     y: z.number(),
@@ -264,7 +274,35 @@ const unit: z.ZodType<Unit> = z
     (u) => u.attackCycle?.garenQRank === undefined || u.champion === 'garen',
     'Invalid Decisive Strike attacker'
   )
-  .refine((u) => !u.attackCycle?.critical || u.kind === 'champion', 'Invalid critical attacker');
+  .refine((u) => !u.attackCycle?.critical || u.kind === 'champion', 'Invalid critical attacker')
+  .refine(
+    (u) =>
+      (u.kind === 'monster') === (u.team === 'neutral') && (u.kind === 'monster') === !!u.monster,
+    'Invalid neutral faction'
+  )
+  .refine(
+    (u) =>
+      !u.monster ||
+      (!u.ai &&
+        u.lane === null &&
+        u.respawnTick === null &&
+        !u.structure &&
+        !u.structureTransform &&
+        !u.structureKnowledge &&
+        !u.structureIdle &&
+        (u.monster.phase === 'engaged') === (u.monster.targetId !== null)),
+    'Invalid neutral lifecycle'
+  )
+  .refine((u) => {
+    if (!u.monster) return true;
+    if (u.monster.phase === 'engaged') return u.order.type === 'idle' || u.order.type === 'attack';
+    if (u.releaseTick !== null || u.attackCycle !== null) return false;
+    return u.monster.phase === 'idle'
+      ? u.order.type === 'idle'
+      : u.order.type === 'move' &&
+          u.order.point.x === u.monster.home.x &&
+          u.order.point.y === u.monster.home.y;
+  }, 'Invalid neutral order') as z.ZodType<Unit>;
 const inventorySchema = z
   .array(
     z
@@ -481,7 +519,7 @@ const projectile: z.ZodType<Projectile> = z
   .strictObject({
     id,
     source: id,
-    team,
+    team: faction,
     type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot', 'binding', 'prismatic']),
     prismatic: z
       .strictObject({
@@ -594,6 +632,7 @@ const luxTargetVisual = (historyTicks: number) =>
   });
 const snapshot = z.strictObject({
   version: z.literal(SNAPSHOT_VERSION),
+  encounter: z.literal('gromp').nullable(),
   matchMode: z.enum(['practice', 'lanes']),
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),
@@ -685,7 +724,11 @@ const snapshot = z.strictObject({
   randomState: z.number().int().min(0).max(0xffffffff),
   wave: tick,
   nextWaveTick: deadline,
-  pendingSpawns: z.array(z.strictObject({ tick, kind, team, lane: tick, offset: tick })).max(10000),
+  pendingSpawns: z
+    .array(
+      z.strictObject({ tick, kind: kind.exclude(['monster']), team, lane: tick, offset: tick })
+    )
+    .max(10000),
   reveal: z.strictObject({ point, endTick: deadline }).nullable(),
   visionAreas: z
     .array(
@@ -708,7 +751,7 @@ const snapshot = z.strictObject({
         y: z.number(),
         radius: nonnegative,
         unobstructed: z.boolean().optional(),
-        team,
+        team: faction,
         endTick: deadline,
       })
     )
@@ -781,11 +824,25 @@ export function decodeSnapshot(text: string) {
     });
   const state = result.data;
   if (
+    state.encounter &&
+    (state.battlefield !== 'practice-fixture' || state.matchMode !== 'practice')
+  )
+    throw new Error('Controlled neutral encounters require the development practice fixture.');
+  if (
     state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
     state.battlefield !== 'practice-fixture'
   )
     throw new Error('Garen player kit is available only in the development practice fixture.');
   for (const unit of state.units) {
+    if (unit.kind === 'monster' && unit.monster.targetId !== null) {
+      const target = state.units.find((other) => other.id === unit.monster.targetId);
+      if (
+        !target ||
+        target.team === 'neutral' ||
+        ['turret', 'inhibitor', 'nexus'].includes(target.kind)
+      )
+        throw new Error('Saved monster contains an invalid aggressor.');
+    }
     const fixed = ['turret', 'inhibitor', 'nexus'].includes(unit.kind);
     const idle = unit.structureIdle;
     const knowledge = unit.structureKnowledge;

@@ -1,4 +1,5 @@
 import { recallAnimationPose } from './recall-animation';
+import { GROMP } from '../content/gromp';
 import type { ChampionState, Unit } from '../simulation/types';
 import { castAnimationName } from '../content/cast-animation';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
@@ -83,6 +84,15 @@ export function mobilePose(
   const moving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01,
     cycle = unit.attackCycle;
   if (!moving && cycle && tick < cycle.endTick) {
+    if (unit.kind === 'monster') {
+      const age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
+      const windup = unit.windupTicks / TICK_RATE;
+      const contact = GROMP.castFrame / 30;
+      const recovery = (cycle.endTick - cycle.startTick) / TICK_RATE - windup;
+      const rate = age < windup ? contact / windup : (duration('attack1') - contact) / recovery;
+      const time = age < windup ? age * rate : contact + (age - windup) * rate;
+      return { ...fixed('attack', 'attack1', time, false, rate), settled: age >= 0.08 };
+    }
     if (cycle.garenQReleaseTick !== undefined) {
       const clip = 'spell1';
       const contact = GAREN_Q.attackTiming.animationCastFrame / GAREN_Q.attackTiming.animationFps;

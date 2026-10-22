@@ -69,7 +69,7 @@ export interface Battlefield extends TerrainQueries {
   >;
   unitStats?: Partial<Record<UnitKind, Record<Team, UnitStats>>>;
   initialUnits: {
-    kind: UnitKind;
+    kind: Exclude<UnitKind, 'monster'>;
     team: Team;
     point: Vec2;
     name?: string;

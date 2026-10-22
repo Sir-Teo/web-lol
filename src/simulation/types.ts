@@ -3,13 +3,35 @@ import type { structurePose } from '../render/structure-pose';
 import type { AnimationTimeline } from './animation-timeline';
 import type { Vec2 } from './math';
 export type Team = 'blue' | 'red';
+export type Faction = Team | 'neutral';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
 export const isLaneMinionKind = (kind: UnitKind): kind is LaneMinionKind =>
   kind === 'melee' || kind === 'caster' || kind === 'siege' || kind === 'super';
 export type UnitKind =
-  'champion' | 'melee' | 'caster' | 'siege' | 'super' | 'turret' | 'inhibitor' | 'nexus' | 'dummy';
+  | 'champion'
+  | 'melee'
+  | 'caster'
+  | 'siege'
+  | 'super'
+  | 'turret'
+  | 'inhibitor'
+  | 'nexus'
+  | 'dummy'
+  | 'monster';
+export interface MonsterState {
+  species: 'gromp';
+  home: Vec2;
+  phase: 'idle' | 'engaged' | 'returning';
+  targetId: number | null;
+}
+export type Unit = UnitBase &
+  (
+    | { kind: 'monster'; team: 'neutral'; monster: MonsterState }
+    | { kind: Exclude<UnitKind, 'monster'>; team: Team; monster?: never }
+  );
 export const isStructureKind = (kind: UnitKind): boolean =>
   kind === 'turret' || kind === 'inhibitor' || kind === 'nexus';
+export type TeamUnit = Extract<Unit, { team: Team }>;
 export interface StructureState {
   role:
     'outer-turret' | 'inner-turret' | 'inhibitor-turret' | 'nexus-turret' | 'inhibitor' | 'nexus';
@@ -21,11 +43,9 @@ export type Order =
   | { type: 'idle' }
   | { type: 'move' | 'attackMove'; point: Vec2 }
   | { type: 'attack'; target: number };
-export interface Unit extends Vec2 {
+export interface UnitBase extends Vec2 {
   champion?: 'ashe' | 'lux' | 'garen';
   id: number;
-  kind: UnitKind;
-  team: Team;
   name: string;
   previous: Vec2;
   facing: number;
@@ -127,7 +147,7 @@ export type UnitStats = Partial<
 export interface LuxBeam {
   id: number;
   sourceId: number;
-  team: Team;
+  team: Faction;
   origin: Vec2;
   point: Vec2;
   startTick: number;
@@ -135,7 +155,7 @@ export interface LuxBeam {
 export interface Singularity extends Vec2 {
   id: number;
   sourceId: number;
-  team: Team;
+  team: Faction;
   origin: Vec2;
   previous: Vec2;
   point: Vec2;
@@ -150,7 +170,7 @@ export interface Singularity extends Vec2 {
 export interface Projectile extends Vec2 {
   id: number;
   source: number;
-  team: Team;
+  team: Faction;
   type: 'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding' | 'prismatic';
   prismatic?: {
     phase: 'out' | 'return';
@@ -183,7 +203,7 @@ export interface Projectile extends Vec2 {
 export interface BindingFlightStop {
   id: number;
   sourceId: number;
-  team: Team;
+  team: Faction;
   origin: Vec2;
   point: Vec2;
   launchTick: number;
@@ -198,7 +218,7 @@ export interface LuxAttackVisual {
   origin: Vec2;
   id: number;
   sourceId: number;
-  team: Team;
+  team: Faction;
   launchTick: number;
   stopTick: number | null;
   frames: { tick: number; x: number; y: number; facing: number; trailDistance: number }[];
@@ -219,7 +239,7 @@ export interface LuxImpactVisual {
   id: number;
   sourceId: number;
   targetId: number;
-  team: Team;
+  team: Faction;
   startTick: number;
   critical: boolean;
   detachedTick: number | null;
@@ -261,7 +281,7 @@ export interface SimEvent extends Vec2 {
   unit?: number;
   value?: number;
   text?: string;
-  team?: Team;
+  team?: Faction;
 }
 export interface ChampionState {
   observedStats: Record<Team, { level: number; cs: number; inventory: (string | null)[] } | null>;
@@ -382,7 +402,7 @@ export interface ScoutFlight {
 
 /** Presentation-only arrival state; never a vision or targeting source. */
 export interface ScoutVisual extends Vec2 {
-  team: Team;
+  team: Faction;
   flight: ScoutFlight & { arrivalTick: number; distance: number };
   stopTick: number;
   endTick: number;

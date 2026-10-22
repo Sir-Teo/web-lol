@@ -855,6 +855,7 @@ button {
     -1px 0 2px #000;
 }
 .champion .unit-name,
+.monster .unit-name,
 .dummy .unit-name {
   display: block;
 }
@@ -866,6 +867,7 @@ button {
   position: relative;
 }
 .champion .unit-hp,
+.monster .unit-hp,
 .turret .unit-hp,
 .inhibitor .unit-hp,
 .nexus .unit-hp,
@@ -879,6 +881,9 @@ button {
 }
 .unit-bar.red .unit-hp i {
   background: linear-gradient(#db7d71, #a34e50);
+}
+.unit-bar.neutral .unit-hp i {
+  background: linear-gradient(#e1c277, #a87b32);
 }
 .unit-bar.champion.blue .unit-hp i {
   background: linear-gradient(#99c363, #5d9336);

@@ -138,7 +138,9 @@ describe('inhibitor-driven lane waves', () => {
     for (let tick = 0; tick < 700; tick++) {
       w.step();
       for (const u of w.units.filter((u) => u.kind === 'super'))
-        expect(grid.lineWalkable(u.previous, u, u.radius, u.team)).toBe(true);
+        expect(
+          grid.lineWalkable(u.previous, u, u.radius, u.team === 'neutral' ? undefined : u.team)
+        ).toBe(true);
     }
     expect(w.units.filter((u) => u.kind === 'super')).toHaveLength(6);
     expect(w.units.filter((u) => u.kind === 'super').every((u) => u.laneWaypoint > 0)).toBe(true);

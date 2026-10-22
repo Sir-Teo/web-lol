@@ -1,4 +1,5 @@
 import { TargetPoseSampler } from './target-pose-sampler';
+import { GROMP } from '../content/gromp';
 import type { ImpactRig } from '../content/impact-target';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -47,11 +48,25 @@ const referenceNames = [
   'blue-inhibitor',
   'red-inhibitor',
 ];
-export async function loadReferenceModels(): Promise<void> {
+export async function loadReferenceModels(includeMonsters = false): Promise<void> {
   const loader = new GLTFLoader();
   await Promise.all(
-    referenceNames.map(async (name) => {
+    [...referenceNames, ...(includeMonsters ? ['sru-gromp-base'] : [])].map(async (name) => {
       const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
+      if (name === 'sru-gromp-base') {
+        for (const [alias, source] of Object.entries(GROMP.clips)) {
+          const clip = gltf.animations.find((clip) => clip.name === source.name);
+          if (!clip) throw new Error(`Gromp lacks ${source.name}`);
+          clip.name = alias;
+        }
+        gltf.scene.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            const materials = Array.isArray(object.material) ? object.material : [object.material];
+            if (materials.some((material) => material.userData.defaultHidden))
+              object.visible = false;
+          }
+        });
+      }
       for (const required of /-(turret|nexus|inhibitor)$/.test(name)
         ? ['idle1']
         : name === 'ashe-base'
@@ -146,9 +161,15 @@ export function makeModel(u: Unit): UnitModel {
     u.kind === 'caster' ||
     u.kind === 'siege' ||
     u.kind === 'super' ||
-    isStructureKind(u.kind)
+    isStructureKind(u.kind) ||
+    u.kind === 'monster'
   ) {
-    const key = u.kind === 'champion' ? `${u.champion}-base` : `${u.team}-${u.kind}`;
+    const key =
+      u.kind === 'monster'
+        ? 'sru-gromp-base'
+        : u.kind === 'champion'
+          ? `${u.champion}-base`
+          : `${u.team}-${u.kind}`;
     const reference = references.get(key);
     if (!reference) throw new Error(`Model not loaded: ${key}`);
     const root = new THREE.Group(),

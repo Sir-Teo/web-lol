@@ -11,6 +11,7 @@ function sourceFiles(directory: string): string[] {
 export const rulesetFiles = [
   ...sourceFiles('src/simulation'),
   ...sourceFiles('src/content'),
+  'src/content/gromp.json',
   'public/assets/maps/rift-layout.json',
   'public/assets/maps/rift-nav.json',
   'public/assets/maps/rift-nav.bin',

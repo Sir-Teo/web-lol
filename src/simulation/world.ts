@@ -1,4 +1,5 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
+import { GROMP, GROMP_POLICY } from '../content/gromp';
 import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
 import { structurePose } from '../render/structure-pose';
@@ -111,6 +112,9 @@ import type {
   Projectile,
   SimEvent,
   Team,
+  Faction,
+  UnitBase,
+  TeamUnit,
   Unit,
   UnitKind,
   ScoutVisual,
@@ -124,6 +128,7 @@ export class World {
   firstBloodClaimed = false;
   nextId = 1;
   matchMode: 'practice' | 'lanes' = 'practice';
+  encounter: 'gromp' | null = null;
   units: Unit[] = [];
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
@@ -155,7 +160,13 @@ export class World {
   // Local first choice; two source variants with avoid-repeat=1 alternate thereafter.
   nextBindingAudioVariant: 0 | 1 = 0;
 
-  pendingSpawns: { tick: number; kind: UnitKind; team: Team; lane: number; offset: number }[] = [];
+  pendingSpawns: {
+    tick: number;
+    kind: Exclude<UnitKind, 'monster'>;
+    team: Team;
+    lane: number;
+    offset: number;
+  }[] = [];
 
   constructor(
     populate = true,
@@ -184,8 +195,10 @@ export class World {
   get time(): number {
     return this.tick / TICK_RATE;
   }
-  get hero(): Unit {
-    return this.units.find((u) => u.id === this.player.id)!;
+  get hero(): TeamUnit {
+    const hero = this.units.find((u) => u.id === this.player.id && u.kind === 'champion');
+    if (!hero || hero.kind !== 'champion') throw new Error('Missing player champion');
+    return hero;
   }
   unit(id: number): Unit | undefined {
     return this.units.find((u) => u.id === id);
@@ -215,12 +228,12 @@ export class World {
       audience,
     });
   }
-  spawn(
+  private createUnitBase(
     kind: UnitKind,
-    team: Team,
+    team: Faction,
     point: Vec2,
     identity: 'ashe' | 'lux' | 'garen' = 'ashe'
-  ): Unit {
+  ): UnitBase {
     const champion = kind === 'champion',
       turret = kind === 'turret',
       dummy = kind === 'dummy',
@@ -240,11 +253,9 @@ export class World {
                 : kind === 'melee'
                   ? 477
                   : 296;
-    const u: Unit = {
+    return {
       ...(champion ? { champion: identity } : {}),
       id: this.nextId++,
-      kind,
-      team,
       name: champion ? 'Ashe' : turret ? 'Outer turret' : dummy ? 'Target dummy' : `${kind} minion`,
       x: point.x,
       y: point.y,
@@ -301,7 +312,19 @@ export class World {
       nextThink: 0,
       respawnTick: null,
     };
+  }
+  spawn(
+    kind: UnitKind,
+    team: Team,
+    point: Vec2,
+    identity: 'ashe' | 'lux' | 'garen' = 'ashe'
+  ): TeamUnit {
+    if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];
+    const champion = kind === 'champion',
+      structure = isStructureKind(kind);
+    const u: TeamUnit = { ...this.createUnitBase(kind, team, point, identity), kind, team };
+
     if (champion) {
       const profile = championProfile(identity);
       Object.assign(u, {
@@ -388,6 +411,79 @@ export class World {
       }
     }
     return u;
+  }
+  /** Explicit controlled encounter; this does not select a live map camp. */
+  spawnMonster(point: Vec2): Extract<Unit, { kind: 'monster' }> {
+    const base = this.createUnitBase('monster', 'neutral', point);
+    const { attackSpeed, ...stats } = GROMP.stats;
+    const u: Extract<Unit, { kind: 'monster' }> = {
+      ...base,
+      kind: 'monster',
+      team: 'neutral',
+      name: 'Gromp',
+      ...stats,
+      radius: GROMP.radius,
+      hp: GROMP.stats.maxHp,
+      attackPeriod: Math.round(TICK_RATE / attackSpeed),
+      windupTicks: GROMP_POLICY.windupTicks,
+      missileSpeed: GROMP.missileSpeed,
+      goldBounty: GROMP.gold,
+      experienceBounty: GROMP.experience,
+      ai: false,
+      corpseLifetimeTicks: Math.ceil(GROMP.clips.death.durationSeconds * TICK_RATE),
+      monster: {
+        species: 'gromp',
+        home: { x: point.x, y: point.y },
+        phase: 'idle',
+        targetId: null,
+      },
+    };
+    const clips = mobileClipDurations(u)!;
+    u.animationTimeline = advanceAnimationTimeline(
+      null,
+      mobilePose(u, undefined, this.tick, 1, clips),
+      this.tick,
+      clips
+    );
+    this.units.push(u);
+    return u;
+  }
+  private advanceMonster(u: Extract<Unit, { kind: 'monster' }>): boolean {
+    const monster = u.monster,
+      target = monster.targetId === null ? undefined : this.unit(monster.targetId);
+    if (
+      monster.phase === 'engaged' &&
+      (!target ||
+        !this.alive(target) ||
+        distance(u, monster.home) > GROMP_POLICY.leashRadius ||
+        distance(target, monster.home) > GROMP_POLICY.leashRadius ||
+        !this.validTarget(u, target))
+    ) {
+      monster.phase = 'returning';
+      monster.targetId = null;
+      this.setOrder(u, { type: 'move', point: { ...monster.home } });
+    }
+    if (monster.phase === 'returning') {
+      u.releaseTick = null;
+      u.attackCycle = null;
+      u.stunUntil = u.rootUntil = u.slowUntil = 0;
+      u.slows = [];
+      u.criticalSlow = null;
+      u.hp = Math.min(u.maxHp, u.hp + u.maxHp * GROMP_POLICY.resetHealthFractionPerSecond * DT);
+      this.move(u, monster.home);
+      if (distance(u, monster.home) < 3 && u.hp === u.maxHp) {
+        monster.phase = 'idle';
+        this.setOrder(u, { type: 'idle' });
+      }
+      return true;
+    }
+    if (
+      monster.phase === 'engaged' &&
+      target &&
+      (u.order.type !== 'attack' || u.order.target !== target.id)
+    )
+      this.setOrder(u, { type: 'attack', target: target.id });
+    return false;
   }
   enqueue(command: Command): void {
     if (this.winner) return;
@@ -548,7 +644,7 @@ export class World {
     const commands = this.commands.splice(0);
     for (const command of commands) {
       const u = this.unit(command.unit);
-      if (!u) continue;
+      if (!u || u.kind === 'monster') continue;
       if (command.type === 'learn') {
         const error = this.learnSpell(command.ability, u.id);
         if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
@@ -598,6 +694,7 @@ export class World {
       }
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
+      if (u.kind === 'monster' && this.advanceMonster(u)) continue;
       const thinkNow = u.ai && this.tick >= u.nextThink;
       if (thinkNow) {
         this.planDefensiveHeal(u);
@@ -706,6 +803,7 @@ export class World {
     for (const state of this.activeChampionStates()) {
       if (state.recallEnd === null || this.tick < state.recallEnd) continue;
       const h = this.unit(state.id)!;
+      if (h.kind !== 'champion') continue;
       const home = this.battlefield.spawns[h.team];
       h.x = home.x;
       h.y = home.y;
@@ -786,6 +884,7 @@ export class World {
             enemyInhibitorsDown: inhibitors.length,
           })
           .forEach((kind, offset) => {
+            if (kind === 'monster') throw new Error('Wave cannot spawn neutral monsters');
             this.pendingSpawns.push({
               tick:
                 this.tick +
@@ -821,7 +920,8 @@ export class World {
       u.order = { type: 'attackMove', point: lane.points[first] };
     }
   }
-  visible(u: Unit, team: Team = 'blue'): boolean {
+  visible(u: Unit, team: Faction = 'blue'): boolean {
+    if (team === 'neutral') return false;
     if (u.team === team || this.pointVisible(u, team)) return true;
     return this.units.some((source) => {
       if (source.champion !== 'garen' || source.team !== team) return false;
@@ -844,10 +944,11 @@ export class World {
       : u.structureIdle.observedStartTicks[team];
   }
   visionSources(
-    team: Team = 'blue',
+    team: Faction = 'blue',
     includeAttackReveals = true,
     includeHawkshots = true
   ): VisionSource[] {
+    if (team === 'neutral') return [];
     const sources: VisionSource[] = this.units
       .filter((u) => u.team === team && this.alive(u))
       .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
@@ -894,10 +995,10 @@ export class World {
       sources.push({ ...this.reveal.point, radius: 650, unobstructed: true });
     return sources;
   }
-  pointVisible(point: Vec2, team: Team = 'blue'): boolean {
+  pointVisible(point: Vec2, team: Faction = 'blue'): boolean {
     return seenFrom(point, this.visionSources(team), this.battlefield.lineOfSight);
   }
-  projectileVisible(projectile: Projectile, team: Team = 'blue'): boolean {
+  projectileVisible(projectile: Projectile, team: Faction = 'blue'): boolean {
     return projectile.team === team || this.pointVisible(projectile, team);
   }
   eventVisible(event: SimEvent, team: Team = 'blue'): boolean {
@@ -934,7 +1035,16 @@ export class World {
       target.team !== u.team &&
       this.alive(target) &&
       this.vulnerable(target) &&
-      this.visible(target, u.team)
+      (target.kind !== 'monster' ||
+        (target.monster.phase !== 'returning' &&
+          u.kind === 'champion' &&
+          (!u.ai || (u.order.type === 'attack' && u.order.target === target.id)))) &&
+      (u.kind === 'monster'
+        ? target.kind !== 'monster' &&
+          !isStructureKind(target.kind) &&
+          distance(u, target) <= GROMP_POLICY.sightRadius &&
+          this.battlefield.lineOfSight(u, target)
+        : this.visible(target, u.team))
     );
   }
   private nearest(
@@ -950,6 +1060,7 @@ export class World {
         target.team !== u.team &&
         this.alive(target) &&
         target.kind !== 'dummy' &&
+        (target.kind !== 'monster' || (u.kind === 'champion' && !u.ai)) &&
         (!championsOnly || target.kind === 'champion')
       ) {
         const d = distance(u, target) - target.radius;
@@ -1430,7 +1541,7 @@ export class World {
     return true;
   }
   private planEmergencyFlash(u: Unit): boolean {
-    if (u.silenceUntil > this.tick) return false;
+    if (u.kind !== 'champion' || u.silenceUntil > this.tick) return false;
     const home = this.battlefield.spawns[u.team];
     if (
       u.rootUntil > this.tick ||
@@ -2042,7 +2153,12 @@ export class World {
       (!u.pathTarget || distance(u.pathTarget, point) > 90 || !u.path.length) &&
       this.tick >= u.nextPathTick
     ) {
-      u.path = this.battlefield.findPath(u, point, u.radius, u.team);
+      u.path = this.battlefield.findPath(
+        u,
+        point,
+        u.kind === 'monster' ? GROMP.pathfindingRadius : u.radius,
+        u.team === 'neutral' ? undefined : u.team
+      );
       u.pathDestination = u.path.at(-1) ?? { x: u.x, y: u.y };
       u.nextPathTick = this.tick + 12;
       u.pathTarget = { x: point.x, y: point.y };
@@ -2517,7 +2633,10 @@ export class World {
       const moving =
         mobileAlive && Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
       if (moving) {
-        const nominal = this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed ?? 325;
+        const nominal =
+          (unit.kind === 'monster'
+            ? GROMP.stats.speed
+            : this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed) ?? 325;
         const clock = unit.runClock ?? { startTick: this.tick, previous: 0, current: 0 };
         clock.previous = clock.current;
         clock.current += DT * (nominal > 0 ? this.movementSpeed(unit) / nominal : 1);
@@ -2989,7 +3108,7 @@ export class World {
         ? (this.battlefield.minionTurretDamage?.[source.kind] ?? 1)
         : 1;
     const healthRatio =
-      isLaneMinionKind(source.kind) && isLaneMinionKind(target.kind)
+      source.kind !== 'monster' && isLaneMinionKind(source.kind) && isLaneMinionKind(target.kind)
         ? (this.battlefield.minionCurrentHealthDamage?.[source.kind]?.[source.team] ?? 0)
         : 0;
     // Sample at impact, before this hit changes HP. Ranged attacks retain release AD.
@@ -3065,7 +3184,13 @@ export class World {
     kind: 'physical' | 'magic' | 'true',
     category: 'direct' | 'area' = 'direct'
   ): void {
-    if (this.winner || !this.alive(target) || !this.vulnerable(target)) return;
+    if (
+      this.winner ||
+      !this.alive(target) ||
+      !this.vulnerable(target) ||
+      (target.kind === 'monster' && target.monster.phase === 'returning')
+    )
+      return;
     const resistance =
       kind === 'physical' ? this.effectiveArmor(target) : kind === 'magic' ? target.magicResist : 0;
     const courage = this.championState(target.id)?.garenW;
@@ -3119,6 +3244,10 @@ export class World {
         this.emit('heal', source, { value: Math.round(healing) });
       }
     }
+    if (healthLost > 0 && target.kind === 'monster' && source.team !== 'neutral') {
+      target.monster.phase = 'engaged';
+      target.monster.targetId = source.id;
+    }
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
     const targetState = this.championState(target.id);
     if (targetState) {
@@ -3133,7 +3262,7 @@ export class World {
         targetState.damageContributors.push({ sourceId: source.id, lastDamageTick: this.tick });
       }
     }
-    if (target.kind === 'champion')
+    if (target.kind === 'champion' && source.kind !== 'monster')
       for (const turret of this.units) {
         if (
           turret.kind === 'turret' &&
@@ -3148,6 +3277,10 @@ export class World {
         (p) => p.target !== target.id
       );
       target.deadAt = this.tick;
+      if (target.kind === 'monster') {
+        target.monster.phase = 'idle';
+        target.monster.targetId = null;
+      }
       target.shields = [];
       target.slows = [];
       target.illumination = [];
@@ -3219,7 +3352,7 @@ export class World {
         if (
           rewardSource.champion === 'garen' &&
           sourceState.spellRanks.w > 0 &&
-          (isLaneMinionKind(target.kind) || target.kind === 'champion')
+          (isLaneMinionKind(target.kind) || target.kind === 'champion' || target.kind === 'monster')
         ) {
           const before = this.courageResistances(sourceState);
           sourceState.garenCourageStacks = Math.min(
@@ -3264,9 +3397,13 @@ export class World {
             const record = this.championState(id);
             if (record && contributor?.team === rewardSource.team) record.assists++;
           }
-        } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) sourceState.cs++;
+        } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) {
+          sourceState.cs += target.kind === 'monster' ? GROMP.minionScore : 1;
+          if (target.kind === 'monster')
+            this.gainExperience(target.experienceBounty ?? 0, rewardSource.id);
+        }
       }
-      if (isLaneMinionKind(target.kind)) {
+      if (target.kind !== 'monster' && isLaneMinionKind(target.kind)) {
         const radius = this.battlefield.minionExperienceRadius?.[target.team] ?? 1400;
         const recipients = this.units.filter(
           (u) =>
@@ -3357,9 +3494,11 @@ export class World {
       state.revealContributors = [];
     }
     const point =
-      isStructureKind(u.kind) || u.kind === 'dummy'
-        ? { x: u.x, y: u.y }
-        : this.battlefield.spawns[u.team];
+      u.kind === 'monster'
+        ? u.monster.home
+        : isStructureKind(u.kind) || u.kind === 'dummy'
+          ? { x: u.x, y: u.y }
+          : this.battlefield.spawns[u.team];
     u.x = point.x;
     u.y = point.y;
     u.previous = { ...point };
@@ -3480,7 +3619,7 @@ export class World {
   }
   private cast(u: Unit, ability: Ability, point: Vec2, targetId?: number): void {
     const state = this.championState(u.id);
-    if (!state) return;
+    if (!state || u.kind !== 'champion') return;
     if (targetId !== undefined && !(u.champion === 'garen' && ability === 'r')) return;
     // Check before Lux's E-recast shortcut as well as ordinary casts.
     if (u.silenceUntil > this.tick && !ABILITIES[ability].canCastWhileSilenced) {
@@ -3888,7 +4027,7 @@ export class World {
     if (this.winner) return 'The game has ended';
     const state = this.championState(championId);
     const champion = this.unit(championId);
-    if (!state || !champion) return 'Unknown champion';
+    if (!state || !champion || champion.kind !== 'champion') return 'Unknown champion';
     const item = ITEMS.find((i) => i.id === itemId);
     if (!item) return 'Unknown item';
     if (distance(champion, this.battlefield.spawns[champion.team]) > 400 && champion.hp > 0)
@@ -4040,7 +4179,7 @@ export class World {
     if (this.winner) return 'The game has ended';
     const state = this.championState(championId);
     const champion = this.unit(championId);
-    if (!state || !champion) return 'Unknown champion';
+    if (!state || !champion || champion.kind !== 'champion') return 'Unknown champion';
     if (!Number.isInteger(slot) || slot < 0 || slot >= state.inventory.length)
       return 'Choose an owned item';
     if (distance(champion, this.battlefield.spawns[champion.team]) > 400 && this.alive(champion))
@@ -4069,6 +4208,15 @@ export class World {
     if (state.battlefield !== battlefield.id)
       throw new Error('Saved match uses a different battlefield.');
     if (
+      state.units.some(
+        (u) =>
+          u.kind === 'monster' &&
+          (Math.abs(u.monster.home.x) > battlefield.half ||
+            Math.abs(u.monster.home.y) > battlefield.half)
+      )
+    )
+      throw new Error('Saved monster home is outside the battlefield.');
+    if (
       state.units.some((u) => u.lane !== null && u.lane >= battlefield.lanes.length) ||
       state.pendingSpawns.some((u) => u.lane >= battlefield.lanes.length)
     )
@@ -4093,6 +4241,7 @@ export class World {
     return encodeSnapshot({
       version: SNAPSHOT_VERSION,
       matchMode: this.matchMode,
+      encounter: this.encounter,
       ruleset: SNAPSHOT_RULESET,
       winner: this.winner,
       firstBloodClaimed: this.firstBloodClaimed,

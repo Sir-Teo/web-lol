@@ -13,6 +13,7 @@ import { readMatch, writeMatch } from './storage/match-store';
 import { downloadMatch, prepareMatchImport } from './storage/match-files';
 import { DT } from './content/rules';
 import { World } from './simulation/world';
+import { createGrompEncounter } from './simulation/gromp-encounter';
 import { createLaneMatch } from './simulation/lane-match';
 import { GameView } from './render/view';
 import { Hud } from './ui/hud';
@@ -44,13 +45,23 @@ async function boot(): Promise<void> {
     import.meta.env.DEV && new URLSearchParams(location.search).get('scene') === 'fixture';
   const battlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
-  let world = new World(true, battlefield, garenFixture ? 'garen' : 'ashe');
+  const grompEncounter =
+    fixture && new URLSearchParams(location.search).get('encounter') === 'gromp';
+  const freshPractice = (champion: 'ashe' | 'lux' | 'garen' = 'ashe') =>
+    grompEncounter
+      ? createGrompEncounter(battlefield, champion)
+      : new World(true, battlefield, champion);
+  let world = freshPractice(garenFixture ? 'garen' : 'ashe');
   let restored = false,
     saveNotice = '';
   try {
     const saved = await readMatch(battlefield.id);
     const candidate = saved ? World.fromSnapshot(saved, battlefield) : null;
-    if (candidate && (!garenFixture || candidate.hero.champion === 'garen')) {
+    if (
+      candidate &&
+      (!garenFixture || candidate.hero.champion === 'garen') &&
+      candidate.encounter === (grompEncounter ? 'gromp' : null)
+    ) {
       world = candidate;
       restored = true;
     }
@@ -88,8 +99,8 @@ async function boot(): Promise<void> {
         battlefield.id,
         world.matchMode === 'lanes'
           ? createLaneMatch(battlefield, selectableChampion(world.hero.champion)).snapshot()
-          : world.hero.champion === 'lux' || world.hero.champion === 'garen'
-            ? new World(true, battlefield, world.hero.champion).snapshot()
+          : grompEncounter || world.hero.champion === 'lux' || world.hero.champion === 'garen'
+            ? freshPractice(world.hero.champion).snapshot()
             : null
       )
         .then(() => window.location.reload())
@@ -97,9 +108,7 @@ async function boot(): Promise<void> {
     },
     startMatch: async (mode, champion) => {
       const next =
-        mode === 'lanes'
-          ? createLaneMatch(battlefield, champion)
-          : new World(true, battlefield, champion);
+        mode === 'lanes' ? createLaneMatch(battlefield, champion) : freshPractice(champion);
       await writeMatch(battlefield.id, next.snapshot());
       window.location.reload();
     },
@@ -123,7 +132,7 @@ async function boot(): Promise<void> {
   const assetsReady = Promise.all([
     loadInterfaceFonts(),
     audio.load(world.units.some((u) => u.champion === 'garen')),
-    loadReferenceModels(),
+    loadReferenceModels(world.units.some((u) => u.kind === 'monster')),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')
       ? [view.garenJustice.load(), view.garenCourage.load(), view.garenDecisiveStrike.load()]

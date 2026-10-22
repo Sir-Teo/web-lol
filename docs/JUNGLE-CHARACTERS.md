@@ -5,6 +5,11 @@ definitions, including all **35 CharacterRecord variants**, their spell records,
 and two converted base rigs. This advances the monster source foundation; live
 neutral camps and jungle-role matches remain unfinished.
 
+The subsequent [neutral Gromp encounter](NEUTRAL-GROMP.md) integrates the first
+controlled combat unit with a distinct neutral faction, private aggro, local
+leash/reset policies and saved continuation. It does not activate standard-mode
+camps or certify final rewards and native behavior.
+
 `reference/jungle-character-source.json` retains 64 original files totaling
 2,898,228 bytes, with manifest, compressed-chunk and per-file hashes. Its manifest
 and archive match [the map source pin](JUNGLE-SOURCES.md). Field/type dictionaries

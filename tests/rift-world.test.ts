@@ -4,6 +4,7 @@ import { NavGrid, fromRiot } from '../src/simulation/navgrid';
 import { createRift, type RiftLayout } from '../src/content/rift';
 import { World } from '../src/simulation/world';
 import { distance } from '../src/simulation/math';
+import { GROMP } from '../src/content/gromp';
 
 const metadata = JSON.parse(readFileSync('public/assets/maps/rift-nav.json', 'utf8'));
 const file = readFileSync('public/assets/maps/rift-nav.bin');
@@ -13,6 +14,54 @@ const grid = new NavGrid(
 );
 const layout: RiftLayout = JSON.parse(readFileSync('public/assets/maps/rift-layout.json', 'utf8'));
 const battlefield = createRift(grid, layout);
+
+it('moves neutral Gromp from both raw source object positions with its distinct pathfinding radius', () => {
+  const pin = JSON.parse(readFileSync('docs/reference/jungle-map-source.json', 'utf8'));
+  const sources = pin.records.neutralCharacterEntities.filter(
+    (v: any) => v.record.Character.CharacterRecord === 'Characters/SRU_Gromp/CharacterRecords/Root'
+  );
+  expect(sources).toHaveLength(2);
+  for (const source of sources) {
+    const p = source.record.transform[3],
+      home = fromRiot(p[0], p[2]);
+    const world = new World(false, battlefield);
+    world.nextWaveTick = 1_000_000_000;
+    expect(grid.lineWalkable(home, home, GROMP.pathfindingRadius)).toBe(true);
+    const candidates = Array.from({ length: 16 }, (_, i) => {
+      const angle = (i * Math.PI) / 8;
+      return battlefield.reachable(
+        { x: home.x + Math.cos(angle) * 400, y: home.y + Math.sin(angle) * 400 },
+        world.hero.radius,
+        'blue'
+      );
+    });
+    const point = candidates.find(
+      (point) =>
+        distance(home, point) > 250 &&
+        distance(home, point) < 650 &&
+        battlefield.lineOfSight(home, point) &&
+        grid.lineWalkable(home, point, GROMP.pathfindingRadius)
+    );
+    expect(point).toBeDefined();
+    Object.assign(world.hero, point, { previous: { ...point! }, hp: 10000, maxHp: 10000 });
+    const target = world.spawnMonster(home);
+    world.damage(world.hero, target, 20, 'true');
+    for (let i = 0; i < 120; i++) {
+      world.step();
+      expect(grid.lineWalkable(target.previous, target, GROMP.pathfindingRadius)).toBe(true);
+    }
+    expect(target.monster.phase).toBe('engaged');
+    expect(distance(target, home)).toBeGreaterThan(50);
+    expect(World.fromSnapshot(world.snapshot(), battlefield).snapshot()).toBe(world.snapshot());
+    world.hero.x = home.x + 1200;
+    for (let i = 0; i < 200; i++) {
+      world.step();
+      expect(grid.lineWalkable(target.previous, target, GROMP.pathfindingRadius)).toBe(true);
+    }
+    expect(target.monster.phase).toBe('idle');
+    expect(distance(target, home)).toBeLessThan(3);
+  }
+});
 
 describe('authored full Rift simulation', () => {
   it('uses the source fountains, all three lanes, and all 22 tower placements', () => {
@@ -67,7 +116,9 @@ describe('authored full Rift simulation', () => {
       world.step();
       for (const u of world.units)
         if (u.hp > 0 && u.speed > 0) {
-          expect(grid.lineWalkable(u.previous, u, u.radius, u.team)).toBe(true);
+          expect(
+            grid.lineWalkable(u.previous, u, u.radius, u.team === 'neutral' ? undefined : u.team)
+          ).toBe(true);
         }
     }
     for (let lane = 0; lane < 3; lane++) {

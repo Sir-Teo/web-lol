@@ -1,3 +1,4 @@
+import type { Unit } from '../src/simulation/types';
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 
@@ -91,16 +92,16 @@ test('saved slows reject duplicate identity, crossed champion ownership, future 
   w.applySlow(w.hero, target, 'frost', 60, 0.7);
   const valid = w.snapshot();
   for (const mutate of [
-    (unit: typeof target) => {
+    (unit: Unit) => {
       unit.slows.push({ ...unit.slows[0] });
     },
-    (unit: typeof target) => {
+    (unit: Unit) => {
       unit.slows[0].sourceId = lux.id;
     },
-    (unit: typeof target) => {
+    (unit: Unit) => {
       unit.slows[0].startTick = 1;
     },
-    (unit: typeof target) => {
+    (unit: Unit) => {
       unit.slows[0].endTick = 0;
     },
   ]) {

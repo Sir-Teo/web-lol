@@ -213,7 +213,7 @@ test('caster death and practice recasts retain accepted status clocks; target de
   expect(s.target.silenceUntil).toBe(0);
   expect(garenQSilenceParticles(s.sources(), s.w.tick)).toEqual([]);
 });
-test('schema 85 rejects missing, invented, mismatched and contradictory accepted-silence deadlines while permitting expired history', () => {
+test('schema 86 rejects missing, invented, mismatched and contradictory accepted-silence deadlines while permitting expired history', () => {
   const s = setup();
   s.cast();
   const early = JSON.parse(s.w.snapshot()),
@@ -228,7 +228,7 @@ test('schema 85 rejects missing, invented, mismatched and contradictory accepted
   }
   s.hit();
   const saved = JSON.parse(s.w.snapshot());
-  expect(saved.version).toBe(85);
+  expect(saved.version).toBe(86);
   for (const mutate of [
     (v: any) => (attack(v).silenceEndTick = null),
     (v: any) => attack(v).silenceEndTick++,
