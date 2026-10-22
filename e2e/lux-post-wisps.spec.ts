@@ -52,11 +52,27 @@ test('post-release wisps survive late saves and finish their distinct lifetimes'
     );
   });
   expect(tail).toEqual(['Beam_Post_Prettiness']);
+  const wispsEnd = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.step(12);
+    g.view.render(g.world, 1, g.view.previousElapsed);
+    return {
+      records: g.world.luxBeams.length,
+      models: g.view.luxBeams.models.size,
+      scorches: g.view.luxScorches.models.size,
+    };
+  });
+  // Wisps finish at 1.3s; the shared history still owns the source 1.5s scorches.
+  expect(wispsEnd).toEqual({ records: 1, models: 0, scorches: 2 });
   const end = await page.evaluate(() => {
     const g = (window as any).__GAME__;
     g.world.step(12);
     g.view.render(g.world, 1, g.view.previousElapsed);
-    return { records: g.world.luxBeams.length, models: g.view.luxBeams.models.size };
+    return {
+      records: g.world.luxBeams.length,
+      models: g.view.luxBeams.models.size,
+      scorches: g.view.luxScorches.models.size,
+    };
   });
-  expect(end).toEqual({ records: 0, models: 0 });
+  expect(end).toEqual({ records: 0, models: 0, scorches: 0 });
 });

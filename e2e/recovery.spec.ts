@@ -73,10 +73,11 @@ test('real graphics loss blocks input and resume, restores the same frame, and s
       if (current[i]) nonzero++;
     }
     delete (window as any).__recoveryPixels;
-    return { differences, nonzero };
+    return { differences, nonzero, alpha: gl.getContextAttributes()!.alpha };
   });
   expect(pixels.nonzero).toBeGreaterThan(100000);
   expect(pixels.differences).toBe(0);
+  expect(pixels.alpha).toBe(false);
   await page.screenshot({ path: 'artifacts/browser-graphics-restored.png' });
   expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(frozen);
   await page.getByRole('button', { name: 'Return to the Rift' }).click();

@@ -1,0 +1,139 @@
+{
+  "id": "VFX-CANVAS-ALPHA-001",
+  "recordedAt": "2026-10-22T00:10:04.419Z",
+  "baseRevision": "a6156182ad4cdb48abd100589711493fef7ae088",
+  "finding": "An alpha-enabled battlefield canvas lets subtractive Q ground decals expose the page matte despite the renderer alpha:false option.",
+  "evidence": {
+    "rendererVersion": "0.186.0",
+    "installedSource": "WebGLRenderer constructs default contextAttributes.alpha=true; alpha constructor option controls clear alpha. Explicit contexts retain their supplied attributes.",
+    "observedOldDraw": {
+      "rgbBlendFactors": [0, 769],
+      "alphaBlendFactors": [0, 771],
+      "gpuPixel": [84, 121, 104, 0],
+      "pageMatte": [16, 42, 38],
+      "pagePixel": [100, 163, 142],
+      "glError": 0
+    },
+    "interpretation": "Chrome composites premultiplied canvas RGB over the page using reduced framebuffer alpha; this is a local presentation defect, not a native shader finding.",
+    "layerIsolation": "The bright rectangle belongs to Land blasthole, not the isolated dirt, wave or smoke layer.",
+    "appearanceChange": "Supply an opaque WebGL 2 context. No texture, UV, source curve, blend factor, pass, attachment, simulation or snapshot change."
+  },
+  "validation": {
+    "preFixMatteFailures": 2,
+    "focusedBrowserPassed": 15,
+    "sourceSimulationGeometryPassed": 1042,
+    "testFiles": 211,
+    "typeScript": "passed",
+    "completeBrowserRun": {
+      "status": "completed_with_findings",
+      "total": 453,
+      "passed": 451,
+      "failed": 2,
+      "workers": 1,
+      "retries": 0,
+      "duration": "31.6m",
+      "sourceAndTestFilesUnchangedDuringRun": 794
+    },
+    "production": {
+      "status": "passed",
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 17,
+      "mapNavigation": true,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "screenshot": "artifacts/production-subpath.png",
+      "opaqueBattlefield": true,
+      "copiedQAssetsByteIdentical": 37,
+      "gameChunkKB": 584.49,
+      "gameGzipKB": 160.73,
+      "qGraphicsChunkKB": 55.14,
+      "qGraphicsGzipKB": 10.09,
+      "existingLargeBundleWarning": true
+    },
+    "sourceAssetHashesUnchanged": 48,
+    "animation": {
+      "rigs": 16,
+      "worstMatrixError": 0,
+      "pixelComparisons": 114,
+      "failures": []
+    },
+    "repairVerification": {
+      "passed": 18,
+      "distinctCases": 6,
+      "repetitions": 3,
+      "workers": 1,
+      "retries": 0,
+      "duration": "2.1m",
+      "command": "npx playwright test e2e/lux-post-wisps.spec.ts e2e/scoreboard-ownership.spec.ts e2e/scoreboard-death.spec.ts e2e/scoreboard-item-tooltip.spec.ts --repeat-each=3 --timeout=60000 --workers=1"
+    },
+    "singleGreenCompleteRunAfterRepairs": false,
+    "coverageLimit": "Initial full-run findings were repaired and rechecked in a focused run. The full 453-case suite was not rerun after the HUD and test repairs."
+  },
+  "visualReview": {
+    "captures": ["artifacts/browser-garen-q-land.png", "artifacts/browser-garen-q-silence.png"],
+    "result": "The prior bright rectangular page-matte patch is absent.",
+    "limits": "Qualitative local fixture review, not registered native-image comparison or pixel parity."
+  },
+  "sourceAndTestDigestEncoding": "SHA-256 of sorted path/sha256 entries encoded as compact JSON; 794 tracked/untracked nonignored src/tests/e2e/tools/qa and package/config files sampled during the audit and compared again at completion.",
+  "sha256": {
+    "node_modules/three/src/renderers/WebGLRenderer.js": "9e8740aad691246b31b3704014e8f3bbd38a8e7bf4b1b4d23868541b023cc63a",
+    "node_modules/three/src/renderers/webgl/WebGLState.js": "fd6adb6c01d75a148ef6ebc8ea948a38acc1a48d3cfdbbb1d12dbde668092431",
+    "src/render/view.ts": "e73db09eaf2a175b5f73503088d0568f689a648abf10cc9fd7f2b1ba814b024a",
+    "e2e/opaque-battlefield.spec.ts": "2c686302d92818550efa68f3e9f7ca94f9380afa56dc3584124df9dbea0282fe",
+    "e2e/recovery.spec.ts": "12cfa1a497be8c713499c0d0061e0a3a502c9c464ed996427d8906b2c0ee8db3",
+    "tools/qa/production-subpath.mjs": "70a4bd953d8bb56f229d49fd7b727288c9935aa77cd72ce0afb110ee597ff533",
+    "artifacts/q-ground-diagnosis/report.json": "8d8c7502f805f05f2b8476d4d7f4f1b9f8e25966a5ea28fa20e5103f55521fcf",
+    "artifacts/browser-garen-q-composite-before-opaque.png": "a4811162beaa649679526d19d12fdebb2685b795061f110a21e4bd54eb673ee5",
+    "artifacts/browser-garen-q-decal-before-opaque.png": "b7d5b2833d4e97a02de1adedefdebabb46878ae7d6062d2ab6d8e16ebb1a7c63",
+    "artifacts/browser-garen-q-land.png": "d74f1f0f7879087cfd1c7d7aa999207d6e388e6ad817286f6b6f4de139680e00",
+    "artifacts/browser-garen-q-silence.png": "c22098639fe07caad233488ec4b4ddcb84497d0046644b20b6c86abdf1be5e25",
+    "artifacts/constant-bone-tracks.json": "249662972b72a19a44704ecd84e29ccb5594cf92f8a1604051bcb8d7252e3b74",
+    "e2e/lux-post-wisps.spec.ts": "342f16e2d4f8ae43d2376582c8694464f7ebc6076fc494e80590186c317bc240",
+    "e2e/scoreboard-ownership.spec.ts": "9ccf1d7cf236c9b5d75428a900fb766fb322779030cfa889c87128c03bd0e6cf",
+    "src/ui/hud.ts": "ba5d20a1bf3173ac3e102415e1140052ecbfe4c707fcc09995a9488dc4d04f89",
+    "artifacts/browser-opaque-battlefield-full.log": "8036475a75f8678ef545345877f94afa522f968d87158df7f39e644b91bd3b5f",
+    "artifacts/opaque-battlefield-final-check.log": "d1cf41f22e499e016c5d886e2e23250639d84b2289b52afe9004778302041d02",
+    "artifacts/browser-opaque-audit-failures/last-run.json": "2a5347d2d3465c5819c1aeab0c8df87594968bf797ec018d5c0cd59da66b9295",
+    "artifacts/browser-opaque-audit-repaired-last-run.json": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+    "artifacts/scoreboard-mixed-champions.png": "f47409d2a20d01e006b1fcd50b21d0f6a995e1575276b33890c56cca0ba84100",
+    "artifacts/production-subpath.png": "be09f1ed663519bd1423093e3cc119a38c9be8e4dfe8d72bf5a3d414e97c03c0"
+  },
+  "scope": "Current local Chrome composition only. Native sampler/material/attachment calibration, other browsers, nine remaining Q emitter records and full production match acceptance remain open.",
+  "auditFindings": [
+    {
+      "id": "TEST-LUX-WISP-RETIREMENT-001",
+      "kind": "outdated test assertion",
+      "observed": "After wisps end at 1.3s, models=0 and records=1 because source scorches last 1.5s.",
+      "repair": "Assert retained record/two scorches at wisp expiry, then assert complete retirement at 1.5s. Runtime lifetime unchanged."
+    },
+    {
+      "id": "UI-SCOREBOARD-IDENTITY-001",
+      "kind": "runtime accessibility regression",
+      "observed": "A renamed Lux has the right portrait but alt text Enemy player.",
+      "repair": "Use championProfile(data.champion).name. Extend the ten-player case to Ashe/Lux/Garen nicknames, alt and parent aria labels, visible names and rebuilt/cached rows."
+    }
+  ],
+  "initialAuditSourceAndTestDigest": "250e6ea9dd19e40ccbced1e8bc5d86e3e4a20cf86224a448df4af1874841b2d4",
+  "finalSourceAndTestDigest": "4c201e3effe719468527345b875fa351844ede3d61f8a1ed962b706915d54222",
+  "finalChangesAfterCompleteAudit": [
+    {
+      "path": "e2e/lux-post-wisps.spec.ts",
+      "before": "7fdd5d6410067c980d64df3d8bb3cf64a9bdc47cf1c6db41bcffa205e0a19193",
+      "after": "342f16e2d4f8ae43d2376582c8694464f7ebc6076fc494e80590186c317bc240"
+    },
+    {
+      "path": "e2e/scoreboard-ownership.spec.ts",
+      "before": "fe0dce901a0a0f39332934e55a7c6d1ee971bb2f86df964fb83d665771e7f653",
+      "after": "9ccf1d7cf236c9b5d75428a900fb766fb322779030cfa889c87128c03bd0e6cf"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "before": "9be652815f009e5f063d37046c28f43df58af7f62c8810a8734c946c99b1bcb3",
+      "after": "ba5d20a1bf3173ac3e102415e1140052ecbfe4c707fcc09995a9488dc4d04f89"
+    }
+  ]
+}

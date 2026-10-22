@@ -498,3 +498,34 @@ cases. Existing exact checkpoint, fog, overlap and lifetime cases also pass.
 Before/after 1440×900 captures were visually reviewed: the recipient name and
 health bar are clear after placement. This comparison establishes local label
 clearance, not native visual parity. Validation is recorded in [PROGRESS](PROGRESS.md).
+
+## Opaque battlefield and ground-decal composition — October 21, 2026
+
+Layer isolation traced the previously observed bright rectangle to Land's three
+`blasthole` decals, not the wave or smoke layers. The decal uses its authored
+mode-2 darkening blend: RGB is `destination * (1 - sourceRGB)`, while destination
+alpha is multiplied by `1 - sourceAlpha`. Its source image has opaque alpha even
+at the near-black outer texels. The RGB edge therefore leaves the scene almost
+unchanged while the alpha edge can become zero. This is valid RGBA arithmetic;
+the existing offscreen product/blend tests were measuring it correctly.
+
+The installed Three.js 0.186.0 `WebGLRenderer.js` creates its default context with
+`alpha: true`; its constructor's `alpha: false` parameter controls the background
+clear value. The old game canvas consequently exposed the page matte where a
+particle lowered framebuffer alpha. At one isolated outer pixel the GPU read
+`[84,121,104,0]`, but Chrome's page screenshot read `[100,163,142]`: exactly the
+addition of the page's `[16,42,38]` background to the premultiplied canvas RGB.
+Changing the page matte from red to blue changed the displayed decal rectangle.
+
+The game now supplies an explicitly created opaque WebGL 2 context to Three.
+The main canvas cannot reveal page content through a particle's alpha blend.
+Offscreen RGBA targets retain their existing alpha behavior. No source texture,
+appearance curve, UV convention, blend factor, pass or attachment was edited;
+the source Flex field remains unapplied. WebGL 2 creation failure uses the
+existing startup error screen. This corrects a local canvas-composition defect;
+native sampler/material/attachment and full composite calibration remain open.
+
+The red/blue page-matte screenshot cases failed before the fix at both 1× and 2×
+display density and pass afterward. Existing recovery coverage also verifies
+that the opaque context survives restoration with every framebuffer byte intact.
+Current complete validation and reviewed captures are recorded in [PROGRESS](PROGRESS.md).

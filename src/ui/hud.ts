@@ -830,7 +830,7 @@ export class Hud {
       );
       const portrait = row.querySelector('img')!;
       portrait.src = `assets/icons/${data.champion}.png`;
-      portrait.alt = data.name;
+      portrait.alt = championProfile(data.champion).name;
       const deathTimer = row.querySelector<HTMLElement>('.scoreboard-death-timer')!;
       deathTimer.hidden = !data.dead;
       deathTimer.textContent = data.respawnSeconds === null ? '†' : String(data.respawnSeconds);

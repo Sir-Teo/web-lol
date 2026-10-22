@@ -66,7 +66,7 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
     w.nextWaveTick = Infinity;
     for (const team of ['blue', 'red']) {
       for (let slot = team === 'blue' ? 1 : 0; slot < 5; slot++) {
-        const champion = slot === 4 ? 'lux' : 'ashe';
+        const champion = slot === 4 ? 'lux' : slot === 3 ? 'garen' : 'ashe';
         const unit = w.spawn(
           'champion',
           team,
@@ -76,13 +76,18 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
         unit.ai = false;
         w.championState(unit.id).inventory = ['blade', 'boots', 'tome', 'rod', 'wand', 'chapter'];
         // Player-facing names must not determine champion artwork or accessible identity.
-        if (champion === 'lux' && team === 'red') unit.name = 'Enemy player';
+        if (team === 'red') unit.name = 'Enemy player';
       }
     }
     for (const unit of w.units) w.setOrder(unit, { type: 'idle' });
     w.step(900);
     g.setPaused(false);
-    return w.units.map((u: any) => ({ id: u.id, champion: u.champion, team: u.team }));
+    return w.units.map((u: any) => ({
+      id: u.id,
+      champion: u.champion,
+      team: u.team,
+      name: u.name,
+    }));
   });
   await page.keyboard.down('Tab');
   await expect(page.locator('.scoreboard-row')).toHaveCount(10);
@@ -104,7 +109,15 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
       .toBe(true);
 
     await expect(portrait).toHaveAttribute('src', `assets/icons/${member.champion}.png`);
-    await expect(portrait).toHaveAttribute('alt', member.champion === 'lux' ? 'Lux' : 'Ashe');
+    const championName = { ashe: 'Ashe', lux: 'Lux', garen: 'Garen' }[
+      member.champion as 'ashe' | 'lux' | 'garen'
+    ];
+    await expect(portrait).toHaveAttribute('alt', championName);
+    await expect(row.locator('.scoreboard-portrait')).toHaveAttribute(
+      'aria-label',
+      new RegExp(`^${championName}, `)
+    );
+    await expect(row.locator('strong')).toContainText(member.name);
     await expect
       .poll(() => portrait.evaluate((img: HTMLImageElement) => img.naturalWidth))
       .toBeGreaterThan(0);
@@ -170,6 +183,7 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
     'src',
     'assets/icons/lux.png'
   );
+  await expect(updated.locator('.scoreboard-portrait img')).toHaveAttribute('alt', 'Lux');
   await page.keyboard.up('Tab');
   await expect(page.locator('.scoreboard')).toBeHidden();
   expect(errors).toEqual([]);

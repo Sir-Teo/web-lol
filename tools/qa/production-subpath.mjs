@@ -88,6 +88,13 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(page.url(), base);
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.equal(
+    await page
+      .locator('#battlefield')
+      .evaluate((canvas) => canvas.getContext('webgl2').getContextAttributes().alpha),
+    false,
+    'The production battlefield must remain opaque under subtractive particles'
+  );
   await page.goto(`${base}?scene=fixture&champion=garen`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');

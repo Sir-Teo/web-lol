@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The preceding complete Chrome audit passed 221 scenarios at commit `8098f1f`; its scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). The latest Garen Q increment has 1,042 passing source/simulation/geometry checks, 43 focused Chrome scenarios and production validation recorded below. These targeted results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,042 source/simulation/geometry checks. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -777,6 +777,62 @@ selection gate intact. The on-presence Q graphics chunk is 55.14 KB (10.09 KB
 gzip); the ordinary game entry is 584.29 KB (160.66 KB gzip). The existing large-
 bundle warning remains. Complete Garen/native and production/full-match acceptance
 remain in scope.
+
+## Opaque battlefield composition — October 21, 2026
+
+Layer isolation identified the hard bright rectangle in the Q landing composite
+as Land's darkening ground decal. The three authored draws correctly reduce RGB
+and destination alpha. The game requested `alpha: false` from Three.js, but the
+installed r186 renderer creates an alpha-enabled context and uses that option
+for clearing. With framebuffer alpha zero, Chrome adds the page matte to the
+remaining premultiplied RGB. At an outer texel, GPU `[84,121,104,0]` became page
+pixel `[100,163,142]`, exactly adding the `#102a26` matte. This explains the local
+rectangle without changing source texture pixels, curves, UVs or blend factors.
+
+`GameView` now creates an opaque WebGL 2 context explicitly and supplies it to
+Three. No extra rendering pass is added. Offscreen RGBA material/depth targets
+keep their existing behavior, and a missing WebGL 2 context uses the existing
+startup failure screen. Gameplay, snapshot schema 85 and Q's twenty-two rendered
+records are unchanged. Native material/sampling/attachment and full-match fidelity
+remain open. See [decal composition](GAREN-Q-PARTICLES.md#opaque-battlefield-and-ground-decal-composition--october-21-2026).
+
+The new red/blue page-matte screenshot cases failed on the prior code at both
+1× and 2× display density. They pass after the fix, alongside the startup-failure
+case. All fifteen focused compositor, graphics recovery/failure and smoke/depth
+cases pass. Recovery retains identical framebuffer bytes through repeated loss;
+its assertion now also requires an opaque restored context. All 1,042 tests
+across 211 files and TypeScript pass. All 48 existing Q source/profile/audit/asset
+SHA-256 values remain unchanged.
+
+The complete Chrome run executed all 453 scenarios with one worker and no retries
+in 31.6 minutes: **451 passed and two failed**. All 794 sampled source/test/config
+hashes remained unchanged during that audit. One failure was an outdated Lux
+post-wisp assertion: its last beam mesh retires at 1.3 seconds, but the shared
+record correctly retains 1.5-second scorch layers. The test now verifies both
+endpoints, including final retirement of the record and both scorch draws.
+The other failure found a real scoreboard accessibility regression: a renamed
+player's portrait announced the nickname instead of the champion. The portrait
+now uses the existing champion profile's canonical name. The ten-player check
+now covers renamed Ashe, Lux and Garen, both image alt text and parent accessible
+identity, visible nicknames and cached/rebuilt rows.
+
+All six affected wisp/scoreboard cases passed three repetitions (18 checks).
+The full 453-case suite was not rerun after these bounded repairs; the report
+distinguishes the initial complete run from focused repair verification.
+Fresh Q landing/silence captures were reviewed and no longer show the bright
+rectangular page-matte patch. W and R captures were also reviewed. These are
+local qualitative reviews, not registered native comparisons. Evidence is in
+[the compositor verification record](reference/opaque-battlefield-verification.json)
+and [the browser audit](BROWSER-REGRESSION.md).
+
+Final TypeScript and all 1,042 checks pass after the repairs. Production build
+and strict `/nested/rift/` smoke pass, including an actual opaque-context assertion,
+seventeen ordinary recordings, real Ashe/Lux casts and the Garen production gate.
+All 37 built Q assets match public bytes. The Q graphics chunk stays 55.14 KB
+(10.09 KB gzip); the ordinary game entry is 584.49 KB (160.73 KB gzip). The existing
+large-bundle warning remains. Binary assets and source tooling were unchanged;
+the prior model/map validation applies to those identical bytes. Full native,
+cross-browser, role-match, offline and performance acceptance remain unfinished.
 
 ## Historical baseline verification
 

@@ -1,6 +1,52 @@
 # Browser integration audits
 
-## Current complete run: 221 scenarios and audio-resume repair
+## Latest audit: opaque battlefield and scoreboard identity — October 21, 2026
+
+The complete Chrome run executed **453 scenarios: 451 passed and two failed**
+in 31.6 minutes, with one worker and no retries. All 794 sampled source/test/config
+hashes remained unchanged during the run. The source includes the opaque-canvas
+fix described below. After diagnosing the two findings, six affected cases
+passed three focused repetitions (18 checks). The complete suite was not rerun
+after those repairs; these results are not a single all-green 453-case run.
+
+**The battlefield canvas exposed the page through particles.** The installed
+Three.js r186 renderer creates an alpha-enabled context even with the constructor
+option `alpha: false`. Q's subtractive ground decals lowered framebuffer alpha
+and exposed the page matte as a bright rectangle. `GameView` now supplies an
+explicitly opaque WebGL 2 context, preserving particle textures and RGBA blending
+in offscreen targets. Real-Q screenshot checks against red and blue page mattes
+failed before the fix at both display densities and pass now. Startup failure,
+repeated graphics recovery with identical framebuffer bytes, and shared material/
+depth cases pass. The reviewed landing/silence captures no longer show the patch.
+
+**The post-wisp test expected shared history to retire too early.** Source wisps
+end at 1.3 seconds; the subsequently integrated scorch layers last 1.5 seconds.
+Rendering correctly removed the wisps while retaining their shared record. The
+test now verifies both retirement boundaries and final scorch/record cleanup.
+No Lux lifetime or gameplay value was shortened to satisfy the old assertion.
+
+**Renamed players changed the portrait's accessible champion identity.** The
+image selected the correct artwork, but its alt text used the player nickname.
+The HUD now reads the canonical champion name from the existing profile. The
+ten-player test covers Ashe, Lux and Garen, renamed enemy players, both portrait
+alt text and parent accessible labels, visible nicknames, cached row reuse and
+row rebuilding. Related death, observed-stat and item-inspection cases also pass.
+
+The complete audit includes source-Rift geometry/texture transport, culling,
+animation, fog and picking, Ashe/Lux/Garen effects/audio, input/HUD/shop, lane
+matches, checkpoints/imports and recovery. Source-rig verification still reports
+16 rigs, zero sampled matrix error, 114 matching pixel comparisons and no failures.
+Fault-injection warnings remain expected diagnostics. Native visual parity,
+complete role matches, offline delivery and cross-browser/performance acceptance
+remain open. [Detailed evidence and final checks](reference/opaque-battlefield-verification.json)
+
+Final TypeScript and all 1,042 source/simulation/geometry checks pass after the
+repairs. The production build and strict nested-path smoke pass with an opaque
+battlefield, seventeen recordings, real Ashe/Lux casts and development/Garen gates
+intact. Source asset bytes remain unchanged. The existing large-bundle warning
+remains; this run makes no new full-match performance claim.
+
+## Prior complete green run: 221 scenarios and audio-resume repair
 
 The final Chrome run passed **all 221 scenarios** in one complete run, with one worker and no retries, in 9.8 minutes. The baseline was `870badd`; final source adds the audio-resume repair described here. No files changed during this final run. The 612 source/simulation checks and nested-path production smoke also passed on the repaired source.
 

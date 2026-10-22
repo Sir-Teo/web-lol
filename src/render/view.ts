@@ -152,7 +152,19 @@ export class GameView {
     host: HTMLElement,
     readonly battlefield: Battlefield = PRACTICE_FIXTURE
   ) {
+    // In Three r186, renderer.alpha controls the clear value while its default
+    // context always has alpha. Subtractive particles can then expose the page
+    // matte. Keep their RGBA blend intact and make the canvas itself opaque.
+    const canvas = document.createElement('canvas'),
+      context = canvas.getContext('webgl2', {
+        alpha: false,
+        antialias: true,
+        powerPreference: 'high-performance',
+      });
+    if (!context) throw new Error('WebGL 2 is unavailable.');
     this.renderer = new THREE.WebGLRenderer({
+      canvas,
+      context,
       antialias: true,
       alpha: false,
       powerPreference: 'high-performance',
