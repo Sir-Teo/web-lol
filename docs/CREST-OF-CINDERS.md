@@ -61,7 +61,7 @@ true damage normally. The existing damage path supplies aggro, recall
 interruption, assist/kill credit and neutral rewards. A burn survives the owner's
 buff expiry or death, but target death or a monster reset clears it.
 
-Schema 95 retains each owner's buff/pulse clock and healing lockout, plus each
+Schema 96 retains each owner's buff/pulse clock and healing lockout, plus each
 target's burn owner, captured damage, last application, expiry and pulse phase.
 It validates finite damage values, source ownership, exact clocks and slow
 values/duration, including checkpoints during death or after the holder's buff

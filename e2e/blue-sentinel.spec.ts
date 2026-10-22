@@ -84,7 +84,7 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
   });
   expect(target.rig).toBe('sru-blue-base');
   expect(target.pixels).toBeGreaterThan(150);
-  expect(target.calendars).toHaveLength(10);
+  expect(target.calendars).toHaveLength(12);
   expect(
     target.calendars
       .filter((c: any) => c.id.endsWith('gromp'))

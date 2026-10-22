@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "aaa7486",
+  "sourceCommit": "b417810fe477a965ac406ae6fc98f9508f5bb711",
+  "schema": 96,
+  "rulesetFingerprint": "984c45f1afb923bbce8f9ad9ade00422248b0e436b20ad79664add9084b05678",
+  "sourcePin": {
+    "path": "docs/reference/krug-camps-source.json",
+    "sha256": "35d4b47edc3fd818ab64a4ff53eeb8ee9e016bb4d4cac1fa0b09df678294af1e"
+  },
+  "sourcePreparation": {
+    "extractCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-krug-camps.py",
+    "convertCommands": [
+      "node tools/assets/convert-roster-base.mjs SRU_Krug",
+      "node tools/assets/convert-roster-base.mjs SRU_KrugMini",
+      "node tools/assets/convert-roster-base.mjs SRU_KrugMiniMini"
+    ],
+    "exportCommand": "PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-krug-camps.py",
+    "repeatExtractionMatches": true,
+    "repeatGlbsManifestsAndExportByteIdentical": true,
+    "mapArchiveMembers": 35,
+    "rawMapMemberBytes": 954092,
+    "scriptMembers": 6,
+    "rawScriptBytes": 1267,
+    "atomicClips": [
+      17,
+      16,
+      16
+    ],
+    "uniqueInitialLocators": 4,
+    "characterScripts": "RETURN-only stubs",
+    "spellScripts": "Metadata, including spawn-manager; no active death callback recovered",
+    "unchangedParentPins": [
+      "jungle-character-source",
+      "jungle-script-source",
+      "jungle-map-source"
+    ]
+  },
+  "rigs": [
+    {
+      "path": "public/assets/models/sru-krug-base.glb",
+      "sha256": "b02ffc8a014b54a9af69c7d5df5ba93d74fb5ca6514bf89b796583984bb49d0d",
+      "triangles": 2477,
+      "bones": 46,
+      "unitScale": 0.011499999761581422,
+      "skinScale": 1.149999976158142
+    },
+    {
+      "path": "public/assets/models/sru-krugmini-base.glb",
+      "sha256": "d7463d4f361d55a57a80271b6718f70c30c21fd1beee265cdcfc7aa3e0d40f11",
+      "triangles": 1624,
+      "bones": 46,
+      "unitScale": 0.0075,
+      "skinScale": 0.75
+    },
+    {
+      "path": "public/assets/models/sru-krugminimini-base.glb",
+      "sha256": "e8be9260845b77406a66aa7801301de56349c0daa07855a74b1dfc0c948e7929",
+      "triangles": 1624,
+      "bones": 46,
+      "unitScale": 0.004749999940395356,
+      "skinScale": 0.4749999940395355
+    }
+  ],
+  "policies": {
+    "firstReadySeconds": 67,
+    "localProtectedTicks": 52,
+    "localRespawnSeconds": 135,
+    "leashBaseline": 650,
+    "legacyLeash": 900,
+    "splitDelayTicks": 60,
+    "ancientMiniCount": 4,
+    "mediumMiniCount": 2,
+    "initialMembers": 2,
+    "ownedSlots": 8,
+    "splitRadius": 90,
+    "childHomes": "Radial offsets at captured parent death point/facing, projected with source navigation radius",
+    "childPresentation": "Ready immediately on queued birth, no new launch missile/animation",
+    "childAggro": "Captured champion attacker when alive, valid and within child leash; otherwise idle",
+    "cleanup": "Individual marked clocks; cleanup cancels new split children and grants no rewards; native ordering unverified",
+    "localPackRewards": {
+      "cs": 4,
+      "gold": 109,
+      "xp": 121
+    },
+    "corpsePolicy": "Preserves source ~3.933-second clip independently of the published one-second split baseline; native playback retiming unverified",
+    "nativeRespawnAnchor": "unverified; local calendar begins after final live removal with no pending wave"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 229,
+    "passed": 1167,
+    "newCases": 8,
+    "typecheck": "passed",
+    "pendingCorpseRemoval": "Explicit diagnostic removal verifies that queued ownership does not depend on the corpse; ordinary retention exceeds the split delay"
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "allGlbsAndMapValidated": true,
+    "newRigsErrors": 0,
+    "newRigsWarnings": 0
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "command": "npx playwright test e2e/krug-camps.spec.ts e2e/raptor-camps.spec.ts e2e/wolf-camps.spec.ts e2e/rift-gromp-camps.spec.ts e2e/blue-sentinel.spec.ts e2e/red-brambleback.spec.ts e2e/gromp-spawn.spec.ts --workers=1 --timeout=60000",
+    "passed": 7,
+    "failed": 0,
+    "krugAssertions": [
+      "ordinary practice requests no Krug rig",
+      "all three rigs preload before any descendants exist",
+      "initial two source rigs contribute more than 200 aggregate GPU pixels",
+      "real Lux basic attack and Binding provoke retaliation/root",
+      "exact fighting checkpoint reload",
+      "exact pending-wave checkpoint reload before 60-tick child deadline",
+      "four minis appear exactly at deadline and contribute more than 100 aggregate GPU pixels",
+      "real Singularity input illuminates all four first-wave children",
+      "corpse-free partial checkpoint retains five survivors and 2.75 internal CS with HUD 2",
+      "exact partial and fully cleared checkpoint reloads",
+      "final clear totals four CS and retains respawn calendar",
+      "fresh full-health initial pair, six empty child slots and no stale wave after protected respawn"
+    ],
+    "scope": "Seven focused camp cases, with diagnostic setup, final kills and time jumps. Not the complete browser suite, native comparison or a full-role match."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "scheduledKrugRequests": 6,
+    "screenshot": "artifacts/production-subpath.png",
+    "warning": "Existing bundle-size warning: game 635.99 KB and Three 659.92 KB"
+  },
+  "captures": [
+    {
+      "path": "artifacts/krug-camps-split.png",
+      "sha256": "1a1df739dd029972d1190ab04f4ce3510d786aef5add2221f3318cf169a2b600",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/krug-camps-respawn.png",
+      "sha256": "2d635790ff0ac3c1dd60e37714f4b7e85f32257987fc47e47963e73a8fada37b",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Native active skin/spawn manager, medium split callback, launch placement, aggro and cleanup/split ordering",
+    "Native respawn-timer anchor, scaling, attack-speed/reward modifiers and percentage-health on-hit damage",
+    "Native death playback, mini launch effects/audio, full graph selection and patience/soft resets",
+    "Dense combat text, health bars and native rendering/pose comparison",
+    "Scuttler/epic objectives, Smite and jungle-role bots",
+    "Full seeded matches, production roster, full browser audit, performance and offline/delivery certification"
+  ]
+}

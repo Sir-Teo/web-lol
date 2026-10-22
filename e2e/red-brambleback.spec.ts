@@ -80,7 +80,7 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
       calendars: w.jungleCamps.length,
     };
   });
-  expect(target.calendars).toBe(10);
+  expect(target.calendars).toBe(12);
   expect(target.rig).toBe('sru-red-base');
   expect(target.pixels).toBeGreaterThan(150);
   await expect(page.locator(`.unit-bar[data-unit="${target.id}"] .unit-name`)).toHaveText(

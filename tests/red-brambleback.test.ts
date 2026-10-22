@@ -191,6 +191,7 @@ test('Red camps respawn independently after corpse-free saves, preserving the ot
     unitIds: [null],
     nextSpawnTick: deadline,
     cleanupTicks: [null],
+    splitWaves: [],
   });
   expect(w.jungleCamps.filter((c) => c.id.endsWith('blue'))).toEqual(blue);
   w.step(400);

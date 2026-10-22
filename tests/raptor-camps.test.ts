@@ -83,7 +83,7 @@ test('six members retain side-specific protected lead-ups and independent spawn 
     w.tick = definition.firstReadyTick - leadup - 1;
     w.step();
     const { camp, units } = pack(w, side);
-    expect(w.jungleCamps).toHaveLength(10);
+    expect(w.jungleCamps).toHaveLength(RIFT_CAMPS.length);
     expect(camp.unitIds).toHaveLength(6);
     for (const [slot, u] of units.entries()) {
       expect(u.monster!.home).toEqual(campMemberHome(definition, slot, rift));

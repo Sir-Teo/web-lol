@@ -27,10 +27,21 @@ export interface MonsterState {
   targetId: number | null;
   spawn: { startTick: number; readyTick: number; clip: MonsterSpawnClip } | null;
 }
+export interface JungleSplitWave {
+  parentSlot: number;
+  parentId: number;
+  deathTick: number;
+  readyTick: number;
+  point: Vec2;
+  facing: number;
+  targetId: number | null;
+  status: 'pending' | 'spawned' | 'cancelled';
+}
 export interface JungleCampState {
   id: RiftCampId;
   unitIds: (number | null)[];
   cleanupTicks: (number | null)[];
+  splitWaves: JungleSplitWave[];
   nextSpawnTick: number | null;
 }
 export type Unit = UnitBase &

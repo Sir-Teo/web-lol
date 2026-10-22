@@ -1,6 +1,11 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { MONSTERS, monsterSpawnClipTicks } from '../content/monsters';
-import { RIFT_CAMPS, campLeadupTicks, campMemberHome } from '../content/rift-camps';
+import {
+  RIFT_CAMPS,
+  campLeadupTicks,
+  campMemberHome,
+  splitMemberHomes,
+} from '../content/rift-camps';
 import type { Battlefield } from './battlefield';
 import {
   GROMP_ATTACK_PATH_FRAMES,
@@ -71,7 +76,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 95;
+export const SNAPSHOT_VERSION = 96;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -147,7 +152,18 @@ const unit = z
     team: faction,
     monster: z
       .strictObject({
-        species: z.enum(['gromp', 'blue', 'red', 'wolf', 'wolf-mini', 'raptor', 'raptor-mini']),
+        species: z.enum([
+          'gromp',
+          'blue',
+          'red',
+          'wolf',
+          'wolf-mini',
+          'raptor',
+          'raptor-mini',
+          'krug',
+          'krug-medium',
+          'krug-mini',
+        ]),
         home: point,
         phase: z.enum(['spawning', 'idle', 'engaged', 'returning']),
         targetId: id.nullable(),
@@ -166,6 +182,8 @@ const unit = z
               'north_spawn2',
               'north_spawn3',
               'north_spawn4',
+              'spawn_nj',
+              'spawn_north_jung',
             ]),
           })
           .nullable(),
@@ -706,10 +724,26 @@ const snapshot = z.strictObject({
           'chaos-wolves',
           'order-raptors',
           'chaos-raptors',
+          'order-krugs',
+          'chaos-krugs',
         ]),
         unitIds: z.array(id.nullable()).min(1).max(maxCampMembers),
         cleanupTicks: z.array(tick.nullable()).min(1).max(maxCampMembers),
         nextSpawnTick: tick.nullable(),
+        splitWaves: z
+          .array(
+            z.strictObject({
+              parentSlot: z.number().int().min(0).max(1),
+              parentId: id,
+              deathTick: tick,
+              readyTick: tick,
+              point,
+              facing: z.number().min(-Math.PI).max(Math.PI),
+              targetId: id.nullable(),
+              status: z.enum(['pending', 'spawned', 'cancelled']),
+            })
+          )
+          .max(2),
       })
     )
     .max(RIFT_CAMPS.length),
@@ -928,6 +962,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   )
     throw new Error('Saved match has invalid jungle camps.');
   const ownedMonsters = new Set<number>();
+  const splitParents = new Set<number>();
   for (const camp of state.jungleCamps) {
     const definition = RIFT_CAMPS.find((c) => c.id === camp.id)!;
     const leadup = campLeadupTicks(definition);
@@ -936,8 +971,45 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       camp.cleanupTicks.length !== definition.members.length
     )
       throw new Error('Saved camp has invalid member slots.');
-    if (camp.unitIds.every((id) => id === null)) {
+    if (
+      camp.splitWaves.length > definition.splits.length ||
+      new Set(camp.splitWaves.map((s) => s.parentSlot)).size !== camp.splitWaves.length
+    )
+      throw new Error('Saved camp has invalid split waves.');
+    for (const wave of camp.splitWaves) {
+      const split = definition.splits.find((s) => s.parentSlot === wave.parentSlot);
+      const parent = state.units.find((u) => u.id === wave.parentId);
       if (
+        !split ||
+        camp.unitIds[wave.parentSlot] !== null ||
+        splitParents.has(wave.parentId) ||
+        wave.parentId >= state.nextId ||
+        wave.deathTick < definition.firstReadyTick ||
+        wave.deathTick > state.tick ||
+        wave.readyTick !== wave.deathTick + definition.splitDelayTicks ||
+        Math.abs(wave.point.x) > battlefield.half ||
+        Math.abs(wave.point.y) > battlefield.half ||
+        (wave.status === 'pending' && wave.readyTick <= state.tick) ||
+        (wave.status === 'spawned' && wave.readyTick > state.tick) ||
+        (wave.targetId !== null &&
+          !state.units.some((u) => u.id === wave.targetId && u.kind === 'champion')) ||
+        (wave.status !== 'spawned' &&
+          split.childSlots.some((slot) => camp.unitIds[slot] !== null)) ||
+        (parent &&
+          (parent.kind !== 'monster' ||
+            parent.monster.species !== definition.members[wave.parentSlot].species ||
+            parent.deadAt !== wave.deathTick ||
+            parent.x !== wave.point.x ||
+            parent.y !== wave.point.y ||
+            parent.facing !== wave.facing))
+      )
+        throw new Error('Saved camp has an invalid split wave.');
+      splitParents.add(wave.parentId);
+    }
+    const pending = camp.splitWaves.some((s) => s.status === 'pending');
+    if (camp.unitIds.every((id) => id === null) && !pending) {
+      if (
+        camp.splitWaves.length !== 0 ||
         camp.cleanupTicks.some((t) => t !== null) ||
         camp.nextSpawnTick === null ||
         camp.nextSpawnTick - leadup <= state.tick ||
@@ -950,6 +1022,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
     if (camp.nextSpawnTick !== null || state.tick < definition.firstReadyTick - leadup)
       throw new Error('Saved jungle camp has invalid active members.');
+    for (const split of definition.splits) {
+      const wave = camp.splitWaves.find((s) => s.parentSlot === split.parentSlot);
+      if ((camp.unitIds[split.parentSlot] === null) !== !!wave)
+        throw new Error('Saved camp lost a parent split wave.');
+    }
     for (const [slot, id] of camp.unitIds.entries()) {
       const cleanup = camp.cleanupTicks[slot];
       const marked =
@@ -964,8 +1041,16 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved jungle camp has invalid marked cleanup.');
       if (id === null) continue;
       const unit = state.units.find((u) => u.id === id),
-        member = definition.members[slot],
-        home = campMemberHome(definition, slot, battlefield);
+        member = definition.members[slot];
+      const split = definition.splits.find((s) => s.childSlots.includes(slot));
+      const wave = split
+        ? camp.splitWaves.find((s) => s.parentSlot === split.parentSlot)
+        : undefined;
+      if (split && (!wave || wave.status !== 'spawned' || unit?.monster?.spawn !== null))
+        throw new Error('Saved camp has invalid split children.');
+      const home = split
+        ? splitMemberHomes(definition, wave!, battlefield)[split.childSlots.indexOf(slot)]
+        : campMemberHome(definition, slot, battlefield);
       if (
         !unit ||
         unit.kind !== 'monster' ||

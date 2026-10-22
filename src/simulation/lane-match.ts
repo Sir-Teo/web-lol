@@ -37,6 +37,7 @@ export function createLaneMatch(
     unitIds: camp.members.map(() => null),
     cleanupTicks: camp.members.map(() => null),
     nextSpawnTick: camp.firstReadyTick,
+    splitWaves: [],
   }));
   for (const team of ['blue', 'red'] as const) {
     for (const [slot, assignment] of assignments.entries()) {

@@ -5,7 +5,12 @@ import {
   type MonsterSpecies,
   type MonsterSpawnClip,
 } from '../content/monsters';
-import { RIFT_CAMPS, campLeadupTicks, campMemberHome } from '../content/rift-camps';
+import {
+  RIFT_CAMPS,
+  campLeadupTicks,
+  campMemberHome,
+  splitMemberHomes,
+} from '../content/rift-camps';
 import type { JungleCampState } from './types';
 import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
@@ -489,6 +494,30 @@ export class World {
   private advanceJungleCamps(): void {
     for (const camp of this.jungleCamps) {
       const definition = RIFT_CAMPS.find((c) => c.id === camp.id)!;
+      for (const wave of camp.splitWaves) {
+        if (wave.status !== 'pending' || this.tick < wave.readyTick) continue;
+        const split = definition.splits.find((s) => s.parentSlot === wave.parentSlot)!;
+        const homes = splitMemberHomes(definition, wave, this.battlefield);
+        wave.status = 'spawned';
+        const attacker = wave.targetId === null ? undefined : this.unit(wave.targetId);
+        split.childSlots.forEach((slot, i) => {
+          const child = this.spawnMonster(homes[i], null, split.species);
+          child.facing = wave.facing;
+          camp.unitIds[slot] = child.id;
+          if (camp.unitIds[0] === null)
+            camp.cleanupTicks[slot] = this.tick + definition.cleanupDelayTicks!;
+          if (
+            attacker &&
+            this.alive(attacker) &&
+            this.validTarget(child, attacker) &&
+            distance(attacker, child.monster.home) <= MONSTERS[split.species].policy.leashRadius
+          ) {
+            child.monster.phase = 'engaged';
+            child.monster.targetId = attacker.id;
+            this.setOrder(child, { type: 'attack', target: attacker.id });
+          }
+        });
+      }
       for (const [slot, cleanup] of camp.cleanupTicks.entries()) {
         if (cleanup === null) continue;
         const unit = this.unit(camp.unitIds[slot]!)!;
@@ -516,6 +545,7 @@ export class World {
       if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick - leadup) continue;
       const readyTick = camp.nextSpawnTick;
       camp.unitIds = definition.members.map((member, slot) => {
+        if (slot >= definition.initialMemberCount) return null;
         const unit = this.spawnMonster(
           campMemberHome(definition, slot, this.battlefield),
           { startTick: readyTick - leadup, readyTick, clip: member.spawnClip },
@@ -528,6 +558,7 @@ export class World {
         return unit.id;
       });
       camp.cleanupTicks = definition.members.map(() => null);
+      camp.splitWaves = [];
       camp.nextSpawnTick = null;
     }
   }
@@ -3528,9 +3559,24 @@ export class World {
           const slot = camp.unitIds.indexOf(target.id);
           camp.unitIds[slot] = null;
           camp.cleanupTicks[slot] = null;
-          if (camp.unitIds.every((id) => id === null)) {
+          if (definition.splits.some((s) => s.parentSlot === slot))
+            camp.splitWaves.push({
+              parentSlot: slot,
+              parentId: target.id,
+              deathTick: this.tick,
+              readyTick: this.tick + definition.splitDelayTicks,
+              point: { x: target.x, y: target.y },
+              facing: target.facing,
+              targetId: source.kind === 'champion' ? source.id : null,
+              status: category === 'cleanup' ? 'cancelled' : 'pending',
+            });
+          if (
+            camp.unitIds.every((id) => id === null) &&
+            !camp.splitWaves.some((s) => s.status === 'pending')
+          ) {
             camp.nextSpawnTick = this.tick + definition.respawnTicks;
             camp.cleanupTicks = definition.members.map(() => null);
+            camp.splitWaves = [];
           } else if (slot === 0 && definition.cleanupDelayTicks !== null)
             camp.cleanupTicks = camp.unitIds.map((id) =>
               id === null ? null : this.tick + definition.cleanupDelayTicks!

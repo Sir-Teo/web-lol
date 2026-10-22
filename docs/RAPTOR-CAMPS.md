@@ -1,8 +1,9 @@
 # Six-member raptor camps
 
 Both source-linked Rift raptor camps contain one Crimson Raptor and five small
-Raptors. The interim lane match now has ten camp calendars, seven ordinary
-monster rigs and 24 neutral monsters once all camps have spawned. Practice
+Raptors. The raptor milestone reached ten calendars, seven ordinary rigs and 24 monsters.
+[Krug camps](KRUG-CAMPS.md) extend the current catalog to twelve calendars, ten
+rigs and 28 initial monsters, with additional offspring after parent deaths. Practice
 loads none of these rigs. The full-match goal remains active; jungle roles,
 remaining camps/objectives, native comparison and production certification are
 unfinished.
@@ -113,7 +114,7 @@ open. Merely importing those clips does not certify attack fidelity.
 
 ## Saved continuation and validation
 
-Schema 95 accepts six-member groups and canonical fractional champion/observed
+Schema 96 accepts six-member groups and canonical fractional champion/observed
 CS. Camp validation checks exact cardinality, slot species, individual home,
 side-specific spawn alias and lead-up, unique ownership, marked-death clocks and
 the next spawn deadline. The member-count bound derives from the catalog.
