@@ -1,0 +1,252 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sru-red-base.glb",
+    "bytes": 1969240,
+    "sha256": "e1f4ced318ae420f076b6b0122cfa4fbdb8b67c922dc730ac2de223d2e6d681a"
+  },
+  "definitionsSha256": "9cd1fb50137065eb08b1aabd217bb12f8b90aef941511be68b21d5a248ce923c",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_red/skins/skin0.bin",
+      "wadPathHash": "6f470185ed2e79d6",
+      "sha256": "6c415b592c7215245c62960d9cb338ec2bde15a2804a37f05001b76c564a9d38",
+      "bytes": 665
+    },
+    {
+      "path": "data/characters/sru_red/animations/skin0.bin",
+      "wadPathHash": "962e5e601186b9a3",
+      "sha256": "d8316d4b33c7a7a4f616506cbaf3cfd675b35612e9b3d1c96a2155b666d7819e",
+      "bytes": 5956
+    },
+    {
+      "path": "data/characters/sru_red/skins/skin3.bin",
+      "wadPathHash": "3ce2bf8eeb082944",
+      "sha256": "62915b13adc757302710ea9c21db7ca7bbaa5e7eafef9c027f2777fd8c0c3249",
+      "bytes": 146215
+    },
+    {
+      "path": "data/characters/sru_red/animations/skin3.bin",
+      "wadPathHash": "b7faaf1ba70ed5a8",
+      "sha256": "2996eddc23473b3f58bc29a7ea5a241927f24ddef90bf33eae44c357848c821c",
+      "bytes": 8582
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_attack1.anm",
+      "wadPathHash": "a288a6ef156feabf",
+      "sha256": "e3ac56c4ed654ba760bf70a875bb753284d38dca9900da3e462553cff3aa091d",
+      "bytes": 32852
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_attack2.anm",
+      "wadPathHash": "d05c72456d753c37",
+      "sha256": "6bc5800c1d66cc68ceb8dde558f1fab053067429755995bbe9f98731f1f3ec2c",
+      "bytes": 38018
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_attack3.anm",
+      "wadPathHash": "67f94b5ae9b2d0d5",
+      "sha256": "7161c5d4e061da84f8985d7d6b912e67a9d29734f235357eedac1ac7ce5f5e9f",
+      "bytes": 38738
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_death.anm",
+      "wadPathHash": "419facf73e7614ae",
+      "sha256": "c31d6100365c543f5c01dc2e80f848120d46126bc43f9512a9f1556a7ec7bb00",
+      "bytes": 41768
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_idle1.anm",
+      "wadPathHash": "33ed3da08e4720f0",
+      "sha256": "bc150c12c9c3424be3a392286a7b6932e3a6a31d004b9ac2154b928507fbedea",
+      "bytes": 15966
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_idle1_aggro.anm",
+      "wadPathHash": "5348ca19a86d3e12",
+      "sha256": "8d42b26d5b5e1d8e8b02dc5114dd032abd60e65e24350809d500c3a2659b0670",
+      "bytes": 16776
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_idle1_aggro2.anm",
+      "wadPathHash": "4b19348830436f9f",
+      "sha256": "c866323146054cf70248dbb8b38ff69ee2903c63dc1253645ac554fe527992ef",
+      "bytes": 33672
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_idle2.anm",
+      "wadPathHash": "2054b9aa727d9982",
+      "sha256": "373489d2a1d93f02515f3f3f77a33ff036882968e4838dff0c10e8eea9dc0790",
+      "bytes": 34712
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_idle_a2n.anm",
+      "wadPathHash": "d995cc3e96c85e2d",
+      "sha256": "a334857b342828cb584fe76b36c7d66afc52a6fed269cdfc03512c7920c17db2",
+      "bytes": 18176
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_idle_n2a.anm",
+      "wadPathHash": "2cbd97d57f04b5cb",
+      "sha256": "60ecf5128e8a786f0951bc465eeede4011660ff51a437a9381d9e51b2c7b523a",
+      "bytes": 51174
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_lookat_0.anm",
+      "wadPathHash": "d66e087ffd64e851",
+      "sha256": "f7345a9b850ba7de5e261f1765b63b490b9137c9b312a22a5a4f47984992af4e",
+      "bytes": 916
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_lookat_l45.anm",
+      "wadPathHash": "5b32ca715962651b",
+      "sha256": "9ce9aa4f89db9225d6cbbf9f9522948d5df3cfc2bdfac24d8ab6adb6cbba661b",
+      "bytes": 934
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_lookat_r45.anm",
+      "wadPathHash": "d5184fa6d8266ec8",
+      "sha256": "349b8c401534a548c6b6cd45ffcba76a241fc2ffbb66c08489c62c7c54cc18e5",
+      "bytes": 934
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_run.anm",
+      "wadPathHash": "b2d2595418ffee6a",
+      "sha256": "fadf178b328e8c63ea13602250ebfb6ae431e68de06d44d453216d37de205938",
+      "bytes": 23726
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/animations/sru_red_spawn.anm",
+      "wadPathHash": "b805922e7cb2e957",
+      "sha256": "3f2d24a58cd0bcaf89a3fccd35ea4646c8bf6395b87fbcc07d7d4a857098923c",
+      "bytes": 86020
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/sru_red.skl",
+      "wadPathHash": "a9243a9518b155e5",
+      "sha256": "76f1e7b1b49c39a388d357f86a72ce505a14f9770eac5d6e164d6c33b0a8ad33",
+      "bytes": 8592
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/sru_red.skn",
+      "wadPathHash": "c82be4b5ad04a58f",
+      "sha256": "a24e9c00bb472051fe650560c1b5fcc617c9009eecc0f0540e13271dc1bdf8fa",
+      "bytes": 163368
+    },
+    {
+      "path": "assets/characters/sru_red/skins/base/sru_red.tex",
+      "wadPathHash": "7c930c8fb72b8274",
+      "sha256": "e078153961d8b2c392c6c53df2f329a01964d3a5d604cc2f55cdb398a859e61d",
+      "bytes": 699076
+    }
+  ],
+  "unitScale": 0.020750000476837158,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 2.075000047683716,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "RedBuff_TX": "assets/characters/sru_red/skins/base/sru_red.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_92e3d68c",
+      "state": "{92e3d68c}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_idle1.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "attack1",
+      "state": "attack1",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_attack1.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_6f9fc88a",
+      "state": "{6f9fc88a}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_idle2.anm",
+      "durationSeconds": 5.833333492279053
+    },
+    {
+      "name": "entry_bd28bd4d",
+      "state": "{bd28bd4d}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_death.anm",
+      "durationSeconds": 2.700000047683716
+    },
+    {
+      "name": "entry_2acd4eca",
+      "state": "{2acd4eca}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_run.anm",
+      "durationSeconds": 1.033333420753479
+    },
+    {
+      "name": "attack3",
+      "state": "Attack3",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_attack3.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_attack2.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_64ae7bbd",
+      "state": "{64ae7bbd}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_idle1_aggro.anm",
+      "durationSeconds": 1.133333444595337
+    },
+    {
+      "name": "entry_a8cc186b",
+      "state": "{a8cc186b}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_idle_n2a.anm",
+      "durationSeconds": 2.8333334922790527
+    },
+    {
+      "name": "entry_15db56e5",
+      "state": "{15db56e5}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_idle1_aggro2.anm",
+      "durationSeconds": 2.5333335399627686
+    },
+    {
+      "name": "entry_e4cb0f58",
+      "state": "{e4cb0f58}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_spawn.anm",
+      "durationSeconds": 4
+    },
+    {
+      "name": "entry_419d82cf",
+      "state": "{419d82cf}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_idle_a2n.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "entry_f61be274",
+      "state": "{f61be274}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_lookat_r45.anm",
+      "durationSeconds": 0
+    },
+    {
+      "name": "entry_da71f406",
+      "state": "{da71f406}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_lookat_l45.anm",
+      "durationSeconds": 0
+    },
+    {
+      "name": "entry_0224ebad",
+      "state": "{0224ebad}",
+      "source": "assets/characters/sru_red/skins/base/animations/sru_red_lookat_0.anm",
+      "durationSeconds": 0
+    }
+  ],
+  "triangles": 3766,
+  "bones": 69
+}

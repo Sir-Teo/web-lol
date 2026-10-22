@@ -7,13 +7,17 @@ import { ALL_EXTENSIONS, KHRMaterialsUnlit } from '@gltf-transform/extensions';
 import { resample, dedup, prune } from '@gltf-transform/functions';
 const hash = (b) => createHash('sha256').update(b).digest('hex');
 const champion = process.argv[2];
-if (!['Garen', 'Ahri', 'SRU_Blue', 'SRU_Gromp'].includes(champion))
-  throw new Error('Expected Garen, Ahri, SRU_Blue or SRU_Gromp');
+if (!['Garen', 'Ahri', 'SRU_Blue', 'SRU_Gromp', 'SRU_Red'].includes(champion))
+  throw new Error('Expected Garen, Ahri, SRU_Blue, SRU_Gromp or SRU_Red');
 const jungle = champion.startsWith('SRU_');
 const sourceSlug = champion.toLowerCase();
 const slug = sourceSlug.replaceAll('_', '-');
 const pinBytes = await readFile(
-  jungle ? 'docs/reference/jungle-character-source.json' : `docs/reference/${slug}-model.json`
+  champion === 'SRU_Red'
+    ? 'docs/reference/red-brambleback-source.json'
+    : jungle
+      ? 'docs/reference/jungle-character-source.json'
+      : `docs/reference/${slug}-model.json`
 );
 const sourcePin = JSON.parse(pinBytes);
 const pin = jungle
@@ -23,7 +27,12 @@ const pin = jungle
       atomicClips: sourcePin.models[champion].atomicClips,
     }
   : sourcePin;
-const root = jungle ? '.cache/jungle-characters' : `.cache/${slug}-current-sources`;
+const root =
+  champion === 'SRU_Red'
+    ? '.cache/red-brambleback'
+    : jungle
+      ? '.cache/jungle-characters'
+      : `.cache/${slug}-current-sources`;
 for (const f of pin.extraction.files) {
   const b = await readFile(`${root}/${f.path}`);
   if (b.length !== f.bytes || hash(b) !== f.sha256)
