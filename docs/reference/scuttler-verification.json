@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "f057f2ecc66f0b54f7513e9f16f9efb28862e03b",
+  "sourceCommit": "08c8e73cdc57989f2c44a74d0dead83b0ccb8625",
+  "scope": "Provisional live base Scuttler, coordinated river saves and shrine adapter in the interim lane match; native and full-match certification remain open.",
+  "schema": 97,
+  "rulesetFingerprint": "af4cc53882c3cd4b02a6f13ec97e851038766827349b4291f11e3650211fe6c9",
+  "ordinaryCampCalendars": 12,
+  "sharedRiverControllers": 1,
+  "liveMonsterRigs": 11,
+  "initialMonstersAfterAllFirstSpawns": 30,
+  "sourcePin": {
+    "path": "docs/reference/scuttler-source.json",
+    "sha256": "7a7b404bb43d3069724d850e48f4a879d947269df47592afe66fcf8d8917f286"
+  },
+  "sourcePreparation": {
+    "historicalLedger": "docs/reference/scuttler-source-verification.json",
+    "unchangedPinGlbManifestAndParentPins": true,
+    "exportCommand": "PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-scuttler.py",
+    "exportRepeatByteIdentical": true,
+    "exportPath": "src/content/scuttler.json",
+    "exportSha256": "c812bae87a35b4ac6973b91dff7c79af2a3b593cdd57fa1612d71ab2a92f7f8b",
+    "currentChanges": "Status and limitation text now point to the separate provisional runtime policy. Final canonical generator output differs from the browser-tested formatted JSON only in whitespace; semantic data is identical.",
+    "priorExtractionAndRigRepeatEvidence": "Inherited from the historical source-preparation ledger; no new source extraction or conversion claimed here."
+  },
+  "rig": {
+    "path": "public/assets/models/sru-crab-base.glb",
+    "sha256": "d552dd415bba0bb02d4cd1f132f7633190ced4c87c13e3559462badde2a7990f",
+    "manifestSha256": "8f3dba2339bb002f8b47e89297b807f0164675dbec86c290838b3d53c8ffa700",
+    "triangles": 4218,
+    "bones": 66,
+    "skinScale": 0.75,
+    "atomicClips": 17,
+    "attackOrDeathAtomicClips": 0
+  },
+  "policies": {
+    "firstReadySeconds": 175,
+    "legacyFirstReadySeconds": 146,
+    "leadupTicks": 132,
+    "hiddenTicks": 42,
+    "protectedEmergenceTicks": 90,
+    "sourceClipSeconds": 1.6000001430511475,
+    "presentationTailTicks": 7,
+    "respawnTicks": 9000,
+    "firstPair": "Both rivers; first death waits for the other. Each later death schedules one selected river.",
+    "selection": "One 1-100 saved-RNG draw on every death, including the first; 50 threshold normally, 25/75 after four repeated selections.",
+    "patrolWaypointsPerRiver": 5,
+    "thinkTicks": 30,
+    "grazeTicks": 90,
+    "fleeTicks": 300,
+    "fleeDistance": 400,
+    "sightRadius": 1000,
+    "pathfindingRadius": 100,
+    "regenDelayTicks": 300,
+    "regenFractionPerSecond": 0.035,
+    "baseRewards": {
+      "gold": 55,
+      "xp": 100,
+      "cs": 4
+    },
+    "shrineTicks": 5400,
+    "shrineSpeedFraction": 0.3,
+    "shrineLingerTicks": 120,
+    "localSpeedRadius": 250,
+    "localSightRadius": 525,
+    "shrineSourceBinding": "90/0.3/2 are retained effect-slot candidates; active native callbacks and radius are unverified.",
+    "shrineVision": "Existing team sight, terrain and brush rules; no unobstructed native claim.",
+    "shrineSpeed": "Allied living champions, additive with percentage speed bonuses; combat gating is not yet implemented.",
+    "presentation": "Source idle/run2/flee/stun/spawn, cloned run alias, held below-ground hide for burial and corpse; local procedural shrine ring/minimap marker.",
+    "corpseTicks": 59
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 231,
+    "passed": 1182,
+    "newCases": 11,
+    "typecheck": "passed",
+    "scope": "Includes 2400-tick traversal of every waypoint in both river bounds, exact continuations, thresholds, ownership/deadline rejection, rewards, both-team shrine/linger/death and regeneration. A root crossing a graze deadline now cleans the clock and remains restorable."
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "allGlbsAndMapValidated": true,
+    "newRigErrors": 0,
+    "newRigWarnings": 0
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "initialCommand": "npx playwright test e2e/scuttler.spec.ts e2e/krug-camps.spec.ts e2e/raptor-camps.spec.ts e2e/wolf-camps.spec.ts e2e/rift-gromp-camps.spec.ts e2e/blue-sentinel.spec.ts e2e/red-brambleback.spec.ts e2e/gromp-spawn.spec.ts --workers=1 --timeout=60000",
+    "initialPassed": 8,
+    "initialFailed": 0,
+    "finalCommand": "npx playwright test e2e/scuttler.spec.ts e2e/gromp-spawn.spec.ts --workers=1 --timeout=60000",
+    "finalPassed": 2,
+    "finalFailed": 0,
+    "finalRepairs": [
+      "Expired grazing deadline is cleared while rooted/stunned.",
+      "Buried Scuttler is hidden from world visibility, picking, hover, minimap and bars."
+    ],
+    "assertions": [
+      "Practice does not request Scuttler; lane start and corpse-free pending reload preload its rig.",
+      "Exact hidden checkpoint reload; hidden unit cannot be picked.",
+      "Source emergence and readiness tail stay separate.",
+      "Source rig contributes more than 100 GPU pixels.",
+      "Real Lux attack and Binding provoke damage, flee and root without a Scuttler attack cycle or champion health loss.",
+      "Exact flee and shrine checkpoint reloads.",
+      "First death grants four CS and shrine while the other river remains live.",
+      "Allied shrine speed reaches the HUD and the local marker contributes more than 50 GPU pixels.",
+      "Two-second exit expiry, eight CS after both initial clears and exact corpse-free pending reload.",
+      "Later deadline produces one new full-health source rig in the selected river; old shrines expire.",
+      "No page errors or failed requests."
+    ],
+    "scope": "Focused camp cases. Setup, final kills and calendar jumps are diagnostic. Not the complete browser suite, native comparison, role AI or performance certification."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "scheduledKrugRequests": 6,
+    "scheduledScuttlerRequests": 2,
+    "screenshot": "artifacts/production-subpath.png",
+    "warning": "Existing bundle-size warning: game 652.20 KB and Three 659.92 KB."
+  },
+  "captures": [
+    {
+      "path": "artifacts/scuttler-flee.png",
+      "sha256": "70f394c19d79cb480d4dc5b8c95f27f4a09ea4b657c8c4050cd66cb2fe00f606",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/scuttler-shrine.png",
+      "sha256": "abdd06044e2619e8862f1f728293b587bccdb428ccf1bffd16e50373db5a218c",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/scuttler-later-river.png",
+      "sha256": "9d6c526e5d9c82f5145e300a3c655946b583dad07da8298f87ca876532133ebd",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Active native feature flags, callbacks, spawn/hide alignment and later forms.",
+    "Cornered dashes, taunts, melee/ranged component behavior, full graph dispatch and native regeneration rules.",
+    "Native scaling, level/reward modifiers, Smite and jungle damage modifiers.",
+    "Shrine radius/binding, combat gating, native model/particles/audio and hiding/death transition.",
+    "Native material/lighting, pose and pixel comparison.",
+    "Epic objectives, jungle-role bots, full seeded matches and production roster.",
+    "Full browser audit, full-match performance and offline/delivery certification."
+  ]
+}

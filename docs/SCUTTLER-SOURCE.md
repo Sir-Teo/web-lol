@@ -1,10 +1,12 @@
 # Prepared Rift Scuttler sources
 
-Rift Scuttler's base rig, both legacy river regions and the retained movement
-scripts are prepared for live integration. **Scuttler is not yet in the live
-match.** The game still has twelve camp calendars and ten live monster rigs.
-The development character review now exposes all eleven imported ordinary jungle
-rigs, including Scuttler, without changing the match simulation or saved ruleset.
+Rift Scuttler's base rig, both legacy river regions and retained movement
+scripts provide evidence for [the provisional live adapter](SCUTTLER.md).
+The lane match now has twelve ordinary camp calendars plus one shared river
+controller and eleven monster rigs. The extraction and development review
+results below describe the earlier source-preparation milestone; its ledger
+retains schema 96. Current live validation is recorded separately in
+[the live ledger](reference/scuttler-verification.json).
 
 ## Original evidence
 
@@ -29,21 +31,22 @@ fields. The rig has no attack or death atomic clip. It must receive a dedicated
 peaceful movement and hide/shrine lifecycle rather than ordinary retaliation
 with an invented attack animation.
 
-| Root value | Source |
-| --- | --- |
-| HP / damage | 1550 / 35 |
-| Armor / MR | 42 / 42 |
-| Movement speed / range | 255 / 300 |
-| Attack speed | 0.6380000114440918 |
-| Gold / XP / CS | 55 / 100 / 4 |
-| Gameplay / navigation radius | 50 / 100 |
-| Untargetable spawn time | 1.5 seconds |
+| Root value                   | Source             |
+| ---------------------------- | ------------------ |
+| HP / damage                  | 1550 / 35          |
+| Armor / MR                   | 42 / 42            |
+| Movement speed / range       | 255 / 300          |
+| Attack speed                 | 0.6380000114440918 |
+| Gold / XP / CS               | 55 / 100 / 4       |
+| Gameplay / navigation radius | 50 / 100           |
+| Untargetable spawn time      | 1.5 seconds        |
 
 The prepared export preserves these values as source data. It does not apply
 server level/reward modifiers or treat attack stats as permission to retaliate.
 The shrine-stat SpellObject retains effect-slot arrays with first values
 90, 0.30000001192092896 and 2. Their active callback bindings, radius and complete
-reward semantics remain unverified; no shrine reward has been implemented here.
+reward semantics remain unverified. The source export does not bind these slots;
+the live adapter declares its provisional shrine policy separately.
 
 ## Routes, calendars and timing
 
@@ -108,16 +111,18 @@ to their JSON carrier spelling for repeat comparison; no source values change.
 The GLB, manifest and prepared export reproduce byte-identically. Exact commands,
 hashes, Chrome review results and remaining work are recorded in
 [the verification ledger](reference/scuttler-source-verification.json).
-Live peaceful patrol/flee behavior, coordinated spawn saves, shrine vision/speed,
-full-match roles/objectives, native comparison and production certification
-remain unfinished. The full project goal stays active.
+The live adapter now adds peaceful patrol/flee behavior, coordinated spawn saves
+and provisional shrine vision/speed. Complete native behavior, full-match
+roles/objectives, visual comparison and production certification remain unfinished.
+The full project goal stays active.
 
-All 1,171 checks across 230 files, TypeScript and the separate review typecheck
+At that source-preparation revision, all 1,171 checks across 230 files, TypeScript
+and the separate review typecheck
 pass. All five focused character/map Chrome cases pass after correcting the
 new hide-frame assumption. Diagnostic skinned bounds show a held below-ground
 pose throughout sampled times; the review now explains that empty stage, and
 the browser checks negative mesh height and zero pixels at this framing.
 Idle/emergence each contribute more than 500 pixels, all seventeen clips retain
 finite 66-bone matrices, and playback/rewind work. Three final captures were
-visually reviewed. Production smoke and all GLB/map validators pass; the live
-ruleset remains unchanged. The existing bundle-size warning remains.
+visually reviewed. Production smoke and all GLB/map validators pass; that milestone left the live
+ruleset unchanged. The existing bundle-size warning remains.

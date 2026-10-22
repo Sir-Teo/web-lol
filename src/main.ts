@@ -135,6 +135,7 @@ async function boot(): Promise<void> {
   // corpse has already expired. Its rig must be ready before simulation resumes.
   const monsterSpecies = [
     ...new Set<MonsterSpecies>([
+      ...(world.scuttlers ? ['scuttler' as const] : []),
       ...world.jungleCamps.flatMap((c) =>
         RIFT_CAMPS.find((d) => d.id === c.id)!.members.map((m) => m.species)
       ),

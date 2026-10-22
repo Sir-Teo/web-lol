@@ -1,3 +1,5 @@
+import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
+import { riverContains, riverHome } from './scuttler';
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { MONSTERS, monsterSpawnClipTicks } from '../content/monsters';
 import {
@@ -76,7 +78,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 96;
+export const SNAPSHOT_VERSION = 97;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -163,7 +165,19 @@ const unit = z
           'krug',
           'krug-medium',
           'krug-mini',
+          'scuttler',
         ]),
+        scuttle: z
+          .strictObject({
+            river: z.enum(['dragon', 'baron']),
+            destination: z.number().int().min(0).max(4),
+            direction: z.union([z.literal(-1), z.literal(1)]),
+            nextThinkTick: tick,
+            grazeUntil: tick.nullable(),
+            fleeUntil: tick.nullable(),
+            lastDamageTick: tick.nullable(),
+          })
+          .optional(),
         home: point,
         phase: z.enum(['spawning', 'idle', 'engaged', 'returning']),
         targetId: id.nullable(),
@@ -369,6 +383,7 @@ const unit = z
   )
   .refine((u) => {
     if (!u.monster) return true;
+    if (u.monster.species === 'scuttler') return u.order.type === 'idle' || u.order.type === 'move';
     if (u.monster.phase === 'engaged') return u.order.type === 'idle' || u.order.type === 'attack';
     if (u.releaseTick !== null || u.attackCycle !== null) return false;
     return u.monster.phase === 'idle' || u.monster.phase === 'spawning'
@@ -747,6 +762,32 @@ const snapshot = z.strictObject({
       })
     )
     .max(RIFT_CAMPS.length),
+  scuttlers: z
+    .strictObject({
+      initialDeaths: z.number().int().min(0).max(2),
+      unitIds: z.strictObject({ dragon: id.nullable(), baron: id.nullable() }),
+      pending: z
+        .strictObject({
+          side: z.enum(['dragon', 'baron', 'both']),
+          readyTick: tick,
+          deathTick: tick.nullable(),
+        })
+        .nullable(),
+      streakSide: z.enum(['dragon', 'baron']).nullable(),
+      streakCount: tick,
+      shrines: z
+        .array(
+          z.strictObject({
+            river: z.enum(['dragon', 'baron']),
+            team,
+            startTick: tick,
+            endTick: tick,
+          })
+        )
+        .max(2),
+      speedBuffs: z.array(z.strictObject({ unitId: id, team, endTick: tick })).max(100),
+    })
+    .nullable(),
   matchMode: z.enum(['practice', 'lanes']),
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),
@@ -961,6 +1002,115 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     new Set(state.jungleCamps.map((c) => c.id)).size !== state.jungleCamps.length
   )
     throw new Error('Saved match has invalid jungle camps.');
+  const river = state.scuttlers;
+  if ((state.matchMode === 'lanes') !== (river !== null))
+    throw new Error('Saved match has invalid river controller.');
+  const riverIds = new Set<number>();
+  if (river) {
+    const live = RIVER_SIDES.filter((side) => river.unitIds[side] !== null),
+      pending = river.pending;
+    if (
+      new Set(Object.values(river.unitIds).filter((id) => id !== null)).size !== live.length ||
+      (pending &&
+        (live.length !== 0 ||
+          pending.readyTick - SCUTTLER_POLICY.leadupTicks <= state.tick ||
+          (pending.side === 'both'
+            ? river.initialDeaths !== 0 ||
+              pending.readyTick !== SCUTTLER_POLICY.firstReadyTick ||
+              pending.deathTick !== null
+            : river.initialDeaths !== 2 ||
+              pending.deathTick === null ||
+              pending.deathTick < SCUTTLER_POLICY.firstReadyTick ||
+              pending.deathTick > state.tick ||
+              pending.readyTick !== pending.deathTick + SCUTTLER_POLICY.respawnTicks ||
+              pending.readyTick > state.tick + SCUTTLER_POLICY.respawnTicks ||
+              river.streakSide !== pending.side))) ||
+      (!pending &&
+        (river.initialDeaths < 2 ? live.length !== 2 - river.initialDeaths : live.length !== 1)) ||
+      (river.initialDeaths === 0
+        ? river.streakSide !== null || river.streakCount !== 0
+        : river.streakSide === null || river.streakCount < 1)
+    )
+      throw new Error('Saved river lifecycle is inconsistent.');
+    for (const side of live) {
+      const id = river.unitIds[side]!,
+        u = state.units.find((u) => u.id === id),
+        home = riverHome(side, battlefield);
+      if (
+        !u ||
+        u.kind !== 'monster' ||
+        u.monster.species !== 'scuttler' ||
+        u.hp <= 0 ||
+        u.monster.scuttle?.river !== side ||
+        u.monster.home.x !== home.x ||
+        u.monster.home.y !== home.y ||
+        !riverContains(side, u) ||
+        (river.initialDeaths < 2 &&
+          u.monster.spawn &&
+          u.monster.spawn.readyTick !== SCUTTLER_POLICY.firstReadyTick) ||
+        (river.initialDeaths === 2 &&
+          (river.streakSide !== side ||
+            (u.monster.spawn &&
+              u.monster.spawn.readyTick <
+                SCUTTLER_POLICY.firstReadyTick + SCUTTLER_POLICY.respawnTicks)))
+      )
+        throw new Error('Saved river has an invalid live Scuttler.');
+      riverIds.add(id);
+    }
+    if (
+      new Set(river.shrines.map((s) => s.river)).size !== river.shrines.length ||
+      river.shrines.some(
+        (s) =>
+          s.startTick < SCUTTLER_POLICY.firstReadyTick ||
+          s.startTick > state.tick ||
+          s.endTick !== s.startTick + SCUTTLER_POLICY.shrineTicks ||
+          s.endTick <= state.tick
+      )
+    )
+      throw new Error('Saved river has invalid shrines.');
+    if (
+      new Set(river.speedBuffs.map((s) => s.unitId)).size !== river.speedBuffs.length ||
+      river.speedBuffs.some((s) => {
+        const u = state.units.find((u) => u.id === s.unitId);
+        return (
+          !u ||
+          u.kind !== 'champion' ||
+          u.hp <= 0 ||
+          u.team !== s.team ||
+          s.endTick <= state.tick ||
+          s.endTick > state.tick + SCUTTLER_POLICY.shrineLingerTicks
+        );
+      })
+    )
+      throw new Error('Saved river has invalid speed buffs.');
+  }
+  for (const u of state.units) {
+    if (u.kind !== 'monster') continue;
+    const motion = u.monster.scuttle;
+    if ((u.monster.species === 'scuttler') !== !!motion)
+      throw new Error('Saved monster has invalid peaceful movement state.');
+    if (!motion) continue;
+    if (
+      (u.hp > 0 && !riverIds.has(u.id)) ||
+      u.releaseTick !== null ||
+      u.attackCycle !== null ||
+      u.attackTarget !== null ||
+      u.order.type === 'attack' ||
+      u.monster.phase === 'returning' ||
+      motion.nextThinkTick >
+        Math.max(state.tick + SCUTTLER_POLICY.thinkTicks, u.monster.spawn?.readyTick ?? 0) ||
+      (motion.grazeUntil !== null &&
+        (motion.grazeUntil <= state.tick ||
+          motion.grazeUntil > state.tick + SCUTTLER_POLICY.grazeTicks)) ||
+      (motion.lastDamageTick !== null && motion.lastDamageTick > state.tick) ||
+      (motion.fleeUntil !== null &&
+        (motion.fleeUntil <= state.tick ||
+          motion.fleeUntil > state.tick + SCUTTLER_POLICY.fleeTicks ||
+          motion.lastDamageTick === null)) ||
+      (u.monster.phase === 'engaged') !== (motion.fleeUntil !== null)
+    )
+      throw new Error('Saved Scuttler has an invalid peaceful timeline.');
+  }
   const ownedMonsters = new Set<number>();
   const splitParents = new Set<number>();
   for (const camp of state.jungleCamps) {
@@ -1091,7 +1241,9 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           (spawn.startTick > state.tick ||
             spawn.readyTick - spawn.startTick !== leadup ||
             state.tick >=
-              spawn.startTick + monsterSpawnClipTicks(unit.monster.species, spawn.clip) ||
+              spawn.startTick +
+                monsterSpawnClipTicks(unit.monster.species, spawn.clip) +
+                (unit.monster.species === 'scuttler' ? SCUTTLER_POLICY.hiddenTicks : 0) ||
             (unit.monster.phase === 'spawning') !== state.tick < spawn.readyTick ||
             unit.monster.phase === 'engaged' ||
             unit.monster.phase === 'returning' ||

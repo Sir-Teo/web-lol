@@ -1,5 +1,6 @@
 import type { Battlefield } from './battlefield';
 import { World } from './world';
+import { newRiverScuttlers } from './scuttler';
 import { RIFT_CAMPS, type RiftCampId } from '../content/rift-camps';
 
 /** Interim lane-only roster: mirrors are deliberate until more complete kits ship. */
@@ -32,6 +33,7 @@ export function createLaneMatch(
     playerChampion
   );
   world.matchMode = 'lanes';
+  world.scuttlers = newRiverScuttlers();
   world.jungleCamps = RIFT_CAMPS.map((camp) => ({
     id: camp.id as RiftCampId,
     unitIds: camp.members.map(() => null),

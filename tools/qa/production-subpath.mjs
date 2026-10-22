@@ -68,6 +68,7 @@ try {
     scheduledWolfRequests = [],
     scheduledRaptorRequests = [],
     scheduledKrugRequests = [],
+    scheduledScuttlerRequests = [],
     recordings = new Set();
   let laneMatchStarted = false;
   page.on('pageerror', (error) => errors.push(error.message));
@@ -76,7 +77,7 @@ try {
   });
   page.on('request', (request) => {
     if (
-      /sru-(blue|red|gromp|murkwolf|murkwolfmini|razorbeak|razorbeakmini|krug|krugmini|krugminimini)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
+      /sru-(blue|red|gromp|murkwolf|murkwolfmini|razorbeak|razorbeakmini|krug|krugmini|krugminimini|crab)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
         request.url()
       )
     )
@@ -87,6 +88,8 @@ try {
       else if (request.url().includes('sru-murkwolf')) scheduledWolfRequests.push(request.url());
       else if (request.url().includes('sru-razorbeak')) scheduledRaptorRequests.push(request.url());
       else if (request.url().includes('sru-krug')) scheduledKrugRequests.push(request.url());
+      else if (request.url().includes('sru-crab-base'))
+        scheduledScuttlerRequests.push(request.url());
       else scheduledGrompRequests.push(request.url());
     if (/^https?:/.test(request.url()) && !request.url().startsWith(base))
       outside.push(request.url());
@@ -222,6 +225,10 @@ try {
       scheduledKrugRequests.some((url) => url.endsWith(`/${rig}.glb`)),
       'Lane matches must prepare all three Krug rigs, including future descendants'
     );
+  assert(
+    scheduledScuttlerRequests.some((url) => url.endsWith('/sru-crab-base.glb')),
+    'Lane matches must prepare the peaceful Scuttler rig before its calendar or shrine exists'
+  );
   console.log(
     JSON.stringify({
       result: 'passed',
@@ -240,6 +247,7 @@ try {
       scheduledWolfRequests: scheduledWolfRequests.length,
       scheduledRaptorRequests: scheduledRaptorRequests.length,
       scheduledKrugRequests: scheduledKrugRequests.length,
+      scheduledScuttlerRequests: scheduledScuttlerRequests.length,
       screenshot: 'artifacts/production-subpath.png',
     })
   );

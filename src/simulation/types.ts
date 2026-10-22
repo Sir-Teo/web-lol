@@ -2,6 +2,7 @@ import type { ImpactRig } from '../content/impact-target';
 import type { structurePose } from '../render/structure-pose';
 import type { AnimationTimeline } from './animation-timeline';
 import type { Vec2 } from './math';
+import type { RiverSide } from '../content/scuttler-policy';
 import type { RiftCampId } from '../content/rift-camps';
 import type { MonsterSpecies, MonsterSpawnClip } from '../content/monsters';
 export type Team = 'blue' | 'red';
@@ -20,8 +21,33 @@ export type UnitKind =
   | 'nexus'
   | 'dummy'
   | 'monster';
+export interface ScuttleMotion {
+  river: RiverSide;
+  destination: number;
+  direction: -1 | 1;
+  nextThinkTick: number;
+  grazeUntil: number | null;
+  fleeUntil: number | null;
+  lastDamageTick: number | null;
+}
+export interface RiverShrine {
+  river: RiverSide;
+  team: Team;
+  startTick: number;
+  endTick: number;
+}
+export interface RiverScuttlers {
+  initialDeaths: number;
+  unitIds: Record<RiverSide, number | null>;
+  pending: { side: RiverSide | 'both'; readyTick: number; deathTick: number | null } | null;
+  streakSide: RiverSide | null;
+  streakCount: number;
+  shrines: RiverShrine[];
+  speedBuffs: { unitId: number; team: Team; endTick: number }[];
+}
 export interface MonsterState {
   species: MonsterSpecies;
+  scuttle?: ScuttleMotion;
   home: Vec2;
   phase: 'spawning' | 'idle' | 'engaged' | 'returning';
   targetId: number | null;

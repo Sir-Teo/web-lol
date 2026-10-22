@@ -1,3 +1,4 @@
+import { shrinePoint } from '../simulation/scuttler';
 import { selectableChampion } from '../content/champion-profiles';
 import { championProfile } from '../content/champion-profiles';
 import { GAREN } from '../content/garen-progression';
@@ -1172,6 +1173,16 @@ export class Hud {
       x: (p.x / (this.world.battlefield.half * 2) + 0.5) * n,
       y: (p.y / (this.world.battlefield.half * 2) + 0.5) * n,
     });
+    for (const shrine of w.scuttlers?.shrines ?? []) {
+      const point = shrinePoint(shrine.river, w.battlefield);
+      if (shrine.endTick <= w.tick || !w.pointVisible(point)) continue;
+      const p = xy(point);
+      ctx.strokeStyle = shrine.team === w.hero.team ? '#6ed6d4' : '#e89575';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+      ctx.stroke();
+    }
     for (const u of w.units) {
       const knownDestroyed = w.knownStructureDestroyed(u);
       if (knownDestroyed === true || (knownDestroyed === null && (!w.alive(u) || !w.visible(u))))

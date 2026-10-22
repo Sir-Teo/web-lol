@@ -3,6 +3,7 @@ import red from './red-brambleback.json';
 import wolves from './wolf-camps.json';
 import raptors from './raptor-camps.json';
 import krugs from './krug-camps.json';
+import { SCUTTLER_SOURCE as scuttler, SCUTTLER_CLIPS, SCUTTLER_POLICY } from './scuttler-policy';
 import { GROMP, GROMP_POLICY, GROMP_SPAWN_LEADUP_TICKS, GROMP_SPAWN_CLIP_TICKS } from './gromp';
 import { TICK_RATE } from './rules';
 
@@ -62,6 +63,24 @@ function krugProfile(species: 'krug' | 'krug-medium' | 'krug-mini') {
 }
 
 export const MONSTERS = {
+  scuttler: {
+    ...scuttler,
+    name: 'Rift Scuttler',
+    clips: SCUTTLER_CLIPS,
+    missileSpeed: 0,
+    policy: {
+      leashRadius: 5000,
+      sightRadius: 1000,
+      resetHealthFractionPerSecond: SCUTTLER_POLICY.regenFractionPerSecond,
+      windupTicks: 0,
+      attackPeriodTicks: Math.round(TICK_RATE / scuttler.stats.attackSpeed),
+      corpseLifetimeTicks: Math.ceil(scuttler.clips.hide.durationSeconds * TICK_RATE),
+    },
+    spawnLeadupTicks: SCUTTLER_POLICY.leadupTicks,
+    spawnClipTicks:
+      SCUTTLER_POLICY.hiddenTicks + Math.ceil(scuttler.clips.spawn.durationSeconds * TICK_RATE),
+    spawnSubmesh: null,
+  },
   wolf: packProfile('wolf'),
   'wolf-mini': packProfile('wolf-mini'),
   raptor: packProfile('raptor'),

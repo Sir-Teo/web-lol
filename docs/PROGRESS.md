@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,171 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,182 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,41 +14,53 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-96 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-96 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-97 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-97 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
-  wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. Native activation/scaling, the remaining camps/effects/audio and jungle-role matches remain unfinished.
+  wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-[Scuttler source preparation](SCUTTLER-SOURCE.md) now adds the base rig, all
-seventeen atomic clips, both five-point river paths/borders and eighteen retained
-scripts with recursive closure inventories. The source has a peaceful tag and
-no attack/death clip. Its Root 1.5-second untargetability, legacy 2.2-second
-lead-up and ~1.6-second emergence clip remain separate evidence. Coordinated
-legacy river selection and shrine effect-slot candidates are pinned without
-inventing active callback bindings. Scuttler is **not yet in the live match**;
-twelve calendars, ten live monster rigs and schema 96 remain current.
+[Rift Scuttler](SCUTTLER.md) now joins the lane match through a shared river
+controller. Both initial rivers emerge at 2:55, patrol all five source waypoints
+and flee attackers without inventing an attack. The first death waits for the
+other initial Scuttler; later clears schedule one selected river after 150 seconds.
+Selection consumes saved RNG on every death, retaining the legacy 50 and streak
+25/75 thresholds. Schema 97 stores ownership, hidden/emergence clocks, movement,
+regeneration, pending death-based deadlines, shrines and speed linger.
 
-The development character review now exposes all eleven imported ordinary rigs
-instead of stale definitions-only placeholders. It retains absent Root values,
-retry, caching and late-load guards. A new Scuttler review scrubs all seventeen
-clips and verifies visible idle/emergence GPU contributions. Its initial hide
-assertion exposed an incorrect visible-frame assumption: the authored held hide
-pose remains below the grid. The review explains the empty stage, and the final
-check verifies negative skinned height and zero pixels at that framing. All five
-focused character/map review cases pass after that correction; three captures
-were visually reviewed. The final live simulation fingerprint remains unchanged.
+The source's 2.2-second lead-up, Root 1.5-second protection and ~1.6-second clip
+remain distinct. A local 42-tick buried phase precedes 90 protected emergence
+ticks, with seven final presentation ticks after readiness. The held hide pose
+also supplies the local corpse presentation; the source has no attack/death clip.
+Both source rivers retain their boundaries and projected source navigation homes.
+A local shrine grants team vision and a 30% speed bonus with two-second linger;
+the 90-second duration and bonus/linger are provisional bindings of retained
+source candidates. The area ring and minimap marker are local aids. Native
+radius, combat gating, dash/taunt behavior, later forms, scaling, shrine
+particles/audio and visual comparison remain open.
 
-All 1,171 checks across 230 files, TypeScript and the separate review typecheck
-pass. Seven independent synthetic Lua checks cover the new restricted open-result
-point constructor. Extraction repeats, the GLB/manifest/prepared export reproduce
-byte-identically, and all GLBs/map validate with zero errors/warnings. Production
-build and `/nested/rift/` smoke pass with 17 recordings and no preview requests or
-development hook. The existing bundle warning remains. Details and limits are
-in [the source ledger](reference/scuttler-source-verification.json). Live
-Scuttler movement, coordinated spawning/saves and shrine rewards remain next;
-full-match/native comparison and certification remain unfinished.
+All 1,182 checks across 231 files and TypeScript pass, including eleven Scuttler
+cases. All eight focused jungle Chrome cases passed together. Final hidden
+visibility and crowd-control deadline repairs then passed the Scuttler and Gromp
+emergence cases again. The Scuttler browser case uses real Lux attack/Binding
+input, checks source-rig and shrine GPU contributions, exact hidden/flee/shrine/
+corpse-free pending reloads, rewards and a fresh single-river respawn. Setup,
+lethal finishes and calendar jumps remain diagnostic. Three captures were visually
+reviewed. All GLBs/map validate with zero errors/warnings. Production build and
+`/nested/rift/` smoke pass with 17 recordings, all eleven rigs, no preview
+requests and no development hook. The existing bundle-size warning remains
+(652.20 KB game and 659.92 KB Three). Exact results are recorded in
+[the live ledger](reference/scuttler-verification.json); this is not a full browser
+audit or native/full-match certification.
+
+[The source preparation](SCUTTLER-SOURCE.md) and
+[its historical ledger](reference/scuttler-source-verification.json) retain the
+separate extraction and rig review milestone: seventeen atomic clips, both river
+paths/borders, eighteen scripts and recursive closure inventories. The development
+character review exposes all eleven imported ordinary rigs and explains the
+below-ground hide pose. Those historical schema-96 results do not certify the
+new live controller. The full project goal stays active.
 
 [Krug camps](KRUG-CAMPS.md) now add both Ancient/medium pairs and delayed
 four-/two-mini split waves. All three base rigs and their 17/16/16 atomic clips

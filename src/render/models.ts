@@ -118,7 +118,9 @@ export async function loadReferenceModels(
                   'death',
                   'recall',
                 ]
-              : ['idle1', 'run', 'attack1', 'death'])
+              : name === 'sru-crab-base'
+                ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
+                : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);
       if (/-(turret|nexus|inhibitor)$/.test(name))

@@ -1,3 +1,12 @@
+import {
+  advanceRiverScuttlers,
+  advanceScuttler,
+  grantRiverSpeed,
+  scuttlerKilled,
+  shrinePoint,
+} from './scuttler';
+import { SCUTTLER_SOURCE, SCUTTLER_POLICY } from '../content/scuttler-policy';
+import type { RiverScuttlers } from './types';
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import {
   MONSTERS,
@@ -163,6 +172,7 @@ export class World {
   matchMode: 'practice' | 'lanes' = 'practice';
   encounter: 'gromp' | null = null;
   jungleCamps: JungleCampState[] = [];
+  scuttlers: RiverScuttlers | null = null;
   units: Unit[] = [];
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
@@ -475,6 +485,23 @@ export class World {
       idleClock: spawn ? null : base.idleClock,
       monster: {
         species,
+        ...(species === 'scuttler'
+          ? {
+              scuttle: {
+                river:
+                  distance(point, SCUTTLER_SOURCE.rivers.dragon.center) <
+                  distance(point, SCUTTLER_SOURCE.rivers.baron.center)
+                    ? ('dragon' as const)
+                    : ('baron' as const),
+                destination: 3,
+                direction: -1 as const,
+                nextThinkTick: spawn?.readyTick ?? this.tick,
+                grazeUntil: null,
+                fleeUntil: null,
+                lastDamageTick: null,
+              },
+            }
+          : {}),
         home: { x: point.x, y: point.y },
         phase: spawn && this.tick < spawn.readyTick ? 'spawning' : 'idle',
         targetId: null,
@@ -597,9 +624,15 @@ export class World {
     if (
       monster.spawn &&
       this.tick >=
-        monster.spawn.startTick + monsterSpawnClipTicks(monster.species, monster.spawn.clip)
+        monster.spawn.startTick +
+          monsterSpawnClipTicks(monster.species, monster.spawn.clip) +
+          (monster.species === 'scuttler' ? SCUTTLER_POLICY.hiddenTicks : 0)
     )
       monster.spawn = null;
+    if (monster.species === 'scuttler') {
+      advanceScuttler(this, u, (unit, point) => this.move(unit, point));
+      return true;
+    }
     if (
       monster.phase === 'engaged' &&
       (!target ||
@@ -848,6 +881,8 @@ export class World {
     }
     this.releaseWaveUnits();
     this.advanceJungleCamps();
+    advanceRiverScuttlers(this);
+    grantRiverSpeed(this);
     this.advanceCinderBurns();
     for (const u of this.units) {
       if (!this.alive(u)) {
@@ -1086,6 +1121,13 @@ export class World {
   }
   visible(u: Unit, team: Faction = 'blue'): boolean {
     if (team === 'neutral') return false;
+    if (
+      u.kind === 'monster' &&
+      u.monster.species === 'scuttler' &&
+      u.monster.spawn &&
+      this.tick < u.monster.spawn.startTick + SCUTTLER_POLICY.hiddenTicks
+    )
+      return false;
     if (u.team === team || this.pointVisible(u, team)) return true;
     return this.units.some((source) => {
       if (source.champion !== 'garen' || source.team !== team) return false;
@@ -1116,6 +1158,12 @@ export class World {
     const sources: VisionSource[] = this.units
       .filter((u) => u.team === team && this.alive(u))
       .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
+    for (const shrine of this.scuttlers?.shrines ?? [])
+      if (shrine.team === team && shrine.endTick > this.tick)
+        sources.push({
+          ...shrinePoint(shrine.river, this.battlefield),
+          radius: SCUTTLER_POLICY.shrineSightRadius,
+        });
     sources.push(
       ...this.visionAreas.filter(
         (a) =>
@@ -2113,6 +2161,7 @@ export class World {
     }
   }
   private advanceUnit(u: Unit): void {
+    if (u.kind === 'monster' && u.monster.species === 'scuttler') return;
     const state = this.championState(u.id);
     let target = u.attackTarget === null ? undefined : this.unit(u.attackTarget);
     if (u.releaseTick !== null) {
@@ -2373,7 +2422,12 @@ export class World {
       1 +
       (u.summonerHealSpeedUntil > this.tick ? SUMMONER_HEAL.speedBonus : 0) +
       (q && q.speedUntil > this.tick ? GAREN_Q.movementSpeedBonus : 0);
-    return u.speed * this.slowFactor(u) * haste;
+    const river =
+      this.alive(u) &&
+      this.scuttlers?.speedBuffs.some((s) => s.unitId === u.id && s.endTick > this.tick)
+        ? SCUTTLER_POLICY.shrineSpeedFraction
+        : 0;
+    return u.speed * this.slowFactor(u) * (haste + river);
   }
   perseveranceRegenPerSecond(u: Unit): number {
     if (u.champion !== 'garen' || !this.alive(u)) return 0;
@@ -3508,6 +3562,12 @@ export class World {
         member.monster.phase = 'engaged';
         member.monster.targetId = source.id;
         member.monster.spawn = null;
+        if (member.monster.scuttle) {
+          member.monster.scuttle.lastDamageTick = this.tick;
+          member.monster.scuttle.fleeUntil = this.tick + SCUTTLER_POLICY.fleeTicks;
+          member.monster.scuttle.grazeUntil = null;
+          member.monster.scuttle.nextThinkTick = this.tick;
+        }
       }
     }
     if (category !== 'cleanup')
@@ -3551,6 +3611,11 @@ export class World {
       );
       target.deadAt = this.tick;
       if (target.kind === 'monster') {
+        if (target.monster.species === 'scuttler') {
+          scuttlerKilled(this, target, source);
+          target.monster.scuttle!.fleeUntil = null;
+          target.monster.scuttle!.grazeUntil = null;
+        }
         target.monster.phase = 'idle';
         target.monster.targetId = null;
         const camp = this.jungleCamps.find((c) => c.unitIds.includes(target.id));
@@ -3597,6 +3662,10 @@ export class World {
       if (target.structureKnowledge)
         target.structureKnowledge = { blue: this.tick, red: this.tick };
       if (target.kind === 'champion') {
+        if (this.scuttlers)
+          this.scuttlers.speedBuffs = this.scuttlers.speedBuffs.filter(
+            (s) => s.unitId !== target.id
+          );
         const level = targetState?.level ?? 1;
         target.respawnTick = this.tick + championDeathTicks(level, this.tick);
       }
@@ -4560,6 +4629,7 @@ export class World {
       matchMode: this.matchMode,
       encounter: this.encounter,
       jungleCamps: this.jungleCamps,
+      scuttlers: this.scuttlers,
       ruleset: SNAPSHOT_RULESET,
       winner: this.winner,
       firstBloodClaimed: this.firstBloodClaimed,

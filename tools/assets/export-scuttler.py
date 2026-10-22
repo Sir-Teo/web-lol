@@ -21,7 +21,7 @@ def point(p):
 def points(table):
     return [point(table[key]) for key in sorted(table, key=int)]
 result = dict(sourcePin=str(source), sourcePinSha256=hashlib.sha256(source.read_bytes()).hexdigest(),
-    status='Prepared source evidence and animation review only. Scuttler is not yet part of the live match.',
+    status='Source evidence for the provisional live Scuttler adapter. Native timing, callbacks and visual calibration remain unverified.',
     rig='sru-crab-base', modelSha256=manifest['output']['sha256'],
     stats={key: root[field]['baseValue'] for key, field in [
         ('maxHp', 'baseHPModifiable'), ('damage', 'baseDamageModifiable'), ('armor', 'baseArmorModifiable'),
@@ -49,10 +49,10 @@ result = dict(sourcePin=str(source), sourcePinSha256=hashlib.sha256(source.read_
             'All seventeen clips are retained. The source graph has no attack/death atomic clip; review labels are filename-derived, not invented source states.',
             'The 1.5s Root untargetability, 2.2s legacy lead-up and ~1.6s emergence clip remain separate; active callback/graph timing requires calibration.',
             'The legacy feature-gated controller starts with two rivers, then coordinates a later selected location, with streak-biased random thresholds. Current native feature flags and lifecycle need verification.',
-            'Shrine arrays 90/0.3/2 are retained as effect-slot candidates, not certified callback bindings or implemented rewards.',
-            'Base skin 0 is a local review choice; SkinOverrides, later forms, scaling, collision, graph dispatch, shrine visuals/audio and live integration remain unfinished.'])
+            'Shrine arrays 90/0.3/2 are retained as effect-slot candidates, not certified callback bindings. Runtime policy is separate.',
+            'Base skin 0 is a local review choice; SkinOverrides, later forms, scaling, collision, graph dispatch, shrine visuals/audio and complete native integration remain unfinished.'])
 path = Path('src/content/scuttler.json')
 text = json.dumps(result, indent=2) + '\n'
 if not path.exists() or path.read_text() != text:
     path.write_text(text)
-print('Exported prepared Scuttler source profile, both river paths and distinct timing evidence; no live camp added')
+print('Exported Scuttler source evidence, both river paths and distinct timing values; live adapters remain in scuttler-policy.ts')

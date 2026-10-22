@@ -1,4 +1,5 @@
 import { recallAnimationPose } from './recall-animation';
+import { SCUTTLER_POLICY } from '../content/scuttler-policy';
 import { MONSTERS } from '../content/monsters';
 import type { ChampionState, Unit } from '../simulation/types';
 import { castAnimationName } from '../content/cast-animation';
@@ -55,6 +56,14 @@ export function mobilePose(
     cut: cut || (unit.kind === 'monster' && unit.animationTimeline?.primary.kind === 'spawn'),
     settled: cut || time >= 0.08,
   });
+  const scuttler = unit.kind === 'monster' && unit.monster.species === 'scuttler';
+  if (scuttler && unit.deadAt !== null) return fixed('death', 'hide', 0, true);
+  if (scuttler && unit.monster!.spawn) {
+    const age = at - unit.monster!.spawn.startTick;
+    return age < SCUTTLER_POLICY.hiddenTicks
+      ? fixed('spawn', 'hide', 0, true)
+      : fixed('spawn', 'spawn', (age - SCUTTLER_POLICY.hiddenTicks) / TICK_RATE, true);
+  }
   if (unit.deadAt !== null)
     return fixed('death', 'death', Math.max(0, (at - unit.deadAt) / TICK_RATE) + terminalAge);
   if (unit.kind === 'monster' && unit.monster.spawn)
@@ -92,6 +101,8 @@ export function mobilePose(
     cycle = unit.attackCycle;
   if (!moving && cycle && tick < cycle.endTick) {
     if (unit.kind === 'monster') {
+      if (unit.monster.species === 'scuttler')
+        throw new Error('Peaceful Scuttler cannot have an attack cycle');
       const age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
       const windup = unit.windupTicks / TICK_RATE;
       const contact = MONSTERS[unit.monster.species].castFrame / 30;
@@ -127,7 +138,17 @@ export function mobilePose(
     return { ...fixed('attack', clip, age * rate, false, rate), settled: age >= 0.08 };
   }
   const clip =
-      unit.champion === 'garen' ? (moving ? 'run_base' : 'idle1_base') : moving ? 'run' : 'idle1',
+      unit.champion === 'garen'
+        ? moving
+          ? 'run_base'
+          : 'idle1_base'
+        : scuttler && unit.stunUntil > tick
+          ? 'stun'
+          : moving
+            ? scuttler && unit.monster!.phase === 'engaged'
+              ? 'flee'
+              : 'run'
+            : 'idle1',
     clock = moving ? unit.runClock : unit.idleClock;
   const seconds = clock ? clock.previous + (clock.current - clock.previous) * alpha : 0,
     length = duration(clip);
