@@ -1,0 +1,2438 @@
+{
+  "parents": {
+    "jungle-character-source": {
+      "path": "docs/reference/jungle-character-source.json",
+      "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b"
+    },
+    "jungle-script-source": {
+      "path": "docs/reference/jungle-script-source.json",
+      "sha256": "1a8dd82125b5834f7c459edb25216f03104f0e7bff8dfc057629fcf33fb6cbae"
+    },
+    "jungle-map-source": {
+      "path": "docs/reference/jungle-map-source.json",
+      "sha256": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93"
+    }
+  },
+  "skinExtraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+    "chunks": {
+      "A02D372F5DF76CAD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39736250,
+        "bytes": 223610,
+        "sha256": "497b48b952a25d9d549a9072d1b2968fced9ac4b0adb323b55d374bdb883ec4b"
+      },
+      "6C7FBEFDF21793B9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39959860,
+        "bytes": 258644,
+        "sha256": "f23ef45618318e6d6c3a909b86fc1846003544eeb901caeb4d180d5990932397"
+      },
+      "28395A168DBE5BA0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40218504,
+        "bytes": 183351,
+        "sha256": "70bced407e6680cc97032f924a5f3e16f886d1ac327f1146713dbfe168cc87c4"
+      },
+      "902BE54057D2F816": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40401855,
+        "bytes": 5831,
+        "sha256": "02c40cc44fd863d50514ee0ffd10a54d3ff9e9af1d6fac6ef4cb1d461f16d4d5"
+      },
+      "FEB9FC9832147ADC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 12867106,
+        "bytes": 266544,
+        "sha256": "5682b05473d220685c2b21546fb68b91041f0ebefc44b3c78b84ca10d62f61a0"
+      },
+      "6B95A8A461464D99": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 15776587,
+        "bytes": 12923,
+        "sha256": "733da23ed5e1ba73cda7c3e9dc6e8b44aeae2001f14317f8447d0a9fb8878044"
+      },
+      "64F6383CE1F462E9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 2075109,
+        "bytes": 1654,
+        "sha256": "75531bfbd9bfff337bad058b4feba26d437e5be5b22a2d5a330a4c7ef52cd1a5"
+      }
+    },
+    "files": [
+      {
+        "path": "data/characters/sru_blue/skins/skin4.bin",
+        "wadPathHash": "5354cc6530c226e9",
+        "sha256": "5ed038ce02a2cfa92cbd516583bbd2f3a363d40113febf6bd374ea99b3adef10",
+        "bytes": 111521
+      },
+      {
+        "path": "data/characters/sru_blue/animations/skin4.bin",
+        "wadPathHash": "de855306332a312b",
+        "sha256": "3f6dbb2379103c71193e1a506e0cefe31ae4add6b7b8260491e7eb2099907dc4",
+        "bytes": 6651
+      }
+    ]
+  },
+  "scriptExtraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Scripts.wad.client",
+    "chunks": {
+      "9D6B139F5625E74C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35852845,
+        "bytes": 75450,
+        "sha256": "e4a4f61beea877cab9ed30be0b521a2c01e7f6af05f4b7d08f671d52e37d8512"
+      },
+      "70B13796F6370E48": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35928295,
+        "bytes": 183603,
+        "sha256": "9fbae2c2d3807eb7c27870f4501c9507acd95531ae0d44d14587704e864650b7"
+      },
+      "0A15B7F6D72C6848": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36111898,
+        "bytes": 90579,
+        "sha256": "18caaf1d6c0d94c2db7d820d10107b61abe7587263760709d51061c4240b175b"
+      },
+      "8DFE49A4492DA71F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36202477,
+        "bytes": 138822,
+        "sha256": "3cfdf55545a2898d937d694a29cfdc1623e143769f61c4446f635e4044e7c32a"
+      },
+      "D2860162132D3784": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36341299,
+        "bytes": 144181,
+        "sha256": "809f3aafcdd55c68050b689a201e707f863e20bd0075ea2cf1533509b5eb19f6"
+      },
+      "63611195382B0C7A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36485480,
+        "bytes": 95916,
+        "sha256": "2261825b9572b17d9586307244f9d821c29068e934410a279fdf41d957cfd8a1"
+      },
+      "F6B96CAAE2654A23": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36581396,
+        "bytes": 81491,
+        "sha256": "b20123e9a1c5439f1cb352cf61f38bb93d2474314b3998777ab3e53bc4429a8c"
+      },
+      "AC6C3E04B54120B0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36662887,
+        "bytes": 60523,
+        "sha256": "cec143c1ae0cd3df9803c26591b10d09e40589bbf32d833a6e637af1f7850c2b"
+      },
+      "188A760A7FCB63BF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FFE4576B475CD3F3.bundle",
+        "offset": 8716968,
+        "bytes": 48,
+        "sha256": "9a654fb069f636591c44871e4a3a52ad8f963354278b04b8efe838bc1631086b"
+      },
+      "55C23E231B0121C3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 562393,
+        "bytes": 180,
+        "sha256": "aecb2d3296c27105b01bf4aeb525a498054a8fa960c7ce3d11fceb74007092a7"
+      },
+      "30F55040650B878F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 3033558,
+        "bytes": 202,
+        "sha256": "00043343b9e36b4952b15ae2599cb6768819eaacdd498031a4468e54005e7d7f"
+      }
+    },
+    "files": [
+      {
+        "path": "data/characters/sru_blue/charscriptsru_blue.luabin64",
+        "wadPathHash": "ae83b02999303a73",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      },
+      {
+        "path": "data/shared/spells/crestoftheancientgolem.luabin64",
+        "wadPathHash": "6624ca2e77c0d29b",
+        "sha256": "b2f778815eb9c17de7bdda70cf0c9f14577392c024f370b65b8edb3d370a993d",
+        "bytes": 247
+      },
+      {
+        "path": "data/shared/spells/crestoftheancientgolemaura.luabin64",
+        "wadPathHash": "07886a4a9c5c33c4",
+        "sha256": "19d7a9a3d6cf2dbde52ca48301c33eadb8b86bd664add37f1888990ad21593b3",
+        "bytes": 284
+      }
+    ]
+  },
+  "skin4Records": {
+    "data/characters/sru_blue/skins/skin4.bin": {
+      "Characters/SRU_Blue/Skins/Skin4": {
+        "championSkinName": "SRU_Blue_Baron",
+        "{68f2b69c}": {
+          "{cb522723}": [
+            "{632e5ade}",
+            "{c7020d4f}"
+          ],
+          "__type": "{68f2b69c}"
+        },
+        "skinAudioProperties": {
+          "bankUnits": [
+            {
+              "name": "NPC_Map11_Blue_Base_Voidborn_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Blue_Base_Voidborn_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Blue_Base_Voidborn_SFX_events.bnk"
+              ],
+              "{12d8e384}": [
+                "Play_sfx_SRU_Blue_Base_Voidborn_a2n_buffactivate",
+                "Play_sfx_SRU_Blue_Base_Voidborn_aggro1",
+                "Play_sfx_SRU_Blue_Base_Voidborn_aggro2",
+                "Play_sfx_SRU_Blue_Base_Voidborn_aggro3",
+                "Play_sfx_SRU_Blue_Base_Voidborn_BasicAttack2_cast",
+                "Play_sfx_SRU_Blue_Base_Voidborn_BasicAttack2_hit",
+                "Play_sfx_SRU_Blue_Base_Voidborn_BasicAttack3_cast",
+                "Play_sfx_SRU_Blue_Base_Voidborn_BasicAttack3_hit",
+                "Play_sfx_SRU_Blue_Base_Voidborn_BasicAttack_cast",
+                "Play_sfx_SRU_Blue_Base_Voidborn_BasicAttack_hit",
+                "Play_sfx_SRU_Blue_Base_Voidborn_death_cast",
+                "Play_sfx_SRU_Blue_Base_Voidborn_n2a_buffactivate",
+                "Play_sfx_SRU_Blue_Base_Voidborn_spawn_cast",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_a2n_buffactivate",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_aggro1",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_aggro2",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_aggro3",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_BasicAttack2_cast",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_BasicAttack2_hit",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_BasicAttack3_cast",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_BasicAttack3_hit",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_BasicAttack_cast",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_BasicAttack_hit",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_death_cast",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_n2a_buffactivate",
+                "Stop_sfx_SRU_Blue_Base_Voidborn_spawn_cast"
+              ],
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "{0220f273}",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/SRU_Blue/Skins/Skin04/Skin04.skl",
+          "simpleSkin": "ASSETS/Characters/SRU_Blue/Skins/Skin04/Skin04.skn",
+          "texture": "{77bc9450e1302e70}",
+          "skinScale": 1.3700000047683716,
+          "selfIllumination": 0.699999988079071,
+          "reflectionFresnelColor": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "initialSubmeshToHide": "Normal",
+          "materialOverride": [
+            {
+              "texture": "assets/characters/sru_blue/skins/base/sru_blue_golem_v2.tex",
+              "submesh": "Normal",
+              "__type": "SkinMeshDataProperties_MaterialOverride"
+            }
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Stone",
+        "idleParticlesEffects": [
+          {
+            "{9b0300f3}": "{9942c423}",
+            "boneName": "BuffBone_Cstm_BlueBuff",
+            "__type": "SkinCharacterDataProperties_CharacterIdleEffect"
+          }
+        ],
+        "iconCircle": "assets/characters/sru_blue/hud/bluesentinel_circle.tex",
+        "iconCircleScale": 1.2000000476837158,
+        "iconSquare": "assets/characters/sru_blue/hud/bluesentinel_square.tex",
+        "healthBarData": {
+          "hpPerTick": 1000.0,
+          "unitHealthBarStyle": 5,
+          "__type": "CharacterHealthBarDataRecord"
+        },
+        "mResourceResolver": "{d27a1a34}",
+        "objectPath": "Characters/SRU_Blue/Skins/Skin4",
+        "__type": "SkinCharacterDataProperties"
+      }
+    },
+    "data/characters/sru_blue/animations/skin4.bin": {
+      "{0220f273}": {
+        "__type": "AnimationGraphData",
+        "mCascadeBlendValue": 0.0,
+        "atomicSources": {
+          "{2edb0b8e}": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack1.anm",
+          "{583d5575}": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack2.anm",
+          "{e4cb0f58}": "assets/characters/sru_blue/skins/base/animations/sru_blue_spawn.anm",
+          "{6c2b2ee6}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_normal.anm",
+          "{5dd15858}": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack3.anm",
+          "{b6a527d3}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro.anm",
+          "{2acd4eca}": "assets/characters/sru_blue/skins/base/animations/sru_blue_run.anm",
+          "{d81015fa}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_n2a.anm",
+          "{daf79fee}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_a2n.anm",
+          "{77ed1c45}": "assets/characters/sru_blue/skins/base/animations/sru_blue_death.anm",
+          "{c1859e94}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro2.anm",
+          "{eaadec65}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_aggro3.anm",
+          "{f815289c}": "assets/characters/sru_blue/skins/base/animations/brush_test_bb_a.anm",
+          "{317a4a65}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_l.anm",
+          "{1df94e06}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_m.anm",
+          "{c7cda7d1}": "assets/characters/sru_blue/skins/base/animations/sru_blue_idle_lookat_r.anm",
+          "attack1": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack1.anm",
+          "Attack2": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack2.anm",
+          "Attack3": "assets/characters/sru_blue/skins/base/animations/sru_blue_attack3.anm",
+          "{bd28bd4d}": "assets/characters/sru_blue/skins/base/animations/sru_blue_death.anm",
+          "{15c6e792}": "assets/characters/sru_blue/skins/base/animations/sru_blue_spawn.anm"
+        }
+      }
+    }
+  },
+  "scriptInventory": {
+    "data/characters/sru_blue/charscriptsru_blue.luabin64": {
+      "constants": [],
+      "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+      "instructions": [
+        {
+          "pc": 1,
+          "word": "0080001e",
+          "op": "RETURN",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "data/shared/spells/crestoftheancientgolem.luabin64": {
+      "constants": [
+        "BuffTextureName",
+        "BuffCampBlue.dds",
+        "BuffName",
+        "CrestoftheAncientGolem",
+        "PersistsThroughDeath",
+        "NonDispellable"
+      ],
+      "codeSha256": "f351a75af93bdf84739773c0f2d2e5111dbaa97bd895e919896e5cf14bdc2ff0",
+      "instructions": [
+        {
+          "pc": 1,
+          "word": "00004001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "BuffCampBlue.dds"
+            }
+          ]
+        },
+        {
+          "pc": 2,
+          "word": "00000007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffTextureName"
+            }
+          ]
+        },
+        {
+          "pc": 3,
+          "word": "0000c001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "CrestoftheAncientGolem"
+            }
+          ]
+        },
+        {
+          "pc": 4,
+          "word": "00008007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffName"
+            }
+          ]
+        },
+        {
+          "pc": 5,
+          "word": "00800002",
+          "op": "LOADBOOL",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 6,
+          "word": "00010007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "PersistsThroughDeath"
+            }
+          ]
+        },
+        {
+          "pc": 7,
+          "word": "00800002",
+          "op": "LOADBOOL",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 8,
+          "word": "00014007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NonDispellable"
+            }
+          ]
+        },
+        {
+          "pc": 9,
+          "word": "0080001e",
+          "op": "RETURN",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "data/shared/spells/crestoftheancientgolemaura.luabin64": {
+      "constants": [
+        "BuffTextureName",
+        "48thSlave_Tattoo.dds",
+        "BuffName",
+        "CrestoftheAncientGolemAura",
+        "AutoBuffActivateEffect",
+        "doesnotexist.troy",
+        "NonDispellable"
+      ],
+      "codeSha256": "60559e5b78c1458f2da809399949a97405f3c42296ab08ee55e28953b47d1ef6",
+      "instructions": [
+        {
+          "pc": 1,
+          "word": "00004001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "48thSlave_Tattoo.dds"
+            }
+          ]
+        },
+        {
+          "pc": 2,
+          "word": "00000007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffTextureName"
+            }
+          ]
+        },
+        {
+          "pc": 3,
+          "word": "0000c001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "CrestoftheAncientGolemAura"
+            }
+          ]
+        },
+        {
+          "pc": 4,
+          "word": "00008007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffName"
+            }
+          ]
+        },
+        {
+          "pc": 5,
+          "word": "00014001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "doesnotexist.troy"
+            }
+          ]
+        },
+        {
+          "pc": 6,
+          "word": "00010007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "AutoBuffActivateEffect"
+            }
+          ]
+        },
+        {
+          "pc": 7,
+          "word": "00800002",
+          "op": "LOADBOOL",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 8,
+          "word": "00018007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NonDispellable"
+            }
+          ]
+        },
+        {
+          "pc": 9,
+          "word": "0080001e",
+          "op": "RETURN",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "group": {
+      "function": "<main>",
+      "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+      "firstPc": 921,
+      "lastPc": 928,
+      "instructions": [
+        {
+          "pc": 921,
+          "word": "00254045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "CAMPTYPE_BLUEBUFF"
+            }
+          ]
+        },
+        {
+          "pc": 922,
+          "word": "0080008a",
+          "op": "NEWTABLE",
+          "operands": [
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 923,
+          "word": "010000ca",
+          "op": "NEWTABLE",
+          "operands": [
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 924,
+          "word": "0031c101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": "SRU_Blue"
+            }
+          ]
+        },
+        {
+          "pc": 925,
+          "word": "002cc141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "spawn"
+            }
+          ]
+        },
+        {
+          "pc": 926,
+          "word": "010040e2",
+          "op": "SETLIST",
+          "operands": [
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 927,
+          "word": "008040a2",
+          "op": "SETLIST",
+          "operands": [
+            2,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 928,
+          "word": "00808009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        }
+      ]
+    },
+    "order": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 280,
+      "lastPc": 346,
+      "instructions": [
+        {
+          "pc": 280,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 281,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 282,
+          "word": "a0504009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Order Blue"
+            }
+          ]
+        },
+        {
+          "pc": 283,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 284,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 285,
+          "word": "00044045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 286,
+          "word": "00c84046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 287,
+          "word": "00d00046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 288,
+          "word": "91004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "TimerType"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 289,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 290,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 291,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 292,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 293,
+          "word": "001100c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_BLUEBUFF"
+            }
+          ]
+        },
+        {
+          "pc": 294,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 295,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 296,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 297,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 298,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 299,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 300,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 301,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 302,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 303,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 304,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 305,
+          "word": "8f51c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsRespawnTime"
+            },
+            {
+              "constant": 300.0
+            }
+          ]
+        },
+        {
+          "pc": 306,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 307,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 308,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 309,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 310,
+          "word": "0152c08e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 311,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 312,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 313,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 314,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 315,
+          "word": "00134045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_ORDER"
+            }
+          ]
+        },
+        {
+          "pc": 316,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 317,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 318,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 319,
+          "word": "94538009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 1.1
+            }
+          ]
+        },
+        {
+          "pc": 320,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 321,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 322,
+          "word": "94d3c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "MinimapIcon"
+            },
+            {
+              "constant": "Camp"
+            }
+          ]
+        },
+        {
+          "pc": 323,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 324,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 325,
+          "word": "95d40009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "LeashRadius"
+            },
+            {
+              "constant": 1000.0
+            }
+          ]
+        },
+        {
+          "pc": 326,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 327,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 328,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 329,
+          "word": "00144081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 3530.51
+            }
+          ]
+        },
+        {
+          "pc": 330,
+          "word": "001480c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 51.26
+            }
+          ]
+        },
+        {
+          "pc": 331,
+          "word": "0014c101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 8148.19
+            }
+          ]
+        },
+        {
+          "pc": 332,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 333,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 334,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 335,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 336,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 337,
+          "word": "00150081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 3832.32
+            }
+          ]
+        },
+        {
+          "pc": 338,
+          "word": "001540c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 51.97
+            }
+          ]
+        },
+        {
+          "pc": 339,
+          "word": "00158101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 7926.7
+            }
+          ]
+        },
+        {
+          "pc": 340,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 341,
+          "word": "9d004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualCenter"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 342,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 343,
+          "word": "00484006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 344,
+          "word": "00000045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "SkinOverrides"
+            }
+          ]
+        },
+        {
+          "pc": 345,
+          "word": "00d5c046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": "SRU_Blue"
+            }
+          ]
+        },
+        {
+          "pc": 346,
+          "word": "9f004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SkinID"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "chaos": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 681,
+      "lastPc": 747,
+      "instructions": [
+        {
+          "pc": 681,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 682,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 683,
+          "word": "a0650009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Chaos Blue"
+            }
+          ]
+        },
+        {
+          "pc": 684,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 685,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 686,
+          "word": "00044045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 687,
+          "word": "00e4c046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 688,
+          "word": "00d00046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": "Name"
+            }
+          ]
+        },
+        {
+          "pc": 689,
+          "word": "91004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "TimerType"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 690,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 691,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 692,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 693,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 694,
+          "word": "001100c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_BLUEBUFF"
+            }
+          ]
+        },
+        {
+          "pc": 695,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 696,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 697,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 698,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 699,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 700,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 701,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 702,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 703,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 704,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 705,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 706,
+          "word": "8f51c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsRespawnTime"
+            },
+            {
+              "constant": 300.0
+            }
+          ]
+        },
+        {
+          "pc": 707,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 708,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 709,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 710,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 711,
+          "word": "0152c08e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 712,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 713,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 714,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 715,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 716,
+          "word": "00254045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_CHAOS"
+            }
+          ]
+        },
+        {
+          "pc": 717,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 718,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 719,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 720,
+          "word": "94538009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 1.1
+            }
+          ]
+        },
+        {
+          "pc": 721,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 722,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 723,
+          "word": "94d3c009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "MinimapIcon"
+            },
+            {
+              "constant": "Camp"
+            }
+          ]
+        },
+        {
+          "pc": 724,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 725,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 726,
+          "word": "95d40009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "LeashRadius"
+            },
+            {
+              "constant": 1000.0
+            }
+          ]
+        },
+        {
+          "pc": 727,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 728,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 729,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 730,
+          "word": "00258081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 11286.25
+            }
+          ]
+        },
+        {
+          "pc": 731,
+          "word": "0025c0c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 51.71
+            }
+          ]
+        },
+        {
+          "pc": 732,
+          "word": "00260101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 6837.92
+            }
+          ]
+        },
+        {
+          "pc": 733,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 734,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 735,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 736,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 737,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 738,
+          "word": "00264081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 10999.98
+            }
+          ]
+        },
+        {
+          "pc": 739,
+          "word": "002680c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 51.72
+            }
+          ]
+        },
+        {
+          "pc": 740,
+          "word": "0026c101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 6991.37
+            }
+          ]
+        },
+        {
+          "pc": 741,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 742,
+          "word": "9d004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualCenter"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 743,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 744,
+          "word": "0064c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 7.0
+            }
+          ]
+        },
+        {
+          "pc": 745,
+          "word": "00000045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "SkinOverrides"
+            }
+          ]
+        },
+        {
+          "pc": 746,
+          "word": "00d5c046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": "SRU_Blue"
+            }
+          ]
+        },
+        {
+          "pc": 747,
+          "word": "9f004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SkinID"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "camps": [
+    {
+      "index": 1,
+      "name": "Order Blue",
+      "lookup": "OrderBlueBuff1",
+      "locator": {
+        "transform": [
+          [
+            0.7071067690849304,
+            0.0,
+            -0.7071067690849304,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.7071067690849304,
+            0.0,
+            0.7071067690849304,
+            0.0
+          ],
+          [
+            3821.488525390625,
+            51.8754997253418,
+            7901.05419921875,
+            1.0
+          ]
+        ],
+        "name": "OrderBlueBuff1",
+        "__type": "MapLocator"
+      },
+      "anchorEntity": "{78373878}",
+      "group": [
+        {
+          "character": "SRU_Blue",
+          "animation": "spawn"
+        }
+      ],
+      "settings": {
+        "GroupsRespawnTime": 300.0,
+        "SpawnDuration": 1.1,
+        "LeashRadius": 1000.0,
+        "VisualFacing": [
+          3530.51,
+          51.26,
+          8148.19
+        ]
+      },
+      "lookupEvidence": {
+        "function": "<main>",
+        "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+        "firstPc": 56,
+        "lastPc": 58,
+        "instructions": [
+          {
+            "pc": 56,
+            "word": "00080085",
+            "op": "GETGLOBAL",
+            "operands": [
+              2,
+              {
+                "constant": "Get3DPointPosition"
+              }
+            ]
+          },
+          {
+            "pc": 57,
+            "word": "000840c1",
+            "op": "LOADK",
+            "operands": [
+              3,
+              {
+                "constant": "OrderBlueBuff1"
+              }
+            ]
+          },
+          {
+            "pc": 58,
+            "word": "0100809c",
+            "op": "CALL",
+            "operands": [
+              2,
+              2,
+              2
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "name": "Chaos Blue",
+      "lookup": "ChaosBlueBuff1",
+      "locator": {
+        "transform": [
+          [
+            -0.7071067690849304,
+            0.0,
+            0.7071067690849304,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.7071067690849304,
+            0.0,
+            -0.7071067690849304,
+            0.0
+          ],
+          [
+            11031.728515625,
+            51.722999572753906,
+            6990.84423828125,
+            1.0
+          ]
+        ],
+        "name": "ChaosBlueBuff1",
+        "__type": "MapLocator"
+      },
+      "anchorEntity": "{b0528add}",
+      "group": [
+        {
+          "character": "SRU_Blue",
+          "animation": "spawn"
+        }
+      ],
+      "settings": {
+        "GroupsRespawnTime": 300.0,
+        "SpawnDuration": 1.1,
+        "LeashRadius": 1000.0,
+        "VisualFacing": [
+          11286.25,
+          51.71,
+          6837.92
+        ]
+      },
+      "lookupEvidence": {
+        "function": "<main>",
+        "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+        "firstPc": 122,
+        "lastPc": 124,
+        "instructions": [
+          {
+            "pc": 122,
+            "word": "00080205",
+            "op": "GETGLOBAL",
+            "operands": [
+              8,
+              {
+                "constant": "Get3DPointPosition"
+              }
+            ]
+          },
+          {
+            "pc": 123,
+            "word": "000c8241",
+            "op": "LOADK",
+            "operands": [
+              9,
+              {
+                "constant": "ChaosBlueBuff1"
+              }
+            ]
+          },
+          {
+            "pc": 124,
+            "word": "0100821c",
+            "op": "CALL",
+            "operands": [
+              8,
+              2,
+              2
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "providedSkinOverride": 0,
+  "skinSelection": {
+    "localSkin": 0,
+    "skin4Name": "SRU_Blue_Baron",
+    "status": "Map objects and SpawnableUnits include Skin4, a Baron/Voidborn skin. They do not prove native activation. Local normal-skin selection follows the published removal of Baron corruption, pending native validation.",
+    "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/"
+  },
+  "status": "Legacy membership/locators and Root data only. Active native initialization, absent attack range, buff rules and scaling remain unverified. Supplied SkinOverrides=0 is an analysis binding, not an observed native flag."
+}

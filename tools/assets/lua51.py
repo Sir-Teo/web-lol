@@ -131,3 +131,35 @@ def named_functions(root):
         if a['op'] == 'CLOSURE' and b['op'] == 'SETGLOBAL' and a['operands'][0] == b['operands'][0]:
             result[b['operands'][1]['constant']] = root['children'][a['operands'][1]['prototype']]
     return result
+
+
+def data_block(instructions, globals_, initial=None):
+    registers = dict(initial or {})
+
+    def operand(value):
+        return value['constant'] if 'constant' in value else registers[value['register']]
+
+    for item in instructions:
+        op, args = item['op'], item['operands']
+        a = args[0]
+        if op == 'GETGLOBAL':
+            registers[a] = globals_[args[1]['constant']]
+        elif op == 'LOADK':
+            registers[a] = args[1]['constant']
+        elif op == 'GETTABLE':
+            registers[a] = registers[args[1]][operand(args[2])]
+        elif op == 'SETTABLE':
+            registers[a][operand(args[1])] = operand(args[2])
+        elif op == 'NEWTABLE':
+            registers[a] = {}
+        elif op == 'SETLIST' and args[1] > 0 and args[2] == 1:
+            for i in range(1, args[1] + 1):
+                registers[a][i] = registers[a + i]
+        elif op in ('ADD', 'MUL'):
+            b, c = operand(args[1]), operand(args[2])
+            registers[a] = b + c if op == 'ADD' else b * c
+        elif op == 'CALL' and args[1:] == [4, 2] and registers[a] == 'Make3DPoint':
+            registers[a] = [registers[a + i] for i in range(1, 4)]
+        else:
+            raise ValueError(f'Unsupported data-block operation at {item["pc"]}: {op}')
+    return registers

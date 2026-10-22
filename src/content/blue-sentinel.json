@@ -1,0 +1,84 @@
+{
+  "sourcePin": "docs/reference/blue-sentinel-source.json",
+  "sourcePinSha256": "25fe1946d2adbae5910391954fe004b8cf22328afe9f46bb1704484ee7c4e1fb",
+  "modelSha256": "965d1d125f3aec5e19178fc4f286b9b132ee17f8ad12a22b94f24003bf69604c",
+  "rig": "sru-blue-base",
+  "skin": 0,
+  "stats": {
+    "maxHp": 2300.0,
+    "damage": 66.0,
+    "armor": 42.0,
+    "magicResist": 42.0,
+    "speed": 275.0,
+    "attackSpeed": 0.49300000071525574
+  },
+  "sourceAttackRange": null,
+  "radius": 131.0,
+  "pathfindingRadius": 30.0,
+  "gold": 90.0,
+  "experience": 95.0,
+  "minionScore": 4.0,
+  "castFrame": 17,
+  "clips": {
+    "idle1": {
+      "name": "entry_6c2b2ee6",
+      "durationSeconds": 0.9666666984558105
+    },
+    "run": {
+      "name": "entry_2acd4eca",
+      "durationSeconds": 1.2666667699813843
+    },
+    "attack1": {
+      "name": "entry_56b1e924",
+      "durationSeconds": 2
+    },
+    "death": {
+      "name": "entry_bd28bd4d",
+      "durationSeconds": 4.933333396911621
+    },
+    "spawn": {
+      "name": "entry_e4cb0f58",
+      "durationSeconds": 5.633333683013916
+    }
+  },
+  "policy": {
+    "attackRange": 175,
+    "leadupSeconds": 1.1,
+    "leashRadius": 1000,
+    "sightRadius": 1000,
+    "resetHealthFractionPerSecond": 0.2,
+    "note": "Root omits attack range; 175 is a provisional local melee range, not a recovered value. Legacy 1.1s spawn duration/1000 leash and 300s respawn inform local policies. Normal skin follows published removal of Baron corruption; native activation, buffs, scaling and timing remain unverified."
+  },
+  "firstReadySeconds": 55,
+  "respawnSeconds": 300,
+  "camps": [
+    {
+      "id": "order-blue",
+      "sourceIndex": 1,
+      "anchorEntity": "{78373878}",
+      "point": {
+        "x": -3603.511474609375,
+        "y": -476.05419921875
+      },
+      "facingPoint": {
+        "x": -3894.49,
+        "y": -723.1899999999996
+      }
+    },
+    {
+      "id": "chaos-blue",
+      "sourceIndex": 7,
+      "anchorEntity": "{b0528add}",
+      "point": {
+        "x": 3606.728515625,
+        "y": 434.15576171875
+      },
+      "facingPoint": {
+        "x": 3861.25,
+        "y": 587.0799999999999
+      }
+    }
+  ],
+  "buffStatus": "Crest of Insight gameplay/transfer remains absent. Official 26.14 changed haste to 10/15/20 at levels 1/6/11; stub metadata does not establish mana regeneration or transfer rules.",
+  "buffHasteSource": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/"
+}
