@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,151 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,159 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,12 +14,43 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-94 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-94 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-95 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-95 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
-  wolf camps now bring the lane match to eight calendars and five source monster rigs. Native activation/scaling, the remaining camps/effects/audio and jungle-role matches remain unfinished.
+  wolf camps add six monsters; two six-member raptor camps now bring the lane match to ten calendars, seven source monster rigs and 24 neutral monsters. Native activation/scaling, the remaining camps/effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Raptor camps](RAPTOR-CAMPS.md) now add both six-member groups, with twelve
+source-linked locators and both base rigs. The new pin retains 58 archive members
+and 23/25 atomic clips. Extraction matches, and both rigs/manifests/export repeat
+byte-identically. The source assigns distinct north-side emergence clips and
+asymmetric 60/40-tick lead-ups. An initial Chrome failure exposed blocked legacy
+Order locators and a six-point approach assumption inherited from wolves. Local
+placement now projects blocked homes through the imported navigation grid,
+preserving original locators in content. Both packs can complete a reset.
+Native spawn/collision calibration remains open.
+
+Schema 95 retains six-member ownership, side-specific pose/lead-up clocks and
+canonical fractional CS in champion and fog-observed records. Small raptors add
+0.4 internally; HUD and scoreboard display whole-number totals. A full pack pays
+exactly four CS, 75 gold and 70 XP under the Root-only local reward policy.
+Native scaling, percentage-health damage, ranged attack dispatch, reward
+modifiers, full patience/soft resets and effects/audio remain unfinished.
+Eight new raptor tests and the revised fractional fog-observation regression pass;
+all 1,159 checks across 228 files and TypeScript pass. Current browser/production
+results and limits are recorded in [the raptor ledger](reference/raptor-camps-verification.json).
+The initial six-case Chrome run passed four cases and exposed the raptor
+placement/approach issue plus a stale Red calendar-count assertion. After repair,
+all six focused camp cases pass together. A final raptor rerun also passes after
+adding its content JSON to the saved-ruleset identity and selecting each pack's
+own leash profile. Both final raptor captures were visually reviewed. All GLBs
+and the map validate with no errors/warnings. Dense combat text, native pose/
+placement and visual/performance comparison remain open. Production build and
+`/nested/rift/` smoke pass with 17 recordings, all seven monster rigs, no jungle
+preview requests and no development hook. The existing bundle-size warning
+remains (626.33 KB game and 659.92 KB Three chunks). The full-match goal remains
+active.
 
 [Wolf camps](WOLF-CAMPS.md) now add both source-linked three-member packs.
 The source pin retains 51 archive members, both base rigs and legacy group/

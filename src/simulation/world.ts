@@ -5,7 +5,7 @@ import {
   type MonsterSpecies,
   type MonsterSpawnClip,
 } from '../content/monsters';
-import { RIFT_CAMPS, campLeadupTicks } from '../content/rift-camps';
+import { RIFT_CAMPS, campLeadupTicks, campMemberHome } from '../content/rift-camps';
 import type { JungleCampState } from './types';
 import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
@@ -515,9 +515,9 @@ export class World {
       const leadup = campLeadupTicks(definition);
       if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick - leadup) continue;
       const readyTick = camp.nextSpawnTick;
-      camp.unitIds = definition.members.map((member) => {
+      camp.unitIds = definition.members.map((member, slot) => {
         const unit = this.spawnMonster(
-          member.point,
+          campMemberHome(definition, slot, this.battlefield),
           { startTick: readyTick - leadup, readyTick, clip: member.spawnClip },
           member.species
         );
@@ -3665,8 +3665,10 @@ export class World {
             if (record && contributor?.team === rewardSource.team) record.assists++;
           }
         } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) {
-          sourceState.cs +=
-            target.kind === 'monster' ? MONSTERS[target.monster.species].minionScore : 1;
+          sourceState.cs = statPrecision(
+            sourceState.cs +
+              (target.kind === 'monster' ? MONSTERS[target.monster.species].minionScore : 1)
+          );
           if (target.kind === 'monster')
             this.gainExperience(target.experienceBounty ?? 0, rewardSource.id);
         }
@@ -4471,7 +4473,7 @@ export class World {
     return null;
   }
   static fromSnapshot(text: string, battlefield: Battlefield): World {
-    const state = decodeSnapshot(text);
+    const state = decodeSnapshot(text, battlefield);
     if (state.matchMode === 'lanes' && battlefield.id !== 'rift')
       throw new Error('Lane matches require Summoner’s Rift.');
     if (state.battlefield !== battlefield.id)

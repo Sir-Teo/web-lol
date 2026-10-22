@@ -79,8 +79,8 @@ remain unverified. Private sight and reset healing use existing local policies.
 
 Each death unlinks only its own calendar and schedules readiness after 300
 seconds. Resets leave that deadline unchanged. A corpse-free checkpoint retains
-the pending spawn, and a respawn receives a fresh unit ID. Schema 94 validates
-all eight calendars, species ownership, source homes and independent spawn clocks.
+the pending spawn, and a respawn receives a fresh unit ID. Schema 95 validates
+all ten calendars, species ownership, source homes and independent spawn clocks.
 Its calendar limit now comes from the catalog rather than an obsolete constant.
 Older schemas remain incompatible without silent migration.
 

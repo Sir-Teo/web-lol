@@ -45,6 +45,7 @@ result = dict(sourcePin=str(source), sourcePinSha256=hashlib.sha256(source.read_
     policies=['Root fractional minion score is preserved as sourceMinionScore. Local score rounds to six decimal places and displayed CS floors the accumulated total.',
               '55s first spawn and 650-unit leash use published baselines; precise native patience/reset timing remains unverified.',
               'Per-camp lead-up uses legacy SpawnDuration: order 1s and chaos 0.67s (60/40 ticks). 135s respawn adopts a legacy default.',
+              'Raptor camp homes project legacy locators to the nearest valid imported navigation position using each species navigation radius; original locators remain unchanged in content.',
               'Base skin 0 is a local selection; the legacy script reads an unresolved external SkinOverrides table.',
               'Camp retaliation and nearby shared hard resets use the existing local group policy. Each survivor has a ten-second marked clock; cleanup grants no last-hit rewards. Native initialization/scaling, ranged attack dispatch, percentage-health damage, soft reset and complete effects/audio remain unverified.'],
     officialSources=['https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/',

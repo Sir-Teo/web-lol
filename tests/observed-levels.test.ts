@@ -19,12 +19,12 @@ test('levels are observed independently by team and hidden gains survive exact r
   expect(state.observedStats.blue).toEqual({ level: 1, cs: 0, inventory: [] });
   Object.assign(w.hero, { x: -820, y: 450 });
   w.gainExperience(280, enemy.id);
-  state.cs = 7;
+  state.cs = 7.4;
   w.step();
   expect(state.level).toBe(2);
   expect(state.observedStats).toEqual({
     blue: { level: 1, cs: 0, inventory: [] },
-    red: { level: 2, cs: 7, inventory: [] },
+    red: { level: 2, cs: 7.4, inventory: [] },
   });
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);
   expect(restored.snapshot()).toBe(w.snapshot());
@@ -32,7 +32,7 @@ test('levels are observed independently by team and hidden gains survive exact r
     Object.assign(world.hero, { x: -800, y: -50 });
     world.step();
   }
-  expect(state.observedStats.blue).toEqual({ level: 2, cs: 7, inventory: [] });
+  expect(state.observedStats.blue).toEqual({ level: 2, cs: 7.4, inventory: [] });
   expect(restored.snapshot()).toBe(w.snapshot());
 });
 
@@ -44,9 +44,9 @@ test('snapshots reject impossible observed levels', () => {
   }
 });
 
-test('snapshots reject negative, fractional and unearned observed creep score', () => {
+test('snapshots reject negative, noncanonical and unearned observed creep score', () => {
   const w = new World(false);
-  for (const cs of [-1, 0.5, 1]) {
+  for (const cs of [-1, 0.4000000059604645, 1]) {
     w.player.observedStats.blue = { level: 1, cs, inventory: [] };
     expect(() => World.fromSnapshot(w.snapshot(), w.battlefield)).toThrow();
   }

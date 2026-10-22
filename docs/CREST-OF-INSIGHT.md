@@ -50,7 +50,7 @@ Hawkshot recharge and Judgment's captured cooldown keep their original deadline;
 each later recharge cycle reads current total haste. Level changes update the
 buff's haste tier without rewriting a running cooldown.
 
-Schema 94 owns one nullable buff record per champion: start, expiry and next
+Schema 95 owns one nullable buff record per champion: start, expiry and next
 regeneration tick. It validates duration, phase, ownership and non-expired state,
 including dead owners. Old schemas remain incompatible without silent migration.
 The ruleset fingerprint includes the new content and simulation modules.

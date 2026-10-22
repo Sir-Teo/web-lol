@@ -1,6 +1,7 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { MONSTERS, monsterSpawnClipTicks } from '../content/monsters';
-import { RIFT_CAMPS, campLeadupTicks } from '../content/rift-camps';
+import { RIFT_CAMPS, campLeadupTicks, campMemberHome } from '../content/rift-camps';
+import type { Battlefield } from './battlefield';
 import {
   GROMP_ATTACK_PATH_FRAMES,
   GROMP_ATTACK_VISUAL_TAIL_TICKS,
@@ -52,7 +53,7 @@ import { GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
-import { MAX_LEVEL } from './progression';
+import { MAX_LEVEL, statPrecision } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
 import { hastedCooldownTicks } from './ability-haste';
 import { CREST_OF_INSIGHT } from '../content/crest-of-insight';
@@ -70,9 +71,11 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 94;
+export const SNAPSHOT_VERSION = 95;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
+const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
+const maxCampMembers = Math.max(...RIFT_CAMPS.map((c) => c.members.length));
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
 const poseLayer = z.strictObject({
   clip: z.string().max(100),
@@ -144,7 +147,7 @@ const unit = z
     team: faction,
     monster: z
       .strictObject({
-        species: z.enum(['gromp', 'blue', 'red', 'wolf', 'wolf-mini']),
+        species: z.enum(['gromp', 'blue', 'red', 'wolf', 'wolf-mini', 'raptor', 'raptor-mini']),
         home: point,
         phase: z.enum(['spawning', 'idle', 'engaged', 'returning']),
         targetId: id.nullable(),
@@ -152,7 +155,18 @@ const unit = z
           .strictObject({
             startTick: tick,
             readyTick: tick,
-            clip: z.enum(['spawn', 'spawn_mini1', 'spawn_mini2']),
+            clip: z.enum([
+              'spawn',
+              'spawn_mini1',
+              'spawn_mini2',
+              'north_spawn',
+              'spawn2',
+              'spawn3',
+              'spawn4',
+              'north_spawn2',
+              'north_spawn3',
+              'north_spawn4',
+            ]),
           })
           .nullable(),
       })
@@ -369,7 +383,7 @@ const player: z.ZodType<PlayerState> = z
   .strictObject({
     id,
     gold: nonnegative,
-    cs: tick,
+    cs: score,
     kills: tick,
     deaths: tick,
     xp: nonnegative,
@@ -378,14 +392,14 @@ const player: z.ZodType<PlayerState> = z
       blue: z
         .strictObject({
           level: z.number().int().min(1).max(MAX_LEVEL),
-          cs: tick,
+          cs: score,
           inventory: inventorySchema,
         })
         .nullable(),
       red: z
         .strictObject({
           level: z.number().int().min(1).max(MAX_LEVEL),
-          cs: tick,
+          cs: score,
           inventory: inventorySchema,
         })
         .nullable(),
@@ -690,9 +704,11 @@ const snapshot = z.strictObject({
           'chaos-red',
           'order-wolves',
           'chaos-wolves',
+          'order-raptors',
+          'chaos-raptors',
         ]),
-        unitIds: z.array(id.nullable()).min(1).max(3),
-        cleanupTicks: z.array(tick.nullable()).min(1).max(3),
+        unitIds: z.array(id.nullable()).min(1).max(maxCampMembers),
+        cleanupTicks: z.array(tick.nullable()).min(1).max(maxCampMembers),
         nextSpawnTick: tick.nullable(),
       })
     )
@@ -889,7 +905,7 @@ function validAnimationTimeline(
         timeline.tick - 1 >= timeline.transition.startTick + ANIMATION_FADE_TICKS))
   );
 }
-export function decodeSnapshot(text: string) {
+export function decodeSnapshot(text: string, battlefield: Battlefield) {
   if (text.length > 16 * 1024 * 1024) throw new Error('Saved match is too large.');
   let parsed: unknown;
   try {
@@ -948,15 +964,16 @@ export function decodeSnapshot(text: string) {
         throw new Error('Saved jungle camp has invalid marked cleanup.');
       if (id === null) continue;
       const unit = state.units.find((u) => u.id === id),
-        member = definition.members[slot];
+        member = definition.members[slot],
+        home = campMemberHome(definition, slot, battlefield);
       if (
         !unit ||
         unit.kind !== 'monster' ||
         unit.hp <= 0 ||
         ownedMonsters.has(id) ||
         unit.monster.species !== member.species ||
-        unit.monster.home.x !== member.point.x ||
-        unit.monster.home.y !== member.point.y ||
+        unit.monster.home.x !== home.x ||
+        unit.monster.home.y !== home.y ||
         (unit.monster.spawn && unit.monster.spawn.clip !== member.spawnClip) ||
         (state.tick < definition.firstReadyTick &&
           unit.monster.spawn?.readyTick !== definition.firstReadyTick)
@@ -979,11 +996,15 @@ export function decodeSnapshot(text: string) {
     if (unit.kind === 'monster') {
       const spawn = unit.monster.spawn;
       const profile = MONSTERS[unit.monster.species];
+      const owner = state.jungleCamps.find((c) => c.unitIds.includes(unit.id));
+      const leadup = owner
+        ? campLeadupTicks(RIFT_CAMPS.find((c) => c.id === owner.id)!)
+        : profile.spawnLeadupTicks;
       if (
         (unit.monster.phase === 'spawning' && !spawn) ||
         (spawn &&
           (spawn.startTick > state.tick ||
-            spawn.readyTick - spawn.startTick !== profile.spawnLeadupTicks ||
+            spawn.readyTick - spawn.startTick !== leadup ||
             state.tick >=
               spawn.startTick + monsterSpawnClipTicks(unit.monster.species, spawn.clip) ||
             (unit.monster.phase === 'spawning') !== state.tick < spawn.readyTick ||

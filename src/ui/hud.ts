@@ -880,7 +880,8 @@ export class Hud {
       name.append(role);
       row.querySelector('.scoreboard-kda')!.textContent =
         `${data.kills} / ${data.deaths} / ${data.assists}`;
-      row.querySelector('.scoreboard-cs')!.textContent = `${data.cs ?? '?'} CS`;
+      row.querySelector('.scoreboard-cs')!.textContent =
+        `${data.cs === null ? '?' : Math.floor(data.cs)} CS`;
       const inventory = row.querySelector('.scoreboard-items')!;
       inventory.setAttribute('role', 'group');
       inventory.setAttribute('aria-label', data.inventory === null ? 'Inventory unknown' : 'Items');
@@ -1030,7 +1031,7 @@ export class Hud {
     if (this.root.querySelector<HTMLElement>('.scoreboard')?.hidden === false)
       this.scoreboard(true);
     text('personal', `${p.kills} / ${p.deaths} / ${p.assists}`);
-    text('cs', p.cs);
+    text('cs', Math.floor(p.cs));
     this.root
       .querySelectorAll<HTMLElement>('.focus-pips i')
       .forEach((pip, i) => pip.classList.toggle('charged', i < p.qStacks));

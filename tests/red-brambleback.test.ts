@@ -145,7 +145,7 @@ test('Red protection precedes both Blue births and keeps an exact saved source p
   w.step();
   expect(w.units.some((u) => u.kind === 'monster')).toBe(false);
   w.step();
-  expect(w.jungleCamps).toHaveLength(8);
+  expect(w.jungleCamps).toHaveLength(RIFT_CAMPS.length);
   const camp = w.jungleCamps.find((c) => c.id === 'order-red')!;
   const unit = w.unit(camp.unitIds[0]!)!;
   expect(w.units.filter((u) => u.kind === 'monster')).toHaveLength(2);

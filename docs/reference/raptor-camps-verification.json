@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "be64c8f",
+  "sourceCommit": "f1e4bb010a14fd8beb5ea837c8efad2890be461f",
+  "schema": 95,
+  "rulesetFingerprint": "65f8441020ca2d7d40a844991c41fba16b7478ea6b1a6b6370fc5662a8e10096",
+  "sourcePin": {
+    "path": "docs/reference/raptor-camps-source.json",
+    "sha256": "17ff7e8ce1fe2f0f150ca1ef8bfa4245699b5271fe643f444db277f69dd15977"
+  },
+  "sourcePreparation": {
+    "extractCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-raptor-camps.py",
+    "convertCommands": [
+      "node tools/assets/convert-roster-base.mjs SRU_Razorbeak",
+      "node tools/assets/convert-roster-base.mjs SRU_RazorbeakMini"
+    ],
+    "exportCommand": "PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-raptor-camps.py",
+    "repeatExtractionMatches": true,
+    "repeatGlbsManifestsAndExportByteIdentical": true,
+    "archiveMembers": 58,
+    "rawMemberBytes": 1814062,
+    "atomicClips": [
+      23,
+      25
+    ],
+    "uniqueNamedLocators": 12,
+    "sourceMiniCs": 0.4000000059604645,
+    "localMiniCs": 0.4,
+    "skinOverrides": "External global unresolved; windows retained without evaluating an invented value",
+    "localSkin": 0,
+    "unchangedParentPins": [
+      "jungle-character-source",
+      "jungle-script-source",
+      "jungle-map-source"
+    ]
+  },
+  "rigs": [
+    {
+      "path": "public/assets/models/sru-razorbeak-base.glb",
+      "sha256": "8e6cd35cdf5d83fc7c609d135985abd9e71bb3b16203a2d1bc6af42f8d420eed",
+      "triangles": 3816,
+      "bones": 48,
+      "unitScale": 0.013999999761581422
+    },
+    {
+      "path": "public/assets/models/sru-razorbeakmini-base.glb",
+      "sha256": "ce6bd2375c65295c8c1638b15523d63720bb26bf1f94b8dd3c7699c4a58b61e1",
+      "triangles": 2794,
+      "bones": 48,
+      "unitScale": 0.00800000011920929
+    }
+  ],
+  "policies": {
+    "firstReadySeconds": 55,
+    "localProtectedTicks": [
+      60,
+      40
+    ],
+    "localRespawnSeconds": 135,
+    "leashBaseline": 650,
+    "markedCleanupSeconds": 10,
+    "homePlacement": "Project blocked legacy raptor locators with the source navigation radius through the imported NavGrid. Preserve original source points in content; Chaos points remain unchanged. Native placement unverified.",
+    "localPackRewards": {
+      "cs": 4,
+      "gold": 75,
+      "xp": 70
+    },
+    "scorePrecision": "six decimal internal accumulation; floor HUD and scoreboard",
+    "attackDispatch": "Physical contact at cast frames 9/12 (18/24 ticks); large ranged animation naming does not certify native missile dispatch",
+    "cleanup": "individual survivor clocks, local champion-combat classification, no last-hit rewards"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 228,
+    "passed": 1159,
+    "newCases": 8,
+    "typecheck": "passed",
+    "fogObservation": "Existing hidden/revealed checkpoint regression now retains fractional score"
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "allGlbsAndMapValidated": true,
+    "newRigsErrors": 0,
+    "newRigsWarnings": 0
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "initialRun": {
+      "command": "npx playwright test e2e/raptor-camps.spec.ts e2e/wolf-camps.spec.ts e2e/rift-gromp-camps.spec.ts e2e/blue-sentinel.spec.ts e2e/red-brambleback.spec.ts e2e/gromp-spawn.spec.ts --workers=1 --timeout=60000",
+      "passed": 4,
+      "failed": 2,
+      "findings": [
+        "Raptor approach could not see all six: two Order raw locators intersect blocked navigation and inherited six-point approach search is too narrow",
+        "Red browser fixture still expected eight calendars"
+      ]
+    },
+    "fullFocusedRun": {
+      "command": "npx playwright test e2e/raptor-camps.spec.ts e2e/wolf-camps.spec.ts e2e/rift-gromp-camps.spec.ts e2e/blue-sentinel.spec.ts e2e/red-brambleback.spec.ts e2e/gromp-spawn.spec.ts --workers=1 --timeout=60000",
+      "passed": 6,
+      "rulesetFingerprint": "7ff1ab38c54a9432b77c7223006c64223fb3c3da395bf3a2df4f99bc4384b128"
+    },
+    "finalRaptorRun": {
+      "command": "npx playwright test e2e/raptor-camps.spec.ts --workers=1 --timeout=60000",
+      "passed": 1,
+      "changes": "Added raptor JSON to saved-ruleset identity; explicitly select species-group leash source (both currently 650)"
+    },
+    "raptorAssertions": [
+      "ordinary practice requests no raptor rig",
+      "all six source rigs contribute more than 300 aggregate GPU pixels",
+      "real Lux basic attack alerts six members and receives retaliation",
+      "real Binding roots a member; real Singularity input illuminates all six",
+      "exact fighting checkpoint reload",
+      "leader and first-mini corpses expire while four saved member slots remain alive",
+      "partial checkpoint retains 2.4 CS while HUD/scoreboard display 2",
+      "exact partial checkpoint reload",
+      "complete corpse-free four-CS clear retains group respawn deadline",
+      "fresh six-member IDs and full Root health after protected respawn"
+    ],
+    "scope": "Focused six-case camp run plus final raptor rerun; scripted setup, final kills and calendar jumps. Not the complete browser suite, native comparison or a role-aware full match."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "screenshot": "artifacts/production-subpath.png",
+    "warning": "Existing bundle-size warning: game 626.33 KB and Three 659.92 KB"
+  },
+  "captures": [
+    {
+      "path": "artifacts/raptor-camps-combat.png",
+      "sha256": "345c73cba1b692ee03f1bb836b54656b96cf6579a79eebdb92a22966e0c73b06",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/raptor-camps-respawn.png",
+      "sha256": "b4f7b1ac03a6b562012a19bb99b96e1d3ea55bc52b725a4472eb408aeb19ff0d",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Native active spawn/skin/placement and collision calibration",
+    "Native scaling, percentage-current-health damage, ranged attack dispatch and reward modifiers",
+    "Complete patience/soft resets, aggro and cleanup classification",
+    "Native graph/pose/effects/audio and crowded combat text/health-bar comparison",
+    "Remaining camps, Smite and jungle-role bots",
+    "Full seeded matches, production roster, full browser audit, performance and offline/delivery certification"
+  ]
+}

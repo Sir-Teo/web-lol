@@ -74,7 +74,7 @@ test('all three source members emerge together but keep their own pose aliases a
   w.step();
   const { camp, units } = pack(w);
   expect(camp.unitIds).toHaveLength(3);
-  expect(w.jungleCamps).toHaveLength(8);
+  expect(w.jungleCamps).toHaveLength(RIFT_CAMPS.length);
   expect(units.map((u) => u.monster!.species)).toEqual(['wolf', 'wolf-mini', 'wolf-mini']);
   for (const [i, u] of units.entries()) {
     expect(u.monster!.home).toEqual(definition.members[i].point);

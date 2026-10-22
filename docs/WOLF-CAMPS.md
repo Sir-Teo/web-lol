@@ -2,8 +2,9 @@
 
 Both Rift wolf camps now contain one Greater Murk Wolf and two small Murk
 Wolves, each with its own source rig, home, combat state and animation clock.
-The lane match has eight camp calendars and twelve neutral monsters once all
-camps have spawned. Ordinary practice loads none of the monster rigs.
+The wolf milestone reached eight calendars and twelve neutral monsters.
+[Raptor camps](RAPTOR-CAMPS.md) extend the current lane match to ten calendars
+and 24 neutral monsters once all camps have spawned. Ordinary practice loads none of the monster rigs.
 
 Camp calendars now own ordered member slots rather than one unit ID. Killing
 the leader leaves surviving small wolves in their original slots. Corpse removal
@@ -93,7 +94,7 @@ camps retain independent targets and calendars.
 
 ## Saves and validation
 
-Schema 94 stores ordered nullable member IDs, per-slot cleanup deadlines and
+Schema 95 stores ordered nullable member IDs, per-slot cleanup deadlines and
 the next group spawn. It validates cardinality, unique ownership, species,
 individual source homes, spawn variants and marked-death eligibility. Each
 active spawn also stores its clip alias, allowing exact phase continuation when
