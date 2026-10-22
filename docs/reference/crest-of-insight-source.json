@@ -1,0 +1,134 @@
+{
+  "parent": {
+    "path": "docs/reference/blue-sentinel-source.json",
+    "sha256": "25fe1946d2adbae5910391954fe004b8cf22328afe9f46bb1704484ee7c4e1fb"
+  },
+  "localization": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Localized/Global.en_US.wad.client",
+    "chunks": {
+      "669ABD7D2EBA2A27": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 5864582,
+        "bytes": 346,
+        "sha256": "214efe8b9779fcf5dfe3f35b2d16ee81a655546fd0a0abc079849033bf0a5f94"
+      },
+      "F52CB127912A15C7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 5864928,
+        "bytes": 781144,
+        "sha256": "8a001f507f5cb3b53a2bcccdc0ccadeda1da4147d2b3471f8bd3c8e4fa9cef68"
+      },
+      "D09560B80689F71B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 6646072,
+        "bytes": 561713,
+        "sha256": "c2b2409c699af068328eabd7b37400a9dba726b391cfa3ac3b941784a7c5d38c"
+      },
+      "EF768E723899BB0E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 7207785,
+        "bytes": 937700,
+        "sha256": "c7aaf1665c162e3b56f0babdd2302a39d7d4fc829ed777f44445af4f6b6f639b"
+      },
+      "8B5421E747462658": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 8145485,
+        "bytes": 8583,
+        "sha256": "56ba6b28a122e889c6be27053461732e904c6f45dcf2a18bd1b9cccbfe76f776"
+      }
+    },
+    "files": [
+      {
+        "path": "data/menu/en_us/lol.stringtable",
+        "wadPathHash": "062d6ed714bff7df",
+        "sha256": "bf1c6b35bc6e6f6a79d3ae174d0ebae4969aaaeb0920c5fd1462f8ac0301d010",
+        "bytes": 21159277
+      }
+    ]
+  },
+  "rstVersion": 5,
+  "rstHashBits": 38,
+  "strings": {
+    "blueMonsterTooltip": {
+      "rstHash": "46786458625",
+      "value": "<titleLeft><font color='#FFCC00'>Blue Sentinel</font></titleLeft><subtitleRight>300 second respawn</subtitleRight><subtitleLeft>Large Monster - Buff</subtitleLeft><mainText>A powerful and durable melee attacker. When slain, grants the <u><font color='#FFCC00'>Crest of Insight</font></u> buff, which greatly increases Mana Regeneration and Cooldown Reduction for 2 minutes.</mainText>"
+    },
+    "buffName": {
+      "rstHash": "258206257612",
+      "value": "Crest of Insight"
+    },
+    "buffTooltip": {
+      "rstHash": "259795327118",
+      "value": "<titleLeft>Crest of Insight</titleLeft><mainText>Regenerates @f2@ + @f3@% max Mana and Energy every 5 seconds and has @f1@ Ability Haste.<br><br>If the buff holder is slain, this buff is transferred to their killer.</mainText><postScriptLeft>Source: @SourceName@</postScriptLeft>"
+    }
+  },
+  "iconExtraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/DATA.wad.client",
+    "chunks": {
+      "A5ACB224D573EBBF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6111311,
+        "bytes": 97328,
+        "sha256": "22d0aa31b0ed668654e659b4f9e3c1bdaaa17047d724b54693afcd00658418bb"
+      },
+      "E47A4E055277648C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6208639,
+        "bytes": 13663,
+        "sha256": "1093301d4369e5d3a51cca50c5417a8accb2ebf932a85d7b1abf48c9431a07f1"
+      },
+      "861D8D6A8577B57A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/196B617AE6DE84C2.bundle",
+        "offset": 2820197,
+        "bytes": 2019,
+        "sha256": "46f639227231851bf5c7355a40c55566a6c229e7d67ffc38945dc1fcf1815748"
+      }
+    },
+    "files": [
+      {
+        "path": "data/spells/icons2d/buffcampblue.dds",
+        "wadPathHash": "43a79e062be11439",
+        "sha256": "3c1c9a71f34f3e797079f45f7fa47e4fff04039e53888f84c4b9b2331fd3b4a3",
+        "bytes": 2176
+      }
+    ]
+  },
+  "icon": {
+    "path": "public/assets/icons/buffcampblue.png",
+    "sha256": "965a75aa7ecbb43b2dede3e5107d4a93d6fcb30b16af1e37f607f0bac669cc20",
+    "width": 64,
+    "height": 64,
+    "conversion": "Pillow DDS to RGBA PNG"
+  },
+  "officialNotes": [
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/",
+      "fact": "Blue buff ability haste changed from 10 to 10/15/20 at levels 1/6/11."
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-11-16-notes/",
+      "fact": "Fixed loss of red/blue buffs on execution to non-epic jungle monsters."
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+      "fact": "Removed Baron-corrupted buffs and global buff rewards; removed extra 30-second duration for junglers killing champions for buffs. Elemental-terrain second-buff drops remain."
+    }
+  ],
+  "limits": [
+    "Localized description states two-minute duration and transfer; active native timing and transfer refresh remain unverified.",
+    "Mana/energy regeneration formula parameters f2/f3 are unbound in the extracted tooltip.",
+    "25 flat plus 5% maximum mana per five seconds and half-second pulses remain provisional local policy.",
+    "Transfer uses existing champion kill credit and refreshes duration locally; non-epic uncredited executions retain the original clock.",
+    "Elemental-terrain wisps, Smite eligibility, energy champions and native buff VFX/audio remain unfinished."
+  ]
+}
