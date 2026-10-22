@@ -21,10 +21,11 @@ if (
     'SRU_Krug',
     'SRU_KrugMini',
     'SRU_KrugMiniMini',
+    'Sru_Crab',
   ].includes(champion)
 )
   throw new Error('Expected a supported champion or ordinary jungle base rig');
-const jungle = champion.startsWith('SRU_');
+const jungle = /^sru_/i.test(champion);
 const sourceSlug = champion.toLowerCase();
 const slug = sourceSlug.replaceAll('_', '-');
 const sourceGroup =
@@ -36,7 +37,9 @@ const sourceGroup =
         ? 'raptor-camps'
         : champion.startsWith('SRU_Krug')
           ? 'krug-camps'
-          : null;
+          : champion === 'Sru_Crab'
+            ? 'scuttler'
+            : null;
 const pinBytes = await readFile(
   sourceGroup
     ? `docs/reference/${sourceGroup}-source.json`

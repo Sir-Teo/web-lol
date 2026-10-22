@@ -1,0 +1,360 @@
+{
+  "sourcePin": "docs/reference/scuttler-source.json",
+  "sourcePinSha256": "7a7b404bb43d3069724d850e48f4a879d947269df47592afe66fcf8d8917f286",
+  "status": "Prepared source evidence and animation review only. Scuttler is not yet part of the live match.",
+  "rig": "sru-crab-base",
+  "modelSha256": "d552dd415bba0bb02d4cd1f132f7633190ced4c87c13e3559462badde2a7990f",
+  "stats": {
+    "maxHp": 1550.0,
+    "damage": 35.0,
+    "armor": 42.0,
+    "magicResist": 42.0,
+    "speed": 255.0,
+    "range": 300.0,
+    "attackSpeed": 0.6380000114440918
+  },
+  "unitTags": "Monster | Monster_Large | Monster_Crab | Special_Peaceful | Monster_Camp",
+  "peacefulTag": "Special_Peaceful",
+  "gold": 55.0,
+  "experience": 100.0,
+  "minionScore": 4.0,
+  "radius": 50.0,
+  "pathfindingRadius": 100.0,
+  "rootUntargetableSpawnSeconds": 1.5,
+  "clips": {
+    "run2": {
+      "name": "entry_2acd4eca",
+      "sourceState": "{2acd4eca}",
+      "durationSeconds": 0.5333333611488342
+    },
+    "flee": {
+      "name": "entry_3d2d1fe6",
+      "sourceState": "{3d2d1fe6}",
+      "durationSeconds": 1.6000001430511475
+    },
+    "stun": {
+      "name": "entry_1e3767a4",
+      "sourceState": "{1e3767a4}",
+      "durationSeconds": 0.3333333432674408
+    },
+    "idle1": {
+      "name": "entry_9dd9dc06",
+      "sourceState": "{9dd9dc06}",
+      "durationSeconds": 3.1666667461395264
+    },
+    "turn_left_45": {
+      "name": "entry_f5c74ce8",
+      "sourceState": "{f5c74ce8}",
+      "durationSeconds": 0.9666666984558105
+    },
+    "turn_right_45": {
+      "name": "entry_1e844cd7",
+      "sourceState": "{1e844cd7}",
+      "durationSeconds": 0.9666666984558105
+    },
+    "spawn": {
+      "name": "entry_36b514cb",
+      "sourceState": "{36b514cb}",
+      "durationSeconds": 1.6000001430511475
+    },
+    "dash": {
+      "name": "entry_ddfba0a8",
+      "sourceState": "{ddfba0a8}",
+      "durationSeconds": 0.13333334028720856
+    },
+    "dash_out": {
+      "name": "entry_c442030f",
+      "sourceState": "{c442030f}",
+      "durationSeconds": 0.20000001788139343
+    },
+    "turn_right_180": {
+      "name": "entry_1d2f6517",
+      "sourceState": "{1d2f6517}",
+      "durationSeconds": 0.9666666984558105
+    },
+    "turn_left_180": {
+      "name": "entry_93966e16",
+      "sourceState": "{93966e16}",
+      "durationSeconds": 0.9666666984558105
+    },
+    "idle_torun": {
+      "name": "entry_36604857",
+      "sourceState": "{36604857}",
+      "durationSeconds": 0.2666666805744171
+    },
+    "run_toflee": {
+      "name": "entry_8e2af1bf",
+      "sourceState": "{8e2af1bf}",
+      "durationSeconds": 0.2666666805744171
+    },
+    "flee_torun": {
+      "name": "entry_31a504fd",
+      "sourceState": "{31a504fd}",
+      "durationSeconds": 0.2666666805744171
+    },
+    "hide": {
+      "name": "entry_448a6eb4",
+      "sourceState": "{448a6eb4}",
+      "durationSeconds": 0.9666666984558105
+    },
+    "flee2": {
+      "name": "entry_3debaa64",
+      "sourceState": "{3debaa64}",
+      "durationSeconds": 1.6000001430511475
+    },
+    "dance": {
+      "name": "entry_1a8c52fb",
+      "sourceState": "{1a8c52fb}",
+      "durationSeconds": 1.5666667222976685
+    }
+  },
+  "shrineEffectAmountCandidates": [
+    [
+      90.0,
+      90.0,
+      90.0,
+      90.0,
+      90.0,
+      90.0,
+      90.0
+    ],
+    [
+      0.30000001192092896,
+      0.30000001192092896,
+      0.30000001192092896,
+      0.30000001192092896,
+      0.30000001192092896,
+      0.30000001192092896,
+      0.30000001192092896
+    ],
+    [
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ]
+  ],
+  "firstReadyBaselineSeconds": 175,
+  "firstReadyBaselineUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+  "camps": [
+    {
+      "id": "dragon-scuttler",
+      "sourceIndex": 15,
+      "anchorEntity": "{006ae501}",
+      "point": {
+        "x": 3075.0,
+        "y": 2255.0
+      },
+      "facingPoint": {
+        "x": 3223.24,
+        "y": 2095.41
+      },
+      "legacySpawnClip": "crab_hide",
+      "legacyLeadupSeconds": 2.2,
+      "legacyFirstReadySeconds": 146,
+      "legacyRespawnSeconds": 150.0
+    },
+    {
+      "id": "baron-scuttler",
+      "sourceIndex": 16,
+      "anchorEntity": "{75cd6c60}",
+      "point": {
+        "x": -3025.0,
+        "y": -2175.0
+      },
+      "facingPoint": {
+        "x": -3203.6899999999996,
+        "y": -2023.3999999999996
+      },
+      "legacySpawnClip": "crab_hide",
+      "legacyLeadupSeconds": 2.2,
+      "legacyFirstReadySeconds": 146,
+      "legacyRespawnSeconds": 150.0
+    }
+  ],
+  "rivers": {
+    "baron": {
+      "path": [
+        {
+          "x": -3705.0,
+          "y": -2495.0
+        },
+        {
+          "x": -3395.0,
+          "y": -2035.0
+        },
+        {
+          "x": -2715.0,
+          "y": -1765.0
+        },
+        {
+          "x": -2185.0,
+          "y": -1525.0
+        },
+        {
+          "x": -1535.0,
+          "y": -1385.0
+        }
+      ],
+      "topBorder": [
+        {
+          "x": -4585.0,
+          "y": -3845.0
+        },
+        {
+          "x": -4325.0,
+          "y": -4075.0
+        },
+        {
+          "x": -3625.0,
+          "y": -3575.0
+        },
+        {
+          "x": -2925.0,
+          "y": -2475.0
+        },
+        {
+          "x": -675.0,
+          "y": -1225.0
+        }
+      ],
+      "bottomBorder": [
+        {
+          "x": -4585.0,
+          "y": -3845.0
+        },
+        {
+          "x": -3825.0,
+          "y": -2275.0
+        },
+        {
+          "x": -2725.0,
+          "y": -1475.0
+        },
+        {
+          "x": -1310.0,
+          "y": -675.0
+        },
+        {
+          "x": -625.0,
+          "y": -1175.0
+        }
+      ],
+      "center": {
+        "x": -3225,
+        "y": -2375
+      },
+      "start": {
+        "x": -4275.0,
+        "y": -4075.0
+      },
+      "end": {
+        "x": -1025.0,
+        "y": -975.0
+      },
+      "initialOneBasedDestination": 4.0,
+      "initialDirection": -1.0
+    },
+    "dragon": {
+      "path": [
+        {
+          "x": 3765.0,
+          "y": 2765.0
+        },
+        {
+          "x": 3595.0,
+          "y": 2295.0
+        },
+        {
+          "x": 3015.0,
+          "y": 1905.0
+        },
+        {
+          "x": 2405.0,
+          "y": 1645.0
+        },
+        {
+          "x": 1765.0,
+          "y": 1395.0
+        }
+      ],
+      "topBorder": [
+        {
+          "x": 725.0,
+          "y": 1325.0
+        },
+        {
+          "x": 1425.0,
+          "y": 775.0
+        },
+        {
+          "x": 2075.0,
+          "y": 1225.0
+        },
+        {
+          "x": 3375.0,
+          "y": 1925.0
+        },
+        {
+          "x": 3875.0,
+          "y": 2525.0
+        },
+        {
+          "x": 4475.0,
+          "y": 3425.0
+        }
+      ],
+      "bottomBorder": [
+        {
+          "x": 725.0,
+          "y": 1325.0
+        },
+        {
+          "x": 2075.0,
+          "y": 2125.0
+        },
+        {
+          "x": 2775.0,
+          "y": 2625.0
+        },
+        {
+          "x": 3575.0,
+          "y": 3325.0
+        },
+        {
+          "x": 3875.0,
+          "y": 3525.0
+        },
+        {
+          "x": 4475.0,
+          "y": 3425.0
+        }
+      ],
+      "center": {
+        "x": 3075,
+        "y": 2425
+      },
+      "start": {
+        "x": 4075.0,
+        "y": 3425.0
+      },
+      "end": {
+        "x": 1075.0,
+        "y": 1125.0
+      },
+      "initialOneBasedDestination": 4.0,
+      "initialDirection": -1.0
+    }
+  },
+  "limits": [
+    "Root damage/range do not establish an attack: Special_Peaceful and component behavior must be respected.",
+    "All seventeen clips are retained. The source graph has no attack/death atomic clip; review labels are filename-derived, not invented source states.",
+    "The 1.5s Root untargetability, 2.2s legacy lead-up and ~1.6s emergence clip remain separate; active callback/graph timing requires calibration.",
+    "The legacy feature-gated controller starts with two rivers, then coordinates a later selected location, with streak-biased random thresholds. Current native feature flags and lifecycle need verification.",
+    "Shrine arrays 90/0.3/2 are retained as effect-slot candidates, not certified callback bindings or implemented rewards.",
+    "Base skin 0 is a local review choice; SkinOverrides, later forms, scaling, collision, graph dispatch, shrine visuals/audio and live integration remain unfinished."
+  ]
+}

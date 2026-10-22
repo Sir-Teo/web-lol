@@ -135,6 +135,7 @@ def named_functions(root):
 
 def data_block(instructions, globals_, initial=None):
     registers = dict(initial or {})
+    open_top = None
 
     def operand(value):
         return value['constant'] if 'constant' in value else registers[value['register']]
@@ -142,6 +143,8 @@ def data_block(instructions, globals_, initial=None):
     for item in instructions:
         op, args = item['op'], item['operands']
         a = args[0]
+        if open_top is not None and not (op == 'SETLIST' and args[1] == 0):
+            raise ValueError('Open constructor results require an immediate SETLIST')
         if op == 'GETGLOBAL':
             registers[a] = globals_[args[1]['constant']]
         elif op == 'LOADK':
@@ -152,14 +155,21 @@ def data_block(instructions, globals_, initial=None):
             registers[a][operand(args[1])] = operand(args[2])
         elif op == 'NEWTABLE':
             registers[a] = {}
-        elif op == 'SETLIST' and args[1] > 0 and args[2] == 1:
-            for i in range(1, args[1] + 1):
+        elif op == 'SETLIST' and args[2] == 1 and (args[1] > 0 or open_top is not None):
+            count = args[1] if args[1] > 0 else open_top - a - 1
+            if count < 0:
+                raise ValueError('Invalid open literal table')
+            for i in range(1, count + 1):
                 registers[a][i] = registers[a + i]
+            open_top = None
         elif op in ('ADD', 'MUL'):
             b, c = operand(args[1]), operand(args[2])
             registers[a] = b + c if op == 'ADD' else b * c
-        elif op == 'CALL' and args[1:] == [4, 2] and registers[a] == 'Make3DPoint':
+        elif op == 'CALL' and args[1] == 4 and args[2] in (0, 2) and registers[a] == 'Make3DPoint':
             registers[a] = [registers[a + i] for i in range(1, 4)]
+            # Lua's final constructor call may request open results. This known
+            # data-only constructor returns exactly one point, never executes Lua.
+            open_top = a + 1 if args[2] == 0 else None
         else:
             raise ValueError(f'Unsupported data-block operation at {item["pc"]}: {op}')
     return registers

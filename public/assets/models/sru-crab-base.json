@@ -1,0 +1,264 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sru-crab-base.glb",
+    "bytes": 1099136,
+    "sha256": "d552dd415bba0bb02d4cd1f132f7633190ced4c87c13e3559462badde2a7990f"
+  },
+  "definitionsSha256": "7a7b404bb43d3069724d850e48f4a879d947269df47592afe66fcf8d8917f286",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_crab/skins/skin0.bin",
+      "wadPathHash": "27f92849f7823f0b",
+      "sha256": "6996a0566e43fd8b4bcaf21f92c9246459b3999ed7bc1f2072159e8a05c00886",
+      "bytes": 2165
+    },
+    {
+      "path": "data/characters/sru_crab/animations/skin0.bin",
+      "wadPathHash": "1a438cbc66e254df",
+      "sha256": "17f230270df76adbde74f55ca5a4759634aa4740315cbf3c53d00687c6143d57",
+      "bytes": 3239
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_dance.anm",
+      "wadPathHash": "fb8c03056dd54b94",
+      "sha256": "302207d46705d683afc750142d21947d5dd4a45ed0d61a0a7dc62be7e1ec24a3",
+      "bytes": 30334
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_dash.anm",
+      "wadPathHash": "a5c128943e7c5381",
+      "sha256": "a1b4394951ce123281fb468127a54fc35bc7192aed9a4e36554a914d1627b226",
+      "bytes": 5002
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_dash_out.anm",
+      "wadPathHash": "e84140a2977d8a38",
+      "sha256": "96ee3c967efe714ae76ea12cdc8505eef8c0175d15c893e069542b9888d96a45",
+      "bytes": 6628
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_flee.anm",
+      "wadPathHash": "3101bf4bb18f80aa",
+      "sha256": "b28f6383b4f3bba96fbd2932116963551574cf4eb816bc7b45644e565c1b9757",
+      "bytes": 28090
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_flee2.anm",
+      "wadPathHash": "a49a32e8f4038cfb",
+      "sha256": "61ebd56077e347c926f7af9229b0150564d39d28d18a4051b5e0e6448ca19f36",
+      "bytes": 28132
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_flee_torun.anm",
+      "wadPathHash": "0cb8f4b30a417923",
+      "sha256": "96ff062dfac684464d6bd1519914e9287d40de2269982309539e85762080d210",
+      "bytes": 8314
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_hide.anm",
+      "wadPathHash": "4e1a978710662e2d",
+      "sha256": "5c1f4238a039935d81983ebf0cac863b660f86283bc001f78da84931f48cdcef",
+      "bytes": 9896
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_idle1.anm",
+      "wadPathHash": "34781082cb240720",
+      "sha256": "5eb8dde1d6d7fb8485e908412f6c434f1790061ed1a97a0952512f4d2a153021",
+      "bytes": 25884
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_idle_torun.anm",
+      "wadPathHash": "0cdbafedc4378b35",
+      "sha256": "6a4ea341fa4a51b9cb30de107fdb5eb406bf9965795a17d02529f8da0f30589e",
+      "bytes": 8050
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_run2.anm",
+      "wadPathHash": "4d459b04586034eb",
+      "sha256": "62c96d9ec03f32fd5d1fc03ecf8e09877c11e4f977087ffa03fa296b07d536d3",
+      "bytes": 15058
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_run_toflee.anm",
+      "wadPathHash": "4790cbd22548d933",
+      "sha256": "84f7077e60bdbab6a8a087cec213fbc84fb245da0db849c6cd2a6412082ca7fa",
+      "bytes": 8056
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_spawn.anm",
+      "wadPathHash": "0dbc353297d6ffec",
+      "sha256": "34215c405ee6b1635fe4f06abcd2a30aefc5ace256d5f1f42bc26b224076eec7",
+      "bytes": 40558
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_stun.anm",
+      "wadPathHash": "f70be7e5ef777e27",
+      "sha256": "1dcd7b7dbc6aab0c66394d2fd88fa45420f2ac6397220ce16304fe8cfcaaa899",
+      "bytes": 9808
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_left_180.anm",
+      "wadPathHash": "57313107d2d46814",
+      "sha256": "cb0a5e01c38d4f0e1fa4121d5bef76666660196020f4aeb9f38d393e3e2af3c9",
+      "bytes": 7768
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_left_45.anm",
+      "wadPathHash": "539b532528797996",
+      "sha256": "5707b2e2b01ac01c4845872673cc249227daa06328ac4c9967059dcaa0bf04bd",
+      "bytes": 7568
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_right_180.anm",
+      "wadPathHash": "489159e818156595",
+      "sha256": "aa6e0c693fd63da284fa99334be6a8c770b625ca77f5fe28c2a1487b52383ab9",
+      "bytes": 7888
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_right_45.anm",
+      "wadPathHash": "fa377cb965daf18b",
+      "sha256": "af40882748740f65e49704c174c3da140f2ca396cee71f58f26044be898baace",
+      "bytes": 7648
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/sru_crab.skl",
+      "wadPathHash": "c1eca796dd663740",
+      "sha256": "ac4d0d8a6c65047b6a05bcb8b34e439cf70d2356137844eec7869267ed0e223a",
+      "bytes": 8248
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/sru_crab.skn",
+      "wadPathHash": "4c37e0f1199111d2",
+      "sha256": "c55601a564d2d0ea64c954b2fe3795089647649f126af2bf802122285900a562",
+      "bytes": 167432
+    },
+    {
+      "path": "assets/characters/sru_crab/skins/base/sru_crab_tx_cm.tex",
+      "wadPathHash": "3dadb9488937b703",
+      "sha256": "af8ef2d7ee2229b626d79086313ff13d7d90e11bb3bb6a7726a4089b474568ee",
+      "bytes": 174788
+    }
+  ],
+  "unitScale": 0.0075,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 0.75,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "lambert2": "assets/characters/sru_crab/skins/base/sru_crab_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_2acd4eca",
+      "state": "{2acd4eca}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_run2.anm",
+      "durationSeconds": 0.5333333611488342
+    },
+    {
+      "name": "entry_3d2d1fe6",
+      "state": "{3d2d1fe6}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_flee.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "entry_1e3767a4",
+      "state": "{1e3767a4}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_stun.anm",
+      "durationSeconds": 0.3333333432674408
+    },
+    {
+      "name": "entry_9dd9dc06",
+      "state": "{9dd9dc06}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_idle1.anm",
+      "durationSeconds": 3.1666667461395264
+    },
+    {
+      "name": "entry_f5c74ce8",
+      "state": "{f5c74ce8}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_left_45.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_1e844cd7",
+      "state": "{1e844cd7}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_right_45.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_36b514cb",
+      "state": "{36b514cb}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_spawn.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "entry_ddfba0a8",
+      "state": "{ddfba0a8}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_dash.anm",
+      "durationSeconds": 0.13333334028720856
+    },
+    {
+      "name": "entry_c442030f",
+      "state": "{c442030f}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_dash_out.anm",
+      "durationSeconds": 0.20000001788139343
+    },
+    {
+      "name": "entry_1d2f6517",
+      "state": "{1d2f6517}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_right_180.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_93966e16",
+      "state": "{93966e16}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_turn_left_180.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_36604857",
+      "state": "{36604857}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_idle_torun.anm",
+      "durationSeconds": 0.2666666805744171
+    },
+    {
+      "name": "entry_8e2af1bf",
+      "state": "{8e2af1bf}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_run_toflee.anm",
+      "durationSeconds": 0.2666666805744171
+    },
+    {
+      "name": "entry_31a504fd",
+      "state": "{31a504fd}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_flee_torun.anm",
+      "durationSeconds": 0.2666666805744171
+    },
+    {
+      "name": "entry_448a6eb4",
+      "state": "{448a6eb4}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_hide.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_3debaa64",
+      "state": "{3debaa64}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_flee2.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "entry_1a8c52fb",
+      "state": "{1a8c52fb}",
+      "source": "assets/characters/sru_crab/skins/base/animations/sru_crab_dance.anm",
+      "durationSeconds": 1.5666667222976685
+    }
+  ],
+  "triangles": 4218,
+  "bones": 66
+}

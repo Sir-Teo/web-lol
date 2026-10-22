@@ -1,7 +1,7 @@
 """Synthetic format checks; no source caches, external tools or Lua runtime."""
 import struct
 import unittest
-from lua51 import HEADER, read_chunk, named_functions, instruction
+from lua51 import HEADER, read_chunk, named_functions, instruction, data_block
 
 
 def string(value):
@@ -16,6 +16,22 @@ def proto(words, constants=b'', constant_count=0, children=()):
 
 
 class LuaChunkTests(unittest.TestCase):
+    def test_open_point_constructor_uses_one_result_without_stale_registers(self):
+        items = [dict(pc=1, op='CALL', operands=[2, 4, 0]),
+                 dict(pc=2, op='SETLIST', operands=[0, 0, 1])]
+        values = data_block(items, {}, {0: {}, 1: [1, 2, 3], 2: 'Make3DPoint',
+                                      3: 4, 4: 5, 5: 6, 6: 'stale'})
+        self.assertEqual(values[0], {1: [1, 2, 3], 2: [4, 5, 6]})
+
+    def test_open_literal_rejects_unknown_calls_missing_top_and_intervening_ops(self):
+        call = dict(pc=1, op='CALL', operands=[1, 4, 0])
+        flush = dict(pc=2, op='SETLIST', operands=[0, 0, 1])
+        load = dict(pc=2, op='LOADK', operands=[5, {'constant': 99}])
+        for items, name in [([call, flush], 'unknown'), ([flush], 'Make3DPoint'),
+                            ([call, load, flush], 'Make3DPoint')]:
+            with self.assertRaises(ValueError):
+                data_block(items, {}, {0: {}, 1: name, 2: 1, 3: 2, 4: 3})
+
     def test_nil_boolean_number_and_byte_preserving_string(self):
         values = b'\0\1\1\3' + struct.pack('<d', 135) + b'\4' + string('Gromp\0\xff')
         chunk = read_chunk(HEADER + proto([30 | (1 << 23)], values, 4))
