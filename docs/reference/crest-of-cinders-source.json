@@ -1,0 +1,443 @@
+{
+  "parent": {
+    "path": "docs/reference/red-brambleback-source.json",
+    "sha256": "9cd1fb50137065eb08b1aabd217bb12f8b90aef941511be68b21d5a248ce923c"
+  },
+  "scripts": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Scripts.wad.client",
+    "chunks": {
+      "9D6B139F5625E74C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35852845,
+        "bytes": 75450,
+        "sha256": "e4a4f61beea877cab9ed30be0b521a2c01e7f6af05f4b7d08f671d52e37d8512"
+      },
+      "70B13796F6370E48": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35928295,
+        "bytes": 183603,
+        "sha256": "9fbae2c2d3807eb7c27870f4501c9507acd95531ae0d44d14587704e864650b7"
+      },
+      "0A15B7F6D72C6848": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36111898,
+        "bytes": 90579,
+        "sha256": "18caaf1d6c0d94c2db7d820d10107b61abe7587263760709d51061c4240b175b"
+      },
+      "8DFE49A4492DA71F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36202477,
+        "bytes": 138822,
+        "sha256": "3cfdf55545a2898d937d694a29cfdc1623e143769f61c4446f635e4044e7c32a"
+      },
+      "D2860162132D3784": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36341299,
+        "bytes": 144181,
+        "sha256": "809f3aafcdd55c68050b689a201e707f863e20bd0075ea2cf1533509b5eb19f6"
+      },
+      "63611195382B0C7A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36485480,
+        "bytes": 95916,
+        "sha256": "2261825b9572b17d9586307244f9d821c29068e934410a279fdf41d957cfd8a1"
+      },
+      "F6B96CAAE2654A23": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36581396,
+        "bytes": 81491,
+        "sha256": "b20123e9a1c5439f1cb352cf61f38bb93d2474314b3998777ab3e53bc4429a8c"
+      },
+      "AC6C3E04B54120B0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36662887,
+        "bytes": 60523,
+        "sha256": "cec143c1ae0cd3df9803c26591b10d09e40589bbf32d833a6e637af1f7850c2b"
+      },
+      "AD03DA97FB2F0D30": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 3078419,
+        "bytes": 176,
+        "sha256": "765d3108f1092a85e38ddcad8233f762faa242af1f101b4d9b8ffe0c9cd49da6"
+      },
+      "8F94EC88D0E4430A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 1397317,
+        "bytes": 230,
+        "sha256": "0399af4642e737703a9981839bc6ec9ed599b25ac040593bf936654c362d5e9f"
+      }
+    },
+    "files": [
+      {
+        "path": "data/spells/blessingofthelizardelder.luabin64",
+        "wadPathHash": "5c501b158a3f42c3",
+        "sha256": "27f61f139607eb7c8d3f621987a7038f63c102bc7cf47d527ae2b1585cb3e5b9",
+        "bytes": 248
+      },
+      {
+        "path": "data/spells/blessingofthelizardelderslow.luabin64",
+        "wadPathHash": "0cc7f35983a21c45",
+        "sha256": "171e1585000cb20f7428de92c797b825c300b2527ee2caabe5032fae1c3c75fb",
+        "bytes": 321
+      }
+    ]
+  },
+  "scriptInventory": {
+    "data/spells/blessingofthelizardelder.luabin64": {
+      "constants": [
+        "BuffTextureName",
+        "BuffCampRed.dds",
+        "BuffName",
+        "BlessingoftheLizardElder",
+        "PersistsThroughDeath",
+        "NonDispellable"
+      ],
+      "codeSha256": "f351a75af93bdf84739773c0f2d2e5111dbaa97bd895e919896e5cf14bdc2ff0",
+      "instructions": [
+        {
+          "pc": 1,
+          "word": "00004001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "BuffCampRed.dds"
+            }
+          ]
+        },
+        {
+          "pc": 2,
+          "word": "00000007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffTextureName"
+            }
+          ]
+        },
+        {
+          "pc": 3,
+          "word": "0000c001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "BlessingoftheLizardElder"
+            }
+          ]
+        },
+        {
+          "pc": 4,
+          "word": "00008007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffName"
+            }
+          ]
+        },
+        {
+          "pc": 5,
+          "word": "00800002",
+          "op": "LOADBOOL",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 6,
+          "word": "00010007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "PersistsThroughDeath"
+            }
+          ]
+        },
+        {
+          "pc": 7,
+          "word": "00800002",
+          "op": "LOADBOOL",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 8,
+          "word": "00014007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NonDispellable"
+            }
+          ]
+        },
+        {
+          "pc": 9,
+          "word": "0080001e",
+          "op": "RETURN",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "data/spells/blessingofthelizardelderslow.luabin64": {
+      "constants": [
+        "BuffTextureName",
+        "Chronokeeper_Timestop.dds",
+        "BuffName",
+        "Slow",
+        "AutoBuffActivateEffect",
+        "DATA/Shared/Particles/Global_Slow.troy",
+        "PopupMessage1",
+        "game_floatingtext_Slowed"
+      ],
+      "codeSha256": "9fd4182b97f6e70f4b545e4180a3fb5cfc942ed96486bc8c1a1c66b8429d6ac3",
+      "instructions": [
+        {
+          "pc": 1,
+          "word": "00004001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "Chronokeeper_Timestop.dds"
+            }
+          ]
+        },
+        {
+          "pc": 2,
+          "word": "00000007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffTextureName"
+            }
+          ]
+        },
+        {
+          "pc": 3,
+          "word": "0000c001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "Slow"
+            }
+          ]
+        },
+        {
+          "pc": 4,
+          "word": "00008007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "BuffName"
+            }
+          ]
+        },
+        {
+          "pc": 5,
+          "word": "00014001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "DATA/Shared/Particles/Global_Slow.troy"
+            }
+          ]
+        },
+        {
+          "pc": 6,
+          "word": "00010007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "AutoBuffActivateEffect"
+            }
+          ]
+        },
+        {
+          "pc": 7,
+          "word": "0001c001",
+          "op": "LOADK",
+          "operands": [
+            0,
+            {
+              "constant": "game_floatingtext_Slowed"
+            }
+          ]
+        },
+        {
+          "pc": 8,
+          "word": "00018007",
+          "op": "SETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "PopupMessage1"
+            }
+          ]
+        },
+        {
+          "pc": 9,
+          "word": "0080001e",
+          "op": "RETURN",
+          "operands": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "localization": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Localized/Global.en_US.wad.client",
+    "chunks": {
+      "669ABD7D2EBA2A27": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 5864582,
+        "bytes": 346,
+        "sha256": "214efe8b9779fcf5dfe3f35b2d16ee81a655546fd0a0abc079849033bf0a5f94"
+      },
+      "F52CB127912A15C7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 5864928,
+        "bytes": 781144,
+        "sha256": "8a001f507f5cb3b53a2bcccdc0ccadeda1da4147d2b3471f8bd3c8e4fa9cef68"
+      },
+      "D09560B80689F71B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 6646072,
+        "bytes": 561713,
+        "sha256": "c2b2409c699af068328eabd7b37400a9dba726b391cfa3ac3b941784a7c5d38c"
+      },
+      "EF768E723899BB0E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 7207785,
+        "bytes": 937700,
+        "sha256": "c7aaf1665c162e3b56f0babdd2302a39d7d4fc829ed777f44445af4f6b6f639b"
+      },
+      "8B5421E747462658": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCF881AA143D7AE.bundle",
+        "offset": 8145485,
+        "bytes": 8583,
+        "sha256": "56ba6b28a122e889c6be27053461732e904c6f45dcf2a18bd1b9cccbfe76f776"
+      }
+    },
+    "files": [
+      {
+        "path": "data/menu/en_us/lol.stringtable",
+        "wadPathHash": "062d6ed714bff7df",
+        "sha256": "bf1c6b35bc6e6f6a79d3ae174d0ebae4969aaaeb0920c5fd1462f8ac0301d010",
+        "bytes": 21159277
+      }
+    ]
+  },
+  "strings": {
+    "redMonsterTooltip": {
+      "rstHash": "45500707963",
+      "value": "<titleLeft><font color='#FFCC00'>Red Brambleback</font></titleLeft><subtitleRight>300 second respawn</subtitleRight><subtitleLeft>Large Monster - Buff</subtitleLeft><mainText>A powerful and durable melee attacker. When slain, grants the <u><font color='#FFCC00'>Crest of Cinders</font></u> buff for 2 minutes, increasing Health Regeneration as well as causing your enemies to become slowed and burn for 3 seconds on hit.</mainText>"
+    },
+    "buffTooltip": {
+      "rstHash": "149227494118",
+      "value": "<titleLeft>Crest of Cinders</titleLeft><mainText>Regenerates <healing>@f1@% max Health</healing> every 5 seconds when not recently damaged by champions, turrets or epic monsters.<br><br>Attacks <status>Slow</status> their target by @f3@% (half for ranged) and burn them for <trueDamage>@f2@ true damage</trueDamage> over @f4@ seconds.<br><br>If the buff holder is slain, this buff is transferred to their killer.</mainText><postScriptLeft>Source: @SourceName@</postScriptLeft>"
+    }
+  },
+  "rstVersion": 5,
+  "rstHashBits": 38,
+  "iconExtraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/DATA.wad.client",
+    "chunks": {
+      "A5ACB224D573EBBF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6111311,
+        "bytes": 97328,
+        "sha256": "22d0aa31b0ed668654e659b4f9e3c1bdaaa17047d724b54693afcd00658418bb"
+      },
+      "E47A4E055277648C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6208639,
+        "bytes": 13663,
+        "sha256": "1093301d4369e5d3a51cca50c5417a8accb2ebf932a85d7b1abf48c9431a07f1"
+      },
+      "BDDF5E47B9A00C5A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/196B617AE6DE84C2.bundle",
+        "offset": 11354937,
+        "bytes": 1875,
+        "sha256": "3c0125a22e681285eda4b25dd3b1dcb9988cbf7f523424c9883d20f325c03fb4"
+      }
+    },
+    "files": [
+      {
+        "path": "data/spells/icons2d/buffcampred.dds",
+        "wadPathHash": "8d260602765e0949",
+        "sha256": "5ba932e304e27fe340dc1fc5de5a322e8ff4c9fea9ef9a56cc40fa20e91221ae",
+        "bytes": 2176
+      }
+    ]
+  },
+  "icon": {
+    "path": "public/assets/icons/buffcampred.png",
+    "sha256": "7e71f76bbd36820d1148984e1c393a62d44960d8cdebe6fae3ebae8dcbd1f766",
+    "width": 64,
+    "height": 64,
+    "conversion": "Pillow DDS to RGBA PNG"
+  },
+  "officialNotes": [
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+      "facts": [
+        "Healing tiers are 0.5/1/1.5/3% at levels 1/4/6/11.",
+        "Melee slow is 10/15/20%, ranged slow 5/7.5/10%. Burn changed to 15-54.",
+        "Champion transfers no longer gain an extra 30 seconds."
+      ]
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-14-notes/",
+      "fact": "The earlier unchanged ranged slow lists level thresholds 1/6/11."
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-11-16-notes/",
+      "fact": "Non-epic monster executions no longer remove red/blue buffs."
+    }
+  ],
+  "limits": [
+    "Metadata scripts contain no gameplay implementation; formula placeholders remain unbound.",
+    "Local policy linearly interpolates 15-54 total burn over champion levels 1-18, in three ticks at application/+1/+2 seconds.",
+    "The legacy monster tooltip describes three seconds; native pulse dispatch remains unverified.",
+    "Local policy uses a three-second slow, five-second healing lockout and half-second healing pulses.",
+    "A single burn refreshes duration/owner/damage while preserving pulse phase; native overlap/refresh rules remain unverified.",
+    "Elemental wisps/sharing, Smite eligibility, native particles/audio and cumulative burn presentation remain unfinished."
+  ]
+}
