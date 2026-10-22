@@ -126,12 +126,13 @@ test('the explicit parent edge starts Death after stopping, and seeking retires 
     );
     let disposedMaterials = 0,
       disposedGeometries = 0;
-    const models = [...a.effects.models.values()] as any[];
-    for (const m of models)
-      for (const mesh of m.meshes) {
-        mesh.material.addEventListener('dispose', () => disposedMaterials++);
-        if (m.ownedGeometry) mesh.geometry.addEventListener('dispose', () => disposedGeometries++);
-      }
+    const draws = a.effects.draws;
+    const materials = new Set(draws.map((m: any) => m.material)),
+      geometries = new Set(draws.map((m: any) => m.geometry));
+    for (const material of materials as Set<any>)
+      material.addEventListener('dispose', () => disposedMaterials++);
+    for (const geometry of geometries as Set<any>)
+      geometry.addEventListener('dispose', () => disposedGeometries++);
     a.seek(10);
     const remaining = a.effects.models.size;
     a.seek(0.5);
@@ -147,8 +148,8 @@ test('the explicit parent edge starts Death after stopping, and seeking retires 
       final: a.effects.models.size,
       disposedMaterials,
       disposedGeometries,
-      materialCount: models.reduce((n, m) => n + m.meshes.length, 0),
-      geometryCount: models.filter((m) => m.ownedGeometry).length,
+      materialCount: materials.size,
+      geometryCount: geometries.size,
     };
   });
   expect(result.before).not.toContain('death');

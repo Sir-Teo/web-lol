@@ -10,7 +10,7 @@ The original scanner and all selected particle dependencies are pinned and
 converted. Gameplay now reconstructs all twelve Buff declarations (including the
 invisible child driver) and all four child Death declarations, with saved ending
 histories, local ground projection and a thin range guide. Alert remains a manual
-preview with unresolved event/recipient dispatch. Audio, batching and native visual
+preview with unresolved event/recipient dispatch. Audio, further performance work and native visual
 calibration remain unfinished. These are foundations for
 the full match goal, not native parity or full-match acceptance.
 
@@ -106,7 +106,7 @@ while simulation remains unchanged. Restoring that frozen save reproduces its
 child frame; elapsed result playback follows the existing local terminal-view
 clock policy.
 
-TypeScript and all **1,307 tests across 244 files** pass, including five new state
+At the saved playback milestone `5089733`, TypeScript and all **1,307 tests across 244 files** passed, including five new state
 cases and a timing-bound check against the full particle profiles. Ten current
 Oracle/source Chrome cases pass. The new live cases use real equipment, cast and
 save/reload input with diagnostic clock/encounter setup. A Ward-equipped tail-only
@@ -127,6 +127,68 @@ zero errors/warnings. Four generated profiles/audits reproduce byte for byte.
 All eight live Oracle and five production captures were visually reviewed. The
 chunk warning remains: game 714.93 KB, Three 659.93 KB; selected Oracle module
 50.58 KB. Per-particle draw counts and full-match performance remain unaccepted.
+
+## Ordered GPU batches — October 22, 2026
+
+Consecutive compatible particle draws now use instancing. Original source meshes,
+quad UVs, material factors, pose/timing and per-particle values remain intact. The
+rig and projected ground layers retain their existing draw paths. Logical particle
+records remain available for seeking, inspection and visibility; shared materials
+and owned instance buffers replace their separate GPU draws.
+
+Batch preparation runs after scene/camera matrices update and before Three builds
+its render lists. It follows the installed 0.186 renderer's group order, source
+pass, transformed bounding-sphere depth and logical birth-id tie break. Visible
+external transparent objects stop a run, including objects from another Three
+module copy. This retains ordering around other effects. Conservative barriers
+may split more runs than ultimately contribute pixels; the optimization does not
+promise one draw per emitter. Empty Oracle state skips the scene scan.
+
+Each instance carries the same float32 model-view matrix that the separate draw
+would upload. The vertex shader keeps the original projection/matrix expression;
+source positions are not baked or rounded again. Flat per-instance RGBA and lookup
+coordinates retain the existing fragment product order. Scroll, floating-point UV
+division and atlas offset remain separate. Bounds on each batch supply only its
+sorting center; these unlit, non-shadow-casting draws keep frustum culling disabled.
+The retained separate-draw mode is a development comparison path.
+
+All **33 recorded Chrome frame comparisons** match every RGBA channel and uploaded
+matrix against that mode. They cover sixteen isolated visual layers, combined
+Buff/Death/child phases, another transparent draw, ten concurrent endings,
+repeated seeks and shrink/regrow. Both paths receive identical intermediate seeks:
+the old renderer's equal-depth tie order depends on logical object birth order.
+
+Measured draw counts include the same review environment in both paths:
+
+| Review frame | Logical particles | Separate draws | Batched draws |
+| --- | ---: | ---: | ---: |
+| Buff at 0.1s | 36 | 38 | 17 |
+| Buff at 2s | 22 | 25 | 10 |
+| Death at 0.05s | 107 | 109 | 28 |
+| Death at 0.2s | 80 | 82 | 48 |
+| Buff/child sequence at 8.55s | 109 | 111 | 29 |
+| Ten endings at 0.05s | 1,070 | 1,073 | 235 |
+
+The ending frame uses 74.3% fewer draws; the ten-owner frame uses 78.1% fewer.
+These are draw-count measurements, not frame-rate, missed-frame or full-match
+performance certification. Logical object/motion allocation and sorting still
+cost CPU time. Native visual/material/UV calibration, audio, Alert dispatch and
+the larger performance requirements remain open.
+
+Buffers grow by powers of two, reuse available capacity, set the live instance
+count on shrink, and dispose with their shared profile materials on retirement.
+The ten-owner probe retires all 232 batch geometries and four materials. The live
+Ward-equipped tail reload now compares used matrix/tint/lookup/UV instance bytes
+as well as logical source records; they reproduce exactly. Its world-dependent
+run split retires six materials and 70 batch/projected geometries. A real WebGL loss/restore
+retains the exact active buffers and frozen snapshot, with eight batches and
+eleven effect draws in the final diagnostic frame.
+
+All 1,307 unit checks still pass. Current targeted Chrome and production scope,
+fair reference/batched captures, implementation hashes and remaining limits are
+recorded in [the batching ledger](reference/oracle-batching-verification.json).
+Schema 105 and ruleset identity are unchanged; no source assets or simulation
+behavior changed. The earlier ledgers remain historical evidence for their commits.
 
 ## Evidence and boundaries
 
@@ -261,8 +323,9 @@ Pixels establish contribution, not native appearance or match visibility. Do not
 promote this preview to visual parity. Alert's gameplay event/recipient remains
 unresolved and manual preview does not manufacture a detection trigger.
 
-Continue calibrating the noted UV/material/attachment behavior. Per-particle draws require batching
-and match-scale performance verification. [The preview validation ledger](reference/oracle-particle-verification.json)
+Continue calibrating the noted UV/material/attachment behavior and match-scale
+performance. Ordered instancing now replaces the original per-particle draws.
+[The preview validation ledger](reference/oracle-particle-verification.json)
 records the commands and exact scope separately from live Oracle behavior.
 
 ## Reproduction and validation
@@ -314,7 +377,7 @@ and the map validate with zero errors/warnings. The chunk warning remains:
 
 ## Remaining implementation
 
-Resolve Alert dispatch, native stop/linger and material bindings, audio, batching
+Resolve Alert dispatch, native stop/linger and material bindings, audio, further profiling
 and reference calibration. Verify native startup, scaling phase,
 swap conversion, detection cadence and death/swap dispatch. Control Wards,
 Farsight, Faelights, traps, strategic ward bots and the wider full match, roster,

@@ -1,0 +1,643 @@
+{
+  "date": "2026-10-22",
+  "baseline": "5089733",
+  "scope": "Ordered-run instancing of compatible Oracle draws with unchanged source transforms, shader product, transparent order and saved simulation. No native parity, frame-rate or full-match performance certification.",
+  "schema": 105,
+  "ruleset": "03fc87e044d686b5f62006789a6f109aa37df0e146d57d885a3aff9e5c7cca71",
+  "simulationAndAssetsUnchanged": true,
+  "threeVersion": "0.186.0",
+  "threeSortEvidence": [
+    {
+      "path": "node_modules/three/src/renderers/WebGLRenderer.js",
+      "sha256": "9e8740aad691246b31b3704014e8f3bbd38a8e7bf4b1b4d23868541b023cc63a"
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLRenderLists.js",
+      "sha256": "3139dfcd01675333266c02d853a768913318f353e694de39545aa50747d2011a"
+    }
+  ],
+  "implementation": [
+    {
+      "path": "src/render/oracle-particles.ts",
+      "sha256": "a8235aaeb367b3c74736a6cb78c6d70909bf91bd25185ebcefa78d9d7c6c04ba"
+    },
+    {
+      "path": "tools/qa/oracle-particles.ts",
+      "sha256": "24e9f3b145809e5b39b5e6df124050512ff1419206157c310bd6c48e236849f7"
+    },
+    {
+      "path": "e2e/oracle-batching.spec.ts",
+      "sha256": "8a56150102f0109eab8fd859d81d1753e1e30616535a823ef77d8ee289234366"
+    },
+    {
+      "path": "e2e/oracle-lens.spec.ts",
+      "sha256": "36d9ac666c725c0ab463c79f61ba909a2d5fb02bd3c3978fee3c5c17490a9478"
+    },
+    {
+      "path": "e2e/oracle-particles.spec.ts",
+      "sha256": "46bdedb9e817d78740335b8e3d6fa0d1fe958cfa477b5c44e0576b2c8b102bd9"
+    }
+  ],
+  "commands": [
+    {
+      "command": "npx tsc --noEmit",
+      "result": "passed"
+    },
+    {
+      "command": "npx vitest run --maxWorkers=1",
+      "result": "passed",
+      "tests": 1307,
+      "files": 244
+    },
+    {
+      "command": "npx playwright test e2e/oracle-batching.spec.ts e2e/oracle-lens.spec.ts e2e/oracle-particles.spec.ts --reporter=json",
+      "stats": {
+        "startTime": "2026-10-22T22:00:14.745Z",
+        "duration": 47963.714,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npx playwright test e2e/oracle-batching.spec.ts e2e/garen-courage.spec.ts e2e/garen-justice.spec.ts e2e/garen-spin.spec.ts e2e/gromp-attack.spec.ts e2e/gromp-death.spec.ts e2e/lux-flight-depth.spec.ts --reporter=json",
+      "stats": {
+        "startTime": "2026-10-22T21:50:08.819Z",
+        "duration": 79602.852,
+        "expected": 18,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npm run test:production",
+      "result": {
+        "result": "passed",
+        "prefix": "/nested/rift/",
+        "recordings": 17,
+        "mapNavigation": true,
+        "practiceScheduledRigs": 11,
+        "realHawkshotCast": true,
+        "realLuxBindingCast": true,
+        "luxLaneRestart": true,
+        "selectedSmiteLoadoutAndRestart": true,
+        "companionPurchaseAndRestore": true,
+        "companionPurchaseInPractice": true,
+        "realWardPlacementAndRestore": true,
+        "oraclePurchaseActivationAndRestore": true,
+        "oracleRigRequests": 8,
+        "unrequestedOraclePreloads": 0,
+        "wardRigRequests": 7,
+        "unrequestedCompanionPreloads": 0,
+        "developmentHook": false,
+        "garenFixtureInProduction": false,
+        "junglePreviewRequests": 0,
+        "preparedCompanionRequests": 3,
+        "scheduledGrompRequests": 119,
+        "scheduledBlueRequests": 7,
+        "scheduledRedRequests": 7,
+        "scheduledWolfRequests": 14,
+        "scheduledRaptorRequests": 14,
+        "scheduledKrugRequests": 21,
+        "scheduledScuttlerRequests": 7,
+        "screenshot": "artifacts/production-subpath.png"
+      }
+    }
+  ],
+  "distinctBrowserCases": 27,
+  "comparisons": [
+    {
+      "label": "isolated:0",
+      "time": 0.8,
+      "particles": 2,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 4,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:1",
+      "time": 0.8,
+      "particles": 1,
+      "batches": 0,
+      "calls": 4,
+      "referenceCalls": 4,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:2",
+      "time": 0.8,
+      "particles": 1,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 3,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:3",
+      "time": 0.25,
+      "particles": 5,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 7,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:4",
+      "time": 0.7,
+      "particles": 2,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 4,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:5",
+      "time": 0.5,
+      "particles": 7,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 9,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:6",
+      "time": 0.3,
+      "particles": 1,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 3,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:7",
+      "time": 0.1,
+      "particles": 3,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 5,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:8",
+      "time": 0.08,
+      "particles": 20,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 22,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:10",
+      "time": 2,
+      "particles": 1,
+      "batches": 0,
+      "calls": 3,
+      "referenceCalls": 3,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:11",
+      "time": 2,
+      "particles": 1,
+      "batches": 0,
+      "calls": 3,
+      "referenceCalls": 3,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:12",
+      "time": 0.15,
+      "particles": 7,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 9,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:13",
+      "time": 0.2,
+      "particles": 50,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 52,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:14",
+      "time": 0.08,
+      "particles": 10,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 12,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:15",
+      "time": 0.06,
+      "particles": 40,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 42,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "isolated:16",
+      "time": 0.5,
+      "particles": 1,
+      "batches": 1,
+      "calls": 3,
+      "referenceCalls": 3,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "buff:barrier:false",
+      "time": 0.1,
+      "particles": 36,
+      "batches": 13,
+      "calls": 17,
+      "referenceCalls": 38,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "buff:barrier:true",
+      "time": 0.1,
+      "particles": 36,
+      "batches": 14,
+      "calls": 19,
+      "referenceCalls": 39,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "buff:barrier:false",
+      "time": 2,
+      "particles": 22,
+      "batches": 4,
+      "calls": 10,
+      "referenceCalls": 25,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "buff:barrier:true",
+      "time": 2,
+      "particles": 22,
+      "batches": 4,
+      "calls": 11,
+      "referenceCalls": 26,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "death:barrier:false",
+      "time": 0.05,
+      "particles": 107,
+      "batches": 26,
+      "calls": 28,
+      "referenceCalls": 109,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "death:barrier:true",
+      "time": 0.05,
+      "particles": 107,
+      "batches": 26,
+      "calls": 29,
+      "referenceCalls": 110,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "death:barrier:false",
+      "time": 0.2,
+      "particles": 80,
+      "batches": 46,
+      "calls": 48,
+      "referenceCalls": 82,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "death:barrier:true",
+      "time": 0.2,
+      "particles": 80,
+      "batches": 46,
+      "calls": 49,
+      "referenceCalls": 83,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "sequence:barrier:false",
+      "time": 8.55,
+      "particles": 109,
+      "batches": 26,
+      "calls": 29,
+      "referenceCalls": 111,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "sequence:barrier:true",
+      "time": 8.55,
+      "particles": 109,
+      "batches": 27,
+      "calls": 31,
+      "referenceCalls": 112,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "ten-owners",
+      "time": 0.05,
+      "particles": 1070,
+      "batches": 232,
+      "calls": 235,
+      "referenceCalls": 1073,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "crowd-seek:0.2",
+      "time": 0.2,
+      "particles": 778,
+      "batches": 360,
+      "calls": 363,
+      "referenceCalls": 781,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "crowd-seek:0.05",
+      "time": 0.05,
+      "particles": 1070,
+      "batches": 232,
+      "calls": 235,
+      "referenceCalls": 1073,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "crowd-seek:0.7",
+      "time": 0.7,
+      "particles": 239,
+      "batches": 62,
+      "calls": 65,
+      "referenceCalls": 242,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "crowd-seek:0.05",
+      "time": 0.05,
+      "particles": 1070,
+      "batches": 232,
+      "calls": 235,
+      "referenceCalls": 1073,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    },
+    {
+      "label": "shrink-to-one",
+      "time": 0.05,
+      "particles": 107,
+      "batches": 28,
+      "calls": 31,
+      "referenceCalls": 110,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true,
+      "firstCapacity": 1557
+    },
+    {
+      "label": "regrow-ten",
+      "time": 0.05,
+      "particles": 1070,
+      "batches": 232,
+      "calls": 235,
+      "referenceCalls": 1073,
+      "changedChannels": 0,
+      "maxError": 0,
+      "matricesExact": true
+    }
+  ],
+  "retirement": {
+    "label": "retirement",
+    "models": 0,
+    "batches": 0,
+    "materialsDisposed": 4,
+    "geometriesDisposed": 232,
+    "expectedMaterials": 4,
+    "expectedGeometries": 232
+  },
+  "liveTail": {
+    "recast": {
+      "kind": "ward",
+      "reason": "recast",
+      "anchor": {
+        "point": {
+          "x": -1100,
+          "y": 825
+        },
+        "facing": 2.2
+      },
+      "retained": {
+        "point": {
+          "x": -1100,
+          "y": 825
+        },
+        "facing": 2.2
+      },
+      "count": 107
+    },
+    "before": {
+      "scan": null,
+      "kind": "ward",
+      "anchor": {
+        "point": {
+          "x": -420,
+          "y": -50
+        },
+        "facing": 2.2
+      },
+      "models": 109
+    },
+    "retired": {
+      "histories": 0,
+      "models": 0,
+      "materials": 6,
+      "geometries": 70,
+      "expectedMaterials": 6,
+      "expectedGeometries": 70
+    }
+  },
+  "graphicsRecovery": {
+    "batches": 8,
+    "draws": 11,
+    "exactBuffers": true,
+    "exactSnapshot": true
+  },
+  "buffers": [
+    {
+      "path": "artifacts/oracle-child-buffers-before.json",
+      "sha256": "d2fe9f66ecff871be97fb7d8d048e3501f62fd95878b4415edddf6035fb0b4af",
+      "bytes": 276896
+    },
+    {
+      "path": "artifacts/oracle-child-buffers-after.json",
+      "sha256": "d2fe9f66ecff871be97fb7d8d048e3501f62fd95878b4415edddf6035fb0b4af",
+      "bytes": 276896
+    }
+  ],
+  "captures": [
+    {
+      "path": "artifacts/oracle-reference-draws.png",
+      "sha256": "b0ceab66920f5ac1e5d060205293cbd33edad9c5dbdbf9f9b8c81f907fdf7262",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-after-batching.png",
+      "sha256": "b0ceab66920f5ac1e5d060205293cbd33edad9c5dbdbf9f9b8c81f907fdf7262",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-batch-context-restored.png",
+      "sha256": "d694db16907fe6e830531fb8d11f22cdf0094657ec6179d348dfcb884aed1883",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-child-active.png",
+      "sha256": "2f91f234c64531f7e8bba588609a2fa725bc3b4621bc0a6ba498de0873e3ef42",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-child-restored.png",
+      "sha256": "16611d7e1b90b8baa06aa765dfaaef0ca67f241b60f1452ee140670117f3ccc5",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-oracle.png",
+      "sha256": "883162d2b88276fba12d83a1381d8fb66d347486bec4101e1bb15289df7404c8",
+      "visuallyReviewed": true
+    }
+  ],
+  "originalDrawMeasurement": [
+    {
+      "role": "buff",
+      "time": 0.1,
+      "particles": 36,
+      "calls": 38,
+      "triangles": 9736,
+      "orderedRuns": 13
+    },
+    {
+      "role": "buff",
+      "time": 2,
+      "particles": 22,
+      "calls": 25,
+      "triangles": 10514,
+      "orderedRuns": 7
+    },
+    {
+      "role": "death",
+      "time": 0.05,
+      "particles": 107,
+      "calls": 109,
+      "triangles": 9026,
+      "orderedRuns": 16
+    },
+    {
+      "role": "death",
+      "time": 0.2,
+      "particles": 80,
+      "calls": 82,
+      "triangles": 8972,
+      "orderedRuns": 32
+    },
+    {
+      "role": "sequence",
+      "time": 8.55,
+      "particles": 109,
+      "calls": 111,
+      "triangles": 9540,
+      "orderedRuns": 17
+    }
+  ],
+  "findings": [
+    {
+      "issue": "Cross-copy Three objects were missed by instanceof checks and failed to split batches.",
+      "resolution": "Use Three object type flags; the foreign-copy transparent barrier now preserves every tested pixel."
+    },
+    {
+      "issue": "A spark comparison had identical matrices but different equal-depth ordering.",
+      "resolution": "The paths had received different intermediate seek histories. Reproduce the same object births in both paths; all 33 final frame comparisons have zero differing RGBA channels. No tolerance was introduced."
+    },
+    {
+      "issue": "Logical records still wrote uniforms unused by the batched shader.",
+      "resolution": "Only the per-instance upload path writes those values; final unit, GPU, live restoration, graphics recovery and production checks pass after cleanup."
+    }
+  ],
+  "limits": [
+    "Instancing preserves installed Three 0.186 ordering; dependency upgrades require revalidation. Conservative external barriers can increase run counts.",
+    "Matrices contain camera-relative model-view transforms. Sorting centers are metadata; batch frustum culling stays disabled. These unlit effects do not cast shadows or certify other override/depth/XR render paths.",
+    "Logical per-particle records and CPU sampling/sorting/allocation remain. Draw-count reduction does not establish FPS, frame cadence, missed frames, latency, memory budget or full-match performance.",
+    "Current pixel parity applies to recorded Chrome frames and hardware. Other browsers/GPUs are not certified. Native appearance, UV/frame/crop, material, attachment, stop/linger, audio and Alert dispatch remain unfinished.",
+    "Existing source spark crop edges, dim scanner fade and small ending remain. The reference path retains those local reconstruction policies.",
+    "Live checkpoints and graphics recovery compare used instance bytes; unused retained capacity is excluded from semantic buffer comparison and cannot draw past mesh.count.",
+    "Production smoke exercises public UI preparation/activation/restoration with practice refill, not a natural complete match. No complete Chrome audit was repeated.",
+    "Chunk warning remains: game 714.93 KB, Three 659.93 KB; selected Oracle module 55.71 KB.",
+    "All original full-match, roster, strategic vision, native comparison, offline delivery and performance requirements remain active."
+  ]
+}

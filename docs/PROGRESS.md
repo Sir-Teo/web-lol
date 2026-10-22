@@ -21,12 +21,36 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
+[Oracle's ordered GPU batches](ORACLE-LENS.md#ordered-gpu-batches--october-22-2026)
+now preserve the existing transparent scene order while replacing consecutive
+compatible particle draws with instancing. Thirty-three Chrome frame comparisons
+match all RGBA channels and float32 model-view matrices against the retained
+separate-draw path, including sixteen isolated layers, other transparent geometry,
+ten simultaneous endings and repeated shrink/regrow seeks. The measured ending
+frame drops from 109 to 28 total review draws (74.3% fewer); ten endings drop from
+1,073 to 235 (78.1% fewer). These are draw-count results, not frame-rate or
+full-match performance certification. Logical object allocation and sort work
+remain. Shared materials and owned instance buffers retire cleanly.
+
+All 1,307 unit checks and 27 distinct targeted Chrome scenarios pass; the new GPU
+comparison and real WebGL loss/restoration cases also pass their final recheck.
+Live saved ending restoration now compares used instance-matrix, tint, lookup and
+UV buffers exactly. Its final run retires six materials and 70 geometries; the
+ten-owner review retires four materials and all 232 run geometries. Graphics
+restoration preserves its frozen snapshot and buffers. Six fair-comparison/live/
+production captures were visually reviewed. Nested-path production smoke passes
+with eight selected Oracle mesh requests and zero unrequested Oracle preloads.
+Schema 105 and the ruleset identity remain unchanged. The game/Three chunk warning
+remains (714.93/659.93 KB); selected Oracle code is 55.71 KB. Current hashes,
+measurements, corrections and scope are in the
+[batching ledger](reference/oracle-batching-verification.json).
+
 [Oracle Lens](ORACLE-LENS.md) now shares the full declaration renderer with its
 source review: all twelve Buff declarations, including the invisible child driver,
 and all four child Death declarations run in gameplay. Fifteen visual layers use
 the original rig/meshes/textures, full temporal/probability tables and explicit local
 material/UV/motion policies. Alert remains manual preview with unresolved dispatch.
-Cropped spark edges, native attachment/material/stop semantics, audio, batching and
+Cropped spark edges, native attachment/material/stop semantics, audio and further
 match-scale performance remain unfinished. This does not certify native appearance.
 
 Free fountain/death swaps preserve stock, short cooldowns and fractional recharge
@@ -53,7 +77,7 @@ targetability. Startup, scaling aggregation, recharge conversion, cadence and
 lifecycle remain named local policies. Schema 104 sampling-boundary fixes are
 retained in schema 105; earlier schemas/fingerprints remain incompatible.
 
-TypeScript and all 1,307 checks across 244 files pass, including five new history
+At the saved playback milestone `5089733`, TypeScript and all 1,307 checks across 244 files passed, including five new history
 cases and a full-profile conservative timing bound. Ten current Oracle/source
 Chrome cases pass: five live encounters, four particle review cases and the
 original geometry review. The new tail-only UI save/reload reproduces source

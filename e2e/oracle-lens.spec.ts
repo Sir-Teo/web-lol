@@ -426,8 +426,8 @@ test('recast and expired child effects retain their source buffers through Ward 
       const g = (window as any).__GAME__;
       g.view.recenter(g.world.hero);
       g.view.render(g.world, 1, g.view.previousElapsed);
-      return JSON.stringify(
-        [...g.view.oracleLens.particles.models]
+      return JSON.stringify({
+        particles: [...g.view.oracleLens.particles.models]
           .sort(([a], [b]) => a.localeCompare(b))
           .map(([key, m]: any) => ({
             key,
@@ -438,8 +438,29 @@ test('recast and expired child effects retain their source buffers through Ward 
             vertices: m.meshes.map((mesh: any) =>
               Array.from(mesh.geometry.attributes.position.array)
             ),
-          }))
-      );
+          })),
+        batches: [...g.view.oracleLens.particles.batches]
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([key, mesh]: any) => ({
+            key,
+            count: mesh.count,
+            keys: mesh.userData.particleKeys,
+            matrices: Array.from(mesh.instanceMatrix.array.slice(0, mesh.count * 16)),
+            attributes: [
+              'particleTint',
+              'particleLookupUv',
+              'particleUvScroll',
+              'particleUvScale',
+              'particleAtlasOffset',
+            ].map((name) => {
+              const attribute = mesh.geometry.getAttribute(name);
+              return {
+                name,
+                values: Array.from(attribute.array.slice(0, mesh.count * attribute.itemSize)),
+              };
+            }),
+          })),
+      });
     });
   }
   const activeBuffers = await buffers();
@@ -457,12 +478,12 @@ test('recast and expired child effects retain their source buffers through Ward 
       w = g.world;
     let materials = 0,
       geometries = 0;
-    const models = [...g.view.oracleLens.particles.models.values()] as any[];
-    for (const m of models)
-      for (const mesh of m.meshes) {
-        mesh.material.addEventListener('dispose', () => materials++);
-        if (m.ownedGeometry) mesh.geometry.addEventListener('dispose', () => geometries++);
-      }
+    const draws = g.view.oracleLens.particles.draws as any[];
+    const ownedMaterials = new Set(draws.map((m) => m.material)),
+      ownedGeometries = new Set(draws.map((m) => m.geometry));
+    for (const material of ownedMaterials) material.addEventListener('dispose', () => materials++);
+    for (const geometry of ownedGeometries)
+      geometry.addEventListener('dispose', () => geometries++);
     const end = w.player.trinket.visuals[0].stopTick + 92;
     w.step(end - w.tick);
     g.view.render(w, 1, g.view.previousElapsed);
@@ -471,8 +492,8 @@ test('recast and expired child effects retain their source buffers through Ward 
       models: g.view.oracleLens.particles.models.size,
       materials,
       geometries,
-      expectedMaterials: models.reduce((n, m) => n + m.meshes.length, 0),
-      expectedGeometries: models.filter((m) => m.ownedGeometry).length,
+      expectedMaterials: ownedMaterials.size,
+      expectedGeometries: ownedGeometries.size,
     };
   });
   expect([retired.histories, retired.models]).toEqual([0, 0]);

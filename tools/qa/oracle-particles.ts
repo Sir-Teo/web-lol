@@ -93,7 +93,7 @@ function seek(time: number) {
     layer.value === 'all' ? null : Number(layer.value)
   );
   document.querySelector('#status')!.textContent =
-    `${time.toFixed(3)}s · ${effects.models.size} visible particle objects · child dispatch ${(oracleChildTick(0, 480)! / 60).toFixed(3)}s · ${layer.value === '9' ? 'invisible driver has no geometry' : system.value}`;
+    `${time.toFixed(3)}s · ${effects.models.size} logical particles · child dispatch ${(oracleChildTick(0, 480)! / 60).toFixed(3)}s · ${layer.value === '9' ? 'invisible driver has no geometry' : system.value}`;
   render();
 }
 function fit() {
@@ -173,5 +173,10 @@ Object.assign(window, {
     camera,
     ground,
     inputs,
+    createReference: () => {
+      const referenceScene = new THREE.Scene();
+      referenceScene.add(floor.clone(), grid.clone());
+      return { scene: referenceScene, effects: new OracleParticles(referenceScene, false) };
+    },
   },
 });
