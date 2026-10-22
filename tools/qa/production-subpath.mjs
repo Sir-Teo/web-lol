@@ -64,6 +64,7 @@ try {
     junglePreviewRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
+    scheduledRedRequests = [],
     recordings = new Set();
   let laneMatchStarted = false;
   page.on('pageerror', (error) => errors.push(error.message));
@@ -72,13 +73,14 @@ try {
   });
   page.on('request', (request) => {
     if (
-      /sru-(blue|gromp)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
+      /sru-(blue|red|gromp)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
         request.url()
       )
     )
       if (!laneMatchStarted || /jungle-character-source|jungle-characters/.test(request.url()))
         junglePreviewRequests.push(request.url());
       else if (request.url().includes('sru-blue-base')) scheduledBlueRequests.push(request.url());
+      else if (request.url().includes('sru-red-base')) scheduledRedRequests.push(request.url());
       else scheduledGrompRequests.push(request.url());
     if (/^https?:/.test(request.url()) && !request.url().startsWith(base))
       outside.push(request.url());
@@ -194,6 +196,10 @@ try {
     'Lane matches must prepare the normal Blue Sentinel rig beneath the host prefix'
   );
   assert.deepEqual(failed, [], 'All production resources must load successfully');
+  assert(
+    scheduledRedRequests.some((url) => url.endsWith('/sru-red-base.glb')),
+    'Lane matches must prepare the normal Red Brambleback rig beneath the host prefix'
+  );
   assert.deepEqual(errors, [], 'No production JavaScript or console errors');
   console.log(
     JSON.stringify({
@@ -209,6 +215,7 @@ try {
       junglePreviewRequests: junglePreviewRequests.length,
       scheduledGrompRequests: scheduledGrompRequests.length,
       scheduledBlueRequests: scheduledBlueRequests.length,
+      scheduledRedRequests: scheduledRedRequests.length,
       screenshot: 'artifacts/production-subpath.png',
     })
   );

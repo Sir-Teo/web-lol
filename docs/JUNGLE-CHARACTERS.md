@@ -11,7 +11,9 @@ leash/reset policies and saved continuation. It does not activate standard-mode
 camps or certify final rewards and native behavior. The later
 [Blue Sentinel increment](BLUE-SENTINEL.md) adds normal-skin Blue combat and two
 source-linked lane-match camps, retaining the skin-4 placement conflict and
-missing native range/buff rules explicitly.
+missing native range/buff rules explicitly. [Red Brambleback](RED-BRAMBLEBACK.md)
+now adds a third converted base rig and two live camps from a separate source
+pin; the original 64-member pin remains unchanged.
 
 `reference/jungle-character-source.json` retains 64 original files totaling
 2,898,228 bytes, with manifest, compressed-chunk and per-file hashes. Its manifest
@@ -93,8 +95,8 @@ Selection reuses loaded rigs and requests no rig for the other nine characters.
 A failed GLB request can retry; a late response stays hidden when another
 character has been selected. Playback is manually controlled, clamps at clip
 end, and supports rewinding and restarting. Production excludes this page, its source catalog and preview code. The game
-loads the existing Gromp/Blue rigs when their encounters or scheduled camps
-require them; ordinary practice requests neither rig. Preview skin selection
+loads Gromp, Blue and Red rigs when their encounters or scheduled camps
+require them; ordinary practice requests none of those rigs. Preview skin selection
 does not certify native camp activation.
 
 ## Reproduction and verification

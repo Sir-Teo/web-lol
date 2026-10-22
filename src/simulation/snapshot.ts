@@ -61,7 +61,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 91;
+export const SNAPSHOT_VERSION = 92;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -135,7 +135,7 @@ const unit = z
     team: faction,
     monster: z
       .strictObject({
-        species: z.enum(['gromp', 'blue']),
+        species: z.enum(['gromp', 'blue', 'red']),
         home: point,
         phase: z.enum(['spawning', 'idle', 'engaged', 'returning']),
         targetId: id.nullable(),
@@ -650,12 +650,19 @@ const snapshot = z.strictObject({
   jungleCamps: z
     .array(
       z.strictObject({
-        id: z.enum(['order-gromp', 'chaos-gromp', 'order-blue', 'chaos-blue']),
+        id: z.enum([
+          'order-gromp',
+          'chaos-gromp',
+          'order-blue',
+          'chaos-blue',
+          'order-red',
+          'chaos-red',
+        ]),
         unitId: id.nullable(),
         nextSpawnTick: tick.nullable(),
       })
     )
-    .max(4),
+    .max(RIFT_CAMPS.length),
   matchMode: z.enum(['practice', 'lanes']),
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),

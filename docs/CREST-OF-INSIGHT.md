@@ -30,7 +30,7 @@ The following runtime details are explicit **provisional local policies**:
   Garen receives haste with no invented mana pool. Energy champions are absent.
 - A champion kill transfers using existing kill credit, refreshes the full
   duration and resets pulse phase. This includes a credited execution or a
-  posthumous kill. An uncredited Gromp/Blue execution retains the original buff
+  posthumous kill. An uncredited Gromp/Blue/Red execution retains the original buff
   deadline; an uncredited structure execution removes it.
 - Buff time continues during death, recall and ordinary play, and freezes with
   the simulation when paused. Dead owners receive no mana and bank no pulses.
@@ -50,7 +50,7 @@ Hawkshot recharge and Judgment's captured cooldown keep their original deadline;
 each later recharge cycle reads current total haste. Level changes update the
 buff's haste tier without rewriting a running cooldown.
 
-Schema 91 owns one nullable buff record per champion: start, expiry and next
+Schema 92 owns one nullable buff record per champion: start, expiry and next
 regeneration tick. It validates duration, phase, ownership and non-expired state,
 including dead owners. Old schemas remain incompatible without silent migration.
 The ruleset fingerprint includes the new content and simulation modules.

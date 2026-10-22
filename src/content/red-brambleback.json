@@ -1,0 +1,84 @@
+{
+  "sourcePin": "docs/reference/red-brambleback-source.json",
+  "sourcePinSha256": "9cd1fb50137065eb08b1aabd217bb12f8b90aef941511be68b21d5a248ce923c",
+  "modelSha256": "e1f4ced318ae420f076b6b0122cfa4fbdb8b67c922dc730ac2de223d2e6d681a",
+  "rig": "sru-red-base",
+  "skin": 0,
+  "stats": {
+    "maxHp": 2300.0,
+    "damage": 66.0,
+    "armor": 42.0,
+    "magicResist": 42.0,
+    "speed": 275.0,
+    "attackSpeed": 0.49300000071525574,
+    "range": 200.0
+  },
+  "radius": 120.0,
+  "pathfindingRadius": 60.0,
+  "gold": 90.0,
+  "experience": 95.0,
+  "minionScore": 4.0,
+  "castFrame": 16,
+  "clips": {
+    "idle1": {
+      "name": "entry_92e3d68c",
+      "durationSeconds": 2.633333444595337
+    },
+    "run": {
+      "name": "entry_2acd4eca",
+      "durationSeconds": 1.033333420753479
+    },
+    "attack1": {
+      "name": "attack1",
+      "durationSeconds": 1.633333444595337
+    },
+    "death": {
+      "name": "entry_bd28bd4d",
+      "durationSeconds": 2.700000047683716
+    },
+    "spawn": {
+      "name": "entry_e4cb0f58",
+      "durationSeconds": 4
+    }
+  },
+  "spawnBlendSeconds": 0.0,
+  "policy": {
+    "leadupSeconds": 1.66,
+    "leashRadius": 1000,
+    "sightRadius": 1000,
+    "resetHealthFractionPerSecond": 0.2,
+    "note": "Legacy 1.66s SpawnDuration, 1000 leash and 300s respawn inform provisional local policies. Protection rounds to 100 ticks at 60Hz. Root supplies range 200. Normal skin 0 follows published removal of Baron corruption; placed Skin3 remains a documented conflict. Native activation, scaling, attack variants, buffs, effects and timing remain unfinished."
+  },
+  "firstReadySeconds": 55,
+  "firstReadySource": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+  "respawnSeconds": 300,
+  "camps": [
+    {
+      "id": "order-red",
+      "sourceIndex": 4,
+      "anchorEntity": "{5f8d7bea}",
+      "point": {
+        "x": 340.244140625,
+        "y": 3404.81298828125
+      },
+      "facingPoint": {
+        "x": -1.2600000000002183,
+        "y": 3804.43
+      }
+    },
+    {
+      "id": "chaos-red",
+      "sourceIndex": 10,
+      "anchorEntity": "{c520876f}",
+      "point": {
+        "x": -323.130859375,
+        "y": -3475.546875
+      },
+      "facingPoint": {
+        "x": -98.25,
+        "y": -3749.209999999999
+      }
+    }
+  ],
+  "buffStatus": "Crest of Cinders is not yet implemented; Red currently grants Root gold/XP/CS only."
+}

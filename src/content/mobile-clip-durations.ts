@@ -9,6 +9,9 @@ export const MOBILE_CLIP_DURATIONS = {
   'sru-blue-base': Object.fromEntries(
     Object.entries(MONSTERS.blue.clips).map(([a, c]) => [a, c.durationSeconds])
   ),
+  'sru-red-base': Object.fromEntries(
+    Object.entries(MONSTERS.red.clips).map(([a, c]) => [a, c.durationSeconds])
+  ),
 };
 export type MobileRig = keyof typeof MOBILE_CLIP_DURATIONS;
 export function mobileRig(

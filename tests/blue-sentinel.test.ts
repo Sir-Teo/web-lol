@@ -137,18 +137,20 @@ test('Blue last hits use its own Root gold, experience and CS without champion c
   expect(World.fromSnapshot(world.snapshot(), PRACTICE_FIXTURE).snapshot()).toBe(world.snapshot());
 });
 
-test('four Rift camps keep species-specific first-ready, protection and clear/respawn calendars', () => {
+test('Blue keeps species-specific first-ready, protection and clear/respawn calendars among six Rift camps', () => {
   const world = lane(),
     definition = RIFT_CAMPS.find((c) => c.id === 'order-blue')!;
   const profile = MONSTERS.blue,
     birth = definition.firstReadyTick - profile.spawnLeadupTicks;
   world.tick = birth - 2;
   world.step();
-  expect(world.units.some((u) => u.kind === 'monster')).toBe(false);
+  expect(world.units.some((u) => u.kind === 'monster' && u.monster.species === 'blue')).toBe(false);
   world.step();
   const camp = world.jungleCamps.find((c) => c.id === 'order-blue')!;
   const unit = world.unit(camp.unitId!)!;
-  expect(world.units.filter((u) => u.kind === 'monster')).toHaveLength(2);
+  expect(
+    world.units.filter((u) => u.kind === 'monster' && u.monster.species === 'blue')
+  ).toHaveLength(2);
   expect(unit.monster).toMatchObject({
     species: 'blue',
     phase: 'spawning',

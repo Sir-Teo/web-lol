@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "fc5417e",
+  "sourceCommit": "861d39c6ea18884c9662d15060006d9399218ca9",
+  "schema": 92,
+  "rulesetFingerprint": "28bfe34aeb5cae7f960f0b046d349fe6a06b7100c086b755bdb3ab37ec8b7124",
+  "sourcePin": {
+    "path": "docs/reference/red-brambleback-source.json",
+    "sha256": "9cd1fb50137065eb08b1aabd217bb12f8b90aef941511be68b21d5a248ce923c"
+  },
+  "sourcePreparation": {
+    "extractCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-red-brambleback.py",
+    "conversionCommand": "node tools/assets/convert-roster-base.mjs SRU_Red",
+    "exportCommand": "python3 tools/assets/export-red-brambleback.py",
+    "repeatExtractionMatches": true,
+    "repeatConversionAndExportByteIdentical": true,
+    "archiveMembers": 22,
+    "rawMemberBytes": 1466836,
+    "scriptMembers": 1,
+    "unchangedParentPins": [
+      "jungle-character-source",
+      "jungle-script-source",
+      "jungle-map-source"
+    ],
+    "activeNativeSkin": "unverified",
+    "placedSkin": 3,
+    "localSkin": 0,
+    "staticLookAtClips": 3
+  },
+  "rig": {
+    "path": "public/assets/models/sru-red-base.glb",
+    "sha256": "e1f4ced318ae420f076b6b0122cfa4fbdb8b67c922dc730ac2de223d2e6d681a",
+    "bytes": 1969240,
+    "triangles": 3766,
+    "bones": 69,
+    "atomicClips": 15,
+    "unitScale": 0.02075000047683716
+  },
+  "policies": {
+    "rootAttackRange": 200,
+    "castFrame": 16,
+    "windupTicks": 32,
+    "firstReadySeconds": 55,
+    "legacySpawnDurationSeconds": 1.66,
+    "localProtectedTicks": 100,
+    "sourceSpawnClipSeconds": 4,
+    "localRespawnSeconds": 300,
+    "localLeashRadius": 1000,
+    "crestOfCinders": "not implemented"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 224,
+    "passed": 1128,
+    "newCases": 7,
+    "typecheck": "passed"
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "allGlbsAndMapValidated": true,
+    "newRigErrors": 0,
+    "newRigWarnings": 0
+  },
+  "browser": {
+    "command": "npx playwright test e2e/red-brambleback.spec.ts e2e/blue-sentinel.spec.ts e2e/rift-gromp-camps.spec.ts --workers=1 --timeout=60000",
+    "passed": 3,
+    "channel": "chrome",
+    "workers": 1,
+    "redCase": [
+      "ordinary practice requests no Red rig",
+      "six lane camp calendars",
+      "source normal rig contributes more than 150 pixels",
+      "real Lux basic attack and Red retaliation",
+      "keyboard Binding and target-pose path",
+      "exact fighting checkpoint reload",
+      "Root reward amounts and no Blue buff",
+      "other calendars unchanged by the clear",
+      "corpse-free waiting checkpoint and fresh-ID protected respawn"
+    ],
+    "scope": "Focused diagnostics with final scripted kill and calendar jumps; not a full browser suite, native visual comparison or seeded full-role match"
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "jungleInspectorRequests": 0,
+    "developmentHook": false,
+    "warning": "Existing bundle-size warning remains"
+  },
+  "captures": [
+    {
+      "path": "artifacts/red-brambleback-combat.png",
+      "sha256": "f59ef06580261e1a2c79038eff16c3bd8d034384a75205b32a56b36efc33f702",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/red-brambleback-respawn.png",
+      "sha256": "8889235f44f79b4992f356661588aef2dec7708c806109b4610a5fb07a9efd9a",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Crest of Cinders gameplay, transfer and sharing",
+    "Native activation/skin selection, scaling, timing and attack variants",
+    "Red effects/audio and complete reward modifiers",
+    "Remaining camps, Smite and jungle-role bots",
+    "Full seeded match, native visual/performance, production roster and offline/delivery certification"
+  ]
+}
