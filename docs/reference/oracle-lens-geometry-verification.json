@@ -1,0 +1,68 @@
+{
+  "sourcePinSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+  "assetsSha256": "62436b3be50e772e843dbbf14b4c132c3e4996b27201e844a547fc0c343c8c0d",
+  "scope": "Original hashed source buffers versus packaged geometry. This does not certify native animation evaluation, particle playback, gameplay or visual parity.",
+  "staticMeshes": [
+    {
+      "path": "/assets/models/oracle-lens-radar.glb",
+      "sourceSha256": "31fe3d6474ee9eb6b4bbe42959f2b80bc484b88b4d852f2e899fb2d20e8bd832",
+      "outputSha256": "2818725b728759b59532d69844f7fc6f61e7b546e1e0e130ff02c7f4af28c137",
+      "triangles": 186,
+      "flags": 2,
+      "faceColorsPresent": false,
+      "exactFaceCorners": true,
+      "exactUVs": true,
+      "exactOptionalFaceRGB": true,
+      "opaqueTailRetained": true
+    },
+    {
+      "path": "/assets/models/oracle-lens-core-laser.glb",
+      "sourceSha256": "780a0b38f06a06e76c7522aaa08281ca7c70b76ded35ea7414b356549a2f2e1c",
+      "outputSha256": "bb54465425ba63df03753bfe514a102a0898cb9c328622fc69ae507abdc4a3d9",
+      "triangles": 408,
+      "flags": 5,
+      "faceColorsPresent": true,
+      "exactFaceCorners": true,
+      "exactUVs": true,
+      "exactOptionalFaceRGB": true,
+      "opaqueTailRetained": true
+    },
+    {
+      "path": "/assets/models/oracle-lens-laser.glb",
+      "sourceSha256": "a6a1d20b15a25c1aaf231ac405fa35d764f1b145191bf165e8b7e83eb0cc3a37",
+      "outputSha256": "55f2c650d09af251a6e781ba784f04beb7390b7cfb66081a5888a199a2ce058d",
+      "triangles": 64,
+      "flags": 5,
+      "faceColorsPresent": true,
+      "exactFaceCorners": true,
+      "exactUVs": true,
+      "exactOptionalFaceRGB": true,
+      "opaqueTailRetained": true
+    }
+  ],
+  "skinnedMesh": {
+    "sourceSha256": "1efc9eb39141a3463464a2319324234b7ffb7a95291b926af32af9287c6bf5d8",
+    "outputSha256": "aed9e6ee2748bb90500cf5ebd5583491e6a737cc8ef20bd59dbaae4e7f2ad7f4",
+    "vertices": 513,
+    "triangles": 638,
+    "exactIndices": true,
+    "exactScaledPositions": true,
+    "exactUVs": true,
+    "exactWeights": true,
+    "exactWeightedJoints": true,
+    "zeroWeightSlotsCanonical": true,
+    "bones": [
+      "Base",
+      "Top",
+      "Eye"
+    ],
+    "sourceTailHex": "000000000000000000000000",
+    "note": "Original normals remain in the frozen SKN; the inherited unlit converter omits NORMAL from the preview GLB."
+  },
+  "textures": {
+    "count": 15,
+    "pngBytes": 700813,
+    "hashesMatch": true,
+    "rgbaVerification": "decode-oracle-lens.py compares decoded RGBA bytes on reproduction."
+  }
+}

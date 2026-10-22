@@ -1,0 +1,314 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned skinned particle mesh and its single authored animation. No character skin or graph is implied; emitter transform, lifetime/material dispatch and native visual calibration remain separate.",
+  "sourceEmitter": {
+    "timeBeforeFirstEmission": 0.10000000149011612,
+    "rate": {
+      "constantValue": 1,
+      "__type": "ValueFloat"
+    },
+    "particleLifetime": {
+      "constantValue": 10.5,
+      "__type": "ValueFloat"
+    },
+    "lifetime": 1,
+    "isSingleParticle": 1,
+    "emitterName": "Trinket_Red",
+    "bindWeight": {
+      "constantValue": 1,
+      "__type": "ValueFloat"
+    },
+    "SpawnShape": {
+      "emitOffset": [
+        0,
+        450,
+        0
+      ],
+      "__type": "{ee39916f}"
+    },
+    "primitive": {
+      "mMesh": {
+        "mMeshName": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.skn",
+        "mMeshSkeletonName": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.skl",
+        "mAnimationName": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.anm",
+        "__type": "VfxMeshDefinitionData"
+      },
+      "__type": "VfxPrimitiveMesh"
+    },
+    "blendMode": 3,
+    "Color": {
+      "dynamics": {
+        "times": [
+          0,
+          0.5,
+          1
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "__type": "VfxAnimatedColorVariableData"
+      },
+      "__type": "ValueColor"
+    },
+    "pass": 1,
+    "birthRotation0": {
+      "constantValue": [
+        0,
+        1,
+        0
+      ],
+      "dynamics": {
+        "probabilityTables": [
+          {
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "keyTimes": [
+              0
+            ],
+            "keyValues": [
+              -20
+            ],
+            "__type": "VfxProbabilityTableData"
+          },
+          {
+            "__type": "VfxProbabilityTableData"
+          }
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "isLocalOrientation": 0,
+    "birthScale0": {
+      "constantValue": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "__type": "ValueVector3"
+    },
+    "scale0": {
+      "dynamics": {
+        "times": [
+          0,
+          0.029999999329447746,
+          0.5,
+          1
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "__type": "VfxAnimatedVector3fVariableData"
+      },
+      "__type": "ValueVector3"
+    },
+    "texture": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.tex",
+    "__type": "VfxEmitterDefinitionData"
+  },
+  "sourceSystem": "Items/3364/Particles/3364_Buff",
+  "output": {
+    "path": "/assets/models/oracle-lens-base.glb",
+    "bytes": 204980,
+    "sha256": "aed9e6ee2748bb90500cf5ebd5583491e6a737cc8ef20bd59dbaae4e7f2ad7f4"
+  },
+  "definitionsSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Global.wad.client",
+  "sources": [
+    {
+      "path": "assets/items/3364/particles/color-sparks2.tex",
+      "wadPathHash": "196cd5c8f2af77b7",
+      "sha256": "201c4101362dd62f4456a40c73e207d9f5999a27a342fa001303dde4946d32f8",
+      "bytes": 2756
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_greaterspotter.anm",
+      "wadPathHash": "d176901d9ccea201",
+      "sha256": "07fc7f414f24f1f4596d213ff7c95d14af3ff75fe34da87a5409fe67ca89bf7d",
+      "bytes": 4280
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_greaterspotter.skl",
+      "wadPathHash": "b2c5fdc0da45da13",
+      "sha256": "31076736c5f0dfbdfe098f13cd8079b121215236772e30d28257dac35ca0d79c",
+      "bytes": 420
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_greaterspotter.skn",
+      "wadPathHash": "dbff4e408a343219",
+      "sha256": "1efc9eb39141a3463464a2319324234b7ffb7a95291b926af32af9287c6bf5d8",
+      "bytes": 30616
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_greaterspotter.tex",
+      "wadPathHash": "0e8204ed28945dac",
+      "sha256": "201ac6cc82fb7ef8f9df8abb2220b6b9965ca4e57544f900f1c0bba119dcf83f",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_greaterspotter_radar.scb",
+      "wadPathHash": "38ed78114287b281",
+      "sha256": "31fe3d6474ee9eb6b4bbe42959f2b80bc484b88b4d852f2e899fb2d20e8bd832",
+      "bytes": 20280
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_icons.tex",
+      "wadPathHash": "74ad7b40b3a85256",
+      "sha256": "f1cb32538630f8d2ffc4d438239b5287c12c1ea812192ce30044c98127e34f80",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_color-radar.tex",
+      "wadPathHash": "a61cc5b5697f44e9",
+      "sha256": "5b1523fab60fd0647872de372ae6d87b6851c82b60bfa6d0511c8910d4322419",
+      "bytes": 2756
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_corelaser.scb",
+      "wadPathHash": "b066d68be589131a",
+      "sha256": "780a0b38f06a06e76c7522aaa08281ca7c70b76ded35ea7414b356549a2f2e1c",
+      "bytes": 47340
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_corelaser.tex",
+      "wadPathHash": "6192a92f8812c0e6",
+      "sha256": "7b8df5c9cbc3b43ce151dd3455e513ac01c1292014872de9956b587ca96b805b",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_intro_2x5.tex",
+      "wadPathHash": "da8130bcfab871a2",
+      "sha256": "866c97338788245369a8b858cc4043c03763acb0d5a6ccbe1e88bbb9634acc8d",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_laser.scb",
+      "wadPathHash": "63f8824d1a161ca3",
+      "sha256": "a6a1d20b15a25c1aaf231ac405fa35d764f1b145191bf165e8b7e83eb0cc3a37",
+      "bytes": 7672
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_laser.tex",
+      "wadPathHash": "0009c359a35fa92d",
+      "sha256": "fb7ffe8f34c66c846612ae9ae5d8590220dca3a9477c1782433a41a134e2cfd5",
+      "bytes": 10948
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_radar.tex",
+      "wadPathHash": "dae8d526dd147af3",
+      "sha256": "1b013e9d93b72e04fa40c6a33c19712e766720caaba06ac084a2ee0363e150da",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_radarmesh.tex",
+      "wadPathHash": "dd488ec28fa25910",
+      "sha256": "595a85c59c87547fa6ee5089fb6eb0827bf143485f2d8b45704a07e02d61d7a4",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/items/3364/particles/global_trinket_spotter_sparkle.tex",
+      "wadPathHash": "3a6164480bdafc27",
+      "sha256": "1f43c12c1093c9fec6512166c2c776361430586eb2c0da201fe8db86bcbe533b",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/items/3364/particles/red_sparkle.tex",
+      "wadPathHash": "5e1bde617e271491",
+      "sha256": "ac91c6c96e671dccbdeaf11e4f5ff1c35b58782f07d5ba980b2650ef112e5e05",
+      "bytes": 10948
+    },
+    {
+      "path": "assets/items/3364/particles/smoke_clouds_2x2_dense.tex",
+      "wadPathHash": "757acea93a542f27",
+      "sha256": "1798a788b203baaf41a047a7c7ab468fecdf1ea140e64efdea5e5ea47941521a",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/items/3364/particles/sparks.tex",
+      "wadPathHash": "8f09e89ce9b7a5fe",
+      "sha256": "02283067ddf584ff03470f8641ce633b440cc05aad5b621f68ce2dacfd0add64",
+      "bytes": 10948
+    },
+    {
+      "path": "assets/shared/particles/alpha_20_03.tex",
+      "wadPathHash": "10ed1dcd2407cfd2",
+      "sha256": "c7cfa0b9dfdffa3bb8c8e7a267a3273c39c8d1af0a7927878178a54c80101d37",
+      "bytes": 1052
+    },
+    {
+      "path": "assets/shared/particles/ping-danger.tex",
+      "wadPathHash": "4311b8f696a9d7d5",
+      "sha256": "d847a36a14b3a104952a912c968a9cc81c599608f891068eeec368bea95fc04b",
+      "bytes": 43740
+    }
+  ],
+  "unitScale": 0.01,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1,
+  "skinScalePolicy": "Local geometry uses 0.01 unit conversion only. Authored particle birthScale, curves and offset are retained in sourceEmitter, not baked into geometry.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "Trinket_Red_Upgrade_MD_pasted__lambert5": "assets/items/3364/particles/global_trinket_greaterspotter.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit alpha preview shading. Original particle blendMode=3 is retained in sourceEmitter; this preview does not implement the native particle shader.",
+  "clips": [
+    {
+      "name": "buff",
+      "state": "buff",
+      "source": "assets/items/3364/particles/global_trinket_greaterspotter.anm",
+      "durationSeconds": 2
+    }
+  ],
+  "triangles": 638,
+  "bones": 3
+}

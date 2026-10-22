@@ -1,0 +1,39 @@
+{
+  "sourceSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+  "assetsSha256": "62436b3be50e772e843dbbf14b4c132c3e4996b27201e844a547fc0c343c8c0d",
+  "durationSeconds": 8.0,
+  "maxCharges": 2,
+  "earlyRechargeSeconds": 160.0,
+  "lateRechargeSeconds": 100.0,
+  "startingRadius": 600.0,
+  "endingRadius": 750.0,
+  "cooldownSeconds": 5.0,
+  "preservesRecall": true,
+  "ignoresAbilityHaste": true,
+  "targeting": "Self",
+  "rig": "oracle-lens-base",
+  "clip": "buff",
+  "animationDurationSeconds": 2,
+  "bindings": {
+    "Trinket_Red": {
+      "mesh": "assets/models/oracle-lens-base.glb",
+      "texture": "assets/effects/oracle-lens/global_trinket_greaterspotter.png",
+      "blendMode": 3
+    },
+    "Lasers": {
+      "mesh": "assets/models/oracle-lens-laser.glb",
+      "texture": "assets/effects/oracle-lens/global_trinket_spotter_laser.png",
+      "blendMode": 4
+    },
+    "CoreLaser": {
+      "mesh": "assets/models/oracle-lens-core-laser.glb",
+      "texture": "assets/effects/oracle-lens/global_trinket_spotter_corelaser.png",
+      "blendMode": 4
+    },
+    "RadarMesh": {
+      "mesh": "assets/models/oracle-lens-radar.glb",
+      "texture": "assets/effects/oracle-lens/global_trinket_spotter_radarmesh.png",
+      "blendMode": 4
+    }
+  }
+}

@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,275 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,278 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,32 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Oracle Lens source preparation](ORACLE-LENS.md) now pins all 21 selected
+original visual dependencies (1,308,124 raw bytes), seven metadata-only scripts
+(1,560 bytes; 63 instructions), frozen item/spell/VFX/text records and the official
+icon. Four GLBs and fifteen PNGs retain the animated scanner and all selected
+static geometry/textures. Independent binary checks compare all scanner positions,
+indices, UVs, weights and weighted joints, and every SCB face corner/UV/optional
+RGB. The colorless radar remains colorless. All 27 pin, ledger, profile and
+converted asset files reproduce byte for byte.
+
+TypeScript and 1,278 tests across 241 files pass with two workers, including
+three new source cases. The first default-worker run hit two five-second
+timeouts in existing long lane/jungle cases; the bounded run passes without
+changing limits. The new Chrome review case passes, with finite animated bones,
+working controls and GPU contribution from all four meshes. All four new captures
+were visually reviewed. All GLBs and the map validate with zero errors/warnings;
+production build passes with the existing bundle warning. Exact evidence and
+limits are in [the Oracle ledger](reference/oracle-lens-verification.json).
+
+Oracle Lens remains unavailable in gameplay. This import does not add detection,
+trinket swapping, disabled ward vision, hidden-unit outlines or saved scan clocks.
+The game remains on schema 103 with Stealth Ward as its only trinket. Current
+eight-second duration is kept separate from stale six-second external text and
+approximately ten-second particle lifetimes. Native callback, scaling, lifecycle
+and material bindings remain unverified. Counterplay integration and the full
+project goal remain active.
 
 [Stealth Ward](WARDING-TOTEM.md) now supplies a separate trinket slot, real key
 and button targeting, cast/sight guides, captured charge/delivery/lifetime clocks,

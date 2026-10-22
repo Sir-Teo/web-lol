@@ -1,0 +1,135 @@
+{
+  "scope": "Oracle Lens source preparation only. Gameplay detection, swapping and native parity remain unfinished.",
+  "sourcePin": {
+    "path": "docs/reference/oracle-lens-source.json",
+    "sha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435"
+  },
+  "assets": {
+    "path": "docs/reference/oracle-lens-assets.json",
+    "sha256": "62436b3be50e772e843dbbf14b4c132c3e4996b27201e844a547fc0c343c8c0d"
+  },
+  "geometryComparison": {
+    "path": "docs/reference/oracle-lens-geometry-verification.json",
+    "sha256": "f2e90833846fe567ee52d35e3c7cbf8f547bf26c6ca2aeb36a2e2c93d8361f79",
+    "command": "node tools/assets/verify-oracle-lens.mjs",
+    "result": "pass"
+  },
+  "reproduction": {
+    "files": 27,
+    "byteIdentical": true,
+    "log": ".cache/oracle-lens/reproduction.json"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=2",
+    "files": 241,
+    "passed": 1278,
+    "newSourceCases": 3,
+    "result": "pass",
+    "log": ".cache/oracle-lens/check-bounded.log",
+    "initialDefaultWorkers": {
+      "passed": 1276,
+      "failed": 2,
+      "reason": "Five-second timeouts in existing long lane-rules and rift-practice-jungle cases. The bounded-worker rerun passes without test-limit changes.",
+      "log": ".cache/oracle-lens/check.log"
+    }
+  },
+  "assetsValidation": {
+    "command": "npm run assets:validate",
+    "result": "pass",
+    "errors": 0,
+    "warnings": 0,
+    "scope": "All GLBs and the Rift map",
+    "log": ".cache/oracle-lens/assets.log"
+  },
+  "browser": {
+    "command": "npx playwright test e2e/oracle-lens-source.spec.ts --reporter=json",
+    "passed": 1,
+    "result": "pass",
+    "report": ".cache/oracle-lens/browser.json",
+    "gpu": [
+      {
+        "name": "Trinket_Red",
+        "changed": 174566,
+        "triangles": 638,
+        "textured": 1,
+        "bones": 3,
+        "finite": true,
+        "animated": true,
+        "duration": 2
+      },
+      {
+        "name": "RadarMesh",
+        "changed": 72006,
+        "triangles": 186,
+        "textured": 1,
+        "bones": 0,
+        "finite": true,
+        "animated": false,
+        "duration": 0
+      },
+      {
+        "name": "CoreLaser",
+        "changed": 123027,
+        "triangles": 408,
+        "textured": 1,
+        "bones": 0,
+        "finite": true,
+        "animated": false,
+        "duration": 0
+      },
+      {
+        "name": "Lasers",
+        "changed": 2662,
+        "triangles": 64,
+        "textured": 1,
+        "bones": 0,
+        "finite": true,
+        "animated": false,
+        "duration": 0
+      }
+    ],
+    "captures": [
+      {
+        "path": "artifacts/oracle-source-trinket_red.png",
+        "sha256": "d17cebc2756f97404ba3f8fc7a3008905fe036bb410b571ea543231faea95bfa",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-source-radarmesh.png",
+        "sha256": "7136ac25cb402d844050edd776fc47a5f98f1adde35735f669c2b29b0c0c4abd",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-source-corelaser.png",
+        "sha256": "7d1f80f4be6d2b8c5cd478f49534ccd5c2befd56f6f6cd97b74fa49b4cd98b6f",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-source-lasers.png",
+        "sha256": "4492fe28b132e4e1a290f70e5cd7fb70599f238a4dcf6f4c7f56be033f6765ea",
+        "visuallyReviewed": true
+      }
+    ]
+  },
+  "build": {
+    "command": "npm run build",
+    "result": "pass",
+    "gameKB": 700.69,
+    "threeKB": 659.92,
+    "warning": "Existing chunk size warning remains.",
+    "log": ".cache/oracle-lens/build.log"
+  },
+  "currentGame": {
+    "snapshotVersion": 103,
+    "ruleset": "9f65b47daa9e507932de3dae8338fdb227cc57a8b8256034b3949818ea8ba0c3",
+    "onlyTrinket": "Stealth Ward",
+    "oracleGameplayAvailable": false
+  },
+  "limits": [
+    "Original geometry matches do not prove native animation evaluation or rendering.",
+    "Preview uses individual geometry with unlit/additive materials, not complete source emitter playback.",
+    "The inherited unlit SKN converter omits source normals; originals retain them.",
+    "The source export metadata and Lua assignments do not recover native detection, scaling, swap, lifecycle, outline or material dispatch.",
+    "No new full-match or production interaction audit was run for this source-only import."
+  ]
+}

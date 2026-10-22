@@ -48,6 +48,7 @@ The playable includes the full reference Rift terrain, the pinned patch 16.18 ba
 See [development status](docs/PROGRESS.md) for verified behavior, known limitations, and the next fidelity work. The target-dummy model remains temporary; epic objectives and full-match bot behavior remain unfinished. Both bases now include their Nexus and inhibitors, with protected structures, regrowth, and a local Victory/Defeat result. See the [asset pipeline](docs/ASSETS.md) for the matching minion sources and reproducible conversion. Champion animation transitions, event timing, lighting and reference-pixel calibration remain unfinished.
 
 - [Stealth Ward controls and source boundaries](docs/WARDING-TOTEM.md)
+- [Oracle Lens source geometry and integration status](docs/ORACLE-LENS.md)
 - [Rift practice camps and companion growth](docs/RIFT-PRACTICE.md)
 - [Local match checkpoints and compatibility](docs/SAVES.md)
 - [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)

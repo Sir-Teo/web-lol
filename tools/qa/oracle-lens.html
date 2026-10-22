@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oracle Lens source geometry</title>
+    <style>
+      body {
+        margin: 0;
+        background: #101b23;
+        color: #e5e6df;
+        font: 15px system-ui;
+      }
+      header {
+        padding: 16px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        align-items: center;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      select,
+      button {
+        background: #233743;
+        color: inherit;
+        border: 1px solid #687980;
+        padding: 8px;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+      }
+      p {
+        margin: 12px 24px;
+        color: #b5c5ca;
+      }
+      label {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      input {
+        width: 220px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Oracle Lens source geometry</h1>
+      <label
+        >Asset<select id="asset">
+          <option value="Trinket_Red">Animated scanner</option>
+          <option value="RadarMesh">Radar mesh</option>
+          <option value="CoreLaser">Core laser</option>
+          <option value="Lasers">Laser</option>
+        </select></label
+      >
+      <label
+        >Animation<input id="time" type="range" min="0" max="2" step="0.001" value="0"
+      /></label>
+      <button id="play">Play</button>
+    </header>
+    <canvas></canvas>
+    <p id="status">Loading frozen source assets…</p>
+    <p>
+      Individual source geometry with preview shading. Emitter transforms, particles and game
+      detection are not shown.
+    </p>
+    <script type="module" src="./oracle-lens.ts"></script>
+  </body>
+</html>

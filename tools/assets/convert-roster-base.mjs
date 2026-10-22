@@ -24,32 +24,38 @@ if (
     'Sru_Crab',
     'SRU_Jungle_Companions',
     'SightWard',
+    'OracleLens',
   ].includes(champion)
 )
   throw new Error('Expected a supported champion or ordinary jungle base rig');
 const ward = champion === 'SightWard';
+const oracle = champion === 'OracleLens';
 const jungle = /^sru_/i.test(champion);
 const companion = champion === 'SRU_Jungle_Companions';
 const skinIndex = Number(process.argv[3] ?? 0);
 if (!Number.isInteger(skinIndex) || skinIndex < 0 || skinIndex > (companion ? 2 : 0))
   throw new Error('Unsupported source skin index');
 const sourceSlug = champion.toLowerCase();
-const slug = sourceSlug.replaceAll('_', '-') + (companion ? `-skin${skinIndex}` : '');
-const sourceGroup = ward
-  ? 'warding-totem'
-  : champion === 'SRU_Red'
-    ? 'red-brambleback'
-    : champion.startsWith('SRU_Murkwolf')
-      ? 'wolf-camps'
-      : champion.startsWith('SRU_Razorbeak')
-        ? 'raptor-camps'
-        : champion.startsWith('SRU_Krug')
-          ? 'krug-camps'
-          : champion === 'Sru_Crab'
-            ? 'scuttler'
-            : companion
-              ? 'jungle-companions'
-              : null;
+const slug = oracle
+  ? 'oracle-lens'
+  : sourceSlug.replaceAll('_', '-') + (companion ? `-skin${skinIndex}` : '');
+const sourceGroup = oracle
+  ? 'oracle-lens'
+  : ward
+    ? 'warding-totem'
+    : champion === 'SRU_Red'
+      ? 'red-brambleback'
+      : champion.startsWith('SRU_Murkwolf')
+        ? 'wolf-camps'
+        : champion.startsWith('SRU_Razorbeak')
+          ? 'raptor-camps'
+          : champion.startsWith('SRU_Krug')
+            ? 'krug-camps'
+            : champion === 'Sru_Crab'
+              ? 'scuttler'
+              : companion
+                ? 'jungle-companions'
+                : null;
 const pinBytes = await readFile(
   sourceGroup
     ? `docs/reference/${sourceGroup}-source.json`
@@ -58,8 +64,17 @@ const pinBytes = await readFile(
       : `docs/reference/${slug}-model.json`
 );
 const sourcePin = JSON.parse(pinBytes);
-const pin =
-  jungle || ward
+const oracleEmitter = oracle
+  ? sourcePin.items.records['Items/3364/Particles/3364_Buff'].complexEmitterDefinitionData.find(
+      (e) => e.emitterName === 'Trinket_Red'
+    )
+  : null;
+const pin = oracle
+  ? {
+      extraction: sourcePin.extraction,
+      atomicClips: { buff: oracleEmitter.primitive.mMesh.mAnimationName.toLowerCase() },
+    }
+  : jungle || ward
     ? {
         extraction: sourcePin.extraction,
         skin: {
@@ -70,17 +85,26 @@ const pin =
           : sourcePin.models[companion ? `${champion}/Skin${skinIndex}` : champion].atomicClips,
       }
     : sourcePin;
-const root = sourceGroup
-  ? `.cache/${sourceGroup}`
-  : jungle
-    ? '.cache/jungle-characters'
-    : `.cache/${slug}-current-sources`;
+const root = oracle
+  ? '.cache/oracle-lens/original'
+  : sourceGroup
+    ? `.cache/${sourceGroup}`
+    : jungle
+      ? '.cache/jungle-characters'
+      : `.cache/${slug}-current-sources`;
 for (const f of pin.extraction.files) {
   const b = await readFile(`${root}/${f.path}`);
   if (b.length !== f.bytes || hash(b) !== f.sha256)
     throw new Error(`${champion} source differs: ${f.path}`);
 }
-const skin = pin.skin.data[`Characters/${champion}/Skins/Skin${skinIndex}`].skinMeshProperties;
+// This is a particle mesh binding, not a character skin or animation graph.
+const skin = oracle
+  ? {
+      simpleSkin: oracleEmitter.primitive.mMesh.mMeshName,
+      skeleton: oracleEmitter.primitive.mMesh.mMeshSkeletonName,
+      texture: oracleEmitter.texture,
+    }
+  : pin.skin.data[`Characters/${champion}/Skins/Skin${skinIndex}`].skinMeshProperties;
 const base = `.cache/${slug}-current-converted`;
 await mkdir(base, { recursive: true });
 await rm(`${base}/animations`, { recursive: true, force: true });
@@ -149,7 +173,8 @@ for (const material of doc.getRoot().listMaterials()) {
   });
   const override = skin.materialOverride?.find((o) => o.submesh === name);
   const definition = override?.Material && pin.skin.data[override.Material];
-  if (definition?.techniques?.[0]?.passes?.[0]?.blendEnable) material.setAlphaMode('BLEND');
+  if (oracle || definition?.techniques?.[0]?.passes?.[0]?.blendEnable)
+    material.setAlphaMode('BLEND');
 }
 
 const unitScale = 0.01 * (skin.skinScale ?? 1),
@@ -213,8 +238,12 @@ await writeFile(`public/assets/models/${slug}-base.glb`, bytes);
 const manifest = {
   ...(companion ? { sourceSkinIndex: skinIndex } : {}),
   referenceVersion: pin.extraction.referenceVersion,
-  status:
-    'Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.',
+  status: oracle
+    ? 'Pinned skinned particle mesh and its single authored animation. No character skin or graph is implied; emitter transform, lifetime/material dispatch and native visual calibration remain separate.'
+    : 'Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.',
+  ...(oracle
+    ? { sourceEmitter: oracleEmitter, sourceSystem: 'Items/3364/Particles/3364_Buff' }
+    : {}),
   output: { path: `/assets/models/${slug}-base.glb`, bytes: bytes.length, sha256: hash(bytes) },
   definitionsSha256: hash(pinBytes),
   sourceManifest: pin.extraction.manifest,
@@ -223,11 +252,14 @@ const manifest = {
   unitScale,
   canonicalizedJointSlots,
   skinScale: skin.skinScale ?? 1,
-  skinScalePolicy: 'Omitted source scale uses identity; native scale calibration remains open.',
+  skinScalePolicy: oracle
+    ? 'Local geometry uses 0.01 unit conversion only. Authored particle birthScale, curves and offset are retained in sourceEmitter, not baked into geometry.'
+    : 'Omitted source scale uses identity; native scale calibration remains open.',
   initialSubmeshesToHide: hidden,
   materialTextures: Object.fromEntries(materials.map((name) => [name, diffuse(name)])),
-  materialPolicy:
-    'Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.',
+  materialPolicy: oracle
+    ? 'Source diffuse assignment with unlit alpha preview shading. Original particle blendMode=3 is retained in sourceEmitter; this preview does not implement the native particle shader.'
+    : 'Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.',
   clips,
   triangles: doc
     .getRoot()
