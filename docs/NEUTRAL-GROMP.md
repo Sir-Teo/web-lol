@@ -85,11 +85,13 @@ damage, slows, roots and shield checks remain authoritative.
 
 The live rig is confirmed to contribute GPU pixels. The combat capture shows
 its source mesh, neutral bar and slow feedback. The sampled death pose has no
-visible main-body geometry. Source death pop/spore particles, miniature/submesh
-dispatch and source audio remain incomplete/unverified; no replacement body or
-effect is invented. Projectile appearance/audio use the existing generic combat
-path, and native Gromp shader/effect composition is not certified. Broader
-champion-versus-monster kit interactions also remain unfinished.
+visible main-body geometry. The [legacy effect adapter](GROMP-EFFECTS.md) now
+renders three source death-pop layers from the saved death clock and original
+ground bone. Five other death-pop emitters, spores, miniature/submesh dispatch
+and source audio remain incomplete/unverified. Projectile appearance/audio use
+the existing generic combat path, and native Gromp shader/effect composition is
+not certified. Broader champion-versus-monster kit interactions also remain
+unfinished.
 
 Schema **86** retains encounter identity, neutral home, phase, target, attack,
 projectiles, animation and independent clocks. It rejects crossed faction,
@@ -101,7 +103,8 @@ silently rewritten.
 
 ## Verification
 
-All 1,067 checks across 214 files and TypeScript pass. Sixteen new source and
+The initial encounter increment passed 1,067 checks across 214 files and
+TypeScript. Sixteen new source and
 simulation cases cover Root/clip provenance, both factions, private neutral
 sight, automatic lane exclusion, Lux Binding, reset, exact continuation, invalid
 snapshots, rewards and cleared encounter identity.
@@ -121,4 +124,6 @@ suite was not repeated.
 Commands and captured hashes are retained in
 `reference/neutral-gromp-verification.json`. Production smoke verifies that the
 development query cannot activate Gromp, with ordinary source recording and
-roster/development gates retained. No binary assets changed in this increment.
+roster/development gates retained. No binary assets changed in that encounter
+increment. Follow-up death-effect source, runtime and verification are recorded
+in [GROMP-EFFECTS.md](GROMP-EFFECTS.md).

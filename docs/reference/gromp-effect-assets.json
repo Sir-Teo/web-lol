@@ -1,0 +1,626 @@
+{
+  "sourcePinSha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033",
+  "decoder": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "operation": "DDS to RGBA8 to lossless PNG"
+  },
+  "outputs": [
+    {
+      "source": {
+        "path": "data/particles/color-hold.dds",
+        "wadPathHash": "bcc08df0674ee05d",
+        "sha256": "3860afa00c25245d4a8dd0893089b7ba67d2bb16b8ca83cb96103617932abdef",
+        "bytes": 136
+      },
+      "path": "assets/effects/gromp-legacy/particles/color-hold.png",
+      "width": 4,
+      "height": 4,
+      "bytes": 78,
+      "sha256": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef",
+      "rgbaSha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+      "extrema": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/morgana_skin05_q_black_mis.dds",
+        "wadPathHash": "adf5a6eddb349424",
+        "sha256": "d426195d2f496fcd07a75cb0b4a2cea89dd14f66a50bf4c05529067c4876bda7",
+        "bytes": 32896
+      },
+      "path": "assets/effects/gromp-legacy/particles/morgana_skin05_q_black_mis.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 16491,
+      "sha256": "23023e6faf0c7fc8d722963ee8923276f9651c5fce26ca3e0197b58c4ea1379f",
+      "rgbaSha256": "34d62cf7cf07236688f8649c751c591be3ab984fa2e86b01562bb6f5f4d159f1",
+      "extrema": [
+        [
+          0,
+          247
+        ],
+        [
+          0,
+          240
+        ],
+        [
+          0,
+          206
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sr2_gromp_death_flash.dds",
+        "wadPathHash": "5329f3a583e2e51b",
+        "sha256": "936f3a7fff7b62d2e3798f9bf3b1d309d80ad83fbe7d1f02554270d9bb7d22a1",
+        "bytes": 8320
+      },
+      "path": "assets/effects/gromp-legacy/particles/sr2_gromp_death_flash.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 6683,
+      "sha256": "475c6a99aa4f445b0dcafc18860a3ed80772931336464c41887b19bc917a7677",
+      "rgbaSha256": "bf79ed52e70bf65e6843fc25dadd59fc69c3cb3ad14cd6a77a8e8da3ab71400b",
+      "extrema": [
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_bluebuff_sparkleorbs.dds",
+        "wadPathHash": "7a9f8b6ffc0f891e",
+        "sha256": "eac2dd951f30810a1ec91548b6c87c1e21859fe1806cba20ac2778ad16c350a9",
+        "bytes": 2176
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_bluebuff_sparkleorbs.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 3217,
+      "sha256": "48889f442de91d9d9847c4c2df910f41a4cc3e34184a5620eaa1af8c5630486a",
+      "rgbaSha256": "03fac08e532e5b32c1e59621bd94ad2acacc69010c72f2fdceba71c4e5d0198a",
+      "extrema": [
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          251
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_bluebuff_spawn_ready_color.dds",
+        "wadPathHash": "19bdd906adb8222d",
+        "sha256": "44e1e6c1217066d70e2cab4f54afb8c085e9713f23ccf280b717aa79be4b3cbc",
+        "bytes": 174904
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_bluebuff_spawn_ready_color.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 301068,
+      "sha256": "4e74fe13e5cd57a00fc3c2c1d56e4ca57d5faaebe59876d3f23873fef1e3263f",
+      "rgbaSha256": "0613baee3a20e5693f959e2cad34a3f5c8fb64fae454279019a46f579607af31",
+      "extrema": [
+        [
+          16,
+          255
+        ],
+        [
+          24,
+          255
+        ],
+        [
+          24,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_dragon_ba1_grounddirt.dds",
+        "wadPathHash": "259452fd81ab4168",
+        "sha256": "80d03c103ea850d276bffed39270e5cbc5190e716996352ccd8c250cac6e6598",
+        "bytes": 16512
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_dragon_ba1_grounddirt.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 16959,
+      "sha256": "e7879b1e48ef4f460953d44885c2a88abeb9ffeb66bff01204616114683ee06b",
+      "rgbaSha256": "99437d5661bc54090bb0b9d8aceaa67b1dd6f5eafcdf59799a1b5eb01f2be2a6",
+      "extrema": [
+        [
+          0,
+          41
+        ],
+        [
+          0,
+          60
+        ],
+        [
+          0,
+          82
+        ],
+        [
+          0,
+          253
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_ba_flare.dds",
+        "wadPathHash": "06cb499ff5a02d3b",
+        "sha256": "b2fb01dbba3dc62bd1c6ef2c72c8bf114c3825855f0444c277927e28459f6331",
+        "bytes": 16512
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_ba_flare.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 7286,
+      "sha256": "3fb4eec6b55738104a0544e283608876b81e5a13619c09e42464362a6a670e82",
+      "rgbaSha256": "8a662579e37315c4467f18cb3f23c63ef9abbcfd7acee9569df39b41cd1da1ac",
+      "extrema": [
+        [
+          33,
+          222
+        ],
+        [
+          30,
+          215
+        ],
+        [
+          62,
+          255
+        ],
+        [
+          0,
+          232
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_ba_orb.dds",
+        "wadPathHash": "f58c080dca651e4c",
+        "sha256": "74f9667ec9e522085fc0245eaca76965ccca1f288956567909d365cf03867c4e",
+        "bytes": 2176
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_ba_orb.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2920,
+      "sha256": "c3edfa5bac4d6501dfbacb5bc3ecf50e5452c1af26aec7f4abb9935e49d34dd3",
+      "rgbaSha256": "4fc6020c6327aa0b7a6c9887f7b1b26984672551d378399699ef3abed4c85864",
+      "extrema": [
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          247
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_death_chunks.dds",
+        "wadPathHash": "89ffaae73f6b187b",
+        "sha256": "e8e37997a2b3f21bb267930243c66fef1d7fd6282bd88544081b74e3d4c78edd",
+        "bytes": 65664
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_death_chunks.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 37221,
+      "sha256": "d7196ddaba1b4e33f49142547e0aa7cd0e7a32f9264e409db3a14fa43733c35b",
+      "rgbaSha256": "7259508db7553978f13ecd0bccbc0f547efb93ba001a98fe3cdb64bc7976da0c",
+      "extrema": [
+        [
+          10,
+          117
+        ],
+        [
+          8,
+          124
+        ],
+        [
+          18,
+          87
+        ],
+        [
+          0,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_death_explo_flash.dds",
+        "wadPathHash": "4bbe6dbe444a2b15",
+        "sha256": "a63c58dcb29ee28f7154eb1d8e47ede533be05a2d90957ecd055f48e47769cf7",
+        "bytes": 16512
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_death_explo_flash.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 12207,
+      "sha256": "b36606a322f30a71ca15a3ef96ecbebf1da9ad7e547afb8396acb735fba4b32e",
+      "rgbaSha256": "96cd195c02c558f2d59777a1ec930d91572796d2189095637b4154ce434bfb45",
+      "extrema": [
+        [
+          2,
+          60
+        ],
+        [
+          4,
+          56
+        ],
+        [
+          2,
+          46
+        ],
+        [
+          0,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_death_pop_lines.dds",
+        "wadPathHash": "195f3ff7705bd7c1",
+        "sha256": "7b56ca5bf07d2850cfd6b17168fc26fd2ee5b19b0bd1eeb932158ff46e219e68",
+        "bytes": 131200
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_death_pop_lines.png",
+      "width": 512,
+      "height": 256,
+      "bytes": 37469,
+      "sha256": "4d0afb2e09ec3dc71ea381296a035bfe692171a07e23406645498376fb2ea697",
+      "rgbaSha256": "c666e3fb5f8d633144af251569e557ea35098bd17090d55ae5eca8d0a2d444b1",
+      "extrema": [
+        [
+          0,
+          33
+        ],
+        [
+          0,
+          28
+        ],
+        [
+          0,
+          41
+        ],
+        [
+          0,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_death_radialsuck.dds",
+        "wadPathHash": "256d1aa5d2be0916",
+        "sha256": "115c8d396c65fa46141a7de4ea2fb57a0ddb5cd772c767490a66e1f0b7b163fc",
+        "bytes": 32896
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_death_radialsuck.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 12057,
+      "sha256": "d83697dec30a1d5b22c74e6e4250bcd85ab7a9e87c8b2d79be8ee0643a0b0601",
+      "rgbaSha256": "72fed262fcd3ab36949435502dd35a3f002b5df9a41c5f62286c5f4ac1763cf4",
+      "extrema": [
+        [
+          0,
+          123
+        ],
+        [
+          0,
+          125
+        ],
+        [
+          0,
+          156
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_death_rays_soft.dds",
+        "wadPathHash": "ac1037ebef8488b0",
+        "sha256": "4d1a7e57f67a36f85bf3d58f62d487018e0dfec61fe0d6d51276a7eb1b9808e0",
+        "bytes": 32896
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_death_rays_soft.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 20017,
+      "sha256": "5881ff02fc74e6c5f5a43aa094e8fb0ef379e297bf4ea7e776984e402f5105d4",
+      "rgbaSha256": "00a86025ce0c1fefcc2417a44dd3e9f4d8bdfe0f1a880ba8d796d7836744c6b3",
+      "extrema": [
+        [
+          0,
+          239
+        ],
+        [
+          0,
+          243
+        ],
+        [
+          0,
+          239
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_death_smoke_puffs.dds",
+        "wadPathHash": "0e35bce03efc3b2e",
+        "sha256": "bb7aa441d8b6016221a2f934b21c86a65d0e40ff9d0bf5286866aa8b3badc3ba",
+        "bytes": 65664
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_death_smoke_puffs.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 46085,
+      "sha256": "73730bedf0d45f9396b7d537b1f412b08adea649449f77b886c5007129f64d7a",
+      "rgbaSha256": "e2c237f50a4cff05e9220174c93217397a494e1e4be9399df3180120dda0b293",
+      "extrema": [
+        [
+          66,
+          148
+        ],
+        [
+          58,
+          142
+        ],
+        [
+          101,
+          165
+        ],
+        [
+          0,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_gromp_death_whisps2.dds",
+        "wadPathHash": "bea942d48224a5aa",
+        "sha256": "926eeb07843180305e8fd0cb3e13e0cfa56dfed22b210a71c2897f103162b305",
+        "bytes": 32896
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_gromp_death_whisps2.png",
+      "width": 64,
+      "height": 512,
+      "bytes": 9317,
+      "sha256": "ac058b9e7960931eaa919c8241be98a20b5542c7b5fa204370a29e5f6e216386",
+      "rgbaSha256": "3a635ede83cf082acee9aca6b659f5399db2f360e2803ba50dc5fa9910e911c0",
+      "extrema": [
+        [
+          0,
+          90
+        ],
+        [
+          0,
+          56
+        ],
+        [
+          0,
+          21
+        ],
+        [
+          0,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/particles/sru_spawn_readyflash.dds",
+        "wadPathHash": "e6a257470f3de665",
+        "sha256": "1dc69dcb74afddf2c7075d6714c08fc29dc8dab7ce83035f72aa584b9d98903e",
+        "bytes": 65664
+      },
+      "path": "assets/effects/gromp-legacy/particles/sru_spawn_readyflash.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 28528,
+      "sha256": "5fb4ce5e1926174394b031cab74e15edeef648b977151b4a343baa1cc3567db1",
+      "rgbaSha256": "d9357a8e95a7c13ea759983e4714083d4e92cb6f62a40b361fc0f70c49cedb08",
+      "extrema": [
+        [
+          66,
+          148
+        ],
+        [
+          56,
+          243
+        ],
+        [
+          8,
+          231
+        ],
+        [
+          0,
+          243
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/shared/particles/black.dds",
+        "wadPathHash": "0035abcb43fc9ca5",
+        "sha256": "d1bc123e77bfb7e72f62388095a44fb8ae9f9f79fca5e0b54c00b7aaa16acffb",
+        "bytes": 136
+      },
+      "path": "assets/effects/gromp-legacy/shared/particles/black.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 70,
+      "sha256": "abc58d5127d7cdf313beb9ec8ee839860a9c6bfbc48c8b8eb6a3f7d8bb63de6f",
+      "rgbaSha256": "e3820096cb82366b860b8a4e668453a7aaaf423af03bdf289fa308ea03a79332",
+      "extrema": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/shared/particles/color-bellcurve4.dds",
+        "wadPathHash": "87b9287626cf6054",
+        "sha256": "2b3bab28c512bf41027c8f7aa6fe5af077632734678578153486bde12788b7d4",
+        "bytes": 256
+      },
+      "path": "assets/effects/gromp-legacy/shared/particles/color-bellcurve4.png",
+      "width": 64,
+      "height": 4,
+      "bytes": 203,
+      "sha256": "8ac1a0fbf6570e7f5f29fed5599f3bae371e235a67afa19846edf82bd5185a2e",
+      "rgbaSha256": "9f2252f116b3416510d05d4ffb150eceb5e9ee11ed2aac6c87010d6df554fb70",
+      "extrema": [
+        [
+          0,
+          181
+        ],
+        [
+          0,
+          182
+        ],
+        [
+          0,
+          181
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "source": {
+        "path": "data/shared/particles/color-bellcurve7.dds",
+        "wadPathHash": "2eb349ad3d61833b",
+        "sha256": "2d8e358f442ccb90b002b7f107e1d6e5a7d6be34f71727efe936c6b33ddddbcc",
+        "bytes": 256
+      },
+      "path": "assets/effects/gromp-legacy/shared/particles/color-bellcurve7.png",
+      "width": 64,
+      "height": 4,
+      "bytes": 189,
+      "sha256": "1f9fd99eb1a618ff6d5cb4b013d17972386d0554f442b23033f0f1a094ca68a9",
+      "rgbaSha256": "b8f93cff13f161dff2f56588c8a573b4aef6798053edb81508a5af6bcb2b5f44",
+      "extrema": [
+        [
+          0,
+          140
+        ],
+        [
+          0,
+          138
+        ],
+        [
+          0,
+          140
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    }
+  ],
+  "meshesDeferred": [
+    {
+      "path": "data/particles/paper01.scb",
+      "wadPathHash": "ca6c82448bf95484",
+      "sha256": "5c995cbe01566f96dda77ffb4919a987e51c32dcb8201f9baf6a5a3c438b04e5",
+      "bytes": 5298
+    }
+  ]
+}

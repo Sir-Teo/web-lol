@@ -33,6 +33,7 @@ import { GAREN } from '../content/garen-progression';
 import { GAREN_R } from '../content/garen-r';
 import { LazyGarenJustice } from './lazy-garen-justice';
 import { LazyGarenCourage } from './lazy-garen-courage';
+import { LazyGrompDeath } from './lazy-gromp-death';
 import { GarenSpin } from './garen-spin';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
@@ -90,6 +91,7 @@ export class GameView {
     (id) => this.overheadLabelBounds(id)
   );
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
+  grompDeath = new LazyGrompDeath(this.scene);
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
   smoke = new HawkshotSmoke(this.scene, (p) => this.ground(p));
@@ -664,6 +666,7 @@ export class GameView {
     this.garenSpin.update(world, alpha, terminalAge);
     this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
+    this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);

@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,067 source/simulation/geometry checks, two new focused Chrome neutral-combat checks and ten existing input/save/fog regression cases. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,072 source/simulation/geometry checks and four focused Chrome Gromp combat/death checks. The earlier encounter increment also passed ten existing input/save/fog regression cases. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,7 +14,7 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, Root-scalar last-hit rewards and schema-86 continuation. A separate simulation diagnostic uses both actual Rift source positions. Standard-mode camp scheduling and jungle-role matches remain unfinished.
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, three source death-pop layers, Root-scalar last-hit rewards and schema-86 continuation. A separate simulation diagnostic uses both actual Rift source positions. Standard-mode camp scheduling, remaining monster effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
@@ -2819,3 +2819,39 @@ Schema 52 names and validates this changed meaning. Validation checks early zero
 Validation: 659 tests across 135 files, four browser scenarios and nested-path production smoke passed. An independent integer-credit stepper checks all three rates for 600 updates and every resulting birth tick. Tests separate lifetime and stop boundaries, verify real first-update particles, suppress impact-update births, and compare a long curved flight against an explicit trail emission schedule through prefix retirement. Malformed odometers are rejected; checkpoint continuation and all three renderer restores remain exact. Combined, ribbon and hoop previews retain deterministic seeks and retirement. Updated combined and isolated-ribbon screenshots were reviewed at 1440×900.
 
 The fixed 60 Hz grid and arithmetic remain this reconstruction's policy; exact native update frequency, float accumulation and missile termination ordering still require observation. The saved batch distance remains planar because a native height trajectory is not yet captured. Parent-orientation defaults, attachment, binding clock, RNG and shader/sampler parity also remain open. These changes resolve the two specific scheduling/odometer differences identified in the previous audit. Evidence: `docs/reference/lux-emission-verification.json`.
+
+
+## Gromp legacy particle source and live death flash — October 21, 2026
+
+The [Gromp effect adapter](GROMP-EFFECTS.md) closes the legacy particle source
+references through the frozen root DATA archive. Sixteen Troybin records retain
+664 typed rows and seven unresolved hashes. All 20 declared DDS/SCB dependencies
+are pinned. Nineteen textures export losslessly to RGBA PNG; the original debris
+mesh is retained as deferred source. An independent reader matches the pinned
+historical reader's decoded values, and every recovered field label passes its
+SDBM identity. A repeated extraction reproduces the pin exactly.
+
+Three of the death-pop's eight emitters now render in the controlled encounter:
+flash, lightring and flashfrog. They retain source textures, lifetime/appearance
+curves, uniform-scale flag, pass/depth declarations and the original posed ground
+bone. Playback reconstructs from saved death time, with no new snapshot schema
+or renderer history. A lazy module requests only the four required textures.
+Hidden/expired layers remove their scene objects and dispose owned materials.
+
+Dispatch on the first local fixed update, scale/extent, Euler orientation,
+offset inheritance, omitted tint, uniform-X scale and final shader/blend/sampler
+composition still require native comparison. Five death-pop emitters, spores,
+source projectile/impact, miniature/submesh dispatch and sound remain open;
+standard-mode jungle roles/camp schedules and the full goal remain unfinished.
+
+Validation: four independent binary-reader fixture cases, 1,072 checks across
+216 files plus TypeScript, four focused Chrome cases and nested-path production
+smoke pass. Each isolated layer contributes over 20 GPU pixels and the combined
+effect over 60. Original bone attachment, exact fog/save/reload reconstruction,
+material disposal, natural retirement and three RGB blend-factor combinations
+pass. Existing right-click combat, retaliation, clear continuation and restart
+remain passing. The 1440×900 death capture was visually reviewed; it uses explicit
+99999 diagnostic true damage to freeze the short burst. Production still records
+17 source audio files and requests no Gromp module, rig or effect texture. No
+full browser-suite rerun or native pixel-parity claim is made. Commands, scope
+and file hashes are in `reference/gromp-death-verification.json`.

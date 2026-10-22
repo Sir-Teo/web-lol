@@ -68,7 +68,11 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
-    if (/sru-(blue|gromp)-base|jungle-character-source|jungle-characters/.test(request.url()))
+    if (
+      /sru-(blue|gromp)-base|gromp-legacy|gromp-death|jungle-character-source|jungle-characters/.test(
+        request.url()
+      )
+    )
       junglePreviewRequests.push(request.url());
     if (/^https?:/.test(request.url()) && !request.url().startsWith(base))
       outside.push(request.url());

@@ -1,0 +1,157 @@
+{
+  "recordedAt": "2026-10-22T02:09:07.146635+00:00",
+  "baseRevision": "0ae3c23e455452f3176b65e18bdb4c4110ea9a95",
+  "scope": "Pin the original Gromp legacy particle records and their full DDS/SCB dependency set; render three of eight source death-pop emitters in the controlled encounter. The full project goal remains active.",
+  "schemaVersion": 86,
+  "source": {
+    "referenceVersion": "16.18.8175716",
+    "archive": "DATA/FINAL/DATA.wad.client",
+    "particleRecords": 16,
+    "typedRows": 664,
+    "unresolvedHashes": 7,
+    "assetDependencies": 20,
+    "sourceFiles": 36,
+    "losslessRgbaPngs": 19,
+    "deferredMeshes": [
+      "data/particles/paper01.scb"
+    ],
+    "extractionRepeatExact": true,
+    "exportRepeatExact": true,
+    "exportFilesChecked": 21,
+    "liveLayers": [
+      "flash",
+      "lightring",
+      "flashfrog"
+    ],
+    "deathPopEmitterCount": 8,
+    "requiredRuntimeTextureRequests": 4,
+    "attachment": "Buffbone_Glb_Ground_Loc",
+    "attachmentHash": "7cd8dbdd",
+    "sourcePinSha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033",
+    "assetLedgerSha256": "7b02123b32e69939c87f979fbd93abed1f8ecc18003297c6f1b9db3cdb7a7f72",
+    "runtimeProfileSha256": "bea6e589a755adbcf77f7f165e9c31fd124f03aac6172a71cc3bc47a3ee31ce4",
+    "mappingEvidence": {
+      "repository": "https://github.com/Leischii/Leischii.github.io",
+      "revision": "c3b4e1f02c196243dce4fa834507c9eac2e30671",
+      "file": "src/components/TroybinMigrationTool/MigrateSteps/helpers/table.jsx",
+      "sha256": "15f2ab815b6fbfcf107e24084b66808957e6f7513e6e302aba2ac74fada7a6ed",
+      "nativeClientObservation": false
+    }
+  },
+  "localPolicies": [
+    "first burst on deathTick+1 on the 60 Hz grid",
+    "camera quad half extent at 0.01 source-unit scale",
+    "camera-frame roll/yaw/pitch and world-axis offset inheritance",
+    "white omitted tint and uniform-X scale",
+    "current blue sight gates effect objects; reconstruct on reappearance",
+    "shared initial RGBA shader product and legacy 0/1/4 blend reading"
+  ],
+  "validation": {
+    "typeScript": "passed",
+    "unitCommand": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "unitPassed": 1072,
+    "unitFiles": 216,
+    "newUnitTests": 5,
+    "pythonReaderFixtureCases": 4,
+    "pythonCommand": "python3 tools/assets/test-legacy-troy.py",
+    "browserCommand": "npx playwright test e2e/gromp-death.spec.ts e2e/neutral-gromp.spec.ts --workers=1 --timeout=60000",
+    "browserPassed": 4,
+    "browserFailed": 0,
+    "newBrowserCases": 2,
+    "gpu": {
+      "isolatedLayersVerified": 3,
+      "eachPixelDifferenceGreaterThan": 20,
+      "combinedPixelDifferenceGreaterThan": 60,
+      "rgbBlendModesVerified": [
+        0,
+        4,
+        1
+      ]
+    },
+    "sourceBonePositionChecked": true,
+    "fogRemovalAndReappearanceExact": true,
+    "saveReloadSnapshotAndDrawStateExact": true,
+    "hiddenMaterialDisposals": 3,
+    "expiredMaterialDisposals": 3,
+    "expiredSceneObjects": 0,
+    "loadFailureDisposalAndRetry": "passed",
+    "ordinaryCombatAndClearRestartRegression": "passed",
+    "productionCommand": "npm run test:production",
+    "production": "passed",
+    "productionPrefix": "/nested/rift/",
+    "productionSourceRecordings": 17,
+    "productionGrompRequests": 0,
+    "fullBrowserSuiteRepeated": false,
+    "modelOrMapBinaryChanges": false
+  },
+  "capture": {
+    "path": "artifacts/gromp-death-pop.png",
+    "sha256": "b35fc19299e4614c6fbe07077571fdf1225ec568a720383e6c5e2effaf401469",
+    "width": 1440,
+    "height": 900,
+    "visuallyReviewed": true,
+    "diagnostic": "99999 true damage freezes the short death effect; not ordinary combat damage."
+  },
+  "logs": {
+    "/tmp/web-lol-gromp-check.log": {
+      "path": "/tmp/web-lol-gromp-check.log",
+      "sha256": "def61925dce4da4bd844427d215b5b59a94493ece921c9f5ba77018f0368b229"
+    },
+    "/tmp/web-lol-gromp-browser.log": {
+      "path": "/tmp/web-lol-gromp-browser.log",
+      "sha256": "b3a68496ddf590f34e26fa628d2118db7075d835eb29e1d2fe148af7a57369ee"
+    },
+    "/tmp/web-lol-gromp-production.log": {
+      "path": "/tmp/web-lol-gromp-production.log",
+      "sha256": "725cf070c739a7bcd0c59a8881ed98aab6b2c5d315b9f17da88bb9a6301a9a28"
+    }
+  },
+  "remaining": [
+    "five death-pop emitters: chunks, shadow, pop, skinshards, popshards",
+    "death spores and original projectile/impact rendering",
+    "miniature/submesh dispatch and original audio",
+    "native dispatch, defaults, sampler, shader and final composition calibration",
+    "standard camp scheduling, jungle roles and complete full-match certification"
+  ],
+  "files": {
+    "docs/GROMP-EFFECTS.md": "59ee5f90fd9225f099a2adf91531fc95981005f87f5acae0df0452067aedd948",
+    "docs/NEUTRAL-GROMP.md": "513186d2587524fb1b5c88b92c6e676e20d31ce52df7c601c0fcdb3acd328fe5",
+    "docs/PROGRESS.md": "7c3e92d04bb92fc5cff13d8388dcffca9bdffa1c3a96cb9a03dcddb535e4d550",
+    "docs/reference/gromp-effect-assets.json": "7b02123b32e69939c87f979fbd93abed1f8ecc18003297c6f1b9db3cdb7a7f72",
+    "docs/reference/gromp-effects.json": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033",
+    "e2e/gromp-death.spec.ts": "45f2236738496fb2e9e94d55a60927a36c9ab2a6b98fbb089823a46d58810418",
+    "public/assets/effects/gromp-legacy/particles/color-hold.png": "508e92238640e05034d4f6ac7d906a3288e82dbe047b7e8f55ff4d993a7523ef",
+    "public/assets/effects/gromp-legacy/particles/morgana_skin05_q_black_mis.png": "23023e6faf0c7fc8d722963ee8923276f9651c5fce26ca3e0197b58c4ea1379f",
+    "public/assets/effects/gromp-legacy/particles/sr2_gromp_death_flash.png": "475c6a99aa4f445b0dcafc18860a3ed80772931336464c41887b19bc917a7677",
+    "public/assets/effects/gromp-legacy/particles/sru_bluebuff_sparkleorbs.png": "48889f442de91d9d9847c4c2df910f41a4cc3e34184a5620eaa1af8c5630486a",
+    "public/assets/effects/gromp-legacy/particles/sru_bluebuff_spawn_ready_color.png": "4e74fe13e5cd57a00fc3c2c1d56e4ca57d5faaebe59876d3f23873fef1e3263f",
+    "public/assets/effects/gromp-legacy/particles/sru_dragon_ba1_grounddirt.png": "e7879b1e48ef4f460953d44885c2a88abeb9ffeb66bff01204616114683ee06b",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_ba_flare.png": "3fb4eec6b55738104a0544e283608876b81e5a13619c09e42464362a6a670e82",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_ba_orb.png": "c3edfa5bac4d6501dfbacb5bc3ecf50e5452c1af26aec7f4abb9935e49d34dd3",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_death_chunks.png": "d7196ddaba1b4e33f49142547e0aa7cd0e7a32f9264e409db3a14fa43733c35b",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_death_explo_flash.png": "b36606a322f30a71ca15a3ef96ecbebf1da9ad7e547afb8396acb735fba4b32e",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_death_pop_lines.png": "4d0afb2e09ec3dc71ea381296a035bfe692171a07e23406645498376fb2ea697",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_death_radialsuck.png": "d83697dec30a1d5b22c74e6e4250bcd85ab7a9e87c8b2d79be8ee0643a0b0601",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_death_rays_soft.png": "5881ff02fc74e6c5f5a43aa094e8fb0ef379e297bf4ea7e776984e402f5105d4",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_death_smoke_puffs.png": "73730bedf0d45f9396b7d537b1f412b08adea649449f77b886c5007129f64d7a",
+    "public/assets/effects/gromp-legacy/particles/sru_gromp_death_whisps2.png": "ac058b9e7960931eaa919c8241be98a20b5542c7b5fa204370a29e5f6e216386",
+    "public/assets/effects/gromp-legacy/particles/sru_spawn_readyflash.png": "5fb4ce5e1926174394b031cab74e15edeef648b977151b4a343baa1cc3567db1",
+    "public/assets/effects/gromp-legacy/shared/particles/black.png": "abc58d5127d7cdf313beb9ec8ee839860a9c6bfbc48c8b8eb6a3f7d8bb63de6f",
+    "public/assets/effects/gromp-legacy/shared/particles/color-bellcurve4.png": "8ac1a0fbf6570e7f5f29fed5599f3bae371e235a67afa19846edf82bd5185a2e",
+    "public/assets/effects/gromp-legacy/shared/particles/color-bellcurve7.png": "1f9fd99eb1a618ff6d5cb4b013d17972386d0554f442b23033f0f1a094ca68a9",
+    "src/content/gromp-death.json": "bea6e589a755adbcf77f7f165e9c31fd124f03aac6172a71cc3bc47a3ee31ce4",
+    "src/main.ts": "46faf2c6cb53e4cc0b9763348dca269df5effc86249dc9e2ca46e96342f1be47",
+    "src/render/gromp-death-particles.ts": "8a944853539762016b65f7c821786dcc240f6d2077bfc0a0ac94db2ea9055c0d",
+    "src/render/gromp-death.ts": "8f80f2062d2f84987c4005fe67834b3a7b07a2fdf553069c772fe948d7cbe22a",
+    "src/render/lazy-gromp-death.ts": "491b4b85d0e7ab8e32602aa18e3ceb94309bdcf87740b06f16616252c5ebb6d7",
+    "src/render/view.ts": "ffc9fede78ba1b28df84a2ded5bc1fcb1572e8a66dfe0680d5578240aff89b4c",
+    "tests/gromp-death-loading.test.ts": "eb498f923512d82f7a596ba85a544b0070a1223f9f5e1bfca0ef315fd293e582",
+    "tests/gromp-death-particles.test.ts": "1532bb39d36495e55d8485ece54ff58b982e8f9fa5c63e65c09621f4401f9540",
+    "tools/assets/export-gromp-death.py": "288015e45978039b3e45aad1c82b3213484ac8c64cc8e51ac31f33ec14f0cd00",
+    "tools/assets/extract-gromp-effects.py": "89ae2892d776b04fbf164c8b7bc81f43af5ff6dc4fb6641dfd9bcf912d6ffe91",
+    "tools/assets/legacy_troy.py": "2ee060a18ca37a035565d4c610ab762f44541b56b412f57354a549bb2a9f01c0",
+    "tools/assets/test-legacy-troy.py": "0b2d7076de2eb58a2790fe993c8d321f5d53b43e75983d294a1a6f7d0d796e40",
+    "tools/qa/production-subpath.mjs": "d998895a9b6c4c0b37987e9ded77e6c6b36168b0e8be620ed4566d4f64ba7ceb",
+    "tools/ruleset-fingerprint.ts": "cf7c61fb28736cc2bb2fbd3f836d675c457de21fc7cc593de1af8dfba9ecfd43"
+  }
+}

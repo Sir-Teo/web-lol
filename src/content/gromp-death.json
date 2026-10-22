@@ -1,0 +1,266 @@
+{
+  "sourcePinSha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033",
+  "characterPinSha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+  "event": {
+    "mName": "{fd3600a1}",
+    "mEffectName": "DATA/Particles/SRU_Gromp_death_Pop.troy",
+    "mParticleEventDataPairList": [
+      {
+        "mBoneName": "{7cd8dbdd}",
+        "__type": "ParticleEventDataPair"
+      }
+    ],
+    "mIsLoop": false,
+    "mIsKillEvent": false,
+    "__type": "ParticleEventData"
+  },
+  "bone": "Buffbone_Glb_Ground_Loc",
+  "profiles": [
+    {
+      "name": "flash",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "flash",
+      "texture": "assets/effects/gromp-legacy/particles/sr2_gromp_death_flash.png",
+      "lookup": "assets/effects/gromp-legacy/particles/color-hold.png",
+      "life": 0.30000000000000004,
+      "size": [
+        430,
+        430,
+        430
+      ],
+      "offset": [
+        0,
+        80,
+        0
+      ],
+      "postOffset": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        1,
+        0,
+        0
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [],
+      "scaleCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "uniform": false,
+      "blend": 0,
+      "priority": 10,
+      "depthTest": false
+    },
+    {
+      "name": "lightring",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "lightring",
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_radialsuck.png",
+      "lookup": null,
+      "life": 0.2,
+      "size": [
+        300,
+        300,
+        300
+      ],
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "postOffset": [
+        0,
+        80,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "time": 0.2,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.6,
+          "value": [
+            1,
+            1,
+            1,
+            0.3
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0,
+          "value": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            1.4,
+            1.4,
+            1.4
+          ]
+        }
+      ],
+      "uniform": false,
+      "blend": 4,
+      "priority": 7,
+      "depthTest": true
+    },
+    {
+      "name": "flashfrog",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "flashfrog",
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_death_explo_flash.png",
+      "lookup": null,
+      "life": 0.2,
+      "size": [
+        300,
+        270,
+        270
+      ],
+      "offset": [
+        0,
+        80,
+        0
+      ],
+      "postOffset": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.2,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.6,
+          "value": [
+            1,
+            1,
+            1,
+            0.3
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0,
+          "value": [
+            0.8,
+            0,
+            0.8
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "uniform": true,
+      "blend": 1,
+      "priority": 9,
+      "depthTest": true
+    }
+  ],
+  "status": "Three camera quads from the eight-emitter death-pop source. Death dispatch on the first fixed update, default-white tint, uniform-X scale, camera Euler convention and lookup coordinates are local adapters; five pop emitters, spores, audio and native composition remain unfinished."
+}
