@@ -6,6 +6,7 @@ import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxEmissionBirthTick, luxEmissionCount } from '../content/lux-emission';
 import { particleColorLookup } from './particle-color-lookup';
 import { particleTravel } from './particle-motion';
+export { oracleChildTick } from '../content/oracle-presentation';
 export interface OracleValue {
   readonly constant: readonly number[];
   readonly times: readonly number[];
@@ -128,15 +129,4 @@ export function oracleParticles(ownerId: number, window: OracleParticleWindow, t
     }
     return particles;
   });
-}
-
-/** The invisible parent's explicit child-on-death edge. No child exists when
- * its first-update birth was canceled. Stop+linger is the local stop adapter.
- */
-export function oracleChildTick(startTick: number, stopTick: number | null): number | null {
-  const p = profiles.find((p) => p.kind === 'child')!;
-  const born = startTick + Math.ceil(p.delay * 60 - 1e-5) + 1;
-  if (stopTick !== null && stopTick <= born) return null;
-  const natural = born + Math.ceil(oracleValue(p.life, 1 / 60 / p.emitterLife!, 0)[0] * 60);
-  return stopTick === null ? natural : Math.min(natural, stopTick + Math.ceil(p.linger * 60));
 }

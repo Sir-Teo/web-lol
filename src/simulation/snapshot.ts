@@ -1,5 +1,11 @@
 import { WARD_SOURCE, WARD_POLICY, wardScaling } from '../content/warding-totem';
 import { ORACLE_SOURCE, ORACLE_POLICY, trinketScaling } from '../content/trinkets';
+import {
+  oracleChildTick,
+  oracleVisualEndTick,
+  ORACLE_VISUAL_TAIL_TICKS,
+  ORACLE_PRESENTATION,
+} from '../content/oracle-presentation';
 import { distance } from './math';
 import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
@@ -92,7 +98,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 104;
+export const SNAPSHOT_VERSION = 105;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -463,6 +469,18 @@ const player: z.ZodType<PlayerState> = z
       rechargeStartProgress: z.number().min(0).lt(1),
       cooldownTick: tick,
       order: point.nullable(),
+      visuals: z
+        .array(
+          z.strictObject({
+            startTick: tick,
+            origin: point,
+            facing: z.number(),
+            stopTick: tick.nullable(),
+            endReason: z.enum(['expired', 'recast', 'match-end']).nullable(),
+            childAnchor: z.strictObject({ point, facing: z.number() }).nullable(),
+          })
+        )
+        .max(ORACLE_VISUAL_TAIL_TICKS + 2),
       scan: z
         .strictObject({
           startTick: tick,
@@ -1162,6 +1180,50 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     )
       throw new Error('Saved trinket has invalid charge or placement clocks.');
     const scan = s.scan;
+    const live = s.visuals.filter((v) => v.stopTick === null);
+    if (
+      live.length !== (scan && state.winner === null ? 1 : 0) ||
+      (live.length && live[0].startTick !== scan!.startTick)
+    )
+      throw new Error('Saved Oracle presentation has no matching active scan.');
+    for (const [index, v] of s.visuals.entries()) {
+      const stop = v.stopTick,
+        child = stop === null ? null : oracleChildTick(v.startTick, stop);
+      if (
+        v.startTick < s.createdTick ||
+        v.startTick > state.tick ||
+        (index > 0 && s.visuals[index - 1].startTick >= v.startTick) ||
+        [v.origin, ...(v.childAnchor ? [v.childAnchor.point] : [])].some(
+          (p) => Math.abs(p.x) > battlefield.half || Math.abs(p.y) > battlefield.half
+        ) ||
+        (stop === null) !== (v.endReason === null) ||
+        (stop === null &&
+          (v.childAnchor !== null || state.tick >= v.startTick + ORACLE_POLICY.durationTicks)) ||
+        (stop !== null &&
+          (stop > state.tick ||
+            stop <= v.startTick + ORACLE_PRESENTATION.parentFirstBirthTick ||
+            stop > v.startTick + ORACLE_POLICY.durationTicks ||
+            state.tick >= oracleVisualEndTick(v.startTick, stop) ||
+            (v.endReason === 'expired' && stop !== v.startTick + ORACLE_POLICY.durationTicks) ||
+            (v.endReason === 'recast' &&
+              (stop >= v.startTick + ORACLE_POLICY.durationTicks ||
+                (!s.visuals.some((next) => next.startTick >= stop) &&
+                  !(scan && scan.startTick >= stop)))) ||
+            (v.endReason === 'match-end' && (state.winner === null || stop !== state.tick)) ||
+            (v.childAnchor !== null) !== (child !== null && child <= state.tick)))
+      )
+        throw new Error('Saved Oracle presentation has invalid ordering, anchors or stop clocks.');
+    }
+    if (
+      scan &&
+      state.winner !== null &&
+      state.tick > scan.startTick + ORACLE_PRESENTATION.parentFirstBirthTick &&
+      !s.visuals.some(
+        (v) =>
+          v.startTick === scan.startTick && v.stopTick === state.tick && v.endReason === 'match-end'
+      )
+    )
+      throw new Error('Saved terminal Oracle scan has no stopped presentation.');
     if (!scan) continue;
     const firstPulse = scan.pulseStartTick;
     const invalidPulsePhase =

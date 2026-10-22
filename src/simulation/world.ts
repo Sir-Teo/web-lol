@@ -1,5 +1,6 @@
 import { advanceWards, requestWard, hitWard } from './wards';
 import { requestOracle, advanceOracles, wardDetected, wardDisabled } from './oracle-lens';
+import { finishOracleVisual, advanceOracleVisuals } from './oracle-presentation';
 import { WARD_SOURCE, WARD_POLICY } from '../content/warding-totem';
 import type { WardPlacement } from './types';
 import {
@@ -1065,6 +1066,7 @@ export class World {
     this.advanceProjectiles(unseen);
     this.advanceSingularities();
     advanceOracles(this);
+    advanceOracleVisuals(this);
     if (this.winner) {
       this.advanceAnimationClocks();
       this.advanceImpactVisuals();
@@ -3840,6 +3842,7 @@ export class World {
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
+          finishOracleVisual(state.trinket, this.tick, 'match-end');
           this.finishGarenE(state);
           this.finishGarenW(state, 'match-end');
           finishGarenQPresentation(state, this.tick, 'match-end');
@@ -3852,6 +3855,7 @@ export class World {
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
+        advanceOracleVisuals(this);
       }
       if (targetState) {
         this.finishGarenE(targetState);

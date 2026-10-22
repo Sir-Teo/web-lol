@@ -3,11 +3,21 @@ import type { World } from './world';
 import type { Faction, Unit } from './types';
 import { averageChampionLevel, spendTrinket, trinketError } from './trinkets';
 import { distance } from './math';
+import { finishOracleVisual } from './oracle-presentation';
 
 export function requestOracle(w: World, owner: Unit): string | null {
   const error = trinketError(w, owner, 'oracle');
   if (error) return error;
   const s = w.championState(owner.id)!.trinket;
+  finishOracleVisual(s, w.tick, 'recast');
+  s.visuals.push({
+    startTick: w.tick,
+    origin: { x: owner.x, y: owner.y },
+    facing: owner.facing,
+    stopTick: null,
+    endReason: null,
+    childAnchor: null,
+  });
   spendTrinket(w, s);
   s.cooldownTick = w.tick + P.cooldownTicks;
   s.scan = {

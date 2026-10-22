@@ -4,21 +4,24 @@ Oracle Lens is available as a free trinket swap at the fountain or while dead.
 Press **4**, or click its separate HUD slot, to scan for eight seconds. Enemy
 wards in range become targetable and lose their sight until the last overlapping
 scan leaves or ends. Hidden champions produce sampled silhouettes with no health
-bars or ordinary targetability. Saves use schema 104.
+bars or ordinary targetability. Saves use schema 105.
 
 The original scanner and all selected particle dependencies are pinned and
-converted. The runtime currently draws the scanner and radar, with local ground
-projection and a thin range guide. Ten other Buff emitters, Alert/Death systems,
-audio and native visual calibration remain unfinished. These are foundations for
+converted. Gameplay now reconstructs all twelve Buff declarations (including the
+invisible child driver) and all four child Death declarations, with saved ending
+histories, local ground projection and a thin range guide. Alert remains a manual
+preview with unresolved event/recipient dispatch. Audio, batching and native visual
+calibration remain unfinished. These are foundations for
 the full match goal, not native parity or full-match acceptance.
 
 ## Runtime and local policies
 
-The shop prepares the selected scanner/radar assets before committing a swap,
+The shop lazily prepares the complete selected Oracle renderer, profiles and assets before committing a swap,
 serializes pending purchase/swap clicks, and checks fountain access again after
 loading. Failure changes no equipment, resources or saved state. Successful
 preparation is reused. Unselected Oracle assets do not preload. A restored Oracle
-or an active scan prepares its assets before play resumes.
+or any active/stopped presentation prepares its assets before play resumes,
+including a tail-only checkpoint with a Ward equipped.
 
 Swapping preserves stock and the existing short cooldown. It transfers fractional
 completed recharge work into a newly captured interval for the selected trinket;
@@ -54,7 +57,7 @@ The following are explicit adapters while native dispatch remains unrecovered:
 - Practice cooldown reset refills the current trinket and clears its resource
   cooldowns while preserving active scans and committed Ward deliveries.
 
-Schema 104 requires equipment kind, the captured recharge duration and starting
+Schema 105 retains equipment kind, the captured recharge duration and starting
 progress, and nullable scan/pulse/sample state. The actual first sample time is retained;
 an activation accepted between ticks can first sample on the next tick. Expired
 samples are removed before combat, so a match-ending Nexus hit cannot freeze an
@@ -65,6 +68,65 @@ phase, last-pulse sample identity, opposing champion targets, captured range,
 unique target samples and expiry. Scan ownership is its enclosing champion state;
 an active scan can legitimately remain while a Ward is equipped. Earlier schemas
 and fingerprints remain incompatible.
+
+## Saved Buff and child Death playback — October 22, 2026
+
+The live view now shares the complete declaration renderer with the source review.
+Fifteen visual layers cover the twelve Buff and four Death declarations; the
+sixteenth declaration is their invisible child driver. This is source-backed
+reconstruction with the local material/UV policies listed below, not native visual
+parity. Alert's remaining visual declaration is still preview-only.
+
+Every accepted activation records its origin, facing and start tick. An active
+record follows its owner. Expiry, recast or match end stops emission on a saved
+tick/reason while retaining authored particle ages and linger. The explicit
+parent edge derives child dispatch, normally 30 ticks after stopping. After that
+tick's movement/combat, simulation captures the owner's point/facing for the
+child root. Its 450-unit vertical source offset is applied by the view. Later
+movement, swaps, death and new activations cannot move or restart that child.
+Gameplay uses the captured cast frame for Buff birth orientation and the current
+owner frame for explicitly particle-local orientation; native attachment remains
+unverified. Enemy roots remain sight-gated and retired/fogged objects dispose
+owned resources.
+
+A small generated timing profile preserves the source parent's first birth,
+life/linger, offset and conservative child tail. The large emitter profiles remain
+behind a dynamic import until selected or restored. Redundant copies of the old
+two raw emitters were removed from the eagerly loaded scalar profile. The maximum
+normal stopped tail is 92 ticks. Same-tick or first-update replacements cancel
+unborn presentations rather than create duplicate keys or a child. Presentation
+updates consume no stock, apply no damage and grant no vision.
+
+Schema 105 requires ordered, unique histories matching the active scan, stop
+reason/deadline consistency and bounded captured anchors. A due child requires an
+anchor; a future child cannot carry one. Expired tails are rejected. A real Nexus
+kill stops active presentations and captures any already-due child before an
+early combat return. Result playback uses the frozen owner for a future child
+while simulation remains unchanged. Restoring that frozen save reproduces its
+child frame; elapsed result playback follows the existing local terminal-view
+clock policy.
+
+TypeScript and all **1,307 tests across 244 files** pass, including five new state
+cases and a timing-bound check against the full particle profiles. Ten current
+Oracle/source Chrome cases pass. The new live cases use real equipment, cast and
+save/reload input with diagnostic clock/encounter setup. A Ward-equipped tail-only
+reload reproduces all source buffers exactly and retires 109 materials plus the
+owned projected geometry. A real Nexus kill renders 107 future child particles,
+contributing 98 pixels in the recorded fixture frame, without changing simulation
+or the frozen checkpoint. That narrow GPU result does not certify natural-match
+visibility, native appearance or performance. [The live particle ledger](reference/oracle-particle-runtime-verification.json)
+records current scope separately from the earlier preview/runtime ledgers.
+
+The broader Ward/shop/inventory/companion and Gromp cohorts add 24 passing cases,
+for **34 targeted Chrome scenarios** at this revision. Production build and strict
+`/nested/rift/` smoke pass: eight Oracle GLB requests cover the four source meshes
+on selection and restoration, with zero unrequested Oracle preloads, failed or
+outside-prefix resources, or development hooks. Existing Ward/companion state,
+eleven practice rigs and seventeen recordings survive. All GLBs/map validate with
+zero errors/warnings. Four generated profiles/audits reproduce byte for byte.
+All eight live Oracle and five production captures were visually reviewed. The
+chunk warning remains: game 714.93 KB, Three 659.93 KB; selected Oracle module
+50.58 KB. Per-particle draw counts and full-match performance remain unaccepted.
 
 ## Evidence and boundaries
 
@@ -139,8 +201,8 @@ declarations: twelve Buff, four Death and one Alert. Sixteen have visual geometr
 the remaining Buff emitter is an invisible parent with an explicit
 `childEmitOnDeath` edge to Death. The preview can isolate any layer, scrub in either
 direction, play the combined sequence and test moving anchors or uneven ground.
-This renderer is not yet connected to the match. The existing live scanner/radar
-implementation and schema 104 remain the current gameplay boundary.
+This renderer first landed as a separate review at `bf1201e` and now supplies the
+live Buff/Death layers described above. Alert remains a manual preview.
 
 [Normalized profiles](reference/oracle-particle-profiles.json) retain constant
 values, every temporal key and per-axis probability table, original dependency
@@ -183,7 +245,7 @@ new browser checks cover those layers, explicit child timing, resource retiremen
 moving bound/unbound anchors and terrain projection. The source review requests
 exactly four GLBs and fifteen PNGs. Preparation shares pending requests, disposes
 successful partial loads after failure, permits retry and caches complete assets.
-The current revision passes TypeScript and all **1,301 tests across 244 files**,
+At the preview milestone `bf1201e`, TypeScript and all **1,301 tests across 244 files** passed,
 including nine new source/playback/loading checks. Twelve targeted Chrome cases
 pass, including the four preview cases, the original geometry review, four Gromp
 death/missile regressions and all three live Oracle encounters. Both generated
@@ -199,9 +261,7 @@ Pixels establish contribution, not native appearance or match visibility. Do not
 promote this preview to visual parity. Alert's gameplay event/recipient remains
 unresolved and manual preview does not manufacture a detection trigger.
 
-Next connect the complete renderer to saved active/stopped presentation histories,
-retain the child anchor through reload/recasts/match end, and calibrate the noted
-UV/material/attachment behavior. Per-particle preview draws also require batching
+Continue calibrating the noted UV/material/attachment behavior. Per-particle draws require batching
 and match-scale performance verification. [The preview validation ledger](reference/oracle-particle-verification.json)
 records the commands and exact scope separately from live Oracle behavior.
 
@@ -254,8 +314,8 @@ and the map validate with zero errors/warnings. The chunk warning remains:
 
 ## Remaining implementation
 
-Reconstruct the remaining source emitter layers, native stop/linger and material
-bindings, audio and reference calibration. Verify native startup, scaling phase,
+Resolve Alert dispatch, native stop/linger and material bindings, audio, batching
+and reference calibration. Verify native startup, scaling phase,
 swap conversion, detection cadence and death/swap dispatch. Control Wards,
 Farsight, Faelights, traps, strategic ward bots and the wider full match, roster,
 delivery/offline and performance requirements remain in scope.

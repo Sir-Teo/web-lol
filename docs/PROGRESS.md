@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,301 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,307 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -21,84 +21,67 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-The [complete Oracle declaration preview](ORACLE-LENS.md#complete-declaration-preview--october-22-2026)
-now reconstructs all seventeen source emitters, including the invisible child
-driver. All sixteen visual layers contribute pixels and reproduce the framebuffer
-after random seeks in fitted Chrome views. Original rig/mesh/texture dependencies,
-full temporal and probability tables, explicit parent-child timing, bound/unbound
-anchors, terrain projection and partial-load cleanup are covered. The missing
-frame-count default was corrected to one; Alert's source HUD projection flag is
-false. Cropped spark edges, native UV/material/attachment calibration, source audio
-and saved stopped histories remain unfinished. The preview is separate from the
-two live scanner/radar layers; it does not certify native appearance or full-match
-completion. Commands and boundaries are in the [preview ledger](reference/oracle-particle-verification.json).
-TypeScript and all 1,301 checks across 244 files pass. Twelve targeted Chrome
-cases pass: four new particle reviews, the original geometry review, two Gromp
-death, two Gromp missile and three live Oracle encounters. Exact profile export
-and nested-path production smoke pass; the 715.88 KB game/659.92 KB Three chunk
-warning remains. Nine preview and two current production captures were visually
-reviewed. No complete browser audit or natural full match was certified.
+[Oracle Lens](ORACLE-LENS.md) now shares the full declaration renderer with its
+source review: all twelve Buff declarations, including the invisible child driver,
+and all four child Death declarations run in gameplay. Fifteen visual layers use
+the original rig/meshes/textures, full temporal/probability tables and explicit local
+material/UV/motion policies. Alert remains manual preview with unresolved dispatch.
+Cropped spark edges, native attachment/material/stop semantics, audio, batching and
+match-scale performance remain unfinished. This does not certify native appearance.
 
-[Oracle Lens](ORACLE-LENS.md) now equips for free at the fountain or while
-dead, prepares only its selected scanner/radar assets, activates through real key
-and button input, detects enemy wards and disables their sight. Swaps preserve
-stock, short cooldowns and fractional recharge work; repeating a swap cannot
-refill charges. Failed preparation spends nothing, pending clicks serialize,
-and eligibility is checked again after loading. Accepted Ward deliveries remain
-independent. Scans follow the owner and survive swaps, death and practice refill
-under an explicit local lifecycle policy.
+Free fountain/death swaps preserve stock, short cooldowns and fractional recharge
+work. Pending preparation serializes clicks and rechecks access; failure changes no
+resources. Oracle profiles and assets load lazily only on selection or saved
+presence. A Ward-equipped checkpoint with only an ending tail still prepares the
+full renderer. Redundant old emitter copies were removed from the scalar profile.
 
-Hidden enemy champions produce saved half-second samples, rendered as source
-idle silhouettes over occluding terrain/vegetation. These warnings do not grant
-ordinary vision, current animation, health bars, minimap markers, selection or
-attack targets. Radius/recharge aggregation, startup/conversion, instant activation,
-scan cadence, lifecycle and recast behavior remain named local adapters. Only two
-of twelve Buff layers render; other emitters, Alert/Death, audio, native stop/linger,
-material dispatch and calibration remain unfinished.
+Schema 105 retains accepted cast origins/facing, ordered active/stopped histories,
+stop clocks/reasons and captured child anchors. Recasts, swaps, death and practice
+refill cannot restart or move an already captured child. The source-linked local
+stop adapter derives dispatch, normally thirty ticks after stopping; simulation
+captures the child root after movement on that tick. Conservative 92-tick tails
+retire without spending stock, replaying damage or granting vision. First-update
+cancellations coalesce. Validation rejects missing/conflicting/expired histories
+and premature/missing anchors. A real Nexus kill stops active effects and captures
+already-due roots before early combat return. Frozen result playback derives a
+future child from the frozen owner without advancing simulation.
 
-Schema 104 requires equipment kind, captured recharge duration/starting progress,
-and scan/pulse/sample clocks, including the actual first sample time. Cleanup
-before combat preserves valid frozen Nexus-win checkpoints at sample expiry or
-before the first sample. Validation checks exact remaining deadlines, stock,
-radius, pulse phase, last-pulse samples, opposing targets, captured range and expiry.
-TypeScript and all 1,292 tests across 242 files pass with one worker, including
-fourteen new Oracle cases. The focused boundary run passes 41 Oracle, Ward
-and structure cases. Two existing long tests timed out under two workers; no test limit
-was changed, and the serial run passes.
+Ordinary Oracle detection still disables enemy Ward sight and grants direct Ward
+visibility in radius. Hidden champions leave saved half-second source-idle
+silhouettes with no current animation, health bars, minimap marker or ordinary
+targetability. Startup, scaling aggregation, recharge conversion, cadence and
+lifecycle remain named local policies. Schema 104 sampling-boundary fixes are
+retained in schema 105; earlier schemas/fingerprints remain incompatible.
 
-All 23 targeted Chrome scenarios pass, including three Oracle cases and twenty
-companion, Ward, inventory, shop and queued-input/save regressions. The three
-Oracle cases pass again after the silhouette overlay fix and subsequent
-sampling/match-end checkpoint repairs.
-All six final Oracle captures were visually reviewed, including the 600x700 shop.
-Real input clears a hidden Rift ward through active saved restoration. Brush
-samples retain old positions without health or targetability. Encounter positions,
-AI suppression and later clock steps remain diagnostic; no natural full match is
-certified by these cases.
+TypeScript and all 1,307 checks across 244 files pass, including five new history
+cases and a full-profile conservative timing bound. Ten current Oracle/source
+Chrome cases pass: five live encounters, four particle review cases and the
+original geometry review. The new tail-only UI save/reload reproduces source
+buffers exactly, then retires 109 materials and one projected geometry. A real
+Nexus kill renders 107 future child particles (98 pixels in its diagnostic frame)
+without changing the frozen simulation/save. Live source captures were visually
+reviewed. Natural full matches and native/performance acceptance remain unverified.
+Current commands and boundaries are recorded in the
+[live particle ledger](reference/oracle-particle-runtime-verification.json).
+The broader Ward/shop/inventory/companion/Gromp cohort contributes another 24
+passing Chrome cases, for 34 targeted cases total. Nested-path production smoke
+passes with eight selected Oracle mesh requests and zero unrequested Oracle
+preloads; Ward/companion state, eleven practice rigs and seventeen recordings
+survive. Model/map validation reports zero errors/warnings, and all four generated
+profiles/audits reproduce exactly. Eight live Oracle and five production captures
+were visually reviewed. The remaining chunk warning reports 714.93 KB game and
+659.93 KB Three; selected Oracle code is a separate 50.58 KB module. Per-particle
+draw counts, native calibration and natural full-match performance remain open.
 
-Production build and `/nested/rift/` smoke pass with real Oracle equipment,
-practice resource refill, activation and active saved reload, four selected
-scanner/radar requests and zero unrequested Oracle preloads. Existing Ward and
-companion state survive. All eleven practice monster rigs and 17 recordings
-remain prepared. There are no failed/outside-prefix resources or development
-hooks. All five production captures were visually reviewed. GLBs/map validate
-with zero errors/warnings. The bundle warning remains (715.88 KB game, 659.92 KB
-Three). Exact scope and limits are in [the runtime ledger](reference/oracle-lens-runtime-verification.json).
-The full match, roster, vision tools, native calibration, offline delivery and
-performance goals remain active.
-
-The preceding source import at `be04cd5` pinned all 21 selected original visual
-dependencies (1,308,124 raw bytes), seven metadata-only scripts (1,560 bytes; 63
-instructions), frozen item/spell/VFX/text records and the official icon. Four
-GLBs and fifteen PNGs retain all selected geometry/textures. Independent binary
-checks compare scanner positions/indices/UVs/weights/weighted joints and every
-SCB face corner/UV/optional RGB; the colorless radar remains colorless. Its 27
-pin, ledger, profile and converted files reproduced byte for byte. The expanded
-runtime profile also reproduces exactly. The original source-only validation
-passed 1,278 checks and its Chrome geometry case. See [the source ledger](reference/oracle-lens-verification.json)
-for that earlier scope; current playable behavior is validated above. Current
-eight-second duration remains separate from stale six-second external text and
-approximately ten-second authored particle lifetimes.
+The [preview ledger](reference/oracle-particle-verification.json) records the
+separate `bf1201e` declaration milestone; the earlier
+[live scanner/radar ledger](reference/oracle-lens-runtime-verification.json)
+records `ae39178`. Their historical counts and production asset sets do not certify
+later revisions. The source pin still retains 21 original Global members, seven
+metadata-only scripts, frozen records and all four GLBs/fifteen PNGs. Binary
+geometry comparisons remain separately scoped evidence. The full match, roster,
+vision tools, native calibration, offline delivery and performance goals remain
+active.
 
 [Stealth Ward](WARDING-TOTEM.md) now supplies a separate trinket slot, real key
 and button targeting, cast/sight guides, captured charge/delivery/lifetime clocks,

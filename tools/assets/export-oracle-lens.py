@@ -35,10 +35,7 @@ profile = dict(sourceSha256=sha(p.read_bytes()), assetsSha256=sha(a.read_bytes()
     cooldownSeconds=spell['cooldownTime'][0], preservesRecall=spell['mDoesntBreakChannels'],
     ignoresAbilityHaste=spell['mAmmoNotAffectedByCDR'], targeting=spell['mTargetingTypeData']['__type'],
     rig='oracle-lens-base', clip=rig['clips'][0]['name'],
-    animationDurationSeconds=rig['clips'][0]['durationSeconds'], bindings=bindings,
-    renderEmitters={e['emitterName']: e for e in
-        d['items']['records']['Items/3364/Particles/3364_Buff']['complexEmitterDefinitionData']
-        if e['emitterName'] in ['Trinket_Red', 'RadarMesh']})
+    animationDurationSeconds=rig['clips'][0]['durationSeconds'], bindings=bindings)
 out = Path('src/content/oracle-lens.json')
 raw = (json.dumps(profile, indent=2)+'\n').encode()
 if not out.exists() or out.read_bytes() != raw: out.write_bytes(raw)

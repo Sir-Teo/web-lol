@@ -720,7 +720,7 @@ export class GameView {
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
     this.riverShrines.update(world, (p) => this.ground(p));
     this.ownedCompanions.update(world, alpha, (p) => this.ground(p));
-    this.oracleLens.update(world, alpha, (p) => this.ground(p));
+    this.oracleLens.update(world, alpha, (p) => this.ground(p), this.camera, terminalAge);
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);

@@ -134,6 +134,8 @@ export interface OracleEffectInput {
   ownerId: number;
   window: OracleParticleWindow;
   anchorAt: (tick: number) => OracleAnchor;
+  /** An optional captured cast frame for systems whose roots follow the owner. */
+  birthAnchor?: (tick: number) => OracleAnchor;
 }
 interface ParticleModel {
   root: THREE.Object3D;
@@ -224,6 +226,7 @@ export class OracleParticles {
           model.root.name = `Oracle ${p.role} ${p.index} ${p.name}`;
           model.root.userData.profileIndex = particle.profileIndex;
           model.root.userData.effectId = input.id;
+          model.root.userData.ownerId = input.ownerId;
           for (const mesh of model.meshes) {
             mesh.frustumCulled = false;
             mesh.renderOrder = p.renderOrder;
@@ -231,7 +234,7 @@ export class OracleParticles {
           this.models.set(key, model);
           this.scene.add(model.root);
         }
-        const born = input.anchorAt(particle.bornTick),
+        const born = (input.birthAnchor ?? input.anchorAt)(particle.bornTick),
           now = input.anchorAt(tick);
         const anchor = born.position.map((v, i) => v + (now.position[i] - v) * particle.bind);
         const facing = p.particleLocal ? now.facing : born.facing;

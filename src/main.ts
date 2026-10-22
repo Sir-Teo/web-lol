@@ -211,7 +211,7 @@ async function boot(): Promise<void> {
   const assetsReady = Promise.all([
     ...(world.units.some((u) => {
       const s = world.championState(u.id)?.trinket;
-      return s?.kind === 'oracle' || !!s?.scan;
+      return s?.kind === 'oracle' || !!s?.scan || !!s?.visuals.length;
     })
       ? [loadOracleLens()]
       : []),

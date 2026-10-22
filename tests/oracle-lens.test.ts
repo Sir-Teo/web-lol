@@ -5,6 +5,7 @@ import { ORACLE_POLICY as P } from '../src/content/trinkets';
 import { swapTrinket, rechargeProgress, resetTrinket } from '../src/simulation/trinkets';
 import { requestOracle, wardDetected, wardDisabled } from '../src/simulation/oracle-lens';
 import type { Unit } from '../src/simulation/types';
+import { oracleChildTick, oracleVisualEndTick } from '../src/content/oracle-presentation';
 
 function setup(hidden = false) {
   const w = new World(false, {
@@ -371,4 +372,157 @@ test('a match ending before the first pending sample retains a restorable initia
   expect(w.player.trinket.scan!.echoes).toEqual([]);
   const saved = w.snapshot();
   expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+});
+
+test('expired Oracle effects retain their child clock, capture its later anchor and retire independently of the owner', () => {
+  const w = setup();
+  swapTrinket(w, 'oracle');
+  requestOracle(w, w.hero);
+  resume(w, 480);
+  expect(w.player.trinket.scan).toBeNull();
+  const visual = w.player.trinket.visuals[0];
+  expect(visual).toMatchObject({
+    startTick: 0,
+    stopTick: 480,
+    endReason: 'expired',
+    childAnchor: null,
+  });
+  const child = oracleChildTick(visual.startTick, visual.stopTick)!;
+  resume(w, child - w.tick - 1);
+  Object.assign(w.hero, { x: 120, y: 40, facing: 1.2, previous: { x: 120, y: 40 } });
+  resume(w);
+  expect(visual.childAnchor).toEqual({ point: { x: 120, y: 40 }, facing: 1.2 });
+  Object.assign(w.hero, { x: 350, y: 0, previous: { x: 350, y: 0 } });
+  resume(w, 20);
+  expect(visual.childAnchor!.point).toEqual({ x: 120, y: 40 });
+  resume(w, oracleVisualEndTick(0, 480) - w.tick - 1);
+  expect(w.player.trinket.visuals).toHaveLength(1);
+  resume(w);
+  expect(w.player.trinket.visuals).toEqual([]);
+});
+
+test('recast tails survive equipment swaps, practice refill and death without replaying resource or damage effects', () => {
+  const w = setup();
+  swapTrinket(w, 'oracle');
+  resetTrinket(w.player.trinket);
+  requestOracle(w, w.hero);
+  resume(w, 300);
+  expect(requestOracle(w, w.hero)).toBeNull();
+  expect(w.player.trinket.visuals.map((v) => [v.startTick, v.stopTick, v.endReason])).toEqual([
+    [0, 300, 'recast'],
+    [300, null, null],
+  ]);
+  swapTrinket(w, 'ward');
+  resetTrinket(w.player.trinket);
+  const enemy = w.spawn('champion', 'red', { x: 3000, y: 0 });
+  enemy.ai = false;
+  w.damage(enemy, w.hero, 1e6, 'true');
+  const gold = w.player.gold,
+    kills = w.player.kills;
+  resume(w, 30);
+  expect(w.player.trinket.visuals[0].childAnchor).not.toBeNull();
+  expect(w.player.trinket.charges).toBe(2);
+  expect([w.player.gold, w.player.kills]).toEqual([gold, kills]);
+  resume(w, 62);
+  expect(w.player.trinket.visuals.map((v) => v.startTick)).toEqual([300]);
+});
+
+test('same-tick and first-update practice recasts coalesce canceled births into one restorable presentation', () => {
+  const w = setup();
+  swapTrinket(w, 'oracle');
+  for (let i = 0; i < 20; i++) {
+    resetTrinket(w.player.trinket);
+    expect(requestOracle(w, w.hero)).toBeNull();
+  }
+  expect(w.player.trinket.visuals).toHaveLength(1);
+  resume(w);
+  resetTrinket(w.player.trinket);
+  requestOracle(w, w.hero);
+  expect(w.player.trinket.visuals.map((v) => v.startTick)).toEqual([1]);
+  resume(w, 40);
+  expect(w.player.trinket.visuals[0].childAnchor).toBeNull();
+});
+
+test('a real match-ending hit stops the active presentation and captures any child due on that combat boundary', () => {
+  const w = setup(),
+    nexus = w.spawn('nexus', 'red', { x: 100, y: 0 });
+  nexus.hp = 1;
+  swapTrinket(w, 'oracle');
+  resetTrinket(w.player.trinket);
+  requestOracle(w, w.hero);
+  w.step(300);
+  requestOracle(w, w.hero);
+  const child = 330,
+    attacker = w.spawn('melee', 'blue', { x: 100, y: 0 });
+  attacker.ai = false;
+  attacker.nextAttackTick = child - attacker.windupTicks;
+  attacker.order = { type: 'attack', target: nexus.id };
+  w.step(child - w.tick);
+  expect(w.winner).toBe('blue');
+  expect(w.tick).toBe(child);
+  expect(w.player.trinket.visuals[0].childAnchor).not.toBeNull();
+  expect(w.player.trinket.visuals[1]).toMatchObject({
+    stopTick: child,
+    endReason: 'match-end',
+    childAnchor: null,
+  });
+  resume(w, 100);
+  expect(w.tick).toBe(child);
+});
+
+test('saved Oracle histories reject missing, reordered, conflicting, premature and expired presentation state', () => {
+  const w = setup();
+  swapTrinket(w, 'oracle');
+  resetTrinket(w.player.trinket);
+  requestOracle(w, w.hero);
+  w.step(300);
+  requestOracle(w, w.hero);
+  w.step(30);
+  const saved = JSON.parse(w.snapshot());
+  for (const mutate of [
+    (s: any) => {
+      delete s.player.trinket.visuals;
+    },
+    (s: any) => {
+      s.player.trinket.visuals = [];
+    },
+    (s: any) => {
+      s.player.trinket.visuals.reverse();
+    },
+    (s: any) => {
+      s.player.trinket.visuals.push(s.player.trinket.visuals[0]);
+    },
+    (s: any) => {
+      s.player.trinket.visuals[0].childAnchor = null;
+    },
+    (s: any) => {
+      s.player.trinket.visuals[1].childAnchor = { point: { x: 0, y: 0 }, facing: 0 };
+    },
+    (s: any) => {
+      s.player.trinket.visuals[0].endReason = 'expired';
+    },
+    (s: any) => {
+      s.player.trinket.visuals[0].endReason = 'match-end';
+    },
+    (s: any) => {
+      s.player.trinket.visuals[0].stopTick = s.tick + 1;
+    },
+    (s: any) => {
+      s.player.trinket.visuals[0].origin.x = 1e9;
+    },
+    (s: any) => {
+      s.player.trinket.visuals[0].childAnchor.point.y = 1e9;
+    },
+    (s: any) => {
+      s.player.trinket.visuals[1].startTick++;
+    },
+  ]) {
+    const bad = structuredClone(saved);
+    mutate(bad);
+    expect(() => World.fromSnapshot(JSON.stringify(bad), w.battlefield)).toThrow();
+  }
+  resume(w, 62);
+  const stale = JSON.parse(w.snapshot());
+  stale.player.trinket.visuals.unshift(saved.player.trinket.visuals[0]);
+  expect(() => World.fromSnapshot(JSON.stringify(stale), w.battlefield)).toThrow();
 });

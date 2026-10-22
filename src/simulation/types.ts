@@ -105,6 +105,14 @@ export interface WardPlacement {
   readyTick: number;
   lifeTicks: number;
 }
+export interface OracleVisual {
+  startTick: number;
+  origin: Vec2;
+  facing: number;
+  stopTick: number | null;
+  endReason: 'expired' | 'recast' | 'match-end' | null;
+  childAnchor: { point: Vec2; facing: number } | null;
+}
 export interface TrinketState {
   kind: import('../content/trinkets').TrinketKind;
   createdTick: number;
@@ -115,6 +123,7 @@ export interface TrinketState {
   rechargeStartProgress: number;
   cooldownTick: number;
   order: Vec2 | null;
+  visuals: OracleVisual[];
   scan: {
     startTick: number;
     endTick: number;

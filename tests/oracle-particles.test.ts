@@ -6,6 +6,7 @@ import { oracleChildTick, oracleParticles, oracleValue } from '../src/render/ora
 import { particleTravel } from '../src/render/particle-motion';
 import { createOracleParticleMaterial } from '../src/render/oracle-particles';
 import * as THREE from 'three';
+import { oracleVisualEndTick, ORACLE_VISUAL_TAIL_TICKS } from '../src/content/oracle-presentation';
 const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
 const buff = { role: 'buff', startTick: 0, stopTick: 480 } as const;
 const find = (name: string, tick: number) =>
@@ -18,6 +19,7 @@ test('all 17 frozen declarations preserve their curves, multiplier tables and ex
   expect(audit.defaultsEvidenceSha256).toBe(hash('docs/reference/garen-spin-defaults.json'));
   expect(audit.readerEvidenceSha256).toBe(hash('docs/reference/garen-q-cast-reader.json'));
   expect(audit.output.sha256).toBe(hash(audit.output.path));
+  expect(audit.timingOutput.sha256).toBe(hash(audit.timingOutput.path));
   const pin = JSON.parse(readFileSync('docs/reference/oracle-lens-source.json', 'utf8'));
   const fields = {
     life: 'particleLifetime',
@@ -200,4 +202,17 @@ test('shared fixed-grid motion preserves fractional-step travel and drag without
     position: [0, 0, 0],
     travel: [0, 0, 0],
   });
+});
+
+test('the small saved-history timing profile conservatively contains all full-profile Buff and child particles', () => {
+  expect(ORACLE_VISUAL_TAIL_TICKS).toBe(92);
+  for (const stopTick of [2, 30, 300, 480])
+    for (let owner = 0; owner < 50; owner++) {
+      const end = oracleVisualEndTick(0, stopTick),
+        child = oracleChildTick(0, stopTick)!;
+      expect(oracleParticles(owner, { role: 'buff', startTick: 0, stopTick }, end)).toEqual([]);
+      expect(
+        oracleParticles(owner, { role: 'death', startTick: child, stopTick: null }, end)
+      ).toEqual([]);
+    }
 });

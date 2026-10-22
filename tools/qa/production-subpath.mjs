@@ -322,8 +322,10 @@ try {
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.screenshot({ path: 'artifacts/production-oracle.png' });
-  assert(oracleRigRequests.length >= 4);
-  assert(oracleRigRequests.every((url) => /\/oracle-lens-(base|radar)\.glb$/.test(url)));
+  assert(oracleRigRequests.length >= 8);
+  assert(
+    oracleRigRequests.every((url) => /\/oracle-lens-(base|radar|laser|core-laser)\.glb$/.test(url))
+  );
   assert.deepEqual(outside, [], 'Purchased companion assets must stay beneath the host prefix');
   assert.deepEqual(junglePreviewRequests, [], 'Production must not request jungle review data');
   assert(

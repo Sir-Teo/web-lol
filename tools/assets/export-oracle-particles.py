@@ -4,6 +4,7 @@ This exports declarations, not native callback dispatch. Value curves retain
 their constant, temporal keys and probability multipliers separately.
 """
 import json
+import math
 from pathlib import Path
 from riot_archive import sha
 
@@ -107,9 +108,26 @@ assert len(profiles)==17 and sum(p['kind']=='child' for p in profiles)==1
 out = Path('src/content/oracle-particles.json')
 raw = (json.dumps(profiles, indent=2)+'\n').encode()
 if not out.exists() or out.read_bytes()!=raw: out.write_bytes(raw)
+parent = next(p for p in profiles if p['kind'] == 'child')
+assert not parent['life']['times'] and not parent['life']['probabilities']
+assert all(p['bind']['constant'] == [1] for p in profiles if p['role'] == 'buff')
+def max_life(p):
+    base = max(p['life']['constant'] + [v[0] for v in p['life']['values']])
+    tables = p['life']['probabilities']
+    return base * (max(tables[0]['values'] or [tables[0]['single']]) if tables else 1)
+timing = dict(sourceSha256=sha(pin_path.read_bytes()),
+    parentFirstBirthTick=math.ceil(parent['delay']*60-1e-5)+1,
+    parentLifeTicks=math.ceil(parent['life']['constant'][0]*60),
+    parentLingerTicks=math.ceil(parent['linger']*60), parentOffset=parent['offset']['constant'],
+    buffLingerTicks=math.ceil(max(p['linger'] for p in profiles if p['role']=='buff')*60),
+    childTailTicks=max(math.ceil(p['delay']*60-1e-5)+1+math.ceil(max_life(p)*60)+1 for p in profiles if p['role']=='death'))
+timing_out=Path('src/content/oracle-presentation.json')
+timing_raw=(json.dumps(timing,indent=2)+'\n').encode()
+if not timing_out.exists() or timing_out.read_bytes()!=timing_raw: timing_out.write_bytes(timing_raw)
 audit = dict(sourcePinSha256=sha(pin_path.read_bytes()), assetsSha256=sha(assets_path.read_bytes()),
     defaultsEvidenceSha256=sha(defaults_path.read_bytes()), output=dict(path=str(out), sha256=sha(raw)),
     readerEvidenceSha256=sha(reader_path.read_bytes()), missingFrameCountDefault=1,
+    timingOutput=dict(path=str(timing_out),sha256=sha(timing_raw)),
     systems=systems, profiles=[dict(role=p['role'], index=p['index'], name=p['name'], kind=p['kind'], rawEmitterSha256=p['rawEmitterSha256']) for p in profiles],
     limits=['Declarations do not establish native event triggers, value time domains, orbital units, attachment, HUD scale, stop/linger or material dispatch.',
             'Alert dispatch remains unresolved. Child death relationship is explicit; runtime stopping/callback timing requires a named adapter.'])

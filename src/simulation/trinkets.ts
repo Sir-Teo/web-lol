@@ -3,6 +3,7 @@ import { WARD_SOURCE, WARD_POLICY } from '../content/warding-totem';
 import { distance } from './math';
 import type { TrinketState, Unit } from './types';
 import type { World } from './world';
+import { finishOracleVisual } from './oracle-presentation';
 
 export function newTrinket(tick = 0): TrinketState {
   const duration = trinketScaling('ward', 1).rechargeTicks;
@@ -17,6 +18,7 @@ export function newTrinket(tick = 0): TrinketState {
     cooldownTick: 0,
     order: null,
     scan: null,
+    visuals: [],
   };
 }
 export function resetTrinket(s: TrinketState): void {
@@ -61,7 +63,10 @@ export function advanceTrinket(w: World, u: Unit, s: TrinketState): void {
     } else startRecharge(w, s, tick);
   }
   if (!w.alive(u)) s.order = null;
-  if (s.scan && s.scan.endTick <= w.tick) s.scan = null;
+  if (s.scan && s.scan.endTick <= w.tick) {
+    finishOracleVisual(s, s.scan.endTick, 'expired');
+    s.scan = null;
+  }
   // Cleanup precedes unit combat: a Nexus kill can return before scan sampling.
   if (s.scan) {
     if (s.scan.pulseStartTick === null) s.scan.nextPulseTick = w.tick;

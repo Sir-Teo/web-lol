@@ -1,0 +1,13 @@
+{
+  "sourceSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+  "parentFirstBirthTick": 1,
+  "parentLifeTicks": 630,
+  "parentLingerTicks": 30,
+  "parentOffset": [
+    0.0,
+    450.0,
+    0.0
+  ],
+  "buffLingerTicks": 75,
+  "childTailTicks": 62
+}

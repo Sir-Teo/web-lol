@@ -8,6 +8,10 @@
   },
   "readerEvidenceSha256": "01be616a7dc5a60b6ad35a6f2496ea275c051efaedcc76aeb61a6a5bf93af21e",
   "missingFrameCountDefault": 1,
+  "timingOutput": {
+    "path": "src/content/oracle-presentation.json",
+    "sha256": "0d2c22034f940616ad198c4a5db7c0bb1e199b1b583d25dc3c76821681252425"
+  },
   "systems": {
     "buff": "Items/3364/Particles/3364_Buff",
     "death": "Items/3364/Particles/3364_Global_Trinket_Spotter_Death",

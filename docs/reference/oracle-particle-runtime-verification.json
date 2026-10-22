@@ -1,0 +1,343 @@
+{
+  "date": "2026-10-22",
+  "baseline": "bf1201e",
+  "scope": "Live reconstruction of all twelve Buff and four child Death declarations, including the invisible driver; fifteen visual layers. Alert remains preview-only. Native parity and full-match completion are unproven.",
+  "schema": 105,
+  "ruleset": "03fc87e044d686b5f62006789a6f109aa37df0e146d57d885a3aff9e5c7cca71",
+  "source": {
+    "pinSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+    "profilesAuditSha256": "a6a91364198909aa3f4434166b40e3fce10386ddf1ed13d72a5d92b358e402fe",
+    "reproduction": {
+      "exact": true,
+      "files": {
+        "src/content/oracle-lens.json": "b41e8c03d04ef82cbb25f9b3971443288e2e8114c86f437ba2a8a4f91f4e757b",
+        "src/content/oracle-particles.json": "8dd728e40ce97c1f03f529d4676b93746d3eee9c4f21c3b336715e3e2fe7ec27",
+        "src/content/oracle-presentation.json": "0d2c22034f940616ad198c4a5db7c0bb1e199b1b583d25dc3c76821681252425",
+        "docs/reference/oracle-particle-profiles.json": "a6a91364198909aa3f4434166b40e3fce10386ddf1ed13d72a5d92b358e402fe"
+      }
+    }
+  },
+  "implementation": [
+    {
+      "path": "src/content/oracle-lens.json",
+      "sha256": "b41e8c03d04ef82cbb25f9b3971443288e2e8114c86f437ba2a8a4f91f4e757b"
+    },
+    {
+      "path": "src/content/oracle-presentation.json",
+      "sha256": "0d2c22034f940616ad198c4a5db7c0bb1e199b1b583d25dc3c76821681252425"
+    },
+    {
+      "path": "src/content/oracle-presentation.ts",
+      "sha256": "f2ede5f0ac0aad53eb85c6bc0f6c309b1dd76afc169a371e61e462ade54232c2"
+    },
+    {
+      "path": "src/render/oracle-lens.ts",
+      "sha256": "ed4cf3126208568a4904ccbf7186e19621204a8e47a1c83a2dead2949b50ee43"
+    },
+    {
+      "path": "src/render/oracle-particle-state.ts",
+      "sha256": "004f97e6a848d29465d31293c5a7bbcf92d56c2cdbdcc39afe35cfdf2cca57fa"
+    },
+    {
+      "path": "src/render/oracle-particles.ts",
+      "sha256": "41a54bdc6d2b3c30a713e8a8a8c9af42325ad9c03d6497721dd767c77dabb8a9"
+    },
+    {
+      "path": "src/render/view.ts",
+      "sha256": "10d239c8a428ead812929ee750627a79e00872258898a32d278b92170f4fa105"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "5e7cb678497a8dddcffce42a4769566d1a63e10012fc6d9c630106dee72748e5"
+    },
+    {
+      "path": "src/simulation/oracle-lens.ts",
+      "sha256": "861c3d6d81e4263515403afb58bd404218131205f32fd0496199bbf31a4458c9"
+    },
+    {
+      "path": "src/simulation/oracle-presentation.ts",
+      "sha256": "81095394c8f656960295a888879f78ad52c5ce2fb0153990d67b5f9f4951a1f9"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "08d715ebc0297864800b0f6964e7035a1ecae276e162b977030d55b150d31555"
+    },
+    {
+      "path": "src/simulation/trinkets.ts",
+      "sha256": "3ef3a9b3ef91b406fa70f7cc7591d87bcd13ba7610e2912cec3bd29296a58ed3"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "sha256": "7a759eab575afc9dfd22e2e6258db766d4eb8eed8891e6cda30d1d16df7eaba2"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "db370d79ea3c2b099fb809a52f95fe12eb34c306aafa723290030ac76a146d1a"
+    },
+    {
+      "path": "tests/oracle-lens.test.ts",
+      "sha256": "813081b937eb3c50293a006295e0de6218b1fdccf03506f366f9d9b209228f0a"
+    },
+    {
+      "path": "tests/oracle-particles.test.ts",
+      "sha256": "4a842e94f93b60f83a4902590515d5eedf6deee815ac8d870678d311901f0ad4"
+    },
+    {
+      "path": "e2e/oracle-lens.spec.ts",
+      "sha256": "43aebfdd4a841858d54abd038c08f55be45a30716091e0701200ad861339f739"
+    },
+    {
+      "path": "tools/assets/export-oracle-lens.py",
+      "sha256": "a23b11459b11ebd6c99e8fbdc55438c197f44b754a5bda5cd4d73c5eaf53a014"
+    },
+    {
+      "path": "tools/assets/export-oracle-particles.py",
+      "sha256": "09245a9b70b05262e726b10ce36cac68a60cb972264892e6006f151e50c67153"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "41d271e0697c4af63d8276434bacc6b2a9dcfb5e746c7e963a10bf14969e818c"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "sha256": "674f3b6f08bc0fa36d32a7619064045fd1d6eb3f525cecb93d8e77663042add6"
+    }
+  ],
+  "commands": [
+    {
+      "command": "npx tsc --noEmit",
+      "result": "passed"
+    },
+    {
+      "command": "npx vitest run --maxWorkers=1",
+      "result": "passed",
+      "tests": 1307,
+      "files": 244,
+      "addedTests": 6
+    },
+    {
+      "command": "npx vitest run tests/oracle-lens.test.ts tests/oracle-particles.test.ts tests/warding-totem.test.ts tests/structures.test.ts --maxWorkers=1",
+      "result": "passed",
+      "tests": 55
+    },
+    {
+      "command": "npx playwright test e2e/oracle-lens.spec.ts e2e/oracle-particles.spec.ts e2e/oracle-lens-source.spec.ts --reporter=json",
+      "stats": {
+        "startTime": "2026-10-22T21:12:26.661Z",
+        "duration": 52796.732,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npx playwright test e2e/warding-totem.spec.ts e2e/shop-layout.spec.ts e2e/shop-inventory-sync.spec.ts e2e/inventory-reorder.spec.ts e2e/queued-hud-cast.spec.ts e2e/companion-items.spec.ts e2e/gromp-attack.spec.ts e2e/gromp-death.spec.ts --reporter=json",
+      "stats": {
+        "startTime": "2026-10-22T21:15:19.871Z",
+        "duration": 448102.88,
+        "expected": 24,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npm run test:production",
+      "result": {
+        "result": "passed",
+        "prefix": "/nested/rift/",
+        "recordings": 17,
+        "mapNavigation": true,
+        "practiceScheduledRigs": 11,
+        "realHawkshotCast": true,
+        "realLuxBindingCast": true,
+        "luxLaneRestart": true,
+        "selectedSmiteLoadoutAndRestart": true,
+        "companionPurchaseAndRestore": true,
+        "companionPurchaseInPractice": true,
+        "realWardPlacementAndRestore": true,
+        "oraclePurchaseActivationAndRestore": true,
+        "oracleRigRequests": 8,
+        "unrequestedOraclePreloads": 0,
+        "wardRigRequests": 7,
+        "unrequestedCompanionPreloads": 0,
+        "developmentHook": false,
+        "garenFixtureInProduction": false,
+        "junglePreviewRequests": 0,
+        "preparedCompanionRequests": 3,
+        "scheduledGrompRequests": 119,
+        "scheduledBlueRequests": 7,
+        "scheduledRedRequests": 7,
+        "scheduledWolfRequests": 14,
+        "scheduledRaptorRequests": 14,
+        "scheduledKrugRequests": 21,
+        "scheduledScuttlerRequests": 7,
+        "screenshot": "artifacts/production-subpath.png"
+      }
+    },
+    {
+      "command": "npm run assets:validate",
+      "result": "passed",
+      "models": 56,
+      "modelErrors": 0,
+      "modelWarnings": 0,
+      "mapErrors": 0,
+      "mapWarnings": 0
+    },
+    {
+      "command": "PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-oracle-lens.py && PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-oracle-particles.py",
+      "result": "Four generated files reproduce byte for byte"
+    }
+  ],
+  "tail": {
+    "recast": {
+      "kind": "ward",
+      "reason": "recast",
+      "anchor": {
+        "point": {
+          "x": -1100,
+          "y": 825
+        },
+        "facing": 2.2
+      },
+      "retained": {
+        "point": {
+          "x": -1100,
+          "y": 825
+        },
+        "facing": 2.2
+      },
+      "count": 107
+    },
+    "before": {
+      "scan": null,
+      "kind": "ward",
+      "anchor": {
+        "point": {
+          "x": -420,
+          "y": -50
+        },
+        "facing": 2.2
+      },
+      "models": 109
+    },
+    "retired": {
+      "histories": 0,
+      "models": 0,
+      "materials": 109,
+      "geometries": 1,
+      "expectedMaterials": 109,
+      "expectedGeometries": 1
+    }
+  },
+  "terminal": {
+    "winner": "blue",
+    "reason": "match-end",
+    "stop": 139,
+    "tick": 139,
+    "pendingChild": null,
+    "children": 107,
+    "changed": 98,
+    "unchanged": true,
+    "exactReplay": true,
+    "retired": 0,
+    "savedUnchanged": true
+  },
+  "buffers": [
+    {
+      "path": "artifacts/oracle-child-buffers-before.json",
+      "sha256": "fcc73a32d0d35435d4f0901208bcabb9e71064847156bd416364ef59c4c6d756",
+      "bytes": 229014
+    },
+    {
+      "path": "artifacts/oracle-child-buffers-after.json",
+      "sha256": "fcc73a32d0d35435d4f0901208bcabb9e71064847156bd416364ef59c4c6d756",
+      "bytes": 229014
+    }
+  ],
+  "captures": [
+    {
+      "path": "artifacts/oracle-rift-active.png",
+      "sha256": "4481bdb05b20f279ea1fc885a74e7614674c125d5da6a84380941b18555e4ad5",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-rift-cleared.png",
+      "sha256": "32d57008fdaad12432adf0e13c2d98df9482f3e66269c1a53a022ba95fdca086",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-shop-600.png",
+      "sha256": "5a5c71d3d337e2610d2e00b930962f6439a7b691a999ff76e6fc67c6fa1e54d0",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-shop-1440.png",
+      "sha256": "d0c15b27c71f527ae735a74ce8f28b9bd0febf2b6c238ba09a663196ea9d78ae",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-brush-echo.png",
+      "sha256": "5f875e1d293a67cb6e684d21f1ad69c2af8dd90df7a46c1288071182480e2763",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-brush-restored.png",
+      "sha256": "31445bd75efe838a81a0f591991d4773271b07704c9e2166eab694d921f0c410",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-child-active.png",
+      "sha256": "30a30439a68743ef95e979693b36a0a5432ec6a7c16802bbfa2d074e8217afd3",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/oracle-child-restored.png",
+      "sha256": "2935b61b0913b08080b4931eb72aeabd2ee46e49c3f199b541a351e709cc750f",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-subpath.png",
+      "sha256": "0ca27455ecac7c44ce0b48c6963aa21ae28c00b03c4043a1f425fa5da487d078",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-lux.png",
+      "sha256": "f1b4208845b2d686dc0cee7dd7ea7526a6cdb4285b0ce26df0d5b5958c0ce3d1",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-ward.png",
+      "sha256": "d6a6c1ac52a59d0cef5d3201524c46d285276cd8cad7dd7135af74666dd2fce8",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-companion-purchase.png",
+      "sha256": "e64585ee31b9235f837910a9d40526b195c0e14e1a6a35ba35585e0b009d6baa",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/production-oracle.png",
+      "sha256": "d470e40f4af7b8c7069ecda2a18be60956acf6a6c460c89416db3d8ac35ca7a9",
+      "visuallyReviewed": true
+    }
+  ],
+  "findings": [
+    {
+      "issue": "Initial tail replay compared views three ticks apart after separate resume/pause browser calls.",
+      "resolution": "Exact review helper closes the restored menu and pauses in one task. Snapshot is checked before resuming; final source buffers match byte for byte."
+    }
+  ],
+  "limits": [
+    "Instant detection, level aggregation, startup, recharge conversion, sample cadence, cast-frame attachment, death/swap lifecycle, stop+linger and first-update policies remain local adapters.",
+    "Alert event/recipient, native UV_MODE, fractional divisor, sprite extent/frame/crop, orbital units, projection fade/navmesh masks, reflection/fresnel, complete material dispatch and audio remain unverified.",
+    "Source spark quads retain hard atlas crop edges; original dim early scanner fade and small ending were not tuned to hide source/calibration differences.",
+    "Individual particle objects can exceed one hundred draws during an ending. Batching and match-scale performance verification remain required.",
+    "Frozen result playback uses the existing terminal view clock and derives future roots from the frozen owner; wall-clock progress is not serialized.",
+    "Targeted browser scenes use diagnostic clock/encounter/AI setup. No complete Chrome audit or natural full match certification.",
+    "Production validates public UI preparation, activation and restoration with practice refill; injected enemy/ending encounters are development-only.",
+    "Production chunk warning remains: game 714.93 KB, Three 659.93 KB; selected Oracle module 50.58 KB.",
+    "Full project, roster, strategic vision, native comparison, offline delivery and performance scope remain active."
+  ]
+}
