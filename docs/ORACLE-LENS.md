@@ -4,14 +4,15 @@ Oracle Lens is available as a free trinket swap at the fountain or while dead.
 Press **4**, or click its separate HUD slot, to scan for eight seconds. Enemy
 wards in range become targetable and lose their sight until the last overlapping
 scan leaves or ends. Hidden champions produce sampled silhouettes with no health
-bars or ordinary targetability. Saves use schema 105.
+bars or ordinary targetability. Saves use schema 106.
 
 The original scanner and all selected particle dependencies are pinned and
 converted. Gameplay now reconstructs all twelve Buff declarations (including the
 invisible child driver) and all four child Death declarations, with saved ending
 histories, local ground projection and a thin range guide. Alert remains a manual
-preview with unresolved event/recipient dispatch. Audio, further performance work and native visual
-calibration remain unfinished. These are foundations for
+preview with unresolved event/recipient dispatch. [Source audio](ORACLE-AUDIO.md)
+now plays two concurrent activation layers and the child ending. Native audible
+mix, further performance work and native visual calibration remain unfinished. These are foundations for
 the full match goal, not native parity or full-match acceptance.
 
 ## Runtime and local policies
@@ -93,7 +94,8 @@ A small generated timing profile preserves the source parent's first birth,
 life/linger, offset and conservative child tail. The large emitter profiles remain
 behind a dynamic import until selected or restored. Redundant copies of the old
 two raw emitters were removed from the eagerly loaded scalar profile. The maximum
-normal stopped tail is 92 ticks. Same-tick or first-update replacements cancel
+normal visual tail is 92 ticks. Schema 106 keeps its shared history for up to 190
+ticks to preserve the full source audio ending. Same-tick or first-update replacements cancel
 unborn presentations rather than create duplicate keys or a child. Presentation
 updates consume no stock, apply no damage and grant no vision.
 
@@ -172,7 +174,7 @@ Measured draw counts include the same review environment in both paths:
 The ending frame uses 74.3% fewer draws; the ten-owner frame uses 78.1% fewer.
 These are draw-count measurements, not frame-rate, missed-frame or full-match
 performance certification. Logical object/motion allocation and sorting still
-cost CPU time. Native visual/material/UV calibration, audio, Alert dispatch and
+cost CPU time. Native visual/material/UV calibration, audible native mix, Alert dispatch and
 the larger performance requirements remain open.
 
 Buffers grow by powers of two, reuse available capacity, set the live instance
@@ -377,7 +379,7 @@ and the map validate with zero errors/warnings. The chunk warning remains:
 
 ## Remaining implementation
 
-Resolve Alert dispatch, native stop/linger and material bindings, audio, further profiling
+Resolve Alert dispatch, native stop/linger and material bindings, audible native mix, further profiling
 and reference calibration. Verify native startup, scaling phase,
 swap conversion, detection cadence and death/swap dispatch. Control Wards,
 Farsight, Faelights, traps, strategic ward bots and the wider full match, roster,

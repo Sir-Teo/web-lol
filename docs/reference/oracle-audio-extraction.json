@@ -1,0 +1,335 @@
+{
+  "referenceSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+  "declaredEvent": "Play_sfx_TrinketLensLvl1Audio_buffdeactivate",
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Maps/Shipping/Common.wad.client",
+    "chunks": {
+      "732177D6A5E3624B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/80B7F8EE6B97B461.bundle",
+        "offset": 12153724,
+        "bytes": 2112,
+        "sha256": "7c6475e8431fd27fc109c413f36f80e6157b032cade7ee1c0c08047aadea7741"
+      },
+      "C127E07E09451D79": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 11470247,
+        "bytes": 125091,
+        "sha256": "43e3e6a701f64f88762487fd8b7a0a140071fc1541acd32bfee117ac9651bcb3"
+      },
+      "D3647C8C4984162C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 11595338,
+        "bytes": 248900,
+        "sha256": "12a852c59be6c96367ef9a7819aa63bea81850859605fb111d4578a6b03f0884"
+      },
+      "56110542DAE1B02C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 11844238,
+        "bytes": 260316,
+        "sha256": "1a244c66dcd82b8d657473fca95d7b02128d601d2ccc0934ba95578c0d3583b1"
+      },
+      "D81429C4F64A1345": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 12104554,
+        "bytes": 167500,
+        "sha256": "fe1d5e372dc60c16fd0f4b17da172899ff31bb050479883a2457096f0e4518ea"
+      },
+      "EC41B090528F9960": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 12272054,
+        "bytes": 550237,
+        "sha256": "bd6945d1c4eb0645f71f5cf2e0fad5c55ac81b86dd1d1416fe56e341599930e7"
+      },
+      "53AD581BED192B76": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 12822291,
+        "bytes": 152049,
+        "sha256": "73e8ea503267b5f7d30d45b3c11c0c5648d05bb7bbf62deeb64ab8c87c89261d"
+      },
+      "74354730AE9694B8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 12974340,
+        "bytes": 227498,
+        "sha256": "059ba4986ada0c302bc4e0b02ec9e944e12619d88322cfc22f04ea585a5642bd"
+      },
+      "DA1EDDF2BCF56617": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 13201838,
+        "bytes": 121495,
+        "sha256": "1ee58d177f868ef01a4e7f1de159eabc7880557d89eb31178960d4d49982c055"
+      },
+      "72AF7318B01FA123": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 13323333,
+        "bytes": 223770,
+        "sha256": "731041b8ae041054bde16efacf43722f8cebd002c3d10df327f9aefd54391adb"
+      },
+      "EDA8900E18E0FDC7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 13547103,
+        "bytes": 355933,
+        "sha256": "1930866d1b40ac1127d60f3dfbf0772714f67cfc3d0f7f6f73b9f97abe8b09b4"
+      },
+      "16D9C3693D320275": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 13903036,
+        "bytes": 272575,
+        "sha256": "4cea4308b75afb04b881106567e0a69052342c6ae456f406b3a19ee995246a9e"
+      },
+      "375E0B7046F28C57": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 14175611,
+        "bytes": 165381,
+        "sha256": "2b4abb919bd114ab1dc4592c465046e6ef7096fdff3faeea93859b3d1a223954"
+      },
+      "48F8F58B9E4B57D6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 14340992,
+        "bytes": 192106,
+        "sha256": "2443e4f46c293fe94958b91d55276f31ce9ace57fb1107b827a8c5d2b7525d06"
+      },
+      "502472D5D4689180": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 14533098,
+        "bytes": 240873,
+        "sha256": "4f63526e9cc7decd57fc5b6b7af3a5648cd029f511dee4a68231ba6c134f0a61"
+      },
+      "1D7F350E05F144A7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 14773971,
+        "bytes": 161831,
+        "sha256": "393fd22b2618bdbd154f8fff3f1d7133e77133e9f782d9822a8dbbaedbf3be2f"
+      },
+      "67EE5D443DDD1F0B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 14935802,
+        "bytes": 173508,
+        "sha256": "29f09152de022a78486a30b4ebd9048fe51b5ad240dab33f41b2b98119937d68"
+      },
+      "50B2FEC0E0BFFF98": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 15109310,
+        "bytes": 174111,
+        "sha256": "d626ed4d2911fc20027b6c7509097473925bc2934d8a95a4624e72ecc3701c0f"
+      },
+      "0B42ED2691F334FE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 15283421,
+        "bytes": 708366,
+        "sha256": "3e620b648493a86956793f52ac8637acda30283ce6125254d1e863484f6b1036"
+      },
+      "20E27F72103E6F02": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 15991787,
+        "bytes": 162132,
+        "sha256": "9360b5b1c1cf4ad7e5e945a8ee11a213a65e56a029bbd7ff9d52e4e849b58107"
+      },
+      "9AAD7060E69AA45F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 16153919,
+        "bytes": 123814,
+        "sha256": "78d12077171342b4739ea5732f948b3572e930d861f5aa3fdb7a32690b4d8ab8"
+      },
+      "98DBA03057D1A49F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 16277733,
+        "bytes": 78236,
+        "sha256": "1af04305b3f0f77e86a35a70ec4e2d7773f5f27d347d5eff69f9e88be9dbae16"
+      },
+      "7C6E98277C13CC48": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 16355969,
+        "bytes": 173717,
+        "sha256": "a83b49899168b64b2a97ff471e39024d7606d2f57a0bc8a20209dd9e3d939e80"
+      },
+      "F82375E5C5B11620": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 16529686,
+        "bytes": 132114,
+        "sha256": "7e332466a8dba19a8dc19bb55dd1aaf8c88c3f4f49257ad3269644bd7dd90a65"
+      },
+      "E6C6369E712F1D79": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 16661800,
+        "bytes": 214460,
+        "sha256": "b8ace4613e197a7a96ee4fdceecd5d7d57f81e0e63d56af2bba790b6ed010ab1"
+      },
+      "1A0A7AC5C773AF98": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 16876260,
+        "bytes": 151415,
+        "sha256": "e7068379f7e3f0afd3228e525247b1e9dda62f73bfdd47a885d4cca5dd598e29"
+      },
+      "8F7D201363F67236": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 17027675,
+        "bytes": 100737,
+        "sha256": "ef6aa1881d8af0ee75f07a8b01f1dcb5b6441aa665b021229c32e12464f653c3"
+      },
+      "D84DC060BB93AE3E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 17128412,
+        "bytes": 123878,
+        "sha256": "5e4e2282c6c61876a684f9f5b67b831bd9ff742fa864377fd9c33e6f474efdbd"
+      },
+      "30622AD06D61BCBD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 17252290,
+        "bytes": 222618,
+        "sha256": "94ed0939d8f539ef76c8777e41bcf4a848d91dafb2ea3dcd249fb657ea3e4db4"
+      },
+      "69F1956A31C64A45": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 17474908,
+        "bytes": 252204,
+        "sha256": "06d753d58c108ae66e04ba20a83331fd0a43ff6f5cec1ad1448d4838c0030d83"
+      },
+      "21535AD3276B74FC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 17727112,
+        "bytes": 123074,
+        "sha256": "82e2625ecaf3ba9e76c3f43fc1c64c4810540b9c33042d7049905e2cf36608ff"
+      },
+      "F76B26A87753B4EC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 17850186,
+        "bytes": 90673,
+        "sha256": "4859847ebffe9f2b25cc2e6c1c156f860bde966bafd2bf410fc6c6a2cedc82c7"
+      },
+      "3DB0C5CB19AE190E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 17940859,
+        "bytes": 91093,
+        "sha256": "e0c31c3887f4d9c8722250920ba3a21699f28f46f52c6cfdecc8f5821803deda"
+      },
+      "B9C2023CE2DB9D85": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 18031952,
+        "bytes": 107464,
+        "sha256": "9dd4c689163a95bb376249ad40121c7516975fc6d08bc4c363a5fc2711202539"
+      },
+      "F3A208F48E81DD02": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 18139416,
+        "bytes": 207569,
+        "sha256": "acbe3cf988beb3b745da68976b822c89eb29c402b5c6081ef97285f25d8ace3f"
+      },
+      "81BC3BE585EB1954": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 18346985,
+        "bytes": 219848,
+        "sha256": "8f5176aa85e39d5387ce560180992bd3a2e01de299ee2f573dbdc58986aa556b"
+      },
+      "1CC5EB6748071896": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 18566833,
+        "bytes": 173304,
+        "sha256": "1db383997caf0a11e38cc0394e1462b59ff7c3b69d526f5c0ded57eae049082d"
+      },
+      "9A4DA046A0935364": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 18740137,
+        "bytes": 234532,
+        "sha256": "c0c02598ea775a60ea97df58e74a305fea4ee543b95f0765bf7ffdff5f6adb3f"
+      },
+      "2E663194A5B2CA04": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 18974669,
+        "bytes": 96708,
+        "sha256": "71c678b9f8c91285edcfff24c0f4c83b6c6b02e7f285c7c6d1e8bac1901f3e95"
+      },
+      "CD096B8A1771BB9D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 19071377,
+        "bytes": 533213,
+        "sha256": "16d4e30f3f4bc4a90a434eb74d185bc224be4eaeb526e4e086547dc59e956343"
+      },
+      "764D08474D25F361": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 19604590,
+        "bytes": 71639,
+        "sha256": "78348523e79b5eba165552f034ff5195fa14ceb8b7f7fa84a45104103522c32a"
+      },
+      "804F31F4FC9D3862": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 19676229,
+        "bytes": 460101,
+        "sha256": "6e7ae18e1ca5944c752f91e910df618f12fb7deb1f690f8304db66de0da69158"
+      },
+      "25BE29DF41D36514": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 20136330,
+        "bytes": 143450,
+        "sha256": "d3d5ee63a3c7f3a4d3db265520f89a3b367bbff1da02ef62af6f3dc3ce08170d"
+      },
+      "81FDBB18618CCDE7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 20279780,
+        "bytes": 228496,
+        "sha256": "df494d34dbc4412850fc100ab841606e1f8b9a00631800d6de7ca4be79c15774"
+      },
+      "5B4A43B37C657ADC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 20508276,
+        "bytes": 176799,
+        "sha256": "968222a4353b7e656ebf565dd7de2d4ddb431b2c786984f98449a2162910ab7a"
+      },
+      "11D754281A52876B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 20685075,
+        "bytes": 178646,
+        "sha256": "b75712f41a6d820fa708ea5a2d4ead43d96b761af64100a4443af47d8085c593"
+      },
+      "8F234EC21C802474": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 20863721,
+        "bytes": 157522,
+        "sha256": "476e0c75b5ecc107111a41b2248090e5c45a44bb06a1a05eb43b4c98acf1b9dd"
+      },
+      "4185151D08626033": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 21021243,
+        "bytes": 143511,
+        "sha256": "149573024b0c01344fe04ad271e8a77a7b7115730025e49b2be10c32bc6ea1c4"
+      },
+      "BC0BFC87E770CFEF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 21164754,
+        "bytes": 108546,
+        "sha256": "698edef2e21c67a9653c88632aadb476f91e5368da7c101ff5a6580fe05e854e"
+      },
+      "8332D73C996874FE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 21273300,
+        "bytes": 444545,
+        "sha256": "271690ce9cbb2a100501617ea27c6bf546e529dba7cf56fa4abb66fa84aab346"
+      },
+      "E15726D700D0557D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/2B9905D60E995D27.bundle",
+        "offset": 45902506,
+        "bytes": 21746,
+        "sha256": "e9955bfd1c6ea6ca894497049a517424de327255834d61b5769d2400a98e2a65"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/sounds/wwise2016/sfx/shared/items_global_audio.bnk",
+        "wadPathHash": "a6bf9deb6403207b",
+        "sha256": "4d1383a5eb902d121df2573775b763d034441d9f08d6ceab195b0561f437fe6a",
+        "bytes": 10418335
+      },
+      {
+        "path": "assets/sounds/wwise2016/sfx/shared/items_global_events.bnk",
+        "wadPathHash": "5712b0f3c776fb35",
+        "sha256": "0490a8a781cf770778784eb95a52daba4bf90883f877fe0a49216c0d7ead7e26",
+        "bytes": 81219
+      }
+    ]
+  },
+  "scope": "Original shared item bank dependencies for a VFX-declared event. Bank presence and names do not recover native callback dispatch or prove cast/active cues."
+}

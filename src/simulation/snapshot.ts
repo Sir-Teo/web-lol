@@ -2,8 +2,8 @@ import { WARD_SOURCE, WARD_POLICY, wardScaling } from '../content/warding-totem'
 import { ORACLE_SOURCE, ORACLE_POLICY, trinketScaling } from '../content/trinkets';
 import {
   oracleChildTick,
-  oracleVisualEndTick,
-  ORACLE_VISUAL_TAIL_TICKS,
+  oraclePresentationEndTick,
+  ORACLE_PRESENTATION_TAIL_TICKS,
   ORACLE_PRESENTATION,
 } from '../content/oracle-presentation';
 import { distance } from './math';
@@ -98,7 +98,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 105;
+export const SNAPSHOT_VERSION = 106;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -480,7 +480,7 @@ const player: z.ZodType<PlayerState> = z
             childAnchor: z.strictObject({ point, facing: z.number() }).nullable(),
           })
         )
-        .max(ORACLE_VISUAL_TAIL_TICKS + 2),
+        .max(ORACLE_PRESENTATION_TAIL_TICKS + 2),
       scan: z
         .strictObject({
           startTick: tick,
@@ -1203,7 +1203,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           (stop > state.tick ||
             stop <= v.startTick + ORACLE_PRESENTATION.parentFirstBirthTick ||
             stop > v.startTick + ORACLE_POLICY.durationTicks ||
-            state.tick >= oracleVisualEndTick(v.startTick, stop) ||
+            state.tick >= oraclePresentationEndTick(v.startTick, stop) ||
             (v.endReason === 'expired' && stop !== v.startTick + ORACLE_POLICY.durationTicks) ||
             (v.endReason === 'recast' &&
               (stop >= v.startTick + ORACLE_POLICY.durationTicks ||

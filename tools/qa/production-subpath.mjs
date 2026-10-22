@@ -65,6 +65,7 @@ try {
     preparedCompanionRequests = [],
     wardRigRequests = [],
     oracleRigRequests = [],
+    oracleAudioRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -80,6 +81,7 @@ try {
   page.on('request', (request) => {
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
     if (/\/oracle-lens-[^/]+\.glb$/.test(request.url())) oracleRigRequests.push(request.url());
+    if (/\/oracle-\d+\.wav$/.test(request.url())) oracleAudioRequests.push(request.url());
     if (/sru-jungle-companions-skin[012]-base|jungle-companions-source/.test(request.url()))
       preparedCompanionRequests.push(request.url());
     if (
@@ -293,6 +295,7 @@ try {
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.screenshot({ path: 'artifacts/production-companion-purchase.png' });
   assert.equal(oracleRigRequests.length, 0, 'Unequipped Oracle assets must not preload');
+  assert.equal(oracleAudioRequests.length, 0, 'Unequipped Oracle audio must not preload');
   await page.keyboard.press('p');
   await page.locator('[data-trinket="oracle"]').click();
   await page.waitForFunction(
@@ -323,6 +326,12 @@ try {
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.screenshot({ path: 'artifacts/production-oracle.png' });
   assert(oracleRigRequests.length >= 8);
+  assert.equal(new Set(oracleAudioRequests).size, 3);
+  assert(
+    oracleAudioRequests.length >= 6,
+    'Selection and restore must prepare all three Oracle recordings'
+  );
+  assert.equal(recordings.size, 20);
   assert(
     oracleRigRequests.every((url) => /\/oracle-lens-(base|radar|laser|core-laser)\.glb$/.test(url))
   );
@@ -377,6 +386,7 @@ try {
       realWardPlacementAndRestore: true,
       oraclePurchaseActivationAndRestore: true,
       oracleRigRequests: oracleRigRequests.length,
+      oracleAudioRequests: oracleAudioRequests.length,
       unrequestedOraclePreloads: 0,
       wardRigRequests: wardRigRequests.length,
       unrequestedCompanionPreloads: 0,

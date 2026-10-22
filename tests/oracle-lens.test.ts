@@ -5,7 +5,7 @@ import { ORACLE_POLICY as P } from '../src/content/trinkets';
 import { swapTrinket, rechargeProgress, resetTrinket } from '../src/simulation/trinkets';
 import { requestOracle, wardDetected, wardDisabled } from '../src/simulation/oracle-lens';
 import type { Unit } from '../src/simulation/types';
-import { oracleChildTick, oracleVisualEndTick } from '../src/content/oracle-presentation';
+import { oracleChildTick, oraclePresentationEndTick } from '../src/content/oracle-presentation';
 
 function setup(hidden = false) {
   const w = new World(false, {
@@ -395,7 +395,7 @@ test('expired Oracle effects retain their child clock, capture its later anchor 
   Object.assign(w.hero, { x: 350, y: 0, previous: { x: 350, y: 0 } });
   resume(w, 20);
   expect(visual.childAnchor!.point).toEqual({ x: 120, y: 40 });
-  resume(w, oracleVisualEndTick(0, 480) - w.tick - 1);
+  resume(w, oraclePresentationEndTick(0, 480) - w.tick - 1);
   expect(w.player.trinket.visuals).toHaveLength(1);
   resume(w);
   expect(w.player.trinket.visuals).toEqual([]);
@@ -423,7 +423,7 @@ test('recast tails survive equipment swaps, practice refill and death without re
   expect(w.player.trinket.visuals[0].childAnchor).not.toBeNull();
   expect(w.player.trinket.charges).toBe(2);
   expect([w.player.gold, w.player.kills]).toEqual([gold, kills]);
-  resume(w, 62);
+  resume(w, 160);
   expect(w.player.trinket.visuals.map((v) => v.startTick)).toEqual([300]);
 });
 
@@ -521,7 +521,7 @@ test('saved Oracle histories reject missing, reordered, conflicting, premature a
     mutate(bad);
     expect(() => World.fromSnapshot(JSON.stringify(bad), w.battlefield)).toThrow();
   }
-  resume(w, 62);
+  resume(w, 160);
   const stale = JSON.parse(w.snapshot());
   stale.player.trinket.visuals.unshift(saved.player.trinket.visuals[0]);
   expect(() => World.fromSnapshot(JSON.stringify(stale), w.battlefield)).toThrow();

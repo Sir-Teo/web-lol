@@ -112,7 +112,8 @@ async function boot(): Promise<void> {
   const setPaused = (value: boolean) => {
     paused = value || document.hidden || !!hud.graphicsState;
     hud.paused = paused;
-    audio.setPaused(paused);
+    // Freeze the result's simulation while its scheduled audio tails finish.
+    audio.setPaused((paused && !world.winner) || document.hidden || !!hud.graphicsState);
     accumulator = 0;
     previous = performance.now();
     // Release unfinished gestures; accepted commands belong to the frozen match state.
@@ -125,7 +126,7 @@ async function boot(): Promise<void> {
       if (error) return error;
       if (kind === 'oracle') {
         try {
-          await loadOracleLens();
+          await Promise.all([loadOracleLens(), audio.oracle.load()]);
         } catch {
           return 'Oracle Lens could not be prepared. Try again.';
         }
@@ -213,7 +214,7 @@ async function boot(): Promise<void> {
       const s = world.championState(u.id)?.trinket;
       return s?.kind === 'oracle' || !!s?.scan || !!s?.visuals.length;
     })
-      ? [loadOracleLens()]
+      ? [loadOracleLens(), audio.oracle.load()]
       : []),
     loadOwnedCompanions(world.companions.map((p) => p.kind)),
     loadInterfaceFonts(),
@@ -372,6 +373,7 @@ async function boot(): Promise<void> {
       ),
       world.tick
     );
+    audio.updateOracle(world, view.center);
     audio.updateGaren(world, view.center);
     audio.update(
       world.events.filter((event) => world.eventVisible(event)),

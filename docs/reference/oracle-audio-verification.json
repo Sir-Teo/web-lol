@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-22",
+  "baseline": "ed59a6c",
+  "scope": "Pinned Oracle audio masters and explicit local dispatch/seek adapters, saved audio-only tails and finite result playback. No native sound or full-match acceptance.",
+  "schema": 106,
+  "ruleset": "c9c5cd5bfd2da4fc67ec049d176b59efff732b1b0300fc9a758eba8e4147ade7",
+  "source": {
+    "manifest": "16.18.8175716",
+    "release": "29CE6E781C3B6368",
+    "activeEvent": "Play_sfx_TrinketLensLvl2Audio_buffactivate",
+    "endingEvent": "Play_sfx_TrinketLensLvl1Audio_buffdeactivate",
+    "activationLayers": "Two concurrent Play actions, not random variants",
+    "wwiserRevision": "71654ed1a2c4642894bd7e7ed79eba66986fb770",
+    "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+    "unresolvedOutputBusId": 2149849771,
+    "loopVolumeParameter": {
+      "id": 745018932,
+      "nativeValue": null,
+      "localValue": 0,
+      "localGainDb": 0
+    }
+  },
+  "reproduction": {
+    "identicalGeneratedFiles": [
+      {
+        "path": "docs/reference/oracle-audio-extraction.json",
+        "sha256": "284bc65ac86d3993fa2cf272d2de5bd23a6c7640f67b2d2b6ac4e6a355ff0279"
+      },
+      {
+        "path": "docs/reference/oracle-audio-bindings.json",
+        "sha256": "48fc2adef28b604e16e5821c81f68fd0ea009f79ee32bb53248c374486c8be3e"
+      },
+      {
+        "path": "docs/reference/oracle-audio.json",
+        "sha256": "41626eb2f7cc6671ee523626fe6da2c79f651b2c950fdcddcb9aa6a17922eb08"
+      },
+      {
+        "path": "docs/reference/oracle-audio-decoded.json",
+        "sha256": "45b2b03931ef04e40e4c8628f46915b8bc95b100dcf5dd3107ca9b83adcac3d2"
+      },
+      {
+        "path": "src/content/oracle-audio.ts",
+        "sha256": "839d6ebdfc0c49a5a7581279d652a1cc75ca94a37417f2d22be058333e23cca3"
+      },
+      {
+        "path": "src/content/oracle-audio-timing.ts",
+        "sha256": "4eea12e4051bb6845e6229e5bdd71edbebf43bb1d4bd28846736a7c256b3098c"
+      },
+      {
+        "path": "public/assets/audio/oracle-1051782150.wav",
+        "sha256": "69f8077bc3ba45de7edf45b95674453f114f72be6a567513f9608a8a59295d0d"
+      },
+      {
+        "path": "public/assets/audio/oracle-13033176.wav",
+        "sha256": "51f8fcf83f1bdbe76cdf31c39a7f43aa73d08324631aab5f2907b758e003281f"
+      },
+      {
+        "path": "public/assets/audio/oracle-296489751.wav",
+        "sha256": "7391e92528493c5953b6ba2adb524296f1c99e4d67e184fb67b6b9fd43afcabf"
+      }
+    ],
+    "garenWDecoderReportUnchanged": true,
+    "scriptFiles": [
+      {
+        "path": "tools/assets/extract-oracle-audio.py",
+        "sha256": "c133753a2924bb8a34a7a687030ad4f8d5c5cc1e371c7d36f1eb162e11f1cb81"
+      },
+      {
+        "path": "tools/assets/pin-oracle-audio-bindings.py",
+        "sha256": "9b01cf181fd134287848edca40c2b4e9bddb87aea5db6e46ed47fc5341dc3fa0"
+      },
+      {
+        "path": "tools/assets/map-oracle-audio.py",
+        "sha256": "c69857788f90b2e7a08db7d88f091f855db1095d328723526e556be9ced99ae6"
+      },
+      {
+        "path": "tools/assets/decode-oracle-audio.py",
+        "sha256": "1aa872e5a6be6a281d9158a668b425bd7243c4c6870b1901dd54bdbcda482b2e"
+      },
+      {
+        "path": "tools/assets/export-oracle-audio.py",
+        "sha256": "a0e737b992f84425b5c02b435aa24975477f63d40273e5d4742399c231069186"
+      }
+    ]
+  },
+  "implementation": [
+    {
+      "path": "src/audio/audio.ts",
+      "sha256": "3934b5a76f6f7354f6078e8eb5312332fb9c53ca409d83b631e0a8e8616a5c05"
+    },
+    {
+      "path": "src/audio/oracle.ts",
+      "sha256": "31358f43801ac6b4d78b56b66179ca3ddb77028cfefd6105b547e7aa641f6b6a"
+    },
+    {
+      "path": "src/audio/oracle-state.ts",
+      "sha256": "401776e6aafa9e790757ccfba84a2a69a3d9e378f5627bb05253a7c62fafa295"
+    },
+    {
+      "path": "src/audio/oracle-lazy.ts",
+      "sha256": "bdce2ef06e0ac22347481f7badc90ec571b0fe8670464e8ac0af31420edafc9f"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "0057f62b8bda4765f2e01aed3b21ab4bc8d027c501b9c267e5274448597b901b"
+    },
+    {
+      "path": "src/content/oracle-presentation.ts",
+      "sha256": "d06493b2324e5eb810950b8cee0747c5619d6480321e2a3aa07bad1df384fb85"
+    },
+    {
+      "path": "src/simulation/oracle-presentation.ts",
+      "sha256": "44cf512845983cef5cc69bdd69a25730525ccda97d4ee6b27432bc3ab153bf8b"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "8131de9b8b6252d09be0734a82e97b653a3ccc37e93b93dd88ec825cbfd4e330"
+    },
+    {
+      "path": "tools/assets/garen_audio_decode.py",
+      "sha256": "d61b119fe2335c3d65d730a683fc870ea046108528b4e0fd25056295a99cb0d8"
+    },
+    {
+      "path": "tests/oracle-audio.test.ts",
+      "sha256": "cccabae24213893f9b46b6d0e970a4de28b6bea6d529003935c8720326e006a4"
+    },
+    {
+      "path": "tests/oracle-lens.test.ts",
+      "sha256": "13f6a10f22b189c141f1a9b31919dbff3f5d03e0434e6abe14925a8671b43579"
+    },
+    {
+      "path": "e2e/oracle-audio.spec.ts",
+      "sha256": "88bfc539d71a6e8e2c072117410f1834ad1001f9cb0c1a56f559415c052278d7"
+    },
+    {
+      "path": "e2e/oracle-audio-assets.spec.ts",
+      "sha256": "e3660c46eef4f507d5e21273367d00e836ad73840559e439af590a04f7e4591b"
+    },
+    {
+      "path": "e2e/oracle-lens.spec.ts",
+      "sha256": "1db664e363fce8ddebec5c802c24a2657e6bdb469ace564f7bce9aee0e5c68af"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "e534329c7fdb38bbe25713e805cde6b06d351d0f9c0e8a8a885b6a629873b575"
+    }
+  ],
+  "checks": {
+    "typescript": "passed",
+    "unit": {
+      "passed": 1310,
+      "files": 245
+    },
+    "chrome": {
+      "audioAndOracle": 27,
+      "recoverySavesAndVisuals": 18,
+      "distinctTotal": 45
+    },
+    "webAudio": {
+      "decodedMasters": 3,
+      "comparedMonoFloatSamples": 432455,
+      "differentSamples": 0,
+      "concurrentActiveLayers": true,
+      "pitchAdjustedSeeks": true,
+      "wholeMasterLoop": true,
+      "exp1StopAndRestoredFade": true,
+      "independentChildSightAndAttenuation": true,
+      "pauseMuteAndFog": true,
+      "wardEquippedAudioOnlyRestore": true,
+      "realVictoryMenuFiniteTailAndExactFrozenCheckpoint": true,
+      "completedPhaseDoesNotReplay": true,
+      "optionalFailureDoesNotRetryEveryFrame": true
+    },
+    "gpu": {
+      "comparisons": 33,
+      "changedRgbaChannels": 0,
+      "exactModelViewMatrices": true,
+      "realContextRecovery": true
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 20,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 3,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png"
+    }
+  },
+  "size": {
+    "selectedAudioMasterBytes": 1729952,
+    "gameChunkKb": 716.44,
+    "threeChunkKb": 659.93,
+    "selectedOracleAudioChunkKb": 5.75,
+    "chunkWarningRemains": true
+  },
+  "limits": [
+    "Preload and persistent-sound declarations do not recover native callback execution or timing.",
+    "Bank one-shot duration does not prove native persistent-sound cancellation at VFX retirement; retaining the full ending is local policy.",
+    "Unidentified Volume GameParameter is not interpreted as elapsed time. Native bus/default/runtime parameter values, pitch random draws and spatial/listener mix remain unresolved.",
+    "Exp1 fade and normalized attenuation follow pinned wwiser interpretation; native audible comparison and loop-seam calibration remain unverified.",
+    "Source masters and targeted green checks do not certify native parity, natural full-match acceptance, delivery/offline goals or match-scale performance."
+  ]
+}

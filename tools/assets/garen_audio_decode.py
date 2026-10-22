@@ -20,14 +20,14 @@ def chunks(raw):
         result[tag] = raw[start:start + size]; offset = start + size + size % 2
     assert offset == len(raw)
     return result
-def decode_garen_audio(ability):
-    assert ability in ['q', 'w', 'e', 'r']
-    source_path = Path(f'docs/reference/garen-{ability}-audio.json')
+def decode_source_audio(prefix):
+    assert prefix in ['garen-q', 'garen-w', 'garen-e', 'garen-r', 'oracle']
+    source_path = Path(f'docs/reference/{prefix}-audio.json')
     source = json.loads(source_path.read_text())
-    out = Path(f'.cache/garen-{ability}-audio-decoded'); out.mkdir(exist_ok=True)
+    out = Path(f'.cache/{prefix}-audio-decoded'); out.mkdir(exist_ok=True)
     results = []
     for media in source['media']:
-        path = Path(f'.cache/garen-{ability}-audio-media') / f"{media['id']}.wem"
+        path = Path(f'.cache/{prefix}-audio-media') / f"{media['id']}.wem"
         encoded = path.read_bytes()
         assert len(encoded) == media['bytes'] and sha(encoded) == media['sha256']
         metadata = json.loads(subprocess.check_output([str(TOOL), '-m', '-I', str(path)], text=True))
@@ -60,5 +60,9 @@ def decode_garen_audio(ability):
             binarySha256=sha(TOOL.read_bytes()), staticDependencies=dependencies, flags=['-i', '-W', '4'],
             compiler=subprocess.check_output(['cc', '--version'], text=True).splitlines()[0]), media=results,
         status='Decoded source masters without gain, normalization, resampling, loop expansion or fades. Native mix/listening comparison remains unverified.')
-    Path(f'docs/reference/garen-{ability}-audio-decoded.json').write_text(json.dumps(result, indent=2) + '\n')
+    Path(f'docs/reference/{prefix}-audio-decoded.json').write_text(json.dumps(result, indent=2) + '\n')
     return result
+
+def decode_garen_audio(ability):
+    assert ability in ['q', 'w', 'e', 'r']
+    return decode_source_audio(f'garen-{ability}')

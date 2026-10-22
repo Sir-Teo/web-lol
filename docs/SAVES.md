@@ -1,6 +1,8 @@
 # Local match checkpoints
 
-Current schema 105 adds Oracle presentation histories: accepted start/origin/facing,
+Current schema 106 extends Oracle presentation history through the complete audio
+ending (up to 190 ticks after stopping), while particles retain their existing
+visual retirement clock. Schema 105 introduced these histories: accepted start/origin/facing,
 nullable stop tick/reason and the captured child point/facing. A stopped effect
 survives equipment swaps, subsequent scans and reloads. Child roots capture after
 movement on the derived dispatch tick and remain fixed independently of later
@@ -10,7 +12,9 @@ rejects missing or reordered histories, conflicting active scans, invalid stop
 reasons, premature/missing child anchors and expired tails. Full profiles and assets
 prepare even when only a tail remains with a Ward equipped. A frozen match-ending
 clock retains stopped histories; the view derives future children from the frozen
-owner and plays them without mutating or advancing simulation. All timing,
+owner and plays them without mutating or advancing simulation. Oracle audio
+restores at its pitch-adjusted sample offset, including an audio-only ending with
+a Ward equipped; its result tail uses the paused AudioContext clock. All timing,
 attachment and stop adapters remain explicitly local. Earlier schemas and
 fingerprints remain incompatible. See [Oracle Lens](ORACLE-LENS.md).
 

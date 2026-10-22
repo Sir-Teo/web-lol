@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,307 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,310 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -21,8 +21,39 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-[Oracle's ordered GPU batches](ORACLE-LENS.md#ordered-gpu-batches--october-22-2026)
-now preserve the existing transparent scene order while replacing consecutive
+[Oracle source audio](ORACLE-AUDIO.md) now loads three pinned recordings only
+on equipment selection or saved presence. The original Lvl3 audio resource
+selects the Lvl2 intro and loop concurrently; the child Death declaration selects
+the Lvl1 ending. Playback preserves source gains, pitch ranges, whole-master loop
+policy and the declared 750 ms Exp1 stop adapter. Stable cosmetic pitch draws,
+rate-adjusted seeks, fog eligibility, fixed child positions, mute/pause and natural
+completion are covered by real WebAudio checks. The Victory menu freezes gameplay
+while finite audio tails finish; hidden tabs and graphics recovery still suspend
+audio. Missing recordings leave the trinket usable without repeated frame retries.
+
+Schema 106 extends the shared saved history to 190 ticks after a normal stop,
+including audio-only endings with Ward equipped; particles still retire at their
+existing visual bound. All nine generated source outputs reproduce byte for byte.
+TypeScript, all **1,310 unit checks across 245 files**, and **45 distinct targeted
+Chrome scenarios** pass. The latter include the existing audio, Oracle gameplay,
+graphics recovery, checkpoint and ordered GPU comparisons. All 33 GPU comparisons
+still have exact pixels and model-view matrices. Nested-path production smoke
+passes with the ordinary 17-recording startup, three selected Oracle masters
+(20 unique recordings overall), six selection/restore audio requests, eight Oracle
+mesh requests and zero unrequested Oracle preloads. Game/Three chunks remain
+above the warning threshold (716.44/659.93 KB); selected Oracle audio code is
+5.75 KB. Source audio masters add 1,729,952 bytes on selection.
+
+The loop's unidentified Volume GameParameter is explicitly held at local zero;
+its native value and output bus remain unresolved. Native event dispatch, random
+pitch, persistent-sound lifetime cancellation, fade/mix interpretation and audible
+comparison remain unaccepted. This milestone does not certify native sound,
+full-match performance or the full goal. Current hashes and evidence are in the
+[audio ledger](reference/oracle-audio-verification.json).
+
+The preceding `ed59a6c` milestone added
+[Oracle's ordered GPU batches](ORACLE-LENS.md#ordered-gpu-batches--october-22-2026),
+which preserve the existing transparent scene order while replacing consecutive
 compatible particle draws with instancing. Thirty-three Chrome frame comparisons
 match all RGBA channels and float32 model-view matrices against the retained
 separate-draw path, including sixteen isolated layers, other transparent geometry,
@@ -32,16 +63,18 @@ frame drops from 109 to 28 total review draws (74.3% fewer); ten endings drop fr
 full-match performance certification. Logical object allocation and sort work
 remain. Shared materials and owned instance buffers retire cleanly.
 
-All 1,307 unit checks and 27 distinct targeted Chrome scenarios pass; the new GPU
-comparison and real WebGL loss/restoration cases also pass their final recheck.
+That milestone passed all 1,307 unit checks and 27 distinct targeted Chrome
+scenarios; its GPU comparison and real WebGL loss/restoration cases also passed
+their final recheck.
 Live saved ending restoration now compares used instance-matrix, tint, lookup and
 UV buffers exactly. Its final run retires six materials and 70 geometries; the
 ten-owner review retires four materials and all 232 run geometries. Graphics
 restoration preserves its frozen snapshot and buffers. Six fair-comparison/live/
 production captures were visually reviewed. Nested-path production smoke passes
 with eight selected Oracle mesh requests and zero unrequested Oracle preloads.
-Schema 105 and the ruleset identity remain unchanged. The game/Three chunk warning
-remains (714.93/659.93 KB); selected Oracle code is 55.71 KB. Current hashes,
+At that batching milestone, schema 105 and the ruleset identity remained unchanged.
+The game/Three chunk warning remained (714.93/659.93 KB); selected Oracle code
+was 55.71 KB. Historical hashes,
 measurements, corrections and scope are in the
 [batching ledger](reference/oracle-batching-verification.json).
 
@@ -50,8 +83,8 @@ source review: all twelve Buff declarations, including the invisible child drive
 and all four child Death declarations run in gameplay. Fifteen visual layers use
 the original rig/meshes/textures, full temporal/probability tables and explicit local
 material/UV/motion policies. Alert remains manual preview with unresolved dispatch.
-Cropped spark edges, native attachment/material/stop semantics, audio and further
-match-scale performance remain unfinished. This does not certify native appearance.
+Cropped spark edges, native attachment/material/stop semantics, audible native
+mix and further match-scale performance remain unfinished. This does not certify native appearance.
 
 Free fountain/death swaps preserve stock, short cooldowns and fractional recharge
 work. Pending preparation serializes clicks and rechecks access; failure changes no

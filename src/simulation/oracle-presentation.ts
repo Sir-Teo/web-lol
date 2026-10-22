@@ -1,6 +1,6 @@
 import {
   oracleChildTick,
-  oracleVisualEndTick,
+  oraclePresentationEndTick,
   ORACLE_PRESENTATION,
 } from '../content/oracle-presentation';
 import type { TrinketState, OracleVisual } from './types';
@@ -26,7 +26,7 @@ export function advanceOracleVisuals(w: World): void {
     const s = w.championState(owner.id)?.trinket;
     if (!s) continue;
     s.visuals = s.visuals.filter(
-      (v) => v.stopTick === null || w.tick < oracleVisualEndTick(v.startTick, v.stopTick)
+      (v) => v.stopTick === null || w.tick < oraclePresentationEndTick(v.startTick, v.stopTick)
     );
     for (const v of s.visuals) {
       if (v.stopTick === null || v.childAnchor) continue;

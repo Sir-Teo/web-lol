@@ -1,6 +1,7 @@
 import { LuxBindingFlightAudio } from './lux-binding-flight';
 import { LazyGarenJusticeAudio } from './garen-r-lazy';
 import { LazyGarenCourageAudio } from './garen-w-lazy';
+import { LazyOracleAudio } from './oracle-lazy';
 import { LazyGarenDecisiveStrikeAudio } from './garen-q-lazy';
 import { GarenJudgmentAudio } from './garen-e';
 import type { World } from '../simulation/world';
@@ -28,6 +29,9 @@ export class GameAudio {
   garenR = new LazyGarenJusticeAudio();
   garenW = new LazyGarenCourageAudio();
   garenQ = new LazyGarenDecisiveStrikeAudio();
+  oracle = new LazyOracleAudio();
+  private oracleTerminalWorld?: World;
+  private oracleTerminalStart = 0;
   private audible = true;
   private paused = false;
   private resuming = false;
@@ -268,6 +272,7 @@ export class GameAudio {
     this.garenR.stop();
     this.garenW.stop();
     this.garenQ.stop();
+    this.oracle.stop();
     for (const [voice, gain] of this.voices) {
       voice.stop();
       voice.disconnect();
@@ -448,6 +453,36 @@ export class GameAudio {
   unlock(): void {
     this.context ??= new AudioContext();
     this.syncContext();
+  }
+  updateOracle(world: World, listener = { x: 0, y: 0 }) {
+    const records = world.units.flatMap((u) => {
+      const s = world.championState(u.id)?.trinket;
+      if (!s) return [];
+      if ((s.kind === 'oracle' || s.visuals.length) && this.oracle.status === 'idle')
+        void this.oracle.load();
+      return s.visuals.map((r) => ({
+        ...r,
+        id: u.id,
+        x: u.x,
+        y: u.y,
+        visible: u.team === world.hero.team || world.visible(u, world.hero.team),
+        endVisible:
+          u.team === world.hero.team ||
+          world.pointVisible(r.childAnchor?.point ?? u, world.hero.team),
+      }));
+    });
+    // Continue the result's audio tail without mutating the frozen checkpoint.
+    // AudioContext time pauses with menus/hidden tabs, independently of rendering.
+    let tick = world.tick;
+    if (!world.winner) this.oracleTerminalWorld = undefined;
+    else if (this.context) {
+      if (this.oracleTerminalWorld !== world) {
+        this.oracleTerminalWorld = world;
+        this.oracleTerminalStart = this.context.currentTime;
+      }
+      tick += Math.max(0, this.context.currentTime - this.oracleTerminalStart) * 60;
+    }
+    this.oracle.update(this.context, this.enabled && !this.paused, records, tick, listener);
   }
   updateGaren(world: World, listener = { x: 0, y: 0 }) {
     const garens = world.units.filter((u) => u.champion === 'garen');

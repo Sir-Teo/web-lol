@@ -1,0 +1,456 @@
+{
+  "referenceSha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+  "scripts": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Scripts.wad.client",
+    "chunks": {
+      "9D6B139F5625E74C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35852845,
+        "bytes": 75450,
+        "sha256": "e4a4f61beea877cab9ed30be0b521a2c01e7f6af05f4b7d08f671d52e37d8512"
+      },
+      "70B13796F6370E48": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35928295,
+        "bytes": 183603,
+        "sha256": "9fbae2c2d3807eb7c27870f4501c9507acd95531ae0d44d14587704e864650b7"
+      },
+      "0A15B7F6D72C6848": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36111898,
+        "bytes": 90579,
+        "sha256": "18caaf1d6c0d94c2db7d820d10107b61abe7587263760709d51061c4240b175b"
+      },
+      "8DFE49A4492DA71F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36202477,
+        "bytes": 138822,
+        "sha256": "3cfdf55545a2898d937d694a29cfdc1623e143769f61c4446f635e4044e7c32a"
+      },
+      "D2860162132D3784": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36341299,
+        "bytes": 144181,
+        "sha256": "809f3aafcdd55c68050b689a201e707f863e20bd0075ea2cf1533509b5eb19f6"
+      },
+      "63611195382B0C7A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36485480,
+        "bytes": 95916,
+        "sha256": "2261825b9572b17d9586307244f9d821c29068e934410a279fdf41d957cfd8a1"
+      },
+      "F6B96CAAE2654A23": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36581396,
+        "bytes": 81491,
+        "sha256": "b20123e9a1c5439f1cb352cf61f38bb93d2474314b3998777ab3e53bc4429a8c"
+      },
+      "AC6C3E04B54120B0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36662887,
+        "bytes": 60523,
+        "sha256": "cec143c1ae0cd3df9803c26591b10d09e40589bbf32d833a6e637af1f7850c2b"
+      },
+      "C3B2ED4AF8174F18": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 2558683,
+        "bytes": 236,
+        "sha256": "ad37962f6e307c3389253489534d878ac3e7b32c898dc1b937aac70a64168c04"
+      },
+      "188A760A7FCB63BF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FFE4576B475CD3F3.bundle",
+        "offset": 8716968,
+        "bytes": 48,
+        "sha256": "9a654fb069f636591c44871e4a3a52ad8f963354278b04b8efe838bc1631086b"
+      }
+    },
+    "files": [
+      {
+        "path": "data/spells/trinketsweeperlvl3.preload",
+        "wadPathHash": "2164759d82679d2b",
+        "sha256": "167f7952f7539e07beb9f43a5a95ce70ae20565b07f397940e8083f612f9f73a",
+        "bytes": 572
+      },
+      {
+        "path": "data/spells/trinketlenslvl1audio.luabin64",
+        "wadPathHash": "6f7611f772353e01",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      }
+    ]
+  },
+  "data": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/DATA.wad.client",
+    "chunks": {
+      "A5ACB224D573EBBF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6111311,
+        "bytes": 97328,
+        "sha256": "22d0aa31b0ed668654e659b4f9e3c1bdaaa17047d724b54693afcd00658418bb"
+      },
+      "E47A4E055277648C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6208639,
+        "bytes": 13663,
+        "sha256": "1093301d4369e5d3a51cca50c5417a8accb2ebf932a85d7b1abf48c9431a07f1"
+      },
+      "6E6E76D28C98320C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 8620662,
+        "bytes": 164,
+        "sha256": "3918500c589a732ff1ca9e9de3a799a380170b9cd1bdd133a50a0376f9fce3e0"
+      },
+      "DCCC9A7503471A71": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 14886662,
+        "bytes": 164,
+        "sha256": "2c76a1f216ac99e996dadda6a3d5c4fdb688b6ede0590d339cf2d91d981fc19a"
+      }
+    },
+    "files": [
+      {
+        "path": "data/particles/trinketlenslvl3audio.troybin",
+        "wadPathHash": "82bc2f100ba2e011",
+        "sha256": "25f952cc6f5d46d68f8b6e6ee68aad01406154cc0b318b9534bd98ddb1a16d5b",
+        "bytes": 155
+      },
+      {
+        "path": "data/particles/trinketlenslvl1audio.troybin",
+        "wadPathHash": "f76bd8a7bc65cd72",
+        "sha256": "3746ffcde510721592959d69469b3117585a9aa54378ee9ff371b4392940e5b8",
+        "bytes": 155
+      }
+    ]
+  },
+  "preload": "PreLoadBuildingBlocks = {\r\n{Function=BBPreloadModule, Params={Name=\"Global.Vision_GlobalsModule\"}}, \r\n{Function=BBPreloadSpell, Params={Name=\"itemblackout\"}}, \r\n{Function=BBPreloadParticle, Params={Name=\"data/particles/spotter_marker.troy\", SkinID=\"-1\"}}, \r\n{Function=BBPreloadParticle, Params={Name=\"data/particles/trinketlenslvl3audio.troy\", SkinID=\"-1\"}}, \r\n{Function=BBPreloadSpell, Params={Name=\"contribscorevisiondata\"}}, \r\n{Function=BBPreloadModule, Params={Name=\"Global.ContribScores\"}}, \r\n{Function=BBPreloadSpell, Params={Name=\"trinketsweeperpersistvfx\"}}, \r\n}\r\n",
+  "records": {
+    "data/particles/trinketlenslvl3audio.troybin": {
+      "typed": {
+        "version": 2,
+        "stringBytes": 88,
+        "flags": 4144,
+        "rows": [
+          {
+            "hash": "d40134c1",
+            "storage": "u8",
+            "raw": 9,
+            "value": 9
+          },
+          {
+            "hash": "151f2136",
+            "storage": "bool",
+            "raw": 0,
+            "value": 0
+          },
+          {
+            "hash": "43a0c39d",
+            "storage": "bool",
+            "raw": 1,
+            "value": 1
+          },
+          {
+            "hash": "56c3a430",
+            "storage": "bool",
+            "raw": 0,
+            "value": 0
+          },
+          {
+            "hash": "c7e96276",
+            "storage": "bool",
+            "raw": 0,
+            "value": 0
+          },
+          {
+            "hash": "e747a0a5",
+            "storage": "bool",
+            "raw": 1,
+            "value": 1
+          },
+          {
+            "hash": "0616933a",
+            "storage": "string",
+            "raw": "empty",
+            "value": "empty"
+          },
+          {
+            "hash": "83d1b70b",
+            "storage": "string",
+            "raw": "Play_sfx_TrinketLensLvl2Audio_buffactivate",
+            "value": "Play_sfx_TrinketLensLvl2Audio_buffactivate"
+          },
+          {
+            "hash": "981e60c1",
+            "storage": "string",
+            "raw": "DATA/Shared/Particles/Black.DDS",
+            "value": "DATA/Shared/Particles/Black.DDS"
+          },
+          {
+            "hash": "9f4d1fb4",
+            "storage": "string",
+            "raw": "Simple",
+            "value": "Simple"
+          },
+          {
+            "hash": "de1226ee",
+            "storage": "string",
+            "raw": "DATA/Shared/Particles/Black.DDS",
+            "value": "DATA/Shared/Particles/Black.DDS"
+          }
+        ]
+      },
+      "labels": {
+        "56c3a430": [
+          "empty",
+          "p-scale"
+        ],
+        "e747a0a5": [
+          "empty",
+          "e-rate"
+        ],
+        "c7e96276": [
+          "empty",
+          "p-life"
+        ],
+        "981e60c1": [
+          "empty",
+          "p-texture"
+        ],
+        "de1226ee": [
+          "empty",
+          "p-rgba"
+        ],
+        "d40134c1": [
+          "empty",
+          "e-life"
+        ],
+        "151f2136": [
+          "empty",
+          "rendermode"
+        ],
+        "0616933a": [
+          "System",
+          "GroupPart1"
+        ],
+        "9f4d1fb4": [
+          "System",
+          "GroupPart1Type"
+        ],
+        "83d1b70b": [
+          "System",
+          "SoundPersistent"
+        ],
+        "43a0c39d": [
+          "System",
+          "SoundsPlayWhileOffScreen"
+        ]
+      },
+      "decoded": {
+        "values": {
+          "empty": {
+            "e-life": 9,
+            "rendermode": 0,
+            "p-scale": 0,
+            "p-life": 0,
+            "e-rate": 1,
+            "p-texture": "DATA/Shared/Particles/Black.DDS",
+            "p-rgba": "DATA/Shared/Particles/Black.DDS"
+          },
+          "System": {
+            "SoundsPlayWhileOffScreen": 1,
+            "GroupPart1": "empty",
+            "SoundPersistent": "Play_sfx_TrinketLensLvl2Audio_buffactivate",
+            "GroupPart1Type": "Simple"
+          }
+        },
+        "unknown": {}
+      }
+    },
+    "data/particles/trinketlenslvl1audio.troybin": {
+      "typed": {
+        "version": 2,
+        "stringBytes": 88,
+        "flags": 4144,
+        "rows": [
+          {
+            "hash": "d40134c1",
+            "storage": "u8",
+            "raw": 4,
+            "value": 4
+          },
+          {
+            "hash": "151f2136",
+            "storage": "bool",
+            "raw": 0,
+            "value": 0
+          },
+          {
+            "hash": "43a0c39d",
+            "storage": "bool",
+            "raw": 1,
+            "value": 1
+          },
+          {
+            "hash": "56c3a430",
+            "storage": "bool",
+            "raw": 0,
+            "value": 0
+          },
+          {
+            "hash": "c7e96276",
+            "storage": "bool",
+            "raw": 0,
+            "value": 0
+          },
+          {
+            "hash": "e747a0a5",
+            "storage": "bool",
+            "raw": 1,
+            "value": 1
+          },
+          {
+            "hash": "0616933a",
+            "storage": "string",
+            "raw": "empty",
+            "value": "empty"
+          },
+          {
+            "hash": "83d1b70b",
+            "storage": "string",
+            "raw": "Play_sfx_TrinketLensLvl1Audio_buffactivate",
+            "value": "Play_sfx_TrinketLensLvl1Audio_buffactivate"
+          },
+          {
+            "hash": "981e60c1",
+            "storage": "string",
+            "raw": "DATA/Shared/Particles/Black.DDS",
+            "value": "DATA/Shared/Particles/Black.DDS"
+          },
+          {
+            "hash": "9f4d1fb4",
+            "storage": "string",
+            "raw": "Simple",
+            "value": "Simple"
+          },
+          {
+            "hash": "de1226ee",
+            "storage": "string",
+            "raw": "DATA/Shared/Particles/Black.DDS",
+            "value": "DATA/Shared/Particles/Black.DDS"
+          }
+        ]
+      },
+      "labels": {
+        "56c3a430": [
+          "empty",
+          "p-scale"
+        ],
+        "e747a0a5": [
+          "empty",
+          "e-rate"
+        ],
+        "c7e96276": [
+          "empty",
+          "p-life"
+        ],
+        "981e60c1": [
+          "empty",
+          "p-texture"
+        ],
+        "de1226ee": [
+          "empty",
+          "p-rgba"
+        ],
+        "d40134c1": [
+          "empty",
+          "e-life"
+        ],
+        "151f2136": [
+          "empty",
+          "rendermode"
+        ],
+        "0616933a": [
+          "System",
+          "GroupPart1"
+        ],
+        "9f4d1fb4": [
+          "System",
+          "GroupPart1Type"
+        ],
+        "83d1b70b": [
+          "System",
+          "SoundPersistent"
+        ],
+        "43a0c39d": [
+          "System",
+          "SoundsPlayWhileOffScreen"
+        ]
+      },
+      "decoded": {
+        "values": {
+          "empty": {
+            "e-life": 4,
+            "rendermode": 0,
+            "p-scale": 0,
+            "p-life": 0,
+            "e-rate": 1,
+            "p-texture": "DATA/Shared/Particles/Black.DDS",
+            "p-rgba": "DATA/Shared/Particles/Black.DDS"
+          },
+          "System": {
+            "SoundsPlayWhileOffScreen": 1,
+            "GroupPart1": "empty",
+            "SoundPersistent": "Play_sfx_TrinketLensLvl1Audio_buffactivate",
+            "GroupPart1Type": "Simple"
+          }
+        },
+        "unknown": {}
+      }
+    }
+  },
+  "emptyAudioScript": {
+    "<main>": {
+      "source": null,
+      "firstLine": 0,
+      "lastLine": 0,
+      "upvalues": 0,
+      "params": 0,
+      "vararg": 2,
+      "stack": 2,
+      "constants": [],
+      "words": [
+        8388638
+      ],
+      "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+      "children": [],
+      "lines": [],
+      "locals": [],
+      "upvalueNames": [],
+      "offset": 12,
+      "bytes": 48
+    }
+  },
+  "activeEvent": "Play_sfx_TrinketLensLvl2Audio_buffactivate",
+  "endingEvent": "Play_sfx_TrinketLensLvl1Audio_buffdeactivate",
+  "naming": {
+    "revision": "cd778cb1b2ace6557bbf9f7c3395b3f6f2f5a2b9",
+    "files": {
+      "inibin2.py": "92a0b657257feb99646b323b5223320dfe8a9d3a40aca4a5a6c777f22fafe86b",
+      "troybin_fix.py": "ab05c41477a0736440ee96b6a73b8a3cf2a1e5bdacfd70518e94cc223479867a"
+    }
+  },
+  "limits": [
+    "Preload proves a declared resource dependency, not execution or native activation/stop timing.",
+    "Lvl3 audio resource selects the Lvl2 activation event; modern child Death explicitly selects the Lvl1 deactivation event.",
+    "Legacy emitter lifetimes do not replace current eight-second gameplay duration. Empty Lua script recovers no dispatch callback."
+  ]
+}

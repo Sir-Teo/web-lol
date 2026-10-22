@@ -484,10 +484,17 @@ test('recast and expired child effects retain their source buffers through Ward 
     for (const material of ownedMaterials) material.addEventListener('dispose', () => materials++);
     for (const geometry of ownedGeometries)
       geometry.addEventListener('dispose', () => geometries++);
-    const end = w.player.trinket.visuals[0].stopTick + 92;
+    const stop = w.player.trinket.visuals[0].stopTick;
+    const end = stop + 92;
     w.step(end - w.tick);
     g.view.render(w, 1, g.view.previousElapsed);
+    const audioTailHistories = w.player.trinket.visuals.length;
+    const visualTailModels = g.view.oracleLens.particles.models.size;
+    w.step(stop + 190 - w.tick);
+    g.view.render(w, 1, g.view.previousElapsed);
     return {
+      audioTailHistories,
+      visualTailModels,
       histories: w.player.trinket.visuals.length,
       models: g.view.oracleLens.particles.models.size,
       materials,
@@ -496,6 +503,7 @@ test('recast and expired child effects retain their source buffers through Ward 
       expectedGeometries: ownedGeometries.size,
     };
   });
+  expect([retired.audioTailHistories, retired.visualTailModels]).toEqual([1, 0]);
   expect([retired.histories, retired.models]).toEqual([0, 0]);
   expect(retired.materials).toBe(retired.expectedMaterials);
   expect(retired.geometries).toBe(retired.expectedGeometries);

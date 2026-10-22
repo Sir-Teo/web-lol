@@ -1,0 +1,88 @@
+"""Export the exact selected masters and finite bank-145 playback parameters.
+
+Native dispatch, RTPC value, bus mix and random draws are not recovered here.
+"""
+from pathlib import Path
+import hashlib, json, math, subprocess
+sha = lambda b: hashlib.sha256(b).hexdigest()
+source = Path('docs/reference/oracle-audio.json')
+graph = json.loads(source.read_text())
+decoded = json.loads(Path('docs/reference/oracle-audio-decoded.json').read_text())
+assert decoded['sourceGraphSha256'] == sha(source.read_bytes())
+nodes = {n['id']: n for n in graph['nodes']}
+def parameter(identity, suffix):
+    found = [p for p in nodes[identity]['parameters'] if p[0].endswith('/' + suffix)]
+    assert len(found) == 1, (identity, suffix)
+    return found[0][2]
+def properties(identity):
+    fields = nodes[identity]['parameters']; result = {}
+    for p in fields:
+        if not p[0].endswith('/pID') or 'RANGED_' in p[0]: continue
+        value = next(f[2] for f in fields if f[0] == p[0][:-3] + 'pValue')
+        key = p[3].split('[')[-1].removesuffix(']')
+        assert key not in result
+        result[key] = float(value)
+    return result
+active, stop, ending = graph['events']
+assert active['name'] == 'Play_sfx_TrinketLensLvl2Audio_buffactivate'
+assert stop['name'] == 'Stop_sfx_TrinketLensLvl2Audio_buffactivate'
+assert ending['name'] == 'Play_sfx_TrinketLensLvl1Audio_buffdeactivate'
+assert len(active['actions']) == len(stop['actions']) == 2 and len(ending['actions']) == 1
+profile = {}
+for kind, sound, media, gain in [('intro',974527692,296489751,-10), ('loop',42688719,13033176,-11), ('end',649835072,1051782150,-8)]:
+    event = ending if kind == 'end' else active
+    action = next(a for a in event['actions'] if a['target'] == sound)
+    assert action['mediaId'] == media and properties(action['id']) == {}
+    assert int(parameter(action['id'], 'eFadeCurve')) == 4
+    expected = dict(MakeUpGain=gain)
+    if kind != 'end': expected['Pitch'] = 1
+    if kind == 'loop': expected['Loop'] = 0
+    assert properties(sound) == expected
+    ranged = [] if kind == 'end' else [float(parameter(sound, 'AkPropBundle:0/min')), float(parameter(sound, 'AkPropBundle:0/max'))]
+    assert ranged == ([] if kind == 'end' else [-200,200])
+    assert int(parameter(sound, 'u16MaxNumInstance')) == 0
+    assert int(parameter(sound, 'DirectParentID')) == (878499028 if kind == 'end' else 400396866)
+    m = next(m for m in decoded['media'] if m['id'] == media)
+    assert m['sampleRate'] == 44100 and m['channels'] == 1 and m['decoderMetadata']['loopingInfo'] is None
+    raw = Path(f'.cache/oracle-audio-decoded/{media}.wav').read_bytes()
+    assert sha(raw) == m['wavSha256']
+    output = Path(f'public/assets/audio/oracle-{media}.wav'); output.write_bytes(raw)
+    item = dict(id=media, soundId=sound, eventId=event['id'], actionId=action['id'],
+        url=str(output).removeprefix('public/'), sha256=m['wavSha256'], pcmSha256=m['pcmSha256'],
+        frames=m['frames'], sampleRate=m['sampleRate'], channels=1, durationSeconds=m['durationSeconds'],
+        peak=m['peak'], gainDb=gain, pitchCents=expected.get('Pitch',0), pitchRangeCents=ranged,
+        loop=dict(start=0,end=m['frames']) if kind == 'loop' else None, stop=None)
+    if kind != 'end':
+        a = next(a for a in stop['actions'] if a['target'] == sound)
+        assert properties(a['id']) == {'TransitionTime':750}
+        assert int(parameter(a['id'], 'eFadeCurve')) == 6
+        item['stop'] = dict(eventId=stop['id'], actionId=a['id'], fadeSeconds=.75, curve=6)
+    profile[kind] = item
+for identity in [400396866,878499028]:
+    assert properties(identity) == {} and int(parameter(identity,'DirectParentID')) == 282465596
+assert properties(282465596) == {'AttenuationID':339248780}
+assert int(parameter(282465596,'OverrideBusId')) == 2149849771
+assert int(parameter(339248780,'eScaling')) == 2 and int(parameter(339248780,'curveToUse[0]')) == 0
+points = [dict(distance=float(parameter(339248780,f'AkRTPCGraphPoint:{i}/From')),
+    storedValue=float(parameter(339248780,f'AkRTPCGraphPoint:{i}/To')),
+    interpolation=int(parameter(339248780,f'AkRTPCGraphPoint:{i}/Interp'))) for i in range(6)]
+profile['attenuation'] = dict(id=339248780, scaling=2, points=points, unresolvedOutputBusId=2149849771)
+assert int(parameter(42688719,'RTPCID')) == 745018932
+assert int(parameter(42688719,'rtpcType')) == 0 and int(parameter(42688719,'rtpcAccum')) == 2
+assert int(parameter(42688719,'ParamID')) == 0 and int(parameter(42688719,'eScaling')) == 2
+profile['loopVolumeParameter'] = dict(id=745018932, type='GameParameter', accumulation='Additive', scaling=2,
+    points=[dict(input=float(parameter(42688719,f'AkRTPCGraphPoint:{i}/From')),
+        storedValue=float(parameter(42688719,f'AkRTPCGraphPoint:{i}/To')),
+        interpolation=int(parameter(42688719,f'AkRTPCGraphPoint:{i}/Interp'))) for i in range(4)],
+    nativeValue=None, localValue=0, localGainDb=0)
+output = Path('src/content/oracle-audio.ts')
+output.write_text('// Generated by tools/assets/export-oracle-audio.py.\n'
+    '// Declared Lvl3 resource selects Lvl2 active layers; child Death selects Lvl1 ending.\n'
+    '// Native dispatch, RTPC value, bus/listener mix and random pitch remain unverified.\n'
+    + 'export const ORACLE_AUDIO = ' + json.dumps(profile,indent=2) + ' as const;\n')
+subprocess.run(['npx','prettier','--write',str(output)],check=True,stdout=subprocess.DEVNULL)
+Path('src/content/oracle-audio-timing.ts').write_text('// Generated by tools/assets/export-oracle-audio.py.\n'
+    '// Ending has no pitch modifier; retain every decoded sample after child birth.\n'
+    + f'export const ORACLE_AUDIO_END_TICKS = {math.ceil(profile["end"]["durationSeconds"]*60)};\n')
+print(json.dumps(dict(endTicks=math.ceil(profile['end']['durationSeconds']*60),
+    shippedBytes=sum(Path('public',profile[k]['url']).stat().st_size for k in ['intro','loop','end']))))
