@@ -39,7 +39,9 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
     g.hud.update(60);
     return {
       camps: structuredClone(w.jungleCamps),
-      models: w.jungleCamps.map((c: any) => g.view.models.get(c.unitId).referenceAsset),
+      models: w.jungleCamps
+        .filter((c: any) => c.id.endsWith('gromp'))
+        .map((c: any) => g.view.models.get(c.unitId).referenceAsset),
       visible: g.view.models.get(unit.id).root.visible,
       hiddenOther: !g.view.models.get(w.jungleCamps[1].unitId).root.visible,
       home: unit.monster.home,
@@ -50,7 +52,9 @@ test('scheduled Rift camps render, clear and respawn after a corpse-free saved r
   expect(spawned.visible).toBe(true);
   expect(spawned.hiddenOther).toBe(true);
   await expect(page.locator('.unit-bar.neutral.monster:not([hidden])')).toBeVisible();
-  await expect(page.locator('.unit-bar.neutral.monster[hidden]')).toHaveCount(1);
+  await expect(
+    page.locator('.unit-bar.neutral.monster[hidden]').filter({ hasText: 'Gromp' })
+  ).toHaveCount(1);
   await page.screenshot({ path: 'artifacts/rift-gromp-camp.png' });
   await page.evaluate(() => (window as any).__GAME__.setPaused(false));
   await page.mouse.click(spawned.screen.x, spawned.screen.y, { button: 'right' });

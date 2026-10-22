@@ -207,7 +207,7 @@ test('saved monsters reject crossed faction, unsupported species, invalid target
       u.team = 'red';
     },
     (u) => {
-      u.monster.species = 'blue';
+      u.monster.species = 'unsupported-monster';
     },
     (u) => {
       u.monster.phase = 'engaged';

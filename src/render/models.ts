@@ -1,5 +1,5 @@
 import { TargetPoseSampler } from './target-pose-sampler';
-import { GROMP } from '../content/gromp';
+import { MONSTERS, type MonsterSpecies } from '../content/monsters';
 import type { ImpactRig } from '../content/impact-target';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -49,15 +49,25 @@ const referenceNames = [
   'blue-inhibitor',
   'red-inhibitor',
 ];
-export async function loadReferenceModels(includeMonsters = false): Promise<void> {
+export async function loadReferenceModels(
+  includeMonsters: boolean | readonly MonsterSpecies[] = false
+): Promise<void> {
   const loader = new GLTFLoader();
+  const species =
+    includeMonsters === true
+      ? ['gromp' as const]
+      : includeMonsters === false
+        ? []
+        : includeMonsters;
+  const monsterNames = [...new Set(species.map((s) => MONSTERS[s].rig))];
   await Promise.all(
-    [...referenceNames, ...(includeMonsters ? ['sru-gromp-base'] : [])].map(async (name) => {
+    [...referenceNames, ...monsterNames].map(async (name) => {
       const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
-      if (name === 'sru-gromp-base') {
-        for (const [alias, source] of Object.entries(GROMP.clips)) {
+      const monster = Object.values(MONSTERS).find((p) => p.rig === name);
+      if (monster) {
+        for (const [alias, source] of Object.entries(monster.clips)) {
           const clip = gltf.animations.find((clip) => clip.name === source.name);
-          if (!clip) throw new Error(`Gromp lacks ${source.name}`);
+          if (!clip) throw new Error(`${name} lacks ${source.name}`);
           clip.name = alias;
         }
         gltf.scene.traverse((object) => {
@@ -167,7 +177,7 @@ export function makeModel(u: Unit): UnitModel {
   ) {
     const key =
       u.kind === 'monster'
-        ? 'sru-gromp-base'
+        ? MONSTERS[u.monster.species].rig
         : u.kind === 'champion'
           ? `${u.champion}-base`
           : `${u.team}-${u.kind}`;
@@ -192,7 +202,12 @@ export function makeModel(u: Unit): UnitModel {
       if (object instanceof THREE.Mesh) {
         if (u.kind === 'monster') {
           const materials = Array.isArray(object.material) ? object.material : [object.material];
-          if (materials.some((material) => material.userData.sourceSubmesh === GROMP.spawn.submesh))
+          if (
+            materials.some(
+              (material) =>
+                material.userData.sourceSubmesh === MONSTERS[u.monster.species].spawnSubmesh
+            )
+          )
             spawnSubmeshes.push(object);
         }
         object.castShadow = true;

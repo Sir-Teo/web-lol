@@ -2,7 +2,8 @@ import type { ImpactRig } from '../content/impact-target';
 import type { structurePose } from '../render/structure-pose';
 import type { AnimationTimeline } from './animation-timeline';
 import type { Vec2 } from './math';
-import type { RiftGrompCampId } from '../content/rift-gromp-camps';
+import type { RiftCampId } from '../content/rift-camps';
+import type { MonsterSpecies } from '../content/monsters';
 export type Team = 'blue' | 'red';
 export type Faction = Team | 'neutral';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
@@ -20,14 +21,14 @@ export type UnitKind =
   | 'dummy'
   | 'monster';
 export interface MonsterState {
-  species: 'gromp';
+  species: MonsterSpecies;
   home: Vec2;
   phase: 'spawning' | 'idle' | 'engaged' | 'returning';
   targetId: number | null;
   spawn: { startTick: number; readyTick: number } | null;
 }
 export interface JungleCampState {
-  id: RiftGrompCampId;
+  id: RiftCampId;
   unitId: number | null;
   nextSpawnTick: number | null;
 }

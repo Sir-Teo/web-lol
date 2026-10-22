@@ -29,7 +29,8 @@ export class LazyGrompAttack {
     if (this.renderer) this.renderer.update(world, alpha, camera, terminalAge);
     else if (
       performance.now() >= this.retryAfter &&
-      (world.units.some((u) => u.kind === 'monster') || world.grompAttackVisuals.length)
+      (world.units.some((u) => u.kind === 'monster' && u.monster.species === 'gromp') ||
+        world.grompAttackVisuals.length)
     ) {
       this.retryAfter = Infinity;
       void this.load().catch(() => {

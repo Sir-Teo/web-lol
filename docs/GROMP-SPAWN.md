@@ -64,7 +64,7 @@ ends after 4.5 seconds and starts a fresh idle clock. The generic 80 ms mobile
 blend is bypassed at spawn transitions using the source zero-blend evidence.
 Match end retains the existing frozen simulation behavior.
 
-Schema 89 retains both protected emergence and the ready animation tail. It
+Schema 90 retains both protected emergence and the ready animation tail. It
 checks duration, phase, home, health, ownership and compatible motion/attack
 clocks. An overdue waiting calendar cannot replace an already-due emergence.
 Source clip aliasing and target-pose sampling include spawn, so saved pose
@@ -77,6 +77,6 @@ compares sampled deformed vertices across a protected reload, checks the spawn
 submesh's GPU contribution and cleanup, and covers normal camp combat/respawn.
 These scripted boundary probes do not certify native playback or a full match.
 
-The current run passes 1,101 checks, TypeScript, five focused Chrome cases and
+The emergence increment passed 1,101 checks, TypeScript, five focused Chrome cases and
 the nested-host production smoke. Source/capture hashes and commands are retained
 in [the verification ledger](reference/gromp-spawn-verification.json).

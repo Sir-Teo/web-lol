@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "1b7861ffcb11daf84a4ac7e0d55b428e7a9c04a1",
+  "schema": 90,
+  "rulesetFingerprint": "c30f136c91b58c047f8d5a76dcfccc9d656a6d784ab884f45899af136cd15e5b",
+  "sourcePin": {
+    "path": "docs/reference/blue-sentinel-source.json",
+    "sha256": "25fe1946d2adbae5910391954fe004b8cf22328afe9f46bb1704484ee7c4e1fb"
+  },
+  "sourcePreparation": {
+    "newSkinDefinitions": 2,
+    "newScriptMembers": 3,
+    "legacyBlueCamps": 2,
+    "repeatMatches": true,
+    "previousNineScriptPinUnchanged": true,
+    "luaVmUsed": false,
+    "modelBinaryChanged": false
+  },
+  "policies": {
+    "normalSkin": 0,
+    "nativeSkinActivation": "unverified",
+    "sourceAttackRange": null,
+    "localAttackRange": 175,
+    "firstReadySeconds": 55,
+    "spawnProtectionSeconds": 1.1,
+    "respawnSeconds": 300,
+    "crestOfInsight": "not implemented"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 222,
+    "passed": 1108,
+    "newCases": 7,
+    "typecheck": "passed"
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "firstRun": {
+      "command": "npx playwright test e2e/blue-sentinel.spec.ts e2e/rift-gromp-camps.spec.ts e2e/gromp-spawn.spec.ts e2e/neutral-gromp.spec.ts --workers=1 --timeout=60000",
+      "passed": 4,
+      "failed": 1,
+      "finding": "Old Gromp-only model assertion counted both newly added Blue models; scoped to its Gromp camp IDs"
+    },
+    "focusedRun": {
+      "command": "npx playwright test e2e/blue-sentinel.spec.ts e2e/rift-gromp-camps.spec.ts --workers=1 --timeout=60000",
+      "passed": 2
+    },
+    "blueCase": [
+      "default practice has no Blue rig request",
+      "normal Blue rig contributes more than 150 GPU pixels",
+      "four independent calendars",
+      "real Lux basic attack and melee retaliation",
+      "keyboard Binding and source impact-pose path",
+      "exact fight checkpoint reload",
+      "Root rewards and corpse removal",
+      "corpse-free waiting checkpoint",
+      "protected respawn then fresh Blue ID at the same source home",
+      "single-line centered name"
+    ],
+    "scope": "Scripted calendar jumps and final kill; not a full seeded match, native comparison or performance certification"
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "jungleInspectorRequests": 0,
+    "developmentHook": false,
+    "warning": "Existing bundle-size warning remains"
+  },
+  "captures": [
+    {
+      "path": "artifacts/blue-sentinel-combat.png",
+      "sha256": "c8fbd8a93aad6fc2f96975652f414ee4079e5d7b4fcf1a4855a99188457c710e",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/blue-sentinel-respawn.png",
+      "sha256": "31f9a39efc2bf19e9f46dbc2311f71cf3454d89aa11ef1cf0e9d494b72cd185d",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Crest of Insight regeneration, haste, pickup/sharing/transfer",
+    "Native skin activation, range, timing, attack variants and level scaling",
+    "Source monster effects/audio and complete rewards",
+    "Other camps, Smite and jungle-role bots",
+    "Full seeded matches and native visual/performance certification"
+  ]
+}

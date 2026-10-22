@@ -25,6 +25,8 @@ import { loadLuxBokehTextures } from './render/lux-bokeh';
 import { loadLuxRStreakTextures } from './render/lux-r-streaks';
 import { loadLuxBeamTextures } from './render/lux-beams';
 import { loadReferenceModels } from './render/models';
+import { RIFT_CAMPS } from './content/rift-camps';
+import type { MonsterSpecies } from './content/monsters';
 import { loadHawkshotWind } from './render/hawkshot-wind';
 import { loadAsheAttackArrow } from './render/ashe-attack-arrow';
 import { loadHawkshotDust } from './render/hawkshot-dust';
@@ -131,12 +133,17 @@ async function boot(): Promise<void> {
   window.addEventListener('resize', () => view.resize());
   // A scheduled camp can appear after boot, including a checkpoint whose last
   // corpse has already expired. Its rig must be ready before simulation resumes.
-  const hasGrompContent =
-    world.jungleCamps.length > 0 || world.units.some((u) => u.kind === 'monster');
+  const monsterSpecies = [
+    ...new Set<MonsterSpecies>([
+      ...world.jungleCamps.map((c) => RIFT_CAMPS.find((d) => d.id === c.id)!.species),
+      ...world.units.flatMap((u) => (u.kind === 'monster' ? [u.monster.species] : [])),
+    ]),
+  ];
+  const hasGrompContent = monsterSpecies.includes('gromp');
   const assetsReady = Promise.all([
     loadInterfaceFonts(),
     audio.load(world.units.some((u) => u.champion === 'garen')),
-    loadReferenceModels(hasGrompContent),
+    loadReferenceModels(monsterSpecies),
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')

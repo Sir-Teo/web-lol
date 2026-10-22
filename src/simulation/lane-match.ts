@@ -1,10 +1,6 @@
 import type { Battlefield } from './battlefield';
 import { World } from './world';
-import {
-  RIFT_GROMP_CAMPS,
-  GROMP_FIRST_SPAWN_TICK,
-  type RiftGrompCampId,
-} from '../content/rift-gromp-camps';
+import { RIFT_CAMPS, type RiftCampId } from '../content/rift-camps';
 
 /** Interim lane-only roster: mirrors are deliberate until more complete kits ship. */
 export function createLaneMatch(
@@ -36,10 +32,10 @@ export function createLaneMatch(
     playerChampion
   );
   world.matchMode = 'lanes';
-  world.jungleCamps = RIFT_GROMP_CAMPS.map((camp) => ({
-    id: camp.id as RiftGrompCampId,
+  world.jungleCamps = RIFT_CAMPS.map((camp) => ({
+    id: camp.id as RiftCampId,
     unitId: null,
-    nextSpawnTick: GROMP_FIRST_SPAWN_TICK,
+    nextSpawnTick: camp.firstReadyTick,
   }));
   for (const team of ['blue', 'red'] as const) {
     for (const [slot, assignment] of assignments.entries()) {

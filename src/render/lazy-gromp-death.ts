@@ -33,7 +33,7 @@ export class LazyGrompDeath {
     if (this.renderer) this.renderer.update(world, alpha, camera, models, terminalAge);
     else if (
       performance.now() >= this.retryAfter &&
-      world.units.some((u) => u.kind === 'monster')
+      world.units.some((u) => u.kind === 'monster' && u.monster.species === 'gromp')
     ) {
       this.retryAfter = Infinity;
       void this.load().catch(() => {

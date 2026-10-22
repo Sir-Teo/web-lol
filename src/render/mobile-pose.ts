@@ -1,5 +1,5 @@
 import { recallAnimationPose } from './recall-animation';
-import { GROMP } from '../content/gromp';
+import { MONSTERS } from '../content/monsters';
 import type { ChampionState, Unit } from '../simulation/types';
 import { castAnimationName } from '../content/cast-animation';
 import { RECALL_DURATION_TICKS, TICK_RATE } from '../content/rules';
@@ -89,7 +89,7 @@ export function mobilePose(
     if (unit.kind === 'monster') {
       const age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
       const windup = unit.windupTicks / TICK_RATE;
-      const contact = GROMP.castFrame / 30;
+      const contact = MONSTERS[unit.monster.species].castFrame / 30;
       const recovery = (cycle.endTick - cycle.startTick) / TICK_RATE - windup;
       const rate = age < windup ? contact / windup : (duration('attack1') - contact) / recovery;
       const time = age < windup ? age * rate : contact + (age - windup) * rate;

@@ -859,6 +859,12 @@ button {
 .dummy .unit-name {
   display: block;
 }
+.monster .unit-name {
+  width: max-content;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
 .unit-hp {
   height: 5px;
   background: #081214;

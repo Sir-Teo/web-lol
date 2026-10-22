@@ -100,7 +100,7 @@ actor overlap remain unresolved; hit effects/audio retain the generic combat
 path. Native shader/effect composition and broader champion-versus-monster kit
 interactions remain unfinished.
 
-Schema **89** retains encounter identity, neutral home, phase, target, attack,
+Schema **90** retains encounter identity, neutral home, phase, target, attack,
 projectiles, bounded released-attack paths, animation and independent clocks. It rejects crossed faction,
 unsupported species, missing/inconsistent aggressors, champion/AI/structure
 metadata, respawn state and homes outside the battlefield. The saved encounter

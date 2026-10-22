@@ -1,11 +1,6 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
-import {
-  GROMP,
-  GROMP_POLICY,
-  GROMP_SPAWN_LEADUP_TICKS,
-  GROMP_SPAWN_CLIP_TICKS,
-} from '../content/gromp';
-import { RIFT_GROMP_CAMPS, GROMP_RESPAWN_TICKS } from '../content/rift-gromp-camps';
+import { MONSTERS, type MonsterSpecies } from '../content/monsters';
+import { RIFT_CAMPS } from '../content/rift-camps';
 import type { JungleCampState } from './types';
 import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
@@ -433,28 +428,30 @@ export class World {
   /** Spawn a neutral unit. Camp ownership/calendar is tracked independently. */
   spawnMonster(
     point: Vec2,
-    spawn: { startTick: number; readyTick: number } | null = null
+    spawn: { startTick: number; readyTick: number } | null = null,
+    species: MonsterSpecies = 'gromp'
   ): Extract<Unit, { kind: 'monster' }> {
     const base = this.createUnitBase('monster', 'neutral', point);
-    const { attackSpeed, ...stats } = GROMP.stats;
+    const profile = MONSTERS[species];
+    const { attackSpeed, ...stats } = profile.stats;
     const u: Extract<Unit, { kind: 'monster' }> = {
       ...base,
       kind: 'monster',
       team: 'neutral',
-      name: 'Gromp',
+      name: profile.name,
       ...stats,
-      radius: GROMP.radius,
-      hp: GROMP.stats.maxHp,
+      radius: profile.radius,
+      hp: profile.stats.maxHp,
       attackPeriod: Math.round(TICK_RATE / attackSpeed),
-      windupTicks: GROMP_POLICY.windupTicks,
-      missileSpeed: GROMP.missileSpeed,
-      goldBounty: GROMP.gold,
-      experienceBounty: GROMP.experience,
+      windupTicks: profile.policy.windupTicks,
+      missileSpeed: profile.missileSpeed,
+      goldBounty: profile.gold,
+      experienceBounty: profile.experience,
       ai: false,
-      corpseLifetimeTicks: GROMP_POLICY.corpseLifetimeTicks,
+      corpseLifetimeTicks: profile.policy.corpseLifetimeTicks,
       idleClock: spawn ? null : base.idleClock,
       monster: {
-        species: 'gromp',
+        species,
         home: { x: point.x, y: point.y },
         phase: spawn && this.tick < spawn.readyTick ? 'spawning' : 'idle',
         targetId: null,
@@ -473,13 +470,18 @@ export class World {
   }
   private advanceJungleCamps(): void {
     for (const camp of this.jungleCamps) {
-      if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick - GROMP_SPAWN_LEADUP_TICKS)
+      const definition = RIFT_CAMPS.find((c) => c.id === camp.id)!;
+      const profile = MONSTERS[definition.species];
+      if (camp.nextSpawnTick === null || this.tick < camp.nextSpawnTick - profile.spawnLeadupTicks)
         continue;
-      const definition = RIFT_GROMP_CAMPS.find((c) => c.id === camp.id)!;
-      const unit = this.spawnMonster(definition.point, {
-        startTick: camp.nextSpawnTick - GROMP_SPAWN_LEADUP_TICKS,
-        readyTick: camp.nextSpawnTick,
-      });
+      const unit = this.spawnMonster(
+        definition.point,
+        {
+          startTick: camp.nextSpawnTick - profile.spawnLeadupTicks,
+          readyTick: camp.nextSpawnTick,
+        },
+        definition.species
+      );
       unit.facing = Math.atan2(
         definition.facingPoint.x - unit.x,
         definition.facingPoint.y - unit.y
@@ -490,19 +492,20 @@ export class World {
   }
   private advanceMonster(u: Extract<Unit, { kind: 'monster' }>): boolean {
     const monster = u.monster,
+      profile = MONSTERS[monster.species],
       target = monster.targetId === null ? undefined : this.unit(monster.targetId);
     if (monster.phase === 'spawning') {
       if (monster.spawn && this.tick < monster.spawn.readyTick) return true;
       monster.phase = 'idle';
     }
-    if (monster.spawn && this.tick >= monster.spawn.startTick + GROMP_SPAWN_CLIP_TICKS)
+    if (monster.spawn && this.tick >= monster.spawn.startTick + profile.spawnClipTicks)
       monster.spawn = null;
     if (
       monster.phase === 'engaged' &&
       (!target ||
         !this.alive(target) ||
-        distance(u, monster.home) > GROMP_POLICY.leashRadius ||
-        distance(target, monster.home) > GROMP_POLICY.leashRadius ||
+        distance(u, monster.home) > profile.policy.leashRadius ||
+        distance(target, monster.home) > profile.policy.leashRadius ||
         !this.validTarget(u, target))
     ) {
       monster.phase = 'returning';
@@ -515,7 +518,7 @@ export class World {
       u.stunUntil = u.rootUntil = u.slowUntil = 0;
       u.slows = [];
       u.criticalSlow = null;
-      u.hp = Math.min(u.maxHp, u.hp + u.maxHp * GROMP_POLICY.resetHealthFractionPerSecond * DT);
+      u.hp = Math.min(u.maxHp, u.hp + u.maxHp * profile.policy.resetHealthFractionPerSecond * DT);
       this.move(u, monster.home);
       if (distance(u, monster.home) < 3 && u.hp === u.maxHp) {
         monster.phase = 'idle';
@@ -1098,7 +1101,7 @@ export class World {
       (u.kind === 'monster'
         ? target.kind !== 'monster' &&
           !isStructureKind(target.kind) &&
-          distance(u, target) <= GROMP_POLICY.sightRadius &&
+          distance(u, target) <= MONSTERS[u.monster.species].policy.sightRadius &&
           this.battlefield.lineOfSight(u, target)
         : this.visible(target, u.team))
     );
@@ -2222,7 +2225,7 @@ export class World {
       u.path = this.battlefield.findPath(
         u,
         point,
-        u.kind === 'monster' ? GROMP.pathfindingRadius : u.radius,
+        u.kind === 'monster' ? MONSTERS[u.monster.species].pathfindingRadius : u.radius,
         u.team === 'neutral' ? undefined : u.team
       );
       u.pathDestination = u.path.at(-1) ?? { x: u.x, y: u.y };
@@ -2703,7 +2706,7 @@ export class World {
       if (moving) {
         const nominal =
           (unit.kind === 'monster'
-            ? GROMP.stats.speed
+            ? MONSTERS[unit.monster.species].stats.speed
             : this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed) ?? 325;
         const clock = unit.runClock ?? { startTick: this.tick, previous: 0, current: 0 };
         clock.previous = clock.current;
@@ -3369,7 +3372,7 @@ export class World {
         const camp = this.jungleCamps.find((c) => c.unitId === target.id);
         if (camp) {
           camp.unitId = null;
-          camp.nextSpawnTick = this.tick + GROMP_RESPAWN_TICKS;
+          camp.nextSpawnTick = this.tick + RIFT_CAMPS.find((c) => c.id === camp.id)!.respawnTicks;
         }
       }
       target.shields = [];
@@ -3489,7 +3492,8 @@ export class World {
             if (record && contributor?.team === rewardSource.team) record.assists++;
           }
         } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) {
-          sourceState.cs += target.kind === 'monster' ? GROMP.minionScore : 1;
+          sourceState.cs +=
+            target.kind === 'monster' ? MONSTERS[target.monster.species].minionScore : 1;
           if (target.kind === 'monster')
             this.gainExperience(target.experienceBounty ?? 0, rewardSource.id);
         }

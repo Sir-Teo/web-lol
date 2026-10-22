@@ -38,14 +38,20 @@ test('both Gromps emerge before their ready deadline at distinct source locators
   const world = match();
   world.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 2;
   world.step();
-  expect(world.units.some((u) => u.kind === 'monster')).toBe(false);
-  world.step();
-  expect(world.units.filter((u) => u.kind === 'monster')).toHaveLength(2);
-  expect(world.jungleCamps.every((c) => world.unit(c.unitId!)?.monster?.phase === 'spawning')).toBe(
-    true
+  expect(world.units.some((u) => u.kind === 'monster' && u.monster.species === 'gromp')).toBe(
+    false
   );
+  world.step();
+  expect(
+    world.units.filter((u) => u.kind === 'monster' && u.monster.species === 'gromp')
+  ).toHaveLength(2);
+  expect(
+    world.jungleCamps
+      .filter((c) => c.id.endsWith('gromp'))
+      .every((c) => world.unit(c.unitId!)?.monster?.phase === 'spawning')
+  ).toBe(true);
   world.step(GROMP_SPAWN_LEADUP_TICKS);
-  for (const [i, camp] of world.jungleCamps.entries()) {
+  for (const [i, camp] of world.jungleCamps.filter((c) => c.id.endsWith('gromp')).entries()) {
     const unit = world.unit(camp.unitId!)!;
     const definition = RIFT_GROMP_CAMPS[i];
     expect(unit).toMatchObject({
@@ -63,7 +69,9 @@ test('both Gromps emerge before their ready deadline at distinct source locators
     expect(world.visible(unit, 'red')).toBe(false);
   }
   world.step(10);
-  expect(world.units.filter((u) => u.kind === 'monster')).toHaveLength(2);
+  expect(
+    world.units.filter((u) => u.kind === 'monster' && u.monster.species === 'gromp')
+  ).toHaveLength(2);
 });
 
 test('a clear schedules only its own camp from the death tick, surviving corpse removal', () => {
@@ -121,7 +129,8 @@ test('retaliation and a leash reset never restart the camp calendar', () => {
 
 test('a pre-spawn checkpoint resumes both camps once and game end freezes their calendar', () => {
   const world = match();
-  world.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 1;
+  world.tick = GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS - 2;
+  world.step();
   const saved = world.snapshot(),
     restored = World.fromSnapshot(saved, rift);
   expect(restored.snapshot()).toBe(saved);

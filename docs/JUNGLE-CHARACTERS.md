@@ -8,7 +8,10 @@ neutral camps and jungle-role matches remain unfinished.
 The subsequent [neutral Gromp encounter](NEUTRAL-GROMP.md) integrates the first
 controlled combat unit with a distinct neutral faction, private aggro, local
 leash/reset policies and saved continuation. It does not activate standard-mode
-camps or certify final rewards and native behavior.
+camps or certify final rewards and native behavior. The later
+[Blue Sentinel increment](BLUE-SENTINEL.md) adds normal-skin Blue combat and two
+source-linked lane-match camps, retaining the skin-4 placement conflict and
+missing native range/buff rules explicitly.
 
 `reference/jungle-character-source.json` retains 64 original files totaling
 2,898,228 bytes, with manifest, compressed-chunk and per-file hashes. Its manifest
@@ -89,9 +92,10 @@ objects or imply that source object presence selects a live skin or camp roster.
 Selection reuses loaded rigs and requests no rig for the other nine characters.
 A failed GLB request can retry; a late response stays hidden when another
 character has been selected. Playback is manually controlled, clamps at clip
-end, and supports rewinding and restarting. Production startup imports none of
-this page, source data or preview code; the two GLBs remain static files for
-future monster integration.
+end, and supports rewinding and restarting. Production excludes this page, its source catalog and preview code. The game
+loads the existing Gromp/Blue rigs when their encounters or scheduled camps
+require them; ordinary practice requests neither rig. Preview skin selection
+does not certify native camp activation.
 
 ## Reproduction and verification
 

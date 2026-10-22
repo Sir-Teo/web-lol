@@ -1,10 +1,6 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
-import { GROMP_SPAWN_LEADUP_TICKS, GROMP_SPAWN_CLIP_TICKS } from '../content/gromp';
-import {
-  RIFT_GROMP_CAMPS,
-  GROMP_FIRST_SPAWN_TICK,
-  GROMP_RESPAWN_TICKS,
-} from '../content/rift-gromp-camps';
+import { MONSTERS } from '../content/monsters';
+import { RIFT_CAMPS } from '../content/rift-camps';
 import {
   GROMP_ATTACK_PATH_FRAMES,
   GROMP_ATTACK_VISUAL_TAIL_TICKS,
@@ -63,7 +59,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 89;
+export const SNAPSHOT_VERSION = 90;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -133,7 +129,7 @@ const unit = z
     team: faction,
     monster: z
       .strictObject({
-        species: z.literal('gromp'),
+        species: z.enum(['gromp', 'blue']),
         home: point,
         phase: z.enum(['spawning', 'idle', 'engaged', 'returning']),
         targetId: id.nullable(),
@@ -647,12 +643,12 @@ const snapshot = z.strictObject({
   jungleCamps: z
     .array(
       z.strictObject({
-        id: z.enum(['order-gromp', 'chaos-gromp']),
+        id: z.enum(['order-gromp', 'chaos-gromp', 'order-blue', 'chaos-blue']),
         unitId: id.nullable(),
         nextSpawnTick: tick.nullable(),
       })
     )
-    .max(2),
+    .max(4),
   matchMode: z.enum(['practice', 'lanes']),
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),
@@ -862,31 +858,33 @@ export function decodeSnapshot(text: string) {
   if (state.matchMode === 'lanes' && state.battlefield !== 'rift')
     throw new Error('Lane matches require Summoner’s Rift.');
   if (
-    state.jungleCamps.length !== (state.matchMode === 'lanes' ? 2 : 0) ||
+    state.jungleCamps.length !== (state.matchMode === 'lanes' ? RIFT_CAMPS.length : 0) ||
     (state.jungleCamps.length > 0 && state.battlefield !== 'rift') ||
     new Set(state.jungleCamps.map((c) => c.id)).size !== state.jungleCamps.length
   )
     throw new Error('Saved match has invalid jungle camps.');
   for (const camp of state.jungleCamps) {
-    const definition = RIFT_GROMP_CAMPS.find((c) => c.id === camp.id)!;
+    const definition = RIFT_CAMPS.find((c) => c.id === camp.id)!;
+    const profile = MONSTERS[definition.species];
     const unit = state.units.find((u) => u.id === camp.unitId);
     if (camp.unitId === null) {
       if (
         camp.nextSpawnTick === null ||
-        camp.nextSpawnTick - GROMP_SPAWN_LEADUP_TICKS <= state.tick ||
-        (state.tick < GROMP_FIRST_SPAWN_TICK
-          ? camp.nextSpawnTick !== GROMP_FIRST_SPAWN_TICK
-          : camp.nextSpawnTick > state.tick + GROMP_RESPAWN_TICKS)
+        camp.nextSpawnTick - profile.spawnLeadupTicks <= state.tick ||
+        (state.tick < definition.firstReadyTick
+          ? camp.nextSpawnTick !== definition.firstReadyTick
+          : camp.nextSpawnTick > state.tick + definition.respawnTicks)
       )
         throw new Error('Saved jungle camp has an invalid spawn deadline.');
     } else if (
       camp.nextSpawnTick !== null ||
-      state.tick < GROMP_FIRST_SPAWN_TICK - GROMP_SPAWN_LEADUP_TICKS ||
+      state.tick < definition.firstReadyTick - profile.spawnLeadupTicks ||
       !unit ||
       unit.kind !== 'monster' ||
+      unit.monster.species !== definition.species ||
       unit.hp <= 0 ||
-      (state.tick < GROMP_FIRST_SPAWN_TICK &&
-        unit.monster.spawn?.readyTick !== GROMP_FIRST_SPAWN_TICK) ||
+      (state.tick < definition.firstReadyTick &&
+        unit.monster.spawn?.readyTick !== definition.firstReadyTick) ||
       unit.monster.home.x !== definition.point.x ||
       unit.monster.home.y !== definition.point.y ||
       state.jungleCamps.some((c) => c.id !== camp.id && c.unitId === camp.unitId)
@@ -907,12 +905,13 @@ export function decodeSnapshot(text: string) {
   for (const unit of state.units) {
     if (unit.kind === 'monster') {
       const spawn = unit.monster.spawn;
+      const profile = MONSTERS[unit.monster.species];
       if (
         (unit.monster.phase === 'spawning' && !spawn) ||
         (spawn &&
           (spawn.startTick > state.tick ||
-            spawn.readyTick - spawn.startTick !== GROMP_SPAWN_LEADUP_TICKS ||
-            state.tick >= spawn.startTick + GROMP_SPAWN_CLIP_TICKS ||
+            spawn.readyTick - spawn.startTick !== profile.spawnLeadupTicks ||
+            state.tick >= spawn.startTick + profile.spawnClipTicks ||
             (unit.monster.phase === 'spawning') !== state.tick < spawn.readyTick ||
             unit.monster.phase === 'engaged' ||
             unit.monster.phase === 'returning' ||
