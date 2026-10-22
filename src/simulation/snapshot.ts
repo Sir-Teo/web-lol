@@ -89,7 +89,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 101;
+export const SNAPSHOT_VERSION = 102;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1210,13 +1210,12 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   if (state.matchMode === 'lanes' && state.battlefield !== 'rift')
     throw new Error('Lane matches require Summoner’s Rift.');
   if (
-    state.jungleCamps.length !== (state.matchMode === 'lanes' ? RIFT_CAMPS.length : 0) ||
-    (state.jungleCamps.length > 0 && state.battlefield !== 'rift') ||
+    state.jungleCamps.length !== (state.battlefield === 'rift' ? RIFT_CAMPS.length : 0) ||
     new Set(state.jungleCamps.map((c) => c.id)).size !== state.jungleCamps.length
   )
     throw new Error('Saved match has invalid jungle camps.');
   const river = state.scuttlers;
-  if ((state.matchMode === 'lanes') !== (river !== null))
+  if ((state.battlefield === 'rift') !== (river !== null))
     throw new Error('Saved match has invalid river controller.');
   const riverIds = new Set<number>();
   if (river) {

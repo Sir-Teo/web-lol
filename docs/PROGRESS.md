@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,253 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,261 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,12 +14,43 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-101 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-101 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-102 continuation. Rift practice and the interim lane match share both source-linked Gromp camps, with independent death-based respawns, protected source emergence and schema-102 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
   wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Rift practice](RIFT-PRACTICE.md) now initializes the same twelve ordinary camp
+calendars and shared river controller as the interim lane match. Purchased
+companions can earn growth from those scheduled camps. Initialization belongs
+to the map, with fresh mutable slots and clocks for each world. The development
+fixture retains its isolated encounters. Existing source locators, emergence,
+Krug offspring, respawn rules and river selection policies are unchanged.
+Schema 102 requires full camp/river state in every Rift save; restoration replaces
+the defaults with the validated checkpoint. Earlier formats remain incompatible.
+
+All 1,261 checks across 239 files and TypeScript pass, including eight new
+practice lifecycle cases. Seventeen focused Chrome scenarios pass across both
+modes, all companion variants, failed/delayed preparation and fixture/reset
+regressions. The default-practice case reaches first readiness on its untouched
+live clock: from tick 82 to a paused tick 3,321, with all eight 55-second packs
+ready, followed by an exact saved reload. Its wait and restoration take 59,139 ms.
+Other interaction cases retain explicit clock/approach/health setup and later
+synthetic feeding; they do not certify a natural complete jungle route.
+
+All eleven new practice captures and three production captures were visually
+reviewed. Production build and `/nested/rift/` smoke pass, preparing all eleven
+scheduled monster rigs before practice play, preserving 17 recordings and buying
+and restoring Gustwalker in actual production practice. There are no unrequested
+companion preloads, development hooks, review-data requests or failed/outside-prefix
+resources. A new smoke assertion initially counted the legitimate Gromp death
+particle mesh as a monster rig; its corrected filter now counts source monster
+model names. The existing bundle warning remains (689.18 KB game, 659.92 KB Three).
+Exact results are in [the practice ledger](reference/rift-practice-verification.json).
+Formal jungle roles, epic objectives, native calibration, full matches,
+delivery/offline and full-match performance acceptance remain unfinished.
+The full project goal stays active.
 
 [Companion purchases](COMPANION-ITEMS.md) now connect all three starters to the
 ordinary Rift shop. Each costs 450 and requires Smite; selected Smite supplies
@@ -54,8 +85,10 @@ of Gustwalker with no development hook. Unowned companions do not preload;
 the smoke makes two selected-rig requests for purchase and restore, retaining
 17 recordings. The existing bundle warning remains (689.14 KB game, 659.92 KB
 Three). Exact results are in [the lifecycle ledger](reference/companion-items-verification.json).
-Formal jungle roles, ordinary practice camp calendars, consumables/undo, native
-lifecycle/bonus/role reward calibration and full role matches remain unfinished.
+At the schema-101 milestone, ordinary practice camp calendars were still
+unfinished; the current shared calendar is described above. Formal jungle roles,
+consumables/undo, native lifecycle/bonus/role reward calibration and full role
+matches remain unfinished.
 The full project goal stays active.
 
 [The historical passive foundation](OWNED-COMPANIONS.md#final-passive-adapters)

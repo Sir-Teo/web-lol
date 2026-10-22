@@ -1,5 +1,14 @@
 # Local match checkpoints
 
+Current schema 102 requires all twelve ordinary camp calendars and the shared
+river controller in every Rift checkpoint, including practice. Map initialization
+creates the same calendars for practice and lane matches; restoration replaces
+the defaults with validated saved clocks and ownership. Controlled development
+fixtures retain their separate encounters. Earlier formats and fingerprints
+remain incompatible. [Rift practice](RIFT-PRACTICE.md) records current validation.
+The purchased-companion acquisition and consumed-item state introduced in schema
+101 remains required; see [companion purchases](COMPANION-ITEMS.md).
+
 Version 87 adds required neutral Gromp attack presentation histories: projectile
 and source identity, original launch point/tick, optional stop and contiguous
 position/heading frames. The 34-frame path and 31-tick stopped tail preserve

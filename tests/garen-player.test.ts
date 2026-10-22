@@ -34,6 +34,9 @@ test('Garen player practice owns a resource-free unlearned kit and never enters 
   );
   const saved = JSON.parse(w.snapshot());
   saved.battlefield = 'rift';
+  const rift = new World(false, { ...PRACTICE_FIXTURE, id: 'rift' });
+  saved.jungleCamps = rift.jungleCamps;
+  saved.scuttlers = rift.scuttlers;
   expect(() =>
     World.fromSnapshot(JSON.stringify(saved), { ...PRACTICE_FIXTURE, id: 'rift' })
   ).toThrow(/development practice fixture/);

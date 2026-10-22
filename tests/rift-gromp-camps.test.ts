@@ -146,14 +146,13 @@ test('a pre-spawn checkpoint resumes both camps once and game end freezes their 
   expect(world.snapshot()).toBe(ended);
 });
 
-test('practice and controlled fixtures do not silently acquire a live camp calendar', () => {
-  for (const battlefield of [rift, PRACTICE_FIXTURE]) {
-    const world = new World(false, battlefield);
-    world.tick = GROMP_FIRST_SPAWN_TICK - 1;
-    world.step();
-    expect(world.jungleCamps).toEqual([]);
-    expect(world.units.some((u) => u.kind === 'monster')).toBe(false);
-  }
+test('the controlled practice fixture retains its isolated encounter calendar', () => {
+  const world = new World(false, PRACTICE_FIXTURE);
+  world.tick = GROMP_FIRST_SPAWN_TICK - 1;
+  world.step();
+  expect(world.jungleCamps).toEqual([]);
+  expect(world.scuttlers).toBeNull();
+  expect(world.units.some((u) => u.kind === 'monster')).toBe(false);
 });
 
 test('checkpoint validation rejects missing, duplicate, premature and inconsistent camp ownership', () => {
@@ -186,7 +185,7 @@ test('checkpoint validation rejects missing, duplicate, premature and inconsiste
     s.units.find((u: any) => u.id === s.jungleCamps[0].unitIds[0]).monster.home.x++;
   });
   invalid((s) => {
-    s.matchMode = 'practice';
+    s.battlefield = 'practice-fixture';
   });
   invalid((s) => {
     s.version = 87;

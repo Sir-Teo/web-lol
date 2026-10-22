@@ -1,5 +1,8 @@
 # Rift Scuttler in the lane match
 
+The same shared controller now runs in [ordinary Rift practice](RIFT-PRACTICE.md).
+The lane-only milestone below retains its original source and validation scope.
+
 The interim lane match now includes the base Scuttler rig and a shared river
 controller alongside its twelve ordinary jungle camp calendars. Both initial
 Scuttlers become ready at 2:55. After both die, each later clear schedules one

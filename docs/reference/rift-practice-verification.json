@@ -1,0 +1,241 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "83af459d690ca517ef495e6613b7381f271cce7e",
+  "scope": "Shared Rift camp and river initialization in ordinary practice and interim lane matches; earned companion feeding, exact continuation and real production asset preparation. Full jungle-role matches and native calibration remain unfinished.",
+  "schema": 102,
+  "rulesetFingerprint": "ed264d9e10e62a2ebedb80ec9348abc570dfc972f49a27cfe11a9d48666cd24d",
+  "initialization": {
+    "owner": "World constructor for battlefield.id=rift",
+    "practiceAndLanes": true,
+    "emptyPopulationWorlds": true,
+    "ordinaryCalendars": 12,
+    "initialOrdinaryMonsters": 28,
+    "initialRiverMonsters": 2,
+    "sourceMonsterRigs": 11,
+    "separateDevelopmentFixture": "No automatic Rift camps or river controller. Controlled encounters retain their own setup.",
+    "freshMutableStatePerWorld": true,
+    "restoration": "Validated saved state replaces fresh defaults; no restart of clocks or duplicate ownership."
+  },
+  "sourcePolicy": "Existing camp definitions, locators, emergence, Krug splits, shared river selection, rewards and companion policies are unchanged. Their native activation/timing/reward limitations remain open; no new native evidence is claimed.",
+  "retainedDefinitions": [
+    {
+      "path": "src/content/rift-camps.ts",
+      "sha256": "b6234f2fb3ba9950f810e636cb6ea59c92e0000724366df241ad673a34cf4026"
+    },
+    {
+      "path": "src/content/rift-gromp-camps.json",
+      "sha256": "738d9dafa56067b0c55420de726a59714eadfbe1a47cb848841a3052a367255c"
+    },
+    {
+      "path": "src/content/blue-sentinel.json",
+      "sha256": "0e600a6c23f3e98c4e11122ddaadadcd3188820f47c29a32c7169c27e0c646f4"
+    },
+    {
+      "path": "src/content/red-brambleback.json",
+      "sha256": "6d177684631dee4ce2427c0c103e52c0ca58f3e89edc55d4b11d9487f6da3f80"
+    },
+    {
+      "path": "src/content/wolf-camps.json",
+      "sha256": "0c4dc129e6229f8029cde48b153baa908a0055c7181b3055ca64d09c2b55aa44"
+    },
+    {
+      "path": "src/content/raptor-camps.json",
+      "sha256": "3f971e73a3fbd617e1f3f317c4173f544767174d820616ba0cbe39d16e203b52"
+    },
+    {
+      "path": "src/content/krug-camps.json",
+      "sha256": "35e55accd59b01ffec1fde6fda8c467d011a3930fb9e0f220e8f98e352f6b59d"
+    },
+    {
+      "path": "src/content/scuttler-policy.ts",
+      "sha256": "66ed9ca9335af1c619c59e6b5442feea1a2586cad76bb71923e39f749da1d5e3"
+    },
+    {
+      "path": "src/content/owned-companions.json",
+      "sha256": "fa2abd2d104dd1bccfa8de1c5fe1d228b83ec1279d39c6aa907752acceacd2e7"
+    }
+  ],
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "result": "passed",
+    "typecheck": "passed",
+    "files": 239,
+    "tests": 1261,
+    "newCases": 8,
+    "coverage": [
+      "Populated/bare practice map calendars and independent ownership.",
+      "All twelve packs, protected first emergence, thirty initial monsters with both river births.",
+      "Each purchased variant feeds from a scheduled real Smite command and resumes its independent death-based spawn.",
+      "Corpse-free, engaged and respawn continuation through exact snapshots.",
+      "Paired river deaths, shrines and shared later single birth.",
+      "Missing/duplicate calendars, absent river controller and old version rejection.",
+      "Engaged purchased-companion and camp leash recovery preserve exact practice checkpoints."
+    ]
+  },
+  "browser": {
+    "command": "npx playwright test e2e/rift-practice-calendar.spec.ts e2e/companion-items.spec.ts e2e/rift-gromp-camps.spec.ts e2e/scuttler.spec.ts e2e/practice-learning-reset.spec.ts e2e/neutral-gromp.spec.ts --reporter=line",
+    "channel": "chrome",
+    "workers": 1,
+    "passed": 17,
+    "duration": "9.7 minutes",
+    "newPracticeCases": 6,
+    "preservedCases": 11,
+    "coverage": [
+      "All three companion variants: real practice menu, source rig preparation, actual shop purchase, real F input for a prepared Gromp last hit, feeding/evolution/consumption, exact early/first/full saves, starter reservation and restart.",
+      "Both modes: Gromp visibility, real attack and retaliation, corpse-free pending save and fresh respawn.",
+      "Both modes: paired Scuttler emergence, real Lux attack/Binding, fleeing/root, shrines, exact saves and selected later river.",
+      "Failed/delayed companion preparation and purchase revalidation.",
+      "Controlled Gromp fixture isolation and learned/unlearned practice cooldown-reset saves.",
+      "Uninterrupted default-practice first camp readiness and exact live-clock save/reload."
+    ],
+    "diagnosticLimits": "Companion/camp/river interaction cases use clock jumps, approach/health/stun setup and later synthetic feeding. The natural first-deadline case changes no clock, units or AI. These checks do not certify a natural complete route, full match or native visual parity.",
+    "naturalClock": {
+      "artifact": "artifacts/rift-practice-natural-calendar.json",
+      "sha256": "8892fba88304898a98e89f389c6dd73fcd5cb9a0227fa40b87292f1baccedef2",
+      "initialTick": 82,
+      "pausedTickAfterReadiness": 3321,
+      "firstReadyTick": 3300,
+      "totalWaitAndRestoreMilliseconds": 59139,
+      "clockMutation": false,
+      "exactSaveReload": true,
+      "readyPackIds": [
+        "order-blue",
+        "chaos-blue",
+        "order-red",
+        "chaos-red",
+        "order-wolves",
+        "chaos-wolves",
+        "order-raptors",
+        "chaos-raptors"
+      ]
+    },
+    "practiceCompanionPixels": {
+      "gustwalker": {
+        "babyPixels": 501,
+        "adultPixels": 514,
+        "fedAfterRealSmite": 2,
+        "selectedRigRequestsAcrossPurchaseAndReloads": 5
+      },
+      "scorchclaw": {
+        "babyPixels": 492,
+        "adultPixels": 547,
+        "fedAfterRealSmite": 2,
+        "selectedRigRequestsAcrossPurchaseAndReloads": 5
+      },
+      "mosstomper": {
+        "babyPixels": 402,
+        "adultPixels": 562,
+        "fedAfterRealSmite": 2,
+        "selectedRigRequestsAcrossPurchaseAndReloads": 5
+      }
+    },
+    "visuallyReviewedNewPracticeCaptures": [
+      {
+        "path": "artifacts/companion-item-gustwalker-practice-rift.png",
+        "sha256": "6937e52000e52bbef21c37eb5aed5411c04f2e90f3743d114169a59ec5343c0f"
+      },
+      {
+        "path": "artifacts/companion-item-gustwalker-practice-grown.png",
+        "sha256": "d42107d47ca3993b1d4d8751f7742d4dcadb227c732051a817474c3c13b9f56c"
+      },
+      {
+        "path": "artifacts/companion-item-scorchclaw-practice-rift.png",
+        "sha256": "958131bb55b38e777be2011a12675a06b31d0b7a56d54129ed1d8f8f2532dc18"
+      },
+      {
+        "path": "artifacts/companion-item-scorchclaw-practice-grown.png",
+        "sha256": "f52ef76d35f8f82908594bea39f4be1e10124c1ef5c9fb2ee6e896c7fa35948b"
+      },
+      {
+        "path": "artifacts/companion-item-mosstomper-practice-rift.png",
+        "sha256": "5e5c2540102c1ff60f90960219bf2d7574b5e5db2a7b59537a327973ee3a2a50"
+      },
+      {
+        "path": "artifacts/companion-item-mosstomper-practice-grown.png",
+        "sha256": "59062a81ab9fb8a2ebfa535c875aad36f5080872047992d469b8439553aa6b2d"
+      },
+      {
+        "path": "artifacts/rift-gromp-camp-practice.png",
+        "sha256": "fdeb52d574e255d0f4005ad026025e8d92e28c774bf84b270ec386a45551845c"
+      },
+      {
+        "path": "artifacts/rift-gromp-respawn-practice.png",
+        "sha256": "0c36338866c0b33ee752d812f0ccb91aec61a991961273d764dbbe63623dfabe"
+      },
+      {
+        "path": "artifacts/scuttler-flee-practice.png",
+        "sha256": "126ab76be343681989fdc522664ac420891c3aecbd60b864ca348a08eba2cb2e"
+      },
+      {
+        "path": "artifacts/scuttler-shrine-practice.png",
+        "sha256": "feea95ac0d9eb18e393c6b3ceb533dc175371e33a6f40d0641705a6857420381"
+      },
+      {
+        "path": "artifacts/scuttler-later-river-practice.png",
+        "sha256": "384bb1730ceafa14124c7520787ef78177d449611fb53dded1dbd5948187f183"
+      }
+    ],
+    "reviewScope": "Readable source rig, terrain/fog, HUD, selected starter/evolved icon, consumed item and local shrine integration. Native pixel matching is unverified."
+  },
+  "testAuthoringCorrections": [
+    "The Garen rejection fixture now supplies otherwise valid Rift calendars, preserving the specific forbidden-player assertion.",
+    "Later respawn checks step live simulation before taking their checkpoint; directly jumping the clock leaves expired companion/shrine state until the next step.",
+    "The first browser collection attempt imported content JSON through Node without import attributes; the natural-clock test now reads the same definitions through the running Vite browser module."
+  ],
+  "production": {
+    "command": "npm run test:production",
+    "status": "passed",
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 17,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 2,
+      "scheduledGrompRequests": 102,
+      "scheduledBlueRequests": 6,
+      "scheduledRedRequests": 6,
+      "scheduledWolfRequests": 12,
+      "scheduledRaptorRequests": 12,
+      "scheduledKrugRequests": 18,
+      "scheduledScuttlerRequests": 6,
+      "screenshot": "artifacts/production-subpath.png"
+    },
+    "chunksKB": {
+      "game": 689.18,
+      "three": 659.92
+    },
+    "warning": "Existing Vite warning for chunks larger than 500 KB remains. No new full-match or cold-load performance certification.",
+    "assertionCorrection": "The first smoke counted the legitimate Gromp death-particle GLB as a twelfth monster rig. The corrected filter counts only models/sru-*-base.glb; resource/failure/review-data checks remain intact.",
+    "visuallyReviewedCaptures": [
+      {
+        "path": "artifacts/production-subpath.png",
+        "sha256": "c48aa652cc7a9e59928a1a22211ace5a3be61c70aa151b2d94cb7113144ec2dc"
+      },
+      {
+        "path": "artifacts/production-lux.png",
+        "sha256": "b2ef0778e6ea386a262ae2034b97e6188a14f36720a8498282752c3a84a8b280"
+      },
+      {
+        "path": "artifacts/production-companion-purchase.png",
+        "sha256": "ecdc8818b3392809db242e346b7702dab2a01e9bd2a773e67ed32a04fb3c5150"
+      }
+    ]
+  },
+  "remaining": [
+    "Formal role selection and team role constraints, jungle bots and full role-aware 5v5.",
+    "Epic objectives, full champion roster and kits, consumables/undo and complete builds/runes.",
+    "Current native camp/companion activation, scaling, rewards, timing, materials, effects/audio and visual comparison.",
+    "Full seeded matches, offline delivery, cross-browser behavior and complete-match performance acceptance."
+  ]
+}

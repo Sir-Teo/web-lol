@@ -1,9 +1,7 @@
 import type { Battlefield } from './battlefield';
 import { World } from './world';
-import { newRiverScuttlers } from './scuttler';
 import { equipSummoners, type SummonerLoadout } from './smite';
 import { DEFAULT_SUMMONERS } from '../content/summoners';
-import { RIFT_CAMPS, type RiftCampId } from '../content/rift-camps';
 
 /** Interim lane-only roster: mirrors are deliberate until more complete kits ship. */
 export function createLaneMatch(
@@ -37,14 +35,6 @@ export function createLaneMatch(
   );
   world.matchMode = 'lanes';
   equipSummoners(world.player, summoners);
-  world.scuttlers = newRiverScuttlers();
-  world.jungleCamps = RIFT_CAMPS.map((camp) => ({
-    id: camp.id as RiftCampId,
-    unitIds: camp.members.map(() => null),
-    cleanupTicks: camp.members.map(() => null),
-    nextSpawnTick: camp.firstReadyTick,
-    splitWaves: [],
-  }));
   for (const team of ['blue', 'red'] as const) {
     for (const [slot, assignment] of assignments.entries()) {
       // Human Lux takes mid; Ashe takes bottom. Neither receives an automatic lane order.

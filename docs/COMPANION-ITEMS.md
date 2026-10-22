@@ -3,15 +3,14 @@
 Gustwalker Hatchling, Scorchclaw Pup and Mosstomper Seedling can now be bought
 through the ordinary Rift shop. Each costs 450 gold and requires Smite in either
 slot. The purchased companion uses the shared [ownership and passive controller](OWNED-COMPANIONS.md).
-This makes earned companion growth available in the interim lane match; it does
-not complete jungle roles or certify native item behavior.
+Earned companion growth is available in both Rift practice and the interim lane
+match; jungle roles and native item behavior remain unfinished.
 
-Use Pause → New match, select Smite, start the lane match, and buy a companion at
-your fountain. Selecting Smite is the current shop binding. Other equipment is
+Use Pause → New match, select Smite, start practice or the lane match, and buy a
+companion at your fountain. Selecting Smite is the current shop binding. Other equipment is
 locked until the player owns a companion. The current catalog has no consumables;
-health potions and the complete shop remain future work. Ordinary Rift practice
-can also purchase and follow, but its natural jungle camp calendar remains
-unfinished; use the lane match for camp clears and earned growth.
+health potions and the complete shop remain future work. [Rift practice](RIFT-PRACTICE.md)
+now supplies the same scheduled camps and Scuttlers as the lane match.
 
 ## Ownership rules
 
@@ -46,7 +45,8 @@ checks current gold, ownership, capacity, game state and fountain access again.
 A model can remain cached after an unsuccessful revalidation, so retrying a legal
 purchase does not require another download. Unowned variants are not preloaded.
 
-Schema 101 distinguishes free development fixture grants from purchases.
+Schema 101 introduced the distinction between free development fixture grants and
+purchases; schema 102 retains it alongside the shared Rift practice calendars.
 Purchased records retain a nullable consumption tick: before full growth, exactly
 one matching starter must be in the owner's inventory; after full growth, no
 starter may remain and consumption must match the full-growth tick. Malformed

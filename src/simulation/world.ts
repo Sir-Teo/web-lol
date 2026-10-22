@@ -2,6 +2,7 @@ import {
   advanceRiverScuttlers,
   advanceScuttler,
   grantRiverSpeed,
+  newRiverScuttlers,
   scuttlerKilled,
   shrinePoint,
 } from './scuttler';
@@ -46,6 +47,7 @@ import {
 } from '../content/monsters';
 import {
   RIFT_CAMPS,
+  type RiftCampId,
   campLeadupTicks,
   campMemberHome,
   splitMemberHomes,
@@ -252,6 +254,16 @@ export class World {
     if (playerChampion === 'garen' && battlefield.id !== 'practice-fixture')
       throw new Error('Garen player kit is available only in the development practice fixture.');
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
+    if (battlefield.id === 'rift') {
+      this.scuttlers = newRiverScuttlers();
+      this.jungleCamps = RIFT_CAMPS.map((camp) => ({
+        id: camp.id as RiftCampId,
+        unitIds: camp.members.map(() => null),
+        cleanupTicks: camp.members.map(() => null),
+        nextSpawnTick: camp.firstReadyTick,
+        splitWaves: [],
+      }));
+    }
     const champion = this.spawn('champion', 'blue', battlefield.spawns.blue, playerChampion);
     this.player = this.championRecords.get(champion.id)!;
     if (populate)

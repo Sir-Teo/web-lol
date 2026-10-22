@@ -71,7 +71,6 @@ try {
     scheduledKrugRequests = [],
     scheduledScuttlerRequests = [],
     recordings = new Set();
-  let laneMatchStarted = false;
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(message.text());
@@ -84,7 +83,7 @@ try {
         request.url()
       )
     )
-      if (!laneMatchStarted || /jungle-character-source|jungle-characters/.test(request.url()))
+      if (/jungle-character-source|jungle-characters/.test(request.url()))
         junglePreviewRequests.push(request.url());
       else if (request.url().includes('sru-blue-base')) scheduledBlueRequests.push(request.url());
       else if (request.url().includes('sru-red-base')) scheduledRedRequests.push(request.url());
@@ -123,6 +122,20 @@ try {
     false,
     'The production battlefield must remain opaque under subtractive particles'
   );
+  const practiceRigs = [
+    ...scheduledGrompRequests,
+    ...scheduledBlueRequests,
+    ...scheduledRedRequests,
+    ...scheduledWolfRequests,
+    ...scheduledRaptorRequests,
+    ...scheduledKrugRequests,
+    ...scheduledScuttlerRequests,
+  ].filter((url) => /\/models\/sru-[^/]+-base\.glb$/.test(url));
+  assert.equal(
+    new Set(practiceRigs).size,
+    11,
+    'Ordinary Rift practice must prepare all eleven scheduled monster rigs'
+  );
   await page.goto(`${base}?scene=fixture&champion=garen&encounter=gromp&companion=gustwalker`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
@@ -157,7 +170,6 @@ try {
     .getByRole('group', { name: 'F spell', exact: true })
     .getByRole('button', { name: 'Smite', exact: true })
     .click();
-  laneMatchStarted = true;
   await Promise.all([
     page.waitForEvent('load'),
     page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
@@ -215,6 +227,17 @@ try {
     [],
     'Prepared companions must not preload into ordinary matches'
   );
+  await page.getByRole('button', { name: 'New match', exact: true }).click();
+  await Promise.all([
+    page.waitForEvent('load'),
+    page.getByRole('button', { name: 'Start practice', exact: true }).click(),
+  ]);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert((await page.locator('.match-identity').textContent()).includes('PRACTICE'));
+  assert.equal(
+    await page.locator('[data-ability="f"] img').getAttribute('src'),
+    'assets/icons/SummonerSmite.png'
+  );
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.keyboard.press('p');
   await page.locator('.shop-catalog').waitFor({ state: 'visible' });
@@ -257,43 +280,39 @@ try {
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.screenshot({ path: 'artifacts/production-companion-purchase.png' });
   assert.deepEqual(outside, [], 'Purchased companion assets must stay beneath the host prefix');
-  assert.deepEqual(
-    junglePreviewRequests,
-    [],
-    'Production must not request jungle review data or rigs'
-  );
+  assert.deepEqual(junglePreviewRequests, [], 'Production must not request jungle review data');
   assert(
     scheduledGrompRequests.some((url) => url.endsWith('/sru-gromp-base.glb')),
-    'Lane matches must prepare the scheduled Gromp rig beneath the host prefix'
+    'Rift matches must prepare the scheduled Gromp rig beneath the host prefix'
   );
   assert(
     scheduledBlueRequests.some((url) => url.endsWith('/sru-blue-base.glb')),
-    'Lane matches must prepare the normal Blue Sentinel rig beneath the host prefix'
+    'Rift matches must prepare the normal Blue Sentinel rig beneath the host prefix'
   );
   assert.deepEqual(failed, [], 'All production resources must load successfully');
   assert(
     scheduledRedRequests.some((url) => url.endsWith('/sru-red-base.glb')),
-    'Lane matches must prepare the normal Red Brambleback rig beneath the host prefix'
+    'Rift matches must prepare the normal Red Brambleback rig beneath the host prefix'
   );
   assert.deepEqual(errors, [], 'No production JavaScript or console errors');
   for (const rig of ['sru-murkwolf-base', 'sru-murkwolfmini-base'])
     assert(
       scheduledWolfRequests.some((url) => url.endsWith(`/${rig}.glb`)),
-      'Lane matches must prepare both wolf rigs'
+      'Rift matches must prepare both wolf rigs'
     );
   for (const rig of ['sru-razorbeak-base', 'sru-razorbeakmini-base'])
     assert(
       scheduledRaptorRequests.some((url) => url.endsWith(`/${rig}.glb`)),
-      'Lane matches must prepare both raptor rigs'
+      'Rift matches must prepare both raptor rigs'
     );
   for (const rig of ['sru-krug-base', 'sru-krugmini-base', 'sru-krugminimini-base'])
     assert(
       scheduledKrugRequests.some((url) => url.endsWith(`/${rig}.glb`)),
-      'Lane matches must prepare all three Krug rigs, including future descendants'
+      'Rift matches must prepare all three Krug rigs, including future descendants'
     );
   assert(
     scheduledScuttlerRequests.some((url) => url.endsWith('/sru-crab-base.glb')),
-    'Lane matches must prepare the peaceful Scuttler rig before its calendar or shrine exists'
+    'Rift matches must prepare the peaceful Scuttler rig before its calendar or shrine exists'
   );
   console.log(
     JSON.stringify({
@@ -301,11 +320,13 @@ try {
       prefix,
       recordings: recordings.size,
       mapNavigation: true,
+      practiceScheduledRigs: new Set(practiceRigs).size,
       realHawkshotCast: true,
       realLuxBindingCast: true,
       luxLaneRestart: true,
       selectedSmiteLoadoutAndRestart: true,
       companionPurchaseAndRestore: true,
+      companionPurchaseInPractice: true,
       unrequestedCompanionPreloads: 0,
       developmentHook: false,
       garenFixtureInProduction: false,

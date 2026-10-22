@@ -1,5 +1,8 @@
 # Interim Rift Gromp camps
 
+Current map initialization also supplies these camps in [Rift practice](RIFT-PRACTICE.md).
+The original lane-only milestone below records its earlier validation scope.
+
 The lane match now schedules one Gromp on each half of the actual Rift. A camp
 becomes ready at 67 seconds, uses the existing neutral combat/reset simulation, and
 schedules a fresh unit 135 seconds after death. The two calendars are independent.
