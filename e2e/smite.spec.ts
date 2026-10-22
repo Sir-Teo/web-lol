@@ -42,7 +42,7 @@ test('selected Smite uses real targeting, saved charges, camp rewards and restar
   await page.screenshot({ path: 'artifacts/smite-loadout.png' });
   await Promise.all([
     page.waitForEvent('load'),
-    page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
+    page.getByRole('button', { name: 'Start 5v5 match', exact: true }).click(),
   ]);
   await ready();
   await page.setViewportSize({ width: 1440, height: 900 });
@@ -169,7 +169,7 @@ test('selected Smite uses real targeting, saved charges, camp rewards and restar
   expect(charged).toBe(1);
   await Promise.all([
     page.waitForEvent('load'),
-    page.getByRole('button', { name: 'Restart lane match', exact: true }).click(),
+    page.getByRole('button', { name: 'Restart 5v5 match', exact: true }).click(),
   ]);
   await ready();
   expect(

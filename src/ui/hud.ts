@@ -1,3 +1,4 @@
+import { ROLE_LABELS } from '../content/bot-roles';
 import { resetTrinket } from '../simulation/wards';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { TRINKETS, ORACLE_SOURCE, type TrinketKind } from '../content/trinkets';
@@ -119,7 +120,7 @@ export class Hud {
     this.root = document.createElement('div');
     this.root.className = 'hud';
     this.root.innerHTML = `
-      <div class="match-identity"><span class="rift-emblem">◈</span><div><strong>SUMMONER’S RIFT</strong><span>${world.matchMode === 'lanes' ? 'LANE MATCH' : 'PRACTICE TOOL'} <i>•</i> LOCAL MATCH</span></div></div>
+      <div class="match-identity"><span class="rift-emblem">◈</span><div><strong>SUMMONER’S RIFT</strong><span>${world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE TOOL'} <i>•</i> LOCAL MATCH</span></div></div>
       <div class="match-top"><span class="team-score"><b class="blue-number" id="kills">0</b><i>⚔</i><b class="red-number" id="deaths">0</b></span><span class="personal-score" id="personal">0 / 0 / 0</span><span title="Creep score"><i class="gold-symbol">♜</i> <b id="cs">0</b></span><time id="clock">00:00</time><button class="icon-button" id="pause-button" title="Pause (Esc)" aria-label="Pause game">Ⅱ</button></div>
       <div class="welcome"><span>THE RIFT AWAITS</span><h1>Welcome to Summoner’s Rift</h1><div class="ornament">━━━━ ◈ ━━━━</div></div>
       <div id="toast" role="status" aria-live="polite"></div>
@@ -531,7 +532,7 @@ export class Hud {
         ? ('ashe' as const)
         : selectableChampion(this.world.hero.champion);
     const laneDescription = () =>
-      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and Scuttlers are available; jungle roles and epic objectives remain unfinished.`;
+      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe/Lux remain the interim roster; major objectives and complete team strategy are in development.`;
     const chosenSummoners = { ...this.world.player.summoners };
     const summonerChoices = () =>
       `<div class="summoner-selection" role="group" aria-label="Choose summoner spells">${(['d', 'f'] as const).map((slot) => `<fieldset><legend>${slot.toUpperCase()} spell</legend><div class="summoner-choices">${(Object.keys(SUMMONERS) as SummonerSpell[]).map((spell) => `<button class="menu-button" data-action="choose-summoner" data-summoner-slot="${slot}" data-spell="${spell}" aria-pressed="${chosenSummoners[slot] === spell}"><img src="assets/icons/${SUMMONERS[spell].icon}.png" alt="">${SUMMONERS[spell].name}</button>`).join('')}</div></fieldset>`).join('')}</div>`;
@@ -560,11 +561,11 @@ export class Hud {
     } else if (which === 'pause') {
       title = 'Game paused';
       subtitle = 'A moment of clarity before the next move.';
-      content = `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart lane match' : 'Restart practice'}</button>`;
+      content = `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart 5v5 match' : 'Restart practice'}</button>`;
     } else if (which === 'new-match') {
       title = 'Choose your match';
       subtitle = 'Play locally. Your browser runs the match.';
-      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${(['ashe', 'lux'] as const).map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${champion === 'lux' ? 'Lux' : 'Ashe'}</span></button>`).join('')}</div>${summonerChoices()}<button class="primary-button" data-action="start-lanes">Start lane match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools. Rift jungle camps and Scuttlers follow their normal spawn calendars.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
+      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${(['ashe', 'lux'] as const).map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${champion === 'lux' ? 'Lux' : 'Ashe'}</span></button>`).join('')}</div>${summonerChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools. Rift jungle camps and Scuttlers follow their normal spawn calendars.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'files') {
       title = 'Match files';
       subtitle = 'Keep a copy. Continue on another browser.';
@@ -945,6 +946,7 @@ export class Hud {
           cs: observed?.cs ?? null,
           inventory: observed?.inventory ?? null,
           summoners: state.summoners,
+          role: state.role,
         };
       });
     const signature = JSON.stringify({
@@ -954,7 +956,7 @@ export class Hud {
     if (signature === this.lastScoreboard) return;
     this.lastScoreboard = signature;
     const focusedItem = this.itemTooltip.focusKey();
-    panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? 'LANE MATCH' : 'PRACTICE MATCH'}</div><div class="scoreboard-teams"><section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section></div>`;
+    panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH'}</div><div class="scoreboard-teams"><section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section></div>`;
     for (const data of rows) {
       const row = document.createElement('div');
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;
@@ -1001,9 +1003,14 @@ export class Hud {
       name.textContent = data.name;
       name.title = data.name;
       const role = document.createElement('small');
-      role.textContent =
-        data.id === this.world.player.id ? 'You' : data.team === 'blue' ? 'Ally' : 'Opponent';
+      role.textContent = [
+        data.id === this.world.player.id ? 'You' : data.team === 'blue' ? 'Ally' : 'Opponent',
+        data.role ? ROLE_LABELS[data.role] : null,
+      ]
+        .filter(Boolean)
+        .join(' · ');
       name.append(role);
+      row.dataset.role = data.role ?? '';
       row.querySelector('.scoreboard-kda')!.textContent =
         `${data.kills} / ${data.deaths} / ${data.assists}`;
       row.querySelector('.scoreboard-cs')!.textContent =

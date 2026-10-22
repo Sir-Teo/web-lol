@@ -71,7 +71,7 @@ for (const mode of ['practice', 'lanes'] as const)
       page.waitForEvent('load'),
       page
         .getByRole('button', {
-          name: mode === 'practice' ? 'Start practice' : 'Start lane match',
+          name: mode === 'practice' ? 'Start practice' : 'Start 5v5 match',
           exact: true,
         })
         .click(),

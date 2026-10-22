@@ -2,7 +2,7 @@
 
 Design a browser game that reproduces as much of League of Legends' match experience as practical without an application backend. Quality and fidelity take priority over roster size or speed of delivery.
 
-The repository now contains interactive practice and lane-match modes plus the full production design. The production objective remains a complete, high-fidelity local 5v5 MOBA. This first playable is an intermediate milestone, not that completed product.
+The repository now contains interactive practice and interim 5v5 modes plus the full production design. The production objective remains a complete, high-fidelity local 5v5 MOBA. This first playable is an intermediate milestone, not that completed product.
 
 ## Run locally
 
@@ -11,9 +11,9 @@ npm ci
 npm run dev
 ```
 
-Open the localhost address printed by Vite. The game opens directly into Ashe practice unless a saved match exists. Use **Escape → New match** to choose Ashe or Lux for practice or a lane match. Lane matches pair you with four allied bots against five opponents; Ashe takes bottom lane and Lux takes mid. This interim mode uses Ashe/Lux with two top, one mid and two bottom per team; both modes schedule twelve ordinary Rift camps and Scuttlers, while jungle roles and epic objectives remain unfinished. Starting replaces the current browser save. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Ashe Q activates at four Focus stacks; Lux Q is aimed, and pressing E again detonates her active zone; F heals you and a nearby ally, preferring the ally under the cursor. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, hold 4 to aim and release a Stealth Ward or press 4 to activate an equipped Oracle Lens, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
+Open the localhost address printed by Vite. The game opens directly into Ashe practice unless a saved match exists. Use **Escape → New match** to choose Ashe or Lux for practice or a 5v5 match. Matches pair you with four allied bots against five opponents; Ashe takes bottom and Lux takes mid. This interim Ashe/Lux roster assigns top, jungle, mid, bottom and support on each team. Jungle bots scout and clear home camps using Smite and paid companions; supports leave nearby carry farm and place brush wards. Both modes schedule twelve ordinary camps and Scuttlers. Major objectives, the complete roster and team strategy remain unfinished. See [bot roles](docs/BOT-ROLES.md). Starting replaces the current browser save. Right-click to move or attack; hold W/E/R/D to aim and release to cast. Ashe Q activates at four Focus stacks; Lux Q is aimed, and pressing E again detonates her active zone; F heals you and a nearby ally, preferring the ally under the cursor. Use A then click an enemy to attack it, or the ground for attack-move; S to stop, B to recall, hold 4 to aim and release a Stealth Ward or press 4 to activate an equipped Oracle Lens, P for the shop, Space to recenter, Y to lock the camera, H for controls, and Escape to pause.
 
-To practice jungle clears, select Smite in either D/F slot in **New match**, start practice, and buy a companion at the fountain. The same camp and river calendars run in practice and lane matches. See [Rift practice](docs/RIFT-PRACTICE.md) for saved continuation and current limits.
+To practice jungle clears, select Smite in either D/F slot in **New match**, start practice, and buy a companion at the fountain. The same camp and river calendars run in practice and 5v5 matches. See [Rift practice](docs/RIFT-PRACTICE.md) for saved continuation and current limits.
 
 The separate trinket slot shows charges, recharge and placed count. Wards supply shared team vision and retain their lifetime through saves. Swap to Oracle Lens for free in the shop at your fountain or while dead. Its eight-second moving scan reveals and disables enemy wards, while hidden champions produce sampled silhouettes. See [Stealth Ward](docs/WARDING-TOTEM.md) and [Oracle Lens](docs/ORACLE-LENS.md) for controls and current native-calibration limits.
 
@@ -41,7 +41,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.
 
-`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, all 17 source recordings, real-input Hawkshot and Lux Binding casts, Lux selection and lane restart, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
+`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, 17 startup recordings and three selected Oracle recordings, real-input Hawkshot and Lux Binding casts, Lux selection and 5v5 restart, five-position scoreboard assignments and selected jungle companion rigs, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
 
 ## Current build
 
@@ -53,6 +53,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Oracle Lens controls, counterplay and source boundaries](docs/ORACLE-LENS.md)
 - [Rift practice camps and companion growth](docs/RIFT-PRACTICE.md)
 - [Local match checkpoints and compatibility](docs/SAVES.md)
+- [Five-position assignments and jungle/support decisions](docs/BOT-ROLES.md)
 - [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
@@ -67,7 +68,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Implementation milestones and acceptance criteria](docs/ROADMAP.md)
 - [Verified champion data sample](docs/reference/champion-sample.json)
 
-Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, and DOM HUD. Manual browser checkpoints and a selectable nine-bot lane match are implemented; complete role AI, automatic checkpoints and offline packs remain planned. Static hosting serves the files; gameplay needs no game server or runtime API.
+Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on a 2D plane, a 3D battlefield, and DOM HUD. Manual browser checkpoints and a selectable nine-bot 5v5 foundation are implemented; complete team/role AI, automatic checkpoints and offline packs remain planned. Static hosting serves the files; gameplay needs no game server or runtime API.
 
 Reference target: standard PC Summoner's Rift, patch 26.18, with Data Dragon 16.18.1 as a verified data starting point. This is a frozen reference, not a promise that every rule has already been reconstructed. The specification identifies what still requires measurement.
 

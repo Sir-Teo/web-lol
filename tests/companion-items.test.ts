@@ -249,7 +249,7 @@ test('purchases work on the imported Rift and real camp last hits feed through s
   const camp = w.jungleCamps.find((c) => c.id === 'order-gromp')!,
     u = w.unit(camp.unitIds[0]!)!;
   w.damage(w.hero, u, 999999, 'true');
-  expect(w.companions[0].fed).toBe(2);
+  expect(w.companions.find((p) => p.ownerId === w.hero.id)!.fed).toBe(2);
   expect(camp.unitIds[0]).toBeNull();
   expect(camp.nextSpawnTick).toBeGreaterThan(w.tick);
   resume(w);

@@ -10,6 +10,8 @@ import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
 
 export function createChampionState(id: number, unlocked = true, tick = 0): ChampionState {
   return {
+    role: null,
+    jungle: null,
     summoners: { ...DEFAULT_SUMMONERS },
     smite: null,
     trinket: newTrinket(tick),

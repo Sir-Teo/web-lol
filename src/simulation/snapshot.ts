@@ -1,3 +1,5 @@
+import { MATCH_ROLES, JUNGLE_BOT_POLICY } from '../content/bot-roles';
+import { jungleRoute } from './bot-jungle';
 import { WARD_SOURCE, WARD_POLICY, wardScaling } from '../content/warding-totem';
 import { ORACLE_SOURCE, ORACLE_POLICY, trinketScaling } from '../content/trinkets';
 import {
@@ -27,6 +29,7 @@ import {
   campLeadupTicks,
   campMemberHome,
   splitMemberHomes,
+  type RiftCampId,
 } from '../content/rift-camps';
 import type { Battlefield } from './battlefield';
 import {
@@ -94,11 +97,11 @@ import {
   CINDER_BURN_INTERVAL,
   cinderDamagePerTick,
 } from './red-buff';
-import type { Command, Order, PlayerState, Projectile, Unit } from './types';
+import type { Command, Order, PlayerState, Projectile, Unit, Team } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 106;
+export const SNAPSHOT_VERSION = 107;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -459,6 +462,23 @@ const inventorySchema = z
   );
 const player: z.ZodType<PlayerState> = z
   .strictObject({
+    role: z.enum(MATCH_ROLES).nullable(),
+    jungle: z
+      .strictObject({
+        camp: z.enum(RIFT_CAMPS.map((c) => c.id) as [RiftCampId, ...RiftCampId[]]).nullable(),
+        cursor: z.number().int().min(0).max(5),
+        quietSince: tick,
+        observations: z
+          .array(
+            z.strictObject({
+              camp: z.enum(RIFT_CAMPS.map((c) => c.id) as [RiftCampId, ...RiftCampId[]]),
+              seenTick: tick,
+              retryTick: tick,
+            })
+          )
+          .max(6),
+      })
+      .nullable(),
     trinket: z.strictObject({
       kind: z.enum(['ward', 'oracle']),
       createdTick: tick,
@@ -2398,8 +2418,41 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     champions.some((u) => !ownerIds.has(u.id))
   )
     throw new Error('Saved match contains invalid champion ownership.');
+  if (state.matchMode === 'lanes') {
+    for (const team of ['blue', 'red'] as const) {
+      const teamOwners = owners.filter((o) => champions.find((u) => u.id === o.id)?.team === team);
+      if (
+        teamOwners.length !== 5 ||
+        MATCH_ROLES.some((role) => teamOwners.filter((o) => o.role === role).length !== 1)
+      )
+        throw new Error('Saved match has invalid five-position assignments.');
+    }
+  }
   for (const owner of owners) {
     const champion = champions.find((u) => u.id === owner.id)!;
+    if (state.matchMode === 'lanes' && champion.ai && owner.role !== 'jungle') {
+      const laneName = owner.role === 'carry' || owner.role === 'support' ? 'bot' : owner.role;
+      if (champion.lane !== battlefield.lanes.findIndex((lane) => lane.name === laneName))
+        throw new Error('Saved lane role has an invalid assignment.');
+    }
+    const route = jungleRoute(champion.team as Team);
+    if (
+      (owner.role === 'jungle') !== (owner.jungle !== null) ||
+      (owner.jungle &&
+        (champion.lane !== null ||
+          !Object.values(owner.summoners).includes('smite') ||
+          owner.jungle.quietSince > state.tick ||
+          (owner.jungle.camp !== null && owner.jungle.camp !== route[owner.jungle.cursor].id) ||
+          new Set(owner.jungle.observations.map((o) => o.camp)).size !==
+            owner.jungle.observations.length ||
+          owner.jungle.observations.some(
+            (o) =>
+              !route.some((c) => c.id === o.camp) ||
+              o.seenTick > state.tick ||
+              o.retryTick !== o.seenTick + JUNGLE_BOT_POLICY.scoutRetryTicks
+          )))
+    )
+      throw new Error('Saved jungle role has invalid observation history.');
     const equippedSmite = Object.values(owner.summoners).includes('smite');
     if (
       owner.summoners.d === owner.summoners.f ||

@@ -15,13 +15,14 @@ test('three source wolves share combat and preserve partial and complete clears 
   };
   await page.goto('/');
   await ready();
-  expect(requests.some((u) => u.includes('sru-murkwolf'))).toBe(false);
+  // Rift practice prepares every scheduled camp before simulation resumes.
+  expect(requests.some((u) => u.includes('sru-murkwolf'))).toBe(true);
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   await page.getByRole('button', { name: 'Lux', exact: true }).click();
   await Promise.all([
     page.waitForEvent('load'),
-    page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
+    page.getByRole('button', { name: 'Start 5v5 match', exact: true }).click(),
   ]);
   await ready();
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();

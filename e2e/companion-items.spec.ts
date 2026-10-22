@@ -19,7 +19,7 @@ async function start(page: Page, mode: 'practice' | 'lanes' = 'lanes') {
     page.waitForEvent('load'),
     page
       .getByRole('button', {
-        name: mode === 'practice' ? 'Start practice' : 'Start lane match',
+        name: mode === 'practice' ? 'Start practice' : 'Start 5v5 match',
         exact: true,
       })
       .click(),
@@ -52,7 +52,7 @@ async function sample(page: Page) {
     const g = (window as any).__GAME__,
       w = g.world,
       v = g.view,
-      p = w.companions[0];
+      p = w.companions.find((p: any) => p.ownerId === w.hero.id);
     v.recenter(w.hero);
     v.render(w, 1, v.previousElapsed);
     g.hud.update(60);
@@ -112,7 +112,8 @@ for (const mode of ['practice', 'lanes'] as const)
         if (/models\/sru-jungle-companions-skin\d-base.glb/.test(r.url())) rigs.push(r.url());
       });
       await start(page, mode);
-      expect(rigs).toEqual([]);
+      expect(rigs).toHaveLength(mode === 'lanes' ? 1 : 0);
+      expect(rigs.every((url) => url.endsWith('skin2-base.glb'))).toBe(true);
       await expect(page.locator('[data-buy="boots"]')).toHaveAttribute(
         'title',
         'Buy a jungle companion first'
@@ -124,7 +125,11 @@ for (const mode of ['practice', 'lanes'] as const)
         const g = (window as any).__GAME__,
           w = g.world;
         w.step(180);
-        return { gold: w.player.gold, items: w.player.inventory, p: w.companions[0] };
+        return {
+          gold: w.player.gold,
+          items: w.player.inventory,
+          p: w.companions.find((p: any) => p.ownerId === w.hero.id),
+        };
       });
       expect(paid.gold).toBe(50);
       expect(paid.items).toEqual([kind]);
@@ -139,7 +144,10 @@ for (const mode of ['practice', 'lanes'] as const)
       const camp = await page.evaluate(() => {
         const g = (window as any).__GAME__,
           w = g.world;
-        w.tick = Math.max(5399, w.companions[0].nextTreatTick - 1);
+        w.tick = Math.max(
+          5399,
+          w.companions.find((p: any) => p.ownerId === w.hero.id).nextTreatTick - 1
+        );
         w.step(12);
         const c = w.jungleCamps.find((c: any) => c.id === 'order-gromp'),
           u = w.unit(c.unitIds[0]);
@@ -181,7 +189,7 @@ for (const mode of ['practice', 'lanes'] as const)
         g.view.render(w, 1, g.view.previousElapsed);
         g.hud.update(60);
         return {
-          fed: w.companions[0].fed,
+          fed: w.companions.find((p: any) => p.ownerId === w.hero.id).fed,
           charges: w.player.smite.charges,
           camp: w.jungleCamps.find((c: any) => c.id === 'order-gromp'),
         };
@@ -194,7 +202,7 @@ for (const mode of ['practice', 'lanes'] as const)
       await page.evaluate(() => {
         const g = (window as any).__GAME__,
           w = g.world;
-        while (w.companions[0].fed < 15) {
+        while (w.companions.find((p: any) => p.ownerId === w.hero.id).fed < 15) {
           const u = w.spawnMonster({ x: 2500, y: 2500 });
           w.damage(w.hero, u, 999999, 'true');
         }
@@ -212,7 +220,7 @@ for (const mode of ['practice', 'lanes'] as const)
       await page.evaluate(() => {
         const g = (window as any).__GAME__,
           w = g.world;
-        while (w.companions[0].fed < 35) {
+        while (w.companions.find((p: any) => p.ownerId === w.hero.id).fed < 35) {
           const u = w.spawnMonster({ x: 2500, y: 2500 });
           w.damage(w.hero, u, 999999, 'true');
         }
@@ -258,7 +266,7 @@ for (const mode of ['practice', 'lanes'] as const)
         page.waitForEvent('load'),
         page
           .getByRole('button', {
-            name: mode === 'practice' ? 'Restart practice' : 'Restart lane match',
+            name: mode === 'practice' ? 'Restart practice' : 'Restart 5v5 match',
             exact: true,
           })
           .click(),
@@ -267,11 +275,19 @@ for (const mode of ['practice', 'lanes'] as const)
       expect(
         await page.evaluate(() => ({
           items: (window as any).__GAME__.world.player.inventory,
-          companions: (window as any).__GAME__.world.companions,
+          companions: (window as any).__GAME__.world.companions.filter(
+            (p: any) => p.ownerId === (window as any).__GAME__.world.hero.id
+          ),
         }))
       ).toEqual({ items: [], companions: [] });
       await expect(page.locator('#companion-status')).toHaveCount(0);
-      expect(rigs.every((url) => url.endsWith(`skin${skin}-base.glb`))).toBe(true);
+      expect(
+        rigs.every(
+          (url) =>
+            url.endsWith(`skin${skin}-base.glb`) ||
+            (mode === 'lanes' && url.endsWith('skin2-base.glb'))
+        )
+      ).toBe(true);
       expect(faults).toEqual([]);
       writeFileSync(
         `artifacts/companion-item-${kind}-${mode}.json`,
@@ -302,7 +318,9 @@ test('failed companion asset preparation spends nothing and retry creates one pu
   expect(
     await page.evaluate(() => ({
       gold: (window as any).__GAME__.world.player.gold,
-      count: (window as any).__GAME__.world.companions.length,
+      count: (window as any).__GAME__.world.companions.filter(
+        (p: any) => p.ownerId === (window as any).__GAME__.world.hero.id
+      ).length,
     }))
   ).toEqual({ gold: 50, count: 1 });
   for (const viewport of [
@@ -333,18 +351,25 @@ test('pending companion preparation serializes clicks and revalidates the purcha
     blocked = new Promise<void>((resolve) => {
       seen = resolve;
     });
-  await page.route('**/sru-jungle-companions-skin2-base.glb', async (route) => {
+  await page.route('**/sru-jungle-companions-skin0-base.glb', async (route) => {
     requests++;
     seen();
     await gate;
     await route.continue();
   });
-  const button = page.locator('[data-buy="mosstomper"]');
+  const button = page.locator('[data-buy="gustwalker"]');
   await button.click();
   await blocked;
   await expect(button).toBeDisabled();
   await button.dispatchEvent('click');
-  expect(await page.evaluate(() => (window as any).__GAME__.world.companions.length)).toBe(0);
+  expect(
+    await page.evaluate(
+      () =>
+        (window as any).__GAME__.world.companions.filter(
+          (p: any) => p.ownerId === (window as any).__GAME__.world.hero.id
+        ).length
+    )
+  ).toBe(0);
   await page.evaluate(() => ((window as any).__GAME__.world.player.gold = 449));
   release();
   await expect(page.locator('.shop-message')).toHaveText('Not enough gold');
@@ -354,5 +379,12 @@ test('pending companion preparation serializes clicks and revalidates the purcha
   await button.click();
   await expect(page.locator('.shop-message')).toHaveText('Item purchased');
   expect(requests).toBe(1);
-  expect(await page.evaluate(() => (window as any).__GAME__.world.companions.length)).toBe(1);
+  expect(
+    await page.evaluate(
+      () =>
+        (window as any).__GAME__.world.companions.filter(
+          (p: any) => p.ownerId === (window as any).__GAME__.world.hero.id
+        ).length
+    )
+  ).toBe(1);
 });

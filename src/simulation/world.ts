@@ -1,3 +1,5 @@
+import { jungleDecision, jungleRoute } from './bot-jungle';
+import { JUNGLE_BOT_POLICY } from '../content/bot-roles';
 import { advanceWards, requestWard, hitWard } from './wards';
 import { requestOracle, advanceOracles, wardDetected, wardDisabled } from './oracle-lens';
 import { finishOracleVisual, advanceOracleVisuals } from './oracle-presentation';
@@ -1678,6 +1680,14 @@ export class World {
   }
   private nextBotPurchase(u: Unit) {
     const state = this.championState(u.id)!;
+    if (state.role === 'jungle') {
+      const id = !ownedCompanion(this, u.id)
+        ? 'mosstomper'
+        : !state.inventory.includes('boots')
+          ? 'boots'
+          : null;
+      if (id) return ITEMS.find((item) => item.id === id);
+    }
     if (u.champion === 'lux') {
       let id: string | undefined = LUX_BOT_POLICY.purchases.find(
         (id) =>
@@ -1701,7 +1711,9 @@ export class World {
       if (!id && !state.inventory.includes('wand')) id = 'wand';
       return ITEMS.find((item) => item.id === id);
     }
-    let id = ['blade', 'boots'].find((id) => !state.inventory.includes(id));
+    let id = (state.role === 'jungle' ? ['boots'] : ['blade', 'boots']).find(
+      (id) => !state.inventory.includes(id)
+    );
     if (!id && !state.inventory.includes('infinity-edge')) {
       const plan = this.purchasePlan('infinity-edge', u.id)!;
       if (state.gold >= plan.cost) id = 'infinity-edge';
@@ -1921,6 +1933,89 @@ export class World {
     this.enqueue({ type: 'cast', unit: u.id, ability: slot, point: aim });
     return true;
   }
+  private junglePlan(u: Unit) {
+    if (u.kind !== 'champion') return null;
+    const state = this.championState(u.id)!;
+    if (!state.jungle) return null;
+    const monsters = this.units.filter(
+      (other) => other.kind === 'monster' && this.alive(other) && this.visible(other, u.team)
+    );
+    const observed = monsters.flatMap((other) => {
+      // Membership identifies an already observed actor; no hidden population,
+      // health, split schedule or actual respawn deadline enters the planner.
+      const camp = this.jungleCamps.find((c) => c.unitIds.includes(other.id));
+      return camp
+        ? [
+            {
+              id: other.id,
+              camp: camp.id,
+              x: other.x,
+              y: other.y,
+              targetable: this.vulnerable(other) && other.monster!.phase !== 'returning',
+            },
+          ]
+        : [];
+    });
+    const visibleHomes = new Set<import('../content/rift-camps').RiftCampId>();
+    const current = jungleRoute(u.team).find((c) => c.id === state.jungle!.camp);
+    if (
+      current &&
+      current.members.every((_, slot) =>
+        this.pointVisible(campMemberHome(current, slot, this.battlefield), u.team)
+      )
+    )
+      visibleHomes.add(current.id as import('../content/rift-camps').RiftCampId);
+    return jungleDecision(state.jungle, {
+      tick: this.tick,
+      team: u.team,
+      actor: u,
+      monsters: observed,
+      visibleHomes,
+    });
+  }
+  private supportCarry(u: Unit) {
+    return this.championState(u.id)?.role === 'support'
+      ? this.units.find(
+          (ally) =>
+            ally.team === u.team &&
+            ally.kind === 'champion' &&
+            this.alive(ally) &&
+            this.championState(ally.id)?.role === 'carry'
+        )
+      : undefined;
+  }
+  private planRoleWard(u: Unit): boolean {
+    if (u.kind !== 'champion') return false;
+    const s = this.championState(u.id)!;
+    if (
+      s.role !== 'support' ||
+      !this.battlefield.inBrush ||
+      s.trinket.kind !== 'ward' ||
+      !s.trinket.charges ||
+      s.trinket.cooldownTick > this.tick ||
+      distance(u, this.battlefield.spawns[u.team]) < 1800 ||
+      this.nearest(u, 1000, true)
+    )
+      return false;
+    const candidates = Array.from({ length: 16 }, (_, i) => ({
+      x: u.x + Math.cos((i * Math.PI) / 8) * 450,
+      y: u.y + Math.sin((i * Math.PI) / 8) * 450,
+    })).filter(
+      (point) =>
+        this.battlefield.inBrush!(point) &&
+        !this.units.some(
+          (ward) =>
+            ward.kind === 'ward' &&
+            ward.team === u.team &&
+            this.alive(ward) &&
+            distance(ward, point) < 900
+        )
+    );
+    candidates.sort((a, b) => Math.hypot(a.x, a.y) - Math.hypot(b.x, b.y));
+    if (!candidates.length) return false;
+    this.enqueue({ type: 'ward', unit: u.id, point: candidates[0] });
+    return true;
+  }
   private think(u: Unit): void {
     if (u.kind !== 'champion') return;
     if (u.hp < u.maxHp * 0.22) u.aiRetreating = true;
@@ -2011,27 +2106,38 @@ export class World {
         return;
       }
     }
+    if (this.planRoleWard(u)) return;
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;
     if (this.planLuxCombat(u, false)) return;
     this.planGarenQ(u, false);
+    const carry = this.supportCarry(u);
+    const leaveFarm = !!carry && distance(u, carry) <= JUNGLE_BOT_POLICY.supportFarmRadius;
     const safeTarget = (target: Unit) =>
-      this.safeAttackPosition(u, target) && !this.incomingAttacksClaimMinion(u, target);
+      !(state.role === 'jungle' && target.kind !== 'champion') &&
+      !(leaveFarm && isLaneMinionKind(target.kind)) &&
+      this.safeAttackPosition(u, target) &&
+      !this.incomingAttacksClaimMinion(u, target);
+    const jungle = this.junglePlan(u);
+    const jungleTarget = jungle?.type === 'attack' ? this.unit(jungle.target) : undefined;
     const nearest = this.nearest(u, 1150, false, safeTarget);
     const closeThreat = this.nearest(u, 380, true, safeTarget);
     // An immediate champion threat keeps priority over farming.
     const target =
       closeThreat && distance(u, closeThreat) < 380
         ? closeThreat
-        : (this.lastHitTarget(u) ?? nearest);
+        : (jungleTarget ??
+          (leaveFarm || state.role === 'jungle' ? undefined : this.lastHitTarget(u)) ??
+          nearest);
     if (target) {
       const d = distance(u, target);
       const state = this.championState(u.id)!;
       // Spend Focus against a visible champion during recovery, preserving a
       // committed windup above. The queued cast is validated next tick like input.
       if (
-        target.kind === 'champion' &&
+        u.champion === 'ashe' &&
+        (target.kind === 'champion' || (state.role === 'jungle' && target.kind === 'monster')) &&
         u.silenceUntil <= this.tick &&
         d <= u.range + target.radius &&
         this.tick < u.nextAttackTick &&
@@ -2045,6 +2151,51 @@ export class World {
           this.setOrder(u, { type: 'attack', target: target.id });
         this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point: { x: u.x, y: u.y } });
         return;
+      }
+      const smite = this.summonerSlot('smite', u.id);
+      if (
+        state.role === 'jungle' &&
+        target.kind === 'monster' &&
+        smite &&
+        state.smite?.charges &&
+        this.abilityCooldownTicks(smite, u.id) === 0 &&
+        smiteTarget(this, u, target) &&
+        target.hp <=
+          (ownedCompanion(this, u.id)
+            ? companionSmiteDamage(ownedCompanion(this, u.id)!.fed)
+            : SUMMONER_SMITE.baseDamage)
+      ) {
+        this.enqueue({
+          type: 'cast',
+          unit: u.id,
+          ability: smite,
+          point: { x: target.x, y: target.y },
+          targetId: target.id,
+        });
+      }
+      if (
+        u.champion === 'ashe' &&
+        state.role === 'jungle' &&
+        target.kind === 'monster' &&
+        this.tick < u.nextAttackTick &&
+        u.silenceUntil <= this.tick &&
+        state.spellRanks.w > 0 &&
+        u.mana >= this.abilityResources('w', u.id).mana &&
+        this.abilityCooldownTicks('w', u.id) === 0 &&
+        this.units.filter(
+          (m) =>
+            m.kind === 'monster' &&
+            this.alive(m) &&
+            this.visible(m, u.team) &&
+            distance(m, target) < 400
+        ).length >= 2
+      ) {
+        this.enqueue({
+          type: 'cast',
+          unit: u.id,
+          ability: 'w',
+          point: { x: target.x, y: target.y },
+        });
       }
       // Poke a visible champion beyond basic-attack range. Aim at the observed
       // position; queued point data must not track the target after sight is lost.
@@ -2079,10 +2230,25 @@ export class World {
         this.setOrder(u, { type: 'move', point: { x: u.x + away.x * 180, y: u.y + away.y * 180 } });
       } else if (u.order.type !== 'attack' || u.order.target !== target.id)
         this.setOrder(u, { type: 'attack', target: target.id });
-    } else if (this.nearest(u, 1150)) {
+    } else if (this.nearest(u, 1150, state.role === 'jungle')) {
       // Visible opponents remain, but none offers a safe attack position.
       // Hold rather than resuming the lane route into their tower protection.
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    } else if (jungle) {
+      if (jungle.type === 'move') {
+        if (u.order.type !== 'move' || distance(u.order.point, jungle.point) > 1)
+          this.setOrder(u, { type: 'move', point: { ...jungle.point } });
+      } else if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    } else if (
+      carry &&
+      distance(carry, this.battlefield.spawns[u.team]) > 1200 &&
+      distance(u, carry) > 450 &&
+      !this.threateningTower(u, carry)
+    ) {
+      const behind = direction(carry, this.battlefield.spawns[u.team]);
+      const point = { x: carry.x + behind.x * 250, y: carry.y + behind.y * 250 };
+      if (u.order.type !== 'move' || distance(u.order.point, point) > 100)
+        this.setOrder(u, { type: 'move', point });
     } else if (this.battlefield.id === 'rift') {
       this.advanceChampionLane(u);
       this.planLaneScout(u);

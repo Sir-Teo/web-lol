@@ -1,0 +1,3054 @@
+{
+  "date": "2026-10-22",
+  "baseline": "3691170",
+  "ruleset": "621c3460bf4ef6f240dc0c951de4a3d1bc8dce3f700d213aa6fcb1cf6b5e8d24",
+  "schema": 107,
+  "runner": {
+    "source": "tools/qa/role-match.ts",
+    "sourceSha256": "d05c686ca33142e90e50e32fa48b8e7b1e4c1d348018406a69a2004000530ccc",
+    "frozenBundle": ".cache/role-match-runner/role-match.js",
+    "bundleSha256": "1d20f355eca73827b3bbbc106652b4eb343e373b1aeb4b20288ed1db3683ff8c"
+  },
+  "scope": "Two seeded ten-bot runs under normal rules. The human carry is automated for this headless audit; production remains one human plus nine bots. No accelerated rules or forced winner.",
+  "horizonTicks": 216000,
+  "runs": [
+    {
+      "seed": 26018,
+      "winner": "red",
+      "tick": 141411,
+      "durationSeconds": 2356.85,
+      "wallSeconds": 153.656304292,
+      "validatedCheckpoints": 40,
+      "finalCheckpoint": {
+        "path": ".cache/role-match-audit/26018.match.json",
+        "sha256": "0461efd9bb52bdb627e3faab3b336a6b523ef06adf65b4b2a5341922f8742d46"
+      },
+      "fullReport": {
+        "path": ".cache/role-match-audit/26018.json",
+        "sha256": "57adf7fdb25487db174b9b1ff1305d58d004f47f4d2fe9ad3b62261f6cce034d"
+      },
+      "assertions": {
+        "winner": true,
+        "destroyedNexus": true,
+        "destroyedNexusTurrets": true,
+        "exposedInhibitor": true,
+        "validHealthAndMana": true
+      },
+      "samples": [
+        {
+          "minute": 5,
+          "tick": 18000,
+          "winner": null,
+          "units": 102,
+          "down": 0,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 4,
+              "cs": 10,
+              "kills": 1,
+              "deaths": 1,
+              "gold": 724,
+              "x": 3267,
+              "y": 6050,
+              "order": {
+                "type": "attack",
+                "target": 39
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 4,
+              "cs": 8,
+              "kills": 0,
+              "deaths": 2,
+              "gold": 359,
+              "x": -5904,
+              "y": -4129,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -5457.000027418137,
+                  "y": -5033.998943567276
+                }
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 4,
+              "cs": 24,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 218,
+              "x": -201,
+              "y": 4361,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -3603.511474609375,
+                  "y": -476.05419921875
+                }
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 5,
+              "cs": 12,
+              "kills": 2,
+              "deaths": 0,
+              "gold": 659,
+              "x": 291,
+              "y": -271,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -7031,
+                  "y": 6964
+                }
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 2,
+              "cs": 1,
+              "kills": 0,
+              "deaths": 2,
+              "gold": 299,
+              "x": 2983,
+              "y": 6088,
+              "order": {
+                "type": "attack",
+                "target": 39
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 5,
+              "cs": 12,
+              "kills": 2,
+              "deaths": 0,
+              "gold": 152,
+              "x": 3306,
+              "y": -5989,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 2463.999500453472,
+                  "y": -6021.998825788498
+                }
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 4,
+              "cs": 24,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 218,
+              "x": 1915,
+              "y": -1413,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 4,
+              "cs": 14,
+              "kills": 0,
+              "deaths": 2,
+              "gold": 211,
+              "x": 1006,
+              "y": -982,
+              "order": {
+                "type": "attack",
+                "target": 14048
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 4,
+              "cs": 9,
+              "kills": 1,
+              "deaths": 0,
+              "gold": 673,
+              "x": 3901,
+              "y": 6038,
+              "order": {
+                "type": "attack",
+                "target": 13994
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 3,
+              "cs": 2,
+              "kills": 2,
+              "deaths": 1,
+              "gold": 907,
+              "x": 3994,
+              "y": 6113,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 10,
+          "tick": 36000,
+          "winner": null,
+          "units": 107,
+          "down": 0,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 6,
+              "cs": 24,
+              "kills": 2,
+              "deaths": 1,
+              "gold": 475,
+              "x": 3837,
+              "y": 5916,
+              "order": {
+                "type": "attack",
+                "target": 30858
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 7,
+              "cs": 23,
+              "kills": 1,
+              "deaths": 4,
+              "gold": 151,
+              "x": -6134,
+              "y": -2928,
+              "order": {
+                "type": "attack",
+                "target": 30763
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 364,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "attack",
+                "target": 21148
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 8,
+              "cs": 38,
+              "kills": 4,
+              "deaths": 2,
+              "gold": 900,
+              "x": -6162,
+              "y": 5437,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -4473,
+                  "y": 3951
+                }
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 5,
+              "cs": 1,
+              "kills": 2,
+              "deaths": 3,
+              "gold": 711,
+              "x": 3363,
+              "y": 6001,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 8,
+              "cs": 29,
+              "kills": 4,
+              "deaths": 1,
+              "gold": 1100,
+              "x": -6191,
+              "y": -3654,
+              "order": {
+                "type": "attack",
+                "target": 32491
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 6,
+              "cs": 64,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 913,
+              "x": 802,
+              "y": -2830,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 7,
+              "cs": 42,
+              "kills": 2,
+              "deaths": 4,
+              "gold": 283,
+              "x": 5424,
+              "y": -4734,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 4382.999472141266,
+                  "y": -4053.999045729637
+                }
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 7,
+              "cs": 29,
+              "kills": 2,
+              "deaths": 1,
+              "gold": 479,
+              "x": 4591,
+              "y": 5618,
+              "order": {
+                "type": "attack",
+                "target": 32495
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 5,
+              "cs": 4,
+              "kills": 2,
+              "deaths": 3,
+              "gold": 747,
+              "x": 4943,
+              "y": 5434,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 15,
+          "tick": 54000,
+          "winner": null,
+          "units": 137,
+          "down": 0,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 8,
+              "cs": 38,
+              "kills": 3,
+              "deaths": 3,
+              "gold": 313,
+              "x": 4877,
+              "y": 5371,
+              "order": {
+                "type": "attack",
+                "target": 50952
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 9,
+              "cs": 35,
+              "kills": 1,
+              "deaths": 7,
+              "gold": 1010,
+              "x": -6119,
+              "y": -2903,
+              "order": {
+                "type": "attack",
+                "target": 50888
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 976,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 11,
+              "cs": 61,
+              "kills": 7,
+              "deaths": 4,
+              "gold": 558,
+              "x": 212,
+              "y": -205,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 8,
+              "cs": 13,
+              "kills": 5,
+              "deaths": 4,
+              "gold": 125,
+              "x": -213,
+              "y": 6197,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 4598.245188493058,
+                  "y": 5429.787973230492
+                }
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 12,
+              "cs": 59,
+              "kills": 7,
+              "deaths": 1,
+              "gold": 1218,
+              "x": -6009,
+              "y": -3789,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 8,
+              "cs": 88,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 804,
+              "x": 4144,
+              "y": -460,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3583.15234375,
+                  "y": -962.408203125
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 10,
+              "cs": 66,
+              "kills": 4,
+              "deaths": 7,
+              "gold": 808,
+              "x": -639,
+              "y": 554,
+              "order": {
+                "type": "attack",
+                "target": 51010
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 9,
+              "cs": 48,
+              "kills": 3,
+              "deaths": 2,
+              "gold": 454,
+              "x": 6202,
+              "y": 3182,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 6103.999400496483,
+                  "y": 3731.0002509355545
+                }
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 7,
+              "cs": 4,
+              "kills": 4,
+              "deaths": 6,
+              "gold": 789,
+              "x": 6280,
+              "y": 2517,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 6224.336163023958,
+                  "y": 2903.8504506345616
+                }
+              }
+            }
+          ]
+        },
+        {
+          "minute": 20,
+          "tick": 72000,
+          "winner": null,
+          "units": 123,
+          "down": 1,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 10,
+              "cs": 60,
+              "kills": 3,
+              "deaths": 4,
+              "gold": 715,
+              "x": 5836,
+              "y": 3799,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 11,
+              "cs": 60,
+              "kills": 1,
+              "deaths": 8,
+              "gold": 831,
+              "x": -5697,
+              "y": -4528,
+              "order": {
+                "type": "attack",
+                "target": 69509
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 44,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 398,
+              "x": -5052,
+              "y": -912,
+              "order": {
+                "type": "attack",
+                "target": 25963
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 14,
+              "cs": 95,
+              "kills": 10,
+              "deaths": 5,
+              "gold": 2030,
+              "x": 675,
+              "y": -701,
+              "order": {
+                "type": "attack",
+                "target": 38
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 10,
+              "cs": 22,
+              "kills": 9,
+              "deaths": 5,
+              "gold": 272,
+              "x": 2728,
+              "y": 5783,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 14,
+              "cs": 95,
+              "kills": 8,
+              "deaths": 1,
+              "gold": 3146,
+              "x": -5147,
+              "y": -5211,
+              "order": {
+                "type": "attack",
+                "target": 69450
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 10,
+              "cs": 128,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 1609,
+              "x": 3716,
+              "y": -1063,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 561.9970703125,
+                  "y": -2046.388671875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 12,
+              "cs": 95,
+              "kills": 5,
+              "deaths": 10,
+              "gold": 435,
+              "x": 1131,
+              "y": -1062,
+              "order": {
+                "type": "attack",
+                "target": 34
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 10,
+              "cs": 68,
+              "kills": 4,
+              "deaths": 4,
+              "gold": 1103,
+              "x": 4949,
+              "y": 5151,
+              "order": {
+                "type": "attack",
+                "target": 69512
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 9,
+              "cs": 15,
+              "kills": 5,
+              "deaths": 8,
+              "gold": 753,
+              "x": 3872,
+              "y": 5563,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 25,
+          "tick": 90000,
+          "winner": null,
+          "units": 110,
+          "down": 2,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 13,
+              "cs": 88,
+              "kills": 6,
+              "deaths": 5,
+              "gold": 3190,
+              "x": -1052,
+              "y": 6190,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -500.00020587444305,
+                  "y": 6261.999949216843
+                }
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 14,
+              "cs": 87,
+              "kills": 3,
+              "deaths": 9,
+              "gold": 2084,
+              "x": -6166,
+              "y": -2241,
+              "order": {
+                "type": "attack",
+                "target": 87497
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 7,
+              "cs": 80,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 1233,
+              "x": -821,
+              "y": 2801,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -3603.511474609375,
+                  "y": -476.05419921875
+                }
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 16,
+              "cs": 121,
+              "kills": 12,
+              "deaths": 8,
+              "gold": 3820,
+              "x": 721,
+              "y": -610,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 12,
+              "cs": 37,
+              "kills": 12,
+              "deaths": 6,
+              "gold": 2142,
+              "x": -921,
+              "y": 6207,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -500.00020587444305,
+                  "y": 6261.999949216843
+                }
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 15,
+              "cs": 120,
+              "kills": 9,
+              "deaths": 3,
+              "gold": 4691,
+              "x": 2671,
+              "y": -6014,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 2463.999500453472,
+                  "y": -6021.998825788498
+                }
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 12,
+              "cs": 160,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 2929,
+              "x": 2502,
+              "y": 170,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 15,
+              "cs": 124,
+              "kills": 8,
+              "deaths": 12,
+              "gold": 2836,
+              "x": -117,
+              "y": 99,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -661.0002272129059,
+                  "y": 561.0004041194916
+                }
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 11,
+              "cs": 85,
+              "kills": 5,
+              "deaths": 7,
+              "gold": 2409,
+              "x": 6295,
+              "y": 2195,
+              "order": {
+                "type": "attack",
+                "target": 87500
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 11,
+              "cs": 26,
+              "kills": 6,
+              "deaths": 11,
+              "gold": 827,
+              "x": 6292,
+              "y": 2284,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 30,
+          "tick": 108000,
+          "winner": null,
+          "units": 103,
+          "down": 5,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 15,
+              "cs": 113,
+              "kills": 6,
+              "deaths": 6,
+              "gold": 4518,
+              "x": 6223,
+              "y": -198,
+              "order": {
+                "type": "attack",
+                "target": 23
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 16,
+              "cs": 125,
+              "kills": 4,
+              "deaths": 10,
+              "gold": 4335,
+              "x": -6029,
+              "y": 2773,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -6042.999992489815,
+                  "y": 2515.000156521797
+                }
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 9,
+              "cs": 116,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 2614,
+              "x": -1051,
+              "y": 2544,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -718.32177734375,
+                  "y": 1903.9560546875
+                }
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 17,
+              "cs": 142,
+              "kills": 14,
+              "deaths": 9,
+              "gold": 5767,
+              "x": -4077,
+              "y": 3645,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -3569.000053882599,
+                  "y": 3255.0000829696655
+                }
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 15,
+              "cs": 56,
+              "kills": 17,
+              "deaths": 7,
+              "gold": 5049,
+              "x": -2252,
+              "y": 4206,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 6012.501269163206,
+                  "y": -27.84572173878807
+                }
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 17,
+              "cs": 157,
+              "kills": 10,
+              "deaths": 5,
+              "gold": 6999,
+              "x": -5965,
+              "y": 2276,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 13,
+              "cs": 200,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 4419,
+              "x": 45,
+              "y": -4425,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 17,
+              "cs": 153,
+              "kills": 9,
+              "deaths": 13,
+              "gold": 4515,
+              "x": -720,
+              "y": 637,
+              "order": {
+                "type": "attack",
+                "target": 107445
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 13,
+              "cs": 110,
+              "kills": 5,
+              "deaths": 10,
+              "gold": 3916,
+              "x": 6276,
+              "y": -355,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 13,
+              "cs": 36,
+              "kills": 8,
+              "deaths": 13,
+              "gold": 1534,
+              "x": 6216,
+              "y": -1428,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 6270.999390542507,
+                  "y": -1182.9991632699966
+                }
+              }
+            }
+          ]
+        },
+        {
+          "minute": 35,
+          "tick": 126000,
+          "winner": null,
+          "units": 110,
+          "down": 8,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 17,
+              "cs": 153,
+              "kills": 6,
+              "deaths": 7,
+              "gold": 6474,
+              "x": 6065,
+              "y": -2474,
+              "order": {
+                "type": "attack",
+                "target": 128151
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 18,
+              "cs": 167,
+              "kills": 5,
+              "deaths": 12,
+              "gold": 6508,
+              "x": -6225,
+              "y": 1065,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 12,
+              "cs": 157,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 4124,
+              "x": -3445,
+              "y": -1012,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -3603.511474609375,
+                  "y": -476.05419921875
+                }
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 18,
+              "cs": 173.4,
+              "kills": 16,
+              "deaths": 10,
+              "gold": 7932,
+              "x": -921,
+              "y": 817,
+              "order": {
+                "type": "attack",
+                "target": 126840
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 17,
+              "cs": 60,
+              "kills": 21,
+              "deaths": 8,
+              "gold": 7493,
+              "x": 6170,
+              "y": -2512,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 18,
+              "cs": 189,
+              "kills": 11,
+              "deaths": 6,
+              "gold": 9084,
+              "x": -6121,
+              "y": 2494,
+              "order": {
+                "type": "attack",
+                "target": 128092
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 16,
+              "cs": 235,
+              "kills": 2,
+              "deaths": 0,
+              "gold": 6613,
+              "x": 607,
+              "y": -2373,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 561.9970703125,
+                  "y": -2046.388671875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 18,
+              "cs": 195,
+              "kills": 9,
+              "deaths": 15,
+              "gold": 6216,
+              "x": -818,
+              "y": 325,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 15,
+              "cs": 126,
+              "kills": 6,
+              "deaths": 12,
+              "gold": 5532,
+              "x": 5939,
+              "y": -3138,
+              "order": {
+                "type": "attack",
+                "target": 125415
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 14,
+              "cs": 54,
+              "kills": 9,
+              "deaths": 15,
+              "gold": 2981,
+              "x": 6320,
+              "y": -3538,
+              "order": {
+                "type": "attack",
+                "target": 35
+              }
+            }
+          ]
+        },
+        {
+          "minute": 40,
+          "tick": 141411,
+          "winner": "red",
+          "units": 135,
+          "down": 16,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 17,
+              "cs": 178,
+              "kills": 6,
+              "deaths": 8,
+              "gold": 7739,
+              "x": -6224,
+              "y": 6004,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 18,
+              "cs": 179,
+              "kills": 5,
+              "deaths": 15,
+              "gold": 7376,
+              "x": -7005,
+              "y": 6901,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 15,
+              "cs": 186,
+              "kills": 1,
+              "deaths": 0,
+              "gold": 5691,
+              "x": -4734,
+              "y": -673,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 18,
+              "cs": 182.4,
+              "kills": 16,
+              "deaths": 13,
+              "gold": 8724,
+              "x": -6996,
+              "y": 6893,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 17,
+              "cs": 80,
+              "kills": 21,
+              "deaths": 9,
+              "gold": 8422,
+              "x": -5429,
+              "y": 6204,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 18,
+              "cs": 204,
+              "kills": 12,
+              "deaths": 6,
+              "gold": 10655,
+              "x": -5917,
+              "y": 3828,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 17,
+              "cs": 270.6,
+              "kills": 2,
+              "deaths": 0,
+              "gold": 7922,
+              "x": 602,
+              "y": -2337,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 18,
+              "cs": 220,
+              "kills": 10,
+              "deaths": 16,
+              "gold": 7816,
+              "x": -1487,
+              "y": 1392,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 17,
+              "cs": 161,
+              "kills": 6,
+              "deaths": 12,
+              "gold": 7222,
+              "x": -4940,
+              "y": 5838,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 16,
+              "cs": 57,
+              "kills": 11,
+              "deaths": 15,
+              "gold": 4675,
+              "x": -5023,
+              "y": 5786,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 719,
+      "winner": "red",
+      "tick": 156962,
+      "durationSeconds": 2616.0333333333333,
+      "wallSeconds": 202.03130058300005,
+      "validatedCheckpoints": 44,
+      "finalCheckpoint": {
+        "path": ".cache/role-match-audit/719.match.json",
+        "sha256": "70444d8a2f22766a98d26e747148c478e8aa5f27ae66696e7ce974d304a72881"
+      },
+      "fullReport": {
+        "path": ".cache/role-match-audit/719.json",
+        "sha256": "448c8c3cc7b82adf1ad13024efdc1646a8b132be572488c8d9e5ada8b4ef95bd"
+      },
+      "assertions": {
+        "winner": true,
+        "destroyedNexus": true,
+        "destroyedNexusTurrets": true,
+        "exposedInhibitor": true,
+        "validHealthAndMana": true
+      },
+      "samples": [
+        {
+          "minute": 5,
+          "tick": 18000,
+          "winner": null,
+          "units": 102,
+          "down": 0,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 4,
+              "cs": 10,
+              "kills": 1,
+              "deaths": 1,
+              "gold": 724,
+              "x": 3267,
+              "y": 6050,
+              "order": {
+                "type": "attack",
+                "target": 39
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 4,
+              "cs": 8,
+              "kills": 0,
+              "deaths": 2,
+              "gold": 359,
+              "x": -5904,
+              "y": -4129,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -5457.000027418137,
+                  "y": -5033.998943567276
+                }
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 4,
+              "cs": 24,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 218,
+              "x": -201,
+              "y": 4361,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -3603.511474609375,
+                  "y": -476.05419921875
+                }
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 5,
+              "cs": 12,
+              "kills": 2,
+              "deaths": 0,
+              "gold": 659,
+              "x": 291,
+              "y": -271,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -7031,
+                  "y": 6964
+                }
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 2,
+              "cs": 1,
+              "kills": 0,
+              "deaths": 2,
+              "gold": 299,
+              "x": 2983,
+              "y": 6088,
+              "order": {
+                "type": "attack",
+                "target": 39
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 5,
+              "cs": 12,
+              "kills": 2,
+              "deaths": 0,
+              "gold": 152,
+              "x": 3306,
+              "y": -5989,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 2463.999500453472,
+                  "y": -6021.998825788498
+                }
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 4,
+              "cs": 24,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 218,
+              "x": 1915,
+              "y": -1413,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 4,
+              "cs": 14,
+              "kills": 0,
+              "deaths": 2,
+              "gold": 211,
+              "x": 1006,
+              "y": -982,
+              "order": {
+                "type": "attack",
+                "target": 14048
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 4,
+              "cs": 9,
+              "kills": 1,
+              "deaths": 0,
+              "gold": 673,
+              "x": 3901,
+              "y": 6038,
+              "order": {
+                "type": "attack",
+                "target": 13994
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 3,
+              "cs": 2,
+              "kills": 2,
+              "deaths": 1,
+              "gold": 907,
+              "x": 3994,
+              "y": 6113,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 10,
+          "tick": 36000,
+          "winner": null,
+          "units": 106,
+          "down": 0,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 6,
+              "cs": 27,
+              "kills": 1,
+              "deaths": 2,
+              "gold": 187,
+              "x": 4953,
+              "y": 5314,
+              "order": {
+                "type": "attack",
+                "target": 30609
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 7,
+              "cs": 25,
+              "kills": 1,
+              "deaths": 4,
+              "gold": 144,
+              "x": -6134,
+              "y": -2928,
+              "order": {
+                "type": "attack",
+                "target": 30676
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 364,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "attack",
+                "target": 21148
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 8,
+              "cs": 38,
+              "kills": 4,
+              "deaths": 2,
+              "gold": 900,
+              "x": -6162,
+              "y": 5437,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -4473,
+                  "y": 3951
+                }
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 5,
+              "cs": 2,
+              "kills": 3,
+              "deaths": 3,
+              "gold": 1025,
+              "x": 5249,
+              "y": 4967,
+              "order": {
+                "type": "attack",
+                "target": 40
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 8,
+              "cs": 35,
+              "kills": 4,
+              "deaths": 1,
+              "gold": 1226,
+              "x": -6192,
+              "y": -3653,
+              "order": {
+                "type": "attack",
+                "target": 32279
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 6,
+              "cs": 64,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 913,
+              "x": 802,
+              "y": -2830,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 7,
+              "cs": 42,
+              "kills": 2,
+              "deaths": 4,
+              "gold": 283,
+              "x": 5424,
+              "y": -4734,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 4382.999472141266,
+                  "y": -4053.999045729637
+                }
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 7,
+              "cs": 24,
+              "kills": 2,
+              "deaths": 1,
+              "gold": 356,
+              "x": 6306,
+              "y": 1180,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 6315.999387860298,
+                  "y": 1614.0005033016205
+                }
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 6,
+              "cs": 6,
+              "kills": 3,
+              "deaths": 3,
+              "gold": 1123,
+              "x": 5692,
+              "y": 4527,
+              "order": {
+                "type": "attack",
+                "target": 35
+              }
+            }
+          ]
+        },
+        {
+          "minute": 15,
+          "tick": 54000,
+          "winner": null,
+          "units": 137,
+          "down": 0,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 8,
+              "cs": 40,
+              "kills": 2,
+              "deaths": 6,
+              "gold": 1376,
+              "x": 3260,
+              "y": 6084,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 9,
+              "cs": 46,
+              "kills": 1,
+              "deaths": 6,
+              "gold": 1154,
+              "x": -3831,
+              "y": -5923,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 976,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 11,
+              "cs": 61,
+              "kills": 7,
+              "deaths": 4,
+              "gold": 558,
+              "x": 212,
+              "y": -205,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 7,
+              "cs": 8,
+              "kills": 4,
+              "deaths": 7,
+              "gold": 903,
+              "x": 3233,
+              "y": 6077,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 11,
+              "cs": 65,
+              "kills": 6,
+              "deaths": 1,
+              "gold": 999,
+              "x": -3226,
+              "y": -6109,
+              "order": {
+                "type": "attack",
+                "target": 32
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 8,
+              "cs": 88,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 804,
+              "x": 4144,
+              "y": -460,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3583.15234375,
+                  "y": -962.408203125
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 10,
+              "cs": 66,
+              "kills": 4,
+              "deaths": 7,
+              "gold": 808,
+              "x": -639,
+              "y": 554,
+              "order": {
+                "type": "attack",
+                "target": 50302
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 10,
+              "cs": 49,
+              "kills": 6,
+              "deaths": 2,
+              "gold": 1440,
+              "x": 4297,
+              "y": 5527,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 9,
+              "cs": 12,
+              "kills": 7,
+              "deaths": 4,
+              "gold": 719,
+              "x": 3960,
+              "y": 6021,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 20,
+          "tick": 72000,
+          "winner": null,
+          "units": 122,
+          "down": 2,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 11,
+              "cs": 55,
+              "kills": 4,
+              "deaths": 7,
+              "gold": 942,
+              "x": -3550,
+              "y": 5917,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -2581.0000818371773,
+                  "y": 5984.999982237816
+                }
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 11,
+              "cs": 63,
+              "kills": 1,
+              "deaths": 9,
+              "gold": 834,
+              "x": -6175,
+              "y": -2095,
+              "order": {
+                "type": "attack",
+                "target": 68533
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 1588,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 14,
+              "cs": 95,
+              "kills": 10,
+              "deaths": 5,
+              "gold": 2030,
+              "x": 675,
+              "y": -701,
+              "order": {
+                "type": "attack",
+                "target": 38
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 9,
+              "cs": 13,
+              "kills": 5,
+              "deaths": 9,
+              "gold": 799,
+              "x": 1099,
+              "y": 6224,
+              "order": {
+                "type": "attack",
+                "target": 67281
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 14,
+              "cs": 105,
+              "kills": 9,
+              "deaths": 1,
+              "gold": 3719,
+              "x": 2770,
+              "y": -6010,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 2463.999500453472,
+                  "y": -6021.998825788498
+                }
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 10,
+              "cs": 128,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 1609,
+              "x": 3716,
+              "y": -1063,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 561.9970703125,
+                  "y": -2046.388671875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 12,
+              "cs": 95,
+              "kills": 5,
+              "deaths": 10,
+              "gold": 435,
+              "x": 1131,
+              "y": -1062,
+              "order": {
+                "type": "attack",
+                "target": 34
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 12,
+              "cs": 76,
+              "kills": 9,
+              "deaths": 3,
+              "gold": 2815,
+              "x": 1870,
+              "y": 6156,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 10,
+              "cs": 29,
+              "kills": 7,
+              "deaths": 6,
+              "gold": 765,
+              "x": 1864,
+              "y": 6173,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 25,
+          "tick": 90000,
+          "winner": null,
+          "units": 121,
+          "down": 3,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 13,
+              "cs": 75,
+              "kills": 7,
+              "deaths": 8,
+              "gold": 3040,
+              "x": -4325,
+              "y": 5972,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -3954,
+                  "y": 5836
+                }
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 12,
+              "cs": 94,
+              "kills": 1,
+              "deaths": 11,
+              "gold": 1402,
+              "x": -3972,
+              "y": -5739,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 2200,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "attack",
+                "target": 21148
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 16,
+              "cs": 121,
+              "kills": 12,
+              "deaths": 8,
+              "gold": 3820,
+              "x": 721,
+              "y": -610,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 11,
+              "cs": 27,
+              "kills": 5,
+              "deaths": 10,
+              "gold": 562,
+              "x": -1836,
+              "y": 6328,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -4636.806718947661,
+                  "y": 6086.310685399097
+                }
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 16,
+              "cs": 137,
+              "kills": 11,
+              "deaths": 1,
+              "gold": 6004,
+              "x": -5102,
+              "y": -5280,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 12,
+              "cs": 160,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 2929,
+              "x": 2502,
+              "y": 170,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 15,
+              "cs": 124,
+              "kills": 8,
+              "deaths": 12,
+              "gold": 2836,
+              "x": -117,
+              "y": 99,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -661.0002272129059,
+                  "y": 561.0004041194916
+                }
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 13,
+              "cs": 93,
+              "kills": 10,
+              "deaths": 5,
+              "gold": 4133,
+              "x": 5412,
+              "y": 4917,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 4868.999474108219,
+                  "y": 5512.00003862381
+                }
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 12,
+              "cs": 54,
+              "kills": 8,
+              "deaths": 7,
+              "gold": 1336,
+              "x": 5623,
+              "y": 4443,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 5478.606031477549,
+                  "y": 4630.002867554031
+                }
+              }
+            }
+          ]
+        },
+        {
+          "minute": 30,
+          "tick": 108000,
+          "winner": null,
+          "units": 120,
+          "down": 5,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 14,
+              "cs": 99,
+              "kills": 7,
+              "deaths": 11,
+              "gold": 4298,
+              "x": 996,
+              "y": 6202,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 15,
+              "cs": 130,
+              "kills": 2,
+              "deaths": 12,
+              "gold": 3372,
+              "x": -6196,
+              "y": -1453,
+              "order": {
+                "type": "attack",
+                "target": 106788
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 2812,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "attack",
+                "target": 21148
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 18,
+              "cs": 154,
+              "kills": 14,
+              "deaths": 9,
+              "gold": 6006,
+              "x": 928,
+              "y": -888,
+              "order": {
+                "type": "attack",
+                "target": 20
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 13,
+              "cs": 32,
+              "kills": 7,
+              "deaths": 13,
+              "gold": 1217,
+              "x": -1667,
+              "y": 6128,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -500.00020587444305,
+                  "y": 6261.999949216843
+                }
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 18,
+              "cs": 171,
+              "kills": 12,
+              "deaths": 2,
+              "gold": 7950,
+              "x": -6172,
+              "y": -2085,
+              "order": {
+                "type": "attack",
+                "target": 32
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 13,
+              "cs": 200,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 4419,
+              "x": 45,
+              "y": -4425,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 3606.728515625,
+                  "y": 434.15576171875
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 17,
+              "cs": 150,
+              "kills": 9,
+              "deaths": 14,
+              "gold": 4430,
+              "x": 5822,
+              "y": -5160,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": 4382.999472141266,
+                  "y": -4053.999045729637
+                }
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 15,
+              "cs": 132,
+              "kills": 12,
+              "deaths": 6,
+              "gold": 6601,
+              "x": 384,
+              "y": 6212,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -500.00020587444305,
+                  "y": 6261.999949216843
+                }
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 15,
+              "cs": 69,
+              "kills": 12,
+              "deaths": 8,
+              "gold": 3902,
+              "x": 425,
+              "y": 6206,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -500.00020587444305,
+                  "y": 6261.999949216843
+                }
+              }
+            }
+          ]
+        },
+        {
+          "minute": 35,
+          "tick": 126000,
+          "winner": null,
+          "units": 129,
+          "down": 9,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 16,
+              "cs": 125,
+              "kills": 7,
+              "deaths": 12,
+              "gold": 5672,
+              "x": -3160,
+              "y": 5944,
+              "order": {
+                "type": "attack",
+                "target": 128201
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 17,
+              "cs": 160,
+              "kills": 3,
+              "deaths": 13,
+              "gold": 5317,
+              "x": -6893,
+              "y": 6458,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -7031,
+                  "y": 6964
+                }
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 3424,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "attack",
+                "target": 21148
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 18,
+              "cs": 168,
+              "kills": 15,
+              "deaths": 11,
+              "gold": 7264,
+              "x": -6788,
+              "y": 6537,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -4473,
+                  "y": 3951
+                }
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 15,
+              "cs": 49,
+              "kills": 10,
+              "deaths": 14,
+              "gold": 3395,
+              "x": -2803,
+              "y": 5931,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 18,
+              "cs": 197,
+              "kills": 13,
+              "deaths": 3,
+              "gold": 9839,
+              "x": -6006,
+              "y": 3564,
+              "order": {
+                "type": "attack",
+                "target": 131767
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 14,
+              "cs": 237,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 5838,
+              "x": -933,
+              "y": -4898,
+              "order": {
+                "type": "attack",
+                "target": 131765
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 18,
+              "cs": 181,
+              "kills": 11,
+              "deaths": 15,
+              "gold": 6694,
+              "x": -2153,
+              "y": 2021,
+              "order": {
+                "type": "attack",
+                "target": 12
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 17,
+              "cs": 161,
+              "kills": 13,
+              "deaths": 7,
+              "gold": 8641,
+              "x": -2051,
+              "y": 5030,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 16,
+              "cs": 80,
+              "kills": 13,
+              "deaths": 10,
+              "gold": 5181,
+              "x": 3722,
+              "y": 794,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -1901.4838584450447,
+                  "y": 4835.800661253012
+                }
+              }
+            }
+          ]
+        },
+        {
+          "minute": 40,
+          "tick": 144000,
+          "winner": null,
+          "units": 126,
+          "down": 10,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 17,
+              "cs": 161,
+              "kills": 8,
+              "deaths": 13,
+              "gold": 7781,
+              "x": -2924,
+              "y": 5952,
+              "order": {
+                "type": "attack",
+                "target": 153160
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 18,
+              "cs": 207,
+              "kills": 5,
+              "deaths": 13,
+              "gold": 8202,
+              "x": -6078,
+              "y": -2737,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -7031,
+                  "y": 6964
+                }
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 4036,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 18,
+              "cs": 209,
+              "kills": 18,
+              "deaths": 12,
+              "gold": 10241,
+              "x": -1733,
+              "y": 1573,
+              "order": {
+                "type": "attack",
+                "target": 154732
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 18,
+              "cs": 68,
+              "kills": 11,
+              "deaths": 15,
+              "gold": 5041,
+              "x": -3465,
+              "y": 6120,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 18,
+              "cs": 229,
+              "kills": 13,
+              "deaths": 5,
+              "gold": 11363,
+              "x": -5919,
+              "y": -3808,
+              "order": {
+                "type": "attack",
+                "target": 154729
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 15,
+              "cs": 276,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 7290,
+              "x": -136,
+              "y": -3848,
+              "order": {
+                "type": "move",
+                "point": {
+                  "x": -1107.90771484375,
+                  "y": -4721.4580078125
+                }
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 18,
+              "cs": 210,
+              "kills": 11,
+              "deaths": 17,
+              "gold": 8047,
+              "x": -3379,
+              "y": 3160,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 18,
+              "cs": 177,
+              "kills": 14,
+              "deaths": 8,
+              "gold": 10163,
+              "x": -2436,
+              "y": 5841,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 17,
+              "cs": 101,
+              "kills": 15,
+              "deaths": 12,
+              "gold": 7175,
+              "x": -3324,
+              "y": 4057,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        },
+        {
+          "minute": 44,
+          "tick": 156962,
+          "winner": "red",
+          "units": 187,
+          "down": 16,
+          "champions": [
+            {
+              "id": 1,
+              "team": "blue",
+              "role": "carry",
+              "level": 18,
+              "cs": 197,
+              "kills": 9,
+              "deaths": 13,
+              "gold": 9903,
+              "x": 2717,
+              "y": 6131,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 32,
+              "team": "blue",
+              "role": "top",
+              "level": 18,
+              "cs": 208,
+              "kills": 5,
+              "deaths": 15,
+              "gold": 8663,
+              "x": -6744,
+              "y": 6264,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 33,
+              "team": "blue",
+              "role": "jungle",
+              "level": 5,
+              "cs": 40,
+              "kills": 0,
+              "deaths": 0,
+              "gold": 4477,
+              "x": -3895,
+              "y": -411,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 34,
+              "team": "blue",
+              "role": "mid",
+              "level": 18,
+              "cs": 213,
+              "kills": 18,
+              "deaths": 15,
+              "gold": 11056,
+              "x": -6613,
+              "y": 6086,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 35,
+              "team": "blue",
+              "role": "support",
+              "level": 18,
+              "cs": 71,
+              "kills": 12,
+              "deaths": 15,
+              "gold": 5940,
+              "x": 2472,
+              "y": 6155,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 36,
+              "team": "red",
+              "role": "top",
+              "level": 18,
+              "cs": 236,
+              "kills": 13,
+              "deaths": 5,
+              "gold": 11914,
+              "x": -5917,
+              "y": 3828,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 37,
+              "team": "red",
+              "role": "jungle",
+              "level": 17,
+              "cs": 309,
+              "kills": 1,
+              "deaths": 0,
+              "gold": 8945,
+              "x": 4984,
+              "y": 914,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 38,
+              "team": "red",
+              "role": "mid",
+              "level": 18,
+              "cs": 233,
+              "kills": 12,
+              "deaths": 17,
+              "gold": 9648,
+              "x": -4474,
+              "y": 3953,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 39,
+              "team": "red",
+              "role": "carry",
+              "level": 18,
+              "cs": 181,
+              "kills": 14,
+              "deaths": 9,
+              "gold": 10793,
+              "x": 3722,
+              "y": 5962,
+              "order": {
+                "type": "idle"
+              }
+            },
+            {
+              "id": 40,
+              "team": "red",
+              "role": "support",
+              "level": 18,
+              "cs": 111,
+              "kills": 15,
+              "deaths": 13,
+              "gold": 7819,
+              "x": 4227,
+              "y": 5828,
+              "order": {
+                "type": "idle"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Two seeds do not meet the 100-seed roadmap gate or certify balance.",
+    "Current Ashe/Lux role roster, gank/team planning, quests and major objectives remain incomplete.",
+    "Headless simulation does not certify browser performance, native fidelity or natural human-play match quality."
+  ]
+}

@@ -21,7 +21,7 @@ test('lane match preserves the authored structures and creates a human with nine
   expect(world.matchMode).toBe('lanes');
   expect(champions).toHaveLength(10);
   expect(champions.filter((u) => u.ai)).toHaveLength(9);
-  expect(champions.filter((u) => u.champion === 'lux')).toHaveLength(2);
+  expect(champions.filter((u) => u.champion === 'lux')).toHaveLength(4);
   expect(world.hero.ai).toBe(false);
   expect(world.hero.lane).toBeNull();
   expect(world.units.some((u) => u.kind === 'dummy')).toBe(false);
@@ -32,7 +32,8 @@ test('lane match preserves the authored structures and creates a human with nine
       expect(distance(unit, rift.spawns[team])).toBeLessThan(300);
       expect(rift.reachable(unit, unit.radius, team)).toEqual({ x: unit.x, y: unit.y });
     }
-    expect(roster.filter((u) => u.lane === 0)).toHaveLength(2);
+    expect(roster.filter((u) => u.lane === 0)).toHaveLength(1);
+    expect(roster.filter((u) => world.championState(u.id)!.role === 'jungle')).toHaveLength(1);
     expect(roster.filter((u) => u.lane === 1 && u.champion === 'lux')).toHaveLength(1);
     expect(roster.filter((u) => u.lane === 2)).toHaveLength(team === 'blue' ? 1 : 2);
   }
@@ -89,7 +90,7 @@ test('human Lux replaces the allied mid bot and preserves the ten-champion lane 
   expect(world.hero.ai).toBe(false);
   const champions = world.units.filter((u) => u.kind === 'champion');
   expect(champions).toHaveLength(10);
-  expect(champions.filter((u) => u.champion === 'lux')).toHaveLength(2);
+  expect(champions.filter((u) => u.champion === 'lux')).toHaveLength(4);
   expect(champions.filter((u) => u.ai)).toHaveLength(9);
   expect(champions.filter((u) => u.team === 'blue' && u.lane === 1)).toHaveLength(0);
   expect(champions.filter((u) => u.team === 'blue' && u.lane === 2)).toHaveLength(2);

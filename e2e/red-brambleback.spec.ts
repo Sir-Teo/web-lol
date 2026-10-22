@@ -15,13 +15,14 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
   };
   await page.goto('/');
   await ready();
-  expect(requests.some((u) => u.endsWith('/sru-red-base.glb'))).toBe(false);
+  // Rift practice prepares every scheduled camp before simulation resumes.
+  expect(requests.some((u) => u.endsWith('/sru-red-base.glb'))).toBe(true);
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   await page.getByRole('button', { name: 'Lux', exact: true }).click();
   await Promise.all([
     page.waitForEvent('load'),
-    page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
+    page.getByRole('button', { name: 'Start 5v5 match', exact: true }).click(),
   ]);
   await ready();
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
@@ -150,8 +151,13 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
     const blue = w.unit(w.jungleCamps.find((c: any) => c.id === 'chaos-blue').unitIds[0]);
     w.damage(w.hero, blue, 99999, 'true');
     const point = w.battlefield.reachable(home, w.hero.radius, 'red');
-    const enemy = w.spawn('champion', 'red', point, 'lux');
+    // Use the real opposing mid; the 5v5 checkpoint keeps its ten-player roster.
+    const enemy = w.units.find(
+      (u: any) => u.kind === 'champion' && u.team === 'red' && w.championState(u.id).role === 'mid'
+    );
+    Object.assign(enemy, point, { previous: { ...point } });
     enemy.ai = false;
+    w.step();
     g.view.render(w, 1, g.view.previousElapsed);
     g.hud.update(60);
     return {

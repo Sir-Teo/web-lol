@@ -168,6 +168,11 @@ try {
   assert.equal(await page.locator('[data-ability="e"] .ability-charges').textContent(), '1');
   await mkdir('artifacts', { recursive: true });
   await page.screenshot({ path: 'artifacts/production-subpath.png' });
+  assert.equal(
+    preparedCompanionRequests.length,
+    0,
+    'Unselected practice companions must not preload'
+  );
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   assert.equal(await page.getByRole('button', { name: 'Garen', exact: true }).count(), 0);
@@ -178,7 +183,7 @@ try {
     .click();
   await Promise.all([
     page.waitForEvent('load'),
-    page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
+    page.getByRole('button', { name: 'Start 5v5 match', exact: true }).click(),
   ]);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
@@ -208,11 +213,16 @@ try {
         .locator(`[data-ability="${key}"] img`)
         .evaluate((img) => img.complete && img.naturalWidth > 0)
     );
+  await page.keyboard.down('Tab');
+  for (const role of ['top', 'jungle', 'mid', 'carry', 'support'])
+    assert.equal(await page.locator(`.scoreboard-row[data-role="${role}"]`).count(), 2);
+  await page.screenshot({ path: 'artifacts/production-role-match.png' });
+  await page.keyboard.up('Tab');
   await page.screenshot({ path: 'artifacts/production-lux.png' });
   await page.keyboard.press('Escape');
   await Promise.all([
     page.waitForEvent('load'),
-    page.getByRole('button', { name: 'Restart lane match', exact: true }).click(),
+    page.getByRole('button', { name: 'Restart 5v5 match', exact: true }).click(),
   ]);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
@@ -224,15 +234,19 @@ try {
     await page
       .locator('.match-identity')
       .textContent()
-      .then((text) => text.includes('LANE MATCH')),
+      .then((text) => text.includes('5V5 MATCH')),
     true
   );
   assert.deepEqual(outside, [], 'Requests must stay beneath the static host prefix');
-  assert.deepEqual(
-    preparedCompanionRequests,
-    [],
-    'Prepared companions must not preload into ordinary matches'
+  assert.equal(
+    preparedCompanionRequests.length,
+    2,
+    'Both selected 5v5 boots prepare their owned jungle companion rig'
   );
+  assert(
+    preparedCompanionRequests.every((url) => url.endsWith('/sru-jungle-companions-skin2-base.glb'))
+  );
+  const roleCompanionRequests = preparedCompanionRequests.length;
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   await Promise.all([
     page.waitForEvent('load'),
@@ -288,9 +302,11 @@ try {
   assert.equal(await page.locator('.unit-bar.blue.ward:not([hidden])').count(), 1);
   assert(wardRigRequests.length >= 2);
   assert((await page.locator('#companion-status').textContent()).includes('0/35 treats'));
-  assert(preparedCompanionRequests.length >= 2);
+  assert(preparedCompanionRequests.length >= roleCompanionRequests + 2);
   assert(
-    preparedCompanionRequests.every((url) => url.endsWith('/sru-jungle-companions-skin0-base.glb'))
+    preparedCompanionRequests.every((url) =>
+      /\/sru-jungle-companions-skin[02]-base\.glb$/.test(url)
+    )
   );
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.screenshot({ path: 'artifacts/production-companion-purchase.png' });
@@ -394,6 +410,7 @@ try {
       garenFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,
+      roleCompanionRequests,
       scheduledGrompRequests: scheduledGrompRequests.length,
       scheduledBlueRequests: scheduledBlueRequests.length,
       scheduledRedRequests: scheduledRedRequests.length,

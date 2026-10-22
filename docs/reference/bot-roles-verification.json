@@ -1,0 +1,337 @@
+{
+  "date": "2026-10-22",
+  "baseline": "3691170",
+  "schema": 107,
+  "ruleset": "621c3460bf4ef6f240dc0c951de4a3d1bc8dce3f700d213aa6fcb1cf6b5e8d24",
+  "scope": "Five-position interim Ashe/Lux roster, observed home-camp jungle routes, Smite/paid companions and support farm/follow/ward decisions. Full roster, objectives, quests, coordinated strategy and fidelity remain unaccepted.",
+  "implementation": [
+    {
+      "path": "src/content/bot-roles.ts",
+      "sha256": "47c13f1d7eb2a0c2a04ed48c6f788ceaba9441c5a42af9d6d4d59cb81c770abb"
+    },
+    {
+      "path": "src/simulation/bot-jungle.ts",
+      "sha256": "b3d8513aa05b86aead85545547302d5ec9b559512261b084098fbbe31fdbb715"
+    },
+    {
+      "path": "src/simulation/lane-match.ts",
+      "sha256": "ddc4b7fad3ccaecd86f21765ffddc4b733a0fb3d58757d2dea5033821ae01947"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "24b446823f596fda3a24f1e11056df3adc93d0082913116b5cc1fe675b618136"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "9ad8ab29a6122781320145f592dcad426ccf15dce45a431875dbf9bc6f2e0a73"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "sha256": "f5c2888d867c469f2b1e11f84fdbbacdff1bdbc8236cc772c9954bfe5bf006a2"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "sha256": "857780a20bc35e713d445aaca067656a0d7822341e65ad613f24dd1d7c07158b"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "sha256": "528fd6e2da6a5a637d4802f848122b49a0f4a77999b81439012c1a79c4877c80"
+    },
+    {
+      "path": "src/storage/match-files.ts",
+      "sha256": "2c8bd0a9b71f2acccac49d5016abadc1af6eb43d3363ae6284815558389fcf18"
+    },
+    {
+      "path": "tools/qa/role-match.ts",
+      "sha256": "d05c686ca33142e90e50e32fa48b8e7b1e4c1d348018406a69a2004000530ccc"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "03ff4f74b8ebd8a64fbf2d9ddcf79567144d1408ae8588ade1b1e4b9ac7d8bc1"
+    },
+    {
+      "path": "tests/bot-jungle.test.ts",
+      "sha256": "feff82236632ac67dd51ceb62cb7e036a5394884dbabb689dfbeb238812d3e9d"
+    },
+    {
+      "path": "tests/lane-match.test.ts",
+      "sha256": "b3a267a0787fffd40b2ec6982503ed730b8c89836572c4578112655a1898be64"
+    },
+    {
+      "path": "tests/companion-items.test.ts",
+      "sha256": "830e2e1a3847adfc4315d20e69edd447c3c922c94711e7309c077d4d85ba2e2d"
+    },
+    {
+      "path": "e2e/role-jungle.spec.ts",
+      "sha256": "5d5231a996378b64d71570692aa7ffd28c72b284241fa5d13a392800d84d3ffe"
+    },
+    {
+      "path": "e2e/companion-items.spec.ts",
+      "sha256": "966445ea242ccbf2fcbaba82915040ba692117ad5ea969bdd7e25578a70243bf"
+    },
+    {
+      "path": "e2e/blue-sentinel.spec.ts",
+      "sha256": "1d7027cd3c338f1799bf8e76130aa37c2dc88f40f233f02898b18594f4316a93"
+    },
+    {
+      "path": "e2e/krug-camps.spec.ts",
+      "sha256": "8323b3113ae0287cb45be55e568c4525ceafa95aa26f0e8c831e8e269827b706"
+    },
+    {
+      "path": "e2e/raptor-camps.spec.ts",
+      "sha256": "4fb5da41529d4aa7cce11e378c0c01c6d4b1074f87b538463287f6bc80593c56"
+    },
+    {
+      "path": "e2e/red-brambleback.spec.ts",
+      "sha256": "23a755282d5c1681b9783c858f143f06262447c6f3259af98978d4fc93e5c430"
+    },
+    {
+      "path": "e2e/wolf-camps.spec.ts",
+      "sha256": "8947ffb87063199bc5ad831021eaa80cbaf6406f712d35f83a5d996dbb178288"
+    }
+  ],
+  "checks": {
+    "typescript": "passed",
+    "unit": {
+      "passed": 1318,
+      "files": 246
+    },
+    "chrome": {
+      "distinctPassed": 33,
+      "fullGreenSuiteRepeated": false,
+      "matchAndCompanionCohort": {
+        "initialPassed": 10,
+        "repairedPassed": 2,
+        "distinct": 12
+      },
+      "campAndCombatCohort": {
+        "initialPassed": 16,
+        "campRechecksPassed": 4,
+        "redBuffRecheckPassed": 1,
+        "distinct": 21
+      },
+      "coverage": [
+        "Real 5v5 selection, paid starter state, all five scoreboard positions and exact route save/reload",
+        "All three purchased companion forms/upgrades in practice and 5v5 with independent human/NPC ownership",
+        "Missing/pending asset preparation, retry, serialized clicks and resource revalidation",
+        "All ordinary camp families, Scuttlers, real Smite, source rigs, split/partial clears and saved respawn calendars",
+        "Existing last-hit, kite, recall, tower safety, lane progression and Lux combat policies"
+      ]
+    },
+    "headless": {
+      "auditPath": "docs/reference/bot-role-match-audit.json",
+      "auditSha256": "b7261b1178f864aa57e0b14feb0651af830a5b6071474af7e437f2be62b41670",
+      "seeds": [
+        {
+          "seed": 26018,
+          "tick": 141411,
+          "winner": "red",
+          "durationSeconds": 2356.85,
+          "validatedCheckpoints": 40,
+          "assertions": {
+            "winner": true,
+            "destroyedNexus": true,
+            "destroyedNexusTurrets": true,
+            "exposedInhibitor": true,
+            "validHealthAndMana": true
+          }
+        },
+        {
+          "seed": 719,
+          "tick": 156962,
+          "winner": "red",
+          "durationSeconds": 2616.0333333333333,
+          "validatedCheckpoints": 44,
+          "assertions": {
+            "winner": true,
+            "destroyedNexus": true,
+            "destroyedNexusTurrets": true,
+            "exposedInhibitor": true,
+            "validHealthAndMana": true
+          }
+        }
+      ],
+      "roadmap100SeedGateMet": false
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 20,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png"
+    }
+  },
+  "soloClear": {
+    "ticks": 24000,
+    "otherChampionsIdle": true,
+    "results": [
+      {
+        "team": "blue",
+        "hp": 894.7737282128079,
+        "level": 5,
+        "cs": 36,
+        "deaths": 0,
+        "position": {
+          "x": -579.9078725920888,
+          "y": 2118.865033986914
+        },
+        "order": {
+          "type": "idle"
+        },
+        "jungle": {
+          "camp": null,
+          "cursor": 4,
+          "quietSince": 23870,
+          "observations": [
+            {
+              "camp": "order-red",
+              "seenTick": 13916,
+              "retryTick": 15716
+            },
+            {
+              "camp": "order-krugs",
+              "seenTick": 17714,
+              "retryTick": 19514
+            },
+            {
+              "camp": "order-blue",
+              "seenTick": 19226,
+              "retryTick": 21026
+            },
+            {
+              "camp": "order-gromp",
+              "seenTick": 20468,
+              "retryTick": 22268
+            },
+            {
+              "camp": "order-wolves",
+              "seenTick": 21800,
+              "retryTick": 23600
+            },
+            {
+              "camp": "order-raptors",
+              "seenTick": 23996,
+              "retryTick": 25796
+            }
+          ]
+        },
+        "pet": 15
+      },
+      {
+        "team": "red",
+        "hp": 896.5142129788729,
+        "level": 5,
+        "cs": 36,
+        "deaths": 0,
+        "position": {
+          "x": -621.5876015269689,
+          "y": -5101.258269056759
+        },
+        "order": {
+          "type": "move",
+          "point": {
+            "x": -1107.90771484375,
+            "y": -4721.4580078125
+          }
+        },
+        "jungle": {
+          "camp": "chaos-krugs",
+          "cursor": 5,
+          "quietSince": 23996,
+          "observations": [
+            {
+              "camp": "chaos-krugs",
+              "seenTick": 17102,
+              "retryTick": 18902
+            },
+            {
+              "camp": "chaos-blue",
+              "seenTick": 18614,
+              "retryTick": 20414
+            },
+            {
+              "camp": "chaos-gromp",
+              "seenTick": 19856,
+              "retryTick": 21656
+            },
+            {
+              "camp": "chaos-wolves",
+              "seenTick": 21494,
+              "retryTick": 23294
+            },
+            {
+              "camp": "chaos-raptors",
+              "seenTick": 23330,
+              "retryTick": 25130
+            },
+            {
+              "camp": "chaos-red",
+              "seenTick": 23654,
+              "retryTick": 25454
+            }
+          ]
+        },
+        "pet": 14
+      }
+    ]
+  },
+  "fixtureCorrections": [
+    "Companion fixtures now inspect the human owner independently of two existing bot companions; pending preparation targets a rig not already prepared by the chosen roster.",
+    "Five historical camp fixtures now require their models at practice startup, matching the existing shared Rift camp calendars and pre-play asset readiness.",
+    "The Red-buff fixture reuses the existing opposing mid instead of adding an eleventh champion to a strictly ten-player checkpoint."
+  ],
+  "visualReview": [
+    {
+      "path": "artifacts/match-roles-scoreboard.png",
+      "sha256": "2a53027fbe74e28511e077bdf40da73044205e36958d197327d5a0d8d6d149f1",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/role-jungle-clear.png",
+      "sha256": "a818c5373d6069ee84ec69aef0b4db8b3e81d878a76600d88560ecb1e4322e63",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/production-role-match.png",
+      "sha256": "677bc3306d1f6f43b1ea285c8e0b56ebda540017311c7d02ed07db3a1516eada",
+      "reviewed": true
+    }
+  ],
+  "size": {
+    "gameChunkKb": 722.46,
+    "threeChunkKb": 659.93,
+    "chunkWarningRemains": true
+  },
+  "limits": [
+    "Interim roster uses Ashe jungle and mirrored Lux support; six complete champions and native calibration remain unfinished.",
+    "Jungle route, scouting retry, engagement distance and support choices are explicit local policies. Dedicated ganks, river/major objectives, sieges/team planning and role quests remain incomplete.",
+    "Two automated-human-carry seeded matches do not certify balance, natural human-play quality or the roadmap 100-seed acceptance gate.",
+    "Targeted green checks and headless results do not establish native fidelity, full-match browser performance or offline delivery."
+  ]
+}

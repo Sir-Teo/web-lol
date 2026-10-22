@@ -12,7 +12,7 @@ test('Rift emergence preserves the source pose through protected reload and exac
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   await Promise.all([
     page.waitForEvent('load'),
-    page.getByRole('button', { name: 'Start lane match', exact: true }).click(),
+    page.getByRole('button', { name: 'Start 5v5 match', exact: true }).click(),
   ]);
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });

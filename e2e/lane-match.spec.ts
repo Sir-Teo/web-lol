@@ -27,7 +27,7 @@ test('local lane match starts, saves, restarts in its mode, and can return to pr
   await choose(page);
   await expect(page.getByText('Choose your match', { exact: true })).toBeVisible();
   await page.screenshot({ path: 'artifacts/lane-match-menu.png' });
-  await start(page, 'Start lane match');
+  await start(page, 'Start 5v5 match');
   const first = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world;
@@ -62,10 +62,10 @@ test('local lane match starts, saves, restarts in its mode, and can return to pr
     g.hud.scoreboard(true);
     g.view.render(g.world, 1, 5);
   });
-  await expect(page.locator('.scoreboard-title')).toHaveText('LANE MATCH');
+  await expect(page.locator('.scoreboard-title')).toHaveText('5V5 MATCH');
   await page.screenshot({ path: 'artifacts/lane-match-scoreboard.png' });
   await page.keyboard.press('Escape');
-  await start(page, 'Restart lane match');
+  await start(page, 'Restart 5v5 match');
   expect(
     await page.evaluate(() => ({
       mode: (window as any).__GAME__.world.matchMode,
@@ -109,7 +109,7 @@ test('failed new-match write preserves the current match and previous browser sa
     };
     return { world: (window as any).__GAME__.world.snapshot(), stored: await readMatch('rift') };
   });
-  await page.getByRole('button', { name: 'Start lane match', exact: true }).click();
+  await page.getByRole('button', { name: 'Start 5v5 match', exact: true }).click();
   await expect(page.locator('.import-error')).toBeVisible();
   expect(
     await page.evaluate(async () => {

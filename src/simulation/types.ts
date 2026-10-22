@@ -445,6 +445,8 @@ export interface OwnedCompanion {
   nextPathTick: number;
 }
 export interface ChampionState {
+  role: import('../content/bot-roles').MatchRole | null;
+  jungle: import('./bot-jungle').JungleBotState | null;
   summoners: import('../content/summoners').SummonerLoadout;
   smite: { charges: number; rechargeTick: number | null } | null;
   trinket: TrinketState;

@@ -1,8 +1,12 @@
-# Full-Rift team integration diagnostic
+# Historical mirrored-lane integration diagnostic
+
+The current five-position Ashe/Lux audit is documented in [bot roles](BOT-ROLES.md)
+and [its seed ledger](reference/bot-role-match-audit.json). The older all-Ashe
+fixture below remains a separate regression instrument.
 
 Run `node tools/qa/simulate-rift.mjs 3600` from the repository root. The optional second argument selects the JSON report path; the adjacent `.snapshot.json` file retains the terminal state or unfinished horizon state. Durations are integer seconds from 1 through 3,600. The harness uses Vite's TypeScript loader in Node without a browser or gameplay server.
 
-The fixture creates ten automated Ashe champions on the actual Rift navigation and structure layout. Each team has two top, one mid and two bottom champions, starting at its fountain with ordinary level-one resources. The human record is automated for this diagnostic. It removes the default sparring champion and target dummy, and lets normal waves, combat, shopping, recalls, progression and structure rules run. It does not alter the playable default roster or represent jungle/support roles as implemented.
+The fixture creates ten automated Ashe champions on the actual Rift navigation and structure layout. Each team has two top, one mid and two bottom champions, starting at its fountain with ordinary level-one resources. The human record is automated for this diagnostic. It removes the default sparring champion and target dummy, and lets normal waves, combat, shopping, recalls, progression and structure rules run. It does not alter the playable default roster and has no jungle/support assignments; use the current role audit to exercise those foundations.
 
 The report samples positions, orders, HP, progression, inventory and structures every simulated minute. It records deaths, longest stationary intervals, simulation/wall duration, worktree status, winner and snapshot hash. Every tick checks finite unit positions and HP/mana within bounds. A declared winner requires a destroyed opposing Nexus, and the final snapshot must round-trip exactly. Any detected invariant failure returns a nonzero exit status and remains in the report. An unfinished match is retained as an observation, not forcibly resolved. Stationary time alone is not evidence of a stall: attacks, recall and safe holds also keep a champion still.
 

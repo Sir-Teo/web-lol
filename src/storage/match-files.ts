@@ -24,7 +24,7 @@ export async function prepareMatchImport(
     ? `${world.winner === 'blue' ? 'Blue' : 'Red'} team victory`
     : 'Match in progress';
   return {
-    description: `${world.matchMode === 'lanes' ? 'Lane match' : 'Practice'} · ${time} · ${state}. Loading replaces the current match and its browser save.`,
+    description: `${world.matchMode === 'lanes' ? '5v5 match' : 'Practice'} · ${time} · ${state}. Loading replaces the current match and its browser save.`,
     load: () => persist(snapshot),
   };
 }

@@ -50,7 +50,7 @@ test('select Lux with keyboard, cast Binding, save and restart both match modes 
   );
   await expect(page.locator('.lane-description')).toContainText('Lux in mid');
   await page.screenshot({ path: 'artifacts/champion-selection-lux.png', animations: 'disabled' });
-  await reloadAction(page, 'Start lane match');
+  await reloadAction(page, 'Start 5v5 match');
   expect(await state(page)).toEqual({
     champion: 'lux',
     name: 'Lux',
@@ -92,7 +92,7 @@ test('select Lux with keyboard, cast Binding, save and restart both match modes 
   await page.reload();
   await ready(page);
   expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(saved);
-  await reloadAction(page, 'Restart lane match');
+  await reloadAction(page, 'Restart 5v5 match');
   expect(await state(page)).toMatchObject({
     champion: 'lux',
     mode: 'lanes',
