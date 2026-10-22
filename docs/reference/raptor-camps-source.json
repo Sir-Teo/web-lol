@@ -1,0 +1,5365 @@
+{
+  "parents": {
+    "jungle-character-source": {
+      "path": "docs/reference/jungle-character-source.json",
+      "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b"
+    },
+    "jungle-script-source": {
+      "path": "docs/reference/jungle-script-source.json",
+      "sha256": "1a8dd82125b5834f7c459edb25216f03104f0e7bff8dfc057629fcf33fb6cbae"
+    },
+    "jungle-map-source": {
+      "path": "docs/reference/jungle-map-source.json",
+      "sha256": "d087005b4f782a0f09f4da0ae9951b4ee515103aa8259f1ebb158247faa02f93"
+    }
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+    "chunks": {
+      "A02D372F5DF76CAD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39736250,
+        "bytes": 223610,
+        "sha256": "497b48b952a25d9d549a9072d1b2968fced9ac4b0adb323b55d374bdb883ec4b"
+      },
+      "6C7FBEFDF21793B9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39959860,
+        "bytes": 258644,
+        "sha256": "f23ef45618318e6d6c3a909b86fc1846003544eeb901caeb4d180d5990932397"
+      },
+      "28395A168DBE5BA0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40218504,
+        "bytes": 183351,
+        "sha256": "70bced407e6680cc97032f924a5f3e16f886d1ac327f1146713dbfe168cc87c4"
+      },
+      "902BE54057D2F816": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40401855,
+        "bytes": 5831,
+        "sha256": "02c40cc44fd863d50514ee0ffd10a54d3ff9e9af1d6fac6ef4cb1d461f16d4d5"
+      },
+      "FEB9FC9832147ADC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 12867106,
+        "bytes": 266544,
+        "sha256": "5682b05473d220685c2b21546fb68b91041f0ebefc44b3c78b84ca10d62f61a0"
+      },
+      "8DA237CC213F0006": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 2935134,
+        "bytes": 429,
+        "sha256": "d1f01b3606b0a29bcbfc35aae9aa4967c22032943dac09f420317743dc493e17"
+      },
+      "D51EE7F3A8042E2E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 132723,
+        "bytes": 1460,
+        "sha256": "381b8d51b87d7f7cbd2320c284497338cf05e647c979617404a7a78ab2de4f76"
+      },
+      "DAA94D8D7EE21F68": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 12729821,
+        "bytes": 415,
+        "sha256": "de1bf5b5a1ce24586b660b1c1a7fb2cac401f726ccc37c3546de278d9d78e9d2"
+      },
+      "8FF72B0F85793481": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+        "offset": 7084397,
+        "bytes": 1436,
+        "sha256": "12598b63074e4b15f81d5dc892e8e62df5c4ef2ef9d0600e30194abf226e9d35"
+      },
+      "ACBEEBC7CA844AF3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 13608026,
+        "bytes": 5362,
+        "sha256": "a8c58994e8f3a830ffd435b544061da2e1e69b567f29bb4133943e2ecf74f226"
+      },
+      "0B86EFB200EC9BB8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 13535481,
+        "bytes": 19598,
+        "sha256": "2d07418422c2f8e1fa585823a60a5015bffc132f723245e6a25f6c1dc7f46499"
+      },
+      "109CDD8C82B8F829": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+        "offset": 27955719,
+        "bytes": 22459,
+        "sha256": "b916b65c56e3c4cd568e22e000fc74d4bb4528ab04cfd7b7ed7e1ee38e818bba"
+      },
+      "CC755A6E9B2F4E3E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+        "offset": 18382419,
+        "bytes": 7815,
+        "sha256": "f27084a0dbadf26a9815cf0219cc2ca4bc66ca94fb1e37317cd57b9ff44f7100"
+      },
+      "7CCEF04D9EC657FF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+        "offset": 16416806,
+        "bytes": 9632,
+        "sha256": "42df6fad5fb9346fe91ee04794a140e5a9d329404702bc7e6c5618a8269347b7"
+      },
+      "C8F85852BAB89903": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+        "offset": 22624235,
+        "bytes": 10920,
+        "sha256": "f590118e4cc58bf96de43eb8791d2881586c65daf421436e3f3acabc37439bf2"
+      },
+      "E167DC90A6714BE0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 740324,
+        "bytes": 305,
+        "sha256": "654f13684b4288755fac7c83ca397f73b44f0ac27452e0ad43e8f9e47030975e"
+      },
+      "15D5B4DA7F0D134C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 4062436,
+        "bytes": 468,
+        "sha256": "b28fe9f74da3ff10e0e7d0a1269143b2edff685d706cce3aaa392f31b0737ff8"
+      },
+      "38F2EE3A36674AA2": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 14028244,
+        "bytes": 479,
+        "sha256": "88a3409f1817ef793a8b23fb64d70ddbf64cef367fbd114392d4066fda94d468"
+      },
+      "84FAF8D7BC3D10E6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 627227,
+        "bytes": 490,
+        "sha256": "d04efb35e2527bd87ff75d997ce3b9a0f4bfe16584fe18ddd8def4291e16b8a0"
+      },
+      "2BC386D926016313": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 12630690,
+        "bytes": 481,
+        "sha256": "39369f5af972daa6dbb72cc42be31ee7c9db7275f6e7a89d6b5a377d93a6ee83"
+      },
+      "3175AE3FF56ACCA4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+        "offset": 19213083,
+        "bytes": 8471,
+        "sha256": "fc9b86f3238e451cb3ead12195841f8731b88c7007956b20616af989544de843"
+      },
+      "7C6B5D6927ABB443": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+        "offset": 13994331,
+        "bytes": 8106,
+        "sha256": "cbbf30cb8c51f150e9b7217c408c5f84e4a02d50d56950bb346b1912983d9792"
+      },
+      "630B5A6F7F366050": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 6718189,
+        "bytes": 7334,
+        "sha256": "f45f4e496d3c6db0514f00f448e6e9b3a6045cdde924bc786d46d326929d8b8d"
+      },
+      "ACAF3E0D458A3FAC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+        "offset": 3284363,
+        "bytes": 7081,
+        "sha256": "a3d0c382b292a3d3b929bb412a6297a4b9ec8b32c4f7220e076ec4bc25600f34"
+      },
+      "3B1FB3AE23AD5EFF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+        "offset": 3269197,
+        "bytes": 5860,
+        "sha256": "857b006d8f0e7d4e0d902afd6b19a619e13830e1454b1a9f965916638c5b7d7c"
+      },
+      "29B5A62D6DBBF273": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 12914245,
+        "bytes": 9279,
+        "sha256": "2a7ef576e1d443d79cfb1aeca609a39f0e23beef4c97b952fb5e12bc338bc81c"
+      },
+      "43B9ED034BD25118": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+        "offset": 2230396,
+        "bytes": 14550,
+        "sha256": "3cba4554995c8e0a2208077e07d339c2c6d492c2e7ad2db559da5f3e4eaabc8d"
+      },
+      "E06EB977FD19992F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+        "offset": 21518416,
+        "bytes": 26823,
+        "sha256": "18a77b8ed7931259bd4097573f8583cb4cdba5d0acd39071f9d113754d49c824"
+      },
+      "3A325B388EBB77E5": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 6729458,
+        "bytes": 28838,
+        "sha256": "717c9f55b02a8e925a87c271c4ec320472dd658da079941369daac3d09bb4016"
+      },
+      "8687AAD90BE60039": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 1224393,
+        "bytes": 26625,
+        "sha256": "62cf315285747ed04a548d5e97473926c9db9feab408b1ca1d10b3080321d905"
+      },
+      "BD21CA2242493516": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+        "offset": 3257556,
+        "bytes": 7261,
+        "sha256": "987616353d4527d29fde5b7c59841fb6f57bb76d21875190eb7fd42855412147"
+      },
+      "00F30A7A444EB807": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+        "offset": 11597576,
+        "bytes": 14411,
+        "sha256": "7c5eb4067a8b1f4a87be5e3e9e338aec2bac520f3f7fffa2dc0e481a49c3f7ad"
+      },
+      "BA690A637DB0F51C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+        "offset": 332829,
+        "bytes": 2618,
+        "sha256": "d06e03bacd839aff93f297ea98114a8a6d6112a591260e3cdc706a2e1666cb1a"
+      },
+      "D8C1D645F86C6918": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+        "offset": 27531652,
+        "bytes": 80568,
+        "sha256": "5849e1717cf1ee889a432794e542c108ed1069ff389fec138b3200120b54da77"
+      },
+      "4F825ACF030C177C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/704CB56855A3499E.bundle",
+        "offset": 7411469,
+        "bytes": 254534,
+        "sha256": "3f476ba7e8950ebc5226485f695b67c832dfdfc45cf8c960b709690d662212e4"
+      },
+      "833BFA08025B1D47": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+        "offset": 3371826,
+        "bytes": 2609,
+        "sha256": "1e305bfd31ac1afdf723055f0335b17e4cde7454e1c7a540c994b487317b4c44"
+      },
+      "D36245B9A14913A0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/09BCD199A5AF0EA2.bundle",
+        "offset": 17952582,
+        "bytes": 56363,
+        "sha256": "7129334028b8cd241db992712b7b62e5fe31245e15bb64f1e44c55d95b1d2f72"
+      },
+      "843232328C5EC0BB": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 283415,
+        "bytes": 29834,
+        "sha256": "d4c85447d35565c69157cf23f5edaa3e07a9912c95d05de1f88a51f372b26770"
+      },
+      "EBA1FCCC1DDF71B6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 18152618,
+        "bytes": 5443,
+        "sha256": "7d9a12d5b03adffe6f6f9fb0573e621ad004785f328f75a8a2b249a12d1a84ed"
+      },
+      "360D7187BCA916ED": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 17255456,
+        "bytes": 13894,
+        "sha256": "c66a808e30ec59cf23c0ddfa83077c503ae9833d86285702993c571454eaf1c6"
+      },
+      "B8C8FAAB697998A2": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+        "offset": 11748516,
+        "bytes": 14579,
+        "sha256": "4ab11f40492fcd1819bf1d9ef11355415a6a321459e53fd43045f5c66530f988"
+      },
+      "47B8F94916F531AC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3C895C1914F20F08.bundle",
+        "offset": 27827717,
+        "bytes": 14471,
+        "sha256": "ef2a42ddf565bdc1a58fb3b7b2796d41370e15eb8b5cf5b6882670555afbd9a2"
+      },
+      "0AD590007354C311": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 15116719,
+        "bytes": 17022,
+        "sha256": "430b438e34faefa41d28b6657788128e42ab06232b470a4c3e5f347d7ac5d33b"
+      },
+      "C52383E33E339405": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 19113804,
+        "bytes": 17641,
+        "sha256": "7315794fcec8df84e4ae44fc232b85b5c445cb50ad65a6c4c24aee3b15071bf5"
+      },
+      "E360DE96D2605A73": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 18130729,
+        "bytes": 10256,
+        "sha256": "e627156f6082059beb56598afea34e2b4996af69c9b087ae416e4ade38f8602a"
+      },
+      "4C5C2D54F469F888": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+        "offset": 1845201,
+        "bytes": 11376,
+        "sha256": "41f16da4a12f57429f855093b4313716d79845b9f06be23315dcb6760607d071"
+      },
+      "CCDB1E9558234E31": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 17281124,
+        "bytes": 12145,
+        "sha256": "4f6e2af1cda04756507bc7ece3f457b0c5eb4449ca7975c8d7d3a824463c4836"
+      },
+      "71DC080FD833EF46": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 196863,
+        "bytes": 308,
+        "sha256": "31ff82e58620d52a82c01ffcb00743fe7a161cd106256dcd0b00537342d6e485"
+      },
+      "D13FB05B2F01BE2B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 14715663,
+        "bytes": 479,
+        "sha256": "c98b20550ad8c8dadc26fa63d7bc03acb0fe66a28dfc030c609a226bf1bf89f9"
+      },
+      "4E90507D39B42D3F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+        "offset": 2653324,
+        "bytes": 479,
+        "sha256": "e3f3c9e209954fb4bced46aba3b39b28cbd1ee0dfa65e97e2f8fa1854e90d899"
+      },
+      "CC9AB0A842B5BF95": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 193159,
+        "bytes": 478,
+        "sha256": "90a875b31fc7708d271ea562cc6762a1758de5a48f932e49ccc4d841113f7dd0"
+      },
+      "18CB5600D1C95A90": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 12513840,
+        "bytes": 470,
+        "sha256": "6f9b95323d5a8f4cb7a527bea3666c6d3b177e2779518f84236835797f83639d"
+      },
+      "D65D03AC3C4B52AC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CBE4F6F36EC40353.bundle",
+        "offset": 18559365,
+        "bytes": 7936,
+        "sha256": "28a09842ccff528e016cfd7360db496f1171a35b4b697f474a0b87e7e103848d"
+      },
+      "378D621AB90DD70B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BE47233AC6A2DF32.bundle",
+        "offset": 37855431,
+        "bytes": 8606,
+        "sha256": "6bebf771ef0059036b9e986d5c09c58f9fb38ec0d426b30a5e24ba3c78b9059f"
+      },
+      "9B44A30844728866": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FBEB91516B495ABA.bundle",
+        "offset": 2394175,
+        "bytes": 4224,
+        "sha256": "6fc3f3c7264ee707fdf22d0a7455675cac16f620dd1944795f56fec2054bcfd1"
+      },
+      "6994238EDE74C5EC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F81971E58C4F3E9E.bundle",
+        "offset": 3694140,
+        "bytes": 9488,
+        "sha256": "8a8e57b6fefeacd95927bc48a5bb7fd45456fa4cebf39cd9e3bb560ef9d9242f"
+      },
+      "F142B50F3E2377ED": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9D511DA2B529CB8C.bundle",
+        "offset": 2431429,
+        "bytes": 14711,
+        "sha256": "20205e3f2ee196002009508841697478c4353db6a87431d332c9fc7158d798fc"
+      },
+      "6AFCEF6A46C757EA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 18484042,
+        "bytes": 11848,
+        "sha256": "c5afdfb9e013c1403c7e865a64bdb50d8d44d05e7d2cb9a66b5c3c5d8e60ae25"
+      },
+      "494EF7563A9D21B3": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DB99EC3CC44FE3B5.bundle",
+        "offset": 3063888,
+        "bytes": 12453,
+        "sha256": "5b7f0c6f67c34318ade6c21d0a8e7c4d87b3d65cbed290b97449023697f7ff42"
+      },
+      "024CA38DB36B8287": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 15703127,
+        "bytes": 4396,
+        "sha256": "35a5a3ffcdf9ad1c54b3bcd3429c4d748b1acf05990c03d2ee13e794860fa9d2"
+      },
+      "6A4ECF334E03554E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 6554814,
+        "bytes": 14676,
+        "sha256": "af8c1d24aaf5601eca72e3afd9344d77524c2df8f775f6ba164e61db4bb80845"
+      },
+      "997BA1640A006EFE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 17269350,
+        "bytes": 11774,
+        "sha256": "0d42d1f7eecc81ce8bcd75c1237b7980b857df34fa229d6ace8660acb7409515"
+      },
+      "E464EE334095BB18": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/F35F096F900BC271.bundle",
+        "offset": 27576649,
+        "bytes": 10826,
+        "sha256": "511f8da9bc79043f07eae6b1b4745d03e564ae7586b8080dc02f0100745b2e64"
+      }
+    },
+    "files": [
+      {
+        "path": "data/characters/sru_razorbeak/skins/skin0.bin",
+        "wadPathHash": "a784556539696711",
+        "sha256": "9d89be2394d5c69edacbb6bb142d4f2420ee9eb126256ed2a3a06ff220907838",
+        "bytes": 660
+      },
+      {
+        "path": "data/characters/sru_razorbeak/animations/skin0.bin",
+        "wadPathHash": "1509a007064ea023",
+        "sha256": "e7e699f0a57d0704bc0c8488722749c151b008df5e2f094ae558776f79001657",
+        "bytes": 5840
+      },
+      {
+        "path": "data/characters/sru_razorbeakmini/skins/skin0.bin",
+        "wadPathHash": "b5c55dbf681d0763",
+        "sha256": "bfb87d939680b70cd6caeffe7f0dee5681b510ee4a744fe249827770c5c8b7a3",
+        "bytes": 671
+      },
+      {
+        "path": "data/characters/sru_razorbeakmini/animations/skin0.bin",
+        "wadPathHash": "8642705401bda05b",
+        "sha256": "d4a864c524d1ad5893124ae97a65d033809b1fd808f394887a1013325f12245a",
+        "bytes": 6193
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_a2n.anm",
+        "wadPathHash": "dc5f01d430c00ad9",
+        "sha256": "92400f69e2e92e9794d7379dba4c41fe60864082f8d3c722eb2a8062409476c5",
+        "bytes": 10292
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death.anm",
+        "wadPathHash": "bc6fda385db6a29e",
+        "sha256": "de526e5c9fe76b5d09ea33cae6458bca7b31c5ac26163f0cb404a055e00f5bf2",
+        "bytes": 29496
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death2.anm",
+        "wadPathHash": "5212fbcadd8ad9b2",
+        "sha256": "0673cba9d2d872cc542ac5c96dc44fb2d5ab8cca3718583ec7ab68a4dd1be26b",
+        "bytes": 32436
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro1.anm",
+        "wadPathHash": "103a0ba474845667",
+        "sha256": "fc676908fade2332efd3bfb07c9e5b20b97c8898716fa1753d991e87b0baf3e2",
+        "bytes": 13874
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro2.anm",
+        "wadPathHash": "ad5a09522aa0fe50",
+        "sha256": "6256dfb0c0750328a5bff2ed66ee282a386c8ad11356f38f3a3ba116a9fc3e2d",
+        "bytes": 15624
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro3.anm",
+        "wadPathHash": "00f581a1e8c9ae1b",
+        "sha256": "2817123717e8a90ec1845282ab106245cbe2163c8b909e45b2c48e39cc968330",
+        "bytes": 17104
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_0.anm",
+        "wadPathHash": "bf2390f4bbc8438d",
+        "sha256": "82b274d25716450fb25e10fadafb95677a586690d1cc2f6de69a7a07dd0c6141",
+        "bytes": 976
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l135.anm",
+        "wadPathHash": "a6deba51e2949680",
+        "sha256": "d4b553431c8126674c6b55931746ae0c47c64a79f9886dc0263ad2cb3446fb53",
+        "bytes": 1102
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l45.anm",
+        "wadPathHash": "53668591964f52b7",
+        "sha256": "a0cff4e6545da57474b0a348be831b2aaf4db062693cfa5bedc25ba6cbbf1011",
+        "bytes": 1102
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r135.anm",
+        "wadPathHash": "ef51778ab0c835dc",
+        "sha256": "0d859ad06c8503d8726d859840408698e3028092d3f4b38b5455978df820c756",
+        "bytes": 1108
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r45.anm",
+        "wadPathHash": "11346d3753252b13",
+        "sha256": "0c5c7c28d2ba987eed92affc8e7b4aae327b531019b561fd90c9907a5df225ec",
+        "bytes": 1102
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal1.anm",
+        "wadPathHash": "8a01c6bf12869c2a",
+        "sha256": "658ae845372b118ebe9c6bbe68cd095664abe8513024f914584839b7ff16201c",
+        "bytes": 14794
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal2.anm",
+        "wadPathHash": "2bc61611a1fda2b8",
+        "sha256": "38e017d2471f13b09098af2560f9f16de9efb7ed8b045d8aaf6aa42d0aead56e",
+        "bytes": 14464
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal3.anm",
+        "wadPathHash": "3dc7bb78a43f4428",
+        "sha256": "65bb59450fbfee171cd76218a93ae8fd9ce205096cae7b6ae7c2d431e8043a75",
+        "bytes": 13384
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal4.anm",
+        "wadPathHash": "70cd3b9d675c61d3",
+        "sha256": "8515b67d903c2a731aa35086c17693c5d77156aab2e68f4211d37a038d1ff323",
+        "bytes": 13204
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal5.anm",
+        "wadPathHash": "0a41a37b36628ab3",
+        "sha256": "18f7546adcc6676e440d22ad8282d302bdb64f46a0b0ac5ed0d1966964c2c1b0",
+        "bytes": 11092
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_n2a.anm",
+        "wadPathHash": "c64d02d25915647e",
+        "sha256": "f3a35543382a346a8c89b9a2e0603d4ed62e65d3750f330da69c158ad1f727e6",
+        "bytes": 15754
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_nspawn.anm",
+        "wadPathHash": "39dc1a9d333d29a5",
+        "sha256": "b990fa34d600cd161fc4ac235834380cefb3befa703355bb1331b2b335b7a58c",
+        "bytes": 22034
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack1.anm",
+        "wadPathHash": "c2f5cbace2c1428f",
+        "sha256": "343be7cd639a46da462546b6d69acdd0644ac51b7d9e74a141a6b6d8433bc849",
+        "bytes": 36468
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack2.anm",
+        "wadPathHash": "653e89a4d19612cf",
+        "sha256": "c2ec06a9b20e4fdf1e74ed31a31f0aeca3c970716450ba1ae61e1cad1bf723ba",
+        "bytes": 38868
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack3.anm",
+        "wadPathHash": "af1d4805ed525614",
+        "sha256": "7a8def0ea7a2ef74aa6eca65580f5aa675cfedd2a382c88e8131445a15194d2b",
+        "bytes": 36308
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_run.anm",
+        "wadPathHash": "c86c100bf4d4d66f",
+        "sha256": "5d6b7634b8fa9dad9a28fd1967e3bd7317caa0333e9592bf6ee903791c4414a9",
+        "bytes": 17584
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_spawn.anm",
+        "wadPathHash": "4c9261e022092145",
+        "sha256": "ced34f9e0a3ce41aef4d0b41f2ccb3ebe21ebb42ee0fc974a56a633ce4c66ff6",
+        "bytes": 21894
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak.skl",
+        "wadPathHash": "e5a743943d1ca021",
+        "sha256": "af75cff2ed5b987f96b91f476f7b8e690dc39465e00749683027ae62de048514",
+        "bytes": 6004
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak.skn",
+        "wadPathHash": "f986ed85f6d8495f",
+        "sha256": "64583cd2d994c2f1dc099ba15d2843c18318c4096dc81517e18141802825fff8",
+        "bytes": 155348
+      },
+      {
+        "path": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak_tx_cm.tex",
+        "wadPathHash": "3b70b7a4107b23b8",
+        "sha256": "674e5de10e182e1264a4769afccf3e5186ea9bec9ad84615424237f33e760fe2",
+        "bytes": 699076
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeak.skl",
+        "wadPathHash": "f852e064d8fa2a53",
+        "sha256": "550d40481ba39e57b9391ed74d6cd36a4f29cb437129414f3b4cbb1c14e21e19",
+        "bytes": 5996
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeak.skn",
+        "wadPathHash": "335e060fb65e8f25",
+        "sha256": "18b90352d2c7135114380880d3813890a1bc3b73768ff9042b9a04e3870a22c1",
+        "bytes": 115416
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeak_mini_tx_cm.tex",
+        "wadPathHash": "a46b3e46aba8c8a3",
+        "sha256": "a866f8f05264705bbb9183b270e81f3403dbd8ca611bf1272da43e64e2d49bb9",
+        "bytes": 43716
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_a2n.anm",
+        "wadPathHash": "2ab040a367ee26c9",
+        "sha256": "e4dcf8433b9c804a8c492eb98273e68dde8da3dded8fc03865efc08ef9a4a49c",
+        "bytes": 10392
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack1.anm",
+        "wadPathHash": "c228f936dab6aeae",
+        "sha256": "de81bfa40e2dabba1498f86cfa8a411fac4649b1d3f3efda9fa9440ad7ae8484",
+        "bytes": 25222
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack2.anm",
+        "wadPathHash": "51280a8f98850a4d",
+        "sha256": "04411d85fc2f832eccdf7cc419e4032145e6dbbfe533f85331fec4349986095d",
+        "bytes": 25696
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack3.anm",
+        "wadPathHash": "d02863a2cd2fe8b8",
+        "sha256": "62505267b5cabf411aa1c47eed24b5e70d93c4cf4133a89f081aa9399a6bbd35",
+        "bytes": 25684
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death.anm",
+        "wadPathHash": "c3b0ba16d668f05a",
+        "sha256": "c598fbe4c93fbe816e4014c8da7d150981fef4f1233ede73f46195885ff9a4cd",
+        "bytes": 26096
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death2.anm",
+        "wadPathHash": "90266caaa621d589",
+        "sha256": "46f16e49477af5636a1e746478d0c96bbd66a9bde1828d0d1d8e270803737fd4",
+        "bytes": 26716
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro1.anm",
+        "wadPathHash": "dd945c14ec5b5c35",
+        "sha256": "6a53b1c8dafd486e6500b53933d3673ceb1a2ddbda8c6f64ad39fb0c096be8a4",
+        "bytes": 16844
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro2.anm",
+        "wadPathHash": "0e39ba11c358dbc3",
+        "sha256": "be88b15ab2c9d03f47461e2d95b8d491cd1f2aa847a06c9078ca76ce405fe10f",
+        "bytes": 17604
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro3.anm",
+        "wadPathHash": "41662c791c3d234b",
+        "sha256": "3e6242c2cbaf2ef07ce338ee1bc1ef8adcfcf3d9aab3d929e27df587bff39f5b",
+        "bytes": 19244
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_0.anm",
+        "wadPathHash": "12272601f8d27bca",
+        "sha256": "c4ae572feb2f26f195c102b1dcf71cf6f5c29099fe584231d862a845989f7638",
+        "bytes": 976
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l135.anm",
+        "wadPathHash": "71914e3a1ed0b8ab",
+        "sha256": "f4c77317068708bcd3a2e6879f284640488c29e46e357d86a50554ad50ebf7af",
+        "bytes": 1102
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l45.anm",
+        "wadPathHash": "1e19ebb972bd828f",
+        "sha256": "2a5ddd9ce7789fdd2e9c096c84caaddd616d0582a14d3b8d6d90e1a827434f09",
+        "bytes": 1102
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r135.anm",
+        "wadPathHash": "5d3f98d2a5b866c5",
+        "sha256": "e5574d80222a75f949fce7f65ab83d7222c499445d44e6a542a3fe818f0b6e21",
+        "bytes": 1108
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r45.anm",
+        "wadPathHash": "9bdba965b72f47f4",
+        "sha256": "668eedcbb0c40179b241eea4e60bd575663153a1288c8c804fc260e914bcfdb4",
+        "bytes": 1102
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal1.anm",
+        "wadPathHash": "85cd480dd32c031a",
+        "sha256": "34919baf19f89c763a331ac7861ea279644d5a4732e33c04ab6242b10dfc2a66",
+        "bytes": 14094
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal2.anm",
+        "wadPathHash": "bdb7a41b102aefcc",
+        "sha256": "80e6ddc6cd1c9b288d19826288c2647dc6d19f6150606a27253856aadddfc08b",
+        "bytes": 14994
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal3.anm",
+        "wadPathHash": "6ea99ce224432dd1",
+        "sha256": "d09c62842d3eef917e3c21a2fe2ab79fc2e9512627dbec3a293b262ae4b28cec",
+        "bytes": 9152
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_n2a.anm",
+        "wadPathHash": "63665ce00fd1f9b7",
+        "sha256": "7d878e0a6b770b29a040de0248b6b0f7466e2b92fe151d0f7be976e91d97d428",
+        "bytes": 16034
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn2.anm",
+        "wadPathHash": "13551ac1c1ad10f0",
+        "sha256": "0837cfa0f7c7d4adabdfb92de4d3403141c3dcfa9dab67b06daaa6019cd5a830",
+        "bytes": 24956
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn3.anm",
+        "wadPathHash": "e971a7caa84f24d0",
+        "sha256": "b9f5f71aa9b5ff03a30e5aa2c610a7039676ac8da8c4bb4195a575f5cbb53d19",
+        "bytes": 23758
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn4.anm",
+        "wadPathHash": "5bbe9cab264261b5",
+        "sha256": "6e65c072c883f054113461be045bbcfa87a0c2195fda43a56906b7397ce76b1b",
+        "bytes": 21914
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_run.anm",
+        "wadPathHash": "96672ae6989d58b2",
+        "sha256": "14db933d7b7582ad6f0fccd119e5422313f7a7f36f2bf95df688e804fae83f1f",
+        "bytes": 7684
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn2.anm",
+        "wadPathHash": "8275016776a53359",
+        "sha256": "08db0ab3445a494051baee01d01b21367202c33e927ae8ba0e4d41ff3c14825a",
+        "bytes": 24646
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn3.anm",
+        "wadPathHash": "7653347d0a492f5e",
+        "sha256": "6219d4c3262d3ff4ae251f0e49dbb0bbcb1370228fb1f05234a2ef46b6a0ad19",
+        "bytes": 19804
+      },
+      {
+        "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn4.anm",
+        "wadPathHash": "ffdceb172557d933",
+        "sha256": "9a21c2637c3017ce56be3d4a3af5a41a90d80307253b56c3b84b921ae2098963",
+        "bytes": 19154
+      }
+    ]
+  },
+  "labelEvidence": {
+    "dictionarySha256": "9e9370edecab87865e33b1cf90e8309248cced44ebe29d3f0875c237d8400081",
+    "dictionaryUrl": "https://raw.communitydragon.org/data/hashes/lol/hashes.game.txt",
+    "status": "Discovery labels only; every retained path is xxh64 checked. Reproduction uses pinned finite paths."
+  },
+  "records": {
+    "data/characters/sru_razorbeak/skins/skin0.bin": {
+      "Characters/SRU_Razorbeak/Skins/Skin0": {
+        "championSkinName": "SRU_Razorbeak",
+        "skinAudioProperties": {
+          "bankUnits": [
+            {
+              "name": "NPC_Map11_Razorbeak_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Razorbeak_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Razorbeak_SFX_events.bnk"
+              ],
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "{ea894f4a}",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/SRU_Razorbeak/skins/base/SRU_Razorbeak.skl",
+          "simpleSkin": "ASSETS/Characters/SRU_Razorbeak/skins/base/SRU_Razorbeak.skn",
+          "texture": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak_tx_cm.tex",
+          "skinScale": 1.399999976158142,
+          "selfIllumination": 0.699999988079071,
+          "reflectionFresnelColor": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Flesh",
+        "iconCircle": "assets/characters/sru_razorbeak/hud/razorbeak_circle.tex",
+        "iconSquare": "assets/characters/sru_razorbeak/hud/razorbeak_square.tex",
+        "healthBarData": {
+          "unitHealthBarStyle": 5,
+          "__type": "CharacterHealthBarDataRecord"
+        },
+        "objectPath": "Characters/SRU_Razorbeak/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "__linked": [
+        "DATA/Characters/SRU_Razorbeak/SRU_Razorbeak.bin",
+        "DATA/Characters/SRU_Razorbeak/Animations/Skin0.bin"
+      ]
+    },
+    "data/characters/sru_razorbeak/animations/skin0.bin": {
+      "{ea894f4a}": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "{d5249d65}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d2ed0d3}": {
+                "mName": "{0d2ed0d3}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_aggro1_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{2acd4eca}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_run.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "attack1": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{76cefaf0}": {
+            "mFlags": 1,
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{d5249d65}",
+                "mProbability": 45.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{d22498ac}",
+                "mProbability": 10.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{d3249a3f}",
+                "mProbability": 45.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{ed749d7b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{4aa50760}": {
+                "mName": "{4aa50760}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{3a224d98}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 27.0,
+                "mEffectName": "DATA/Particles/SRU_RedBuff_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{9675fb99}": {
+                "mName": "{9675fb99}",
+                "mStartFrame": 1.0,
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_spawn_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_spawn.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{90c6bb8a}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c4f902f0}": {
+                "mName": "{c4f902f0}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_normal1_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{554f5315}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c7f907a9}": {
+                "mName": "{c7f907a9}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_normal2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{aff0e591}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{6cf457d7}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{788d7622}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_0.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{85572a11}": {
+            "mFlags": 2,
+            "mTrackDataName": "{eb8a0f73}",
+            "Updater": {
+              "__type": "LookAtInterestAngleParametricUpdater"
+            },
+            "mParametricPairDataList": [
+              {
+                "mClipName": "{788d7622}",
+                "mValue": -180.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{d163564d}",
+                "mValue": -135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{aff0e591}",
+                "mValue": -45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{788d7622}",
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{6cf457d7}",
+                "mValue": 45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{1275a13b}",
+                "mValue": 135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{788d7622}",
+                "mValue": 180.0,
+                "__type": "ParametricPairData"
+              }
+            ],
+            "__type": "ParametricClipData"
+          },
+          "{9dd9dc06}": {
+            "mConditionFloatPairDataList": [
+              {
+                "mClipName": "{99862016}",
+                "mHoldAnimationToHigher": 2.0,
+                "__type": "ConditionFloatPairData"
+              },
+              {
+                "mClipName": "{78a49bc0}",
+                "mValue": 600.0,
+                "__type": "ConditionFloatPairData"
+              }
+            ],
+            "Updater": {
+              "__type": "LookAtInterestDistanceParametricUpdater"
+            },
+            "mChangeAnimationMidPlay": true,
+            "__type": "ConditionFloatClipData"
+          },
+          "{78a49bc0}": {
+            "mFlags": 1,
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{b196c6be}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{4d8a4fff}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{3cd6aa70}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{8139d6f9}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{67ffe0d2}",
+                "mProbability": 20.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{99862016}": {
+            "mClipNameList": [
+              "{85572a11}",
+              "{76cefaf0}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{d163564d}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l135.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{1275a13b}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r135.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{dff8e7f9}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{174fa83d}": {
+                "mName": "{174fa83d}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_a2n_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_a2n.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{e714e91f}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{00bb2e89}": {
+                "mName": "{00bb2e89}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_n2a_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_n2a.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{d3249a3f}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0f2ed3f9}": {
+                "mName": "{0f2ed3f9}",
+                "mStartFrame": 18.0,
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_aggro3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{d22498ac}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0e2ed266}": {
+                "mName": "{0e2ed266}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_aggro2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2_base": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack3_base": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "Attack2_base",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "Attack3_base",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{0ea0b0fc}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c3fbadc5}": {
+                "mName": "{c3fbadc5}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_spawn_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_nspawn.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{554e8c84}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c6f90616}": {
+                "mName": "{c6f90616}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_normal3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{308b189f}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c9f90acf}": {
+                "mName": "{c9f90acf}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_normal4_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd31845b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{d3ca8616}": {
+                "mName": "{d3ca8616}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{31dc9e56}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c8f9093c}": {
+                "mName": "{c8f9093c}",
+                "mEffectName": "DATA/Particles/SRU_Razorbeak_idle_normal5_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal5.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd28bd4d}": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{ed749d7b}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{bd31845b}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{ee319fbb}": {
+            "mClipNameList": [
+              "{dff8e7f9}",
+              "{554e8c84}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{3cd6aa70}": {
+            "mClipNameList": [
+              "{554e8c84}",
+              "{90c6bb8a}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{8139d6f9}": {
+            "mClipNameList": [
+              "{308b189f}",
+              "{90c6bb8a}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{b196c6be}": {
+            "mClipNameList": [
+              "{90c6bb8a}",
+              "{31dc9e56}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{4d8a4fff}": {
+            "mClipNameList": [
+              "{554f5315}",
+              "{31dc9e56}"
+            ],
+            "__type": "SequencerClipData"
+          },
+          "{67ffe0d2}": {
+            "mClipNameList": [
+              "{31dc9e56}",
+              "{554f5315}"
+            ],
+            "__type": "SequencerClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "{933b5bde}": {
+            "__type": "TrackData"
+          },
+          "{eb8a0f73}": {
+            "mPriority": 1,
+            "mBlendMode": 1,
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "893241266114174331": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1054036913166785915": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1330146543716834683": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207950027116234": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207953292860795": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3497916610287802540": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "3497916610304580159": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "3497916610338135397": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "3497916610746031483": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3592920698464802988": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "3592920698481580607": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "3592920698515135845": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "4188995922622193019": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6147005043496491180": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6147005043513268799": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6147005043546824037": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6147005043954720123": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6147223369569048748": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6147223369585826367": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6147223369619381605": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6147223370027277691": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030500422183204": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502951525755": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6463208477680770427": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7850996635327044987": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826272541056379": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8561055852370262768": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8561055854360829307": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8686729148652363131": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8693244433651768699": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9608194586504895867": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "10432231791755827372": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10432231791772604991": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10432231791806160229": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "10432231792214056315": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11062564817527414139": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11374364256212655483": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12677885365964807547": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15087998069317606779": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15142395712442669215": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15142395712464789078": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15142395713059458180": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15142395713059509013": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15142395714057190282": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15142395715612089723": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15214455037352417439": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15214455037374537302": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15214455037969206404": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15214455037969257237": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15214455038966938506": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15214455040521837947": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15358573687171913887": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15358573687194033750": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15358573687788702852": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15358573687788753685": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15358573688786434954": {
+            "mClipName": "{dff8e7f9}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15358573689933438309": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15358573690341334395": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16138904325298888059": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16651190045632667003": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039877737851": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "{ea894f4a}",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    },
+    "data/characters/sru_razorbeakmini/skins/skin0.bin": {
+      "Characters/SRU_RazorbeakMini/Skins/Skin0": {
+        "championSkinName": "SRU_Razorbeak",
+        "skinAudioProperties": {
+          "bankUnits": [
+            {
+              "name": "NPC_Map11_RazorbeakMini_SFX",
+              "bankPath": [
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_RazorbeakMini_SFX_audio.bnk",
+                "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_RazorbeakMini_SFX_events.bnk"
+              ],
+              "__type": "BankUnit"
+            }
+          ],
+          "__type": "SkinAudioProperties"
+        },
+        "skinAnimationProperties": {
+          "animationGraphData": "{7eff7a93}",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/SRU_RazorbeakMini/Skins/Base/SRU_Razorbeak.skl",
+          "simpleSkin": "ASSETS/Characters/SRU_RazorbeakMini/Skins/Base/SRU_Razorbeak.skn",
+          "texture": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeak_mini_tx_cm.tex",
+          "skinScale": 0.800000011920929,
+          "selfIllumination": 0.699999988079071,
+          "reflectionFresnelColor": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Flesh",
+        "iconCircle": "assets/characters/sru_razorbeakmini/hud/razorbeakmini_circle.tex",
+        "iconSquare": "assets/characters/sru_razorbeakmini/hud/razorbeakmini_square.tex",
+        "objectPath": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "__linked": [
+        "DATA/Characters/SRU_RazorbeakMini/SRU_RazorbeakMini.bin",
+        "DATA/Characters/SRU_RazorbeakMini/Animations/Skin0.bin"
+      ]
+    },
+    "data/characters/sru_razorbeakmini/animations/skin0.bin": {
+      "{7eff7a93}": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "{2acd4eca}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_run.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "attack1": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{76cefaf0}": {
+            "mFlags": 1,
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{d5249d65}",
+                "mProbability": 35.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{d22498ac}",
+                "mProbability": 35.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{d3249a3f}",
+                "mProbability": 10.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "Attack2_base": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{ed749d7b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{4aa50760}": {
+                "mName": "{4aa50760}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{2e00429e}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 26.0,
+                "mEffectName": "DATA/Particles/SRU_RedBuff_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{86bb2e31}": {
+                "mName": "{86bb2e31}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_spawn2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{2f004431}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 27.0,
+                "mEffectName": "DATA/Particles/SRU_RedBuff_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{85bb2c9e}": {
+                "mName": "{85bb2c9e}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_spawn3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{300045c4}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 27.0,
+                "mEffectName": "DATA/Particles/SRU_RedBuff_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{88bb3157}": {
+                "mName": "{88bb3157}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_spawn4_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{54de7ae2}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c4f902f0}": {
+                "mName": "{c4f902f0}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_normal1_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{53de794f}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c7f907a9}": {
+                "mName": "{c7f907a9}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_normal2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{788d7622}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_0.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{aff0e591}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{6cf457d7}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r45.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{78a49bc0}": {
+            "mFlags": 1,
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{53de794f}",
+                "mProbability": 25.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{54de7ae2}",
+                "mProbability": 25.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{52de77bc}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{85572a11}": {
+            "mFlags": 2,
+            "mTrackDataName": "{eb8a0f73}",
+            "Updater": {
+              "__type": "LookAtInterestAngleParametricUpdater"
+            },
+            "mParametricPairDataList": [
+              {
+                "mClipName": "{788d7622}",
+                "mValue": -180.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{d163564d}",
+                "mValue": -135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{aff0e591}",
+                "mValue": -45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{788d7622}",
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{6cf457d7}",
+                "mValue": 45.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{1275a13b}",
+                "mValue": 135.0,
+                "__type": "ParametricPairData"
+              },
+              {
+                "mClipName": "{788d7622}",
+                "mValue": 180.0,
+                "__type": "ParametricPairData"
+              }
+            ],
+            "__type": "ParametricClipData"
+          },
+          "{9dd9dc06}": {
+            "mConditionFloatPairDataList": [
+              {
+                "mClipName": "{99862016}",
+                "mHoldAnimationToHigher": 2.0,
+                "__type": "ConditionFloatPairData"
+              },
+              {
+                "mClipName": "{78a49bc0}",
+                "mValue": 600.0,
+                "__type": "ConditionFloatPairData"
+              }
+            ],
+            "Updater": {
+              "__type": "LookAtInterestDistanceParametricUpdater"
+            },
+            "mChangeAnimationMidPlay": true,
+            "__type": "ConditionFloatClipData"
+          },
+          "{99862016}": {
+            "mClipNameList": [
+              "{85572a11}",
+              "{76cefaf0}"
+            ],
+            "__type": "ParallelClipData"
+          },
+          "{1275a13b}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r135.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{d163564d}": {
+            "mTrackDataName": "{eb8a0f73}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l135.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{d5249d65}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d2ed0d3}": {
+                "mName": "{0d2ed0d3}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_aggro1_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro1.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{d22498ac}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0e2ed266}": {
+                "mName": "{0e2ed266}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_aggro2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack3_base": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{e714e91f}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{00bb2e89}": {
+                "mName": "{00bb2e89}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_n2a_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_n2a.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{ee319fbb}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{174fa83d}": {
+                "mName": "{174fa83d}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_a2n_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_a2n.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{d3249a3f}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0f2ed3f9}": {
+                "mName": "{0f2ed3f9}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_aggro3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd31845b}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{d3ca8616}": {
+                "mName": "{d3ca8616}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_death_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd28bd4d}": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "{ed749d7b}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "{bd31845b}",
+                "mProbability": 50.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{d4f6544a}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 20.0,
+                "mEffectName": "DATA/Particles/SRU_RedBuff_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{caabe906}": {
+                "mName": "{caabe906}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_spawn2_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn2.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{d5f655dd}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 20.0,
+                "mEffectName": "DATA/Particles/SRU_RedBuff_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{cbabea99}": {
+                "mName": "{cbabea99}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_spawn3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{cef64ad8}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{0d31fcc2}": {
+                "mName": "{0d31fcc2}",
+                "mStartFrame": 20.0,
+                "mEffectName": "DATA/Particles/SRU_RedBuff_Spawn_ReadyFlash.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              },
+              "{ccabec2c}": {
+                "mName": "{ccabec2c}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_spawn4_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn4.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "Attack2": {
+            "mSelectorPairDataList": [
+              {
+                "mClipName": "Attack2_base",
+                "mProbability": 35.0,
+                "__type": "SelectorPairData"
+              },
+              {
+                "mClipName": "Attack3_base",
+                "mProbability": 65.0,
+                "__type": "SelectorPairData"
+              }
+            ],
+            "__type": "SelectorClipData"
+          },
+          "{52de77bc}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{c6f90616}": {
+                "mName": "{c6f90616}",
+                "mEffectName": "DATA/Particles/SRU_RazorbeakMini_idle_normal3_sound.troy",
+                "mParticleEventDataPairList": [
+                  {
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal3.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "{933b5bde}": {
+            "__type": "TrackData"
+          },
+          "{eb8a0f73}": {
+            "mPriority": 1,
+            "mBlendMode": 1,
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "893241265303895373": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "1330146542906555725": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207950027116234": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3084207952482581837": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3314722575290514765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3386781900200262989": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "3458841225110011213": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6043401133360725325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6043401133712775340": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6043401133729552959": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6043401133763108197": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6115460458270473549": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6115460458622523564": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6115460458639301183": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6115460458672856421": {
+            "mClipName": "{e714e91f}",
+            "__type": "TransitionClipBlendData"
+          },
+          "6247030500422183204": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "6247030502141246797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7850996634516766029": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826270395138347": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "7893826271730777421": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8561055852370262768": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8561055853550550349": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8686729147842084173": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "8693244432841489741": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "9608194585694616909": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11062564816717135181": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "11374364255402376525": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "12677885365154528589": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413820501325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13632823076577656141": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "14913189510830931277": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15087998068507327821": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15142395713035336015": {
+            "mClipName": "{ee319fbb}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15142395713052113634": {
+            "mClipName": "{ee319fbb}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15142395714801810765": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15214455037945084239": {
+            "mClipName": "{ee319fbb}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15214455037961861858": {
+            "mClipName": "{ee319fbb}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15214455039711558989": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15345545460289420621": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15358573687764580687": {
+            "mClipName": "{ee319fbb}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15358573687781358306": {
+            "mClipName": "{ee319fbb}",
+            "__type": "TransitionClipBlendData"
+          },
+          "15358573689531055437": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "15417604785199168845": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "16651190044822388045": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039067458893": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17110474039877737851": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "17163675283566935373": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "{7eff7a93}",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    }
+  },
+  "models": {
+    "SRU_Razorbeak": {
+      "skinKey": "Characters/SRU_Razorbeak/Skins/Skin0",
+      "graphKey": "{ea894f4a}",
+      "atomicClips": {
+        "{d5249d65}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro1.anm",
+        "{2acd4eca}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_run.anm",
+        "attack1": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack1.anm",
+        "{ed749d7b}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death.anm",
+        "{3a224d98}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_spawn.anm",
+        "{90c6bb8a}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal1.anm",
+        "{554f5315}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal2.anm",
+        "{aff0e591}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l45.anm",
+        "{6cf457d7}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r45.anm",
+        "{788d7622}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_0.anm",
+        "{d163564d}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l135.anm",
+        "{1275a13b}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r135.anm",
+        "{dff8e7f9}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_a2n.anm",
+        "{e714e91f}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_n2a.anm",
+        "{d3249a3f}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro3.anm",
+        "{d22498ac}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro2.anm",
+        "Attack2_base": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack2.anm",
+        "Attack3_base": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack3.anm",
+        "{0ea0b0fc}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_nspawn.anm",
+        "{554e8c84}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal3.anm",
+        "{308b189f}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal4.anm",
+        "{bd31845b}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death2.anm",
+        "{31dc9e56}": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal5.anm"
+      }
+    },
+    "SRU_RazorbeakMini": {
+      "skinKey": "Characters/SRU_RazorbeakMini/Skins/Skin0",
+      "graphKey": "{7eff7a93}",
+      "atomicClips": {
+        "{2acd4eca}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_run.anm",
+        "attack1": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack1.anm",
+        "Attack2_base": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack2.anm",
+        "{ed749d7b}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death.anm",
+        "{2e00429e}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn2.anm",
+        "{2f004431}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn3.anm",
+        "{300045c4}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn4.anm",
+        "{54de7ae2}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal1.anm",
+        "{53de794f}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal2.anm",
+        "{788d7622}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_0.anm",
+        "{aff0e591}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l45.anm",
+        "{6cf457d7}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r45.anm",
+        "{1275a13b}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r135.anm",
+        "{d163564d}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l135.anm",
+        "{d5249d65}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro1.anm",
+        "{d22498ac}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro2.anm",
+        "Attack3_base": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack3.anm",
+        "{e714e91f}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_n2a.anm",
+        "{ee319fbb}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_a2n.anm",
+        "{d3249a3f}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro3.anm",
+        "{bd31845b}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death2.anm",
+        "{d4f6544a}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn2.anm",
+        "{d5f655dd}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn3.anm",
+        "{cef64ad8}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn4.anm",
+        "{52de77bc}": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal3.anm"
+      }
+    }
+  },
+  "evidence": {
+    "orderGroup": {
+      "function": "<main>",
+      "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+      "firstPc": 825,
+      "lastPc": 852,
+      "instructions": [
+        {
+          "pc": 825,
+          "word": "00234045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "CAMPTYPE_WRAITHS"
+            }
+          ]
+        },
+        {
+          "pc": 826,
+          "word": "0300008a",
+          "op": "NEWTABLE",
+          "operands": [
+            2,
+            6,
+            0
+          ]
+        },
+        {
+          "pc": 827,
+          "word": "010000ca",
+          "op": "NEWTABLE",
+          "operands": [
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 828,
+          "word": "002e0101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": "SRU_Razorbeak"
+            }
+          ]
+        },
+        {
+          "pc": 829,
+          "word": "002e4141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "Spawn"
+            }
+          ]
+        },
+        {
+          "pc": 830,
+          "word": "010040e2",
+          "op": "SETLIST",
+          "operands": [
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 831,
+          "word": "0100010a",
+          "op": "NEWTABLE",
+          "operands": [
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 832,
+          "word": "002e8141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 833,
+          "word": "002ec181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "Spawn4"
+            }
+          ]
+        },
+        {
+          "pc": 834,
+          "word": "01004122",
+          "op": "SETLIST",
+          "operands": [
+            4,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 835,
+          "word": "0100014a",
+          "op": "NEWTABLE",
+          "operands": [
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 836,
+          "word": "002e8181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 837,
+          "word": "002f01c1",
+          "op": "LOADK",
+          "operands": [
+            7,
+            {
+              "constant": "Spawn2"
+            }
+          ]
+        },
+        {
+          "pc": 838,
+          "word": "01004162",
+          "op": "SETLIST",
+          "operands": [
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 839,
+          "word": "0100018a",
+          "op": "NEWTABLE",
+          "operands": [
+            6,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 840,
+          "word": "002e81c1",
+          "op": "LOADK",
+          "operands": [
+            7,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 841,
+          "word": "002f4201",
+          "op": "LOADK",
+          "operands": [
+            8,
+            {
+              "constant": "Spawn3"
+            }
+          ]
+        },
+        {
+          "pc": 842,
+          "word": "010041a2",
+          "op": "SETLIST",
+          "operands": [
+            6,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 843,
+          "word": "010001ca",
+          "op": "NEWTABLE",
+          "operands": [
+            7,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 844,
+          "word": "002e8201",
+          "op": "LOADK",
+          "operands": [
+            8,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 845,
+          "word": "002f0241",
+          "op": "LOADK",
+          "operands": [
+            9,
+            {
+              "constant": "Spawn2"
+            }
+          ]
+        },
+        {
+          "pc": 846,
+          "word": "010041e2",
+          "op": "SETLIST",
+          "operands": [
+            7,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 847,
+          "word": "0100020a",
+          "op": "NEWTABLE",
+          "operands": [
+            8,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 848,
+          "word": "002e8241",
+          "op": "LOADK",
+          "operands": [
+            9,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 849,
+          "word": "002ec281",
+          "op": "LOADK",
+          "operands": [
+            10,
+            {
+              "constant": "Spawn4"
+            }
+          ]
+        },
+        {
+          "pc": 850,
+          "word": "01004222",
+          "op": "SETLIST",
+          "operands": [
+            8,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 851,
+          "word": "030040a2",
+          "op": "SETLIST",
+          "operands": [
+            2,
+            6,
+            1
+          ]
+        },
+        {
+          "pc": 852,
+          "word": "00808009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        }
+      ]
+    },
+    "chaosGroup": {
+      "function": "<main>",
+      "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+      "firstPc": 853,
+      "lastPc": 880,
+      "instructions": [
+        {
+          "pc": 853,
+          "word": "0023c045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "CAMPTYPE_WRAITHS2"
+            }
+          ]
+        },
+        {
+          "pc": 854,
+          "word": "0300008a",
+          "op": "NEWTABLE",
+          "operands": [
+            2,
+            6,
+            0
+          ]
+        },
+        {
+          "pc": 855,
+          "word": "010000ca",
+          "op": "NEWTABLE",
+          "operands": [
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 856,
+          "word": "002e0101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": "SRU_Razorbeak"
+            }
+          ]
+        },
+        {
+          "pc": 857,
+          "word": "002f8141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "North_Spawn"
+            }
+          ]
+        },
+        {
+          "pc": 858,
+          "word": "010040e2",
+          "op": "SETLIST",
+          "operands": [
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 859,
+          "word": "0100010a",
+          "op": "NEWTABLE",
+          "operands": [
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 860,
+          "word": "002e8141",
+          "op": "LOADK",
+          "operands": [
+            5,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 861,
+          "word": "002fc181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "North_Spawn4"
+            }
+          ]
+        },
+        {
+          "pc": 862,
+          "word": "01004122",
+          "op": "SETLIST",
+          "operands": [
+            4,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 863,
+          "word": "0100014a",
+          "op": "NEWTABLE",
+          "operands": [
+            5,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 864,
+          "word": "002e8181",
+          "op": "LOADK",
+          "operands": [
+            6,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 865,
+          "word": "003001c1",
+          "op": "LOADK",
+          "operands": [
+            7,
+            {
+              "constant": "North_Spawn2"
+            }
+          ]
+        },
+        {
+          "pc": 866,
+          "word": "01004162",
+          "op": "SETLIST",
+          "operands": [
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 867,
+          "word": "0100018a",
+          "op": "NEWTABLE",
+          "operands": [
+            6,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 868,
+          "word": "002e81c1",
+          "op": "LOADK",
+          "operands": [
+            7,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 869,
+          "word": "00304201",
+          "op": "LOADK",
+          "operands": [
+            8,
+            {
+              "constant": "North_Spawn3"
+            }
+          ]
+        },
+        {
+          "pc": 870,
+          "word": "010041a2",
+          "op": "SETLIST",
+          "operands": [
+            6,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 871,
+          "word": "010001ca",
+          "op": "NEWTABLE",
+          "operands": [
+            7,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 872,
+          "word": "002e8201",
+          "op": "LOADK",
+          "operands": [
+            8,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 873,
+          "word": "00300241",
+          "op": "LOADK",
+          "operands": [
+            9,
+            {
+              "constant": "North_Spawn2"
+            }
+          ]
+        },
+        {
+          "pc": 874,
+          "word": "010041e2",
+          "op": "SETLIST",
+          "operands": [
+            7,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 875,
+          "word": "0100020a",
+          "op": "NEWTABLE",
+          "operands": [
+            8,
+            2,
+            0
+          ]
+        },
+        {
+          "pc": 876,
+          "word": "002e8241",
+          "op": "LOADK",
+          "operands": [
+            9,
+            {
+              "constant": "SRU_RazorbeakMini"
+            }
+          ]
+        },
+        {
+          "pc": 877,
+          "word": "002fc281",
+          "op": "LOADK",
+          "operands": [
+            10,
+            {
+              "constant": "North_Spawn4"
+            }
+          ]
+        },
+        {
+          "pc": 878,
+          "word": "01004222",
+          "op": "SETLIST",
+          "operands": [
+            8,
+            2,
+            1
+          ]
+        },
+        {
+          "pc": 879,
+          "word": "030040a2",
+          "op": "SETLIST",
+          "operands": [
+            2,
+            6,
+            1
+          ]
+        },
+        {
+          "pc": 880,
+          "word": "00808009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        }
+      ]
+    },
+    "order": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 402,
+      "lastPc": 448,
+      "instructions": [
+        {
+          "pc": 402,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 403,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 404,
+          "word": "a0588009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Order Wraiths"
+            }
+          ]
+        },
+        {
+          "pc": 405,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 406,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 407,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 408,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 409,
+          "word": "0018c0c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_WRAITHS"
+            }
+          ]
+        },
+        {
+          "pc": 410,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 411,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 412,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 413,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 414,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 415,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 416,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 417,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 418,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 419,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 420,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 421,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 422,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 423,
+          "word": "0152c08e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 424,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 425,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 426,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 427,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 428,
+          "word": "00134045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_ORDER"
+            }
+          ]
+        },
+        {
+          "pc": 429,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 430,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 431,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 432,
+          "word": "94484009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 1.0
+            }
+          ]
+        },
+        {
+          "pc": 433,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 434,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 435,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 436,
+          "word": "00190081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 7087.67
+            }
+          ]
+        },
+        {
+          "pc": 437,
+          "word": "001940c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 48.53
+            }
+          ]
+        },
+        {
+          "pc": 438,
+          "word": "00198101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 5010.43
+            }
+          ]
+        },
+        {
+          "pc": 439,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 440,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 441,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 442,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 443,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 444,
+          "word": "0019c081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 6969.0
+            }
+          ]
+        },
+        {
+          "pc": 445,
+          "word": "001a00c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 52.0
+            }
+          ]
+        },
+        {
+          "pc": 446,
+          "word": "001a4101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 5422.0
+            }
+          ]
+        },
+        {
+          "pc": 447,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 448,
+          "word": "9d004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualCenter"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "chaos": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 803,
+      "lastPc": 849,
+      "instructions": [
+        {
+          "pc": 803,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 804,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 805,
+          "word": "a0698009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Name"
+            },
+            {
+              "constant": "Chaos Wraiths"
+            }
+          ]
+        },
+        {
+          "pc": 806,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 807,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 808,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 809,
+          "word": "0010c085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "PredefinedCamps"
+            }
+          ]
+        },
+        {
+          "pc": 810,
+          "word": "0029c0c5",
+          "op": "GETGLOBAL",
+          "operands": [
+            3,
+            {
+              "constant": "CAMPTYPE_WRAITHS2"
+            }
+          ]
+        },
+        {
+          "pc": 811,
+          "word": "0100c086",
+          "op": "GETTABLE",
+          "operands": [
+            2,
+            2,
+            {
+              "register": 3
+            }
+          ]
+        },
+        {
+          "pc": 812,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 813,
+          "word": "a1004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "Groups"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 814,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 815,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 816,
+          "word": "0080004a",
+          "op": "NEWTABLE",
+          "operands": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pc": 817,
+          "word": "00118081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 100.0
+            }
+          ]
+        },
+        {
+          "pc": 818,
+          "word": "00804062",
+          "op": "SETLIST",
+          "operands": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "pc": 819,
+          "word": "a2804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupsChance"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 820,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 821,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 822,
+          "word": "00124045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "START_OF_GAME_MONSTER_SPAWN_DELAY"
+            }
+          ]
+        },
+        {
+          "pc": 823,
+          "word": "00128085",
+          "op": "GETGLOBAL",
+          "operands": [
+            2,
+            {
+              "constant": "CAMP_TIME_OFFSET"
+            }
+          ]
+        },
+        {
+          "pc": 824,
+          "word": "0152c08e",
+          "op": "MUL",
+          "operands": [
+            2,
+            {
+              "register": 2
+            },
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 825,
+          "word": "0080804c",
+          "op": "ADD",
+          "operands": [
+            1,
+            {
+              "register": 1
+            },
+            {
+              "register": 2
+            }
+          ]
+        },
+        {
+          "pc": 826,
+          "word": "a4004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupDelaySpawnTime"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 827,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 828,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 829,
+          "word": "00254045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "TEAM_CHAOS"
+            }
+          ]
+        },
+        {
+          "pc": 830,
+          "word": "a6004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "GroupBuffSide"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 831,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 832,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 833,
+          "word": "946a0009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SpawnDuration"
+            },
+            {
+              "constant": 0.67
+            }
+          ]
+        },
+        {
+          "pc": 834,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 835,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 836,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 837,
+          "word": "002a4081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 7777.46
+            }
+          ]
+        },
+        {
+          "pc": 838,
+          "word": "002a80c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 51.28
+            }
+          ]
+        },
+        {
+          "pc": 839,
+          "word": "002ac101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 10007.6
+            }
+          ]
+        },
+        {
+          "pc": 840,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 841,
+          "word": "9d804009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualFacing"
+            },
+            {
+              "register": 1
+            }
+          ]
+        },
+        {
+          "pc": 842,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 843,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 844,
+          "word": "000c8045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "Make3DPoint"
+            }
+          ]
+        },
+        {
+          "pc": 845,
+          "word": "002b0081",
+          "op": "LOADK",
+          "operands": [
+            2,
+            {
+              "constant": 7861.0
+            }
+          ]
+        },
+        {
+          "pc": 846,
+          "word": "001a00c1",
+          "op": "LOADK",
+          "operands": [
+            3,
+            {
+              "constant": 52.0
+            }
+          ]
+        },
+        {
+          "pc": 847,
+          "word": "002b4101",
+          "op": "LOADK",
+          "operands": [
+            4,
+            {
+              "constant": 9475.0
+            }
+          ]
+        },
+        {
+          "pc": 848,
+          "word": "0200805c",
+          "op": "CALL",
+          "operands": [
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "pc": 849,
+          "word": "9d004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "VisualCenter"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "orderSkinOverride": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 449,
+      "lastPc": 453,
+      "instructions": [
+        {
+          "pc": 449,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 450,
+          "word": "0052c006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 3.0
+            }
+          ]
+        },
+        {
+          "pc": 451,
+          "word": "00000045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "SkinOverrides"
+            }
+          ]
+        },
+        {
+          "pc": 452,
+          "word": "00da8046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": "SRU_Razorbeak"
+            }
+          ]
+        },
+        {
+          "pc": 453,
+          "word": "9f004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SkinID"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "chaosSkinOverride": {
+      "function": "NeutralMinionInit",
+      "codeSha256": "4b9d798cf4cc99a77405f5eae409525d811be0d6bc336efac0ecbf53964ca29f",
+      "firstPc": 850,
+      "lastPc": 854,
+      "instructions": [
+        {
+          "pc": 850,
+          "word": "00044005",
+          "op": "GETGLOBAL",
+          "operands": [
+            0,
+            {
+              "constant": "NeutralMinionCamps"
+            }
+          ]
+        },
+        {
+          "pc": 851,
+          "word": "00694006",
+          "op": "GETTABLE",
+          "operands": [
+            0,
+            0,
+            {
+              "constant": 9.0
+            }
+          ]
+        },
+        {
+          "pc": 852,
+          "word": "00000045",
+          "op": "GETGLOBAL",
+          "operands": [
+            1,
+            {
+              "constant": "SkinOverrides"
+            }
+          ]
+        },
+        {
+          "pc": 853,
+          "word": "00da8046",
+          "op": "GETTABLE",
+          "operands": [
+            1,
+            1,
+            {
+              "constant": "SRU_Razorbeak"
+            }
+          ]
+        },
+        {
+          "pc": 854,
+          "word": "9f004009",
+          "op": "SETTABLE",
+          "operands": [
+            0,
+            {
+              "constant": "SkinID"
+            },
+            {
+              "register": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "camps": [
+    {
+      "index": 3,
+      "name": "Order Wraiths",
+      "anchorEntity": "{9d0e7aac}",
+      "members": [
+        {
+          "character": "SRU_Razorbeak",
+          "spawnClip": "spawn",
+          "lookup": "OrderVultures1",
+          "locator": {
+            "transform": [
+              [
+                -4.371138828673793e-08,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0,
+                -4.371138828673793e-08,
+                0.0
+              ],
+              [
+                6706.67822265625,
+                50.27799987792969,
+                5521.0439453125,
+                1.0
+              ]
+            ],
+            "name": "OrderVultures1",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 78,
+            "lastPc": 80,
+            "instructions": [
+              {
+                "pc": 78,
+                "word": "00080105",
+                "op": "GETGLOBAL",
+                "operands": [
+                  4,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 79,
+                "word": "00098141",
+                "op": "LOADK",
+                "operands": [
+                  5,
+                  {
+                    "constant": "OrderVultures1"
+                  }
+                ]
+              },
+              {
+                "pc": 80,
+                "word": "0100811c",
+                "op": "CALL",
+                "operands": [
+                  4,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "spawn4",
+          "lookup": "OrderVultures2",
+          "locator": {
+            "transform": [
+              [
+                -1.0,
+                0.0,
+                8.742277657347586e-08,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -8.742277657347586e-08,
+                0.0,
+                -1.0,
+                0.0
+              ],
+              [
+                6929.6279296875,
+                50.27799987792969,
+                5647.93408203125,
+                1.0
+              ]
+            ],
+            "name": "OrderVultures2",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 81,
+            "lastPc": 83,
+            "instructions": [
+              {
+                "pc": 81,
+                "word": "00080145",
+                "op": "GETGLOBAL",
+                "operands": [
+                  5,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 82,
+                "word": "0009c181",
+                "op": "LOADK",
+                "operands": [
+                  6,
+                  {
+                    "constant": "OrderVultures2"
+                  }
+                ]
+              },
+              {
+                "pc": 83,
+                "word": "0100815c",
+                "op": "CALL",
+                "operands": [
+                  5,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "spawn2",
+          "lookup": "OrderVultures3",
+          "locator": {
+            "transform": [
+              [
+                -4.371138828673793e-08,
+                0.0,
+                -1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0,
+                -4.371138828673793e-08,
+                0.0
+              ],
+              [
+                7060.4580078125,
+                50.27799987792969,
+                5499.27392578125,
+                1.0
+              ]
+            ],
+            "name": "OrderVultures3",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 84,
+            "lastPc": 86,
+            "instructions": [
+              {
+                "pc": 84,
+                "word": "00080185",
+                "op": "GETGLOBAL",
+                "operands": [
+                  6,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 85,
+                "word": "000a01c1",
+                "op": "LOADK",
+                "operands": [
+                  7,
+                  {
+                    "constant": "OrderVultures3"
+                  }
+                ]
+              },
+              {
+                "pc": 86,
+                "word": "0100819c",
+                "op": "CALL",
+                "operands": [
+                  6,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "spawn3",
+          "lookup": "OrderVultures4",
+          "locator": {
+            "transform": [
+              [
+                -0.24254851043224335,
+                0.0,
+                0.9701392650604248,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.9701392650604248,
+                0.0,
+                -0.24254851043224335,
+                0.0
+              ],
+              [
+                6962.7177734375,
+                51.14099884033203,
+                5354.35400390625,
+                1.0
+              ]
+            ],
+            "name": "OrderVultures4",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 87,
+            "lastPc": 89,
+            "instructions": [
+              {
+                "pc": 87,
+                "word": "000801c5",
+                "op": "GETGLOBAL",
+                "operands": [
+                  7,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 88,
+                "word": "000a4201",
+                "op": "LOADK",
+                "operands": [
+                  8,
+                  {
+                    "constant": "OrderVultures4"
+                  }
+                ]
+              },
+              {
+                "pc": 89,
+                "word": "010081dc",
+                "op": "CALL",
+                "operands": [
+                  7,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "spawn2",
+          "lookup": "OrderVultures5",
+          "locator": {
+            "transform": [
+              [
+                -0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                6852.22900390625,
+                48.14400100708008,
+                5227.083984375,
+                1.0
+              ]
+            ],
+            "name": "OrderVultures5",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 90,
+            "lastPc": 92,
+            "instructions": [
+              {
+                "pc": 90,
+                "word": "00080205",
+                "op": "GETGLOBAL",
+                "operands": [
+                  8,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 91,
+                "word": "000a8241",
+                "op": "LOADK",
+                "operands": [
+                  9,
+                  {
+                    "constant": "OrderVultures5"
+                  }
+                ]
+              },
+              {
+                "pc": 92,
+                "word": "0100821c",
+                "op": "CALL",
+                "operands": [
+                  8,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "spawn4",
+          "lookup": "OrderVultures6",
+          "locator": {
+            "transform": [
+              [
+                -0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                7106.22900390625,
+                48.14400100708008,
+                5266.083984375,
+                1.0
+              ]
+            ],
+            "name": "OrderVultures6",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 93,
+            "lastPc": 95,
+            "instructions": [
+              {
+                "pc": 93,
+                "word": "00080245",
+                "op": "GETGLOBAL",
+                "operands": [
+                  9,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 94,
+                "word": "000ac281",
+                "op": "LOADK",
+                "operands": [
+                  10,
+                  {
+                    "constant": "OrderVultures6"
+                  }
+                ]
+              },
+              {
+                "pc": 95,
+                "word": "0100025c",
+                "op": "CALL",
+                "operands": [
+                  9,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "settings": {
+        "SpawnDuration": 1.0,
+        "VisualFacing": [
+          7087.67,
+          48.53,
+          5010.43
+        ]
+      },
+      "inheritedRespawnSeconds": 135.0
+    },
+    {
+      "index": 9,
+      "name": "Chaos Wraiths",
+      "anchorEntity": "{9fc8e52d}",
+      "members": [
+        {
+          "character": "SRU_Razorbeak",
+          "spawnClip": "north_spawn",
+          "lookup": "ChaosVultures1",
+          "locator": {
+            "transform": [
+              [
+                -4.371138828673793e-08,
+                0.0,
+                -1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0,
+                -4.371138828673793e-08,
+                0.0
+              ],
+              [
+                7986.9970703125,
+                48.79999923706055,
+                9471.388671875,
+                1.0
+              ]
+            ],
+            "name": "ChaosVultures1",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 144,
+            "lastPc": 146,
+            "instructions": [
+              {
+                "pc": 144,
+                "word": "00080285",
+                "op": "GETGLOBAL",
+                "operands": [
+                  10,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 145,
+                "word": "000dc2c1",
+                "op": "LOADK",
+                "operands": [
+                  11,
+                  {
+                    "constant": "ChaosVultures1"
+                  }
+                ]
+              },
+              {
+                "pc": 146,
+                "word": "0100829c",
+                "op": "CALL",
+                "operands": [
+                  10,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "north_spawn4",
+          "lookup": "ChaosVultures2",
+          "locator": {
+            "transform": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                7886.99658203125,
+                48.800048828125,
+                9312.3896484375,
+                1.0
+              ]
+            ],
+            "name": "ChaosVultures2",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 147,
+            "lastPc": 149,
+            "instructions": [
+              {
+                "pc": 147,
+                "word": "000802c5",
+                "op": "GETGLOBAL",
+                "operands": [
+                  11,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 148,
+                "word": "000e0301",
+                "op": "LOADK",
+                "operands": [
+                  12,
+                  {
+                    "constant": "ChaosVultures2"
+                  }
+                ]
+              },
+              {
+                "pc": 149,
+                "word": "010082dc",
+                "op": "CALL",
+                "operands": [
+                  11,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "north_spawn2",
+          "lookup": "ChaosVultures3",
+          "locator": {
+            "transform": [
+              [
+                -4.371138828673793e-08,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0,
+                -4.371138828673793e-08,
+                0.0
+              ],
+              [
+                7756.9970703125,
+                48.79999923706055,
+                9451.388671875,
+                1.0
+              ]
+            ],
+            "name": "ChaosVultures3",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 150,
+            "lastPc": 152,
+            "instructions": [
+              {
+                "pc": 150,
+                "word": "00080305",
+                "op": "GETGLOBAL",
+                "operands": [
+                  12,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 151,
+                "word": "000e4341",
+                "op": "LOADK",
+                "operands": [
+                  13,
+                  {
+                    "constant": "ChaosVultures3"
+                  }
+                ]
+              },
+              {
+                "pc": 152,
+                "word": "0100831c",
+                "op": "CALL",
+                "operands": [
+                  12,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "north_spawn3",
+          "lookup": "ChaosVultures4",
+          "locator": {
+            "transform": [
+              [
+                0.24259930849075317,
+                0.0,
+                -0.9701265692710876,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.9701265692710876,
+                0.0,
+                0.24259930849075317,
+                0.0
+              ],
+              [
+                7854.38916015625,
+                52.22600173950195,
+                9610.4736328125,
+                1.0
+              ]
+            ],
+            "name": "ChaosVultures4",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 153,
+            "lastPc": 155,
+            "instructions": [
+              {
+                "pc": 153,
+                "word": "00080345",
+                "op": "GETGLOBAL",
+                "operands": [
+                  13,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 154,
+                "word": "000e8381",
+                "op": "LOADK",
+                "operands": [
+                  14,
+                  {
+                    "constant": "ChaosVultures4"
+                  }
+                ]
+              },
+              {
+                "pc": 155,
+                "word": "0100835c",
+                "op": "CALL",
+                "operands": [
+                  13,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "north_spawn2",
+          "lookup": "ChaosVultures5",
+          "locator": {
+            "transform": [
+              [
+                0.7071067690849304,
+                0.0,
+                -0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                7997.22900390625,
+                52.14400100708008,
+                9772.083984375,
+                1.0
+              ]
+            ],
+            "name": "ChaosVultures5",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 156,
+            "lastPc": 158,
+            "instructions": [
+              {
+                "pc": 156,
+                "word": "00080385",
+                "op": "GETGLOBAL",
+                "operands": [
+                  14,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 157,
+                "word": "000ec3c1",
+                "op": "LOADK",
+                "operands": [
+                  15,
+                  {
+                    "constant": "ChaosVultures5"
+                  }
+                ]
+              },
+              {
+                "pc": 158,
+                "word": "0100839c",
+                "op": "CALL",
+                "operands": [
+                  14,
+                  2,
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "character": "SRU_RazorbeakMini",
+          "spawnClip": "north_spawn4",
+          "lookup": "ChaosVultures6",
+          "locator": {
+            "transform": [
+              [
+                0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.7071067690849304,
+                0.0,
+                0.7071067690849304,
+                0.0
+              ],
+              [
+                7724.22900390625,
+                52.14400100708008,
+                9724.083984375,
+                1.0
+              ]
+            ],
+            "name": "ChaosVultures6",
+            "__type": "MapLocator"
+          },
+          "lookupEvidence": {
+            "function": "<main>",
+            "codeSha256": "59c75dc05bbc2415646e6a6c5544b89633ea0195623679b8f5ee61e4bbfd8a72",
+            "firstPc": 159,
+            "lastPc": 161,
+            "instructions": [
+              {
+                "pc": 159,
+                "word": "000803c5",
+                "op": "GETGLOBAL",
+                "operands": [
+                  15,
+                  {
+                    "constant": "Get3DPointPosition"
+                  }
+                ]
+              },
+              {
+                "pc": 160,
+                "word": "000f0401",
+                "op": "LOADK",
+                "operands": [
+                  16,
+                  {
+                    "constant": "ChaosVultures6"
+                  }
+                ]
+              },
+              {
+                "pc": 161,
+                "word": "010003dc",
+                "op": "CALL",
+                "operands": [
+                  15,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "settings": {
+        "SpawnDuration": 0.67,
+        "VisualFacing": [
+          7777.46,
+          51.28,
+          10007.6
+        ]
+      },
+      "inheritedRespawnSeconds": 135.0
+    }
+  ],
+  "status": "Original base rigs and legacy six-member construction. SkinOverrides is an unresolved external global; base skin 0 is a local selection. Active native initialization, scaling, patience, full reward formulas and effects/audio remain unverified."
+}

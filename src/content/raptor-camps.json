@@ -1,0 +1,274 @@
+{
+  "sourcePin": "docs/reference/raptor-camps-source.json",
+  "sourcePinSha256": "17ff7e8ce1fe2f0f150ca1ef8bfa4245699b5271fe643f444db277f69dd15977",
+  "profiles": {
+    "raptor": {
+      "rig": "sru-razorbeak-base",
+      "modelSha256": "8e6cd35cdf5d83fc7c609d135985abd9e71bb3b16203a2d1bc6af42f8d420eed",
+      "stats": {
+        "maxHp": 1200.0,
+        "armor": 42.0,
+        "magicResist": 42.0,
+        "speed": 450.0,
+        "range": 200.0,
+        "attackSpeed": 0.6669999957084656
+      },
+      "sourceDamage": 17.0,
+      "localDamage": 17.0,
+      "sourceMinionScore": 2.0,
+      "localMinionScore": 2.0,
+      "gold": 35.0,
+      "experience": 20.0,
+      "radius": 75.0,
+      "pathfindingRadius": 30.0,
+      "castFrame": 9.0,
+      "clips": {
+        "idle1": {
+          "name": "entry_90c6bb8a",
+          "durationSeconds": 2.3000001907348633,
+          "sourceState": "idle_normal1_base"
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 1.2000000476837158,
+          "sourceState": "run"
+        },
+        "attack1": {
+          "name": "attack1",
+          "durationSeconds": 1.633333444595337,
+          "sourceState": "attack1"
+        },
+        "death": {
+          "name": "entry_ed749d7b",
+          "durationSeconds": 3.500000238418579,
+          "sourceState": "death_base"
+        },
+        "spawn": {
+          "name": "entry_3a224d98",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "spawn"
+        },
+        "north_spawn": {
+          "name": "entry_0ea0b0fc",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "north_spawn"
+        }
+      }
+    },
+    "raptor-mini": {
+      "rig": "sru-razorbeakmini-base",
+      "modelSha256": "ce6bd2375c65295c8c1638b15523d63720bb26bf1f94b8dd3c7699c4a58b61e1",
+      "stats": {
+        "maxHp": 500.0,
+        "armor": 20.0,
+        "magicResist": 20.0,
+        "speed": 525.0,
+        "range": 125.0,
+        "attackSpeed": 1.0
+      },
+      "sourceDamage": 7.0,
+      "localDamage": 7.0,
+      "sourceMinionScore": 0.4000000059604645,
+      "localMinionScore": 0.4,
+      "gold": 8.0,
+      "experience": 10.0,
+      "radius": 50.0,
+      "pathfindingRadius": 22.5,
+      "castFrame": 12.0,
+      "clips": {
+        "idle1": {
+          "name": "entry_54de7ae2",
+          "durationSeconds": 2.3000001907348633,
+          "sourceState": "idle_normal1"
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 0.40000003576278687,
+          "sourceState": "run"
+        },
+        "attack1": {
+          "name": "attack1",
+          "durationSeconds": 1.5000001192092896,
+          "sourceState": "attack1"
+        },
+        "death": {
+          "name": "entry_ed749d7b",
+          "durationSeconds": 2.500000238418579,
+          "sourceState": "death_base"
+        },
+        "spawn": {
+          "name": "entry_2e00429e",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "spawn2"
+        },
+        "spawn2": {
+          "name": "entry_2e00429e",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "spawn2"
+        },
+        "spawn3": {
+          "name": "entry_2f004431",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "spawn3"
+        },
+        "spawn4": {
+          "name": "entry_300045c4",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "spawn4"
+        },
+        "north_spawn2": {
+          "name": "entry_d4f6544a",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "north_spawn2"
+        },
+        "north_spawn3": {
+          "name": "entry_d5f655dd",
+          "durationSeconds": 1.5000001192092896,
+          "sourceState": "north_spawn3"
+        },
+        "north_spawn4": {
+          "name": "entry_cef64ad8",
+          "durationSeconds": 1.4666666984558105,
+          "sourceState": "north_spawn4"
+        }
+      }
+    }
+  },
+  "firstReadySeconds": 55,
+  "respawnSeconds": 135,
+  "leashRadius": 650,
+  "cleanupSeconds": 10,
+  "camps": [
+    {
+      "id": "order-raptors",
+      "sourceIndex": 3,
+      "anchorEntity": "{9d0e7aac}",
+      "leadupSeconds": 1.0,
+      "facingPoint": {
+        "x": -337.3299999999999,
+        "y": 2414.5699999999997
+      },
+      "members": [
+        {
+          "species": "raptor",
+          "point": {
+            "x": -718.32177734375,
+            "y": 1903.9560546875
+          },
+          "spawnClip": "spawn"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": -495.3720703125,
+            "y": 1777.06591796875
+          },
+          "spawnClip": "spawn4"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": -364.5419921875,
+            "y": 1925.72607421875
+          },
+          "spawnClip": "spawn2"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": -462.2822265625,
+            "y": 2070.64599609375
+          },
+          "spawnClip": "spawn3"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": -572.77099609375,
+            "y": 2197.916015625
+          },
+          "spawnClip": "spawn2"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": -318.77099609375,
+            "y": 2158.916015625
+          },
+          "spawnClip": "spawn4"
+        }
+      ]
+    },
+    {
+      "id": "chaos-raptors",
+      "sourceIndex": 9,
+      "anchorEntity": "{9fc8e52d}",
+      "leadupSeconds": 0.67,
+      "facingPoint": {
+        "x": 352.46000000000004,
+        "y": -2582.6000000000004
+      },
+      "members": [
+        {
+          "species": "raptor",
+          "point": {
+            "x": 561.9970703125,
+            "y": -2046.388671875
+          },
+          "spawnClip": "north_spawn"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": 461.99658203125,
+            "y": -1887.3896484375
+          },
+          "spawnClip": "north_spawn4"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": 331.9970703125,
+            "y": -2026.388671875
+          },
+          "spawnClip": "north_spawn2"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": 429.38916015625,
+            "y": -2185.4736328125
+          },
+          "spawnClip": "north_spawn3"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": 572.22900390625,
+            "y": -2347.083984375
+          },
+          "spawnClip": "north_spawn2"
+        },
+        {
+          "species": "raptor-mini",
+          "point": {
+            "x": 299.22900390625,
+            "y": -2299.083984375
+          },
+          "spawnClip": "north_spawn4"
+        }
+      ]
+    }
+  ],
+  "policies": [
+    "Root fractional minion score is preserved as sourceMinionScore. Local score rounds to six decimal places and displayed CS floors the accumulated total.",
+    "55s first spawn and 650-unit leash use published baselines; precise native patience/reset timing remains unverified.",
+    "Per-camp lead-up uses legacy SpawnDuration: order 1s and chaos 0.67s (60/40 ticks). 135s respawn adopts a legacy default.",
+    "Base skin 0 is a local selection; the legacy script reads an unresolved external SkinOverrides table.",
+    "Camp retaliation and nearby shared hard resets use the existing local group policy. Each survivor has a ten-second marked clock; cleanup grants no last-hit rewards. Native initialization/scaling, ranged attack dispatch, percentage-health damage, soft reset and complete effects/audio remain unverified."
+  ],
+  "officialSources": [
+    "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+    "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/"
+  ]
+}

@@ -16,6 +16,8 @@ if (
     'SRU_Red',
     'SRU_Murkwolf',
     'SRU_MurkwolfMini',
+    'SRU_Razorbeak',
+    'SRU_RazorbeakMini',
   ].includes(champion)
 )
   throw new Error('Expected a supported champion or ordinary jungle base rig');
@@ -27,7 +29,9 @@ const sourceGroup =
     ? 'red-brambleback'
     : champion.startsWith('SRU_Murkwolf')
       ? 'wolf-camps'
-      : null;
+      : champion.startsWith('SRU_Razorbeak')
+        ? 'raptor-camps'
+        : null;
 const pinBytes = await readFile(
   sourceGroup
     ? `docs/reference/${sourceGroup}-source.json`

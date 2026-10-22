@@ -1,0 +1,516 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sru-razorbeak-base.glb",
+    "bytes": 1697864,
+    "sha256": "8e6cd35cdf5d83fc7c609d135985abd9e71bb3b16203a2d1bc6af42f8d420eed"
+  },
+  "definitionsSha256": "17ff7e8ce1fe2f0f150ca1ef8bfa4245699b5271fe643f444db277f69dd15977",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_razorbeak/skins/skin0.bin",
+      "wadPathHash": "a784556539696711",
+      "sha256": "9d89be2394d5c69edacbb6bb142d4f2420ee9eb126256ed2a3a06ff220907838",
+      "bytes": 660
+    },
+    {
+      "path": "data/characters/sru_razorbeak/animations/skin0.bin",
+      "wadPathHash": "1509a007064ea023",
+      "sha256": "e7e699f0a57d0704bc0c8488722749c151b008df5e2f094ae558776f79001657",
+      "bytes": 5840
+    },
+    {
+      "path": "data/characters/sru_razorbeakmini/skins/skin0.bin",
+      "wadPathHash": "b5c55dbf681d0763",
+      "sha256": "bfb87d939680b70cd6caeffe7f0dee5681b510ee4a744fe249827770c5c8b7a3",
+      "bytes": 671
+    },
+    {
+      "path": "data/characters/sru_razorbeakmini/animations/skin0.bin",
+      "wadPathHash": "8642705401bda05b",
+      "sha256": "d4a864c524d1ad5893124ae97a65d033809b1fd808f394887a1013325f12245a",
+      "bytes": 6193
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_a2n.anm",
+      "wadPathHash": "dc5f01d430c00ad9",
+      "sha256": "92400f69e2e92e9794d7379dba4c41fe60864082f8d3c722eb2a8062409476c5",
+      "bytes": 10292
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death.anm",
+      "wadPathHash": "bc6fda385db6a29e",
+      "sha256": "de526e5c9fe76b5d09ea33cae6458bca7b31c5ac26163f0cb404a055e00f5bf2",
+      "bytes": 29496
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death2.anm",
+      "wadPathHash": "5212fbcadd8ad9b2",
+      "sha256": "0673cba9d2d872cc542ac5c96dc44fb2d5ab8cca3718583ec7ab68a4dd1be26b",
+      "bytes": 32436
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro1.anm",
+      "wadPathHash": "103a0ba474845667",
+      "sha256": "fc676908fade2332efd3bfb07c9e5b20b97c8898716fa1753d991e87b0baf3e2",
+      "bytes": 13874
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro2.anm",
+      "wadPathHash": "ad5a09522aa0fe50",
+      "sha256": "6256dfb0c0750328a5bff2ed66ee282a386c8ad11356f38f3a3ba116a9fc3e2d",
+      "bytes": 15624
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro3.anm",
+      "wadPathHash": "00f581a1e8c9ae1b",
+      "sha256": "2817123717e8a90ec1845282ab106245cbe2163c8b909e45b2c48e39cc968330",
+      "bytes": 17104
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_0.anm",
+      "wadPathHash": "bf2390f4bbc8438d",
+      "sha256": "82b274d25716450fb25e10fadafb95677a586690d1cc2f6de69a7a07dd0c6141",
+      "bytes": 976
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l135.anm",
+      "wadPathHash": "a6deba51e2949680",
+      "sha256": "d4b553431c8126674c6b55931746ae0c47c64a79f9886dc0263ad2cb3446fb53",
+      "bytes": 1102
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l45.anm",
+      "wadPathHash": "53668591964f52b7",
+      "sha256": "a0cff4e6545da57474b0a348be831b2aaf4db062693cfa5bedc25ba6cbbf1011",
+      "bytes": 1102
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r135.anm",
+      "wadPathHash": "ef51778ab0c835dc",
+      "sha256": "0d859ad06c8503d8726d859840408698e3028092d3f4b38b5455978df820c756",
+      "bytes": 1108
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r45.anm",
+      "wadPathHash": "11346d3753252b13",
+      "sha256": "0c5c7c28d2ba987eed92affc8e7b4aae327b531019b561fd90c9907a5df225ec",
+      "bytes": 1102
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal1.anm",
+      "wadPathHash": "8a01c6bf12869c2a",
+      "sha256": "658ae845372b118ebe9c6bbe68cd095664abe8513024f914584839b7ff16201c",
+      "bytes": 14794
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal2.anm",
+      "wadPathHash": "2bc61611a1fda2b8",
+      "sha256": "38e017d2471f13b09098af2560f9f16de9efb7ed8b045d8aaf6aa42d0aead56e",
+      "bytes": 14464
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal3.anm",
+      "wadPathHash": "3dc7bb78a43f4428",
+      "sha256": "65bb59450fbfee171cd76218a93ae8fd9ce205096cae7b6ae7c2d431e8043a75",
+      "bytes": 13384
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal4.anm",
+      "wadPathHash": "70cd3b9d675c61d3",
+      "sha256": "8515b67d903c2a731aa35086c17693c5d77156aab2e68f4211d37a038d1ff323",
+      "bytes": 13204
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal5.anm",
+      "wadPathHash": "0a41a37b36628ab3",
+      "sha256": "18f7546adcc6676e440d22ad8282d302bdb64f46a0b0ac5ed0d1966964c2c1b0",
+      "bytes": 11092
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_n2a.anm",
+      "wadPathHash": "c64d02d25915647e",
+      "sha256": "f3a35543382a346a8c89b9a2e0603d4ed62e65d3750f330da69c158ad1f727e6",
+      "bytes": 15754
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_nspawn.anm",
+      "wadPathHash": "39dc1a9d333d29a5",
+      "sha256": "b990fa34d600cd161fc4ac235834380cefb3befa703355bb1331b2b335b7a58c",
+      "bytes": 22034
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack1.anm",
+      "wadPathHash": "c2f5cbace2c1428f",
+      "sha256": "343be7cd639a46da462546b6d69acdd0644ac51b7d9e74a141a6b6d8433bc849",
+      "bytes": 36468
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack2.anm",
+      "wadPathHash": "653e89a4d19612cf",
+      "sha256": "c2ec06a9b20e4fdf1e74ed31a31f0aeca3c970716450ba1ae61e1cad1bf723ba",
+      "bytes": 38868
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack3.anm",
+      "wadPathHash": "af1d4805ed525614",
+      "sha256": "7a8def0ea7a2ef74aa6eca65580f5aa675cfedd2a382c88e8131445a15194d2b",
+      "bytes": 36308
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_run.anm",
+      "wadPathHash": "c86c100bf4d4d66f",
+      "sha256": "5d6b7634b8fa9dad9a28fd1967e3bd7317caa0333e9592bf6ee903791c4414a9",
+      "bytes": 17584
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_spawn.anm",
+      "wadPathHash": "4c9261e022092145",
+      "sha256": "ced34f9e0a3ce41aef4d0b41f2ccb3ebe21ebb42ee0fc974a56a633ce4c66ff6",
+      "bytes": 21894
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak.skl",
+      "wadPathHash": "e5a743943d1ca021",
+      "sha256": "af75cff2ed5b987f96b91f476f7b8e690dc39465e00749683027ae62de048514",
+      "bytes": 6004
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak.skn",
+      "wadPathHash": "f986ed85f6d8495f",
+      "sha256": "64583cd2d994c2f1dc099ba15d2843c18318c4096dc81517e18141802825fff8",
+      "bytes": 155348
+    },
+    {
+      "path": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak_tx_cm.tex",
+      "wadPathHash": "3b70b7a4107b23b8",
+      "sha256": "674e5de10e182e1264a4769afccf3e5186ea9bec9ad84615424237f33e760fe2",
+      "bytes": 699076
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeak.skl",
+      "wadPathHash": "f852e064d8fa2a53",
+      "sha256": "550d40481ba39e57b9391ed74d6cd36a4f29cb437129414f3b4cbb1c14e21e19",
+      "bytes": 5996
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeak.skn",
+      "wadPathHash": "335e060fb65e8f25",
+      "sha256": "18b90352d2c7135114380880d3813890a1bc3b73768ff9042b9a04e3870a22c1",
+      "bytes": 115416
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeak_mini_tx_cm.tex",
+      "wadPathHash": "a46b3e46aba8c8a3",
+      "sha256": "a866f8f05264705bbb9183b270e81f3403dbd8ca611bf1272da43e64e2d49bb9",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_a2n.anm",
+      "wadPathHash": "2ab040a367ee26c9",
+      "sha256": "e4dcf8433b9c804a8c492eb98273e68dde8da3dded8fc03865efc08ef9a4a49c",
+      "bytes": 10392
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack1.anm",
+      "wadPathHash": "c228f936dab6aeae",
+      "sha256": "de81bfa40e2dabba1498f86cfa8a411fac4649b1d3f3efda9fa9440ad7ae8484",
+      "bytes": 25222
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack2.anm",
+      "wadPathHash": "51280a8f98850a4d",
+      "sha256": "04411d85fc2f832eccdf7cc419e4032145e6dbbfe533f85331fec4349986095d",
+      "bytes": 25696
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_attack3.anm",
+      "wadPathHash": "d02863a2cd2fe8b8",
+      "sha256": "62505267b5cabf411aa1c47eed24b5e70d93c4cf4133a89f081aa9399a6bbd35",
+      "bytes": 25684
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death.anm",
+      "wadPathHash": "c3b0ba16d668f05a",
+      "sha256": "c598fbe4c93fbe816e4014c8da7d150981fef4f1233ede73f46195885ff9a4cd",
+      "bytes": 26096
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_death2.anm",
+      "wadPathHash": "90266caaa621d589",
+      "sha256": "46f16e49477af5636a1e746478d0c96bbd66a9bde1828d0d1d8e270803737fd4",
+      "bytes": 26716
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro1.anm",
+      "wadPathHash": "dd945c14ec5b5c35",
+      "sha256": "6a53b1c8dafd486e6500b53933d3673ceb1a2ddbda8c6f64ad39fb0c096be8a4",
+      "bytes": 16844
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro2.anm",
+      "wadPathHash": "0e39ba11c358dbc3",
+      "sha256": "be88b15ab2c9d03f47461e2d95b8d491cd1f2aa847a06c9078ca76ce405fe10f",
+      "bytes": 17604
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro3.anm",
+      "wadPathHash": "41662c791c3d234b",
+      "sha256": "3e6242c2cbaf2ef07ce338ee1bc1ef8adcfcf3d9aab3d929e27df587bff39f5b",
+      "bytes": 19244
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_0.anm",
+      "wadPathHash": "12272601f8d27bca",
+      "sha256": "c4ae572feb2f26f195c102b1dcf71cf6f5c29099fe584231d862a845989f7638",
+      "bytes": 976
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l135.anm",
+      "wadPathHash": "71914e3a1ed0b8ab",
+      "sha256": "f4c77317068708bcd3a2e6879f284640488c29e46e357d86a50554ad50ebf7af",
+      "bytes": 1102
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_l45.anm",
+      "wadPathHash": "1e19ebb972bd828f",
+      "sha256": "2a5ddd9ce7789fdd2e9c096c84caaddd616d0582a14d3b8d6d90e1a827434f09",
+      "bytes": 1102
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r135.anm",
+      "wadPathHash": "5d3f98d2a5b866c5",
+      "sha256": "e5574d80222a75f949fce7f65ab83d7222c499445d44e6a542a3fe818f0b6e21",
+      "bytes": 1108
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_aggro_r45.anm",
+      "wadPathHash": "9bdba965b72f47f4",
+      "sha256": "668eedcbb0c40179b241eea4e60bd575663153a1288c8c804fc260e914bcfdb4",
+      "bytes": 1102
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal1.anm",
+      "wadPathHash": "85cd480dd32c031a",
+      "sha256": "34919baf19f89c763a331ac7861ea279644d5a4732e33c04ab6242b10dfc2a66",
+      "bytes": 14094
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal2.anm",
+      "wadPathHash": "bdb7a41b102aefcc",
+      "sha256": "80e6ddc6cd1c9b288d19826288c2647dc6d19f6150606a27253856aadddfc08b",
+      "bytes": 14994
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_idle_normal3.anm",
+      "wadPathHash": "6ea99ce224432dd1",
+      "sha256": "d09c62842d3eef917e3c21a2fe2ab79fc2e9512627dbec3a293b262ae4b28cec",
+      "bytes": 9152
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_n2a.anm",
+      "wadPathHash": "63665ce00fd1f9b7",
+      "sha256": "7d878e0a6b770b29a040de0248b6b0f7466e2b92fe151d0f7be976e91d97d428",
+      "bytes": 16034
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn2.anm",
+      "wadPathHash": "13551ac1c1ad10f0",
+      "sha256": "0837cfa0f7c7d4adabdfb92de4d3403141c3dcfa9dab67b06daaa6019cd5a830",
+      "bytes": 24956
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn3.anm",
+      "wadPathHash": "e971a7caa84f24d0",
+      "sha256": "b9f5f71aa9b5ff03a30e5aa2c610a7039676ac8da8c4bb4195a575f5cbb53d19",
+      "bytes": 23758
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_nspawn4.anm",
+      "wadPathHash": "5bbe9cab264261b5",
+      "sha256": "6e65c072c883f054113461be045bbcfa87a0c2195fda43a56906b7397ce76b1b",
+      "bytes": 21914
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_run.anm",
+      "wadPathHash": "96672ae6989d58b2",
+      "sha256": "14db933d7b7582ad6f0fccd119e5422313f7a7f36f2bf95df688e804fae83f1f",
+      "bytes": 7684
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn2.anm",
+      "wadPathHash": "8275016776a53359",
+      "sha256": "08db0ab3445a494051baee01d01b21367202c33e927ae8ba0e4d41ff3c14825a",
+      "bytes": 24646
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn3.anm",
+      "wadPathHash": "7653347d0a492f5e",
+      "sha256": "6219d4c3262d3ff4ae251f0e49dbb0bbcb1370228fb1f05234a2ef46b6a0ad19",
+      "bytes": 19804
+    },
+    {
+      "path": "assets/characters/sru_razorbeakmini/skins/base/sru_razorbeakmini_spawn4.anm",
+      "wadPathHash": "ffdceb172557d933",
+      "sha256": "9a21c2637c3017ce56be3d4a3af5a41a90d80307253b56c3b84b921ae2098963",
+      "bytes": 19154
+    }
+  ],
+  "unitScale": 0.013999999761581422,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1.399999976158142,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "lambert3": "assets/characters/sru_razorbeak/skins/base/sru_razorbeak_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_d5249d65",
+      "state": "{d5249d65}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro1.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "entry_2acd4eca",
+      "state": "{2acd4eca}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_run.anm",
+      "durationSeconds": 1.2000000476837158
+    },
+    {
+      "name": "attack1",
+      "state": "attack1",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack1.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_ed749d7b",
+      "state": "{ed749d7b}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death.anm",
+      "durationSeconds": 3.500000238418579
+    },
+    {
+      "name": "entry_3a224d98",
+      "state": "{3a224d98}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_spawn.anm",
+      "durationSeconds": 1.4666666984558105
+    },
+    {
+      "name": "entry_90c6bb8a",
+      "state": "{90c6bb8a}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal1.anm",
+      "durationSeconds": 2.3000001907348633
+    },
+    {
+      "name": "entry_554f5315",
+      "state": "{554f5315}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal2.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "entry_aff0e591",
+      "state": "{aff0e591}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l45.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_6cf457d7",
+      "state": "{6cf457d7}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r45.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_788d7622",
+      "state": "{788d7622}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_0.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_d163564d",
+      "state": "{d163564d}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_l135.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_1275a13b",
+      "state": "{1275a13b}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro_r135.anm",
+      "durationSeconds": 0.03333333507180214
+    },
+    {
+      "name": "entry_dff8e7f9",
+      "state": "{dff8e7f9}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_a2n.anm",
+      "durationSeconds": 0.7666667103767395
+    },
+    {
+      "name": "entry_e714e91f",
+      "state": "{e714e91f}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_n2a.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_d3249a3f",
+      "state": "{d3249a3f}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro3.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "entry_d22498ac",
+      "state": "{d22498ac}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_aggro2.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "attack2_base",
+      "state": "Attack2_base",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack2.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "attack3_base",
+      "state": "Attack3_base",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_ranged_attack3.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_0ea0b0fc",
+      "state": "{0ea0b0fc}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_nspawn.anm",
+      "durationSeconds": 1.4666666984558105
+    },
+    {
+      "name": "entry_554e8c84",
+      "state": "{554e8c84}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal3.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_308b189f",
+      "state": "{308b189f}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal4.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_bd31845b",
+      "state": "{bd31845b}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_death2.anm",
+      "durationSeconds": 3.500000238418579
+    },
+    {
+      "name": "entry_31dc9e56",
+      "state": "{31dc9e56}",
+      "source": "assets/characters/sru_razorbeak/skins/base/animations/sru_razorbeak_idle_normal5.anm",
+      "durationSeconds": 1.1666667461395264
+    }
+  ],
+  "triangles": 3816,
+  "bones": 48
+}
