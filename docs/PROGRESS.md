@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,167 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,171 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,35 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Scuttler source preparation](SCUTTLER-SOURCE.md) now adds the base rig, all
+seventeen atomic clips, both five-point river paths/borders and eighteen retained
+scripts with recursive closure inventories. The source has a peaceful tag and
+no attack/death clip. Its Root 1.5-second untargetability, legacy 2.2-second
+lead-up and ~1.6-second emergence clip remain separate evidence. Coordinated
+legacy river selection and shrine effect-slot candidates are pinned without
+inventing active callback bindings. Scuttler is **not yet in the live match**;
+twelve calendars, ten live monster rigs and schema 96 remain current.
+
+The development character review now exposes all eleven imported ordinary rigs
+instead of stale definitions-only placeholders. It retains absent Root values,
+retry, caching and late-load guards. A new Scuttler review scrubs all seventeen
+clips and verifies visible idle/emergence GPU contributions. Its initial hide
+assertion exposed an incorrect visible-frame assumption: the authored held hide
+pose remains below the grid. The review explains the empty stage, and the final
+check verifies negative skinned height and zero pixels at that framing. All five
+focused character/map review cases pass after that correction; three captures
+were visually reviewed. The final live simulation fingerprint remains unchanged.
+
+All 1,171 checks across 230 files, TypeScript and the separate review typecheck
+pass. Seven independent synthetic Lua checks cover the new restricted open-result
+point constructor. Extraction repeats, the GLB/manifest/prepared export reproduce
+byte-identically, and all GLBs/map validate with zero errors/warnings. Production
+build and `/nested/rift/` smoke pass with 17 recordings and no preview requests or
+development hook. The existing bundle warning remains. Details and limits are
+in [the source ledger](reference/scuttler-source-verification.json). Live
+Scuttler movement, coordinated spawning/saves and shrine rewards remain next;
+full-match/native comparison and certification remain unfinished.
 
 [Krug camps](KRUG-CAMPS.md) now add both Ancient/medium pairs and delayed
 four-/two-mini split waves. All three base rigs and their 17/16/16 atomic clips

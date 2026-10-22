@@ -2,6 +2,20 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import pin from '../../docs/reference/jungle-character-source.json';
+import red from '../../docs/reference/red-brambleback-source.json';
+import wolves from '../../docs/reference/wolf-camps-source.json';
+import raptors from '../../docs/reference/raptor-camps-source.json';
+import krugs from '../../docs/reference/krug-camps-source.json';
+import scuttler from '../../docs/reference/scuttler-source.json';
+import scuttlerProfile from '../../src/content/scuttler.json';
+const modelSources: Record<string, { atomicClips: Record<string, string> }> = {
+  ...pin.models,
+  ...red.models,
+  ...wolves.models,
+  ...raptors.models,
+  ...krugs.models,
+  ...scuttler.models,
+};
 
 type RecordValue = Record<string, unknown>;
 type Entry = { root: THREE.Group; mixer: THREE.AnimationMixer; clips: THREE.AnimationClip[] };
@@ -24,6 +38,7 @@ const scrub = document.querySelector<HTMLInputElement>('#time')!;
 const play = document.querySelector<HTMLButtonElement>('#play')!;
 const retry = document.querySelector<HTMLButtonElement>('#retry')!;
 const status = document.querySelector<HTMLElement>('#status')!;
+const poseNote = document.querySelector<HTMLElement>('#pose-note')!;
 const entries = new Map<string, Entry>();
 const pending = new Map<string, Promise<Entry>>();
 let active: Entry | undefined, action: THREE.AnimationAction | undefined;
@@ -51,6 +66,11 @@ function chooseClip(name: string) {
   action.clampWhenFinished = true;
   action.reset().play();
   clips.value = name;
+  const buried = selected === 'Sru_Crab' && name === scuttlerProfile.clips.hide.name;
+  poseNote.hidden = !buried;
+  poseNote.textContent = buried
+    ? 'This source hide pose holds the body below the grid. An empty view at this camera position is expected.'
+    : '';
   scrub.max = String(clip.duration);
   playing = false;
   play.textContent = 'Play';
@@ -124,6 +144,7 @@ async function load(name: string): Promise<Entry> {
 async function choose(name: string) {
   if (!pin.characters.includes(name)) throw new Error(`Unknown character: ${name}`);
   selected = name;
+  poseNote.hidden = true;
   ready = false;
   select.value = name;
   playing = false;
@@ -151,7 +172,7 @@ async function choose(name: string) {
   for (const element of [clips, scrub, play]) element.disabled = true;
   retry.hidden = true;
   render();
-  if (!Object.hasOwn(pin.models, name)) {
+  if (!Object.hasOwn(modelSources, name)) {
     status.textContent = `${name} · character definitions only; source rig not imported yet`;
     ready = true;
     return;
@@ -162,7 +183,7 @@ async function choose(name: string) {
     if (selected !== name) return;
     active = entry;
     active.root.visible = true;
-    const model = pin.models[name as keyof typeof pin.models];
+    const model = modelSources[name];
     const sources = new Map(
       Object.entries(model.atomicClips).map(([state, path]) => [
         state.startsWith('{') ? `entry_${state.slice(1, -1)}` : state.toLowerCase(),
@@ -175,7 +196,7 @@ async function choose(name: string) {
       )
     );
     const idleState = Object.entries(model.atomicClips).find(([, path]) =>
-      /_(idle_normal|idle1)\.anm$/.test(path)
+      /_(idle_normal\d*|idle\d*)\.anm$/i.test(path)
     )![0];
     chooseClip(
       idleState.startsWith('{') ? `entry_${idleState.slice(1, -1)}` : idleState.toLowerCase()
@@ -226,7 +247,8 @@ play.onclick = () => {
 controls.addEventListener('change', render);
 window.addEventListener('resize', resize);
 resize();
-await choose('SRU_Blue');
+const initial = new URLSearchParams(location.search).get('character') ?? 'SRU_Blue';
+await choose(pin.characters.includes(initial) ? initial : 'SRU_Blue');
 let previous = performance.now();
 renderer.setAnimationLoop((now) => {
   const dt = Math.min((now - previous) / 1000, 0.1);

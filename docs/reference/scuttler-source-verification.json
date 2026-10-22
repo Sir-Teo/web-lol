@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "81ed5cf",
+  "sourceCommit": "08c8e73cdc57989f2c44a74d0dead83b0ccb8625",
+  "scope": "Prepared source profile and development review. Scuttler is not yet live.",
+  "schema": 96,
+  "rulesetFingerprint": "984c45f1afb923bbce8f9ad9ade00422248b0e436b20ad79664add9084b05678",
+  "liveRulesetUnchanged": true,
+  "liveCampCalendars": 12,
+  "liveMonsterRigs": 10,
+  "reviewRigs": 11,
+  "sourcePin": {
+    "path": "docs/reference/scuttler-source.json",
+    "sha256": "7a7b404bb43d3069724d850e48f4a879d947269df47592afe66fcf8d8917f286"
+  },
+  "sourcePreparation": {
+    "extractCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-scuttler.py",
+    "convertCommand": "node tools/assets/convert-roster-base.mjs Sru_Crab",
+    "exportCommand": "PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/export-scuttler.py",
+    "repeatExtractionMatches": true,
+    "repeatGlbManifestAndExportByteIdentical": true,
+    "mapArchiveMembers": 22,
+    "rawMapMemberBytes": 610554,
+    "scriptMembers": 18,
+    "rawScriptBytes": 20048,
+    "retainedRecursivePrototypes": 71,
+    "retainedInstructions": 1474,
+    "sourceScope": "Selected river AI/system, four movement/regeneration components and character/spell scripts; other default components, events and native APIs remain unresolved",
+    "unchangedParentPins": [
+      "jungle-character-source",
+      "jungle-script-source",
+      "jungle-map-source"
+    ]
+  },
+  "rig": {
+    "path": "public/assets/models/sru-crab-base.glb",
+    "sha256": "d552dd415bba0bb02d4cd1f132f7633190ced4c87c13e3559462badde2a7990f",
+    "triangles": 4218,
+    "bones": 66,
+    "skinScale": 0.75,
+    "atomicClips": 17,
+    "attackOrDeathAtomicClips": 0
+  },
+  "evidence": {
+    "peacefulTag": "Special_Peaceful",
+    "rootDamage": 35,
+    "rootUntargetableSpawnSeconds": 1.5,
+    "legacyLeadupSeconds": 2.2,
+    "sourceEmergenceClipSeconds": 1.6000001430511475,
+    "legacyFirstReadySeconds": 146,
+    "publishedFirstReadySeconds": 175,
+    "legacyRespawnSeconds": 150,
+    "patrolWaypointsPerRiver": 5,
+    "oneBasedInitialDestination": 4,
+    "initialDirection": -1,
+    "shrineEffectSlotCandidates": [
+      90,
+      0.30000001192092896,
+      2
+    ],
+    "nativeCallbackBindings": "unverified",
+    "legacyCoordination": "Feature-gated first pair followed by coordinated location selection; 1-100 draw with 50 threshold and 25/75 streak-biased thresholds after four selections",
+    "sourceHidePose": "Mesh remains below grid throughout diagnostic samples at 0/0.1/0.2/0.45/0.9s; explains empty view at idle-framed camera"
+  },
+  "decoder": {
+    "command": "python3 tools/assets/test-lua51.py",
+    "passed": 7,
+    "newCases": 2,
+    "behavior": "Known Make3DPoint open-result constructor only; immediate SETLIST consumes one result and ignores stale registers. Unknown calls, missing top and intervening operations rejected. No Lua execution.",
+    "canonicalCarrier": "Numeric literal-table keys normalized through JSON for repeat comparison; centers checked against the original constructor prefix"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 230,
+    "passed": 1171,
+    "newCases": 4,
+    "typecheck": "passed",
+    "reviewTypecheck": {
+      "command": "npx tsc --noEmit --target ES2022 --module ESNext --moduleResolution bundler --resolveJsonModule --esModuleInterop --skipLibCheck tools/qa/jungle-characters.ts",
+      "result": "passed"
+    }
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "allGlbsAndMapValidated": true,
+    "newRigErrors": 0,
+    "newRigWarnings": 0
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "command": "npx playwright test e2e/jungle-characters.spec.ts e2e/jungle-map-inspection.spec.ts --workers=1 --timeout=60000",
+    "initialRun": {
+      "passed": 4,
+      "failed": 1,
+      "finding": "New hide-frame assertion assumed visible geometry. Diagnostic skinned bounds confirmed the authored held below-grid pose; the review now explains it and the test checks negative maximum height and zero pixels."
+    },
+    "finalRun": {
+      "passed": 5,
+      "failed": 0
+    },
+    "assertions": [
+      "All eleven imported ordinary rigs load on demand while absent Root fields remain absent",
+      "Existing Blue/Gromp source poses, hidden submeshes, rewind, playback, cache reuse and responsive layout",
+      "Failed asset retry and late load cannot replace selected Scuttler",
+      "All seventeen Scuttler clips produce finite 66-bone matrices; more than ten change at the sampled pose",
+      "Scuttler idle and emergence each contribute more than 500 GPU pixels",
+      "Hide pose has skinned maximum Y below zero and contributes zero pixels at idle framing; review explains empty stage",
+      "Scuttler source playback controls work after terminal rewind",
+      "Map source overlay toggles/resizes and module-load failure recovery"
+    ],
+    "scope": "Five focused development review cases; no Scuttler gameplay, full browser suite or native comparison certified."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "scheduledKrugRequests": 6,
+    "screenshot": "artifacts/production-subpath.png",
+    "warning": "Existing bundle-size warning: unchanged game 635.99 KB and Three 659.92 KB"
+  },
+  "captures": [
+    {
+      "path": "artifacts/scuttler-review-idle.png",
+      "sha256": "3a7ce4549bde0584d74f4b3430fa4c2ddf44af4454187fa72f4ef6857876edbb",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/scuttler-review-emergence.png",
+      "sha256": "85f014169db9853fbaeef06c54fae2c40d01fcfe18f365dd8ceca66368bf8d01",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/scuttler-review-hide.png",
+      "sha256": "026e9069afb75d43b6c50d3e7c2f70bb66f09ea813bf692d7e5519c813361cee",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Dedicated live peaceful patrol/flee/cornered-dash state and native component/graph dispatch",
+    "Coordinated river spawn lifecycle, current feature flags, timing and saved clocks",
+    "Shrine vision/speed callback bindings, radius, ownership and source visuals/audio",
+    "Active skin/later forms, scaling, collision and native rendering/pose comparison",
+    "Smite, jungle-role bots, epic objectives and complete matches",
+    "Full browser audit, production roster, performance and delivery/offline certification"
+  ]
+}
