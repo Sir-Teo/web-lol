@@ -1,4 +1,6 @@
 import { WARD_SOURCE, WARD_POLICY, wardScaling } from '../content/warding-totem';
+import { ORACLE_SOURCE, ORACLE_POLICY, trinketScaling } from '../content/trinkets';
+import { distance } from './math';
 import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
 import { companionItemKind, isDoranStarter } from '../content/companion-items-policy';
@@ -90,7 +92,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 103;
+export const SNAPSHOT_VERSION = 104;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -452,12 +454,36 @@ const inventorySchema = z
 const player: z.ZodType<PlayerState> = z
   .strictObject({
     trinket: z.strictObject({
+      kind: z.enum(['ward', 'oracle']),
       createdTick: tick,
       charges: z.number().int().min(0).max(WARD_SOURCE.maxCharges),
       rechargeStartTick: tick.nullable(),
       rechargeEndTick: tick.nullable(),
+      rechargeDurationTicks: tick.nullable(),
+      rechargeStartProgress: z.number().min(0).lt(1),
       cooldownTick: tick,
       order: point.nullable(),
+      scan: z
+        .strictObject({
+          startTick: tick,
+          endTick: tick,
+          radius: nonnegative,
+          pulseStartTick: tick.nullable(),
+          nextPulseTick: tick,
+          echoes: z
+            .array(
+              z.strictObject({
+                targetId: id,
+                point,
+                facing: z.number(),
+                origin: point,
+                createdTick: tick,
+                endTick: tick,
+              })
+            )
+            .max(1000),
+        })
+        .nullable(),
     }),
     summoners: z.strictObject({
       d: z.enum(['flash', 'heal', 'smite']),
@@ -735,6 +761,7 @@ const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
   z.strictObject({ type: z.literal('cast'), unit: id, ability, point, targetId: id.optional() }),
   z.strictObject({ type: z.literal('ward'), unit: id, point }),
+  z.strictObject({ type: z.literal('oracle'), unit: id }),
   z.strictObject({ type: z.literal('recall'), unit: id }),
   z.strictObject({ type: z.literal('learn'), unit: id, ability: z.enum(['q', 'w', 'e', 'r']) }),
 ]);
@@ -1113,19 +1140,76 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     const s = owner.trinket;
     if (
       s.createdTick > state.tick ||
-      s.cooldownTick > state.tick + WARD_POLICY.cooldownTicks ||
+      s.cooldownTick >
+        state.tick + Math.max(WARD_POLICY.cooldownTicks, ORACLE_POLICY.cooldownTicks) ||
       (s.charges === WARD_SOURCE.maxCharges) !== (s.rechargeEndTick === null) ||
       (s.rechargeStartTick === null) !== (s.rechargeEndTick === null) ||
+      (s.rechargeDurationTicks === null) !== (s.rechargeEndTick === null) ||
+      (s.rechargeEndTick === null && s.rechargeStartProgress !== 0) ||
       (s.rechargeStartTick !== null &&
         (s.rechargeStartTick < s.createdTick ||
           s.rechargeStartTick > state.tick ||
           s.rechargeEndTick! <= state.tick ||
-          s.rechargeEndTick! - s.rechargeStartTick < wardScaling(18).rechargeTicks ||
-          s.rechargeEndTick! - s.rechargeStartTick > wardScaling(1).rechargeTicks)) ||
+          s.rechargeDurationTicks! < trinketScaling(s.kind, 18).rechargeTicks ||
+          s.rechargeDurationTicks! > trinketScaling(s.kind, 1).rechargeTicks ||
+          s.rechargeEndTick !==
+            s.rechargeStartTick +
+              Math.ceil((1 - s.rechargeStartProgress) * s.rechargeDurationTicks!))) ||
       (s.order &&
-        (Math.abs(s.order.x) > battlefield.half || Math.abs(s.order.y) > battlefield.half))
+        (s.kind !== 'ward' ||
+          Math.abs(s.order.x) > battlefield.half ||
+          Math.abs(s.order.y) > battlefield.half))
     )
       throw new Error('Saved trinket has invalid charge or placement clocks.');
+    const scan = s.scan;
+    if (!scan) continue;
+    const firstPulse = scan.pulseStartTick;
+    const invalidPulsePhase =
+      firstPulse === null
+        ? scan.nextPulseTick !== state.tick ||
+          scan.echoes.length !== 0 ||
+          state.tick > scan.startTick + 1 ||
+          (state.tick > scan.startTick && state.winner === null)
+        : firstPulse < scan.startTick ||
+          firstPulse > scan.startTick + 1 ||
+          firstPulse > state.tick ||
+          scan.nextPulseTick <= firstPulse ||
+          (scan.nextPulseTick - firstPulse) % ORACLE_POLICY.echoTicks !== 0;
+    if (
+      scan.startTick < s.createdTick ||
+      scan.startTick > state.tick ||
+      scan.endTick !== scan.startTick + ORACLE_POLICY.durationTicks ||
+      scan.endTick <= state.tick ||
+      scan.radius < ORACLE_SOURCE.startingRadius ||
+      scan.radius > ORACLE_SOURCE.endingRadius ||
+      scan.nextPulseTick < state.tick ||
+      scan.nextPulseTick > state.tick + ORACLE_POLICY.echoTicks ||
+      invalidPulsePhase ||
+      new Set(scan.echoes.map((e) => e.targetId)).size !== scan.echoes.length
+    )
+      throw new Error('Saved Oracle scan has invalid bounds or clocks.');
+    const unit = state.units.find((u) => u.id === owner.id)!;
+    if (!unit || unit.kind !== 'champion')
+      throw new Error('Saved Oracle scan has no champion owner.');
+    for (const e of scan.echoes) {
+      const target = state.units.find((u) => u.id === e.targetId);
+      if (
+        !target ||
+        target.kind !== 'champion' ||
+        target.team === unit.team ||
+        e.createdTick < scan.startTick ||
+        e.createdTick > state.tick ||
+        e.createdTick !== scan.nextPulseTick - ORACLE_POLICY.echoTicks ||
+        (e.createdTick - firstPulse!) % ORACLE_POLICY.echoTicks !== 0 ||
+        e.endTick !== e.createdTick + ORACLE_POLICY.echoTicks ||
+        e.endTick <= state.tick ||
+        distance(e.point, e.origin) > scan.radius + 1e-6 ||
+        [e.point, e.origin].some(
+          (p) => Math.abs(p.x) > battlefield.half || Math.abs(p.y) > battlefield.half
+        )
+      )
+        throw new Error('Saved Oracle silhouette has invalid target, bounds or clocks.');
+    }
   }
   const wardCounts = new Map<number, number>();
   for (const u of state.units) {

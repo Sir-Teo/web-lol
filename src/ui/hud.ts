@@ -1,5 +1,7 @@
 import { resetTrinket } from '../simulation/wards';
 import { WARD_SOURCE } from '../content/warding-totem';
+import { TRINKETS, ORACLE_SOURCE, type TrinketKind } from '../content/trinkets';
+import { trinketSwapError } from '../simulation/trinkets';
 import { shrinePoint } from '../simulation/scuttler';
 import { selectableChampion } from '../content/champion-profiles';
 import { championProfile } from '../content/champion-profiles';
@@ -72,6 +74,7 @@ import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 
 export interface HudActions {
+  swapTrinket: (kind: TrinketKind) => Promise<string | null>;
   buyItem: (itemId: string) => Promise<string | null>;
   pause: (value: boolean) => void;
   reset: () => void;
@@ -292,6 +295,18 @@ export class Hud {
       const price = `◆ ${this.world.purchasePlan(id)!.cost}`;
       if (button.querySelector('b')!.textContent !== price)
         button.querySelector('b')!.textContent = price;
+    });
+    this.root.querySelectorAll<HTMLButtonElement>('[data-trinket]').forEach((button) => {
+      const kind = button.dataset.trinket as TrinketKind;
+      const reason = this.buyingItem ? 'Preparing purchase…' : trinketSwapError(this.world, kind);
+      button.setAttribute('aria-disabled', String(!!reason));
+      button.title =
+        reason ??
+        (kind === 'ward'
+          ? 'Free. Place hidden wards that grant team vision.'
+          : 'Free. Scan for 8 seconds to reveal and disable enemy wards and warn of hidden champions.');
+      button.querySelector('b')!.textContent =
+        this.world.player.trinket.kind === kind ? 'Equipped' : 'Free';
     });
   }
   private updateShopOwnedItems(): void {
@@ -581,7 +596,7 @@ export class Hud {
               ]),
         ['D / F', `${this.spellSpec('d').name} / ${this.spellSpec('f').name}`],
         ['B', 'Recall to fountain'],
-        ['4', 'Hold to aim Stealth Ward; release to place'],
+        ['4', 'Hold to aim Stealth Ward; press to activate Oracle Lens'],
         ['P', 'Open item shop'],
         ['Space / Y', 'Recenter / lock camera'],
         ['Shift', 'Show attack range'],
@@ -597,7 +612,7 @@ export class Hud {
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
-      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-panels"><section class="shop-catalog-panel" aria-label="Item catalog"><h3>All items</h3><div class="shop-catalog shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${this.world.purchasePlan(item.id)!.cost}</b></button>`).join('')}</div></section><section class="shop-inventory-panel" aria-label="Owned items"><h3>Owned items</h3><div class="shop-owned shop-items"></div></section></div><p class="shop-message" role="status">Buy and sell at your fountain, or while dead.</p>`;
+      content = `<div class="shop-balance">Available gold <b>◆ ${Math.floor(this.world.player.gold)}</b></div><div class="shop-panels"><section class="shop-catalog-panel" aria-label="Item catalog"><h3>All items</h3><div class="shop-catalog shop-items">${ITEMS.map((item) => `<button class="shop-item" data-buy="${item.id}"><img src="assets/icons/${item.icon}.png" alt=""><span><strong>${item.name}</strong><small>${item.description}</small></span><b>◆ ${this.world.purchasePlan(item.id)!.cost}</b></button>`).join('')}</div></section><section class="shop-inventory-panel" aria-label="Owned items"><h3>Owned items</h3><div class="shop-owned shop-items"></div><h3>Trinkets</h3><div class="shop-trinkets shop-items">${(Object.keys(TRINKETS) as TrinketKind[]).map((kind) => `<button class="shop-item" data-trinket="${kind}"><img src="assets/icons/${TRINKETS[kind].icon}.png" alt=""><span><strong>${TRINKETS[kind].name}</strong><small>${kind === 'ward' ? 'Place wards' : '8s sweep'}</small></span><b>Free</b></button>`).join('')}</div></section></div><p class="shop-message" role="status">Buy and sell at your fountain, or while dead.</p>`;
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
@@ -814,6 +829,21 @@ export class Hud {
       });
     };
     this.updateShopOwnedItems();
+    backdrop.querySelectorAll<HTMLButtonElement>('[data-trinket]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        if (this.buyingItem) return;
+        this.buyingItem = true;
+        this.updateShopPurchases();
+        backdrop.querySelector<HTMLElement>('.shop-message')!.textContent = 'Preparing trinket…';
+        try {
+          const result = await this.actions.swapTrinket(button.dataset.trinket as TrinketKind);
+          if (backdrop.isConnected) showShopResult(result, 'Trinket equipped');
+        } finally {
+          this.buyingItem = false;
+          this.updateShopPurchases();
+        }
+      });
+    });
     backdrop.querySelector('.shop-owned')?.addEventListener('click', (event) => {
       const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-sell]');
       if (!button) return;
@@ -1016,6 +1046,14 @@ export class Hud {
       p = w.player,
       h = w.hero;
     const trinket = this.root.querySelector<HTMLButtonElement>('#trinket')!;
+    const kind = p.trinket.kind,
+      definition = TRINKETS[kind];
+    if (trinket.dataset.kind !== kind) {
+      trinket.dataset.kind = kind;
+      const icon = trinket.querySelector('img')!;
+      icon.src = `assets/icons/${definition.icon}.png`;
+      icon.alt = definition.name;
+    }
     const charges = p.trinket.charges;
     const cooldown = Math.max(0, p.trinket.cooldownTick - w.tick);
     const recharge =
@@ -1031,11 +1069,16 @@ export class Hud {
           ? String(Math.ceil(recharge / 60))
           : '';
     trinket.classList.toggle('empty', charges === 0);
+    const scanLeft = Math.max(0, (p.trinket.scan?.endTick ?? 0) - w.tick);
+    trinket.classList.toggle('active', scanLeft > 0);
     trinket.setAttribute(
       'aria-label',
-      `Stealth Ward: ${charges}/${WARD_SOURCE.maxCharges} charges, ${placed}/${WARD_SOURCE.maxPlaced} placed`
+      `${definition.name}: ${charges}/${WARD_SOURCE.maxCharges} charges${kind === 'ward' ? `, ${placed}/${WARD_SOURCE.maxPlaced} placed` : scanLeft > 0 ? `, scan active ${Math.ceil(scanLeft / 60)} seconds` : ''}`
     );
-    trinket.title = `Stealth Ward (4) · ${charges}/${WARD_SOURCE.maxCharges} charges · ${placed}/${WARD_SOURCE.maxPlaced} placed. Hold 4 and release over the battlefield, or click and choose a location. Grants ${WARD_SOURCE.sightRadius} sight; up to ${WARD_SOURCE.maxPlaced} wards. Next charge: ${Math.ceil(recharge / 60)}s.`;
+    trinket.title =
+      kind === 'ward'
+        ? `Stealth Ward (4) · ${charges}/${WARD_SOURCE.maxCharges} charges · ${placed}/${WARD_SOURCE.maxPlaced} placed. Hold 4 and release over the battlefield, or click and choose a location. Grants ${WARD_SOURCE.sightRadius} sight; up to ${WARD_SOURCE.maxPlaced} wards. Next charge: ${Math.ceil(recharge / 60)}s.`
+        : `Oracle Lens (4) · ${charges}/${ORACLE_SOURCE.maxCharges} charges. Press 4 or click to scan for ${ORACLE_SOURCE.durationSeconds}s. Reveals and disables enemy wards; warns of hidden champions without granting sight. ${scanLeft > 0 ? `Scan active: ${Math.ceil(scanLeft / 60)}s. ` : ''}Next charge: ${Math.ceil(recharge / 60)}s.`;
     // Seek the announcement with match time so loading, pause and time jumps
     // cannot advance or replay its presentation independently of the simulation.
     const welcomeTick = Math.min(w.tick, 8 * TICK_RATE);

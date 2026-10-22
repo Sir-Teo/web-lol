@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,278 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,292 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,38 +14,73 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-103 continuation. Rift practice and the interim lane match share both source-linked Gromp camps, with independent death-based respawns, protected source emergence and schema-103 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-104 continuation. Rift practice and the interim lane match share both source-linked Gromp camps, with independent death-based respawns, protected source emergence and schema-104 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
   wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-[Oracle Lens source preparation](ORACLE-LENS.md) now pins all 21 selected
-original visual dependencies (1,308,124 raw bytes), seven metadata-only scripts
-(1,560 bytes; 63 instructions), frozen item/spell/VFX/text records and the official
-icon. Four GLBs and fifteen PNGs retain the animated scanner and all selected
-static geometry/textures. Independent binary checks compare all scanner positions,
-indices, UVs, weights and weighted joints, and every SCB face corner/UV/optional
-RGB. The colorless radar remains colorless. All 27 pin, ledger, profile and
-converted asset files reproduce byte for byte.
+[Oracle Lens](ORACLE-LENS.md) now equips for free at the fountain or while
+dead, prepares only its selected scanner/radar assets, activates through real key
+and button input, detects enemy wards and disables their sight. Swaps preserve
+stock, short cooldowns and fractional recharge work; repeating a swap cannot
+refill charges. Failed preparation spends nothing, pending clicks serialize,
+and eligibility is checked again after loading. Accepted Ward deliveries remain
+independent. Scans follow the owner and survive swaps, death and practice refill
+under an explicit local lifecycle policy.
 
-TypeScript and 1,278 tests across 241 files pass with two workers, including
-three new source cases. The first default-worker run hit two five-second
-timeouts in existing long lane/jungle cases; the bounded run passes without
-changing limits. The new Chrome review case passes, with finite animated bones,
-working controls and GPU contribution from all four meshes. All four new captures
-were visually reviewed. All GLBs and the map validate with zero errors/warnings;
-production build passes with the existing bundle warning. Exact evidence and
-limits are in [the Oracle ledger](reference/oracle-lens-verification.json).
+Hidden enemy champions produce saved half-second samples, rendered as source
+idle silhouettes over occluding terrain/vegetation. These warnings do not grant
+ordinary vision, current animation, health bars, minimap markers, selection or
+attack targets. Radius/recharge aggregation, startup/conversion, instant activation,
+scan cadence, lifecycle and recast behavior remain named local adapters. Only two
+of twelve Buff layers render; other emitters, Alert/Death, audio, native stop/linger,
+material dispatch and calibration remain unfinished.
 
-Oracle Lens remains unavailable in gameplay. This import does not add detection,
-trinket swapping, disabled ward vision, hidden-unit outlines or saved scan clocks.
-The game remains on schema 103 with Stealth Ward as its only trinket. Current
-eight-second duration is kept separate from stale six-second external text and
-approximately ten-second particle lifetimes. Native callback, scaling, lifecycle
-and material bindings remain unverified. Counterplay integration and the full
-project goal remain active.
+Schema 104 requires equipment kind, captured recharge duration/starting progress,
+and scan/pulse/sample clocks, including the actual first sample time. Cleanup
+before combat preserves valid frozen Nexus-win checkpoints at sample expiry or
+before the first sample. Validation checks exact remaining deadlines, stock,
+radius, pulse phase, last-pulse samples, opposing targets, captured range and expiry.
+TypeScript and all 1,292 tests across 242 files pass with one worker, including
+fourteen new Oracle cases. The focused boundary run passes 41 Oracle, Ward
+and structure cases. Two existing long tests timed out under two workers; no test limit
+was changed, and the serial run passes.
+
+All 23 targeted Chrome scenarios pass, including three Oracle cases and twenty
+companion, Ward, inventory, shop and queued-input/save regressions. The three
+Oracle cases pass again after the silhouette overlay fix and subsequent
+sampling/match-end checkpoint repairs.
+All six final Oracle captures were visually reviewed, including the 600x700 shop.
+Real input clears a hidden Rift ward through active saved restoration. Brush
+samples retain old positions without health or targetability. Encounter positions,
+AI suppression and later clock steps remain diagnostic; no natural full match is
+certified by these cases.
+
+Production build and `/nested/rift/` smoke pass with real Oracle equipment,
+practice resource refill, activation and active saved reload, four selected
+scanner/radar requests and zero unrequested Oracle preloads. Existing Ward and
+companion state survive. All eleven practice monster rigs and 17 recordings
+remain prepared. There are no failed/outside-prefix resources or development
+hooks. All five production captures were visually reviewed. GLBs/map validate
+with zero errors/warnings. The bundle warning remains (715.88 KB game, 659.92 KB
+Three). Exact scope and limits are in [the runtime ledger](reference/oracle-lens-runtime-verification.json).
+The full match, roster, vision tools, native calibration, offline delivery and
+performance goals remain active.
+
+The preceding source import at `be04cd5` pinned all 21 selected original visual
+dependencies (1,308,124 raw bytes), seven metadata-only scripts (1,560 bytes; 63
+instructions), frozen item/spell/VFX/text records and the official icon. Four
+GLBs and fifteen PNGs retain all selected geometry/textures. Independent binary
+checks compare scanner positions/indices/UVs/weights/weighted joints and every
+SCB face corner/UV/optional RGB; the colorless radar remains colorless. Its 27
+pin, ledger, profile and converted files reproduced byte for byte. The expanded
+runtime profile also reproduces exactly. The original source-only validation
+passed 1,278 checks and its Chrome geometry case. See [the source ledger](reference/oracle-lens-verification.json)
+for that earlier scope; current playable behavior is validated above. Current
+eight-second duration remains separate from stale six-second external text and
+approximately ten-second authored particle lifetimes.
 
 [Stealth Ward](WARDING-TOTEM.md) now supplies a separate trinket slot, real key
 and button targeting, cast/sight guides, captured charge/delivery/lifetime clocks,

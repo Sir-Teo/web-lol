@@ -19,6 +19,8 @@ import { equipSummoners } from './simulation/smite';
 import { grantCompanion } from './simulation/owned-companions';
 import { COMPANION_SOURCE, type CompanionKind } from './content/companion-policy';
 import { loadOwnedCompanions } from './render/owned-companions';
+import { loadOracleLens } from './render/oracle-lens';
+import { swapTrinket, trinketSwapError } from './simulation/trinkets';
 import { companionItemKind } from './content/companion-items-policy';
 import { GameView } from './render/view';
 import { Hud } from './ui/hud';
@@ -118,6 +120,18 @@ async function boot(): Promise<void> {
   };
   const hud = new Hud(host, world, view, {
     pause: setPaused,
+    swapTrinket: async (kind) => {
+      const error = trinketSwapError(world, kind);
+      if (error) return error;
+      if (kind === 'oracle') {
+        try {
+          await loadOracleLens();
+        } catch {
+          return 'Oracle Lens could not be prepared. Try again.';
+        }
+      }
+      return swapTrinket(world, kind);
+    },
     buyItem: async (itemId) => {
       const error = world.purchaseError(itemId);
       if (error) return error;
@@ -195,6 +209,12 @@ async function boot(): Promise<void> {
   ];
   const hasGrompContent = monsterSpecies.includes('gromp');
   const assetsReady = Promise.all([
+    ...(world.units.some((u) => {
+      const s = world.championState(u.id)?.trinket;
+      return s?.kind === 'oracle' || !!s?.scan;
+    })
+      ? [loadOracleLens()]
+      : []),
     loadOwnedCompanions(world.companions.map((p) => p.kind)),
     loadInterfaceFonts(),
     audio.load(world.units.some((u) => u.champion === 'garen')),

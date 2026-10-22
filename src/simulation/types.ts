@@ -106,12 +106,30 @@ export interface WardPlacement {
   lifeTicks: number;
 }
 export interface TrinketState {
+  kind: import('../content/trinkets').TrinketKind;
   createdTick: number;
   charges: number;
   rechargeStartTick: number | null;
   rechargeEndTick: number | null;
+  rechargeDurationTicks: number | null;
+  rechargeStartProgress: number;
   cooldownTick: number;
   order: Vec2 | null;
+  scan: {
+    startTick: number;
+    endTick: number;
+    radius: number;
+    pulseStartTick: number | null;
+    nextPulseTick: number;
+    echoes: {
+      targetId: number;
+      point: Vec2;
+      facing: number;
+      origin: Vec2;
+      createdTick: number;
+      endTick: number;
+    }[];
+  } | null;
 }
 export interface UnitBase extends Vec2 {
   ward?: WardState;
@@ -361,6 +379,7 @@ export type Command =
   | { type: 'cast'; unit: number; ability: Ability; point: Vec2; targetId?: number }
   | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
   | { type: 'ward'; unit: number; point: Vec2 }
+  | { type: 'oracle'; unit: number }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */

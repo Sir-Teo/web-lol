@@ -1,6 +1,8 @@
 import { WARD_SOURCE } from '../content/warding-totem';
 import { RiverShrines } from './river-shrines';
 import { OwnedCompanions } from './owned-companions';
+import { OracleLens } from './oracle-lens';
+import { wardDisabled } from '../simulation/oracle-lens';
 import { LazyGarenDecisiveStrike } from './lazy-garen-decisive-strike';
 import { LuxIlluminationTriggers } from './lux-illumination-triggers';
 import { LuxIllumination } from './lux-illumination';
@@ -100,6 +102,7 @@ export class GameView {
   grompDeath = new LazyGrompDeath(this.scene);
   riverShrines = new RiverShrines(this.scene);
   ownedCompanions = new OwnedCompanions(this.scene);
+  oracleLens = new OracleLens(this.scene);
   grompAttack = new LazyGrompAttack(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -717,6 +720,7 @@ export class GameView {
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
     this.riverShrines.update(world, (p) => this.ground(p));
     this.ownedCompanions.update(world, alpha, (p) => this.ground(p));
+    this.oracleLens.update(world, alpha, (p) => this.ground(p));
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
@@ -843,23 +847,25 @@ export class GameView {
     if (bar.classList.contains('invulnerable') !== protectedUnit)
       bar.classList.toggle('invulnerable', protectedUnit);
     const status =
-      protectedUnit && (this.hovered === u.id || this.selected === u.id)
-        ? 'PROTECTED'
-        : u.stunUntil > world.tick
-          ? 'STUNNED'
-          : u.rootUntil > world.tick
-            ? 'ROOTED'
-            : u.silenceUntil > world.tick
-              ? 'SILENCED'
-              : world.slowFactor(u) < 1
-                ? u.cinderBurn
-                  ? 'BURNING · SLOWED'
-                  : 'SLOWED'
-                : u.cinderBurn
-                  ? 'BURNING'
-                  : u.illumination.some((mark) => mark.endTick > world.tick)
-                    ? 'ILLUMINATED'
-                    : '';
+      u.kind === 'ward' && wardDisabled(world, u)
+        ? 'DISABLED'
+        : protectedUnit && (this.hovered === u.id || this.selected === u.id)
+          ? 'PROTECTED'
+          : u.stunUntil > world.tick
+            ? 'STUNNED'
+            : u.rootUntil > world.tick
+              ? 'ROOTED'
+              : u.silenceUntil > world.tick
+                ? 'SILENCED'
+                : world.slowFactor(u) < 1
+                  ? u.cinderBurn
+                    ? 'BURNING · SLOWED'
+                    : 'SLOWED'
+                  : u.cinderBurn
+                    ? 'BURNING'
+                    : u.illumination.some((mark) => mark.endTick > world.tick)
+                      ? 'ILLUMINATED'
+                      : '';
     if (parts.status.textContent !== status) parts.status.textContent = status;
   }
   private syncProjectiles(world: World, alpha: number): void {

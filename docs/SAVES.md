@@ -1,6 +1,19 @@
 # Local match checkpoints
 
-Current schema 103 adds default trinket charges/recharge spans and placement
+Current schema 104 adds trinket equipment kind, captured recharge duration and
+starting progress for resource-conserving swaps, and nullable Oracle scan state.
+Scans retain their original start/end, radius, sampling phase and bounded hidden
+champion samples (origin, position, facing and exact expiry). The actual nullable
+first-pulse time preserves activation between steps. Samples must belong to the
+last completed pulse. Expired samples are removed before combat; a Nexus kill at
+expiry or before the initial sample therefore retains a restorable frozen
+checkpoint. Ward detection/disabled sight is derived from live
+scan positions, without altering ward lifetime or replaying placement. Active
+scans remain independent of equipment swaps, death and practice resource refill.
+Saved restoration prepares required Oracle assets before play resumes. Earlier
+schemas and fingerprints remain incompatible. See [Oracle Lens](ORACLE-LENS.md).
+
+Schema 103 added default trinket charges/recharge spans and placement
 intent, committed ward deliveries with captured origin/range/lifetime, and placed
 ward ownership/reveal/expiry clocks. Resetting practice cooldowns can refill the
 trinket while a previously accepted delivery remains in flight. Saved restoration

@@ -1,41 +1,13 @@
 import type { World } from './world';
-import type { TrinketState, Unit } from './types';
+import type { Unit } from './types';
 import type { Vec2 } from './math';
 import { distance } from './math';
 import { WARD_SOURCE as S, WARD_POLICY as P, wardScaling } from '../content/warding-totem';
+import { averageChampionLevel, spendTrinket, advanceTrinket, trinketError } from './trinkets';
+export { newTrinket, resetTrinket, averageChampionLevel } from './trinkets';
 
-export function newTrinket(tick = 0): TrinketState {
-  return {
-    createdTick: tick,
-    charges: P.initialCharges,
-    rechargeStartTick: tick,
-    rechargeEndTick: tick + wardScaling(1).rechargeTicks,
-    cooldownTick: 0,
-    order: null,
-  };
-}
-/** Practice tool: accepted placements retain their independent delivery. */
-export function resetTrinket(s: TrinketState): void {
-  s.charges = S.maxCharges;
-  s.rechargeStartTick = null;
-  s.rechargeEndTick = null;
-  s.cooldownTick = 0;
-}
-export function averageChampionLevel(w: World): number {
-  const champions = w.units.filter((u) => u.kind === 'champion');
-  return (
-    champions.reduce((sum, u) => sum + w.championState(u.id)!.level, 0) /
-    Math.max(1, champions.length)
-  );
-}
 export function wardError(w: World, u: Unit): string | null {
-  const s = w.championState(u.id)?.trinket;
-  if (!s || u.kind !== 'champion') return 'Only champions can place wards';
-  if (w.winner || !w.alive(u)) return 'Cannot place a ward while dead';
-  if (u.stunUntil > w.tick) return 'Cannot place a ward while stunned';
-  if (s.charges === 0) return 'Stealth Ward has no charges';
-  if (s.cooldownTick > w.tick) return 'Stealth Ward is cooling down';
-  return null;
+  return trinketError(w, u, 'ward');
 }
 export function requestWard(w: World, u: Unit, point: Vec2): string | null {
   const error = wardError(w, u);
@@ -61,11 +33,7 @@ export function requestWard(w: World, u: Unit, point: Vec2): string | null {
   }
   if (s.order) w.setOrder(u, { type: 'idle' });
   s.order = null;
-  if (s.charges === S.maxCharges) {
-    s.rechargeStartTick = w.tick;
-    s.rechargeEndTick = w.tick + wardScaling(averageChampionLevel(w)).rechargeTicks;
-  }
-  s.charges--;
+  spendTrinket(w, s);
   s.cooldownTick = w.tick + P.cooldownTicks;
   w.pendingWards.push({
     origin: { x: u.x, y: u.y },
@@ -104,16 +72,7 @@ export function advanceWards(w: World): void {
     if (u.kind === 'ward' && w.alive(u) && u.ward!.expireTick <= w.tick) endWard(w, u);
     const s = w.championState(u.id)?.trinket;
     if (!s) continue;
-    while (s.rechargeEndTick !== null && w.tick >= s.rechargeEndTick) {
-      s.charges++;
-      const tick = s.rechargeEndTick;
-      s.rechargeStartTick = s.charges === S.maxCharges ? null : tick;
-      s.rechargeEndTick =
-        s.charges === S.maxCharges
-          ? null
-          : tick + wardScaling(averageChampionLevel(w)).rechargeTicks;
-    }
-    if (!w.alive(u)) s.order = null;
+    advanceTrinket(w, u, s);
     if (s.order && distance(u, s.order) <= S.range && !wardError(w, u)) requestWard(w, u, s.order);
   }
   const pending = w.pendingWards.filter((p) => p.readyTick <= w.tick);

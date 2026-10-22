@@ -35,5 +35,274 @@
       "texture": "assets/effects/oracle-lens/global_trinket_spotter_radarmesh.png",
       "blendMode": 4
     }
+  },
+  "renderEmitters": {
+    "Trinket_Red": {
+      "timeBeforeFirstEmission": 0.10000000149011612,
+      "rate": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 10.5,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 1.0,
+      "isSingleParticle": 1,
+      "emitterName": "Trinket_Red",
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "SpawnShape": {
+        "emitOffset": [
+          0.0,
+          450.0,
+          0.0
+        ],
+        "__type": "{ee39916f}"
+      },
+      "primitive": {
+        "mMesh": {
+          "mMeshName": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.skn",
+          "mMeshSkeletonName": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.skl",
+          "mAnimationName": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.anm",
+          "__type": "VfxMeshDefinitionData"
+        },
+        "__type": "VfxPrimitiveMesh"
+      },
+      "blendMode": 3,
+      "Color": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "values": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "pass": 1,
+      "birthRotation0": {
+        "constantValue": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "dynamics": {
+          "probabilityTables": [
+            {
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "keyTimes": [
+                0.0
+              ],
+              "keyValues": [
+                -20.0
+              ],
+              "__type": "VfxProbabilityTableData"
+            },
+            {
+              "__type": "VfxProbabilityTableData"
+            }
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "isLocalOrientation": 0,
+      "birthScale0": {
+        "constantValue": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "__type": "ValueVector3"
+      },
+      "scale0": {
+        "dynamics": {
+          "times": [
+            0.0,
+            0.029999999329447746,
+            0.5,
+            1.0
+          ],
+          "values": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "__type": "VfxAnimatedVector3fVariableData"
+        },
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter.tex",
+      "__type": "VfxEmitterDefinitionData"
+    },
+    "RadarMesh": {
+      "rate": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "particleLifetime": {
+        "constantValue": 10.0,
+        "__type": "ValueFloat"
+      },
+      "lifetime": 1.0,
+      "isSingleParticle": 1,
+      "emitterName": "RadarMesh",
+      "bindWeight": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "SpawnShape": {
+        "emitOffset": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "__type": "{ee39916f}"
+      },
+      "primitive": {
+        "mMesh": {
+          "mSimpleMeshName": "ASSETS/Items/3364/Particles/Global_Trinket_GreaterSpotter_radar.scb",
+          "__type": "VfxMeshDefinitionData"
+        },
+        "__type": "VfxPrimitiveMesh"
+      },
+      "blendMode": 4,
+      "Color": {
+        "constantValue": [
+          1.5,
+          1.0,
+          1.0,
+          0.75
+        ],
+        "dynamics": {
+          "times": [
+            0.0,
+            0.15000000596046448,
+            0.949999988079071,
+            1.0
+          ],
+          "values": [
+            [
+              1.5,
+              1.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.5,
+              1.0,
+              1.0,
+              0.75
+            ],
+            [
+              1.5,
+              1.0,
+              1.0,
+              0.75
+            ],
+            [
+              1.5,
+              1.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "__type": "VfxAnimatedColorVariableData"
+        },
+        "__type": "ValueColor"
+      },
+      "pass": 10,
+      "miscRenderFlags": 1,
+      "isGroundLayer": 1,
+      "useNavmeshMask": 1,
+      "birthRotation0": {
+        "constantValue": [
+          0.0,
+          4.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "birthRotationalVelocity0": {
+        "constantValue": [
+          0.0,
+          -100.0,
+          0.0
+        ],
+        "__type": "ValueVector3"
+      },
+      "isLocalOrientation": 0,
+      "birthScale0": {
+        "constantValue": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "__type": "ValueVector3"
+      },
+      "texture": "ASSETS/Items/3364/Particles/Global_Trinket_Spotter_radarmesh.tex",
+      "uvMode": 2,
+      "birthUvScrollRate": {
+        "constantValue": [
+          0.125,
+          0.5
+        ],
+        "__type": "ValueVector2"
+      },
+      "__type": "VfxEmitterDefinitionData"
+    }
   }
 }

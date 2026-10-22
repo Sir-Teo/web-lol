@@ -1,0 +1,331 @@
+{
+  "scope": "Playable Oracle Lens foundation and conserved trinket swaps; native parity and the full project goal remain unfinished.",
+  "sourceImportCommit": "be04cd5",
+  "date": "2026-10-22",
+  "snapshotVersion": 104,
+  "ruleset": "a01dba44c9e1dbaf0ee7edf56fb702534eb8d49b4d527e0ebc245c3a4c9251ec",
+  "implementation": [
+    {
+      "path": "src/content/trinkets.ts",
+      "sha256": "15450f96bfcd36a34d30f1097ceed1900635318a4c9588d342bf132788a451c9"
+    },
+    {
+      "path": "src/content/oracle-lens.json",
+      "sha256": "760ff42afc7a90a2e0911aeac45c586f18715a6968fe1e407179668f758872c4"
+    },
+    {
+      "path": "src/simulation/trinkets.ts",
+      "sha256": "3acb747b3799c71b2bb8394c06dee1ca197104c898313362e1ea011187bc3583"
+    },
+    {
+      "path": "src/simulation/oracle-lens.ts",
+      "sha256": "9712ca89637e02300e889b6379df6b95153a4640540a9299f583b95b231e7133"
+    },
+    {
+      "path": "src/simulation/wards.ts",
+      "sha256": "243621aa472e1e249c1564d3ad227276bbfc6de8bb2d9b06cf9ae3eacd775525"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "411fe0e7e47b6fc153820de574822c97b440cf07d581a184ae97acbbb27a8eab"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "sha256": "7ab1d9ed5f86ab3f5cbd8c9a5f8866665756f97ec30fc7f356088cdb018cbd5e"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "53a7ccaf884164cdee6dc74bfe70c05d8ec848f981c7811eb396d34121208a24"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "1b6408d7b1c58e0622a0b8710672f1b6c9552a7a2d59c91874e62fc6275b28ab"
+    },
+    {
+      "path": "src/input/input.ts",
+      "sha256": "50a71c35521b643589e0f4677148247a27c36aeed69cde6c9643d90da0aa9c48"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "sha256": "c4d70b4c6f15a8d3ced75448d922662d3d3a7da77b96cbd39afda24f4779bc2a"
+    },
+    {
+      "path": "src/render/oracle-lens.ts",
+      "sha256": "c7698d576b8c575b30eaff78e678f7088a6b0d566ef0225aa3840fe420b72905"
+    },
+    {
+      "path": "src/render/view.ts",
+      "sha256": "9b8be855c4488eb6cfd701811f2017069cc2f8e695fdcbf1a73647a93063c7c1"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "2f5c4fd24b6446097973f5b4fce2edf7e9ba30848d9c7bea377f6490754c5260"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "sha256": "270b464d363661789e19e6975356aa6b91b5edb9bc7556f4df96b0fce1ab12d4"
+    },
+    {
+      "path": "tools/assets/export-oracle-lens.py",
+      "sha256": "20652eced3e701f26307a1b60f60c2584ca44fc6e07bc7b21f3fb6cb2915451b"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "0da35a69b344be65d6e015fdf78a1c9c334eae148a5d20c851f22ebe994ee908"
+    },
+    {
+      "path": "tests/oracle-lens.test.ts",
+      "sha256": "493b6dccb592a1d095d87154ef1157e636074c319954ff879d3ad81afc2dabdf"
+    },
+    {
+      "path": "e2e/oracle-lens.spec.ts",
+      "sha256": "d2fc11bb6c09eed306eac541043b604f4504b22195ae5c51f40e66078a0020f6"
+    }
+  ],
+  "source": {
+    "path": "docs/reference/oracle-lens-source.json",
+    "sha256": "a26785bb818e5e281abdf6c617099855f31681f4591d491d42da2ddf7e0ef435",
+    "runtimeProfile": {
+      "profile": "src/content/oracle-lens.json",
+      "sha256": "760ff42afc7a90a2e0911aeac45c586f18715a6968fe1e407179668f758872c4",
+      "byteIdentical": true
+    },
+    "geometryUnchanged": true
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=1",
+    "files": 242,
+    "passed": 1292,
+    "newCases": 14,
+    "result": "pass",
+    "durationSeconds": 67.44,
+    "log": ".cache/oracle-lens/runtime-check-accepted.log",
+    "focused": {
+      "passed": 41,
+      "newOracle": 14,
+      "preservedWard": 14,
+      "structures": 13,
+      "log": ".cache/oracle-lens/runtime-boundaries-fixed.log"
+    },
+    "contentionAttempt": {
+      "command": "npm run check -- --maxWorkers=2",
+      "passed": 1287,
+      "failed": 2,
+      "log": ".cache/oracle-lens/runtime-check-final.log",
+      "reason": "Existing long lane clock and Rift practice jungle tests reached the five-second limit. Serial checks pass without changing test limits."
+    },
+    "boundaryRepairs": [
+      {
+        "before": ".cache/oracle-lens/runtime-match-end-before.log",
+        "reason": "A real controlled Nexus kill at echo expiry returned before sample cleanup and produced an invalid checkpoint. Cleanup now precedes combat."
+      },
+      {
+        "before": ".cache/oracle-lens/runtime-pulse-before.log",
+        "reason": "Activation between ticks caused the actual first sampling phase to differ from activation time. The actual nullable first-pulse timestamp is now saved."
+      },
+      {
+        "before": ".cache/oracle-lens/runtime-initial-end-before.log",
+        "reason": "A Nexus kill before the first pending sample left a stale initial deadline. Pending first-sample clocks are normalized before combat and frozen winner checkpoints validate."
+      }
+    ]
+  },
+  "browser": {
+    "command": "npx playwright test e2e/oracle-lens.spec.ts e2e/warding-totem.spec.ts e2e/shop-layout.spec.ts e2e/shop-inventory-sync.spec.ts e2e/inventory-reorder.spec.ts e2e/queued-hud-cast.spec.ts e2e/companion-items.spec.ts --reporter=line",
+    "passed": 23,
+    "newCases": 3,
+    "regressions": 20,
+    "result": "pass",
+    "log": ".cache/oracle-lens/runtime-browser-final.log",
+    "finalOracleRecheck": {
+      "passed": 3,
+      "result": "pass",
+      "durationSeconds": 28.9,
+      "reason": "After making sampled silhouettes overlay occluding terrain/vegetation.",
+      "log": ".cache/oracle-lens/runtime-browser-occlusion.log"
+    },
+    "initialHarnessRepair": {
+      "log": ".cache/oracle-lens/runtime-browser.log",
+      "reason": "A repeated-click diagnostic waited on Playwright aria-disabled protection. Its forced native pointer click now exercises the existing handler lock; no product availability rule was weakened."
+    },
+    "rift": {
+      "setup": {
+        "id": 35,
+        "hidden": true,
+        "hero": 1,
+        "gold": 500,
+        "cs": 0
+      },
+      "active": {
+        "visible": true,
+        "stock": 0,
+        "scan": {
+          "startTick": 197,
+          "endTick": 677,
+          "radius": 600,
+          "pulseStartTick": 197,
+          "nextPulseTick": 347,
+          "echoes": []
+        }
+      },
+      "scanner": 144,
+      "radar": 10243,
+      "requests": [
+        "http://127.0.0.1:5198/assets/models/oracle-lens-base.glb",
+        "http://127.0.0.1:5198/assets/models/oracle-lens-radar.glb",
+        "http://127.0.0.1:5198/assets/models/oracle-lens-base.glb",
+        "http://127.0.0.1:5198/assets/models/oracle-lens-radar.glb"
+      ]
+    },
+    "brush": {
+      "sample": {
+        "visible": false,
+        "picked": null,
+        "echo": {
+          "targetId": 6,
+          "point": {
+            "x": -820,
+            "y": -50
+          },
+          "facing": -0.95,
+          "origin": {
+            "x": -420,
+            "y": -50
+          },
+          "createdTick": 178,
+          "endTick": 208
+        },
+        "ordinaryModelVisible": false
+      },
+      "pixels": 831
+    },
+    "setupBoundary": "Ward/brush encounters use diagnostic positions, AI/wave suppression and later step advancement. Equipment, casts, ward clearing and save/reload use actual input. These are controlled encounters, not a natural complete match.",
+    "captures": [
+      {
+        "path": "artifacts/oracle-rift-active.png",
+        "sha256": "d90a1c991774ea466646085bab844575d6240baa67f6295fd38a7d92b550c063",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-rift-cleared.png",
+        "sha256": "b54cd7503d54706a16e9e939e4fd56907edbd5b84209352dceba13d76eceb5be",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-shop-1440.png",
+        "sha256": "b296043a5f67345c975596e288b8b0a9be93df0a2cb3f31d5e4d96072113beb7",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-shop-600.png",
+        "sha256": "5a5c71d3d337e2610d2e00b930962f6439a7b691a999ff76e6fc67c6fa1e54d0",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-brush-echo.png",
+        "sha256": "dbd0b5673a30b7027d91d3569c10b91365075e1ac24cb8ce8d3267de44ddd859",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/oracle-brush-restored.png",
+        "sha256": "51a22a6ddea749f65cef074b931f344af2625532c0746879ea682cfab8d7d087",
+        "visuallyReviewed": true
+      }
+    ],
+    "fullRegressionRunRuleset": "9d22a279bbe1f3375b6d0214f2d860a2e070914560e671181427b827ef164cf1",
+    "finalBoundaryRecheck": {
+      "passed": 3,
+      "result": "pass",
+      "durationSeconds": 30.7,
+      "ruleset": "a01dba44c9e1dbaf0ee7edf56fb702534eb8d49b4d527e0ebc245c3a4c9251ec",
+      "log": ".cache/oracle-lens/runtime-browser-boundaries.log",
+      "reason": "After the sample expiry, first sampling phase and pre-first-sample match-end repairs; all three Oracle cases pass again."
+    }
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 17,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 4,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 3,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png"
+    },
+    "log": ".cache/oracle-lens/runtime-production.log",
+    "oracleScope": "Real shop swap, selected asset preparation, explicit practice resource refill, key activation and active saved reload. Existing own ward and companion survive. No enemy ward/hidden-unit encounter was injected into production.",
+    "failedRequests": 0,
+    "outsidePrefixRequests": 0,
+    "gameKB": 715.88,
+    "threeKB": 659.92,
+    "warning": "Existing chunk size warning remains.",
+    "initialHarnessRepair": {
+      "log": ".cache/oracle-lens/runtime-production-initial.log",
+      "reason": "The exact practice-button accessible name omitted its decorative glyph; the check now uses the existing stable button id."
+    },
+    "captures": [
+      {
+        "path": "artifacts/production-subpath.png",
+        "sha256": "fad1636a9f3a9da9a0421b8e8a23c518032317ce1d9d6278b493ffaba808c9c4",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/production-lux.png",
+        "sha256": "edb013badfaf4f056a435aa8fcc978e55735b863d6654c6f1cc16c027b433879",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/production-ward.png",
+        "sha256": "5c4d5b0c04d9e7d5d4dd70b4fe8ce4eea4e597e81191c98a4c212705492d9b99",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/production-companion-purchase.png",
+        "sha256": "2a539a3588ad2da3fa0e9884e312bde731cc29b1bc028455743d0f7fef412833",
+        "visuallyReviewed": true
+      },
+      {
+        "path": "artifacts/production-oracle.png",
+        "sha256": "d2c382859fa1f19a7d8655721d0180736e1cc732be3b403f7781bd476f634194",
+        "visuallyReviewed": true
+      }
+    ],
+    "ruleset": "a01dba44c9e1dbaf0ee7edf56fb702534eb8d49b4d527e0ebc245c3a4c9251ec"
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "pass",
+    "errors": 0,
+    "warnings": 0,
+    "log": ".cache/oracle-lens/runtime-assets.log"
+  },
+  "limits": [
+    "Radius/recharge scaling population, phase and curve, startup/swap conversion, instant activation, detection cadence, death/swap continuation and recast dispatch are explicit local policies, not recovered native callbacks.",
+    "Only the scanner and radar Buff layers play. Ten other Buff emitters, Alert/Death systems, audio, native stop/linger/material dispatch and visual calibration remain unfinished.",
+    "Hidden champions use sampled source idle silhouettes with local overlay materials. They do not expose ordinary sight, targetability, current animation, health bars or minimap markers.",
+    "The existing provisional broad Ward hit-reveal and reward adapters remain; exact current Oracle-owner-specific continuation is unverified.",
+    "No full-match, complete roster/role, native rendering, offline delivery or performance certification is claimed."
+  ]
+}

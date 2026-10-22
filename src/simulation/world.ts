@@ -1,4 +1,5 @@
 import { advanceWards, requestWard, hitWard } from './wards';
+import { requestOracle, advanceOracles, wardDetected, wardDisabled } from './oracle-lens';
 import { WARD_SOURCE, WARD_POLICY } from '../content/warding-totem';
 import type { WardPlacement } from './types';
 import {
@@ -785,6 +786,8 @@ export class World {
       });
     } else if (command.type === 'learn') {
       this.commands.push({ type: 'learn', unit: command.unit, ability: command.ability });
+    } else if (command.type === 'oracle') {
+      this.commands.push({ type: 'oracle', unit: command.unit });
     } else this.commands.push({ type: 'recall', unit: command.unit });
   }
   setOrder(u: Unit, order: Order): void {
@@ -937,7 +940,10 @@ export class World {
         !(command.type === 'cast' && this.abilitySpec(command.ability, u.id).canCastWhileDisabled)
       )
         continue;
-      if (command.type === 'ward') {
+      if (command.type === 'oracle') {
+        const error = requestOracle(this, u);
+        if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
+      } else if (command.type === 'ward') {
         const error = requestWard(this, u, command.point);
         if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
       } else if (command.type === 'order') {
@@ -1058,6 +1064,7 @@ export class World {
     this.advanceGarenSpins();
     this.advanceProjectiles(unseen);
     this.advanceSingularities();
+    advanceOracles(this);
     if (this.winner) {
       this.advanceAnimationClocks();
       this.advanceImpactVisuals();
@@ -1215,7 +1222,10 @@ export class World {
   }
   visible(u: Unit, team: Faction = 'blue'): boolean {
     if (team === 'neutral') return false;
-    if (u.kind === 'ward' && u.team !== team && this.tick >= u.ward!.revealUntil) return false;
+    if (u.kind === 'ward' && u.team !== team) {
+      if (wardDetected(this, u, team)) return true;
+      if (this.tick >= u.ward!.revealUntil) return false;
+    }
     if (
       u.kind === 'monster' &&
       u.monster.species === 'scuttler' &&
@@ -1251,7 +1261,9 @@ export class World {
   ): VisionSource[] {
     if (team === 'neutral') return [];
     const sources: VisionSource[] = this.units
-      .filter((u) => u.team === team && this.alive(u))
+      .filter(
+        (u) => u.team === team && this.alive(u) && (u.kind !== 'ward' || !wardDisabled(this, u))
+      )
       .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
     for (const shrine of this.scuttlers?.shrines ?? [])
       if (shrine.team === team && shrine.endTick > this.tick)

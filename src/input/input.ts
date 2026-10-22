@@ -194,6 +194,10 @@ export class GameInput {
   }
   private beginWardAim(): void {
     this.cancelAim();
+    if (this.world.player.trinket.kind === 'oracle') {
+      this.world.enqueue({ type: 'oracle', unit: this.world.player.id });
+      return;
+    }
     this.wardAiming = true;
     this.view.renderer.domElement.classList.add('aiming');
     this.view.setAim('ward', this.wardPoint() ?? this.world.hero);
@@ -226,6 +230,7 @@ export class GameInput {
     this.view.renderer.domElement.classList.remove('aiming');
   }
   update(dt: number): void {
+    if (this.wardAiming && this.world.player.trinket.kind !== 'ward') this.cancelAim();
     if (this.hud.paused || this.hud.modal) {
       this.cancelAim();
       return;

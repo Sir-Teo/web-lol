@@ -64,6 +64,7 @@ try {
     junglePreviewRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
+    oracleRigRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -78,6 +79,7 @@ try {
   });
   page.on('request', (request) => {
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
+    if (/\/oracle-lens-[^/]+\.glb$/.test(request.url())) oracleRigRequests.push(request.url());
     if (/sru-jungle-companions-skin[012]-base|jungle-companions-source/.test(request.url()))
       preparedCompanionRequests.push(request.url());
     if (
@@ -290,6 +292,38 @@ try {
   );
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.screenshot({ path: 'artifacts/production-companion-purchase.png' });
+  assert.equal(oracleRigRequests.length, 0, 'Unequipped Oracle assets must not preload');
+  await page.keyboard.press('p');
+  await page.locator('[data-trinket="oracle"]').click();
+  await page.waitForFunction(
+    () => document.querySelector('.shop-message')?.textContent === 'Trinket equipped'
+  );
+  await page.locator('.close-button').click();
+  await page.locator('#practice-button').click();
+  await page.getByRole('button', { name: 'Reset cooldowns', exact: true }).click();
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.keyboard.press('4');
+  await page.locator('#trinket.active').waitFor({ state: 'visible' });
+  assert.equal(await page.locator('#trinket .trinket-charges').textContent(), '1');
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Save match', exact: true }).click();
+  await page.waitForFunction(
+    () => document.querySelector('#toast')?.textContent === 'Match saved on this browser.'
+  );
+  await page.reload();
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  await page.locator('#trinket.active').waitFor({ state: 'visible' });
+  assert(
+    (await page.locator('#trinket').getAttribute('aria-label')).startsWith(
+      'Oracle Lens: 1/2 charges, scan active'
+    )
+  );
+  assert.equal(await page.locator('.unit-bar.blue.ward:not([hidden])').count(), 1);
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.screenshot({ path: 'artifacts/production-oracle.png' });
+  assert(oracleRigRequests.length >= 4);
+  assert(oracleRigRequests.every((url) => /\/oracle-lens-(base|radar)\.glb$/.test(url)));
   assert.deepEqual(outside, [], 'Purchased companion assets must stay beneath the host prefix');
   assert.deepEqual(junglePreviewRequests, [], 'Production must not request jungle review data');
   assert(
@@ -339,6 +373,9 @@ try {
       companionPurchaseAndRestore: true,
       companionPurchaseInPractice: true,
       realWardPlacementAndRestore: true,
+      oraclePurchaseActivationAndRestore: true,
+      oracleRigRequests: oracleRigRequests.length,
+      unrequestedOraclePreloads: 0,
       wardRigRequests: wardRigRequests.length,
       unrequestedCompanionPreloads: 0,
       developmentHook: false,
