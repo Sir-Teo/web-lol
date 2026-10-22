@@ -56,12 +56,21 @@ import { MAX_LEVEL } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
 import { hastedCooldownTicks } from './ability-haste';
 import { CREST_OF_INSIGHT } from '../content/crest-of-insight';
+import { CREST_OF_CINDERS } from '../content/crest-of-cinders';
 import { BLUE_BUFF_DURATION_TICKS, BLUE_BUFF_REGEN_TICKS } from './blue-buff';
+import {
+  RED_BUFF_DURATION_TICKS,
+  RED_BUFF_REGEN_TICKS,
+  RED_HEAL_LOCKOUT_TICKS,
+  CINDER_BURN_TICKS,
+  CINDER_BURN_INTERVAL,
+  cinderDamagePerTick,
+} from './red-buff';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 92;
+export const SNAPSHOT_VERSION = 93;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -208,7 +217,7 @@ const unit = z
         z
           .strictObject({
             sourceId: id,
-            kind: z.enum(['frost', 'critical-frost', 'crystal-arrow', 'lucent']),
+            kind: z.enum(['frost', 'critical-frost', 'crystal-arrow', 'lucent', 'cinders']),
             startTick: tick,
             endTick: tick,
             startMultiplier: z.number().min(0).lt(1),
@@ -243,6 +252,20 @@ const unit = z
       )
       .max(10000),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
+    cinderBurn: z
+      .strictObject({
+        sourceId: id,
+        phaseTick: tick,
+        appliedTick: tick,
+        endTick: tick,
+        nextTick: tick,
+        damagePerTick: z
+          .number()
+          .refine((v) =>
+            Array.from({ length: 18 }, (_, i) => cinderDamagePerTick(i + 1)).includes(v)
+          ),
+      })
+      .nullable(),
     garenEShreds: z
       .array(z.strictObject({ sourceId: id, startTick: tick, endTick: tick }))
       .max(10000),
@@ -491,6 +514,8 @@ const player: z.ZodType<PlayerState> = z
       .strictObject({ startTick: tick, endTick: tick, totalMana: z.number().positive() })
       .nullable(),
     blueBuff: z.strictObject({ startTick: tick, endTick: tick, nextRegenTick: tick }).nullable(),
+    redBuff: z.strictObject({ startTick: tick, endTick: tick, nextRegenTick: tick }).nullable(),
+    redBuffHealReadyTick: tick,
     castAnimation: z
       .strictObject({ ability: z.enum(['q', 'w', 'e', 'r']), startTick: tick })
       .nullable(),
@@ -1412,6 +1437,25 @@ export function decodeSnapshot(text: string) {
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {
+    const burn = target.cinderBurn;
+    const burner = burn && state.units.find((u) => u.id === burn.sourceId);
+    if (
+      burn &&
+      (!burner ||
+        burner.kind !== 'champion' ||
+        burner.team === target.team ||
+        target.deadAt !== null ||
+        ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
+        burn.phaseTick > burn.appliedTick ||
+        burn.appliedTick > state.tick ||
+        burn.endTick <= state.tick ||
+        burn.endTick !== burn.appliedTick + CINDER_BURN_TICKS ||
+        burn.nextTick !==
+          burn.phaseTick +
+            (Math.floor((state.tick - burn.phaseTick) / CINDER_BURN_INTERVAL) + 1) *
+              CINDER_BURN_INTERVAL)
+    )
+      throw new Error('Saved match contains invalid Cinders burn clocks or ownership.');
     const slows = new Set<string>();
     for (const slow of target.slows) {
       const source = state.units.find((u) => u.id === slow.sourceId);
@@ -1419,11 +1463,19 @@ export function decodeSnapshot(text: string) {
       if (
         !source ||
         source.team === target.team ||
-        source.champion !== (slow.kind === 'lucent' ? 'lux' : 'ashe') ||
+        source.kind !== 'champion' ||
+        (slow.kind !== 'cinders' &&
+          source.champion !== (slow.kind === 'lucent' ? 'lux' : 'ashe')) ||
         target.deadAt !== null ||
         ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
         slow.startTick > state.tick ||
         slow.endTick <= state.tick ||
+        (slow.kind === 'cinders' &&
+          (slow.endTick - slow.startTick > CREST_OF_CINDERS.slowDurationSeconds * TICK_RATE ||
+            slow.endMultiplier !== slow.startMultiplier ||
+            !CREST_OF_CINDERS.slowTiers.some(
+              (t) => slow.startMultiplier === 1 - (source.champion === 'garen' ? t.melee : t.ranged)
+            ))) ||
         slows.has(key)
       )
         throw new Error('Saved match contains invalid independent slows.');
@@ -1575,6 +1627,19 @@ export function decodeSnapshot(text: string) {
       throw new Error('Saved Hawkshot has invalid recharge state.');
     const enlighten = owner.enlighten;
     const blue = owner.blueBuff;
+    const red = owner.redBuff;
+    if (
+      owner.redBuffHealReadyTick > state.tick + RED_HEAL_LOCKOUT_TICKS ||
+      (red &&
+        (red.startTick > state.tick ||
+          red.endTick <= state.tick ||
+          red.endTick !== red.startTick + RED_BUFF_DURATION_TICKS ||
+          red.nextRegenTick !==
+            red.startTick +
+              (Math.floor((state.tick - red.startTick) / RED_BUFF_REGEN_TICKS) + 1) *
+                RED_BUFF_REGEN_TICKS))
+    )
+      throw new Error('Saved match contains invalid Crest of Cinders clocks.');
     if (
       blue &&
       (blue.startTick > state.tick ||

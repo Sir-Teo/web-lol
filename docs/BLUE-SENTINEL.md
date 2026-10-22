@@ -69,7 +69,7 @@ required.
 The species catalog supplies rig/clip lookup, navigation radius, movement clock,
 combat values, corpse retention and reward CS. The camp catalog supplies species,
 source locator/facing and deadlines. Gromp retains its own policies, spawn
-submesh and dedicated effects. Blue does not borrow Gromp's effects. Schema 92
+submesh and dedicated effects. Blue does not borrow Gromp's effects. Schema 93
 validates six calendars, species ownership, homes and species-specific clocks.
 Older schemas remain incompatible without silent migration.
 

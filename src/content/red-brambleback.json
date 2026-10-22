@@ -80,5 +80,5 @@
       }
     }
   ],
-  "buffStatus": "Crest of Cinders is not yet implemented; Red currently grants Root gold/XP/CS only."
+  "buffStatus": "Crest of Cinders grants local burn, slow, healing and transfer; see docs/CREST-OF-CINDERS.md for evidence and remaining native calibration."
 }

@@ -79,7 +79,7 @@ unit ownership or a deadline. Death sets the deadline immediately; leash resets
 leave it unchanged. Respawn creates a new ID, full Root health and clean idle
 state after the protected emergence sequence. Match end freezes the calendar with the simulation.
 
-Schema 92 checks camp mode/cardinality/IDs, deadlines, live ownership and source
+Schema 93 checks camp mode/cardinality/IDs, deadlines, live ownership and source
 home points. Older saves remain incompatible without silent migration. Lane
 matches preload existing Gromp rigs/effects, including a checkpoint with only
 waiting camps. Ordinary practice still requests no Gromp assets. Calendars grant

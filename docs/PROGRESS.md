@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,128 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,142 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,11 +14,35 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-92 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-92 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-93 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-93 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Native activation/scaling, the remaining camps/effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Crest of Cinders](CREST-OF-CINDERS.md) now rewards Red clears with a saved,
+refreshing two-minute buff. Basic attacks add true-damage burn and independent
+slows; health regeneration pauses after champion/turret damage. Published 26.1
+values drive healing/slow tiers and burn endpoints; the linear damage mapping,
+pulse schedule, lockout and overlap rules remain explicit provisional policies.
+The source pin retains two metadata scripts, frozen formula-placeholder tooltips
+and the original 64px icon. Both crests can coexist in the human HUD. Visible
+burning targets show a status; native particles/audio and cumulative burn-number
+presentation remain open. Schema 93 preserves burn phase and ownership, healing
+lockout and both buff clocks, including transfers and posthumous kills.
+
+All 1,142 checks across 225 files and TypeScript pass, including 14 new source/
+simulation cases. The initial four-case Chrome run passed Blue and two Garen
+cases; the Red extension exposed a diagnostic enemy placement that terrain
+projection overlapped with the player. The fixture now uses the cleared camp
+home and asserts separation/visibility. Its focused rerun passes real Cinders
+input, both icons, status, exact burning reload and the next saved damage pulse.
+The new capture was visually reviewed. Source extraction repeats identically.
+Production build and `/nested/rift/` smoke pass with 17 recordings, all three
+monster rigs and no development hook or inspector requests. The existing bundle
+warning remains. Commands, hashes and limits are in [the Cinders ledger](reference/crest-of-cinders-verification.json).
+Native comparison, a single full browser-suite run and full-match certification
+remain open.
 
 [Red Brambleback](RED-BRAMBLEBACK.md) now joins the live Rift jungle with both
 source-linked camps, its normal base rig and 15 source clips. Root supplies a
@@ -33,8 +57,8 @@ lead-up, 1000-unit leash and 300-second respawn adopt explicit provisional
 legacy policies. Its four-second source spawn clip continues beyond readiness;
 its death clip has separate corpse retention. Schema 92 validates six calendars,
 source homes and species clocks, with a catalog-derived calendar limit. Red
-currently pays Root gold/XP/CS; **Crest of Cinders remains absent**, as do native
-scaling, complete effects/audio and jungle-role bots.
+now pays Root gold/XP/CS and grants [Crest of Cinders](CREST-OF-CINDERS.md). Native
+scaling, complete effects/audio and jungle-role bots remain unfinished.
 
 All 1,128 checks across 224 files and TypeScript pass, including seven new Red
 cases. Three focused Chrome cases pass for Red, Blue/buff and Gromp camps; Red

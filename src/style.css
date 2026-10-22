@@ -433,6 +433,8 @@ button {
   flex-shrink: 0;
 }
 .champion-buffs {
+  display: flex;
+  gap: 6px;
   margin: 0 0 9px;
 }
 .blue-buff {
@@ -1810,4 +1812,12 @@ button {
 .champion-stats [tabindex]:focus-visible {
   outline: 2px solid #c8aa6e;
   outline-offset: 3px;
+}
+
+.red-buff {
+  border-color: #a86c3e;
+  color: #f0d0a5;
+}
+.red-buff .buff-duration > i {
+  background: #e5a15d;
 }

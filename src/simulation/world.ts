@@ -74,6 +74,17 @@ import {
 } from './champion-state';
 import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
 import { advanceBlueBuff, grantBlueBuff } from './blue-buff';
+import {
+  advanceRedBuff,
+  grantRedBuff,
+  redBuffActive,
+  cinderDamagePerTick,
+  cinderSlow,
+  CINDER_BURN_TICKS,
+  CINDER_BURN_INTERVAL,
+  RED_HEAL_LOCKOUT_TICKS,
+} from './red-buff';
+import { CREST_OF_CINDERS } from '../content/crest-of-cinders';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
@@ -317,6 +328,7 @@ export class World {
       silenceUntil: 0,
       shields: [],
       illumination: [],
+      cinderBurn: null,
       garenEShreds: [],
       summonerHealReductionUntil: 0,
       summonerHealSpeedUntil: 0,
@@ -518,6 +530,7 @@ export class World {
       u.attackCycle = null;
       u.stunUntil = u.rootUntil = u.slowUntil = 0;
       u.slows = [];
+      u.cinderBurn = null;
       u.criticalSlow = null;
       u.hp = Math.min(u.maxHp, u.hp + u.maxHp * profile.policy.resetHealthFractionPerSecond * DT);
       this.move(u, monster.home);
@@ -670,6 +683,7 @@ export class World {
     // newly restored charge can be used on its deadline tick.
     for (const state of this.activeChampionStates()) {
       advanceBlueBuff(state, this.unit(state.id)!, this.tick);
+      if (state.redBuff && this.tick >= state.redBuff.endTick) state.redBuff = null;
       rechargeChampion(state, this.tick);
       expireGarenQ(state, this.tick);
       if (state.garenW && this.tick >= state.garenW.defenseUntil)
@@ -742,6 +756,7 @@ export class World {
     }
     this.releaseWaveUnits();
     this.advanceJungleCamps();
+    this.advanceCinderBurns();
     for (const u of this.units) {
       if (!this.alive(u)) {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
@@ -868,6 +883,8 @@ export class World {
       state.recallEnd = null;
       this.emit('heal', h, { value: h.maxHp, unit: h.id, team: h.team });
     }
+    for (const state of this.activeChampionStates())
+      advanceRedBuff(state, this.unit(state.id)!, this.tick);
     for (const h of this.units) {
       if (h.kind !== 'champion' || !this.alive(h)) continue;
       const owner = this.championState(h.id)!;
@@ -2329,8 +2346,9 @@ export class World {
       !this.alive(target) ||
       !this.vulnerable(target) ||
       isStructureKind(target.kind) ||
-      (kind === 'lucent' ? source.champion !== 'lux' : source.champion !== 'ashe') ||
-      !['frost', 'critical-frost', 'crystal-arrow', 'lucent'].includes(kind) ||
+      (kind !== 'cinders' &&
+        (kind === 'lucent' ? source.champion !== 'lux' : source.champion !== 'ashe')) ||
+      !['frost', 'critical-frost', 'crystal-arrow', 'lucent', 'cinders'].includes(kind) ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
       !Number.isSafeInteger(this.tick + durationTicks) ||
@@ -3185,6 +3203,10 @@ export class World {
       : GAREN_Q.baseDamageByRank[rank - 1] + (GAREN_Q.totalAttackDamageRatio - 1) * source.damage;
   }
   private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
+    const canApplyCinders =
+      this.vulnerable(target) &&
+      !isStructureKind(target.kind) &&
+      !(target.kind === 'monster' && target.monster.phase === 'returning');
     const turretHealthRatio =
       source.kind === 'turret' && source.structure && isLaneMinionKind(target.kind)
         ? this.battlefield.turretMinionHealthDamage?.[target.kind]?.[source.structure.role]
@@ -3212,6 +3234,58 @@ export class World {
     this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
     if (illuminated && this.alive(target)) {
       this.damage(source, target, this.illuminationDamage(source), 'magic');
+    }
+    const owner = this.championState(source.id);
+    if (
+      canApplyCinders &&
+      owner &&
+      redBuffActive(owner, this.tick) &&
+      this.alive(target) &&
+      source.team !== target.team
+    ) {
+      this.applySlow(
+        source,
+        target,
+        'cinders',
+        CREST_OF_CINDERS.slowDurationSeconds * TICK_RATE,
+        1 - cinderSlow(owner.level, source.champion === 'garen')
+      );
+      const old = target.cinderBurn;
+      const refreshing = old && old.endTick > this.tick;
+      target.cinderBurn = {
+        sourceId: source.id,
+        phaseTick: refreshing ? old.phaseTick : this.tick,
+        appliedTick: this.tick,
+        endTick: this.tick + CINDER_BURN_TICKS,
+        nextTick: refreshing ? old.nextTick : this.tick + CINDER_BURN_INTERVAL,
+        damagePerTick: cinderDamagePerTick(owner.level),
+      };
+      if (!refreshing) this.damage(source, target, target.cinderBurn.damagePerTick, 'true');
+    }
+  }
+  /** A burn outlives its holder's buff/death. Refresh preserves its pulse phase. */
+  private advanceCinderBurns(): void {
+    for (const target of this.units) {
+      const burn = target.cinderBurn;
+      if (!burn) continue;
+      const source = this.unit(burn.sourceId);
+      if (
+        !source ||
+        !this.alive(target) ||
+        this.tick > burn.endTick ||
+        (target.kind === 'monster' && target.monster.phase === 'returning')
+      ) {
+        target.cinderBurn = null;
+        continue;
+      }
+      if (this.tick >= burn.nextTick) {
+        burn.nextTick =
+          burn.phaseTick +
+          (Math.floor((this.tick - burn.phaseTick) / CINDER_BURN_INTERVAL) + 1) *
+            CINDER_BURN_INTERVAL;
+        this.damage(source, target, burn.damagePerTick, 'true');
+      }
+      if (this.tick >= burn.endTick) target.cinderBurn = null;
     }
   }
   /** One support hop from direct contributors; see docs/SUMMONER-HEAL.md. */
@@ -3342,6 +3416,12 @@ export class World {
     this.emit('damage', target, { unit: target.id, value: Math.round(amount), team: source.team });
     const targetState = this.championState(target.id);
     if (targetState) {
+      if (
+        amount > 0 &&
+        source.team !== target.team &&
+        (source.kind === 'champion' || source.kind === 'turret')
+      )
+        targetState.redBuffHealReadyTick = this.tick + RED_HEAL_LOCKOUT_TICKS;
       if (healthLost > 0) targetState.recallEnd = null;
       if (amount > 0 && source.team !== target.team && this.championState(source.id)) {
         const index = targetState.damageContributors.findIndex(
@@ -3380,6 +3460,7 @@ export class World {
       target.shields = [];
       target.slows = [];
       target.illumination = [];
+      target.cinderBurn = null;
       target.releaseTick = null;
       this.finishGarenQAttack(target, 'death');
       target.attackCycle = null;
@@ -3442,6 +3523,9 @@ export class World {
             : undefined;
       const sourceState = rewardSource ? this.championState(rewardSource.id) : undefined;
       const transferringBlue = targetState?.blueBuff && targetState.blueBuff.endTick > this.tick;
+      const transferringRed = targetState?.redBuff && redBuffActive(targetState, this.tick);
+      if (targetState?.redBuff && (!transferringRed || rewardSource || source.kind !== 'monster'))
+        targetState.redBuff = null;
       if (targetState?.blueBuff && (!transferringBlue || rewardSource || source.kind !== 'monster'))
         targetState.blueBuff = null;
       const takedownContributors = targetState
@@ -3450,6 +3534,8 @@ export class World {
       if (sourceState && rewardSource && rewardSource.team !== target.team) {
         if (transferringBlue || (target.kind === 'monster' && target.monster.species === 'blue'))
           grantBlueBuff(sourceState, this.tick);
+        if (transferringRed || (target.kind === 'monster' && target.monster.species === 'red'))
+          grantRedBuff(sourceState, this.tick);
         if (
           rewardSource.champion === 'garen' &&
           sourceState.spellRanks.w > 0 &&

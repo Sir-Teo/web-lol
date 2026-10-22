@@ -52,7 +52,7 @@ result = dict(sourcePin=str(source), sourcePinSha256=hashlib.sha256(source.read_
               camps=[dict(id=('order-red' if c['index'] == 4 else 'chaos-red'), sourceIndex=c['index'],
                           anchorEntity=c['anchorEntity'], point=point(c['locator']['transform'][3]),
                           facingPoint=point(c['settings']['VisualFacing'])) for c in pin['camps']],
-              buffStatus='Crest of Cinders is not yet implemented; Red currently grants Root gold/XP/CS only.')
+              buffStatus='Crest of Cinders grants local burn, slow, healing and transfer; see docs/CREST-OF-CINDERS.md for evidence and remaining native calibration.')
 path = Path('src/content/red-brambleback.json')
 text = json.dumps(result, indent=2) + '\n'
 if not path.exists() or path.read_text() != text:

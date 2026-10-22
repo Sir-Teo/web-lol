@@ -108,7 +108,7 @@ export interface UnitBase extends Vec2 {
   slowMultiplier: number;
   slows: {
     sourceId: number;
-    kind: 'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent';
+    kind: 'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent' | 'cinders';
     startTick: number;
     endTick: number;
     startMultiplier: number;
@@ -125,6 +125,14 @@ export interface UnitBase extends Vec2 {
   silenceUntil: number;
   shields: { sourceId: number; amount: number; endTick: number; prismaticCastTick?: number }[];
   illumination: { sourceId: number; endTick: number }[];
+  cinderBurn: {
+    sourceId: number;
+    phaseTick: number;
+    appliedTick: number;
+    endTick: number;
+    nextTick: number;
+    damagePerTick: number;
+  } | null;
   garenEShreds: { sourceId: number; startTick: number; endTick: number }[];
   summonerHealReductionUntil: number;
   summonerHealSpeedUntil: number;
@@ -388,6 +396,8 @@ export interface ChampionState {
   recallEnd: number | null;
   enlighten: { startTick: number; endTick: number; totalMana: number } | null;
   blueBuff: { startTick: number; endTick: number; nextRegenTick: number } | null;
+  redBuff: { startTick: number; endTick: number; nextRegenTick: number } | null;
+  redBuffHealReadyTick: number;
   /** Presentation can finish after the gameplay windup, until another action takes over. */
   castAnimation: { ability: 'q' | 'w' | 'e' | 'r'; startTick: number } | null;
   pendingCast: {

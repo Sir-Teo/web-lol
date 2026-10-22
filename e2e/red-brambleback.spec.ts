@@ -127,6 +127,7 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
       xp: w.player.xp - before.xp,
       cs: w.player.cs - before.cs,
       blueBuff: w.player.blueBuff,
+      redBuff: structuredClone(w.player.redBuff),
       grompMissiles: w.grompAttackVisuals.length,
     };
   }, target.id);
@@ -138,10 +139,76 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
   expect(waiting.cs).toBe(4);
   expect(waiting.blueBuff).toBeNull();
   expect(waiting.grompMissiles).toBe(0);
+  expect(waiting.redBuff.endTick - waiting.redBuff.startTick).toBe(7200);
+  await expect(page.locator('#red-buff')).toBeVisible();
+  await expect(page.locator('#red-buff-time')).toHaveText('1:57');
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  const victim = await page.evaluate((home) => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    const blue = w.unit(w.jungleCamps.find((c: any) => c.id === 'chaos-blue').unitId);
+    w.damage(w.hero, blue, 99999, 'true');
+    const point = w.battlefield.reachable(home, w.hero.radius, 'red');
+    const enemy = w.spawn('champion', 'red', point, 'lux');
+    enemy.ai = false;
+    g.view.render(w, 1, g.view.previousElapsed);
+    g.hud.update(60);
+    return {
+      id: enemy.id,
+      screen: g.view.screenPoint(enemy, 0.65),
+      separation: Math.hypot(enemy.x - w.hero.x, enemy.y - w.hero.y),
+      visible: w.visible(enemy, 'blue'),
+    };
+  }, target.home);
+  expect(victim.separation).toBeGreaterThan(150);
+  expect(victim.visible).toBe(true);
+  await page.evaluate(() => (window as any).__GAME__.setPaused(false));
+  await page.mouse.click(victim.screen.x, victim.screen.y, { button: 'right' });
+  await page.waitForFunction(
+    (id) => !!(window as any).__GAME__.world.unit(id).cinderBurn,
+    victim.id,
+    { timeout: 10000 }
+  );
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.setPaused(true);
+    g.world.setOrder(g.world.hero, { type: 'idle' });
+    g.view.render(g.world, 1, g.view.previousElapsed);
+    g.hud.update(60);
+  });
+  await expect(page.locator('#red-buff')).toHaveAttribute('aria-label', /15.0 true damage/);
+  await expect(page.locator('#blue-buff')).toBeVisible();
+  await expect(page.locator('#red-buff')).toBeVisible();
+  expect(
+    await page.locator('#red-buff img').evaluate((i: HTMLImageElement) => i.naturalWidth)
+  ).toBe(64);
+  await expect(page.locator(`.unit-bar[data-unit="${victim.id}"] .unit-status`)).toHaveText(
+    'BURNING · SLOWED'
+  );
+  await page.screenshot({ path: 'artifacts/crest-of-cinders.png' });
+  await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
+  const burningSave = await page.evaluate(() => (window as any).__GAME__.world.snapshot());
   await page.reload();
   await ready();
+  expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(burningSave);
+  const pulse = await page.evaluate((id) => {
+    const w = (window as any).__GAME__.world,
+      u = w.unit(id);
+    const next = u.cinderBurn.nextTick;
+    w.step(next - w.tick);
+    return {
+      tick: w.tick,
+      next,
+      damage: w.events
+        .filter((e: any) => e.type === 'damage' && e.unit === id && e.tick === next)
+        .map((e: any) => e.value),
+    };
+  }, victim.id);
+  expect(pulse.tick).toBe(pulse.next);
+  expect(pulse.damage).toContain(5);
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   const respawn = await page.evaluate(async () => {
     const g = (window as any).__GAME__,
@@ -169,6 +236,7 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
       species: unit.monster.species,
       rig: g.view.models.get(unit.id).referenceAsset,
       hp: unit.hp,
+      redBuff: w.player.redBuff,
     };
   });
   expect(respawn.saved).toEqual(waiting.camp);
@@ -179,6 +247,8 @@ test('Red Brambleback renders its source rig, fights with real Lux input and res
   expect(respawn.species).toBe('red');
   expect(respawn.rig).toBe('sru-red-base');
   expect(respawn.hp).toBe(2300);
+  expect(respawn.redBuff).toBeNull();
+  await expect(page.locator('#red-buff')).toBeHidden();
   await page.screenshot({ path: 'artifacts/red-brambleback-respawn.png' });
   expect(errors).toEqual([]);
 });

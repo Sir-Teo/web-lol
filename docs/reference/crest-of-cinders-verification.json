@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "abd81da",
+  "sourceCommit": "74a5e3f87023b8c60af25604e689344b6e212ede",
+  "schema": 93,
+  "rulesetFingerprint": "9e9ea2d532b060d9d9eef2c045f529cf4ad37a6209b02703b6ecafd75468e89f",
+  "sourcePin": {
+    "path": "docs/reference/crest-of-cinders-source.json",
+    "sha256": "8f61167953cf9ed2fc82a4cb5af9bdea3a19a4c51fe609df37e9763ddbc148c9"
+  },
+  "sourcePreparation": {
+    "command": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-crest-of-cinders.py",
+    "repeatMatches": true,
+    "metadataScripts": 2,
+    "selectedStrings": 2,
+    "sourceIconSize": [
+      64,
+      64
+    ],
+    "nativeFormulaBindingsRecovered": false
+  },
+  "policies": {
+    "durationSeconds": 120,
+    "publishedBurnEndpoints": [
+      15,
+      54
+    ],
+    "localBurnMapping": "linear champion levels 1-18; three equal ticks at 0/1/2 seconds",
+    "localSlowDurationSeconds": 3,
+    "localHealingLockoutSeconds": 5,
+    "localHealingPulseSeconds": 0.5,
+    "refresh": "single burn per target; latest owner/damage/deadline, preserved pulse phase",
+    "qualification": "positive pre-shield enemy champion/turret damage blocks healing; non-epic monsters/minions do not",
+    "transfer": "existing champion kill credit, full refresh; retain original on true non-epic execution",
+    "nativeTimingAndCalibration": "unverified"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 225,
+    "passed": 1142,
+    "newCases": 14,
+    "typecheck": "passed"
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "initialRun": {
+      "command": "npx playwright test e2e/red-brambleback.spec.ts e2e/blue-sentinel.spec.ts e2e/garen-player.spec.ts --workers=1 --timeout=60000",
+      "passed": 3,
+      "failed": 1,
+      "finding": "The new diagnostic enemy terrain projection overlapped the player, so the mouse click selected neither distinct enemy target nor a burn. Fixture now uses the cleared camp home and asserts separation/visibility."
+    },
+    "focusedRun": {
+      "command": "npx playwright test e2e/red-brambleback.spec.ts --workers=1 --timeout=60000",
+      "passed": 1
+    },
+    "crestAssertions": [
+      "Red clear grants 120-second buff and 1:57 HUD timer after 200 ticks",
+      "both crests/icons coexist; Red source icon natural width is 64",
+      "real right-click attack applies burn/slow and target status",
+      "exact burning checkpoint reload",
+      "next saved pulse emits five true damage",
+      "later camp respawn jump clears expired Red HUD/buff"
+    ],
+    "scope": "Four distinct focused cases verified across initial/focused runs; scripted final clear, Blue grant and time jumps. Not a single full browser-suite pass, native comparison or complete seeded match."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "jungleInspectorRequests": 0,
+    "developmentHook": false,
+    "warning": "Existing bundle-size warning remains"
+  },
+  "captures": [
+    {
+      "path": "artifacts/crest-of-cinders.png",
+      "sha256": "26d703a272d4fe89a2aaffe54610b50d089b0fe5f7e17b37ce4eae4fe3f3cf67",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Native formula/timing, refresh/overlap and impact sampling calibration",
+    "Native burn/buff particles/audio and cumulative burn-number presentation",
+    "Elemental-terrain sharing/wisps and Smite eligibility",
+    "Epic monsters, remaining camps, jungle-role bots and complete rewards",
+    "Full seeded match, native visual/performance, production roster and offline/delivery certification"
+  ]
+}

@@ -6,10 +6,11 @@ retaliation, its own navigation radius and independently saved respawn calendars
 Lux can attack and root it through the existing input, projectile and impact-pose
 paths. Ordinary practice does not load this rig.
 
-**Crest of Cinders is not implemented yet.** Red currently pays Root gold, XP
-and CS. Native level scaling, initialization, effects/audio, attack variants,
-buff rewards, Smite and jungle-role bots remain unfinished. This increment does
-not certify a complete match or native visual parity.
+[Crest of Cinders](CREST-OF-CINDERS.md) now adds burn/slow, healing, transfer
+and saved effect clocks alongside Root gold, XP and CS. Native level scaling,
+initialization, effects/audio, attack variants, complete buff calibration/sharing,
+Smite and jungle-role bots remain unfinished. This increment does not certify a
+complete match or native visual parity.
 
 ## Frozen source evidence
 
@@ -65,7 +66,7 @@ cascade blend are zero, supporting the existing direct spawn transitions. Corpse
 retention rounds up to 163 ticks to cover the full converted death clip.
 
 Root last-hit rewards are 90 gold, 95 XP and four CS. Complete native reward
-modifiers and Crest of Cinders remain open.
+modifiers and native Crest calibration remain open.
 
 ## Timing policies and saves
 
@@ -78,7 +79,7 @@ remain unverified. Private sight and reset healing use existing local policies.
 
 Each death unlinks only its own calendar and schedules readiness after 300
 seconds. Resets leave that deadline unchanged. A corpse-free checkpoint retains
-the pending spawn, and a respawn receives a fresh unit ID. Schema 92 validates
+the pending spawn, and a respawn receives a fresh unit ID. Schema 93 validates
 all six calendars, species ownership, source homes and independent spawn clocks.
 Its calendar limit now comes from the catalog rather than an obsolete constant.
 Older schemas remain incompatible without silent migration.

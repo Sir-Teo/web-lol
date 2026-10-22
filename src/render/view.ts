@@ -802,10 +802,14 @@ export class GameView {
             : u.silenceUntil > world.tick
               ? 'SILENCED'
               : world.slowFactor(u) < 1
-                ? 'SLOWED'
-                : u.illumination.some((mark) => mark.endTick > world.tick)
-                  ? 'ILLUMINATED'
-                  : '';
+                ? u.cinderBurn
+                  ? 'BURNING · SLOWED'
+                  : 'SLOWED'
+                : u.cinderBurn
+                  ? 'BURNING'
+                  : u.illumination.some((mark) => mark.endTick > world.tick)
+                    ? 'ILLUMINATED'
+                    : '';
     if (parts.status.textContent !== status) parts.status.textContent = status;
   }
   private syncProjectiles(world: World, alpha: number): void {

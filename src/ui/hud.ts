@@ -18,6 +18,13 @@ import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content
 import { ASHE_E } from '../content/ashe-e';
 import { ASHE_Q } from '../content/ashe-q';
 import {
+  redBuffActive,
+  redBuffHealingPerSecond,
+  cinderSlow,
+  cinderDamagePerTick,
+  RED_BUFF_DURATION_TICKS,
+} from '../simulation/red-buff';
+import {
   blueBuffHaste,
   blueBuffManaPerSecond,
   BLUE_BUFF_DURATION_TICKS,
@@ -87,7 +94,7 @@ export class Hud {
       <section class="champion-hud" aria-label="Champion controls">
         <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${championProfile(world.hero.champion!).name}"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
-        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img"><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : ''}</div>
+        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : ''}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
           <div class="resource mana" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
@@ -950,7 +957,10 @@ export class Hud {
     text('health-text', `${Math.ceil(h.hp)} / ${Math.ceil(h.maxHp)}`);
     text('mana-text', `${Math.floor(h.mana)} / ${Math.floor(h.maxMana)}`);
     const blueBuff = p.blueBuff && p.blueBuff.endTick > w.tick ? p.blueBuff : null;
-    this.root.querySelector<HTMLElement>('#champion-buffs')!.hidden = !blueBuff;
+    const redBuff = redBuffActive(p, w.tick) ? p.redBuff : null;
+    this.root.querySelector<HTMLElement>('#champion-buffs')!.hidden = !blueBuff && !redBuff;
+    this.root.querySelector<HTMLElement>('#blue-buff')!.hidden = !blueBuff;
+    this.root.querySelector<HTMLElement>('#red-buff')!.hidden = !redBuff;
     if (blueBuff) {
       const seconds = Math.ceil((blueBuff.endTick - w.tick) / TICK_RATE);
       text(
@@ -963,9 +973,22 @@ export class Hud {
       buff.title = description;
       buff.setAttribute('aria-label', description);
     }
+    if (redBuff) {
+      const seconds = Math.ceil((redBuff.endTick - w.tick) / TICK_RATE);
+      text('red-buff-time', `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`);
+      width('red-buff-fill', (redBuff.endTick - w.tick) / RED_BUFF_DURATION_TICKS);
+      const buff = this.root.querySelector<HTMLElement>('#red-buff')!;
+      const healing =
+        w.tick < p.redBuffHealReadyTick
+          ? 'Healing paused after damage'
+          : `+${redBuffHealingPerSecond(p, h.maxHp, w.tick).toFixed(1)} Health per second`;
+      const description = `Crest of Cinders: attacks burn for ${(3 * cinderDamagePerTick(p.level)).toFixed(1)} true damage and slow by ${(100 * cinderSlow(p.level, h.champion === 'garen')).toFixed(1)}%. ${healing}. ${seconds}s remaining. Transfers to your killer when slain.`;
+      buff.title = description;
+      buff.setAttribute('aria-label', description);
+    }
     text(
       'health-regen',
-      `+${(championProfile(h.champion!).healthRegen + championProfile(h.champion!).healthRegenGrowth * growthAtLevel(p.level) + w.perseveranceRegenPerSecond(h)).toFixed(1)}`
+      `+${(championProfile(h.champion!).healthRegen + championProfile(h.champion!).healthRegenGrowth * growthAtLevel(p.level) + w.perseveranceRegenPerSecond(h) + (w.alive(h) ? redBuffHealingPerSecond(p, h.maxHp, w.tick) : 0)).toFixed(1)}`
     );
     width('health-fill', h.hp / h.maxHp);
     width('mana-fill', h.maxMana ? h.mana / h.maxMana : 0);

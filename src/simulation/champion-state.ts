@@ -42,6 +42,8 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     recallEnd: null,
     enlighten: null,
     blueBuff: null,
+    redBuff: null,
+    redBuffHealReadyTick: 0,
     castAnimation: null,
     pendingCast: null,
     inventory: [],

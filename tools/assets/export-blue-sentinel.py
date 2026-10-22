@@ -41,7 +41,7 @@ result = dict(sourcePin=str(source), sourcePinSha256=hashlib.sha256(source.read_
               camps=[dict(id=('order-blue' if c['index'] == 1 else 'chaos-blue'), sourceIndex=c['index'],
                           anchorEntity=c['anchorEntity'], point=point(c['locator']['transform'][3]),
                           facingPoint=point(c['settings']['VisualFacing'])) for c in pin['camps']],
-              buffStatus='Crest of Insight gameplay/transfer remains absent. Official 26.14 changed haste to 10/15/20 at levels 1/6/11; stub metadata does not establish mana regeneration or transfer rules.',
+              buffStatus='Crest of Insight gameplay and transfer are implemented; see docs/CREST-OF-INSIGHT.md. Native regeneration bindings, timing and sharing remain unverified.',
               buffHasteSource='https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/')
 path = Path('src/content/blue-sentinel.json')
 text = json.dumps(result, indent=2) + '\n'

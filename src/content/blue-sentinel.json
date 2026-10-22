@@ -79,6 +79,6 @@
       }
     }
   ],
-  "buffStatus": "Crest of Insight gameplay/transfer remains absent. Official 26.14 changed haste to 10/15/20 at levels 1/6/11; stub metadata does not establish mana regeneration or transfer rules.",
+  "buffStatus": "Crest of Insight gameplay and transfer are implemented; see docs/CREST-OF-INSIGHT.md. Native regeneration bindings, timing and sharing remain unverified.",
   "buffHasteSource": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/"
 }
