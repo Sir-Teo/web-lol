@@ -432,6 +432,50 @@ button {
   width: 328px;
   flex-shrink: 0;
 }
+.champion-buffs {
+  margin: 0 0 9px;
+}
+.blue-buff {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 8px 5px 3px;
+  background: #071922;
+  border: 1px solid #457b99;
+  color: #c3e7f5;
+  font-size: 10px;
+  cursor: help;
+}
+.blue-buff:focus-visible {
+  outline: 2px solid #c8b273;
+  outline-offset: 2px;
+}
+.blue-buff > img {
+  width: 25px;
+  height: 25px;
+}
+.blue-buff > b {
+  font-weight: 500;
+}
+.blue-buff > time {
+  min-width: 26px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.buff-duration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #102b39;
+}
+.buff-duration > i {
+  display: block;
+  height: 100%;
+  background: #78bedd;
+}
 .champion-title {
   display: flex;
   align-items: center;

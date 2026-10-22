@@ -1,5 +1,10 @@
 import { ITEMS, TICK_RATE } from '../content/rules';
 import type { ChampionState } from './types';
+import { blueBuffHaste } from './blue-buff';
+
+export function totalAbilityHaste(state: ChampionState, tick: number): number {
+  return itemAbilityHaste(state) + blueBuffHaste(state, tick);
+}
 
 export function itemAbilityHaste(state: ChampionState): number {
   return state.inventory.reduce((total, id) => {

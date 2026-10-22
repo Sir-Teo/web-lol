@@ -72,7 +72,8 @@ import {
   expireGarenQ,
   finishGarenQPresentation,
 } from './champion-state';
-import { hastedCooldownTicks, itemAbilityHaste } from './ability-haste';
+import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
+import { advanceBlueBuff, grantBlueBuff } from './blue-buff';
 import { decodeSnapshot, encodeSnapshot, SNAPSHOT_RULESET, SNAPSHOT_VERSION } from './snapshot';
 import { PRACTICE_FIXTURE } from '../content/practice-fixture';
 import type { Battlefield } from './battlefield';
@@ -668,6 +669,7 @@ export class World {
     // Serial recharge continues through death. Resolve before commands so a
     // newly restored charge can be used on its deadline tick.
     for (const state of this.activeChampionStates()) {
+      advanceBlueBuff(state, this.unit(state.id)!, this.tick);
       rechargeChampion(state, this.tick);
       expireGarenQ(state, this.tick);
       if (state.garenW && this.tick >= state.garenW.defenseUntil)
@@ -3439,10 +3441,15 @@ export class World {
             ? this.unit(lastDamage.sourceId)
             : undefined;
       const sourceState = rewardSource ? this.championState(rewardSource.id) : undefined;
+      const transferringBlue = targetState?.blueBuff && targetState.blueBuff.endTick > this.tick;
+      if (targetState?.blueBuff && (!transferringBlue || rewardSource || source.kind !== 'monster'))
+        targetState.blueBuff = null;
       const takedownContributors = targetState
         ? this.takedownContributors(targetState, rewardSource?.id)
         : new Set<number>();
       if (sourceState && rewardSource && rewardSource.team !== target.team) {
+        if (transferringBlue || (target.kind === 'monster' && target.monster.species === 'blue'))
+          grantBlueBuff(sourceState, this.tick);
         if (
           rewardSource.champion === 'garen' &&
           sourceState.spellRanks.w > 0 &&
@@ -3662,7 +3669,7 @@ export class World {
   }
   abilityHaste(championId = this.player.id): number {
     const owner = this.championState(championId);
-    return owner ? itemAbilityHaste(owner) : 0;
+    return owner ? totalAbilityHaste(owner, this.tick) : 0;
   }
   abilityResources(ability: Ability, championId = this.player.id) {
     const resources = this.baseAbilityResources(ability, championId);
@@ -3670,7 +3677,8 @@ export class World {
     if (!owner || ability === 'd' || ability === 'f') return resources;
     return {
       ...resources,
-      cooldownSeconds: (resources.cooldownSeconds * 100) / (100 + itemAbilityHaste(owner)),
+      cooldownSeconds:
+        (resources.cooldownSeconds * 100) / (100 + totalAbilityHaste(owner, this.tick)),
     };
   }
   private baseAbilityResources(ability: Ability, championId: number) {
@@ -3785,7 +3793,7 @@ export class World {
         completedStrikes: 0,
         cooldownTicks: hastedCooldownTicks(
           GAREN_E.cooldownSecondsByRank[state.spellRanks.e - 1],
-          itemAbilityHaste(state)
+          totalAbilityHaste(state, this.tick)
         ),
         hits: [],
       };
@@ -3985,7 +3993,7 @@ export class World {
       if (state.eRechargeTick === null) {
         state.eRechargeDurationTicks = hastedCooldownTicks(
           asheHawkshotValues(state.spellRanks.e).rechargeSeconds,
-          itemAbilityHaste(state)
+          totalAbilityHaste(state, this.tick)
         );
         state.eRechargeTick = this.tick + state.eRechargeDurationTicks;
       }

@@ -18,6 +18,11 @@ import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content
 import { ASHE_E } from '../content/ashe-e';
 import { ASHE_Q } from '../content/ashe-q';
 import {
+  blueBuffHaste,
+  blueBuffManaPerSecond,
+  BLUE_BUFF_DURATION_TICKS,
+} from '../simulation/blue-buff';
+import {
   asheFocusValues,
   asheSpellResources,
   asheVolleyValues,
@@ -82,7 +87,7 @@ export class Hud {
       <section class="champion-hud" aria-label="Champion controls">
         <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${championProfile(world.hero.champion!).name}"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
-        <div class="champion-core"><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : ''}</div>
+        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img"><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : ''}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
           <div class="resource mana" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
@@ -144,7 +149,11 @@ export class Hud {
         cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
       };
     }
-    return asheSpellResources(a, 1);
+    const preview = asheSpellResources(a, 1);
+    return {
+      ...preview,
+      cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
+    };
   }
   private abilityMarkup(a: Ability): string {
     const spec = this.spellSpec(a);
@@ -940,6 +949,20 @@ export class Hud {
         `${Math.max(0, value) * 100}%`);
     text('health-text', `${Math.ceil(h.hp)} / ${Math.ceil(h.maxHp)}`);
     text('mana-text', `${Math.floor(h.mana)} / ${Math.floor(h.maxMana)}`);
+    const blueBuff = p.blueBuff && p.blueBuff.endTick > w.tick ? p.blueBuff : null;
+    this.root.querySelector<HTMLElement>('#champion-buffs')!.hidden = !blueBuff;
+    if (blueBuff) {
+      const seconds = Math.ceil((blueBuff.endTick - w.tick) / TICK_RATE);
+      text(
+        'blue-buff-time',
+        `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
+      );
+      width('blue-buff-fill', (blueBuff.endTick - w.tick) / BLUE_BUFF_DURATION_TICKS);
+      const buff = this.root.querySelector<HTMLElement>('#blue-buff')!;
+      const description = `Crest of Insight: +${blueBuffHaste(p, w.tick)} Ability Haste${h.maxMana ? `, +${blueBuffManaPerSecond(h.maxMana).toFixed(1)} Mana per second` : ''}. ${seconds}s remaining. Transfers to your killer when slain.`;
+      buff.title = description;
+      buff.setAttribute('aria-label', description);
+    }
     text(
       'health-regen',
       `+${(championProfile(h.champion!).healthRegen + championProfile(h.champion!).healthRegenGrowth * growthAtLevel(p.level) + w.perseveranceRegenPerSecond(h)).toFixed(1)}`

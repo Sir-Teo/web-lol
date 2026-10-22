@@ -55,11 +55,13 @@ import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-t
 import { MAX_LEVEL } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
 import { hastedCooldownTicks } from './ability-haste';
+import { CREST_OF_INSIGHT } from '../content/crest-of-insight';
+import { BLUE_BUFF_DURATION_TICKS, BLUE_BUFF_REGEN_TICKS } from './blue-buff';
 import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 90;
+export const SNAPSHOT_VERSION = 91;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -97,7 +99,11 @@ for (let slot = 0; slot < 6; slot++) {
 }
 const rechargeDurations = new Set(
   ASHE_E.rechargeSecondsByRank.flatMap((seconds) =>
-    [...reachableHaste].map((haste) => hastedCooldownTicks(seconds, haste))
+    [...reachableHaste].flatMap((haste) =>
+      [0, ...CREST_OF_INSIGHT.hasteTiers.map((tier) => tier.haste)].map((buffHaste) =>
+        hastedCooldownTicks(seconds, haste + buffHaste)
+      )
+    )
   )
 );
 const team = z.enum(['blue', 'red']);
@@ -484,6 +490,7 @@ const player: z.ZodType<PlayerState> = z
     enlighten: z
       .strictObject({ startTick: tick, endTick: tick, totalMana: z.number().positive() })
       .nullable(),
+    blueBuff: z.strictObject({ startTick: tick, endTick: tick, nextRegenTick: tick }).nullable(),
     castAnimation: z
       .strictObject({ ability: z.enum(['q', 'w', 'e', 'r']), startTick: tick })
       .nullable(),
@@ -1560,6 +1567,18 @@ export function decodeSnapshot(text: string) {
     )
       throw new Error('Saved Hawkshot has invalid recharge state.');
     const enlighten = owner.enlighten;
+    const blue = owner.blueBuff;
+    if (
+      blue &&
+      (blue.startTick > state.tick ||
+        blue.endTick <= state.tick ||
+        blue.endTick !== blue.startTick + BLUE_BUFF_DURATION_TICKS ||
+        blue.nextRegenTick !==
+          blue.startTick +
+            (Math.floor((state.tick - blue.startTick) / BLUE_BUFF_REGEN_TICKS) + 1) *
+              BLUE_BUFF_REGEN_TICKS)
+    )
+      throw new Error('Saved match contains invalid Crest of Insight clocks.');
     if (
       enlighten &&
       (champion.deadAt !== null ||

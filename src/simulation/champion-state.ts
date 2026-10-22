@@ -3,7 +3,7 @@ import { asheHawkshotValues } from './ashe-spell-values';
 import { ASHE_Q } from '../content/ashe-q';
 import { TICK_RATE } from '../content/rules';
 import type { ChampionState } from './types';
-import { hastedCooldownTicks, itemAbilityHaste } from './ability-haste';
+import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
 
 export function createChampionState(id: number, unlocked = true): ChampionState {
   return {
@@ -41,6 +41,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
     eRechargeDurationTicks: ASHE_E.rechargeSecondsByRank[0] * TICK_RATE,
     recallEnd: null,
     enlighten: null,
+    blueBuff: null,
     castAnimation: null,
     pendingCast: null,
     inventory: [],
@@ -52,7 +53,7 @@ export function rechargeChampion(state: ChampionState, tick: number): void {
     state.eCharges++;
     state.eRechargeDurationTicks = hastedCooldownTicks(
       asheHawkshotValues(state.spellRanks.e).rechargeSeconds,
-      itemAbilityHaste(state)
+      totalAbilityHaste(state, tick)
     );
     state.eRechargeTick =
       state.eCharges < ASHE_E.maximumCharges

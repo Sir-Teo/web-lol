@@ -6,8 +6,9 @@ physical melee retaliation, its own home/leash, Root last-hit rewards and a save
 respawn calendar. Lux can attack, mark and root it through the existing input,
 projectile and impact-pose paths.
 
-This increment does **not** implement Crest of Insight. Mana regeneration,
-haste, pickup/sharing/transfer and complete native rewards remain unfinished.
+[Crest of Insight](CREST-OF-INSIGHT.md) now adds a last-hit buff, level-scaled
+haste, provisional mana regeneration, transfers and a saved HUD timer.
+Elemental-terrain pickup/sharing and complete native rewards remain unfinished.
 Native initialization, level scaling, effects/audio, other camps, Smite and
 jungle-role bots remain open. This does not certify a complete match or native
 visual parity.
@@ -43,7 +44,7 @@ Blue's character Lua is only RETURN. Crest/Aura Lua supplies metadata, not the
 missing buff implementation. A persistence flag alone does not establish death
 behavior. Riot's [26.14 notes](https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/)
 changed Blue haste to 10/15/20 at levels 1/6/11. These findings are retained
-without inventing a complete buff from incomplete records.
+with the remaining formula bindings explicitly provisional in the runtime.
 
 ## Values and policies
 
@@ -68,7 +69,7 @@ required.
 The species catalog supplies rig/clip lookup, navigation radius, movement clock,
 combat values, corpse retention and reward CS. The camp catalog supplies species,
 source locator/facing and deadlines. Gromp retains its own policies, spawn
-submesh and dedicated effects. Blue does not borrow Gromp's effects. Schema 90
+submesh and dedicated effects. Blue does not borrow Gromp's effects. Schema 91
 validates four calendars, species ownership, homes and species-specific clocks.
 Older schemas remain incompatible without silent migration.
 

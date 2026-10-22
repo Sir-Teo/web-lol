@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "1290245",
+  "sourceCommit": "4cd9dd4e43047d64f570121bc7592be85048a31f",
+  "schema": 91,
+  "rulesetFingerprint": "5438b827454a1597ef646f91b362e3d379c9f26474f00026a445001b7a95dcde",
+  "sourcePin": {
+    "path": "docs/reference/crest-of-insight-source.json",
+    "sha256": "4d12ae1b94e7b2e360a8b2007ca6577085e76bbeafd9097dc31a435407d778db"
+  },
+  "sourcePreparation": {
+    "command": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-crest-of-insight.py",
+    "repeatMatches": true,
+    "localizedMembers": 1,
+    "selectedStrings": 3,
+    "iconSize": [
+      64,
+      64
+    ],
+    "numericRegenerationBindingsRecovered": false,
+    "modelBinaryChanged": false
+  },
+  "policies": {
+    "durationSeconds": 120,
+    "haste": {
+      "1": 10,
+      "6": 15,
+      "11": 20
+    },
+    "provisionalRegeneration": {
+      "flatPerFiveSeconds": 25,
+      "maxManaFractionPerFiveSeconds": 0.05,
+      "intervalSeconds": 0.5
+    },
+    "transfer": "existing champion kill credit; full refresh and pulse reset are local policy",
+    "uncreditedNonEpicExecution": "retain original deadline; no regeneration while dead",
+    "elementalTerrainWisps": "not implemented"
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 223,
+    "passed": 1121,
+    "newCases": 13,
+    "typecheck": "passed"
+  },
+  "browser": {
+    "command": "npx playwright test e2e/blue-sentinel.spec.ts e2e/champion-purchases.spec.ts e2e/champion-casting.spec.ts --workers=1 --timeout=60000",
+    "channel": "chrome",
+    "workers": 1,
+    "passed": 3,
+    "crestAssertions": [
+      "grants from diagnostic final Blue hit after real Lux attack/Binding combat",
+      "source 64px icon loads",
+      "1:54 HUD countdown and +10 haste accessible description",
+      "exact buff reload",
+      "calendar jump expires buff and removes HUD/haste"
+    ],
+    "scope": "Focused cases with scripted final clear and time jumps; no full browser suite, seeded full match or native comparison"
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "jungleInspectorRequests": 0,
+    "developmentHook": false,
+    "warning": "Existing bundle-size warning remains"
+  },
+  "captures": [
+    {
+      "path": "artifacts/crest-of-insight.png",
+      "sha256": "6e41f195b514b9757ec6d58f5d87eeb5d790a2941392d4ec1a9f9895a6f710d3",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Native formula bindings, pulse phase, transfer refresh and complete death-credit calibration",
+    "Elemental-terrain sharing/wisps and Smite eligibility",
+    "Native buff particles/audio and other Blue effects",
+    "Other camps and jungle-role bots",
+    "Full seeded match, production roster, native visual/performance and offline/delivery certification"
+  ]
+}

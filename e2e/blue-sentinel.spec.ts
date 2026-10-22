@@ -126,6 +126,7 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
     const before = { gold: w.player.gold, xp: w.player.xp, cs: w.player.cs };
     w.damage(w.hero, unit, 99999, 'true');
     w.step(400);
+    g.hud.update(60);
     return {
       camp: structuredClone(w.jungleCamps.find((c: any) => c.id === 'order-blue')),
       corpseGone: !w.unit(id),
@@ -133,6 +134,8 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
       xp: w.player.xp - before.xp,
       cs: w.player.cs - before.cs,
       grompMissiles: w.grompAttackVisuals.length,
+      buff: structuredClone(w.player.blueBuff),
+      haste: w.abilityHaste(),
     };
   }, target.id);
   expect(waiting.corpseGone).toBe(true);
@@ -141,11 +144,28 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
   expect(waiting.xp).toBe(95);
   expect(waiting.cs).toBe(4);
   expect(waiting.grompMissiles).toBe(0);
+  expect(waiting.buff.endTick - waiting.buff.startTick).toBe(7200);
+  expect(waiting.haste).toBe(10);
+  await expect(page.locator('#blue-buff')).toBeVisible();
+  await expect(page.locator('#blue-buff-time')).toHaveText('1:54');
+  await expect(page.locator('#blue-buff')).toHaveAttribute('aria-label', /\+10 Ability Haste/);
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
   await page.reload();
   await ready();
+  expect(await page.evaluate(() => (window as any).__GAME__.world.player.blueBuff)).toEqual(
+    waiting.buff
+  );
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.setPaused(true);
+    g.hud.update(60);
+  });
+  expect(
+    await page.locator('#blue-buff img').evaluate((img: HTMLImageElement) => img.naturalWidth)
+  ).toBe(64);
+  await page.screenshot({ path: 'artifacts/crest-of-insight.png' });
   const respawn = await page.evaluate(async () => {
     const g = (window as any).__GAME__,
       w = g.world;
@@ -172,6 +192,8 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
       species: unit.monster.species,
       rig: g.view.models.get(unit.id).referenceAsset,
       hp: unit.hp,
+      buff: w.player.blueBuff,
+      haste: w.abilityHaste(),
     };
   });
   expect(respawn.saved).toEqual(waiting.camp);
@@ -182,6 +204,9 @@ test('Blue Sentinel loads its normal rig, fights in its Rift camp and restores a
   expect(respawn.species).toBe('blue');
   expect(respawn.hp).toBe(2300);
   expect(respawn.rig).toBe('sru-blue-base');
+  expect(respawn.buff).toBeNull();
+  expect(respawn.haste).toBe(0);
+  await expect(page.locator('#champion-buffs')).toBeHidden();
   await page.screenshot({ path: 'artifacts/blue-sentinel-respawn.png' });
   expect(errors).toEqual([]);
 });
