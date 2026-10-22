@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "655aef8686ae3dd97eec9c06354db5255d2eb821",
+  "scope": "Owned companion runtime in the controlled development Gromp encounter: following, combat/healing, feeding, earned Smite evolution and saved source-rig playback. Production purchases, final item passives and jungle roles remain unfinished.",
+  "schema": 99,
+  "rulesetFingerprint": "2f90e8f9a75438d1e05c865ef58e251cfc73d9a1b9b24416d3e72ef89b8f19ad",
+  "sourcePins": [
+    {
+      "path": "docs/reference/jungle-companions-source.json",
+      "sha256": "392fc0c4c5d3d327cb811746c9b1c26c8a20c9013c7697cf3ad7c6ea69db167b"
+    },
+    {
+      "path": "docs/reference/owned-companion-icons.json",
+      "sha256": "73b1fa5c73b81607c87d37d1cd36c57208f1148f61b72a685d1e4a44578322a5"
+    }
+  ],
+  "generatedProfile": {
+    "path": "src/content/owned-companions.json",
+    "sha256": "3b2245f9a01c89ac4adf178db1a0fff4f420e9a486b306f36fccff6e09f1bd8a"
+  },
+  "sourcePreparation": {
+    "commands": [
+      "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-owned-companion-icons.py",
+      ".tools/cdtb-venv/bin/python tools/assets/export-owned-companions.py"
+    ],
+    "repeatIconPinPngsAndProfileByteIdentical": true,
+    "sourceRigsAndManifestsUnchanged": true,
+    "archive": "DATA/FINAL/DATA.wad.client",
+    "iconCount": 4,
+    "conversion": "Original DDS decoded to RGBA PNG with Pillow. No painted or generated image content.",
+    "upgradeScalars": "Derived from the pinned standard Smite DataValues and all three final castRadius arrays; source float32 0.20000000298023224 is normalized to the local 0.2 slow policy."
+  },
+  "policies": {
+    "variants": ["gustwalker", "scorchclaw", "mosstomper"],
+    "entry": "DEV-only ?scene=fixture&encounter=gromp&companion=<variant>",
+    "actor": "Separate owned state, not a neutral Unit: no targetability, bounty, collision body or vision source.",
+    "localMotion": {
+      "speed": 650,
+      "trail": 100,
+      "combatOffset": 70,
+      "navigationRadius": 20,
+      "pathTicks": 12,
+      "snapDistance": 1000
+    },
+    "localCombat": {
+      "periodTicks": 120,
+      "windupTicks": 28,
+      "activeTicks": 360,
+      "ownerTargetRange": 1000,
+      "cleaveRadius": 235
+    },
+    "outgoingMonsterMultiplier": 1.100000023841858,
+    "incomingNonEpicMultiplier": 0.5,
+    "sourceCalculations": "DPS 20\u2013150 level interpolation +0.1 bonus AD +0.16 AP +0.04 bonus HP +0.25 bonus armor/MR. HPS six through level three, then two more per level. Enum bindings and delivery are local adapters.",
+    "localRecovery": "min(250,70+20*level) times missing-health fraction; (15+4*level) times missing-mana fraction times 2.25. Energy not modeled.",
+    "feeds": "Large/epic last hits feed one, or two while consuming a bonus treat and granting 20 gold; capped at 35. Medium/small kills do not feed.",
+    "localBonusClock": {
+      "firstAfterTicks": 5400,
+      "beforeEvolutionIntervalTicks": 3600,
+      "afterEvolutionIntervalTicks": 5400,
+      "cap": 5,
+      "firstEvolutionResetsPhase": true,
+      "fullGrowthStopsClock": true
+    },
+    "firstEvolutionFeeds": 15,
+    "fullGrowthFeeds": 35,
+    "smiteDamage": [600, 1000, 1400],
+    "championSmiteDamage": 40,
+    "championSlow": 0.2,
+    "championSlowTicks": 120,
+    "finalSmiteRadius": 425,
+    "rewards": "Retained controller 80 XP per qualifying kill plus 150 first-monster XP. Native lifecycle/credit/area and post-quest modifiers remain unverified.",
+    "forms": "Local Baby until 35 feeds, then Adult. Authored initial-hidden Baby is not native growth dispatch evidence.",
+    "death": "Owner death hides the rig and clears target/release/path; feed and bonus clocks persist.",
+    "counterConflict": "Source TotalCounters=35 and Breakpoint1=20 versus published first-evolution 15 kills. Adapter uses 15/35 earned feeds; native remaining/fed interpretation is unproven."
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 236,
+    "passed": 1217,
+    "newMechanicsCases": 12,
+    "newSourceCases": 2,
+    "typecheck": "passed",
+    "coverage": [
+      "All variants follow and continue exact movement/path/pose state.",
+      "Bonus-stat DPS and HPS breakpoint; outgoing/incoming category boundaries.",
+      "Delayed true-damage cleave, one heal and exact windup continuation; target-loss cancellation.",
+      "Source-tag feeding, first-monster XP, bonus consumption, capped sequential phase clocks and earned 15/35 stages.",
+      "Champion Smite damage and independent saved slow; final area damage spends one charge.",
+      "Death continuation and malformed owner/loadout/feed/evolution/pose/treat/release rejection.",
+      "Original rig/clip digests and DATA archive icon bytes/PNG signatures."
+    ],
+    "initialFindings": [
+      "Follow target refresh tightened from 30 to 12 ticks after a genuine lag test failure.",
+      "Champion damage expectation now accounts for same-tick ordinary Lux regeneration and separately verifies the exact 40-damage event."
+    ]
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "regressionCommand": "npx playwright test e2e/owned-companions.spec.ts e2e/smite.spec.ts e2e/neutral-gromp.spec.ts e2e/garen-player.spec.ts e2e/saves.spec.ts --reporter=line",
+    "regressionPassed": 13,
+    "regressionFailed": 1,
+    "focusedFinalCommand": "npx playwright test e2e/owned-companions.spec.ts -g 'follows real' --reporter=line",
+    "focusedFinalPassed": 1,
+    "focusedFinalFailed": 0,
+    "distinctFinalPassingCases": 14,
+    "assertions": [
+      "Real right-click movement/attack starts the companion commitment; pending strike reloads exactly and delivers healing/damage.",
+      "Real F base Smite spends a charge; owner death hides the rig, clears commitments and reloads exactly.",
+      "All three variants feed through 15/35 actual spawned large-monster deaths, rather than direct feed assignment.",
+      "Exact first/full transform, champion-slow and final-area checkpoints.",
+      "Real F hits a champion for a 40-damage event with saved Smite slow.",
+      "Practice reset readies the final real F area cast; primary/near/far HP is exactly 600/600/2000 with one charge spent.",
+      "Correct source icons and HUD progress; only the selected companion GLB loads.",
+      "Each Baby/Adult form contributes GPU pixels and has no neutral Unit.",
+      "Ten preserved Garen/base-Smite/Gromp/save regressions pass."
+    ],
+    "initialFindings": [
+      "Movement test initially sampled before settling and compared a displacement that could remain small after a turn changed the trailing offset. It now waits for the actual trailing destination and uses movement that separates the positions.",
+      "A first combat setup moved beyond the local Gromp leash; reset correctly cancelled the pet strike. Final setup stays inside the leash.",
+      "Diagnostic wolf spawning needed its source rig loaded before rendering; the test now loads that model explicitly."
+    ],
+    "limits": "Fixture setup, monster stun/health preparation, repeated lethal feed targets and isolated release stepping are diagnostic. Not a natural jungle clear, full browser audit, full-match/performance test or native comparison."
+  },
+  "browserDiagnostics": {
+    "gustwalker": {
+      "baby": {
+        "forms": ["Baby"],
+        "pixels": 505,
+        "key": "idle:159",
+        "kind": "gustwalker",
+        "fed": 0,
+        "ownsUnit": false
+      },
+      "grown": {
+        "forms": ["Adult"],
+        "pixels": 582,
+        "key": "idle:452",
+        "kind": "gustwalker",
+        "fed": 35,
+        "ownsUnit": false
+      },
+      "hits": {
+        "hp": [600, 600, 2000],
+        "charges": 1
+      },
+      "rigs": [
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin0-base.glb"
+      ]
+    },
+    "scorchclaw": {
+      "baby": {
+        "forms": ["Baby"],
+        "pixels": 458,
+        "key": "idle:139",
+        "kind": "scorchclaw",
+        "fed": 0,
+        "ownsUnit": false
+      },
+      "grown": {
+        "forms": ["Adult"],
+        "pixels": 513,
+        "key": "idle:455",
+        "kind": "scorchclaw",
+        "fed": 35,
+        "ownsUnit": false
+      },
+      "hits": {
+        "hp": [600, 600, 2000],
+        "charges": 1
+      },
+      "rigs": [
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin1-base.glb"
+      ]
+    },
+    "mosstomper": {
+      "baby": {
+        "forms": ["Baby"],
+        "pixels": 385,
+        "key": "idle:139",
+        "kind": "mosstomper",
+        "fed": 0,
+        "ownsUnit": false
+      },
+      "grown": {
+        "forms": ["Adult"],
+        "pixels": 607,
+        "key": "idle:452",
+        "kind": "mosstomper",
+        "fed": 35,
+        "ownsUnit": false
+      },
+      "hits": {
+        "hp": [600, 600, 2000],
+        "charges": 1
+      },
+      "rigs": [
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb",
+        "http://127.0.0.1:5198/assets/models/sru-jungle-companions-skin2-base.glb"
+      ]
+    }
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "scope": "All GLBs and map; navigation hash checked."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "preparedCompanionRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "scheduledKrugRequests": 6,
+    "scheduledScuttlerRequests": 2,
+    "screenshot": "artifacts/production-subpath.png",
+    "companionFixtureQueryIgnored": true,
+    "companionStatusAbsent": true,
+    "gameChunkKb": 675.0,
+    "threeChunkKb": 659.92,
+    "warning": "Existing chunks above 500 KB warning remains."
+  },
+  "captures": [
+    {
+      "path": "artifacts/owned-companion-combat.png",
+      "sha256": "c470c2470d006652c940924c3c29ee06e6b957fea16508a685afaad792eb0a68",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/owned-companion-gustwalker-baby.png",
+      "sha256": "21dce8f4336f830f87d56baba0621075e7e5f9c2bdc4063263c0a3e62152ba4f",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/owned-companion-gustwalker-adult.png",
+      "sha256": "ad720207169ba21cd881855e19447f2ddf27feb8203991ee40654084af0f755d",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/owned-companion-scorchclaw-baby.png",
+      "sha256": "1176a5fb81b16eb1d96e6d99abb8b6c68ccbfda72f943bbf96e787ed7bd494f6",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/owned-companion-scorchclaw-adult.png",
+      "sha256": "2f911e53832e888dca4b86cb0b38b2c1bf01b0233a4354586d2e376b42ce53d2",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/owned-companion-mosstomper-baby.png",
+      "sha256": "cfe8a95878e619aa1c15975cafff27ef984fd28ebea7d247597e77312307d0bd",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/owned-companion-mosstomper-adult.png",
+      "sha256": "4e389ebef5f95f2243a982cc459128e312f5ef90f4116763f7d9b9fb914a7a31",
+      "visuallyReviewed": true
+    }
+  ],
+  "openWork": [
+    "Purchased starter items, ownership restrictions and consumption lifecycle.",
+    "Final companion shield/speed/burn/slow passives and post-quest standard role modifiers.",
+    "Role assignment, jungle bot routing/decisions and epic objectives.",
+    "Native counter direction, bonus startup/phase/cap, kill-credit, target/area, recovery formula and attack timing comparison.",
+    "Native graph/form dispatch, scale, materials, effects/audio and complete presentation.",
+    "Full seeded matches, full browser audit, offline/delivery and performance acceptance."
+  ],
+  "goalStatus": "active"
+}

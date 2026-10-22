@@ -1855,3 +1855,13 @@ button {
   border-color: #d9c99a;
   background: #193139;
 }
+.companion-status {
+  position: absolute;
+  left: 24px;
+  top: 115px;
+  padding: 8px 12px;
+  color: #e5d6a5;
+  background: #0a1b21dd;
+  border: 1px solid #776e4e;
+  font-size: 12px;
+}

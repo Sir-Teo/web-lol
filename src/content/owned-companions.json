@@ -1,0 +1,234 @@
+{
+  "sourcePin": "docs/reference/jungle-companions-source.json",
+  "sourceSha256": "392fc0c4c5d3d327cb811746c9b1c26c8a20c9013c7697cf3ad7c6ea69db167b",
+  "status": "Controlled Gromp encounter adapter inputs. Native callbacks, timing, target/area gates, treat phase/caps, source graph dispatch and final item/role passives remain unverified.",
+  "profiles": {
+    "gustwalker": {
+      "name": "Gustwalker Hatchling",
+      "skinIndex": 0,
+      "rig": "sru-jungle-companions-skin0-base",
+      "modelSha256": "0fa1c3b45a0abca2d08cdece2605dd61aceac3564e2e56c957860f7f46e08111",
+      "clips": {
+        "idle": {
+          "name": "idle1",
+          "durationSeconds": 1.9666668176651
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 0.9333333969116211
+        },
+        "attack": {
+          "name": "entry_e0d43502",
+          "durationSeconds": 2.133333444595337
+        },
+        "smite": {
+          "name": "entry_64f22407",
+          "durationSeconds": 1.8333333730697632
+        },
+        "heal": {
+          "name": "entry_3a69585b",
+          "durationSeconds": 1.433333396911621
+        },
+        "transform": {
+          "name": "entry_e1ad931b",
+          "durationSeconds": 3.566666841506958
+        },
+        "spawn": {
+          "name": "entry_3a224d98",
+          "durationSeconds": 2.633333444595337
+        }
+      }
+    },
+    "scorchclaw": {
+      "name": "Scorchclaw Pup",
+      "skinIndex": 1,
+      "rig": "sru-jungle-companions-skin1-base",
+      "modelSha256": "a119b835f17690541f2766a3d7490fe19331840cff2dcde2a05fd31b5bf03c8f",
+      "clips": {
+        "idle": {
+          "name": "idle1",
+          "durationSeconds": 1.7666667699813843
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 0.8333333730697632
+        },
+        "attack": {
+          "name": "entry_e0d43502",
+          "durationSeconds": 1.3666667938232422
+        },
+        "smite": {
+          "name": "entry_64f22407",
+          "durationSeconds": 1.633333444595337
+        },
+        "heal": {
+          "name": "entry_3a69585b",
+          "durationSeconds": 1.533333420753479
+        },
+        "transform": {
+          "name": "entry_e1ad931b",
+          "durationSeconds": 3.633333444595337
+        },
+        "spawn": {
+          "name": "entry_3a224d98",
+          "durationSeconds": 2.3000001907348633
+        }
+      }
+    },
+    "mosstomper": {
+      "name": "Mosstomper Seedling",
+      "skinIndex": 2,
+      "rig": "sru-jungle-companions-skin2-base",
+      "modelSha256": "319aaef726a9b57028806f86e19d8e2db0c5896935b2fd62f277e9af2f9b1ed1",
+      "clips": {
+        "idle": {
+          "name": "idle1",
+          "durationSeconds": 1.9666668176651
+        },
+        "run": {
+          "name": "entry_2acd4eca",
+          "durationSeconds": 0.7333333492279053
+        },
+        "attack": {
+          "name": "entry_e0d43502",
+          "durationSeconds": 2.133333444595337
+        },
+        "smite": {
+          "name": "entry_64f22407",
+          "durationSeconds": 1.633333444595337
+        },
+        "heal": {
+          "name": "entry_3a69585b",
+          "durationSeconds": 1.9666668176651
+        },
+        "transform": {
+          "name": "entry_e1ad931b",
+          "durationSeconds": 3.566666841506958
+        },
+        "spawn": {
+          "name": "entry_3a224d98",
+          "durationSeconds": 2.3000001907348633
+        }
+      }
+    }
+  },
+  "controllerValues": {
+    "ManaMin": 8.0,
+    "FirstMonsterBonusXP": 150.0,
+    "PenaltyEndTime": 1200.0,
+    "MinionGoldRelativePercentThreshold": 0.4000000059604645,
+    "StandardExperiencePenalty": 0.75,
+    "MonsterHuntExperiencePenalty": 0.5,
+    "MonsterHunterGoldPenalty": -13.0,
+    "TreatTimer": 60.0,
+    "TreatGold": 20.0,
+    "TreatXP": 80.0,
+    "DamageAmp": 1.100000023841858,
+    "LongTreatTimer": 90.0,
+    "MinionExpGainStart": 0.30000001192092896,
+    "MinionExpGainAddition": 0.699999988079071,
+    "LargeMonsterBonusGold": null,
+    "LargeMonsterBonusXP": null,
+    "MonsterDamageTaken": 0.5
+  },
+  "petCalculations": {
+    "PetDPS": {
+      "mExpandedTooltipCalculationDisplay": 6,
+      "mFormulaParts": [
+        {
+          "mStartValue": 20.0,
+          "mEndValue": 150.0,
+          "__type": "ByCharLevelInterpolationCalculationPart"
+        },
+        {
+          "mStat": 2,
+          "mStatFormula": 2,
+          "mCoefficient": 0.10000000149011612,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        {
+          "mCoefficient": 0.1599999964237213,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        {
+          "mStat": 12,
+          "mStatFormula": 2,
+          "mCoefficient": 0.03999999910593033,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        {
+          "mStat": 1,
+          "mStatFormula": 2,
+          "mCoefficient": 0.25,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        {
+          "mStat": 6,
+          "mStatFormula": 2,
+          "mCoefficient": 0.25,
+          "__type": "StatByCoefficientCalculationPart"
+        }
+      ],
+      "__type": "GameCalculation"
+    },
+    "PetHPS": {
+      "mFormulaParts": [
+        {
+          "mLevel1Value": 6.0,
+          "mBreakpoints": [
+            {
+              "mLevel": 4,
+              "mBonusPerLevelAtAndAfter": 2.0,
+              "__type": "Breakpoint"
+            }
+          ],
+          "__type": "ByCharLevelBreakpointsCalculationPart"
+        }
+      ],
+      "__type": "GameCalculation"
+    }
+  },
+  "killRecovery": {
+    "HealBase": 70.0,
+    "HealPerLevel": 20.0,
+    "BaseHealCap": 250.0,
+    "ManaBase": 15.0,
+    "ManaPerLevel": 4.0,
+    "ManaMaxMult": 2.25,
+    "EnergyRestore": 15.0
+  },
+  "icons": [
+    {
+      "path": "public/assets/icons/SummonerSmiteAvatarOffensive.png",
+      "sourcePath": "data/spells/icons2d/1101_smite.dds",
+      "sourceSha256": "a65d509881fa0b16aa29f4aef8b156ef04491c637870626b08026fb138809179",
+      "sha256": "7cd8c3913c5b3b2e10654a6325f49534eb4709223a58583323ba458c93289f99"
+    },
+    {
+      "path": "public/assets/icons/SummonerSmiteAvatarUtility.png",
+      "sourcePath": "data/spells/icons2d/1102_smite.dds",
+      "sourceSha256": "c948983da8a3099b9ec18e1f170ac3875c686e06d25c452c58932080fb3b4856",
+      "sha256": "04364ba4517aa49397a6f62dfa6c656d1718756d7b7935722e3722efbea65116"
+    },
+    {
+      "path": "public/assets/icons/SummonerSmiteAvatarDefensive.png",
+      "sourcePath": "data/spells/icons2d/1103_smite.dds",
+      "sourceSha256": "d14329309eede4efe76315ec0b5078b6fc898eb0a4fcf423b8e1b390e37b40da",
+      "sha256": "50d10aa4209c5bb000cbf2b56b4c6858589f8e2a8b3a6c2a42ece010e94c22d2"
+    },
+    {
+      "path": "public/assets/icons/S5_SummonerSmitePlayerGanker.png",
+      "sourcePath": "data/spells/icons2d/avatarsmite_firstupgrade.dds",
+      "sourceSha256": "0525abe168d0546f468f3349854fb48babbc6eceb699e3587dcbd359ea76cd4e",
+      "sha256": "f3882599a4d71508883c78b15694e0102af12d58f80616c287d0b716fe3f1c57"
+    }
+  ],
+  "firstEvolutionFeeds": 15,
+  "fullGrowthFeeds": 35,
+  "upgradedSmiteDamage": 1000,
+  "finalSmiteDamage": 1400,
+  "championSmiteDamage": 40,
+  "championSmiteSlow": 0.2,
+  "championSmiteSlowSeconds": 2,
+  "finalSmiteRadius": 425
+}

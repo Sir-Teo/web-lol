@@ -1,0 +1,101 @@
+{
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/DATA.wad.client",
+    "chunks": {
+      "A5ACB224D573EBBF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6111311,
+        "bytes": 97328,
+        "sha256": "22d0aa31b0ed668654e659b4f9e3c1bdaaa17047d724b54693afcd00658418bb"
+      },
+      "E47A4E055277648C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 6208639,
+        "bytes": 13663,
+        "sha256": "1093301d4369e5d3a51cca50c5417a8accb2ebf932a85d7b1abf48c9431a07f1"
+      },
+      "01005C75634AE24F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6859BDE6E142DF38.bundle",
+        "offset": 9157046,
+        "bytes": 1965,
+        "sha256": "9903e33a576ed92d06601c4ce1dc39bc8cb56cb5d7255689daf041b937908e3c"
+      },
+      "BA802D63324CFCDB": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/196B617AE6DE84C2.bundle",
+        "offset": 8105023,
+        "bytes": 1928,
+        "sha256": "74552f4022d690d8f60d7bac96daf234fa99211677382278f8a0b339c064ac37"
+      },
+      "59BA97FA1CB8C9ED": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+        "offset": 13800424,
+        "bytes": 1925,
+        "sha256": "0805979ee3320897608fdc6f9dbc353f0eee23863db45d9e3dbbee1c4e176d8f"
+      },
+      "AF44AEB96170F310": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6859BDE6E142DF38.bundle",
+        "offset": 7241247,
+        "bytes": 2031,
+        "sha256": "e650e7d1674cc31e35a3faa060aac67b125702de37e69567f501067b444a48cd"
+      }
+    },
+    "files": [
+      {
+        "path": "data/spells/icons2d/1101_smite.dds",
+        "wadPathHash": "2e07ccd268350323",
+        "sha256": "a65d509881fa0b16aa29f4aef8b156ef04491c637870626b08026fb138809179",
+        "bytes": 2176
+      },
+      {
+        "path": "data/spells/icons2d/1102_smite.dds",
+        "wadPathHash": "2137ee3147058a98",
+        "sha256": "c948983da8a3099b9ec18e1f170ac3875c686e06d25c452c58932080fb3b4856",
+        "bytes": 2176
+      },
+      {
+        "path": "data/spells/icons2d/1103_smite.dds",
+        "wadPathHash": "eddb6ced3b97516c",
+        "sha256": "d14329309eede4efe76315ec0b5078b6fc898eb0a4fcf423b8e1b390e37b40da",
+        "bytes": 2176
+      },
+      {
+        "path": "data/spells/icons2d/avatarsmite_firstupgrade.dds",
+        "wadPathHash": "c3bf37f93753eb68",
+        "sha256": "0525abe168d0546f468f3349854fb48babbc6eceb699e3587dcbd359ea76cd4e",
+        "bytes": 2176
+      }
+    ]
+  },
+  "icons": [
+    {
+      "path": "public/assets/icons/SummonerSmiteAvatarOffensive.png",
+      "sourcePath": "data/spells/icons2d/1101_smite.dds",
+      "sourceSha256": "a65d509881fa0b16aa29f4aef8b156ef04491c637870626b08026fb138809179",
+      "sha256": "7cd8c3913c5b3b2e10654a6325f49534eb4709223a58583323ba458c93289f99"
+    },
+    {
+      "path": "public/assets/icons/SummonerSmiteAvatarUtility.png",
+      "sourcePath": "data/spells/icons2d/1102_smite.dds",
+      "sourceSha256": "c948983da8a3099b9ec18e1f170ac3875c686e06d25c452c58932080fb3b4856",
+      "sha256": "04364ba4517aa49397a6f62dfa6c656d1718756d7b7935722e3722efbea65116"
+    },
+    {
+      "path": "public/assets/icons/SummonerSmiteAvatarDefensive.png",
+      "sourcePath": "data/spells/icons2d/1103_smite.dds",
+      "sourceSha256": "d14329309eede4efe76315ec0b5078b6fc898eb0a4fcf423b8e1b390e37b40da",
+      "sha256": "50d10aa4209c5bb000cbf2b56b4c6858589f8e2a8b3a6c2a42ece010e94c22d2"
+    },
+    {
+      "path": "public/assets/icons/S5_SummonerSmitePlayerGanker.png",
+      "sourcePath": "data/spells/icons2d/avatarsmite_firstupgrade.dds",
+      "sourceSha256": "0525abe168d0546f468f3349854fb48babbc6eceb699e3587dcbd359ea76cd4e",
+      "sha256": "f3882599a4d71508883c78b15694e0102af12d58f80616c287d0b716fe3f1c57"
+    }
+  ],
+  "conversion": "Pillow DDS decoding to RGBA PNG; no painted or generated pixels."
+}

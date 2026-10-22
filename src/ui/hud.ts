@@ -44,6 +44,12 @@ import {
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
 import {
+  COMPANION_SOURCE,
+  companionSmiteDamage,
+  companionStage,
+} from '../content/companion-policy';
+import { ownedCompanion } from '../simulation/owned-companions';
+import {
   SUMMONERS,
   isSummonerSlot,
   type SummonerLoadout,
@@ -203,8 +209,14 @@ export class Hud {
     return `${learned ? '' : 'This ability has not been learned. Rank 1 preview: '}${this.rankedAbilityDescription(ability, Math.max(1, learned))}`;
   }
   private rankedAbilityDescription(ability: Ability, rank: number): string {
-    if (this.world.summonerSpell(ability) === 'smite')
+    if (this.world.summonerSpell(ability) === 'smite') {
+      const p = ownedCompanion(this.world, this.world.player.id);
+      if (p) {
+        const stage = companionStage(p.fed);
+        return `Deal ${companionSmiteDamage(p.fed)} true damage to a large or medium monster or enemy lane minion.${stage > 0 ? ' Against champions, deal 40 true damage and slow by 20% for 2 seconds.' : ''}${stage === 2 ? ' Damages monsters within 425 units of the target.' : ''} Companion fed ${p.fed}/35 treats. Regains one charge every 90 seconds. Final companion passives are still in development.`;
+      }
       return `${SUMMONERS.smite.description} Regains one charge every ${SUMMONER_SMITE.rechargeSeconds} seconds. Jungle companion upgrades are not available yet.`;
+    }
     if (this.world.hero.champion === 'garen' && isGarenSpell(ability)) {
       const h = this.world.hero;
       const bonusHealth = Math.max(
@@ -1098,6 +1110,12 @@ export class Hud {
       button.classList.toggle('recasting', recast);
       button.classList.toggle('cooling', cd > 0);
       const resources = recast ? { mana: 0 } : w.abilityResources(a);
+      if (w.summonerSpell(a) === 'smite') {
+        const spec = w.abilitySpec(a),
+          img = button.querySelector('img')!,
+          src = `assets/icons/${spec.icon}.png`;
+        if (img.getAttribute('src') !== src) img.setAttribute('src', src);
+      }
       button.querySelector('.ability-cost')!.textContent = resources.mana
         ? String(resources.mana)
         : '';
@@ -1134,7 +1152,7 @@ export class Hud {
           `scaleX(${Math.max(0, Math.min(1, 1 - remaining / SUMMONER_SMITE.rechargeSeconds))})`;
         button.setAttribute(
           'aria-label',
-          `Smite, ${p.smite.charges} charges${remaining > 0 ? `, next charge in ${Math.ceil(remaining)} seconds` : ''}`
+          `${w.abilitySpec(a).name}, ${p.smite.charges} charges${remaining > 0 ? `, next charge in ${Math.ceil(remaining)} seconds` : ''}`
         );
       }
       if (a === 'e' && h.champion === 'ashe') {
@@ -1159,6 +1177,19 @@ export class Hud {
         .forEach((pip, index) => pip.classList.toggle('learned', index < p.spellRanks[ability]));
     });
     this.root.querySelector('#camera-button')!.classList.toggle('active', this.view.locked);
+    let companionStatus = this.root.querySelector<HTMLElement>('#companion-status');
+    const companion = ownedCompanion(w, p.id);
+    if (companion && !companionStatus) {
+      companionStatus = document.createElement('div');
+      companionStatus.id = 'companion-status';
+      companionStatus.className = 'companion-status';
+      this.root.append(companionStatus);
+    }
+    if (companionStatus) {
+      companionStatus.hidden = !companion;
+      if (companion)
+        companionStatus.textContent = `${COMPANION_SOURCE.profiles[companion.kind].name} · ${companion.fed}/35 treats · ${companion.bonusTreats} bonus · Smite ${companionSmiteDamage(companion.fed)}`;
+    }
     const recall = this.root.querySelector<HTMLDivElement>('.recall-progress')!;
     recall.hidden = p.recallEnd === null;
     if (p.recallEnd !== null)

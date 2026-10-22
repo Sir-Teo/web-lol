@@ -16,6 +16,9 @@ import { World } from './simulation/world';
 import { createGrompEncounter } from './simulation/gromp-encounter';
 import { createLaneMatch } from './simulation/lane-match';
 import { equipSummoners } from './simulation/smite';
+import { grantCompanion } from './simulation/owned-companions';
+import { COMPANION_SOURCE, type CompanionKind } from './content/companion-policy';
+import { loadOwnedCompanions } from './render/owned-companions';
 import { GameView } from './render/view';
 import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
@@ -50,9 +53,23 @@ async function boot(): Promise<void> {
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
   const grompEncounter =
     fixture && new URLSearchParams(location.search).get('encounter') === 'gromp';
+  const companionQuery = grompEncounter
+    ? new URLSearchParams(location.search).get('companion')
+    : null;
+  const companionKind =
+    companionQuery && Object.hasOwn(COMPANION_SOURCE.profiles, companionQuery)
+      ? (companionQuery as CompanionKind)
+      : null;
   const freshPractice = (champion: 'ashe' | 'lux' | 'garen' = 'ashe') =>
     grompEncounter
-      ? createGrompEncounter(battlefield, champion)
+      ? (() => {
+          const next = createGrompEncounter(battlefield, champion);
+          if (companionKind) {
+            equipSummoners(next.player, { d: 'flash', f: 'smite' });
+            grantCompanion(next, companionKind);
+          }
+          return next;
+        })()
       : new World(true, battlefield, champion);
   let world = freshPractice(garenFixture ? 'garen' : 'ashe');
   let restored = false,
@@ -63,7 +80,9 @@ async function boot(): Promise<void> {
     if (
       candidate &&
       (!garenFixture || candidate.hero.champion === 'garen') &&
-      candidate.encounter === (grompEncounter ? 'gromp' : null)
+      candidate.encounter === (grompEncounter ? 'gromp' : null) &&
+      (candidate.companions.find((p) => p.ownerId === candidate.player.id)?.kind ?? null) ===
+        companionKind
     ) {
       world = candidate;
       restored = true;
@@ -160,6 +179,7 @@ async function boot(): Promise<void> {
   ];
   const hasGrompContent = monsterSpecies.includes('gromp');
   const assetsReady = Promise.all([
+    loadOwnedCompanions(world.companions.map((p) => p.kind)),
     loadInterfaceFonts(),
     audio.load(world.units.some((u) => u.champion === 'garen')),
     loadReferenceModels(monsterSpecies),

@@ -4,6 +4,8 @@ import { TICK_RATE } from '../content/rules';
 import { isLaneMinionKind, type ChampionState, type Unit } from './types';
 import type { World } from './world';
 import { distance } from './math';
+import { ownedCompanion } from './owned-companions';
+import { companionStage } from '../content/companion-policy';
 
 /** Provisional startup: one charge, next charge one source interval after creation. */
 export function equipSummoners(state: ChampionState, loadout = DEFAULT_SUMMONERS, tick = 0): void {
@@ -29,7 +31,11 @@ export function smiteTarget(w: World, caster: Unit, target: Unit | undefined): t
       !tags.some((tag) => ['Monster_Large', 'Monster_Medium', 'Monster_Epic'].includes(tag))
     )
       return false;
-  } else if (!isLaneMinionKind(target.kind)) return false;
+  } else if (
+    !isLaneMinionKind(target.kind) &&
+    !(target.kind === 'champion' && companionStage(ownedCompanion(w, caster.id)?.fed ?? 0) > 0)
+  )
+    return false;
   return distance(caster, target) <= S.range + caster.radius + target.radius;
 }
 export function rechargeSmite(state: ChampionState, tick: number): void {

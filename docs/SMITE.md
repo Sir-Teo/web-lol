@@ -81,7 +81,7 @@ feedback remains in use.
 
 ## Saves and remaining work
 
-Schema 98 stores each champion's two spell identities and optional Smite charge
+Schema 98 introduced each champion's two spell identities and optional Smite charge
 state. It rejects duplicate identities, missing/invented charge state, counts
 outside zero–two, recharge clocks on a full stock and expired or too-distant
 recharge deadlines. Queued Smite target IDs survive exact checkpoint reloads.
@@ -91,11 +91,16 @@ Existing incompatible-schema/fingerprint handling still applies.
 source skins, both forms and the item/controller evidence. It also records the
 unresolved counter-direction discrepancy and metadata-only callback boundary.
 
-This adds the base summoner dependency for jungle play. Companion items, pets,
-quest counters and evolution are still required before upgraded Smite can be
-earned. No champion-level substitution or manual upgrade selector is provided.
-Standard role binding, jungle damage/healing modifiers, pet targets, native
-forgiveness/latency, effects/audio, role AI, epic objectives and complete seeded
-matches remain unfinished. Current commands, results and hashes belong in
-[the verification ledger](reference/summoner-smite-verification.json); they do not
+The later [owned companion encounter](OWNED-COMPANIONS.md) adds schema-99 owned
+actors, feeding, 15/35-feed evolution, upgraded champion targeting and final
+monster-area damage in the controlled development Gromp fixture. No champion-level
+substitution or manual upgrade selector is provided. Ordinary production matches
+still use base Smite until companion purchases and standard roles are implemented.
+
+Purchased-item lifecycle, final passives, standard role modifiers, targetable
+champion pets, native forgiveness/latency, effects/audio, role AI, epic objectives
+and complete seeded matches remain unfinished. The
+[base-Smite verification ledger](reference/summoner-smite-verification.json)
+retains historical results; current companion results are in
+[their separate ledger](reference/owned-companions-verification.json). These do not
 certify native or full-match completion. The full project goal remains active.

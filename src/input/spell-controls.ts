@@ -44,7 +44,7 @@ export function spellTarget(
 }
 export function targetInstruction(world: World, ability: Ability): string {
   return world.summonerSpell(ability) === 'smite'
-    ? `Hold ${ability.toUpperCase()}, point at a large or medium monster or enemy lane minion within 500 range, then release`
+    ? `Hold ${ability.toUpperCase()}, point at a large or medium monster or enemy lane minion${world.companions.some((p) => p.ownerId === world.player.id && p.fed >= 15) ? ' or champion' : ''} within 500 range, then release`
     : 'Hold R, point at an enemy champion in range, then release';
 }
 

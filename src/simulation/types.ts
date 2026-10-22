@@ -146,7 +146,7 @@ export interface UnitBase extends Vec2 {
   slowMultiplier: number;
   slows: {
     sourceId: number;
-    kind: 'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent' | 'cinders';
+    kind: 'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent' | 'cinders' | 'smite';
     startTick: number;
     endTick: number;
     startMultiplier: number;
@@ -346,6 +346,28 @@ export interface SimEvent extends Vec2 {
   value?: number;
   text?: string;
   team?: Faction;
+}
+export interface OwnedCompanion {
+  ownerId: number;
+  kind: import('../content/companion-policy').CompanionKind;
+  createdTick: number;
+  x: number;
+  y: number;
+  previous: Vec2;
+  facing: number;
+  fed: number;
+  bonusTreats: number;
+  nextTreatTick: number | null;
+  firstMonsterDone: boolean;
+  firstEvolvedTick: number | null;
+  fullGrownTick: number | null;
+  targetId: number | null;
+  activeUntil: number;
+  nextStrikeTick: number;
+  releaseTick: number | null;
+  pose: { action: import('../content/companion-policy').CompanionAction; startTick: number };
+  path: Vec2[];
+  nextPathTick: number;
 }
 export interface ChampionState {
   summoners: import('../content/summoners').SummonerLoadout;

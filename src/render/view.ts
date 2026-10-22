@@ -1,4 +1,5 @@
 import { RiverShrines } from './river-shrines';
+import { OwnedCompanions } from './owned-companions';
 import { LazyGarenDecisiveStrike } from './lazy-garen-decisive-strike';
 import { LuxIlluminationTriggers } from './lux-illumination-triggers';
 import { LuxIllumination } from './lux-illumination';
@@ -97,6 +98,7 @@ export class GameView {
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   grompDeath = new LazyGrompDeath(this.scene);
   riverShrines = new RiverShrines(this.scene);
+  ownedCompanions = new OwnedCompanions(this.scene);
   grompAttack = new LazyGrompAttack(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -674,6 +676,7 @@ export class GameView {
     this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
     this.riverShrines.update(world, (p) => this.ground(p));
+    this.ownedCompanions.update(world, alpha, (p) => this.ground(p));
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);

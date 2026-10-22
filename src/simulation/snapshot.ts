@@ -1,6 +1,7 @@
 import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
 import { isSummonerSlot } from '../content/summoners';
+import { COMPANION_SOURCE, COMPANION_POLICY, companionStage } from '../content/companion-policy';
 import { riverContains, riverHome } from './scuttler';
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { MONSTERS, monsterSpawnClipTicks } from '../content/monsters';
@@ -80,7 +81,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 98;
+export const SNAPSHOT_VERSION = 99;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -271,7 +272,14 @@ const unit = z
         z
           .strictObject({
             sourceId: id,
-            kind: z.enum(['frost', 'critical-frost', 'crystal-arrow', 'lucent', 'cinders']),
+            kind: z.enum([
+              'frost',
+              'critical-frost',
+              'crystal-arrow',
+              'lucent',
+              'cinders',
+              'smite',
+            ]),
             startTick: tick,
             endTick: tick,
             startMultiplier: z.number().min(0).lt(1),
@@ -732,6 +740,35 @@ const luxTargetVisual = (historyTicks: number) =>
       .max(historyTicks),
   });
 const snapshot = z.strictObject({
+  companions: z
+    .array(
+      z.strictObject({
+        ownerId: id,
+        kind: z.enum(['gustwalker', 'scorchclaw', 'mosstomper']),
+        createdTick: tick,
+        x: z.number().finite(),
+        y: z.number().finite(),
+        previous: point,
+        facing: z.number().finite(),
+        fed: z.number().int().min(0).max(35),
+        bonusTreats: z.number().int().min(0).max(5),
+        nextTreatTick: tick.nullable(),
+        firstMonsterDone: z.boolean(),
+        firstEvolvedTick: tick.nullable(),
+        fullGrownTick: tick.nullable(),
+        targetId: id.nullable(),
+        activeUntil: deadline,
+        nextStrikeTick: deadline,
+        releaseTick: tick.nullable(),
+        pose: z.strictObject({
+          action: z.enum(['spawn', 'idle', 'run', 'attack', 'heal', 'smite', 'transform']),
+          startTick: tick,
+        }),
+        path: z.array(point).max(10000),
+        nextPathTick: deadline,
+      })
+    )
+    .max(10),
   version: z.literal(SNAPSHOT_VERSION),
   encounter: z.literal('gromp').nullable(),
   jungleCamps: z
@@ -1003,6 +1040,79 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       cause: result.error,
     });
   const state = result.data;
+  if (
+    state.companions.length &&
+    (state.battlefield !== 'practice-fixture' ||
+      state.encounter !== 'gromp' ||
+      state.matchMode !== 'practice')
+  )
+    throw new Error('Saved companions require the controlled Gromp encounter.');
+  if (new Set(state.companions.map((p) => p.ownerId)).size !== state.companions.length)
+    throw new Error('Saved companions have duplicate owners.');
+  for (const p of state.companions) {
+    const u = state.units.find((u) => u.id === p.ownerId),
+      owner = [state.player, ...state.otherChampions].find((s) => s.id === p.ownerId),
+      clips = COMPANION_SOURCE.profiles[p.kind].clips,
+      interval =
+        (companionStage(p.fed) > 0
+          ? COMPANION_SOURCE.controllerValues.LongTreatTimer!
+          : COMPANION_SOURCE.controllerValues.TreatTimer!) * TICK_RATE;
+    if (
+      !u ||
+      u.kind !== 'champion' ||
+      !owner ||
+      !Object.values(owner.summoners).includes('smite') ||
+      p.createdTick > state.tick ||
+      Math.abs(p.x) > battlefield.half ||
+      Math.abs(p.y) > battlefield.half ||
+      p.pose.startTick < p.createdTick ||
+      p.pose.startTick > state.tick ||
+      p.fed > 0 !== p.firstMonsterDone ||
+      p.fed >= 15 !== (p.firstEvolvedTick !== null) ||
+      (p.fed === 35) !== (p.fullGrownTick !== null) ||
+      (p.firstEvolvedTick !== null &&
+        (p.firstEvolvedTick < p.createdTick || p.firstEvolvedTick > state.tick)) ||
+      (p.fullGrownTick !== null &&
+        (p.fullGrownTick < p.firstEvolvedTick! || p.fullGrownTick > state.tick)) ||
+      Math.abs(p.previous.x) > battlefield.half ||
+      Math.abs(p.previous.y) > battlefield.half ||
+      p.path.some((v) => Math.abs(v.x) > battlefield.half || Math.abs(v.y) > battlefield.half) ||
+      (p.pose.action === 'spawn' && p.pose.startTick !== p.createdTick) ||
+      (p.pose.action === 'transform' &&
+        p.pose.startTick !== p.firstEvolvedTick &&
+        p.pose.startTick !== p.fullGrownTick) ||
+      (p.nextTreatTick !== null &&
+        (p.nextTreatTick <
+          (p.fed < 15
+            ? p.createdTick + COMPANION_POLICY.initialTreatTick
+            : p.firstEvolvedTick! + 5400) ||
+          (p.nextTreatTick -
+            (p.fed < 15
+              ? p.createdTick + COMPANION_POLICY.initialTreatTick
+              : p.firstEvolvedTick! + 5400)) %
+            interval !==
+            0)) ||
+      (p.fed === 35
+        ? p.nextTreatTick !== null
+        : p.nextTreatTick === null ||
+          p.nextTreatTick <= state.tick ||
+          p.nextTreatTick >
+            Math.max(p.createdTick + COMPANION_POLICY.initialTreatTick, state.tick + interval)) ||
+      p.nextStrikeTick > state.tick + COMPANION_POLICY.strikeTicks ||
+      p.nextPathTick > state.tick + COMPANION_POLICY.pathTicks ||
+      p.activeUntil > state.tick + COMPANION_POLICY.activeTicks ||
+      (p.releaseTick !== null &&
+        (p.releaseTick <= state.tick ||
+          p.releaseTick > state.tick + COMPANION_POLICY.windupTicks ||
+          p.targetId === null)) ||
+      (!['idle', 'run'].includes(p.pose.action) &&
+        u.hp > 0 &&
+        state.tick >=
+          p.pose.startTick + Math.ceil(clips[p.pose.action].durationSeconds * TICK_RATE)) ||
+      (p.targetId !== null && !state.units.some((u) => u.id === p.targetId && u.kind === 'monster'))
+    )
+      throw new Error('Saved companion contains invalid ownership, feeding or combat clocks.');
+  }
   if (state.matchMode === 'lanes' && state.battlefield !== 'rift')
     throw new Error('Lane matches require Summoner’s Rift.');
   if (
@@ -1767,11 +1877,17 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         source.team === target.team ||
         source.kind !== 'champion' ||
         (slow.kind !== 'cinders' &&
+          slow.kind !== 'smite' &&
           source.champion !== (slow.kind === 'lucent' ? 'lux' : 'ashe')) ||
         target.deadAt !== null ||
         ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
         slow.startTick > state.tick ||
         slow.endTick <= state.tick ||
+        (slow.kind === 'smite' &&
+          (!state.companions.some((p) => p.ownerId === source.id && companionStage(p.fed) > 0) ||
+            slow.startMultiplier !== 0.8 ||
+            slow.endMultiplier !== 0.8 ||
+            slow.endTick - slow.startTick > 120)) ||
         (slow.kind === 'cinders' &&
           (slow.endTick - slow.startTick > CREST_OF_CINDERS.slowDurationSeconds * TICK_RATE ||
             slow.endMultiplier !== slow.startMultiplier ||

@@ -13,6 +13,20 @@ import {
   type SummonerSlot,
 } from '../content/summoners';
 import { smiteTarget } from './smite';
+import {
+  advanceOwnedCompanions,
+  ownedCompanion,
+  noteCompanionCombat,
+  companionDamageMultiplier,
+  companionKilledMonster,
+  companionSmitePose,
+} from './owned-companions';
+import {
+  COMPANION_SOURCE,
+  companionStage,
+  companionSmiteDamage,
+} from '../content/companion-policy';
+import type { OwnedCompanion } from './types';
 import { SCUTTLER_SOURCE, SCUTTLER_POLICY } from '../content/scuttler-policy';
 import type { RiverScuttlers } from './types';
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
@@ -181,6 +195,7 @@ export class World {
   encounter: 'gromp' | null = null;
   jungleCamps: JungleCampState[] = [];
   scuttlers: RiverScuttlers | null = null;
+  companions: OwnedCompanion[] = [];
   units: Unit[] = [];
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
@@ -1054,6 +1069,7 @@ export class World {
           state.gold + (AMBIENT_GOLD.amount / AMBIENT_GOLD.intervalSeconds) * DT
         );
     for (const state of this.activeChampionStates()) expireChampionFocus(state, this.tick);
+    advanceOwnedCompanions(this);
     this.advanceAnimationClocks();
     this.advanceImpactVisuals();
     this.events = this.events.filter((e) => this.tick - e.tick < 150);
@@ -2505,8 +2521,12 @@ export class World {
       !this.vulnerable(target) ||
       isStructureKind(target.kind) ||
       (kind !== 'cinders' &&
+        kind !== 'smite' &&
         (kind === 'lucent' ? source.champion !== 'lux' : source.champion !== 'ashe')) ||
-      !['frost', 'critical-frost', 'crystal-arrow', 'lucent', 'cinders'].includes(kind) ||
+      !['frost', 'critical-frost', 'crystal-arrow', 'lucent', 'cinders', 'smite'].includes(kind) ||
+      (kind === 'smite' &&
+        (!this.summonerSlot('smite', source.id) ||
+          companionStage(ownedCompanion(this, source.id)?.fed ?? 0) === 0)) ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
       !Number.isSafeInteger(this.tick + durationTicks) ||
@@ -3504,7 +3524,7 @@ export class World {
     target: Unit,
     raw: number,
     kind: 'physical' | 'magic' | 'true',
-    category: 'direct' | 'area' | 'cleanup' | 'summoner' = 'direct'
+    category: 'direct' | 'area' | 'cleanup' | 'summoner' | 'companion' = 'direct'
   ): void {
     if (
       this.winner ||
@@ -3520,7 +3540,12 @@ export class World {
       kind !== 'true' && courage && this.tick < courage.defenseUntil
         ? GAREN_W.damageReductionByRank[courage.rank - 1]
         : 0;
-    const amount = damageAfterResistance(raw, resistance) * (1 - reduction);
+    const amount =
+      damageAfterResistance(
+        raw * companionDamageMultiplier(this, source, target, category),
+        resistance
+      ) *
+      (1 - reduction);
     // Local presentation policy: positive damage actually reduced by W emits
     // one reaction per victim/tick, including fully shielded and lethal hits.
     // True damage bypasses reduction. Native trigger/coalescing remain unverified.
@@ -3552,6 +3577,7 @@ export class World {
     const attacker = this.championState(source.id);
     if (
       category !== 'summoner' &&
+      category !== 'companion' &&
       attacker?.inventory.includes('blade') &&
       this.alive(source) &&
       source.team !== target.team &&
@@ -3569,6 +3595,7 @@ export class World {
       }
     }
     if (healthLost > 0 && target.kind === 'monster' && source.team !== 'neutral') {
+      if (category !== 'companion') noteCompanionCombat(this, source, target);
       for (const member of this.monsterGroup(target)) {
         if (!this.alive(member) || !this.vulnerable(member) || member.monster.phase === 'returning')
           continue;
@@ -3797,8 +3824,10 @@ export class World {
             sourceState.cs +
               (target.kind === 'monster' ? MONSTERS[target.monster.species].minionScore : 1)
           );
-          if (target.kind === 'monster')
+          if (target.kind === 'monster') {
             this.gainExperience(target.experienceBounty ?? 0, rewardSource.id);
+            if (category !== 'cleanup') companionKilledMonster(this, rewardSource, target);
+          }
         }
       }
       if (target.kind !== 'monster' && isLaneMinionKind(target.kind)) {
@@ -3929,6 +3958,23 @@ export class World {
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
     const spell = this.summonerSpell(ability, championId);
+    const companion = ownedCompanion(this, championId),
+      stage = companion ? companionStage(companion.fed) : 0;
+    if (spell === 'smite' && companion && stage > 0)
+      return {
+        ...SUMMONERS.smite,
+        name: stage === 1 ? 'Unleashed Smite' : 'Primal Smite',
+        icon:
+          stage === 1
+            ? 'S5_SummonerSmitePlayerGanker'
+            : (
+                {
+                  gustwalker: 'SummonerSmiteAvatarUtility',
+                  scorchclaw: 'SummonerSmiteAvatarOffensive',
+                  mosstomper: 'SummonerSmiteAvatarDefensive',
+                } as const
+              )[companion.kind],
+      };
     return spell ? SUMMONERS[spell] : ABILITIES[ability];
   }
   abilityCooldownTicks(ability: Ability, championId = this.player.id): number {
@@ -4055,7 +4101,28 @@ export class World {
         state.smite.rechargeTick = this.tick + SUMMONER_SMITE.rechargeSeconds * TICK_RATE;
       state.cooldowns[ability] = this.tick + SUMMONER_SMITE.cooldownSeconds * TICK_RATE;
       this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
-      this.damage(u, target, SUMMONER_SMITE.baseDamage, 'true', 'summoner');
+      const pet = ownedCompanion(this, u.id),
+        stage = pet ? companionStage(pet.fed) : 0,
+        damage = pet ? companionSmiteDamage(pet.fed) : SUMMONER_SMITE.baseDamage;
+      companionSmitePose(this, u);
+      if (target.kind === 'champion') {
+        this.damage(u, target, COMPANION_SOURCE.championSmiteDamage, 'true', 'summoner');
+        this.applySlow(
+          u,
+          target,
+          'smite',
+          COMPANION_SOURCE.championSmiteSlowSeconds * TICK_RATE,
+          1 - COMPANION_SOURCE.championSmiteSlow
+        );
+      } else if (stage === 2 && target.kind === 'monster') {
+        const victims = this.units.filter(
+          (v) =>
+            v.kind === 'monster' &&
+            this.alive(v) &&
+            distance(v, target) <= COMPANION_SOURCE.finalSmiteRadius
+        );
+        for (const victim of victims) this.damage(u, victim, damage, 'true', 'summoner');
+      } else this.damage(u, target, damage, 'true', 'summoner');
       return;
     }
     if (targetId !== undefined && !(u.champion === 'garen' && ability === 'r')) return;
@@ -4682,6 +4749,7 @@ export class World {
       encounter: this.encounter,
       jungleCamps: this.jungleCamps,
       scuttlers: this.scuttlers,
+      companions: this.companions,
       ruleset: SNAPSHOT_RULESET,
       winner: this.winner,
       firstBloodClaimed: this.firstBloodClaimed,

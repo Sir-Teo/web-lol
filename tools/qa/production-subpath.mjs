@@ -123,10 +123,11 @@ try {
     false,
     'The production battlefield must remain opaque under subtractive particles'
   );
-  await page.goto(`${base}?scene=fixture&champion=garen&encounter=gromp`);
+  await page.goto(`${base}?scene=fixture&champion=garen&encounter=gromp&companion=gustwalker`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.equal(await page.locator('#companion-status').count(), 0);
   assert.equal(
     recordings.size,
     17,
