@@ -22,12 +22,17 @@ if (
     'SRU_KrugMini',
     'SRU_KrugMiniMini',
     'Sru_Crab',
+    'SRU_Jungle_Companions',
   ].includes(champion)
 )
   throw new Error('Expected a supported champion or ordinary jungle base rig');
 const jungle = /^sru_/i.test(champion);
+const companion = champion === 'SRU_Jungle_Companions';
+const skinIndex = Number(process.argv[3] ?? 0);
+if (!Number.isInteger(skinIndex) || skinIndex < 0 || skinIndex > (companion ? 2 : 0))
+  throw new Error('Unsupported source skin index');
 const sourceSlug = champion.toLowerCase();
-const slug = sourceSlug.replaceAll('_', '-');
+const slug = sourceSlug.replaceAll('_', '-') + (companion ? `-skin${skinIndex}` : '');
 const sourceGroup =
   champion === 'SRU_Red'
     ? 'red-brambleback'
@@ -39,7 +44,9 @@ const sourceGroup =
           ? 'krug-camps'
           : champion === 'Sru_Crab'
             ? 'scuttler'
-            : null;
+            : companion
+              ? 'jungle-companions'
+              : null;
 const pinBytes = await readFile(
   sourceGroup
     ? `docs/reference/${sourceGroup}-source.json`
@@ -51,8 +58,9 @@ const sourcePin = JSON.parse(pinBytes);
 const pin = jungle
   ? {
       extraction: sourcePin.extraction,
-      skin: { data: sourcePin.records[`data/characters/${sourceSlug}/skins/skin0.bin`] },
-      atomicClips: sourcePin.models[champion].atomicClips,
+      skin: { data: sourcePin.records[`data/characters/${sourceSlug}/skins/skin${skinIndex}.bin`] },
+      atomicClips:
+        sourcePin.models[companion ? `${champion}/Skin${skinIndex}` : champion].atomicClips,
     }
   : sourcePin;
 const root = sourceGroup
@@ -65,7 +73,7 @@ for (const f of pin.extraction.files) {
   if (b.length !== f.bytes || hash(b) !== f.sha256)
     throw new Error(`${champion} source differs: ${f.path}`);
 }
-const skin = pin.skin.data[`Characters/${champion}/Skins/Skin0`].skinMeshProperties;
+const skin = pin.skin.data[`Characters/${champion}/Skins/Skin${skinIndex}`].skinMeshProperties;
 const base = `.cache/${slug}-current-converted`;
 await mkdir(base, { recursive: true });
 await rm(`${base}/animations`, { recursive: true, force: true });
@@ -196,6 +204,7 @@ if (validation.issues.numErrors || validation.issues.numWarnings)
 await mkdir('public/assets/models', { recursive: true });
 await writeFile(`public/assets/models/${slug}-base.glb`, bytes);
 const manifest = {
+  ...(companion ? { sourceSkinIndex: skinIndex } : {}),
   referenceVersion: pin.extraction.referenceVersion,
   status:
     'Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.',

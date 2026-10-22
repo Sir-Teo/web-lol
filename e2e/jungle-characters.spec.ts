@@ -13,7 +13,7 @@ test('jungle review loads rigs on demand, scrubs every source pose and distingui
   page.on('request', (request) => requests.push(request.url()));
   await page.goto('/tools/qa/jungle-characters.html');
   await page.waitForFunction(() => (window as any).__JUNGLE_CHARACTERS__?.ready);
-  await expect(page.locator('#character option')).toHaveCount(11);
+  await expect(page.locator('#character option')).toHaveCount(14);
   await page.getByText('Complete selected record', { exact: true }).click();
   expect(requests.filter((url) => url.endsWith('sru-gromp-base.glb'))).toHaveLength(0);
   for (const [name, count] of [

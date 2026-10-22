@@ -1,0 +1,229 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "52cbe195cc554d805c27469508ba15a0cb788ac2",
+  "scope": "Prepared companion source rigs, item/controller records and development form review. Live pets, item lifecycle and quest evolution are not implemented by this milestone.",
+  "schema": 98,
+  "rulesetFingerprint": "99f5b5ab9ea8b2c9e5120024c5304532041225e3ad2b566e7289df528e56c67f",
+  "liveRulesetUnchanged": true,
+  "liveMonsterRigs": 11,
+  "reviewEntries": 14,
+  "sourcePin": {
+    "path": "docs/reference/jungle-companions-source.json",
+    "sha256": "392fc0c4c5d3d327cb811746c9b1c26c8a20c9013c7697cf3ad7c6ea69db167b"
+  },
+  "sourcePreparation": {
+    "extractCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-jungle-companions.py",
+    "convertCommands": [
+      "node tools/assets/convert-roster-base.mjs SRU_Jungle_Companions 0",
+      "node tools/assets/convert-roster-base.mjs SRU_Jungle_Companions 1",
+      "node tools/assets/convert-roster-base.mjs SRU_Jungle_Companions 2"
+    ],
+    "mapMembers": 70,
+    "rawMapBytes": 4162971,
+    "scriptMembers": 12,
+    "rawScriptBytes": 2274,
+    "scriptInstructions": 84,
+    "repeatExtractionMatches": true,
+    "repeatThreeRigGlbsAndManifestsByteIdentical": true,
+    "existingScuttlerDefaultConversionByteIdentical": true,
+    "unchangedParents": {
+      "jungle-character-source": {
+        "path": "docs/reference/jungle-character-source.json",
+        "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b"
+      },
+      "jungle-script-source": {
+        "path": "docs/reference/jungle-script-source.json",
+        "sha256": "1a8dd82125b5834f7c459edb25216f03104f0e7bff8dfc057629fcf33fb6cbae"
+      },
+      "summoner-smite-source": {
+        "path": "docs/reference/summoner-smite-source.json",
+        "sha256": "e1c2aa1784bfe94a2c06c1c6f65037ba0ac38556bb277313a3d15a66c729c2ad"
+      }
+    },
+    "frozenMirrors": {
+      "items": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb",
+      "dataDragon": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+      "shared": "8726e915a7c913c826bf3a722e548d002e8e41677073a585d40e8d179d0dd8bf",
+      "strings": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d"
+    }
+  },
+  "rigs": [
+    {
+      "path": "public/assets/models/sru-jungle-companions-skin0-base.glb",
+      "sha256": "0fa1c3b45a0abca2d08cdece2605dd61aceac3564e2e56c957860f7f46e08111",
+      "manifestPath": "public/assets/models/sru-jungle-companions-skin0-base.json",
+      "manifestSha256": "17f0b359f70222d6dd20a2cda0e7b7542a3551bdd21de8d1cd4e3b473bf183a2",
+      "bytes": 2016656,
+      "sourceSkinIndex": 0,
+      "atomicStates": 28,
+      "distinctAnimationFiles": 18,
+      "triangles": 10699,
+      "bones": 57,
+      "skinScale": 1,
+      "unitScale": 0.01,
+      "sourceScalePresent": false,
+      "sourceInitialHidden": ["Baby"],
+      "forms": ["Adult", "Baby"]
+    },
+    {
+      "path": "public/assets/models/sru-jungle-companions-skin1-base.glb",
+      "sha256": "a119b835f17690541f2766a3d7490fe19331840cff2dcde2a05fd31b5bf03c8f",
+      "manifestPath": "public/assets/models/sru-jungle-companions-skin1-base.json",
+      "manifestSha256": "645021b06b869e820f80067bdf83f56a10e0d2e6147f4244830ffacaed0dd8d5",
+      "bytes": 2141948,
+      "sourceSkinIndex": 1,
+      "atomicStates": 26,
+      "distinctAnimationFiles": 18,
+      "triangles": 12024,
+      "bones": 60,
+      "skinScale": 1,
+      "unitScale": 0.01,
+      "sourceScalePresent": false,
+      "sourceInitialHidden": ["Baby"],
+      "forms": ["Adult", "Baby"]
+    },
+    {
+      "path": "public/assets/models/sru-jungle-companions-skin2-base.glb",
+      "sha256": "319aaef726a9b57028806f86e19d8e2db0c5896935b2fd62f277e9af2f9b1ed1",
+      "manifestPath": "public/assets/models/sru-jungle-companions-skin2-base.json",
+      "manifestSha256": "2d8fc3e0147061dd7c96a88d1038c4af569e1b724c96b6fa619ae394e932a411",
+      "bytes": 2396664,
+      "sourceSkinIndex": 2,
+      "atomicStates": 30,
+      "distinctAnimationFiles": 15,
+      "triangles": 8042,
+      "bones": 67,
+      "skinScale": 0.800000011920929,
+      "unitScale": 0.00800000011920929,
+      "sourceScalePresent": true,
+      "sourceInitialHidden": ["Baby"],
+      "forms": ["Adult", "Baby"]
+    }
+  ],
+  "preparedGlbBytes": 6555268,
+  "evidence": {
+    "items": [1101, 1102, 1103],
+    "purchaseGold": 450,
+    "sellGold": 0,
+    "requiredSpell": "SummonerSmite",
+    "totalCounters": 35,
+    "sourceBreakpoint": 20,
+    "publishedFirstEvolutionKills": 15,
+    "counterDirection": "Unresolved. The extended tooltip labels Breakpoint1 as treats fed; 35 minus 20 matches the published 15-kill change, but no active callback proves remaining-versus-fed direction.",
+    "treatIntervals": [60, 90],
+    "treatGold": 20,
+    "treatXp": 80,
+    "firstMonsterBonusXp": 150,
+    "monsterDamageMultiplierCandidate": 1.100000023841858,
+    "monsterDamageTakenCandidate": 0.5,
+    "largeMonsterBonusGold": "Named entry with values omitted",
+    "largeMonsterBonusXp": "Named entry with values omitted",
+    "scripts": "Twelve selected scripts: metadata/RETURN only, no children or active callbacks. Healing metadata constructs a PantheonSkin06 FX override table.",
+    "rootBoundary": "Companion CharacterRecord retains Monster_Large/Monster_Wolf tags and ordinary-looking stats/rewards. These do not establish live pet faction, targetability, damage timing or kill rewards.",
+    "formBoundary": "Adult/Baby geometry and distinct diffuse assignments; source initially hides Baby. Development selection is manual, not native quest dispatch.",
+    "scaleBoundary": "Skin0/1 omit scale; existing converter uses explicit identity fallback. Skin2 retains source ~0.8. Native calibration remains open."
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 234,
+    "passed": 1203,
+    "newCases": 6,
+    "typecheck": "passed",
+    "initialFinding": "Metadata-only test initially omitted the healing script\u2019s NEWTABLE/SETLIST for SpellFXOverrideSkins. The decoded sequence was inspected and explicitly checked; active-call opcodes remain excluded."
+  },
+  "reviewTypecheck": {
+    "command": "npx tsc --noEmit --strict --skipLibCheck --target ES2022 --module ESNext --moduleResolution Bundler --resolveJsonModule --lib ES2022,DOM tools/qa/jungle-characters.ts",
+    "result": "passed"
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "command": "npx playwright test e2e/jungle-companions.spec.ts e2e/jungle-characters.spec.ts --workers=1 --timeout=60000",
+    "initialPassed": 1,
+    "initialFailed": 3,
+    "initialFinding": "An unnecessary ordinary-rig status-label change broke three existing expectations. The original base-skin label was restored while companion labels retain source indices.",
+    "finalPassed": 4,
+    "finalFailed": 0,
+    "assertions": [
+      "Fourteen review entries: eleven ordinary rigs and three companion skins.",
+      "All 28/26/30 atomic states scrub with finite bone matrices.",
+      "Each source Adult/Baby form shows only the selected submesh.",
+      "Each of six forms contributes more than 500 GPU pixels relative to a hidden root.",
+      "Existing absent-field, source variants, responsive review, retry, request caching and late-load guards still pass.",
+      "Scuttler idle/emergence/hide review still passes.",
+      "No page errors or failed requests in the companion case."
+    ],
+    "scope": "Development review cases only. Not live pet behavior, native comparison, full browser audit or a complete role match."
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "allGlbsAndMapValidated": true,
+    "newRigErrors": 0,
+    "newRigWarnings": 0
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "preparedCompanionRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "scheduledKrugRequests": 6,
+    "scheduledScuttlerRequests": 2,
+    "screenshot": "artifacts/production-subpath.png",
+    "warning": "Existing bundle-size warning: unchanged game 658.31 KB and Three 659.92 KB. Prepared companion GLBs add 6,555,268 bytes of static assets, requested only by the development review in this milestone."
+  },
+  "captures": [
+    {
+      "path": "artifacts/jungle-companion-0-adult.png",
+      "sha256": "e73ce43297d5c9ff7b22e2d5f92a6e0a9a73da294337fa64b33d4e42e9350d3b",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/jungle-companion-0-baby.png",
+      "sha256": "174aa6ade7de6b1070aa3a0c12934bfd16ae81ae20524453762846d78e88274d",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/jungle-companion-1-adult.png",
+      "sha256": "ae85258cb89a0e791280aefdd46611abff347f84d0b6668f8cac276b724f3500",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/jungle-companion-1-baby.png",
+      "sha256": "7f1e57de1534ef19015e9341e9f7ad361f4e74116af7eadd44d689d67b716069",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/jungle-companion-2-adult.png",
+      "sha256": "6dc8c07f22875eba911265fb5dcc39e9248397dd652b67cd037459cbaff3710d",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/jungle-companion-2-baby.png",
+      "sha256": "e4e9944d97a29b2f3b4e8d1028bfb65830ed6c8b735ae1f7d42078e3fd6c3f7b",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Native feed-counter direction, bonus-treat phase/caps, ownership, eligibility and kill-credit callbacks.",
+    "Live companion spawning, following, combat/healing delivery, source animation/event dispatch and pet targetability.",
+    "Item lifecycle, consumption, role binding, earned Smite evolution and final passives.",
+    "Unresolved item-group/modifier hashes and absent post-quest reward fields versus published changes.",
+    "Native shading, effects/audio, world size and controlled visual comparison.",
+    "Jungle roles, epic objectives, full seeded matches, full browser/performance and offline/delivery acceptance."
+  ]
+}

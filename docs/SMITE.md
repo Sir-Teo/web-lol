@@ -87,6 +87,10 @@ outside zero–two, recharge clocks on a full stock and expired or too-distant
 recharge deadlines. Queued Smite target IDs survive exact checkpoint reloads.
 Existing incompatible-schema/fingerprint handling still applies.
 
+[Companion source preparation](JUNGLE-COMPANIONS.md) now supplies all three
+source skins, both forms and the item/controller evidence. It also records the
+unresolved counter-direction discrepancy and metadata-only callback boundary.
+
 This adds the base summoner dependency for jungle play. Companion items, pets,
 quest counters and evolution are still required before upgraded Smite can be
 earned. No champion-level substitution or manual upgrade selector is provided.

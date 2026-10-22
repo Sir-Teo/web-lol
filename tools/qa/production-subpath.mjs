@@ -62,6 +62,7 @@ try {
     failed = [],
     outside = [],
     junglePreviewRequests = [],
+    preparedCompanionRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -76,6 +77,8 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (/sru-jungle-companions-skin[012]-base|jungle-companions-source/.test(request.url()))
+      preparedCompanionRequests.push(request.url());
     if (
       /sru-(blue|red|gromp|murkwolf|murkwolfmini|razorbeak|razorbeakmini|krug|krugmini|krugminimini|crab)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
         request.url()
@@ -207,6 +210,11 @@ try {
   );
   assert.deepEqual(outside, [], 'Requests must stay beneath the static host prefix');
   assert.deepEqual(
+    preparedCompanionRequests,
+    [],
+    'Prepared companions must not preload into ordinary matches'
+  );
+  assert.deepEqual(
     junglePreviewRequests,
     [],
     'Production must not request jungle review data or rigs'
@@ -257,6 +265,7 @@ try {
       developmentHook: false,
       garenFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
+      preparedCompanionRequests: preparedCompanionRequests.length,
       scheduledGrompRequests: scheduledGrompRequests.length,
       scheduledBlueRequests: scheduledBlueRequests.length,
       scheduledRedRequests: scheduledRedRequests.length,

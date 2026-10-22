@@ -1,0 +1,622 @@
+{
+  "sourceSkinIndex": 0,
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sru-jungle-companions-skin0-base.glb",
+    "bytes": 2016656,
+    "sha256": "0fa1c3b45a0abca2d08cdece2605dd61aceac3564e2e56c957860f7f46e08111"
+  },
+  "definitionsSha256": "392fc0c4c5d3d327cb811746c9b1c26c8a20c9013c7697cf3ad7c6ea69db167b",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_jungle_companions/sru_jungle_companions.bin",
+      "wadPathHash": "2e4752db82bf2361",
+      "sha256": "82138c863aee1d52a0fcf860871c6fe7527cb68c7370b1c965f077f09ed60d1a",
+      "bytes": 6464
+    },
+    {
+      "path": "data/characters/sru_jungle_companions/skins/skin0.bin",
+      "wadPathHash": "05c1146cfca57d64",
+      "sha256": "e964fda92096a9a522b03cb24a39b041e05856b1dd47a85b4907bbf88c1cb5cc",
+      "bytes": 128046
+    },
+    {
+      "path": "data/characters/sru_jungle_companions/animations/skin0.bin",
+      "wadPathHash": "f9f13cfd93c25dd9",
+      "sha256": "ec1c80adc4a175ea756320c6db44251e4706626e444cc90bb36f48ba5252cfc0",
+      "bytes": 7638
+    },
+    {
+      "path": "data/characters/sru_jungle_companions/skins/skin1.bin",
+      "wadPathHash": "4e03836c3ed9fa4f",
+      "sha256": "c592a33fb8a0ca076851acff7c4de389595af76bc3eefc93a7d23c051c0750a0",
+      "bytes": 204680
+    },
+    {
+      "path": "data/characters/sru_jungle_companions/animations/skin1.bin",
+      "wadPathHash": "ae69bc0a3102f4b5",
+      "sha256": "1b6edde286ca7b7ab9f645b016086822902ba35880de71c3cdb75da7bcb1c46f",
+      "bytes": 7696
+    },
+    {
+      "path": "data/characters/sru_jungle_companions/skins/skin2.bin",
+      "wadPathHash": "d22da53476fcfe9e",
+      "sha256": "9994fa28ee40f645df423c0ca8ba6d51c977aef4f98af717b5d43aefc7bb965d",
+      "bytes": 187502
+    },
+    {
+      "path": "data/characters/sru_jungle_companions/animations/skin2.bin",
+      "wadPathHash": "a45ddfef3089722b",
+      "sha256": "34047d0107573964ee9ddc3871904b7059a39e15fda67e005c47222d6937fbf0",
+      "bytes": 8701
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack01.anm",
+      "wadPathHash": "b9d2fa08a3efeb96",
+      "sha256": "f844032c00b7eff67ecac82ab3bd9bc00e56dff208c1b59a424c6ee9f5e243f4",
+      "bytes": 22938
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack02.anm",
+      "wadPathHash": "662c14bf32c8137a",
+      "sha256": "4f81e081aa59df583e62c4881d642c55dc68a99b816e4f698950db69d03dba80",
+      "bytes": 21582
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_buff_run.anm",
+      "wadPathHash": "d92bd775b0503497",
+      "sha256": "7f0318454e5e6b4d222f6fe4873403eae16984a7391e95650a466f3004ac4a90",
+      "bytes": 21256
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_buff_standing.anm",
+      "wadPathHash": "3ca427835949e2cf",
+      "sha256": "792bae98279948fd54fb8797fa6324af8f65e1f6d195608a5fc5047621804821",
+      "bytes": 28158
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_celebrate.anm",
+      "wadPathHash": "e30addfb53653823",
+      "sha256": "ca64d895a6fbfd42941a6e79945b73fe3ce46d6149008778085342097fe32a09",
+      "bytes": 25130
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_dashattack.anm",
+      "wadPathHash": "ffbc71cefec34ea2",
+      "sha256": "ca2e75b512feff2c675423e0c1051440ab95bb5d4b06a90e0991b5ec74ea3fa4",
+      "bytes": 22512
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_idle.anm",
+      "wadPathHash": "576476ec34e73698",
+      "sha256": "5f2ca1be6c11c07603f3cce6b558485002fed21b9da0a713b630f41ad7bc2459",
+      "bytes": 8088
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_idlein.anm",
+      "wadPathHash": "713f7ca70177735c",
+      "sha256": "7e68156297a0bcae6b6f70b838b8d01a578d5fc902af7e52b435a323c7427c35",
+      "bytes": 20612
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_recallidle.anm",
+      "wadPathHash": "8ac7b6d990870f9a",
+      "sha256": "74a201462265f98f031abe330c001e452e229a461d451294b0a9758f768b081b",
+      "bytes": 34580
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_run.anm",
+      "wadPathHash": "157f3fe63a698667",
+      "sha256": "185c5643dd6118e00a9b7a1ba34ecbb9573da2065343e76a4089efef321a93a3",
+      "bytes": 22324
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_runin.anm",
+      "wadPathHash": "d86329d8ac165755",
+      "sha256": "8af37b40a5f9d8362315eac9f3bc49b805cb9d70bef09cd1c9a0154576a6ef4a",
+      "bytes": 25370
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_spawn.anm",
+      "wadPathHash": "f748940381816659",
+      "sha256": "a79ba273e81befe5e3495b16e2a5e06194b4e705ae613e832053c313c88b270c",
+      "bytes": 28990
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/fox_transform.anm",
+      "wadPathHash": "a44919a5609e6ca8",
+      "sha256": "b2aa035f3dd35f26f60c52682400a15214c9121d639760963dee1bd10e345aba",
+      "bytes": 48456
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/heal.anm",
+      "wadPathHash": "cbc78f501ac20f18",
+      "sha256": "e66a10e4d20689e7e5a982e65a011d9c736a6886e68949db8d02499cfe1c0492",
+      "bytes": 29902
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/heal_toidle.anm",
+      "wadPathHash": "a3a16627fd995344",
+      "sha256": "367d3d08c89d4886413dee41b288de75029a9f93524ffff6760de38432f25109",
+      "bytes": 11534
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/smite.anm",
+      "wadPathHash": "2ff31a04bb8d37e0",
+      "sha256": "96ebfceef1ad3ae0a140151e1eb363e1b1b568e52c09ca9f632d2f8967c58c16",
+      "bytes": 36418
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/walljump.anm",
+      "wadPathHash": "4e8a637c520c7130",
+      "sha256": "f7084684ff76ca36e5547f4c6523e9eb4a30a5fd6dda0be704cbc5a86a075a02",
+      "bytes": 25012
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/animations/walljump_med.anm",
+      "wadPathHash": "47e157a4e00bf9ce",
+      "sha256": "f0099dfea0097f8a336f89915642b7424cac4f7f06322b40ebfa3aab82363996",
+      "bytes": 21792
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/sru_jungle_companions_base.skl",
+      "wadPathHash": "e4657db09f60c698",
+      "sha256": "e6a6055c6875b54817485228f92acb67a838a0117cb77551e083a472a3058399",
+      "bytes": 7172
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/sru_jungle_companions_base.skn",
+      "wadPathHash": "cfd8c783889f8d94",
+      "sha256": "2df888487f477652528b594b3ef51c8c35ff669df40077c6e67fe7d2d2181dbb",
+      "bytes": 409978
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/sru_jungle_companions_base_adult_tx_cm.tex",
+      "wadPathHash": "466e05f0940b7172",
+      "sha256": "21ec0616534c7ae97cbff0a244b2142a4581101cc80d184dcc3f9faae0e22f3a",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/base/sru_jungle_companions_base_baby_tx_cm.tex",
+      "wadPathHash": "5c69e3cfe609a6f2",
+      "sha256": "71b64db397430527383df368d7c88b3e6220e3f721aaafd5e2059dd419309bbf",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/attack1.anm",
+      "wadPathHash": "4835d1e454b3cc69",
+      "sha256": "9bb3d95a48c9076afd2abb1a856a556d111f372b011a1e564a767708a90004b0",
+      "bytes": 26208
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/attack2.anm",
+      "wadPathHash": "447602996b190ca8",
+      "sha256": "77bc35ef2758f3c33433bf53ae4a74ad92351b54a589d33fbd94b716d6e7f3a5",
+      "bytes": 30948
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/celebrate.anm",
+      "wadPathHash": "f35d2312671497b0",
+      "sha256": "5e35427151e45813d1231bd6c81fce8686a649ad202835dfbb96e7654530c4e1",
+      "bytes": 28678
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/heal.anm",
+      "wadPathHash": "7c49a1b59fc035d8",
+      "sha256": "8363a42ff949dc38c2cbe26ce685ef39825e7c895ad060486f9e025657fca204",
+      "bytes": 38508
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/homeguardrun.anm",
+      "wadPathHash": "4b080b3743d31cc6",
+      "sha256": "45d35d65218792fccfe38778479e88bb0c76c7e69d425fb9d045aa1d2db07fe3",
+      "bytes": 16380
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/idle.anm",
+      "wadPathHash": "12bd530d9e84d99c",
+      "sha256": "44abfaf21580affb937e5b52b1da9ca975a9ff6a92a938b624320137199dbc1d",
+      "bytes": 10708
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/lion_dashattack.anm",
+      "wadPathHash": "2340dc45c2688022",
+      "sha256": "52622bfa8ff7ec43b15b50c2798c77cf47a63955df34f1abeb8d327dcf74213b",
+      "bytes": 25978
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/lion_recallidle.anm",
+      "wadPathHash": "f5f40dadf6fe0f65",
+      "sha256": "f41b189207d71ce5294603d8b0fd0a27d15eef30f0fb56b13dca4ac352bf782e",
+      "bytes": 29728
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/run.anm",
+      "wadPathHash": "6535e053c234a71e",
+      "sha256": "88fc0995fca65f8c006bf831ec2de81602331cdcffddc060cb6c59ef81fc9695",
+      "bytes": 19276
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/run_in.anm",
+      "wadPathHash": "26a36e341c7aa4cf",
+      "sha256": "4813b11d79a580f6614a6dcfe29b5ecd474cdc2860470eac21a6d19eb51220cd",
+      "bytes": 21818
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/run_toidle.anm",
+      "wadPathHash": "f67f96c0c72b6d76",
+      "sha256": "764d55f7f4304d66e6eb7d1eaa10709b88180127dd4331f359228885fd3a3eca",
+      "bytes": 17388
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/skillready.anm",
+      "wadPathHash": "0fcf07ac2245c766",
+      "sha256": "9888073189b036611dbde423e6c6983a62e7e13166d3f0951c5b75e8d1e15fa7",
+      "bytes": 25522
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/smite.anm",
+      "wadPathHash": "0701b82c012b3934",
+      "sha256": "ffc3177da8c127189ad44bb95f9e3db3f1a8f261805edbf35128836f25e8e006",
+      "bytes": 31898
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/spawn.anm",
+      "wadPathHash": "7a6e1bdf6ea8e0fb",
+      "sha256": "1e38fb833636b486516106da04e03970b6d584d78272a9fdea29338f806d5a57",
+      "bytes": 32608
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/transform.anm",
+      "wadPathHash": "5a31d3c215abacab",
+      "sha256": "da332c089c99d130787f7fbfbee3b636842430a136653a46cdfcb952492561e0",
+      "bytes": 65908
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/walljump_long.anm",
+      "wadPathHash": "c419edf845ca262a",
+      "sha256": "ffde44d1669241db73eb45ae15ed5f8ef544e4f2cc35737ada65f3777b946797",
+      "bytes": 28028
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/walljump_longloop.anm",
+      "wadPathHash": "292faeeec2de9473",
+      "sha256": "1516aa7b4aa918940c2910056007b4121992e69aff8c32850d309819ee63e15a",
+      "bytes": 7990
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/animations/walljump_short.anm",
+      "wadPathHash": "23a18c6de71a405e",
+      "sha256": "72625a85b48687732a43106b73a48b50ef8de79f3584b611eb19a7fbd4549ad2",
+      "bytes": 24916
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/sru_jungle_companions_skin01.skl",
+      "wadPathHash": "a6333b9cd6db793a",
+      "sha256": "23cb2cc7c9a7870c09c4f2a61c885c2b5f99f132d5fab695387339691b470358",
+      "bytes": 7604
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/sru_jungle_companions_skin01.skn",
+      "wadPathHash": "4f351b0503e4cee5",
+      "sha256": "c85e780c77e19aea3f60276384003a337ba6f3e59fbf87d3ff5aa55280cbf313",
+      "bytes": 478612
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/sru_jungle_companions_skin01_adult_tx_cm.tex",
+      "wadPathHash": "a6a5ec8a0aa7a89d",
+      "sha256": "dc6cf8c9f1089dd4149caeec4805d989b4f9f26c4d6458a3b3ee2145709f0c7b",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin01/sru_jungle_companions_skin01_baby_tx_cm.tex",
+      "wadPathHash": "cbe459ba838eb889",
+      "sha256": "a1417b31bc1055a7720022b6e2b7c635f60acde8e7062fa6e85bfc367d1ac227",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/dashattack.anm",
+      "wadPathHash": "b2c54310ebfe5d7d",
+      "sha256": "00ade0e0f6f31b4ac2634fe2c9483ac9c955b4922104ec392a7c00a989b2aac4",
+      "bytes": 27170
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_attack01.anm",
+      "wadPathHash": "b2d62e87496052a3",
+      "sha256": "796876ebe2080c84565351e2b0b49ee807ddbfb1ea749e9a7dbb082b589ccbed",
+      "bytes": 40658
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_attack02.anm",
+      "wadPathHash": "0a4e7338730a898f",
+      "sha256": "d6e24f6c039477ef359dfdbff03ae7110c61ff41e72bcba9f8bf91c5d352bf3b",
+      "bytes": 38848
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_buff_standing.anm",
+      "wadPathHash": "517e008f91419791",
+      "sha256": "0812821e65f54264d63d3c4cc06073cfdffe5a57a1646dc96d2d075beab54866",
+      "bytes": 35430
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_celebrate.anm",
+      "wadPathHash": "2f1d96be7318ee91",
+      "sha256": "4ae02de8a2610409432f414f7c145d6731fa3a75bcc88c11a5e3a3f956676faf",
+      "bytes": 26670
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_heal.anm",
+      "wadPathHash": "17d9eb418ce7cb5f",
+      "sha256": "797c6ec718a699ee6833fb64af8bae2aa0ca7098341c4ceac1e067a500755a38",
+      "bytes": 42848
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_idle.anm",
+      "wadPathHash": "64c6354db8007ff7",
+      "sha256": "f182b396ce538fe9532dc69b2513410d25cdf8f32856050934a676e077d43db9",
+      "bytes": 12104
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_idlein.anm",
+      "wadPathHash": "775e3a84cee23041",
+      "sha256": "26b4ea898700b22f7f21317aae05e3085f950e53cc5bebf0d9b8c2b11ba5e416",
+      "bytes": 21872
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_jump.anm",
+      "wadPathHash": "c20dbabbf3a9d18c",
+      "sha256": "df90fc114452869c544c1fae6b6004dfe64231bc72fe0050371499cdd9558d4a",
+      "bytes": 25676
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_recallidle.anm",
+      "wadPathHash": "a09d1d92b1f705e3",
+      "sha256": "99a33deb2c64bdc5b5b00e00cfbd2ca2698c0524aca523975d2a25893ee1867a",
+      "bytes": 207704
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_run.anm",
+      "wadPathHash": "2a8c6beb58403197",
+      "sha256": "ed1e66150e85e72140af2fda43f1a97e6ddd2d7fd16518ebf25b3a067e0c03ba",
+      "bytes": 17984
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_smite.anm",
+      "wadPathHash": "e1fb948b920f0b5f",
+      "sha256": "d968e5b115d6530db20b2f957f6d18b0afce0594a910ed8e53df0a4a0692dab8",
+      "bytes": 31110
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_spawn.anm",
+      "wadPathHash": "fc404db8c1f6ae93",
+      "sha256": "67b8dfc762f24c3b076865c354b8eed0b1338a25e3fbe42759889e3961a885d2",
+      "bytes": 40248
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_to_run.anm",
+      "wadPathHash": "465227d53f4287c6",
+      "sha256": "0f09efc6d788ee6584a5c9cd27dbd100768421fa2e6aa5c8e707540af99da406",
+      "bytes": 21602
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/animations/sal_transform.anm",
+      "wadPathHash": "5867f5fecc3bdf9d",
+      "sha256": "41874c67d5b48530872839b92ca3ea5a0b9e3963857b7bc80d5cffce4b7e1cb2",
+      "bytes": 58836
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/sru_jungle_companions_skin02.skl",
+      "wadPathHash": "f48d5623e13cde5d",
+      "sha256": "b22c7dbc81a53705600b010ea87ae9ab99031a54947e774ce6db3be2b4d4c5cb",
+      "bytes": 8344
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/sru_jungle_companions_skin02.skn",
+      "wadPathHash": "e12d934d5177c463",
+      "sha256": "73a8ea7c6ed909c8f3eec4cc1a2ba8df5f1f30e2afaa17af13dbe6a48873866b",
+      "bytes": 328048
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/sru_jungle_companions_skin02_adult_tx_cm.tex",
+      "wadPathHash": "519ec8de32db892c",
+      "sha256": "95fb2f1e4c8d38ce0254559952bd37d8eacc9263bf4ab497ba72a35af0796959",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_jungle_companions/skins/skin02/sru_jungle_companions_skin02_baby_tx_cm.tex",
+      "wadPathHash": "18509a3a24134812",
+      "sha256": "72a65d36907d8114b774298a09733e3ede6bf94ecb8e33e1e7180cda80ff0d50",
+      "bytes": 174788
+    }
+  ],
+  "unitScale": 0.01,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [
+    "Baby"
+  ],
+  "materialTextures": {
+    "Adult": "assets/characters/sru_jungle_companions/skins/base/sru_jungle_companions_base_adult_tx_cm.tex",
+    "Baby": "assets/characters/sru_jungle_companions/skins/base/sru_jungle_companions_base_baby_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_2acd4eca",
+      "state": "{2acd4eca}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_run.anm",
+      "durationSeconds": 0.9333333969116211
+    },
+    {
+      "name": "entry_e0d43502",
+      "state": "{e0d43502}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack01.anm",
+      "durationSeconds": 2.133333444595337
+    },
+    {
+      "name": "entry_dfd4336f",
+      "state": "{dfd4336f}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack01.anm",
+      "durationSeconds": 2.133333444595337
+    },
+    {
+      "name": "idle1",
+      "state": "Idle1",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_idle.anm",
+      "durationSeconds": 1.9666668176651
+    },
+    {
+      "name": "entry_3a69585b",
+      "state": "{3a69585b}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/heal.anm",
+      "durationSeconds": 1.433333396911621
+    },
+    {
+      "name": "entry_a786d020",
+      "state": "{a786d020}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/heal_toidle.anm",
+      "durationSeconds": 0.6666666865348816
+    },
+    {
+      "name": "entry_64f22407",
+      "state": "{64f22407}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/smite.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_ac14b6b4",
+      "state": "{ac14b6b4}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack01.anm",
+      "durationSeconds": 2.133333444595337
+    },
+    {
+      "name": "entry_71354a61",
+      "state": "{71354a61}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_buff_standing.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_326fba76",
+      "state": "{326fba76}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_buff_run.anm",
+      "durationSeconds": 1.1666667461395264
+    },
+    {
+      "name": "entry_47addfb3",
+      "state": "{47addfb3}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack02.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_48ade146",
+      "state": "{48ade146}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack02.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_24c6df1f",
+      "state": "{24c6df1f}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_attack02.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_b781551b",
+      "state": "{b781551b}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_idlein.anm",
+      "durationSeconds": 1.633333444595337
+    },
+    {
+      "name": "entry_e9c3f10a",
+      "state": "{e9c3f10a}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_celebrate.anm",
+      "durationSeconds": 2.9666669368743896
+    },
+    {
+      "name": "entry_27640b80",
+      "state": "{27640b80}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/walljump.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "entry_91377baf",
+      "state": "{91377baf}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_runin.anm",
+      "durationSeconds": 1.3666667938232422
+    },
+    {
+      "name": "entry_90563b89",
+      "state": "{90563b89}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_run.anm",
+      "durationSeconds": 0.9333333969116211
+    },
+    {
+      "name": "entry_e1ad931b",
+      "state": "{e1ad931b}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_transform.anm",
+      "durationSeconds": 3.566666841506958
+    },
+    {
+      "name": "entry_3a224d98",
+      "state": "{3a224d98}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_spawn.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "entry_18de37f7",
+      "state": "{18de37f7}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/smite.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_4d5b695e",
+      "state": "{4d5b695e}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/walljump.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "entry_f0514643",
+      "state": "{f0514643}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/walljump.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "entry_04a8ae77",
+      "state": "{04a8ae77}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/walljump_med.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_febfb873",
+      "state": "{febfb873}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/walljump_med.anm",
+      "durationSeconds": 0.9666666984558105
+    },
+    {
+      "name": "entry_53b0ce53",
+      "state": "{53b0ce53}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_recallidle.anm",
+      "durationSeconds": 8.633334159851074
+    },
+    {
+      "name": "entry_9ac0704d",
+      "state": "{9ac0704d}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_recallidle.anm",
+      "durationSeconds": 8.633334159851074
+    },
+    {
+      "name": "entry_749bb86d",
+      "state": "{749bb86d}",
+      "source": "assets/characters/sru_jungle_companions/skins/base/animations/fox_dashattack.anm",
+      "durationSeconds": 0.9666666984558105
+    }
+  ],
+  "triangles": 10699,
+  "bones": 57
+}
