@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "4216cbff182c452f61365f2f8b3c2dfd078faa59",
+  "scope": "Final Gustwalker/Mosstomper/Scorchclaw passive adapters in the controlled owned-companion encounter; source-linked behavior, saved state and existing presentation. Purchases and production jungle roles remain unfinished.",
+  "schema": 100,
+  "rulesetFingerprint": "8f327070360a1585efdfd45814e2db6a5d4b633892f7d440c4ef380754ab61ec",
+  "sourceEvidence": {
+    "path": "docs/reference/companion-passives-source.json",
+    "sha256": "cc70bb8f8b1445639a210f8c52419d68c4dda4c4a0effe87aec8ee49ef026de3"
+  },
+  "parentSourcePin": {
+    "path": "docs/reference/jungle-companions-source.json",
+    "sha256": "392fc0c4c5d3d327cb811746c9b1c26c8a20c9013c7697cf3ad7c6ea69db167b"
+  },
+  "generatedProfile": {
+    "path": "src/content/owned-companions.json",
+    "sha256": "fa2abd2d104dd1bccfa8de1c5fe1d228b83ec1279d39c6aa907752acceacd2e7",
+    "repeatCommand": ".tools/cdtb-venv/bin/python tools/assets/export-owned-companions.py",
+    "repeatByteIdentical": true
+  },
+  "policies": {
+    "mosstomper": {
+      "shieldAtLevels1To10": 200,
+      "perLevelFrom11": 20,
+      "shieldAt18": 360,
+      "recoveryTicks": 600,
+      "permanentMarkedSelfShield": true,
+      "refreshReplacesRatherThanStacks": true,
+      "combat": "Positive hostile incoming/outgoing damage, including absorbed damage and pet follow-up strikes.",
+      "obsoleteTenacityOrSlowResist": false,
+      "death": "Clear shield; saved deadline continues while dead and grants once alive."
+    },
+    "gustwalker": {
+      "brushBonus": 0.3,
+      "killBonus": 0.45,
+      "decayTicks": 90,
+      "brush": "Center-point imported NavGrid brush flags, or authored practice circles.",
+      "overlap": "Take stronger contribution, add to existing haste and apply existing slow multiplier.",
+      "deathClearsBursts": true
+    },
+    "scorchclaw": {
+      "maxEmber": 100,
+      "emberPer30Ticks": 3,
+      "phase": "Anchored to full-growth tick; clock and stacks persist through death.",
+      "largeKillReadies": true,
+      "triggers": "Positive attack/spell damage on an enemy champion. Summoners, pet strikes and periodic proc categories excluded.",
+      "radius": 250,
+      "areaBurn": true,
+      "healthFraction": 0.05,
+      "burnTicks": 240,
+      "pulseTicks": 60,
+      "capturedVictimMaxHp": true,
+      "slowFraction": 0.3,
+      "slowTicks": 180,
+      "independentOwners": true,
+      "sameOwnerRefresh": "Capture new maximum health and restart application/pulse phase.",
+      "burnPersistsThroughSourceDeath": true,
+      "targetDeathOrMonsterResetClears": true
+    },
+    "genericTrueDamage": "Explicit local exclusion from outgoing jungle amplification; native generic interactions require calibration.",
+    "posthumousKill": "Earned XP/feeding/evolution continue; health/mana recovery requires a living owner and cannot revive the champion."
+  },
+  "sourceBoundaries": [
+    "No new active native callbacks were recovered.",
+    "Retained three-second Scorchclaw slow differs from original two-second published description.",
+    "Area burn follows the frozen extended tooltip interpretation; original 12.22 explicitly specified primary burn plus area slow. Matched later dispatch is not proven.",
+    "Moss combat taxonomy/priority/death/startup, Gust center sampling/curve/overlap/tick ordering, Ember phase and burn refresh/pulses remain explicit adapters.",
+    "Missing named values remain null; obsolete tenacity/resistance and unbound movement-based stack candidates grant no extra effects."
+  ],
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "typecheck": "passed",
+    "files": 237,
+    "passed": 1239,
+    "newPassiveCases": 21,
+    "newNavigationCases": 1,
+    "sourceFollowup": {
+      "command": "npx vitest run tests/owned-companion-source.test.ts --maxWorkers=1",
+      "passed": 2,
+      "scope": "Extended parent/source/profile/omitted-value integrity assertions, after the full suite; subsequent production TypeScript check also passes."
+    },
+    "coverage": [
+      "Earned full-growth gates and source scalar/formula baselines.",
+      "Shield absorption, exact partial recovery, positive/absorbed damage reset, pet follow-ups, kill refresh, death/respawn and no obsolete tenacity.",
+      "Posthumous completion cannot heal/revive or shield a dead owner.",
+      "Brush membership, exact exit/kill decay, overlap with haste and death/vision boundaries.",
+      "Saved capped Ember phase; Smite/nonchampion/proc exclusions; four captured-health pulses and independent decaying slows.",
+      "Area boundaries; same-owner refresh; two independent owners through source death; target/monster cleanup.",
+      "Forged passive variants, phases, duplicate/oversized shields and invalid burn damage/clock/source rejection.",
+      "NavGrid brush bit including off-grid/wall exclusions; original item/profile/source-pin integrity."
+    ],
+    "initialFindings": [
+      "Posthumous large-monster kill recovery restored health before final passive initialization; recovery now requires a living owner while progression persists.",
+      "A source-death pulse expectation initially assumed uncapped level-one enemy regeneration even though the killer leveled and briefly reached full health; the persistence test now verifies the exact burn damage event and positive health loss, with exact four-pulse damage tested separately."
+    ]
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "initialCommand": "npx playwright test e2e/companion-passives.spec.ts e2e/owned-companions.spec.ts e2e/shields.spec.ts e2e/red-buff.spec.ts --reporter=line",
+    "initialPassed": 7,
+    "initialFailed": 1,
+    "initialMatchedCases": "Three new passive cases, four owned-companion cases and one shield case. red-buff.spec.ts did not match an existing file; Red Brambleback was run explicitly in the final command.",
+    "initialFinding": "Moss test advanced to the first damage deadline while companion follow-up strikes were still dealing damage and resetting combat. It now drains the six-second pet activity before isolating recovery, and a new unit case protects that interaction. Tab verification also explicitly resumes input.",
+    "finalCommand": "npx playwright test e2e/companion-passives.spec.ts e2e/red-brambleback.spec.ts e2e/scoreboard-ownership.spec.ts e2e/scoreboard-death.spec.ts --reporter=line",
+    "finalPassed": 8,
+    "finalFailed": 0,
+    "tooltipFollowup": {
+      "command": "npx playwright test e2e/companion-passives.spec.ts -g 'Scorchclaw consumes' --reporter=line",
+      "passed": 1,
+      "failed": 0
+    },
+    "distinctCurrentPassingCases": 13,
+    "assertions": [
+      "Real Gromp missile reduces the marked Moss shield while health stays full.",
+      "Partial shield/deadline reloads exactly and refreshes on the isolated deadline; player scoreboard uses Primal Smite.",
+      "Real right-click brush entry/exit uses the battlefield query; saved exit decay expires, and a real F Gromp kill grants the stronger burst.",
+      "Real attack consumes Scorchclaw stock and applies a saved burn/slow.",
+      "A diagnostic large kill readies stock; real F Smite and a subsequent periodic pulse do not consume or restart the existing effect.",
+      "Expanded Primal Smite tooltip is contained within 1280x720.",
+      "Four prior owned-companion cases, generic shield case, Red Brambleback and four scoreboard regressions pass.",
+      "No page errors or failed requests in the new passive cases."
+    ],
+    "limits": "Repeated large-monster feed targets, health/stun preparation, isolated timer stepping and quiescence setup are diagnostic. This is not a natural clear, complete jungle role match, full browser audit, native comparison or performance certificate."
+  },
+  "browserDiagnostics": {
+    "moss": {
+      "cap": 200,
+      "partial": {
+        "shield": 178.3421202445484,
+        "hp": 1391.74,
+        "maxHp": 1391.74,
+        "recharge": 1307,
+        "tick": 893
+      },
+      "refreshed": {
+        "before": 178.3421202445484,
+        "after": 200,
+        "passive": {
+          "kind": "mosstomper",
+          "rechargeTick": null
+        }
+      }
+    },
+    "gust": {
+      "inside": {
+        "speed": 422.5,
+        "base": 325
+      },
+      "expired": true,
+      "burst": {
+        "speed": 471.25,
+        "base": 325,
+        "passive": {
+          "kind": "gustwalker",
+          "lastBrushTick": null,
+          "killTick": 611
+        }
+      }
+    },
+    "scorch": {
+      "burning": {
+        "burn": {
+          "sourceId": 1,
+          "startTick": 321,
+          "endTick": 561,
+          "nextTick": 381,
+          "capturedMaxHp": 2000,
+          "damagePerTick": 25
+        },
+        "passive": {
+          "kind": "scorchclaw",
+          "stacks": 0,
+          "nextStackTick": 328
+        },
+        "slows": [
+          {
+            "sourceId": 1,
+            "kind": "scorchclaw",
+            "startTick": 321,
+            "endTick": 501,
+            "startMultiplier": 0.7,
+            "endMultiplier": 1
+          },
+          {
+            "sourceId": 1,
+            "kind": "frost",
+            "startTick": 321,
+            "endTick": 441,
+            "startMultiplier": 0.7470588235294118,
+            "endMultiplier": 0.7470588235294118
+          }
+        ]
+      },
+      "retained": {
+        "stacks": 100,
+        "burn": {
+          "sourceId": 1,
+          "startTick": 321,
+          "endTick": 561,
+          "nextTick": 441,
+          "capturedMaxHp": 2000,
+          "damagePerTick": 25
+        },
+        "pulse": true
+      }
+    }
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "scope": "All GLBs/map and imported navigation hash; model/icon files unchanged."
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "preparedCompanionRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "scheduledKrugRequests": 6,
+    "scheduledScuttlerRequests": 2,
+    "screenshot": "artifacts/production-subpath.png",
+    "companionFixtureQueryIgnored": true,
+    "gameChunkKb": 684.91,
+    "threeChunkKb": 659.92,
+    "warning": "Existing chunks above 500 KB warning remains."
+  },
+  "captures": [
+    {
+      "path": "artifacts/companion-passive-moss-partial.png",
+      "sha256": "e33b9b0f8f2ddccfa29ecf45ee3ea73e929570fde3fb46e29c42232013e0d82e",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-passive-moss-ready.png",
+      "sha256": "eb080117c93dfdeab2642ffde59b5edd6d5bb9436c32727b44fcd07db8deed23",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-passive-gust-brush.png",
+      "sha256": "36db76a34b09a73d9152559ed5a65905a56bef75936f19a79a4f89bdd4eafcd1",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-passive-gust-kill.png",
+      "sha256": "6095829c54fd7ce2afd4fc9f7b7fce22432e5543c7b22c586be9355ef0c3bc7a",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-passive-scorch-burn.png",
+      "sha256": "d49a88e52e62c6e774fb0ff511bb00cf715a2dc63812f6eed29e2df2a029329e",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-passive-scorch-ready.png",
+      "sha256": "f5312c7f52f95cae3eeb475c2d4b155382d022de3f5f7d9818e62087d850e506",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/companion-passive-scorch-tooltip.png",
+      "sha256": "d9958c4e6e3281c3de56ce357a0e3e06173289ea65fce58be032ffd192be8aba",
+      "visuallyReviewed": true
+    }
+  ],
+  "remaining": [
+    "Purchased companion lifecycle and persistent item restrictions after consumption.",
+    "Production role assignment/modifiers, jungle bots, epic objectives and complete seeded matches.",
+    "Matched native passive dispatch, scalar discrepancies, target/area/phase/death/refresh behavior.",
+    "Source particles/audio, complete presentation and visual acceptance.",
+    "Full browser/offline/delivery/performance acceptance."
+  ],
+  "goalStatus": "active"
+}

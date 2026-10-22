@@ -8,6 +8,7 @@ import {
 import { championProfile } from '../content/champion-profiles';
 import { growthAtLevel, statPrecision } from './progression';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
+import { advanceCompanionPassive, companionPassiveMonsterKill } from './companion-passives';
 import { distance, type Vec2 } from './math';
 import type { World } from './world';
 import type { OwnedCompanion, Unit } from './types';
@@ -29,6 +30,7 @@ export function grantCompanion(
   )
     throw new Error('Owned companion requires a Smite-equipped controlled Gromp encounter.');
   const p: OwnedCompanion = {
+    passive: null,
     ownerId,
     kind,
     createdTick: w.tick,
@@ -91,10 +93,15 @@ export function companionDamageMultiplier(
   w: World,
   source: Unit,
   target: Unit,
-  category: string
+  category: string,
+  kind: 'physical' | 'magic' | 'true'
 ): number {
   const outgoing =
     target.kind === 'monster' &&
+    kind !== 'true' &&
+    !(SUMMONER_SMITE.monsterTags[target.monster.species] as readonly string[]).includes(
+      'Monster_Epic'
+    ) &&
     ownedCompanion(w, source.id) &&
     !['summoner', 'companion', 'cleanup'].includes(category)
       ? S.controllerValues.DamageAmp!
@@ -134,15 +141,18 @@ export function companionKilledMonster(w: World, source: Unit, target: Unit): vo
       S.killRecovery.BaseHealCap!,
       S.killRecovery.HealBase! + S.killRecovery.HealPerLevel! * owner.level
     ),
-    heal = Math.min(source.maxHp - source.hp, maxHeal * (1 - source.hp / source.maxHp));
+    heal = w.alive(source)
+      ? Math.min(source.maxHp - source.hp, maxHeal * (1 - source.hp / source.maxHp))
+      : 0;
   source.hp += heal;
-  source.mana = Math.min(
-    source.maxMana,
-    source.mana +
-      (S.killRecovery.ManaBase! + S.killRecovery.ManaPerLevel! * owner.level) *
-        (1 - source.mana / Math.max(1, source.maxMana)) *
-        S.killRecovery.ManaMaxMult!
-  );
+  if (w.alive(source))
+    source.mana = Math.min(
+      source.maxMana,
+      source.mana +
+        (S.killRecovery.ManaBase! + S.killRecovery.ManaPerLevel! * owner.level) *
+          (1 - source.mana / Math.max(1, source.maxMana)) *
+          S.killRecovery.ManaMaxMult!
+    );
   if (heal > 0)
     w.emit('heal', source, { value: Math.round(heal), unit: source.id, team: source.team });
   if (companionStage(p.fed) !== wasStage) {
@@ -157,6 +167,7 @@ export function companionKilledMonster(w: World, source: Unit, target: Unit): vo
         60;
   } else pose(p, 'heal', w.tick);
   if (p.fed === S.fullGrowthFeeds) p.nextTreatTick = null;
+  companionPassiveMonsterKill(w, p, source);
 }
 export function companionSmitePose(w: World, u: Unit): void {
   const p = ownedCompanion(w, u.id);
@@ -166,6 +177,7 @@ export function advanceOwnedCompanions(w: World): void {
   for (const p of w.companions) {
     const owner = w.unit(p.ownerId);
     if (!owner || owner.kind !== 'champion') throw new Error('Missing companion owner');
+    advanceCompanionPassive(w, p, owner);
     p.previous = { x: p.x, y: p.y };
     if (p.nextTreatTick !== null && w.tick >= p.nextTreatTick) {
       const interval =

@@ -146,7 +146,8 @@ export interface UnitBase extends Vec2 {
   slowMultiplier: number;
   slows: {
     sourceId: number;
-    kind: 'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent' | 'cinders' | 'smite';
+    kind:
+      'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent' | 'cinders' | 'smite' | 'scorchclaw';
     startTick: number;
     endTick: number;
     startMultiplier: number;
@@ -161,7 +162,21 @@ export interface UnitBase extends Vec2 {
   stunUntil: number;
   rootUntil: number;
   silenceUntil: number;
-  shields: { sourceId: number; amount: number; endTick: number; prismaticCastTick?: number }[];
+  shields: {
+    sourceId: number;
+    amount: number;
+    endTick: number;
+    prismaticCastTick?: number;
+    companionGrantTick?: number;
+  }[];
+  scorchclawBurns: {
+    sourceId: number;
+    startTick: number;
+    endTick: number;
+    nextTick: number;
+    capturedMaxHp: number;
+    damagePerTick: number;
+  }[];
   illumination: { sourceId: number; endTick: number }[];
   cinderBurn: {
     sourceId: number;
@@ -347,7 +362,12 @@ export interface SimEvent extends Vec2 {
   text?: string;
   team?: Faction;
 }
+export type CompanionPassive =
+  | { kind: 'gustwalker'; lastBrushTick: number | null; killTick: number | null }
+  | { kind: 'mosstomper'; rechargeTick: number | null }
+  | { kind: 'scorchclaw'; stacks: number; nextStackTick: number };
 export interface OwnedCompanion {
+  passive: CompanionPassive | null;
   ownerId: number;
   kind: import('../content/companion-policy').CompanionKind;
   createdTick: number;

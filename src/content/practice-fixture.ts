@@ -1,10 +1,11 @@
-import { LANE_END, LANE_START, MAP_HALF, SPAWN } from './map';
+import { BRUSH, LANE_END, LANE_START, MAP_HALF, SPAWN } from './map';
 import { findPath, lineWalkable, reachable } from '../simulation/navigation';
 import { lineOfSight } from '../simulation/vision';
 import type { Battlefield } from '../simulation/battlefield';
 
 /** Explicit deterministic regression fixture. The default application uses the full Rift. */
 export const PRACTICE_FIXTURE: Battlefield = {
+  inBrush: (p) => BRUSH.some((b) => Math.hypot(p.x - b.x, p.y - b.y) <= b.radius),
   id: 'practice-fixture',
   visibilityRevision: 0,
   half: MAP_HALF,

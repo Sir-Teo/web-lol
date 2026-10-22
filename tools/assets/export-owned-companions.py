@@ -87,6 +87,14 @@ result = dict(
     championSmiteSlow=round(values['SmiteSlowAmount'], 6),
     championSmiteSlowSeconds=int(values['SmiteSlowDuration']),
     finalSmiteRadius=int(radii[0][0]),
+    finalPassives={
+        identity: dict(
+            values={v['mName']: v.get('mValue') for v in record['mDataValues']},
+            calculations=record['mItemCalculations'],
+        )
+        for identity, item in [('gustwalker', '1102'), ('scorchclaw', '1101'), ('mosstomper', '1103')]
+        for record in [pin['itemSource']['records'][f'Items/{item}']]
+    },
 )
 Path('src/content/owned-companions.json').write_text(json.dumps(result, indent=2) + '\n')
 print('Exported three companion clips/rigs, controller/calculation inputs and four official upgrade icons')

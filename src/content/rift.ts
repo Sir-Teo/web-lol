@@ -113,6 +113,7 @@ export function createRift(grid: NavGrid, layout: RiftLayout): Battlefield {
     lineWalkable: grid.lineWalkable.bind(grid),
     lineOfSight: grid.lineOfSight.bind(grid),
     heightAt: grid.heightAt.bind(grid),
+    inBrush: grid.inBrush.bind(grid),
   };
 }
 

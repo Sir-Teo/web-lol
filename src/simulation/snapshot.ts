@@ -1,7 +1,14 @@
 import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
 import { isSummonerSlot } from '../content/summoners';
-import { COMPANION_SOURCE, COMPANION_POLICY, companionStage } from '../content/companion-policy';
+import {
+  COMPANION_SOURCE,
+  COMPANION_POLICY,
+  companionStage,
+  COMPANION_PASSIVES,
+  COMPANION_PASSIVE_POLICY,
+  mosstomperShield,
+} from '../content/companion-policy';
 import { riverContains, riverHome } from './scuttler';
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { MONSTERS, monsterSpawnClipTicks } from '../content/monsters';
@@ -81,7 +88,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 99;
+export const SNAPSHOT_VERSION = 100;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -279,6 +286,7 @@ const unit = z
               'lucent',
               'cinders',
               'smite',
+              'scorchclaw',
             ]),
             startTick: tick,
             endTick: tick,
@@ -310,10 +318,23 @@ const unit = z
           amount: z.number().positive(),
           endTick: tick,
           prismaticCastTick: tick.optional(),
+          companionGrantTick: tick.optional(),
         })
       )
       .max(10000),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
+    scorchclawBurns: z
+      .array(
+        z.strictObject({
+          sourceId: id,
+          startTick: tick,
+          endTick: tick,
+          nextTick: tick,
+          capturedMaxHp: z.number().finite().positive(),
+          damagePerTick: z.number().finite().positive(),
+        })
+      )
+      .max(10),
     cinderBurn: z
       .strictObject({
         sourceId: id,
@@ -743,6 +764,21 @@ const snapshot = z.strictObject({
   companions: z
     .array(
       z.strictObject({
+        passive: z
+          .discriminatedUnion('kind', [
+            z.strictObject({
+              kind: z.literal('gustwalker'),
+              lastBrushTick: tick.nullable(),
+              killTick: tick.nullable(),
+            }),
+            z.strictObject({ kind: z.literal('mosstomper'), rechargeTick: tick.nullable() }),
+            z.strictObject({
+              kind: z.literal('scorchclaw'),
+              stacks: z.number().int().min(0).max(100),
+              nextStackTick: tick,
+            }),
+          ])
+          .nullable(),
         ownerId: id,
         kind: z.enum(['gustwalker', 'scorchclaw', 'mosstomper']),
         createdTick: tick,
@@ -1067,6 +1103,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       Math.abs(p.y) > battlefield.half ||
       p.pose.startTick < p.createdTick ||
       p.pose.startTick > state.tick ||
+      (p.fed === 35) !== (p.passive !== null) ||
+      (p.passive !== null && p.passive.kind !== p.kind) ||
       p.fed > 0 !== p.firstMonsterDone ||
       p.fed >= 15 !== (p.firstEvolvedTick !== null) ||
       (p.fed === 35) !== (p.fullGrownTick !== null) ||
@@ -1112,6 +1150,36 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       (p.targetId !== null && !state.units.some((u) => u.id === p.targetId && u.kind === 'monster'))
     )
       throw new Error('Saved companion contains invalid ownership, feeding or combat clocks.');
+    const passive = p.passive;
+    if (passive?.kind === 'gustwalker') {
+      for (const t of [passive.lastBrushTick, passive.killTick])
+        if (
+          t !== null &&
+          (t < p.fullGrownTick! ||
+            t > state.tick ||
+            t + COMPANION_PASSIVES.gustwalker.decayTicks <= state.tick)
+        )
+          throw new Error('Saved Gustwalker contains invalid speed clocks.');
+    } else if (passive?.kind === 'scorchclaw') {
+      if (
+        passive.nextStackTick <= state.tick ||
+        passive.nextStackTick > state.tick + COMPANION_PASSIVE_POLICY.emberIntervalTicks ||
+        (passive.nextStackTick - p.fullGrownTick!) % COMPANION_PASSIVE_POLICY.emberIntervalTicks !==
+          0
+      )
+        throw new Error('Saved Scorchclaw contains invalid Ember phase.');
+    } else if (passive?.kind === 'mosstomper') {
+      if (
+        (passive.rechargeTick !== null &&
+          (passive.rechargeTick < p.fullGrownTick! ||
+            passive.rechargeTick > state.tick + COMPANION_PASSIVES.mosstomper.rechargeTicks ||
+            (u.hp > 0 && passive.rechargeTick <= state.tick))) ||
+        (passive.rechargeTick === null &&
+          u.hp > 0 &&
+          !u.shields.some((s) => s.companionGrantTick !== undefined))
+      )
+        throw new Error('Saved Mosstomper contains invalid shield recharge.');
+    }
   }
   if (state.matchMode === 'lanes' && state.battlefield !== 'rift')
     throw new Error('Lane matches require Summoner’s Rift.');
@@ -1878,11 +1946,23 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         source.kind !== 'champion' ||
         (slow.kind !== 'cinders' &&
           slow.kind !== 'smite' &&
+          slow.kind !== 'scorchclaw' &&
           source.champion !== (slow.kind === 'lucent' ? 'lux' : 'ashe')) ||
         target.deadAt !== null ||
         ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
         slow.startTick > state.tick ||
         slow.endTick <= state.tick ||
+        (slow.kind === 'scorchclaw' &&
+          (!state.companions.some(
+            (p) =>
+              p.ownerId === source.id &&
+              p.passive?.kind === 'scorchclaw' &&
+              p.fullGrownTick !== null &&
+              p.fullGrownTick <= slow.startTick
+          ) ||
+            slow.startMultiplier !== 1 - COMPANION_PASSIVES.scorchclaw.slowFraction ||
+            slow.endMultiplier !== 1 ||
+            slow.endTick - slow.startTick > COMPANION_PASSIVES.scorchclaw.slowTicks)) ||
         (slow.kind === 'smite' &&
           (!state.companions.some((p) => p.ownerId === source.id && companionStage(p.fed) > 0) ||
             slow.startMultiplier !== 0.8 ||
@@ -1902,6 +1982,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     if (!Number.isFinite(target.shields.reduce((sum, shield) => sum + shield.amount, 0)))
       throw new Error('Saved match contains excessive shields.');
     const prismaticGrants = new Set<string>();
+    let mossGrants = 0;
     for (const shield of target.shields) {
       const key = `${shield.sourceId}:${shield.prismaticCastTick}`;
       const source = state.units.find((u) => u.id === shield.sourceId);
@@ -1911,6 +1992,23 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         !source ||
         source.kind !== 'champion' ||
         source.team !== target.team ||
+        (shield.companionGrantTick !== undefined &&
+          (++mossGrants > 1 ||
+            shield.prismaticCastTick !== undefined ||
+            source.id !== target.id ||
+            shield.endTick !== Number.MAX_SAFE_INTEGER ||
+            shield.companionGrantTick > state.tick ||
+            !state.companions.some(
+              (p) =>
+                p.ownerId === target.id &&
+                p.passive?.kind === 'mosstomper' &&
+                p.fullGrownTick !== null &&
+                p.fullGrownTick <= shield.companionGrantTick!
+            ) ||
+            shield.amount >
+              mosstomperShield(
+                [state.player, ...state.otherChampions].find((p) => p.id === target.id)!.level
+              ))) ||
         shield.endTick <= state.tick ||
         (shield.prismaticCastTick !== undefined &&
           (source.champion !== 'lux' ||
@@ -1920,6 +2018,35 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       )
         throw new Error('Saved match contains an invalid shield.');
       if (shield.prismaticCastTick !== undefined) prismaticGrants.add(key);
+    }
+    const scorchedBy = new Set<number>();
+    for (const burn of target.scorchclawBurns) {
+      const source = state.units.find((u) => u.id === burn.sourceId),
+        companion = state.companions.find((p) => p.ownerId === burn.sourceId),
+        interval = COMPANION_PASSIVE_POLICY.burnIntervalTicks;
+      if (
+        !source ||
+        source.kind !== 'champion' ||
+        source.team === target.team ||
+        !companion ||
+        companion.passive?.kind !== 'scorchclaw' ||
+        burn.startTick < companion.fullGrownTick! ||
+        scorchedBy.has(source.id) ||
+        target.deadAt !== null ||
+        ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
+        (target.kind === 'monster' && target.monster.phase === 'returning') ||
+        burn.startTick > state.tick ||
+        burn.endTick <= state.tick ||
+        burn.endTick !== burn.startTick + COMPANION_PASSIVES.scorchclaw.burnTicks ||
+        burn.nextTick > burn.endTick ||
+        burn.nextTick !==
+          burn.startTick + (Math.floor((state.tick - burn.startTick) / interval) + 1) * interval ||
+        burn.damagePerTick !==
+          (burn.capturedMaxHp * COMPANION_PASSIVES.scorchclaw.healthFraction) /
+            (COMPANION_PASSIVES.scorchclaw.burnTicks / interval)
+      )
+        throw new Error('Saved Scorchclaw contains invalid burn ownership, damage or clocks.');
+      scorchedBy.add(source.id);
     }
     const sources = new Set<number>();
     for (const mark of target.illumination) {

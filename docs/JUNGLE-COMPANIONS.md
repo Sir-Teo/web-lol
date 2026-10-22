@@ -114,6 +114,8 @@ existing base-rig commands retain index zero.
 Exact repeat hashes, unit/browser checks, captures and production results are
 recorded in [the historical source-review ledger](reference/jungle-companions-verification.json).
 The later [owned runtime ledger](reference/owned-companions-verification.json)
-covers the controlled encounter separately. Purchased-item consumption, standard
-role binding, final passives, native effects/audio and jungle-role matches remain
+covers the ownership foundation separately; its later
+[final passive adapters](OWNED-COMPANIONS.md#final-passive-adapters) remain controlled
+and require native comparison. Purchased-item consumption, standard
+role binding, native effects/audio and jungle-role matches remain
 unfinished. Rendering and performance are not certified by this source review.

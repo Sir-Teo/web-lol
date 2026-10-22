@@ -97,7 +97,8 @@ monster-area damage in the controlled development Gromp fixture. No champion-lev
 substitution or manual upgrade selector is provided. Ordinary production matches
 still use base Smite until companion purchases and standard roles are implemented.
 
-Purchased-item lifecycle, final passives, standard role modifiers, targetable
+All three final passive adapters now run in that controlled encounter.
+Purchased-item lifecycle, standard role modifiers, targetable
 champion pets, native forgiveness/latency, effects/audio, role AI, epic objectives
 and complete seeded matches remain unfinished. The
 [base-Smite verification ledger](reference/summoner-smite-verification.json)

@@ -6,6 +6,25 @@ import icons from '../docs/reference/owned-companion-icons.json';
 const sha = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
 test('controlled companion inputs retain all three rig/clip sources without changing source manifests', () => {
   expect(sha(source.sourcePin)).toBe(source.sourceSha256);
+  const parent = JSON.parse(readFileSync(source.sourcePin, 'utf8')),
+    passivePin = JSON.parse(readFileSync('docs/reference/companion-passives-source.json', 'utf8'));
+  expect(sha(passivePin.parent.path)).toBe(passivePin.parent.sha256);
+  for (const [kind, item] of [
+    ['gustwalker', '1102'],
+    ['scorchclaw', '1101'],
+    ['mosstomper', '1103'],
+  ] as const) {
+    const record = parent.itemSource.records[`Items/${item}`],
+      values = Object.fromEntries(record.mDataValues.map((v: any) => [v.mName, v.mValue ?? null]));
+    expect(source.finalPassives[kind]).toEqual({ values, calculations: record.mItemCalculations });
+    expect(passivePin.itemRecords[kind]).toEqual({
+      path: `Items/${item}`,
+      values,
+      calculations: record.mItemCalculations,
+    });
+  }
+  expect(source.finalPassives.mosstomper.values.TenacityAmount).toBeNull();
+  expect(source.finalPassives.scorchclaw.values.AvatarPassiveHaste).toBeNull();
   for (const p of Object.values(source.profiles)) {
     const m = JSON.parse(readFileSync(`public/assets/models/${p.rig}.json`, 'utf8'));
     expect(m.output.sha256).toBe(p.modelSha256);

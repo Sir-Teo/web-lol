@@ -47,7 +47,9 @@ import {
   COMPANION_SOURCE,
   companionSmiteDamage,
   companionStage,
+  mosstomperShield,
 } from '../content/companion-policy';
+import { companionMovementBonus } from '../simulation/companion-passives';
 import { ownedCompanion } from '../simulation/owned-companions';
 import {
   SUMMONERS,
@@ -213,7 +215,13 @@ export class Hud {
       const p = ownedCompanion(this.world, this.world.player.id);
       if (p) {
         const stage = companionStage(p.fed);
-        return `Deal ${companionSmiteDamage(p.fed)} true damage to a large or medium monster or enemy lane minion.${stage > 0 ? ' Against champions, deal 40 true damage and slow by 20% for 2 seconds.' : ''}${stage === 2 ? ' Damages monsters within 425 units of the target.' : ''} Companion fed ${p.fed}/35 treats. Regains one charge every 90 seconds. Final companion passives are still in development.`;
+        const passive =
+          p.kind === 'gustwalker'
+            ? 'Gain 30% Move Speed in brush, decaying over 1.5 seconds after leaving. Large monster kills grant 45% Move Speed, decaying over 1.5 seconds.'
+            : p.kind === 'mosstomper'
+              ? `Gain a ${mosstomperShield(this.world.player.level)} shield after large monster kills or 10 seconds out of combat.`
+              : 'Gain 3 Ember every 0.5 seconds, up to 100. At 100, your next Attack or Ability hit on an enemy champion burns nearby enemies for 5% max health true damage over 4 seconds and slows by 30%, decaying over 3 seconds. Large monster kills ready this immediately.';
+        return `Deal ${companionSmiteDamage(p.fed)} true damage to a large or medium monster or enemy lane minion.${stage > 0 ? ' Against champions, deal 40 true damage and slow by 20% for 2 seconds.' : ''}${stage === 2 ? ' Damages monsters within 425 units of the target.' : ''} Companion fed ${p.fed}/35 treats. Regains one charge every 90 seconds. ${stage === 2 ? passive : `At full growth: ${passive}`}`;
       }
       return `${SUMMONERS.smite.description} Regains one charge every ${SUMMONER_SMITE.rechargeSeconds} seconds. Jungle companion upgrades are not available yet.`;
     }
@@ -888,7 +896,10 @@ export class Hud {
           summoners: state.summoners,
         };
       });
-    const signature = JSON.stringify(rows);
+    const signature = JSON.stringify({
+      rows,
+      playerSpellIcons: (['d', 'f'] as const).map((a) => this.world.abilitySpec(a).icon),
+    });
     if (signature === this.lastScoreboard) return;
     this.lastScoreboard = signature;
     const focusedItem = this.itemTooltip.focusKey();
@@ -925,7 +936,10 @@ export class Hud {
       const summoners = row.querySelector('.scoreboard-summoners')!;
       // Identities are public; enemy cooldown state is not exposed here.
       for (const ability of ['d', 'f'] as const) {
-        const spell = SUMMONERS[data.summoners[ability]];
+        const spell =
+          data.id === this.world.player.id
+            ? this.world.abilitySpec(ability, data.id)
+            : SUMMONERS[data.summoners[ability]];
         const icon = document.createElement('img');
         icon.src = `assets/icons/${spell.icon}.png`;
         icon.alt = spell.name;
@@ -1187,8 +1201,18 @@ export class Hud {
     }
     if (companionStatus) {
       companionStatus.hidden = !companion;
-      if (companion)
-        companionStatus.textContent = `${COMPANION_SOURCE.profiles[companion.kind].name} · ${companion.fed}/35 treats · ${companion.bonusTreats} bonus · Smite ${companionSmiteDamage(companion.fed)}`;
+      if (companion) {
+        const passive = companion.passive;
+        const effect =
+          passive?.kind === 'gustwalker'
+            ? ` · Move speed +${Math.round(companionMovementBonus(w, h) * 100)}%`
+            : passive?.kind === 'scorchclaw'
+              ? ` · Ember ${passive.stacks}/100`
+              : passive?.kind === 'mosstomper'
+                ? ` · Shield ${Math.ceil(h.shields.filter((s) => s.companionGrantTick !== undefined).reduce((n, s) => n + s.amount, 0))}${passive.rechargeTick !== null ? ` · refresh ${Math.ceil(Math.max(0, passive.rechargeTick - w.tick) / 60)}s` : ''}`
+                : '';
+        companionStatus.textContent = `${COMPANION_SOURCE.profiles[companion.kind].name} · ${companion.fed}/35 treats · ${companion.bonusTreats} bonus · Smite ${companionSmiteDamage(companion.fed)}${effect}`;
+      }
     }
     const recall = this.root.querySelector<HTMLDivElement>('.recall-progress')!;
     recall.hidden = p.recallEnd === null;

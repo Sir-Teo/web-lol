@@ -3,8 +3,8 @@
 The controlled development Gromp encounter now supports Gustwalker, Scorchclaw
 and Mosstomper ownership, following, monster combat assistance, feeding and earned
 Smite evolution. This is the shared runtime foundation for the jungle role.
-Companion purchases, final item passives, production role assignment and complete
-jungle matches remain unfinished. The full project goal stays active.
+All three final passive adapters are now present in this encounter. Companion
+purchases, production role assignment and complete jungle matches remain unfinished. The full project goal stays active.
 
 Open one of these development URLs:
 
@@ -67,13 +67,16 @@ are retained source inputs; stat-enum bindings, delivery timing, area and target
 gates still need native comparison. Companion damage and Smite do not receive
 the companion's outgoing monster multiplier or Doran's Blade omnivamp.
 
-Owned champions deal the retained ~1.1 multiplier to monsters and take the
-retained 0.5 multiplier from non-epic monsters. Large/epic last hits also grant
+Owned champions deal the retained ~1.1 multiplier to non-epic monsters with
+physical/magic damage and take the retained 0.5 multiplier from non-epic monsters.
+The outgoing true-damage exclusion is a local policy requiring native comparison. Large/epic last hits also grant
 the adapter's 80 XP, with 150 extra XP for the first such kill. Kill recovery
 uses `min(250, 70 + 20 × level)` times missing-health fraction, and
 `(15 + 4 × level) × missing-mana fraction × 2.25`. These formula bindings are
 local; the recovered healing record does not establish the complete native
-formula. Energy restoration has no implemented resource model.
+formula. Energy restoration has no implemented resource model. Recovery requires a living
+owner: a posthumous credited monster kill can grant XP and feeding, but cannot
+restore health/mana or revive its owner.
 
 Navigation uses the existing battlefield paths with a 20-unit actor radius,
 650-unit movement speed, a 12-tick path refresh and a 100-unit trailing offset.
@@ -104,8 +107,7 @@ startup, phase reset and stock cap are local bindings requiring comparison.
 All stages retain the existing two-charge system, 15-second cast lockout,
 90-second sequential recharge and bounding-radius cast range. Area damage
 spends one charge. Growth changes the source icon and HUD description; full
-growth chooses the corresponding variant icon. Upgrades do not grant the
-unimplemented final shield, movement or burn/slow item passives.
+growth chooses the corresponding variant icon. Full growth also activates the selected final passive described below.
 
 The renderer loads only requested companion rigs and uses selected source spawn,
 idle, run, attack, heal, Smite and transform clips. Saved pose clocks drive
@@ -116,18 +118,74 @@ the actor and clears combat/path commitments while preserving feeding and
 bonus clocks. Visibility follows owner visibility; the pet does not reveal fog.
 Native scale, graph transitions, effects, audio and visual parity remain open.
 
+## Final passive adapters
+
+[The passive evidence record](reference/companion-passives-source.json) links the
+original item values/calculations, later published changes, discrepancies and
+local delivery policies. Missing `AvatarMonsterDR`, `AvatarPassiveHaste` and
+`TenacityAmount` values remain null. These named fields do not grant invented
+bonuses.
+
+Mosstomper grants one self shield: 200 at levels 1–10, then 20 more per level,
+reaching 360 at level 18. It lasts until absorbed, refreshes after a qualifying
+large kill, and recovers ten seconds after the last positive hostile incoming or
+outgoing damage. Fully absorbed hits and the companion's follow-up strikes count
+as combat; zero damage does not. Refresh replaces this named shield without
+stacking it or removing other shields. It uses the existing earliest-expiry
+absorption order. Death removes the shield; the saved recovery deadline can run
+while dead and grants the shield once the owner is alive. Native combat taxonomy,
+shield priority and death/startup details remain unverified.
+
+Mosstomper does not grant tenacity or slow resistance. Riot removed those effects
+in [13.20](https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-20-notes/).
+The retained shield formula takes precedence over older published shield values.
+
+Gustwalker grants 30% movement speed while the owner's center is in brush. The
+Rift query reads imported navigation brush flags; the development fixture uses
+its authored circles. After leaving, the contribution decays linearly over 90
+ticks. A qualifying large kill grants a separate 45% contribution with the same
+90-tick decay. The stronger contribution is added to existing haste before the
+existing slow multiplier. Death clears both bursts. The 1.5-second duration
+matches [26.1](https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/);
+center sampling, overlap, curve and tick ordering remain local bindings.
+
+Scorchclaw gains three Ember every 30 ticks, capped at 100, on a saved phase
+anchored to full growth. Large kills fill the stock immediately. At full stock,
+a positive attack/spell hit against an enemy champion consumes the stock and
+applies the local area effect within the retained 250 radius. Each affected enemy
+receives four delayed one-second true-damage pulses, totaling 5% of its captured
+maximum health, plus a 30% slow that decays linearly over three seconds. Different
+owners retain independent burns/slows; reapplication refreshes that owner's
+captured damage and pulse phase. Applied burns survive source death, clear on
+target death or monster reset, and use the normal shield, reward and assist paths.
+Smite, pet strikes and periodic proc damage cannot trigger the effect. The HUD
+shows Ember stock, current Gustwalker bonus or Moss shield/recovery state; the
+player's scoreboard icon follows earned Smite evolution.
+
+The frozen item and extended tooltip retain a three-second Scorchclaw slow,
+while the original [12.22 description](https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/)
+gives two seconds and specifies a primary-target burn with an area slow. The
+adapter chooses the later item slow value and area burn/slow suggested by its
+extended tooltip. Exact later native area dispatch remains unverified. Movement
+stack candidates and the alternate tick-rate field remain retained without
+inventing an additional charging mechanism. Native particles/audio and complete
+presentation remain unfinished; existing damage, slow and shield feedback is used.
+
 ## Saves and verification
 
-Schema 99 captures owner, variant, movement interpolation/path clocks, target,
+Schema 100 captures owner, variant, movement interpolation/path clocks, target,
 strike/release clocks, source pose, feed/bonus stock, first-monster flag, treat
-deadline and both evolution ticks. It also saves independent Smite slows. Strict
+deadline and both evolution ticks. It also saves the discriminated final passive,
+marked Moss shield, independent per-owner Scorchclaw burns and Smite/Scorchclaw
+slows. Strict
 validation checks ownership, Smite loadouts, fixture scope, phase-aligned treat
 deadlines and consistent earned evolution. Existing incompatible save handling
 applies.
 
-[The current verification ledger](reference/owned-companions-verification.json)
-records exact checks, browser setup limits, rendering evidence, captures and
-production results. Unit and controlled Chrome checks do not certify native
-behavior, full-match balance or performance. Purchased-item consumption, final
-passives, standard role binding/modifiers, jungle bot decisions, epic objectives
-and complete seeded browser matches remain required work.
+[The historical ownership ledger](reference/owned-companions-verification.json)
+records the schema-99 foundation. [The current passive ledger](reference/companion-passives-verification.json)
+records subsequent checks, setup limits, captures and production results. Unit
+and controlled Chrome checks do not certify native behavior, full-match balance
+or performance. Purchased-item consumption, standard role binding/modifiers,
+jungle bot decisions, epic objectives and complete seeded browser matches remain
+required work.

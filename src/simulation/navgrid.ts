@@ -178,6 +178,9 @@ export class NavGrid implements TerrainQueries {
     const i = this.cell(point);
     return i < 0 ? WALL : this.flags[i];
   }
+  inBrush(point: Vec2): boolean {
+    return (this.flagsAt(point) & BRUSH) !== 0;
+  }
   heightAt(point: Vec2): number {
     const p = this.local(point),
       m = this.metadata;

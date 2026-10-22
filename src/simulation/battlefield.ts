@@ -7,6 +7,8 @@ export interface WaveContext {
 }
 
 export interface TerrainQueries {
+  /** Center-point brush membership; omitted by synthetic geometry fixtures. */
+  inBrush?(point: Vec2): boolean;
   reachable(point: Vec2, radius: number, team?: Team): Vec2;
   findPath(from: Vec2, to: Vec2, radius: number, team?: Team): Vec2[];
   lineWalkable(from: Vec2, to: Vec2, radius: number, team?: Team): boolean;

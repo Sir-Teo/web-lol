@@ -14,6 +14,12 @@ import {
 } from '../content/summoners';
 import { smiteTarget } from './smite';
 import {
+  companionMovementBonus,
+  noteCompanionPassiveCombat,
+  triggerScorchclaw,
+  advanceScorchclawBurns,
+} from './companion-passives';
+import {
   advanceOwnedCompanions,
   ownedCompanion,
   noteCompanionCombat,
@@ -370,6 +376,7 @@ export class World {
       rootUntil: 0,
       silenceUntil: 0,
       shields: [],
+      scorchclawBurns: [],
       illumination: [],
       cinderBurn: null,
       garenEShreds: [],
@@ -676,6 +683,7 @@ export class World {
       u.stunUntil = u.rootUntil = u.slowUntil = 0;
       u.slows = [];
       u.cinderBurn = null;
+      u.scorchclawBurns = [];
       u.criticalSlow = null;
       u.hp = Math.min(u.maxHp, u.hp + u.maxHp * profile.policy.resetHealthFractionPerSecond * DT);
       this.move(u, monster.home);
@@ -907,6 +915,7 @@ export class World {
     advanceRiverScuttlers(this);
     grantRiverSpeed(this);
     this.advanceCinderBurns();
+    advanceScorchclawBurns(this);
     for (const u of this.units) {
       if (!this.alive(u)) {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
@@ -2455,7 +2464,7 @@ export class World {
       this.scuttlers?.speedBuffs.some((s) => s.unitId === u.id && s.endTick > this.tick)
         ? SCUTTLER_POLICY.shrineSpeedFraction
         : 0;
-    return u.speed * this.slowFactor(u) * (haste + river);
+    return u.speed * this.slowFactor(u) * (haste + river + companionMovementBonus(this, u));
   }
   perseveranceRegenPerSecond(u: Unit): number {
     if (u.champion !== 'garen' || !this.alive(u)) return 0;
@@ -2522,8 +2531,24 @@ export class World {
       isStructureKind(target.kind) ||
       (kind !== 'cinders' &&
         kind !== 'smite' &&
+        kind !== 'scorchclaw' &&
         (kind === 'lucent' ? source.champion !== 'lux' : source.champion !== 'ashe')) ||
-      !['frost', 'critical-frost', 'crystal-arrow', 'lucent', 'cinders', 'smite'].includes(kind) ||
+      ![
+        'frost',
+        'critical-frost',
+        'crystal-arrow',
+        'lucent',
+        'cinders',
+        'smite',
+        'scorchclaw',
+      ].includes(kind) ||
+      (kind === 'scorchclaw' &&
+        !this.companions.some(
+          (p) =>
+            p.ownerId === source.id &&
+            p.passive?.kind === 'scorchclaw' &&
+            companionStage(p.fed) === 2
+        )) ||
       (kind === 'smite' &&
         (!this.summonerSlot('smite', source.id) ||
           companionStage(ownedCompanion(this, source.id)?.fed ?? 0) === 0)) ||
@@ -3438,7 +3463,7 @@ export class World {
         nextTick: refreshing ? old.nextTick : this.tick + CINDER_BURN_INTERVAL,
         damagePerTick: cinderDamagePerTick(owner.level),
       };
-      if (!refreshing) this.damage(source, target, target.cinderBurn.damagePerTick, 'true');
+      if (!refreshing) this.damage(source, target, target.cinderBurn.damagePerTick, 'true', 'proc');
     }
   }
   /** A burn outlives its holder's buff/death. Refresh preserves its pulse phase. */
@@ -3461,7 +3486,7 @@ export class World {
           burn.phaseTick +
           (Math.floor((this.tick - burn.phaseTick) / CINDER_BURN_INTERVAL) + 1) *
             CINDER_BURN_INTERVAL;
-        this.damage(source, target, burn.damagePerTick, 'true');
+        this.damage(source, target, burn.damagePerTick, 'true', 'proc');
       }
       if (this.tick >= burn.endTick) target.cinderBurn = null;
     }
@@ -3524,7 +3549,14 @@ export class World {
     target: Unit,
     raw: number,
     kind: 'physical' | 'magic' | 'true',
-    category: 'direct' | 'area' | 'cleanup' | 'summoner' | 'companion' = 'direct'
+    category:
+      | 'direct'
+      | 'area'
+      | 'cleanup'
+      | 'summoner'
+      | 'companion'
+      | 'proc'
+      | 'companion-passive' = 'direct'
   ): void {
     if (
       this.winner ||
@@ -3542,7 +3574,7 @@ export class World {
         : 0;
     const amount =
       damageAfterResistance(
-        raw * companionDamageMultiplier(this, source, target, category),
+        raw * companionDamageMultiplier(this, source, target, category, kind),
         resistance
       ) *
       (1 - reduction);
@@ -3557,6 +3589,7 @@ export class World {
     if (amount > 0 && (source.kind === 'champion' || source.kind === 'turret'))
       this.interruptPerseverance(source, target);
     let remainder = Math.max(0, amount);
+    if (amount > 0 && category !== 'cleanup') noteCompanionPassiveCombat(this, source, target);
     let absorbed = 0;
     // Earliest-expiring shield first; stable insertion order breaks equal-deadline ties.
     target.shields.sort((a, b) => a.endTick - b.endTick);
@@ -3578,6 +3611,7 @@ export class World {
     if (
       category !== 'summoner' &&
       category !== 'companion' &&
+      category !== 'companion-passive' &&
       attacker?.inventory.includes('blade') &&
       this.alive(source) &&
       source.team !== target.team &&
@@ -3692,6 +3726,7 @@ export class World {
       target.slows = [];
       target.illumination = [];
       target.cinderBurn = null;
+      target.scorchclawBurns = [];
       target.releaseTick = null;
       this.finishGarenQAttack(target, 'death');
       target.attackCycle = null;
@@ -3868,6 +3903,7 @@ export class World {
         for (const award of awards) this.gainExperience(award.amount, award.id);
       }
     }
+    if (amount > 0) triggerScorchclaw(this, source, target, category);
   }
   gainExperience(amount: number, championId = this.player.id): void {
     const state = this.championState(championId);
@@ -3939,6 +3975,7 @@ export class World {
     u.rootUntil = 0;
     u.silenceUntil = 0;
     u.shields = [];
+    u.scorchclawBurns = [];
     u.illumination = [];
     u.garenEShreds = [];
     u.aiRetreating = false;

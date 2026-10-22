@@ -230,5 +230,107 @@
   "championSmiteDamage": 40,
   "championSmiteSlow": 0.2,
   "championSmiteSlowSeconds": 2,
-  "finalSmiteRadius": 425
+  "finalSmiteRadius": 425,
+  "finalPassives": {
+    "gustwalker": {
+      "values": {
+        "Omnivamp": 0.07000000029802322,
+        "AvatarCampMoveSpeed": 0.30000001192092896,
+        "CampMSDuration": 1.5,
+        "AvatarMonsterDR": null,
+        "TotalCounters": 35.0,
+        "Breakpoint1": 20.0,
+        "ChampKillAmount": 1.0,
+        "MonsterKillAmount": 1.0,
+        "EpicKillAmount": 1.0,
+        "AvatarEnhancedCampMS": 0.44999998807907104
+      },
+      "calculations": {
+        "ManaRestoreForTooltip": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 8.0,
+              "mInitialBonusPerLevel": 0.6000000238418579,
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      }
+    },
+    "scorchclaw": {
+      "values": {
+        "Omnivamp": 0.07000000029802322,
+        "AvatarMonsterDR": null,
+        "AvatarMaxHPBurnTotal": 0.05000000074505806,
+        "AvatarBurnDuration": 4.0,
+        "AvatarSlowAmount": 0.30000001192092896,
+        "AvatarSlowDuration": 3.0,
+        "AvatarDistPerStack": 60.0,
+        "AvatarMaxStacks": 100.0,
+        "AvatarTickRatePerXSeconds": 1.0,
+        "AvatarPassiveHaste": null,
+        "AvatarAoERadius": 250.0,
+        "TotalCounters": 35.0,
+        "Breakpoint1": 20.0,
+        "ChampKillAmount": 1.0,
+        "MonsterKillAmount": 1.0,
+        "EpicKillAmount": 1.0,
+        "StacksPerHalfSec": 3.0
+      },
+      "calculations": {
+        "ManaRestoreForTooltip": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 8.0,
+              "mInitialBonusPerLevel": 0.6000000238418579,
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      }
+    },
+    "mosstomper": {
+      "values": {
+        "AvatarMonsterDR": null,
+        "AvatarDamageCD": 10.0,
+        "TotalCounters": 35.0,
+        "Breakpoint1": 20.0,
+        "ChampKillAmount": 1.0,
+        "MonsterKillAmount": 1.0,
+        "EpicKillAmount": 1.0,
+        "TenacityAmount": null,
+        "FallOffBuffDuration": 1.5
+      },
+      "calculations": {
+        "ManaRestoreForTooltip": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 8.0,
+              "mInitialBonusPerLevel": 0.6000000238418579,
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "MaxShield": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 200.0,
+              "mBreakpoints": [
+                {
+                  "mLevel": 11,
+                  "mBonusPerLevelAtAndAfter": 20.0,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      }
+    }
+  }
 }

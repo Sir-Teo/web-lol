@@ -21,3 +21,38 @@ export const companionStage = (fed: number): 0 | 1 | 2 =>
   fed >= source.fullGrowthFeeds ? 2 : fed >= source.firstEvolutionFeeds ? 1 : 0;
 export const companionSmiteDamage = (fed: number): number =>
   [600, source.upgradedSmiteDamage, source.finalSmiteDamage][companionStage(fed)];
+/** Delivery bindings beyond the retained item scalars remain local policies. */
+export const COMPANION_PASSIVE_POLICY = {
+  emberIntervalTicks: 30,
+  burnIntervalTicks: 60,
+  aoeBurn: true,
+} as const;
+const normalized = (value: number) => Math.round(value * 1e6) / 1e6;
+const g = source.finalPassives.gustwalker.values,
+  s = source.finalPassives.scorchclaw.values,
+  m = source.finalPassives.mosstomper.values;
+export const COMPANION_PASSIVES = {
+  gustwalker: {
+    brushBonus: normalized(g.AvatarCampMoveSpeed),
+    killBonus: normalized(g.AvatarEnhancedCampMS),
+    decayTicks: Math.round(g.CampMSDuration * 60),
+  },
+  scorchclaw: {
+    maxStacks: s.AvatarMaxStacks,
+    stacksPerInterval: s.StacksPerHalfSec,
+    radius: s.AvatarAoERadius,
+    healthFraction: normalized(s.AvatarMaxHPBurnTotal),
+    burnTicks: Math.round(s.AvatarBurnDuration * 60),
+    slowFraction: normalized(s.AvatarSlowAmount),
+    slowTicks: Math.round(s.AvatarSlowDuration * 60),
+  },
+  mosstomper: { rechargeTicks: Math.round(m.AvatarDamageCD * 60) },
+} as const;
+export function mosstomperShield(level: number): number {
+  const part = source.finalPassives.mosstomper.calculations.MaxShield.mFormulaParts[0],
+    breakpoint = part.mBreakpoints[0];
+  return (
+    part.mLevel1Value +
+    Math.max(0, level - breakpoint.mLevel + 1) * breakpoint.mBonusPerLevelAtAndAfter
+  );
+}

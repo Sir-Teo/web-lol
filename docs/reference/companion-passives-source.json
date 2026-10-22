@@ -1,0 +1,154 @@
+{
+  "parent": {
+    "path": "docs/reference/jungle-companions-source.json",
+    "sha256": "392fc0c4c5d3d327cb811746c9b1c26c8a20c9013c7697cf3ad7c6ea69db167b"
+  },
+  "itemRecords": {
+    "gustwalker": {
+      "path": "Items/1102",
+      "values": {
+        "Omnivamp": 0.07000000029802322,
+        "AvatarCampMoveSpeed": 0.30000001192092896,
+        "CampMSDuration": 1.5,
+        "AvatarMonsterDR": null,
+        "TotalCounters": 35.0,
+        "Breakpoint1": 20.0,
+        "ChampKillAmount": 1.0,
+        "MonsterKillAmount": 1.0,
+        "EpicKillAmount": 1.0,
+        "AvatarEnhancedCampMS": 0.44999998807907104
+      },
+      "calculations": {
+        "ManaRestoreForTooltip": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 8.0,
+              "mInitialBonusPerLevel": 0.6000000238418579,
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      }
+    },
+    "scorchclaw": {
+      "path": "Items/1101",
+      "values": {
+        "Omnivamp": 0.07000000029802322,
+        "AvatarMonsterDR": null,
+        "AvatarMaxHPBurnTotal": 0.05000000074505806,
+        "AvatarBurnDuration": 4.0,
+        "AvatarSlowAmount": 0.30000001192092896,
+        "AvatarSlowDuration": 3.0,
+        "AvatarDistPerStack": 60.0,
+        "AvatarMaxStacks": 100.0,
+        "AvatarTickRatePerXSeconds": 1.0,
+        "AvatarPassiveHaste": null,
+        "AvatarAoERadius": 250.0,
+        "TotalCounters": 35.0,
+        "Breakpoint1": 20.0,
+        "ChampKillAmount": 1.0,
+        "MonsterKillAmount": 1.0,
+        "EpicKillAmount": 1.0,
+        "StacksPerHalfSec": 3.0
+      },
+      "calculations": {
+        "ManaRestoreForTooltip": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 8.0,
+              "mInitialBonusPerLevel": 0.6000000238418579,
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      }
+    },
+    "mosstomper": {
+      "path": "Items/1103",
+      "values": {
+        "AvatarMonsterDR": null,
+        "AvatarDamageCD": 10.0,
+        "TotalCounters": 35.0,
+        "Breakpoint1": 20.0,
+        "ChampKillAmount": 1.0,
+        "MonsterKillAmount": 1.0,
+        "EpicKillAmount": 1.0,
+        "TenacityAmount": null,
+        "FallOffBuffDuration": 1.5
+      },
+      "calculations": {
+        "ManaRestoreForTooltip": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 8.0,
+              "mInitialBonusPerLevel": 0.6000000238418579,
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "MaxShield": {
+          "mFormulaParts": [
+            {
+              "mLevel1Value": 200.0,
+              "mBreakpoints": [
+                {
+                  "mLevel": 11,
+                  "mBonusPerLevelAtAndAfter": 20.0,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      }
+    }
+  },
+  "published": [
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/",
+      "version": "12.22",
+      "claims": [
+        "Original Scorchclaw charges three stacks per half second, readies on large-monster kills, and applies an area slow plus a primary-target burn.",
+        "Original Mosstomper shield persists until broken and recovers after camp kills or ten seconds outside combat."
+      ],
+      "boundary": "Historical dispatch evidence; original damage/shield/speed scalars and early protection bonuses do not replace the frozen later data."
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-20-notes/",
+      "version": "13.20",
+      "claims": [
+        "Gustwalker brush/kill bonuses changed to 30% and 45%.",
+        "Mosstomper no longer grants tenacity or slow resistance.",
+        "Only attacks and spells trigger Scorchclaw; Smite is excluded."
+      ]
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+      "version": "26.1",
+      "claims": [
+        "Gustwalker duration changed to 1.5 seconds.",
+        "Standard quest completion requires 35 feeds."
+      ],
+      "boundary": "The additional jungle role movement and post-quest gold/XP bonuses remain separate unfinished role work."
+    }
+  ],
+  "discrepancies": [
+    "Frozen item 1101 AvatarSlowDuration is three seconds. The original published 12.22 description gives two seconds. Adapter uses the retained later item value; matched native timing remains unverified.",
+    "Frozen extended tooltip describes burning enemies, while original 12.22 explicitly assigns the burn to the primary target and the slow to its area. Adapter uses area burn and area slow within the retained 250 radius; exact later dispatch requires native comparison.",
+    "AvatarDistPerStack=60 and AvatarTickRatePerXSeconds=1 remain retained candidates. Adapter uses the retained StacksPerHalfSec=3 with a local 30-tick phase; it does not invent movement-based stacks.",
+    "Named missing AvatarMonsterDR, AvatarPassiveHaste and TenacityAmount values remain null; they grant no additional effects."
+  ],
+  "localBindings": [
+    "Sample center-point brush membership each simulation tick; refresh 30% in brush and decay linearly over 90 ticks after leaving. A qualifying kill produces an independent linearly decaying 45% burst; select the stronger contribution and add it to existing haste.",
+    "Mosstomper uses generic earliest-expiry shield absorption with one marked permanent self shield; positive hostile incoming or outgoing damage, including absorbed damage and companion strikes, resets a 600-tick recovery deadline. Qualifying kills refresh immediately. Death clears the shield; the saved deadline can elapse while dead and grants the shield once alive.",
+    "Scorchclaw keeps a saved half-second phase, three stacks per pulse capped at 100. Qualifying kills fill it. A positive attack/spell hit against a champion consumes full stock, applying independent per-owner burns with four delayed one-second pulses and the retained decaying slow. Smite, pet damage and periodic proc categories are excluded. Reapplication refreshes that source; applied burns persist through source death and clear on target death/reset.",
+    "The local monster damage adapter now excludes true damage from outgoing amplification. This generic interaction requires native calibration; Smite, companion strikes and the new item burn retain explicit category boundaries."
+  ],
+  "nativeCallbacksRecovered": false,
+  "status": "Source-linked controlled encounter adapter, not complete purchased item/role behavior or native certification."
+}

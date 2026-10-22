@@ -26,6 +26,13 @@ function fixture(rows: number[][]) {
 }
 
 describe('continuous navigation clearance', () => {
+  it('exposes center-point brush flags without treating walls or off-grid cells as brush', () => {
+    const grid = fixture([[0, 1, 2]]);
+    expect(grid.inBrush(fromRiot(25, 25))).toBe(false);
+    expect(grid.inBrush(fromRiot(75, 25))).toBe(true);
+    expect(grid.inBrush(fromRiot(125, 25))).toBe(false);
+    expect(grid.inBrush(fromRiot(-25, 25))).toBe(false);
+  });
   it('returns position-only waypoints when pathfinding receives entity records', () => {
     const grid = fixture(Array.from({ length: 8 }, () => Array(8).fill(0)));
     const start = { ...fromRiot(75, 75), id: 1, hp: 610 };
