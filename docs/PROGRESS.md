@@ -6,7 +6,7 @@ Last updated: October 21, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,077 source/simulation/geometry checks and four focused Chrome Gromp combat/death checks. The earlier encounter increment also passed ten existing input/save/fog regression cases. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,083 source/simulation/geometry checks, six focused Chrome Gromp combat/death/missile checks and ten existing input/save/fog regression cases. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,7 +14,7 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, Root-scalar last-hit rewards and schema-86 continuation. A separate simulation diagnostic uses both actual Rift source positions. Standard-mode camp scheduling, remaining monster effects/audio and jungle-role matches remain unfinished.
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-87 continuation. A separate simulation diagnostic uses both actual Rift source positions. Standard-mode camp scheduling, remaining monster effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
@@ -2895,3 +2895,49 @@ alongside the broader standard camp scheduler, jungle roles and full-match
 requirements. This advances the original goal without certifying completion.
 Commands, source assumptions, diagnostics and hashes are retained in
 `reference/gromp-death-burst-verification.json`.
+
+
+## Gromp source missiles and retained flight — October 21, 2026
+
+The [Gromp missile adapter](GROMP-ATTACK.md) replaces the generic red projectile
+with all four original emitters: orb, subtractive background, a two-particle
+flare-plane burst and partially bound trail motes. Source lifetimes, emission
+windows/rates, correlated birth tables, shape axes, velocities/drag, binding,
+appearance curves, passes and blend readings remain traceable to the frozen
+Troybin and full ranged-attack spell. Three previously exported lossless textures
+load only with Gromp. Shared Python field extraction leaves death output bytes
+unchanged; no bitmap or model assets changed.
+
+Schema 87 retains up to 34 post-step position/heading frames per released attack
+and a 31-tick stopped tail. Swept contact uses its exact endpoint and target loss
+freezes its prior endpoint. Histories require the neutral Gromp owner and matching
+active projectile, reject crossed/missing/gapped/future/conflicting/expired state
+and cannot replay damage. Rendering reconstructs all active buffer bytes from
+saved clocks and uses up to four emitter draws per flight. Hidden/retired batches
+dispose owned geometry/materials. Source textures remain shared.
+
+Validation: all 1,083 checks across 218 files plus TypeScript, six focused Gromp
+Chrome cases and ten existing checkpoint/Lux-input/structure-vision cases pass.
+The final Gromp cases were repeated after strengthening heading validation.
+A real in-flight Flash enters Gromp reset while its released missile continues
+and damages its target. All four layers contribute pixels with depth testing
+retained: 17/137/88/220 individually and 330 combined in the recorded sample.
+Active and stopped buffers survive separate UI save/reload cycles. Fog disposes
+four geometries/materials; final tail retirement disposes the remaining two and
+removes history/effect objects. Flight and unobstructed paused-tail captures were
+visually reviewed at 1440×900. The three RGB framebuffer factor probes pass.
+
+The first close-range check exposed actor occlusion of orb, flare and trail.
+Diagnostic caster removal restored those pixels. Current source-root/gravity/
+vertical-facing initialization, flat 0.9-height policy, actor overlap and native
+ranged/melee selection remain unresolved; stationary close-range presentation is
+not certified. These findings are retained rather than tuning depth/range/size to
+force visibility. Native RNG, cadence, binding, linger and final composition,
+source hit effects/audio, death spores and miniature dispatch remain open.
+Standard camps, jungle-role matches and the full project requirements continue.
+
+Repeated export is exact. Nested-path production smoke passes with 17 source
+recordings and no Gromp module/asset requests. The complete browser suite was
+not repeated. Commands, source hashes, active/stopped GPU buffer checks, the
+close-range finding and captures are recorded in
+`reference/gromp-attack-verification.json`.

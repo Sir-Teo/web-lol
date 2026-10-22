@@ -133,7 +133,9 @@ async function boot(): Promise<void> {
     loadInterfaceFonts(),
     audio.load(world.units.some((u) => u.champion === 'garen')),
     loadReferenceModels(world.units.some((u) => u.kind === 'monster')),
-    ...(world.units.some((u) => u.kind === 'monster') ? [view.grompDeath.load()] : []),
+    ...(world.units.some((u) => u.kind === 'monster')
+      ? [view.grompDeath.load(), view.grompAttack.load()]
+      : []),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')
       ? [view.garenJustice.load(), view.garenCourage.load(), view.garenDecisiveStrike.load()]

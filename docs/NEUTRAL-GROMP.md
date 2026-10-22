@@ -90,13 +90,15 @@ its source mesh, neutral bar and slow feedback. The sampled death pose has no
 visible main-body geometry. The [legacy effect adapter](GROMP-EFFECTS.md) now
 reconstructs all eight source death-pop emitters from the saved death clock and
 original ground bone. Native timing/composition, spores, miniature/submesh
-dispatch and source audio remain incomplete/unverified. Projectile appearance/audio use
-the existing generic combat path, and native Gromp shader/effect composition is
-not certified. Broader champion-versus-monster kit interactions also remain
-unfinished.
+dispatch and source audio remain incomplete/unverified. The
+[four source missile emitters](GROMP-ATTACK.md) replace the generic attack mesh
+and reconstruct from saved flight paths. Native root/gravity/height and close
+actor overlap remain unresolved; hit effects/audio retain the generic combat
+path. Native shader/effect composition and broader champion-versus-monster kit
+interactions remain unfinished.
 
-Schema **86** retains encounter identity, neutral home, phase, target, attack,
-projectiles, animation and independent clocks. It rejects crossed faction,
+Schema **87** retains encounter identity, neutral home, phase, target, attack,
+projectiles, bounded released-attack paths, animation and independent clocks. It rejects crossed faction,
 unsupported species, missing/inconsistent aggressors, champion/AI/structure
 metadata, respawn state and homes outside the battlefield. The saved encounter
 identity outlives its corpse, preventing an implicit respawn on reload. Earlier

@@ -153,7 +153,8 @@ tints and lookup coordinates written per surviving particle. The complete
 224-particle birth burst uses eight draws and 3,744 vertices. Draw ranges shrink
 as particles expire; surviving corners remain in birth-ordinal order. No native
 intra-emitter sort equivalence is claimed. Current blue visibility gates the
-effect. Hidden/expired batches remove their scene objects and dispose geometry
+effect. Encounter startup also loads the three [missile textures](GROMP-ATTACK.md).
+Hidden/expired batches remove their scene objects and dispose geometry
 and materials; reappearance reconstructs the exact active buffers from saved
 clocks.
 

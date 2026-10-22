@@ -1,0 +1,861 @@
+{
+  "sourcePinSha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033",
+  "characterPinSha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+  "spell": {
+    "ObjectName": "SRU_GrompBasicAttack",
+    "objectPath": "{e545321f}",
+    "mScriptName": "SRU_GrompBasicAttack",
+    "mSpell": {
+      "mAffectsTypeFlags": 5327,
+      "mAnimationName": "Attack_ranged",
+      "cooldownTime": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Cooldown": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "{0a3e0478}": 0.0,
+        "__type": "{0a0eddc9}"
+      },
+      "bHaveHitEffect": true,
+      "castRange": [
+        200.0,
+        200.0,
+        200.0,
+        200.0,
+        200.0,
+        200.0,
+        200.0
+      ],
+      "castRangeValues": {
+        "values": [
+          200.0,
+          200.0,
+          200.0,
+          200.0,
+          200.0,
+          200.0,
+          200.0
+        ],
+        "{0a3e0478}": 200.0,
+        "__type": "{0a0eddc9}"
+      },
+      "castRadius": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "castConeDistance": 100.0,
+      "mMissileSpec": {
+        "movementComponent": {
+          "mTargetHeightAugment": 100.0,
+          "mOffsetInitialTargetHeight": 100.0,
+          "mStartBoneName": "root",
+          "mSpeed": 1800.0,
+          "__type": "FixedSpeedMovement"
+        },
+        "heightSolver": {
+          "mGravity": 1500.0,
+          "__type": "GravityHeightSolver"
+        },
+        "verticalFacing": {
+          "__type": "VeritcalFacingMatchVelocity"
+        },
+        "behaviors": [
+          {
+            "__type": "CastOnMovementComplete"
+          },
+          {
+            "__type": "DestroyOnMovementComplete"
+          }
+        ],
+        "__type": "MissileSpecification"
+      },
+      "mCastType": 1,
+      "castFrame": 12.0,
+      "missileSpeed": 1800.0,
+      "mMissileEffectName": "DATA/Particles/SRU_Gromp_BA1_mis.troy",
+      "mHitEffectOrientType": 2,
+      "mHitEffectName": "DATA/Particles/SRU_Gromp_BA_Tar.troy",
+      "bHaveHitBone": true,
+      "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC",
+      "mClientData": {
+        "mTargeterDefinitions": [
+          {
+            "__type": "TargeterDefinitionRange"
+          }
+        ],
+        "__type": "SpellDataResourceClient"
+      },
+      "__type": "SpellDataResource"
+    },
+    "__type": "SpellObject"
+  },
+  "profiles": [
+    {
+      "name": "Mis_orb",
+      "sourceRecord": "data/particles/sru_gromp_ba1_mis.troybin",
+      "sourceIndex": 0,
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_ba_orb.png",
+      "life": 0.5,
+      "rate": 2,
+      "emitterLife": null,
+      "single": false,
+      "linger": 0,
+      "bind": 1,
+      "kind": "billboard",
+      "size": [
+        40,
+        40,
+        40
+      ],
+      "offset": [
+        0,
+        10,
+        0
+      ],
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        1,
+        0,
+        0
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "time": 0.3,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.7,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [],
+      "uniform": false,
+      "probabilities": {
+        "life": {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              1,
+              360
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "local": true,
+      "particleLocal": true,
+      "blend": 0,
+      "priority": 1,
+      "depthTest": true
+    },
+    {
+      "name": "black_background",
+      "sourceRecord": "data/particles/sru_gromp_ba1_mis.troybin",
+      "sourceIndex": 1,
+      "texture": "assets/effects/gromp-legacy/particles/morgana_skin05_q_black_mis.png",
+      "life": 0.5,
+      "rate": 1,
+      "emitterLife": 0.5,
+      "single": true,
+      "linger": 1,
+      "bind": 1,
+      "kind": "quad",
+      "size": [
+        180,
+        230,
+        220
+      ],
+      "offset": [
+        0,
+        -50,
+        0
+      ],
+      "velocity": [
+        0,
+        -50,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0,
+          "value": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 0.001,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.2,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.6,
+          "value": [
+            1,
+            1,
+            1,
+            0.3
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "uniform": false,
+      "probabilities": {
+        "life": {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0.5,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "local": true,
+      "particleLocal": false,
+      "blend": 2,
+      "priority": -1,
+      "depthTest": true
+    },
+    {
+      "name": "mis_plane",
+      "sourceRecord": "data/particles/sru_gromp_ba1_mis.troybin",
+      "sourceIndex": 2,
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_ba_flare.png",
+      "life": 0.5,
+      "rate": 2,
+      "emitterLife": null,
+      "single": true,
+      "linger": 0,
+      "bind": 1,
+      "kind": "quad",
+      "size": [
+        150,
+        120,
+        180
+      ],
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "velocity": [
+        0,
+        -50,
+        0
+      ],
+      "drag": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "time": 0.3,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 0.7,
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            1,
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "scaleCurve": [
+        {
+          "time": 0.0,
+          "value": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "time": 1.0,
+          "value": [
+            0.8,
+            0.8,
+            0.8
+          ]
+        }
+      ],
+      "uniform": false,
+      "probabilities": {
+        "life": {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        "size": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              1
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [],
+      "local": true,
+      "particleLocal": true,
+      "blend": 4,
+      "priority": 1,
+      "depthTest": true
+    },
+    {
+      "name": "trailorbs",
+      "sourceRecord": "data/particles/sru_gromp_ba1_mis.troybin",
+      "sourceIndex": 3,
+      "texture": "assets/effects/gromp-legacy/particles/sru_gromp_ba_orb.png",
+      "life": 0.5,
+      "rate": 25,
+      "emitterLife": 0.5,
+      "single": false,
+      "linger": 1,
+      "bind": 0.6000000000000001,
+      "kind": "billboard",
+      "size": [
+        16,
+        16,
+        16
+      ],
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "velocity": [
+        0,
+        50,
+        0
+      ],
+      "drag": [
+        1,
+        1,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "colorCurve": [],
+      "scaleCurve": [
+        {
+          "time": 0,
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "uniform": true,
+      "probabilities": {
+        "life": {
+          "times": [
+            0.0,
+            0.9,
+            1.0
+          ],
+          "values": [
+            0.5,
+            0.8,
+            1
+          ]
+        },
+        "size": [
+          {
+            "times": [
+              0.0,
+              0.8
+            ],
+            "values": [
+              2,
+              0.2
+            ]
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "offset": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "velocity": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ],
+        "rotation": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "shape": [
+        {
+          "axis": [
+            0,
+            1,
+            1
+          ],
+          "value": 1,
+          "probability": {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              55,
+              -55
+            ]
+          }
+        },
+        {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "value": 1,
+          "probability": {
+            "times": [
+              0,
+              1
+            ],
+            "values": [
+              0,
+              360
+            ]
+          }
+        }
+      ],
+      "local": true,
+      "particleLocal": false,
+      "blend": 0,
+      "priority": 4,
+      "depthTest": true
+    }
+  ],
+  "status": "Four source missile emitters. Fixed-grid births, indexed correlated RNG, type-0 stop caps, birth-frame orientation and constant translation binding are local reconstructions. Root/gravity/vertical-facing source fields are preserved but not implemented; current terrain-relative height remains 0.9 world units. Hit effect/audio and native parity remain unfinished."
+}

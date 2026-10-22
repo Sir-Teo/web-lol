@@ -1,4 +1,8 @@
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
+import {
+  GROMP_ATTACK_PATH_FRAMES,
+  GROMP_ATTACK_VISUAL_TAIL_TICKS,
+} from '../content/gromp-attack-presentation';
 import { isStructureKind } from './types';
 import { LUX_ILLUMINATION_HISTORY_TICKS } from '../content/lux-illumination-presentation';
 import { impactTargetRig, type ImpactRig } from '../content/impact-target';
@@ -53,7 +57,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 86;
+export const SNAPSHOT_VERSION = 87;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
@@ -717,6 +721,22 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  grompAttackVisuals: z
+    .array(
+      z.strictObject({
+        origin: point,
+        id,
+        sourceId: id,
+        team: z.literal('neutral'),
+        launchTick: tick,
+        stopTick: tick.nullable(),
+        frames: z
+          .array(z.strictObject({ tick, x: z.number(), y: z.number(), facing: z.number() }))
+          .min(1)
+          .max(GROMP_ATTACK_PATH_FRAMES),
+      })
+    )
+    .max(10000),
   luxBeams: z
     .array(z.strictObject({ id, sourceId: id, team, origin: point, point, startTick: tick }))
     .max(10000),
@@ -1065,6 +1085,56 @@ export function decodeSnapshot(text: string) {
     )
       throw new Error('Saved Lux attack lacks presentation history.');
   }
+  const grompAttackIds = new Set<number>();
+  for (const visual of state.grompAttackVisuals) {
+    const source = state.units.find((u) => u.id === visual.sourceId),
+      p = state.projectiles.find((p) => p.id === visual.id),
+      lastTick = visual.stopTick ?? state.tick,
+      firstTick = Math.max(visual.launchTick, lastTick - GROMP_ATTACK_PATH_FRAMES + 1);
+    if (
+      grompAttackIds.has(visual.id) ||
+      attackVisualIds.has(visual.id) ||
+      visual.id >= state.nextId ||
+      [
+        ...state.units,
+        ...state.pendingAttackProjectiles,
+        ...state.luxBeams,
+        ...state.singularities,
+      ].some((e) => e.id === visual.id) ||
+      state.scoutVisuals.some((v) => v.flight.id === visual.id) ||
+      state.luxImpactVisuals.some((v) => v.id === visual.id) ||
+      state.luxIlluminationVisuals.some((v) => v.id === visual.id) ||
+      source?.kind !== 'monster' ||
+      source.monster.species !== 'gromp' ||
+      visual.launchTick > lastTick ||
+      lastTick > state.tick ||
+      (visual.stopTick !== null &&
+        state.tick >= visual.stopTick + GROMP_ATTACK_VISUAL_TAIL_TICKS) ||
+      visual.frames.length !== lastTick - firstTick + 1 ||
+      visual.frames.some((f, i) => f.tick !== firstTick + i) ||
+      (visual.stopTick === null
+        ? !p ||
+          p.type !== 'attack' ||
+          p.team !== 'neutral' ||
+          p.source !== visual.sourceId ||
+          p.launchTick !== visual.launchTick ||
+          p.origin?.x !== visual.origin.x ||
+          p.origin?.y !== visual.origin.y ||
+          p.x !== visual.frames.at(-1)!.x ||
+          p.y !== visual.frames.at(-1)!.y ||
+          Math.abs(visual.frames.at(-1)!.facing - Math.atan2(p.direction.x, p.direction.y)) > 1e-8
+        : !!p)
+    )
+      throw new Error('Saved match contains an invalid Gromp attack visual.');
+    grompAttackIds.add(visual.id);
+  }
+  for (const p of state.projectiles)
+    if (
+      p.type === 'attack' &&
+      state.units.find((u) => u.id === p.source)?.kind === 'monster' &&
+      !grompAttackIds.has(p.id)
+    )
+      throw new Error('Saved Gromp attack lacks presentation history.');
   const bindingStopIds = new Set<number>();
   for (const flight of state.bindingStops) {
     const source = state.units.find((u) => u.id === flight.sourceId);
@@ -1083,6 +1153,7 @@ export function decodeSnapshot(text: string) {
       length > ((flight.stopTick - flight.launchTick + 1) * LUX_BINDING.speed) / TICK_RATE + 1e-6 ||
       (flight.reason === 'range' && Math.abs(length - LUX_BINDING.range) > 1e-6) ||
       state.luxAttackVisuals.some((v) => v.id === flight.id) ||
+      state.grompAttackVisuals.some((v) => v.id === flight.id) ||
       state.luxImpactVisuals.some((v) => v.id === flight.id) ||
       state.scoutVisuals.some((v) => v.flight.id === flight.id)
     )

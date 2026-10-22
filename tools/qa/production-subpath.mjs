@@ -69,7 +69,7 @@ try {
   });
   page.on('request', (request) => {
     if (
-      /sru-(blue|gromp)-base|gromp-legacy|gromp-death|jungle-character-source|jungle-characters/.test(
+      /sru-(blue|gromp)-base|gromp-legacy|gromp-death|gromp-attack|jungle-character-source|jungle-characters/.test(
         request.url()
       )
     )

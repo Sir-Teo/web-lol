@@ -15,7 +15,16 @@ import {
   LUX_ATTACK_PATH_FRAMES,
 } from '../content/lux-attack-presentation';
 import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
-import type { LuxImpactVisual, LuxAttackVisual, LuxIlluminationVisual } from './types';
+import type {
+  LuxImpactVisual,
+  LuxAttackVisual,
+  LuxIlluminationVisual,
+  GrompAttackVisual,
+} from './types';
+import {
+  GROMP_ATTACK_PATH_FRAMES,
+  GROMP_ATTACK_VISUAL_TAIL_TICKS,
+} from '../content/gromp-attack-presentation';
 import { LUX_ILLUMINATION_HISTORY_TICKS } from '../content/lux-illumination-presentation';
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
@@ -133,6 +142,7 @@ export class World {
   projectiles: Projectile[] = [];
   luxBeams: LuxBeam[] = [];
   luxAttackVisuals: LuxAttackVisual[] = [];
+  grompAttackVisuals: GrompAttackVisual[] = [];
   luxImpactVisuals: LuxImpactVisual[] = [];
   luxIlluminationVisuals: LuxIlluminationVisual[] = [];
   singularities: Singularity[] = [];
@@ -552,6 +562,9 @@ export class World {
     );
     this.luxAttackVisuals = this.luxAttackVisuals.filter(
       (v) => v.stopTick === null || this.tick < v.stopTick + LUX_ATTACK_VISUAL_TAIL_TICKS
+    );
+    this.grompAttackVisuals = this.grompAttackVisuals.filter(
+      (v) => v.stopTick === null || this.tick < v.stopTick + GROMP_ATTACK_VISUAL_TAIL_TICKS
     );
     for (const unit of this.units)
       if (unit.slows.length) unit.slows = unit.slows.filter((slow) => slow.endTick > this.tick);
@@ -2034,6 +2047,16 @@ export class World {
                 volleyId: null,
               };
               (index === 0 ? this.projectiles : this.pendingAttackProjectiles).push(projectile);
+              if (u.kind === 'monster' && u.monster.species === 'gromp')
+                this.grompAttackVisuals.push({
+                  origin: { ...projectile.origin! },
+                  id: projectile.id,
+                  sourceId: u.id,
+                  team: 'neutral',
+                  launchTick: this.tick,
+                  stopTick: null,
+                  frames: [],
+                });
               if (u.champion === 'lux')
                 this.luxAttackVisuals.push({
                   origin: { x: u.x, y: u.y },
@@ -2716,7 +2739,9 @@ export class World {
     const survivors: Projectile[] = [];
     const visualFrames = new Map<number, { tick: number; x: number; y: number; facing: number }>();
     const visualIds = new Set(
-      this.luxAttackVisuals.filter((v) => v.stopTick === null).map((v) => v.id)
+      [...this.luxAttackVisuals, ...this.grompAttackVisuals]
+        .filter((v) => v.stopTick === null)
+        .map((v) => v.id)
     );
     for (const p of this.projectiles) {
       p.previous = { x: p.x, y: p.y };
@@ -2982,6 +3007,13 @@ export class World {
     }
     this.projectiles = this.winner ? [] : survivors;
     const survivingIds = new Set(this.projectiles.map((p) => p.id));
+    for (const visual of this.grompAttackVisuals) {
+      if (visual.stopTick !== null) continue;
+      const previous = visual.frames.at(-1);
+      visual.frames.push(visualFrames.get(visual.id) ?? { ...previous!, tick: this.tick });
+      if (!survivingIds.has(visual.id)) visual.stopTick = this.tick;
+      if (visual.frames.length > GROMP_ATTACK_PATH_FRAMES) visual.frames.shift();
+    }
     for (const visual of this.luxAttackVisuals) {
       if (visual.stopTick !== null) continue;
       const previous = visual.frames.at(-1);
@@ -4255,6 +4287,7 @@ export class World {
       projectiles: this.projectiles,
       luxBeams: this.luxBeams,
       luxAttackVisuals: this.luxAttackVisuals,
+      grompAttackVisuals: this.grompAttackVisuals,
       luxImpactVisuals: this.luxImpactVisuals,
       luxIlluminationVisuals: this.luxIlluminationVisuals,
       singularities: this.singularities,

@@ -34,6 +34,7 @@ import { GAREN_R } from '../content/garen-r';
 import { LazyGarenJustice } from './lazy-garen-justice';
 import { LazyGarenCourage } from './lazy-garen-courage';
 import { LazyGrompDeath } from './lazy-gromp-death';
+import { LazyGrompAttack } from './lazy-gromp-attack';
 import { GarenSpin } from './garen-spin';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
@@ -92,6 +93,7 @@ export class GameView {
   );
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   grompDeath = new LazyGrompDeath(this.scene);
+  grompAttack = new LazyGrompAttack(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
   smoke = new HawkshotSmoke(this.scene, (p) => this.ground(p));
@@ -667,6 +669,7 @@ export class GameView {
     this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
+    this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);
@@ -808,6 +811,7 @@ export class GameView {
     const active = new Set<number>();
     for (const p of world.projectiles) {
       if (p.type === 'attack' && world.unit(p.source)?.champion === 'lux') continue;
+      if (p.type === 'attack' && world.grompAttackVisuals.some((v) => v.id === p.id)) continue;
       active.add(p.id);
       let model = this.projectileModels.get(p.id);
       if (!model) {

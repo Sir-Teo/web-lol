@@ -1,0 +1,234 @@
+{
+  "recordedAt": "2026-10-22T03:14:20.433388+00:00",
+  "baseRevision": "87d343ce25cf54c611b3b104672465d2ef1b6b6a",
+  "scope": "Render all four original Gromp missile emitters on retained real neutral attacks, with active and stopped checkpoint continuation. Native origin/height, stationary close-range presentation, hit/audio and the complete project remain unfinished.",
+  "schemaVersion": 87,
+  "source": {
+    "referenceVersion": "16.18.8175716",
+    "particlePinSha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033",
+    "characterPinSha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+    "runtimeProfileSha256": "6d42ccb6a3e2b60076abd9a5112ffc8f59def01271c3468f128c00141ee345a8",
+    "spellRecord": "{e545321f}",
+    "particleRecord": "data/particles/sru_gromp_ba1_mis.troybin",
+    "emitterNames": [
+      "Mis_orb",
+      "black_background",
+      "mis_plane",
+      "trailorbs"
+    ],
+    "originalTextureDependencies": 3,
+    "newBinaryAssetFiles": 0,
+    "deathOutputsByteIdenticalAfterSharedHelperRefactor": true,
+    "repeatedExportExact": true,
+    "outputFilesCompared": 4,
+    "rootGravityVerticalFacingImplemented": false,
+    "originalSourcePinsChanged": false
+  },
+  "localPolicies": {
+    "gridHz": 60,
+    "heightWorldUnits": 0.9,
+    "births": "first eligible update; rate-sized single bursts and existing non-single emission credit",
+    "firstUpdateProfileParticleCounts": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "binding": "constant fraction of emitter displacement since birth, with retained birth placement/velocity frame",
+    "stop": "no births on stop update; cap total life by p-linger under local type-0 reading",
+    "historyFrames": 34,
+    "stoppedRetentionTicks": 31,
+    "materialModes": [
+      0,
+      2,
+      4
+    ],
+    "nativeParityCertified": false
+  },
+  "validation": {
+    "unitCommand": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "typeScript": "passed",
+    "unitPassed": 1083,
+    "unitFiles": 218,
+    "newUnitCases": 6,
+    "sourceFieldsAndFullSpell": "passed",
+    "realReleaseAndSweptContact": "passed",
+    "boundedHomingAndTargetLoss": "passed",
+    "activeStoppedSavedContinuation": "passed",
+    "missingDuplicateForeignGappedFutureConflictingExpiredRecords": "rejected",
+    "activeEndpointAndHeadingMismatch": "rejected",
+    "sourceBirthsCapsAndPartialBinding": "passed",
+    "partialLoadDisposalAndCachedRetry": "passed",
+    "focusedBrowser": {
+      "command": "npx playwright test e2e/gromp-attack.spec.ts e2e/gromp-death.spec.ts e2e/neutral-gromp.spec.ts --workers=1 --timeout=60000",
+      "passed": 6,
+      "failed": 0
+    },
+    "regressionBrowser": {
+      "command": "npx playwright test e2e/saves.spec.ts e2e/lux-player-input.spec.ts e2e/structure-vision.spec.ts --workers=1 --timeout=60000",
+      "passed": 10,
+      "failed": 0
+    },
+    "finalMissileBrowser": {
+      "command": "npx playwright test e2e/gromp-attack.spec.ts --workers=1 --timeout=60000",
+      "passed": 2,
+      "failed": 0,
+      "purpose": "Confirm final saved-heading guard and unobstructed post-impact capture"
+    },
+    "gpu": {
+      "combined": 330,
+      "individual": [
+        {
+          "name": "Gromp attack Mis_orb",
+          "pixels": 17,
+          "particles": 1
+        },
+        {
+          "name": "Gromp attack black_background",
+          "pixels": 137,
+          "particles": 1
+        },
+        {
+          "name": "Gromp attack mis_plane",
+          "pixels": 88,
+          "particles": 2
+        },
+        {
+          "name": "Gromp attack trailorbs",
+          "pixels": 220,
+          "particles": 4
+        }
+      ],
+      "draws": 4,
+      "genericPresent": false,
+      "active": true,
+      "lifeFrames": 11,
+      "projectileId": 5,
+      "flashed": true,
+      "reset": "returning",
+      "depthTests": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    "activeAndStoppedUiSaveReloadCycles": 2,
+    "exactActiveBuffers": [
+      "position",
+      "uv",
+      "particleTint",
+      "particleLookupUv"
+    ],
+    "fogGeometryDisposals": 4,
+    "fogMaterialDisposals": 4,
+    "finalTailGeometryDisposals": 2,
+    "finalTailMaterialDisposals": 2,
+    "retiredHistoryAndSceneObjects": 0,
+    "genericMissileAbsent": true,
+    "realFlashAndResetReleasedMissileContinuation": "passed",
+    "gpuBlendFactorsVerified": {
+      "0": "One/One",
+      "2": "Zero/OneMinusSrcColor",
+      "4": "SrcAlpha/One"
+    },
+    "productionCommand": "npm run test:production",
+    "production": "passed",
+    "productionPrefix": "/nested/rift/",
+    "productionSourceRecordings": 17,
+    "productionGrompRequests": 0,
+    "fullBrowserSuiteRepeated": false
+  },
+  "closeRangeFinding": {
+    "status": "Unresolved native placement/height/actor-spacing comparison",
+    "conditions": "Controlled ordinary-range source at x=210, hero at origin; source walks to x=182.5; sampled launch+2. Original source depth flags retained.",
+    "isolatedPixelDifferences": [
+      0,
+      32,
+      0,
+      0
+    ],
+    "diagnosticCasterHiddenPixelDifferences": [
+      33,
+      75,
+      32,
+      251
+    ],
+    "diagnosticDepthDisabledPixelDifferences": [
+      34,
+      111,
+      32,
+      251
+    ],
+    "implementationDepthTestsDisabled": false,
+    "additionalCardinalCloseRangeChecks": 4,
+    "acceptanceSample": "Actual Flash command to x=-400 after release; source enters reset, missile remains committed; sampled launch+10 with both actors and source depth flags retained.",
+    "stationaryCloseRangeNativeAppearanceCertified": false
+  },
+  "captures": {
+    "artifacts/gromp-attack-flight.png": {
+      "sha256": "e028b05186de152c8805f8e3246a8710202afc2aac1f8d8d67aa9db127f189ee",
+      "width": 1440,
+      "height": 900,
+      "visuallyReviewed": true
+    },
+    "artifacts/gromp-attack-tail.png": {
+      "sha256": "7a72d21cf4a9679011a29ed778be6fd40c783f67da5fb7e3cefe9aa2027c73dd",
+      "width": 1440,
+      "height": 900,
+      "visuallyReviewed": true
+    }
+  },
+  "remaining": [
+    "native root/gravity/height and vertical-facing initialization",
+    "stationary close-range actor overlap, native range/attack selection and source script damage calibration",
+    "native RNG/cadence, orientation, binding, linger and final shader/sampler/composition",
+    "source hit effect/chest attachment and audio, death spores and miniature dispatch",
+    "standard jungle camps/roles and full-match production certification"
+  ],
+  "logs": {
+    "/tmp/web-lol-gromp-attack-check.log": {
+      "sha256": "c06fa36e12b24bd8cb2fbf8d8442fc34beff30d5b04fdfd0cb3b772e022fbdd9"
+    },
+    "/tmp/web-lol-gromp-attack-browser.log": {
+      "sha256": "06eb5f149a3de86c0e173498ace6ec9c220f625a1e02e53e266b8a8fb38ebfee"
+    },
+    "/tmp/web-lol-gromp-attack-final-browser.log": {
+      "sha256": "a08904ed5c3904bfc900b14a45c8df87c610524e5cc0817aaecd98339ea92f5c"
+    },
+    "/tmp/web-lol-gromp-attack-regression.log": {
+      "sha256": "243fe601cab78d81e7ed028ce9cc918fef341c91f9670f79ff09c2d1131719ec"
+    },
+    "/tmp/web-lol-gromp-attack-production.log": {
+      "sha256": "0e9e00baa045abe1cd6ec842f7224f025f7b8459f663800d62082985a97d28a7"
+    }
+  },
+  "files": {
+    "docs/GROMP-ATTACK.md": "205817acc1fadfcb91a6bf2221b920afe79cd2aab2086b606bd83e2e7f4e30a8",
+    "docs/GROMP-EFFECTS.md": "dbf62ef65dbe1cb28cace86f2c8c8b7bc3cc518707e93fa81f996534335d1f14",
+    "docs/NEUTRAL-GROMP.md": "5be3fea7b3fd60597e9d5961454df3c400474190d0b15a835e106b7221bd4bba",
+    "docs/PROGRESS.md": "819f3d750e4cdc4803e131eb905970d19ced15684388dee5bbafd4955c10a5e0",
+    "docs/SAVES.md": "9985fff9a8e316330cd91278d20c6620702604568867aa703294e6aa6b0b2543",
+    "e2e/gromp-attack.spec.ts": "c86869e2bd976ee3cad17fe4b7ce1e4ead5a8e7d17224787f021405ab62b8198",
+    "e2e/gromp-death.spec.ts": "037ae51ee6da24ed30492cbbc28d47b724b4e279656460cb3d62b435c2e4e112",
+    "src/content/gromp-attack-presentation.ts": "171ba5f664bba586f9c14e79f248bbf3944f1964390609faec46f5f47e2f6679",
+    "src/content/gromp-attack.json": "6d42ccb6a3e2b60076abd9a5112ffc8f59def01271c3468f128c00141ee345a8",
+    "src/main.ts": "d751f3c500527830d09ce7b6a0d677c8b18d6f6fe56ef6310f68e17d039b858d",
+    "src/render/gromp-attack-particles.ts": "41626d3f95c1d6b6d3ec7442787e0b07bc8f2bf12f62dd4659c13b3318bb9976",
+    "src/render/gromp-attack.ts": "097a671015e26aefaf5ec3347b34a6f409a283073d8dc8e64c8c4d91fb45b77f",
+    "src/render/lazy-gromp-attack.ts": "51d2e0fc6dfce05e57c3e979ec4a65df7b0fcad372c250758d45f73aa3ae2e0f",
+    "src/render/view.ts": "3873ce21ccbf0205c82910af74456511fa01f62031c63b5e0fb5fb7e9f72253e",
+    "src/simulation/snapshot.ts": "6f87d411ecc31170b0d9770223796fc1aba4235802966d7d271d10774df8936f",
+    "src/simulation/types.ts": "3a59d23bd1d6c5647e769860d8070a00acce43092046da7616cf1d5608ec1976",
+    "src/simulation/world.ts": "5e2a13d4f31896b97776fa7a3d3ab0de557099edc94409efa6c94931e90a023a",
+    "tests/garen-q-ground-particles.test.ts": "1d00c38f547f9253e9d510e80298cf9b53d2476caa1eb2ae429f2930fcee4cba",
+    "tests/garen-q-silence-particles.test.ts": "43e3a5c8036dc5dad459709a992ee2e638d0fb5e1780d638053c53ee71488786",
+    "tests/gromp-attack-loading.test.ts": "6cae5e81478cc2f0595bbdcb9d9ac8416f6e757de96d6d68c8722bf39d130732",
+    "tests/gromp-attack.test.ts": "f2f35f66fc8946ab5869ce6d4f0fdffebd8ae2302b986835b11779c5142ba4c5",
+    "tools/assets/export-gromp-attack.py": "1532b338544bdb43105c3806b6de9dfeb4a5030f680175ac2affd319b09c23dd",
+    "tools/assets/export-gromp-death.py": "352161fcc2a92b5b3999ec0ba9e7bb9c644781c6aa517537ca893d5b09995b82",
+    "tools/assets/legacy_particle_fields.py": "5492c403f6c0b18c7575652d3211baff3142f5d6837ffdfa674ae7d50491fa18",
+    "tools/qa/production-subpath.mjs": "b118e7135afd70d285f336c48e34b417469eb3f580718efcf9dc9c0920342980",
+    "tools/ruleset-fingerprint.ts": "65d4a869032347afd73acf30aa80b977ff7988e08e9841cd7f3264ec0a2e898d"
+  }
+}

@@ -1,5 +1,14 @@
 # Local match checkpoints
 
+Version 87 adds required neutral Gromp attack presentation histories: projectile
+and source identity, original launch point/tick, optional stop and contiguous
+position/heading frames. The 34-frame path and 31-tick stopped tail preserve
+source missile particles through contact/target loss, fog and reload. Active
+records must match a real neutral Gromp projectile; missing, duplicate, crossed,
+future/gapped, mismatched and expired histories are rejected. Normal matches
+retain an empty array. Presentation does not replay damage. Earlier formats
+remain incompatible. See [Gromp attack playback](GROMP-ATTACK.md).
+
 Version 82 adds required per-champion `garenQVisuals` intervals, including captured
 activation rank, stop tick/reason and committed swing start/release pairs. Cast,
 one-shot active, ending and both bank-delayed attack cues reconstruct independently

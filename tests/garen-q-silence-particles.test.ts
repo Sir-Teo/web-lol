@@ -6,6 +6,7 @@ import source from '../docs/reference/garen-q-particles.json';
 import audit from '../docs/reference/garen-q-particle-profiles.json';
 import { garenQSilenceParticles } from '../src/render/garen-q-silence-particles';
 import { World } from '../src/simulation/world';
+import { SNAPSHOT_VERSION } from '../src/simulation/snapshot';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import type { ChampionState } from '../src/simulation/types';
 
@@ -213,7 +214,7 @@ test('caster death and practice recasts retain accepted status clocks; target de
   expect(s.target.silenceUntil).toBe(0);
   expect(garenQSilenceParticles(s.sources(), s.w.tick)).toEqual([]);
 });
-test('schema 86 rejects missing, invented, mismatched and contradictory accepted-silence deadlines while permitting expired history', () => {
+test('current schema rejects missing, invented, mismatched and contradictory accepted-silence deadlines while permitting expired history', () => {
   const s = setup();
   s.cast();
   const early = JSON.parse(s.w.snapshot()),
@@ -228,7 +229,7 @@ test('schema 86 rejects missing, invented, mismatched and contradictory accepted
   }
   s.hit();
   const saved = JSON.parse(s.w.snapshot());
-  expect(saved.version).toBe(86);
+  expect(saved.version).toBe(SNAPSHOT_VERSION);
   for (const mutate of [
     (v: any) => (attack(v).silenceEndTick = null),
     (v: any) => attack(v).silenceEndTick++,

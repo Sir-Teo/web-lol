@@ -171,7 +171,7 @@ test('all eight Gromp death batches contribute pixels, use the posed bone and re
     true,
     true,
   ]);
-  expect(new Set(requests.map((url) => new URL(url).pathname)).size).toBe(10);
+  expect(new Set(requests.map((url) => new URL(url).pathname)).size).toBe(13);
   await page.screenshot({ path: 'artifacts/gromp-death-burst.png' });
   const fog = await page.evaluate(() => {
     const g = (window as any).__GAME__,

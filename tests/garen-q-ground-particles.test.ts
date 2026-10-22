@@ -11,6 +11,7 @@ import { garenQAttackTimingAtLevel } from '../src/simulation/garen-attack-timing
 import { GAREN_Q_AUDIO_TAIL_TICKS } from '../src/content/garen-q-audio-timing';
 import type { ChampionState } from '../src/simulation/types';
 import { World } from '../src/simulation/world';
+import { SNAPSHOT_VERSION } from '../src/simulation/snapshot';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 
 const records: ChampionState['garenQVisuals'] = [
@@ -195,7 +196,7 @@ test('target loss before the event suppresses landing; loss/death after dispatch
   expect(garenQGroundParticles(w.hero.id, w.player.garenQVisuals, w.tick)).toEqual([]);
 });
 
-test('schema 86 rejects missing, future, wrong-frame, malformed and obligatorily absent landing anchors', () => {
+test('current schema rejects missing, future, wrong-frame, malformed and obligatorily absent landing anchors', () => {
   const { w, event } = setup(),
     early = JSON.parse(w.snapshot());
   const attack = (s: any) => s.player.garenQVisuals[0].attacks[0];
@@ -209,7 +210,7 @@ test('schema 86 rejects missing, future, wrong-frame, malformed and obligatorily
   }
   w.step(event - w.tick);
   const late = JSON.parse(w.snapshot());
-  expect(late.version).toBe(86);
+  expect(late.version).toBe(SNAPSHOT_VERSION);
   for (const mutate of [
     (s: any) => (attack(s).landing = null),
     (s: any) => attack(s).landing.tick++,

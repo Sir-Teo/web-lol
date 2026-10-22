@@ -13,6 +13,7 @@ export const rulesetFiles = [
   ...sourceFiles('src/content'),
   'src/content/gromp.json',
   'src/content/gromp-death.json',
+  'src/content/gromp-attack.json',
   'public/assets/maps/rift-layout.json',
   'public/assets/maps/rift-nav.json',
   'public/assets/maps/rift-nav.bin',

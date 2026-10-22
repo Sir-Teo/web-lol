@@ -223,6 +223,16 @@ export interface LuxAttackVisual {
   stopTick: number | null;
   frames: { tick: number; x: number; y: number; facing: number; trailDistance: number }[];
 }
+/** Released neutral Gromp attack path. Retained presentation never deals damage. */
+export interface GrompAttackVisual {
+  origin: Vec2;
+  id: number;
+  sourceId: number;
+  team: 'neutral';
+  launchTick: number;
+  stopTick: number | null;
+  frames: { tick: number; x: number; y: number; facing: number }[];
+}
 export interface LuxImpactFrame {
   tick: number;
   x: number;
