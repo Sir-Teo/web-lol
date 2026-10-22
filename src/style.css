@@ -1824,3 +1824,34 @@ button {
 .red-buff .buff-duration > i {
   background: #e5a15d;
 }
+.summoner-selection fieldset {
+  border: 0;
+  margin: 10px 0;
+  padding: 0;
+}
+.summoner-selection legend {
+  color: #d9c99a;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.summoner-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.summoner-choices .menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  min-width: 0;
+}
+.summoner-choices img {
+  width: 28px;
+  height: 28px;
+}
+.summoner-choices [aria-pressed='true'] {
+  border-color: #d9c99a;
+  background: #193139;
+}

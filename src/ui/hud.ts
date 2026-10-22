@@ -12,7 +12,12 @@ import {
 } from './garen-spells';
 import { AttackStatTooltip } from './attack-stat-tooltip';
 import { LUX_SPELLS, isLuxSpell, luxDescription, luxPreviewResources } from './lux-spells';
-import { instantSpell, targetedSpell, garenRecastLockTicks } from '../input/spell-controls';
+import {
+  instantSpell,
+  targetedSpell,
+  targetInstruction,
+  garenRecastLockTicks,
+} from '../input/spell-controls';
 import type { PreparedMatchImport } from '../storage/match-files';
 import { ScoreboardItemTooltip } from './scoreboard-item-tooltip';
 import { ABILITIES, ITEMS, TICK_RATE, crystalArrowDescription } from '../content/rules';
@@ -37,6 +42,14 @@ import {
   asheHawkshotValues,
 } from '../simulation/ashe-spell-values';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
+import { SUMMONER_SMITE } from '../content/summoner-smite';
+import {
+  SUMMONERS,
+  isSummonerSlot,
+  type SummonerLoadout,
+  type SummonerSlot,
+  type SummonerSpell,
+} from '../content/summoners';
 import {
   experienceToNextLevel,
   growthAtLevel,
@@ -50,7 +63,11 @@ import type { GameView } from '../render/view';
 export interface HudActions {
   pause: (value: boolean) => void;
   reset: () => void;
-  startMatch: (mode: 'practice' | 'lanes', champion: 'ashe' | 'lux') => Promise<void>;
+  startMatch: (
+    mode: 'practice' | 'lanes',
+    champion: 'ashe' | 'lux',
+    summoners: SummonerLoadout
+  ) => Promise<void>;
   save: () => Promise<void>;
   exportMatch: () => void;
   prepareImport: (file: File) => Promise<PreparedMatchImport>;
@@ -131,6 +148,7 @@ export class Hud {
       world.matchMode === 'lanes';
   }
   private spellSpec(a: Ability) {
+    if (isSummonerSlot(a)) return this.world.abilitySpec(a);
     if (this.world.hero.champion === 'garen' && isGarenSpell(a)) return GAREN_SPELLS[a];
     return this.world.hero.champion === 'lux' && isLuxSpell(a) ? LUX_SPELLS[a] : ABILITIES[a];
   }
@@ -165,7 +183,7 @@ export class Hud {
   }
   private abilityMarkup(a: Ability): string {
     const spec = this.spellSpec(a);
-    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${a === 'e' && this.world.hero.champion === 'ashe' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${(a === 'e' && this.world.hero.champion === 'ashe') || this.world.summonerSpell(a) === 'smite' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
     if (a === 'd' || a === 'f') return button;
     return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${spec.name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
   }
@@ -185,6 +203,8 @@ export class Hud {
     return `${learned ? '' : 'This ability has not been learned. Rank 1 preview: '}${this.rankedAbilityDescription(ability, Math.max(1, learned))}`;
   }
   private rankedAbilityDescription(ability: Ability, rank: number): string {
+    if (this.world.summonerSpell(ability) === 'smite')
+      return `${SUMMONERS.smite.description} Regains one charge every ${SUMMONER_SMITE.rechargeSeconds} seconds. Jungle companion upgrades are not available yet.`;
     if (this.world.hero.champion === 'garen' && isGarenSpell(ability)) {
       const h = this.world.hero;
       const bonusHealth = Math.max(
@@ -211,12 +231,12 @@ export class Hud {
       return `Fire ${asheVolleyValues(rank, 0).arrows} frost arrows in a cone, dealing ${Math.round(this.world.volleyDamage(this.world.hero, rank))} physical damage before armor. Each enemy takes damage from one arrow and is slowed.`;
     if (ability === 'r')
       return crystalArrowDescription(this.world.crystalArrowDamage(this.world.hero, rank));
-    if (ability === 'f') {
+    if (this.world.summonerSpell(ability) === 'heal') {
       const base = this.world.summonerHealAmount();
       const self = this.world.summonerHealAmount(this.world.hero, this.world.hero);
       return `Restore up to ${Math.round(base)} health to yourself and one nearby allied champion. Both gain ${SUMMONER_HEAL.speedBonus * 100}% movement speed for ${SUMMONER_HEAL.speedDurationSeconds} second. Healing is reduced by ${100 - SUMMONER_HEAL.repeatHealMultiplier * 100}% on targets recently affected by Summoner Heal.${self < base ? ` Your healing is currently reduced to ${Math.round(self)}.` : ''}`;
     }
-    return ABILITIES[ability].description;
+    return this.world.abilitySpec(ability).description;
   }
   private tooltipInstruction(ability: Ability): string {
     if (!this.world.abilityRank(ability) && ability !== 'd' && ability !== 'f') {
@@ -230,8 +250,7 @@ export class Hud {
       return garenRecastLockTicks(this.world)
         ? 'Press E again after the first second to end Judgment.'
         : 'Press E to end Judgment. Its full cooldown then starts.';
-    if (targetedSpell(this.world, ability))
-      return 'Hold R, point at an enemy champion in range, then release.';
+    if (targetedSpell(this.world, ability)) return targetInstruction(this.world, ability);
     return instantSpell(this.world, ability)
       ? 'Press to cast'
       : 'Hold the key to aim. Release to cast.';
@@ -404,7 +423,7 @@ export class Hud {
         else
           this.toast(
             targetedSpell(this.world, ability)
-              ? 'Hold R, point at an enemy champion in range, then release'
+              ? targetInstruction(this.world, ability)
               : `Hold ${ability.toUpperCase()} to aim, then release to cast`
           );
       });
@@ -467,7 +486,10 @@ export class Hud {
         ? ('ashe' as const)
         : selectableChampion(this.world.hero.champion);
     const laneDescription = () =>
-      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and neutral objectives are not available yet.`;
+      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Teams use Ashe and Lux, with two top, one mid and two bottom. Jungle camps and Scuttlers are available; jungle roles and epic objectives remain unfinished.`;
+    const chosenSummoners = { ...this.world.player.summoners };
+    const summonerChoices = () =>
+      `<div class="summoner-selection" role="group" aria-label="Choose summoner spells">${(['d', 'f'] as const).map((slot) => `<fieldset><legend>${slot.toUpperCase()} spell</legend><div class="summoner-choices">${(Object.keys(SUMMONERS) as SummonerSpell[]).map((spell) => `<button class="menu-button" data-action="choose-summoner" data-summoner-slot="${slot}" data-spell="${spell}" aria-pressed="${chosenSummoners[slot] === spell}"><img src="assets/icons/${SUMMONERS[spell].icon}.png" alt="">${SUMMONERS[spell].name}</button>`).join('')}</div></fieldset>`).join('')}</div>`;
     let content = '',
       title = '',
       subtitle = '';
@@ -497,7 +519,7 @@ export class Hud {
     } else if (which === 'new-match') {
       title = 'Choose your match';
       subtitle = 'Play locally. Your browser runs the match.';
-      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${(['ashe', 'lux'] as const).map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${champion === 'lux' ? 'Lux' : 'Ashe'}</span></button>`).join('')}</div><button class="primary-button" data-action="start-lanes">Start lane match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
+      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${(['ashe', 'lux'] as const).map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${champion === 'lux' ? 'Lux' : 'Ashe'}</span></button>`).join('')}</div>${summonerChoices()}<button class="primary-button" data-action="start-lanes">Start lane match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'files') {
       title = 'Match files';
       subtitle = 'Keep a copy. Continue on another browser.';
@@ -527,7 +549,7 @@ export class Hud {
                 ['Hold W / E / R', 'Aim, then release to cast'],
                 ['E / R over minimap', 'Aim across the map without moving the camera'],
               ]),
-        ['D / F', 'Flash / Heal'],
+        ['D / F', `${this.spellSpec('d').name} / ${this.spellSpec('f').name}`],
         ['B', 'Recall to fountain'],
         ['P', 'Open item shop'],
         ['Space / Y', 'Recenter / lock camera'],
@@ -573,6 +595,24 @@ export class Hud {
         const action = button.dataset.action;
         if (this.replacingMatch) return;
         if (action === 'new-match') this.toggleModal('new-match');
+        if (action === 'choose-summoner') {
+          const slot = button.dataset.summonerSlot as SummonerSlot,
+            spell = button.dataset.spell as SummonerSpell;
+          const other = slot === 'd' ? 'f' : 'd';
+          if (chosenSummoners[other] === spell) chosenSummoners[other] = chosenSummoners[slot];
+          chosenSummoners[slot] = spell;
+          backdrop
+            .querySelectorAll<HTMLButtonElement>('[data-summoner-slot]')
+            .forEach((choice) =>
+              choice.setAttribute(
+                'aria-pressed',
+                String(
+                  chosenSummoners[choice.dataset.summonerSlot as SummonerSlot] ===
+                    choice.dataset.spell
+                )
+              )
+            );
+        }
         if (action === 'choose-champion') {
           chosenChampion = button.dataset.champion === 'lux' ? 'lux' : 'ashe';
           backdrop
@@ -591,7 +631,11 @@ export class Hud {
             control.disabled = true;
           });
           void this.actions
-            .startMatch(action === 'start-lanes' ? 'lanes' : 'practice', chosenChampion)
+            .startMatch(
+              action === 'start-lanes' ? 'lanes' : 'practice',
+              chosenChampion,
+              chosenSummoners
+            )
             .catch((error) => {
               this.replacingMatch = false;
               this.importError =
@@ -645,6 +689,10 @@ export class Hud {
               ? ASHE_E.maximumCharges
               : 0;
           this.world.player.eRechargeTick = null;
+          if (state.smite) {
+            state.smite.charges = SUMMONER_SMITE.maxCharges;
+            state.smite.rechargeTick = null;
+          }
           this.toast('Learned abilities are ready');
         }
         if (action === 'gold') {
@@ -825,6 +873,7 @@ export class Hud {
           assists: state.assists,
           cs: observed?.cs ?? null,
           inventory: observed?.inventory ?? null,
+          summoners: state.summoners,
         };
       });
     const signature = JSON.stringify(rows);
@@ -862,10 +911,9 @@ export class Hud {
         );
 
       const summoners = row.querySelector('.scoreboard-summoners')!;
-      // All supported champions currently equip D: Flash and F: Heal.
       // Identities are public; enemy cooldown state is not exposed here.
       for (const ability of ['d', 'f'] as const) {
-        const spell = ABILITIES[ability];
+        const spell = SUMMONERS[data.summoners[ability]];
         const icon = document.createElement('img');
         icon.src = `assets/icons/${spell.icon}.png`;
         icon.alt = spell.name;
@@ -1077,6 +1125,18 @@ export class Hud {
               : 'End Judgment'
             : 'Judgment'
         );
+      if (w.summonerSpell(a) === 'smite' && p.smite) {
+        const remaining = Math.max(0, (p.smite.rechargeTick ?? w.tick) - w.tick) / TICK_RATE;
+        button.querySelector('.ability-charges')!.textContent = String(p.smite.charges);
+        const recharge = button.querySelector<HTMLElement>('.ability-recharge')!;
+        recharge.hidden = p.smite.rechargeTick === null;
+        recharge.querySelector<HTMLElement>('i')!.style.transform =
+          `scaleX(${Math.max(0, Math.min(1, 1 - remaining / SUMMONER_SMITE.rechargeSeconds))})`;
+        button.setAttribute(
+          'aria-label',
+          `Smite, ${p.smite.charges} charges${remaining > 0 ? `, next charge in ${Math.ceil(remaining)} seconds` : ''}`
+        );
+      }
       if (a === 'e' && h.champion === 'ashe') {
         const remaining = Math.max(0, (p.eRechargeTick ?? w.tick) - w.tick) / TICK_RATE;
         button.querySelector('.ability-charges')!.textContent = String(p.eCharges);

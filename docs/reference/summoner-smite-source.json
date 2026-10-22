@@ -1,0 +1,900 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "shared": {
+    "url": "https://raw.communitydragon.org/16.18/game/shared.cdtb.bin.json",
+    "sha256": "8726e915a7c913c826bf3a722e548d002e8e41677073a585d40e8d179d0dd8bf",
+    "records": {
+      "Shared/Spells/SummonerSmite": {
+        "ObjectName": "SummonerSmite",
+        "objectPath": "Shared/Spells/SummonerSmite",
+        "mScriptName": "SummonerSmite",
+        "mSpell": {
+          "flags": 20,
+          "mAffectsTypeFlags": 6152,
+          "mRequiredUnitTags": {
+            "mObjectTagList": [
+              "Monster_Large",
+              "{592aa99b}",
+              "minion",
+              "{1d6fa889}"
+            ],
+            "__type": "ObjectTags"
+          },
+          "mPlatformSpellInfo": {
+            "mAvatarLevelRequired": 3,
+            "mSpellID": 11,
+            "mPlatformEnabled": true,
+            "mGameModes": [
+              "DOOMBOTSTEEMO",
+              "PRACTICETOOL",
+              "CLASSIC",
+              "SWIFTPLAY",
+              "URF",
+              "NEXUSBLITZ",
+              "ONEFORALL",
+              "TUTORIAL",
+              "ARSR"
+            ],
+            "__type": "PlatformSpellInfo"
+          },
+          "mSpellTags": [
+            "Trait_SummonerSmite",
+            "Trait_SummonerSpell"
+          ],
+          "mEffectAmount": [
+            {
+              "value": [
+                15.0,
+                15.0,
+                15.0,
+                15.0,
+                15.0,
+                15.0,
+                15.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            }
+          ],
+          "DataValues": [
+            {
+              "name": "SmiteBaseDamage",
+              "values": [
+                600.0,
+                600.0,
+                600.0,
+                600.0,
+                600.0,
+                600.0,
+                600.0
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SmiteUpgradedDamage",
+              "values": [
+                1000.0,
+                1000.0,
+                1000.0,
+                1000.0,
+                1000.0,
+                1000.0,
+                1000.0
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "Smite2ndUpgradedDamage",
+              "values": [
+                1400.0,
+                1400.0,
+                1400.0,
+                1400.0,
+                1400.0,
+                1400.0,
+                1400.0
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "AoESmiteRatio",
+              "values": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SmiteSlowAmount",
+              "values": [
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SmiteSlowDuration",
+              "values": [
+                2.0,
+                2.0,
+                2.0,
+                2.0,
+                2.0,
+                2.0,
+                2.0
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "FirstPVPDamage",
+              "values": [
+                40.0,
+                40.0,
+                40.0,
+                40.0,
+                40.0,
+                40.0,
+                40.0
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SecondPVPDamage",
+              "values": [
+                40.0,
+                40.0,
+                40.0,
+                40.0,
+                40.0,
+                40.0,
+                40.0
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SmiteComebackXP",
+              "values": [
+                50.0,
+                50.0,
+                50.0,
+                50.0,
+                50.0,
+                50.0,
+                50.0
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "{f9c2333e}": {
+            "URF": {
+              "value": [
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0
+              ],
+              "__type": "SpellEffectAmount"
+            }
+          },
+          "{b08bc498}": {
+            "URF": {
+              "value": [
+                120.0,
+                120.0,
+                120.0,
+                120.0,
+                120.0,
+                120.0,
+                120.0
+              ],
+              "__type": "SpellEffectAmount"
+            }
+          },
+          "mSpellCalculations": {
+            "PetDPS": {
+              "mExpandedTooltipCalculationDisplay": 6,
+              "mFormulaParts": [
+                {
+                  "mStartValue": 20.0,
+                  "mEndValue": 150.0,
+                  "__type": "ByCharLevelInterpolationCalculationPart"
+                },
+                {
+                  "mStat": 2,
+                  "mStatFormula": 2,
+                  "mCoefficient": 0.10000000149011612,
+                  "__type": "StatByCoefficientCalculationPart"
+                },
+                {
+                  "mCoefficient": 0.1599999964237213,
+                  "__type": "StatByCoefficientCalculationPart"
+                },
+                {
+                  "mStat": 12,
+                  "mStatFormula": 2,
+                  "mCoefficient": 0.03999999910593033,
+                  "__type": "StatByCoefficientCalculationPart"
+                },
+                {
+                  "mStat": 1,
+                  "mStatFormula": 2,
+                  "mCoefficient": 0.25,
+                  "__type": "StatByCoefficientCalculationPart"
+                },
+                {
+                  "mStat": 6,
+                  "mStatFormula": 2,
+                  "mCoefficient": 0.25,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "PetHPS": {
+              "mFormulaParts": [
+                {
+                  "mLevel1Value": 6.0,
+                  "mBreakpoints": [
+                    {
+                      "mLevel": 4,
+                      "mBonusPerLevelAtAndAfter": 2.0,
+                      "__type": "Breakpoint"
+                    }
+                  ],
+                  "__type": "ByCharLevelBreakpointsCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            }
+          },
+          "mAnimationName": "Idle1",
+          "mImgIconName": [
+            "Summoner_smite.dds"
+          ],
+          "cooldownTime": [
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            15.0
+          ],
+          "Cooldown": {
+            "values": [
+              15.0,
+              15.0,
+              15.0,
+              15.0,
+              15.0,
+              15.0,
+              15.0
+            ],
+            "{0a3e0478}": 15.0,
+            "__type": "{0a0eddc9}"
+          },
+          "mMaxAmmo": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "mAmmoRechargeTime": [
+            90.0,
+            90.0,
+            90.0,
+            90.0,
+            90.0,
+            90.0,
+            90.0
+          ],
+          "mCooldownNotAffectedByCDR": true,
+          "canCastWhileDisabled": true,
+          "mDoesntBreakChannels": true,
+          "mBelongsToAvatar": true,
+          "castRangeUseBoundingBoxes": true,
+          "castRange": [
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0,
+            500.0
+          ],
+          "castRangeValues": {
+            "values": [
+              500.0,
+              500.0,
+              500.0,
+              500.0,
+              500.0,
+              500.0,
+              500.0
+            ],
+            "{0a3e0478}": 500.0,
+            "__type": "{0a0eddc9}"
+          },
+          "castRadius": [
+            210.0,
+            210.0,
+            210.0,
+            210.0,
+            210.0,
+            210.0,
+            210.0
+          ],
+          "castConeDistance": 100.0,
+          "castFrame": 10.0,
+          "missileSpeed": 20.0,
+          "mFloatVarsDecimals": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2,
+            2
+          ],
+          "selectionPriority": 1,
+          "TargetingForgivenessDefinitions": [
+            {
+              "ForgivenessRange": 125.0,
+              "TargetForgivenessDefinitions": [
+                {
+                  "mUnitTags": {
+                    "mObjectTagList": [
+                      "{592aa99b}"
+                    ],
+                    "__type": "ObjectTags"
+                  },
+                  "__type": "HasUnitTagsCastRequirement"
+                }
+              ],
+              "__type": "TargetingForgivenessDefinitions"
+            }
+          ],
+          "mCastingBreaksStealth": true,
+          "mClientData": {
+            "mTooltipData": {
+              "mObjectName": "SummonerSmite",
+              "mFormat": "{b5df7ddb}",
+              "EnableExtendedTooltip": false,
+              "mLocKeys": {
+                "keyName": "Spell_SummonerSmite_Name",
+                "keyTooltip": "Spell_SummonerSmite_Tooltip",
+                "keySummary": "Spell_SummonerSmite_Summary",
+                "keyCooldown": "Spell_Smite_Cooldown_And_Recharge"
+              },
+              "__type": "TooltipInstanceSpell"
+            },
+            "mTargeterDefinitions": [
+              {
+                "useCasterBoundingBox": true,
+                "__type": "TargeterDefinitionRange"
+              }
+            ],
+            "__type": "SpellDataResourceClient"
+          },
+          "__type": "SpellDataResource"
+        },
+        "mBuff": {
+          "__type": "BuffData"
+        },
+        "__type": "SpellObject"
+      },
+      "Shared/Spells/SummonerSmiteFirstCharge": {
+        "ObjectName": "SummonerSmiteFirstCharge",
+        "objectPath": "Shared/Spells/SummonerSmiteFirstCharge",
+        "mScriptName": "SummonerSmiteFirstCharge",
+        "mBuff": {
+          "__type": "BuffData"
+        },
+        "__type": "SpellObject"
+      }
+    }
+  },
+  "strings": {
+    "url": "https://raw.communitydragon.org/16.18/game/en_us/data/menu/en_us/lol.stringtable.json",
+    "sha256": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d",
+    "entries": {
+      "spell_summonersmite_name": "Smite",
+      "spell_summonersmite_tooltip": "Deals <trueDamage>@SmiteBaseDamage@ true damage</trueDamage> to target large monster or lane minion.<br><br>Deals <trueDamage>@FirstPVPDamage@ true damage</trueDamage> to champion pets.",
+      "spell_smite_shared_rules": "<rules>Cannot be cast on small monsters.</rules>",
+      "spell_smite_cooldown_and_recharge": "@AmmoRechargeTime@s Recharge (@Cooldown@s %i:cooldown%)"
+    }
+  },
+  "icon": {
+    "path": "public/assets/icons/SummonerSmite.png",
+    "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/SummonerSmite.png",
+    "sha256": "f07e92e0ded6fae182b1d66191a62dcaf5fcf207a0d9622105e00c39c27a0a28"
+  },
+  "characterSource": {
+    "path": "docs/reference/jungle-character-source.json",
+    "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+    "tags": {
+      "gromp": {
+        "path": "data/characters/sru_gromp/sru_gromp.bin",
+        "key": "Characters/SRU_Gromp/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Large | Monster_Gromp | Monster_Camp"
+      },
+      "blue": {
+        "path": "data/characters/sru_blue/sru_blue.bin",
+        "key": "Characters/SRU_Blue/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Large | Monster_Blue | Monster_Camp | Monster_Buff"
+      },
+      "red": {
+        "path": "data/characters/sru_red/sru_red.bin",
+        "key": "Characters/SRU_Red/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Large | Monster_Red | Monster_Camp | Monster_Buff"
+      },
+      "wolf": {
+        "path": "data/characters/sru_murkwolf/sru_murkwolf.bin",
+        "key": "Characters/SRU_Murkwolf/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Large | Monster_Wolf | Monster_Camp"
+      },
+      "wolf-mini": {
+        "path": "data/characters/sru_murkwolfmini/sru_murkwolfmini.bin",
+        "key": "Characters/SRU_MurkwolfMini/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Wolf | Monster_Camp"
+      },
+      "raptor": {
+        "path": "data/characters/sru_razorbeak/sru_razorbeak.bin",
+        "key": "Characters/SRU_Razorbeak/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Large | Monster_Raptor | Monster_Camp"
+      },
+      "raptor-mini": {
+        "path": "data/characters/sru_razorbeakmini/sru_razorbeakmini.bin",
+        "key": "Characters/SRU_RazorbeakMini/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Raptor | Monster_Camp"
+      },
+      "krug": {
+        "path": "data/characters/sru_krug/sru_krug.bin",
+        "key": "Characters/SRU_Krug/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Large | Monster_Krug | Monster_Camp"
+      },
+      "krug-medium": {
+        "path": "data/characters/sru_krugmini/sru_krugmini.bin",
+        "key": "Characters/SRU_KrugMini/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Krug | Monster_Camp | Monster_Medium"
+      },
+      "krug-mini": {
+        "path": "data/characters/sru_krugminimini/sru_krugminimini.bin",
+        "key": "Characters/SRU_KrugMiniMini/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Krug | Monster_Camp"
+      },
+      "scuttler": {
+        "path": "data/characters/sru_crab/sru_crab.bin",
+        "key": "Characters/Sru_Crab/CharacterRecords/Root",
+        "unitTagsString": "Monster | Monster_Large | Monster_Crab | Special_Peaceful | Monster_Camp"
+      }
+    }
+  },
+  "scripts": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Scripts.wad.client",
+    "chunks": {
+      "9D6B139F5625E74C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35852845,
+        "bytes": 75450,
+        "sha256": "e4a4f61beea877cab9ed30be0b521a2c01e7f6af05f4b7d08f671d52e37d8512"
+      },
+      "70B13796F6370E48": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35928295,
+        "bytes": 183603,
+        "sha256": "9fbae2c2d3807eb7c27870f4501c9507acd95531ae0d44d14587704e864650b7"
+      },
+      "0A15B7F6D72C6848": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36111898,
+        "bytes": 90579,
+        "sha256": "18caaf1d6c0d94c2db7d820d10107b61abe7587263760709d51061c4240b175b"
+      },
+      "8DFE49A4492DA71F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36202477,
+        "bytes": 138822,
+        "sha256": "3cfdf55545a2898d937d694a29cfdc1623e143769f61c4446f635e4044e7c32a"
+      },
+      "D2860162132D3784": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36341299,
+        "bytes": 144181,
+        "sha256": "809f3aafcdd55c68050b689a201e707f863e20bd0075ea2cf1533509b5eb19f6"
+      },
+      "63611195382B0C7A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36485480,
+        "bytes": 95916,
+        "sha256": "2261825b9572b17d9586307244f9d821c29068e934410a279fdf41d957cfd8a1"
+      },
+      "F6B96CAAE2654A23": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36581396,
+        "bytes": 81491,
+        "sha256": "b20123e9a1c5439f1cb352cf61f38bb93d2474314b3998777ab3e53bc4429a8c"
+      },
+      "AC6C3E04B54120B0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36662887,
+        "bytes": 60523,
+        "sha256": "cec143c1ae0cd3df9803c26591b10d09e40589bbf32d833a6e637af1f7850c2b"
+      },
+      "F0AE523B5550F9E9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 780545,
+        "bytes": 128,
+        "sha256": "6d568badd1a0865f3ecf873e5f92876bcbe6b0c8432deb61d965d052fc337114"
+      },
+      "06A6B19EAF4B5E0E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 8336,
+        "bytes": 150,
+        "sha256": "3af0d29c7937982321266073ac0b12060a6611305dde6cc326e697223c4fb970"
+      },
+      "9EB1A899EA4A4D1A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 1089058,
+        "bytes": 138,
+        "sha256": "181776d126bb026ef5ee24e0ac856f7a49eb16980363800314da6f2e0b970944"
+      }
+    },
+    "files": [
+      {
+        "path": "data/spells/summonersmite.luabin64",
+        "wadPathHash": "a2039ec498683e21",
+        "sha256": "18527cce3b96a571919d08e91410e90206783d86811c6240471b2c2b1652af70",
+        "bytes": 177
+      },
+      {
+        "path": "data/spells/summonersmitefirstcharge.luabin64",
+        "wadPathHash": "5ce367eb930c8197",
+        "sha256": "b91e86eab6398682c1cee8734949edd0203bace2df4e6e24bd7df33ad32de7fc",
+        "bytes": 215
+      },
+      {
+        "path": "data/spells/summonersmiteinitializer.luabin64",
+        "wadPathHash": "402d9da75abc48c9",
+        "sha256": "cf6d71bd7b316c571f1c48f28bfb9bdadfece57232194c21043a660b035fac91",
+        "bytes": 181
+      }
+    ]
+  },
+  "scriptInventory": {
+    "data/spells/summonersmite.luabin64": {
+      "<main>": {
+        "constants": [
+          "NotSingleTargetSpell",
+          "DoesntTriggerSpellCasts",
+          "CastingBreaksStealth"
+        ],
+        "codeSha256": "caef779ca2a9e76f73035f27af82287545cd1a093120b4936b10656d010c676d",
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 2,
+            "word": "00000007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "NotSingleTargetSpell"
+              }
+            ]
+          },
+          {
+            "pc": 3,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 4,
+            "word": "00004007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "DoesntTriggerSpellCasts"
+              }
+            ]
+          },
+          {
+            "pc": 5,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 6,
+            "word": "00008007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "CastingBreaksStealth"
+              }
+            ]
+          },
+          {
+            "pc": 7,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        "children": 0
+      }
+    },
+    "data/spells/summonersmitefirstcharge.luabin64": {
+      "<main>": {
+        "constants": [
+          "NotSingleTargetSpell",
+          "DoesntTriggerSpellCasts",
+          "CastingBreaksStealth",
+          "PersistsThroughDeath"
+        ],
+        "codeSha256": "f1852b3198dad3522c2f15267fc8ad3eee45c14234fae93f7cfcd20252dcc6d9",
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 2,
+            "word": "00000007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "NotSingleTargetSpell"
+              }
+            ]
+          },
+          {
+            "pc": 3,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 4,
+            "word": "00004007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "DoesntTriggerSpellCasts"
+              }
+            ]
+          },
+          {
+            "pc": 5,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 6,
+            "word": "00008007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "CastingBreaksStealth"
+              }
+            ]
+          },
+          {
+            "pc": 7,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 8,
+            "word": "0000c007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "PersistsThroughDeath"
+              }
+            ]
+          },
+          {
+            "pc": 9,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        "children": 0
+      }
+    },
+    "data/spells/summonersmiteinitializer.luabin64": {
+      "<main>": {
+        "constants": [
+          "BuffTextureName",
+          "Rumble_Junkyard Titan2.dds",
+          "BuffName",
+          "RumbleDangerZone"
+        ],
+        "codeSha256": "069940b225666d29e8bf512b06fd0c340fd2efb1b210c19c5b756552c33ce1b8",
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "00004001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "Rumble_Junkyard Titan2.dds"
+              }
+            ]
+          },
+          {
+            "pc": 2,
+            "word": "00000007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "BuffTextureName"
+              }
+            ]
+          },
+          {
+            "pc": 3,
+            "word": "0000c001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "RumbleDangerZone"
+              }
+            ]
+          },
+          {
+            "pc": 4,
+            "word": "00008007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "BuffName"
+              }
+            ]
+          },
+          {
+            "pc": 5,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        "children": 0
+      }
+    }
+  },
+  "published": {
+    "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+    "damage": [
+      600,
+      1000,
+      1400
+    ],
+    "firstEvolutionKills": 15,
+    "fullQuestStacks": 35
+  },
+  "limits": [
+    "Standard SummonerSmite is selected; legacy Duel and alternate-mode records are not active standard rules.",
+    "Scripts retain metadata assignments and RETURN only; no active damage, startup or recharge callback is recovered.",
+    "Initial ammo and first recharge anchor, target forgiveness, native range edges, cast latency and visual/audio dispatch need runtime comparison.",
+    "Quest/pet evolution controls upgraded Smite; champion-level upgrades are not inferred. Role binding, pets and quest rewards remain unfinished."
+  ]
+}

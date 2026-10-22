@@ -15,6 +15,7 @@ import { DT } from './content/rules';
 import { World } from './simulation/world';
 import { createGrompEncounter } from './simulation/gromp-encounter';
 import { createLaneMatch } from './simulation/lane-match';
+import { equipSummoners } from './simulation/smite';
 import { GameView } from './render/view';
 import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
@@ -100,17 +101,32 @@ async function boot(): Promise<void> {
       void writeMatch(
         battlefield.id,
         world.matchMode === 'lanes'
-          ? createLaneMatch(battlefield, selectableChampion(world.hero.champion)).snapshot()
-          : grompEncounter || world.hero.champion === 'lux' || world.hero.champion === 'garen'
-            ? freshPractice(world.hero.champion).snapshot()
+          ? createLaneMatch(
+              battlefield,
+              selectableChampion(world.hero.champion),
+              world.player.summoners
+            ).snapshot()
+          : grompEncounter ||
+              world.hero.champion === 'lux' ||
+              world.hero.champion === 'garen' ||
+              world.player.summoners.d !== 'flash' ||
+              world.player.summoners.f !== 'heal'
+            ? (() => {
+                const next = freshPractice(world.hero.champion);
+                equipSummoners(next.player, world.player.summoners);
+                return next.snapshot();
+              })()
             : null
       )
         .then(() => window.location.reload())
         .catch((error) => hud.toast(error.message));
     },
-    startMatch: async (mode, champion) => {
+    startMatch: async (mode, champion, summoners) => {
       const next =
-        mode === 'lanes' ? createLaneMatch(battlefield, champion) : freshPractice(champion);
+        mode === 'lanes'
+          ? createLaneMatch(battlefield, champion, summoners)
+          : freshPractice(champion);
+      if (mode === 'practice') equipSummoners(next.player, summoners);
       await writeMatch(battlefield.id, next.snapshot());
       window.location.reload();
     },

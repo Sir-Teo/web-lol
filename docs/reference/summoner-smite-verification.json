@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "eddf48eb8c1c9fd60891f465b91990a11d90119a",
+  "scope": "Configurable D/F Flash/Heal/base-Smite loadouts in practice and the interim lane match. This does not complete jungle roles, pets, quest upgrades or native Smite presentation.",
+  "schema": 98,
+  "rulesetFingerprint": "99f5b5ab9ea8b2c9e5120024c5304532041225e3ad2b566e7289df528e56c67f",
+  "sourcePin": {
+    "path": "docs/reference/summoner-smite-source.json",
+    "sha256": "e1c2aa1784bfe94a2c06c1c6f65037ba0ac38556bb277313a3d15a66c729c2ad"
+  },
+  "generatedProfile": {
+    "path": "src/content/summoner-smite.ts",
+    "sha256": "ddde1f291c0441ca8eddc7589ed52c44acc4beafb774b9c461cc3e4783369bc5"
+  },
+  "icon": {
+    "path": "public/assets/icons/SummonerSmite.png",
+    "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/SummonerSmite.png",
+    "sha256": "f07e92e0ded6fae182b1d66191a62dcaf5fcf207a0d9622105e00c39c27a0a28"
+  },
+  "sourcePreparation": {
+    "command": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-smite.py",
+    "repeatExtractionMatches": true,
+    "pinProfileAndIconByteIdenticalAfterRepeat": true,
+    "sharedMirrorSha256": "8726e915a7c913c826bf3a722e548d002e8e41677073a585d40e8d179d0dd8bf",
+    "stringMirrorSha256": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d",
+    "originalScriptMembers": 3,
+    "rawScriptBytes": 573,
+    "retainedScriptInstructions": 21,
+    "activeNativeCallbacksRecovered": false,
+    "parentCharacterPinUnchanged": true,
+    "sourceTargetTagSets": 11,
+    "hashLabels": {
+      "592aa99b": "Monster_Epic",
+      "1d6fa889": "Monster_Medium"
+    },
+    "scriptScope": "Metadata assignments and RETURN only. Initializer contains unrelated Rumble display metadata; no startup semantics inferred."
+  },
+  "policies": {
+    "availableSpells": ["flash", "heal", "smite"],
+    "slots": ["d", "f"],
+    "duplicates": "Selecting an identity in the other slot swaps the identities. Saved duplicate identities are rejected.",
+    "botDefaults": {
+      "d": "flash",
+      "f": "heal"
+    },
+    "baseDamage": 600,
+    "pinnedUnimplementedUpgradeDamage": [1000, 1400],
+    "maxCharges": 2,
+    "castLockTicks": 900,
+    "rechargeTicks": 5400,
+    "localInitialCharges": 1,
+    "localFirstRechargeTick": 5400,
+    "startupStatus": "Explicit provisional local policy; native initial stock, early-game offset and first-recharge anchor require comparison.",
+    "recharge": "Sequential from the captured deadline; continues through death; spending from full starts one interval; ordinary ability haste does not modify either clock.",
+    "castRange": 500,
+    "range": "Center distance <= 500 plus caster and target gameplay radii; shared team sight can authorize a cast across terrain. Native edges and forgiveness unverified.",
+    "validMonsters": ["gromp", "blue", "red", "wolf", "raptor", "krug", "krug-medium", "scuttler"],
+    "smallMonsterTargets": false,
+    "enemyLaneMinions": true,
+    "championTargets": false,
+    "pets": "Unimplemented. Source tooltip retains separate champion-pet damage.",
+    "damage": "Immediate true damage, normal last-hit/camp death rewards; summoner category excludes Doran\u2019s Blade omnivamp; no Illumination application/detonation.",
+    "control": "Current local stun/root/silence model permits Smite; recall and pending champion casts remain committed. Full native disable taxonomy is absent.",
+    "upgrades": "Not granted by champion level. Companion items, quest counters and pets are required future work.",
+    "roleBinding": "Unimplemented in interim match setup; selecting Smite does not assign a jungle role.",
+    "presentation": "Source icon, existing local cast/damage feedback and range ring; native effects/audio/dispatch are unfinished."
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "files": 233,
+    "passed": 1197,
+    "newMechanicsCases": 11,
+    "newSourceCases": 4,
+    "typecheck": "passed",
+    "coverage": [
+      "All eleven source monster classifications, including medium Krugs and excluded small monsters.",
+      "Fixed base damage at levels 1/10/18 and high resistances.",
+      "Either-slot input metadata, cooldown isolation and no mana cost.",
+      "Invalid/hidden/protected/returning/out-of-range/missing/dead targets do not spend charges.",
+      "Both-radius edge and shared team sight across terrain.",
+      "Enemy minion last-hit rewards and no omnivamp/Illumination bonus.",
+      "Root/stun/silence and recall preservation.",
+      "Independent lockout, saved sequential capped recharge through death.",
+      "Queued target IDs restore exactly; malformed loadouts, counts and deadlines are rejected.",
+      "Swapped Flash/Heal effects and cooldowns.",
+      "Smite and swapped Flash preserve Final Spark commitment and exact continuation.",
+      "Pinned damage/charge fields, source Root tags, metadata-only scripts and official PNG digest."
+    ]
+  },
+  "browser": {
+    "channel": "chrome",
+    "workers": 1,
+    "initialCommand": "npx playwright test e2e/smite.spec.ts e2e/summoner-heal.spec.ts e2e/champion-selection.spec.ts e2e/bot-flash.spec.ts e2e/bot-heal.spec.ts e2e/garen-r.spec.ts e2e/lux-beam-dark-flash.spec.ts --workers=1 --timeout=60000",
+    "initialPassed": 8,
+    "initialFailed": 1,
+    "initialFinding": "The Smite diagnostic setup remained paused, so Tab/input was correctly blocked. The test now resumes before real keyboard interaction.",
+    "finalCommand": "npx playwright test e2e/smite.spec.ts e2e/lane-match.spec.ts e2e/match-champion-choice.spec.ts --workers=1 --timeout=60000",
+    "finalPassed": 4,
+    "finalFailed": 0,
+    "assertions": [
+      "Duplicate choices swap slots; D Smite/F Flash selected in the real New match dialog.",
+      "1280x720 setup remains horizontally contained; 1440x900 gameplay reviewed.",
+      "Selected source icons, initial stock and public scoreboard identities.",
+      "Wrong target rejected without spending a charge.",
+      "Real D input deals exactly 600 damage and spends one charge.",
+      "Exact one-charge and empty-charge saved reloads.",
+      "Second real D input lethally removes a prepared Gromp, grants CS and starts its ordinary respawn calendar.",
+      "Saved recharge grants one charge on its deadline.",
+      "Lane restart retains D Smite/F Flash and resets to local initial stock.",
+      "Practice start with D Heal/F Flash and real D Heal while stunned.",
+      "No page errors or failed requests."
+    ],
+    "scope": "Eight preserved interaction regressions plus four final match/Smite cases. Setup, target health preparation and time jumps remain diagnostic. Not a complete browser audit, native visual comparison or full-role match."
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "passed",
+    "allGlbsAndMapValidated": true,
+    "errors": 0,
+    "warnings": 0,
+    "newIconDigestAndPngSignature": "verified by source test"
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 17,
+    "mapNavigation": true,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "developmentHook": false,
+    "garenFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "scheduledGrompRequests": 34,
+    "scheduledBlueRequests": 2,
+    "scheduledRedRequests": 2,
+    "scheduledWolfRequests": 4,
+    "scheduledRaptorRequests": 4,
+    "scheduledKrugRequests": 6,
+    "scheduledScuttlerRequests": 2,
+    "screenshot": "artifacts/production-subpath.png",
+    "warning": "Existing bundle-size warning: game 658.31 KB and Three 659.92 KB."
+  },
+  "captures": [
+    {
+      "path": "artifacts/smite-loadout.png",
+      "sha256": "3f1e47fbbe3a432f06e021e0cdeecf2e12debecabce0d63f17b97544d500279e",
+      "visuallyReviewed": true
+    },
+    {
+      "path": "artifacts/smite-camp.png",
+      "sha256": "02bf419fbc8d7e7248988508ca487a679ed1f3f51bf76d7122f5aeb025719b5c",
+      "visuallyReviewed": true
+    }
+  ],
+  "open": [
+    "Native startup charge stock, first recharge offset/anchor, range edges, targeting forgiveness, latency and complete disable rules.",
+    "Summoner haste and the rest of the summoner catalog.",
+    "Companion items/pets, quest counters, earned evolution, role binding and jungle modifiers.",
+    "Champion pets, epic objectives, jungler role tactics and complete team planning.",
+    "Native Smite particles, animation/sound dispatch and controlled visual comparison.",
+    "Full seeded matches, complete browser audit, full-match performance and offline/delivery acceptance."
+  ]
+}

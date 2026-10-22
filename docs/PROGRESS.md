@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,182 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,197 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,12 +14,49 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-97 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-97 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-98 continuation. The interim lane match now also schedules both source-linked Rift Gromp camps, with independent death-based respawns, protected source emergence and schema-98 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
   wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Base Smite and summoner loadouts](SMITE.md) now let players select two distinct
+Flash/Heal/Smite spells for D/F in both match modes. The chosen identities reach
+input, HUD, tooltips, scoreboard, defensive bot slot lookup, saves and restarts.
+Duplicate choices swap slots. The match setup also now describes the live jungle
+camps and Scuttlers instead of claiming they are unavailable.
+
+The standard 16.18 source pins 600/1,000/1,400 damage, two maximum charges,
+15-second cast cooldown, 90-second recharge and 500 bounding-box range. Base
+Smite deals 600 immediate true damage to source-tagged large/medium monsters or
+enemy lane minions; small monsters and champions are excluded. Existing last-hit
+rewards and camp calendars handle kills. A sequential charge clock is independent
+of cast lockout and ordinary ability haste, continues through death and is saved
+in schema 98. The local startup grants one charge and schedules another after
+90 seconds; native first-charge timing remains unverified. No champion-level
+upgrade replaces the missing companion quest.
+
+All 1,197 checks across 233 files and TypeScript pass, including eleven mechanics
+and four source cases. Eight existing focused Chrome regressions passed; the new
+Smite test initially stopped because its diagnostic setup remained paused. After
+correcting that setup, all four Smite/match-selection cases pass together. Real
+D input deals 600 damage, spends charges and kills Gromp for normal rewards.
+Queued/checkpoint reloads, recharge, both-mode selection, restart, scoreboard and
+swapped Heal are covered. The 1280×720 setup and 1440×900 gameplay captures were
+visually reviewed. Setup, health preparation and calendar jumps remain diagnostic.
+Source extraction repeats against the pin and the generated profile reproduces
+byte-identically. All GLBs/map validate with zero errors/warnings. Production
+build and nested-path smoke pass with selected Smite retained through restart,
+17 recordings, all eleven monster rigs, no preview requests and no development
+hook. The existing bundle-size warning remains; exact hashes and sizes are in
+[the ledger](reference/summoner-smite-verification.json).
+
+Companion items, pets, quest evolution, role binding, jungle modifiers, native
+startup/range/latency/effects/audio, jungle-role AI and epic objectives remain
+unfinished. This is a base-summoner dependency for the full match. Native visual,
+full browser/performance and production acceptance remain open; the full goal
+stays active.
 
 [Rift Scuttler](SCUTTLER.md) now joins the lane match through a shared river
 controller. Both initial rivers emerge at 2:55, patrol all five source waypoints

@@ -2,7 +2,13 @@ import type { Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 import type { Hud } from '../ui/hud';
-import { instantSpell, minimapSpell, targetedSpell, garenRTarget } from './spell-controls';
+import {
+  instantSpell,
+  minimapSpell,
+  targetedSpell,
+  spellTarget,
+  targetInstruction,
+} from './spell-controls';
 
 export class GameInput {
   pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -66,7 +72,9 @@ export class GameInput {
     );
     window.addEventListener('keydown', (e) => {
       const typing =
-        e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement;
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLSelectElement;
       if (typing) return;
       const key = e.key.toLowerCase();
       if (!hud.modal && ['tab', ' ', 'arrowup', 'arrowdown'].includes(key)) e.preventDefault();
@@ -118,7 +126,8 @@ export class GameInput {
       const spell = ['q', 'w', 'e', 'r', 'd', 'f'].includes(key) ? (key as Ability) : null;
       if (spell && instantSpell(world, spell)) {
         const point =
-          key === 'f' && document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
+          world.summonerSpell(spell) === 'heal' &&
+          document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
             ? (view.pick(world, this.pointer.x, this.pointer.y) ??
               view.worldPoint(this.pointer.x, this.pointer.y) ??
               world.hero)
@@ -146,10 +155,10 @@ export class GameInput {
           const point = this.castPoint(this.aiming);
           if (point) {
             const target = targetedSpell(world, this.aiming)
-              ? garenRTarget(world, view.pick(world, this.pointer.x, this.pointer.y))
+              ? spellTarget(world, this.aiming, view.pick(world, this.pointer.x, this.pointer.y))
               : undefined;
             if (targetedSpell(world, this.aiming) && !target)
-              hud.toast('Choose a visible enemy champion within 400 range');
+              hud.toast(targetInstruction(world, this.aiming));
             else
               world.enqueue({
                 type: 'cast',

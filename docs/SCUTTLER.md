@@ -61,7 +61,8 @@ lighting, materials, sounds and pixel comparison remain open.
 
 ## Persistence and verification
 
-Schema 97 saves the controller's initial deaths, current IDs, selected side,
+Schema 97 introduced the controller state. Current schema 98 retains its initial
+deaths, current IDs, selected side,
 selection streak, pending death/ready ticks, shrines and speed buffs. Per-unit
 state retains river, waypoint/direction, think/graze/flee and damage clocks.
 Validation rejects crossed ownership, extra living Scuttlers, invented attacks,

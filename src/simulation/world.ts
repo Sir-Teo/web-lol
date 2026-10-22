@@ -5,6 +5,14 @@ import {
   scuttlerKilled,
   shrinePoint,
 } from './scuttler';
+import { SUMMONER_SMITE } from '../content/summoner-smite';
+import {
+  SUMMONERS,
+  isSummonerSlot,
+  type SummonerSpell,
+  type SummonerSlot,
+} from '../content/summoners';
+import { smiteTarget } from './smite';
 import { SCUTTLER_SOURCE, SCUTTLER_POLICY } from '../content/scuttler-policy';
 import type { RiverScuttlers } from './types';
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
@@ -846,7 +854,7 @@ export class World {
       if (!this.alive(u)) continue;
       if (
         u.stunUntil > this.tick &&
-        !(command.type === 'cast' && ABILITIES[command.ability].canCastWhileDisabled)
+        !(command.type === 'cast' && this.abilitySpec(command.ability, u.id).canCastWhileDisabled)
       )
         continue;
       if (command.type === 'order') {
@@ -1296,11 +1304,13 @@ export class World {
     return best;
   }
   private planDefensiveHeal(u: Unit): void {
+    const slot = this.summonerSlot('heal', u.id);
     if (
+      !slot ||
       u.kind !== 'champion' ||
       u.hp >= u.maxHp * 0.22 ||
       distance(u, this.battlefield.spawns[u.team]) <= 400 ||
-      this.abilityCooldownTicks('f', u.id) > 0
+      this.abilityCooldownTicks(slot, u.id) > 0
     )
       return;
     const threatened = this.units.some(
@@ -1312,7 +1322,7 @@ export class World {
         this.visible(enemy, u.team)
     );
     if (threatened)
-      this.enqueue({ type: 'cast', unit: u.id, ability: 'f', point: { x: u.x, y: u.y } });
+      this.enqueue({ type: 'cast', unit: u.id, ability: slot, point: { x: u.x, y: u.y } });
   }
   private planGarenW(u: Unit): void {
     if (u.champion !== 'garen' || u.stunUntil > this.tick || u.silenceUntil > this.tick) return;
@@ -1759,13 +1769,15 @@ export class World {
     return true;
   }
   private planEmergencyFlash(u: Unit): boolean {
+    const slot = this.summonerSlot('flash', u.id);
+    if (!slot) return false;
     if (u.kind !== 'champion' || u.silenceUntil > this.tick) return false;
     const home = this.battlefield.spawns[u.team];
     if (
       u.rootUntil > this.tick ||
       u.hp >= u.maxHp * 0.12 ||
       distance(u, home) <= 400 ||
-      this.abilityCooldownTicks('d', u.id) > 0
+      this.abilityCooldownTicks(slot, u.id) > 0
     )
       return false;
     const threats = this.units.filter(
@@ -1804,7 +1816,7 @@ export class World {
     if (!aim) return false;
     // Hold the evaluated launch position until the normal command executes.
     if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
-    this.enqueue({ type: 'cast', unit: u.id, ability: 'd', point: aim });
+    this.enqueue({ type: 'cast', unit: u.id, ability: slot, point: aim });
     return true;
   }
   private think(u: Unit): void {
@@ -3492,7 +3504,7 @@ export class World {
     target: Unit,
     raw: number,
     kind: 'physical' | 'magic' | 'true',
-    category: 'direct' | 'area' | 'cleanup' = 'direct'
+    category: 'direct' | 'area' | 'cleanup' | 'summoner' = 'direct'
   ): void {
     if (
       this.winner ||
@@ -3539,6 +3551,7 @@ export class World {
     if (healthLost > 0 && target.kind === 'monster') target.monster.spawn = null;
     const attacker = this.championState(source.id);
     if (
+      category !== 'summoner' &&
       attacker?.inventory.includes('blade') &&
       this.alive(source) &&
       source.team !== target.team &&
@@ -3906,10 +3919,27 @@ export class World {
     u.criticalSlow = null;
     this.setOrder(u, { type: 'idle' });
   }
+  summonerSpell(ability: Ability, championId = this.player.id): SummonerSpell | null {
+    return isSummonerSlot(ability)
+      ? (this.championState(championId)?.summoners[ability] ?? null)
+      : null;
+  }
+  summonerSlot(spell: SummonerSpell, championId = this.player.id): SummonerSlot | undefined {
+    return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
+  }
+  abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
+    const spell = this.summonerSpell(ability, championId);
+    return spell ? SUMMONERS[spell] : ABILITIES[ability];
+  }
   abilityCooldownTicks(ability: Ability, championId = this.player.id): number {
     const state = this.championState(championId);
     if (!state) return Infinity;
-    const chargeDeadline = ability === 'e' && state.eCharges === 0 ? (state.eRechargeTick ?? 0) : 0;
+    const chargeDeadline =
+      this.summonerSpell(ability, championId) === 'smite' && state.smite?.charges === 0
+        ? (state.smite.rechargeTick ?? 0)
+        : ability === 'e' && state.eCharges === 0
+          ? (state.eRechargeTick ?? 0)
+          : 0;
     return Math.max(0, state.cooldowns[ability] - this.tick, chargeDeadline - this.tick);
   }
   spellLearningError(ability: 'q' | 'w' | 'e' | 'r', championId = this.player.id): string | null {
@@ -3966,7 +3996,10 @@ export class World {
   }
   private baseAbilityResources(ability: Ability, championId: number) {
     if (ability === 'd' || ability === 'f')
-      return { mana: ABILITIES[ability].cost, cooldownSeconds: ABILITIES[ability].cooldown };
+      return {
+        mana: this.abilitySpec(ability, championId).cost,
+        cooldownSeconds: this.abilitySpec(ability, championId).cooldown,
+      };
     const rank = this.abilityRank(ability, championId);
     if (this.unit(championId)?.champion === 'garen')
       return {
@@ -4006,9 +4039,28 @@ export class World {
   private cast(u: Unit, ability: Ability, point: Vec2, targetId?: number): void {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
+    if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    const summoner = this.summonerSpell(ability, u.id);
+    if (summoner === 'smite') {
+      const target = targetId === undefined ? undefined : this.unit(targetId);
+      if (
+        !state.smite ||
+        state.smite.charges === 0 ||
+        this.abilityCooldownTicks(ability, u.id) > 0 ||
+        !smiteTarget(this, u, target)
+      )
+        return;
+      state.smite.charges--;
+      if (state.smite.rechargeTick === null)
+        state.smite.rechargeTick = this.tick + SUMMONER_SMITE.rechargeSeconds * TICK_RATE;
+      state.cooldowns[ability] = this.tick + SUMMONER_SMITE.cooldownSeconds * TICK_RATE;
+      this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
+      this.damage(u, target, SUMMONER_SMITE.baseDamage, 'true', 'summoner');
+      return;
+    }
     if (targetId !== undefined && !(u.champion === 'garen' && ability === 'r')) return;
     // Check before Lux's E-recast shortcut as well as ordinary casts.
-    if (u.silenceUntil > this.tick && !ABILITIES[ability].canCastWhileSilenced) {
+    if (u.silenceUntil > this.tick && !this.abilitySpec(ability, u.id).canCastWhileSilenced) {
       this.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });
       return;
     }
@@ -4030,9 +4082,9 @@ export class World {
       }
     }
     const flashDuringFinalSpark =
-      ability === 'd' && u.champion === 'lux' && state.pendingCast?.ability === 'r';
-    if (state.pendingCast && ability !== 'f' && !flashDuringFinalSpark) return;
-    const spec = ABILITIES[ability];
+      summoner === 'flash' && u.champion === 'lux' && state.pendingCast?.ability === 'r';
+    if (state.pendingCast && summoner !== 'heal' && !flashDuringFinalSpark) return;
+    const spec = this.abilitySpec(ability, u.id);
     const fail = (text: string) => this.emit('message', u, { text, unit: u.id, team: u.team });
     if (u.rootUntil > this.tick && spec.cantCastWhileRooted) {
       fail('Cannot cast that spell while rooted');
@@ -4058,7 +4110,6 @@ export class World {
       fail('Build 4 Focus with basic attacks');
       return;
     }
-    if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
     if (u.champion === 'garen' && ability === 'e') {
       if (u.releaseTick !== null && u.attackCycle?.garenQRank !== undefined) return;
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
@@ -4232,11 +4283,12 @@ export class World {
       this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
       return;
     }
-    if (['w', 'r', 'd'].includes(ability) && dir.x === 0 && dir.y === 0) return;
+    if ((ability === 'w' || ability === 'r' || summoner === 'flash') && dir.x === 0 && dir.y === 0)
+      return;
     u.mana -= resources.mana;
     state.cooldowns[ability] = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
     if (!spec.preservesRecall) state.recallEnd = null;
-    if (ability !== 'f' && !flashDuringFinalSpark) state.castAnimation = null;
+    if (summoner !== 'heal' && !flashDuringFinalSpark) state.castAnimation = null;
     this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
     if (ability === 'q') {
       state.qStacks = 0;
@@ -4281,7 +4333,7 @@ export class World {
         state.eRechargeTick = this.tick + state.eRechargeDurationTicks;
       }
     }
-    if (ability === 'd') {
+    if (summoner === 'flash') {
       const d = Math.min(spec.range, distance(u, point));
       const end = this.battlefield.reachable(
         { x: u.x + dir.x * d, y: u.y + dir.y * d },
@@ -4293,7 +4345,7 @@ export class World {
       u.previous = { ...end };
       this.setOrder(u, { type: 'idle' });
     }
-    if (ability === 'f') {
+    if (summoner === 'heal') {
       const allies = this.units.filter(
         (ally) =>
           ally.id !== u.id &&

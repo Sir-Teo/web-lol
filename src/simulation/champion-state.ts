@@ -1,4 +1,6 @@
 import { ASHE_E } from '../content/ashe-e';
+import { DEFAULT_SUMMONERS } from '../content/summoners';
+import { rechargeSmite } from './smite';
 import { asheHawkshotValues } from './ashe-spell-values';
 import { ASHE_Q } from '../content/ashe-q';
 import { TICK_RATE } from '../content/rules';
@@ -7,6 +9,8 @@ import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
 
 export function createChampionState(id: number, unlocked = true): ChampionState {
   return {
+    summoners: { ...DEFAULT_SUMMONERS },
+    smite: null,
     observedStats: { blue: null, red: null },
     revealContributors: [],
     assists: 0,
@@ -51,6 +55,7 @@ export function createChampionState(id: number, unlocked = true): ChampionState 
 }
 /** Recharge precedes commands, including while dead. */
 export function rechargeChampion(state: ChampionState, tick: number): void {
+  rechargeSmite(state, tick);
   while (state.eRechargeTick !== null && tick >= state.eRechargeTick) {
     state.eCharges++;
     state.eRechargeDurationTicks = hastedCooldownTicks(

@@ -149,6 +149,10 @@ try {
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   assert.equal(await page.getByRole('button', { name: 'Garen', exact: true }).count(), 0);
   await page.getByRole('button', { name: 'Lux', exact: true }).click();
+  await page
+    .getByRole('group', { name: 'F spell', exact: true })
+    .getByRole('button', { name: 'Smite', exact: true })
+    .click();
   laneMatchStarted = true;
   await Promise.all([
     page.waitForEvent('load'),
@@ -156,6 +160,13 @@ try {
   ]);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
+  assert.equal(
+    await page.locator('[data-ability="f"] img').getAttribute('src'),
+    'assets/icons/SummonerSmite.png'
+  );
+  await page.waitForFunction(
+    () => document.querySelector('[data-ability="f"] .ability-charges')?.textContent === '1'
+  );
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.keyboard.press('Control+q');
@@ -183,6 +194,10 @@ try {
   ]);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
+  assert.equal(
+    await page.locator('[data-ability="f"] img').getAttribute('src'),
+    'assets/icons/SummonerSmite.png'
+  );
   assert.equal(
     await page
       .locator('.match-identity')
@@ -238,6 +253,7 @@ try {
       realHawkshotCast: true,
       realLuxBindingCast: true,
       luxLaneRestart: true,
+      selectedSmiteLoadoutAndRestart: true,
       developmentHook: false,
       garenFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,

@@ -1,12 +1,15 @@
 import type { Battlefield } from './battlefield';
 import { World } from './world';
 import { newRiverScuttlers } from './scuttler';
+import { equipSummoners, type SummonerLoadout } from './smite';
+import { DEFAULT_SUMMONERS } from '../content/summoners';
 import { RIFT_CAMPS, type RiftCampId } from '../content/rift-camps';
 
 /** Interim lane-only roster: mirrors are deliberate until more complete kits ship. */
 export function createLaneMatch(
   battlefield: Battlefield,
-  playerChampion: 'ashe' | 'lux' = 'ashe'
+  playerChampion: 'ashe' | 'lux' = 'ashe',
+  summoners: SummonerLoadout = DEFAULT_SUMMONERS
 ): World {
   if (battlefield.id !== 'rift') throw new Error('Lane matches require Summoner’s Rift.');
   const assignments = [
@@ -33,6 +36,7 @@ export function createLaneMatch(
     playerChampion
   );
   world.matchMode = 'lanes';
+  equipSummoners(world.player, summoners);
   world.scuttlers = newRiverScuttlers();
   world.jungleCamps = RIFT_CAMPS.map((camp) => ({
     id: camp.id as RiftCampId,

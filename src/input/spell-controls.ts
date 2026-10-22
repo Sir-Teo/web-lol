@@ -4,10 +4,12 @@ import { GAREN_R } from '../content/garen-r';
 import { GAREN_E_RECAST_TICKS } from '../simulation/garen-e';
 import { distance } from '../simulation/math';
 import type { World } from '../simulation/world';
+import { isSummonerSlot } from '../content/summoners';
+import { smiteTarget } from '../simulation/smite';
 
 /** Input policy follows the current caster, including Lux's point-free E recast. */
 export function instantSpell(world: World, ability: Ability): boolean {
-  if (ability === 'f') return true;
+  if (isSummonerSlot(ability)) return world.summonerSpell(ability) === 'heal';
   if (world.hero.champion === 'garen') return ability === 'q' || ability === 'w' || ability === 'e';
   if (world.hero.champion !== 'lux') return ability === 'q';
   return (
@@ -25,7 +27,25 @@ export function minimapSpell(world: World, ability: Ability): boolean {
 }
 
 export function targetedSpell(world: World, ability: Ability): boolean {
-  return world.hero.champion === 'garen' && ability === 'r';
+  return (
+    world.summonerSpell(ability) === 'smite' || (world.hero.champion === 'garen' && ability === 'r')
+  );
+}
+export function spellTarget(
+  world: World,
+  ability: Ability,
+  target: Unit | undefined
+): Unit | undefined {
+  return world.summonerSpell(ability) === 'smite'
+    ? smiteTarget(world, world.hero, target)
+      ? target
+      : undefined
+    : garenRTarget(world, target);
+}
+export function targetInstruction(world: World, ability: Ability): string {
+  return world.summonerSpell(ability) === 'smite'
+    ? `Hold ${ability.toUpperCase()}, point at a large or medium monster or enemy lane minion within 500 range, then release`
+    : 'Hold R, point at an enemy champion in range, then release';
 }
 
 /** Input preview only. The queued command is revalidated by the simulation. */

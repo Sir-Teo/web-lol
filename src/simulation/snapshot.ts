@@ -1,4 +1,6 @@
 import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
+import { SUMMONER_SMITE } from '../content/summoner-smite';
+import { isSummonerSlot } from '../content/summoners';
 import { riverContains, riverHome } from './scuttler';
 import { LUX_BINDING_STOP_HISTORY_TICKS } from '../content/lux-binding-presentation';
 import { MONSTERS, monsterSpawnClipTicks } from '../content/monsters';
@@ -78,7 +80,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 97;
+export const SNAPSHOT_VERSION = 98;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -414,6 +416,13 @@ const inventorySchema = z
   );
 const player: z.ZodType<PlayerState> = z
   .strictObject({
+    summoners: z.strictObject({
+      d: z.enum(['flash', 'heal', 'smite']),
+      f: z.enum(['flash', 'heal', 'smite']),
+    }),
+    smite: z
+      .strictObject({ charges: z.number().int().min(0).max(2), rechargeTick: tick.nullable() })
+      .nullable(),
     id,
     gold: nonnegative,
     cs: score,
@@ -1860,6 +1869,18 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     throw new Error('Saved match contains invalid champion ownership.');
   for (const owner of owners) {
     const champion = champions.find((u) => u.id === owner.id)!;
+    const equippedSmite = Object.values(owner.summoners).includes('smite');
+    if (
+      owner.summoners.d === owner.summoners.f ||
+      equippedSmite !== (owner.smite !== null) ||
+      (owner.smite &&
+        (owner.smite.charges === SUMMONER_SMITE.maxCharges
+          ? owner.smite.rechargeTick !== null
+          : owner.smite.rechargeTick === null ||
+            owner.smite.rechargeTick <= state.tick ||
+            owner.smite.rechargeTick > state.tick + SUMMONER_SMITE.rechargeSeconds * TICK_RATE))
+    )
+      throw new Error('Saved match contains invalid summoner loadout or Smite charges.');
     const contributors = new Set<number>();
     let previousDamageTick = -1;
     for (const contribution of owner.damageContributors) {
@@ -2404,7 +2425,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const command of state.commands) {
     if (command.type !== 'cast' || command.targetId === undefined) continue;
     const source = champions.find((u) => u.id === command.unit);
-    if (source?.champion !== 'garen' || command.ability !== 'r')
+    const owner = owners.find((s) => s.id === command.unit);
+    if (
+      !(source?.champion === 'garen' && command.ability === 'r') &&
+      !(owner && isSummonerSlot(command.ability) && owner.summoners[command.ability] === 'smite')
+    )
       throw new Error('Saved match contains incompatible targeted cast data.');
   }
   return state;

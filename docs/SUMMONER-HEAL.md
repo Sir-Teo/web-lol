@@ -1,5 +1,8 @@
 # Summoner Heal
 
+[Summoner loadouts](SMITE.md) now allow Heal in D or F. The default-key examples
+below use F; both slots follow the same Heal rules, input and cooldown.
+
 The selected 16.18 `Shared/Spells/SummonerHeal` record is pinned in [summoner-heal.json](reference/summoner-heal.json). Its level-interpolation calculation runs from 80 to 318 health, its cooldown is 240 seconds, and its movement-speed data specifies 30% for one second. `canCastWhileDisabled` and `mDoesntBreakChannels` are both true. `tools/assets/export-summoner-heal.py` verifies the complete cached source SHA and selected record before generating the supported runtime fields.
 
 Each cast heals the caster and up to one eligible allied champion for `80 + 14 * (level - 1)` using the caster’s level through level 18, capped separately by each recipient’s missing health. It grants the one-second speed effect and starts the 240-second cooldown even if little health is missing. Its explicit disabled-cast permission bypasses the existing stun command filter; ordinary orders and other implemented spells still obey that filter. It cannot revive a dead player or change a completed match. The speed effect does not remove stun or permit movement during it.

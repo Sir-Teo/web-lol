@@ -348,6 +348,8 @@ export interface SimEvent extends Vec2 {
   team?: Faction;
 }
 export interface ChampionState {
+  summoners: import('../content/summoners').SummonerLoadout;
+  smite: { charges: number; rechargeTick: number | null } | null;
   observedStats: Record<Team, { level: number; cs: number; inventory: (string | null)[] } | null>;
   revealContributors: { sourceId: number; lastRevealTick: number }[];
   assists: number;

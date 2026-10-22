@@ -32,6 +32,8 @@ import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
 import { GAREN } from '../content/garen-progression';
 import { GAREN_R } from '../content/garen-r';
+import { SUMMONER_SMITE } from '../content/summoner-smite';
+import { isSummonerSlot } from '../content/summoners';
 import { LazyGarenJustice } from './lazy-garen-justice';
 import { LazyGarenCourage } from './lazy-garen-courage';
 import { LazyGrompDeath } from './lazy-gromp-death';
@@ -896,14 +898,16 @@ export class GameView {
       dir = Math.atan2(this.aimPoint.y - hero.y, this.aimPoint.x - hero.x);
     const positions = this.aimLine.geometry.attributes.position as THREE.BufferAttribute;
     positions.setXYZ(0, 0, 0.1, 0);
-    if (hero.champion === 'garen' && this.aimMode === 'r') {
+    const smite = isSummonerSlot(this.aimMode) && world.summonerSpell(this.aimMode) === 'smite';
+    if (smite || (hero.champion === 'garen' && this.aimMode === 'r')) {
+      const radius = smite ? SUMMONER_SMITE.range + hero.radius : GAREN_R.castRange;
       for (let i = 0; i <= 32; i++) {
         const angle = (i / 32) * Math.PI * 2;
         positions.setXYZ(
           i,
-          Math.cos(angle) * GAREN_R.castRange * SCALE,
+          Math.cos(angle) * radius * SCALE,
           0.1,
-          Math.sin(angle) * GAREN_R.castRange * SCALE
+          Math.sin(angle) * radius * SCALE
         );
       }
       this.aimLine.geometry.setDrawRange(0, 33);
