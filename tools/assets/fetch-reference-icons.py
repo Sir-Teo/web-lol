@@ -31,6 +31,7 @@ FILES = {
     'SummonerFlash.png': 'spell/SummonerFlash.png',
     'SummonerHeal.png': 'spell/SummonerHeal.png',
     '1055.png': 'item/1055.png',
+    '3340.png': 'item/3340.png',
     '1001.png': 'item/1001.png',
     '1036.png': 'item/1036.png',
     '1037.png': 'item/1037.png',

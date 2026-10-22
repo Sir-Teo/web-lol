@@ -1,3 +1,5 @@
+import { resetTrinket } from '../simulation/wards';
+import { WARD_SOURCE } from '../content/warding-totem';
 import { shrinePoint } from '../simulation/scuttler';
 import { selectableChampion } from '../content/champion-profiles';
 import { championProfile } from '../content/champion-profiles';
@@ -130,7 +132,7 @@ export class Hud {
           <div class="resource garen-resource" ${world.hero.champion === 'garen' ? '' : 'hidden'}><span id="garen-passive"></span></div>
           <div class="experience"><i id="xp-fill"></i></div>
         </div>
-        <div class="inventory-panel"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${i + 1}</span></div>`).join('')}</div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
+        <div class="inventory-panel"><div class="inventory-tools"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`).join('')}</div><button id="trinket" class="item-slot trinket-slot" aria-label="Stealth Ward"><img src="assets/icons/3340.png" alt="Stealth Ward"><b class="trinket-charges"></b><time class="trinket-cooldown"></time><span>4</span></button></div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
       </section>
       <div class="minimap-shell"><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" title="Lock camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button><span id="fps">60 FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
       <div class="recall-progress" hidden><span>RECALLING</span><div><i></i></div><small>Taking damage or moving cancels recall</small></div>
@@ -579,6 +581,7 @@ export class Hud {
               ]),
         ['D / F', `${this.spellSpec('d').name} / ${this.spellSpec('f').name}`],
         ['B', 'Recall to fountain'],
+        ['4', 'Hold to aim Stealth Ward; release to place'],
         ['P', 'Open item shop'],
         ['Space / Y', 'Recenter / lock camera'],
         ['Shift', 'Show attack range'],
@@ -590,7 +593,7 @@ export class Hud {
       title = 'Practice tools';
       subtitle = 'Make room for the next perfect play.';
       content =
-        '<div class="practice-grid"><button class="menu-button" data-action="restore">Restore health & mana</button><button class="menu-button" data-action="cooldowns">Reset cooldowns</button><button class="menu-button" data-action="gold">Add 1,000 gold</button><button class="menu-button" data-action="dummy">Restore target dummy</button></div><p class="practice-note">Spend skill points to learn and upgrade abilities. Reset cooldowns readies learned abilities and preserves your skill choices. The champion kit, terrain, vision, items, and timing are still under development.</p><button class="primary-button" data-action="resume">Return to the Rift</button>';
+        '<div class="practice-grid"><button class="menu-button" data-action="restore">Restore health & mana</button><button class="menu-button" data-action="cooldowns">Reset cooldowns</button><button class="menu-button" data-action="gold">Add 1,000 gold</button><button class="menu-button" data-action="dummy">Restore target dummy</button></div><p class="practice-note">Spend skill points to learn and upgrade abilities. Reset cooldowns readies learned abilities, summoners and your trinket, while preserving your skill choices. The champion kit, terrain, vision, items, and timing are still under development.</p><button class="primary-button" data-action="resume">Return to the Rift</button>';
     } else if (which === 'shop') {
       title = 'Item shop';
       subtitle = 'Prepare for the fight ahead.';
@@ -717,6 +720,7 @@ export class Hud {
               ? ASHE_E.maximumCharges
               : 0;
           this.world.player.eRechargeTick = null;
+          resetTrinket(state.trinket);
           if (state.smite) {
             state.smite.charges = SUMMONER_SMITE.maxCharges;
             state.smite.rechargeTick = null;
@@ -1011,6 +1015,27 @@ export class Hud {
     const w = this.world,
       p = w.player,
       h = w.hero;
+    const trinket = this.root.querySelector<HTMLButtonElement>('#trinket')!;
+    const charges = p.trinket.charges;
+    const cooldown = Math.max(0, p.trinket.cooldownTick - w.tick);
+    const recharge =
+      p.trinket.rechargeEndTick === null ? 0 : Math.max(0, p.trinket.rechargeEndTick - w.tick);
+    const placed = w.units.filter(
+      (u) => u.kind === 'ward' && u.ward!.ownerId === h.id && w.alive(u)
+    ).length;
+    trinket.querySelector('.trinket-charges')!.textContent = String(charges);
+    trinket.querySelector('.trinket-cooldown')!.textContent =
+      cooldown > 0
+        ? String(Math.ceil(cooldown / 60))
+        : charges === 0
+          ? String(Math.ceil(recharge / 60))
+          : '';
+    trinket.classList.toggle('empty', charges === 0);
+    trinket.setAttribute(
+      'aria-label',
+      `Stealth Ward: ${charges}/${WARD_SOURCE.maxCharges} charges, ${placed}/${WARD_SOURCE.maxPlaced} placed`
+    );
+    trinket.title = `Stealth Ward (4) · ${charges}/${WARD_SOURCE.maxCharges} charges · ${placed}/${WARD_SOURCE.maxPlaced} placed. Hold 4 and release over the battlefield, or click and choose a location. Grants ${WARD_SOURCE.sightRadius} sight; up to ${WARD_SOURCE.maxPlaced} wards. Next charge: ${Math.ceil(recharge / 60)}s.`;
     // Seek the announcement with match time so loading, pause and time jumps
     // cannot advance or replay its presentation independently of the simulation.
     const welcomeTick = Math.min(w.tick, 8 * TICK_RATE);
@@ -1255,7 +1280,7 @@ export class Hud {
       this.lastInventory = p.inventory.join(',');
       this.root.querySelector('#inventory')!.innerHTML = Array.from({ length: 6 }, (_, i) => {
         const item = ITEMS.find((item) => item.id === p.inventory[i]);
-        return `<div class="item-slot" data-inventory-slot="${i}" draggable="${!!item}" title="${item ? `${item.name} · Drag to move` : 'Empty item slot'}">${item ? `<img draggable="false" src="assets/icons/${item.icon}.png" alt="${item.name}">` : ''}<span>${i + 1}</span></div>`;
+        return `<div class="item-slot" data-inventory-slot="${i}" draggable="${!!item}" title="${item ? `${item.name} · Drag to move` : 'Empty item slot'}">${item ? `<img draggable="false" src="assets/icons/${item.icon}.png" alt="${item.name}">` : ''}<span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`;
       }).join('');
     }
     if (Math.floor(w.time) !== this.lastSecond) {
@@ -1320,7 +1345,7 @@ export class Hud {
       if (knownDestroyed === true || (knownDestroyed === null && (!w.alive(u) || !w.visible(u))))
         continue;
       const p = xy(u),
-        r = u.kind === 'champion' ? 5 : isStructureKind(u.kind) ? 4 : 1.5;
+        r = u.kind === 'champion' ? 5 : isStructureKind(u.kind) ? 4 : u.kind === 'ward' ? 3 : 1.5;
       ctx.fillStyle =
         u.id === w.player.id
           ? '#f4dc88'
@@ -1333,6 +1358,16 @@ export class Hud {
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      if (u.kind === 'ward') {
+        ctx.fillStyle = u.team === 'blue' ? '#aed986' : '#ee7b81';
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
+        ctx.fillStyle = '#18332b';
+        ctx.fill();
+        continue;
+      }
       ctx.fill();
       ctx.stroke();
     }

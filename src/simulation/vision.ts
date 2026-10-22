@@ -17,7 +17,7 @@ export interface VisionArea extends VisionSource {
 }
 
 export function sightRadius(unit: Unit): number {
-  return unit.kind === 'champion' ? 1300 : 1000;
+  return unit.kind === 'ward' ? 900 : unit.kind === 'champion' ? 1300 : 1000;
 }
 
 /** Uses the same authored terrain as movement, without movement clearance padding. */

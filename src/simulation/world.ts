@@ -1,3 +1,6 @@
+import { advanceWards, requestWard, hitWard } from './wards';
+import { WARD_SOURCE, WARD_POLICY } from '../content/warding-totem';
+import type { WardPlacement } from './types';
 import {
   advanceRiverScuttlers,
   advanceScuttler,
@@ -204,6 +207,7 @@ export class World {
   matchMode: 'practice' | 'lanes' = 'practice';
   encounter: 'gromp' | null = null;
   jungleCamps: JungleCampState[] = [];
+  pendingWards: WardPlacement[] = [];
   scuttlers: RiverScuttlers | null = null;
   companions: OwnedCompanion[] = [];
   units: Unit[] = [];
@@ -410,6 +414,7 @@ export class World {
     identity: 'ashe' | 'lux' | 'garen' = 'ashe'
   ): TeamUnit {
     if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
+    if (kind === 'ward') throw new Error('Use a trinket placement to create a ward.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];
     const champion = kind === 'champion',
       structure = isStructureKind(kind);
@@ -481,7 +486,7 @@ export class World {
     if (champion)
       this.championRecords.set(
         u.id,
-        createChampionState(u.id, this.battlefield.id === 'practice-fixture')
+        createChampionState(u.id, this.battlefield.id === 'practice-fixture', this.tick)
       );
     const clipDurations = mobileClipDurations(u);
     if (clipDurations)
@@ -500,6 +505,36 @@ export class World {
         own.skillPoints = 1;
       }
     }
+    return u;
+  }
+  spawnWard(placement: WardPlacement): TeamUnit {
+    const u: TeamUnit = {
+      ...this.createUnitBase('ward', placement.team, placement.point),
+      kind: 'ward',
+      team: placement.team,
+      name: 'Stealth Ward',
+      hp: WARD_SOURCE.health,
+      maxHp: WARD_SOURCE.health,
+      radius: WARD_SOURCE.radius,
+      speed: 0,
+      damage: 0,
+      range: 0,
+      armor: 0,
+      magicResist: 0,
+      missileSpeed: 0,
+      ai: false,
+      idleClock: null,
+      corpseLifetimeTicks: WARD_POLICY.corpseTicks,
+      goldBounty: WARD_POLICY.killGold,
+      experienceBounty: WARD_SOURCE.sourceXP,
+      ward: {
+        ownerId: placement.ownerId,
+        createdTick: this.tick,
+        expireTick: this.tick + placement.lifeTicks,
+        revealUntil: this.tick + WARD_POLICY.revealTicks,
+      },
+    };
+    this.units.push(u);
     return u;
   }
   /** Spawn a neutral unit. Camp ownership/calendar is tracked independently. */
@@ -742,6 +777,12 @@ export class World {
               ? { type: 'idle' }
               : { type: order.type, point: { x: order.point.x, y: order.point.y } },
       });
+    } else if (command.type === 'ward') {
+      this.commands.push({
+        type: 'ward',
+        unit: command.unit,
+        point: { x: command.point.x, y: command.point.y },
+      });
     } else if (command.type === 'learn') {
       this.commands.push({ type: 'learn', unit: command.unit, ability: command.ability });
     } else this.commands.push({ type: 'recall', unit: command.unit });
@@ -767,6 +808,7 @@ export class World {
     u.nextPathTick = this.tick;
     const state = this.championState(u.id);
     if (state) {
+      state.trinket.order = null;
       state.recallEnd = null;
       if (!state.pendingCast) state.castAnimation = null;
     }
@@ -879,10 +921,11 @@ export class World {
     for (const zone of this.singularities)
       if (zone.arrivalTick !== null && zone.detonatedTick === null && zone.endTick! > this.tick)
         this.slowSingularity(zone);
+    advanceWards(this);
     const commands = this.commands.splice(0);
     for (const command of commands) {
       const u = this.unit(command.unit);
-      if (!u || u.kind === 'monster') continue;
+      if (!u || u.kind === 'monster' || u.kind === 'ward') continue;
       if (command.type === 'learn') {
         const error = this.learnSpell(command.ability, u.id);
         if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
@@ -894,7 +937,10 @@ export class World {
         !(command.type === 'cast' && this.abilitySpec(command.ability, u.id).canCastWhileDisabled)
       )
         continue;
-      if (command.type === 'order') {
+      if (command.type === 'ward') {
+        const error = requestWard(this, u, command.point);
+        if (error) this.emit('message', u, { text: error, unit: u.id, team: u.team });
+      } else if (command.type === 'order') {
         this.setOrder(u, command.order);
         if (command.order.type === 'move' || command.order.type === 'attackMove')
           this.emit('move', command.order.point, { team: u.team });
@@ -935,6 +981,7 @@ export class World {
         if (u.respawnTick !== null && this.tick >= u.respawnTick) this.respawn(u);
         continue;
       }
+      if (u.kind === 'ward') continue;
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
       if (u.kind === 'monster' && this.advanceMonster(u)) continue;
@@ -1168,6 +1215,7 @@ export class World {
   }
   visible(u: Unit, team: Faction = 'blue'): boolean {
     if (team === 'neutral') return false;
+    if (u.kind === 'ward' && u.team !== team && this.tick >= u.ward!.revealUntil) return false;
     if (
       u.kind === 'monster' &&
       u.monster.species === 'scuttler' &&
@@ -1300,6 +1348,7 @@ export class World {
       target.team !== u.team &&
       this.alive(target) &&
       this.vulnerable(target) &&
+      (target.kind !== 'ward' || u.kind === 'champion') &&
       (target.kind !== 'monster' ||
         (target.monster.phase !== 'returning' &&
           u.kind === 'champion' &&
@@ -2138,6 +2187,7 @@ export class World {
               target.team !== source.team &&
               this.alive(target) &&
               !isStructureKind(target.kind) &&
+              target.kind !== 'ward' &&
               this.vulnerable(target) &&
               distance(source, target) <= GAREN_E.radius + target.radius
           )
@@ -2543,6 +2593,7 @@ export class World {
       !this.alive(target) ||
       !this.vulnerable(target) ||
       isStructureKind(target.kind) ||
+      target.kind === 'ward' ||
       (kind !== 'cinders' &&
         kind !== 'smite' &&
         kind !== 'scorchclaw' &&
@@ -2610,6 +2661,7 @@ export class World {
       !this.alive(target) ||
       !this.vulnerable(target) ||
       isStructureKind(target.kind) ||
+      target.kind === 'ward' ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
       !Number.isSafeInteger(this.tick + durationTicks)
@@ -2630,6 +2682,7 @@ export class World {
       !this.alive(target) ||
       !this.vulnerable(target) ||
       isStructureKind(target.kind) ||
+      target.kind === 'ward' ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
       !Number.isSafeInteger(this.tick + durationTicks)
@@ -2705,6 +2758,7 @@ export class World {
         this.alive(u) &&
         this.vulnerable(u) &&
         !isStructureKind(u.kind) &&
+        u.kind !== 'ward' &&
         distance(u, zone) <= LUX_E_POLICY.radius + u.radius
     );
   }
@@ -2937,7 +2991,7 @@ export class World {
         (attack.stopTick === null || this.tick < attack.stopTick)
       )
         attack.landing = { tick: this.tick, point: { x: unit.x, y: unit.y }, facing: unit.facing };
-      const mobileAlive = !isStructureKind(unit.kind) && this.alive(unit);
+      const mobileAlive = !isStructureKind(unit.kind) && unit.kind !== 'ward' && this.alive(unit);
       const moving =
         mobileAlive && Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
       if (moving) {
@@ -3128,6 +3182,7 @@ export class World {
               !this.vulnerable(u) ||
               u.team === p.team ||
               isStructureKind(u.kind) ||
+              u.kind === 'ward' ||
               p.bindingHits!.includes(u.id)
             )
               return [];
@@ -3174,7 +3229,7 @@ export class World {
         if (!this.alive(u) || !this.vulnerable(u) || u.team === p.team) continue;
         if (p.target !== null && u.id !== p.target) continue;
         if (p.type === 'ultimate' && u.kind !== 'champion' && u.kind !== 'dummy') continue;
-        if (p.type !== 'attack' && isStructureKind(u.kind)) continue;
+        if (p.type !== 'attack' && (isStructureKind(u.kind) || u.kind === 'ward')) continue;
         const t = sweepCircle(p, end, u, p.radius + u.radius);
         if (t !== null && t < first) {
           contact = u;
@@ -3223,6 +3278,7 @@ export class World {
           if (
             source.champion === 'ashe' &&
             !isStructureKind(contact.kind) &&
+            contact.kind !== 'ward' &&
             (p.flurryShot ?? 0) === 0
           ) {
             contact.slowMultiplier = p.type === 'ultimate' ? 0.7 : 1 - slow;
@@ -3363,6 +3419,7 @@ export class World {
         !this.alive(target) ||
         target.team === source.team ||
         isStructureKind(target.kind) ||
+        target.kind === 'ward' ||
         !this.vulnerable(target) ||
         sweepCircle(origin, point, target, LUX_R.halfWidth + target.radius) === null
       )
@@ -3405,7 +3462,8 @@ export class World {
       source.team === target.team ||
       !this.alive(target) ||
       !this.vulnerable(target) ||
-      isStructureKind(target.kind)
+      isStructureKind(target.kind) ||
+      target.kind === 'ward'
     )
       return;
     const endTick = this.tick + LUX_ILLUMINATION.durationSeconds * TICK_RATE;
@@ -3420,6 +3478,10 @@ export class World {
       : GAREN_Q.baseDamageByRank[rank - 1] + (GAREN_Q.totalAttackDamageRatio - 1) * source.damage;
   }
   private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
+    if (target.kind === 'ward') {
+      hitWard(this, source, target);
+      return;
+    }
     const canApplyCinders =
       this.vulnerable(target) &&
       !isStructureKind(target.kind) &&
@@ -3574,6 +3636,7 @@ export class World {
   ): void {
     if (
       this.winner ||
+      target.kind === 'ward' ||
       !this.alive(target) ||
       !this.vulnerable(target) ||
       (target.kind === 'monster' && target.monster.phase === 'returning')
@@ -4814,6 +4877,7 @@ export class World {
       matchMode: this.matchMode,
       encounter: this.encounter,
       jungleCamps: this.jungleCamps,
+      pendingWards: this.pendingWards,
       scuttlers: this.scuttlers,
       companions: this.companions,
       ruleset: SNAPSHOT_RULESET,

@@ -1,3 +1,4 @@
+import { newTrinket } from './wards';
 import { ASHE_E } from '../content/ashe-e';
 import { DEFAULT_SUMMONERS } from '../content/summoners';
 import { rechargeSmite } from './smite';
@@ -7,10 +8,11 @@ import { TICK_RATE } from '../content/rules';
 import type { ChampionState } from './types';
 import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
 
-export function createChampionState(id: number, unlocked = true): ChampionState {
+export function createChampionState(id: number, unlocked = true, tick = 0): ChampionState {
   return {
     summoners: { ...DEFAULT_SUMMONERS },
     smite: null,
+    trinket: newTrinket(tick),
     observedStats: { blue: null, red: null },
     revealContributors: [],
     assists: 0,

@@ -25,7 +25,8 @@ test('crossing a scaling boundary while dead does not extend the saved deadline'
   const w = new World(false);
   w.nextWaveTick = Infinity;
   w.gainExperience(1e6);
-  w.tick = 900 * 60 - 1;
+  w.tick = 900 * 60 - 2;
+  w.step(); // Settle map/resource clocks before saving this diagnostic late death.
   w.damage(w.hero, w.hero, 1e6, 'true');
   const deadline = w.tick + 3150;
   const restored = World.fromSnapshot(w.snapshot(), w.battlefield);

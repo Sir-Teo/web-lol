@@ -20,7 +20,8 @@ export type UnitKind =
   | 'inhibitor'
   | 'nexus'
   | 'dummy'
-  | 'monster';
+  | 'monster'
+  | 'ward';
 export interface ScuttleMotion {
   river: RiverSide;
   destination: number;
@@ -89,7 +90,31 @@ export type Order =
   | { type: 'idle' }
   | { type: 'move' | 'attackMove'; point: Vec2 }
   | { type: 'attack'; target: number };
+export interface WardState {
+  ownerId: number;
+  createdTick: number;
+  expireTick: number;
+  revealUntil: number;
+}
+export interface WardPlacement {
+  origin: Vec2;
+  ownerId: number;
+  team: Team;
+  point: Vec2;
+  startTick: number;
+  readyTick: number;
+  lifeTicks: number;
+}
+export interface TrinketState {
+  createdTick: number;
+  charges: number;
+  rechargeStartTick: number | null;
+  rechargeEndTick: number | null;
+  cooldownTick: number;
+  order: Vec2 | null;
+}
 export interface UnitBase extends Vec2 {
+  ward?: WardState;
   champion?: 'ashe' | 'lux' | 'garen';
   id: number;
   name: string;
@@ -335,6 +360,7 @@ export type Command =
   | { type: 'order'; unit: number; order: Order }
   | { type: 'cast'; unit: number; ability: Ability; point: Vec2; targetId?: number }
   | { type: 'learn'; unit: number; ability: 'q' | 'w' | 'e' | 'r' }
+  | { type: 'ward'; unit: number; point: Vec2 }
   | { type: 'recall'; unit: number };
 export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */
@@ -393,6 +419,7 @@ export interface OwnedCompanion {
 export interface ChampionState {
   summoners: import('../content/summoners').SummonerLoadout;
   smite: { charges: number; rechargeTick: number | null } | null;
+  trinket: TrinketState;
   observedStats: Record<Team, { level: number; cs: number; inventory: (string | null)[] } | null>;
   revealContributors: { sourceId: number; lastRevealTick: number }[];
   assists: number;

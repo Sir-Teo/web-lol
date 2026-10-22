@@ -23,9 +23,11 @@ if (
     'SRU_KrugMiniMini',
     'Sru_Crab',
     'SRU_Jungle_Companions',
+    'SightWard',
   ].includes(champion)
 )
   throw new Error('Expected a supported champion or ordinary jungle base rig');
+const ward = champion === 'SightWard';
 const jungle = /^sru_/i.test(champion);
 const companion = champion === 'SRU_Jungle_Companions';
 const skinIndex = Number(process.argv[3] ?? 0);
@@ -33,8 +35,9 @@ if (!Number.isInteger(skinIndex) || skinIndex < 0 || skinIndex > (companion ? 2 
   throw new Error('Unsupported source skin index');
 const sourceSlug = champion.toLowerCase();
 const slug = sourceSlug.replaceAll('_', '-') + (companion ? `-skin${skinIndex}` : '');
-const sourceGroup =
-  champion === 'SRU_Red'
+const sourceGroup = ward
+  ? 'warding-totem'
+  : champion === 'SRU_Red'
     ? 'red-brambleback'
     : champion.startsWith('SRU_Murkwolf')
       ? 'wolf-camps'
@@ -55,14 +58,18 @@ const pinBytes = await readFile(
       : `docs/reference/${slug}-model.json`
 );
 const sourcePin = JSON.parse(pinBytes);
-const pin = jungle
-  ? {
-      extraction: sourcePin.extraction,
-      skin: { data: sourcePin.records[`data/characters/${sourceSlug}/skins/skin${skinIndex}.bin`] },
-      atomicClips:
-        sourcePin.models[companion ? `${champion}/Skin${skinIndex}` : champion].atomicClips,
-    }
-  : sourcePin;
+const pin =
+  jungle || ward
+    ? {
+        extraction: sourcePin.extraction,
+        skin: {
+          data: sourcePin.records[`data/characters/${sourceSlug}/skins/skin${skinIndex}.bin`],
+        },
+        atomicClips: ward
+          ? sourcePin.model.atomicClips
+          : sourcePin.models[companion ? `${champion}/Skin${skinIndex}` : champion].atomicClips,
+      }
+    : sourcePin;
 const root = sourceGroup
   ? `.cache/${sourceGroup}`
   : jungle

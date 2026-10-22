@@ -15,6 +15,7 @@ export class GameInput {
   inside = false;
   recenterHeld = false;
   private aiming: Ability | null = null;
+  private wardAiming = false;
   private attackMove = false;
   constructor(
     private world: World,
@@ -25,7 +26,8 @@ export class GameInput {
     const canvas = view.renderer.domElement;
     window.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
-      if (this.aiming) view.setAim(this.aiming, this.castPoint(this.aiming));
+      if (this.wardAiming) view.setAim('ward', this.wardPoint() ?? world.hero);
+      else if (this.aiming) view.setAim(this.aiming, this.castPoint(this.aiming));
     });
     window.addEventListener('pointerdown', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
@@ -49,6 +51,11 @@ export class GameInput {
       const target = view.pick(world, e.clientX, e.clientY),
         point = view.worldPoint(e.clientX, e.clientY);
       if (!point) return;
+      if (e.button === 0 && this.wardAiming) {
+        world.enqueue({ type: 'ward', unit: world.player.id, point });
+        this.cancelAim();
+        return;
+      }
       if (e.button === 2 || (e.button === 0 && this.attackMove)) {
         const attackMove = e.button === 0 || e.shiftKey;
         this.cancelAim();
@@ -80,7 +87,7 @@ export class GameInput {
       if (!hud.modal && ['tab', ' ', 'arrowup', 'arrowdown'].includes(key)) e.preventDefault();
       if (e.repeat) return;
       if (key === 'escape') {
-        if (this.aiming || this.attackMove) this.cancelAim();
+        if (this.aiming || this.wardAiming || this.attackMove) this.cancelAim();
         else if (hud.modal) hud.closeModal();
         else hud.toggleModal('pause');
         return;
@@ -111,6 +118,7 @@ export class GameInput {
         this.recenterHeld = true;
         view.recenter(world.hero);
       }
+      if (key === '4') this.beginWardAim();
       if (key === 'y') hud.toggleCamera();
       if (key === 'shift') view.rangeVisible = true;
       if (key === 's') {
@@ -124,6 +132,7 @@ export class GameInput {
       }
       if (key === 'b') world.enqueue({ type: 'recall', unit: world.player.id });
       const spell = ['q', 'w', 'e', 'r', 'd', 'f'].includes(key) ? (key as Ability) : null;
+      if (spell) this.wardAiming = false;
       if (spell && instantSpell(world, spell)) {
         const point =
           world.summonerSpell(spell) === 'heal' &&
@@ -147,6 +156,12 @@ export class GameInput {
     });
     window.addEventListener('keyup', (e) => {
       const key = e.key.toLowerCase();
+      if (key === '4' && this.wardAiming) {
+        const point = this.wardPoint();
+        if (!hud.paused && !hud.modal && point)
+          world.enqueue({ type: 'ward', unit: world.player.id, point });
+        this.cancelAim();
+      }
       if (key === 'tab') hud.scoreboard(false);
       if (key === ' ') this.recenterHeld = false;
       if (key === 'shift' && !this.attackMove) view.rangeVisible = false;
@@ -172,7 +187,21 @@ export class GameInput {
         this.cancelAim();
       }
     });
+    hud.root.querySelector('#trinket')!.addEventListener('click', () => {
+      if (!hud.paused && !hud.modal) this.beginWardAim();
+    });
     window.addEventListener('blur', () => this.release());
+  }
+  private beginWardAim(): void {
+    this.cancelAim();
+    this.wardAiming = true;
+    this.view.renderer.domElement.classList.add('aiming');
+    this.view.setAim('ward', this.wardPoint() ?? this.world.hero);
+  }
+  private wardPoint(): { x: number; y: number } | null {
+    if (document.elementFromPoint(this.pointer.x, this.pointer.y) !== this.view.renderer.domElement)
+      return null;
+    return this.view.worldPoint(this.pointer.x, this.pointer.y);
   }
   release(): void {
     this.recenterHeld = false;
@@ -190,6 +219,7 @@ export class GameInput {
   }
   cancelAim(): void {
     this.aiming = null;
+    this.wardAiming = false;
     this.attackMove = false;
     this.view.setAim(null, null);
     this.view.rangeVisible = false;

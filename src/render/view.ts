@@ -1,3 +1,4 @@
+import { WARD_SOURCE } from '../content/warding-totem';
 import { RiverShrines } from './river-shrines';
 import { OwnedCompanions } from './owned-companions';
 import { LazyGarenDecisiveStrike } from './lazy-garen-decisive-strike';
@@ -141,6 +142,7 @@ export class GameView {
   private range: THREE.LineLoop;
   private aim: THREE.Group;
   private aimLine: THREE.Line;
+  private wardSightLine: THREE.Line;
   private aimPoint: Vec2 | null = null;
   private aimMode: string | null = null;
   private moveMarker: THREE.Group;
@@ -259,6 +261,17 @@ export class GameView {
     );
     this.aimLine.frustumCulled = false;
     this.aim.add(this.aimLine);
+    const wardSightGeometry = new THREE.BufferGeometry();
+    wardSightGeometry.setAttribute(
+      'position',
+      new THREE.BufferAttribute(new Float32Array(33 * 3), 3).setUsage(THREE.DynamicDrawUsage)
+    );
+    this.wardSightLine = new THREE.Line(
+      wardSightGeometry,
+      new THREE.LineBasicMaterial({ color: 0xdcc775, transparent: true, opacity: 0.65 })
+    );
+    this.wardSightLine.frustumCulled = false;
+    this.aim.add(this.wardSightLine);
     this.moveMarker = new THREE.Group();
     for (let i = 0; i < 4; i++) {
       const a = (i / 4) * Math.PI * 2;
@@ -593,7 +606,34 @@ export class GameView {
         action.paused = true;
         model.mixer.update(0);
       }
-      if (!isStructureKind(u.kind) && model.mixer && model.actions && model.clipDurations) {
+      if (u.kind === 'ward' && model.mixer && model.actions) {
+        const age = Math.max(0, (world.tick + alpha - 1 - (u.deadAt ?? u.ward!.createdTick)) / 60);
+        const role =
+          u.deadAt !== null
+            ? 'death'
+            : age < WARD_SOURCE.clips.spawn.durationSeconds
+              ? 'spawn'
+              : 'idle';
+        const selected = WARD_SOURCE.clips[role];
+        const action = model.actions[selected.clip];
+        if (model.actionName !== selected.clip) {
+          model.mixer.stopAllAction();
+          action.reset().play();
+          model.actionName = selected.clip;
+        }
+        action.setLoop(THREE.LoopOnce, 1);
+        action.clampWhenFinished = true;
+        action.time = Math.min(selected.durationSeconds, age);
+        action.paused = true;
+        model.mixer.update(0);
+      }
+      if (
+        !isStructureKind(u.kind) &&
+        u.kind !== 'ward' &&
+        model.mixer &&
+        model.actions &&
+        model.clipDurations
+      ) {
         const pose = mobilePose(
           u,
           world.championState(u.id),
@@ -897,13 +937,40 @@ export class GameView {
   private updateAim(world: World): void {
     this.aim.visible = !!this.aimMode && !!this.aimPoint;
     if (!this.aimMode || !this.aimPoint) return;
+    this.wardSightLine.visible = this.aimMode === 'ward';
     const hero = world.hero,
       dir = Math.atan2(this.aimPoint.y - hero.y, this.aimPoint.x - hero.x);
     const positions = this.aimLine.geometry.attributes.position as THREE.BufferAttribute;
     positions.setXYZ(0, 0, 0.1, 0);
+    if (this.aimMode === 'ward') {
+      const preview = world.battlefield.reachable(
+        this.aimPoint,
+        WARD_SOURCE.pathfindingRadius,
+        world.hero.team
+      );
+      const sightPositions = this.wardSightLine.geometry.attributes
+        .position as THREE.BufferAttribute;
+      for (let i = 0; i <= 32; i++) {
+        const angle = (i * Math.PI * 2) / 32;
+        const x = preview.x + Math.cos(angle) * WARD_SOURCE.sightRadius;
+        const y = preview.y + Math.sin(angle) * WARD_SOURCE.sightRadius;
+        sightPositions.setXYZ(
+          i,
+          (x - hero.x) * SCALE,
+          this.ground({ x, y }) + 0.11,
+          (y - hero.y) * SCALE
+        );
+      }
+      sightPositions.needsUpdate = true;
+    }
     const smite = isSummonerSlot(this.aimMode) && world.summonerSpell(this.aimMode) === 'smite';
-    if (smite || (hero.champion === 'garen' && this.aimMode === 'r')) {
-      const radius = smite ? SUMMONER_SMITE.range + hero.radius : GAREN_R.castRange;
+    if (this.aimMode === 'ward' || smite || (hero.champion === 'garen' && this.aimMode === 'r')) {
+      const radius =
+        this.aimMode === 'ward'
+          ? WARD_SOURCE.range
+          : smite
+            ? SUMMONER_SMITE.range + hero.radius
+            : GAREN_R.castRange;
       for (let i = 0; i <= 32; i++) {
         const angle = (i / 32) * Math.PI * 2;
         positions.setXYZ(

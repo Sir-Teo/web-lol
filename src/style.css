@@ -710,7 +710,7 @@ button {
   box-shadow: 0 0 4px #caa15e77;
 }
 .inventory-panel {
-  width: 102px;
+  width: 138px;
   padding-bottom: 1px;
   margin-left: 4px;
 }
@@ -1864,4 +1864,54 @@ button {
   background: #0a1b21dd;
   border: 1px solid #776e4e;
   font-size: 12px;
+}
+
+.inventory-tools {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.trinket-slot {
+  pointer-events: auto;
+  padding: 0;
+  flex: 0 0 31px;
+  color: #f4df9f;
+  cursor: pointer;
+}
+.trinket-slot.empty img {
+  filter: grayscale(0.8) brightness(0.45);
+}
+.trinket-charges {
+  position: absolute;
+  left: 2px;
+  bottom: 0;
+  font-size: 11px;
+  text-shadow: 0 1px 2px #000;
+}
+.trinket-cooldown {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 0 1px 3px #000;
+}
+
+.unit-bar.ward .unit-hp:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 31%,
+    #071014 31%,
+    #071014 34%,
+    transparent 34%,
+    transparent 65%,
+    #071014 65%,
+    #071014 68%,
+    transparent 68%
+  );
 }

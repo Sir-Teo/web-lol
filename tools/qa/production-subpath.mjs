@@ -63,6 +63,7 @@ try {
     outside = [],
     junglePreviewRequests = [],
     preparedCompanionRequests = [],
+    wardRigRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -76,6 +77,7 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
     if (/sru-jungle-companions-skin[012]-base|jungle-companions-source/.test(request.url()))
       preparedCompanionRequests.push(request.url());
     if (
@@ -260,6 +262,12 @@ try {
     'true'
   );
   await page.locator('.close-button').click();
+  await page.mouse.move(980, 480);
+  await page.keyboard.down('4');
+  await page.keyboard.up('4');
+  await page.locator('.unit-bar.blue.ward:not([hidden])').waitFor({ state: 'visible' });
+  assert.equal(await page.locator('#trinket .trinket-charges').textContent(), '0');
+  await page.screenshot({ path: 'artifacts/production-ward.png' });
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await page.waitForFunction(
@@ -272,6 +280,9 @@ try {
   );
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.equal(await page.locator('#inventory img[alt="Gustwalker Hatchling"]').count(), 1);
+  assert.equal(await page.locator('#trinket .trinket-charges').textContent(), '0');
+  assert.equal(await page.locator('.unit-bar.blue.ward:not([hidden])').count(), 1);
+  assert(wardRigRequests.length >= 2);
   assert((await page.locator('#companion-status').textContent()).includes('0/35 treats'));
   assert(preparedCompanionRequests.length >= 2);
   assert(
@@ -327,6 +338,8 @@ try {
       selectedSmiteLoadoutAndRestart: true,
       companionPurchaseAndRestore: true,
       companionPurchaseInPractice: true,
+      realWardPlacementAndRestore: true,
+      wardRigRequests: wardRigRequests.length,
       unrequestedCompanionPreloads: 0,
       developmentHook: false,
       garenFixtureInProduction: false,

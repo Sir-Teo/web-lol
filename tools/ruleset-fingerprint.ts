@@ -19,6 +19,7 @@ export const rulesetFiles = [
   'src/content/krug-camps.json',
   'src/content/scuttler.json',
   'src/content/owned-companions.json',
+  'src/content/warding-totem.json',
   'src/content/gromp-death.json',
   'src/content/gromp-attack.json',
   'src/content/rift-gromp-camps.json',

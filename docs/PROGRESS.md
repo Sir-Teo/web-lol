@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,261 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,275 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -14,12 +14,51 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - Ten-champion lane diagnostics are available with all Ashe or eight Ashe/two Lux. These fixtures have two top, one mid and two bottom champions per team. They do not implement jungle roles, complete objective play or final role AI. The default entry remains practice, with **Pause → New match** offering a human Ashe or Lux plus nine lane bots. This is an interim lane mode, not the completed production 5v5 role system.
-- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-102 continuation. Rift practice and the interim lane match share both source-linked Gromp camps, with independent death-based respawns, protected source emergence and schema-102 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
+- A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-103 continuation. Rift practice and the interim lane match share both source-linked Gromp camps, with independent death-based respawns, protected source emergence and schema-103 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
   wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and jungle-role matches remain unfinished.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+[Stealth Ward](WARDING-TOTEM.md) now supplies a separate trinket slot, real key
+and button targeting, cast/sight guides, captured charge/delivery/lifetime clocks,
+shared team sight, stealth, basic clearing and saved restoration. Distant requests
+walk into range before spending and stop; another order cancels without cost.
+Practice reset refills charges without replaying a committed placement. Wards
+ignore current supported spells and non-champion attackers. Garen's empowered
+attack removes one health, consumes Q and applies no silence; its new checkpoint
+case exposed and repaired the old validator assumption about non-building targets.
+
+The source pin retains nine original Map11 files (108,225 raw bytes), seven
+metadata-only scripts (1,309 bytes; 43 instructions), frozen item/shared/string
+records and the original icon. The 69,572-byte base rig has 336 triangles, four
+bones and five atomic entries, including preserved static idle poses. Extraction
+repeats exactly. REA does not parse this proprietary BIN format; existing hashed
+archive/BIN/static Lua readers provide the source evidence. Startup, level/phase
+binding, reveal and trinket reward dispatch remain explicit local policies.
+The retained `GameTimeThreshold=14` field is not treated as a fourteen-minute recharge rule.
+
+TypeScript and all 1,275 checks across 240 files pass, including fourteen new
+ward cases. Twenty focused Chrome scenarios pass, covering four ward cases and
+sixteen inventory, lane, save/recovery, practice-reset, responsive shop, HUD input
+and Smite regressions. Real input places/clears wards and transfers exact pending
+and fighting checkpoints; position/reveal/time setup for later boundaries remains
+diagnostic. The source rig contributes 365 GPU pixels in the recorded Rift probe.
+All eight new ward captures were visually reviewed, including the 600x700 HUD.
+
+Schema 103 requires trinket and ward state, validates ownership/range/clock/health
+invariants, and preserves independent in-flight placement after a practice reset.
+Earlier formats remain incompatible. All GLBs and the map validate with zero
+errors/warnings. Production build and `/nested/rift/` smoke pass with actual ward
+placement/reload, six source ward rig requests, all eleven practice monster rigs,
+17 recordings, two selected companion requests and no development hook, review
+data, failed or outside-prefix resources. All four production captures were
+visually reviewed. The bundle warning remains (700.69 KB game, 659.92 KB Three).
+Exact evidence is in [the ward ledger](reference/warding-totem-verification.json).
+Control/sweeper/Farsight tools, Faelights, complete native comparison, strategic
+ward bots, full role matches, offline delivery and performance acceptance remain
+unfinished. The full project goal stays active.
 
 [Rift practice](RIFT-PRACTICE.md) now initializes the same twelve ordinary camp
 calendars and shared river controller as the interim lane match. Purchased

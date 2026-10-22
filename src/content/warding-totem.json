@@ -1,0 +1,42 @@
+{
+  "sourceSha256": "1648337800f3309d3ce74b5cc5b7169d60f59e456255006cfbe7b85e9ee4f8f4",
+  "range": 625.0,
+  "sightRadius": 900.0,
+  "health": 3.0,
+  "radius": 1.0,
+  "pathfindingRadius": 5.0,
+  "healthBarHeight": 180.0,
+  "sourceGold": 0.0,
+  "sourceXP": 0.0,
+  "maxCharges": 2,
+  "maxPlaced": 3,
+  "minLifeSeconds": 90.0,
+  "maxLifeSeconds": 120.0,
+  "earlyRechargeSeconds": 210.0,
+  "lateRechargeSeconds": 90.0,
+  "cooldownSeconds": 1.25,
+  "preservesRecall": true,
+  "ignoresAbilityHaste": true,
+  "tags": [
+    "Ward",
+    "Special",
+    "Special_TurretIgnores",
+    "Special_UntargetableBySpells"
+  ],
+  "placementTravelSeconds": 0.32499998807907104,
+  "rig": "sightward-base",
+  "clips": {
+    "idle": {
+      "clip": "attack1",
+      "durationSeconds": 0
+    },
+    "spawn": {
+      "clip": "entry_3a224d98",
+      "durationSeconds": 0.40000003576278687
+    },
+    "death": {
+      "clip": "entry_bd28bd4d",
+      "durationSeconds": 0.7666667103767395
+    }
+  }
+}

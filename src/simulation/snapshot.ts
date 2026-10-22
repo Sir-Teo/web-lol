@@ -1,3 +1,4 @@
+import { WARD_SOURCE, WARD_POLICY, wardScaling } from '../content/warding-totem';
 import { SCUTTLER_POLICY, RIVER_SIDES } from '../content/scuttler-policy';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
 import { companionItemKind, isDoranStarter } from '../content/companion-items-policy';
@@ -89,7 +90,7 @@ import type { Command, Order, PlayerState, Projectile, Unit } from './types';
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 102;
+export const SNAPSHOT_VERSION = 103;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -150,6 +151,7 @@ const kind = z.enum([
   'nexus',
   'dummy',
   'monster',
+  'ward',
 ]);
 const ability = z.enum(['q', 'w', 'e', 'r', 'd', 'f']);
 const order: z.ZodType<Order> = z.discriminatedUnion('type', [
@@ -161,6 +163,9 @@ const unit = z
   .strictObject({
     id,
     kind,
+    ward: z
+      .strictObject({ ownerId: id, createdTick: tick, expireTick: tick, revealUntil: tick })
+      .optional(),
     champion: z.enum(['ashe', 'lux', 'garen']).optional(),
     team: faction,
     monster: z
@@ -446,6 +451,14 @@ const inventorySchema = z
   );
 const player: z.ZodType<PlayerState> = z
   .strictObject({
+    trinket: z.strictObject({
+      createdTick: tick,
+      charges: z.number().int().min(0).max(WARD_SOURCE.maxCharges),
+      rechargeStartTick: tick.nullable(),
+      rechargeEndTick: tick.nullable(),
+      cooldownTick: tick,
+      order: point.nullable(),
+    }),
     summoners: z.strictObject({
       d: z.enum(['flash', 'heal', 'smite']),
       f: z.enum(['flash', 'heal', 'smite']),
@@ -721,6 +734,7 @@ const projectile: z.ZodType<Projectile> = z
 const command: z.ZodType<Command> = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal('order'), unit: id, order }),
   z.strictObject({ type: z.literal('cast'), unit: id, ability, point, targetId: id.optional() }),
+  z.strictObject({ type: z.literal('ward'), unit: id, point }),
   z.strictObject({ type: z.literal('recall'), unit: id }),
   z.strictObject({ type: z.literal('learn'), unit: id, ability: z.enum(['q', 'w', 'e', 'r']) }),
 ]);
@@ -812,6 +826,19 @@ const snapshot = z.strictObject({
     .max(10),
   version: z.literal(SNAPSHOT_VERSION),
   encounter: z.literal('gromp').nullable(),
+  pendingWards: z
+    .array(
+      z.strictObject({
+        ownerId: id,
+        team,
+        point,
+        origin: point,
+        startTick: tick,
+        readyTick: tick,
+        lifeTicks: tick,
+      })
+    )
+    .max(1000),
   jungleCamps: z
     .array(
       z.strictObject({
@@ -1081,6 +1108,96 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       cause: result.error,
     });
   const state = result.data;
+  const wardOwners = [state.player, ...state.otherChampions];
+  for (const owner of wardOwners) {
+    const s = owner.trinket;
+    if (
+      s.createdTick > state.tick ||
+      s.cooldownTick > state.tick + WARD_POLICY.cooldownTicks ||
+      (s.charges === WARD_SOURCE.maxCharges) !== (s.rechargeEndTick === null) ||
+      (s.rechargeStartTick === null) !== (s.rechargeEndTick === null) ||
+      (s.rechargeStartTick !== null &&
+        (s.rechargeStartTick < s.createdTick ||
+          s.rechargeStartTick > state.tick ||
+          s.rechargeEndTick! <= state.tick ||
+          s.rechargeEndTick! - s.rechargeStartTick < wardScaling(18).rechargeTicks ||
+          s.rechargeEndTick! - s.rechargeStartTick > wardScaling(1).rechargeTicks)) ||
+      (s.order &&
+        (Math.abs(s.order.x) > battlefield.half || Math.abs(s.order.y) > battlefield.half))
+    )
+      throw new Error('Saved trinket has invalid charge or placement clocks.');
+  }
+  const wardCounts = new Map<number, number>();
+  for (const u of state.units) {
+    if ((u.kind === 'ward') !== !!u.ward) throw new Error('Saved ward has invalid unit identity.');
+    if (!u.ward) continue;
+    const p = u.ward,
+      owner = state.units.find((v) => v.id === p.ownerId && v.kind === 'champion');
+    if (
+      !owner ||
+      owner.team !== u.team ||
+      p.createdTick > state.tick ||
+      p.expireTick - p.createdTick < wardScaling(1).lifeTicks ||
+      p.expireTick - p.createdTick > wardScaling(18).lifeTicks ||
+      (u.hp > 0 && p.expireTick <= state.tick) ||
+      p.revealUntil < p.createdTick ||
+      p.revealUntil > state.tick + WARD_POLICY.revealTicks ||
+      u.maxHp !== WARD_SOURCE.health ||
+      !Number.isInteger(u.hp) ||
+      u.hp > WARD_SOURCE.health ||
+      u.speed !== 0 ||
+      u.damage !== 0 ||
+      u.ai ||
+      u.champion ||
+      u.monster ||
+      u.respawnTick !== null ||
+      u.order.type !== 'idle' ||
+      u.path.length ||
+      u.releaseTick !== null ||
+      u.attackCycle !== null ||
+      u.animationTimeline !== null ||
+      u.runClock !== null ||
+      u.idleClock !== null ||
+      u.slowUntil !== 0 ||
+      u.slows.length ||
+      u.criticalSlow !== null ||
+      u.stunUntil !== 0 ||
+      u.rootUntil !== 0 ||
+      u.silenceUntil !== 0 ||
+      u.illumination.length ||
+      u.cinderBurn !== null ||
+      u.garenEShreds.length ||
+      u.radius !== WARD_SOURCE.radius ||
+      u.shields.length ||
+      u.scorchclawBurns.length
+    )
+      throw new Error('Saved ward has invalid ownership, health or lifetime.');
+    if (u.hp > 0) wardCounts.set(p.ownerId, (wardCounts.get(p.ownerId) ?? 0) + 1);
+  }
+  if ([...wardCounts.values()].some((count) => count > WARD_SOURCE.maxPlaced))
+    throw new Error('Saved owner exceeds the placed ward limit.');
+  const pendingWardOwners = new Set<string>();
+  for (const p of state.pendingWards) {
+    const owner = state.units.find((u) => u.id === p.ownerId && u.kind === 'champion');
+    if (
+      !owner ||
+      owner.team !== p.team ||
+      pendingWardOwners.has(`${p.ownerId}:${p.startTick}`) ||
+      p.startTick > state.tick ||
+      p.readyTick !== p.startTick + WARD_POLICY.placementTicks ||
+      p.readyTick <= state.tick ||
+      Math.abs(p.origin.x) > battlefield.half ||
+      Math.abs(p.origin.y) > battlefield.half ||
+      Math.hypot(p.origin.x - p.point.x, p.origin.y - p.point.y) > WARD_SOURCE.range + 1e-7 ||
+      p.lifeTicks < wardScaling(1).lifeTicks ||
+      p.lifeTicks > wardScaling(18).lifeTicks ||
+      Math.abs(p.point.x) > battlefield.half ||
+      Math.abs(p.point.y) > battlefield.half
+    )
+      throw new Error('Saved ward placement has invalid ownership or clocks.');
+    pendingWardOwners.add(`${p.ownerId}:${p.startTick}`);
+  }
+
   if (
     state.companions.some((p) => p.acquisition.kind === 'fixture') &&
     (state.battlefield !== 'practice-fixture' ||
@@ -2547,11 +2664,12 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
             ? a.impact &&
               recipient &&
               !isStructureKind(recipient.kind) &&
+              recipient.kind !== 'ward' &&
               ((recipient.deadAt === null && state.tick < a.impact.tick + silenceTicks) ||
                 (recipient.deadAt !== null && recipient.deadAt > a.impact.tick))
             : !a.impact ||
               !silenceDurations.includes(a.silenceEndTick - a.impact.tick) ||
-              (recipient && isStructureKind(recipient.kind)) ||
+              (recipient && (isStructureKind(recipient.kind) || recipient.kind === 'ward')) ||
               (recipient?.deadAt === null &&
                 a.silenceEndTick > state.tick &&
                 recipient.silenceUntil < a.silenceEndTick)) ||

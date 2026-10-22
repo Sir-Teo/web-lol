@@ -1,0 +1,1975 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "parent": {
+    "path": "docs/reference/jungle-character-source.json",
+    "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b"
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+    "chunks": {
+      "A02D372F5DF76CAD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39736250,
+        "bytes": 223610,
+        "sha256": "497b48b952a25d9d549a9072d1b2968fced9ac4b0adb323b55d374bdb883ec4b"
+      },
+      "6C7FBEFDF21793B9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39959860,
+        "bytes": 258644,
+        "sha256": "f23ef45618318e6d6c3a909b86fc1846003544eeb901caeb4d180d5990932397"
+      },
+      "28395A168DBE5BA0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40218504,
+        "bytes": 183351,
+        "sha256": "70bced407e6680cc97032f924a5f3e16f886d1ac327f1146713dbfe168cc87c4"
+      },
+      "902BE54057D2F816": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40401855,
+        "bytes": 5831,
+        "sha256": "02c40cc44fd863d50514ee0ffd10a54d3ff9e9af1d6fac6ef4cb1d461f16d4d5"
+      },
+      "FEB9FC9832147ADC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 12867106,
+        "bytes": 266544,
+        "sha256": "5682b05473d220685c2b21546fb68b91041f0ebefc44b3c78b84ca10d62f61a0"
+      },
+      "89C2D5AC15AFA322": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 206586,
+        "bytes": 500,
+        "sha256": "522a34e3f1f6f30279bc01ac30e1e7ebf3549655e344427dc047c1332c4375f3"
+      },
+      "8EE07FFD41F466FA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 910962,
+        "bytes": 647,
+        "sha256": "23d3c9862ffdd7af2d70e7733cc468c0f9b0431a550b3ecaabecebcdfabf81e1"
+      },
+      "229BB215791A362C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 170076,
+        "bytes": 313,
+        "sha256": "a62eadd29fe3d445753c864e1127f2c450997880fd238658f1ef6f7ac364e051"
+      },
+      "9E16954AB76BABEB": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 470131,
+        "bytes": 141,
+        "sha256": "b6603a8416a127dff01f882a5f59aadb9c4a18359ca7b91165f994d3e93f5545"
+      },
+      "821CF51004A09303": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/79DA45376A066917.bundle",
+        "offset": 6116512,
+        "bytes": 786,
+        "sha256": "80ea2fd84a6047b5b8568df5e9093e02831a93404d3c1abbbc0afcaaf5b7e331"
+      },
+      "09441801D9144A36": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 13239876,
+        "bytes": 616,
+        "sha256": "d4f981fa7b4f5e7cfcbeeb6bf05fda859f69f13f3dbd8f16d272d47e158a65f5"
+      },
+      "D36A990FEAA5B855": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6ED6F963150D0F17.bundle",
+        "offset": 2098053,
+        "bytes": 284,
+        "sha256": "18436ddb624fb01d18e132dc0d00d9fa2cd05e7587d1ca1b2ee8549fab8885fe"
+      },
+      "B51C8B7A246AACEC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/8F3629AE58FF081E.bundle",
+        "offset": 10749908,
+        "bytes": 5318,
+        "sha256": "03271c02ff6f63eb0353cbf3be6fe2efe145f476256f1b5705855ab38e0d7991"
+      },
+      "FED829D95CC0E925": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/DFC69863484A6B99.bundle",
+        "offset": 7045911,
+        "bytes": 26993,
+        "sha256": "5e5f9ccb0681f05999eea9d0f7155eb41ae8221ce2a527d3b8faf7d01c2c9602"
+      }
+    },
+    "files": [
+      {
+        "path": "data/characters/sightward/sightward.bin",
+        "wadPathHash": "2f2766ffa546b3ca",
+        "sha256": "089b2fbf68c4ac8969af160757522342cb522c41339ea8d48d88b1970064668a",
+        "bytes": 1411
+      },
+      {
+        "path": "data/characters/sightward/skins/skin0.bin",
+        "wadPathHash": "fa98e195def5ea9a",
+        "sha256": "5c39b080c5cb81c39043bab0491c26d8cf4550a758a2055cd92c8e7c1a4bbd9e",
+        "bytes": 2968
+      },
+      {
+        "path": "data/characters/sightward/animations/skin0.bin",
+        "wadPathHash": "f6dab2381beae4c1",
+        "sha256": "62b024bc004d2a7f7b48e4a78abcf0540e587a975a5511b43626cd396325c9b0",
+        "bytes": 508
+      },
+      {
+        "path": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+        "wadPathHash": "4051d514299c95f3",
+        "sha256": "6a9c4ec8c07033b2a8699b9a9a845915ddede58ccc09c2d0fba4f799b7fb5a1b",
+        "bytes": 200
+      },
+      {
+        "path": "assets/characters/sightward/skins/base/animations/sightward_base_idle_death.anm",
+        "wadPathHash": "dfc9ea29d54833a0",
+        "sha256": "4cf13057ac05517a42c843db192eaa872d703fe8ac8df67017a77d07c5fc2660",
+        "bytes": 1526
+      },
+      {
+        "path": "assets/characters/sightward/skins/base/animations/sightward_base_idlein.anm",
+        "wadPathHash": "49a82a18e07b31fa",
+        "sha256": "4783c8a9eea24a290b7a96ccbd50a9df7ce8f4b4df02715dbbbf41ec4161dcbe",
+        "bytes": 1064
+      },
+      {
+        "path": "assets/characters/sightward/skins/base/sightward.skl",
+        "wadPathHash": "1118c84a54519a41",
+        "sha256": "991af5ac5843c6717f46a270c44ab0ce3e6281cb7cf90ca7fa5475ce1f22b5d5",
+        "bytes": 548
+      },
+      {
+        "path": "assets/characters/sightward/skins/base/sightward.skn",
+        "wadPathHash": "45484c431ff84875",
+        "sha256": "ce56c02f6b6cbfc07aedd3c56291efee78f1d4166863e1c63a296c8b60fb85d5",
+        "bytes": 12580
+      },
+      {
+        "path": "assets/characters/sightward/skins/base/sightward.tex",
+        "wadPathHash": "6c60c0618aecfcdb",
+        "sha256": "07c82c01983ab7d2cac83e1b46caab2aaa11f595d073a53d5ec139b8380a5ea1",
+        "bytes": 87420
+      }
+    ]
+  },
+  "labelEvidence": {
+    "dictionaries": [
+      {
+        "path": ".cache/garen-particle-bins/hashes.binfields.txt",
+        "sha256": "2d6ea2f62dbf2241e0c97f95edc6fbc79311a952da1e0297ef6e273f27a587d0"
+      },
+      {
+        "path": ".cache/garen-particle-bins/hashes.bintypes.txt",
+        "sha256": "543c7afc872b00d3bf1b82dc7056faf309b68b79d542e6272e6ae9c18c6b26fa"
+      },
+      {
+        "path": ".cache/jungle-characters/hashes.game.txt",
+        "sha256": "9e9370edecab87865e33b1cf90e8309248cced44ebe29d3f0875c237d8400081",
+        "url": "https://raw.communitydragon.org/data/hashes/lol/hashes.game.txt"
+      }
+    ],
+    "status": "Discovery names only; exact FNV and xxh64 checks. No runtime behavior inferred from naming."
+  },
+  "records": {
+    "data/characters/sightward/sightward.bin": {
+      "Characters/SightWard/CharacterRecords/Root": {
+        "mCharacterName": "SightWard",
+        "baseHPModifiable": {
+          "baseValue": 3.0,
+          "__type": "ModifiableFloat"
+        },
+        "baseStaticHPRegenModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "healthBarHeight": 180.0,
+        "healthBarFullParallax": true,
+        "primaryAbilityResource": {
+          "arType": 3,
+          "{726ee5cd}": {
+            "baseValue": 150.0,
+            "__type": "ModifiableFloat"
+          },
+          "{c4ab3550}": {
+            "baseValue": 0.0,
+            "__type": "ModifiableFloat"
+          },
+          "arAllowMaxValueToBeOverridden": true,
+          "__type": "AbilityResourceSlotInfo"
+        },
+        "baseDamageModifiable": {
+          "baseValue": 33.0,
+          "__type": "ModifiableFloat"
+        },
+        "baseArmorModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "baseMoveSpeedModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedRatioModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "expGivenOnDeath": 0.0,
+        "goldGivenOnDeath": 0.0,
+        "perceptionBubbleRadius": 900.0,
+        "significance": 0.30000001192092896,
+        "friendlyTooltip": "game_character_friendlyTooltip_SightWard",
+        "enemyTooltip": "game_character_enemyTooltip_SightWard",
+        "name": "game_character_displayname_SightWard",
+        "minimapIconOverride": "Ward",
+        "pathfindingCollisionRadius": 5.0,
+        "overrideGameplayCollisionRadius": 1.0,
+        "unitTagsString": "Ward | Special | Special_TurretIgnores | Special_UntargetableBySpells",
+        "characterToolData": {
+          "mapAIPresence": {
+            "0": {
+              "__type": "ToolAiPresence"
+            },
+            "1": {
+              "__type": "ToolAiPresence"
+            },
+            "2": {
+              "__type": "ToolAiPresence"
+            }
+          },
+          "description": "game_character_description_SightWard",
+          "classification": "Arcane",
+          "__type": "CharacterToolData"
+        },
+        "recordAsWard": true,
+        "flags": 75507016,
+        "__type": "CharacterRecord"
+      },
+      "{9f0a9380}": {
+        "mCharacterName": "SightWard",
+        "baseHPModifiable": {
+          "baseValue": 3.0,
+          "__type": "ModifiableFloat"
+        },
+        "baseStaticHPRegenModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "healthBarHeight": 180.0,
+        "healthBarFullParallax": true,
+        "primaryAbilityResource": {
+          "arType": 3,
+          "{726ee5cd}": {
+            "baseValue": 180.0,
+            "__type": "ModifiableFloat"
+          },
+          "{c4ab3550}": {
+            "baseValue": 0.0,
+            "__type": "ModifiableFloat"
+          },
+          "arAllowMaxValueToBeOverridden": true,
+          "__type": "AbilityResourceSlotInfo"
+        },
+        "baseDamageModifiable": {
+          "baseValue": 33.0,
+          "__type": "ModifiableFloat"
+        },
+        "baseArmorModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "critDamageMultiplier": 2.0,
+        "baseMoveSpeedModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedRatioModifiable": {
+          "baseValue": 0.0,
+          "__type": "ModifiableFloat"
+        },
+        "expGivenOnDeath": 0.0,
+        "goldGivenOnDeath": 0.0,
+        "perceptionBubbleRadius": 900.0,
+        "significance": 0.30000001192092896,
+        "friendlyTooltip": "game_character_friendlyTooltip_SightWard",
+        "enemyTooltip": "game_character_enemyTooltip_SightWard",
+        "name": "game_character_displayname_SightWard",
+        "minimapIconOverride": "Ward",
+        "pathfindingCollisionRadius": 5.0,
+        "overrideGameplayCollisionRadius": 1.0,
+        "unitTagsString": "Ward | Special | Special_TurretIgnores | Special_UntargetableBySpells",
+        "characterToolData": {
+          "mapAIPresence": {
+            "0": {
+              "__type": "ToolAiPresence"
+            },
+            "1": {
+              "__type": "ToolAiPresence"
+            },
+            "2": {
+              "__type": "ToolAiPresence"
+            }
+          },
+          "description": "game_character_description_SightWard",
+          "classification": "Arcane",
+          "__type": "CharacterToolData"
+        },
+        "recordAsWard": true,
+        "flags": 75507016,
+        "__type": "CharacterRecord"
+      },
+      "{bbf9ac18}": {
+        "__type": "SkinCharacterMetaDataProperties"
+      },
+      "__linked": []
+    },
+    "data/characters/sightward/skins/skin0.bin": {
+      "Characters/SightWard/Skins/Skin0": {
+        "championSkinName": "SightWardBase",
+        "skinAnimationProperties": {
+          "animationGraphData": "{76652ec9}",
+          "__type": "SkinAnimationProperties"
+        },
+        "skinMeshProperties": {
+          "skeleton": "ASSETS/Characters/SightWard/Skins/Base/SightWard.skl",
+          "simpleSkin": "ASSETS/Characters/SightWard/Skins/Base/SightWard.skn",
+          "texture": "assets/characters/sightward/skins/base/sightward.tex",
+          "selfIllumination": 0.699999988079071,
+          "reflectionFresnelColor": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "__type": "SkinMeshDataProperties"
+        },
+        "armorMaterial": "Stone",
+        "iconCircle": "assets/characters/sightward/hud/sightward_square.tex",
+        "iconSquare": "assets/characters/sightward/hud/sightward_square.tex",
+        "healthBarData": {
+          "hpPerTick": 1.0,
+          "__type": "CharacterHealthBarDataRecord"
+        },
+        "mResourceResolver": "{fcbd8702}",
+        "objectPath": "Characters/SightWard/Skins/Skin0",
+        "__type": "SkinCharacterDataProperties"
+      },
+      "{fcbd8702}": {
+        "resourceMap": {
+          "{e7dbb435}": "{5973ec21}",
+          "{ceab81bb}": "{00000000}",
+          "{b63f3040}": "{00000000}",
+          "{9f7a022f}": "{00000000}",
+          "{14c1ef92}": "{00000000}",
+          "{02eb9e3d}": "{00000000}",
+          "{9de78348}": "{00000000}",
+          "{7ecc546c}": "{00000000}",
+          "{be1d7d97}": "{00000000}"
+        },
+        "__type": "ResourceResolver"
+      },
+      "__linked": [
+        "DATA/Characters/SightWard/Animations/Skin0.bin",
+        "DATA/Characters/SightWard/SightWard.bin",
+        "DATA/Characters/SightWard/SightWard_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin101_Skins_Skin102_Skins_Skin103_Skins_Skin104_Skins_Skin106_Skins_Skin107_Skins_Skin108_Skins_Skin11_Skins_Skin112_Skins_Skin113_Skins_Skin114_Skins_Skin12_Skins_Skin120_Skins_Skin13_Skins_Skin132_Skins_Skin133_Skins_Skin134_Skins_Skin135_Skins_Skin136_Skins_Skin137_Skins_Skin138_Skins_Skin139_Skins_Skin14_Skins_Skin140_Skins_Skin142_Skins_Skin143_Skins_Skin144_Skins_Skin145_Skins_Skin146_Skins_Skin147_Skins_Skin148_Skins_Skin149_Skins_Skin15_Skins_Skin150_Skins_Skin151_Skins_Skin152_Skins_Skin153_Skins_Skin154_Skins_Skin155_Skins_Skin156_Skins_Skin157_Skins_Skin158_Skins_Skin159_Skins_Skin16_Skins_Skin160_Skins_Skin161_Skins_Skin162_Skins_Skin163_Skins_Skin164_Skins_Skin165_Skins_Skin166_Skins_Skin167_Skins_Skin168_Skins_Skin169_Skins_Skin17_Skins_Skin170_Skins_Skin171_Skins_Skin172_Skins_Skin173_Skins_Skin174_Skins_Skin175_Skins_Skin176_Skins_Skin177_Skins_Skin178_Skins_Skin179_Skins_Skin18_Skins_Skin180_Skins_Skin181_Skins_Skin182_Skins_Skin183_Skins_Skin184_Skins_Skin185_Skins_Skin186_Skins_Skin187_Skins_Skin188_Skins_Skin189_Skins_Skin19_Skins_Skin190_Skins_Skin191_Skins_Skin193_Skins_Skin194_Skins_Skin196_Skins_Skin197_Skins_Skin198_Skins_Skin199_Skins_Skin2_Skins_Skin20_Skins_Skin200_Skins_Skin201_Skins_Skin202_Skins_Skin204_Skins_Skin206_Skins_Skin21_Skins_Skin22_Skins_Skin226_Skins_Skin227_Skins_Skin23_Skins_Skin230_Skins_Skin234_Skins_Skin24_Skins_Skin240_Skins_Skin245_Skins_Skin247_Skins_Skin248_Skins_Skin25_Skins_Skin250_Skins_Skin259_Skins_Skin26_Skins_Skin266_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin64_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin76_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin85_Skins_Skin86_Skins_Skin87_Skins_Skin88_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95_Skins_Skin97_Skins_Skin98_Skins_Skin99.bin"
+      ]
+    },
+    "data/characters/sightward/animations/skin0.bin": {
+      "{76652ec9}": {
+        "mCascadeBlendValue": 0.0,
+        "mClipDataMap": {
+          "attack1": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{bd28bd4d}": {
+            "mTrackDataName": "{933b5bde}",
+            "mEventDataMap": {
+              "{4f636547}": {
+                "mName": "{4f636547}",
+                "mEffectKey": "{e7dbb435}",
+                "mParticleEventDataPairList": [
+                  {
+                    "mBoneName": "{6cca6391}",
+                    "__type": "ParticleEventDataPair"
+                  }
+                ],
+                "mIsLoop": false,
+                "mIsKillEvent": false,
+                "__type": "ParticleEventData"
+              }
+            },
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sightward/skins/base/animations/sightward_base_idle_death.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{9dd9dc06}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{3a224d98}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sightward/skins/base/animations/sightward_base_idlein.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          },
+          "{02d2b8aa}": {
+            "mTrackDataName": "{933b5bde}",
+            "mAnimationResourceData": {
+              "mAnimationFilePath": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+              "__type": "AnimationResourceData"
+            },
+            "__type": "AtomicClipData"
+          }
+        },
+        "mTrackDataMap": {
+          "{933b5bde}": {
+            "__type": "TrackData"
+          }
+        },
+        "mBlendDataTable": {
+          "6247030502141246797": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          },
+          "13630352413820501325": {
+            "mTime": 0.0,
+            "__type": "TimeBlendData"
+          }
+        },
+        "objectPath": "{76652ec9}",
+        "__type": "AnimationGraphData"
+      },
+      "__linked": []
+    }
+  },
+  "model": {
+    "skinKey": "Characters/SightWard/Skins/Skin0",
+    "graphKey": "{76652ec9}",
+    "atomicClips": {
+      "attack1": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+      "{bd28bd4d}": "assets/characters/sightward/skins/base/animations/sightward_base_idle_death.anm",
+      "{9dd9dc06}": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+      "{3a224d98}": "assets/characters/sightward/skins/base/animations/sightward_base_idlein.anm",
+      "{02d2b8aa}": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm"
+    }
+  },
+  "scriptExtraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Scripts.wad.client",
+    "chunks": {
+      "9D6B139F5625E74C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35852845,
+        "bytes": 75450,
+        "sha256": "e4a4f61beea877cab9ed30be0b521a2c01e7f6af05f4b7d08f671d52e37d8512"
+      },
+      "70B13796F6370E48": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 35928295,
+        "bytes": 183603,
+        "sha256": "9fbae2c2d3807eb7c27870f4501c9507acd95531ae0d44d14587704e864650b7"
+      },
+      "0A15B7F6D72C6848": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36111898,
+        "bytes": 90579,
+        "sha256": "18caaf1d6c0d94c2db7d820d10107b61abe7587263760709d51061c4240b175b"
+      },
+      "8DFE49A4492DA71F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36202477,
+        "bytes": 138822,
+        "sha256": "3cfdf55545a2898d937d694a29cfdc1623e143769f61c4446f635e4044e7c32a"
+      },
+      "D2860162132D3784": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36341299,
+        "bytes": 144181,
+        "sha256": "809f3aafcdd55c68050b689a201e707f863e20bd0075ea2cf1533509b5eb19f6"
+      },
+      "63611195382B0C7A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36485480,
+        "bytes": 95916,
+        "sha256": "2261825b9572b17d9586307244f9d821c29068e934410a279fdf41d957cfd8a1"
+      },
+      "F6B96CAAE2654A23": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36581396,
+        "bytes": 81491,
+        "sha256": "b20123e9a1c5439f1cb352cf61f38bb93d2474314b3998777ab3e53bc4429a8c"
+      },
+      "AC6C3E04B54120B0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/790100C87D114113.bundle",
+        "offset": 36662887,
+        "bytes": 60523,
+        "sha256": "cec143c1ae0cd3df9803c26591b10d09e40589bbf32d833a6e637af1f7850c2b"
+      },
+      "188A760A7FCB63BF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FFE4576B475CD3F3.bundle",
+        "offset": 8716968,
+        "bytes": 48,
+        "sha256": "9a654fb069f636591c44871e4a3a52ad8f963354278b04b8efe838bc1631086b"
+      },
+      "7CE9225E53628053": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 1335482,
+        "bytes": 180,
+        "sha256": "20aad3823efc63321768b7e548a5acbf6da41f024b8d844b99ffa04dc8ab2256"
+      },
+      "A00E6559FD13F652": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 1476712,
+        "bytes": 374,
+        "sha256": "59e5802f7d7976dc4fbe036bb2d4402e69a0274d493a21678023d75aa99a685c"
+      },
+      "28B296D8F61AC745": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 777100,
+        "bytes": 134,
+        "sha256": "ab49b157d9954619516e6488b292fab5360162d12ad3ce1ea4e105361f5071df"
+      }
+    },
+    "files": [
+      {
+        "path": "data/items/3340.luabin64",
+        "wadPathHash": "7e30eb84c8fd8679",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      },
+      {
+        "path": "data/spells/trinkettotemlvl1.luabin64",
+        "wadPathHash": "7f646d6850b9fa03",
+        "sha256": "f0704ebf75462892cf9b64cc3fab6592640f6be061e81ded4a0ffc2446e9a5f8",
+        "bytes": 263
+      },
+      {
+        "path": "data/spells/sightward.luabin64",
+        "wadPathHash": "d10702bf16a3378d",
+        "sha256": "a7c6e0ba9fc02d2a8d067e269c3e9d81fd4ca3c08067d3f9ff33eb8267139f13",
+        "bytes": 635
+      },
+      {
+        "path": "data/spells/sightwardstealth.luabin64",
+        "wadPathHash": "e461392f4c5a38a2",
+        "sha256": "df0b3063669be8fd97819a7682e9784af2576ba9d0ee25fe56756023eacbd0bb",
+        "bytes": 171
+      },
+      {
+        "path": "data/spells/trinkettotemtravel.luabin64",
+        "wadPathHash": "389f43b61787b679",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      },
+      {
+        "path": "data/spells/trinkettotemtravelgreen.luabin64",
+        "wadPathHash": "0de597848829598e",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      },
+      {
+        "path": "data/characters/sightward/charscriptsightward.luabin64",
+        "wadPathHash": "4175ae99cb5ace14",
+        "sha256": "97754539b1e1a1fa249fdfa473f0c339d383af9bcd05e0e86d0fd38421454023",
+        "bytes": 60
+      }
+    ]
+  },
+  "scriptInventory": {
+    "data/items/3340.luabin64": {
+      "<main>": {
+        "constants": [],
+        "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+        "children": 0,
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    "data/spells/trinkettotemlvl1.luabin64": {
+      "<main>": {
+        "constants": [
+          "NotSingleTargetSpell",
+          "DoesntBreakShields",
+          "DoesntTriggerSpellCasts",
+          "CastingBreaksStealth",
+          "BuffName",
+          "WriggleLantern"
+        ],
+        "codeSha256": "7d00605e1579575fd3edf83fd0b106c7abbab4d3404dbc5fa54905f691643e3c",
+        "children": 0,
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 2,
+            "word": "00000007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "NotSingleTargetSpell"
+              }
+            ]
+          },
+          {
+            "pc": 3,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 4,
+            "word": "00004007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "DoesntBreakShields"
+              }
+            ]
+          },
+          {
+            "pc": 5,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 6,
+            "word": "00008007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "DoesntTriggerSpellCasts"
+              }
+            ]
+          },
+          {
+            "pc": 7,
+            "word": "00000002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "pc": 8,
+            "word": "0000c007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "CastingBreaksStealth"
+              }
+            ]
+          },
+          {
+            "pc": 9,
+            "word": "00014001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "WriggleLantern"
+              }
+            ]
+          },
+          {
+            "pc": 10,
+            "word": "00010007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "BuffName"
+              }
+            ]
+          },
+          {
+            "pc": 11,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    "data/spells/sightward.luabin64": {
+      "<main>": {
+        "constants": [
+          "NotSingleTargetSpell",
+          "DoesntTriggerSpellCasts",
+          "BuffTextureName",
+          "1020_Glowing_Orb.dds",
+          "BuffName",
+          "SightWard",
+          "AutoBuffActivateEffect",
+          "DATA/Particles/Ward_Sight_Idle.troy",
+          "SpellFXOverrideSkins",
+          "SightWardBat",
+          "SightWardGhost",
+          "SightWardSpider",
+          "SightWardTree",
+          "SightWardStone",
+          "SightWardSnowMan",
+          "SightWardGingerBread",
+          "SightWardLantern",
+          "SightWardBanner"
+        ],
+        "codeSha256": "63cf12dea0448d07c4180d61237faedabe9dfb6cf5e685ba2c3688cc86176577",
+        "children": 0,
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 2,
+            "word": "00000007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "NotSingleTargetSpell"
+              }
+            ]
+          },
+          {
+            "pc": 3,
+            "word": "00800002",
+            "op": "LOADBOOL",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "pc": 4,
+            "word": "00004007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "DoesntTriggerSpellCasts"
+              }
+            ]
+          },
+          {
+            "pc": 5,
+            "word": "0000c001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "1020_Glowing_Orb.dds"
+              }
+            ]
+          },
+          {
+            "pc": 6,
+            "word": "00008007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "BuffTextureName"
+              }
+            ]
+          },
+          {
+            "pc": 7,
+            "word": "00014001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "SightWard"
+              }
+            ]
+          },
+          {
+            "pc": 8,
+            "word": "00010007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "BuffName"
+              }
+            ]
+          },
+          {
+            "pc": 9,
+            "word": "0001c001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "DATA/Particles/Ward_Sight_Idle.troy"
+              }
+            ]
+          },
+          {
+            "pc": 10,
+            "word": "00018007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "AutoBuffActivateEffect"
+              }
+            ]
+          },
+          {
+            "pc": 11,
+            "word": "0480000a",
+            "op": "NEWTABLE",
+            "operands": [
+              0,
+              9,
+              0
+            ]
+          },
+          {
+            "pc": 12,
+            "word": "00024041",
+            "op": "LOADK",
+            "operands": [
+              1,
+              {
+                "constant": "SightWardBat"
+              }
+            ]
+          },
+          {
+            "pc": 13,
+            "word": "00028081",
+            "op": "LOADK",
+            "operands": [
+              2,
+              {
+                "constant": "SightWardGhost"
+              }
+            ]
+          },
+          {
+            "pc": 14,
+            "word": "0002c0c1",
+            "op": "LOADK",
+            "operands": [
+              3,
+              {
+                "constant": "SightWardSpider"
+              }
+            ]
+          },
+          {
+            "pc": 15,
+            "word": "00030101",
+            "op": "LOADK",
+            "operands": [
+              4,
+              {
+                "constant": "SightWardTree"
+              }
+            ]
+          },
+          {
+            "pc": 16,
+            "word": "00034141",
+            "op": "LOADK",
+            "operands": [
+              5,
+              {
+                "constant": "SightWardStone"
+              }
+            ]
+          },
+          {
+            "pc": 17,
+            "word": "00038181",
+            "op": "LOADK",
+            "operands": [
+              6,
+              {
+                "constant": "SightWardSnowMan"
+              }
+            ]
+          },
+          {
+            "pc": 18,
+            "word": "0003c1c1",
+            "op": "LOADK",
+            "operands": [
+              7,
+              {
+                "constant": "SightWardGingerBread"
+              }
+            ]
+          },
+          {
+            "pc": 19,
+            "word": "00040201",
+            "op": "LOADK",
+            "operands": [
+              8,
+              {
+                "constant": "SightWardLantern"
+              }
+            ]
+          },
+          {
+            "pc": 20,
+            "word": "00044241",
+            "op": "LOADK",
+            "operands": [
+              9,
+              {
+                "constant": "SightWardBanner"
+              }
+            ]
+          },
+          {
+            "pc": 21,
+            "word": "04804022",
+            "op": "SETLIST",
+            "operands": [
+              0,
+              9,
+              1
+            ]
+          },
+          {
+            "pc": 22,
+            "word": "00020007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "SpellFXOverrideSkins"
+              }
+            ]
+          },
+          {
+            "pc": 23,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    "data/spells/sightwardstealth.luabin64": {
+      "<main>": {
+        "constants": [
+          "BuffTextureName",
+          "Evelynn_ReadyToBetray.dds",
+          "BuffName",
+          "Stealth"
+        ],
+        "codeSha256": "069940b225666d29e8bf512b06fd0c340fd2efb1b210c19c5b756552c33ce1b8",
+        "children": 0,
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "00004001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "Evelynn_ReadyToBetray.dds"
+              }
+            ]
+          },
+          {
+            "pc": 2,
+            "word": "00000007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "BuffTextureName"
+              }
+            ]
+          },
+          {
+            "pc": 3,
+            "word": "0000c001",
+            "op": "LOADK",
+            "operands": [
+              0,
+              {
+                "constant": "Stealth"
+              }
+            ]
+          },
+          {
+            "pc": 4,
+            "word": "00008007",
+            "op": "SETGLOBAL",
+            "operands": [
+              0,
+              {
+                "constant": "BuffName"
+              }
+            ]
+          },
+          {
+            "pc": 5,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    "data/spells/trinkettotemtravel.luabin64": {
+      "<main>": {
+        "constants": [],
+        "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+        "children": 0,
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    "data/spells/trinkettotemtravelgreen.luabin64": {
+      "<main>": {
+        "constants": [],
+        "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+        "children": 0,
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    "data/characters/sightward/charscriptsightward.luabin64": {
+      "<main>": {
+        "constants": [],
+        "codeSha256": "65d24d686c178ea704835937affb38a42cd8afde0b9dbd328cb7318bb1d28c8d",
+        "children": 0,
+        "instructions": [
+          {
+            "pc": 1,
+            "word": "0080001e",
+            "op": "RETURN",
+            "operands": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "items": {
+    "url": "https://raw.communitydragon.org/16.18/game/items.cdtb.bin.json",
+    "sha256": "c1cf2b0bf746d260cd960788a52e71d96c096fe298c83cef55253f556e819ffb",
+    "records": {
+      "Items/3340": {
+        "spellName": "TrinketTotemLvl1",
+        "mDisplayName": "Item_3340_Name",
+        "itemID": 3340,
+        "maxStack": 1,
+        "mItemGroups": [
+          "Items/ItemGroups/Trinket"
+        ],
+        "itemVOGroup": "Ward",
+        "clickable": true,
+        "mCanBeSold": true,
+        "epicness": 1,
+        "sidegradeItemLinks": [
+          "Items/3364",
+          "Items/3363"
+        ],
+        "mEffectAmount": [
+          90.0,
+          0.0,
+          120.0,
+          0.0,
+          2.0,
+          9.0,
+          30.0,
+          120.0
+        ],
+        "mDataValues": [
+          {
+            "mName": "MaxWardsPlaced",
+            "mValue": 3.0,
+            "__type": "ItemDataValue"
+          },
+          {
+            "mName": "GameTimeThreshold",
+            "mValue": 14.0,
+            "__type": "ItemDataValue"
+          },
+          {
+            "mName": "MaxAmmo",
+            "mValue": 2.0,
+            "__type": "ItemDataValue"
+          },
+          {
+            "mName": "StartingSingleChargeTime",
+            "mValue": 210.0,
+            "__type": "ItemDataValue"
+          },
+          {
+            "mName": "EndingSingleChargeTime",
+            "mValue": 90.0,
+            "__type": "ItemDataValue"
+          }
+        ],
+        "sellBackModifier": 1.0,
+        "mCategories": [
+          "Active",
+          "Jungle",
+          "Lane",
+          "Trinket",
+          "Vision"
+        ],
+        "mItemDataAvailability": {
+          "mInStore": true,
+          "__type": "ItemDataAvailability"
+        },
+        "mItemAttributes": [
+          32
+        ],
+        "mItemDataClient": {
+          "mTooltipData": {
+            "mObjectName": "3340",
+            "mFormat": "{32559c50}",
+            "EnableExtendedTooltip": false,
+            "mLocKeys": {
+              "keyName": "Item_3340_Name",
+              "keyInventoryOnlyText": "Item_3340_InventoryOnlyText",
+              "keyActiveInventory": "Item_3340_ActiveDynamic",
+              "keyActive": "Item_3340_Active",
+              "keyColloquialism": "Item_3340_Colloquialism",
+              "keySecondaryBrief": "Item_Unique_Trinket",
+              "keyBrief": "Item_3340_Brief"
+            },
+            "mLists": {
+              "Stats": {
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceItem"
+          },
+          "mDescription": "GeneratedTip_Item_3340_Description",
+          "mDynamicTooltip": "GeneratedTip_Item_3340_TooltipInventory",
+          "mShopTooltip": "GeneratedTip_Item_3340_TooltipShop",
+          "inventoryIcon": "assets/items/icons2d/3340_class_t1_wardingtotem.dds",
+          "InventoryIconSmall": "ASSETS/Items/Icons2D/AutoAtlas/SmallIcons/3340_Class_T1_WardingTotem.png",
+          "InventoryIconLarge": "ASSETS/Items/Icons2D/AutoAtlas/LargeIcons/3340_Class_T1_WardingTotem.png",
+          "epicness": 0,
+          "__type": "ItemDataClient"
+        },
+        "__type": "ItemData"
+      },
+      "Items/ItemGroups/Trinket": {
+        "mItemGroupID": "Trinket",
+        "mInventorySlotMin": 6,
+        "mInventorySlotMax": 6,
+        "__type": "ItemGroup"
+      },
+      "Items/Spells/TrinketTotemLvl1": {
+        "ObjectName": "TrinketTotemLvl1",
+        "objectPath": "Items/Spells/TrinketTotemLvl1",
+        "mScriptName": "TrinketTotemLvl1",
+        "mSpell": {
+          "flags": 4,
+          "mAffectsTypeFlags": 7375,
+          "mSpellTags": [
+            "Trait_Stealth_Ward",
+            "Trait_Ward"
+          ],
+          "mEffectAmount": [
+            {
+              "value": [
+                200.0,
+                350.0,
+                500.0,
+                650.0,
+                0.0,
+                0.0,
+                150.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "value": [
+                30.0,
+                40.0,
+                50.0,
+                60.0,
+                0.0,
+                0.0,
+                10.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "value": [
+                50.0,
+                75.0,
+                100.0,
+                125.0,
+                0.0,
+                0.0,
+                25.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            }
+          ],
+          "mAnimationName": "Spell2",
+          "mImgIconName": [
+            ""
+          ],
+          "spellTotalTime": 1.399999976158142,
+          "cooldownTime": [
+            1.25,
+            1.25,
+            1.25,
+            1.25,
+            1.25,
+            1.25,
+            1.25
+          ],
+          "Cooldown": {
+            "values": [
+              1.25,
+              1.25,
+              1.25,
+              1.25,
+              1.25,
+              1.25,
+              1.25
+            ],
+            "{0a3e0478}": 1.25,
+            "__type": "{0a0eddc9}"
+          },
+          "mMaxAmmo": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "mAmmoNotAffectedByCDR": true,
+          "mCantCancelWhileWindingUp": true,
+          "mDoesntBreakChannels": true,
+          "mCursorChangesInGrass": true,
+          "mCursorChangesInTerrain": true,
+          "castRange": [
+            625.0,
+            625.0,
+            625.0,
+            625.0,
+            625.0,
+            625.0,
+            625.0
+          ],
+          "castRangeValues": {
+            "values": [
+              625.0,
+              625.0,
+              625.0,
+              625.0,
+              625.0,
+              625.0,
+              625.0
+            ],
+            "{0a3e0478}": 625.0,
+            "__type": "{0a0eddc9}"
+          },
+          "castRadius": [
+            900.0,
+            900.0,
+            900.0,
+            900.0,
+            900.0,
+            900.0,
+            900.0
+          ],
+          "castConeDistance": 100.0,
+          "castFrame": 2.7300000190734863,
+          "missileSpeed": 1450.0,
+          "mMissileEffectName": "doesnotexist.troy",
+          "mFloatVarsDecimals": [
+            0,
+            0,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "selectionPriority": 1,
+          "mTargetingTypeData": {
+            "__type": "NudgeIntoBrush"
+          },
+          "mClientData": {
+            "mSpawningUIDefinition": {
+              "buffNameFilter": "SharedStealthWardBuff",
+              "maxNumberOfUnits": 3,
+              "__type": "SpawningUIDefinition"
+            },
+            "mTargeterDefinitions": [
+              {
+                "__type": "TargeterDefinitionRange"
+              },
+              {
+                "centerLocator": {
+                  "basePosition": 7,
+                  "__type": "DrawablePositionLocator"
+                },
+                "textureRadiusOverrideName": "assets/spells/textures/ward_range_indicator.tex",
+                "__type": "TargeterDefinitionAoe"
+              },
+              {
+                "centerLocator": {
+                  "basePosition": 7,
+                  "__type": "DrawablePositionLocator"
+                },
+                "overrideRadius": {
+                  "mPerLevelValues": [
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0
+                  ],
+                  "mValueType": 1,
+                  "__type": "FloatPerSpellLevel"
+                },
+                "textureRadiusOverrideName": "assets/spells/textures/crosshair.tex",
+                "__type": "TargeterDefinitionAoe"
+              }
+            ],
+            "__type": "SpellDataResourceClient"
+          },
+          "__type": "SpellDataResource"
+        },
+        "BotData": {
+          "{38382c53}": [
+            {
+              "{e38f54f7}": 1,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 2,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 4,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 8,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 64,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 128,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 1024,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 2048,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            },
+            {
+              "{e38f54f7}": 4096,
+              "{0717e686}": false,
+              "__type": "{150d1b92}"
+            }
+          ],
+          "__type": "BotsSpellData"
+        },
+        "__type": "SpellObject"
+      }
+    }
+  },
+  "shared": {
+    "url": "https://raw.communitydragon.org/16.18/game/shared.cdtb.bin.json",
+    "sha256": "8726e915a7c913c826bf3a722e548d002e8e41677073a585d40e8d179d0dd8bf",
+    "records": {
+      "Shared/Spells/SightWardStealth": {
+        "ObjectName": "SightWardStealth",
+        "objectPath": "Shared/Spells/SightWardStealth",
+        "mScriptName": "SightWardStealth",
+        "mBuff": {
+          "mDescription": "game_buff_tooltip_Stealth",
+          "__type": "BuffData"
+        },
+        "__type": "SpellObject"
+      },
+      "Shared/Spells/TrinketTotemTravel": {
+        "ObjectName": "TrinketTotemTravel",
+        "objectPath": "Shared/Spells/TrinketTotemTravel",
+        "mScriptName": "TrinketTotemTravel",
+        "mSpell": {
+          "flags": 4194304,
+          "mAffectsTypeFlags": 23567,
+          "mAlternateName": "ItemPlacementMissile",
+          "mEffectAmount": [
+            {
+              "value": [
+                50.0,
+                80.0,
+                110.0,
+                140.0,
+                170.0,
+                200.0,
+                230.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "value": [
+                13.0,
+                12.0,
+                11.0,
+                10.0,
+                9.0,
+                8.0,
+                7.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            }
+          ],
+          "mCoefficient": 0.4000000059604645,
+          "mAnimationName": "Spell3",
+          "mImgIconName": [
+            "Cryophoenix_FrigidOrb.dds"
+          ],
+          "spellCastTime": 0.25,
+          "spellTotalTime": 1.0,
+          "cooldownTime": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Cooldown": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "{0a3e0478}": 0.0,
+            "__type": "{0a0eddc9}"
+          },
+          "cannotBeSuppressed": true,
+          "canCastWhileDisabled": true,
+          "mSpellRevealsChampion": false,
+          "castRange": [
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0
+          ],
+          "castRangeValues": {
+            "values": [
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0
+            ],
+            "{0a3e0478}": 1800.0,
+            "__type": "{0a0eddc9}"
+          },
+          "castRadius": [
+            225.0,
+            225.0,
+            225.0,
+            225.0,
+            225.0,
+            225.0,
+            225.0
+          ],
+          "castConeDistance": 100.0,
+          "mMissileSpec": {
+            "mMissileWidth": 120.0,
+            "movementComponent": {
+              "mTargetHeightAugment": 60.0,
+              "mOffsetInitialTargetHeight": 60.0,
+              "mTravelTime": 0.32499998807907104,
+              "__type": "FixedTimeMovement"
+            },
+            "heightSolver": {
+              "mGravity": 16000.0,
+              "__type": "GravityHeightSolver"
+            },
+            "verticalFacing": {
+              "__type": "VeritcalFacingMatchVelocity"
+            },
+            "behaviors": [
+              {
+                "__type": "CastOnMovementComplete"
+              },
+              {
+                "__type": "DestroyOnMovementComplete"
+              }
+            ],
+            "__type": "MissileSpecification"
+          },
+          "mCastType": 1,
+          "castFrame": 7.974999904632568,
+          "missileSpeed": 1500.0,
+          "mMissileEffectName": "doesnotexist.troy",
+          "mLineWidth": 120.0,
+          "mHitEffectName": "DATA/Shared/Particles/heimerdinger_CH1_grenade_tar.troy",
+          "bHaveHitBone": true,
+          "mHitBoneName": "pelvis",
+          "mClientData": {
+            "mTargeterDefinitions": [
+              {
+                "useCasterBoundingBox": false,
+                "__type": "TargeterDefinitionRange"
+              }
+            ],
+            "__type": "SpellDataResourceClient"
+          },
+          "__type": "SpellDataResource"
+        },
+        "__type": "SpellObject"
+      },
+      "Shared/Spells/TrinketTotemTravelGreen": {
+        "ObjectName": "TrinketTotemTravelGreen",
+        "objectPath": "Shared/Spells/TrinketTotemTravelGreen",
+        "mScriptName": "TrinketTotemTravelGreen",
+        "mSpell": {
+          "flags": 4194304,
+          "mAffectsTypeFlags": 23567,
+          "mAlternateName": "ItemPlacementMissile",
+          "mEffectAmount": [
+            {
+              "value": [
+                50.0,
+                80.0,
+                110.0,
+                140.0,
+                170.0,
+                200.0,
+                230.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "value": [
+                13.0,
+                12.0,
+                11.0,
+                10.0,
+                9.0,
+                8.0,
+                7.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            }
+          ],
+          "mCoefficient": 0.4000000059604645,
+          "mAnimationName": "Spell3",
+          "mImgIconName": [
+            "Cryophoenix_FrigidOrb.dds"
+          ],
+          "spellCastTime": 0.25,
+          "spellTotalTime": 1.0,
+          "cooldownTime": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Cooldown": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "{0a3e0478}": 0.0,
+            "__type": "{0a0eddc9}"
+          },
+          "cannotBeSuppressed": true,
+          "canCastWhileDisabled": true,
+          "mSpellRevealsChampion": false,
+          "castRange": [
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0,
+            1800.0
+          ],
+          "castRangeValues": {
+            "values": [
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0,
+              1800.0
+            ],
+            "{0a3e0478}": 1800.0,
+            "__type": "{0a0eddc9}"
+          },
+          "castRadius": [
+            225.0,
+            225.0,
+            225.0,
+            225.0,
+            225.0,
+            225.0,
+            225.0
+          ],
+          "castConeDistance": 100.0,
+          "mMissileSpec": {
+            "mMissileWidth": 120.0,
+            "movementComponent": {
+              "mTargetHeightAugment": 60.0,
+              "mOffsetInitialTargetHeight": 60.0,
+              "mTravelTime": 0.32499998807907104,
+              "__type": "FixedTimeMovement"
+            },
+            "heightSolver": {
+              "mGravity": 16000.0,
+              "__type": "GravityHeightSolver"
+            },
+            "verticalFacing": {
+              "__type": "VeritcalFacingMatchVelocity"
+            },
+            "behaviors": [
+              {
+                "__type": "CastOnMovementComplete"
+              },
+              {
+                "__type": "DestroyOnMovementComplete"
+              }
+            ],
+            "__type": "MissileSpecification"
+          },
+          "mCastType": 1,
+          "castFrame": 7.974999904632568,
+          "missileSpeed": 1500.0,
+          "mMissileEffectName": "doesnotexist.troy",
+          "mLineWidth": 120.0,
+          "mHitEffectName": "DATA/Shared/Particles/heimerdinger_CH1_grenade_tar.troy",
+          "bHaveHitBone": true,
+          "mHitBoneName": "pelvis",
+          "mClientData": {
+            "mTargeterDefinitions": [
+              {
+                "useCasterBoundingBox": false,
+                "__type": "TargeterDefinitionRange"
+              }
+            ],
+            "__type": "SpellDataResourceClient"
+          },
+          "__type": "SpellDataResource"
+        },
+        "__type": "SpellObject"
+      },
+      "Shared/Spells/WardDisable": {
+        "ObjectName": "WardDisable",
+        "objectPath": "Shared/Spells/WardDisable",
+        "mScriptName": "WardDisable",
+        "mBuff": {
+          "mDescription": "game_buff_tooltip_WardDisable",
+          "__type": "BuffData"
+        },
+        "__type": "SpellObject"
+      }
+    }
+  },
+  "strings": {
+    "url": "https://raw.communitydragon.org/16.18/game/en_us/data/menu/en_us/lol.stringtable.json",
+    "sha256": "bdee3e3636feb8e1cb5ac11e09e213c9115df2b04910c1f7eb6acc3e7d0d479d",
+    "entries": {
+      "item_3340_name": "Stealth Ward",
+      "generatedtip_item_3340_description": "<section></section><section></section><section></section><section>%i:activeEffect% <active>Active</active> %i:cooldown% (<scaleLevel>@StartingSingleChargeTime@ - @EndingSingleChargeTime@</scaleLevel>s, max @Effect5Amount@ charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision for <scaleLevel>@Effect1Amount@-@Effect3Amount@</scaleLevel> seconds.</section><section><flavorText></flavorText></section>",
+      "item_3340_inventoryonlytext": "Current Stealth Wards placed: <attention>@f1@/@f6@</attention><br>Vision Score: <attention>@f7@</attention>",
+      "game_buff_tooltip_sightward": "<titleLeft>Stealth Ward</titleLeft><mainText>This ward is revealing the nearby area.</mainText><postScriptLeft>Source: @SourceName@</postScriptLeft>",
+      "game_buff_tooltip_stealth": "<titleLeft>Unseen</titleLeft><mainText>This unit cannot be seen.</mainText><postScriptLeft>Source: @SourceName@</postScriptLeft>"
+    }
+  },
+  "dataDragon": {
+    "url": "https://ddragon.leagueoflegends.com/cdn/16.18.1/data/en_US/item.json",
+    "sha256": "0b8ddc4531607aefa4322b18a04be8569b0fc1379211c4e2bf06676d911cea6d",
+    "item": {
+      "name": "Stealth Ward",
+      "description": "<mainText><stats></stats><br><br><active>Active</active> (<scaleLevel>210 - 90</scaleLevel>s, max 2 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision for <scaleLevel>90-120</scaleLevel> seconds.</mainText>",
+      "colloq": "yellow; totem; trinket",
+      "plaintext": "Periodically place a Stealth Ward",
+      "image": {
+        "full": "3340.png",
+        "sprite": "item4.png",
+        "group": "item",
+        "x": 240,
+        "y": 240,
+        "w": 48,
+        "h": 48
+      },
+      "gold": {
+        "base": 0,
+        "purchasable": true,
+        "total": 0,
+        "sell": 0
+      },
+      "tags": [
+        "Active",
+        "Jungle",
+        "Lane",
+        "Trinket",
+        "Vision"
+      ],
+      "maps": {
+        "11": true,
+        "12": false,
+        "22": false,
+        "30": false,
+        "453": true
+      },
+      "stats": {},
+      "effect": {
+        "Effect1Amount": "90",
+        "Effect2Amount": "0",
+        "Effect3Amount": "120",
+        "Effect4Amount": "0",
+        "Effect5Amount": "2",
+        "Effect6Amount": "9",
+        "Effect7Amount": "30",
+        "Effect8Amount": "120"
+      }
+    }
+  },
+  "icon": {
+    "path": "/assets/icons/3340.png",
+    "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3340.png",
+    "sha256": "a7153d00ff55d5165ac8c6d113681582d0c2902330c44cb12141472415c1c722",
+    "bytes": 5905
+  },
+  "published": {
+    "recharge": {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-3-notes/",
+      "earlySeconds": 210,
+      "lateSeconds": 90,
+      "scope": "Level scaling published; exact runtime average, update curve and phase remain unverified."
+    },
+    "legacyWardGold": {
+      "url": "https://www.leagueoflegends.com/en-gb/news/game-updates/patch-11-17-notes/",
+      "gold": 10,
+      "scope": "Historical clone ward-kill fix supports a candidate override. Current trinket-specific native binding is not recovered."
+    },
+    "faelights": {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+      "status": "Required vision extension; not inferred from the base ward."
+    }
+  },
+  "limits": [
+    "Static item/spell records do not prove active native scripts, startup ammo, recharge scaling, stealth/reveal timing, placement nudges, attack rules or reward dispatch.",
+    "The selected normal SightWard skin is a local default; cosmetic ward selection and native animation graph dispatch remain unverified."
+  ]
+}

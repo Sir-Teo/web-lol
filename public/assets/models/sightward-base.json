@@ -1,0 +1,114 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.",
+  "output": {
+    "path": "/assets/models/sightward-base.glb",
+    "bytes": 69572,
+    "sha256": "5f123f6f7e34f48e4b2e096d85e16297adf404f3a54cf8563f7e38ea573334b6"
+  },
+  "definitionsSha256": "1648337800f3309d3ce74b5cc5b7169d60f59e456255006cfbe7b85e9ee4f8f4",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sightward/sightward.bin",
+      "wadPathHash": "2f2766ffa546b3ca",
+      "sha256": "089b2fbf68c4ac8969af160757522342cb522c41339ea8d48d88b1970064668a",
+      "bytes": 1411
+    },
+    {
+      "path": "data/characters/sightward/skins/skin0.bin",
+      "wadPathHash": "fa98e195def5ea9a",
+      "sha256": "5c39b080c5cb81c39043bab0491c26d8cf4550a758a2055cd92c8e7c1a4bbd9e",
+      "bytes": 2968
+    },
+    {
+      "path": "data/characters/sightward/animations/skin0.bin",
+      "wadPathHash": "f6dab2381beae4c1",
+      "sha256": "62b024bc004d2a7f7b48e4a78abcf0540e587a975a5511b43626cd396325c9b0",
+      "bytes": 508
+    },
+    {
+      "path": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+      "wadPathHash": "4051d514299c95f3",
+      "sha256": "6a9c4ec8c07033b2a8699b9a9a845915ddede58ccc09c2d0fba4f799b7fb5a1b",
+      "bytes": 200
+    },
+    {
+      "path": "assets/characters/sightward/skins/base/animations/sightward_base_idle_death.anm",
+      "wadPathHash": "dfc9ea29d54833a0",
+      "sha256": "4cf13057ac05517a42c843db192eaa872d703fe8ac8df67017a77d07c5fc2660",
+      "bytes": 1526
+    },
+    {
+      "path": "assets/characters/sightward/skins/base/animations/sightward_base_idlein.anm",
+      "wadPathHash": "49a82a18e07b31fa",
+      "sha256": "4783c8a9eea24a290b7a96ccbd50a9df7ce8f4b4df02715dbbbf41ec4161dcbe",
+      "bytes": 1064
+    },
+    {
+      "path": "assets/characters/sightward/skins/base/sightward.skl",
+      "wadPathHash": "1118c84a54519a41",
+      "sha256": "991af5ac5843c6717f46a270c44ab0ce3e6281cb7cf90ca7fa5475ce1f22b5d5",
+      "bytes": 548
+    },
+    {
+      "path": "assets/characters/sightward/skins/base/sightward.skn",
+      "wadPathHash": "45484c431ff84875",
+      "sha256": "ce56c02f6b6cbfc07aedd3c56291efee78f1d4166863e1c63a296c8b60fb85d5",
+      "bytes": 12580
+    },
+    {
+      "path": "assets/characters/sightward/skins/base/sightward.tex",
+      "wadPathHash": "6c60c0618aecfcdb",
+      "sha256": "07c82c01983ab7d2cac83e1b46caab2aaa11f595d073a53d5ec139b8380a5ea1",
+      "bytes": 87420
+    }
+  ],
+  "unitScale": 0.01,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "sightward_base_2013_MD_ChaosFlag02_": "assets/characters/sightward/skins/base/sightward.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "attack1",
+      "state": "attack1",
+      "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+      "durationSeconds": 0
+    },
+    {
+      "name": "entry_bd28bd4d",
+      "state": "{bd28bd4d}",
+      "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle_death.anm",
+      "durationSeconds": 0.7666667103767395
+    },
+    {
+      "name": "entry_9dd9dc06",
+      "state": "{9dd9dc06}",
+      "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+      "durationSeconds": 0
+    },
+    {
+      "name": "entry_3a224d98",
+      "state": "{3a224d98}",
+      "source": "assets/characters/sightward/skins/base/animations/sightward_base_idlein.anm",
+      "durationSeconds": 0.40000003576278687
+    },
+    {
+      "name": "entry_02d2b8aa",
+      "state": "{02d2b8aa}",
+      "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+      "durationSeconds": 0
+    }
+  ],
+  "triangles": 336,
+  "bones": 4
+}

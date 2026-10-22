@@ -1,3 +1,4 @@
+import { WARD_SOURCE } from '../content/warding-totem';
 import { TargetPoseSampler } from './target-pose-sampler';
 import { MONSTERS, type MonsterSpecies } from '../content/monsters';
 import type { ImpactRig } from '../content/impact-target';
@@ -35,6 +36,7 @@ const referenceNames = [
   'ashe-base',
   'lux-base',
   'garen-base',
+  'sightward-base',
   'blue-melee',
   'red-melee',
   'blue-caster',
@@ -75,52 +77,54 @@ export async function loadReferenceModels(
           }
         });
       }
-      for (const required of /-(turret|nexus|inhibitor)$/.test(name)
-        ? ['idle1']
-        : name === 'ashe-base'
-          ? [
-              'idle1',
-              'run',
-              'attack1',
-              'crit',
-              'death',
-              'idle5',
-              'idle2',
-              'spell1',
-              'spell2',
-              'spell3',
-              'spell4',
-            ]
-          : name === 'lux-base'
+      for (const required of name === 'sightward-base'
+        ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
+        : /-(turret|nexus|inhibitor)$/.test(name)
+          ? ['idle1']
+          : name === 'ashe-base'
             ? [
                 'idle1',
                 'run',
                 'attack1',
                 'crit',
-                'attack2',
                 'death',
+                'idle5',
+                'idle2',
                 'spell1',
                 'spell2',
                 'spell3',
                 'spell4',
-                'idle3',
-                'entry_b4dcde19',
               ]
-            : name === 'garen-base'
+            : name === 'lux-base'
               ? [
-                  'idle1_base',
-                  'run_base',
+                  'idle1',
+                  'run',
                   'attack1',
                   'crit',
-                  'spell1',
-                  'spell4_base',
-                  'spell3_0',
+                  'attack2',
                   'death',
-                  'recall',
+                  'spell1',
+                  'spell2',
+                  'spell3',
+                  'spell4',
+                  'idle3',
+                  'entry_b4dcde19',
                 ]
-              : name === 'sru-crab-base'
-                ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
-                : ['idle1', 'run', 'attack1', 'death'])
+              : name === 'garen-base'
+                ? [
+                    'idle1_base',
+                    'run_base',
+                    'attack1',
+                    'crit',
+                    'spell1',
+                    'spell4_base',
+                    'spell3_0',
+                    'death',
+                    'recall',
+                  ]
+                : name === 'sru-crab-base'
+                  ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
+                  : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);
       if (/-(turret|nexus|inhibitor)$/.test(name))
@@ -172,14 +176,17 @@ export function makeModel(u: Unit): UnitModel {
     u.kind === 'siege' ||
     u.kind === 'super' ||
     isStructureKind(u.kind) ||
-    u.kind === 'monster'
+    u.kind === 'monster' ||
+    u.kind === 'ward'
   ) {
     const key =
-      u.kind === 'monster'
-        ? MONSTERS[u.monster.species].rig
-        : u.kind === 'champion'
-          ? `${u.champion}-base`
-          : `${u.team}-${u.kind}`;
+      u.kind === 'ward'
+        ? WARD_SOURCE.rig
+        : u.kind === 'monster'
+          ? MONSTERS[u.monster.species].rig
+          : u.kind === 'champion'
+            ? `${u.champion}-base`
+            : `${u.team}-${u.kind}`;
     const reference = references.get(key);
     if (!reference) throw new Error(`Model not loaded: ${key}`);
     const root = new THREE.Group(),
@@ -217,7 +224,12 @@ export function makeModel(u: Unit): UnitModel {
     const actions = Object.fromEntries(
       reference.clips.map((clip) => [clip.name, mixer.clipAction(clip)])
     );
-    const idleClip = u.champion === 'garen' ? 'idle1_base' : 'idle1';
+    const idleClip =
+      u.kind === 'ward'
+        ? WARD_SOURCE.clips.idle.clip
+        : u.champion === 'garen'
+          ? 'idle1_base'
+          : 'idle1';
     actions[idleClip].play();
     mixer.update(0);
     model.updateMatrixWorld(true);
@@ -239,11 +251,14 @@ export function makeModel(u: Unit): UnitModel {
       actions,
       clipDurations: Object.fromEntries(reference.clips.map((clip) => [clip.name, clip.duration])),
       actionName: idleClip,
-      barHeight: u.structure
-        ? u.structure.healthBarHeight * 0.01
-        : u.kind === 'champion'
-          ? 2.3
-          : bounds.max.y + 0.18,
+      barHeight:
+        u.kind === 'ward'
+          ? WARD_SOURCE.healthBarHeight * 0.01
+          : u.structure
+            ? u.structure.healthBarHeight * 0.01
+            : u.kind === 'champion'
+              ? 2.3
+              : bounds.max.y + 0.18,
       referenceAsset: key,
     };
   }

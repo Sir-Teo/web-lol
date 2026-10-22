@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema 102 requires all twelve ordinary camp calendars and the shared
+Current schema 103 adds default trinket charges/recharge spans and placement
+intent, committed ward deliveries with captured origin/range/lifetime, and placed
+ward ownership/reveal/expiry clocks. Resetting practice cooldowns can refill the
+trinket while a previously accepted delivery remains in flight. Saved restoration
+retains those deliveries without replaying or duplicating placement. Ward health,
+control immunity, owner limits and the Garen Q no-silence recipient case are
+validated. Earlier schemas and fingerprints remain incompatible.
+See [Stealth Ward](WARDING-TOTEM.md) for source boundaries and validation.
+
+Schema 102 introduced the requirement for all twelve ordinary camp calendars and the shared
 river controller in every Rift checkpoint, including practice. Map initialization
 creates the same calendars for practice and lane matches; restoration replaces
 the defaults with validated saved clocks and ownership. Controlled development

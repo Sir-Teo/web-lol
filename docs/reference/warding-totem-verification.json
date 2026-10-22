@@ -1,0 +1,257 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "af54e762b221d43ac88cf69834a4c93b2de09525",
+  "schema": 103,
+  "rulesetFingerprint": "9f65b47daa9e507932de3dae8338fdb227cc57a8b8256034b3949818ea8ba0c3",
+  "scope": "Default Stealth Ward trinket: source rig, key/button placement, captured charge/delivery/lifetime state, shared team sight and stealth, champion basic clearing, practice reset and exact snapshots. Advanced vision tools, native timing/rewards/visual calibration and full role matches remain unfinished.",
+  "sourcePin": {
+    "path": "docs/reference/warding-totem-source.json",
+    "sha256": "1648337800f3309d3ce74b5cc5b7169d60f59e456255006cfbe7b85e9ee4f8f4",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archiveFiles": 9,
+    "archiveRawBytes": 108225,
+    "scripts": 7,
+    "scriptRawBytes": 1309,
+    "metadataInstructions": 43,
+    "scriptChildren": 0,
+    "ops": [
+      "LOADBOOL",
+      "LOADK",
+      "NEWTABLE",
+      "RETURN",
+      "SETGLOBAL",
+      "SETLIST"
+    ],
+    "limit": "No active placement, stealth, reward or recharge callbacks recovered. No Lua VM executed."
+  },
+  "reproduction": {
+    "extractCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-warding-totem.py",
+    "convertCommand": "node tools/assets/convert-roster-base.mjs SightWard",
+    "exportCommand": "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-warding-totem.py",
+    "result": "passed; finite-pin extraction repeats exactly",
+    "rea": "open_binary rejected SightWard BIN as unsupported. Existing repository archive/BIN/Lua readers supply the source evidence; no REA analysis evidence claimed."
+  },
+  "profile": {
+    "path": "src/content/warding-totem.json",
+    "sha256": "7e7c8b4cff54025658179035aa1735fb6581981a6a16ac51b4a0ed7e955928f4",
+    "sourceFacts": [
+      "625 center cast range, 900 ordinary sight, 3 health.",
+      "Two maximum charges and three placed wards.",
+      "90/120 duration and 210/90 recharge endpoints; named GameTimeThreshold=14 retained without assigning a time-based formula.",
+      "1.25-second authored cooldown, preserves channels, ignores ability haste.",
+      "Fixed ~0.325-second travel record; Ward/Special/TurretIgnores/UntargetableBySpells tags."
+    ],
+    "localPolicies": [
+      "One starting charge and a level-one first recharge span.",
+      "Linear interpolation from all champions average level 1\u201318; capture duration and each recharge span.",
+      "20-tick committed delivery, targetable on arrival; survives caster death and reset.",
+      "Nearest walkable ground with radius 5; native wall/brush nudge unresolved.",
+      "Two-second initial/hit reveal; ordinary sight does not expose stealth.",
+      "One HP per champion basic hit, 10 candidate gold on last hit, no XP/CS/champion kill credit. Root gold remains zero in source; current spawned override unverified.",
+      "Owner-local oldest living replacement and full source death-clip corpse retention.",
+      "Roots/silence permit placement, stun/death reject; in-range placement preserves Recall/order, far requests walk and stop."
+    ],
+    "remainingNativeWork": [
+      "Startup ammo, average/dynamic recharge binding and exact timing.",
+      "Placement nudges, stealth/reveal/detection, targeting and on-hit/reset/proc exceptions.",
+      "Trinket-specific bounty/revealer rewards.",
+      "Skin choice, scale, material, animation graph dispatch, particles, audio and pixel comparison."
+    ]
+  },
+  "model": {
+    "path": "public/assets/models/sightward-base.glb",
+    "sha256": "5f123f6f7e34f48e4b2e096d85e16297adf404f3a54cf8563f7e38ea573334b6",
+    "bytes": 69572,
+    "triangles": 336,
+    "bones": 4,
+    "atomicEntries": 5,
+    "unitScale": 0.01,
+    "clips": [
+      {
+        "name": "attack1",
+        "state": "attack1",
+        "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+        "durationSeconds": 0
+      },
+      {
+        "name": "entry_bd28bd4d",
+        "state": "{bd28bd4d}",
+        "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle_death.anm",
+        "durationSeconds": 0.7666667103767395
+      },
+      {
+        "name": "entry_9dd9dc06",
+        "state": "{9dd9dc06}",
+        "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+        "durationSeconds": 0
+      },
+      {
+        "name": "entry_3a224d98",
+        "state": "{3a224d98}",
+        "source": "assets/characters/sightward/skins/base/animations/sightward_base_idlein.anm",
+        "durationSeconds": 0.40000003576278687
+      },
+      {
+        "name": "entry_02d2b8aa",
+        "state": "{02d2b8aa}",
+        "source": "assets/characters/sightward/skins/base/animations/sightward_base_idle.anm",
+        "durationSeconds": 0
+      }
+    ],
+    "zeroDurationIdle": "Preserved static poses; no invented looping motion."
+  },
+  "unit": {
+    "command": "npm run check -- --maxWorkers=4 --testTimeout=30000",
+    "typecheck": "passed",
+    "tests": 1275,
+    "files": 240,
+    "newCases": 14,
+    "result": "passed",
+    "coverage": [
+      "Source facts, script metadata boundaries and rig/profile pin.",
+      "In-flight placement, captured origin/range, channel preservation and exact saved delivery.",
+      "Far-order walking/stopping/cancellation.",
+      "Team sight after owner departure, stealth, exact expiry and corpse-free saves.",
+      "Ashe/Lux basic hits, Garen Q consumption and no ward silence, exact fighting checkpoints.",
+      "Light Binding crosses without hit-slot/control/mark effects.",
+      "Oldest-owner replacement, committed landing after death and persistent recharge.",
+      "Average-level duration/new spans, unchanged running spans, full charges.",
+      "Root/silence/stun/death gates and resource preservation.",
+      "Malformed ownership/health/clocks/commits and practice reset during multiple deliveries."
+    ]
+  },
+  "browser": {
+    "command": "npx playwright test e2e/warding-totem.spec.ts e2e/inventory-reorder.spec.ts e2e/shop-layout.spec.ts e2e/queued-hud-cast.spec.ts e2e/smite.spec.ts e2e/saves.spec.ts e2e/lane-match.spec.ts e2e/practice-learning-reset.spec.ts --reporter=line",
+    "channel": "chrome",
+    "workers": 1,
+    "passed": 20,
+    "newWardCases": 4,
+    "preservedCases": 16,
+    "initialWardRun": "3 cases passed before the later Garen/Practice reset repairs; final four cases run on the final source.",
+    "coverage": [
+      "Real Rift key/button aim, cancel, source sight/cast guides, captured in-flight reload and GPU source rig contribution.",
+      "Real Volley crosses an enemy ward; real basic attacks clear it through an exact fighting reload.",
+      "Sight persists after owner relocation and disappears at exact expiry; corpse-free saved reload.",
+      "Actual practice Reset cooldowns refills the trinket without duplicating a committed saved placement.",
+      "Inventory reorder, lane/new-match write recovery, learned/unlearned resets, HUD cast queue, saves, responsive shop and Smite."
+    ],
+    "scope": "Approach/cast input is real. Later camera/position/health/reveal/time setup remains diagnostic; not a natural full route or native visual comparison.",
+    "inputArtifact": {
+      "path": "artifacts/ward-rift-input.json",
+      "sha256": "b7a9af9681fb83df26f4c89b8860c6266eebb3b46985efe49ba27997eca50f6e",
+      "sourceRigPixels": 365,
+      "bounds600x700": {
+        "x": 412.3499755859375,
+        "y": 642.1499633789062,
+        "width": 20.149993896484375,
+        "height": 20.1500244140625
+      }
+    },
+    "visuallyReviewedCaptures": [
+      {
+        "path": "artifacts/ward-rift-guide.png",
+        "sha256": "84fa3acd08e90b49141d99934e007e5dd631cbf67078bfc833e180267a092527"
+      },
+      {
+        "path": "artifacts/ward-rift-placed.png",
+        "sha256": "f7e9217290898fbbd56c6a24c767d5fcda189c5d89f569cbe3ed8f29730252ed"
+      },
+      {
+        "path": "artifacts/ward-rift-small-hud.png",
+        "sha256": "8a3f7e8f264774db10f1e3b7258e030e9315aaad63dce1e87837e48adfdb56f3"
+      },
+      {
+        "path": "artifacts/ward-enemy-first-hit.png",
+        "sha256": "566a1bc9c66cb3e038507f0bb98c021faca09bc918cd8534f1decd000345fa20"
+      },
+      {
+        "path": "artifacts/ward-enemy-cleared.png",
+        "sha256": "a11af72c60f0442f8fdb14eb7e3585e2d4a69efe64d4e0f3100cb559bbfa62b7"
+      },
+      {
+        "path": "artifacts/ward-rift-expired.png",
+        "sha256": "9bc29f1a7f102e5dc79e4694c923ab3f6c1c547c3325d14eace52a8b406d5e13"
+      },
+      {
+        "path": "artifacts/ward-rift-sight.png",
+        "sha256": "cad43f77feece0a6a04ce8b2c5ada6b0c2ea283ababe016302c6c8c86be408b8"
+      },
+      {
+        "path": "artifacts/ward-practice-reset.png",
+        "sha256": "ab5254056ab70a2bcb22098de462db3951dce3df332e700153cc70384db4e7b9"
+      }
+    ]
+  },
+  "assets": {
+    "command": "npm run assets:validate",
+    "result": "all GLBs and map pass with zero errors and zero warnings"
+  },
+  "production": {
+    "command": "npm run test:production",
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 17,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "wardRigRequests": 6,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 2,
+      "scheduledGrompRequests": 102,
+      "scheduledBlueRequests": 6,
+      "scheduledRedRequests": 6,
+      "scheduledWolfRequests": 12,
+      "scheduledRaptorRequests": 12,
+      "scheduledKrugRequests": 18,
+      "scheduledScuttlerRequests": 6,
+      "screenshot": "artifacts/production-subpath.png"
+    },
+    "chunksKB": {
+      "game": 700.69,
+      "three": 659.92
+    },
+    "warning": "Existing >500 KB chunk warning remains; no cold-load/full-match frame or memory certification.",
+    "visuallyReviewedCaptures": [
+      {
+        "path": "artifacts/production-subpath.png",
+        "sha256": "b4d755021d916742157887af9f6c3d6f1165f8ca0e6cddfd4ead9955f96edb50"
+      },
+      {
+        "path": "artifacts/production-lux.png",
+        "sha256": "396c1417b2d76602cd480fb369993f71508d39ca465c0d9e5b20939dd00116c4"
+      },
+      {
+        "path": "artifacts/production-ward.png",
+        "sha256": "f52df3e88fd5672375788db0d09f8ed477dbd3fe7dd47ff8eb7179e770f037bf"
+      },
+      {
+        "path": "artifacts/production-companion-purchase.png",
+        "sha256": "1c5af73bfd74c843f5c14e6d1886c9c05716bbdba981c8cda37eaab78d1c0f54"
+      }
+    ]
+  },
+  "repairs": [
+    "New Garen Q ward test exposed the old save assumption that every non-building impact must have silence. Ward recipients now require the no-silence case.",
+    "Practice reset refills trinkets; committed deliveries remain independent of the owners later resource clocks and permit distinct same-owner commits.",
+    "A late-death diagnostic now settles resource clocks before saving, retaining its original death tick.",
+    "The metadata instruction assertion now includes the observed SETLIST table operation."
+  ],
+  "remaining": [
+    "Control Wards, Oracle Lens, Farsight, true sight/disabling, support ward items, Faelights, vision score and strategic ward bots.",
+    "Formal roles, jungle bots, epic objectives, six complete champions, full builds/runes and seeded full matches.",
+    "Native camera/combat/visual/audio comparison, offline delivery, cross-browser and full-match performance acceptance."
+  ]
+}
