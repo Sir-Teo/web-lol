@@ -1,0 +1,696 @@
+{
+  "target": "PC Summoner's Rift 26.18",
+  "referenceVersion": "16.18.8175716",
+  "inputSha256": {
+    "character.json": "5b126053b2c47bef0922139094620ffbd03adb9ca2b3289cfd118980d8fb7d83",
+    "character.bin": "f1f8791e19d630afb968745c353b17ae2e0020f1d5e24f5a85db838528edd4f1",
+    "names.json": "92eff387fddbd6188cb00cf879a68205b6f7902e386c3ec851038fbc920174dc",
+    "ddragon-16.18.1.json": "1c8cafec74033be85ce2b6fd76e3916dddc2517445c9f6a66b9bee6cedaabc42"
+  },
+  "recordCount": 51,
+  "statComparisons": [
+    {
+      "output": "hp",
+      "field": "baseHPModifiable",
+      "sourceValue": 646.0,
+      "dataDragonField": "hp",
+      "dataDragonValue": 646,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "hpGrowth",
+      "field": "hpPerLevelModifiable",
+      "sourceValue": 101.0,
+      "dataDragonField": "hpperlevel",
+      "dataDragonValue": 101,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "damage",
+      "field": "baseDamageModifiable",
+      "sourceValue": 60.0,
+      "dataDragonField": "attackdamage",
+      "dataDragonValue": 60,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "damageGrowth",
+      "field": "damagePerLevelModifiable",
+      "sourceValue": 3.0,
+      "dataDragonField": "attackdamageperlevel",
+      "dataDragonValue": 0,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": false
+    },
+    {
+      "output": "armor",
+      "field": "baseArmorModifiable",
+      "sourceValue": 43.0,
+      "dataDragonField": "armor",
+      "dataDragonValue": 43,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "armorGrowth",
+      "field": "armorPerLevelModifiable",
+      "sourceValue": 4.799999713897705,
+      "dataDragonField": "armorperlevel",
+      "dataDragonValue": 4.8,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "magicResist",
+      "field": "baseMR",
+      "sourceValue": 32.0,
+      "dataDragonField": "spellblock",
+      "dataDragonValue": 32,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "magicResistGrowth",
+      "field": "mrPerLevel",
+      "sourceValue": 2.049999952316284,
+      "dataDragonField": "spellblockperlevel",
+      "dataDragonValue": 2.05,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "attackSpeed",
+      "field": "attackSpeedModifiable",
+      "sourceValue": 0.625,
+      "dataDragonField": "attackspeed",
+      "dataDragonValue": 0.625,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "healthRegen",
+      "field": "baseStaticHPRegenModifiable",
+      "sourceValue": 1.7000000476837158,
+      "dataDragonField": "hpregen",
+      "dataDragonValue": 8.5,
+      "dataDragonFactor": 5,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "healthRegenGrowth",
+      "field": "hpRegenPerLevelModifiable",
+      "sourceValue": 0.17000000178813934,
+      "dataDragonField": "hpregenperlevel",
+      "dataDragonValue": 0.85,
+      "dataDragonFactor": 5,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "speed",
+      "field": "baseMoveSpeedModifiable",
+      "sourceValue": 335.0,
+      "dataDragonField": "movespeed",
+      "dataDragonValue": 335,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "range",
+      "field": "attackRangeModifiable",
+      "sourceValue": 125.0,
+      "dataDragonField": "attackrange",
+      "dataDragonValue": 125,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "attackSpeedGrowth",
+      "field": "attackSpeedPerLevelModifiable",
+      "sourceValue": 2.9000000953674316,
+      "dataDragonField": "attackspeedperlevel",
+      "dataDragonValue": 2.9,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "mana",
+      "field": "primaryAbilityResource.{726ee5cd}",
+      "sourceValue": 302.0,
+      "dataDragonField": "mp",
+      "dataDragonValue": 302,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "manaGrowth",
+      "field": "primaryAbilityResource.{6216bf7b}",
+      "sourceValue": 40.0,
+      "dataDragonField": "mpperlevel",
+      "dataDragonValue": 40,
+      "dataDragonFactor": 1,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "manaRegen",
+      "field": "primaryAbilityResource.{c4ab3550}",
+      "sourceValue": 1.2000000476837158,
+      "dataDragonField": "mpregen",
+      "dataDragonValue": 6,
+      "dataDragonFactor": 5,
+      "agreesWithinFloat32Tolerance": true
+    },
+    {
+      "output": "manaRegenGrowth",
+      "field": "primaryAbilityResource.{3a509002}",
+      "sourceValue": 0.1599999964237213,
+      "dataDragonField": "mpregenperlevel",
+      "dataDragonValue": 0.8,
+      "dataDragonFactor": 5,
+      "agreesWithinFloat32Tolerance": true
+    }
+  ],
+  "spells": [
+    {
+      "slot": "q",
+      "record": "Characters/Leona/Spells/LeonaShieldOfDaybreakAbility/LeonaShieldOfDaybreak",
+      "namedValues": {
+        "StunDuration": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "BaseDamage": [
+          10.0,
+          10.0,
+          35.0,
+          60.0,
+          85.0,
+          110.0,
+          135.0
+        ]
+      },
+      "calculations": {
+        "TotalDamageTooltip": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mDataValue": "BaseDamage",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mCoefficient": 0.30000001192092896,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      },
+      "authoredCastTime": 0.25,
+      "legacySpellCastTime": 0.5217499732971191,
+      "animationName": "Spell1",
+      "castFrame": 7.5,
+      "rawCastRange": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "displayRange": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "rawCastRadius": [
+        210.0,
+        210.0,
+        210.0,
+        210.0,
+        210.0,
+        210.0,
+        210.0
+      ],
+      "modeOverrides": {}
+    },
+    {
+      "slot": "w",
+      "record": "Characters/Leona/Spells/LeonaSolarBarrierAbility/LeonaSolarBarrier",
+      "namedValues": {
+        "FlatDamageReduction": [
+          4.0,
+          8.0,
+          12.0,
+          16.0,
+          20.0,
+          24.0,
+          28.0
+        ],
+        "FlatDamageReductionMax": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "APRatio": [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645
+        ],
+        "ExplosionBaseDamage": [
+          25.0,
+          55.0,
+          85.0,
+          115.0,
+          145.0,
+          175.0,
+          205.0
+        ],
+        "MRBaseBonus": [
+          12.5,
+          20.0,
+          27.5,
+          35.0,
+          42.5,
+          50.0,
+          57.5
+        ],
+        "ArmorBaseBonus": [
+          12.5,
+          20.0,
+          27.5,
+          35.0,
+          42.5,
+          50.0,
+          57.5
+        ],
+        "ArmorMRDuration": [
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0
+        ]
+      },
+      "calculations": {
+        "BonusArmorTooltip": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mDataValue": "ArmorBaseBonus",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mStat": 1,
+              "mStatFormula": 2,
+              "mCoefficient": 0.20000000298023224,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "BonusMRTooltip": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mDataValue": "ArmorBaseBonus",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mStat": 6,
+              "mStatFormula": 2,
+              "mCoefficient": 0.20000000298023224,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "TotalDamageTooltip": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mDataValue": "ExplosionBaseDamage",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mDataValue": "APRatio",
+              "__type": "StatByNamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      },
+      "authoredCastTime": null,
+      "legacySpellCastTime": 0.25,
+      "animationName": "Spell2",
+      "castFrame": null,
+      "rawCastRange": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "displayRange": [
+        450.0,
+        450.0,
+        450.0,
+        450.0,
+        450.0
+      ],
+      "rawCastRadius": [
+        500.0,
+        500.0,
+        500.0,
+        500.0,
+        500.0,
+        500.0,
+        500.0
+      ],
+      "modeOverrides": {}
+    },
+    {
+      "slot": "e",
+      "record": "Characters/Leona/Spells/LeonaZenithBladeAbility/LeonaZenithBlade",
+      "namedValues": {
+        "BaseDamage": [
+          10.0,
+          50.0,
+          90.0,
+          130.0,
+          170.0,
+          210.0,
+          250.0
+        ],
+        "RootDuration": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "calculations": {
+        "TotalDamageTooltip": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mDataValue": "BaseDamage",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mCoefficient": 0.4000000059604645,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      },
+      "authoredCastTime": 0.25,
+      "legacySpellCastTime": 0.25,
+      "animationName": "Spell3",
+      "castFrame": 7.5,
+      "rawCastRange": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "displayRange": [
+        875.0,
+        875.0,
+        875.0,
+        875.0,
+        875.0
+      ],
+      "rawCastRadius": [
+        210.0,
+        210.0,
+        210.0,
+        210.0,
+        210.0,
+        210.0,
+        210.0
+      ],
+      "modeOverrides": {}
+    },
+    {
+      "slot": "r",
+      "record": "Characters/Leona/Spells/LeonaSolarFlareAbility/LeonaSolarFlare",
+      "namedValues": {
+        "OnHitBaseDamage": [
+          20.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          70.0,
+          80.0
+        ],
+        "OnHitStacks": [
+          2.0,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0
+        ],
+        "OnHitDuration": [
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "AttackRangeIncrease": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "OnHitAPRatio": [
+          0.15000000596046448,
+          0.15000000596046448,
+          0.15000000596046448,
+          0.15000000596046448,
+          0.15000000596046448,
+          0.15000000596046448,
+          0.15000000596046448
+        ],
+        "ExplosionBaseDamage": [
+          75.0,
+          150.0,
+          225.0,
+          300.0,
+          375.0,
+          450.0,
+          525.0
+        ],
+        "ExplosionAPRatio": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        "SlowPercent": [
+          80.0,
+          80.0,
+          80.0,
+          80.0,
+          80.0,
+          80.0,
+          80.0
+        ],
+        "CCDuration": [
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75
+        ]
+      },
+      "calculations": {
+        "{f4c90e5c}": {
+          "mFormulaParts": [
+            {
+              "mDataValue": "OnHitBaseDamage",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mDataValue": "OnHitAPRatio",
+              "__type": "StatByNamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "ExplosionCalculatedDamage": {
+          "mSimpleTooltipCalculationDisplay": 6,
+          "mFormulaParts": [
+            {
+              "mDataValue": "ExplosionBaseDamage",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mDataValue": "ExplosionAPRatio",
+              "__type": "StatByNamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "GameCalculation"
+        }
+      },
+      "authoredCastTime": null,
+      "legacySpellCastTime": 0.25,
+      "animationName": "Spell4",
+      "castFrame": 7.5,
+      "rawCastRange": [
+        1200.0,
+        1200.0,
+        1200.0,
+        1200.0,
+        1200.0,
+        1200.0,
+        1200.0
+      ],
+      "displayRange": [
+        1200.0,
+        1200.0,
+        1200.0
+      ],
+      "rawCastRadius": [
+        120.0,
+        120.0,
+        120.0,
+        120.0,
+        120.0,
+        120.0,
+        120.0
+      ],
+      "modeOverrides": {
+        "cherry": {
+          "SpellDataValues": [
+            {
+              "name": "ExplosionAPRatio",
+              "values": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "__type": "SpellDataValueVector"
+        }
+      },
+      "rawCastRadiusSecondary": [
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0
+      ]
+    }
+  ],
+  "passive": {
+    "record": "Characters/Leona/Spells/LeonaSunlightPassiveAbility/LeonaSunlightPassive",
+    "formula": {
+      "values": [
+        25.0,
+        32.0,
+        39.0,
+        46.0,
+        53.0,
+        60.0,
+        67.0,
+        74.0,
+        81.0,
+        88.0,
+        95.0,
+        102.0,
+        109.0,
+        116.0,
+        123.0,
+        130.0,
+        137.0,
+        144.0,
+        151.0,
+        158.0,
+        165.0,
+        172.0,
+        179.0,
+        186.0,
+        193.0,
+        200.0,
+        207.0,
+        214.0,
+        221.0,
+        228.0,
+        235.0
+      ],
+      "__type": "ByCharLevelFormulaCalculationPart"
+    },
+    "playableLevels": "source indices 1..18; endpoints corroborated by Riot patch 14.15",
+    "duration": {
+      "name": "MarkDuration",
+      "values": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "__type": "SpellDataValue"
+    },
+    "staleDataDragonDescription": "Damaging spells afflict enemies with Sunlight for 1.5 seconds. When allied Champions deal damage to those targets, they consume the Sunlight to deal additional magic damage."
+  },
+  "acceptance": {
+    "declaredValuesExported": true,
+    "playableKit": false,
+    "nativeBehaviorVerified": false,
+    "productionRosterExpanded": false
+  }
+}

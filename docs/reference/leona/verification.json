@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-23",
+  "scope": "Canonical Leona declared values and payload arithmetic. Source/build/log integrity is not a fresh behavior or native comparison.",
+  "sourceBaseline": "b38f086",
+  "schema": 115,
+  "ruleset": "ecf219602f3163735f71e3b8686a66a5d2f310e4eb58077c0abbba9986f915fe",
+  "sourceArchive": ".cache/leona-canonical-validation-v1-20261023/source-archive.json",
+  "frozenInputs": ".cache/leona-canonical-validation-v1-20261023/frozen-inputs",
+  "buildArchive": ".cache/leona-canonical-validation-v1-20261023/generated-build-archive.json",
+  "implementation": [
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 8222,
+      "sha256": "cd79531d7b9e681e220ce264c038d52ea05d232099d59ccdd648c58fd14f2d69"
+    },
+    {
+      "file": "docs/reference/leona/character.bin",
+      "bytes": 24399,
+      "sha256": "f1f8791e19d630afb968745c353b17ae2e0020f1d5e24f5a85db838528edd4f1"
+    },
+    {
+      "file": "docs/reference/leona/character.json",
+      "bytes": 94297,
+      "sha256": "5b126053b2c47bef0922139094620ffbd03adb9ca2b3289cfd118980d8fb7d83"
+    },
+    {
+      "file": "docs/reference/leona/ddragon-16.18.1.json",
+      "bytes": 13995,
+      "sha256": "1c8cafec74033be85ce2b6fd76e3916dddc2517445c9f6a66b9bee6cedaabc42"
+    },
+    {
+      "file": "docs/reference/leona/declared-values.json",
+      "bytes": 16387,
+      "sha256": "f9059ae0313997aa3a5933ca67c0ae6870ff39fae6d4749ee9059b660f88ace6"
+    },
+    {
+      "file": "docs/reference/leona/names.json",
+      "bytes": 50321,
+      "sha256": "92eff387fddbd6188cb00cf879a68205b6f7902e386c3ec851038fbc920174dc"
+    },
+    {
+      "file": "src/content/leona-progression.ts",
+      "bytes": 791,
+      "sha256": "075c6933490c7eb5b665d877d748b82f14f4756d6dd84f6dd4b64df5f43df66c"
+    },
+    {
+      "file": "src/content/leona-spells.ts",
+      "bytes": 2701,
+      "sha256": "6b202445c503378b4862644d7603d18a5ceaa4f48ecd7e13aa39e93ae53109c9"
+    },
+    {
+      "file": "src/simulation/leona-spell-values.ts",
+      "bytes": 3192,
+      "sha256": "64256ba4b205fb345db8361ccfe9080c943d4545b4155df05f27a825e7f4e53a"
+    },
+    {
+      "file": "tests/leona-spell-values.test.ts",
+      "bytes": 6510,
+      "sha256": "0f513a59b838f5015e8fa950123846bd0e8409733688755e5ddfc3de61c95a1c"
+    },
+    {
+      "file": "tools/assets/export-leona-kit.py",
+      "bytes": 15279,
+      "sha256": "a583820a9abd8d2c6d3eec86b3ded1022671d4895764d1b0dcca39d064179a1d"
+    },
+    {
+      "file": "tools/assets/verify-leona-character.py",
+      "bytes": 4588,
+      "sha256": "39be2ea9394e830c43c476db4e51fabf1cfa10c2c0767df275d04971ba42df9a"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/leona-canonical-check-v1.log",
+      "bytes": 946,
+      "sha256": "b9e4a19f7e0e930d49a91014589e49d5faa488be567b409792c93cad23cd2715"
+    },
+    {
+      "file": ".cache/leona-canonical-focused-v1.log",
+      "bytes": 191,
+      "sha256": "1fb150797800e1a758400d5591b87ebf8c2505f32dfca6c6a56475b678f1f118"
+    },
+    {
+      "file": ".cache/leona-canonical-build-v1.log",
+      "bytes": 2427,
+      "sha256": "117edf90f6bf9d974082d7910eeccdee9c2c4a530ab1a5e4d71c3e5b0db29b60"
+    },
+    {
+      "file": ".cache/leona-canonical-source-reverify-v1.log",
+      "bytes": 114,
+      "sha256": "64008860e5d7604bddee4bf00932d7689035cf48ee77b359bd1ee74b5c895eaa"
+    },
+    {
+      "file": ".cache/leona-canonical-prior-garen-integrity-v1.log",
+      "bytes": 274,
+      "sha256": "55d4ae6fb477c69e595cf5c65587900c4a8bab314ce575760707db4f0213b658"
+    },
+    {
+      "file": ".cache/leona-canonical-validation-v1-20261023/source-archive.json",
+      "bytes": 38219,
+      "sha256": "7f03615be819f2c524d4686b7845764511db66bf63125f1a1d0958fb640ade8d"
+    },
+    {
+      "file": ".cache/leona-canonical-validation-v1-20261023/generated-build-archive.json",
+      "bytes": 5940,
+      "sha256": "9374f7b1eeafb06e3b7fa5ad82b8f9b13aaa0ba07796ce80137b114ceec5abe0"
+    },
+    {
+      "file": ".cache/leona-canonical-source-reverify-v1-20261023/data/characters/leona/leona.bin",
+      "bytes": 24399,
+      "sha256": "f1f8791e19d630afb968745c353b17ae2e0020f1d5e24f5a85db838528edd4f1"
+    },
+    {
+      "file": ".cache/leona-canonical-source-reverify-v1-20261023/decoded.json",
+      "bytes": 85608,
+      "sha256": "14730c36fc5f6dcf863366b40270ee57a3596f49eac928bcd91171ff62f8aaa5"
+    },
+    {
+      "file": ".cache/leona-canonical-official-v1-20261023/pins.json",
+      "bytes": 787,
+      "sha256": "cf772c28cb6030244e744495eedc4e9816ae7ab1248d85be66a8cfdcb319bb21"
+    },
+    {
+      "file": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    }
+  ],
+  "officialSources": [
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-25-09-notes/",
+      "resolvedUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-25-09-notes/",
+      "status": 200,
+      "file": ".cache/leona-canonical-official-v1-20261023/patch-25-09.html",
+      "bytes": 319804,
+      "sha256": "b4f3fbade262898f4a7134e0ebb2e1d6463b8fb1ee3236680dc58205f4d0a005"
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-15-notes/",
+      "resolvedUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-15-notes/",
+      "status": 200,
+      "file": ".cache/leona-canonical-official-v1-20261023/patch-14-15.html",
+      "bytes": 388241,
+      "sha256": "bfc02b1fb44de6b0ec2eb996ec4108ffc3c94b2bdc8fab225179633d07104ef8"
+    }
+  ],
+  "checks": {
+    "standard": ".cache/leona-canonical-check-v1.log",
+    "focused": ".cache/leona-canonical-focused-v1.log",
+    "build": ".cache/leona-canonical-build-v1.log",
+    "archiveDecode": ".cache/leona-canonical-source-reverify-v1.log",
+    "priorGarenIntegrity": ".cache/leona-canonical-prior-garen-integrity-v1.log"
+  },
+  "acceptance": {
+    "declaredValuesExported": true,
+    "payloadArithmeticTested": true,
+    "completeBinDecodeMatches": true,
+    "repeatedArchiveExtractionMatches": true,
+    "playableKit": false,
+    "nativeBehaviorVerified": false,
+    "productionRosterExpanded": false
+  },
+  "limitations": [
+    "No World command/cast/buff/target integration yet.",
+    "No Leona model/effect/audio or browser acceptance in this increment.",
+    "No new match cohort, browser smoke or production-host smoke claimed.",
+    "Existing large-chunk build warning remains."
+  ],
+  "toolingCorrections": [
+    "The first exporter accessed an omitted W castFrame; it is now retained as null rather than assigned a timing.",
+    "The first decode comparison differed only at numeric map keys represented as Python integers versus JSON strings. JSON key normalization now precedes the complete comparison; no numeric value or field is waived."
+  ],
+  "primaryCorroboration": [
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-25-09-notes/",
+      "passiveMarkSeconds": 2.5,
+      "qManaByRank": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "eManaByRank": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ]
+    },
+    {
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-15-notes/",
+      "passiveDamageEndpoints": [
+        32,
+        151
+      ],
+      "wDamageByRank": [
+        55,
+        85,
+        115,
+        145,
+        175
+      ],
+      "wAbilityPowerRatio": 0.4
+    }
+  ]
+}

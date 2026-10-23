@@ -4291,3 +4291,43 @@ assertion or worker policy was weakened. Native orientation/bounds/stop/linger,
 the deferred layers, voices, remaining content and full-match browser/offline/
 performance acceptance remain required. See [attack particles](GAREN-AA-PARTICLES.md)
 and the [verification ledger](reference/garen-aa-particles-verification.json).
+
+## Leona source package and payload calculations — October 23, 2026
+
+Leona's complete frozen character closure is now canonical: 51 records, the
+original 24,399-byte BIN, the naming response and Data Dragon 16.18.1. An offline
+exporter produces her progression, all Q/W/E/R rank values and eighteen playable
+Sunlight levels. Calculation helpers prepare resources, separate Q bonus magic
+damage, Eclipse resistance bonuses and E/R magic payloads. They reject invalid
+ranks and nonfinite stats. World commands and buff/target state are not integrated
+yet; Leona remains unavailable in player selection and the production roster.
+
+The package resolves array indexing explicitly, preserving R rank-three mana
+and excluding dummy/extended-mode entries. It separates current named damage
+from stale child-spell values, E's display/root declarations from its child
+missile, W's display and raw radius, and R's Rift coefficient from its other-mode
+override. Sunlight uses 2.5 seconds and 32–151 damage, corroborated by official
+25.09 and 14.15 notes; the stale 1.5-second tooltip and 3-versus-0 AD-growth
+disagreement remain visible. Missing timing fields stay absent/null. No attack
+release timing, empowered window, dash speed or explosion delay is invented.
+
+The complete BIN decode and a fresh pinned-archive extraction match all records,
+bytes and provenance. Eight focused tests and canonical `npm run check` pass:
+1,493 tests across 270 files, TypeScript and three Node QA checks. Production
+build passes with the existing large-chunk warning. All owned runners drained
+before subsequent edits. The verification ledger retains 230 exact input files,
+26 generated frontend files, original official-page responses and run logs;
+current and historical integrity checks pass. The prior Garen evidence also
+passes its historical integrity audit. No new browser/native/full-match result
+is claimed. Schema 115 remains unchanged; the package fingerprint is `ecf219…`.
+
+The first exporter encountered an omitted W cast-frame field; it now records
+that omission. The first BIN comparison exposed integer-versus-JSON-string map
+keys; representation normalization fixes it without waiving fields or numbers.
+Playable Leona still requires every passive/ability state machine, collision and
+CC boundary, attribution, strict saves, support bot/HUD integration and complete
+presentation/native/performance acceptance. The full six-character milestone
+and project goal remain open. See [Leona](LEONA.md) and its
+[verification ledger](reference/leona/verification.json). Recorded evidence can
+be checked with `node tools/qa/verify-leona-source.mjs`, or `--historical` after
+later implementation changes.
