@@ -6,14 +6,14 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,318 source/simulation/geometry checks, the focused Rift camp and existing lane/neutral browser checks described below, and earlier Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,331 source/simulation/geometry checks, the targeted shared-strategy/combat/save browser checks described below, and earlier Rift camp, Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
 - Ashe Q/W/E/R and Lux passive/Q/W/E/R have runtime foundations and targeted interaction checks. Lux has a local combat and purchase policy. Human selection and HUD now support Ashe and Lux; neither champion is certified complete in native effects, audio, timing or all interactions.
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
-- The interim 5v5 mode now assigns top, jungle, mid, bottom and support on each team, using six Ashe/four Lux across the match. A human Ashe takes bottom or Lux takes mid, with nine bots filling the other positions. Jungle bots buy companions, use Smite and clear home camps from visible observations; supports leave nearby carry farm, follow and ward brush. The default entry remains practice, with **Pause → New match** offering either mode. Complete team planning, quests, objectives and the six-champion roster remain unfinished; this is a five-position foundation, not production completion.
+- The interim 5v5 mode now assigns top, jungle, mid, bottom and support on each team, using six Ashe/four Lux across the match. A human Ashe takes bottom or Lux takes mid, with nine bots filling the other positions. Jungle bots buy companions, use Smite and clear home camps from visible observations; supports leave nearby carry farm, follow and ward brush. Shared jobs now add threatened-building defense, supported sieges and visible jungle ganks/Scuttlers with bounded last-seen memory. The default entry remains practice, with **Pause → New match** offering either mode. Complete team planning, quests, objectives and the six-champion roster remain unfinished; this is a foundation, not production completion.
 - A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-104 continuation. Rift practice and the interim lane match share both source-linked Gromp camps, with independent death-based respawns, protected source emergence and schema-104 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
   wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and complete jungle/team strategy remain unfinished.
@@ -21,7 +21,45 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-[Five-position bot assignments](BOT-ROLES.md) replace the previous two-top
+The [shared strategy foundation](BOT-TEAM-STRATEGY.md) plans once per second from
+explicit team observations. Bots can defend threatened buildings, join allied
+sieges and select visible ganks/Scuttlers. Jobs preserve jungle routes, copy
+last-seen points for at most three seconds and reject paths crossing remembered
+intact towers without appropriate cover. Human orders remain under human control.
+Schema 108 saves bounded jobs and causal clocks, with exact continuation checks.
+The initial seed-927 run exposed an early melee-victory save bug with an unrelated
+Lux missile. Early result paths now finalize Lux/Gromp missile histories on the
+winning tick; focused simulation and browser regressions retain the frozen
+endpoint without applying cancelled damage.
+This is local tuning; unseen river scouting, alternate safe routes, major
+objectives and complete coordination remain unfinished.
+
+All **1,331 unit checks across 247 files** and TypeScript pass. **33 distinct
+targeted Chrome scenarios** pass across the initial 32 passing cases and a
+two-case recheck after correcting a new fixture. Coverage includes actual jungle
+siege/river/defense, existing role/combat/save/recovery behavior, Lux/Gromp
+missiles and frozen winning checkpoints. The full unit suite uses two workers
+with unchanged test limits; default-pool runs exposed timing contention. The
+new screenshots were visually reviewed. Nested-path production smoke passes,
+including five positions, selected companions, save restoration and 20 source
+recordings overall. Game/Three chunks are 730.37/659.93 KB; the existing size
+warning remains. Current seeded and production results are recorded in the
+[team ledger](reference/bot-team-verification.json).
+The full Chrome/performance suites and native comparison were not repeated.
+
+The repaired ruleset’s four seeded audits check **823,545 ticks** and **230 exact
+checkpoint round trips**, with no detected invariant failure. Seeds 26018, 1
+and 927 reach Red-team victories at **57:31.783**, **53:41.733** and **57:32.233**;
+seed 719 remains unfinished at the **60-minute horizon**. Its retained state is
+evidence of incomplete late-game conversion, not a passed completion gate.
+Recorded minute samples and terminal ticks/winners match the initial strategy
+runs; seed 927’s formerly invalid winning save now restores. Headless wall times
+include an explicit suspension during isolated browser/unit/production checks
+and are not performance measurements. Full data and original failure provenance
+are in the [team audit](reference/bot-team-match-audit.json). Four seeds do not
+satisfy the roadmap’s 100-seed gate or establish improved match quality.
+
+At `cc427f4`, [five-position bot assignments](BOT-ROLES.md) replaced the previous two-top
 composition. Both junglers spend their own starting gold on Mosstomper, equip
 Smite/Flash and use normal combat, navigation, rewards and camp calendars. The
 planner receives visible monsters and observed empty homes; hidden health,
@@ -29,10 +67,11 @@ actual respawn deadlines and pending split state are excluded. Its bounded
 home-side memory survives schema-107 saves. Support policy leaves nearby carry
 farm, follows its carry, retains Lux combat/shielding and places brush wards
 through normal stock/validation. The UI exposes **Start 5v5 match** and scoreboard
-position labels. Ashe/Lux are still the interim roster; role quests, dedicated
-gank/river/major-objective planning and complete team strategy remain open.
+position labels. That milestone left dedicated gank/river/siege/defense selection
+for the shared strategy work above. Ashe/Lux remain the interim roster; quests,
+major objectives and complete team strategy remain open.
 
-All **1,318 unit checks across 246 files** pass. A 6:40 imported-grid scenario
+At that revision, **1,318 unit checks across 246 files** passed. A 6:40 imported-grid scenario
 visits all six home camps on both sides, reaching level 5/36 CS with no deaths and
 exact saved continuation. Two frozen-build, fully automated matches reach valid
 Red-team Nexus victories at **39:16.85** and **43:36.03**, retaining their full
@@ -42,14 +81,14 @@ validate every sampled checkpoint and satisfy final Nexus/turret/inhibitor and
 health/mana invariants. The [seed audit](reference/bot-role-match-audit.json)
 records source identity, samples and retained checkpoint hashes. This is two
 seeds, not the roadmap's 100-seed gate, a balance audit or full-match acceptance.
-All **33 distinct targeted Chrome scenarios** pass across the match/companion
+At that revision, **33 distinct targeted Chrome scenarios** passed across the match/companion
 and camp/combat cohorts after fixture corrections. Production smoke passes
 under `/nested/rift/`, including five-position scoreboard labels, two selected
 role-companion requests, the ordinary 17-recording startup and 20 recordings
 overall after Oracle selection. Current game/Three chunks are 722.46/659.93 KB;
 the existing chunk warning and match-scale performance gate remain open.
-Implementation hashes, fixture corrections, visual review and full check scope
-are recorded in the [role ledger](reference/bot-roles-verification.json).
+Implementation hashes, fixture corrections, visual review and historical check
+scope are recorded in the [role ledger](reference/bot-roles-verification.json).
 
 At `3691170`, [Oracle source audio](ORACLE-AUDIO.md) now loads three pinned recordings only
 on equipment selection or saved presence. The original Lvl3 audio resource

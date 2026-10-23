@@ -10,7 +10,7 @@ export interface Combatant extends Vec2 {
   attackPeriod: number;
 }
 
-function strength(unit: Combatant): number {
+export function botCombatStrength(unit: Combatant): number {
   // Health remaining and sustained attack power provide a conservative baseline.
   // This deliberately does not pretend to evaluate unobserved enemy cooldowns.
   return (
@@ -29,8 +29,9 @@ export function botDisengagePoint(
   const threats = enemies.filter((e) => distance(actor, e) <= 1000);
   if (threats.length < 2) return null;
   const support = allies.filter((a) => distance(actor, a) <= 850);
-  const friendly = strength(actor) + support.reduce((sum, a) => sum + strength(a), 0);
-  const hostile = threats.reduce((sum, e) => sum + strength(e), 0);
+  const friendly =
+    botCombatStrength(actor) + support.reduce((sum, a) => sum + botCombatStrength(a), 0);
+  const hostile = threats.reduce((sum, e) => sum + botCombatStrength(e), 0);
   if (hostile <= friendly * 1.55) return null;
 
   const centroid = threats.reduce((point, e) => ({ x: point.x + e.x, y: point.y + e.y }), {

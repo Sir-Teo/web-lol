@@ -1,3 +1,11 @@
+import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
+import {
+  planTeam,
+  type TeamPlan,
+  type TeamGoal,
+  type TeamObservation,
+  type SeenStructure,
+} from './bot-team';
 import { jungleDecision, jungleRoute } from './bot-jungle';
 import { JUNGLE_BOT_POLICY } from '../content/bot-roles';
 import { advanceWards, requestWard, hitWard } from './wards';
@@ -181,7 +189,7 @@ import { CRITICAL_ATTACKS } from '../content/critical-attacks';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from '../content/ashe-projectiles';
 import { SUMMONER_HEAL } from '../content/summoner-heal';
 import { experienceToNextLevel, growthAtLevel, MAX_LEVEL, statPrecision } from './progression';
-import { direction, distance, Random, sweepCircle, type Vec2 } from './math';
+import { direction, distance, segmentDistance, Random, sweepCircle, type Vec2 } from './math';
 import { seenFrom, sightRadius, type VisionArea, type VisionSource } from './vision';
 import { isStructureKind, isLaneMinionKind } from './types';
 import type {
@@ -225,6 +233,7 @@ export class World {
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
   commands: Command[] = [];
+  teamPlans: Record<Team, TeamPlan> | null = null;
   random = new Random(26018);
   player: PlayerState;
   private championRecords = new Map<number, ChampionState>();
@@ -825,6 +834,9 @@ export class World {
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
     this.tick++;
+    if (this.teamPlans)
+      for (const plan of Object.values(this.teamPlans))
+        plan.assignments = plan.assignments.filter((g) => g.expiresTick > this.tick);
     this.luxIlluminationVisuals = this.luxIlluminationVisuals.filter(
       (v) => this.tick < v.startTick + LUX_ILLUMINATION_HISTORY_TICKS
     );
@@ -983,6 +995,7 @@ export class World {
     this.advanceJungleCamps();
     advanceRiverScuttlers(this);
     grantRiverSpeed(this);
+    this.advanceTeamPlans();
     this.advanceCinderBurns();
     advanceScorchclawBurns(this);
     for (const u of this.units) {
@@ -1039,6 +1052,7 @@ export class World {
         ) {
           this.advanceUnit(u);
           if (this.winner) {
+            this.advanceAttackVisuals();
             this.advanceAnimationClocks();
             this.advanceImpactVisuals();
             return;
@@ -1058,6 +1072,7 @@ export class World {
       if (thinkNow) this.think(u);
       this.advanceUnit(u);
       if (this.winner) {
+        this.advanceAttackVisuals();
         this.advanceAnimationClocks();
         this.advanceImpactVisuals();
         return;
@@ -1933,6 +1948,143 @@ export class World {
     this.enqueue({ type: 'cast', unit: u.id, ability: slot, point: aim });
     return true;
   }
+  private knownTeamTowers(team: Team) {
+    return this.units.filter(
+      (t) =>
+        t.kind === 'turret' &&
+        t.team !== team &&
+        (t.structureKnowledge
+          ? t.structureKnowledge[team] === null
+          : this.visible(t, team) && this.alive(t))
+    );
+  }
+  private advanceTeamPlans(): void {
+    if (!this.teamPlans) return;
+    for (const team of ['blue', 'red'] as const) {
+      const plan = this.teamPlans[team];
+      if (this.tick < plan.nextThinkTick) continue;
+      const seen = this.units.filter((u) => u.team !== team && this.visible(u, team));
+      const enemies = seen
+        .filter((u) => u.kind === 'champion' && this.alive(u))
+        .map((u) => ({
+          id: u.id,
+          x: u.x,
+          y: u.y,
+          hp: u.hp,
+          maxHp: u.maxHp,
+          damage: u.damage,
+          attackPeriod: u.attackPeriod,
+        }));
+      const structure = (u: Unit): SeenStructure => ({
+        id: u.id,
+        x: u.x,
+        y: u.y,
+        kind: u.kind as SeenStructure['kind'],
+        hp: u.hp,
+        maxHp: u.maxHp,
+        range: u.range,
+        attackable: this.vulnerable(u),
+      });
+      const observation: TeamObservation = {
+        tick: this.tick,
+        home: this.battlefield.spawns[team],
+        actors: this.units
+          .filter((u) => u.kind === 'champion' && u.team === team && this.alive(u))
+          .map((u) => {
+            const s = this.championState(u.id)!,
+              target = u.order.type === 'attack' ? this.unit(u.order.target) : undefined;
+            return {
+              id: u.id,
+              x: u.x,
+              y: u.y,
+              hp: u.hp,
+              maxHp: u.maxHp,
+              damage: u.damage,
+              attackPeriod: u.attackPeriod,
+              role: s.role,
+              controlled: u.ai,
+              available: !u.aiRetreating && s.recallEnd === null,
+              level: s.level,
+              clearing:
+                !!target &&
+                target.kind === 'monster' &&
+                target.monster.species !== 'scuttler' &&
+                this.visible(target, team) &&
+                this.alive(target),
+            };
+          }),
+        minions: this.units
+          .filter((u) => u.team === team && isLaneMinionKind(u.kind) && this.alive(u))
+          .map((u) => ({ x: u.x, y: u.y })),
+        enemies,
+        enemyMinions: seen
+          .filter((u) => isLaneMinionKind(u.kind) && this.alive(u))
+          .map((u) => ({ x: u.x, y: u.y })),
+        ownStructures: this.units
+          .filter((u) => u.team === team && !!u.structure && this.alive(u))
+          .map(structure),
+        enemyStructures: seen.filter((u) => !!u.structure && this.alive(u)).map(structure),
+        scuttlers: seen
+          .filter((u) => u.kind === 'monster' && u.monster.species === 'scuttler' && this.alive(u))
+          .map((u) => ({
+            id: u.id,
+            x: u.x,
+            y: u.y,
+            hp: u.hp,
+            maxHp: u.maxHp,
+            attackable: this.vulnerable(u),
+          })),
+        towers: this.knownTeamTowers(team).map((t) => ({ x: t.x, y: t.y, range: t.range })),
+        gone: new Set(seen.filter((u) => !this.alive(u)).map((u) => u.id)),
+      };
+      plan.assignments = planTeam(plan.assignments, observation);
+      plan.nextThinkTick = this.tick + BOT_TEAM_POLICY.thinkTicks;
+    }
+  }
+  private teamGoal(u: Unit): TeamGoal | undefined {
+    if (u.kind !== 'champion') return;
+    return this.teamPlans?.[u.team].assignments.find(
+      (g) => g.unitId === u.id && g.expiresTick > this.tick
+    );
+  }
+  private followTeamGoal(u: Unit, goal: TeamGoal): boolean {
+    if (u.kind !== 'champion') return false;
+    const point = this.battlefield.reachable(goal.point, u.radius, u.team);
+    // Never use a hidden tower's actual health to remove a remembered hazard.
+    const path =
+      u.order.type === 'move' && distance(u.order.point, point) < 50 && u.path.length
+        ? u.path
+        : this.battlefield.findPath(u, point, u.radius, u.team);
+    if (!path.length && distance(u, point) > 200) return false;
+    const route = [u, ...path, point];
+    const unsafe = this.knownTeamTowers(u.team).some((t) => {
+      const cover =
+        goal.kind !== 'gank' &&
+        this.units.some(
+          (m) =>
+            m.team === u.team &&
+            isLaneMinionKind(m.kind) &&
+            this.alive(m) &&
+            distance(m, t) <= t.range + m.radius
+        );
+      return (
+        !cover &&
+        route.some(
+          (b, i) =>
+            i > 0 &&
+            segmentDistance(t, route[i - 1], b) < t.range + u.radius + BOT_TEAM_POLICY.towerMargin
+        )
+      );
+    });
+    if (unsafe) return false;
+    if (distance(u, point) <= 200) {
+      if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+      return true;
+    }
+    if (u.order.type !== 'move' || distance(u.order.point, point) > 50)
+      this.setOrder(u, { type: 'move', point: { x: point.x, y: point.y } });
+    return true;
+  }
   private junglePlan(u: Unit) {
     if (u.kind !== 'champion') return null;
     const state = this.championState(u.id)!;
@@ -2106,6 +2258,14 @@ export class World {
         return;
       }
     }
+    const goal = this.teamGoal(u);
+    if (
+      goal?.kind === 'defend' &&
+      distance(u, goal.point) > 1000 &&
+      !this.nearest(u, 650, true) &&
+      this.followTeamGoal(u, goal)
+    )
+      return;
     if (this.planRoleWard(u)) return;
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
@@ -2115,11 +2275,30 @@ export class World {
     const carry = this.supportCarry(u);
     const leaveFarm = !!carry && distance(u, carry) <= JUNGLE_BOT_POLICY.supportFarmRadius;
     const safeTarget = (target: Unit) =>
-      !(state.role === 'jungle' && target.kind !== 'champion') &&
+      !(
+        state.role === 'jungle' &&
+        target.kind !== 'champion' &&
+        !(goal?.kind === 'defend' && isLaneMinionKind(target.kind))
+      ) &&
       !(leaveFarm && isLaneMinionKind(target.kind)) &&
       this.safeAttackPosition(u, target) &&
       !this.incomingAttacksClaimMinion(u, target);
-    const jungle = this.junglePlan(u);
+    const jungle = goal ? null : this.junglePlan(u);
+    const plannedTarget = goal && goal.kind !== 'defend' ? this.unit(goal.targetId) : undefined;
+    const goalTarget =
+      plannedTarget &&
+      this.visible(plannedTarget, u.team) &&
+      distance(u, plannedTarget) <= 1150 &&
+      (plannedTarget.kind === 'monster'
+        ? goal?.kind === 'river' &&
+          plannedTarget.monster.species === 'scuttler' &&
+          plannedTarget.monster.phase !== 'returning' &&
+          this.alive(plannedTarget) &&
+          this.vulnerable(plannedTarget)
+        : this.validTarget(u, plannedTarget)) &&
+      this.safeAttackPosition(u, plannedTarget)
+        ? plannedTarget
+        : undefined;
     const jungleTarget = jungle?.type === 'attack' ? this.unit(jungle.target) : undefined;
     const nearest = this.nearest(u, 1150, false, safeTarget);
     const closeThreat = this.nearest(u, 380, true, safeTarget);
@@ -2127,7 +2306,8 @@ export class World {
     const target =
       closeThreat && distance(u, closeThreat) < 380
         ? closeThreat
-        : (jungleTarget ??
+        : (goalTarget ??
+          jungleTarget ??
           (leaveFarm || state.role === 'jungle' ? undefined : this.lastHitTarget(u)) ??
           nearest);
     if (target) {
@@ -2234,6 +2414,17 @@ export class World {
       // Visible opponents remain, but none offers a safe attack position.
       // Hold rather than resuming the lane route into their tower protection.
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    } else if (goal) {
+      // Retain the captured team point; hidden targets never supply a new position.
+      if (!this.followTeamGoal(u, goal)) {
+        const fallback = this.junglePlan(u);
+        if (fallback?.type === 'move')
+          this.setOrder(u, { type: 'move', point: { ...fallback.point } });
+        else if (fallback?.type === 'attack')
+          this.setOrder(u, { type: 'attack', target: fallback.target });
+        else if (!fallback && this.battlefield.id === 'rift') this.advanceChampionLane(u);
+        else if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+      }
     } else if (jungle) {
       if (jungle.type === 'move') {
         if (u.order.type !== 'move' || distance(u.order.point, jungle.point) > 1)
@@ -3535,6 +3726,11 @@ export class World {
       }
     }
     this.projectiles = this.winner ? [] : survivors;
+    this.advanceAttackVisuals(visualFrames);
+  }
+  private advanceAttackVisuals(
+    visualFrames = new Map<number, { tick: number; x: number; y: number; facing: number }>()
+  ): void {
     const survivingIds = new Set(this.projectiles.map((p) => p.id));
     for (const visual of this.grompAttackVisuals) {
       if (visual.stopTick !== null) continue;
@@ -5090,6 +5286,7 @@ export class World {
       nextBindingAudioVariant: this.nextBindingAudioVariant,
       volleyHits: this.volleyHits,
       commands: this.commands,
+      teamPlans: this.teamPlans,
     });
   }
 }

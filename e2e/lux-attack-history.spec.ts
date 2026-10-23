@@ -175,3 +175,64 @@ test('browser checkpoints retain Lux homing history in flight and after impact',
   expect(await matrices()).toEqual({ hoops: [], ribbons: [], crescents: [], impacts: [] });
   expect(errors).toEqual([]);
 });
+
+test('a winning melee hit preserves an unrelated Lux missile tail and a restorable frozen checkpoint', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.pendingSpawns = [];
+    const lux = w.spawn('champion', 'blue', { x: w.hero.x + 80, y: w.hero.y }, 'lux');
+    const target = w.spawn('dummy', 'red', { x: lux.x + 300, y: lux.y });
+    target.hp = target.maxHp = 5000;
+    w.setOrder(lux, { type: 'attack', target: target.id });
+    for (let i = 0; i < 60 && !w.luxAttackVisuals.length; i++) w.step();
+    if (!w.luxAttackVisuals.length) throw new Error('Expected a real released Lux attack');
+    w.setOrder(lux, { type: 'idle' });
+    w.step(3);
+    const previous = structuredClone(w.luxAttackVisuals[0].frames.at(-1));
+    const finisher = w.spawn('melee', 'blue', { x: w.hero.x - 200, y: w.hero.y });
+    const nexus = w.spawn('nexus', 'red', { x: w.hero.x - 150, y: w.hero.y });
+    nexus.hp = 1;
+    w.setOrder(finisher, { type: 'attack', target: nexus.id });
+    finisher.releaseTick = w.tick + 1;
+    finisher.attackTarget = nexus.id;
+    const hp = target.hp;
+    w.step();
+    const saved = w.snapshot();
+    const restored = w.constructor.fromSnapshot(saved, w.battlefield);
+    restored.step(60);
+    g.view.center = { x: lux.x + 150, y: lux.y };
+    g.view.zoom = 0.55;
+    g.view.render(w, 1, g.view.previousElapsed);
+    const effect = w.luxAttackVisuals[0];
+    return {
+      winner: w.winner,
+      tick: w.tick,
+      stop: effect.stopTick,
+      frame: effect.frames.at(-1),
+      previous,
+      projectiles: w.projectiles.length,
+      targetUnharmed: target.hp === hp,
+      exact: restored.snapshot() === saved,
+      tail: g.view.luxAttackCrescents.clouds.get(effect.id)?.mesh.count ?? 0,
+    };
+  });
+  expect(result.winner).toBe('blue');
+  expect(result.stop).toBe(result.tick);
+  expect(result.frame).toEqual({ ...result.previous, tick: result.tick });
+  expect(result.projectiles).toBe(0);
+  expect(result.targetUnharmed).toBe(true);
+  expect(result.exact).toBe(true);
+  expect(result.tail).toBeGreaterThan(0);
+  expect(errors).toEqual([]);
+});

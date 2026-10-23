@@ -1,8 +1,9 @@
 # Historical mirrored-lane integration diagnostic
 
-The current five-position Ashe/Lux audit is documented in [bot roles](BOT-ROLES.md)
-and [its seed ledger](reference/bot-role-match-audit.json). The older all-Ashe
-fixture below remains a separate regression instrument.
+The current five-position Ashe/Lux audit is documented in [team strategy](BOT-TEAM-STRATEGY.md)
+and [its seed ledger](reference/bot-team-match-audit.json). The earlier
+[role-foundation ledger](reference/bot-role-match-audit.json) remains separate.
+The older all-Ashe fixture below remains a separate regression instrument.
 
 Run `node tools/qa/simulate-rift.mjs 3600` from the repository root. The optional second argument selects the JSON report path; the adjacent `.snapshot.json` file retains the terminal state or unfinished horizon state. Durations are integer seconds from 1 through 3,600. The harness uses Vite's TypeScript loader in Node without a browser or gameplay server.
 

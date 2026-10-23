@@ -22,6 +22,27 @@ function launch() {
   return { w, gromp, visual: w.grompAttackVisuals[0] };
 }
 
+test('a melee Nexus kill stops an unrelated neutral missile history on the frozen winning tick', () => {
+  const { w, visual } = launch();
+  const previous = structuredClone(visual.frames.at(-1)!);
+  const finisher = w.spawn('melee', 'blue', { x: -500, y: -500 });
+  const nexus = w.spawn('nexus', 'red', { x: -450, y: -500 });
+  nexus.hp = 1;
+  w.setOrder(finisher, { type: 'attack', target: nexus.id });
+  finisher.releaseTick = w.tick + 1;
+  finisher.attackTarget = nexus.id;
+  const hp = w.hero.hp;
+  w.step();
+  expect(w.winner).toBe('blue');
+  expect(visual.stopTick).toBe(w.tick);
+  expect(visual.frames.at(-1)).toEqual({ ...previous, tick: w.tick });
+  expect(w.hero.hp).toBe(hp);
+  const saved = w.snapshot();
+  expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+  w.step(60);
+  expect(w.snapshot()).toBe(saved);
+});
+
 test('four Gromp missile profiles retain source spell, primitive, lifetime, bind and texture fields', () => {
   const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex'),
     pin = JSON.parse(readFileSync('docs/reference/gromp-effects.json', 'utf8')),

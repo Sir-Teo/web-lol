@@ -1,6 +1,12 @@
 # Local match checkpoints
 
-Current schema 107 saves five-position assignments and bounded observed camp memory.
+Current schema 108 adds bounded shared team jobs: actor/target, kind, copied
+last-seen point, score, issued/observed/expiry ticks and next planning tick. Each
+team has at most five unique assignments. Validation rejects foreign actors,
+wrong target types/factions, missing match plans, invalid refresh deadlines and
+future/expired memory. See [team strategy](BOT-TEAM-STRATEGY.md).
+
+Schema 107 introduced five-position assignments and bounded observed camp memory.
 Each 5v5 team has one of every role; junglers retain a route cursor, current home
 camp, quiet clock and at most six observed-empty records. Validation rejects
 missing/duplicate roles, mismatched lanes, missing Smite, foreign camps and future

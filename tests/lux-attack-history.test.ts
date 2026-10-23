@@ -19,6 +19,29 @@ function launch() {
   expect(w.luxAttackVisuals).toHaveLength(1);
   return { w, lux, target };
 }
+it('stops an unrelated in-flight attack history when a melee hit ends the match before projectile advancement', () => {
+  const { w, target } = launch();
+  w.step(3);
+  const visual = w.luxAttackVisuals[0];
+  const previous = structuredClone(visual.frames.at(-1)!);
+  const finisher = w.spawn('melee', 'blue', { x: -500, y: -500 });
+  const nexus = w.spawn('nexus', 'red', { x: -450, y: -500 });
+  nexus.hp = 1;
+  w.setOrder(finisher, { type: 'attack', target: nexus.id });
+  finisher.releaseTick = w.tick + 1;
+  finisher.attackTarget = nexus.id;
+  const hp = target.hp;
+  w.step();
+  expect(w.winner).toBe('blue');
+  expect(w.projectiles).toEqual([]);
+  expect(visual.stopTick).toBe(w.tick);
+  expect(visual.frames.at(-1)).toEqual({ ...previous, tick: w.tick });
+  expect(target.hp).toBe(hp);
+  const saved = w.snapshot();
+  expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+  w.step(60);
+  expect(w.snapshot()).toBe(saved);
+});
 it('captures homing positions and preserves the exact active and post-impact history through saves', () => {
   const { w, target } = launch();
   const first = structuredClone(w.luxAttackVisuals[0]);

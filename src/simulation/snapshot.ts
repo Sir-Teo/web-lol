@@ -1,3 +1,4 @@
+import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
 import { MATCH_ROLES, JUNGLE_BOT_POLICY } from '../content/bot-roles';
 import { jungleRoute } from './bot-jungle';
 import { WARD_SOURCE, WARD_POLICY, wardScaling } from '../content/warding-totem';
@@ -101,7 +102,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 107;
+export const SNAPSHOT_VERSION = 108;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -840,6 +841,24 @@ const luxTargetVisual = (historyTicks: number) =>
       .min(1)
       .max(historyTicks),
   });
+const teamPlan = z.strictObject({
+  nextThinkTick: tick,
+  assignments: z
+    .array(
+      z.strictObject({
+        unitId: id,
+        kind: z.enum(['defend', 'push', 'gank', 'river']),
+        targetId: id,
+        point,
+        issuedTick: tick,
+        observedTick: tick,
+        expiresTick: tick,
+        score: z.number().positive().max(10000),
+      })
+    )
+    .max(5),
+});
+
 const snapshot = z.strictObject({
   companions: z
     .array(
@@ -968,6 +987,7 @@ const snapshot = z.strictObject({
     })
     .nullable(),
   matchMode: z.enum(['practice', 'lanes']),
+  teamPlans: z.strictObject({ blue: teamPlan, red: teamPlan }).nullable(),
   ruleset: z.literal(SNAPSHOT_RULESET),
   battlefield: z.enum(['rift', 'practice-fixture']),
   winner: team.nullable(),
@@ -2428,6 +2448,43 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match has invalid five-position assignments.');
     }
   }
+  if ((state.matchMode === 'lanes') !== (state.teamPlans !== null))
+    throw new Error('Saved match has no matching team strategy state.');
+  if (state.teamPlans)
+    for (const team of ['blue', 'red'] as const) {
+      const plan = state.teamPlans[team];
+      if (
+        plan.nextThinkTick < state.tick ||
+        plan.nextThinkTick > state.tick + BOT_TEAM_POLICY.thinkTicks ||
+        new Set(plan.assignments.map((g) => g.unitId)).size !== plan.assignments.length
+      )
+        throw new Error('Saved team strategy has invalid refresh or assignment clocks.');
+      for (const g of plan.assignments) {
+        const actor = champions.find((u) => u.id === g.unitId),
+          target = state.units.find((u) => u.id === g.targetId);
+        const validTarget =
+          g.kind === 'defend'
+            ? !!target && target.team === team && !!target.structure
+            : g.kind === 'push'
+              ? !!target && target.team !== team && !!target.structure
+              : g.kind === 'gank'
+                ? !!target && target.team !== team && target.kind === 'champion'
+                : g.targetId < state.nextId &&
+                  (!target || (target.kind === 'monster' && target.monster.species === 'scuttler'));
+        if (
+          !actor ||
+          actor.team !== team ||
+          !validTarget ||
+          g.issuedTick > g.observedTick ||
+          g.observedTick > state.tick ||
+          g.expiresTick !== g.observedTick + BOT_TEAM_POLICY.memoryTicks ||
+          g.expiresTick <= state.tick ||
+          Math.abs(g.point.x) > battlefield.half ||
+          Math.abs(g.point.y) > battlefield.half
+        )
+          throw new Error('Saved team strategy has invalid targets or observed memory.');
+      }
+    }
   for (const owner of owners) {
     const champion = champions.find((u) => u.id === owner.id)!;
     if (state.matchMode === 'lanes' && champion.ai && owner.role !== 'jungle') {

@@ -1,0 +1,276 @@
+{
+  "date": "2026-10-22",
+  "baseline": "cc427f4212c214e5bfbef8c5e5e625a20c686f1a",
+  "schema": 108,
+  "ruleset": "612c0bd9cddf38a2d5843a5b6df94e20db1e3e837759e420889be3836b6885fa",
+  "scope": "Shared observation-based defense, siege, jungle gank and visible Scuttler selection; bounded saved commitment and remembered-tower path rejection.",
+  "implementation": [
+    {
+      "path": "src/content/bot-team-policy.ts",
+      "sha256": "00f8fe7e1e18119974c5c8fd51fc852d7f44732b4aa3b7885dcfaaa03aed2ee3"
+    },
+    {
+      "path": "src/simulation/bot-team.ts",
+      "sha256": "841468ed241988ca4ea632b7544bcb9e0fc921c06234813e8049215fd261cec0"
+    },
+    {
+      "path": "src/simulation/bot-disengage.ts",
+      "sha256": "fb3fee49ae5dbbd26a1255f38c9bf0aa9f3bafc29b8616dd3de891082d87d439"
+    },
+    {
+      "path": "src/simulation/lane-match.ts",
+      "sha256": "bf34c03f5ebda69cb59a914731c0b85d18ff0154485de0c3509dd7d01e8d9587"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "6e53f2aff195579ab8949870d9afc89852e42d5411c9060196bab020cf27285f"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "25efe8d67ff9e91a23369549c22ac9340aa5e5ee6fead916e7cc9a5722f562ee"
+    },
+    {
+      "path": "tools/qa/role-match.ts",
+      "sha256": "e570f08c4993d7173ed4e3f69e6413fdf26e1503252a0a13a576b61f1701060b"
+    },
+    {
+      "path": "tests/bot-team.test.ts",
+      "sha256": "854156e5216d5e35dfad655020ee131ab01088ec6c41fe054292e207444bb7de"
+    },
+    {
+      "path": "tests/lux-attack-history.test.ts",
+      "sha256": "92eb5b49f1c979be6652a4c94306e99bdc4a5552cdcddee0b9d11a4572dd1103"
+    },
+    {
+      "path": "tests/gromp-attack.test.ts",
+      "sha256": "91bda78fa65f07a7781a1c2a6ddeef1efcef4539836aa11b9ca1aa5b8fe71363"
+    },
+    {
+      "path": "e2e/bot-team.spec.ts",
+      "sha256": "79d055fac8fa5acaf1221e974d8748a42ba98fe5b63ffb36bfc6ca6f1bf5cc92"
+    },
+    {
+      "path": "e2e/lux-attack-history.spec.ts",
+      "sha256": "a9b0014b828551a72f878c6878e9200c5cdacc18267fc4e939f0b642a1e88bee"
+    }
+  ],
+  "checks": {
+    "typescript": "passed via final npm run test:production build",
+    "unit": {
+      "passed": 1331,
+      "files": 247,
+      "log": {
+        "path": ".cache/bot-team-limited-check.log",
+        "sha256": "13a7a3f2857034bfb11bcb7f7481e96586ed9c98dd8e0f5c796c1a0e40fb2aa0"
+      },
+      "command": "npx vitest run --maxWorkers=2"
+    },
+    "chrome": {
+      "distinctPassed": 33,
+      "fullSuiteRepeated": false,
+      "newCases": 4,
+      "existingRegressions": 29,
+      "fixtureCorrection": "The first new victory-browser fixture never released a Lux attack at its initial map position. It now uses the existing clear firing lane and explicitly requires a real release.",
+      "cohort": {
+        "initialPassed": 32,
+        "initialFailed": 1,
+        "recheckPassed": 2,
+        "distinctPassed": 33
+      },
+      "commands": [
+        "npx playwright test e2e/bot-team.spec.ts e2e/role-jungle.spec.ts e2e/lane-match.spec.ts e2e/bot-recall.spec.ts e2e/bot-kiting.spec.ts e2e/bot-tower-safety.spec.ts e2e/bot-disengage.spec.ts e2e/bot-last-hit.spec.ts e2e/lux-bot-last-hit.spec.ts e2e/saves.spec.ts e2e/recovery.spec.ts e2e/lux-attack-history.spec.ts e2e/gromp-attack.spec.ts e2e/lux-impact-terminal.spec.ts",
+        "npx playwright test e2e/lux-attack-history.spec.ts"
+      ],
+      "logs": [
+        {
+          "path": ".cache/bot-team-final-browser.log",
+          "sha256": "8b5488643e82a0c65035db1e3542d62167b51b8032b0435f8c3ccd7ec5ff742f"
+        },
+        {
+          "path": ".cache/bot-team-victory-browser-recheck.log",
+          "sha256": "a19972bb6142048f6a2e8be0cf9270d75681d6b6bb66f116ccdccf714027956a"
+        }
+      ],
+      "newCoverage": [
+        "Actual jungle siege target selection, exact UI save/reload and normal attack destruction.",
+        "Actual visible Scuttler selection, combat kill, real shrine and spent Smite charge.",
+        "Threatened allied base response with unchanged human order and human AI disabled.",
+        "A melee victory while a separate Lux missile is active stops its visual tail and preserves a restorable frozen checkpoint."
+      ]
+    },
+    "headless": {
+      "audit": {
+        "path": "docs/reference/bot-team-match-audit.json",
+        "sha256": "2d303017b4ce4d02e524fb66ca61debf10ae8fbe43f519624da58ff2086a94a5"
+      },
+      "seeds": [
+        {
+          "seed": 26018,
+          "winner": "red",
+          "tick": 207107,
+          "failure": null,
+          "checkedTicks": 207107,
+          "validatedExactRoundTrips": 58,
+          "riverClaims": {
+            "blue": 2,
+            "red": 5
+          }
+        },
+        {
+          "seed": 719,
+          "winner": null,
+          "tick": 216000,
+          "failure": null,
+          "checkedTicks": 216000,
+          "validatedExactRoundTrips": 60,
+          "riverClaims": {
+            "blue": 2,
+            "red": 2
+          }
+        },
+        {
+          "seed": 1,
+          "winner": "red",
+          "tick": 193304,
+          "failure": null,
+          "checkedTicks": 193304,
+          "validatedExactRoundTrips": 54,
+          "riverClaims": {
+            "blue": 0,
+            "red": 2
+          }
+        },
+        {
+          "seed": 927,
+          "winner": "red",
+          "tick": 207134,
+          "failure": null,
+          "checkedTicks": 207134,
+          "validatedExactRoundTrips": 58,
+          "riverClaims": {
+            "blue": 0,
+            "red": 3
+          }
+        }
+      ],
+      "roadmap100SeedGateMet": false
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 20,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png",
+      "command": "npm run test:production",
+      "log": {
+        "path": ".cache/bot-team-final-production.log",
+        "sha256": "d2c4c6f9ed11c5b06fd1305a8e122ea5b4a28b11c000837c4d1d3d9717426955"
+      }
+    }
+  },
+  "schedulingNote": {
+    "initialConcurrentUnitRun": {
+      "path": ".cache/bot-team-final-check.log",
+      "sha256": "a5ca31a0f0584318a3b1d04c7ffbf4c36fde5af93bc8ae2a45d0d35c49cbda09"
+    },
+    "defaultWorkerRetry": {
+      "path": ".cache/bot-team-isolated-check.log",
+      "sha256": "6feb854ec8ea6ea89795fbbeaa750fdcd85fe5ebb6bcb674dc87d0b2fb119e40"
+    },
+    "result": "Seven existing five-second timeouts during concurrent simulations/Chrome; after suspending long runners the default-worker retry retained one five-second clock-test timeout. The final suite uses two workers with unchanged test limits. Headless wall times include suspension and are not performance measurements."
+  },
+  "repairedFinding": {
+    "ruleset": "6d536942980fee0d1d58351f21d24b9f48a78f44f9162a39db2e4dc95a097976",
+    "seed": 927,
+    "tick": 207134,
+    "error": "Saved match contains an invalid Lux attack visual.",
+    "report": {
+      "path": ".cache/role-match-audit/6d536942980f/927.json",
+      "sha256": "c8da86c323e341a0aaeb7f9db4c15de601e890596a16c58571eebd1634dc4cf7"
+    },
+    "checkpoint": {
+      "path": ".cache/role-match-audit/6d536942980f/927.match.json",
+      "sha256": "17727ff51703ccf0ac6d3f3b37903d1d0ddaca5d9634b232fe2470cc8ce5cc43"
+    },
+    "cause": "A melee Nexus kill returned before projectile visual histories were stopped on the winning tick.",
+    "repair": "Share Lux/Gromp history advancement with both early victory paths, retaining frozen endpoints and stopping history without resolving cancelled damage.",
+    "regressions": [
+      "tests/lux-attack-history.test.ts",
+      "tests/gromp-attack.test.ts",
+      "e2e/lux-attack-history.spec.ts"
+    ]
+  },
+  "diagnostics": [
+    {
+      "path": "artifacts/bot-team-siege.json",
+      "sha256": "bd21d081e34cd403c1bc05c0eb412225e986285342e5fd76deb3371a329f27b4"
+    },
+    {
+      "path": "artifacts/bot-team-river.json",
+      "sha256": "7b38a48b1368c596a1dfd87f492ca84b4a4feb2ed4280ef21749115f76da2072"
+    },
+    {
+      "path": "artifacts/bot-team-defense.json",
+      "sha256": "8740b4bd6a9f641d8390ac2f66a28ff4491b5168baa6bf130a95344ef68fabbb"
+    }
+  ],
+  "visualReview": [
+    {
+      "path": "artifacts/bot-team-siege.png",
+      "sha256": "2769696c0304693e612152b56cff5565c46e8bd5113c864a2b94eca013ac59d4",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/bot-team-river.png",
+      "sha256": "e73e64f5399ea43c9dfb1aa2188d08e343cf1766595fb6e5341745e41ee8f0dd",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/bot-team-defense.png",
+      "sha256": "2d352ffcc74990a676847ecf9129db5f558048527fb9faa1a7ae09e33f371d57",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/production-role-match.png",
+      "sha256": "d573af8834c935cb26080104e18c7dced65ab2c18ef54625e3535a31a9b5bd44",
+      "reviewed": true
+    }
+  ],
+  "size": {
+    "gameChunkKb": 730.37,
+    "threeChunkKb": 659.93,
+    "chunkWarningRemains": true
+  },
+  "limits": [
+    "Four seeds do not certify balance or the roadmap 100-seed gate.",
+    "Normal human play, native audiovisual/input parity, full-match browser performance and offline delivery remain unaccepted.",
+    "The interim roster, role quests, major objectives, unseen river scouting, alternate safe routes and full team coordination remain unfinished.",
+    "Seed 719 is unfinished at the one-hour horizon, and seed 26018 finishes later than its historical role-only run. Late-game objective conversion needs further work; these runs do not establish improved completion, balance or match quality."
+  ]
+}

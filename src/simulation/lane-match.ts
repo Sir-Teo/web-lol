@@ -1,3 +1,4 @@
+import { newTeamPlans } from './bot-team';
 import type { Battlefield } from './battlefield';
 import { World } from './world';
 import { equipSummoners, type SummonerLoadout } from './smite';
@@ -63,5 +64,6 @@ export function createLaneMatch(
       bot.nextThink = slot + 1;
     }
   }
+  world.teamPlans = newTeamPlans();
   return world;
 }
