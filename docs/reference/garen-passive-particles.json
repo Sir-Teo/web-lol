@@ -1,0 +1,808 @@
+{
+  "resources": {
+    "Garen_Heal": {
+      "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin45_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+      "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Heal",
+      "definition": {
+        "particleName": "Garen_Base_Heal",
+        "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Heal",
+        "soundOnCreateDefault": "Play_sfx_Garen_GarenRecouperate1_buffactivate",
+        "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Heal",
+        "__type": "VfxSystemDefinitionData"
+      }
+    },
+    "Garen_P_Boost": {
+      "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin2_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+      "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Boost",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 300.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 1.0,
+            "lifetime": 4.0,
+            "period": 1.0,
+            "timeActiveDuringPeriod": 1.0,
+            "emitterName": "turnon",
+            "importance": 1,
+            "birthDrag": {
+              "constantValue": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "worldAcceleration": {
+              "dynamics": {
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "IntegratedValueVector3"
+            },
+            "bindWeight": {
+              "constantValue": 0.20000000298023224,
+              "__type": "ValueFloat"
+            },
+            "FlexShapeDefinition": {
+              "scaleEmitOffsetByBoundObjectSize": 0.004999999888241291,
+              "__type": "VfxFlexShapeDefinitionData"
+            },
+            "primitive": {
+              "mTrail": {
+                "mMode": 1,
+                "mCutoff": 400.0,
+                "mBirthTilingSize": {
+                  "constantValue": [
+                    400.0,
+                    0.0,
+                    0.0
+                  ],
+                  "__type": "ValueVector3"
+                },
+                "__type": "VfxTrailDefinitionData"
+              },
+              "__type": "VfxPrimitiveArbitraryTrail"
+            },
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.05000000074505806,
+                  0.6000000238418579,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.30000001192092896
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "birthRotation0": {
+              "constantValue": [
+                0.0,
+                0.0,
+                90.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                80.0,
+                0.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.30000001192092896,
+                    0.30000001192092896,
+                    0.30000001192092896
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_P_Sivir_Base_W_Buf_Trail.tex",
+            "birthUvScrollRate": {
+              "constantValue": [
+                0.20000000298023224,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.30000001192092896,
+                      1.5
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.20000000298023224,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector2fVariableData"
+              },
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "timeBeforeFirstEmission": 0.5,
+            "rate": {
+              "constantValue": 300.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 1.0,
+            "lifetime": 4.0,
+            "period": 1.0,
+            "timeActiveDuringPeriod": 1.0,
+            "emitterName": "trail2",
+            "disabled": true,
+            "importance": 1,
+            "birthDrag": {
+              "constantValue": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "worldAcceleration": {
+              "dynamics": {
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "IntegratedValueVector3"
+            },
+            "bindWeight": {
+              "constantValue": 0.20000000298023224,
+              "__type": "ValueFloat"
+            },
+            "FlexShapeDefinition": {
+              "scaleEmitOffsetByBoundObjectSize": 0.004999999888241291,
+              "__type": "VfxFlexShapeDefinitionData"
+            },
+            "primitive": {
+              "mTrail": {
+                "mMode": 1,
+                "mCutoff": 400.0,
+                "mBirthTilingSize": {
+                  "constantValue": [
+                    400.0,
+                    0.0,
+                    0.0
+                  ],
+                  "__type": "ValueVector3"
+                },
+                "__type": "VfxTrailDefinitionData"
+              },
+              "__type": "VfxPrimitiveArbitraryTrail"
+            },
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.05000000074505806,
+                  0.6000000238418579,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.30000001192092896
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "birthRotation0": {
+              "constantValue": [
+                0.0,
+                0.0,
+                90.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                40.0,
+                0.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.30000001192092896,
+                    0.30000001192092896,
+                    0.30000001192092896
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_P_Sivir_Base_W_Buf_Trail.tex",
+            "birthUvScrollRate": {
+              "constantValue": [
+                0.20000000298023224,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.30000001192092896,
+                      1.5
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.20000000298023224,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector2fVariableData"
+              },
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "Garen_Base_P_Boost",
+        "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Boost",
+        "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Boost",
+        "__type": "VfxSystemDefinitionData"
+      }
+    },
+    "Garen_P_Heal": {
+      "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+      "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Heal",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 6.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      1.0,
+                      3.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  1.0
+                ],
+                "__type": "VfxAnimatedFloatVariableData"
+              },
+              "__type": "ValueFloat"
+            },
+            "emitterName": "healspark",
+            "birthOrbitalVelocity": {
+              "constantValue": [
+                0.0,
+                0.15000000596046448,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      -1.0,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.15000000596046448,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthVelocity": {
+              "constantValue": [
+                0.0,
+                10.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    10.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthDrag": {
+              "constantValue": [
+                3.0,
+                1.0,
+                3.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "SpawnShape": {
+              "emitOffset": {
+                "constantValue": [
+                  40.0,
+                  45.0,
+                  40.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        0.5,
+                        0.5099999904632568,
+                        1.0
+                      ],
+                      "keyValues": [
+                        -1.0,
+                        -0.5,
+                        0.5,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.0,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        0.5,
+                        0.5099999904632568,
+                        1.0
+                      ],
+                      "keyValues": [
+                        -1.0,
+                        -0.5,
+                        0.5,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      40.0,
+                      45.0,
+                      40.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "__type": "VfxShapeLegacy"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                20.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_color-bellcurve.tex",
+            "blendMode": 4,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "colorLookUpTypeY": 1,
+            "isLocalOrientation": 0,
+            "birthScale0": {
+              "constantValue": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.10000000149011612,
+                  0.6000000238418579,
+                  0.8999999761581421,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
+                  ],
+                  [
+                    0.30000001192092896,
+                    0.30000001192092896,
+                    0.30000001192092896
+                  ],
+                  [
+                    3.0,
+                    7.0,
+                    3.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_P_Heal_Flare.tex",
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "Garen_Base_P_Heal",
+        "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Heal",
+        "soundOnCreateDefault": "Play_sfx_Garen_GarenRecouperate1_buffactivate",
+        "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_P_Heal",
+        "__type": "VfxSystemDefinitionData"
+      }
+    }
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Garen.wad.client",
+    "chunks": {
+      "DA567E4A92CDAEA7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32228838,
+        "bytes": 67713,
+        "sha256": "ea3fe3ef4a84f728ab7bfd514e5b8abb1a818a9cc4e9ea113d0e09d26066a41f"
+      },
+      "5941DBBE0BBF6E07": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+        "offset": 7845061,
+        "bytes": 35639,
+        "sha256": "b731fafe45fd27c912e47009d8483ad653384ee86728b687f84642c109d4b42c"
+      },
+      "46C304EFF02B653B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32770474,
+        "bytes": 1593,
+        "sha256": "414e84d6f0145127f7022939ef028782c677c1b5457b6fe7f2433d85b5ed1421"
+      },
+      "4176C56CC4351797": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32668750,
+        "bytes": 824,
+        "sha256": "1289693d592f99535ee32ff8c07407e7532c60de7dbc5ec5d510ead3f5df9f5e"
+      },
+      "C14EFF863C17C6A0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E8C0CD5FE9FAA7AF.bundle",
+        "offset": 32545632,
+        "bytes": 701,
+        "sha256": "cb1c9de06436794da3ee5e6662e6e0a9e05b1c1f3e5a6cd25516b9de729c5cff"
+      },
+      "B0A43EEE84384E71": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+        "offset": 14688886,
+        "bytes": 28578,
+        "sha256": "00d85f0776b4218ad29e23f6907cf90d209395eb0852d1d4ec02dd28851d00e3"
+      },
+      "A8BDAE9C85EEABA6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0B225659026EDA3D.bundle",
+        "offset": 1987545,
+        "bytes": 12082,
+        "sha256": "7b8f782938fd798284bb21435787dcccc2a11d313278a34b60eb06ef1a790e8b"
+      },
+      "6E6D41D5A81A1752": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/18B263098BDB71CF.bundle",
+        "offset": 14882234,
+        "bytes": 370,
+        "sha256": "a9bc599a9884b27ede6e2fc5c6a3f10dd842167edc27ea7b584fc1e1d3288210"
+      }
+    },
+    "files": [
+      {
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin45_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "24b36b25156dc172",
+        "sha256": "8ad96b17cb488c90c67387b52b163120ae5f81777db4a5f8614b9fd5ae90b2c7",
+        "bytes": 6188
+      },
+      {
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin2_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "7fb83b948d1dc476",
+        "sha256": "cede8a2484f5e393b247aa7fce1f1fbeb597c959d355866ceb441bfd61a27c90",
+        "bytes": 2519
+      },
+      {
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "156f4fe1214e688b",
+        "sha256": "3c6827b85ed905ea24c2a67ff153c87402ace66b2f6792e9bada0b04ef20ec70",
+        "bytes": 1710
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_p_heal_flare.tex",
+        "wadPathHash": "b18e22ec37ce194f",
+        "sha256": "40815833237ce2799f196539f662f0d28207eb8f7a699be6d0284cfa58ceec24",
+        "bytes": 87452
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_p_sivir_base_w_buf_trail.tex",
+        "wadPathHash": "acb69c2524427905",
+        "sha256": "0664fa5b59751a2f54918bf752941b2b9b19cd4dd97ed503f3b4c84091bbdfb4",
+        "bytes": 43740
+      },
+      {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-bellcurve.tex",
+        "wadPathHash": "4ad53eae88bfa1f2",
+        "sha256": "15aa99c5555d17997d5498b987e586f65e6d12da86178571e43eaa98cd2f428d",
+        "bytes": 5500
+      }
+    ]
+  }
+}

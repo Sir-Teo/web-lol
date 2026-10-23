@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **110** adds accepted E target-hit records inside each retained
+Current schema **111** adds ordered Garen passive visual intervals, each with a
+start tick, nullable stop tick and nullable copied stop point. Active intervals
+follow the current root; stopped sparks retain their root through death and
+terminal playback. Source maximum lifetime plus interpolation bounds retention
+to 182 ticks after stopping. Validation rejects foreign owners, invalid clocks,
+overlap, malformed points, invalid active ownership and expired tails. Cosmetic
+birth identities consume no World RNG or gameplay IDs. Earlier schemas and
+fingerprints remain incompatible. See [recovery particles](GAREN-PASSIVE-PARTICLES.md).
+
+Schema **110** added accepted E target-hit records inside each retained
 Singularity: target identity/faction/radius, contact point, creation audience,
 nullable detachment tick and contiguous planar attachment endpoints. The source
 0.3000000119-second flash retains at most twenty end-of-tick frames, including

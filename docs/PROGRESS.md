@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,401 source/simulation/geometry checks and 29 targeted Chrome cases for the native distortion material/canvas-copy stage and adjacent E source, hit, field, burst, audio, saves, fog, graphics recovery and result playback/export. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,407 source/simulation/geometry checks across 258 files and 22 targeted Chrome cases for Garen recovery sparks, player controls, passive recovery, selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,37 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+Garen's development fixture now adds the source [Perseverance healing sparks](GAREN-PASSIVE-PARTICLES.md).
+The frozen base recovery emitter retains its six-per-second rate, randomized
+one-to-three-second life, drag/orbit, spawn tables, scale/color curves and lookup.
+A single bounded batch per champion matches separate arbitrary quads exactly in
+thirteen sampled frames, including stopped tails and an empty final draw. The
+measured mature sample uses one draw instead of fifteen. This is equivalence and
+draw-count evidence, not a full-match performance measurement.
+
+Schema **111** records cosmetic recovery intervals and stopped roots. Interruption,
+full recovery, death and victory stop births; previously born sparks finish their
+lifetimes. Ordered clocks, ownership, points, expiry and non-overlap are strictly
+validated. No gameplay IDs or World RNG are consumed. Reverse seeks and actual
+context loss restore identical saved state and buffer/framebuffer bytes; the
+source effect contributes 2,664 changed framebuffer bytes in its controlled probe.
+Fog and both-resource disposal pass. An initial stale-unused-buffer finding was
+fixed; original failures and traces remain retained.
+
+Three source images add 45,862 bytes; the renderer loads two totaling 26,392
+bytes only when Garen is present. The separate boost trail remains deferred and
+its second emitter remains source-disabled. The sound-only recovery resource
+and native audio remain unimplemented. Source extraction is reproducible from
+the frozen archive. Native dispatch, motion integration, root/quad calibration,
+RNG and composition remain open. The production roster remains Ashe/Lux.
+All 1,407 unit tests, TypeScript and 22 focused Chrome cases pass. Nested-path
+production validation passes with 32 source recordings, the existing E assets,
+and no development hook or Garen selection. Build game/Three chunks are 883.34/658.93 KB with the size warning retained. Normal-rules match
+diagnostics were not rerun for this increment; prior schema-110 reports remain
+historical. Full roster, native comparison, 100-seed, offline and full-match
+browser/performance gates remain open. The [current ledger](reference/garen-passive-particles-verification.json)
+records the precise scope and remaining limits.
 
 The [native distortion material and canvas-copy stage](PARTICLE-DISTORTION.md)
 now have a frozen pin for four native Metal tables and all fifteen programs.

@@ -1,3 +1,4 @@
+import { advancePerseveranceVisual, stopPerseveranceVisual } from './garen-passive-visuals';
 import { advanceLuxEHits, recordLuxEHit } from './lux-e-hits';
 import { advanceLuxEAudio, newLuxEAudioHistory } from './lux-e-audio';
 import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
@@ -1165,6 +1166,9 @@ export class World {
           (fountain ? h.maxMana * 0.12 : profile.manaRegen + profile.manaRegenGrowth * growth) * DT
       );
     }
+    for (const unit of this.units)
+      if (unit.champion === 'garen')
+        advancePerseveranceVisual(this.championState(unit.id)!, unit, this.tick);
     // Continuous fractional accrual is our cadence policy; see docs/ECONOMY.md.
     if (this.tick > AMBIENT_GOLD.startSeconds * TICK_RATE)
       for (const state of this.activeChampionStates())
@@ -3028,6 +3032,7 @@ export class World {
     )
       return;
     const state = this.championState(target.id)!;
+    stopPerseveranceVisual(state, target, this.tick);
     state.garenPassiveReadyTick =
       this.tick + Math.round(GAREN_PASSIVE.interruptionSeconds * TICK_RATE);
   }
@@ -4334,6 +4339,7 @@ export class World {
           finishOracleVisual(state.trinket, this.tick, 'match-end');
           this.finishGarenE(state);
           this.finishGarenW(state, 'match-end');
+          stopPerseveranceVisual(state, this.unit(state.id)!, this.tick);
           finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
           state.pendingCast = null;
@@ -4377,6 +4383,7 @@ export class World {
         targetState.garenQ = null;
         finishGarenQPresentation(targetState, this.tick, 'death');
         this.finishGarenW(targetState, 'death');
+        stopPerseveranceVisual(targetState, target, this.tick);
         targetState.garenPassiveReadyTick = 0;
       }
       target.garenEShreds = [];

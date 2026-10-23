@@ -1,0 +1,77 @@
+{
+  "sourcePinSha256": "dd2a6ea4c5fbd092c3ae3be9ffdbaa3701583f73b1364bb00b749bc656897e54",
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_p_heal_flare.tex",
+        "wadPathHash": "b18e22ec37ce194f",
+        "sha256": "40815833237ce2799f196539f662f0d28207eb8f7a699be6d0284cfa58ceec24",
+        "bytes": 87452
+      },
+      "path": "public/assets/effects/garen_base_p_heal_flare.png",
+      "width": 512,
+      "height": 128,
+      "bytes": 25990,
+      "sha256": "b2c33fb3ac7676b78fecbc1500051c948890f043307a60f2b6d613a565eeb65a",
+      "rgbaSha256": "af8376d6429f063935436e9c8a8c4143eb3743e14049bec761d34935595cdc21"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_p_sivir_base_w_buf_trail.tex",
+        "wadPathHash": "acb69c2524427905",
+        "sha256": "0664fa5b59751a2f54918bf752941b2b9b19cd4dd97ed503f3b4c84091bbdfb4",
+        "bytes": 43740
+      },
+      "path": "public/assets/effects/garen_base_p_sivir_base_w_buf_trail.png",
+      "width": 256,
+      "height": 128,
+      "bytes": 19470,
+      "sha256": "f1fd2fc48081f5743ec9966781963ce49742118c525fca258b17b986bc573df0",
+      "rgbaSha256": "92e3c24f6e7d10f5dd16102aae1e95440a4b1d5f302fc712447660757b93adc9"
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-bellcurve.tex",
+        "wadPathHash": "4ad53eae88bfa1f2",
+        "sha256": "15aa99c5555d17997d5498b987e586f65e6d12da86178571e43eaa98cd2f428d",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/garen_color-bellcurve.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 402,
+      "sha256": "39846c14d90228cf20b8972a3aabc1f8eae3ecd470b904507bd18ba657345c41",
+      "rgbaSha256": "503e3fdac0736c59fc5bf77c077a968c6c8abaae5087bfe719700e4b615c950c"
+    }
+  ],
+  "profile": {
+    "path": "src/content/garen-passive-particles.json",
+    "sha256": "7a1e9f2eea4c6278550317bcc810f8a6be10cd54e7db316a653f7144e5db8d25"
+  },
+  "rendered": [
+    {
+      "system": "Garen_P_Heal",
+      "index": 0
+    }
+  ],
+  "deferred": [
+    {
+      "system": "Garen_P_Boost",
+      "index": 0,
+      "reason": "Arbitrary trail; boost dispatch and bound-size input unverified"
+    }
+  ],
+  "filtered": [
+    {
+      "system": "Garen_P_Boost",
+      "index": 1,
+      "reason": "Explicit disabled source emitter"
+    }
+  ],
+  "nonvisual": [
+    {
+      "system": "Garen_Heal",
+      "reason": "Sound-only resource, audio graph/dispatch not reconstructed"
+    }
+  ]
+}

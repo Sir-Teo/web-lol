@@ -480,6 +480,8 @@ export interface ChampionState {
   qUntil: number;
   qStackExpiry: number;
   garenPassiveReadyTick: number;
+  /** Bounded cosmetic recovery epochs; stopped sparks retain a fixed root. */
+  garenPassiveVisuals: { startTick: number; stopTick: number | null; point: Vec2 | null }[];
   garenCourageStacks: number;
   /** Target-only sight persists independently of the caster's windup and life. */
   garenRReveal: { targetId: number; startTick: number; endTick: number } | null;

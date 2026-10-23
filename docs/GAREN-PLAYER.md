@@ -161,3 +161,10 @@ including wrapped names and minions with hidden names. The local screen-space
 lift preserves source scale/appearance and the original control clock through
 zoom, resizing and checkpoints. Native attachment/Flex sizing remains open; see
 [label clearance](GAREN-Q-PARTICLES.md#recipient-label-clearance--october-21-2026).
+
+
+[Perseverance recovery sparks](GAREN-PASSIVE-PARTICLES.md) now render the source
+healing emitter during recovery in this fixture. Schema 111 preserves emission
+intervals and stopped roots through saves, death and terminal playback. The
+separate boost trail, passive audio and native dispatch/composition comparison
+remain open; production selection stays Ashe/Lux.

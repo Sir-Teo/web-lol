@@ -224,7 +224,12 @@ async function boot(): Promise<void> {
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')
-      ? [view.garenJustice.load(), view.garenCourage.load(), view.garenDecisiveStrike.load()]
+      ? [
+          view.garenJustice.load(),
+          view.garenCourage.load(),
+          view.garenDecisiveStrike.load(),
+          view.garenPerseverance.load(),
+        ]
       : []),
     loadLuxBeamTextures(),
     loadLuxRStreakTextures(),

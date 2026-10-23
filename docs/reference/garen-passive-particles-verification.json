@@ -1,0 +1,356 @@
+{
+  "date": "2026-10-23",
+  "baseline": "cf3cf1974a27a781c238ac54745cc2819c29be91",
+  "schema": 111,
+  "ruleset": "6ed60e5c7c8734463f8570995273fa5e670b8e3139c1aea223a278365c364aba",
+  "scope": "Garen development-fixture Perseverance healspark source rendering, bounded saved cosmetic intervals, current fog and graphics recovery. Production roster remains Ashe/Lux; native event/integrator/composition equivalence is not certified.",
+  "source": {
+    "resources": 3,
+    "renderedEmitterRecords": 1,
+    "deferredEmitterRecords": 1,
+    "disabledEmitterRecords": 1,
+    "soundOnlyResources": 1,
+    "textureFiles": 3,
+    "textureBytes": 45862,
+    "runtimeImages": [
+      "assets/effects/garen_base_p_heal_flare.png",
+      "assets/effects/garen_color-bellcurve.png"
+    ],
+    "runtimeImageBytes": 26392
+  },
+  "checks": {
+    "unit": {
+      "files": 258,
+      "tests": 1407,
+      "log": ".cache/garen-passive-particles-unit-final.log",
+      "command": "npx vitest run --maxWorkers=4"
+    },
+    "chrome": {
+      "cases": 22,
+      "log": ".cache/garen-passive-source-browser-regression.log",
+      "command": "npx playwright test e2e/garen-passive-particles.spec.ts e2e/garen-player.spec.ts e2e/garen-passive.spec.ts e2e/champion-selection.spec.ts e2e/match-files.spec.ts e2e/recovery.spec.ts --output artifacts/garen-passive-source-regression-results",
+      "scope": "Three new source cases plus adjacent Garen player/passive, selection, exact match transfer and actual graphics recovery. Full browser suite not repeated.",
+      "framebufferContributionBytes": 2664,
+      "recoveredDifferentBytes": 0,
+      "batchSamples": 13,
+      "maximumBatchDelta": 0,
+      "matureDraws": {
+        "batched": 1,
+        "separate": 15
+      }
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/garen-passive-source-production-subpath.png"
+    },
+    "build": {
+      "gameKB": 883.34,
+      "threeKB": 658.93,
+      "sizeWarning": true,
+      "command": "npm run build && node .cache/garen-passive-source-production.mjs"
+    }
+  },
+  "normalRulesMatches": {
+    "rerun": false,
+    "priorSchema": 110,
+    "priorAudit": "docs/reference/lux-e-hit-match-audit.json",
+    "scope": "Earlier four matches remain historical evidence. They do not certify schema 111 or the new Garen fixture presentation."
+  },
+  "limits": [
+    "No native client or particle program was executed. Frozen BIN/TEX assets were decoded with existing ordinary tools.",
+    "Local injured/ready dispatch, stop-point tails, first-update budget, shared birth probability, drag/orbit/axes/root/quad and sampler conventions remain explicit reconstruction policies.",
+    "Boost-trail dispatch and bound-size input are unverified; its second emitter is source-disabled. Recovery audio graph/dispatch remains open.",
+    "Production Garen selection, complete six-character kits, native comparisons, 100-seed, offline delivery and full-match browser/performance gates remain open."
+  ],
+  "findings": {
+    "reverseSeek": "Initial run exposed stale unused slots; clearing unused attribute/index storage repairs full-byte reconstruction.",
+    "recoveryProbe": "An initial probe read a non-preserved canvas in a later task; explicit same-task rendering before readback repairs that test. Earlier failure logs/traces remain retained.",
+    "capture": "Recovering Garen development-fixture image was visually reviewed; no native reference capture exists for this comparison."
+  },
+  "files": [
+    {
+      "path": "docs/GAREN-PASSIVE-PARTICLES.md",
+      "sha256": "cbb47c9bc57a7a2e7291eeea2492e0918fc39dca06f82134b29c247e6e9ecfb6"
+    },
+    {
+      "path": "docs/GAREN-PASSIVE.md",
+      "sha256": "afb91e8b32762c1e6b02df61c38c17cb866f65fda8dbba84a694bd769348abd0"
+    },
+    {
+      "path": "docs/GAREN-PLAYER.md",
+      "sha256": "f23b31dfa74f9074138b57afecdea988c4919e25f23e5e8d6462dc9d45ab62fb"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "7001c4d8441bf4a7af31519435462324d00200bef7555548adcefe485e2d91e6"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "sha256": "309d994ad23ad0467f5cd198444a520d315c1a1a2bd768d05c34776db296be41"
+    },
+    {
+      "path": "docs/reference/garen-model.json",
+      "sha256": "192a7d7b696ed983b6bf25564a688ea3ac35dfdb5ff5b2a89d5eca285125cf71"
+    },
+    {
+      "path": "docs/reference/garen-passive-particles.json",
+      "sha256": "dd2a6ea4c5fbd092c3ae3be9ffdbaa3701583f73b1364bb00b749bc656897e54"
+    },
+    {
+      "path": "docs/reference/garen-passive-particles-decoded.json",
+      "sha256": "4430cd3d0ea6b4699c6955243214c22b28ab459ee9e5da80fd185eb761e49486"
+    },
+    {
+      "path": "src/content/garen-passive-particles.json",
+      "sha256": "7a1e9f2eea4c6278550317bcc810f8a6be10cd54e7db316a653f7144e5db8d25"
+    },
+    {
+      "path": "src/content/garen-passive-presentation.ts",
+      "sha256": "65fff8ff7bfa8944922cc662b4f45328f8a37850b7572eadeb3c88ec8dc38a16"
+    },
+    {
+      "path": "src/simulation/garen-passive-visuals.ts",
+      "sha256": "ed89961fbcccc5e85103612fd9575f69ae58520cc296bd29106525671058a3ce"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "40c7f8c29d5c28448c47b6a03e8cf60ef018982571ae6f5d704f7e818e96b236"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "sha256": "89d0ec30f07a9cd689bd13ec07a66e27818c7a3fca8ebdff020e248b953c1765"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "090cad508517f259b259366304b76f526288db0aee1623bf98903dff88823c9c"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "sha256": "0d9114f2690fb35fd16cbda1431aaf436cb965da3a0191808c086c19b08fd7e0"
+    },
+    {
+      "path": "src/render/garen-passive-particles.ts",
+      "sha256": "e41bc8e00abbb7eedb6fbca88bdb93c88ede241167dffe3c8a25dc054b31f9db"
+    },
+    {
+      "path": "src/render/garen-perseverance.ts",
+      "sha256": "67e414f18919be656952ac194ec199ea9f627782a1bee9186ae3ba713a7ae58d"
+    },
+    {
+      "path": "src/render/lazy-garen-perseverance.ts",
+      "sha256": "98aadff8dc645140af11ce3bf3024ba98333fddb1c7965c68da5f6405edd8e55"
+    },
+    {
+      "path": "src/render/view.ts",
+      "sha256": "3d49150b239c6576ba314b7edba42b1817d6c8a7d7e979c05f0ffc9c2b475ec1"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "6567955eb1e6f9bc46c522f1907611a11683443fad513386def840201e213232"
+    },
+    {
+      "path": "src/render/particle-color-product.ts",
+      "sha256": "8ae5d8f9ef4f712aec593725939ab0622638409903821651b4fc4b62e8939bb0"
+    },
+    {
+      "path": "src/render/particle-color-lookup.ts",
+      "sha256": "a61c220f19ca761b3f9110f709fc1af8f23963690021f57baa6ad064dc5d0a47"
+    },
+    {
+      "path": "src/render/particle-curves.ts",
+      "sha256": "53ddfbba5133a9f9091ea46317cfce92a970c375b5a5462565a2ef593894295c"
+    },
+    {
+      "path": "src/render/lux-beam-birth-offset.ts",
+      "sha256": "515ab73748674022b3f02ec7c8e1c68dbc076e8c258ccc12f2bb85e2551d7d20"
+    },
+    {
+      "path": "src/render/lux-hoop-particles.ts",
+      "sha256": "815d6e785282c8aeb148bd865218e1348da6e8f946d4a922d2ef2fc876d46f12"
+    },
+    {
+      "path": "src/render/lux-e-burst-particles.ts",
+      "sha256": "3cd695571e7fbb5fe385c337f4e8c6a3cd9c134b27d79d2ab180b8bc609386d8"
+    },
+    {
+      "path": "src/render/lux-particle-textures.ts",
+      "sha256": "d13a5b76bebd6fbca94586464d1081cc3edcb6d27d20b8a4ce5e05bb26a948be"
+    },
+    {
+      "path": "src/content/lux-emission.ts",
+      "sha256": "9199e12f2b0c8e012b3c8727f18ec3a708eda8510f98d562110306988c559c91"
+    },
+    {
+      "path": "tests/garen-passive-particles.test.ts",
+      "sha256": "040f13d9f731867c92e9ff6aaea03b855539ceaa505586fa3a37f247e5603959"
+    },
+    {
+      "path": "tests/garen-perseverance-loading.test.ts",
+      "sha256": "c64ef45c306921a4be1235c82a082a384bcf121c886277c567a0dc907028567d"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "sha256": "41980ffe5c4bb809a41d0085a68adadddf59e351b40f5661f761f34307d6102d"
+    },
+    {
+      "path": "e2e/garen-passive-particles.spec.ts",
+      "sha256": "6d0571d31332279297b65045061886e1201710218fdfe1cbcd0e17c8bec7b0bb"
+    },
+    {
+      "path": "tools/assets/discover-garen-particle-bins.py",
+      "sha256": "424a8409a68bee3a1b561dcf9ce7b4c33e5eb1e7f02bb50a7880756e76297fe0"
+    },
+    {
+      "path": "tools/assets/extract-garen-passive-particles.py",
+      "sha256": "93f75285f96271c393484c3cbd509182007792bd16a0aa74801691fe4fa31ba1"
+    },
+    {
+      "path": "tools/assets/export-garen-passive-particles.py",
+      "sha256": "db87f93a9c36482252304031ec078cae05503cb506a6e276fbfc457fbd0290ad"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "sha256": "9b4c079dd8d360d0c72afeed62bfc63a34076e67ba5e30d447a6dc5b95557448"
+    },
+    {
+      "path": "tools/qa/verify-garen-passive-particles.mjs",
+      "sha256": "831037c5bbf5ea77dcd6bd687a070d38868cc5d32d8ea1bfe51cd1873143e649"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "02e78b67e178ea78a4b8cfdcfd5fa73a9f90f0d172c39c21a49cfb87023bf287"
+    },
+    {
+      "path": ".cache/garen-passive-source-production.mjs",
+      "sha256": "9159dfd8e23736c5ae7a6ee86cdb47338ab9b241eeffb16fe4ace9c3955d5bf6"
+    },
+    {
+      "path": ".cache/garen-passive-source-build.log",
+      "sha256": "0fe016bf19176150cc641afb65141c870d809967491c3713283268cf2f04519f"
+    },
+    {
+      "path": ".cache/garen-passive-particles-unit-final.log",
+      "sha256": "fc228ddcd1c8ba3e9a5aa6c831c76d573249ee87f4f0996c5d1d1f5e66e31aae"
+    },
+    {
+      "path": ".cache/garen-passive-source-browser-regression.log",
+      "sha256": "a1df75d264d7fdb07e9444c8a6b394ad5a3fc4f756704056be4bba71a0a9cf71"
+    },
+    {
+      "path": ".cache/garen-passive-source-production.log",
+      "sha256": "b0d46e44acf081e6533e342a39470e9ed461f8898ccb39598dad4ab35e07343b"
+    },
+    {
+      "path": ".cache/garen-passive-source-discovery-verified.log",
+      "sha256": "121c90426688bf0b0e7e9dec19e1fb9229021c19ab8067c8373b8ac79b6c5a03"
+    },
+    {
+      "path": ".cache/garen-passive-source-extract-verified.log",
+      "sha256": "eff38160b5c62ac87ab5d619f394401908c07965cc53f2b5bf80804372d71df5"
+    },
+    {
+      "path": ".cache/garen-passive-source-export-verified.log",
+      "sha256": "d037102e4b98a0ce4e2bb467d5b912040ba3ffd0ec36fd7e360c626eea4af41b"
+    },
+    {
+      "path": ".cache/garen-passive-particles-browser.log",
+      "sha256": "c4abc0b6819d858545c80d837eab471c399b9a600934057d4657657f40eeae1e"
+    },
+    {
+      "path": ".cache/garen-passive-particles-browser-verified.log",
+      "sha256": "d8d0cce7d9649b31f23754d109e51ff0aca3e7250c269d6243b3bc29121e3a6a"
+    },
+    {
+      "path": ".cache/garen-passive-particles-unit-verified.log",
+      "sha256": "7e4f344c5176811b2b618d4bbcf46d56474a1547eb2a16b1ff2f24150f327337"
+    },
+    {
+      "path": "artifacts/garen-passive-source-recovery.json",
+      "sha256": "41b147b5bda641aca09175137c24f1d8e0f52d1be1cc5bc3bf2a4b4a119e36b7"
+    },
+    {
+      "path": "artifacts/garen-passive-source-batch.json",
+      "sha256": "7282d82b78789f438137c37860db04e184fabd2aabd70211b87be1adc15979ab"
+    },
+    {
+      "path": "artifacts/garen-passive-source-lifecycle.json",
+      "sha256": "5fc1dae306b1d0af062d06bf947794cd7a88d9f0d27a1ec3c1fcdd957cc8d606"
+    },
+    {
+      "path": "artifacts/garen-passive-source-recovering.png",
+      "sha256": "90a269485ca877db3edf6d208a5926f1f529e95b8eb777bb690751399e4d1f6b"
+    },
+    {
+      "path": "artifacts/garen-passive-source-production-subpath.png",
+      "sha256": "dd780941644c6228382e348f91ac43015f6420752405889c834c9476660a494f"
+    },
+    {
+      "path": "artifacts/garen-passive-source-production-lux-e-source.png",
+      "sha256": "d6427697ee54491c356316c144a5a29cd41af38a8309fe2f5f2d8e290e990f59"
+    },
+    {
+      "path": "public/assets/effects/garen_base_p_heal_flare.png",
+      "sha256": "b2c33fb3ac7676b78fecbc1500051c948890f043307a60f2b6d613a565eeb65a"
+    },
+    {
+      "path": "public/assets/effects/garen_base_p_sivir_base_w_buf_trail.png",
+      "sha256": "f1fd2fc48081f5743ec9966781963ce49742118c525fca258b17b986bc573df0"
+    },
+    {
+      "path": "public/assets/effects/garen_color-bellcurve.png",
+      "sha256": "39846c14d90228cf20b8972a3aabc1f8eae3ecd470b904507bd18ba657345c41"
+    }
+  ]
+}

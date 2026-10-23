@@ -15,10 +15,10 @@ from xxhash import xxh64_intdigest
 from riot_archive import RiotArchive
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--ability', choices=['q', 'w', 'r'], default='r')
+parser.add_argument('--ability', choices=['p', 'q', 'w', 'r'], default='r')
 ability = parser.parse_args().ability
 skin = json.loads(Path('docs/reference/garen-model.json').read_text())['skin']['data']
-resources = {k: v for k, v in skin['Characters/Garen/Skins/Skin0/Resources']['resourceMap'].items() if k.startswith(f'Garen_{ability.upper()}_')}
+resources = {k: v for k, v in skin['Characters/Garen/Skins/Skin0/Resources']['resourceMap'].items() if (k in ['Garen_P_Heal', 'Garen_P_Boost', 'Garen_Heal'] if ability == 'p' else k.startswith(f'Garen_{ability.upper()}_'))}
 paths = [p.lower() for p in skin['__linked'] if '/garen_multi_' in p.lower()]
 cache = Path('.cache/garen-particle-bins'); cache.mkdir(exist_ok=True)
 fields, types, names, assets = {}, {}, {}, {}

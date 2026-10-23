@@ -1,6 +1,6 @@
 # Garen — Perseverance
 
-Perseverance now contributes maximum-health regeneration to non-player Garen without requiring a skill point. `tools/assets/export-garen-passive.py` reads the frozen classic-mode `GarenPassive` record in `reference/garen-character.json`, checks the supported calculation shape and exports all 18 level values to `src/content/garen-passive.ts`. The Arena timer override is not used.
+Perseverance now contributes maximum-health regeneration to Garen without requiring a skill point, including the development player fixture. `tools/assets/export-garen-passive.py` reads the frozen classic-mode `GarenPassive` record in `reference/garen-character.json`, checks the supported calculation shape and exports all 18 level values to `src/content/garen-passive.ts`. The Arena timer override is not used.
 
 The source curve starts at 1.5%, grows by 0.2 percentage points per level through level 6, by 0.8 at levels 7–13, and by 0.4 at levels 14–18. Its 1.5–10.1% range is expressed per five seconds, as documented in Riot's [9.20 patch notes](https://www.leagueoflegends.com/en-us/news/game-updates/patch-9-20-notes/). The pinned interruption timer is eight seconds, consistent with the change in Riot's [10.7 patch notes](https://www.leagueoflegends.com/en-us/news/game-updates/patch-10-7-notes/). The older seven-second value from 9.20 is not used.
 
@@ -21,7 +21,7 @@ An independent `garenPassiveReadyTick` deadline is refreshed by positive enemy c
 
 This is the current supported-roster policy. The classic source and historical patch notes identify champion/turret/epic-monster interruption and distinguish minions, but the complete native event handler is not present in the BIN. Exact shield/event exceptions need native comparison. Epic monsters, hostile summoners beyond the current roster, pets and future ability contacts must be integrated when those systems exist.
 
-The timer belongs to Garen rather than the attacker, so a removed turret cannot make it disappear. Death clears it and stops healing; respawn restores readiness. These lifecycle choices are explicit adapter policies. No passive event or healing sound is emitted each tick. Source passive particles, buff icon and native audio are still pending; no substitute visual effect is claimed as authentic.
+The timer belongs to Garen rather than the attacker, so a removed turret cannot make it disappear. Death clears it and stops healing; respawn restores readiness. These lifecycle choices are explicit adapter policies. No passive event or healing sound is emitted each tick. The development fixture now adds the source [recovery sparks](GAREN-PASSIVE-PARTICLES.md) and saved emission intervals. The source boost trail, passive buff icon, native audio and native comparison remain open.
 
 ## Checkpoints and verification
 

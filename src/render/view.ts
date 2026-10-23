@@ -1,3 +1,4 @@
+import { LazyGarenPerseverance } from './lazy-garen-perseverance';
 import { ParticleDistortionPass } from './particle-distortion-pass';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { RiverShrines } from './river-shrines';
@@ -104,6 +105,7 @@ export class GameView {
     (p) => this.ground(p),
     (id) => this.overheadLabelBounds(id)
   );
+  garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   grompDeath = new LazyGrompDeath(this.scene);
   riverShrines = new RiverShrines(this.scene);
@@ -723,6 +725,7 @@ export class GameView {
     this.wind.update(world);
     this.garenSpin.update(world, alpha, terminalAge);
     this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);
+    this.garenPerseverance.update(world, alpha, terminalAge);
     this.garenCourage.update(world, alpha, this.camera, this.models, terminalAge);
     this.riverShrines.update(world, (p) => this.ground(p));
     this.ownedCompanions.update(world, alpha, (p) => this.ground(p));

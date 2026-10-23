@@ -1,3 +1,5 @@
+import { GAREN_PASSIVE_TAIL_TICKS } from '../content/garen-passive-presentation';
+import { validatePerseveranceVisual } from './garen-passive-visuals';
 import { validateLuxEHits } from './lux-e-hits-validation';
 import { LUX_E_HIT_HISTORY_TICKS } from '../content/lux-e-hit';
 import { validateLuxEAudio } from './lux-e-audio-validation';
@@ -105,7 +107,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 110;
+export const SNAPSHOT_VERSION = 111;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -610,6 +612,11 @@ const player: z.ZodType<PlayerState> = z
       })
       .nullable(),
     garenPassiveReadyTick: tick,
+    garenPassiveVisuals: z
+      .array(
+        z.strictObject({ startTick: tick, stopTick: tick.nullable(), point: point.nullable() })
+      )
+      .max(GAREN_PASSIVE_TAIL_TICKS),
     garenCourageStacks: z
       .number()
       .int()
@@ -2862,6 +2869,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         state.tick + Math.round(GAREN_PASSIVE.interruptionSeconds * TICK_RATE)
     )
       throw new Error('Saved match contains invalid Perseverance timing.');
+    validatePerseveranceVisual(owner, champion, state.tick, state.winner);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&
