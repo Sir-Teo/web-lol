@@ -84,7 +84,7 @@ test('an armed field restores all wave/spark buffer bytes and pixels after actua
   expect(before.layers).toHaveLength(10);
   expect(before.layers.filter((m: any) => m.count > 0)).toHaveLength(7);
   await page.screenshot({
-    path: 'artifacts/lux-e-missile-armed.png',
+    path: 'artifacts/lux-e-hit-regression-armed.png',
     style: '.modal-backdrop { visibility: hidden !important; }',
   });
   await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextLoss());
@@ -140,7 +140,7 @@ test('an armed field restores all wave/spark buffer bytes and pixels after actua
   expect(after.retiredField).toBe(true);
   expect(errors).toEqual([]);
   writeFileSync(
-    'artifacts/lux-e-missile-recovery.json',
+    'artifacts/lux-e-hit-regression-recovery.json',
     JSON.stringify({ before, after }, null, 2) + '\n'
   );
 });
@@ -190,7 +190,7 @@ test('enemy field waves and sparks filter triangles at fog boundaries and return
     };
   });
   expect(Object.values(result).every(Boolean)).toBe(true);
-  writeFileSync('artifacts/lux-e-missile-fog.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync('artifacts/lux-e-hit-regression-fog.json', JSON.stringify(result, null, 2) + '\n');
 });
 
 test('field glow/ray/motion batches match separate particle draws and each source layer contributes pixels', async ({
@@ -347,7 +347,10 @@ test('field glow/ray/motion batches match separate particle draws and each sourc
           r.contributions.every((c: any) => c.differentBytes > 0)
       )
   ).toBe(true);
-  writeFileSync('artifacts/lux-e-missile-batches.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync(
+    'artifacts/lux-e-hit-regression-batches.json',
+    JSON.stringify(result, null, 2) + '\n'
+  );
 });
 
 test('a moving missile restores mesh, motes and rays after graphics loss and releases them on arrival', async ({
@@ -433,7 +436,7 @@ test('a moving missile restores mesh, motes and rays after graphics loss and rel
   expect(before.layers).toHaveLength(3);
   expect(before.layers.filter((m: any) => m.count > 0)).toHaveLength(3);
   await page.screenshot({
-    path: 'artifacts/lux-e-missile-flight-recovery.png',
+    path: 'artifacts/lux-e-hit-regression-flight-recovery.png',
     style: '.modal-backdrop { visibility: hidden !important; }',
   });
   await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextLoss());
@@ -488,7 +491,7 @@ test('a moving missile restores mesh, motes and rays after graphics loss and rel
   expect(after.retiredField).toBe(true);
   expect(errors).toEqual([]);
   writeFileSync(
-    'artifacts/lux-e-missile-flight-recovery.json',
+    'artifacts/lux-e-hit-regression-flight-recovery.json',
     JSON.stringify({ before, after }, null, 2) + '\n'
   );
 });
@@ -538,5 +541,8 @@ test('enemy missile mesh, motes and rays hide under fog and restore at their con
     };
   });
   expect(Object.values(result).every(Boolean)).toBe(true);
-  writeFileSync('artifacts/lux-e-missile-flight-fog.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync(
+    'artifacts/lux-e-hit-regression-flight-fog.json',
+    JSON.stringify(result, null, 2) + '\n'
+  );
 });

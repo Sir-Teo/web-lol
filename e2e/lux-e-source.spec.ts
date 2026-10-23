@@ -85,7 +85,7 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
   expect(flight.layers).toHaveLength(9);
   expect(flight.restored && flight.repeated && flight.snapshotUnchanged).toBe(true);
   expect(flight.layers.some((m: any) => m.name.includes('teamring'))).toBe(false);
-  await page.screenshot({ path: 'artifacts/lux-e-missile-source-flight.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-hit-source-source-flight.png' });
   await page.evaluate(() => {
     const g = (window as any).__GAME__;
     g.world.step(70);
@@ -101,7 +101,7 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
   expect(perimeter.minimumRadius).toBeCloseTo(302.69735, 2);
   expect(perimeter.maximumRadius).toBeCloseTo(366.64403, 2);
   await page.screenshot({
-    path: 'artifacts/lux-e-missile-early.png',
+    path: 'artifacts/lux-e-hit-source-early.png',
     style: '.modal-backdrop { visibility: hidden !important; }',
   });
   await page.evaluate((lux) => {
@@ -113,7 +113,7 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
   expect(burst.layers).toHaveLength(10);
   expect(burst.restored && burst.repeated && burst.snapshotUnchanged).toBe(true);
   expect(burst.layers.some((m: any) => m.name.includes('teamring'))).toBe(false);
-  await page.screenshot({ path: 'artifacts/lux-e-missile-source-burst.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-hit-source-source-burst.png' });
   const retired = await page.evaluate((tailTicks) => {
     const g = (window as any).__GAME__,
       w = g.world,
@@ -142,7 +142,7 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
   expect(retired).toMatchObject({ zones: 0, models: 0, hpUnchanged: true });
   expect(errors).toEqual([]);
   writeFileSync(
-    'artifacts/lux-e-missile-source.json',
+    'artifacts/lux-e-hit-source-source.json',
     JSON.stringify({ flight, field, burst, retired }, null, 2) + '\n'
   );
 });
@@ -212,7 +212,7 @@ test('enemy source field uses its red perimeter, disappears under fog and return
   expect(errors).toEqual([]);
 });
 
-test('all thirty-two source materials preserve GPU color products, locked alpha, erosion and separate framebuffer blends', async ({
+test('all thirty-three source materials preserve GPU color products, locked alpha, erosion and separate framebuffer blends', async ({
   page,
 }) => {
   await page.goto('/?scene=fixture');
@@ -308,7 +308,10 @@ test('all thirty-two source materials preserve GPU color products, locked alpha,
     renderer.dispose();
     return results;
   });
-  expect(results).toHaveLength(32);
+  expect(results).toHaveLength(33);
   expect(results.filter((r: any) => !r.productCorrect || !r.blendCorrect)).toEqual([]);
-  writeFileSync('artifacts/lux-e-missile-source-gpu.json', JSON.stringify(results, null, 2) + '\n');
+  writeFileSync(
+    'artifacts/lux-e-hit-source-source-gpu.json',
+    JSON.stringify(results, null, 2) + '\n'
+  );
 });

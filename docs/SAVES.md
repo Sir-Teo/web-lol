@@ -1,6 +1,26 @@
 # Local match checkpoints
 
-Current schema 108 adds bounded shared team jobs: actor/target, kind, copied
+Current schema **110** adds accepted E target-hit records inside each retained
+Singularity: target identity/faction/radius, contact point, creation audience,
+nullable detachment tick and contiguous planar attachment endpoints. The source
+0.3000000119-second flash retains at most twenty end-of-tick frames, including
+its interpolation endpoint, then removes the records. Endpoints finalize before
+corpse cleanup; death/removal freezes placement. Victory freezes the saved path
+while presentation drains independently.
+
+Validation rejects duplicate or friendly victims, structures/wards, mismatched
+live identities/radii, out-of-range contacts, missing/reordered/future frames,
+contact/birth mismatches, invalid detachment clocks, motion after detachment and
+expired histories. Hit keys share the existing zone/target tuple; they allocate
+no gameplay IDs or random draws. Earlier schemas and strict fingerprints are
+incompatible. See [E target flashes](LUX-E.md#saved-target-hit-flashes--october-23-2026).
+
+Schema 109 added finite E source-audio dispatch history: cast/launch/arrival/hit
+ordinals and clocks, copied points, stop state and cancelled-flight endpoints.
+That bounded audio history remains independent of the new per-victim geometry
+history; an area detonation sound is not dispatched once per hit victim.
+
+Schema 108 adds bounded shared team jobs: actor/target, kind, copied
 last-seen point, score, issued/observed/expiry ticks and next planning tick. Each
 team has at most five unique assignments. Validation rejects foreign actors,
 wrong target types/factions, missing match plans, invalid refresh deadlines and

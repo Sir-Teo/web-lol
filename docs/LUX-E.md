@@ -1,6 +1,62 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, thirty-two static source particle layers, three moving detonation batches and twenty field/flight batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, thirty-three static source particle layers, three moving detonation batches and twenty field/flight batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Saved target-hit flashes — October 23, 2026
+
+The source `Lux_E_tar_hit` flash now attaches to each accepted explosion victim,
+including shielded and lethal contacts. Friends, structures, wards, invulnerable
+and out-of-range units do not produce these records. The 65-record inventory now
+has **56 rendered records, one base-skin exclusion and eight deferred records**:
+seven distortion/refraction emitters and the nonvisual sound binding. E event
+audio remains independently implemented; it is not a per-victim dispatch.
+
+The camera quad retains its authored 200-unit uniform birth scale, 40-unit Y
+offset, random X rotation, mana-hit color lookup, source HitEffect image and
+0.30000001192092896-second shrinking lifetime. All 32 earlier static profiles
+retain their values and indices. No image files were added. Target-root placement
+uses the shared local ground-plus-one origin and the source offset; native
+callback bone/root height, dispatch and linger still need reference comparison.
+The source's ten-second linger does not create a speculative ten-second flash.
+
+Save schema **110** stores accepted contacts and creation audience inside the
+existing zone, followed by up to twenty contiguous planar target-root endpoints.
+The first endpoint agrees with the contact point. Updates finalize before corpse
+cleanup, freeze on death/removal and retire on the source lifetime plus its
+interpolation endpoint. Rendering seeks only those saved frames, without reading
+current unit positions as historical attachment data. The zone/target tuple
+provides stable ownership and birth choices without new gameplay IDs or World RNG.
+Earlier schemas/fingerprints are incompatible.
+
+Both creation audience and current sight are required. An unseen hit does not
+appear when sight returns; a previously observed effect returns at its continued
+phase. Enemy triangles also use the existing conservative corner-wise fog mask.
+Each visible hit owns one quad geometry and material and releases both on expiry,
+reverse-seek removal or result playback. Victory advances presentation age while
+the saved match and hit path stay frozen.
+
+The [verification ledger](reference/lux-e-hit-verification.json) and
+[diagnostic match audit](reference/lux-e-hit-match-audit.json) retain the selected
+source profile, strict save checks, graphics recovery, fog and result evidence.
+TypeScript, all **1,398 unit checks across 255 files**, **25 targeted Chrome
+cases** and nested-path production validation pass. The actual hit changes
+29,212 framebuffer bytes in its sampled fixture. Graphics recovery restores
+identical buffers and every framebuffer byte; expiry releases both owned hit
+resources. All 33 static source materials pass the GPU product/blend probes.
+Production requests seventeen E-prefixed images; the complete E texture set is
+27 existing images totaling 386,377 bytes. Game/Three chunks are 878.18/658.75 KB;
+the build-size warning remains.
+
+Four fresh normal-rules diagnostics check **780,762 ticks** and **220 exact
+checkpoint round trips**. Winners, end ticks and every stored sample match
+`ee5b92c`. Complete final checkpoints match after removing only schema version,
+ruleset fingerprint and the newly added `zone.hits` cosmetic history. All other
+saved fields, including gameplay IDs, random state and audio history, match.
+The four-seed check does not meet the 100-seed gate.
+
+Run `node tools/qa/verify-lux-e-hit.mjs` to inspect the retained evidence. Local
+integration and captured source fields do not establish native visual parity,
+full-match performance or the broader roster/production gates.
 
 ## Missile spinners, motes and rays — October 23, 2026
 

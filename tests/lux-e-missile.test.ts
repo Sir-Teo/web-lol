@@ -54,15 +54,15 @@ test('base skin excludes the required-keyword missile glow and includes the excl
     keywords: [],
     enabled: true,
   });
-  expect(staticProfiles.at(-1)).toMatchObject({
+  expect(staticProfiles.find((p) => p.record === 'Lux_E_tar_nova' && p.index === 6)).toMatchObject({
     record: 'Lux_E_tar_nova',
     index: 6,
     life: 0.10000000149011612,
     offset: [0, 0, 0],
     size: { value: [600, 600, 600] },
   });
-  expect(entries.filter((x) => x.status === 'deferred')).toHaveLength(9);
-  expect(coverage.rendered).toBe(55);
+  expect(entries.filter((x) => x.status === 'deferred')).toHaveLength(8);
+  expect(coverage.rendered).toBe(56);
   expect(
     luxEParticles('burst', 91, 0.1).some((q) => staticProfiles[q.profileIndex].index === 6)
   ).toBe(true);

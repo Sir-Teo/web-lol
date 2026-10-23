@@ -1,3 +1,5 @@
+import { validateLuxEHits } from './lux-e-hits-validation';
+import { LUX_E_HIT_HISTORY_TICKS } from '../content/lux-e-hit';
 import { validateLuxEAudio } from './lux-e-audio-validation';
 import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
 import { MATCH_ROLES, JUNGLE_BOT_POLICY } from '../content/bot-roles';
@@ -103,7 +105,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 109;
+export const SNAPSHOT_VERSION = 110;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1017,6 +1019,25 @@ const snapshot = z.strictObject({
         detonateRequested: z.boolean(),
         damage: nonnegative,
         slowMultiplier: z.number().min(0).max(1),
+        hits: z
+          .array(
+            z.strictObject({
+              targetId: id,
+              targetTeam: faction,
+              targetRadius: nonnegative,
+              contact: point,
+              audience: z
+                .array(team)
+                .max(2)
+                .refine((v) => new Set(v).size === v.length),
+              detachedTick: tick.nullable(),
+              frames: z
+                .array(z.strictObject({ tick, x: z.number(), y: z.number() }))
+                .min(1)
+                .max(LUX_E_HIT_HISTORY_TICKS),
+            })
+          )
+          .max(10000),
       })
     )
     .max(10000),
@@ -2264,6 +2285,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains an invalid Lucent Singularity.');
     if (zone.detonatedTick === null) singularityOwners.add(zone.sourceId);
   }
+  validateLuxEHits(state);
   validateLuxEAudio(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');

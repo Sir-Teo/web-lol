@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,392 source/simulation/geometry checks and 21 targeted Chrome cases for E missile/field mesh, motes and rays, source/burst layers, audio, saves, fog, graphics recovery and result playback/export. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,398 source/simulation/geometry checks and 25 targeted Chrome cases for E saved target flashes, missile/field geometry, source/burst layers, audio, saves, fog, graphics recovery and result playback/export. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,40 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+Lux E now adds [saved target-hit flashes](LUX-E.md#saved-target-hit-flashes--october-23-2026)
+for accepted explosion victims, including shielded and lethal contacts. Coverage
+is **56 rendered records, one base-skin exclusion and eight deferred records**
+within the 65-record source inventory. The new quad preserves source scale,
+rotation, mana-hit lookup and the 0.3000000119-second lifetime. Native attachment
+bone/root height and dispatch/linger still need calibration.
+
+Schema **110** stores contact identity, creation audience and up to twenty saved
+target-root endpoints inside the existing zone. Death/removal freezes placement;
+expiry removes the records. Stable zone/target keys consume no gameplay IDs or
+World RNG. Strict validation checks contacts, ownership, frame clocks, detachment
+and expiry. Earlier schemas/fingerprints are incompatible; see [saves](SAVES.md).
+
+All 1,398 unit checks across 255 files, TypeScript, 25 focused Chrome cases and
+production subpath validation pass. The actual hit changes 29,212 framebuffer
+bytes in its sampled fixture; real graphics recovery restores every byte and
+all saved buffers. Seen effects return at their current phase; unseen creation
+audiences never expand. Each hit releases both owned GPU resources. Frozen
+victory drains the effect without changing saved state. All 32 previous static
+profiles retain their complete values and indices. The full browser suite and
+native comparison were not repeated or certified by these local checks.
+
+Production loads seventeen E-prefixed images; the complete E set references 27
+existing source images totaling 386,377 bytes. No image files were added.
+Game/Three chunks are 878.18/658.75 KB; the build-size warning remains. The
+[current ledger](reference/lux-e-hit-verification.json) and
+[match audit](reference/lux-e-hit-match-audit.json) retain source, save, browser and
+normal-rules regression evidence. Four fresh runs check 780,762 ticks and 220
+exact checkpoint round trips. Winners, end ticks and stored samples match
+`ee5b92c`; complete final checkpoints match after removing only version,
+fingerprint and the new cosmetic hit history. IDs, RNG and all other saved fields
+match. Seven distortion emitters, nonvisual E sound binding, full six-character kits, quests/epics, the 100-seed gate, offline delivery,
+and full-match browser/performance acceptance remain unfinished.
 
 Lux E's [missile spinners, motes and rays](LUX-E.md#missile-spinners-motes-and-rays--october-23-2026)
 add six rendered records and distinguish one skin-keyword exclusion. Of 65 source

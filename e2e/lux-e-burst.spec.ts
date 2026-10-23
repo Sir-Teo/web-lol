@@ -36,7 +36,7 @@ test('late source E motes retain saved buffers and pixels through real graphics 
     (window as any).__E_BURST__ = state;
     return { detonation: zone.detonatedTick, earlyTick: w.tick };
   });
-  await page.screenshot({ path: 'artifacts/lux-e-missile-burst-burst.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-hit-regression-burst-burst.png' });
   const before = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world,
@@ -126,7 +126,7 @@ test('late source E motes retain saved buffers and pixels through real graphics 
     };
   });
   expect(after).toEqual({ buffers: true, snapshot: true, differentBytes: 0, nonzero: true });
-  await page.screenshot({ path: 'artifacts/lux-e-missile-burst-restored.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-hit-regression-burst-restored.png' });
   const retired = await page.evaluate((tail) => {
     const g = (window as any).__GAME__,
       w = g.world,
@@ -150,7 +150,7 @@ test('late source E motes retain saved buffers and pixels through real graphics 
   expect(retired).toEqual({ disposed: 6, models: 0, zones: 0, hpUnchanged: true });
   expect(errors).toEqual([]);
   writeFileSync(
-    'artifacts/lux-e-missile-burst-recovery.json',
+    'artifacts/lux-e-hit-regression-burst-recovery.json',
     JSON.stringify({ setup, before, after, retired }, null, 2) + '\n'
   );
 });
@@ -274,7 +274,7 @@ test('three E motion batches match separate particle draws and each source layer
   expect(main.contributions).toHaveLength(3);
   expect(main.contributions.every((r: any) => r.differentBytes > 0)).toBe(true);
   writeFileSync(
-    'artifacts/lux-e-missile-burst-batches.json',
+    'artifacts/lux-e-hit-regression-burst-batches.json',
     JSON.stringify(result, null, 2) + '\n'
   );
 });
@@ -349,5 +349,8 @@ test('enemy explosion particles disappear under fog and return at their continue
     snapshotUnchanged: true,
   });
   expect(errors).toEqual([]);
-  writeFileSync('artifacts/lux-e-missile-burst-fog.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync(
+    'artifacts/lux-e-hit-regression-burst-fog.json',
+    JSON.stringify(result, null, 2) + '\n'
+  );
 });

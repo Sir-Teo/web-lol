@@ -1,0 +1,399 @@
+{
+  "date": "2026-10-23",
+  "baseline": "ee5b92c1a8a69910f8c2837133158d892564ada2",
+  "schema": 110,
+  "ruleset": "a8e00a7c5a84311aa8db203a6c27f48a9709f35da8ae7e6ae7a5b9a173174078",
+  "scope": "One additional source E target flash with accepted contact dispatch, saved target-root translation, creation audience, death/removal freeze, strict schema, corner fog, graphics recovery and frozen terminal playback.",
+  "source": {
+    "renderedEmitterRecords": 56,
+    "filteredEmitterRecords": 1,
+    "deferredEmitterRecords": 8,
+    "staticRecords": 33,
+    "detonationBatches": 3,
+    "fieldAndFlightBatches": 20,
+    "targetFlashRecords": 1,
+    "sourceLifeSeconds": 0.30000001192092896,
+    "maximumSavedFrames": 20,
+    "textureCount": 27,
+    "textureBytes": 386377,
+    "requestedEPrefixedImages": 17,
+    "newImageFiles": 0
+  },
+  "legacy": {
+    "staticProfiles": 32,
+    "completeValuesAndIndicesUnchanged": true,
+    "sha256": "9ce8740115500857e04500d638bf08bfbfb268dc3ed857a3697dfb21179a26ae"
+  },
+  "checks": {
+    "unit": {
+      "files": 255,
+      "tests": 1398,
+      "command": "npx vitest run --maxWorkers=4"
+    },
+    "chrome": {
+      "cases": 25,
+      "scope": "Target movement/saves/seeks, actual hit pixel contribution, real context loss, seen/unseen creation fog, retirement, frozen victory, all 33 static GPU material cases and adjacent E source/burst/field/audio. Full browser suite not repeated.",
+      "hitContributionChangedBytes": 29212,
+      "realGraphicsLossDifferentBytes": 0,
+      "ownedHitResourcesDisposed": 2
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "diagnosticMatches": {
+      "checkedTicks": 780762,
+      "exactRoundTrips": 220,
+      "victories": 4,
+      "allRecordedSamplesEqual": true,
+      "allFinalCheckpointGameplayEqual": true
+    }
+  },
+  "policies": {
+    "dispatch": "Record accepted eligible victims immediately before damage, including shields/lethal contacts. Do not allocate entity IDs or World RNG draws.",
+    "attachment": "Saved planar target-root endpoints finalize with impact presentation before corpse cleanup. Death/removal freezes the last endpoint. Native bone/root height is unverified.",
+    "privacy": "Creation audience never expands; current point/unit sight also gates the flash. Enemy triangles require every corner observed.",
+    "lifetime": "Retain source 0.30000001192092896 seconds with one interpolation endpoint; at most 20 frames. Discard records at 20 ticks. The authored particleLinger 10 does not create a guessed tail.",
+    "ownership": "Each accepted observed target owns one quad geometry/material; images stay session-owned. Stable zone/target keys survive saves and reverse seeks.",
+    "persistence": "Strict schema 110 validates target affiliation/radius, collision contact, contiguous frame clocks, live endpoints, detachment freeze and expiry. Schema 109 is incompatible.",
+    "terminal": "Presentation age drains while the saved path and match remain frozen."
+  },
+  "captures": "The actual moving-target fixture flash and the real Rift production source field were visually reviewed. Local screenshots, GPU probes and draw counts do not establish native parity or FPS.",
+  "files": [
+    {
+      "path": "docs/LUX-E.md",
+      "sha256": "4942c477a7b4c2527a1b077a111b8777cacb1d4df8b917b895722be4a14acb77"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "sha256": "5aba896b4b411de21f346f6622bb2d3ee7429e6b8b9c4cb5eac02ddefffdcbb8"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "0da83951fd9af9e7b8fff9fdb9687ee5f62e950d3175dc2bea2e91788c715a0d"
+    },
+    {
+      "path": "docs/reference/lux-e-vfx.json",
+      "sha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4"
+    },
+    {
+      "path": "docs/reference/lux-e-particle-coverage.json",
+      "sha256": "440b7038a3306f231a9efbb22b599d0a7941930f9a73f167474c5de557fddde3"
+    },
+    {
+      "path": "docs/reference/lux-e-hit-match-audit.json",
+      "sha256": "b1bb263cd4565d5f13eb65ccf0e770cc62c5d759d35762a6dc2769fd6c53fb33"
+    },
+    {
+      "path": "src/content/lux-e-particles.json",
+      "sha256": "7548169b92397920e6f3840d5aa5022e311cbd220a79f4554dbdd5d1361be773"
+    },
+    {
+      "path": "src/content/lux-e-burst.json",
+      "sha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e"
+    },
+    {
+      "path": "src/content/lux-e-field.json",
+      "sha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931"
+    },
+    {
+      "path": "src/content/lux-e-hit.ts",
+      "sha256": "7c0351a61f427bc8862635d1c7762f2b33eb4ad340c425b67c0bfae02af27516"
+    },
+    {
+      "path": "src/render/lux-e-particles.ts",
+      "sha256": "347eca0d3bc572ef5d21923cbc2ec283841991ed9663971b51669f713a397dd9"
+    },
+    {
+      "path": "src/render/lux-e-source.ts",
+      "sha256": "58882ef52e37d5d27773f979f7c1c822cafe0415643ee7f3f2891f503d267cdd"
+    },
+    {
+      "path": "src/render/lux-singularities.ts",
+      "sha256": "96feed55dc31364fb108398534a38d90bf3bdcbf3248a9ee1c8375a9caf2fd64"
+    },
+    {
+      "path": "src/render/lux-e-hit-point.ts",
+      "sha256": "1e7ddd2d4a82ef5115cebffbbc95f77440e023ae85794f0fe764ad45d61e0c41"
+    },
+    {
+      "path": "src/simulation/lux-e-hits.ts",
+      "sha256": "20fe14f1cc1313b82a931c1ce4315536bc9db7a84774425c531e313de9fac5f6"
+    },
+    {
+      "path": "src/simulation/lux-e-hits-validation.ts",
+      "sha256": "1ec18fc2e4a489cd6c9b3edd79c971094c0682b8481127db50285c09c9800e03"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "b4156b8cd99084d1feb5d2eeb44d5399333d2072bc83437ad054268735ea5b41"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "sha256": "5403d7bbcfc164fc03609715f4df7d2c84de53268cd6ff8bd19e4ed2b730335d"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "9441999a4e7110b1eb4d71c9c8afe8187af701a956e7d0c8182f2b123eff255d"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "sha256": "6038d8dad475ce77d4165ac906b68cd1834fcf5ec2a05ed4e4274ab40a185ac9"
+    },
+    {
+      "path": "tests/lux-e-field.test.ts",
+      "sha256": "da97524e01ab91d5abd358c275aca4088f1187fc308af3af1c5e2abc9f3c9f07"
+    },
+    {
+      "path": "tests/lux-e-missile.test.ts",
+      "sha256": "d07b3dfe69a6aaff7535d38680d96169d89ae983ac35a856ca8142ae00da18f1"
+    },
+    {
+      "path": "e2e/lux-e-hit.spec.ts",
+      "sha256": "17fd52460de2f3d99bd919b4164bb0b23ceb8a389e87813edc3c23bab996d221"
+    },
+    {
+      "path": "e2e/lux-e-source.spec.ts",
+      "sha256": "8cc1b2a5711e93f17fb21677d4aa9a4f81274f48d8093bf569d0f88d4e182679"
+    },
+    {
+      "path": "e2e/lux-e-field.spec.ts",
+      "sha256": "cffbeab0c09faa1e19f5064768b4b5d9eff12ad83991b82cfc1ad3cfd05babbd"
+    },
+    {
+      "path": "e2e/lux-e-burst.spec.ts",
+      "sha256": "a5b3a055b7850257ff05e4ef886770eec2b7f251bbaf7b475218b26d04309ba9"
+    },
+    {
+      "path": "tools/assets/export-lux-e-particles.py",
+      "sha256": "6abf2e91832ba49ee493ac3c7cc28ec4a12e19ed4f0b78125fb811f540fc9c9f"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "sha256": "2cccbc29549ccbdf4547e024271f2ef8f00902d8e24ee1c5ea8523ef7acebd24"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "02e78b67e178ea78a4b8cfdcfd5fa73a9f90f0d172c39c21a49cfb87023bf287"
+    },
+    {
+      "path": "tools/qa/verify-lux-e-hit.mjs",
+      "sha256": "0be1feb7d73eb18997478534d633bdc5c7032cff177cbcfdd268defcd3397cfe"
+    },
+    {
+      "path": ".cache/lux-e-hit-unit-current.log",
+      "sha256": "1a012a64be43818217994ebc927c72da4d52a8143a2f93241c032a3aa6b7fc43"
+    },
+    {
+      "path": ".cache/lux-e-hit-browser.log",
+      "sha256": "4664f3537a87aac4be3d4ea43c937ea388fe2de4815d2f92f6c58fd249c09ea3"
+    },
+    {
+      "path": ".cache/lux-e-hit-production.log",
+      "sha256": "66f33b17e258bbedf826ad097a1e082799bda3e38ac4a709d681115cc1e948d6"
+    },
+    {
+      "path": "artifacts/lux-e-hit-recovery.json",
+      "sha256": "e24960dd36ae430185726a694684af5373bb4411a8e91c23b5427ba2e5b83bc9"
+    },
+    {
+      "path": "artifacts/lux-e-hit-fog-seen.json",
+      "sha256": "9137c384a803a7c3db80ae532e2d5e578b6e6202bd6c2b67b491983e0f2fdc1f"
+    },
+    {
+      "path": "artifacts/lux-e-hit-fog-unseen.json",
+      "sha256": "68dd13fdf624e1d425226993964c2594b132b3f7f24d6d73e42f4a49699e4ce2"
+    },
+    {
+      "path": "artifacts/lux-e-hit-terminal.json",
+      "sha256": "586662a5d9c657924fd683ab91d873a98118ecd70c74f4aeb4e93097b42a023f"
+    },
+    {
+      "path": "artifacts/lux-e-hit-moving.png",
+      "sha256": "7d3b1d90d9ad4386bc30ab0fc6ec59f286eb85aff71e8f75396d17b96586d69c"
+    },
+    {
+      "path": "artifacts/lux-e-hit-source-source-gpu.json",
+      "sha256": "8554ff76ef2c8a17b6b0e6bff401a38f6e9e2c2075109eeaf53e61c78a1cfb9e"
+    },
+    {
+      "path": "artifacts/lux-e-hit-source-source.json",
+      "sha256": "1d8d6e1ebaab7cafcafde89f564f2406f15162828f25a3f52b34dc244a561ebb"
+    },
+    {
+      "path": "artifacts/lux-e-hit-source-source-burst.png",
+      "sha256": "50ace7f0ca12b7c07834f0671a8008c5072b7d9ddd866f4829aba367fc2208b9"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-lux-e-source.png",
+      "sha256": "5461403905e74544fd0e2cb84a8477a61d92ac11dc88452e5c1d8f319888ac8e"
+    }
+  ],
+  "assets": [
+    {
+      "path": "public/assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+      "sha256": "5dac684daf04d9667f40197e9e85b7e98b423075acd1237de9cc49b2b6e43a93"
+    },
+    {
+      "path": "public/assets/effects/lux-binding-target-lux_base_light_sparks.png",
+      "sha256": "1ef4e7cac79665be8b79ce50d2f3401e30851df5eaab5ff2521cd4b536037784"
+    },
+    {
+      "path": "public/assets/effects/lux-e-color-hit-mana.png",
+      "sha256": "6d40c0cfdbc1e851e009a8dfd0a4d0e8e3d3103b8541ff4eabf74395c971b9a9"
+    },
+    {
+      "path": "public/assets/effects/lux-e-color-hold.png",
+      "sha256": "38fb43fbd4b078237a94650903231de41f9ac8ed0c2550b3581cd41b6e9ff501"
+    },
+    {
+      "path": "public/assets/effects/lux-e-color_lux_e_shield.png",
+      "sha256": "6de303da8c739c73cea6554da13b40ad92973494dafab72d94c841d60d6562c8"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_distort.png",
+      "sha256": "cc27e89b201e548f544cd4844d9b0b27e5e4c5b615e92b78a36aa60ec603aa5e"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "sha256": "54910db2c3d7597d0048c4915312b9078185a358f328ac4c1540b66abab236f3"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flare.png",
+      "sha256": "824c7cb647eb8ceb839bc28810599a811f59284b037bd98ef6e71231eeafd4ca"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flash.png",
+      "sha256": "c61a3a3c986b1bdfbf667ed70e275d4cf4f52270261b2cd945facde9b338ce69"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_glow.png",
+      "sha256": "e79baf8b8238e1d3bbf93d01f03fe6570dceb091172811de92aa982d28049899"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "sha256": "7cbf7483e93565fd5006ac8c7da3c829c6df4f38c4cd63acf4c1d3e729c60bd9"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "sha256": "72a505121e0975aeedf832e93bcdbadcc07939e63e2c8835323fe844d15924fe"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_mote.png",
+      "sha256": "7bc487eb3bece376a141ff810194783e1c1319fc1b00e05c64858554282e0e25"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_small_mote.png",
+      "sha256": "f92a19554b18edc87a509aa238ee49104be1ed2016b2a3398c8b683370eabbd7"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "sha256": "cfc642e98f322ff44394731b8b830386db2498ef769bf60b2c30c1ef6874c209"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_w_glow.png",
+      "sha256": "e9af9ca15a95d39131a28a09a8a23681aa66402d52e80ee2efa918ba743f418d"
+    },
+    {
+      "path": "public/assets/effects/lux-e-rainbowflash.png",
+      "sha256": "d87f0825a4922e3159726596905a27c3c79bf64f50fafae4ef0ae7c0614f4d65"
+    },
+    {
+      "path": "public/assets/effects/lux-e-rainbowhalo.png",
+      "sha256": "ff8005ff5d8a1ac3ea014727c6ac2c6617997bc5eb1d9c330f041f00bdcf2dcc"
+    },
+    {
+      "path": "public/assets/effects/lux-e-sphere_e_01.png",
+      "sha256": "0b916a62ec44f9588fde7c177a252084f87f6fb67df614ae301f58ad78674826"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-color-rampdown.png",
+      "sha256": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-flame_trail_gradient.png",
+      "sha256": "bb81b41ececb203f908b94b34fce9cd47cf252432210524b6ae3dbad7f98877a"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-hiteffect.png",
+      "sha256": "8352c442d9dec3a9ea5dbf131ee140cdd82765e12cdb5bc8b730832c1a67a723"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-lux_base_starfilter_01.png",
+      "sha256": "0e18403a369df6a1bfcca493394254e7caee6dcc6e275c249be7ede21d7ce41d"
+    },
+    {
+      "path": "public/assets/effects/lux-illumination-diana_base_r_glow.png",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f"
+    },
+    {
+      "path": "public/assets/effects/lux-illumination-lux_base_p_rainbowray.png",
+      "sha256": "53cc40c8a4667eeec03910f0205c613b7787488ba0749ce96ca70b29c5a4d88d"
+    },
+    {
+      "path": "public/assets/effects/lux-r-diana_skin11_r_glow.png",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f"
+    },
+    {
+      "path": "public/assets/effects/lux-r-lux_base_z_bokeh_dots_4x4.png",
+      "sha256": "150e8ccc789df20d45a589e2dfebe2fb3950d3ccfcfc10b332e0eb7c7cbecaae"
+    }
+  ],
+  "limits": [
+    "Four diagnostic seeds do not meet the 100-seed gate or certify balance, natural human play, native parity or full-match browser performance.",
+    "The target root/ground-plus-one origin, native attachment bone/height, dispatch, RNG and stop/linger remain uncalibrated. Source fields and local policy are distinguished in docs/LUX-E.md.",
+    "Seven distortion/refraction emitters and the nonvisual E sound binding remain deferred. Complete six-character kits, quests, epic objectives, strategy, offline and browser/performance acceptance remain unfinished."
+  ]
+}

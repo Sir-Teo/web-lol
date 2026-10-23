@@ -173,8 +173,8 @@ test('four field streams retain animated source values, independent team tint an
   expect(profiles[1].atlas).toEqual({ grid: [2, 2], frames: 4, random: true });
   expect(profiles[1].palette?.row).toBe(0.25);
   expect(profiles[1].birthColor.values).not.toEqual(profiles[3].birthColor.values);
-  expect(coverage.rendered).toBe(55);
-  expect(coverage.inventory.filter((x) => x.status === 'deferred')).toHaveLength(9);
+  expect(coverage.rendered).toBe(56);
+  expect(coverage.inventory.filter((x) => x.status === 'deferred')).toHaveLength(8);
 });
 test('animated rate budgets keep exact crossings and agree with the existing constant scheduler', () => {
   for (const rate of [0, 0.1, 15, 25, 140]) {

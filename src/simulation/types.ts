@@ -273,6 +273,15 @@ export interface LuxBeam {
   point: Vec2;
   startTick: number;
 }
+export interface SingularityHit {
+  targetId: number;
+  targetTeam: Faction;
+  targetRadius: number;
+  contact: Vec2;
+  audience: Team[];
+  detachedTick: number | null;
+  frames: (Vec2 & { tick: number })[];
+}
 export interface Singularity extends Vec2 {
   id: number;
   sourceId: number;
@@ -287,6 +296,7 @@ export interface Singularity extends Vec2 {
   detonateRequested: boolean;
   damage: number;
   slowMultiplier: number;
+  hits: SingularityHit[];
 }
 export interface Projectile extends Vec2 {
   id: number;

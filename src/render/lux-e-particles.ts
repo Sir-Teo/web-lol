@@ -3,7 +3,7 @@ import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxHoopChance } from './lux-hoop-particles';
 import { accumulateParticleCurve, sampleParticleCurve } from './particle-curves';
 
-export type LuxERole = 'flight' | 'ally' | 'enemy' | 'burst';
+export type LuxERole = 'flight' | 'ally' | 'enemy' | 'burst' | 'hit';
 /** Static source bursts begin on their phase's first update. Stateless seeks never
  * consume simulation randomness or restart a particle after save/fog recovery. */
 export function luxEParticles(role: LuxERole, seed: number, seconds: number) {

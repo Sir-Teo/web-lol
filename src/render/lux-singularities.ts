@@ -1,3 +1,5 @@
+import { LUX_E_HIT_SECONDS } from '../content/lux-e-hit';
+import { luxEHitPoint } from './lux-e-hit-point';
 import * as THREE from 'three';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { TICK_RATE } from '../content/rules';
@@ -6,9 +8,11 @@ import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 
 /** Source static layers and field/detonation motion reconstruct from the saved phase.
- * Remaining field/flight layers, distortion, hit attachment and native dispatch remain open. */
+ * Source hit flashes use saved target-root translation; native anchors and distortion remain open. */
 export class LuxSingularities {
   models = new Map<number, THREE.Group>();
+  readonly hitModels = new Map<string, THREE.Group>();
+  private hitSources = new Map<string, LuxESource>();
   private sources = new Map<number, LuxESource>();
   constructor(
     private scene: THREE.Scene,
@@ -52,6 +56,44 @@ export class LuxSingularities {
         zone.team
       );
     }
+    const activeHits = new Set<string>();
+    for (const zone of world.singularities)
+      for (const hit of zone.hits) {
+        const age = (tick - zone.detonatedTick!) / TICK_RATE;
+        if (!hit.audience.includes('blue') || age < 0 || age >= LUX_E_HIT_SECONDS) continue;
+        const key = `${zone.id}:${hit.targetId}`;
+        let source = this.hitSources.get(key);
+        if (!source) {
+          source = new LuxESource(this.camera(), this.ground);
+          this.hitSources.set(key, source);
+          this.hitModels.set(key, source.root);
+          this.scene.add(source.root);
+        }
+        const point = luxEHitPoint(hit, tick),
+          target = world.unit(hit.targetId);
+        source.root.visible =
+          world.pointVisible(point) &&
+          (hit.detachedTick !== null || !target || world.visible(target, 'blue'));
+        source.draw(
+          world,
+          'hit',
+          zone.id ^
+            Math.imul(hit.targetId, 0x85ebca6b) ^
+            Math.imul(zone.detonatedTick!, 0x9e3779b9),
+          age,
+          point,
+          zone.origin,
+          zone.point,
+          hit.targetTeam
+        );
+        activeHits.add(key);
+      }
+    for (const [key, source] of this.hitSources)
+      if (!activeHits.has(key)) {
+        source.dispose();
+        this.hitSources.delete(key);
+        this.hitModels.delete(key);
+      }
     for (const [id, source] of this.sources)
       if (!active.has(id)) {
         source.dispose();

@@ -1,3 +1,4 @@
+import { advanceLuxEHits, recordLuxEHit } from './lux-e-hits';
 import { advanceLuxEAudio, newLuxEAudioHistory } from './lux-e-audio';
 import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
 import {
@@ -3239,6 +3240,7 @@ export class World {
       detonateRequested: cast.detonateRequested!,
       damage: cast.damage,
       slowMultiplier: 1 - LUX_E.slowPercent[cast.rank - 1] / 100,
+      hits: [],
     });
   }
   private singularityTargets(zone: Singularity): Unit[] {
@@ -3286,6 +3288,7 @@ export class World {
         const source = this.unit(zone.sourceId);
         if (!source) continue;
         for (const target of this.singularityTargets(zone)) {
+          recordLuxEHit(this, zone, target);
           this.damage(source, target, zone.damage, 'magic', 'area');
           this.applyIllumination(source, target);
           this.applySlow(
@@ -3548,6 +3551,7 @@ export class World {
     };
   }
   private advanceImpactVisuals(): void {
+    advanceLuxEHits(this);
     for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
       const target = this.unit(visual.targetId);
       const previous = visual.frames.at(-1)!;

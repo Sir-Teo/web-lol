@@ -1,30 +1,30 @@
 {
   "sourcePinSha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4",
-  "profileSha256": "8ba71a78243ac022e1cb2a880ed619b88a436cfc57b7ad1447364f9d392abb7a",
+  "profileSha256": "7548169b92397920e6f3840d5aa5022e311cbd220a79f4554dbdd5d1361be773",
   "burstProfileSha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e",
   "fieldProfileSha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931",
-  "rendered": 55,
+  "rendered": 56,
   "inventory": [
     {
       "record": "Lux_E_tar_aoe_sound",
       "index": 0,
       "name": "empty",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Nonvisual sound-emitter binding is not certified by the separate E audio controller."
     },
     {
       "record": "Lux_E_tar_hit",
       "index": 0,
       "name": "flash",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_mis",
       "index": 0,
       "name": "distort",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Source distortion/refraction integration remains required."
     },
     {
       "record": "Lux_E_mis",
@@ -103,7 +103,7 @@
       "index": 0,
       "name": "distort-char",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "reason": "Source distortion/refraction integration remains required.",
       "filtering": {
         "required": [],
         "excluded": [
@@ -119,7 +119,7 @@
       "index": 1,
       "name": "distort",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "reason": "Source distortion/refraction integration remains required.",
       "filtering": {
         "required": [],
         "excluded": [
@@ -380,7 +380,7 @@
       "index": 12,
       "name": "distort",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "reason": "Source distortion/refraction integration remains required.",
       "filtering": {
         "required": [],
         "excluded": [
@@ -396,7 +396,7 @@
       "index": 13,
       "name": "distort1",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "reason": "Source distortion/refraction integration remains required.",
       "filtering": {
         "required": [],
         "excluded": [
@@ -433,7 +433,7 @@
       "index": 0,
       "name": "distort",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "reason": "Source distortion/refraction integration remains required.",
       "filtering": {
         "required": [],
         "excluded": [
@@ -470,7 +470,7 @@
       "index": 4,
       "name": "distort1",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Source distortion/refraction integration remains required."
     },
     {
       "record": "Lux_E_tar_nova",
@@ -525,7 +525,7 @@
     }
   ],
   "limits": [
-    "Thirty-two static layers, three detonation batches and twenty field/flight batches; one source record is filtered for the base skin. Remaining field/flight motion, distortion and target hit capture remain open; E source audio is implemented separately.",
+    "Thirty-three static layers, three detonation batches and twenty field/flight batches; one source record is filtered for the base skin. Remaining distortion and the nonvisual sound binding remain open; E source audio is implemented separately.",
     "Birth dispatch, palette row conversion, emitter origin/height, source-frame attachment, ground projection, stop behavior and composition remain local adapters pending native comparison."
   ]
 }
