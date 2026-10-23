@@ -14,6 +14,7 @@ const pinnedData = [
   'src/content/lux-e-field.json',
   'src/content/gromp-death.json',
   'src/content/gromp-attack.json',
+  'src/content/garen-aa-particles.json',
 ];
 
 function sourceFiles(directory: string): string[] {

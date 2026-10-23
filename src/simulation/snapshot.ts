@@ -1,3 +1,5 @@
+import { GAREN_AA_HIT_HISTORY_TICKS } from '../content/garen-aa-particle-timing';
+import { validAnimationTimeline } from './animation-timeline';
 import armorMaterials from '../content/attack-sound-materials.json';
 import { validateGarenAttacks } from './garen-aa-presentation';
 import { GAREN_PASSIVE_HISTORY_TICKS } from '../content/garen-passive-presentation';
@@ -54,8 +56,6 @@ import {
 } from '../content/structure-animation';
 import { structurePose } from '../render/structure-pose';
 import { mobileClipDurations, MOBILE_CLIP_DURATIONS } from '../content/mobile-clip-durations';
-import type { AnimationTimeline } from './animation-timeline';
-import { ANIMATION_FADE_TICKS } from './animation-timeline';
 import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
@@ -109,7 +109,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 114;
+export const SNAPSHOT_VERSION = 115;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -136,6 +136,21 @@ const animationTimeline = z.strictObject({
     settled: z.boolean(),
   }),
   transition: z.strictObject({ startTick: tick, outgoing: z.array(poseLayer).max(64) }).nullable(),
+});
+const savedPoseFrame = z.strictObject({
+  tick,
+  x: z.number(),
+  y: z.number(),
+  facing: z.number(),
+  structurePose: z
+    .strictObject({
+      kind: z.enum(['idle', 'destroyed', 'dead-idle']),
+      clip: z.string().max(100),
+      time: nonnegative,
+      loop: z.boolean(),
+    })
+    .nullable(),
+  animationTimeline: animationTimeline.nullable(),
 });
 const deadline = z.union([tick, z.literal('Infinity').transform(() => Infinity)]);
 // A captured recharge may outlive a sale or rank change. Accept every duration the
@@ -629,11 +644,31 @@ const player: z.ZodType<PlayerState> = z
             .max(2)
             .refine((a) => new Set(a).size === a.length),
           cancelTick: tick.nullable(),
+          poseStopTick: tick.nullable(),
+          poseStopReason: z
+            .enum(['complete', 'order', 'target-lost', 'action', 'recast', 'death', 'match-end'])
+            .nullable(),
+          frames: z.array(savedPoseFrame).min(1).max(10000),
           impact: z
             .strictObject({
               tick,
               point,
               material: z.enum(['Flesh', 'Metal', 'Stone', 'Wood']),
+              facing: z.number(),
+              radius: nonnegative,
+              targetTransform: z.array(z.number()).length(16).nullable(),
+              detachedTick: tick.nullable(),
+              frames: z
+                .array(
+                  savedPoseFrame.extend({
+                    audience: z
+                      .array(z.enum(['blue', 'red']))
+                      .max(2)
+                      .refine((a) => new Set(a).size === a.length),
+                  })
+                )
+                .min(1)
+                .max(GAREN_AA_HIT_HISTORY_TICKS),
               audience: z
                 .array(z.enum(['blue', 'red']))
                 .max(2)
@@ -862,26 +897,7 @@ const luxTargetVisual = (historyTicks: number) =>
       ] as [ImpactRig, ...ImpactRig[]])
       .nullable(),
     targetTransform: z.array(z.number()).length(16).nullable(),
-    frames: z
-      .array(
-        z.strictObject({
-          tick,
-          x: z.number(),
-          y: z.number(),
-          facing: z.number(),
-          structurePose: z
-            .strictObject({
-              kind: z.enum(['idle', 'destroyed', 'dead-idle']),
-              clip: z.string().max(100),
-              time: nonnegative,
-              loop: z.boolean(),
-            })
-            .nullable(),
-          animationTimeline: animationTimeline.nullable(),
-        })
-      )
-      .min(1)
-      .max(historyTicks),
+    frames: z.array(savedPoseFrame).min(1).max(historyTicks),
   });
 const teamPlan = z.strictObject({
   nextThinkTick: tick,
@@ -1230,36 +1246,6 @@ const snapshot = z.strictObject({
   volleyHits: z.record(z.string().regex(/^\d+$/), z.array(id).max(10000)),
   commands: z.array(command).max(10000),
 });
-function validAnimationTimeline(
-  timeline: AnimationTimeline | null,
-  durations: Readonly<Record<string, number>> | undefined,
-  at: number
-): boolean {
-  if (!!durations !== !!timeline) return false;
-  if (!timeline || !durations) return true;
-  const layers = [timeline.primary, ...(timeline.transition?.outgoing ?? [])];
-  const outgoing = timeline.transition?.outgoing ?? [];
-  return !(
-    timeline.tick > at ||
-    layers.some((layer) => {
-      if (!Object.hasOwn(durations, layer.clip) || layer.time > durations[layer.clip] + 1e-7)
-        return true;
-      const duration = durations[layer.clip];
-      const mappedTime =
-        layer.loop && duration > 0
-          ? layer.unclampedTime % duration
-          : Math.min(layer.unclampedTime, duration);
-      return Math.abs(layer.time - mappedTime) > 1e-7;
-    }) ||
-    new Set(outgoing.map((layer) => layer.clip)).size !== outgoing.length ||
-    outgoing.some((layer) => layer.clip === timeline.primary.clip) ||
-    outgoing.reduce((sum, layer) => sum + layer.weight, 0) > 1 + 1e-7 ||
-    (timeline.transition &&
-      (timeline.primary.cut ||
-        timeline.transition.startTick > timeline.tick ||
-        timeline.tick - 1 >= timeline.transition.startTick + ANIMATION_FADE_TICKS))
-  );
-}
 export function decodeSnapshot(text: string, battlefield: Battlefield) {
   if (text.length > 16 * 1024 * 1024) throw new Error('Saved match is too large.');
   let parsed: unknown;

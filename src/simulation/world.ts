@@ -3,7 +3,9 @@ import {
   contactGarenAttack,
   cancelGarenAttack,
   garenAttackExpiry,
+  advanceGarenAttackPoses,
 } from './garen-aa-presentation';
+import { capturePoseFrame } from './pose-history';
 import { advancePerseveranceVisual, stopPerseveranceVisual } from './garen-passive-visuals';
 import { advanceLuxEHits, recordLuxEHit } from './lux-e-hits';
 import { advanceLuxEAudio, newLuxEAudioHistory } from './lux-e-audio';
@@ -79,8 +81,6 @@ import {
 import type { JungleCampState } from './types';
 import type { BindingFlightStop } from './types';
 import { impactTargetRig } from '../content/impact-target';
-import { structurePose } from '../render/structure-pose';
-import { structureAnimationProfile } from '../content/structure-animation';
 import { mobilePose } from '../render/mobile-pose';
 import { mobileClipDurations } from '../content/mobile-clip-durations';
 import { advanceAnimationTimeline } from './animation-timeline';
@@ -2768,7 +2768,7 @@ export class World {
     reason: NonNullable<ChampionState['garenQVisuals'][number]['attacks'][number]['endReason']>
   ) {
     const state = this.championState(u.id);
-    if (state) cancelGarenAttack(state, u, this.tick);
+    if (state) cancelGarenAttack(state, u, this.tick, reason);
     const attack = this.garenQAttack(u);
     if (attack && attack.stopTick === null) {
       attack.stopTick = Math.min(this.tick, attack.endTick);
@@ -3586,27 +3586,10 @@ export class World {
     }
   }
   private captureImpactFrame(target: Unit) {
-    return {
-      tick: this.tick,
-      x: target.x,
-      y: target.y,
-      facing: target.facing,
-      animationTimeline: structuredClone(target.animationTimeline),
-      structurePose: isStructureKind(target.kind)
-        ? structurePose(
-            {
-              destroyed: !this.alive(target),
-              deathTick: target.deadAt,
-              idleStartTick: target.structureIdle!.startTick,
-            },
-            structureAnimationProfile(target),
-            this.tick,
-            1
-          )
-        : null,
-    };
+    return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceGarenAttackPoses(this);
     advanceLuxEHits(this);
     for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
       const target = this.unit(visual.targetId);
@@ -4397,7 +4380,7 @@ export class World {
           this.finishGarenE(state);
           this.finishGarenW(state, 'match-end');
           stopPerseveranceVisual(state, this.unit(state.id)!, this.tick);
-          cancelGarenAttack(state, this.unit(state.id)!, this.tick);
+          cancelGarenAttack(state, this.unit(state.id)!, this.tick, 'match-end');
           finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
           state.pendingCast = null;

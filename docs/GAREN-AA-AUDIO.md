@@ -148,3 +148,9 @@ failure log/trace are retained. A source assertion initially assumed Attack1's
 animation override existed. The corrected reader retains its absence and records
 the local default, rather than inserting a source field. No attack particles,
 voice assets or new Garen production-selection entry are claimed here.
+
+The later [basic-attack particle implementation](GAREN-AA-PARTICLES.md) adds
+twelve linked emitter adapters and schema-115 pose/visibility history. Audio
+retains its independent confirmed contacts and one-shot lifetime; a bound swing
+particle stop does not cancel an already accepted sound. Unlinked critical
+weapon dispatch and source distortion remain explicitly deferred.

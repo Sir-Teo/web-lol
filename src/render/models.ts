@@ -138,7 +138,7 @@ export async function loadReferenceModels(
   );
 }
 /** Sampler owns a private skeleton; loaded geometry, materials and clips stay shared. */
-export function createTargetPoseSampler(rig: ImpactRig): TargetPoseSampler {
+export function createTargetPoseSampler(rig: ImpactRig | 'sightward-base'): TargetPoseSampler {
   const reference = references.get(rig);
   if (!reference) throw new Error(`Model not loaded: ${rig}`);
   return new TargetPoseSampler(reference.scene, reference.clips);

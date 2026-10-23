@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,457 source/simulation/geometry/dependency/storage/audit checks across 265 files. Sixteen targeted Chrome scenarios and the production smoke pass for the first cohort fixes. The preceding harness increment passed 1,452 checks across 263 files. Eleven new fault-injection/observation checks protect the frozen match-cohort runner; the preceding offline increment passed 1,441 checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current standard validation passes 1,485 source/simulation/geometry/dependency/storage/audit checks across 269 files and three Node QA checks. The [Garen basic-attack particle increment](GAREN-AA-PARTICLES.md) passes thirteen targeted Chrome cases and production smoke; the complete browser suite was not repeated. The first cohort-fix increment passed 1,457 checks across 265 files. Sixteen targeted Chrome scenarios and the production smoke pass for the first cohort fixes. The preceding harness increment passed 1,452 checks across 263 files. Eleven new fault-injection/observation checks protect the frozen match-cohort runner; the preceding offline increment passed 1,441 checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -4248,3 +4248,46 @@ The original 100-seed corpus retains its older ruleset and 70/30 result. No new
 100-seed gate, complete six-character milestone or full-project completion is
 claimed. Remaining champion content, role quests/objectives, native comparison
 and full browser/offline/performance coverage remain required work.
+
+
+## Garen basic-swing and target particles — October 23, 2026
+
+The development fixture now renders twelve linked source emitters across both
+ordinary swings and normal/critical contacts. The frozen closure retains all
+fourteen definitions, nineteen lossless PNGs and three exact mesh packages.
+The unlinked critical weapon resource and critical scene-distortion layer stay
+deferred. Production selection remains Ashe/Lux; native Garen acceptance and the
+complete six-character milestone remain open.
+
+Schema 115 saves independent bound-swing stops, bounded caster poses and target
+pose/visibility history. Particle births and bound interpolation endpoints use
+their saved audience; later reveal cannot replay unseen births or follow hidden
+attachment frames. Hits freeze after death/removal independently of swing stops
+and audio. The source particle table is explicitly included in strict save
+compatibility. No gameplay RNG, IDs, melee damage or attack clocks were added.
+
+Canonical `npm run check` passes TypeScript, all 1,485 Vitest tests across 269
+files and three Node QA tests with default timeouts. The final thirteen Chrome
+cases cover five particle scenarios and eight existing audio cases. Every
+implemented layer contributes pixels; exact UI reload and real graphics recovery
+preserve buffers/framebuffer bytes, fog retires draws and victory drains tails
+without changing the winning save. Fifteen additional distinct Q/Lux attachment
+cases passed before the final Garen-only visibility/fingerprint changes; they
+are retained separately. The full browser suite was not repeated.
+
+Build and nested-host production smoke pass, retaining 32 source recordings and
+no development hook. Passive observation of 2,482 production requests sees no
+Garen AA pack request. Two ten-minute normal-rules smoke runs pass independent
+verification for 72,000 ticks, twenty strict round trips and eighteen restored
+futures. Their twenty minute checkpoints equal the pre-particle wave-advance
+pilot after excluding only schema/ruleset identity. These runs contain no Garen;
+no current hundred-seed, Garen full-match or full-project gate is claimed.
+
+All owned processes drained before later runtime edits. Source overlays,
+generated builds, reports and captures are archived. The initial critical item
+ID/pixel-read fixture mistakes, an attempted second swing before its normal
+cooldown and two long-test timeouts remain recorded. No combat clock, timeout,
+assertion or worker policy was weakened. Native orientation/bounds/stop/linger,
+the deferred layers, voices, remaining content and full-match browser/offline/
+performance acceptance remain required. See [attack particles](GAREN-AA-PARTICLES.md)
+and the [verification ledger](reference/garen-aa-particles-verification.json).

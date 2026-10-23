@@ -1,0 +1,2829 @@
+{
+  "scope": "Frozen fourteen-emitter closure and exact assets; source data is distinct from local timing/attachment/render policy.",
+  "definitions": {
+    "scope": "Static CDTB decoding of hash-verified existing cached Riot BINs only. No native client execution, no new downloads and no canonical asset/runtime/test writes.",
+    "sourcePins": [
+      {
+        "file": "docs/reference/garen-model.json",
+        "sha256": "192a7d7b696ed983b6bf25564a688ea3ac35dfdb5ff5b2a89d5eca285125cf71"
+      },
+      {
+        "file": ".cache/garen-particle-bins/discovered-p.json",
+        "sha256": "365bac9c368af632fac56ff146c3ca23e48880cb2184d0059f49d9ef1a382398"
+      },
+      {
+        "file": ".tools/cdtb/cdtb/binfile.py",
+        "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+      }
+    ],
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Garen.wad.client",
+    "checkedBinaries": [
+      {
+        "local": ".cache/garen-particle-bins/24b36b25156dc172.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin45_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "24b36b25156dc172",
+        "sha256": "8ad96b17cb488c90c67387b52b163120ae5f81777db4a5f8614b9fd5ae90b2c7",
+        "bytes": 6188
+      },
+      {
+        "local": ".cache/garen-particle-bins/ba0906db7a0c445d.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin45_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "ba0906db7a0c445d",
+        "sha256": "aac944fe5a8ef856d4d5ab393f8cf4c720e9fea03ee7d29502d449f267ddd3db",
+        "bytes": 351
+      },
+      {
+        "local": ".cache/garen-particle-bins/46626841531c2257.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin22_skins_skin23.bin",
+        "wadPathHash": "46626841531c2257",
+        "sha256": "12bee6380f97c6186bbdc635ec2b7f39833d676a9954b492bb23eb8291effe54",
+        "bytes": 1502
+      },
+      {
+        "local": ".cache/garen-particle-bins/b1707c885a56e913.bin",
+        "path": "data/characters/garen/garen_multi_skins_root_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin5_skins_skin50_skins_skin51_skins_skin52_skins_skin53_skins_skin54_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "b1707c885a56e913",
+        "sha256": "3d362087a6698374b78a49043111715f6da5ddb6b778fbb4aeb829531d396f0f",
+        "bytes": 3720
+      },
+      {
+        "local": ".cache/garen-particle-bins/a94b765c8ef7ab1e.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "a94b765c8ef7ab1e",
+        "sha256": "22b18bfa53c861467db65dc081362a8ceb585d6ae259826fc0909aee3c51be19",
+        "bytes": 10299
+      },
+      {
+        "local": ".cache/garen-particle-bins/c0432b1d9d24e6c1.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "c0432b1d9d24e6c1",
+        "sha256": "8f3c1b58deda14f8a156547869fa8b8b58455ea82d9ccc6a8d5b02059c9cfb30",
+        "bytes": 1744
+      },
+      {
+        "local": ".cache/garen-particle-bins/7fb83b948d1dc476.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin2_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "7fb83b948d1dc476",
+        "sha256": "cede8a2484f5e393b247aa7fce1f1fbeb597c959d355866ceb441bfd61a27c90",
+        "bytes": 2519
+      },
+      {
+        "local": ".cache/garen-particle-bins/6056fea9b7ce7b77.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin2_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "6056fea9b7ce7b77",
+        "sha256": "ec18fa43059dbeae12a0dc574cb4abb2e5f7661aa81e50063b117f9253fcda3a",
+        "bytes": 1475
+      },
+      {
+        "local": ".cache/garen-particle-bins/7169fcecc78c4f37.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "7169fcecc78c4f37",
+        "sha256": "8575070a37d4be7787135c0b9b82b0548135ac2187b40bb724e0dc334dd57d92",
+        "bytes": 130
+      },
+      {
+        "local": ".cache/garen-particle-bins/fde2916b9089b955.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "fde2916b9089b955",
+        "sha256": "66e2dc46cf2389ef70d5c0339a35025aba40c798127636c8573350d7cb90f02a",
+        "bytes": 5860
+      },
+      {
+        "local": ".cache/garen-particle-bins/156f4fe1214e688b.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "156f4fe1214e688b",
+        "sha256": "3c6827b85ed905ea24c2a67ff153c87402ace66b2f6792e9bada0b04ef20ec70",
+        "bytes": 1710
+      },
+      {
+        "local": ".cache/garen-particle-bins/23c07f3fbda52a4f.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "23c07f3fbda52a4f",
+        "sha256": "cc68e8ba956b413e395cb144e504d0d9b70eb1228808ccf99399dd061cbfad4c",
+        "bytes": 1931
+      },
+      {
+        "local": ".cache/garen-particle-bins/9c285becf89eec2a.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "9c285becf89eec2a",
+        "sha256": "d1f4f64787b49920f8bd57b73563f4235745d4282ab3ab9cb2a91095be8477d0",
+        "bytes": 10178
+      },
+      {
+        "local": ".cache/garen-particle-bins/46c7ffc2ba09d8f2.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin22_skins_skin3_skins_skin4_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "46c7ffc2ba09d8f2",
+        "sha256": "1a33166e9135f9b9cbe880cc98cd4edd781e368f282f2cf921c31a5b9dffe029",
+        "bytes": 2582
+      },
+      {
+        "local": ".cache/garen-particle-bins/e23547d07cfc8773.bin",
+        "path": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "wadPathHash": "e23547d07cfc8773",
+        "sha256": "c184262c26d753727516a4f11f2843777046d59e727e99401454ca73a83011da",
+        "bytes": 87279
+      }
+    ],
+    "resources": {
+      "Garen_AA_Sword_Swipe_Front": {
+        "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin22_skins_skin23.bin",
+        "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Sword_Swipe_Front",
+        "definition": {
+          "complexEmitterDefinitionData": [
+            {
+              "rate": {
+                "constantValue": 2.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.41999998688697815,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.420000076293945,
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "swipe_front_base",
+              "birthVelocity": {
+                "constantValue": [
+                  0.0,
+                  0.0,
+                  60.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  0.0,
+                  130.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "primitive": {
+                "__type": "VfxPrimitiveArbitraryQuad"
+              },
+              "blendMode": 4,
+              "Color": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.10000000149011612,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedColorVariableData"
+                },
+                "__type": "ValueColor"
+              },
+              "pass": 100,
+              "miscRenderFlags": 1,
+              "particleIsLocalOrientation": 1,
+              "birthRotation0": {
+                "constantValue": [
+                  0.0,
+                  90.0,
+                  90.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  87.0,
+                  53.0,
+                  1.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Z_Sword_Swipe_Front.tex",
+              "birthUvScrollRate": {
+                "constantValue": [
+                  1.0,
+                  0.0
+                ],
+                "__type": "ValueVector2"
+              },
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 2.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.5,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.5,
+              "lifetime": 0.10000000149011612,
+              "emitterName": "glow",
+              "birthVelocity": {
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        1.0,
+                        1.2999999523162842
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  0.0,
+                  130.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_12.tex",
+              "blendMode": 4,
+              "Color": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.10000000149011612,
+                    0.5,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      0.0,
+                      0.20000000298023224,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedColorVariableData"
+                },
+                "__type": "ValueColor"
+              },
+              "miscRenderFlags": 1,
+              "particleIsLocalOrientation": 1,
+              "birthRotation0": {
+                "constantValue": [
+                  0.0,
+                  90.0,
+                  90.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  170.0,
+                  70.0,
+                  20.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.15000000596046448,
+                    0.4000000059604645,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      0.800000011920929,
+                      0.699999988079071,
+                      0.5
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_W_Ground_Glow.tex",
+              "__type": "VfxEmitterDefinitionData"
+            }
+          ],
+          "particleName": "Garen_Base_AA_Sword_Swipe_Front",
+          "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Sword_Swipe_Front",
+          "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Sword_Swipe_Front",
+          "__type": "VfxSystemDefinitionData"
+        }
+      },
+      "Garen_AA_Crit": {
+        "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Crit",
+        "definition": {
+          "complexEmitterDefinitionData": [
+            {
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.30000001192092896,
+                "__type": "ValueFloat"
+              },
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "WeaponTrail",
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  0.0,
+                  0.0,
+                  -40.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "primitive": {
+                "mMesh": {
+                  "mSimpleMeshName": "ASSETS/Particles/Hecarim_WeaponTrail_1.scb",
+                  "__type": "VfxMeshDefinitionData"
+                },
+                "__type": "VfxPrimitiveMesh"
+              },
+              "particleColorTexture": "ASSETS/Particles/color-rampdown.tex",
+              "disableBackfaceCull": true,
+              "birthRotation0": {
+                "constantValue": [
+                  10.0,
+                  30.0,
+                  -80.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  2.0999999046325684,
+                  0.699999988079071,
+                  0.699999988079071
+                ],
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Q_Wpn_Trail.tex",
+              "birthUvScrollRate": {
+                "constantValue": [
+                  -2.0,
+                  0.0
+                ],
+                "__type": "ValueVector2"
+              },
+              "__type": "VfxEmitterDefinitionData"
+            }
+          ],
+          "particleName": "Garen_Base_AA_Crit",
+          "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Crit",
+          "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Crit",
+          "__type": "VfxSystemDefinitionData"
+        }
+      },
+      "Garen_AA_Atk_01": {
+        "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_01",
+        "definition": {
+          "complexEmitterDefinitionData": [
+            {
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.2199999988079071,
+                "__type": "ValueFloat"
+              },
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "WeaponTrail",
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  -30.0,
+                  180.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "primitive": {
+                "mMesh": {
+                  "mSimpleMeshName": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Hecarim_WeaponTrail_1.scb",
+                  "__type": "VfxMeshDefinitionData"
+                },
+                "__type": "VfxPrimitiveMesh"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_color-rampdown.tex",
+              "blendMode": 4,
+              "Color": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.30000001192092896,
+                    0.699999988079071,
+                    0.949999988079071
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.5
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedColorVariableData"
+                },
+                "__type": "ValueColor"
+              },
+              "disableBackfaceCull": true,
+              "birthRotation0": {
+                "constantValue": [
+                  -50.0,
+                  10.0,
+                  -10.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  1.0,
+                  1.399999976158142,
+                  1.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_AA_Wpn_Trail.tex",
+              "birthUvScrollRate": {
+                "constantValue": [
+                  -1.600000023841858,
+                  0.0
+                ],
+                "__type": "ValueVector2"
+              },
+              "__type": "VfxEmitterDefinitionData"
+            }
+          ],
+          "particleName": "Garen_Base_AA_Atk_01",
+          "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_01",
+          "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_01",
+          "__type": "VfxSystemDefinitionData"
+        }
+      },
+      "Garen_AA_Atk_02": {
+        "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_02",
+        "definition": {
+          "complexEmitterDefinitionData": [
+            {
+              "timeBeforeFirstEmission": 0.05000000074505806,
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.46000000834465027,
+                "__type": "ValueFloat"
+              },
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "WeaponTrail",
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  -20.0,
+                  80.0,
+                  -90.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "primitive": {
+                "mMesh": {
+                  "mSimpleMeshName": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Hecarim_WeaponTrail_1.scb",
+                  "__type": "VfxMeshDefinitionData"
+                },
+                "__type": "VfxPrimitiveMesh"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_color-rampdown.tex",
+              "Color": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.30000001192092896,
+                    0.5,
+                    0.949999988079071
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedColorVariableData"
+                },
+                "__type": "ValueColor"
+              },
+              "disableBackfaceCull": true,
+              "birthRotation0": {
+                "constantValue": [
+                  0.0,
+                  -60.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_AA_Wpn_Trail.tex",
+              "birthUvScrollRate": {
+                "constantValue": [
+                  1.7999999523162842,
+                  0.0
+                ],
+                "__type": "ValueVector2"
+              },
+              "__type": "VfxEmitterDefinitionData"
+            }
+          ],
+          "particleName": "Garen_Base_AA_Atk_02",
+          "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_02",
+          "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Atk_02",
+          "__type": "VfxSystemDefinitionData"
+        }
+      },
+      "Garen_AA_Tar": {
+        "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Tar",
+        "definition": {
+          "complexEmitterDefinitionData": [
+            {
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.20000000298023224,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.199999809265137,
+              "lifetime": 0.20000000298023224,
+              "emitterName": "slash",
+              "birthVelocity": {
+                "constantValue": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        50.0,
+                        -50.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "SpawnShape": {
+                "emitOffset": [
+                  0.0,
+                  10.0,
+                  0.0
+                ],
+                "__type": "{ee39916f}"
+              },
+              "Color": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.20000000298023224,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      0.30000001192092896,
+                      0.0,
+                      0.10000000149011612,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedColorVariableData"
+                },
+                "__type": "ValueColor"
+              },
+              "pass": 100,
+              "miscRenderFlags": 1,
+              "birthRotation0": {
+                "constantValue": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        -40.0,
+                        40.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "isLocalOrientation": 0,
+              "birthScale0": {
+                "constantValue": [
+                  25.0,
+                  25.0,
+                  25.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.8500000238418579,
+                        1.25
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.8500000238418579,
+                        1.25
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      25.0,
+                      25.0,
+                      25.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.10000000149011612,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      0.5,
+                      0.5,
+                      0.5
+                    ],
+                    [
+                      4.0,
+                      4.0,
+                      4.0
+                    ],
+                    [
+                      8.0,
+                      8.0,
+                      8.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_AA_slash.tex",
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 350.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.30000001192092896,
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.5,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    0.30000001192092896
+                  ],
+                  "__type": "VfxAnimatedFloatVariableData"
+                },
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 1.0,
+              "lifetime": 0.10000000149011612,
+              "emitterLinger": 1.0,
+              "emitterName": "sparks",
+              "birthVelocity": {
+                "constantValue": [
+                  4.0,
+                  4.0,
+                  4.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        50.0,
+                        -50.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        100.0,
+                        0.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        200.0,
+                        0.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      4.0,
+                      4.0,
+                      4.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "birthDrag": {
+                "constantValue": [
+                  1.0,
+                  1.0,
+                  2.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "worldAcceleration": {
+                "constantValue": [
+                  0.0,
+                  -600.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      0.0,
+                      -600.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "IntegratedValueVector3"
+              },
+              "SpawnShape": {
+                "emitOffset": [
+                  0.0,
+                  -30.0,
+                  0.0
+                ],
+                "__type": "{ee39916f}"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        15.0,
+                        -15.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        15.0,
+                        -15.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.0,
+                        15.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_color-sparkspeed.tex",
+              "colorLookUpTypeY": 3,
+              "isDirectionOriented": 1,
+              "isRandomStartFrame": 1,
+              "isLocalOrientation": 0,
+              "directionVelocityScale": 0.00800000037997961,
+              "directionVelocityMinScale": 1.2999999523162842,
+              "birthScale0": {
+                "constantValue": [
+                  2.0,
+                  6.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.5,
+                        3.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      2.0,
+                      6.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Sparks-Orange.tex",
+              "texDiv": [
+                2.0,
+                2.0
+              ],
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 5.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.30000001192092896,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.300000190734863,
+              "lifetime": 0.10000000149011612,
+              "emitterName": "flash",
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  0.0,
+                  20.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "primitive": {
+                "__type": "VfxPrimitiveArbitraryQuad"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_12.tex",
+              "birthRotation0": {
+                "constantValue": [
+                  1.0,
+                  1.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0
+                      ],
+                      "keyValues": [
+                        90.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        1.0,
+                        360.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "birthRotationalVelocity0": {
+                "constantValue": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        -10.0,
+                        10.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      -1.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "isLocalOrientation": 0,
+              "birthScale0": {
+                "constantValue": [
+                  240.0,
+                  240.0,
+                  185.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Q_Hit_Flash.tex",
+              "__type": "VfxEmitterDefinitionData"
+            }
+          ],
+          "particleName": "Garen_Base_AA_Tar",
+          "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Tar",
+          "flags": 198,
+          "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Tar",
+          "__type": "VfxSystemDefinitionData"
+        }
+      },
+      "Garen_Crit_Tar": {
+        "sourceBin": "data/characters/garen/garen_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin7_skins_skin8_skins_skin9.bin",
+        "record": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Crit_Tar",
+        "definition": {
+          "complexEmitterDefinitionData": [
+            {
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.25,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.25,
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "SIDEWALL",
+              "birthVelocity": {
+                "constantValue": [
+                  0.0,
+                  0.0,
+                  220.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "SpawnShape": {
+                "emitOffset": [
+                  0.0,
+                  30.0,
+                  -40.0
+                ],
+                "__type": "{ee39916f}"
+              },
+              "primitive": {
+                "mMesh": {
+                  "mSimpleMeshName": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Q_Sidewall.scb",
+                  "__type": "VfxMeshDefinitionData"
+                },
+                "__type": "VfxPrimitiveMesh"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_12.tex",
+              "disableBackfaceCull": true,
+              "birthRotation0": {
+                "constantValue": [
+                  90.0,
+                  0.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  36.0,
+                  35.0,
+                  36.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.5,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      36.0,
+                      35.0,
+                      36.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      3.0,
+                      1.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_E_Spin_Edge.tex",
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.30000001192092896,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.300000190734863,
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "Up_Impact",
+              "EmitterPosition": {
+                "constantValue": [
+                  0.0,
+                  10.0,
+                  -60.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "primitive": {
+                "__type": "VfxPrimitiveRay"
+              },
+              "Color": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.10000000149011612,
+                    0.30000001192092896,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedColorVariableData"
+                },
+                "__type": "ValueColor"
+              },
+              "pass": -13,
+              "isDirectionOriented": 1,
+              "birthRotation0": {
+                "constantValue": [
+                  0.0,
+                  0.0,
+                  90.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  30.0,
+                  100.0,
+                  30.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.10000000149011612,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      3.0,
+                      3.0,
+                      0.0
+                    ],
+                    [
+                      4.0,
+                      4.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Q_Tar_Impact.tex",
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.23999999463558197,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.239999771118164,
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "shockwave",
+              "birthVelocity": {
+                "constantValue": [
+                  0.0,
+                  0.0,
+                  230.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "SpawnShape": {
+                "emitOffset": [
+                  0.0,
+                  30.0,
+                  10.0
+                ],
+                "__type": "{ee39916f}"
+              },
+              "primitive": {
+                "mMesh": {
+                  "mSimpleMeshName": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_ezreal_pulsefire_muzzle_cone.scb",
+                  "__type": "VfxMeshDefinitionData"
+                },
+                "__type": "VfxPrimitiveMesh"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_12.tex",
+              "disableBackfaceCull": true,
+              "birthRotation0": {
+                "constantValue": [
+                  90.0,
+                  0.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  14.0,
+                  22.0,
+                  14.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.5,
+                      2.5,
+                      1.5
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Q_Tar_Ring.tex",
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 40.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.30000001192092896,
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        0.5,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.5,
+                        0.5,
+                        2.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    0.30000001192092896
+                  ],
+                  "__type": "VfxAnimatedFloatVariableData"
+                },
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.300000190734863,
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "vecalign_sparks",
+              "birthVelocity": {
+                "constantValue": [
+                  200.0,
+                  800.0,
+                  -1100.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.5,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        -1.0,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        -0.5,
+                        -1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      200.0,
+                      800.0,
+                      -1100.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "birthDrag": {
+                "constantValue": [
+                  4.0,
+                  4.0,
+                  4.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "worldAcceleration": {
+                "constantValue": [
+                  0.0,
+                  -100.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      0.0,
+                      -100.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "IntegratedValueVector3"
+              },
+              "FlexShapeDefinition": {
+                "scaleBirthScaleByBoundObjectSize": 0.004999999888241291,
+                "__type": "VfxFlexShapeDefinitionData"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base__Z_Slash_Sparks_Colormap.tex",
+              "blendMode": 1,
+              "Color": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.20000000298023224,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedColorVariableData"
+                },
+                "__type": "ValueColor"
+              },
+              "pass": 50,
+              "colorLookUpTypeX": 3,
+              "colorLookUpTypeY": 3,
+              "isDirectionOriented": 1,
+              "isRandomStartFrame": 1,
+              "directionVelocityScale": 0.00800000037997961,
+              "directionVelocityMinScale": 1.2999999523162842,
+              "birthScale0": {
+                "constantValue": [
+                  6.0,
+                  17.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        1.0,
+                        2.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      6.0,
+                      17.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "times": [
+                    0.0,
+                    0.5,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      1.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Z_Slash_Sparks.tex",
+              "numFrames": 4,
+              "texDiv": [
+                2.0,
+                2.0
+              ],
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.20000000298023224,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.199999809265137,
+              "lifetime": 1.0,
+              "isSingleParticle": 1,
+              "emitterName": "dist",
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  0.0,
+                  20.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "primitive": {
+                "__type": "VfxPrimitiveArbitraryQuad"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_color-bellcurve32.tex",
+              "blendMode": 1,
+              "colorLookUpScales": [
+                0.699999988079071,
+                1.0
+              ],
+              "colorLookUpOffsets": [
+                0.30000001192092896,
+                0.0
+              ],
+              "distortionDefinition": {
+                "distortion": 0.054999999701976776,
+                "distortionMode": 2,
+                "normalMapTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_distort-wave.tex",
+                "__type": "VfxDistortionDefinitionData"
+              },
+              "isLocalOrientation": 0,
+              "birthScale0": {
+                "constantValue": [
+                  100.0,
+                  0.0,
+                  0.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Aura_Self_02.tex",
+              "__type": "VfxEmitterDefinitionData"
+            },
+            {
+              "rate": {
+                "constantValue": 5.0,
+                "__type": "ValueFloat"
+              },
+              "particleLifetime": {
+                "constantValue": 0.30000001192092896,
+                "__type": "ValueFloat"
+              },
+              "particleLinger": 10.0,
+              "lifetime": 0.10000000149011612,
+              "emitterName": "flash",
+              "bindWeight": {
+                "constantValue": 1.0,
+                "__type": "ValueFloat"
+              },
+              "EmitterPosition": {
+                "constantValue": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "particleColorTexture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_alpha_12.tex",
+              "meshRenderFlags": 0,
+              "isUniformScale": 1,
+              "birthRotation0": {
+                "constantValue": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.0,
+                        360.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "birthRotationalVelocity0": {
+                "constantValue": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        -10.0,
+                        10.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      -1.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "birthScale0": {
+                "constantValue": [
+                  190.0,
+                  190.0,
+                  190.0
+                ],
+                "__type": "ValueVector3"
+              },
+              "scale0": {
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0,
+                    1.0
+                  ],
+                  "values": [
+                    [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "texture": "ASSETS/Characters/Garen/Skins/Base/Particles/Garen_Base_Q_Hit_Flash.tex",
+              "__type": "VfxEmitterDefinitionData"
+            }
+          ],
+          "particleName": "Garen_Base_Crit_Tar",
+          "particlePath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Crit_Tar",
+          "flags": 198,
+          "objectPath": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Crit_Tar",
+          "__type": "VfxSystemDefinitionData"
+        }
+      }
+    }
+  },
+  "graphEvents": {
+    "Attack1": {
+      "tickDuration": 0.03333299979567528,
+      "events": {
+        "{1deac818}": {
+          "mName": "{1deac818}",
+          "mStartFrame": 6.0,
+          "mEffectKey": "Garen_AA_Atk_01",
+          "mParticleEventDataPairList": [
+            {
+              "mBoneName": "C_Buffbone_Glb_Center_Loc",
+              "__type": "ParticleEventDataPair"
+            }
+          ],
+          "mIsLoop": false,
+          "__type": "ParticleEventData"
+        },
+        "{3f100237}": {
+          "mName": "{3f100237}",
+          "mStartFrame": 5.0,
+          "mEffectKey": "Garen_AA_Sword_Swipe_Front",
+          "mParticleEventDataPairList": [
+            {
+              "mBoneName": "weapon",
+              "__type": "ParticleEventDataPair"
+            }
+          ],
+          "mIsLoop": false,
+          "mIsKillEvent": false,
+          "__type": "ParticleEventData"
+        }
+      }
+    },
+    "Attack2": {
+      "tickDuration": 0.03333299979567528,
+      "events": {
+        "{20eaccd1}": {
+          "mName": "{20eaccd1}",
+          "mStartFrame": 7.0,
+          "mEffectKey": "Garen_AA_Atk_02",
+          "mParticleEventDataPairList": [
+            {
+              "mBoneName": "C_Buffbone_Glb_Center_Loc",
+              "__type": "ParticleEventDataPair"
+            }
+          ],
+          "mIsLoop": false,
+          "__type": "ParticleEventData"
+        },
+        "{3f100237}": {
+          "mName": "{3f100237}",
+          "mStartFrame": 5.0,
+          "mEffectKey": "Garen_AA_Sword_Swipe_Front",
+          "mParticleEventDataPairList": [
+            {
+              "mBoneName": "weapon",
+              "__type": "ParticleEventDataPair"
+            }
+          ],
+          "mIsLoop": false,
+          "mIsKillEvent": false,
+          "__type": "ParticleEventData"
+        }
+      }
+    },
+    "Crit": {
+      "tickDuration": 0.03333299979567528,
+      "events": {}
+    }
+  },
+  "spellHitEffects": [
+    {
+      "record": "Characters/Garen/Spells/GarenBasicAttack",
+      "enabled": true,
+      "key": "Garen_AA_Tar",
+      "resource": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Tar",
+      "boneEnabled": true,
+      "bone": "C_BUFFBONE_GLB_CHEST_LOC",
+      "orientationType": 2
+    },
+    {
+      "record": "Characters/Garen/Spells/GarenBasicAttack2",
+      "enabled": true,
+      "key": "Garen_AA_Tar",
+      "resource": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_AA_Tar",
+      "boneEnabled": true,
+      "bone": "C_BUFFBONE_GLB_CHEST_LOC",
+      "orientationType": 2
+    },
+    {
+      "record": "Characters/Garen/Spells/GarenCritAttack",
+      "enabled": true,
+      "key": "Garen_Crit_Tar",
+      "resource": "Characters/Garen/Skins/Skin0/Particles/Garen_Base_Crit_Tar",
+      "boneEnabled": true,
+      "bone": "C_BUFFBONE_GLB_CHEST_LOC",
+      "orientationType": 2
+    }
+  ],
+  "assets": [
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_alpha_12.tex",
+        "wadPathHash": "4f7f814f07e1db5c",
+        "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b",
+        "bytes": 10948
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_alpha_12.tex",
+          "wadPathHash": "4f7f814f07e1db5c",
+          "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b",
+          "bytes": 10948
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/4f7f814f07e1db5c.png",
+        "width": 128,
+        "height": 128,
+        "bytes": 2299,
+        "sha256": "a111485a4415036eb83f76743db272ccfb6a5dd7c6bcd09ca089ee9d89cea54f",
+        "rgbaSha256": "3be55ea512eb94adbfaf7307c201cbd4457b1ba906838572296a8b458f01c31b"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_alpha_12.png",
+        "bytes": 2299,
+        "sha256": "a111485a4415036eb83f76743db272ccfb6a5dd7c6bcd09ca089ee9d89cea54f"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_aura_self_02.tex",
+        "wadPathHash": "fe109fd48ed3cc3d",
+        "sha256": "cb6dd0c86a70c2be4cb8e24732796c728fd4469b79302b0781e4ac4f9a42b4a0",
+        "bytes": 21884
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_aura_self_02.tex",
+          "wadPathHash": "fe109fd48ed3cc3d",
+          "sha256": "cb6dd0c86a70c2be4cb8e24732796c728fd4469b79302b0781e4ac4f9a42b4a0",
+          "bytes": 21884
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/fe109fd48ed3cc3d.png",
+        "width": 128,
+        "height": 128,
+        "bytes": 4581,
+        "sha256": "95e3a07dae99c4b2f651615dafb8555718eab1ef7c53b38d971b89ea5ccf5a3b",
+        "rgbaSha256": "e66cb5cde78227937b25d65b55c4347d1dc5763a0419dd8d3d973da52ec794f4"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_aura_self_02.png",
+        "bytes": 4581,
+        "sha256": "95e3a07dae99c4b2f651615dafb8555718eab1ef7c53b38d971b89ea5ccf5a3b"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base__z_slash_sparks_colormap.tex",
+        "wadPathHash": "3b229b42d43c1824",
+        "sha256": "4cacce1545c3a03e22bcc6e7004391889872542c4a1e7ccb97a503ccb9e4b426",
+        "bytes": 68
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base__z_slash_sparks_colormap.tex",
+          "wadPathHash": "3b229b42d43c1824",
+          "sha256": "4cacce1545c3a03e22bcc6e7004391889872542c4a1e7ccb97a503ccb9e4b426",
+          "bytes": 68
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/3b229b42d43c1824.png",
+        "width": 8,
+        "height": 8,
+        "bytes": 154,
+        "sha256": "a57b3d8288f81db9b10d15aa063c46bae7c6d6f95d940207b7a6a34451aa057f",
+        "rgbaSha256": "79c0eab62af8d42d5d7e7dbacac8f674268d75af513fa4d7b64fd9ad14de3c4a"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base__z_slash_sparks_colormap.png",
+        "bytes": 154,
+        "sha256": "a57b3d8288f81db9b10d15aa063c46bae7c6d6f95d940207b7a6a34451aa057f"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_aa_slash.tex",
+        "wadPathHash": "149901c7a6aaee6b",
+        "sha256": "ffac679421171d16f4ad7892bb07e1d7500445ab5aac5142266a4d63e31b4ab4",
+        "bytes": 43740
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_aa_slash.tex",
+          "wadPathHash": "149901c7a6aaee6b",
+          "sha256": "ffac679421171d16f4ad7892bb07e1d7500445ab5aac5142266a4d63e31b4ab4",
+          "bytes": 43740
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/149901c7a6aaee6b.png",
+        "width": 256,
+        "height": 128,
+        "bytes": 3153,
+        "sha256": "44a5460ae297a67b1f9663e8f702d7c708347a36899b101174d26fcaee3eda39",
+        "rgbaSha256": "e2269755943475d6746ff3e76a57683bd60c7a3b5748f51d5cb3922fc3fc1a8c"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_aa_slash.png",
+        "bytes": 3153,
+        "sha256": "44a5460ae297a67b1f9663e8f702d7c708347a36899b101174d26fcaee3eda39"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_aa_wpn_trail.tex",
+        "wadPathHash": "a64bbd978b022392",
+        "sha256": "c141226bb83671df549dfb2bcb9c3392678aa8e2e0895c616f89ea9d2ddf10e4",
+        "bytes": 21884
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_aa_wpn_trail.tex",
+          "wadPathHash": "a64bbd978b022392",
+          "sha256": "c141226bb83671df549dfb2bcb9c3392678aa8e2e0895c616f89ea9d2ddf10e4",
+          "bytes": 21884
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/a64bbd978b022392.png",
+        "width": 128,
+        "height": 128,
+        "bytes": 2335,
+        "sha256": "1eb18fad3277ce1fdb71f531357935f5ec072a6245c5be831d727f82066c2775",
+        "rgbaSha256": "a82d182d86d87545a1b92827b357051b0fc35914a42bb002ceb92055a55f5f39"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_aa_wpn_trail.png",
+        "bytes": 2335,
+        "sha256": "1eb18fad3277ce1fdb71f531357935f5ec072a6245c5be831d727f82066c2775"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_e_spin_edge.tex",
+        "wadPathHash": "48cedfeeda81043a",
+        "sha256": "522d4bae335281f2e1af48adc9bdc5dcb84b1efe762d902a3e649db1631c2017",
+        "bytes": 174812
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_e_spin_edge.tex",
+          "wadPathHash": "48cedfeeda81043a",
+          "sha256": "522d4bae335281f2e1af48adc9bdc5dcb84b1efe762d902a3e649db1631c2017",
+          "bytes": 174812
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/48cedfeeda81043a.png",
+        "width": 512,
+        "height": 256,
+        "bytes": 33246,
+        "sha256": "3dcc3da4d80432efb811719be1e977f7fc52966d53f329358aa17a400c1c5ba5",
+        "rgbaSha256": "2170f948b033ca3fc9f22927c451440f1e051b45a910e0cced8052dd9067c8b3"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_e_spin_edge.png",
+        "bytes": 33246,
+        "sha256": "3dcc3da4d80432efb811719be1e977f7fc52966d53f329358aa17a400c1c5ba5"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_hit_flash.tex",
+        "wadPathHash": "9f0e30d2772d29aa",
+        "sha256": "cc54f304f75733aabdbdc08a8988d833995534b468b94944f981d14b05a6c62a",
+        "bytes": 43716
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_q_hit_flash.tex",
+          "wadPathHash": "9f0e30d2772d29aa",
+          "sha256": "cc54f304f75733aabdbdc08a8988d833995534b468b94944f981d14b05a6c62a",
+          "bytes": 43716
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/9f0e30d2772d29aa.png",
+        "width": 256,
+        "height": 256,
+        "bytes": 23685,
+        "sha256": "28e5fd867782fb342ed5eb0bbef4295cb574a229f7d39961fc388215ad67286d",
+        "rgbaSha256": "072d5a26b1066cd3149db397b8aec560174c8b142085c4c86d6984196fead64b"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_q_hit_flash.png",
+        "bytes": 23685,
+        "sha256": "28e5fd867782fb342ed5eb0bbef4295cb574a229f7d39961fc388215ad67286d"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_tar_impact.tex",
+        "wadPathHash": "5df525b7ff791dca",
+        "sha256": "f2a92eb19d53c80d392266ad49bbd797ac620aa8c738779343e6b3fde02252f3",
+        "bytes": 174812
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_q_tar_impact.tex",
+          "wadPathHash": "5df525b7ff791dca",
+          "sha256": "f2a92eb19d53c80d392266ad49bbd797ac620aa8c738779343e6b3fde02252f3",
+          "bytes": 174812
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/5df525b7ff791dca.png",
+        "width": 256,
+        "height": 512,
+        "bytes": 45949,
+        "sha256": "5e0fe64242a29add98ac727ab5a34aac657845266cc1f1b44d618e86658da9fc",
+        "rgbaSha256": "dcf109e70cacd30209f68868fd3f966f6d0fa920333cfb6904da1eeb24622785"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_q_tar_impact.png",
+        "bytes": 45949,
+        "sha256": "5e0fe64242a29add98ac727ab5a34aac657845266cc1f1b44d618e86658da9fc"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_tar_ring.tex",
+        "wadPathHash": "f3e9b8a2d5bd1a75",
+        "sha256": "c3364d47d98c1b62459e2c6cf086057d2389d2beff5305cf23296071106925de",
+        "bytes": 349564
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_q_tar_ring.tex",
+          "wadPathHash": "f3e9b8a2d5bd1a75",
+          "sha256": "c3364d47d98c1b62459e2c6cf086057d2389d2beff5305cf23296071106925de",
+          "bytes": 349564
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/f3e9b8a2d5bd1a75.png",
+        "width": 512,
+        "height": 512,
+        "bytes": 75229,
+        "sha256": "f5e7aff1c43d4416ce0f30a5c651398bdbd547ab8c48fa2638c23b8fdd21217a",
+        "rgbaSha256": "1ec803d9d393ffa79d183617c9cc6ed292028118ed81c719ccc4e2712573f304"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_q_tar_ring.png",
+        "bytes": 75229,
+        "sha256": "f5e7aff1c43d4416ce0f30a5c651398bdbd547ab8c48fa2638c23b8fdd21217a"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_q_wpn_trail.tex",
+        "wadPathHash": "690473a9430a1578",
+        "sha256": "a60376b33914476d9e50b43639446df6bbb6c94d524014879814070f9a64b4f0",
+        "bytes": 43716
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_q_wpn_trail.tex",
+          "wadPathHash": "690473a9430a1578",
+          "sha256": "a60376b33914476d9e50b43639446df6bbb6c94d524014879814070f9a64b4f0",
+          "bytes": 43716
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/690473a9430a1578.png",
+        "width": 256,
+        "height": 256,
+        "bytes": 5324,
+        "sha256": "e0e5dd7996aa4190b0b8e01c8cf3dad6c77481c7f7904194b2f34beb3d6a56c8",
+        "rgbaSha256": "a3387bc3cce2e95dfd57c57effa22f8edb2494df04ce2a016ea7b920a346a350"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_q_wpn_trail.png",
+        "bytes": 5324,
+        "sha256": "e0e5dd7996aa4190b0b8e01c8cf3dad6c77481c7f7904194b2f34beb3d6a56c8"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_w_ground_glow.tex",
+        "wadPathHash": "8296782e14ae13dc",
+        "sha256": "2925f5b43af40fcaeea6788bbef0a5966f10c22b67ce4594d2177e2592982d28",
+        "bytes": 43716
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_w_ground_glow.tex",
+          "wadPathHash": "8296782e14ae13dc",
+          "sha256": "2925f5b43af40fcaeea6788bbef0a5966f10c22b67ce4594d2177e2592982d28",
+          "bytes": 43716
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/8296782e14ae13dc.png",
+        "width": 256,
+        "height": 256,
+        "bytes": 11365,
+        "sha256": "39b4595fac6147e7abd925dce09a241b319b73712cd22da26a33c9ec54b921f2",
+        "rgbaSha256": "7afab85984dca7625b8a81cf24cfb8c26ae1e8d131fbf1e382eb9b5a19844344"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_w_ground_glow.png",
+        "bytes": 11365,
+        "sha256": "39b4595fac6147e7abd925dce09a241b319b73712cd22da26a33c9ec54b921f2"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_z_slash_sparks.tex",
+        "wadPathHash": "d4f32d75a5ae6ce8",
+        "sha256": "3359e0f9a39c2ca36603d307b9ca099599d621d91020c552bac70a44c18e96d5",
+        "bytes": 87420
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_z_slash_sparks.tex",
+          "wadPathHash": "d4f32d75a5ae6ce8",
+          "sha256": "3359e0f9a39c2ca36603d307b9ca099599d621d91020c552bac70a44c18e96d5",
+          "bytes": 87420
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/d4f32d75a5ae6ce8.png",
+        "width": 256,
+        "height": 256,
+        "bytes": 41238,
+        "sha256": "ae7aafa09c0d2f57cc68c1c30d15ca549cd12d988182bec3e448f119f1480441",
+        "rgbaSha256": "ba0b062f9df6c675fd72170361a6117f8cec8eeb03059d2f6b29fa7313e8dfb9"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_z_slash_sparks.png",
+        "bytes": 41238,
+        "sha256": "ae7aafa09c0d2f57cc68c1c30d15ca549cd12d988182bec3e448f119f1480441"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_base_z_sword_swipe_front.tex",
+        "wadPathHash": "f8ffb28e5a7eb4c2",
+        "sha256": "4d9da3e0ce5caeca55b434bf1130624c0f97ada5a9bbea3f8c439a1b6de3bac3",
+        "bytes": 174812
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_base_z_sword_swipe_front.tex",
+          "wadPathHash": "f8ffb28e5a7eb4c2",
+          "sha256": "4d9da3e0ce5caeca55b434bf1130624c0f97ada5a9bbea3f8c439a1b6de3bac3",
+          "bytes": 174812
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/f8ffb28e5a7eb4c2.png",
+        "width": 256,
+        "height": 512,
+        "bytes": 100517,
+        "sha256": "22339f7f0ee89d2b367edd5f3dd1c38ecb44ad0e0ff21416aaa82c36b38badc5",
+        "rgbaSha256": "62077e85c353ae9b55fffd7f0f9f3010e6adc402ce20aacd7c3651e1e4f8234a"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_base_z_sword_swipe_front.png",
+        "bytes": 100517,
+        "sha256": "22339f7f0ee89d2b367edd5f3dd1c38ecb44ad0e0ff21416aaa82c36b38badc5"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-bellcurve32.tex",
+        "wadPathHash": "b5fb9e9706e020ff",
+        "sha256": "e82fa00ed0aea98ab6229d0b27f37a57249db6b0ad4d17c9efbe1f658a641e4a",
+        "bytes": 5500
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_color-bellcurve32.tex",
+          "wadPathHash": "b5fb9e9706e020ff",
+          "sha256": "e82fa00ed0aea98ab6229d0b27f37a57249db6b0ad4d17c9efbe1f658a641e4a",
+          "bytes": 5500
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/b5fb9e9706e020ff.png",
+        "width": 64,
+        "height": 64,
+        "bytes": 269,
+        "sha256": "f898c5fb9d9e6ebbffd47451746f07ddcd64ab453cc64761fbd07eb500d60110",
+        "rgbaSha256": "116b2ba2061c76c2a11c11f87e60af5860f8aff473e66b83a15be6ac08c5da3f"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_color-bellcurve32.png",
+        "bytes": 269,
+        "sha256": "f898c5fb9d9e6ebbffd47451746f07ddcd64ab453cc64761fbd07eb500d60110"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-rampdown.tex",
+        "wadPathHash": "c7431fd60c1f3b28",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_color-rampdown.tex",
+          "wadPathHash": "c7431fd60c1f3b28",
+          "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+          "bytes": 2756
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/c7431fd60c1f3b28.png",
+        "width": 64,
+        "height": 64,
+        "bytes": 277,
+        "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe",
+        "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_color-rampdown.png",
+        "bytes": 277,
+        "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_color-sparkspeed.tex",
+        "wadPathHash": "d203248a6bb6dd3f",
+        "sha256": "b140adf076c42872e601cd162d4db5e3068e89a90c1863a6172509c2fd00756e",
+        "bytes": 2756
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_color-sparkspeed.tex",
+          "wadPathHash": "d203248a6bb6dd3f",
+          "sha256": "b140adf076c42872e601cd162d4db5e3068e89a90c1863a6172509c2fd00756e",
+          "bytes": 2756
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/d203248a6bb6dd3f.png",
+        "width": 64,
+        "height": 64,
+        "bytes": 1035,
+        "sha256": "5c051935e698e54a703d75e75c8e61cfdea99d11ee37e52cb1d48b08b8ecb4f8",
+        "rgbaSha256": "3878b0b5109c724d61a33a67e7745b28e7a3d9f814cf12085fc295c153ef20e1"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_color-sparkspeed.png",
+        "bytes": 1035,
+        "sha256": "5c051935e698e54a703d75e75c8e61cfdea99d11ee37e52cb1d48b08b8ecb4f8"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_distort-wave.tex",
+        "wadPathHash": "aa20f915135ba8bb",
+        "sha256": "84e5d307bbc416642b25a6a301b6e0bd09eef9d53e3d97462d5598229165296c",
+        "bytes": 87420
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_distort-wave.tex",
+          "wadPathHash": "aa20f915135ba8bb",
+          "sha256": "84e5d307bbc416642b25a6a301b6e0bd09eef9d53e3d97462d5598229165296c",
+          "bytes": 87420
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/aa20f915135ba8bb.png",
+        "width": 256,
+        "height": 256,
+        "bytes": 37435,
+        "sha256": "be696397346239d2c0cb5c47a433415f926671f4cd85e53ede60fc2c92bbe82b",
+        "rgbaSha256": "0ef17e1ccfdfcc17c21217da68dae4e3bcbee4e25f8f687fb51e93afe064fe25"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_distort-wave.png",
+        "bytes": 37435,
+        "sha256": "be696397346239d2c0cb5c47a433415f926671f4cd85e53ede60fc2c92bbe82b"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/garen/skins/base/particles/garen_sparks-orange.tex",
+        "wadPathHash": "789e2f5e64130407",
+        "sha256": "9c29a44fcabb844c113b3ab410e7ed2cbf681b90dd67f3efa98311f1afa50b71",
+        "bytes": 2756
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/characters/garen/skins/base/particles/garen_sparks-orange.tex",
+          "wadPathHash": "789e2f5e64130407",
+          "sha256": "9c29a44fcabb844c113b3ab410e7ed2cbf681b90dd67f3efa98311f1afa50b71",
+          "bytes": 2756
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/789e2f5e64130407.png",
+        "width": 64,
+        "height": 64,
+        "bytes": 1744,
+        "sha256": "88f178eec1140cedfe206afbc253883701b3c1d48a1c14fefd5a0e7a513df040",
+        "rgbaSha256": "a9c7d6fffcec9696bb66b95afa1a8fa3d4173948c2c54570572c71c895cbc5b8"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-garen_sparks-orange.png",
+        "bytes": 1744,
+        "sha256": "88f178eec1140cedfe206afbc253883701b3c1d48a1c14fefd5a0e7a513df040"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/particles/color-rampdown.tex",
+        "wadPathHash": "c33b0fd086b78aec",
+        "sha256": "0a232f017ef0377baba4b8b2f772ce10cecdf5ce5fbad950ab71495a11ee0dc6",
+        "bytes": 276
+      },
+      "decoded": {
+        "source": {
+          "path": "assets/particles/color-rampdown.tex",
+          "wadPathHash": "c33b0fd086b78aec",
+          "sha256": "0a232f017ef0377baba4b8b2f772ce10cecdf5ce5fbad950ab71495a11ee0dc6",
+          "bytes": 276
+        },
+        "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/c33b0fd086b78aec.png",
+        "width": 64,
+        "height": 4,
+        "bytes": 168,
+        "sha256": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2",
+        "rgbaSha256": "fc4a5356e780c64802ec75dbe57c50f202f672b12844179811b5c22b697a832f"
+      },
+      "output": {
+        "file": "public/assets/effects/garen-aa-color-rampdown.png",
+        "bytes": 168,
+        "sha256": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2"
+      }
+    },
+    {
+      "sourceAliases": [
+        "assets/characters/garen/skins/base/particles/garen_base_q_sidewall.scb"
+      ],
+      "decoded": {
+        "file": ".cache/garen-aa-full-source-research-20261023/research-models/a0ac94c539f4d74f.glb",
+        "bytes": 2036,
+        "sha256": "a0d6a2311c210e044d9cb2883c11e07eb11597be0b8e9a68091767dba080c022",
+        "sourceAliases": [
+          "assets/characters/garen/skins/base/particles/garen_base_q_sidewall.scb"
+        ],
+        "triangles": 8,
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesEqual": true,
+        "existingQGeometryEqual": null
+      },
+      "output": {
+        "file": "public/assets/models/garen-aa-garen_base_q_sidewall.glb",
+        "bytes": 2036,
+        "sha256": "a0d6a2311c210e044d9cb2883c11e07eb11597be0b8e9a68091767dba080c022"
+      }
+    },
+    {
+      "sourceAliases": [
+        "assets/characters/garen/skins/base/particles/garen_ezreal_pulsefire_muzzle_cone.scb"
+      ],
+      "decoded": {
+        "file": ".cache/garen-aa-full-source-research-20261023/research-models/f1b4eb37c19ee36b.glb",
+        "bytes": 35980,
+        "sha256": "19a58c005e4002420c8255e566a8168a90485fcb4a6a8fe4f5325cf8713732c5",
+        "sourceAliases": [
+          "assets/characters/garen/skins/base/particles/garen_ezreal_pulsefire_muzzle_cone.scb"
+        ],
+        "triangles": 480,
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesEqual": true,
+        "existingQGeometryEqual": null
+      },
+      "output": {
+        "file": "public/assets/models/garen-aa-garen_ezreal_pulsefire_muzzle_cone.glb",
+        "bytes": 35980,
+        "sha256": "19a58c005e4002420c8255e566a8168a90485fcb4a6a8fe4f5325cf8713732c5"
+      }
+    },
+    {
+      "sourceAliases": [
+        "assets/characters/garen/skins/base/particles/garen_hecarim_weapontrail_1.scb",
+        "assets/particles/hecarim_weapontrail_1.scb"
+      ],
+      "decoded": {
+        "file": ".cache/garen-aa-full-source-research-20261023/research-models/245641757e8b0391.glb",
+        "bytes": 37640,
+        "sha256": "27088a278800916369981dba689dbd125a4a3759440525e274cd7f8dae14d706",
+        "sourceAliases": [
+          "assets/characters/garen/skins/base/particles/garen_hecarim_weapontrail_1.scb",
+          "assets/particles/hecarim_weapontrail_1.scb"
+        ],
+        "triangles": 500,
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesEqual": true,
+        "existingQGeometryEqual": true
+      },
+      "output": {
+        "file": "public/assets/models/garen-aa-garen_hecarim_weapontrail_1.glb",
+        "bytes": 37640,
+        "sha256": "27088a278800916369981dba689dbd125a4a3759440525e274cd7f8dae14d706"
+      }
+    }
+  ],
+  "defaults": {
+    "file": "docs/reference/garen-spin-defaults.json",
+    "bytes": 1772,
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "researchInputs": [
+    {
+      "file": ".cache/garen-aa-full-source-research-20261023/definitions.json",
+      "bytes": 67739,
+      "sha256": "58f7a9faa4aaefe58f611a326ee2f32738b340c3205107ba8f6b478a8a84065f"
+    },
+    {
+      "file": ".cache/garen-aa-full-source-research-20261023/findings.json",
+      "bytes": 19607,
+      "sha256": "23c154204f86f28fb9b96e24bb2707bb9c44a760e191dae54b33b3d891977b38"
+    },
+    {
+      "file": ".cache/garen-aa-full-source-research-20261023/stage-ledger.json",
+      "bytes": 24206,
+      "sha256": "62253384233611a3318c592adf9ec511f15d041d5bfc9710b7531d091513c5e8"
+    },
+    {
+      "file": ".cache/garen-aa-full-source-research-20261023/dependency-extraction.json",
+      "bytes": 12093,
+      "sha256": "d476da5227a738e9483e1756bb41b6afbd894e2c9ad2ce2194bda18c44a28a92"
+    },
+    {
+      "file": ".cache/garen-aa-full-source-research-20261023/decoded-v2/index.json",
+      "bytes": 852013,
+      "sha256": "ef338c69f008d47e843fc3c2bd2337c1b4df67eb991071ce993771119c67544b"
+    },
+    {
+      "file": ".cache/garen-aa-full-source-research-20261023/research-models/validation.json",
+      "bytes": 1653,
+      "sha256": "2ca5921586310e6e7b1c77ff3d552b6fc654e6ba71353d7d0862b17e291d7c8e"
+    }
+  ],
+  "output": {
+    "file": "src/content/garen-aa-particles.json",
+    "bytes": 56783,
+    "sha256": "4e6e49dd8cc0439f3871da5ea6a807f6740ea49ec2b8d08a29c5ef0f8ad66f1c"
+  },
+  "timing": {
+    "file": "src/content/garen-aa-particle-timing.ts",
+    "bytes": 707,
+    "sha256": "e272bf5374383935fe7661dd07deda0014ca9d0025e17c2fcdf654c85803663f"
+  },
+  "deferred": [
+    {
+      "system": "Garen_AA_Crit",
+      "index": 0,
+      "reason": "unlinked critical weapon dispatch"
+    },
+    {
+      "system": "Garen_Crit_Tar",
+      "index": 4,
+      "reason": "scene distortion integration"
+    }
+  ]
+}

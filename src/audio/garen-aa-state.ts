@@ -1,6 +1,24 @@
 import { GAREN_AA_AUDIO as P } from '../content/garen-aa-audio';
 import type { ChampionState } from '../simulation/types';
-type Swing = ChampionState['garenAAVisuals'][number];
+type Presentation = ChampionState['garenAAVisuals'][number];
+type Swing = Pick<
+  Presentation,
+  | 'startTick'
+  | 'releaseTick'
+  | 'endTick'
+  | 'kind'
+  | 'targetId'
+  | 'targetTeam'
+  | 'targetRig'
+  | 'origin'
+  | 'castAudience'
+  | 'cancelTick'
+> & {
+  impact: Pick<
+    NonNullable<Presentation['impact']>,
+    'tick' | 'point' | 'material' | 'audience'
+  > | null;
+};
 export interface GarenAAAudioRecord extends Swing {
   id: number;
   x: number;

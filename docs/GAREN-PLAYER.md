@@ -176,3 +176,8 @@ add both source normal animations, four hit-material branches and separate
 critical layers in the fixture. Schema 113 saves accepted ordinary swings and
 confirmed contacts independently of Q. Native attack particles/voice, contact
 calibration, the remaining kit and production acceptance remain open.
+
+The later [basic-attack particle implementation](GAREN-AA-PARTICLES.md) adds
+twelve linked swing/impact emitters and strict schema-115 pose/visibility history.
+The critical weapon resource and scene distortion remain deferred; native
+calibration, voices and the production roster gate remain open.

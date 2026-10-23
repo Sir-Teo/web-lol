@@ -70,6 +70,16 @@ test('real saved-pose dependencies are covered and watched; unrelated rendering 
   expect(rulesetFiles).toEqual([...new Set(rulesetFiles)].sort());
 });
 
+test('Garen particle clock inputs remain explicitly pinned without a simulation module edge', () => {
+  const file = 'src/content/garen-aa-particles.json';
+  expect(rulesetFiles).toContain(file);
+  expect(affectsRuleset(resolve(file))).toBe(true);
+  const { root, put } = fixture(),
+    before = rulesetFingerprint(root);
+  put(file, '{"profiles":[{"life":0.5}]}');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+});
+
 test('each missed pose/table changes the hash independently; paths, raw bytes and lockfiles matter', () => {
   const { root, put } = fixture();
   put(

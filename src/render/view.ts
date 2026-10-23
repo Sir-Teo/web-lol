@@ -21,6 +21,7 @@ import { structureAnimationProfile } from '../content/structure-animation';
 import { advanceAnimationTimeline, animationLayers } from '../simulation/animation-timeline';
 import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
+import { LazyGarenBasicAttacks } from './lazy-garen-basic-attacks';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { LuxAttackTrails } from './lux-attack-trails';
 import { LuxAttackHoops } from './lux-attack-hoops';
@@ -106,6 +107,7 @@ export class GameView {
     (id) => this.overheadLabelBounds(id)
   );
   garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
+  garenBasicAttacks = new LazyGarenBasicAttacks(this.scene, (p) => this.ground(p));
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   grompDeath = new LazyGrompDeath(this.scene);
   riverShrines = new RiverShrines(this.scene);
@@ -733,6 +735,7 @@ export class GameView {
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
+    this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);
     this.echoes.update(world);

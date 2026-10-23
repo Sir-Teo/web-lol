@@ -229,6 +229,7 @@ async function boot(): Promise<void> {
           view.garenCourage.load(),
           view.garenDecisiveStrike.load(),
           view.garenPerseverance.load(),
+          view.garenBasicAttacks.load(),
         ]
       : []),
     loadLuxBeamTextures(),

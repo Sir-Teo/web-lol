@@ -94,3 +94,25 @@ it('reports missing bones and never disposes borrowed render resources', () => {
   geometry.dispose();
   material.dispose();
 });
+
+it('selects an authored chest independently of Lux critical routing, preserving its complete matrix and case-folded uniqueness', () => {
+  const { root, clips } = fixture(),
+    s = new TargetPoseSampler(root, clips),
+    point = new THREE.Vector3(),
+    matrix = new THREE.Matrix4();
+  s.sample([{ clip: 'move', time: 0.5, weight: 1 }]);
+  expect(s.bonePosition('c_buffbone_glb_chest_loc', point)).toBe(true);
+  expect(point.toArray()).toEqual([12, 2, 0]);
+  expect(s.boneMatrix('C_BUFFBONE_GLB_CHEST_LOC', matrix)).toBe(true);
+  expect(new THREE.Vector3().setFromMatrixPosition(matrix)).toEqual(point);
+  s.hitPosition(false, point);
+  expect(point.toArray()).toEqual([12, 1, 0]);
+  s.dispose();
+  expect(() => s.boneMatrix('weapon', matrix)).toThrow('disposed');
+  const duplicate = new THREE.Bone();
+  duplicate.name = 'c_buffbone_glb_chest_loc';
+  root.add(duplicate);
+  const ambiguous = new TargetPoseSampler(root, clips);
+  expect(() => ambiguous.bonePosition(duplicate.name, point)).toThrow('Ambiguous');
+  ambiguous.dispose();
+});

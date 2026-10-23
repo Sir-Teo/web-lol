@@ -83,3 +83,34 @@ export function advanceAnimationTimeline(
     transition = null;
   return { tick, primary, transition };
 }
+
+export function validAnimationTimeline(
+  timeline: AnimationTimeline | null,
+  durations: Readonly<Record<string, number>> | undefined,
+  at: number
+): boolean {
+  if (!!durations !== !!timeline) return false;
+  if (!timeline || !durations) return true;
+  const layers = [timeline.primary, ...(timeline.transition?.outgoing ?? [])];
+  const outgoing = timeline.transition?.outgoing ?? [];
+  return !(
+    timeline.tick > at ||
+    layers.some((layer) => {
+      if (!Object.hasOwn(durations, layer.clip) || layer.time > durations[layer.clip] + 1e-7)
+        return true;
+      const duration = durations[layer.clip];
+      const mappedTime =
+        layer.loop && duration > 0
+          ? layer.unclampedTime % duration
+          : Math.min(layer.unclampedTime, duration);
+      return Math.abs(layer.time - mappedTime) > 1e-7;
+    }) ||
+    new Set(outgoing.map((layer) => layer.clip)).size !== outgoing.length ||
+    outgoing.some((layer) => layer.clip === timeline.primary.clip) ||
+    outgoing.reduce((sum, layer) => sum + layer.weight, 0) > 1 + 1e-7 ||
+    (timeline.transition &&
+      (timeline.primary.cut ||
+        timeline.transition.startTick > timeline.tick ||
+        timeline.tick - 1 >= timeline.transition.startTick + ANIMATION_FADE_TICKS))
+  );
+}

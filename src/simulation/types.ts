@@ -495,7 +495,22 @@ export interface ChampionState {
     origin: Vec2;
     castAudience: Team[];
     cancelTick: number | null;
-    impact: { tick: number; point: Vec2; material: AttackSoundMaterial; audience: Team[] } | null;
+    /** Bound swing particles stop independently of an already accepted hit/audio. */
+    poseStopTick: number | null;
+    poseStopReason:
+      'complete' | 'order' | 'target-lost' | 'action' | 'recast' | 'death' | 'match-end' | null;
+    frames: LuxImpactFrame[];
+    impact: {
+      tick: number;
+      point: Vec2;
+      material: AttackSoundMaterial;
+      audience: Team[];
+      facing: number;
+      radius: number;
+      targetTransform: readonly number[] | null;
+      detachedTick: number | null;
+      frames: (LuxImpactFrame & { audience: Team[] })[];
+    } | null;
   }[];
   garenPassiveReadyTick: number;
   /** Bounded cosmetic recovery epochs; stopped sparks retain a fixed root. */

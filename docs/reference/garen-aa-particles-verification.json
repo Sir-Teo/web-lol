@@ -1,0 +1,838 @@
+{
+  "date": "2026-10-23",
+  "sourceBeforeChanges": "f7d724954e8c052157ffccaee017c2466e727117",
+  "executedSourceWasUncommitted": true,
+  "schema": 115,
+  "ruleset": "6d0d442ea69ec03583eed23a807471e0bc8c150ba3012258b2d1e66f2b6cd1cb",
+  "scope": "Twelve linked Garen basic-swing/impact emitters in the development fixture, strict independent pose/visibility histories and lazy source assets. Native parity and normal Garen selection remain uncertified.",
+  "implementation": [
+    {
+      "file": "docs/reference/garen-aa-particles-source.json",
+      "bytes": 101300,
+      "sha256": "0892687eef9ce4b30be2075a5841f9d31d213f8804eae8959f52753d5ec8d492"
+    },
+    {
+      "file": "e2e/bot-wave-advance.spec.ts",
+      "bytes": 5186,
+      "sha256": "38e8c1faaa37eea3149a2e88f8a4872c1d2444df70cd285d589dc68e23564c5c"
+    },
+    {
+      "file": "e2e/garen-aa-particles.spec.ts",
+      "bytes": 14681,
+      "sha256": "556f62b48d51b679921893a47cc43dc29058299675c580a9f09b58da3c148a01"
+    },
+    {
+      "file": "src/audio/garen-aa-state.ts",
+      "bytes": 2325,
+      "sha256": "ba6705cb5d320978ee547ec1065a03fd2fc16bc9828513ea1720b56065f8f87a"
+    },
+    {
+      "file": "src/content/garen-aa-particle-timing.ts",
+      "bytes": 707,
+      "sha256": "e272bf5374383935fe7661dd07deda0014ca9d0025e17c2fcdf654c85803663f"
+    },
+    {
+      "file": "src/content/garen-aa-particles.json",
+      "bytes": 56783,
+      "sha256": "4e6e49dd8cc0439f3871da5ea6a807f6740ea49ec2b8d08a29c5ef0f8ad66f1c"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 15455,
+      "sha256": "ca5b9cdde313521734e5a6e38b38ca95547e0f52b2a3a04aa3cbe98c7bc66b4c"
+    },
+    {
+      "file": "src/render/garen-aa-particles.ts",
+      "bytes": 5118,
+      "sha256": "627d096844bb726b48a04e9913dec3ba957f8bae2c3ec4fc8488c58e7598c355"
+    },
+    {
+      "file": "src/render/garen-basic-attacks.ts",
+      "bytes": 12628,
+      "sha256": "3d5a3324dc344b584690be68b97ee6db85f398dd3ccbd1a94b858e43dce907c7"
+    },
+    {
+      "file": "src/render/impact-attachments.ts",
+      "bytes": 3561,
+      "sha256": "a41fe4661fcaed53a697c59c8fc674989cb171be5f1b7d3792f9f9d9b54ad9df"
+    },
+    {
+      "file": "src/render/lazy-garen-basic-attacks.ts",
+      "bytes": 1405,
+      "sha256": "fd5ca1fc1008a1edf2a086e389b5e518a0c8c15699e1221390c0f3375fe4086a"
+    },
+    {
+      "file": "src/render/lux-impact-attachments.ts",
+      "bytes": 523,
+      "sha256": "53eb4a7e3ee5727d32274d98e3991afbf661ec18f43b8d4edb34b6d4ff2df974"
+    },
+    {
+      "file": "src/render/models.ts",
+      "bytes": 10109,
+      "sha256": "21eff3dab6548e25eac49e907be363f83e61ce9025e065b8375a36cee1fbe951"
+    },
+    {
+      "file": "src/render/target-pose-sampler.ts",
+      "bytes": 3941,
+      "sha256": "fa8543c52040fe0613f258c16c98dfcf0720472c93fb929c27ac27531d1eac85"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 46161,
+      "sha256": "61811ea2bcf4a5b87fd43b7adb4c4dec6540f3e09bdff769a3f2f0667029a0ad"
+    },
+    {
+      "file": "src/simulation/animation-timeline.ts",
+      "bytes": 3964,
+      "sha256": "f0b6adf30a4fe9695d2c613ae16975635df541c0a869362c276ee97050eac417"
+    },
+    {
+      "file": "src/simulation/garen-aa-presentation.ts",
+      "bytes": 9868,
+      "sha256": "e611ace4f25d766ac9dc02b66337ef5b7bbc9d4de9ee6d9c5716f191ed3cbbb0"
+    },
+    {
+      "file": "src/simulation/pose-history.ts",
+      "bytes": 2699,
+      "sha256": "74936b381e70e7f74c5ddb7b8d3d9f0a41fafd32a11dc312c72a243277fb4ba6"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 125330,
+      "sha256": "5e157d40a366b2a8aaf89a3652e72193c10121bad5cfcb92070184baa59d17e6"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 18987,
+      "sha256": "6a4dd99149e52d1c288969c9d6ec931cb24664c2b772713366a3d25135c38873"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 218606,
+      "sha256": "9dc7756f6aee225d11b811fb1ac53a0508f7191da86bf680f16660a4580b8cf8"
+    },
+    {
+      "file": "tests/garen-aa-particle-loading.test.ts",
+      "bytes": 2030,
+      "sha256": "655a1efe41b15e5854dd7ad2e233a482d536b6962858c43e30f603aea61198b0"
+    },
+    {
+      "file": "tests/garen-aa-particles.test.ts",
+      "bytes": 10261,
+      "sha256": "6ae56b503fd0bdfed92618fb75097cf728f1bf5a14e9835361f135b4e7648659"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "b35e3e2c069c407ac81b24e7f8332c5d39d5809edd2c492b727f502f77996ca1"
+    },
+    {
+      "file": "tests/ruleset-fingerprint.test.ts",
+      "bytes": 8329,
+      "sha256": "47f3bc99dd2505456b9be905b79886c9963c12365b91aa336c84ea7fbce82600"
+    },
+    {
+      "file": "tests/target-pose-sampler.test.ts",
+      "bytes": 4465,
+      "sha256": "0a6553adc9c7c1eecdae5857873f5f98bcddafef72772d3b65bfc69c628bb198"
+    },
+    {
+      "file": "tools/assets/export-garen-aa-particles.py",
+      "bytes": 10790,
+      "sha256": "905ac9f4c6d7ead08b03747ea02474cf5e45ab0663e78a06a4b0f9e08f08878c"
+    },
+    {
+      "file": "tools/qa/verify-garen-aa-particles.mjs",
+      "bytes": 4037,
+      "sha256": "fe94bf813b06ff90c4a467d32713b26c5e628415cdeeed8a428a30fa098f2334"
+    },
+    {
+      "file": "tools/ruleset-fingerprint.ts",
+      "bytes": 5456,
+      "sha256": "dead8d810bf951c3a30a9e0059af175297af2c11cd76f4a52e2660fdd04fe2e5"
+    }
+  ],
+  "source": {
+    "manifest": "29CE6E781C3B6368",
+    "referenceVersion": "16.18.8175716",
+    "definitions": 14,
+    "implemented": 12,
+    "textures": 19,
+    "textureBytes": 390003,
+    "uniqueMeshes": 3,
+    "meshBytes": 75656,
+    "deferred": [
+      {
+        "system": "Garen_AA_Crit",
+        "index": 0,
+        "reason": "unlinked critical weapon dispatch"
+      },
+      {
+        "system": "Garen_Crit_Tar",
+        "index": 4,
+        "reason": "scene distortion integration"
+      }
+    ],
+    "sourceLedger": "docs/reference/garen-aa-particles-source.json"
+  },
+  "historicalInputs": {
+    "simulationLedger": ".cache/garen-aa-particles-normal-smoke-v3-20261023/frozen-source/archive-ledger.json",
+    "presentationLedger": ".cache/garen-aa-particles-normal-smoke-v3-20261023/frozen-presentation-inputs/archive-ledger.json"
+  },
+  "checks": {
+    "standard": {
+      "command": "npm run check",
+      "vitest": 1485,
+      "files": 269,
+      "nodeQa": 3,
+      "defaultTimeouts": true,
+      "workerPolicyUnchanged": true,
+      "log": ".cache/garen-aa-particles-canonical-check-v4.log"
+    },
+    "chrome": {
+      "passedFinal": 13,
+      "newParticleCases": 5,
+      "existingAudioCases": 8,
+      "finalLog": ".cache/garen-aa-particles-final-browser-v2/browser.log",
+      "pixelReports": [
+        ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+        ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+        ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json"
+      ],
+      "recoveryReport": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "audienceReport": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "priorAdjacentPassed": 23,
+      "priorAdditionalDistinct": 15,
+      "priorScope": "Garen audio/Q and Lux attachment cases passed before the final Garen-only visibility/fingerprint/fast-path changes. Eight audio cases are also included in the final thirteen; no full browser suite claim.",
+      "observed": "Both ordinary variants, all twelve implemented layers with nonzero framebuffer contribution, critical hit, UI save/reload buffer equality, moving target, current fog, enemy creation audience, disposal, exact real graphics recovery, finite winning presentation."
+    },
+    "production": {
+      "buildLog": ".cache/garen-aa-particles-build-v3.log",
+      "smokeLog": ".cache/garen-aa-particles-production-v2/production-browser.log",
+      "buildArchive": ".cache/garen-aa-particles-production-v2/generated-build-archive.json",
+      "networkReport": ".cache/garen-aa-particles-production-v2/network-observation.json",
+      "garenAARequests": 0,
+      "requestsObserved": 2482,
+      "recordings": 32,
+      "developmentHook": false,
+      "nestedPrefix": "/nested/rift/",
+      "captureScope": "Ashe practice frame. Legacy lux-e-hit-production-subpath filename does not prove Garen or Lux native visual parity."
+    },
+    "normalSmoke": {
+      "root": ".cache/garen-aa-particles-normal-smoke-v3-20261023",
+      "verificationLog": ".cache/garen-aa-particles-normal-smoke-v3-20261023/independent-verification.log",
+      "comparison": ".cache/garen-aa-particles-normal-smoke-v3-20261023/identity-only-comparison.json",
+      "result": {
+        "result": "passed",
+        "ruleset": "6d0d442ea69ec03583eed23a807471e0bc8c150ba3012258b2d1e66f2b6cd1cb",
+        "seeds": 2,
+        "horizonTicks": 36000,
+        "victories": 0,
+        "unfinished": 2,
+        "checkedTicks": 72000,
+        "roundTrips": 20,
+        "futureChecks": 18,
+        "hundredSeedInvariantGate": false,
+        "roadmapMilestone4Complete": false
+      },
+      "scope": "Two ten-minute from-zero interim Ashe/Lux role smoke runs, with QA human carry automation. All twenty minute states equal pre-particle 18dae6 after excluding only schema/ruleset fields. No Garen full-match or new hundred-seed gate claim."
+    },
+    "exportReplay": ".cache/garen-aa-particles-export-replay-v1.json"
+  },
+  "retainedFailures": [
+    "Initial typecheck caught shared structure-pose imports and an audio-only mock that should not require particle history. The history consumer type was narrowed without weakening snapshot validation.",
+    "First Chrome critical setup used cloak instead of catalog ID agility; the first pixel read also crossed a default-framebuffer frame boundary. That earlier full-frame difference is invalid evidence. Accepted probes render/read synchronously and isolate each profile.",
+    "An enemy audience fixture initially sought a new swing before the real cooldown elapsed. It now waits for the actual next swing; no combat clock is altered.",
+    "The third standard unit run timed out in lane-rules and rift-practice-jungle. Both passed the focused check; the standard command then passed after skipping unrelated champions in the new Garen-only lookup. Timeouts, assertions and harness worker policy were not changed. Timing variation is not proof of a particular cause."
+  ],
+  "remaining": [
+    "Unlinked critical weapon event and target scene-distortion integration.",
+    "Native orientation type 2, bound-size interpretation, bone rotation, emission cadence, stop/linger, RNG/distributions and final composition calibration.",
+    "Explicit centre-plus-0.9 attachment fallback for unsupported/procedural targets; native fallback behavior remains unobserved.",
+    "User-facing failed-content-pack retry UI; full-match rendering performance and repeated-match resource budgets.",
+    "Normal Garen production acceptance, voices/remaining kit fidelity, other champion kits, major objectives/role quests and full browser/offline/native matrix.",
+    "Original 100-seed baseline stays 70 victories/30 censored under 6466566. Current smoke does not inherit that gate."
+  ],
+  "evidence": [
+    {
+      "file": ".cache/garen-aa-particles-canonical-check-v4.log",
+      "bytes": 946,
+      "sha256": "53de97babfdd185608ee61b6353721ffe1261bb442bf14b05054a28f1971cdbe"
+    },
+    {
+      "file": ".cache/garen-aa-particles-canonical-check-v1.log",
+      "bytes": 946,
+      "sha256": "b10716752d84924a8ab5e8065e19b7a8c78b9575055bde196656ce9372982cc4"
+    },
+    {
+      "file": ".cache/garen-aa-particles-canonical-check-v2.log",
+      "bytes": 944,
+      "sha256": "b6ceebc424fd9d4daeceba4dc9fad1f994ce00763447ea8e00efae86c459953f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-canonical-check-v3.log",
+      "bytes": 2501,
+      "sha256": "3081bbd066f5e1f7e93f147f391d9c57f5b6d0ba30a8fc1d7c1b9cc1ad936012"
+    },
+    {
+      "file": ".cache/garen-aa-particles-timeout-recheck-v1.log",
+      "bytes": 181,
+      "sha256": "7c45ef440d4b7e8bf8e1e73639f6ba11f407ded391b0e0ee9473a3472676eee1"
+    },
+    {
+      "file": ".cache/garen-aa-particles-focused-visibility-v1.log",
+      "bytes": 194,
+      "sha256": "23d0ccbd2bbc841146bead0cefc13f75f6cf7f231e096e4493e446460a7b1d2f"
+    },
+    {
+      "file": ".cache/garen-aa-particle-history-tests-v1.log",
+      "bytes": 194,
+      "sha256": "3055904f0c7f226e933f90806266b1c8f231f00a75ff92bdec062e71e5e87d62"
+    },
+    {
+      "file": ".cache/garen-aa-particles-focused-v2.log",
+      "bytes": 194,
+      "sha256": "6eefaff45d81ea23c7bd31a0fe3890e5809899d794057c87c9e57d8b52d61b51"
+    },
+    {
+      "file": ".cache/garen-aa-particles-integration-typecheck-v1.log",
+      "bytes": 1034,
+      "sha256": "a23940d8b69254c6b0d26f788c1d984b34b3d2766649200c71a39ed8d6cbea7e"
+    },
+    {
+      "file": ".cache/garen-aa-particles-integration-typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/garen-aa-particles-export-replay-v1.json",
+      "bytes": 583,
+      "sha256": "127882b585396148a631740b93f73a637bf2c0ba6a9fd9803b0d9fd5b74f5882"
+    },
+    {
+      "file": ".cache/garen-aa-production-network-observer-v1.mjs",
+      "bytes": 893,
+      "sha256": "84fa5851442dea916e22c261d668dfd30ad8f49aeb2cf1985e5df2418951132a"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/browser.log",
+      "bytes": 3260,
+      "sha256": "816521e7191ceed72a8cf028d731253b40b2d1d1d1201fae94b31c28d361deaa"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/production-browser.log",
+      "bytes": 1802,
+      "sha256": "230beebf3e8f9199cf638e23cd1b00e2b208f42a7fef5d304c8a5236182ecd43"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/network-observation.json",
+      "bytes": 268913,
+      "sha256": "91b2e04d218a2f5ab6304ea181aba2a3a6a39d89d7c9b3c60c94aa104e93190f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/generated-build-archive.json",
+      "bytes": 19310,
+      "sha256": "e8b51f58555462b2aec065aa27e3c68087ff36f091abac5176b6406a4a88a63e"
+    },
+    {
+      "file": ".cache/garen-aa-particles-build-v3.log",
+      "bytes": 2427,
+      "sha256": "d099a7904b97312e73c9db81b4f74e886672216c5b7b27c2ad489a77aecf2b62"
+    },
+    {
+      "file": ".cache/garen-aa-particles-related-browser-v1/browser.log",
+      "bytes": 7167,
+      "sha256": "e845a7758ea2d070845598c2bff6bca7b65c3cc9193eea076c79fe1faa8f46a4"
+    },
+    {
+      "file": ".cache/garen-aa-particles-browser-v1.log",
+      "bytes": 3261,
+      "sha256": "9596ba7a9a1ecec38b9777a2d30a4d27520912bba7893064fefd7228d8cfbe2d"
+    },
+    {
+      "file": ".cache/garen-aa-particles-browser-v2.log",
+      "bytes": 745,
+      "sha256": "78ae8493408848cad1b1c68d0ab9ad6d20e3438c6a0e1ca9512192871cb7d62a"
+    },
+    {
+      "file": ".cache/garen-aa-particles-browser-v3.log",
+      "bytes": 909,
+      "sha256": "3d187b13ca7abb185cf2f1b12e3d3cfbb0207145e680002fcb618011aaadef93"
+    },
+    {
+      "file": ".cache/garen-aa-particles-browser-v4.log",
+      "bytes": 1089,
+      "sha256": "7af5f945c1016c23a0258a7193ca8a4629d071d35ccc0e0a61aae8ede2a41788"
+    },
+    {
+      "file": ".cache/garen-aa-particles-browser-audience-v1.log",
+      "bytes": 2954,
+      "sha256": "5e80cea99a72bcebe97ca974f3a2d3005bbb7e314d678fb36e58b10f1b9bdfce"
+    },
+    {
+      "file": ".cache/garen-aa-particles-browser-audience-v2.log",
+      "bytes": 557,
+      "sha256": "6c07f363d843af56dd5fbc80b59b425914f5481d49463da4b3976a631f325496"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/plan.json",
+      "bytes": 38345,
+      "sha256": "2bd653880d4b1b9e11dccbc1a068938c7835805c32f57992c3ae5387016bb157"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/summary.json",
+      "bytes": 120078,
+      "sha256": "ff5a5028e66026eca545ed93672e71af98efcc2ee390255425b72c04944428ba"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "dce97446ca65528bc6189094be07c71f5caa9375021410d84d5650a17087cf8d"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/identity-only-comparison.json",
+      "bytes": 9333,
+      "sha256": "bef97fb7d5c3f777b3312e12f1f9cfec27893eba866183b43755c2b6d92e4b8f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/frozen-source/archive-ledger.json",
+      "bytes": 87021,
+      "sha256": "1ae7499f96bf8b2d8f12edaf8aacce54af10919593a96e1f0cff4d257fb72ebe"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/frozen-presentation-inputs/archive-ledger.json",
+      "bytes": 19329,
+      "sha256": "c69fa77e71241f1b8653f0084680e774b51d3a1aba7ce955fe2b34aae5308c96"
+    },
+    {
+      "file": ".cache/build-garen-aa-particles-ledger-v1.py",
+      "bytes": 8772,
+      "sha256": "8ab765a678e067cb9cdcb076d9098f1f388d08b1f1950727a1ad8158a7793b0a"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "03f56e1f1dde2d7904725bd9204f2d3ddd01436d0202b8ec4097fcd39cf033f5"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 48605,
+      "sha256": "12651db72da289070fb3686e560479ceb7d68fe02272d326d4d6e2c5a23167dd"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 807007,
+      "sha256": "82a80f08eb1fe581a4cba6ce9f66b2ebcc226384c7018ef1afc369dd4bffb535"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 336,
+      "sha256": "976386f736890212bce1fbfbaef29d2572c34dc786e053c1fe76feabbf8bf011"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33023,
+      "sha256": "b3e2d2fa0e10528a853e7c927d931dca67ca791feeb7ce576860fab2dde8e725"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 808561,
+      "sha256": "0d053c0601309c04ea7c4595a4ad40d09002a67b65ca8ed2e17335d3790ab70b"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 388,
+      "sha256": "6d8ef7635da3466e8037aa651df61559f5ce2fe52236d7ac5fe2f15078f8d79f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33006,
+      "sha256": "6e7567104e9df6c135fd0f512a6847a85d3bfc5edf1bac708200275538645217"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 813499,
+      "sha256": "fc9455be111d9a9b3a9f6cd48563a98d65374eb1c3bbfc02ff8cb08ef73f997d"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "a2d67c1bab0d62dabf960c16f27a4bc5a22d0cd086f6094bc1728a54cf8283ff"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-decoding.json",
+      "bytes": 10179,
+      "sha256": "075e96e13b0ad36a5495cbeb35ac335e8f97d87ab20beeeb10349525d4114c2a"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-materials.json",
+      "bytes": 8100,
+      "sha256": "f0ed44022a3f8ae80067b58abfdd69296f329d7c764fdc121a01d8b508d4a38f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-fog-lethal.json",
+      "bytes": 435,
+      "sha256": "7e8dfa471d503c9b1960672ea4532b0c6f97ed09a94fe7eeab8fe6d53bfb8dde"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-cancel.json",
+      "bytes": 398,
+      "sha256": "3d7e98a649d06032efe179b20a734721dbfaef0e6adc2934d92995b839d150d3"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-critical.json",
+      "bytes": 1218,
+      "sha256": "3ea4e09cf9b0304970ec2b8b95e8977ad78df125a9529de0e9fe9d52c7902b28"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-late-presence.json",
+      "bytes": 58,
+      "sha256": "993a38c80510b8fd5032d19db096812e1e9d2114652910e7bc2ea704de97da8c"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-reload.json",
+      "bytes": 1668,
+      "sha256": "957aff036faaea412115c75ffd16e2c2a1c7dc143e5934cdb5158dbbee6b4d3c"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-failure.json",
+      "bytes": 785,
+      "sha256": "ba820df2a7347eb8210ed893445dcfe679bbc0eaacd33984a553cefb98d26d9d"
+    },
+    {
+      "file": ".cache/garen-aa-particles-final-browser-v2/run/artifacts/garen-aa-source-swing.png",
+      "bytes": 841308,
+      "sha256": "4c552c6525f8ebfacd98dd491d38f562dc4678759e356e73838d28ccd640406a"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811959,
+      "sha256": "91ba516cb67afd5c7d9b2763bf602ce3446a4d10bdf6270912e3daf889497c57"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1815703,
+      "sha256": "1974445d6d8124d62b1620cc434e8673376a4eb5e4a71aec9c956ece1539e523"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812615,
+      "sha256": "8383d63851dc9c0c69dee22af37e092261f1491c63e3f26ca4a671d53b57874f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1833179,
+      "sha256": "7dd1caf99d28a81f5bf2658e659977aaeaaa083fc01bd1640c555c102cce6c60"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820119,
+      "sha256": "70a7fe249ab64c996dc49416df5fef03e64636af0ca3557aa0b0a41c0795ac54"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1809612,
+      "sha256": "6887d0dd658066e37e04854b08e8d0574ffb4cdadbb078630cefdc8c98baa784"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1347241,
+      "sha256": "b051089d9b098d9ba388a5eca8c358ed62d893bd64622895349ccb5809309f2c"
+    },
+    {
+      "file": ".cache/garen-aa-particles-production-v2/run/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830821,
+      "sha256": "0be94e90e04181b208e4e6d7b2cac6b8cdfa218a4070b28168f32f10f24569f2"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/report.json",
+      "bytes": 51338,
+      "sha256": "aed73ec60e3b7a6aa31da69e576fdf6f91f599eed72d8dd5781bce6cc227e011"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/003600.match.json",
+      "bytes": 163627,
+      "sha256": "bd322428a777d432898929808d949bd2dd867e08b06790401b3ae4ec07649eb2"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/025200.match.json",
+      "bytes": 208915,
+      "sha256": "27432d64ec370ebc77290c55c52a7b6231de5472fff0c9a4bd50a1153c516fa0"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/final.match.json",
+      "bytes": 185477,
+      "sha256": "c570b89b81464a0fe1af3a8e76e6e09e0cb227a9a7c5d1a0a2cf2c96e04f62eb"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/028800.match.json",
+      "bytes": 169946,
+      "sha256": "b7934e1dfdbcf2deab39ac1c1c1cd51141fdca39e91298bf36e2b7e725ac1383"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/032400.match.json",
+      "bytes": 162541,
+      "sha256": "7792b5ced3debd1e6ddef005ab107fdf9a0bdf2ca34d47e953a219f5d4c7b503"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/010800.match.json",
+      "bytes": 175049,
+      "sha256": "687888652869f5046c30beab424d374471e7776a645dcb08dd7c8efe22c9dbaf"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/021600.match.json",
+      "bytes": 200575,
+      "sha256": "c22b769aec4029dedada6bb9c285218b16082453b746637366012beb71cddcc8"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/036000.match.json",
+      "bytes": 185477,
+      "sha256": "c570b89b81464a0fe1af3a8e76e6e09e0cb227a9a7c5d1a0a2cf2c96e04f62eb"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/018000.match.json",
+      "bytes": 185728,
+      "sha256": "680dde4479b0e558849bd079bfec87a0deb53bdb6457e58fa90ea91c2abeac02"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/progress.json",
+      "bytes": 73,
+      "sha256": "18962abdf64973f7e22421827957505063e630cce007deb3eea9e49f3a2fa267"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/014400.match.json",
+      "bytes": 165886,
+      "sha256": "0982577dd8278201668acdd8fc38611803759d93d69a53c54f14265be0d30f9f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/8/007200.match.json",
+      "bytes": 183930,
+      "sha256": "9a20dd9df653d858379426e8d45ccce8963000a5596f3b993d2ae2f718d84b2b"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/report.json",
+      "bytes": 51117,
+      "sha256": "1ef13b14398d079df12352dffdc7fa0d87cdb8469cd9dc1cc9efecbdd1f89660"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/003600.match.json",
+      "bytes": 163628,
+      "sha256": "26ea04659250e5d6e59f6b7ee32fbedfac22ad371a8ffbafbac29e85169bf446"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/025200.match.json",
+      "bytes": 208775,
+      "sha256": "acc7cbb92292949ed41c8d58e008a72e5181a3fc5bea41bcf777a1e9bdbb1cfe"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/final.match.json",
+      "bytes": 194556,
+      "sha256": "a990de3e4e8c3593e99f2f32e602244efa4a30aed5ad664246fa10feff725ef2"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/028800.match.json",
+      "bytes": 171802,
+      "sha256": "4ed2931adbe3a6d3b6ff29e415aa12328aab66def2a6cd0b4330bd70843f6532"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/032400.match.json",
+      "bytes": 164234,
+      "sha256": "953eef0fb51314e6805bc4dd6e898163d6ceb557d55867e5608b746f92c72090"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/010800.match.json",
+      "bytes": 175050,
+      "sha256": "e8858357038410fab59b6bde63c5287a83d8f88e8168e0563895b1c077be8b5f"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/021600.match.json",
+      "bytes": 200266,
+      "sha256": "9c6cec83d02afddf9fb7b19561b23f6293bb8ecd8355774a88b47a8d867223fb"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/036000.match.json",
+      "bytes": 194556,
+      "sha256": "a990de3e4e8c3593e99f2f32e602244efa4a30aed5ad664246fa10feff725ef2"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/018000.match.json",
+      "bytes": 185466,
+      "sha256": "613fd24c0d78d597765fa52b3ef7d35096a7c276df81cd8bee6be517f0ebf3f9"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/progress.json",
+      "bytes": 75,
+      "sha256": "dbad84abdbbb686df559b0983d9b44db27aed3e4a09d644f48252bcc7d3cc1cd"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/014400.match.json",
+      "bytes": 165887,
+      "sha256": "cce4e3e8b8471bae65747632e95fa1091530192fce739a6b883019f9de681a5b"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v3-20261023/seeds/38/007200.match.json",
+      "bytes": 183931,
+      "sha256": "1318aaaaa8be1e124e605bf6c10eabf8932f53ce2d54f982dccb326a72666e42"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/003600.match.json",
+      "bytes": 163627,
+      "sha256": "f56a27b75d45a0306433552ba4dc4aa4e0dedd74733be299907c772992345295"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/007200.match.json",
+      "bytes": 183930,
+      "sha256": "2ab713693e1d941cbbeb193a76958390427e4f170ae3e19c003a248b08462aa7"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/010800.match.json",
+      "bytes": 175049,
+      "sha256": "bf7c48b295d2a2f838e07a0df45933c154a0f96edf735391a70c7af8426e377a"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/014400.match.json",
+      "bytes": 165886,
+      "sha256": "7a070d459e8f7c846ed046419a2cca51d6152c5a0d701197ce3806ece595994e"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/018000.match.json",
+      "bytes": 185728,
+      "sha256": "cd571734518a9c3efaeb2f4abed2b3592dbeb275c5758417061feef38196d34c"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/021600.match.json",
+      "bytes": 200575,
+      "sha256": "cb1c143f34b72392a29b91ac643d384f3227dc7a2f41770b09791ee130498934"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/025200.match.json",
+      "bytes": 208915,
+      "sha256": "50f4aaaf9850f5ee4dd78500a116142d5c9d2e726562cdc01b809b8defd11b7e"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/028800.match.json",
+      "bytes": 169946,
+      "sha256": "fe353b6911771bb76f0f8427559ddd0c5bbd3a18cb295df9bcb5863af8f64617"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/032400.match.json",
+      "bytes": 162541,
+      "sha256": "d0fd3d7c427ec3f9beb226ab1a87bc3b310c8c83267435e8941b17feba8eb912"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/036000.match.json",
+      "bytes": 185477,
+      "sha256": "4e34adf60119afc5c6197d7789bbfaf100a0279b9d20173d5c14775a51deaa71"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/003600.match.json",
+      "bytes": 163628,
+      "sha256": "534841784e79c08932481639981b0e5f555888fe311948cf80cb9f215c41028d"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/007200.match.json",
+      "bytes": 183931,
+      "sha256": "6a2a3a65508fc433439f1add434550c2ad1ff62954ff90d4632eac294a402ba2"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/010800.match.json",
+      "bytes": 175050,
+      "sha256": "065b60ae35bce1b934e0a13b83c534bcb34464e47084d3bf491aaf199c6d49cd"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/014400.match.json",
+      "bytes": 165887,
+      "sha256": "94cb98f8b24d0ea026c5ad7feb4b00afea208943c5cdf03bceafa757b193316e"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/018000.match.json",
+      "bytes": 185466,
+      "sha256": "e7de144b3e0bedbcd2f14d449a093c3cb417ec2b10f30f16b31a75fdd702d090"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/021600.match.json",
+      "bytes": 200266,
+      "sha256": "e5a7d8a5646e9729f6ed660a9531fdcf0d4c9af8f536c307814c570f34e4e263"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/025200.match.json",
+      "bytes": 208775,
+      "sha256": "59a9781db5ef10acf1634079fab9d38fdf44d5be95f21c6acaccdd11e8a9e28e"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/028800.match.json",
+      "bytes": 171802,
+      "sha256": "5cd3c2ab383334953d6b75079f81ee6d96608e58813bbeb4a8d2155533a3b2e7"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/032400.match.json",
+      "bytes": 164234,
+      "sha256": "24edd00eeb92f7deb4359e09ebac42579a3833dd085f5d943ee47a2efef81969"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/036000.match.json",
+      "bytes": 194556,
+      "sha256": "a19666951e7b79621c81e19c16b6ed83e634e2dc3221ef688b22f8191a558a24"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v1-20261023/plan.json",
+      "bytes": 38174,
+      "sha256": "db7b5fb9086cc35d5856514cbc8990cfc7401c541bf3edd57c0c07855a43f9c4"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v1-20261023/summary.json",
+      "bytes": 120078,
+      "sha256": "da409abccd1a10056734b3d2b351d1903f67d69052c7d2266509647c5e870ea6"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v1-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "244990a8a8f1b1468c1468272a8f2a073bf37c7417efba390cd9d4685255c2d8"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+      "bytes": 86627,
+      "sha256": "c357de9fe2a5985a61fe710c49f98962a2635bc3a9be2df0aaa2ca0205c6d3ba"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v1-20261023/frozen-presentation-inputs/archive-ledger.json",
+      "bytes": 17769,
+      "sha256": "2d55362c49df37f5cef0ccbd3f1d738178254fc047bec85fde9a16d9587d0fd8"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v2-20261023/plan.json",
+      "bytes": 38174,
+      "sha256": "65986529868d9f1c58bee04b9fc2ce09b825d422069dabaf4e03278918c122dc"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v2-20261023/summary.json",
+      "bytes": 120078,
+      "sha256": "849a9cd8199097ed67e13e6ae3163dff9a00074f8f92b3c6c073f926dc55f933"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v2-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "f41127da43e106f2f5d6bf3037092735f1a81e64bfa43c17b1ce5413e43416e4"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v2-20261023/frozen-source/archive-ledger.json",
+      "bytes": 86627,
+      "sha256": "0a4e0f8eee12e68e61a21c771226e5cc8290b0c66c4a33bc3b3d26dd432bdd16"
+    },
+    {
+      "file": ".cache/garen-aa-particles-normal-smoke-v2-20261023/frozen-presentation-inputs/archive-ledger.json",
+      "bytes": 18274,
+      "sha256": "81c6f201767c4129f8653f08e38b6a8ac0054922f7b53bf0195a6d46109dda0b"
+    }
+  ]
+}

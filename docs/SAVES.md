@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **114** adds the `advance` team-job kind for travel guided by
+Current schema **115** extends Garen basic-swing presentation with bounded caster
+pose frames and independent pose-stop clocks/reasons. Confirmed impacts retain
+captured heading, radius, structure placement and up to 39 target pose/visibility
+frames. Each particle birth and bound attachment endpoint uses its recorded
+audience. Death/removal freezes the endpoint and audience; later reveal cannot
+replay hidden births. Validation rejects gaps, unknown historical clips, crossed
+stops, forged roots and motion/audience changes after detachment. Cosmetic
+history consumes no gameplay IDs or RNG. Earlier schemas/fingerprints remain
+incompatible. See [Garen attack particles](GAREN-AA-PARTICLES.md).
+
+Schema **114** added the `advance` team-job kind for travel guided by
 friendly waves and public structure placements before target vision. Its anchor
 must be an opposing structure and its actor must be AI-controlled. Existing
 point bounds, identity, unique assignment and issued/observed/expiry validation

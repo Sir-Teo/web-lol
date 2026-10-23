@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
-import { luxHitBone } from './lux-hit-bone';
+import luxBones from '../content/lux-hit-bones.json';
 
 export interface TargetPoseLayer {
   clip: string;
@@ -17,7 +17,7 @@ export class TargetPoseSampler {
   private readonly root: THREE.Object3D;
   private readonly mixer: THREE.AnimationMixer;
   private readonly clips = new Map<string, THREE.AnimationClip>();
-  private readonly bones: (THREE.Object3D | undefined)[];
+  private readonly bones = new Map<string, THREE.Object3D | undefined>();
   private disposed = false;
   constructor(reference: THREE.Object3D, clips: readonly THREE.AnimationClip[]) {
     for (const clip of clips) {
@@ -28,7 +28,6 @@ export class TargetPoseSampler {
     }
     this.root = clone(reference);
     this.mixer = new THREE.AnimationMixer(this.root);
-    this.bones = [luxHitBone(this.root, false), luxHitBone(this.root, true)];
   }
   sample(layers: readonly TargetPoseLayer[]) {
     if (this.disposed) throw new Error('Target pose sampler has been disposed');
@@ -60,10 +59,34 @@ export class TargetPoseSampler {
     this.root.updateMatrixWorld(true);
   }
   hitPosition(critical: boolean, out: THREE.Vector3): boolean {
+    return this.bonePosition(critical ? luxBones.critical : luxBones.normal, out);
+  }
+  private bone(name: string) {
     if (this.disposed) throw new Error('Target pose sampler has been disposed');
-    const bone = this.bones[critical ? 1 : 0];
+    const key = name.toLowerCase();
+    if (!this.bones.has(key)) {
+      let found: THREE.Object3D | undefined;
+      this.root.traverse((node) => {
+        if (node.name.toLowerCase() !== key) return;
+        if (found) throw new Error(`Ambiguous authored attachment: ${name}`);
+        found = node;
+      });
+      this.bones.set(key, found);
+    }
+    return this.bones.get(key);
+  }
+  /** Explicit authored names keep another champion's ordinary chest effect
+   * independent of Lux's centre/chest critical routing. Missing stays missing. */
+  bonePosition(name: string, out: THREE.Vector3): boolean {
+    const bone = this.bone(name);
     if (!bone) return false;
     bone.getWorldPosition(out);
+    return true;
+  }
+  boneMatrix(name: string, out: THREE.Matrix4): boolean {
+    const bone = this.bone(name);
+    if (!bone) return false;
+    out.copy(bone.matrixWorld);
     return true;
   }
   dispose() {
@@ -71,6 +94,7 @@ export class TargetPoseSampler {
     this.mixer.stopAllAction();
     this.mixer.uncacheRoot(this.root);
     this.clips.clear();
+    this.bones.clear();
     this.root.clear();
     this.disposed = true;
   }
