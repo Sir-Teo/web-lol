@@ -2218,6 +2218,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     if (
       source?.champion !== 'lux' ||
       source.team !== zone.team ||
+      (state.winner !== null && zone.detonatedTick === null) ||
       zone.launchTick > state.tick ||
       Math.hypot(zone.point.x - zone.origin.x, zone.point.y - zone.origin.y) >
         LUX_E.castRange + 1e-6 ||

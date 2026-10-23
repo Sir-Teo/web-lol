@@ -1,0 +1,205 @@
+{
+  "date": "2026-10-22",
+  "baseline": "9adb40e3388eddeca6cd369c4a98dca29f98da4e",
+  "schema": 108,
+  "ruleset": "a0a447256024d8f9173b085503c4a93e5e935dd9706d94b100026ed7c34e41de",
+  "scope": "Restorable winning Lux E state, cancellation without late damage/marks, preserved committed resources and finite draw-only burst retirement.",
+  "implementation": [
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "5a481b6c56c1ece34cfb002f1dad308c702a078dafba4c8e749ce22e527dd875"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "616eabda11ea29c4fac5b55feedf8949876641c2b68163580b5df71a7a4483a2"
+    },
+    {
+      "path": "src/render/lux-singularities.ts",
+      "sha256": "1f287af96fe4e92aa6d4017a9578bbcc80ed72850526e893ef53d3362a136795"
+    },
+    {
+      "path": "src/render/view.ts",
+      "sha256": "cef33e4f6364bcf53cf11262556f93890435c27f4995448ba91a05d6f610ccc8"
+    },
+    {
+      "path": "tools/qa/role-match.ts",
+      "sha256": "21a3e9eef9d392e909760934ed33b342719cc66b32dab5c3a41fe1674117d4b5"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "52aa9368c6f10f68b551e1541419c9593fcfaf256cac31e1bb5062d79b82ec44"
+    },
+    {
+      "path": "tests/match-end-lucent.test.ts",
+      "sha256": "c6018cfb2c33478d92890132e6e8780e39b271cd366dd7879f5f37f60b360042"
+    },
+    {
+      "path": "e2e/match-end-lucent.spec.ts",
+      "sha256": "6a18de5bee9725f807140dc8967e3f8cc297a22c72589a8a7f86983c2cd3f977"
+    }
+  ],
+  "checks": {
+    "typescript": "passed via final npm run test:production build",
+    "unit": {
+      "passed": 1340,
+      "files": 248,
+      "command": "npx vitest run --maxWorkers=1",
+      "log": {
+        "path": ".cache/match-end-lucent-single-worker-unit.log",
+        "sha256": "de3309ada6a8006f017db2e85be0201f453ed37c4e6f01947aa4095f19afc20b"
+      },
+      "newPhaseCases": 9,
+      "preimage": {
+        "failed": 6,
+        "passed": 3,
+        "scope": "Initial phase fixtures before the repair. The fabricated-winner fixture was later strengthened to isolate the active-zone invariant.",
+        "log": {
+          "path": ".cache/match-end-lucent-before.log",
+          "sha256": "38bff4ab1aaffbae669dad4e4b664162920b705684c68df84e51d150b0a5cd59"
+        }
+      }
+    },
+    "chrome": {
+      "distinctPassed": 14,
+      "newCases": 3,
+      "existingCases": 11,
+      "fullSuiteRepeated": false,
+      "mainRunPassed": 13,
+      "mainRunTimedOut": 1,
+      "recheckPassed": 1,
+      "commands": [
+        "npx playwright test e2e/match-end-lucent.spec.ts e2e/lux-e.spec.ts e2e/lux-attack-history.spec.ts e2e/lux-impact-terminal.spec.ts e2e/match-files.spec.ts",
+        "npx playwright test e2e/match-files.spec.ts --grep 'download transfers an exact paused checkpoint'"
+      ],
+      "logs": [
+        {
+          "path": ".cache/match-end-lucent-final-browser.log",
+          "sha256": "5c49527a0d2d3fc2bd9d485cb727d7f499117cea7ea4c54dcaabb636ca5288e7"
+        },
+        {
+          "path": ".cache/match-end-lucent-transfer-recheck.log",
+          "sha256": "95a2bad7d2f3c1a60bd5a7890d1686964185b802cc8c29968a053dbf262d1bb8"
+        }
+      ],
+      "coverage": [
+        "Real E flight/zone before a melee victory, buffered recast cancellation, unchanged target health/marks, disposal of four owned resources, frozen exact restoration and byte-exact result download.",
+        "Already-detonated burst scale/fade progression, repeated sample identity, expiry/disposal and fresh restored playback without saved-state or target-health changes.",
+        "Existing E lifecycle, homing Lux missiles, critical/normal lethal Nexus impact and match-file import/export/recovery behavior."
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 20,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png",
+      "command": "npm run test:production",
+      "log": {
+        "path": ".cache/match-end-lucent-production-final.log",
+        "sha256": "24700430e917894c15e2e0846786ec4b07c390a54e6eb427ffd01826b4cda477"
+      }
+    },
+    "headless": {
+      "audit": {
+        "path": "docs/reference/late-role-match-audit.json",
+        "sha256": "980182bf8f38bf07db75be0799fc63475a6b4d84c4ce0f915d6f6cc1d37a7d8b"
+      },
+      "checkedTicks": 836115,
+      "validatedExactRoundTrips": 234,
+      "victories": 4,
+      "completedWithin60Minutes": 3,
+      "total": 4,
+      "roadmap100SeedGateMet": false
+    },
+    "qaHorizon": {
+      "defaultMinutes": 60,
+      "maximumMinutes": 120,
+      "extendedMinutes": 80,
+      "invalidZeroRejected": true,
+      "log": {
+        "path": ".cache/lucent-victory-invalid-horizon.log",
+        "sha256": "dc9f67f2ead45256e26e334010bb23d89b2c96be7148ee6a2d2d39e4061de4dc"
+      },
+      "reportIsolation": "Nondefault horizons write inside horizon-<minutes> below the ruleset folder."
+    }
+  },
+  "resourceContention": {
+    "unitRetry": {
+      "path": ".cache/match-end-lucent-final-unit.log",
+      "sha256": "eec49784f2fa3ae3418f478b6e813de588f2e9e62055fc6c809dcfa949716c39"
+    },
+    "singleWorkerRetryPassed": true,
+    "timeLimitsChanged": false,
+    "details": "Two existing five-second camp-test timeouts during an overlapping run. The final full suite ran alone with one worker. An existing cross-context Chrome transfer hit 30 seconds and passed a focused recheck at the unchanged limit.",
+    "browserTrace": {
+      "path": ".cache/lucent-transfer-timeout/trace.zip",
+      "sha256": "1ea1678d8bff782b0c1a424eccdab124e954e2ebec97e1342f9be833b1635353"
+    }
+  },
+  "productionCaptureRepair": {
+    "initialCapture": {
+      "path": ".cache/lucent-production-scoreboard-incomplete.png",
+      "sha256": "daf6b7fa643b53b89d5090425b7112c6e7be35f15d924f010e71bb6224c028c5"
+    },
+    "initialRun": {
+      "path": ".cache/match-end-lucent-production.log",
+      "sha256": "c0c8d82365bee51194c0dbab72880a2da8fa872bc9c6d8d7a8e99e1b56982cab"
+    },
+    "cause": "The initial scoreboard capture preceded icon decoding. The smoke check now requires at least 30 loaded scoreboard images with nonzero dimensions before capturing."
+  },
+  "visualReview": [
+    {
+      "path": "artifacts/match-end-lucent-flight.png",
+      "sha256": "51642b85cef702b1c81e46c6d762b5356a5f81e44abab5131870f4416f64e17b",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/match-end-lucent-armed.png",
+      "sha256": "b9625de6699be3ced27d7bc91d4e4562d4466b4a9b0a5d421fb2e4a748176cfd",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/production-role-match.png",
+      "sha256": "a9e776160270c7cc601a28a4d29309d2629facee401704c63467d4a490f988a8",
+      "reviewed": true
+    }
+  ],
+  "size": {
+    "gameChunkKb": 730.64,
+    "threeChunkKb": 659.93,
+    "chunkWarningRemains": true
+  },
+  "limits": [
+    "Seed 719 remains unfinished at the one-hour acceptance horizon even though extended diagnostics reach victory. Extending the harness horizon is not a game rule or a passed one-hour completion gate.",
+    "Four seeds do not certify balance, the 100-seed gate, normal human-play quality or browser performance.",
+    "The six-champion roster, role quests, major objectives, native audiovisual/input comparison, offline delivery and full team strategy remain unfinished.",
+    "Active-E cancellation and the existing temporary 0.3-second burst are explicit local result policies pending native comparison."
+  ]
+}

@@ -713,7 +713,7 @@ export class GameView {
     this.luxImpacts.update(world, alpha, this.camera, terminalAge);
     this.luxIllumination.update(world, alpha, this.camera, this.models);
     this.luxIlluminationTriggers.update(world, alpha, this.camera, terminalAge);
-    this.luxSingularities.update(world, alpha);
+    this.luxSingularities.update(world, alpha, terminalAge);
     this.wind.update(world);
     this.garenSpin.update(world, alpha, terminalAge);
     this.garenJustice.update(world, alpha, this.camera, this.models, terminalAge);

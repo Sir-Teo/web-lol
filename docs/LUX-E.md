@@ -1,6 +1,39 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 is used; native effects/audio, champion-selection/HUD integration, native calibration and full tactical/role AI remain unfinished. A first Lux combat policy now uses the spell; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 is used, and human selection supports Lux. Native effects/audio, matched calibration and full tactical/role AI remain unfinished. A first Lux combat policy now uses the spell; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Winning checkpoints and finite result playback — October 22, 2026
+
+Continuing the retained seed-719 match beyond its one-hour diagnostic horizon
+reached a Blue-team Nexus victory at **63:29.5**. The winning checkpoint failed
+validation because an E flight still held the preceding tick’s position: a melee
+kill ended the update before E’s separate flight/zone phase.
+
+Nexus destruction now cancels E windups, flights and armed zones at the same
+boundary that cancels ordinary projectiles. It preserves committed mana/cooldown
+costs and cannot detonate a buffered recast afterward. Already-resolved bursts
+retain only their unexpired presentation tail. A winning checkpoint rejects an
+active E flight or zone; schema 108’s fields are unchanged, while the simulation
+fingerprint changes as usual.
+
+The result view now advances the existing temporary burst’s scale/fade on its
+presentation clock and disposes its sphere/ring geometry and materials at expiry.
+It does not advance simulation, damage, marks, slows, vision or the saved clock.
+Repeated samples and a fresh restoration reconstruct the same initial burst.
+Active flight/zone visuals are removed rather than inventing an explosion.
+
+These are explicit local match-ending policies, not a native victory/E-particle
+parity claim. The native E visuals/audio and their exact cancellation behavior
+remain unfinished. [Verification](reference/match-end-lucent-verification.json)
+retains the original failed checkpoint, source hashes, phase regressions,
+browser export/disposal checks and fresh full-match diagnostics.
+
+Current checks include 1,340 unit tests across 248 files and 14 distinct targeted
+Chrome cases. Four fresh extended matches validate 836,115 ticks and 234 exact
+checkpoint round trips. Seed 719’s repaired winning state matches the original
+continuation except for ruleset identity and cancelled E state; it still exceeds
+the one-hour completion horizon. These checks do not certify native E effects,
+full-match quality or the broader project requirements.
 
 ## Implemented lifecycle and provisional policies
 
@@ -8,7 +41,7 @@ Initial cast spends rank mana, starts the rank cooldown, captures rank/AP damage
 
 Arrival starts the five-second zone deadline. The 310 source effect value is provisionally interpreted as radius, with target collision radius included at the boundary. An active zone refreshes its captured slow through the independent `lucent` contribution API. Leaving the undetonated field leaves a provisional 0.25-second slow; detonation applies the supported one-second slow. Refresh occurs before commands/movement and after flight processing, and detonation samples post-movement positions after ordinary projectile processing.
 
-Repeated E commands during windup or flight buffer detonation for arrival. Recast costs no mana, does not restart cooldown, and neither interrupts a current cast (including R) nor recall. Hard stun and death still block commands; root does not. There is no extra minimum recast interval in this adapter. Multiple commands and timeout cannot cause multiple detonations. The existing cooldown readout is still initial-cast-oriented; Lux-specific recast HUD work remains outstanding with champion selection.
+Repeated E commands during windup or flight buffer detonation for arrival. Recast costs no mana, does not restart cooldown, and neither interrupts a current cast (including R) nor recall. Hard stun and death still block commands; root does not. There is no extra minimum recast interval in this adapter. Multiple commands and timeout cannot cause multiple detonations. Native recast/HUD fidelity remains unaccepted.
 
 An armed zone supplies unobstructed team vision at named radius 650. This adapter grants no flight vision or post-detonation sight. Damage is magic/area, ignores allies and structures, applies Illumination without consuming an existing mark, and follows shared shield/mitigation rules. Death during windup cancels E; death after release preserves flight, zone, timeout and effects. Explosion visuals persist for 0.3 seconds and never reapply gameplay.
 
@@ -18,7 +51,7 @@ Snapshot 43 preserves windup recast requests and each instance's origin, endpoin
 
 The temporary presentation uses a small orb, a ground-following 64-segment perimeter and a brief fading burst. Static perimeter geometry is allocated once per instance and all geometry/materials are disposed on retirement. The inspected `artifacts/lux-e-zone.png` is a diagnostic fixture capture, not a native visual match. Cast events now carry champion identity so Lux E cannot play Ashe's Hawkshot source sample; Lux still uses temporary synthesized cast feedback.
 
-Validation: 566 source/simulation checks pass, including nine E cases spanning windup/flight/zone/burst saves, every resource rank, range/self cast, buffered/free recast, exit/reentry, timeout, R interaction, death, team vision and invalid persistence. Four focused Lux Chrome cases and eight audio cases pass. Production build and nested-path smoke pass. Full browser, full-match and performance suites were not repeated.
+Original E milestone validation: 566 source/simulation checks passed, including nine E cases spanning windup/flight/zone/burst saves, every resource rank, range/self cast, buffered/free recast, exit/reentry, timeout, R interaction, death, team vision and invalid persistence. Four focused Lux Chrome cases and eight audio cases passed, alongside production build and nested-path smoke. Those historical results did not repeat the full browser, full-match or performance suites; current result-boundary evidence is linked above.
 
 ## Frozen evidence
 

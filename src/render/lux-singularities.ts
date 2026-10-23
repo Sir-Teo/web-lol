@@ -12,9 +12,15 @@ export class LuxSingularities {
     private scene: THREE.Scene,
     private ground: (p: Vec2) => number
   ) {}
-  update(world: World, alpha: number): void {
+  update(world: World, alpha: number, terminalAge = 0): void {
+    const tick = world.tick - 1 + alpha + (world.winner ? terminalAge * TICK_RATE : 0);
     const active = new Set<number>();
     for (const zone of world.singularities) {
+      if (
+        zone.detonatedTick !== null &&
+        tick >= zone.detonatedTick + LUX_E_POLICY.presentationSeconds * TICK_RATE
+      )
+        continue;
       active.add(zone.id);
       let group = this.models.get(zone.id);
       if (!group) {
@@ -58,8 +64,7 @@ export class LuxSingularities {
           ? 0
           : Math.max(
               0,
-              (world.tick - zone.detonatedTick + alpha - 1) /
-                (LUX_E_POLICY.presentationSeconds * TICK_RATE)
+              (tick - zone.detonatedTick) / (LUX_E_POLICY.presentationSeconds * TICK_RATE)
             );
       orb.position.set(point.x * SCALE, this.ground(point) + 0.7, point.y * SCALE);
       orb.scale.setScalar(zone.detonatedTick === null ? 1 : 1 + burst * 5);

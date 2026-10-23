@@ -6,7 +6,7 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,331 source/simulation/geometry checks, the targeted shared-strategy/combat/save browser checks described below, and earlier Rift camp, Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,340 source/simulation/geometry checks, the targeted result-boundary/file-transfer browser checks described below, and earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -21,7 +21,48 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-The [shared strategy foundation](BOT-TEAM-STRATEGY.md) plans once per second from
+The [Lucent result boundary](LUX-E.md#winning-checkpoints-and-finite-result-playback--october-22-2026)
+now cancels E windups, flights and armed zones on Nexus destruction without
+refunding committed resources or applying a late recast. Already-detonated
+bursts retain only their unexpired visual tail; the result view finishes and
+disposes that tail without advancing the saved simulation. Schema 108’s fields
+are unchanged, while validation rejects active E gameplay state in a winning
+checkpoint and the simulation fingerprint changes.
+
+Continuing retained seed 719 beyond one hour reached a structurally valid Blue-team victory
+at **63:29.5**, but exposed a stale E flight in the winning checkpoint. The
+original failure is preserved. Nine phase regressions cover melee/projectile
+victory, committed resources, flight/armed recasts, direct terminal damage,
+burst expiry and invalid terminal state. All **1,340 tests across 248 files**
+pass with one worker and unchanged test limits. **14 distinct targeted Chrome
+cases** pass across the main cohort and one timeout recheck, including three new
+result/export/disposal cases. The main run passed 13 cases; an existing
+cross-context transfer hit its 30-second limit and passed the focused retry.
+Two camp tests hit five seconds during an overlapping unit run; the isolated
+single-worker full retry passed. No assertion or timeout was relaxed.
+
+The [verification ledger](reference/match-end-lucent-verification.json) records
+source identity, the original failed continuation, phase/browser checks and
+production capture repair. Nested-path production smoke passes, including 34
+loaded scoreboard images before capture, selected companions and 20 source
+recordings overall. Game/Three chunks are 730.64/659.93 KB; the existing chunk
+warning remains. The full Chrome/performance suites and native E effects/audio
+comparison remain unaccepted.
+
+Four fresh extended diagnostics now reach structurally valid victories with
+**836,115 checked ticks** and **234 exact checkpoint round trips**. Seed 719
+reaches the same Blue victory at **63:29.5**, and its terminal state matches the
+failed continuation after accounting only for the new fingerprint and cancelled
+E state. The other seeds retain their earlier Red victories and terminal ticks.
+All earlier recorded minute samples match. **Three of four** finish within one
+hour; seed 719 still misses that horizon. The new `--minutes` harness option
+extends diagnostics without changing gameplay or overwriting default-horizon
+reports. Four seeds remain short of the 100-seed gate; late objective conversion,
+the full roster, quests, major objectives, native comparison, offline delivery
+and match-scale performance remain required work. See the
+[extended audit](reference/late-role-match-audit.json).
+
+At `9adb40e`, the [shared strategy foundation](BOT-TEAM-STRATEGY.md) planned once per second from
 explicit team observations. Bots can defend threatened buildings, join allied
 sieges and select visible ganks/Scuttlers. Jobs preserve jungle routes, copy
 last-seen points for at most three seconds and reject paths crossing remembered
@@ -34,7 +75,7 @@ endpoint without applying cancelled damage.
 This is local tuning; unseen river scouting, alternate safe routes, major
 objectives and complete coordination remain unfinished.
 
-All **1,331 unit checks across 247 files** and TypeScript pass. **33 distinct
+At that revision, **1,331 unit checks across 247 files** and TypeScript passed. **33 distinct
 targeted Chrome scenarios** pass across the initial 32 passing cases and a
 two-case recheck after correcting a new fixture. Coverage includes actual jungle
 siege/river/defense, existing role/combat/save/recovery behavior, Lux/Gromp

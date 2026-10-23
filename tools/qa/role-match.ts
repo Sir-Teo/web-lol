@@ -2,13 +2,22 @@
  * and unfinished horizons. Rendering and natural human play are separate gates. */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { parseArgs } from 'node:util';
 import { createRift } from '../../src/content/rift';
 import { NavGrid } from '../../src/simulation/navgrid';
 import { createLaneMatch } from '../../src/simulation/lane-match';
 import { World } from '../../src/simulation/world';
 import { distance } from '../../src/simulation/math';
 import type { TeamGoalKind } from '../../src/simulation/bot-team';
-const seeds = process.argv.slice(2).map(Number);
+const { values, positionals } = parseArgs({
+  args: process.argv.slice(2),
+  allowPositionals: true,
+  options: { minutes: { type: 'string', default: '60' } },
+});
+const horizonMinutes = Number(values.minutes);
+if (!Number.isInteger(horizonMinutes) || horizonMinutes < 1 || horizonMinutes > 120)
+  throw Error('Pass --minutes as an integer from 1 through 120.');
+const seeds = positionals.map(Number);
 if (!seeds.length || seeds.some((s) => !Number.isInteger(s) || s <= 0 || s > 0xffffffff))
   throw Error('Pass positive uint32 seeds.');
 const bytes = readFileSync('public/assets/maps/rift-nav.bin');
@@ -19,7 +28,7 @@ const rift = createRift(
   ),
   JSON.parse(readFileSync('public/assets/maps/rift-layout.json', 'utf8'))
 );
-const folder = `.cache/role-match-audit/${__SIMULATION_HASH__.slice(0, 12)}`;
+const folder = `.cache/role-match-audit/${__SIMULATION_HASH__.slice(0, 12)}${horizonMinutes === 60 ? '' : `/horizon-${horizonMinutes}`}`;
 mkdirSync(folder, { recursive: true });
 const kinds = ['defend', 'push', 'gank', 'river'] as const;
 const counts = () => Object.fromEntries(kinds.map((k) => [k, 0])) as Record<TeamGoalKind, number>;
@@ -40,7 +49,7 @@ for (const seed of seeds) {
   let checkedTicks = 0,
     failure: string | null = null;
   try {
-    for (let minute = 1; minute <= 60 && !w.winner; minute++) {
+    for (let minute = 1; minute <= horizonMinutes && !w.winner; minute++) {
       for (let t = 0; t < 3600 && !w.winner; t++) {
         w.step();
         checkedTicks++;
@@ -170,7 +179,8 @@ for (const seed of seeds) {
       arch: process.arch,
     },
     automatedHumanCarry: true,
-    horizonTicks: 216000,
+    horizonTicks: horizonMinutes * 3600,
+    completedWithin60Minutes: w.winner !== null && w.tick <= 216000,
     winner: w.winner,
     finalTick: w.tick,
     checkedTicks,

@@ -4214,6 +4214,14 @@ export class World {
         }
         this.projectiles.length = 0;
         this.pendingAttackProjectiles.length = 0;
+        // E owns gameplay state outside the projectile list. Cancel its flight
+        // and armed zone at the same terminal boundary; a burst that already
+        // resolved may retain only its unexpired presentation tail.
+        this.singularities = this.singularities.filter(
+          (zone) =>
+            zone.detonatedTick !== null &&
+            this.tick < zone.detonatedTick + LUX_E_POLICY.presentationSeconds * TICK_RATE
+        );
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });

@@ -70,7 +70,7 @@ An unfinished 60-minute horizon is retained without forcing a result.
 | 1 | Red victory | 53:41.733 |
 | 927 | Red victory; repaired winning save restores | 57:32.233 |
 
-The repaired ruleset checks 823,545 ticks and 230 exact checkpoint round trips
+The strategy audit at `9adb40e` checked 823,545 ticks and 230 exact checkpoint round trips
 without a detected invariant failure. Recorded minute samples and terminal
 ticks/winners match the initial strategy runs. Wall times include an explicit
 suspension during browser/unit/production checks and are not performance data.
@@ -100,6 +100,20 @@ Seed 26018 finishes at 57:31.783, later than its historical role-only run, while
 seed 719 remains unfinished at the 60-minute diagnostic horizon. The latter keeps
 normal fights, captures and exact checkpoints without proving eventual victory.
 Late-game objective conversion requires further investigation and tuning.
+
+An additional continuation of that retained seed reached Blue victory at
+63:29.5 and exposed a separate Lux E winning-checkpoint failure. The
+[Lucent result fix](LUX-E.md#winning-checkpoints-and-finite-result-playback--october-22-2026)
+cancels active E gameplay state and finishes existing burst visuals on a separate
+presentation clock. The one-hour completion gate still counts seed 719 as
+unfinished; extending diagnostics does not turn that horizon into a game rule.
+Current extended runs are recorded in the
+[late-match ledger](reference/late-role-match-audit.json).
+
+The headless runner accepts `--minutes 80` for an extended diagnostic (1–120
+minutes; the default remains 60). Nondefault horizons write beneath
+`<ruleset-prefix>/horizon-<minutes>/`, preserving default-horizon reports. Each
+report separately records whether victory occurred within 60 minutes.
 
 The initial seed-927 audit exposed an invalid winning checkpoint: a melee Nexus
 kill returned before an unrelated Lux missile’s history received its final frame

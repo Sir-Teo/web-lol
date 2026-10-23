@@ -216,6 +216,11 @@ try {
   await page.keyboard.down('Tab');
   for (const role of ['top', 'jungle', 'mid', 'carry', 'support'])
     assert.equal(await page.locator(`.scoreboard-row[data-role="${role}"]`).count(), 2);
+  await page.waitForFunction(() => {
+    const icons = [...document.querySelectorAll('.scoreboard-row img')];
+    return icons.length >= 30 && icons.every((img) => img.complete && img.naturalWidth > 0);
+  });
+  const roleScoreboardIcons = await page.locator('.scoreboard-row img').count();
   await page.screenshot({ path: 'artifacts/production-role-match.png' });
   await page.keyboard.up('Tab');
   await page.screenshot({ path: 'artifacts/production-lux.png' });
@@ -411,6 +416,7 @@ try {
       junglePreviewRequests: junglePreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,
       roleCompanionRequests,
+      roleScoreboardIcons,
       scheduledGrompRequests: scheduledGrompRequests.length,
       scheduledBlueRequests: scheduledBlueRequests.length,
       scheduledRedRequests: scheduledRedRequests.length,

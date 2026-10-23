@@ -6,6 +6,12 @@ team has at most five unique assignments. Validation rejects foreign actors,
 wrong target types/factions, missing match plans, invalid refresh deadlines and
 future/expired memory. See [team strategy](BOT-TEAM-STRATEGY.md).
 
+Winning schema-108 checkpoints also reject active Lucent Singularity flights or
+zones. Nexus destruction cancels that gameplay state and retains only an
+unexpired, already-detonated visual tail. Result playback retires the tail without
+changing saved state. The field layout is unchanged; earlier simulation
+fingerprints remain incompatible. See [Lux E](LUX-E.md).
+
 Schema 107 introduced five-position assignments and bounded observed camp memory.
 Each 5v5 team has one of every role; junglers retain a route cursor, current home
 camp, quiet clock and at most six observed-empty records. Validation rejects
