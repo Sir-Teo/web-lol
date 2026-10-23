@@ -280,8 +280,8 @@ try {
   assert(lucentSourceAssets.has('assets/models/lux-e-indicator.glb'));
   assert.equal(
     [...lucentSourceAssets].filter((p) => p.endsWith('.png')).length,
-    10,
-    'Only the ten selected E textures should load; unused prepared distortion assets remain unloaded'
+    14,
+    'Only the fourteen selected E textures should load; unused prepared distortion assets remain unloaded'
   );
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();

@@ -1,3 +1,4 @@
+import { writeRayQuad } from './ray-quad';
 import * as THREE from 'three';
 import profiles from '../content/lux-e-field.json';
 import { LUX_E_FIELD_BIRTHS, luxEFieldParticles } from './lux-e-field-particles';
@@ -31,6 +32,37 @@ export function createLuxEFieldMaterial(
         }
       : undefined
   );
+  if (p.mult || p.uvRotation) {
+    Object.assign(material.uniforms, {
+      fieldMultTexture: { value: get(p.mult) },
+      fieldBaseRotation: { value: (p.uvRotation * Math.PI) / 180 },
+    });
+    material.vertexShader = material.vertexShader
+      .replace(
+        'varying vec2 sourceUv;',
+        'varying vec2 sourceUv; varying vec2 fieldRawUv; varying vec2 fieldMultScale; varying vec2 fieldMultOffset; attribute vec2 particleMultScale; attribute vec2 particleMultOffset;'
+      )
+      .replace(
+        'void main() {',
+        'void main() {fieldRawUv=uv;fieldMultScale=particleMultScale;fieldMultOffset=particleMultOffset;'
+      );
+    material.fragmentShader = material.fragmentShader.replace(
+      'varying vec2 sourceUv;',
+      `varying vec2 sourceUv; varying vec2 fieldRawUv; varying vec2 fieldMultScale; varying vec2 fieldMultOffset;
+      uniform sampler2D fieldMultTexture; uniform float fieldBaseRotation;
+      vec2 fieldTurn(vec2 uv){vec2 q=uv-0.5;float c=cos(fieldBaseRotation),s=sin(fieldBaseRotation);return vec2(c*q.x-s*q.y,s*q.x+c*q.y)+0.5;}`
+    );
+    if (p.uvRotation)
+      material.fragmentShader = material.fragmentShader.replace(
+        'texture2D(sourceTexture, sourceUv)',
+        'texture2D(sourceTexture,fract(fieldTurn(sourceUv)))'
+      );
+    if (p.mult)
+      material.fragmentShader = material.fragmentShader.replace(
+        /}\s*$/,
+        'gl_FragColor *= texture2D(fieldMultTexture,fract((fieldRawUv-0.5)*fieldMultScale+0.5+fieldMultOffset));}'
+      );
+  }
   Object.assign(material, {
     name: `Lucent ${p.role} field motion ${p.index} ${p.name}`,
     transparent: true,
@@ -66,6 +98,12 @@ export class LuxEFieldCloud {
   private direction = new THREE.Vector3();
   private center = new THREE.Vector3();
   private vertex = new THREE.Vector3();
+  private sourcePosition = new THREE.Vector3();
+  private axis = new THREE.Vector3();
+  private across = new THREE.Vector3();
+  private eye = new THREE.Vector3();
+  private rotation = new THREE.Euler(0, 0, 0, 'YXZ');
+  private frame = new THREE.Matrix3();
   constructor(
     readonly role: 'ally' | 'enemy',
     textures: ReadonlyMap<string, THREE.Texture>
@@ -79,6 +117,8 @@ export class LuxEFieldCloud {
         ['uv', 2],
         ['particleTint', 4],
         ['particleLookupUv', 2],
+        ['particleMultOffset', 2],
+        ['particleMultScale', 2],
       ] as const)
         geometry.setAttribute(
           name,
@@ -110,6 +150,7 @@ export class LuxEFieldCloud {
     ground: (p: Vec2) => number
   ) {
     camera.updateMatrixWorld();
+    camera.getWorldPosition(this.eye);
     this.right.setFromMatrixColumn(camera.matrixWorld, 0).normalize();
     this.up.setFromMatrixColumn(camera.matrixWorld, 1).normalize();
     const length = Math.hypot(target.x - origin.x, target.y - origin.y),
@@ -126,6 +167,8 @@ export class LuxEFieldCloud {
         uv = g.getAttribute('uv'),
         tint = g.getAttribute('particleTint'),
         lookup = g.getAttribute('particleLookupUv'),
+        multOffset = g.getAttribute('particleMultOffset'),
+        multScale = g.getAttribute('particleMultScale'),
         index = g.index!;
       // Retired slots remain deterministic across reverse seeks and fresh
       // restores; the next cast must not inherit unused GPU buffer bytes.
@@ -156,28 +199,84 @@ export class LuxEFieldCloud {
         dx /= d;
         dy /= d;
         const first = slot * 6;
-        corners.forEach(([cx, cy], corner) => {
-          const roll = (-q.rotation[0] * Math.PI) / 180,
-            c = Math.cos(roll),
-            s = Math.sin(roll),
-            rx = cx * c - cy * s,
-            ry = cx * s + cy * c;
-          const sx = q.scale[0] * 0.01,
-            sy = q.scale[1] * q.stretch * 0.01;
-          const a = dy * rx * sx + dx * ry * sy,
-            b = -dx * rx * sx + dy * ry * sy;
-          this.vertex.copy(this.center).addScaledVector(this.right, a).addScaledVector(this.up, b);
-          position.setXYZ(first + corner, this.vertex.x, this.vertex.y, this.vertex.z);
-          uv.setXY(
-            first + corner,
-            ...particleAtlasUv(
-              p.atlas.grid[0],
-              p.atlas.grid[1],
-              q.frame,
-              (cx + 1) / 2,
-              (1 - cy) / 2
-            )
+        this.sourcePosition.fromArray(q.position);
+        this.rotation.set(
+          ...(q.rotation.map((v) => (v * Math.PI) / 180) as [number, number, number]),
+          'YXZ'
+        );
+        this.frame.set(
+          ...((p.local ? [-fy, 0, fx, 0, 1, 0, fx, 0, fy] : [-1, 0, 0, 0, 1, 0, 0, 0, 1]) as [
+            number,
+            number,
+            number,
+            number,
+            number,
+            number,
+            number,
+            number,
+            number,
+          ])
+        );
+        if (p.primitive === 'ray') {
+          this.axis.set(0, 0, 1).applyEuler(this.rotation).applyMatrix3(this.frame);
+          this.across.set(1, 0, 0).applyEuler(this.rotation).applyMatrix3(this.frame);
+          writeRayQuad(
+            position as THREE.BufferAttribute,
+            uv as THREE.BufferAttribute,
+            first,
+            {
+              center: this.center,
+              axis: this.axis,
+              fallbackAcross: this.across,
+              size: q.scale.map((v) => v * 0.01) as [number, number, number],
+            },
+            this.eye
           );
+        }
+        corners.forEach(([cx, cy], corner) => {
+          if (p.primitive === 'quad') {
+            this.vertex
+              .set(cx * q.scale[0], cy * q.scale[1], 0)
+              .applyEuler(this.rotation)
+              .add(this.sourcePosition);
+            const x = p.local ? -fy * this.vertex.x + fx * this.vertex.z : this.vertex.x,
+              y = p.local ? fx * this.vertex.x + fy * this.vertex.z : this.vertex.z;
+            const horizontal = { x: at.x + x, y: at.y + y };
+            position.setXYZ(
+              first + corner,
+              horizontal.x * 0.01,
+              ground(horizontal) + 1 + this.vertex.y * 0.01,
+              horizontal.y * 0.01
+            );
+            uv.setXY(first + corner, (cy + 1) / 2, (1 - cx) / 2);
+          } else if (p.primitive === 'camera') {
+            const roll = (-q.rotation[0] * Math.PI) / 180,
+              c = Math.cos(roll),
+              s = Math.sin(roll),
+              rx = cx * c - cy * s,
+              ry = cx * s + cy * c;
+            const sx = q.scale[0] * 0.01,
+              sy = q.scale[1] * q.stretch * 0.01;
+            const a = dy * rx * sx + dx * ry * sy,
+              b = -dx * rx * sx + dy * ry * sy;
+            this.vertex
+              .copy(this.center)
+              .addScaledVector(this.right, a)
+              .addScaledVector(this.up, b);
+            position.setXYZ(first + corner, this.vertex.x, this.vertex.y, this.vertex.z);
+            uv.setXY(
+              first + corner,
+              ...particleAtlasUv(
+                p.atlas.grid[0],
+                p.atlas.grid[1],
+                q.frame,
+                (cx + 1) / 2,
+                (1 - cy) / 2
+              )
+            );
+          }
+          multOffset.setXY(first + corner, ...(q.multOffset as [number, number]));
+          multScale.setXY(first + corner, ...(q.multScale as [number, number]));
           tint.setXYZW(first + corner, ...(q.color as [number, number, number, number]));
           lookup.setXY(first + corner, ...q.lookup);
         });

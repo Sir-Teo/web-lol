@@ -29,7 +29,7 @@ export function loadLuxESource(): Promise<void> {
       .filter(Boolean);
     paths.push(
       ...fieldProfiles
-        .flatMap((p) => [p.texture, p.lookup, p.palette?.texture ?? ''])
+        .flatMap((p) => [p.texture, p.lookup, p.mult, p.palette?.texture ?? ''])
         .filter(Boolean)
     );
     paths.push(...burstProfiles.flatMap((p) => [p.texture, p.lookup]).filter(Boolean));

@@ -4,15 +4,34 @@ import { emitterBirthTicks, sampleEmitterValue } from './particle-emitter-value'
 import { luxHoopChance } from './lux-hoop-particles';
 import { luxEBurstTravel } from './lux-e-burst-particles';
 import { particleColorLookup } from './particle-color-lookup';
+import { accumulateParticleCurve, type ParticleCurve } from './particle-curves';
 
 /** Schedules are immutable and shared across casts. Per-birth emitter properties
  * are captured at normalized emitter age, then independently aged/searched. */
-export const LUX_E_FIELD_BIRTHS = profiles.map((p) => emitterBirthTicks(p.rate, p.emitterLife));
+export const LUX_E_FIELD_BIRTHS = profiles.map((p) =>
+  p.single
+    ? Array.from({ length: Math.max(1, Math.trunc(p.rate.values[0][0])) }, () => 0)
+    : emitterBirthTicks(p.rate, p.emitterLife)
+);
 export function luxEFieldParticles(role: 'ally' | 'enemy', seed: number, seconds: number) {
   if (!Number.isFinite(seconds) || seconds < 0) return [];
   return profiles.flatMap((p, profileIndex) => {
     if (p.role !== role) return [];
     const result = [];
+    const integrated = new Map<string, number[]>();
+    const sum = (name: string, curve: ParticleCurve, age: number, life: number) => {
+      const key = `${name}:${age}:${life}`;
+      let value = integrated.get(key);
+      if (!value) {
+        value = curve.values[0].map((_, axis) =>
+          curve.values.every((v) => v[axis] === 0)
+            ? 0
+            : accumulateParticleCurve(curve, age, life, axis)
+        );
+        integrated.set(key, value);
+      }
+      return value;
+    };
     for (const [slot, tick] of LUX_E_FIELD_BIRTHS[profileIndex].entries()) {
       const birthSeconds = tick / 60;
       if (birthSeconds > seconds) break;
@@ -48,7 +67,9 @@ export function luxEFieldParticles(role: 'ally' | 'enemy', seed: number, seconds
       const scale = sample(p.size).map((v, axis) => v * lifetime(p.scale)[axis]);
       if (p.uniform) scale.fill(scale[0]);
       const angular = sample(p.angular),
-        roll = sample(p.rotation).map((v, axis) => v + angular[axis] * age);
+        turn = sum('turn', p.rotationRate, age, life),
+        scroll = sum('scroll', p.multScroll, age, life),
+        roll = sample(p.rotation).map((v, axis) => v + angular[axis] * age + 60 * turn[axis]);
       result.push({
         profileIndex,
         ordinal,
@@ -61,6 +82,8 @@ export function luxEFieldParticles(role: 'ally' | 'enemy', seed: number, seconds
         travel,
         scale,
         rotation: roll,
+        multOffset: sample(p.multOffset).map((v, axis) => v + scroll[axis]),
+        multScale: lifetime(p.multScale),
         color: sample(p.birthColor).map((v, axis) => v * lifetime(p.color)[axis]),
         frame: p.atlas.random
           ? Math.floor(luxHoopChance(emitterSeed ^ 0x7f4a7c15, ordinal) * p.atlas.frames)

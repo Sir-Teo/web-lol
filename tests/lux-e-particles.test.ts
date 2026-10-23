@@ -12,6 +12,12 @@ const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest(
 
 test('the complete six-resource pin preserves all emitter coverage and shipped source-image identities', () => {
   expect(Object.keys(pin.resources)).toHaveLength(6);
+  expect(profiles.slice(0, 20).map((p) => [p.role, p.index])).toEqual([
+    ...[2, 3, 4, 6, 8].map((i) => ['flight', i]),
+    ...[2, 3, 4, 7, 8].map((i) => ['ally', i]),
+    ...[4, 8, 9, 10, 16].map((i) => ['enemy', i]),
+    ...[1, 2, 3, 9, 10].map((i) => ['burst', i]),
+  ]);
   expect(coverage.inventory).toHaveLength(65);
   expect(coverage.inventory.filter((e) => e.status === 'rendered static layer')).toHaveLength(
     profiles.length

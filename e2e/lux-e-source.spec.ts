@@ -91,16 +91,19 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
     g.world.step(70);
   });
   const field = await sample('armed');
-  expect(field.layers).toHaveLength(7);
-  expect(field.layers.filter((m: any) => m.name.includes('field motion'))).toHaveLength(2);
-  expect(field.layers.filter((m: any) => !m.name.includes('field motion'))).toHaveLength(5);
+  expect(field.layers).toHaveLength(22);
+  expect(field.layers.filter((m: any) => m.name.includes('field motion'))).toHaveLength(8);
+  expect(field.layers.filter((m: any) => !m.name.includes('field motion'))).toHaveLength(14);
   expect(field.restored && field.repeated && field.snapshotUnchanged).toBe(true);
   const perimeter = field.layers.find((m: any) => m.name.includes('teamring'))!;
   expect(perimeter.corners).toBe(1440);
   expect(perimeter.drawCount).toBe(1440);
   expect(perimeter.minimumRadius).toBeCloseTo(302.69735, 2);
   expect(perimeter.maximumRadius).toBeCloseTo(366.64403, 2);
-  await page.screenshot({ path: 'artifacts/lux-e-source-armed.png' });
+  await page.screenshot({
+    path: 'artifacts/lux-e-glows-early.png',
+    style: '.modal-backdrop { visibility: hidden !important; }',
+  });
   await page.evaluate((lux) => {
     const w = (window as any).__GAME__.world;
     w.enqueue({ type: 'cast', unit: lux, ability: 'e', point: w.unit(lux) });
@@ -209,7 +212,7 @@ test('enemy source field uses its red perimeter, disappears under fog and return
   expect(errors).toEqual([]);
 });
 
-test('all twenty source materials preserve GPU color products, locked alpha, erosion and separate framebuffer blends', async ({
+test('all thirty-one source materials preserve GPU color products, locked alpha, erosion and separate framebuffer blends', async ({
   page,
 }) => {
   await page.goto('/?scene=fixture');
@@ -305,7 +308,7 @@ test('all twenty source materials preserve GPU color products, locked alpha, ero
     renderer.dispose();
     return results;
   });
-  expect(results).toHaveLength(20);
+  expect(results).toHaveLength(31);
   expect(results.filter((r: any) => !r.productCorrect || !r.blendCorrect)).toEqual([]);
   writeFileSync('artifacts/lux-e-source-gpu.json', JSON.stringify(results, null, 2) + '\n');
 });

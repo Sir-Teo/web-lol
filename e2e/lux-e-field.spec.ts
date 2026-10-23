@@ -81,10 +81,10 @@ test('an armed field restores all wave/spark buffer bytes and pixels after actua
   expect(before.restored).toBe(true);
   expect(before.seek).toBe(true);
   expect(before.fieldAge).toBe(2.5);
-  expect(before.layers).toHaveLength(2);
-  expect(before.layers.every((m: any) => m.count > 0)).toBe(true);
+  expect(before.layers).toHaveLength(8);
+  expect(before.layers.filter((m: any) => m.count > 0)).toHaveLength(7);
   await page.screenshot({
-    path: 'artifacts/lux-e-field-armed.png',
+    path: 'artifacts/lux-e-glows-armed.png',
     style: '.modal-backdrop { visibility: hidden !important; }',
   });
   await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextLoss());
@@ -140,7 +140,7 @@ test('an armed field restores all wave/spark buffer bytes and pixels after actua
   expect(after.retiredField).toBe(true);
   expect(errors).toEqual([]);
   writeFileSync(
-    'artifacts/lux-e-field-recovery.json',
+    'artifacts/lux-e-glows-recovery.json',
     JSON.stringify({ before, after }, null, 2) + '\n'
   );
 });
@@ -190,10 +190,10 @@ test('enemy field waves and sparks filter triangles at fog boundaries and return
     };
   });
   expect(Object.values(result).every(Boolean)).toBe(true);
-  writeFileSync('artifacts/lux-e-field-fog.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync('artifacts/lux-e-glows-fog.json', JSON.stringify(result, null, 2) + '\n');
 });
 
-test('two field motion batches per team match separate particle draws and each source layer contributes pixels', async ({
+test('field glow/ray/motion batches match separate particle draws and each source layer contributes pixels', async ({
   page,
 }) => {
   await page.goto('/?scene=fixture');
@@ -208,7 +208,9 @@ test('two field motion batches per team match separate particle draws and each s
       w = g.world;
     g.setPaused(true);
     const textures = await loadLuxParticleTextures(
-      profiles.flatMap((p: any) => [p.texture, p.lookup, p.palette?.texture ?? '']).filter(Boolean)
+      profiles
+        .flatMap((p: any) => [p.texture, p.lookup, p.mult, p.palette?.texture ?? ''])
+        .filter(Boolean)
     );
     const camera = new THREE.OrthographicCamera(-6, 6, 6, -6, 0.1, 100);
     camera.position.set(7, 11, 12);
@@ -275,7 +277,7 @@ test('two field motion batches per team match separate particle draws and each s
           if (delta) different++;
         }
         const contributions = [];
-        if (age === 2.5)
+        if (age === 1)
           for (const batch of cloud.meshes) {
             batch.visible = false;
             const without = render(scene);
@@ -309,19 +311,22 @@ test('two field motion batches per team match separate particle draws and each s
     renderer.setRenderTarget(savedTarget);
     return comparisons;
   });
-  expect(result.every((r: any) => r.batchCalls <= 2 && r.maxDelta <= 1)).toBe(true);
-  const main = result.find((r: any) => r.age === 2.5)!;
-  expect(main.batchCalls).toBe(2);
+  expect(
+    result.every((r: any) => r.batchCalls <= (r.role === 'ally' ? 8 : 7) && r.maxDelta <= 1)
+  ).toBe(true);
+  const main = result.find((r: any) => r.age === 1)!;
+  expect(main.batchCalls).toBe(8);
   expect(main.separateCalls).toBeGreaterThan(10);
-  expect(main.contributions).toHaveLength(2);
+  expect(main.contributions).toHaveLength(8);
   expect(main.contributions.every((r: any) => r.differentBytes > 0)).toBe(true);
   expect(
     result
-      .filter((r: any) => r.age === 2.5)
+      .filter((r: any) => r.age === 1)
       .every(
         (r: any) =>
-          r.contributions.length === 2 && r.contributions.every((c: any) => c.differentBytes > 0)
+          r.contributions.length === (r.role === 'ally' ? 8 : 7) &&
+          r.contributions.every((c: any) => c.differentBytes > 0)
       )
   ).toBe(true);
-  writeFileSync('artifacts/lux-e-field-batches.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync('artifacts/lux-e-glows-batches.json', JSON.stringify(result, null, 2) + '\n');
 });

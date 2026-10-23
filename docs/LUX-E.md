@@ -1,10 +1,75 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, twenty static source particle layers, three moving detonation batches and four continuous field streams are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, thirty-one static source particle layers, three moving detonation batches and fifteen field batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Field glows, rotating quads and source rays — October 23, 2026
+
+Eleven additional static flash/glow records and eleven dynamic field records now
+join the previous field waves and sparks. Coverage is **49 of 65 emitter records**:
+31 static records, three detonation batches and fifteen field batches. Sixteen
+remain deferred: five missile layers; the ally field's spinners/motes; six field/nova
+refraction/distortion records; the attached hit flash; a remaining nova flash;
+and the nonvisual sound-emitter binding. E source event playback is implemented
+separately. This is not complete native E presentation.
+
+The field owns eight dynamic batches for the ally definition and seven for the
+enemy definition. Each emitter retains its own geometry type, source pass, tint,
+lookup and blend/depth policy. Three `VfxPrimitiveRay` records use the existing
+source ray writer: transformed source +Z length, full source width, a camera
+transverse axis and source-X fallback on an aligned eye. Six arbitrary ground
+quads rotate and scale source corners before per-corner terrain sampling. Camera
+quads retain the existing roll/direction convention. The nonlocal ray frame uses
+the reflected frame already used for Illumination rays; native frame/root and
+terrain projection calibration remain open.
+
+Each team's `END_Beam_ROTATING` starts ten quads at field activation. Angular
+rotation uses the existing Final Spark charge reconstruction: birth angular
+velocity plus sixty times the integrated source `{712b01bd}` curve on particle
+age. Its authored 90-degree base-texture rotation remains independent of the
+multiplier texture. Multiplier scale and each quad's birth offset/accumulated
+lifetime scroll are separate vertex attributes, so a batch cannot flatten them
+into shared UVs. The six ground glows preserve animated rates and emitter-age
+birth curves while their appearance and multiplier motion use particle age.
+Native integrated-rate units and callback/linger semantics remain unverified.
+
+Four center-glow records contain out-of-order scale times but identical `[2,2,2]`
+values at every key. Those raw keys remain unchanged; constant evaluation is
+verified without sorting or rewriting source data. Other out-of-order curves
+remain unsupported by this exporter. The original twenty static profile indices
+and values remain intact, preserving their indexed choices. Twenty recorded
+wave/spark samples retain all previous values after excluding only newly added
+multiplier attributes. No simulation randomness, combat state or saved fields
+changed; schema 109 continues to use the existing phase clocks.
+
+All fifteen dynamic batches contribute pixels in the isolated one-second probes.
+At that time, 85 ally particles use eight dynamic draws and 60 enemy particles
+use seven; static field draws are separate. Ten sampled frames differ from
+separate particle draws by at most one RGBA channel value. A real armed-field
+context loss restores every framebuffer byte, and all 32 then-owned field
+geometry/material resources retire on recast. Early and mature fixture captures
+and actual Rift production were visually reviewed. These results do not certify
+native composition or full-match FPS.
+
+All 1,385 unit checks across 253 files, nineteen targeted Chrome cases and
+nested-path production smoke pass. Twenty-three referenced source images total
+354,382 bytes; fourteen E-prefixed images are requested. No image files were
+added. Game/Three chunks are 854.61/658.75 KB and the build-size warning remains.
+Four fresh [normal-rules diagnostic matches](reference/lux-e-glows-match-audit.json)
+check 780,762 ticks and 220 exact checkpoint round trips. Every sample, winner
+and end tick matches `20cd432`; every complete checkpoint, including audio
+history, matches after changing only the ruleset fingerprint. All four victories
+remain within an hour. Four seeds do not meet the 100-seed gate.
+
+The [verification ledger](reference/lux-e-glows-verification.json) retains source
+hashes, source/geometry checks, captures and diagnostic matches. Run
+`node tools/qa/verify-lux-e-glows.mjs` from the repository root to verify retained
+local evidence. Full browser, native comparison, offline and full-match
+performance gates remain open.
 
 ## Continuous field waves and sparks — October 23, 2026
 
-Both source team fields now add the authored `WaveRight` stream and rising
+The following milestone describes `20cd432` and is expanded by the glow/ray
+work above. Both source team fields added the authored `WaveRight` stream and rising
 `sparks`, with two fixed-capacity draws per armed field. Their animated rate
 curves retain **126 wave births and 90 spark births** on the local 60 Hz grid.
 Birth lifetime, velocity, emission offset, emitter position, tint and size sample

@@ -1,9 +1,9 @@
 {
   "sourcePinSha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4",
-  "profileSha256": "d5571e778d735b2e85cae14f23504a5b221044affbeb65cf5c34dd93775a5601",
+  "profileSha256": "580e67a7e7c7816d17a0e7354460082e380c832cd06bab6ae17b2af643ea52db",
   "burstProfileSha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e",
-  "fieldProfileSha256": "c09cef5f7ccc75c76fdfb97d9badb8666ca7f5ec4f25a2a942cbcd0fa23d9eeb",
-  "rendered": 27,
+  "fieldProfileSha256": "f737da62d7c5c087c0e59f504d6b4ccf14495a9e4ff28cfe5420230d5c5e9d4a",
+  "rendered": 49,
   "inventory": [
     {
       "record": "Lux_E_tar_aoe_sound",
@@ -156,78 +156,78 @@
       "record": "Lux_E_tar_aoe_green",
       "index": 9,
       "name": "rays1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 10,
       "name": "LaunchFlash1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 11,
       "name": "LaunchFlash2",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 12,
       "name": "END_Beam_ROTATING",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 13,
       "name": "Glow1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 14,
       "name": "Glow_Center",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 15,
       "name": "Glow_Center1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 16,
       "name": "LaunchFlash3",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 17,
       "name": "Core_Glow",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 18,
       "name": "Core_Glow1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 19,
       "name": "LaunchFlash4",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
@@ -240,8 +240,8 @@
       "record": "Lux_E_tar_aoe_green",
       "index": 21,
       "name": "Temp_GroundGlow3",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
@@ -254,43 +254,43 @@
       "record": "Lux_E_tar_aoe_green",
       "index": 23,
       "name": "Temp_GroundGlow4",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 24,
       "name": "rays2",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
       "index": 0,
       "name": "END_Beam_ROTATING",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
       "index": 1,
       "name": "Glow",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
       "index": 2,
       "name": "Glow_Center",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
       "index": 3,
       "name": "Glow_Center1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
@@ -303,22 +303,22 @@
       "record": "Lux_E_tar_aoe_red",
       "index": 5,
       "name": "LaunchFlash1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
       "index": 6,
       "name": "LaunchFlash2",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
       "index": 7,
       "name": "LaunchFlash3",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
@@ -366,8 +366,8 @@
       "record": "Lux_E_tar_aoe_red",
       "index": 14,
       "name": "rays",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_red",
@@ -462,7 +462,7 @@
     }
   ],
   "limits": [
-    "Twenty static layers, three detonation motion batches and four field wave/spark batches. Remaining field/flight motion, distortion and target hit capture remain open; E source audio is implemented separately.",
+    "Thirty-one static layers, three detonation motion batches and fifteen field motion/glow/ray batches. Remaining field/flight motion, distortion and target hit capture remain open; E source audio is implemented separately.",
     "Birth dispatch, palette row conversion, emitter origin/height, source-frame attachment, ground projection, stop behavior and composition remain local adapters pending native comparison."
   ]
 }

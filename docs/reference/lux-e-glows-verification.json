@@ -1,0 +1,435 @@
+{
+  "date": "2026-10-23",
+  "baseline": "20cd432bdda8a1c3726593bc82db7bf303b65f09",
+  "schema": 109,
+  "ruleset": "3c0ad27492fb93a0533323aff92fc852a5398103924838f8a1f8184a8ee2de00",
+  "scope": "Twenty-two additional emitter records: eleven static flashes/glows, six ground-glow emitters, three true rays and two ten-quad rotating beams, independent integrated multiplier UVs, unchanged legacy profiles, saved clocks, fog, recovery and retirement.",
+  "source": {
+    "renderedEmitterRecords": 49,
+    "deferredEmitterRecords": 16,
+    "staticRecords": 31,
+    "fieldBatches": 15,
+    "fieldPrimitiveCounts": {
+      "camera": 6,
+      "quad": 6,
+      "ray": 3
+    },
+    "maximumDynamicDraws": {
+      "ally": 8,
+      "enemy": 7
+    },
+    "newEmitterRecords": 22,
+    "legacy": {
+      "legacyWaveSparkSamples": 20,
+      "identicalValues": true
+    },
+    "textureCount": 23,
+    "textureBytes": 354382,
+    "requestedEPrefixedImages": 14,
+    "newImageFiles": 0
+  },
+  "checks": {
+    "unit": {
+      "files": 253,
+      "tests": 1385,
+      "command": "npx vitest run --maxWorkers=1"
+    },
+    "chrome": {
+      "cases": 19,
+      "scope": "Expanded field cases and all thirty-one static source material cases, adjacent E source/burst/audio, saves, fog, graphics recovery and frozen victory. Full browser suite not repeated.",
+      "batchFrames": 10,
+      "maximumRGBAChannelDelta": 1,
+      "batchContributionBytes": [
+        {
+          "role": "ally",
+          "contributions": [
+            {
+              "name": "Lucent ally field motion 5 WaveRight",
+              "differentBytes": 3434
+            },
+            {
+              "name": "Lucent ally field motion 6 sparks",
+              "differentBytes": 79
+            },
+            {
+              "name": "Lucent ally field motion 9 rays1",
+              "differentBytes": 1841
+            },
+            {
+              "name": "Lucent ally field motion 12 END_Beam_ROTATING",
+              "differentBytes": 295
+            },
+            {
+              "name": "Lucent ally field motion 13 Glow1",
+              "differentBytes": 19369
+            },
+            {
+              "name": "Lucent ally field motion 14 Glow_Center",
+              "differentBytes": 4759
+            },
+            {
+              "name": "Lucent ally field motion 15 Glow_Center1",
+              "differentBytes": 738
+            },
+            {
+              "name": "Lucent ally field motion 24 rays2",
+              "differentBytes": 5328
+            }
+          ]
+        },
+        {
+          "role": "enemy",
+          "contributions": [
+            {
+              "name": "Lucent enemy field motion 11 WaveRight",
+              "differentBytes": 4353
+            },
+            {
+              "name": "Lucent enemy field motion 15 sparks",
+              "differentBytes": 140
+            },
+            {
+              "name": "Lucent enemy field motion 0 END_Beam_ROTATING",
+              "differentBytes": 349
+            },
+            {
+              "name": "Lucent enemy field motion 1 Glow",
+              "differentBytes": 19375
+            },
+            {
+              "name": "Lucent enemy field motion 2 Glow_Center",
+              "differentBytes": 6906
+            },
+            {
+              "name": "Lucent enemy field motion 3 Glow_Center1",
+              "differentBytes": 872
+            },
+            {
+              "name": "Lucent enemy field motion 14 rays",
+              "differentBytes": 2656
+            }
+          ]
+        }
+      ],
+      "reverseSeekBuffers": true,
+      "realGraphicsLossDifferentBytes": 0,
+      "retiredResources": 32
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png"
+    },
+    "diagnosticMatches": {
+      "checkedTicks": 780762,
+      "exactRoundTrips": 220,
+      "victories": 4,
+      "allRecordedSamplesEqual": true,
+      "allFinalCheckpointsEqualExceptRuleset": true
+    }
+  },
+  "findings": {
+    "constantAnomalousCurves": "Four center-glow records retain their out-of-order time keys with identical [2,2,2] values. Export allows this constant case without sorting, and tests evaluate it directly.",
+    "legacy": "Original twenty static profile positions/values and twenty wave/spark samples retain all previous values. Only newly introduced multiplier attributes are excluded from that comparison.",
+    "captures": "Unobstructed early and mature fixture and actual Rift production fields were visually reviewed. Paused captures and isolated draw counts are not FPS evidence."
+  },
+  "policies": {
+    "ray": "Existing reflected-source VfxPrimitiveRay writer; full width/length and camera-axis fallback are checked.",
+    "quad": "Euler source corners and per-corner terrain sampling; camera quads preserve the local roll/direction convention.",
+    "integrated": "Birth angular velocity plus 60 times source integrated rotation, independent per-particle multiplier scale/offset/scroll, constant 90-degree base UV rotation.",
+    "rate": "Right-endpoint 60 Hz deterministic rate budget with compensated summation, charged first birth and 1e-9 integer-crossing tolerance.",
+    "birth": "Animated birth properties sample normalized emitter age; lifetime color/scale use particle age. Shared indexed chance, shape-axis normalization and degree shape/roll follow local Lux conventions.",
+    "motion": "Existing local closed-form 60 Hz drag with source orbital velocity interpreted as radians; no native integrator/unit claim.",
+    "stop": "Field batches retire immediately on detonation/cancellation/victory. Source particleLinger is retained as metadata, not expanded into invented post-field persistence.",
+    "ownership": "Zero inactive attribute/index slots; geometry/material ownership separate from borrowed session textures.",
+    "ruleset": "All three runtime E JSON profile files explicitly participate in the strict fingerprint. Schema/saved fields and gameplay behavior remain unchanged."
+  },
+  "files": [
+    {
+      "path": ".cache/lux-e-static-before.json",
+      "sha256": "d5571e778d735b2e85cae14f23504a5b221044affbeb65cf5c34dd93775a5601"
+    },
+    {
+      "path": ".cache/lux-e-field-wave-spark-baseline.json",
+      "sha256": "d59c7af01d8956328c009e818e47e4a259aaaf56b241b60f08f786e18369ce7a"
+    },
+    {
+      "path": ".cache/lux-e-field-before-runner/lux-e-field-before.js",
+      "sha256": "8b6aded9b06ab0af57b2209316d784473b190c1cb932a89e407e9f7ee1d1bb54"
+    },
+    {
+      "path": ".cache/lux-e-field-compare-runner/lux-e-field-compare.js",
+      "sha256": "e1c7b24de44b2b2d82a901320adb124c1497f67e0c843750dc9c656386fa8f0e"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": "src/render/lux-charge-ray-particles.ts",
+      "sha256": "5b51fff730fdb29296836b3070a68e4a30edee3ac311afdaeb976699d2844ea2"
+    },
+    {
+      "path": "docs/reference/lux-e-vfx.json",
+      "sha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4"
+    },
+    {
+      "path": "docs/reference/lux-e-particle-coverage.json",
+      "sha256": "e760c0f60292125824e3c8f3c3932cb6b86ec0de7fe9d0c7b0178d571e502ea9"
+    },
+    {
+      "path": "docs/reference/lux-e-glows-match-audit.json",
+      "sha256": "18150cf31a852a71509e41ad13b4f31670aa165b44c99e186de4cb62d3250910"
+    },
+    {
+      "path": "src/content/lux-e-field.json",
+      "sha256": "f737da62d7c5c087c0e59f504d6b4ccf14495a9e4ff28cfe5420230d5c5e9d4a"
+    },
+    {
+      "path": "src/content/lux-e-particles.json",
+      "sha256": "580e67a7e7c7816d17a0e7354460082e380c832cd06bab6ae17b2af643ea52db"
+    },
+    {
+      "path": "src/content/lux-e-burst.json",
+      "sha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e"
+    },
+    {
+      "path": "src/content/lux-e-particle-timing.ts",
+      "sha256": "98afe6c1b4ef560f25d7996652efbb95582ed66a5da4fb985d38fddb82910202"
+    },
+    {
+      "path": "src/render/lux-e-field-particles.ts",
+      "sha256": "03def29d4084038e61c4f6c642e96c37eb1a6a84dfa75b34c04a779dbc640d8b"
+    },
+    {
+      "path": "src/render/lux-e-field.ts",
+      "sha256": "05ed7574b12ca5a2fd1eb8462b4a7b0392df86083ad407122c467d24b00774d1"
+    },
+    {
+      "path": "src/render/particle-emitter-value.ts",
+      "sha256": "56c7b760c43314c711d23d191a589864070f82991a128299c10946cbfebd65cd"
+    },
+    {
+      "path": "src/render/lux-e-source.ts",
+      "sha256": "b8b5871b24bed274e846202b268faf09238e438a60ff2ae79a2b49fc3256ac6e"
+    },
+    {
+      "path": "src/render/lux-singularities.ts",
+      "sha256": "27b8beabc1086866ed59c02a289692f59a9e1156ac7e2120c2e3c31df89a23d1"
+    },
+    {
+      "path": "tools/assets/lux_e_field.py",
+      "sha256": "4bd8b7ccdba8cca3c82f75eb5c01886aea2119139f81a87771ee3c58e6e439db"
+    },
+    {
+      "path": "tools/assets/export-lux-e-particles.py",
+      "sha256": "8257ef11e75d71f4705cb5acd11b8b08b927d00f81c537a02fc255d6a7d3b313"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "sha256": "2cccbc29549ccbdf4547e024271f2ef8f00902d8e24ee1c5ea8523ef7acebd24"
+    },
+    {
+      "path": "tests/lux-e-field.test.ts",
+      "sha256": "e57212439950d4bb559ba5fe89856c9808641e911ee6d0261d6b758e77450593"
+    },
+    {
+      "path": "e2e/lux-e-field.spec.ts",
+      "sha256": "d73fbec1536df81fe5e312706f38e5cc332818b363f9e412e2a9ef04ff9d2402"
+    },
+    {
+      "path": "e2e/lux-e-source.spec.ts",
+      "sha256": "93088fe480e6c55d34dc6d8b551effc18b493d8a9c44f80289fe0a8dfce4ec26"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "9cf62bb177f860eec75800a42e4d63de7b06f7e6fec96ce6000299e2bffff9b9"
+    },
+    {
+      "path": "tools/qa/verify-lux-e-glows.mjs",
+      "sha256": "75eb00601781d91f42477db1a2d1c3d9f292110f060e04430c0ac8326403797c"
+    },
+    {
+      "path": ".cache/lux-e-glows-unit.log",
+      "sha256": "7ab171906f91c2b2a50bede64ef24b1665c500dda19bc4bf2978034ab6b6300a"
+    },
+    {
+      "path": ".cache/lux-e-glows-browser.log",
+      "sha256": "a6e2e0a0231213383612a8d96b80a18399cafa3efd774d082ab6633a186a89b2"
+    },
+    {
+      "path": ".cache/lux-e-glows-production.log",
+      "sha256": "f142c51d92edb6d293f1b1a029202cb80d1510b389844c48a6102d242865e4e3"
+    },
+    {
+      "path": "artifacts/lux-e-glows-batches.json",
+      "sha256": "287936b081a371c7b1f8acfab371a23450e4cc3a5dc79d8205d12e17a5afa5e7"
+    },
+    {
+      "path": "artifacts/lux-e-glows-recovery.json",
+      "sha256": "4867e65dc349bf1f4f40b337bd425a686c4308c43e4e3d580d31dd6952001e48"
+    },
+    {
+      "path": "artifacts/lux-e-glows-fog.json",
+      "sha256": "f89e875add54398125c8f91f3430c070aebbda447cd7c3365ef025f877570005"
+    },
+    {
+      "path": "artifacts/lux-e-glows-armed.png",
+      "sha256": "0843a642830bd5476169dede839f33aea2254a58e3acf27beaaa79948ff1748f"
+    },
+    {
+      "path": "artifacts/lux-e-glows-early.png",
+      "sha256": "77a7923209baf2da8a0a86a16fdb5dff74c3166825c34237b1bd379ac0c0c4e3"
+    },
+    {
+      "path": "artifacts/production-lux-e-glows.png",
+      "sha256": "bf4ebf13dee7db0768931d69be8196b108ec8963f40d59d3b10df05ec92b72e6"
+    }
+  ],
+  "assets": [
+    {
+      "path": "public/assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+      "sha256": "5dac684daf04d9667f40197e9e85b7e98b423075acd1237de9cc49b2b6e43a93"
+    },
+    {
+      "path": "public/assets/effects/lux-binding-target-lux_base_light_sparks.png",
+      "sha256": "1ef4e7cac79665be8b79ce50d2f3401e30851df5eaab5ff2521cd4b536037784"
+    },
+    {
+      "path": "public/assets/effects/lux-e-color_lux_e_shield.png",
+      "sha256": "6de303da8c739c73cea6554da13b40ad92973494dafab72d94c841d60d6562c8"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_distort.png",
+      "sha256": "cc27e89b201e548f544cd4844d9b0b27e5e4c5b615e92b78a36aa60ec603aa5e"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "sha256": "54910db2c3d7597d0048c4915312b9078185a358f328ac4c1540b66abab236f3"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flare.png",
+      "sha256": "824c7cb647eb8ceb839bc28810599a811f59284b037bd98ef6e71231eeafd4ca"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flash.png",
+      "sha256": "c61a3a3c986b1bdfbf667ed70e275d4cf4f52270261b2cd945facde9b338ce69"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_glow.png",
+      "sha256": "e79baf8b8238e1d3bbf93d01f03fe6570dceb091172811de92aa982d28049899"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "sha256": "7cbf7483e93565fd5006ac8c7da3c829c6df4f38c4cd63acf4c1d3e729c60bd9"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "sha256": "72a505121e0975aeedf832e93bcdbadcc07939e63e2c8835323fe844d15924fe"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_mote.png",
+      "sha256": "7bc487eb3bece376a141ff810194783e1c1319fc1b00e05c64858554282e0e25"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_small_mote.png",
+      "sha256": "f92a19554b18edc87a509aa238ee49104be1ed2016b2a3398c8b683370eabbd7"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "sha256": "cfc642e98f322ff44394731b8b830386db2498ef769bf60b2c30c1ef6874c209"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_w_glow.png",
+      "sha256": "e9af9ca15a95d39131a28a09a8a23681aa66402d52e80ee2efa918ba743f418d"
+    },
+    {
+      "path": "public/assets/effects/lux-e-rainbowhalo.png",
+      "sha256": "ff8005ff5d8a1ac3ea014727c6ac2c6617997bc5eb1d9c330f041f00bdcf2dcc"
+    },
+    {
+      "path": "public/assets/effects/lux-e-sphere_e_01.png",
+      "sha256": "0b916a62ec44f9588fde7c177a252084f87f6fb67df614ae301f58ad78674826"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-color-rampdown.png",
+      "sha256": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-flame_trail_gradient.png",
+      "sha256": "bb81b41ececb203f908b94b34fce9cd47cf252432210524b6ae3dbad7f98877a"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-lux_base_starfilter_01.png",
+      "sha256": "0e18403a369df6a1bfcca493394254e7caee6dcc6e275c249be7ede21d7ce41d"
+    },
+    {
+      "path": "public/assets/effects/lux-illumination-diana_base_r_glow.png",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f"
+    },
+    {
+      "path": "public/assets/effects/lux-illumination-lux_base_p_rainbowray.png",
+      "sha256": "53cc40c8a4667eeec03910f0205c613b7787488ba0749ce96ca70b29c5a4d88d"
+    },
+    {
+      "path": "public/assets/effects/lux-r-diana_skin11_r_glow.png",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f"
+    },
+    {
+      "path": "public/assets/effects/lux-r-lux_base_z_bokeh_dots_4x4.png",
+      "sha256": "150e8ccc789df20d45a589e2dfebe2fb3950d3ccfcfc10b332e0eb7c7cbecaae"
+    }
+  ],
+  "limits": [
+    "Four diagnostic seeds do not meet the 100-seed gate or certify balance, natural human play, full-match browser performance or native parity.",
+    "Emitter age/initial dispatch, native RNG, shared probability correlation, shape/frame binding, orbital radians, root height, direction/roll composition, stop/linger and final native composition remain unverified.",
+    "The six-champion roster, quests, epic objectives, complete team strategy, offline delivery and full-match browser/performance certification remain unfinished."
+  ]
+}

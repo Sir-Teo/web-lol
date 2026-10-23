@@ -1,4 +1,4 @@
-"""Export continuous E field waves/sparks without flattening emitter-age values."""
+"""Export continuous E field geometry and animated material values without flattening emitter-age values."""
 import json
 from pathlib import Path
 
@@ -9,7 +9,8 @@ def variable(v, default):
     d = v.get('dynamics', {})
     values = d.get('values', [v.get('constantValue', default)])
     times = d.get('times', [0])
-    assert len(times) == len(values) and all(a <= b for a, b in zip(times, times[1:])), times
+    assert len(times) == len(values)
+    assert all(a <= b for a,b in zip(times,times[1:])) or all(x == values[0] for x in values), times
     return dict(times=times, values=[x if isinstance(x, list) else [x] for x in values],
         probabilities=[dict(times=t.get('keyTimes', []), values=t.get('keyValues', []), single=t.get('singleValue', 1))
                        for t in d['probabilityTables']] if 'probabilityTables' in d else None)
@@ -17,20 +18,31 @@ def variable(v, default):
 
 def export_field(pin, textures, inventory):
     result = []
-    for role, record, indices in [('ally', 'Lux_E_tar_aoe_green', [5, 6]), ('enemy', 'Lux_E_tar_aoe_red', [11, 15])]:
+    for role, record, indices in [('ally', 'Lux_E_tar_aoe_green', [5, 6]), ('enemy', 'Lux_E_tar_aoe_red', [11, 15]),
+       ('ally','Lux_E_tar_aoe_green',[9,12,13,14,15,24]),('enemy','Lux_E_tar_aoe_red',[0,1,2,3,14])]:
         for index in indices:
             e = pin['definitions'][record]['complexEmitterDefinitionData'][index]
-            allowed = set('rate particleLifetime particleLinger lifetime emitterName importance birthVelocity bindWeight SpawnShape EmitterPosition particleColorTexture birthColor Color colorLookUpTypeY miscRenderFlags isDirectionOriented isUniformScale isGroundLayer birthRotation0 birthRotationalVelocity0 isLocalOrientation directionVelocityScale birthScale0 scale0 texture __type birthOrbitalVelocity birthDrag pass isRandomStartFrame numFrames paletteDefinition texDiv'.split())
+            allowed = set('rate particleLifetime particleLinger lifetime emitterName importance birthVelocity bindWeight SpawnShape EmitterPosition particleColorTexture birthColor Color colorLookUpTypeY miscRenderFlags isDirectionOriented isUniformScale isGroundLayer birthRotation0 birthRotationalVelocity0 isLocalOrientation directionVelocityScale birthScale0 scale0 texture __type birthOrbitalVelocity birthDrag pass isRandomStartFrame numFrames paletteDefinition texDiv primitive blendMode alphaRef isSingleParticle isRotationEnabled {712b01bd} uvRotation textureMult'.split())
             assert set(e) <= allowed, set(e)-allowed
-            assert not e.get('isSingleParticle') and e.get('primitive') is None
-            assert e['SpawnShape']['__type'] == 'VfxShapeLegacy'
-            shape=e['SpawnShape']
+            primitive=e.get('primitive',{}).get('__type','camera')
+            assert primitive in ['camera','VfxPrimitiveArbitraryQuad','VfxPrimitiveRay']
+            assert e.get('alphaRef',0)==0 and not e.get('uvRotation',{}).get('dynamics')
+            shape=e.get('SpawnShape',{})
+            assert shape.get('__type','') in ['','VfxShapeLegacy','{ee39916f}']
+            mult=e.get('textureMult',{})
+            assert set(mult) <= {'textureMult','{cd124686}','{22c3cf3e}','birthUVOffsetMult','__type'}
             assert set(shape) <= {'emitOffset', 'emitRotationAxes', 'emitRotationAngles', '__type'}
             palette=e.get('paletteDefinition')
             if palette:
                 assert not palette['paletteSelector'].get('dynamics') and not palette['palleteSrcMixColor'].get('dynamics')
             result.append(dict(role=role, record=record, index=index, name=e['emitterName'],
-                rate=variable(e['rate'],0), emitterLife=e['lifetime'],
+                rate=variable(e['rate'],0), emitterLife=e['lifetime'], single=bool(e.get('isSingleParticle')),
+                primitive={'camera':'camera','VfxPrimitiveArbitraryQuad':'quad','VfxPrimitiveRay':'ray'}[primitive],
+                rotationRate=variable(e.get('{712b01bd}',{}),[0,0,0]), uvRotation=e.get('uvRotation',{}).get('constantValue',0),
+                mult=textures[mult['textureMult'].lower()] if mult else '',
+                multScale=variable(mult.get('{cd124686}',{}),[1,1]),
+                multOffset=variable(mult.get('birthUVOffsetMult',{}),[0,0]),
+                multScroll=variable(mult.get('{22c3cf3e}',{}),[0,0]),
                 life=variable(e['particleLifetime'],1), size=variable(e['birthScale0'],[1,1,1]),
                 velocity=variable(e.get('birthVelocity',{}),[0,0,0]), drag=variable(e.get('birthDrag',{}),[0,0,0]),
                 orbit=variable(e.get('birthOrbitalVelocity',{}),[0,0,0]),
@@ -38,7 +50,7 @@ def export_field(pin, textures, inventory):
                 position=variable(e.get('EmitterPosition',{}),[0,0,0]),
                 shapeAngles=[variable(a,0) for a in shape.get('emitRotationAngles',[])], shapeAxes=shape.get('emitRotationAxes',[]),
                 rotation=variable(e.get('birthRotation0',{}),[0,0,0]), angular=variable(e.get('birthRotationalVelocity0',{}),[0,0,0]),
-                birthColor=variable(e.get('birthColor',{}),[1,1,1,1]), color=variable(e['Color'],[1,1,1,1]),
+                birthColor=variable(e.get('birthColor',{}),[1,1,1,1]), color=variable(e.get('Color',{}),[1,1,1,1]),
                 scale=variable(e.get('scale0',{}),[1,1,1]), uniform=bool(e.get('isUniformScale')),
                 ground=bool(e.get('isGroundLayer')), local=bool(e.get('isLocalOrientation',True)),
                 direction=bool(e.get('isDirectionOriented')), directionScale=e.get('directionVelocityScale',0), directionMin=e.get('directionVelocityMinScale',1),
