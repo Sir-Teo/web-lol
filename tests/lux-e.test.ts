@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
+import { LUX_E_BURST_TICKS } from '../src/content/lux-e-particle-timing';
 
 function setup() {
   const w = new World(false, { ...PRACTICE_FIXTURE, initialUnits: [], lineOfSight: () => true });
@@ -60,6 +61,8 @@ test('E captures damage and own resources, travels through enemies, arms and tim
     );
     world.step(60);
     expect(world.slowFactor(world.unit(enemy.id)!)).toBe(1);
+    expect(world.singularities).toHaveLength(1);
+    world.step(LUX_E_BURST_TICKS - 60);
     expect(world.singularities).toEqual([]);
   }
   expect(saved.snapshot()).toBe(w.snapshot());

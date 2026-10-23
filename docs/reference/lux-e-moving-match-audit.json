@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-23",
+  "baseline": "3599bc0bfbfaa6cf32c8aed4047aa4e001936b3d",
+  "schema": 108,
+  "ruleset": "f098828a3d4ba7690ac10dc0ca1b59362817615ef358c57fdf96d2f736569d4a",
+  "scope": "Four fresh normal-rules interim Ashe/Lux matches after three moving E detonation batches and a source-derived 108-tick visual tail. The human carry is automated only in QA; the 80-minute harness horizon is not a game rule.",
+  "runner": {
+    "source": {
+      "path": "tools/qa/role-match.ts",
+      "sha256": "80d3af22857033cf2a15c87efcb869647b8449484fe5a127a4321211660c0a63"
+    },
+    "frozenBundle": {
+      "path": ".cache/lux-e-moving-runner/role-match.js",
+      "sha256": "cd9fa552576ad60bfd9680ce2d7aa6b99abf655f2c6ad385d6378b4206a4d52a"
+    },
+    "commands": [
+      "nice -n 10 node .cache/lux-e-moving-runner/role-match.js --minutes 80 26018",
+      "nice -n 10 node .cache/lux-e-moving-runner/role-match.js --minutes 80 719",
+      "nice -n 10 node .cache/lux-e-moving-runner/role-match.js --minutes 80 1",
+      "nice -n 10 node .cache/lux-e-moving-runner/role-match.js --minutes 80 927"
+    ]
+  },
+  "checks": {
+    "everyTick": "Finite position/health/mana and bounded health/mana; structure progression, team jobs/attacks/arrivals and river counters.",
+    "everyMinuteAndVictory": "Strict full-snapshot validation and exact World.fromSnapshot round trip.",
+    "comparison": "All recorded samples/winners/ticks match the static-source baseline. Winning gameplay fields are compared exactly; only ruleset and already-detonated presentation tails may differ."
+  },
+  "runs": [
+    {
+      "seed": 26018,
+      "winner": "red",
+      "tick": 180203,
+      "durationSeconds": 3003.383333333333,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 180203,
+      "exactRoundTrips": 51,
+      "failure": null,
+      "failureCause": null,
+      "report": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/26018.json",
+        "sha256": "4e579a8aa80f53496666c86999188daa286756d15352420326de8d1a05c8ae0a"
+      },
+      "checkpoint": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/26018.match.json",
+        "sha256": "c70bc3b1e3fc8420f2525621bcce4abd8ffad38edd1430acae50040cedff8f5a"
+      },
+      "canonicalStateSha256": "8e16278269bdddbdaa735c0b273600e3defb4d2c4943660b06669bcd9a39c605",
+      "victory": {
+        "nexusDestroyed": true,
+        "bothNexusTurretsDestroyed": true,
+        "inhibitorDestroyed": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/26018.json",
+          "sha256": "bf7796c7d433f185cfc767af1d04861c3e1db7ed4742abc98b5e2525767bfc32"
+        },
+        "baselineCheckpoint": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/26018.match.json",
+          "sha256": "15938ef4efc8234716d7b414900cde917fb933ee72780eb85c93f7e93ce47f3d"
+        },
+        "winnerAndTickEqual": true,
+        "allRecordedSamplesEqual": true,
+        "samplesCompared": 51,
+        "gameplayFieldsEqual": true,
+        "fullCheckpointEqualExceptRuleset": true,
+        "retainedDetonatedTails": {
+          "current": [],
+          "previous": []
+        }
+      }
+    },
+    {
+      "seed": 719,
+      "winner": "blue",
+      "tick": 205272,
+      "durationSeconds": 3421.2,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 205272,
+      "exactRoundTrips": 58,
+      "failure": null,
+      "failureCause": null,
+      "report": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/719.json",
+        "sha256": "d43cad1ae06460e0e4bb5f73f16afbfd4a6ef36892e0ef19726577b25ba2513e"
+      },
+      "checkpoint": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/719.match.json",
+        "sha256": "eb6dc3d10edcd6c33d8f76a12a32a2b109426292a6ad79b92ee0063b62639998"
+      },
+      "canonicalStateSha256": "34cbc894991b85204f86da35ef94f0dbd63a48e8784697624f85265ce4c11096",
+      "victory": {
+        "nexusDestroyed": true,
+        "bothNexusTurretsDestroyed": true,
+        "inhibitorDestroyed": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/719.json",
+          "sha256": "b413942c7f05f3623f3a7427640cc9e036f2999242e9fbcb1a6cdac041597f6c"
+        },
+        "baselineCheckpoint": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/719.match.json",
+          "sha256": "7ae32dea02ca53d53a77f461115b979cd7e0bc7a9bc2908644f51d3b024252e2"
+        },
+        "winnerAndTickEqual": true,
+        "allRecordedSamplesEqual": true,
+        "samplesCompared": 58,
+        "gameplayFieldsEqual": true,
+        "fullCheckpointEqualExceptRuleset": true,
+        "retainedDetonatedTails": {
+          "current": [],
+          "previous": []
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "winner": "blue",
+      "tick": 191226,
+      "durationSeconds": 3187.1,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 191226,
+      "exactRoundTrips": 54,
+      "failure": null,
+      "failureCause": null,
+      "report": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/1.json",
+        "sha256": "c1d1053607799f96bc789a4c49ff856cbb5fd3275d96389e0ec5a64007717a2a"
+      },
+      "checkpoint": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/1.match.json",
+        "sha256": "17dac0bd906398b8b9654da20b4b88ee95e8e339990c75efac626c296fc53b79"
+      },
+      "canonicalStateSha256": "6163a326c1208ebf63fba27c90a5b7ba86a0b52b440519bdc41dcec4a21e0f3b",
+      "victory": {
+        "nexusDestroyed": true,
+        "bothNexusTurretsDestroyed": true,
+        "inhibitorDestroyed": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/1.json",
+          "sha256": "89856f46bc6538316a9fdfc3ec812adb1b69d02471171283d5a074ce92a1350e"
+        },
+        "baselineCheckpoint": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/1.match.json",
+          "sha256": "720a9c1f95ed206553f5c3ddb5d2a62224914fb5d81d9fa56ac77a99b34c1db1"
+        },
+        "winnerAndTickEqual": true,
+        "allRecordedSamplesEqual": true,
+        "samplesCompared": 54,
+        "gameplayFieldsEqual": true,
+        "fullCheckpointEqualExceptRuleset": true,
+        "retainedDetonatedTails": {
+          "current": [],
+          "previous": []
+        }
+      }
+    },
+    {
+      "seed": 927,
+      "winner": "red",
+      "tick": 204061,
+      "durationSeconds": 3401.016666666667,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 204061,
+      "exactRoundTrips": 57,
+      "failure": null,
+      "failureCause": null,
+      "report": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/927.json",
+        "sha256": "93f8a6a0b4f8346890d90e22819287a438a622eb46e5f14f1ba9c718d13b2bc6"
+      },
+      "checkpoint": {
+        "path": ".cache/role-match-audit/f098828a3d4b/horizon-80/927.match.json",
+        "sha256": "9aee91ed53cacb363788100d784ef5aa4703ed7d5b1b28cac351dcff8d6ac249"
+      },
+      "canonicalStateSha256": "ae81edc6ea8617b5e8453e0f53b337894afc42cbc397f2b9a487de8789444e3a",
+      "victory": {
+        "nexusDestroyed": true,
+        "bothNexusTurretsDestroyed": true,
+        "inhibitorDestroyed": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/927.json",
+          "sha256": "c59927a5b869050d2cd33bdba427ae0fbf77884818a46eb2915f85be64298245"
+        },
+        "baselineCheckpoint": {
+          "path": ".cache/role-match-audit/0d3734eb9335/horizon-80/927.match.json",
+          "sha256": "f023d5e353d0645ca448ac3bd4b7914c2f4fbb61cda5f1356669ec8109f008fe"
+        },
+        "winnerAndTickEqual": true,
+        "allRecordedSamplesEqual": true,
+        "samplesCompared": 57,
+        "gameplayFieldsEqual": true,
+        "fullCheckpointEqualExceptRuleset": true,
+        "retainedDetonatedTails": {
+          "current": [],
+          "previous": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "checkedTicks": 780762,
+    "exactRoundTrips": 220,
+    "victories": 4,
+    "completedWithin60Minutes": 4,
+    "comparedSamples": 220,
+    "allFinalCheckpointsEqualExceptRuleset": true
+  },
+  "roadmap100SeedGateMet": false,
+  "limits": [
+    "Four seeds do not meet the 100-seed acceptance gate or certify balance, natural human play, full-match quality or native audiovisual/input parity.",
+    "Headless elapsed time, paused screenshots and isolated draw counts are not browser FPS or full-match performance evidence.",
+    "The complete six-champion roster, quests, epic objectives, complete team strategy, offline delivery and full-match browser/performance certification remain unfinished."
+  ]
+}

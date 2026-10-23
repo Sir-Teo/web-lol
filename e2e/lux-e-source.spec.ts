@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
+import { LUX_E_BURST_TICKS } from '../src/content/lux-e-particle-timing';
 
 test('source E flight, team perimeter and burst reconstruct exactly from saved phases and retire owned resources', async ({
   page,
@@ -54,7 +55,9 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
           index: Array.from(m.geometry.index.array),
           drawCount: m.geometry.drawRange.count,
           tint: m.material.uniforms.particleColor.value.toArray(),
-          offset: m.material.uniforms.multOffset.value.toArray(),
+          offset: m.material.uniforms.multOffset?.value.toArray() ?? null,
+          vertexTint: Array.from(m.geometry.getAttribute('particleTint')?.array ?? []),
+          vertexLookup: Array.from(m.geometry.getAttribute('particleLookupUv')?.array ?? []),
         }));
       const before = capture(),
         copy = w.constructor.fromSnapshot(snapshot, w.battlefield);
@@ -102,11 +105,11 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
     w.step(7);
   }, setup.lux);
   const burst = await sample('burst');
-  expect(burst.layers).toHaveLength(6);
+  expect(burst.layers).toHaveLength(9);
   expect(burst.restored && burst.repeated && burst.snapshotUnchanged).toBe(true);
   expect(burst.layers.some((m: any) => m.name.includes('teamring'))).toBe(false);
   await page.screenshot({ path: 'artifacts/lux-e-source-burst.png' });
-  const retired = await page.evaluate(() => {
+  const retired = await page.evaluate((tailTicks) => {
     const g = (window as any).__GAME__,
       w = g.world,
       v = g.view,
@@ -119,7 +122,7 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
       child.material.addEventListener('dispose', () => disposed++);
     }
     const hp = w.unit((window as any).__SOURCE_E__.target).hp;
-    w.step(60);
+    w.step(tailTicks);
     v.render(w, 1, v.previousElapsed);
     return {
       resources,
@@ -128,7 +131,7 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
       models: v.luxSingularities.models.size,
       hpUnchanged: w.unit((window as any).__SOURCE_E__.target).hp === hp,
     };
-  });
+  }, LUX_E_BURST_TICKS);
   expect(retired.resources).toBeGreaterThan(0);
   expect(retired.disposed).toBe(retired.resources);
   expect(retired).toMatchObject({ zones: 0, models: 0, hpUnchanged: true });

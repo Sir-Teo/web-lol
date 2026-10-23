@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import profiles from '../content/lux-e-particles.json';
+import burstProfiles from '../content/lux-e-burst.json';
+import { LuxEBurstCloud } from './lux-e-burst';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { loadLuxParticleTextures } from './lux-particle-textures';
 import { groundEffectMaterial, setGroundRenderStage } from './ground-display-list';
@@ -23,6 +25,7 @@ export function loadLuxESource(): Promise<void> {
         p.erosion?.texture ?? '',
       ])
       .filter(Boolean);
+    paths.push(...burstProfiles.flatMap((p) => [p.texture, p.lookup]).filter(Boolean));
     const [textures, gltf] = await Promise.allSettled([
       loadLuxParticleTextures(paths),
       new GLTFLoader().loadAsync(import.meta.env.BASE_URL + 'assets/models/lux-e-indicator.glb'),
@@ -143,6 +146,7 @@ export class LuxESource {
   private up = new THREE.Vector3();
   private size = new THREE.Vector3();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
+  private burst: LuxEBurstCloud | undefined;
   constructor(
     private camera: THREE.Camera,
     private ground: (p: Vec2) => number
@@ -165,6 +169,16 @@ export class LuxESource {
     const fx = d ? (target.x - origin.x) / d : 0,
       fy = d ? (target.y - origin.y) / d : 1;
     const active = new Set<string>();
+    if (role === 'burst') {
+      if (!this.burst) {
+        this.burst = new LuxEBurstCloud(assets.textures);
+        this.root.add(...this.burst.meshes);
+      }
+      this.burst.draw(world, seed, age, at, origin, target, team, this.camera, this.ground);
+    } else if (this.burst) {
+      this.burst.dispose();
+      this.burst = undefined;
+    }
     for (const particle of luxEParticles(role, seed, age)) {
       const p = profiles[particle.profileIndex],
         key = `${particle.profileIndex}:${particle.ordinal}`;
@@ -282,6 +296,8 @@ export class LuxESource {
       }
   }
   dispose() {
+    this.burst?.dispose();
+    this.burst = undefined;
     this.root.removeFromParent();
     for (const mesh of this.meshes.values()) {
       mesh.geometry.dispose();

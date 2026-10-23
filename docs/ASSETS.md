@@ -185,3 +185,16 @@ adds 29,532 bytes. The other prepared assets are not loaded by this adapter.
 retain the 45 deferred emitter records, explicit attachment/default policies and
 source-audio/distortion/moving-particle work. Source packaging and GPU arithmetic
 do not establish native visual parity or full-match delivery/performance acceptance.
+
+## Lux E moving detonation layers — October 23, 2026
+
+Three moving emitter records now join the twenty static E layers. The existing
+7,381-byte mote image becomes a runtime dependency; Bokeh reuses the Final Spark
+image with the E record's authored 2×2/four-frame atlas. No new image files were
+added. E references thirteen images, including nine prepared `lux-e-` images
+totaling 175,881 bytes. The existing exporter now generates the three birth/
+motion/appearance profiles and a conservative 108-tick visual retention bound.
+[Motion, batching, source coverage and limits](LUX-E.md#moving-detonation-particles--october-23-2026)
+retain the 42 deferred records and the unresolved native shape/random/integration
+semantics. Six frozen Chrome comparisons preserve every RGBA byte with three
+draws instead of up to 81 separate particle draws; this is not FPS certification.

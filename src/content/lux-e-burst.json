@@ -1,0 +1,870 @@
+[
+  {
+    "index": 5,
+    "name": "motes_RAINBOW",
+    "rate": 140.0,
+    "single": false,
+    "emitterLife": 0.18000000715255737,
+    "life": {
+      "value": [
+        0.800000011920929
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            2.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "value": [
+        20.0,
+        20.0,
+        10.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.6000000238418579,
+            2.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "value": [
+        1700.0,
+        100.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.30000001192092896,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "value": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "probabilities": null
+    },
+    "acceleration": [
+      0.0,
+      40.0,
+      0.0
+    ],
+    "orbit": {
+      "value": [
+        0.30000001192092896,
+        0.6000000238418579,
+        0.30000001192092896
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "offset": {
+      "value": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        -100.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "shapeAngles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "shapeAxes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ]
+    ],
+    "cylinderRadius": 0,
+    "cylinderFlags": null,
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "birthColor": {
+      "value": [
+        1.0,
+        1.0,
+        1.0,
+        0.6699931621551514
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.8276047706604004,
+          0.6398615837097168,
+          1.0
+        ],
+        [
+          0.9215686321258545,
+          0.7501268982887268,
+          0.5379930734634399,
+          1.0
+        ],
+        [
+          1.0,
+          0.6796924471855164,
+          0.4806920289993286,
+          1.0
+        ]
+      ]
+    },
+    "direction": true,
+    "directionScale": 0.007000000216066837,
+    "directionMin": 1,
+    "passOrder": 0,
+    "depthTest": true,
+    "texture": "assets/effects/lux-e-lux_base_e_mote.png",
+    "lookup": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "random": false
+    }
+  },
+  {
+    "index": 7,
+    "name": "motes1",
+    "rate": 200.0,
+    "single": false,
+    "emitterLife": 0.10999999940395355,
+    "life": {
+      "value": [
+        0.20000000298023224
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            2.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "value": [
+        20.0,
+        20.0,
+        10.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.6000000238418579,
+            2.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "value": [
+        1700.0,
+        100.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.30000001192092896,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "value": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "probabilities": null
+    },
+    "acceleration": [
+      0.0,
+      40.0,
+      0.0
+    ],
+    "orbit": {
+      "value": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "offset": {
+      "value": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        -100.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "shapeAngles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "shapeAxes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ]
+    ],
+    "cylinderRadius": 0,
+    "cylinderFlags": null,
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "birthColor": {
+      "value": [
+        1.0,
+        1.0,
+        1.0,
+        0.5600060820579529
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.9607843160629272,
+          0.9333333373069763,
+          1.0
+        ],
+        [
+          1.0,
+          0.7568627595901489,
+          0.5921568870544434,
+          1.0
+        ]
+      ]
+    },
+    "direction": true,
+    "directionScale": 0.007000000216066837,
+    "directionMin": 1,
+    "passOrder": 0,
+    "depthTest": true,
+    "texture": "assets/effects/lux-e-lux_base_e_mote.png",
+    "lookup": "",
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "random": false
+    }
+  },
+  {
+    "index": 8,
+    "name": "Bokeh",
+    "rate": 40.0,
+    "single": true,
+    "emitterLife": 1.0,
+    "life": {
+      "value": [
+        0.699999988079071
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.25,
+            2.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "value": [
+        80.0,
+        20.0,
+        10.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.6000000238418579,
+            3.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "value": [
+        1000.0,
+        100.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.30000001192092896,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "value": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "probabilities": null
+    },
+    "acceleration": [
+      0.0,
+      40.0,
+      0.0
+    ],
+    "orbit": {
+      "value": [
+        0.10000000149011612,
+        0.20000000298023224,
+        0.10000000149011612
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "offset": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "position": {
+      "value": [
+        0.0,
+        -50.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "shapeAngles": [],
+    "shapeAxes": [],
+    "cylinderRadius": 150.0,
+    "cylinderFlags": 1,
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "birthColor": {
+      "value": [
+        1.0,
+        1.0,
+        1.0,
+        0.10000763088464737
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "color": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "direction": true,
+    "directionScale": 0,
+    "directionMin": 1,
+    "passOrder": 600,
+    "depthTest": false,
+    "texture": "assets/effects/lux-r-lux_base_z_bokeh_dots_4x4.png",
+    "lookup": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 4,
+      "random": true
+    }
+  }
+]

@@ -274,12 +274,14 @@ try {
   await page.waitForFunction(
     () => Number(document.querySelector('[data-ability="e"] .cooldown-text')?.textContent) > 0
   );
+  await page.waitForTimeout(150);
+  await page.screenshot({ path: 'artifacts/production-lux-e-moving-burst.png' });
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert(lucentSourceAssets.has('assets/models/lux-e-indicator.glb'));
   assert.equal(
     [...lucentSourceAssets].filter((p) => p.endsWith('.png')).length,
-    8,
-    'Only the eight new selected E textures should load; prepared distortion/mote assets remain unused'
+    9,
+    'Only the nine new selected E textures should load; unused prepared distortion assets remain unloaded'
   );
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { LUX_E_BURST_TICKS } from '../src/content/lux-e-particle-timing';
 
 for (const armed of [false, true]) {
   test(`a melee victory cancels ${armed ? 'armed' : 'flying'} Lux E, disposes its view and exports a frozen restorable match`, async ({
@@ -113,7 +114,7 @@ test('an already-detonated E burst finishes and disposes after victory while the
   await page.goto('/?scene=fixture');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
-  const result = await page.evaluate(() => {
+  const result = await page.evaluate((tailTicks) => {
     const g = (window as any).__GAME__,
       w = g.world,
       v = g.view;
@@ -154,6 +155,8 @@ test('an already-detonated E burst finishes and disposes after victory while the
           name: m.name,
           positions: Array.from(m.geometry.getAttribute('position').array),
           color: m.material.uniforms.particleColor.value.toArray(),
+          vertexTint: Array.from(m.geometry.getAttribute('particleTint')?.array ?? []),
+          vertexLookup: Array.from(m.geometry.getAttribute('particleLookupUv')?.array ?? []),
         })),
       };
     };
@@ -167,7 +170,7 @@ test('an already-detonated E burst finishes and disposes after victory while the
     }
     const later = sample(w, 0.1);
     const repeated = sample(w, 0.1);
-    const expired = sample(w, 0.8);
+    const expired = sample(w, tailTicks / 60 + 0.1);
     const models = v.luxSingularities.models.size;
     const copy = w.constructor.fromSnapshot(saved, w.battlefield);
     const replayed = sample(copy, 1);
@@ -185,7 +188,7 @@ test('an already-detonated E burst finishes and disposes after victory while the
       unchanged: w.snapshot() === saved && copy.snapshot() === saved,
       hpUnchanged: target.hp === hp,
     };
-  });
+  }, LUX_E_BURST_TICKS);
   expect(result.before).not.toBeNull();
   expect(result.before!.layers.length).toBeGreaterThan(0);
   expect(result.later).not.toEqual(result.before);

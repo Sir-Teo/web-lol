@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,360 source/simulation/geometry checks and 28 targeted Chrome cases for E source layers, GPU products/blends, wave clearing, saves, file transfer, graphics recovery and result playback/export. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,367 source/simulation/geometry checks and 31 targeted Chrome cases for E source layers, GPU products/blends, wave clearing, saves, file transfer, graphics recovery and result playback/export. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -21,7 +21,41 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-Lux E now uses [twenty static source layers](LUX-E.md#static-source-particle-adapter--october-23-2026)
+Lux E's [moving detonation particles](LUX-E.md#moving-detonation-particles--october-23-2026)
+now add both source mote streams and the forty-particle Bokeh burst. Three
+fixed-capacity buffers retain each quad's own tint, lookup and authored atlas
+frame. Six controlled Chrome frames match separate draws in every RGBA byte;
+the measured 0.15-second frame uses **three draws instead of 81**. Each layer
+contributes pixels independently. This is draw-count/equivalence evidence, not
+an FPS or full-match performance claim.
+
+The source lifetimes require a conservative **108-tick visual tail**. Damage
+still happens once, slow expires at its original deadline, and detonated zones
+grant no sight. Schema 108 fields remain unchanged; the fingerprint changes.
+Source coverage is now **23 of 65 records**, with 42 explicitly deferred. Motion
+integration, cylinder flag/distribution, orbit, attachment, random correlation
+and native composition still require matched reference evidence.
+
+All **1,367 unit tests across 251 files** and **31 distinct targeted Chrome
+cases** pass, including real graphics loss during a 0.9-second tail with identical
+buffers, saved state and framebuffer bytes. Enemy particles suppress hidden
+draws and return at their continued saved phase. Nested-path production smoke
+casts/recasts E through normal input and captures the moving burst. Two gameplay
+captures were reviewed. One previously prepared mote image adds **7,381 runtime
+bytes**; no new image files were added. Game/Three chunks are **778.49/658.75 KB**,
+with the existing warning. Native effects/audio, flight/field motion, roster,
+quests, objectives, offline delivery and browser/performance acceptance remain
+unfinished. See the [moving-particle ledger](reference/lux-e-moving-verification.json).
+
+Four fresh normal-rules matches pass **780,762 tick checks** and **220 exact
+checkpoint round trips**. All 220 recorded samples, winners and terminal ticks
+match `3599bc0`; all four complete terminal checkpoints match after changing
+only the fingerprint. All four finish within one hour. The
+[moving-particle audit](reference/lux-e-moving-match-audit.json) retains the full
+reports and checkpoint hashes. These four controlled seeds, with the human carry
+automated only in QA, do not meet the 100-seed gate or certify match quality.
+
+At `3599bc0`, Lux E gained [twenty static source layers](LUX-E.md#static-source-particle-adapter--october-23-2026)
 in place of its temporary sphere/line presentation. Flight flashes/glows,
 allied/enemy fields, an authored 480-triangle perimeter with team textures and
 detonation layers reconstruct from saved phase clocks. The complete pin retains

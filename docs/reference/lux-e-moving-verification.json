@@ -1,0 +1,289 @@
+{
+  "date": "2026-10-23",
+  "baseline": "3599bc0bfbfaa6cf32c8aed4047aa4e001936b3d",
+  "schema": 108,
+  "ruleset": "f098828a3d4ba7690ac10dc0ca1b59362817615ef358c57fdf96d2f736569d4a",
+  "scope": "Three source detonation emitters (motes_RAINBOW, motes1 and Bokeh) add deterministic motion, per-particle appearance/atlas/lookup and fixed-capacity batching to the twenty existing static E layers. Local motion and source values do not establish native dispatch, integrator, cylinder flag or composition parity.",
+  "implementation": [
+    {
+      "path": "src/content/lux-e-burst.json",
+      "sha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e"
+    },
+    {
+      "path": "src/content/lux-e-particle-timing.ts",
+      "sha256": "98afe6c1b4ef560f25d7996652efbb95582ed66a5da4fb985d38fddb82910202"
+    },
+    {
+      "path": "src/render/lux-e-burst-particles.ts",
+      "sha256": "3cd695571e7fbb5fe385c337f4e8c6a3cd9c134b27d79d2ab180b8bc609386d8"
+    },
+    {
+      "path": "src/render/lux-e-burst.ts",
+      "sha256": "3736487fcdc509c04132cfea4f87867d8b1760f0bacb7e9ed6783c0be1f7d19a"
+    },
+    {
+      "path": "src/render/lux-e-source.ts",
+      "sha256": "14db49773119096dde998a901b6e6eef588c13fa63dfef2e458c7997e0882889"
+    },
+    {
+      "path": "tools/assets/export-lux-e-particles.py",
+      "sha256": "78b20b0e2cd1e43ba5f40e048930df7e9d4c7f3b0711b73efec85992d73c105f"
+    },
+    {
+      "path": "tests/lux-e-burst.test.ts",
+      "sha256": "122defe2e7416808a05b7cd679272d85eba3d2775b840f38fc2db3eadb55055c"
+    },
+    {
+      "path": "tests/lux-e.test.ts",
+      "sha256": "ff5d7d5723dfc5f5e2ba32d2ee6caec9af134c221604888cc335a0ba9a3863cc"
+    },
+    {
+      "path": "e2e/lux-e-burst.spec.ts",
+      "sha256": "ac1963cbbff40242a346673f8c636c545827e3cc7c69ca35ab47672840ffee6f"
+    },
+    {
+      "path": "e2e/lux-e-source.spec.ts",
+      "sha256": "df4d53054d7229512b619d2f17e61691481c5ff25024fd4b756cd99cb5afed7b"
+    },
+    {
+      "path": "e2e/lux-e.spec.ts",
+      "sha256": "e49c15e3c07cc7ac669770b77d8bd7fe09629aeb392fe8a4d029152b707ba730"
+    },
+    {
+      "path": "e2e/match-end-lucent.spec.ts",
+      "sha256": "167b4471c69edd7a159e65c21e4f98406dbbfcf6a5deaebc8819fdbe04ffbb58"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "a6705367034b2d1d62077eca769f739091698eb886fc9896a6dc0dbdba1a12b8"
+    }
+  ],
+  "source": {
+    "completePin": {
+      "path": "docs/reference/lux-e-vfx.json",
+      "sha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4"
+    },
+    "coverage": {
+      "path": "docs/reference/lux-e-particle-coverage.json",
+      "sha256": "c995c6f2c1de5b2809d6bc0f0e1754b049cd4d03e09d61db2971f34950016978"
+    },
+    "rendered": 23,
+    "deferred": 42,
+    "burstSourceIndices": [
+      5,
+      7,
+      8
+    ],
+    "emissionRates": [
+      140,
+      200,
+      40
+    ],
+    "localMaximumBirths": [
+      23,
+      20,
+      40
+    ],
+    "sourceBokehAtlas": {
+      "columns": 2,
+      "rows": 2,
+      "randomFrames": 4
+    },
+    "newlyUsedMote": {
+      "path": "public/assets/effects/lux-e-lux_base_e_mote.png",
+      "sha256": "7bc487eb3bece376a141ff810194783e1c1319fc1b00e05c64858554282e0e25"
+    },
+    "newlyUsedMoteBytes": 7381,
+    "bokehImageSharedWithFinalSpark": true,
+    "newImageFiles": 0,
+    "retainedTicks": 108,
+    "byteIdenticalRebuild": {
+      "path": ".cache/lux-e-moving-rebuild.log",
+      "sha256": "aa28accfaa734eeecfb0d0bce0e1cd3d58f051cf87ac842ca22cff193c82cd61"
+    },
+    "repeatExtraction": {
+      "path": ".cache/lux-e-moving-extraction.log",
+      "sha256": "a1803989873ce78ba6a0277a38d1d1d3f682219e3a41b25b130d5e344b6aed1d"
+    },
+    "rebuildCommand": "python3 tools/assets/export-lux-e-particles.py"
+  },
+  "checks": {
+    "typescript": "passed via npm run test:production build",
+    "unit": {
+      "passed": 1367,
+      "files": 251,
+      "newCases": 7,
+      "command": "npx vitest run --maxWorkers=1",
+      "log": {
+        "path": ".cache/lux-e-moving-unit.log",
+        "sha256": "254d60b247c42ffe64c300fcd9a9c5f7909503f6d5f62f33b1bc0f99dd42d1cc"
+      },
+      "coverage": [
+        "Source budgets and authored atlas",
+        "Shared continuous emission schedule versus immediate single burst",
+        "Deterministic seeks without global RNG",
+        "Closed-form motion versus independent fixed steps, including fractional age/zero drag",
+        "Cylinder bounds, per-particle tint/lookup/atlas and uniform scaling",
+        "Long-lived finite particles within the source-derived bound",
+        "Actual restored E cannot repeat damage or extend slow/vision"
+      ]
+    },
+    "chrome": {
+      "distinctPassed": 31,
+      "newCases": 3,
+      "fullSuiteRepeated": false,
+      "command": "npx playwright test e2e/lux-e-burst.spec.ts e2e/lux-e-source.spec.ts e2e/lux-e.spec.ts e2e/match-end-lucent.spec.ts e2e/lux-wave-clear.spec.ts e2e/lux-bot.spec.ts e2e/saves.spec.ts e2e/match-files.spec.ts e2e/recovery.spec.ts",
+      "log": {
+        "path": ".cache/lux-e-moving-browser-final.log",
+        "sha256": "c9dbf2d9bc32534fcc39b7b81ad37bdca13987b373267e138aadce77d150d5c1"
+      },
+      "batchComparison": {
+        "report": {
+          "path": "artifacts/lux-e-moving-batches.json",
+          "sha256": "9714a4ba3134ff8a2dc83a62914037ecf68da3eb6bdbf23560fa8c77c7951a90"
+        },
+        "frames": 6,
+        "allRgbaBytesEqual": true,
+        "peakComparedParticleDraws": 81,
+        "batchDraws": 3,
+        "independentLayerContribution": true,
+        "performanceScope": "Isolated draw-count reduction only; no frame-time/FPS claim."
+      },
+      "lateGraphicsRecovery": {
+        "report": {
+          "path": "artifacts/lux-e-moving-recovery.json",
+          "sha256": "e0b2870cb25f315209dbcecb6ca2ccc518f6c42a079b9d1e30346c4eec283fa2"
+        },
+        "lateSeconds": 0.9,
+        "framebufferDifferentBytes": 0,
+        "buffersEqual": true,
+        "snapshotUnchanged": true,
+        "ownedResourcesDisposed": 6,
+        "capture": {
+          "path": "artifacts/lux-e-moving-restored.png",
+          "sha256": "a6704077749a44cf83cf416369e4951ce93591d9ae1f63a58119edb0cfa7cca8"
+        },
+        "captureScope": "Recovery UI overlay is visible; framebuffer equality is measured directly from WebGL before that DOM overlay."
+      },
+      "enemyFog": {
+        "report": {
+          "path": "artifacts/lux-e-moving-fog.json",
+          "sha256": "ad83995d2a6219c8a4f2615748e39ed7b532a40defcbeafa814fb6589d1f254e"
+        },
+        "allChecks": true
+      },
+      "existingStaticMaterialProducts": {
+        "path": "artifacts/lux-e-source-gpu.json",
+        "sha256": "31cd20f76c3bfad55043531bdcb7b720d92fb484728859702d56b08dbe434e32"
+      }
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 20,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png",
+      "command": "npm run test:production",
+      "log": {
+        "path": ".cache/lux-e-moving-production.log",
+        "sha256": "c285f3149f03418d71ecdd107f3ec46f37fab578203a520c719d15dbe34886e1"
+      }
+    },
+    "headless": {
+      "audit": {
+        "path": "docs/reference/lux-e-moving-match-audit.json",
+        "sha256": "b4caf659fb989defada6e87e5b7127226c2108aa9363453a8d665aeeb2d0510b"
+      },
+      "checkedTicks": 780762,
+      "exactRoundTrips": 220,
+      "victories": 4,
+      "completedWithin60Minutes": 4,
+      "comparedSamples": 220,
+      "allFinalCheckpointsEqualExceptRuleset": true,
+      "roadmap100SeedGateMet": false
+    }
+  },
+  "priorAssertionUpdate": {
+    "log": {
+      "path": ".cache/lux-e-moving-focused.log",
+      "sha256": "72b99d87474b8ab462dfe0d50689923817dc948a86a05d65adf370419edd52ec"
+    },
+    "passed": 28,
+    "failed": 1,
+    "scope": "The existing timeout test required all E records to disappear after 60 ticks. The source motion tail now needs108 ticks. The updated check still requires slow expiry at60, then verifies visual-only retirement at108. No combat expectation or timeout was relaxed."
+  },
+  "visualReview": [
+    {
+      "path": "artifacts/lux-e-moving-burst.png",
+      "sha256": "629d5bc801f7872822ee4aa47f63a7b6a3aafe08cd3ae9c5e4bdd921c1c18525",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/production-lux-e-moving-burst.png",
+      "sha256": "f1362811f084b0f9264191cb32950ea4acb90a8073800179fb4421b22335a4e9",
+      "reviewed": true
+    }
+  ],
+  "bundle": {
+    "gameChunkKb": 778.49,
+    "threeChunkKb": 658.75,
+    "largeChunkWarningRemains": true
+  },
+  "policies": {
+    "continuousBirths": "The existing local 60Hz first-update/rate-budget schedule; native cadence is not certified.",
+    "singleBirths": "Forty Bokeh births on the accepted detonation update.",
+    "motion": "Closed form of local semi-implicit acceleration and linear drag. Source shape rotations are degrees; orbit remains a local radians/second interpretation with YXZ composition.",
+    "cylinder": "Uniform-area horizontal disk, missing height zero. Source flag1 is retained but not interpreted, and velocity is not reoriented by a guessed flag.",
+    "randomness": "One stable shared birth chance per particle plus independent cylinder/atlas draws; no simulation/global random stream is consumed. Native PRNG/correlation remains open.",
+    "fog": "Enemy center and all triangle corners must be observed; saved age continues while hidden.",
+    "sourceUnknown": "The unnamed unity [1,1,1] block is retained and asserted unchanged, without a guessed engine meaning."
+  },
+  "limits": [
+    "Four seeds do not meet the 100-seed acceptance gate or certify balance, natural human play, full-match quality or native audiovisual/input parity.",
+    "Headless elapsed time, paused screenshots and isolated draw counts are not browser FPS or full-match performance evidence.",
+    "The complete six-champion roster, quests, epic objectives, complete team strategy, offline delivery and full-match browser/performance certification remain unfinished.",
+    "Flight/field moving emitters, distortion, remaining static layers, source E audio, hit capture and matched native calibration remain unfinished.",
+    "Shader math, six frozen comparison frames and source parameter identities do not certify native appearance, attachment, random distributions, particle integration or callback ordering.",
+    "The 108-tick retention changes presentation/snapshot compatibility only; no damage/resources/cooldowns/flight/zone/slow/vision/bot rules were changed."
+  ]
+}

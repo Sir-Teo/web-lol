@@ -1,8 +1,83 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 and twenty static source particle layers are used, and human selection supports Lux. Complete effects/audio, matched native calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, twenty static source particle layers and three moving detonation batches are used, and human selection supports Lux. Complete effects/audio, matched native calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Moving detonation particles — October 23, 2026
+
+The source `motes_RAINBOW`, `motes1` and `Bokeh` emitters now add moving particles
+to the existing detonation. The two streams retain rates of 140/200 per second
+and source emission lifetimes of approximately 0.18/0.11 seconds. They use the
+shared local 60 Hz Lux emission schedule, including first-update accounting,
+which permits 23 and 20 births. The single Bokeh emitter begins forty particles
+on the detonation update. Its authored atlas is **2×2 with four random frames**,
+regardless of the texture filename's `4x4` suffix.
+
+Each birth retains source lifetime/size/tint probability tables, shape rotations,
+velocity, acceleration, drag, orbital velocity, lifetime scale/color and lookup
+selectors. Birth random remains fixed through seeking and fog. Direction-oriented
+quads use projected travel and the source velocity scale; uniform scaling uses
+the evaluated X component. Closed-form constant-force/linear-drag motion matches
+the existing local fixed-step integrator, including fractional seeks, without
+integrating every particle from birth on each render.
+
+The forty Bokeh spawn points use the existing uniform-area horizontal disk policy
+at source radius 150, with no missing cylinder height invented. Cylinder flag 1
+is retained but not interpreted; sampled launch velocity is not reoriented by a
+guessed flag meaning. Shared birth correlation, disk distribution, radians-based
+orbit, integration/attachment order and native random/cadence semantics remain
+explicit local adapters requiring matched native evidence. The unnamed unity
+source block is preserved and asserted unchanged rather than assigned a meaning.
+
+Each emitter uses one fixed-capacity combined buffer, carrying independent tint,
+lookup coordinates and atlas UVs for every quad. Capacity follows the source
+birth budget (23/20/40); no per-particle mesh or material is allocated. Source
+pass order, depth flags and source-alpha additive blending remain distinct per
+emitter. Buffers reuse their capacity while live counts shrink, and their
+geometry/materials retire with the owner. Images remain borrowed.
+
+The longest sampled mote life can approach 1.6 seconds after a late birth.
+The exporter therefore derives a conservative **108-tick** retained interval,
+replacing this effect's prior 43 ticks. The change retains presentation only:
+damage still happens once, the accepted slow expires on its original deadline,
+and detonated zones grant no vision. Schema 108 fields are unchanged, while the
+simulation fingerprint changes. Accepted bursts survive caster death and frozen
+victory playback; no new gameplay epoch or random state is saved.
+
+Coverage is now **23 of 65 emitter records**, with 42 explicitly deferred.
+Flight/field motion, distortion, remaining static layers, target-hit capture and
+source E audio remain required. The existing prepared mote image adds 7,381
+runtime bytes; the Bokeh image is already shared with Final Spark. No new image
+files were added. E now references thirteen textures, including nine prepared
+`lux-e-` images totaling 175,881 bytes.
+
+The [moving-particle ledger](reference/lux-e-moving-verification.json) records
+source hashes, unit/GPU/browser checks, recovery captures and match comparisons.
+Six controlled Chrome frames match separate particle draws in every RGBA byte;
+the measured 0.15-second frame uses three draws instead of 81. All three layers
+contribute pixels independently. These are local draw-count and equivalence
+results, not FPS or native-composition certification. A 0.9-second live tail
+restores the same buffers and framebuffer after real graphics loss. Enemy
+particles suppress hidden draws and resume at their continued saved phase.
+
+All 1,367 unit tests across 251 files and 31 distinct targeted Chrome cases pass.
+The previous timeout case still requires slow expiry after sixty ticks and now
+checks presentation retirement at the source-derived bound. Graphics loss,
+enemy fog, saved phase continuation, owned disposal and frozen victory playback
+retain their assertions. Nested-path production smoke casts/recasts E through
+normal input and captures the moving burst, with nine selected new E textures
+and no development hook. The fixture and production burst captures were reviewed.
+
+Four fresh [match audits](reference/lux-e-moving-match-audit.json) check 780,762
+ticks and 220 exact checkpoint round trips. Every recorded sample, winner and
+terminal tick matches `3599bc0`; all terminal checkpoints match after changing
+only the fingerprint. All four victories occur within one hour. The 100-seed,
+full-match quality, native comparison, offline and performance gates remain
+unfinished. Game/Three chunks are 778.49/658.75 KB with the existing warning.
 
 ## Static source particle adapter — October 23, 2026
+
+The following initial milestone describes `3599bc0`; its 43-tick lifetime and
+twenty-record coverage are superseded by the moving-particle increment above.
 
 The temporary sphere and line perimeter have been replaced by selected static
 source layers: five emitter records for flight, five for each team field, and
@@ -133,7 +208,7 @@ Arrival starts the five-second zone deadline. The 310 source effect value is pro
 
 Repeated E commands during windup or flight buffer detonation for arrival. Recast costs no mana, does not restart cooldown, and neither interrupts a current cast (including R) nor recall. Hard stun and death still block commands; root does not. There is no extra minimum recast interval in this adapter. Multiple commands and timeout cannot cause multiple detonations. Native recast/HUD fidelity remains unaccepted.
 
-An armed zone supplies unobstructed team vision at named radius 650. This adapter grants no flight vision or post-detonation sight. Damage is magic/area, ignores allies and structures, applies Illumination without consuming an existing mark, and follows shared shield/mitigation rules. Death during windup cancels E; death after release preserves flight, zone, timeout and effects. Explosion visuals now retain the selected source layers for 43 ticks and never reapply gameplay.
+An armed zone supplies unobstructed team vision at named radius 650. This adapter grants no flight vision or post-detonation sight. Damage is magic/area, ignores allies and structures, applies Illumination without consuming an existing mark, and follows shared shield/mitigation rules. Death during windup cancels E; death after release preserves flight, zone, timeout and effects. Explosion visuals now retain the selected source layers for 108 ticks and never reapply gameplay.
 
 All timing/geometry choices above beyond explicit source fields and the supported post-detonation slow are provisional and require native comparison. In particular, lifetime measured from arrival, buffered windup recast, recast/recall/CC rules, circle boundaries, exit linger, source-death behavior and sight obstruction/tails are not established by the promotional clip.
 

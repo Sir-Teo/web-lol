@@ -64,8 +64,9 @@ saved continuation, support farm/defense, hidden-input independence, priorities,
 range/coverage and tower behavior. A real 5v5 browser scenario restores the queued
 aim, observes the armed field, earns three normal caster kills and 42 gold, and
 leaves the human’s orders unchanged. A second scenario checks the real support’s
-ordinary carry farm and observed base-defense exception. Captures use E’s
-existing temporary geometry and do not certify native effects.
+ordinary carry farm and observed base-defense exception. That milestone's
+captures used temporary E geometry. Current static layers and moving detonation
+particles are documented in [Lux E](LUX-E.md); native composition remains unverified.
 
 The first full-match wave-clear audit reached a Red victory for seed 26018 but
 failed terminal checkpoint validation: Lux released a missile before a later

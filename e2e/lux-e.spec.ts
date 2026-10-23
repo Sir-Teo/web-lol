@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { LUX_E_BURST_TICKS } from '../src/content/lux-e-particle-timing';
 
 test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', async ({ page }) => {
   const errors: string[] = [];
@@ -54,7 +55,7 @@ test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', as
   expect(armed.slow).toBe(0.75);
   expect(armed.arrival).toBe(29);
   await page.screenshot({ path: 'artifacts/lux-e-source-zone.png' });
-  const detonation = await page.evaluate(() => {
+  const detonation = await page.evaluate((tailTicks) => {
     const g = (window as any).__GAME__,
       w = g.world;
     const zone = w.singularities[0],
@@ -66,7 +67,7 @@ test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', as
     g.view.render(w, 1, performance.now() / 1000);
     const hit = target.hp < target.maxHp;
     const marked = target.illumination.length === 1;
-    w.step(43);
+    w.step(tailTicks);
     g.view.render(w, 1, performance.now() / 1000);
     return {
       hit,
@@ -74,7 +75,7 @@ test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', as
       zones: w.singularities.length,
       models: g.view.luxSingularities.models.size,
     };
-  });
+  }, LUX_E_BURST_TICKS);
   expect(detonation).toEqual({ hit: true, marked: true, zones: 0, models: 0 });
   expect(errors).toEqual([]);
 });

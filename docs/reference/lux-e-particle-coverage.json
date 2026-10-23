@@ -1,7 +1,8 @@
 {
   "sourcePinSha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4",
   "profileSha256": "d5571e778d735b2e85cae14f23504a5b221044affbeb65cf5c34dd93775a5601",
-  "rendered": 20,
+  "burstProfileSha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e",
+  "rendered": 23,
   "inventory": [
     {
       "record": "Lux_E_tar_aoe_sound",
@@ -420,8 +421,8 @@
       "record": "Lux_E_tar_nova",
       "index": 5,
       "name": "motes_RAINBOW",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer, target-hit or audio integration remains required."
+      "status": "rendered moving batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_nova",
@@ -434,15 +435,15 @@
       "record": "Lux_E_tar_nova",
       "index": 7,
       "name": "motes1",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer, target-hit or audio integration remains required."
+      "status": "rendered moving batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_nova",
       "index": 8,
       "name": "Bokeh",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer, target-hit or audio integration remains required."
+      "status": "rendered moving batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_nova",
@@ -460,7 +461,7 @@
     }
   ],
   "limits": [
-    "Static layers only; moving particles, distortion, sustained source audio and target hit capture remain open.",
+    "Twenty static layers and three detonation motion batches; flight/field motion, distortion, sustained source audio and target hit capture remain open.",
     "Birth dispatch, palette row conversion, emitter origin/height, source-frame attachment, ground projection, stop behavior and composition remain local adapters pending native comparison."
   ]
 }
