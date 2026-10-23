@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,367 source/simulation/geometry checks and 31 targeted Chrome cases for E source layers, GPU products/blends, wave clearing, saves, file transfer, graphics recovery and result playback/export. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,375 source/simulation/geometry checks and 30 targeted Chrome cases for E audio/source layers, adjacent audio controllers, saves, graphics recovery and result playback/export. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,27 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+Lux E now uses [all twelve finite source recordings](LUX-E.md#finite-source-audio--october-23-2026),
+including the separate delayed zone layer and source flight-stop fade. Schema
+109 saves cosmetic dispatch history and global avoid-repeat ordinals without
+consuming combat randomness or entity IDs. Chrome decodes every master to its
+exact PCM hash; delay/fade scheduling, finite voices, pause/mute, reload offsets,
+fog, source caps, a real missing-file retry and frozen victory cleanup pass.
+An actual cancelled flight endpoint is captured before terminal world cleanup.
+The source provides no zone-stop event: the immediate local cut at detonation or
+cancellation remains explicit policy. Native callback timing, random state,
+priority/bus mix, attachment and matched listening remain unverified. The source
+masters add 5,029,948 bytes; game/Three chunks are 793.99/658.75 KB and the existing
+build-size warning remains. Nested-path production smoke passes with 32 source
+recordings and no development hook. The [verification ledger](reference/lux-e-audio-verification.json)
+records source identities, current checks and diagnostic match comparisons.
+Four fresh normal-rules diagnostic matches check 780,762 ticks and 220 exact
+checkpoint round trips. Every recorded sample, winner and end tick matches
+`843052c`; final gameplay state matches after removing schema/ruleset identifiers
+and the new cosmetic history. The 100-seed acceptance gate remains unmet.
+The complete browser suite, native parity, offline and full-match performance
+certification remain open.
 
 Lux E's [moving detonation particles](LUX-E.md#moving-detonation-particles--october-23-2026)
 now add both source mote streams and the forty-particle Bokeh burst. Three

@@ -21,7 +21,7 @@ def chunks(raw):
     assert offset == len(raw)
     return result
 def decode_source_audio(prefix):
-    assert prefix in ['garen-q', 'garen-w', 'garen-e', 'garen-r', 'oracle']
+    assert prefix in ['garen-q', 'garen-w', 'garen-e', 'garen-r', 'oracle', 'lux-e']
     source_path = Path(f'docs/reference/{prefix}-audio.json')
     source = json.loads(source_path.read_text())
     out = Path(f'.cache/{prefix}-audio-decoded'); out.mkdir(exist_ok=True)

@@ -532,6 +532,138 @@
       "provenance": "docs/reference/lux-e-vfx.json",
       "sha256": "138062cb091396dd0160c357f6dbb6fcaf6a066451c89e95300ac41c5a456ccd",
       "bytes": 29532
+    },
+    {
+      "path": "/assets/audio/lux-e-607512994.wav",
+      "bytes": 318284,
+      "sha256": "f26c00b6233e6ed07ecc1ba12232508a2bde1e43bc9a171c196a711ed2efc276",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 607512994",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "fbbb86461dddb249676e4b1c57c8db61d405900c8a6d17adf6349a21101df502",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-97130071.wav",
+      "bytes": 362396,
+      "sha256": "e2627a5abfc093096785c35f8bc81399992bd0fd7476404e610c2501f6c28591",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 97130071",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "b8425698c0e4e4b5d7e2076fe5a77405b658ff399682a1b525982d34863435d3",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-613551922.wav",
+      "bytes": 289088,
+      "sha256": "a50c64cebc00c21779c4cdbc443495882259705ad511b1123a39d8c477ce7ded",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 613551922",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "f770df45e4e0c82a0ebf352bf73490c7235b96a43ef5e6460282357a68ecff3f",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-113441182.wav",
+      "bytes": 297484,
+      "sha256": "21beaa2337a9acc94213fdccb9c4c970ffc0f3f9963c20a92770f1af04569de5",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 113441182",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "ce4220f86744777a3b0a2f005dfa04f76c4f393a8295c568176ba259171a086d",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-208690342.wav",
+      "bytes": 872244,
+      "sha256": "3582640d174ef9f49419ef36f1dcb2314e6393325985632e64cf3254455d38e3",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 208690342",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "03e3445106402533ca886747d6dd29899e9e11d5e92b973ac5f4f7560d3162e9",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-606969257.wav",
+      "bytes": 863152,
+      "sha256": "d155e66279ed86939580da4a0673dfcd7c28516a3c0c65618d2e9ac116dd608b",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 606969257",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "79ad40f87889b80b76a2db93ab97ba83d605fae8310ccb6c0c171c52405565fb",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-306363213.wav",
+      "bytes": 331000,
+      "sha256": "d2e7af32b0e01bf43c831e096e8b7896eb01d2f498f784240c12615646e54894",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 306363213",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "eae752207cfa47d2dde5c18f359b042965a09c0316b7e550c7ca6fb6cac45ebb",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-386229644.wav",
+      "bytes": 241344,
+      "sha256": "e68141ec281f2bf57b4610f0fcc0d9ba0bbaec029e6905b670edbd5f5980068e",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 386229644",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "93efdbb3090eccbd5b4e19df0dc12c2f3d2afc11c893b061ecc190026931d400",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-998184549.wav",
+      "bytes": 823184,
+      "sha256": "09dd171a56f0b1517f8242e0f5cfcfe388930d8d9a517202a78686f2264d9668",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 998184549",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "7a06216db0d74bfb9e10a48f1fc27e4bdfaed85a93c52f53ede32f3d40e691f9",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-351538991.wav",
+      "bytes": 294804,
+      "sha256": "b4387e514af08df33943e208d992fb0ae0fd06372974b6758a51c5e7247f24ea",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 351538991",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "2a2c85882cb82c6041df9c41560a865ce9658435be82dc9b6bd387cae2a59af2",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-297022039.wav",
+      "bytes": 150924,
+      "sha256": "6d232a7742deddbd047334904f6e8a3dbc735779f08e0dd8e0e1a0377aaf4bd2",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 297022039",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "030f72c1de38babd11f2b128377adc4943b5a085a1e8a1cb0454b49a03137b51",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/audio/lux-e-979274182.wav",
+      "bytes": 186044,
+      "sha256": "a0f70a910690b9362248d9f894b61fef6e08263db76d1b49ebb95eb32339df5a",
+      "source": "Pinned Lux base Wwise BNK, embedded WEM 979274182",
+      "sourceGraph": "docs/reference/lux-e-audio.json",
+      "sourceGraphSha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006",
+      "encodedSha256": "e63ae31eef254533821d064a3c806c9132b2a8c84887a4394e9cf415263b2359",
+      "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+      "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
     }
   ]
 }

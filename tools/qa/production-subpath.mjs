@@ -155,8 +155,8 @@ try {
   assert.equal(await page.locator('#companion-status').count(), 0);
   assert.equal(
     recordings.size,
-    17,
-    'Every source Hawkshot, Illumination and Light Binding cast/flight recording must load beneath the host prefix'
+    29,
+    'Every source Lucent Singularity, Hawkshot, Illumination and Light Binding cast/flight recording must load beneath the host prefix'
   );
   await page.mouse.click(880, 480, { button: 'right' });
   await page.waitForTimeout(1800);
@@ -384,7 +384,7 @@ try {
     oracleAudioRequests.length >= 6,
     'Selection and restore must prepare all three Oracle recordings'
   );
-  assert.equal(recordings.size, 20);
+  assert.equal(recordings.size, 32);
   assert(
     oracleRigRequests.every((url) => /\/oracle-lens-(base|radar|laser|core-laser)\.glb$/.test(url))
   );

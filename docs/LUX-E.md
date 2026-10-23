@@ -1,6 +1,62 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, twenty static source particle layers and three moving detonation batches are used, and human selection supports Lux. Complete effects/audio, matched native calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, twenty static source particle layers and three moving detonation batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Finite source audio — October 23, 2026
+
+All twelve E recordings now play from the pinned Lux base Wwise bank. The five
+source events identify cast, delayed flight, two zone actions, detonation and a
+flight stop. The source graph and unchanged float masters are recorded in
+[the event inventory](reference/lux-e-audio.json) and
+[decoder ledger](reference/lux-e-audio-decoded.json). The pinned vgmstream decoder
+exports 44,100 Hz mono float32 PCM without normalization, resampling, expanded
+loops or added fades; the twelve files total 5,029,948 bytes. Two hit masters
+retain peaks above one. Source gain, existing local master gain and distance
+attenuation are applied separately in WebAudio.
+
+The flight action waits 100 ms. The zone has an immediate two-variant layer and
+a separate action delayed by 500 ms. None of the recordings has embedded loop
+markers, and all source containers play once. No infinite flight or zone loop is
+invented. The source flight stop applies a 1.5-second linear fade at arrival or
+local cancellation. A flight stopped before its delayed birth never plays.
+There is no zone-stop event in this bank: cutting the finite zone layers at
+local detonation/cancellation is explicit local policy. An early recast cannot
+start a delayed zone layer after the zone is gone.
+
+Schema 109 retains accepted cast positions, captured aim/release origins,
+launch/arrival/hit clocks, global cosmetic dispatch ordinals and the actual
+endpoint of a cancelled flight. Records retire 311 ticks after stop; active
+zones keep their histories. Restore rejects missing/crossed owners and spells,
+contradictory clocks, duplicate/future ordinals and invalid stopped endpoints.
+Gameplay entity IDs, combat RNG, damage, mana, cooldowns, slows and vision are
+unchanged. Cosmetic ordinal cycles satisfy the source global avoid-repeat
+windows (cast 3/4, hit 2/3, flight and immediate zone 1/2). Initial ordering,
+native Wwise PRNG/shuffle and priority/virtualization behavior remain unverified.
+
+The controller resumes finite clips at their saved phase after mute, fog or
+reload. Enemy audibility checks the current phase point; it cannot expose an
+unobserved cast origin through a visible orb or vice versa. A failed asset load
+keeps one synthesized cast cue; a successful retry suppresses the corresponding
+late source cast. Global local voice caps are two cast/hit and four per flight
+and zone layer, killing oldest equal-priority voices. Pause suspends AudioContext
+time. Frozen victory tails advance only on that clock without changing the
+checkpoint. Native script callback delivery, emitter attachment, bus mix,
+listener, attenuation calibration and matched listening remain open.
+
+All 1,375 unit checks across 252 files, 30 targeted Chrome cases and nested-path
+production smoke pass. Four fresh normal-rules diagnostic matches check 780,762
+ticks and 220 exact saved round trips. All recorded samples, winners and end
+ticks match `843052c`; final gameplay fields match exactly after removing only
+the schema/ruleset identifiers and new cosmetic history. All four victories
+remain within one hour. These four seeds do not meet the 100-seed gate. The
+malformed-windup finding was repaired before the final cohorts; earlier stopped
+diagnostics are retained and excluded. The complete browser suite was not repeated.
+
+[Verification and limitations](reference/lux-e-audio-verification.json) record the
+current browser/source checks and [diagnostic matches](reference/lux-e-audio-match-audit.json). Complete emitter coverage,
+full native presentation and the project-wide completion gates remain open.
+Run `node tools/qa/verify-lux-e-audio.mjs` from the repository root to verify
+the retained local evidence, source master hashes and diagnostic report references.
 
 ## Moving detonation particles — October 23, 2026
 

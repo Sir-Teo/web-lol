@@ -1,3 +1,5 @@
+import { LuxSingularityAudio } from './lux-e';
+import { luxEAudioStates } from './lux-e-state';
 import { LuxBindingFlightAudio } from './lux-binding-flight';
 import { LazyGarenJusticeAudio } from './garen-r-lazy';
 import { LazyGarenCourageAudio } from './garen-w-lazy';
@@ -24,6 +26,10 @@ import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../si
  * Other cues retain synthesized feedback. */
 export class GameAudio {
   context: AudioContext | null = null;
+  luxE = new LuxSingularityAudio();
+  private luxEWorld?: World;
+  private luxETerminalStart = 0;
+  private luxETerminal = false;
   bindingFlight = new LuxBindingFlightAudio();
   garenE = new GarenJudgmentAudio();
   garenR = new LazyGarenJusticeAudio();
@@ -82,6 +88,7 @@ export class GameAudio {
       this.loadIllumination(),
       this.loadBindingCast(),
       this.bindingFlight.load(),
+      this.luxE.load(),
       ...(garenPresent
         ? [this.garenQ.load(), this.garenW.load(), this.garenE.load(), this.garenR.load()]
         : []),
@@ -268,6 +275,7 @@ export class GameAudio {
   }
   private stopVoices(): void {
     this.bindingFlight.stop();
+    this.luxE.stop();
     this.garenE.stop();
     this.garenR.stop();
     this.garenW.stop();
@@ -454,6 +462,30 @@ export class GameAudio {
     this.context ??= new AudioContext();
     this.syncContext();
   }
+  updateLuxE(world: World, listener = { x: 0, y: 0 }) {
+    if (this.luxEWorld !== world) {
+      this.luxE.reset();
+      this.luxEWorld = world;
+      this.luxETerminal = false;
+    }
+    let tick = world.tick;
+    if (world.winner && this.context) {
+      if (!this.luxETerminal) {
+        this.luxETerminalStart = this.context.currentTime;
+        this.luxETerminal = true;
+      }
+      tick += Math.max(0, this.context.currentTime - this.luxETerminalStart) * 60;
+    }
+    const records = world.luxEAudio.records;
+    const allied = new Set(
+      records.filter((r) => r.team === world.hero.team).map((r) => `${r.sourceId}:${r.startTick}`)
+    );
+    const states = luxEAudioStates(records, tick).filter(
+      (s) =>
+        allied.has(s.key.slice(0, s.key.lastIndexOf(':'))) || world.pointVisible(s, world.hero.team)
+    );
+    this.luxE.update(this.context, this.enabled && !this.paused, records, states, listener);
+  }
   updateOracle(world: World, listener = { x: 0, y: 0 }) {
     const records = world.units.flatMap((u) => {
       const s = world.championState(u.id)?.trinket;
@@ -586,7 +618,13 @@ export class GameAudio {
           }
         }
         if (event.type === 'cast') {
-          if (event.text === 'q' && event.champion === 'garen' && this.garenQ.status === 'ready') {
+          if (event.text === 'e' && event.champion === 'lux' && this.luxE.status === 'ready') {
+            // Saved E dispatch history owns the finite source layers.
+          } else if (
+            event.text === 'q' &&
+            event.champion === 'garen' &&
+            this.garenQ.status === 'ready'
+          ) {
             // Saved Q activation/commitment history owns all five source actions.
           } else if (
             event.text === 'w' &&
@@ -619,6 +657,8 @@ export class GameAudio {
           )
             this.bindingCast(event, tick, listener);
           else {
+            if (event.text === 'e' && event.champion === 'lux' && event.unit !== undefined)
+              this.luxE.suppressCast(event.unit, event.tick);
             if (event.text === 'q' && event.champion === 'garen' && event.unit !== undefined)
               this.garenQ.suppressCast(event.unit, event.tick);
             if (event.text === 'r' && event.champion === 'garen' && event.unit !== undefined)

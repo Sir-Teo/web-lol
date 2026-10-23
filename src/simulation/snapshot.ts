@@ -1,3 +1,4 @@
+import { validateLuxEAudio } from './lux-e-audio-validation';
 import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
 import { MATCH_ROLES, JUNGLE_BOT_POLICY } from '../content/bot-roles';
 import { jungleRoute } from './bot-jungle';
@@ -102,7 +103,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 108;
+export const SNAPSHOT_VERSION = 109;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1019,6 +1020,26 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  luxEAudio: z.strictObject({
+    counts: z.strictObject({ cast: tick, flight: tick, zone: tick, hit: tick }),
+    records: z
+      .array(
+        z.strictObject({
+          sourceId: id,
+          team,
+          startTick: tick,
+          point,
+          aim: point,
+          castOrdinal: tick,
+          launch: z.strictObject({ tick, origin: point, zoneId: id, ordinal: tick }).nullable(),
+          arrival: z.strictObject({ tick, ordinal: tick }).nullable(),
+          hit: z.strictObject({ tick, ordinal: tick }).nullable(),
+          stopTick: tick.nullable(),
+          flightStopPoint: point.nullable(),
+        })
+      )
+      .max(10000),
+  }),
   nextBindingAudioVariant: z.union([z.literal(0), z.literal(1)]),
   bindingStops: z
     .array(
@@ -2243,6 +2264,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains an invalid Lucent Singularity.');
     if (zone.detonatedTick === null) singularityOwners.add(zone.sourceId);
   }
+  validateLuxEAudio(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {

@@ -375,6 +375,7 @@ async function boot(): Promise<void> {
       ),
       world.tick
     );
+    audio.updateLuxE(world, view.center);
     audio.updateOracle(world, view.center);
     audio.updateGaren(world, view.center);
     audio.update(

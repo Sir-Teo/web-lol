@@ -1,3 +1,4 @@
+import { advanceLuxEAudio, newLuxEAudioHistory } from './lux-e-audio';
 import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
 import {
   planTeam,
@@ -231,6 +232,7 @@ export class World {
   luxImpactVisuals: LuxImpactVisual[] = [];
   luxIlluminationVisuals: LuxIlluminationVisual[] = [];
   singularities: Singularity[] = [];
+  luxEAudio = newLuxEAudioHistory();
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
   commands: Command[] = [];
@@ -830,7 +832,10 @@ export class World {
     }
   }
   step(count = 1): void {
-    for (let i = 0; i < count && !this.winner; i++) this.update();
+    for (let i = 0; i < count && !this.winner; i++) {
+      this.update();
+      advanceLuxEAudio(this);
+    }
   }
   private update(): void {
     const unseen = this.unseenBeforeHawkshot();
@@ -3207,8 +3212,19 @@ export class World {
     return true;
   }
   private releaseSingularity(source: Unit, cast: NonNullable<ChampionState['pendingCast']>): void {
+    const zoneId = this.nextId++;
+    const record = this.luxEAudio.records.find(
+      (r) => r.sourceId === source.id && r.startTick === cast.startTick
+    );
+    if (record)
+      record.launch = {
+        tick: this.tick,
+        origin: { x: source.x, y: source.y },
+        zoneId,
+        ordinal: this.luxEAudio.counts.flight++,
+      };
     this.singularities.push({
-      id: this.nextId++,
+      id: zoneId,
       sourceId: source.id,
       team: source.team,
       x: source.x,
@@ -4324,11 +4340,17 @@ export class World {
         // E owns gameplay state outside the projectile list. Cancel its flight
         // and armed zone at the same terminal boundary; a burst that already
         // resolved may retain only its unexpired presentation tail.
+        for (const zone of this.singularities) {
+          if (zone.arrivalTick !== null) continue;
+          const r = this.luxEAudio.records.find((r) => r.launch?.zoneId === zone.id);
+          if (r) r.flightStopPoint = { x: zone.x, y: zone.y };
+        }
         this.singularities = this.singularities.filter(
           (zone) =>
             zone.detonatedTick !== null &&
             this.tick < zone.detonatedTick + LUX_E_POLICY.presentationSeconds * TICK_RATE
         );
+        advanceLuxEAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -4340,6 +4362,9 @@ export class World {
         targetState.enlighten = null;
         targetState.deaths++;
         targetState.pendingCast = null;
+        for (const r of this.luxEAudio.records)
+          if (r.sourceId === target.id && r.launch === null && r.stopTick === null)
+            r.stopTick = this.tick;
         targetState.castAnimation = null;
         targetState.recallEnd = null;
         targetState.qStacks = 0;
@@ -4954,6 +4979,20 @@ export class World {
             : spell.baseDamage[state.spellRanks[ability] - 1] +
               spell.abilityPowerRatio * this.abilityPower(u),
       };
+      if (ability === 'e')
+        this.luxEAudio.records.push({
+          sourceId: u.id,
+          team: u.team as Team,
+          startTick: this.tick,
+          point: { x: u.x, y: u.y },
+          aim: { ...state.pendingCast.point },
+          castOrdinal: this.luxEAudio.counts.cast++,
+          launch: null,
+          arrival: null,
+          hit: null,
+          stopTick: null,
+          flightStopPoint: null,
+        });
       this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
       return;
     }
@@ -5390,6 +5429,7 @@ export class World {
       luxImpactVisuals: this.luxImpactVisuals,
       luxIlluminationVisuals: this.luxIlluminationVisuals,
       singularities: this.singularities,
+      luxEAudio: this.luxEAudio,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,
       wave: this.wave,

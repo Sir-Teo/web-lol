@@ -1,0 +1,320 @@
+{
+  "date": "2026-10-23",
+  "baseline": "843052c126a5941b55f6c95d671fba036f80bf56",
+  "schema": 109,
+  "ruleset": "7981efcd10b9924cf11cded595961614d02c7dbd4e4e119faa607518cf70dd46",
+  "initialFinding": {
+    "description": "Reading AudioParam.value before its scheduled quantum observed its default value; the corrected browser probe checks actual setValueAtTime/linearRampToValueAtTime scheduling.",
+    "log": {
+      "path": ".cache/lux-e-audio-browser-initial.log",
+      "sha256": "20b42ace3f85116100452c75c2353966cb19e3ef08af53b8153e02b913ed85ed"
+    }
+  },
+  "strictGuard": {
+    "description": "A missing accepted windup record was reproduced, then repaired before final cohorts. Four earlier diagnostic processes were intentionally terminated; their old frozen bundle and logs are retained, and their partial results are excluded.",
+    "regressionLog": {
+      "path": ".cache/lux-e-audio-missing-windup.log",
+      "sha256": "fe44f9701a62f2cc755f8eec37a9dac6047e9967f062bfdbf6e5faffc393de9d"
+    },
+    "oldFrozenBundle": {
+      "path": ".cache/lux-e-audio-runner/role-match.js",
+      "sha256": "d186373b8397160f7c45e347542685c7a5019f5b61803c4274536a82abe22123"
+    },
+    "partialLogs": [
+      {
+        "path": ".cache/lux-e-audio-pre-guard-match-26018.log",
+        "sha256": "4949d74ba8d88264ee3cc70b33db3a74588fcb48309f656aff5263807df793fe"
+      },
+      {
+        "path": ".cache/lux-e-audio-pre-guard-match-719.log",
+        "sha256": "350de1fff9e37e4b11793a1cb008a31e2c70fb08f158b0cab59871281ae3f46f"
+      },
+      {
+        "path": ".cache/lux-e-audio-pre-guard-match-1.log",
+        "sha256": "93eb2c5e78cc216d4ce0b3378aae427708855d8c2d5445067ea61a048030dfee"
+      },
+      {
+        "path": ".cache/lux-e-audio-pre-guard-match-927.log",
+        "sha256": "0dca6fb5c7d4122d57b11509046291bfbf10cdb57ce1d6f88e78f595809b4146"
+      }
+    ]
+  },
+  "scope": "All twelve finite source E recordings, saved dispatch phases, source delays/flight fade, local zone cut, global avoid-repeat cycle/caps, restore, fog, pause/mute, failure/retry and terminal continuation.",
+  "source": {
+    "events": 5,
+    "nodes": 31,
+    "encodedMedia": 12,
+    "encodedBytes": 229762,
+    "wavBytes": 5029948,
+    "pcm": "Unchanged mono 44100 Hz IEEE float32; no normalization, resampling, added loops or authored fades",
+    "decoder": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
+    "parser": "71654ed1a2c4642894bd7e7ed79eba66986fb770",
+    "unresolvedHierarchyIds": [
+      1259461568
+    ]
+  },
+  "checks": {
+    "unit": {
+      "files": 252,
+      "tests": 1375,
+      "command": "npx vitest run --maxWorkers=1"
+    },
+    "chrome": {
+      "cases": 30,
+      "scope": "Six new E audio checks plus adjacent Hawkshot/Binding audio, E source/burst, restoration, graphics recovery and match-end cases; the complete browser suite was not repeated.",
+      "exactMasterPCM": true,
+      "actualNodesFinite": true
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png"
+    },
+    "diagnosticMatches": {
+      "checkedTicks": 780762,
+      "exactRoundTrips": 220,
+      "victories": 4,
+      "allRecordedSamplesEqual": true,
+      "allGameplayFieldsEqual": true
+    }
+  },
+  "policies": {
+    "variantChoice": "Saved global accepted action ordinals cycle through each source playlist, satisfying N-1 exclusion; initial order/native PRNG are not claimed.",
+    "voiceCaps": "Local equal-priority global kill-oldest: cast/hit 2, flight/each zone action 4.",
+    "zoneStop": "No source stop action exists. Local cancellation/detonation immediately cuts both finite zone layers and prevents unborn delayed actions.",
+    "flightStop": "Source 1.5-second linear fade at arrival/local cancellation; unborn delayed flight suppressed; stopped endpoint captured before world cleanup.",
+    "retention": "311 ticks after stop; source PCM remains finite; no combat IDs or simulation random calls allocated.",
+    "resultClock": "AudioContext elapsed time advances terminal tails without changing the frozen saved world."
+  },
+  "files": [
+    {
+      "path": "docs/reference/lux-audio-extraction.json",
+      "sha256": "86b4aeabfd8fe3079215305f14b3f8275e0799f3eaee776b561ca587ec3a27d6"
+    },
+    {
+      "path": "docs/reference/lux-model.json",
+      "sha256": "abbd26503162b6c744e57a0f647c9e23044cf0efb5e7812cca0fe0a149622b4f"
+    },
+    {
+      "path": "docs/reference/lux-e-audio.json",
+      "sha256": "e50a74f944d9da551fdc226cac3fea9868741bd83754534b0a3f0f2ec7bd6006"
+    },
+    {
+      "path": "docs/reference/lux-e-audio-decoded.json",
+      "sha256": "98bc01848c0c48ee323820acbdd6b2097f97cf586ef286eabd990aec0fb7432a"
+    },
+    {
+      "path": "docs/reference/lux-e-audio-match-audit.json",
+      "sha256": "7af79d7d6ef3092a6ad3897432788d86bf61829d8b74df188b882c9bfa446204"
+    },
+    {
+      "path": "tools/assets/extract-lux-audio.py",
+      "sha256": "c990649c5be2f00ab69c593c5b0e601cdac277b87e9afdc0bcddd67fb04ee04a"
+    },
+    {
+      "path": "tools/assets/map-lux-e-audio.py",
+      "sha256": "ca56ab1b1a2752cef13ecdc5095dfabec40c44587278ec3ced005a037351982d"
+    },
+    {
+      "path": "tools/assets/decode-lux-e-audio.py",
+      "sha256": "50b731884b13b07be22fb4d83d0aecc1b84622f71a189bb9773b61212a8e5829"
+    },
+    {
+      "path": "tools/assets/garen_audio_decode.py",
+      "sha256": "02f53934e650dd941742a6b5feb7dcdedb15086ed878eee9d0220e20973efef8"
+    },
+    {
+      "path": "tools/assets/export-lux-e-audio.py",
+      "sha256": "27312cf88a78849dd8202936b8a05a8c65f43e3982b4a48b2cda8f7aa670dc8b"
+    },
+    {
+      "path": "src/content/lux-e-audio.ts",
+      "sha256": "6396faf0c300cb0d4440c4af38f40e7801393b8baf7fee04f6d23cd15cbeb9e0"
+    },
+    {
+      "path": "src/content/lux-e-audio-timing.ts",
+      "sha256": "f6d36eb3b8ea9fe005923bb56f74af6d2bbdb26282aa141ccf3b554196d9035a"
+    },
+    {
+      "path": "src/simulation/lux-e-audio.ts",
+      "sha256": "25387c4141473227f68458da7f73d7b54f8666d7ba1c7225caf3913e32d6752c"
+    },
+    {
+      "path": "src/simulation/lux-e-audio-validation.ts",
+      "sha256": "c547005258f5a358f93af4443d3fde51f25d157d1b8734fb9232f8effbd7d852"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "f959cc37c6c469e9871704ab7baf64a3748081ca33e75caef8388ef8a0d1e6bc"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "bf43ba4cdb3f77f70eed9e8ccf8d3edf14a188940fa4fd14fcefd60701e8b586"
+    },
+    {
+      "path": "src/audio/lux-e.ts",
+      "sha256": "77db3a69198b104ce60e5e6836112dd07d817425c364fcbbf3a725b0925262c1"
+    },
+    {
+      "path": "src/audio/lux-e-state.ts",
+      "sha256": "839db4b4287a7ae33bb019f7710cf4182773643095c6e68b6d6be3429eb39218"
+    },
+    {
+      "path": "src/audio/audio.ts",
+      "sha256": "effbf463323cd599b1a503d105624a4ca01a7e995e094e20da0d0f36158d4081"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "962838a42244399bd1bf9b7ab2ffa0fbc48d43448298a31168f08d39073592c2"
+    },
+    {
+      "path": "tests/lux-e-audio.test.ts",
+      "sha256": "65e74804b2d98579672cb660d66733161971094aad003d9f3ea29b256d4bd1ed"
+    },
+    {
+      "path": "e2e/lux-e-audio.spec.ts",
+      "sha256": "446859a8c48b40f153808426320e1938d9ed0cd2c798a52a3f288e63102f914b"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "4db33ed4a1e831dd8d6373b365457bb11477a43d7cca4d3d0da53d1548490663"
+    },
+    {
+      "path": "tools/qa/verify-lux-e-audio.mjs",
+      "sha256": "22e8776ff441c936701d196b2700bace54522afdb3baa1cfb548ea7941087d1e"
+    },
+    {
+      "path": ".cache/lux-e-audio-unit-final.log",
+      "sha256": "d613fdaeb49b709048324a2e40e81d92b120d2919679aa8b23925dbb4bad2b33"
+    },
+    {
+      "path": ".cache/lux-e-audio-browser-final.log",
+      "sha256": "b07fc3693dc5c8f4517d6233508ad36c4400c08e19605f875af5a804f5c0b6ff"
+    },
+    {
+      "path": ".cache/lux-e-audio-production.log",
+      "sha256": "98c84c2894387877129f007899936cf808b0a378875fd95dcb4a2bfd9a19efdd"
+    },
+    {
+      "path": "artifacts/lux-e-audio-pcm.json",
+      "sha256": "2a6b3bfbd528819090a301e13d1b864a3fdbe0cc562c65a987745abb80a22137"
+    },
+    {
+      "path": "artifacts/lux-e-audio-lifecycle.json",
+      "sha256": "67dea232a436724971246e85aa61603c940f5f7c25ee49a3a1e584fabe3e6cd8"
+    },
+    {
+      "path": "artifacts/lux-e-audio-fog.json",
+      "sha256": "2e9ff10de8b3e43208766a5b401522c01130e20066119a30aee8182acc58e78e"
+    },
+    {
+      "path": "artifacts/lux-e-audio-victory.json",
+      "sha256": "36c3fe276ee06bcda2674a50ed3cd9132e4a4bb27a64457a3563007d8e5f3ba8"
+    },
+    {
+      "path": "artifacts/lux-e-audio-retry.json",
+      "sha256": "ae8e722a042ea27d2067780f837d317dc1698aea3338fd59e9df2b3ab3f2c71e"
+    },
+    {
+      "path": "artifacts/lux-e-audio-caps.json",
+      "sha256": "845ea65eaaf4ac47a7c7b66d7c8106d6a1e5f271e5468fb7be8e848deac60186"
+    }
+  ],
+  "assets": [
+    {
+      "path": "public/assets/audio/lux-e-607512994.wav",
+      "sha256": "f26c00b6233e6ed07ecc1ba12232508a2bde1e43bc9a171c196a711ed2efc276"
+    },
+    {
+      "path": "public/assets/audio/lux-e-97130071.wav",
+      "sha256": "e2627a5abfc093096785c35f8bc81399992bd0fd7476404e610c2501f6c28591"
+    },
+    {
+      "path": "public/assets/audio/lux-e-613551922.wav",
+      "sha256": "a50c64cebc00c21779c4cdbc443495882259705ad511b1123a39d8c477ce7ded"
+    },
+    {
+      "path": "public/assets/audio/lux-e-113441182.wav",
+      "sha256": "21beaa2337a9acc94213fdccb9c4c970ffc0f3f9963c20a92770f1af04569de5"
+    },
+    {
+      "path": "public/assets/audio/lux-e-208690342.wav",
+      "sha256": "3582640d174ef9f49419ef36f1dcb2314e6393325985632e64cf3254455d38e3"
+    },
+    {
+      "path": "public/assets/audio/lux-e-606969257.wav",
+      "sha256": "d155e66279ed86939580da4a0673dfcd7c28516a3c0c65618d2e9ac116dd608b"
+    },
+    {
+      "path": "public/assets/audio/lux-e-306363213.wav",
+      "sha256": "d2e7af32b0e01bf43c831e096e8b7896eb01d2f498f784240c12615646e54894"
+    },
+    {
+      "path": "public/assets/audio/lux-e-386229644.wav",
+      "sha256": "e68141ec281f2bf57b4610f0fcc0d9ba0bbaec029e6905b670edbd5f5980068e"
+    },
+    {
+      "path": "public/assets/audio/lux-e-998184549.wav",
+      "sha256": "09dd171a56f0b1517f8242e0f5cfcfe388930d8d9a517202a78686f2264d9668"
+    },
+    {
+      "path": "public/assets/audio/lux-e-351538991.wav",
+      "sha256": "b4387e514af08df33943e208d992fb0ae0fd06372974b6758a51c5e7247f24ea"
+    },
+    {
+      "path": "public/assets/audio/lux-e-297022039.wav",
+      "sha256": "6d232a7742deddbd047334904f6e8a3dbc735779f08e0dd8e0e1a0377aaf4bd2"
+    },
+    {
+      "path": "public/assets/audio/lux-e-979274182.wav",
+      "sha256": "a0f70a910690b9362248d9f894b61fef6e08263db76d1b49ebb95eb32339df5a"
+    }
+  ],
+  "limits": [
+    "Four diagnostic seeds do not meet the 100-seed gate or certify balance, natural human play, full-match browser performance or native parity.",
+    "Source action mapping and PCM identity do not prove native script timing, random/shuffle state, priority/virtualization, attachment, shared-bus mix, listener or attenuation calibration. No matched native listening comparison was performed.",
+    "The six-champion roster, quests, epic objectives, complete team strategy, offline delivery and full-match browser/performance certification remain unfinished."
+  ]
+}
