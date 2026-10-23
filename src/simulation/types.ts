@@ -1,3 +1,5 @@
+import type { GarenAttackKind } from '../content/garen-attack-animation';
+import type { AttackSoundMaterial } from '../content/attack-sound-material';
 import type { ImpactRig } from '../content/impact-target';
 import type { structurePose } from '../render/structure-pose';
 import type { AnimationTimeline } from './animation-timeline';
@@ -403,6 +405,7 @@ export type Command =
 export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */
   garenQStartTick?: number;
+  garenAAStartTick?: number;
   champion?: 'ashe' | 'lux' | 'garen';
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
   audience: Team[];
@@ -479,6 +482,21 @@ export interface ChampionState {
   qStacks: number;
   qUntil: number;
   qStackExpiry: number;
+  /** Accepted ordinary swings and separately confirmed contacts. Cast one-shots
+   * survive cancellation; hits exist only for accepted melee contacts. */
+  garenAAVisuals: {
+    startTick: number;
+    releaseTick: number;
+    endTick: number;
+    kind: GarenAttackKind;
+    targetId: number;
+    targetTeam: Faction;
+    targetRig: string | null;
+    origin: Vec2;
+    castAudience: Team[];
+    cancelTick: number | null;
+    impact: { tick: number; point: Vec2; material: AttackSoundMaterial; audience: Team[] } | null;
+  }[];
   garenPassiveReadyTick: number;
   /** Bounded cosmetic recovery epochs; stopped sparks retain a fixed root. */
   garenPassiveVisuals: { startTick: number; stopTick: number | null; point: Vec2 | null }[];

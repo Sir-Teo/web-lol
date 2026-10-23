@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,414 source/simulation/geometry checks across 259 files and 35 targeted Chrome cases for Garen passive audio, recovery particles, player controls and all four spell-audio adapters. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,422 source/simulation/geometry checks across 260 files and 50 targeted Chrome cases for Garen basic/passive/spell audio, both ordinary swings, player controls, selection and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -17,9 +17,48 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - A controlled development Gromp encounter now exercises the neutral faction, local retaliation/leash/reset policies, source-rig playback, all eight reconstructed death-pop emitters, four source missile emitters, Root-scalar last-hit rewards and schema-104 continuation. Rift practice and the interim lane match share both source-linked Gromp camps, with independent death-based respawns, protected source emergence and schema-104 clocks. Two Blue Sentinel camps now add the normal-skin rig, melee combat and species-specific calendars, making four camps in the interim lane match. Red Brambleback now adds two more,
   for six independent calendars and a third source monster rig. Two three-member
   wolf camps add six monsters and two raptor packs add twelve. Two Krug camps now bring the lane match to twelve calendars, ten source monster rigs and 28 initial neutral monsters, with delayed Krug offspring after parent deaths. A separate shared river controller now adds both initial Scuttlers at 2:55 and one selected later spawn, bringing the match to eleven monster rigs and 30 initial monsters. Native activation/scaling, epic objectives, effects/audio and complete jungle/team strategy remain unfinished.
+- Save/replay certification remains open. Fingerprint dependency coverage needs an audit: World executes `src/render/mobile-pose.ts` and consumes `src/content/mobile-clip-durations.json`, while current fingerprint roots enumerate simulation/content TypeScript plus selected data. Current-revision saves are checked; complete transitive coverage is not certified.
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+Garen's development fixture now adds [basic/critical source attack audio and both ordinary swing animations](GAREN-AA-AUDIO.md).
+Six declared events close over eight play actions, 105 hierarchy nodes and 34
+unique masters. Seventeen profiles retain all four material branches, separate
+critical layers, combined switch/child gain, authored −500/−100-cent pitch,
+leaf-specific voice caps and the combat-specific attenuation/bus evidence.
+Twenty-nine pinned skin records drive material lookup, including Stone blue
+siege/super minions versus Metal red ones and Wood Red Brambleback. Unknown rigs
+use the bank's explicit Flesh default. Native material/script/bus dispatch and
+listening remain unverified.
+
+The character root's equal ordinary slots now share one saved, deterministic
+choice with source audio. Attack2 was already present in the source GLB; no model
+or image bytes were added. The missing first-spell animation override remains
+absent; Attack1 is the explicit local default. Source RNG and native contact-frame
+calibration remain open. Schema **113** records ordinary swings, planned clocks,
+kind, target/team/rig, origin/creation audience, cancellation and accepted contact
+point/material/audience. Contacts capture before lethal damage removes vision.
+Q remains independent. New records consume no World RNG or extra gameplay IDs;
+damage, critical rolls, reach, windup and cooldown rules are unchanged.
+
+All 1,422 unit tests, TypeScript and 50 focused Chrome cases pass. Every float in
+all 34 masters decodes exactly. Actual source calls retain both critical layers
+and pitch, all material routes, cancellation/target-loss boundaries, old save
+offsets, source/synth suppression and retry behavior. Unseen cast creation never
+becomes audible on reveal; a known lethal contact survives loss of the last local
+vision source. Actual victory drains all tails once with the save frozen. The
+controlled source-swing capture was visually reviewed; this is not native parity.
+
+The 34 untouched WAVs add 5,088,352 bytes and load only on Garen presence. Duplicate
+material media share one request/buffer. Nested-path production validation passes
+with the existing 32 recordings, ordinary roster and no development hook.
+Game/Three chunks are 890.26/658.93 KB; the size warning remains. The
+[current ledger](reference/garen-aa-verification.json) retains exact scope,
+source reproducers and initial fixture/source-reading failures. Normal-rules
+match cohorts were not rerun. Native attack particles/voice, complete six-character
+kits, quests/epics, 100-seed, offline and full-match browser/performance gates
+remain open. Garen stays in the development fixture.
 
 Garen's development fixture now adds [source Perseverance audio](GAREN-P-AUDIO.md):
 the five-second activation master and a quieter sustained recording, with separate

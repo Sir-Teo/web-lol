@@ -1,3 +1,5 @@
+import armorMaterials from '../content/attack-sound-materials.json';
+import { validateGarenAttacks } from './garen-aa-presentation';
 import { GAREN_PASSIVE_HISTORY_TICKS } from '../content/garen-passive-presentation';
 import { validatePerseveranceVisual } from './garen-passive-visuals';
 import { validateLuxEHits } from './lux-e-hits-validation';
@@ -107,7 +109,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 112;
+export const SNAPSHOT_VERSION = 113;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -611,6 +613,36 @@ const player: z.ZodType<PlayerState> = z
           .max(10000),
       })
       .nullable(),
+    garenAAVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          releaseTick: tick,
+          endTick: tick,
+          kind: z.enum(['attack1', 'attack2', 'crit']),
+          targetId: id,
+          targetTeam: z.enum(['blue', 'red', 'neutral']),
+          targetRig: z.enum(Object.keys(armorMaterials) as [string, ...string[]]).nullable(),
+          origin: point,
+          castAudience: z
+            .array(z.enum(['blue', 'red']))
+            .max(2)
+            .refine((a) => new Set(a).size === a.length),
+          cancelTick: tick.nullable(),
+          impact: z
+            .strictObject({
+              tick,
+              point,
+              material: z.enum(['Flesh', 'Metal', 'Stone', 'Wood']),
+              audience: z
+                .array(z.enum(['blue', 'red']))
+                .max(2)
+                .refine((a) => new Set(a).size === a.length),
+            })
+            .nullable(),
+        })
+      )
+      .max(10000),
     garenPassiveReadyTick: tick,
     garenPassiveVisuals: z
       .array(
@@ -2870,6 +2902,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     )
       throw new Error('Saved match contains invalid Perseverance timing.');
     validatePerseveranceVisual(owner, champion, state.tick, state.winner);
+    validateGarenAttacks(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&

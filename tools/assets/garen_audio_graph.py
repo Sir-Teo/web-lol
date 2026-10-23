@@ -12,7 +12,7 @@ sys.path.insert(0, '.tools/wwiser')
 from wwiser.wfnv import Fnv
 sha = lambda b: hashlib.sha256(b).hexdigest()
 def map_garen_audio(ability, expected_events):
-    assert ability in ['p', 'q', 'w', 'e', 'r']
+    assert ability in ['aa', 'p', 'q', 'w', 'e', 'r']
     pin_path = Path('docs/reference/garen-audio-extraction.json')
     pin = json.loads(pin_path.read_text())
     subprocess.run([sys.executable, 'tools/assets/inspect-garen-audio.py'], check=True, stdout=subprocess.DEVNULL)
@@ -39,13 +39,14 @@ def map_garen_audio(ability, expected_events):
             if current in reached: continue
             reached.add(current)
             obj = index[current]
-            assert obj.get('name') in ('CAkRanSeqCntr', 'CAkSound', 'CAkActorMixer', 'CAkLayerCntr'), obj.get('name')
+            assert obj.get('name') in ('CAkRanSeqCntr', 'CAkSound', 'CAkActorMixer', 'CAkLayerCntr', 'CAkSwitchCntr'), obj.get('name')
             queue.extend(int(f.get('value')) for f in obj.iter('field') if f.get('name') == 'ulChildID')
         return reached
     reference = Path('docs/reference/garen-model.json')
     skin = json.loads(reference.read_text())['skin']['data']['Characters/Garen/Skins/Skin0']
     unit = next(u for u in skin['skinAudioProperties']['bankUnits'] if u['name'] == 'Garen_Base_SFX')
     prefixes = ['_GarenRecouperate1_'] if ability == 'p' else [f'_Garen{ability.upper()}_'] + (['_GarenQAttack_'] if ability == 'q' else [])
+    if ability == 'aa': prefixes = ['_GarenBasicAttack_', '_GarenBasicAttack2_', '_GarenCritAttack_']
     names = sorted(n for n in unit['events'] if any(prefix in n for prefix in prefixes))
     assert len(names) == expected_events
     events, selected, media_ids = [], set(), set()

@@ -233,7 +233,7 @@ test('passive terminal clock drains after victory and never alters the frozen sa
   w.hero.hp -= 100;
   w.step(100);
   (game as any).garenP.controller = a;
-  for (const k of ['garenQ', 'garenW', 'garenE', 'garenR'])
+  for (const k of ['garenAA', 'garenQ', 'garenW', 'garenE', 'garenR'])
     (game as any)[k] = { status: 'ready', update() {}, stop() {} };
   game.context = context;
   const nexus = w.spawn('nexus', 'red', { x: 1000, y: 1000 });

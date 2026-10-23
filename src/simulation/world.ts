@@ -1,3 +1,9 @@
+import {
+  beginGarenAttack,
+  contactGarenAttack,
+  cancelGarenAttack,
+  garenAttackExpiry,
+} from './garen-aa-presentation';
 import { advancePerseveranceVisual, stopPerseveranceVisual } from './garen-passive-visuals';
 import { advanceLuxEHits, recordLuxEHit } from './lux-e-hits';
 import { advanceLuxEAudio, newLuxEAudioHistory } from './lux-e-audio';
@@ -819,7 +825,10 @@ export class World {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
-      this.finishGarenQAttack(u, this.winner ? 'match-end' : !this.alive(u) ? 'death' : 'order');
+      this.finishAttackPresentation(
+        u,
+        this.winner ? 'match-end' : !this.alive(u) ? 'death' : 'order'
+      );
       u.attackCycle = null;
     }
     u.path = [];
@@ -872,6 +881,8 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
+      if (state.garenAAVisuals.length)
+        state.garenAAVisuals = state.garenAAVisuals.filter((r) => this.tick < garenAttackExpiry(r));
       for (const r of state.garenQVisuals)
         for (const a of r.attacks)
           if (a.stopTick === null && this.tick >= a.endTick) {
@@ -1069,7 +1080,7 @@ export class World {
         }
         const state = this.championState(u.id);
         if (state) state.castAnimation = null;
-        this.finishGarenQAttack(u, 'action');
+        this.finishAttackPresentation(u, 'action');
         u.attackCycle = null;
         if (u.releaseTick !== null) {
           u.releaseTick = null;
@@ -2720,10 +2731,12 @@ export class World {
     }
     return undefined;
   }
-  private finishGarenQAttack(
+  private finishAttackPresentation(
     u: Unit,
     reason: NonNullable<ChampionState['garenQVisuals'][number]['attacks'][number]['endReason']>
   ) {
+    const state = this.championState(u.id);
+    if (state) cancelGarenAttack(state, u, this.tick);
     const attack = this.garenQAttack(u);
     if (attack && attack.stopTick === null) {
       attack.stopTick = Math.min(this.tick, attack.endTick);
@@ -2736,7 +2749,7 @@ export class World {
     let target = u.attackTarget === null ? undefined : this.unit(u.attackTarget);
     if (u.releaseTick !== null) {
       if (!this.validTarget(u, target)) {
-        this.finishGarenQAttack(u, 'target-lost');
+        this.finishAttackPresentation(u, 'target-lost');
         u.attackCycle = null;
         u.releaseTick = null;
         u.nextAttackTick = this.tick;
@@ -2758,7 +2771,9 @@ export class World {
             team: u.team,
             ...(u.attackCycle?.garenQRank !== undefined
               ? { champion: 'garen' as const, garenQStartTick: u.attackCycle.startTick }
-              : {}),
+              : u.champion === 'garen'
+                ? { champion: 'garen' as const, garenAAStartTick: u.attackCycle!.startTick }
+                : {}),
           });
           if (
             u.champion === 'ashe' &&
@@ -2793,6 +2808,8 @@ export class World {
               state.garenQ.consumed = true;
               expireGarenQ(state, this.tick);
             }
+            if (u.champion === 'garen' && qRank === undefined && state)
+              contactGarenAttack(state, u, target, this.tick, this);
             this.hitBasicAttack(u, target, payloads.reduce((sum, p) => sum + p.damage, 0) + qBonus);
             if (qRank !== undefined) {
               const duration = Math.round(GAREN_Q.silenceSeconds * TICK_RATE);
@@ -2913,6 +2930,8 @@ export class World {
               ? { critical: true as const }
               : {}),
           };
+          if (u.champion === 'garen' && garenQRank === undefined && state)
+            beginGarenAttack(state, u, target, this.tick, this);
           const history = state?.garenQVisuals.at(-1);
           if (
             qTiming &&
@@ -2989,7 +3008,7 @@ export class World {
         amount = Math.min(d, remaining);
       const state = this.championState(u.id);
       if (state) state.castAnimation = null;
-      this.finishGarenQAttack(u, 'action');
+      this.finishAttackPresentation(u, 'action');
       u.x += dir.x * amount;
       u.y += dir.y * amount;
       u.facing = Math.atan2(dir.x, dir.y);
@@ -4313,7 +4332,7 @@ export class World {
       target.cinderBurn = null;
       target.scorchclawBurns = [];
       target.releaseTick = null;
-      this.finishGarenQAttack(target, 'death');
+      this.finishAttackPresentation(target, 'death');
       target.attackCycle = null;
       target.order = { type: 'idle' };
       this.emit('death', target, { unit: target.id });
@@ -4340,6 +4359,7 @@ export class World {
           this.finishGarenE(state);
           this.finishGarenW(state, 'match-end');
           stopPerseveranceVisual(state, this.unit(state.id)!, this.tick);
+          cancelGarenAttack(state, this.unit(state.id)!, this.tick);
           finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
           state.pendingCast = null;
@@ -4825,7 +4845,7 @@ export class World {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
-      this.finishGarenQAttack(u, 'action');
+      this.finishAttackPresentation(u, 'action');
       u.attackCycle = null;
       state.castAnimation = null;
       state.recallEnd = null;
@@ -4861,7 +4881,7 @@ export class World {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
-      this.finishGarenQAttack(u, 'action');
+      this.finishAttackPresentation(u, 'action');
       u.attackCycle = null;
       u.facing = Math.atan2(target.x - u.x, target.y - u.y);
       state.garenRReveal = {
@@ -4940,7 +4960,7 @@ export class World {
       u.slows = [];
       u.releaseTick = null;
       u.attackTarget = null;
-      this.finishGarenQAttack(u, 'recast');
+      this.finishAttackPresentation(u, 'recast');
       u.attackCycle = null;
       u.nextAttackTick = this.tick;
       this.emit('cast', u, { unit: u.id, champion: 'garen', text: 'q', team: u.team });
@@ -4958,7 +4978,7 @@ export class World {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
-      this.finishGarenQAttack(u, 'action');
+      this.finishAttackPresentation(u, 'action');
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
       const spell = ability === 'q' ? LUX_BINDING : ability === 'e' ? LUX_E : LUX_R;
@@ -5023,7 +5043,7 @@ export class World {
         // order/path. advanceUnit may start an empowered attack this tick.
         u.releaseTick = null;
         u.attackTarget = null;
-        this.finishGarenQAttack(u, 'action');
+        this.finishAttackPresentation(u, 'action');
         u.attackCycle = null;
         u.nextAttackTick = this.tick;
       }
@@ -5033,7 +5053,7 @@ export class World {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
-      this.finishGarenQAttack(u, 'action');
+      this.finishAttackPresentation(u, 'action');
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
       state.castAnimation = { ability, startTick: this.tick };

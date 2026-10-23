@@ -169,3 +169,10 @@ intervals and stopped roots through saves, death and terminal playback. The
 source recovery audio now follows those intervals with its authored fade-in/stop.
 The boost trail and native dispatch/composition comparison remain open; production
 selection stays Ashe/Lux.
+
+
+[Basic-attack source audio and ordinary swing selection](GAREN-AA-AUDIO.md) now
+add both source normal animations, four hit-material branches and separate
+critical layers in the fixture. Schema 113 saves accepted ordinary swings and
+confirmed contacts independently of Q. Native attack particles/voice, contact
+calibration, the remaining kit and production acceptance remain open.

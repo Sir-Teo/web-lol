@@ -11,6 +11,7 @@ function sourceFiles(directory: string): string[] {
 export const rulesetFiles = [
   ...sourceFiles('src/simulation'),
   ...sourceFiles('src/content'),
+  'src/content/attack-sound-materials.json',
   'src/content/garen-passive-particles.json',
   'src/content/gromp.json',
   'src/content/blue-sentinel.json',

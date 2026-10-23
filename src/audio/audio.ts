@@ -1,3 +1,4 @@
+import { LazyGarenBasicAttackAudio } from './garen-aa-lazy';
 import { LazyGarenPerseveranceAudio } from './garen-p-lazy';
 import { LuxSingularityAudio } from './lux-e';
 import { luxEAudioStates } from './lux-e-state';
@@ -32,6 +33,7 @@ export class GameAudio {
   private luxETerminalStart = 0;
   private luxETerminal = false;
   bindingFlight = new LuxBindingFlightAudio();
+  garenAA = new LazyGarenBasicAttackAudio();
   garenP = new LazyGarenPerseveranceAudio();
   private garenPTerminalWorld?: World;
   private garenPTerminalStart = 0;
@@ -95,6 +97,7 @@ export class GameAudio {
       this.luxE.load(),
       ...(garenPresent
         ? [
+            this.garenAA.load(),
             this.garenP.load(),
             this.garenQ.load(),
             this.garenW.load(),
@@ -286,6 +289,7 @@ export class GameAudio {
   private stopVoices(): void {
     this.bindingFlight.stop();
     this.luxE.stop();
+    this.garenAA.stop();
     this.garenP.stop();
     this.garenE.stop();
     this.garenR.stop();
@@ -553,6 +557,26 @@ export class GameAudio {
       }
       recoveryTick += Math.max(0, this.context.currentTime - this.garenPTerminalStart) * 60;
     }
+    if (garens.length && this.garenAA.status === 'idle') void this.garenAA.load();
+    const attacks = garens.flatMap((u) =>
+      world.championState(u.id)!.garenAAVisuals.map((r) => ({
+        ...r,
+        id: u.id,
+        x: u.x,
+        y: u.y,
+        castVisible:
+          r.castAudience.includes(world.hero.team) &&
+          (u.team === world.hero.team || world.visible(u, world.hero.team)),
+        hitVisible: r.impact?.audience.includes(world.hero.team) ?? false,
+      }))
+    );
+    this.garenAA.update(
+      this.context,
+      this.enabled && !this.paused,
+      attacks,
+      recoveryTick,
+      listener
+    );
     this.garenP.update(
       this.context,
       this.enabled && !this.paused,
@@ -649,7 +673,12 @@ export class GameAudio {
         if (event.type === 'illumination') this.illumination(event, tick, listener);
         if (event.type === 'judgment-hit') this.garenE.hit(this.context, event, tick, listener);
         if (event.type === 'attack') {
-          if (
+          if (event.garenAAStartTick !== undefined && event.unit !== undefined) {
+            if (this.garenAA.status !== 'ready') {
+              this.garenAA.suppressSwing(event.unit, event.garenAAStartTick);
+              this.tone(650, 260, 0.065, 0.012, 'triangle');
+            }
+          } else if (
             event.champion !== 'garen' ||
             event.garenQStartTick === undefined ||
             this.garenQ.status !== 'ready'

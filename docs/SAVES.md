@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **112** extends Garen recovery presentation retention for source
+Current schema **113** adds ordered Garen basic-swing presentation records:
+captured start/release/end, ordinary/critical kind, target/team/rig, origin,
+creation audience, cancellation and a separate accepted contact with material,
+point and audience. Contacts capture before lethal damage removes vision.
+Current pending cycles must retain their corresponding record. Validation checks
+ownership, ordering, deterministic ordinary selection, live identities, contact
+and cancellation chronology, material/rig agreement, audiences and finite expiry.
+Source cast/hit tails include authored pitch. Earlier schemas/fingerprints remain
+incompatible. See [basic-attack audio](GAREN-AA-AUDIO.md).
+
+Schema **112** extended Garen recovery presentation retention for source
 audio. The existing interval fields remain ordered and strict. Stopped history
 expires at `max(startTick + 300, stopTick + 182)`: the exact onset recording
 requires 300 ticks even if healing ends immediately, while particles keep their

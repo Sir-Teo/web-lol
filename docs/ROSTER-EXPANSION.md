@@ -654,3 +654,23 @@ three viewports, three zooms and 1×/2× display density. The before/after captu
 was reviewed. Native Flex sizing/attachment and broader composition remain open.
 See [placement details](GAREN-Q-PARTICLES.md#recipient-label-clearance--october-21-2026)
 and [current validation](PROGRESS.md#q-silence-label-clearance--october-21-2026).
+
+
+## Basic/critical attack source audio and ordinary slots — October 23, 2026
+
+The Garen development fixture now selects both equal-weight ordinary source
+slots and retains their choice with accepted swing/contact history. Six SFX
+events map all eight actions and four material branches into seventeen profiles;
+34 unique float masters keep source gain, pitch, attenuation and leaf voice caps.
+Twenty-nine current skin records provide material values, including asymmetric
+blue/red siege and super bodies. Q remains independent. Schema 113 validates
+clocks, contacts, cancellation, ownership, rig/material and creation audiences;
+no gameplay IDs or World RNG are added.
+
+All 1,422 unit tests, TypeScript, 50 focused Chrome cases and production validation
+pass. Chrome checks every decoded float, both actual normal animations, all
+materials, independent critical layers/pitch, real save/reload, missing-file retry,
+source/fallback suppression, hidden creation and known lethal contacts without
+remaining local vision. The source-swing capture was reviewed. Production stays
+Ashe/Lux. Native attack particles/voice, native script/timing/mix comparisons and
+full Garen/match acceptance remain open. See [attack audio](GAREN-AA-AUDIO.md).

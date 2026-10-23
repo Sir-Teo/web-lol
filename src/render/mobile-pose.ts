@@ -1,3 +1,4 @@
+import { garenAttackAnimation } from '../content/garen-attack-animation';
 import { recallAnimationPose } from './recall-animation';
 import { SCUTTLER_POLICY } from '../content/scuttler-policy';
 import { MONSTERS } from '../content/monsters';
@@ -124,15 +125,17 @@ export function mobilePose(
     const clip =
       cycle.garenQRank !== undefined
         ? 'spell1'
-        : unit.champion === 'lux'
-          ? cycle.critical
-            ? 'crit'
-            : luxAttackAnimation(unit.id, cycle.startTick)
-          : cycle.empowered
-            ? ASHE_Q.empoweredAttackAnimation
-            : cycle.critical
+        : unit.champion === 'garen'
+          ? garenAttackAnimation(unit.id, cycle.startTick, cycle.critical)
+          : unit.champion === 'lux'
+            ? cycle.critical
               ? 'crit'
-              : 'attack1';
+              : luxAttackAnimation(unit.id, cycle.startTick)
+            : cycle.empowered
+              ? ASHE_Q.empoweredAttackAnimation
+              : cycle.critical
+                ? 'crit'
+                : 'attack1';
     const rate = duration(clip) / ((cycle.endTick - cycle.startTick) / TICK_RATE),
       age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
     return { ...fixed('attack', clip, age * rate, false, rate), settled: age >= 0.08 };

@@ -115,6 +115,7 @@ export async function loadReferenceModels(
                     'idle1_base',
                     'run_base',
                     'attack1',
+                    'attack2',
                     'crit',
                     'spell1',
                     'spell4_base',

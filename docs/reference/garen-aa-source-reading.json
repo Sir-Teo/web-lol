@@ -1,0 +1,358 @@
+{
+  "graphSha256": "b500a49db69831be35bc5e8c4b3664817c0b941abcceae87bcf510e2eec6c7be",
+  "characterSha256": "5bb86b02471c0fca26e66e22b94da28849d333ed5608f0a5931dcaa8ef6f4d8b",
+  "normalWeights": [
+    0.5,
+    0.5
+  ],
+  "firstAttackAnimationOverride": null,
+  "firstAttackLocalClip": "Attack1",
+  "materialGroupId": 1559186049,
+  "materialGroupNameResolved": false,
+  "materialValueHashes": {
+    "Flesh": 1153642577,
+    "Metal": 2473969246,
+    "Stone": 1216965916,
+    "Wood": 2058049674
+  },
+  "skinMaterials": [
+    {
+      "rig": "ashe-base",
+      "path": "docs/reference/ashe-model.json",
+      "sha256": "9187409b8d7a56c3b4bcc6748b48905f268ec9f097d4312ab6e5478fb7dd0781",
+      "recordPath": [
+        "skin",
+        "data",
+        "Characters/Ashe/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "lux-base",
+      "path": "docs/reference/lux-model.json",
+      "sha256": "abbd26503162b6c744e57a0f647c9e23044cf0efb5e7812cca0fe0a149622b4f",
+      "recordPath": [
+        "skin",
+        "data",
+        "Characters/Lux/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "garen-base",
+      "path": "docs/reference/garen-model.json",
+      "sha256": "192a7d7b696ed983b6bf25564a688ea3ac35dfdb5ff5b2a89d5eca285125cf71",
+      "recordPath": [
+        "skin",
+        "data",
+        "Characters/Garen/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "blue-melee",
+      "path": "docs/reference/minion-skins.json",
+      "sha256": "950b5c1cadd57b55deeae00e86a4d35ce011a8a8dd9d3aa11ab061de5cfd9ded",
+      "recordPath": [
+        "sru_orderminionmelee",
+        "skins",
+        "data",
+        "Characters/SRU_OrderMinionMelee/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "blue-caster",
+      "path": "docs/reference/minion-skins.json",
+      "sha256": "950b5c1cadd57b55deeae00e86a4d35ce011a8a8dd9d3aa11ab061de5cfd9ded",
+      "recordPath": [
+        "sru_orderminionranged",
+        "skins",
+        "data",
+        "Characters/SRU_OrderMinionRanged/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "blue-siege",
+      "path": "docs/reference/minion-skins.json",
+      "sha256": "950b5c1cadd57b55deeae00e86a4d35ce011a8a8dd9d3aa11ab061de5cfd9ded",
+      "recordPath": [
+        "sru_orderminionsiege",
+        "skins",
+        "data",
+        "Characters/SRU_OrderMinionSiege/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "blue-super",
+      "path": "docs/reference/super-minion-definitions.json",
+      "sha256": "efcc9d32a9cb856f6373936e7f0060fa1d2ef2b1eff81e377731705a3fa9a617",
+      "recordPath": [
+        "sru_orderminionsuper",
+        "skins",
+        "data",
+        "Characters/SRU_OrderMinionSuper/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "blue-turret",
+      "path": "docs/reference/turret-definitions.json",
+      "sha256": "97f03457f02b49d0c838a40be9cdfad2a3516fef4f028e98cbd826efb04ed376",
+      "recordPath": [
+        "blue",
+        "skin",
+        "data",
+        "Characters/Turret/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "blue-nexus",
+      "path": "docs/reference/base-structure-definitions.json",
+      "sha256": "9aa5983740d41aac6f1686f82c6a170f8afc79dbc158fb6158e0d1b000ee854c",
+      "recordPath": [
+        "blue-nexus",
+        "skin",
+        "data",
+        "Characters/Nexus/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "blue-inhibitor",
+      "path": "docs/reference/base-structure-definitions.json",
+      "sha256": "9aa5983740d41aac6f1686f82c6a170f8afc79dbc158fb6158e0d1b000ee854c",
+      "recordPath": [
+        "blue-inhibitor",
+        "skin",
+        "data",
+        "Characters/Inhibitor/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "red-melee",
+      "path": "docs/reference/minion-skins.json",
+      "sha256": "950b5c1cadd57b55deeae00e86a4d35ce011a8a8dd9d3aa11ab061de5cfd9ded",
+      "recordPath": [
+        "sru_chaosminionmelee",
+        "skins",
+        "data",
+        "Characters/SRU_ChaosMinionMelee/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "red-caster",
+      "path": "docs/reference/minion-skins.json",
+      "sha256": "950b5c1cadd57b55deeae00e86a4d35ce011a8a8dd9d3aa11ab061de5cfd9ded",
+      "recordPath": [
+        "sru_chaosminionranged",
+        "skins",
+        "data",
+        "Characters/SRU_ChaosMinionRanged/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "red-siege",
+      "path": "docs/reference/minion-skins.json",
+      "sha256": "950b5c1cadd57b55deeae00e86a4d35ce011a8a8dd9d3aa11ab061de5cfd9ded",
+      "recordPath": [
+        "sru_chaosminionsiege",
+        "skins",
+        "data",
+        "Characters/SRU_ChaosMinionSiege/Skins/Skin0"
+      ],
+      "material": "Metal"
+    },
+    {
+      "rig": "red-super",
+      "path": "docs/reference/super-minion-definitions.json",
+      "sha256": "efcc9d32a9cb856f6373936e7f0060fa1d2ef2b1eff81e377731705a3fa9a617",
+      "recordPath": [
+        "sru_chaosminionsuper",
+        "skins",
+        "data",
+        "Characters/SRU_ChaosMinionSuper/Skins/Skin0"
+      ],
+      "material": "Metal"
+    },
+    {
+      "rig": "red-turret",
+      "path": "docs/reference/turret-definitions.json",
+      "sha256": "97f03457f02b49d0c838a40be9cdfad2a3516fef4f028e98cbd826efb04ed376",
+      "recordPath": [
+        "red",
+        "skin",
+        "data",
+        "Characters/Turret/Skins/Skin3"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "red-nexus",
+      "path": "docs/reference/base-structure-definitions.json",
+      "sha256": "9aa5983740d41aac6f1686f82c6a170f8afc79dbc158fb6158e0d1b000ee854c",
+      "recordPath": [
+        "red-nexus",
+        "skin",
+        "data",
+        "Characters/Nexus/Skins/Skin3"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "red-inhibitor",
+      "path": "docs/reference/base-structure-definitions.json",
+      "sha256": "9aa5983740d41aac6f1686f82c6a170f8afc79dbc158fb6158e0d1b000ee854c",
+      "recordPath": [
+        "red-inhibitor",
+        "skin",
+        "data",
+        "Characters/Inhibitor/Skins/Skin3"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "sru-blue-base",
+      "path": "docs/reference/jungle-character-source.json",
+      "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+      "recordPath": [
+        "records",
+        "data/characters/sru_blue/skins/skin0.bin",
+        "Characters/SRU_Blue/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "sru-gromp-base",
+      "path": "docs/reference/jungle-character-source.json",
+      "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b",
+      "recordPath": [
+        "records",
+        "data/characters/sru_gromp/skins/skin0.bin",
+        "Characters/SRU_Gromp/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "sru-red-base",
+      "path": "docs/reference/red-brambleback-source.json",
+      "sha256": "9cd1fb50137065eb08b1aabd217bb12f8b90aef941511be68b21d5a248ce923c",
+      "recordPath": [
+        "records",
+        "data/characters/sru_red/skins/skin0.bin",
+        "Characters/SRU_Red/Skins/Skin0"
+      ],
+      "material": "Wood"
+    },
+    {
+      "rig": "sru-murkwolf-base",
+      "path": "docs/reference/wolf-camps-source.json",
+      "sha256": "0357ac24d5c9a08f2d1001e9ea8963f008a361cc917717752a85f5ee0c7cb791",
+      "recordPath": [
+        "records",
+        "data/characters/sru_murkwolf/skins/skin0.bin",
+        "Characters/SRU_Murkwolf/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "sru-murkwolfmini-base",
+      "path": "docs/reference/wolf-camps-source.json",
+      "sha256": "0357ac24d5c9a08f2d1001e9ea8963f008a361cc917717752a85f5ee0c7cb791",
+      "recordPath": [
+        "records",
+        "data/characters/sru_murkwolfmini/skins/skin0.bin",
+        "Characters/SRU_MurkwolfMini/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "sru-razorbeak-base",
+      "path": "docs/reference/raptor-camps-source.json",
+      "sha256": "17ff7e8ce1fe2f0f150ca1ef8bfa4245699b5271fe643f444db277f69dd15977",
+      "recordPath": [
+        "records",
+        "data/characters/sru_razorbeak/skins/skin0.bin",
+        "Characters/SRU_Razorbeak/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "sru-razorbeakmini-base",
+      "path": "docs/reference/raptor-camps-source.json",
+      "sha256": "17ff7e8ce1fe2f0f150ca1ef8bfa4245699b5271fe643f444db277f69dd15977",
+      "recordPath": [
+        "records",
+        "data/characters/sru_razorbeakmini/skins/skin0.bin",
+        "Characters/SRU_RazorbeakMini/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "sru-krug-base",
+      "path": "docs/reference/krug-camps-source.json",
+      "sha256": "35d4b47edc3fd818ab64a4ff53eeb8ee9e016bb4d4cac1fa0b09df678294af1e",
+      "recordPath": [
+        "records",
+        "data/characters/sru_krug/skins/skin0.bin",
+        "Characters/SRU_Krug/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "sru-krugmini-base",
+      "path": "docs/reference/krug-camps-source.json",
+      "sha256": "35d4b47edc3fd818ab64a4ff53eeb8ee9e016bb4d4cac1fa0b09df678294af1e",
+      "recordPath": [
+        "records",
+        "data/characters/sru_krugmini/skins/skin0.bin",
+        "Characters/SRU_KrugMini/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "sru-krugminimini-base",
+      "path": "docs/reference/krug-camps-source.json",
+      "sha256": "35d4b47edc3fd818ab64a4ff53eeb8ee9e016bb4d4cac1fa0b09df678294af1e",
+      "recordPath": [
+        "records",
+        "data/characters/sru_krugminimini/skins/skin0.bin",
+        "Characters/SRU_KrugMiniMini/Skins/Skin0"
+      ],
+      "material": "Stone"
+    },
+    {
+      "rig": "sru-crab-base",
+      "path": "docs/reference/scuttler-source.json",
+      "sha256": "7a7b404bb43d3069724d850e48f4a879d947269df47592afe66fcf8d8917f286",
+      "recordPath": [
+        "records",
+        "data/characters/sru_crab/skins/skin0.bin",
+        "Characters/Sru_Crab/Skins/Skin0"
+      ],
+      "material": "Flesh"
+    },
+    {
+      "rig": "sightward-base",
+      "path": "docs/reference/warding-totem-source.json",
+      "sha256": "1648337800f3309d3ce74b5cc5b7169d60f59e456255006cfbe7b85e9ee4f8f4",
+      "recordPath": [
+        "records",
+        "data/characters/sightward/skins/skin0.bin",
+        "Characters/SightWard/Skins/Skin0"
+      ],
+      "material": "Stone"
+    }
+  ],
+  "limits": [
+    "Armor-material field to switch dispatch is a source-informed adapter; no native script/client was executed.",
+    "Cosmetic attack/variant choice uses saved identities, not native shuffle/RNG.",
+    "Unknown rigs use the authored Flesh default."
+  ]
+}
