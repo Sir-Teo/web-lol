@@ -75,3 +75,46 @@ test('a nearby champion without a committed attack does not bait Courage', () =>
     w.commands.some((c) => c.type === 'cast' && c.unit === garen.id && c.ability === 'w')
   ).toBe(false);
 });
+
+test('a visible committed Daybreak remains a threat after its attacker is stunned', () => {
+  const { w, garen, think, state } = setup();
+  w.setOrder(w.hero, { type: 'idle' });
+  const leona = w.spawn('champion', 'blue', { x: 200, y: 0 }, 'leona');
+  w.learnSpell('q', leona.id);
+  w.setOrder(leona, { type: 'attack', target: garen.id });
+  w.enqueue({ type: 'cast', unit: leona.id, ability: 'q', point: garen });
+  w.step();
+  leona.stunUntil = w.tick + 100;
+  think();
+  expect(
+    w.commands.some((c) => c.type === 'cast' && c.unit === garen.id && c.ability === 'w')
+  ).toBe(true);
+  const copy = World.fromSnapshot(w.snapshot(), w.battlefield);
+  const release = leona.releaseTick!;
+  w.step(release - w.tick);
+  copy.step(release - copy.tick);
+  expect(state.garenW).not.toBeNull();
+  expect(garen.hp).toBe(garen.maxHp);
+  expect(w.snapshot()).toBe(copy.snapshot());
+});
+
+test('Courage still anticipates the captured Daybreak after empowerment expiry removes its range bonus', () => {
+  const { w, garen, think } = setup();
+  w.setOrder(w.hero, { type: 'idle' });
+  const leona = w.spawn('champion', 'blue', { x: 200, y: 0 }, 'leona');
+  w.learnSpell('q', leona.id);
+  w.enqueue({ type: 'cast', unit: leona.id, ability: 'q', point: garen });
+  w.step(351);
+  w.setOrder(leona, { type: 'attack', target: garen.id });
+  w.step();
+  leona.stunUntil = w.tick + 100;
+  w.step(10);
+  expect(w.championState(leona.id)!.leonaQ).toBeNull();
+  expect(w.attackRange(leona)).toBe(125);
+  expect(leona.releaseTick).toBeGreaterThan(w.tick + 1);
+  think();
+  expect(
+    w.commands.some((c) => c.type === 'cast' && c.unit === garen.id && c.ability === 'w')
+  ).toBe(true);
+  expect(() => World.fromSnapshot(w.snapshot(), w.battlefield)).not.toThrow();
+});

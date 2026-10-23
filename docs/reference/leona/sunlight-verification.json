@@ -1,0 +1,921 @@
+{
+  "date": "2026-10-23",
+  "scope": "Leona development Sunlight core, split attribution and posthumous neutral recovery. Integrity checks verify recorded evidence, not native/full-champion acceptance.",
+  "schema": 117,
+  "ruleset": "27d7dac3124f158913c300a155dcabab62297372a330fd0b2fb6cbcbb3cafad4",
+  "sourceBaseline": "7b9480e0dc352c7c1c634774ee3179041ac38a2c",
+  "sourceArchive": ".cache/leona-sunlight-validation-v5-20261023/source-archive.json",
+  "frozenInputs": ".cache/leona-sunlight-validation-v5-20261023/frozen-inputs",
+  "earlierSourceArchives": [
+    {
+      "ledger": ".cache/leona-sunlight-validation-v1-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-sunlight-validation-v1-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-sunlight-validation-v2-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-sunlight-validation-v2-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-sunlight-validation-v3-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-sunlight-validation-v3-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-sunlight-validation-v4-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-sunlight-validation-v4-20261023/frozen-inputs"
+    }
+  ],
+  "cohortSourceArchive": ".cache/leona-sunlight-normal-smoke-v2-20261023/frozen-source/archive-ledger.json",
+  "buildArchive": ".cache/leona-sunlight-validation-v5-20261023/generated-build-archive.json",
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 14730,
+      "sha256": "5bb7dcdb8dfd6e45ccf32744a976b0b05ffa0b1f88ba01285b92789aaebabdef",
+      "archived": ".cache/leona-sunlight-validation-v5-20261023/review-inputs/docs/LEONA.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 500935,
+      "sha256": "67567f9ce1c23520179fc8de78d795bf44d201abb2487e030be6d6aec7c59677",
+      "archived": ".cache/leona-sunlight-validation-v5-20261023/review-inputs/docs/PROGRESS.md"
+    },
+    {
+      "file": "docs/SAVES.md",
+      "bytes": 46511,
+      "sha256": "fedc2bfb7c2506469583aedb13108bd9dec85b5380bf5131c459487c9a962444",
+      "archived": ".cache/leona-sunlight-validation-v5-20261023/review-inputs/docs/SAVES.md"
+    },
+    {
+      "file": "docs/reference/leona/combat-policy-audit.json",
+      "bytes": 5265,
+      "sha256": "ad4a40af1fa699ab5bfdc94dde920baf053f498c0371df7f76f61753c2cffc8b",
+      "archived": ".cache/leona-sunlight-validation-v5-20261023/review-inputs/docs/reference/leona/combat-policy-audit.json"
+    },
+    {
+      "file": "tools/qa/verify-leona-sunlight.mjs",
+      "bytes": 4026,
+      "sha256": "49380d5a121a3bf0a23e10048dd85b06fa8f2d612724f76b3040715dbf766b9d",
+      "archived": ".cache/leona-sunlight-validation-v5-20261023/review-inputs/tools/qa/verify-leona-sunlight.mjs"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/browser.log",
+      "bytes": 1473,
+      "sha256": "6afeefe5a872e5e03c1aa8dab432a7e65be765e7917759c2c7921e6042d8c336"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.json",
+      "bytes": 968,
+      "sha256": "c13ef5d59b648ef6782d65cd61d7cd4a19deee5beccf63f379da78410cf10153"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.png",
+      "bytes": 1401371,
+      "sha256": "7e08dd6cd98d2b85959dadfc0ac3210ce574ee1ce0333bda00c54e357d92794e"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "0fd7a39ad8736bb8082792fe625c5a6572ea1ffef561c716b04726bce18ea688"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33034,
+      "sha256": "b2b2148539ad2b281f793c1f94b43d051010d5566ac546272f2030ac05bfcb6e"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "392101e592b0c3f18ed37ab26692621a6391d2a71987a4e3e2c7f1b5950203df"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 807954,
+      "sha256": "465a61171ac653b88320d651b79a258c0cdc58f475155b68ce6f7dd9deb77e48"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33025,
+      "sha256": "0b13a26bfb8225c08a4a3491038e47cb1c1ae639a9c78ad096724d987ceab752"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "286968ba5b3fd0c12f3038d4657a3730955c04bec7c98ef2c3edaff361c3a10d"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 813719,
+      "sha256": "c9a9f797e0a0264046b62f63b1941cc279ce600018d70a9c6a1b514399a0ca55"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 48591,
+      "sha256": "125743b7af318cf0ca0ad218114b05d15ffb2bb7c23d708ab8c96d103840147f"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 335,
+      "sha256": "248ec2de3f252b8e534f20edfc09a6090dc9de56f5880229716cfecde5f5af75"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 807021,
+      "sha256": "dff2f2156e9cd0000bdf19f88769e581749a3e83884d1a0e92f57b5b6e8798f3"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/evidence.json",
+      "bytes": 19526,
+      "sha256": "f79e57c71b5d89334348bbffc3d83e7a11ee881c48a5f5104abede4b54dce35a"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/rejected-simulation-save.png",
+      "bytes": 463373,
+      "sha256": "6de4a5a8ee7702e9aa4bfed98ecbfe8e04a05c6572b5eb0cf7549d8fae51a939"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/browser.log",
+      "bytes": 1474,
+      "sha256": "bf5146d7a38166f367480103de4f94950652d9c9d068d94dfebe6c980fe3b5fa"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.json",
+      "bytes": 968,
+      "sha256": "c13ef5d59b648ef6782d65cd61d7cd4a19deee5beccf63f379da78410cf10153"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.png",
+      "bytes": 1401273,
+      "sha256": "672a81a4878de5a37a877f9af5ba42c9255cf5bae91fc1b0ce26a348b2822bd1"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "5fecb1d961f8ef1796431c723a0efc1826dd94bfd62b50b780005a9d6b1c6253"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33049,
+      "sha256": "90e6c7b658472cf1fad24a236f37fb02f3b03e8d8eab99f62bf24067524dddb1"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "2ed0812d60b7829450f8cb79d6c04b526eb0789fa3d1e4046ffc53677e3d0a2a"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 808135,
+      "sha256": "13b6fb55c1fb06437f03dad7420c94742dfc183d62d97fe856daa87d2dbca97f"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33006,
+      "sha256": "6e7567104e9df6c135fd0f512a6847a85d3bfc5edf1bac708200275538645217"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "a2d67c1bab0d62dabf960c16f27a4bc5a22d0cd086f6094bc1728a54cf8283ff"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 813709,
+      "sha256": "aff27a76b3670f8a5ad4f95f876b2eaa0a8301c40a4bede876a972dfe9a1de0e"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 48591,
+      "sha256": "125743b7af318cf0ca0ad218114b05d15ffb2bb7c23d708ab8c96d103840147f"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 335,
+      "sha256": "248ec2de3f252b8e534f20edfc09a6090dc9de56f5880229716cfecde5f5af75"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 807103,
+      "sha256": "35361db6b3ab692d264949944c1fc4494df8599271705d7b711befe3a0572c30"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/evidence.json",
+      "bytes": 19526,
+      "sha256": "4df08d3881505b312b41e4b07a2d5064c23809723ed0a7460ec3cfecac15b8a9"
+    },
+    {
+      "file": ".cache/leona-sunlight-browser-v2-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/rejected-simulation-save.png",
+      "bytes": 463366,
+      "sha256": "a06245be64e0ba15afb2e3ecd433f610bcc630c43c98af67d90e7b26c37987b7"
+    },
+    {
+      "file": ".cache/leona-sunlight-build-v1.log",
+      "bytes": 2427,
+      "sha256": "77202d7c33c419cbbeb1b62d6267b9b9d8ae21ed998779dffb71df9e899b0dea"
+    },
+    {
+      "file": ".cache/leona-sunlight-build-v2.log",
+      "bytes": 2427,
+      "sha256": "147e3d9f54d8756cddc1c19d24d9def47407d1453d5645c2321137f74d7494bb"
+    },
+    {
+      "file": ".cache/leona-sunlight-canonical-check-v1.log",
+      "bytes": 945,
+      "sha256": "d3449c67ec8b640296170f5fdcbfd2288244ae90b3f7abcf3f7a629803817792"
+    },
+    {
+      "file": ".cache/leona-sunlight-canonical-check-v2.log",
+      "bytes": 2779,
+      "sha256": "52140a55ba961dcfa2559147c75ec9aaa05d210b6fdc9096ae19fbac79799eef"
+    },
+    {
+      "file": ".cache/leona-sunlight-canonical-check-v3.log",
+      "bytes": 1597,
+      "sha256": "20810f96c2c9590b22966caf707f2991b6b0baba4132bcf0ae8765dad3c798bf"
+    },
+    {
+      "file": ".cache/leona-sunlight-canonical-check-v4.log",
+      "bytes": 943,
+      "sha256": "102ced1484d08675ef7069532c434a897d8b8888c9724178245bb53af9be70f9"
+    },
+    {
+      "file": ".cache/leona-sunlight-e2e-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-focused-v1.log",
+      "bytes": 1296,
+      "sha256": "a85b152f570862a138c2904f0c4b1fc54e4979985b3bf6c327309f61c1769788"
+    },
+    {
+      "file": ".cache/leona-sunlight-focused-v2.log",
+      "bytes": 182,
+      "sha256": "5efd24ee58c86edc62fdc19535d351963c0cb8c1691dc473a7005df50c8d07bb"
+    },
+    {
+      "file": ".cache/leona-sunlight-focused-v3.log",
+      "bytes": 193,
+      "sha256": "b1069cac3d9e14a10f9c30beb522a2d07456ba33f3ebdd3fe0966f7ee84434c6"
+    },
+    {
+      "file": ".cache/leona-sunlight-focused-v4.log",
+      "bytes": 437,
+      "sha256": "5fadee15bb01b7306c631f0b843012b206be1434c29c7be11ef4a5be63f14046"
+    },
+    {
+      "file": ".cache/leona-sunlight-focused-v5.log",
+      "bytes": 438,
+      "sha256": "bc20d22a8b876c703e61a27243c6c3a056c2c28bd9523ea85883af9811e5df31"
+    },
+    {
+      "file": ".cache/leona-sunlight-focused-v6.log",
+      "bytes": 438,
+      "sha256": "1c8a4b4d725b6e19833c0a2d631c6690097fcda6ce9b456a7589f91c36b274c9"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+      "bytes": 63108,
+      "sha256": "744da6708ab5671b97555ea3b4ec0b6545e36c8cab33f8fde1c708be5e02eae9"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/identity-and-null-field-comparison.json",
+      "bytes": 6117,
+      "sha256": "0cadc567d220c6f88a5edde08d0cb1e097f7df846d63ec53a8793ca3c768493f"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "c9b8c4a145c95b90e84a4553dc3f7811dd1a9a70234c4fded0d797715863a7ac"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/plan.json",
+      "bytes": 38997,
+      "sha256": "9b25fb5aad0c77be6d7f54e7f5a6287d958e59c87e7f4f3b8279a33b6de7ae45"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 165464,
+      "sha256": "31b5756443cd9df4236a5ca890a7b25b7c1438fa7473e4a2fa1715f4a634054c"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 185959,
+      "sha256": "aaef1e7ca4d208fee4c4e4f90fe5c56e5054d7945e7ff77d62a92cf50e2a2c2b"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 176918,
+      "sha256": "92159d5aeb13247847b1ab5ce7f428da4f71c9bc6bedd0bd26fba085450a543e"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 167611,
+      "sha256": "e9ef9b19910f987496c975643651dd7b56f4281b2014cecf2d601c273f4c85b5"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187286,
+      "sha256": "e5f09c3da5a822b655285121527295e1c8b90eb4575e69df9bedfeb489010d11"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202230,
+      "sha256": "2dbe9e0e4abee0a473e7d63536ffd0c064960582e1b36bc1851ebe8440b3a6bb"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 210755,
+      "sha256": "87122cd983623c5497cd8f8a842c07621d964d22ec9ebaa09b0fb3a66eb89c26"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 173590,
+      "sha256": "f4c4e938645b318f2f747fcc2d352c15c8c0a807447c0fa02f2a26438d58530d"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 165942,
+      "sha256": "49186164a883333ff487f01353171c1382e8861b5b7b3e245fb549bc62fc99a7"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 196488,
+      "sha256": "f2c56e551be26d5ffe00a82bffc4e526454ac08d666602ec6c0b74b945a57f24"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/final.match.json",
+      "bytes": 196488,
+      "sha256": "f2c56e551be26d5ffe00a82bffc4e526454ac08d666602ec6c0b74b945a57f24"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/progress.json",
+      "bytes": 75,
+      "sha256": "b5ecd374135b807291368c7c9d80ee83e03d25aff17e8698d1da72e6b98d91f9"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/38/report.json",
+      "bytes": 51079,
+      "sha256": "a4ba08deaadc25f3f5a4e64ac2b40cede08fc11b3a46f5e688a4fe0705eb7bc1"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 165463,
+      "sha256": "179b536428e2e5e03ee2414d56ca1b7810b922ebecc7b08e252364628e7f79ac"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 185958,
+      "sha256": "aab05709b069c67f785545fed4205d7eb3132c447ede62750d97f699c14b7389"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 176917,
+      "sha256": "78fbc47259ae71e06d56509b53bb333ebb382070e0df32df14dfdc6c9e0b96e9"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 167610,
+      "sha256": "66a49f69e48f8acecd2e3e79df98535e4b0d1429457bdeca7adb5f0f73940e0f"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 187548,
+      "sha256": "aae06be62c9d713ca220e141b4db980e7eb7efd788d2bb283b05768828649c31"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 202539,
+      "sha256": "fadd5378a6c592a1b2374b4704adc939418f471c393cd8a9420ef6e8bd6816ed"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 210895,
+      "sha256": "7dccb8729bfa577a9176e889f78e2bb974e929a3cec775cf69cd0df6fa5dd48a"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 171718,
+      "sha256": "f32252b0f8b08a6c2edc8417720f87a7d684f567113d2033170d5515e9131a7a"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164233,
+      "sha256": "eb3797e9d470998a7bc958f79b0ab0ca6f401de88d9b495c3fae801a4490e14d"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 187393,
+      "sha256": "9449f628e0247ffa78cf602e4275ee33cb91a881e3d7c491ef5bc79ee2d539be"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/final.match.json",
+      "bytes": 187393,
+      "sha256": "9449f628e0247ffa78cf602e4275ee33cb91a881e3d7c491ef5bc79ee2d539be"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/progress.json",
+      "bytes": 74,
+      "sha256": "55fca3e31b7d1f9fff0764057ed7698a3f68d26231dabf219db40f8f84ed1577"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/seeds/8/report.json",
+      "bytes": 51289,
+      "sha256": "aa0d81652f1dd165bbc9991fb2f8dc3b6d80fe323cc390b08a3293680f7a2908"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1-20261023/summary.json",
+      "bytes": 119987,
+      "sha256": "7fe61272e2f4b5c77f29a2c4fe58abcfc373dddff443cf5a6334d4c29fa06cd4"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v1.log",
+      "bytes": 769,
+      "sha256": "31a76f65a44ee3dd1a87f5d6ec4ff24f386598ffc9dd7443ba4ced2de216e6a8"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/frozen-source/archive-ledger.json",
+      "bytes": 63108,
+      "sha256": "de568ce9e142bf6ebf02bb5042b5e39a8d6e2693ef183dc098cb5f9c9fdf8e15"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/identity-and-null-field-comparison.json",
+      "bytes": 6101,
+      "sha256": "a73608c3af31176dd120cf5c8da1679a00c5300405678c1a8cc7112d38e95214"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "6eee2ee951c5ec24f2d9fdffd3aec441363e55f068c37f66279f8d0142209da5"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/plan.json",
+      "bytes": 38997,
+      "sha256": "966a8e620a0089c93fde86444505514ebdccd31441384ba73eb80e2a2bb9c0cc"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/003600.match.json",
+      "bytes": 165464,
+      "sha256": "06b4f83a4de646e0c8ab8d334e50845c86d2cba8c9e5c738dd8a58f846e1030d"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/007200.match.json",
+      "bytes": 185959,
+      "sha256": "bede4c43006224b86ce57ff802c9f913095f1d3da629cf66e1305fbdd4b51858"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/010800.match.json",
+      "bytes": 176918,
+      "sha256": "79fea9ea5fd7eaaf10c8c8b3c5da50ded278b0105a86dfd86342afc80d22235d"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/014400.match.json",
+      "bytes": 167611,
+      "sha256": "2430858fad54c45aedcbdc3a23baf8dac4b8ab27e81684771808a3ba53efca35"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/018000.match.json",
+      "bytes": 187286,
+      "sha256": "1136af417913ef04334f903d47d8f149fdb6273d0365bb17a09e4c66086422e6"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/021600.match.json",
+      "bytes": 202230,
+      "sha256": "e817953b0140e44421f4c62f4a90a430986db426174a838ce42da09472680f12"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/025200.match.json",
+      "bytes": 210755,
+      "sha256": "a5260aeaec5a07e4cfc82d01fb4972cc65761828add5e951f9b461e1e5ee535d"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/028800.match.json",
+      "bytes": 173590,
+      "sha256": "2a7996f3c795303d8689a8f0ebe4c61205b62668e241b8be78c2d532101d39a7"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/032400.match.json",
+      "bytes": 165942,
+      "sha256": "7e27932236f02ad145a67a6db40204048ceaa1bfa6a722a29c7fb6b2b39d7fe3"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/036000.match.json",
+      "bytes": 196488,
+      "sha256": "cc9d93a204f325035f5eea22cabd09c72fff196c26331124783d969ac70bcbb2"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/final.match.json",
+      "bytes": 196488,
+      "sha256": "cc9d93a204f325035f5eea22cabd09c72fff196c26331124783d969ac70bcbb2"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/progress.json",
+      "bytes": 75,
+      "sha256": "bbb30a1dda9628756de2db144e9a6ec3ec34bb6e192611581b2166f8fb1675d2"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/report.json",
+      "bytes": 51078,
+      "sha256": "a0a862d2187f36038336d822729eabd433662c3992e2b679549cb1d15b333475"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/003600.match.json",
+      "bytes": 165463,
+      "sha256": "e09560e8f1531bdfafb157e678f138452a1fd4ccca4b8680db59eeda368b3160"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/007200.match.json",
+      "bytes": 185958,
+      "sha256": "9232b4574a697e3a7b6dad79203279b10a0eab2c522d4a80111c03f384a4b04c"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/010800.match.json",
+      "bytes": 176917,
+      "sha256": "3a70a240c129eff0855ec1de9c077a14a85571918603e0bd26b8185ced1a92d1"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/014400.match.json",
+      "bytes": 167610,
+      "sha256": "d37d05d02d947e563f72ff8948d274e55211d929b91dc04e21b3382de2387f1c"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/018000.match.json",
+      "bytes": 187548,
+      "sha256": "4c2ebf9efb65fa17d653206b0e720c928d1bd1166bdf2e8d9909752d50194e71"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/021600.match.json",
+      "bytes": 202539,
+      "sha256": "c8fc6b651d372f156651b2acb84c96ad99e293662d1115ce7b845702b43ed893"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/025200.match.json",
+      "bytes": 210895,
+      "sha256": "d70a310d5de178db85cf127894558af6ed0d50c3d172a98b8e46daf0e2cd41a7"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/028800.match.json",
+      "bytes": 171718,
+      "sha256": "f18b5eef83ec024fd33be2fa03b3cc46bf258258966c2f374894e5843c421e4b"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/032400.match.json",
+      "bytes": 164233,
+      "sha256": "b79815e290b84ec5297acb50800f79d2293a8f36918db893cba04eff556d2aca"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/036000.match.json",
+      "bytes": 187393,
+      "sha256": "f3fcc64274967537b238f2666745d1c7dd0e1c4d9e96a578ebdf9785945f5a43"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/final.match.json",
+      "bytes": 187393,
+      "sha256": "f3fcc64274967537b238f2666745d1c7dd0e1c4d9e96a578ebdf9785945f5a43"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/progress.json",
+      "bytes": 74,
+      "sha256": "e69d79dce0a2b8e53b064e321b625392f5145a7950a8170d79e8953f49012de0"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/report.json",
+      "bytes": 51289,
+      "sha256": "f17e0b87afd069e43440a5cc4858230b35aec0490abc726736c972873f88c526"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2-20261023/summary.json",
+      "bytes": 119986,
+      "sha256": "cbb6fddb1121e2e049b97b9ed4d070b17116a765ed7521da0edc8b75cc241cab"
+    },
+    {
+      "file": ".cache/leona-sunlight-normal-smoke-v2.log",
+      "bytes": 771,
+      "sha256": "7493ef28f0feebb4d310a4bd77a460b740097071796b9aea456dac0c8d51124c"
+    },
+    {
+      "file": ".cache/leona-sunlight-official-v1-20261023/patch-13-21.html",
+      "bytes": 309021,
+      "sha256": "e72bbaf3d9b2a0100263886b2f1d4a86a99aae215bc17e783be38caf9b6202c5"
+    },
+    {
+      "file": ".cache/leona-sunlight-official-v1-20261023/pin.json",
+      "bytes": 402,
+      "sha256": "d67b32f82b2c5b0dceae54719c9f7d114a72cc0280a70b2fee0b14ed50826ce4"
+    },
+    {
+      "file": ".cache/leona-sunlight-posthumous-aggro-red-v1.log",
+      "bytes": 1065,
+      "sha256": "2bae308308d7cb4454a2f977a092352618d95e3905a75f62cf512f5362b192fc"
+    },
+    {
+      "file": ".cache/leona-sunlight-posthumous-aggro-red-v1.test.ts",
+      "bytes": 12642,
+      "sha256": "bc52dae6c8f246515be8381e91706765bddcdebc76ef4383ea9647b5abda41e9"
+    },
+    {
+      "file": ".cache/leona-sunlight-prior-integrity-v1.log",
+      "bytes": 288,
+      "sha256": "b3ade107fc17f12fb38a07e222c94240b7be1948a1c32df4084d711491a2c4b5"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/production-browser.log",
+      "bytes": 1802,
+      "sha256": "230beebf3e8f9199cf638e23cd1b00e2b208f42a7fef5d304c8a5236182ecd43"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811836,
+      "sha256": "6061da85708a8d5be2d9f3bf8ab017bc7069a677440ccc09b28e38461eb0b849"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832418,
+      "sha256": "8c5e38860ad3407ad1bfabaa457532b12024d5776c5f9766a3b1c2f5ee00df20"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1833264,
+      "sha256": "c7cc3b02dd8e34bf098bd430454851b5879814f3053cc54689f9f886c28d7465"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1804845,
+      "sha256": "471d592ef92ef2f593677cac219603cf9f0a1880ad359616470c757ed922ed4e"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1817406,
+      "sha256": "eef98a110ce39e13167f897053eb8c5e0cb24f4322e2143500fad3ab542b2ec3"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346639,
+      "sha256": "23a12ac567d7638567441e335734498da4a76f81d65497a5ec11be1bf28f4e97"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820133,
+      "sha256": "fecb0889b9d07db62715f93ffc599bb7777272741bad196276cdb78e2eed934e"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v1-20261023/run/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812712,
+      "sha256": "866baaaaa301b4fadfbbadcdcd0fd3376f70960ce4c2e89d76adb2380ba09e0d"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/production-browser.log",
+      "bytes": 1802,
+      "sha256": "230beebf3e8f9199cf638e23cd1b00e2b208f42a7fef5d304c8a5236182ecd43"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1812046,
+      "sha256": "888aa617def19779fe930529d73d1452b8dc9d62ce981506fec79aec95c1f3e1"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1833063,
+      "sha256": "e8de8d2637b6419f310f8259bbd5af501341ebf08f09051399259cf201166986"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1834634,
+      "sha256": "ea398f89deda778b99f505af8348d5bea9f67f72a5a8313c7bac494179b2ac0f"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1806271,
+      "sha256": "0c613b1bd637593e092d5b157f71e5a90a81a79d90b55f20f43a1d361145144a"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1818099,
+      "sha256": "2f77207b4ca6a7da928272616bcf5dc6e18b8e1599d6fe2497cd593837854b56"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1347265,
+      "sha256": "457453625a7789f09973e0ac263ab664c98a9d042cec4aa2f290f873ea67b034"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820006,
+      "sha256": "2134d8148339aa4e49ae0774ab134f67fca8fa7fcf909b7e3f628395bcd02a79"
+    },
+    {
+      "file": ".cache/leona-sunlight-production-v2-20261023/run/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812737,
+      "sha256": "86d8d4cec2b734a6f32ea239fedcb79cef2640e7ae48f8a6e7e85398e8e1d1ee"
+    },
+    {
+      "file": ".cache/leona-sunlight-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-validation-v1-20261023/source-archive.json",
+      "bytes": 37686,
+      "sha256": "ef3a8cfa0642152ee26ba291a0a494c301033f07324e1f6b8c6149aefb661b34"
+    },
+    {
+      "file": ".cache/leona-sunlight-validation-v2-20261023/generated-build-archive.json",
+      "bytes": 5916,
+      "sha256": "96274c29478dcc1079c50e7e55dd4a29a1e8b2cff14d9569b8f079b1ce0aa6b7"
+    },
+    {
+      "file": ".cache/leona-sunlight-validation-v2-20261023/source-archive.json",
+      "bytes": 37852,
+      "sha256": "a01e1daf8669702e0875e94f6e6cb1aa317bb78cdb31718fd31a28ef4b877dc5"
+    },
+    {
+      "file": ".cache/leona-sunlight-validation-v3-20261023/source-archive.json",
+      "bytes": 37852,
+      "sha256": "25ce038aa61d33d6ae44dea7e8fd7d024924b8774512b3d520a1848bd9f9a71c"
+    },
+    {
+      "file": ".cache/leona-sunlight-validation-v4-20261023/source-archive.json",
+      "bytes": 37852,
+      "sha256": "a4ec6e6af6d777d4fae8d78200cec87b3bd7f37a220ec84f63263f3680f8c268"
+    },
+    {
+      "file": ".cache/leona-sunlight-validation-v5-20261023/generated-build-archive.json",
+      "bytes": 5928,
+      "sha256": "927d5efa5b9ad69338caa01557de8f0d3de5766695c9987ee4f91dc99e34428f"
+    },
+    {
+      "file": ".cache/leona-sunlight-validation-v5-20261023/source-archive.json",
+      "bytes": 38010,
+      "sha256": "07f1b4504a745ec42a9ec8e3ebbf8837d5e1aac4b5ae38ba64d4a3357651acc8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 163768,
+      "sha256": "510b32c06b84e74c08adfa0d359acf83af18cd658ac1a743cb9c3a149e1064de"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 184071,
+      "sha256": "7ebbdb98f31db113357dfea93a756f2a2d5f1424aa8aec39259497396c1e6582"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 175190,
+      "sha256": "59695ec0e3c02d27055ddac0da79aa3ec2d76a0e9636b70177a0bdc5b175c5ef"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 166027,
+      "sha256": "576a5a0a0dccd2ff4d3b0e43dc8ae339283e6cc5734efd3804e37045ff80e215"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 185606,
+      "sha256": "5148c3784704819c5aec4f67d2fbe58e3742da75f4fbd647c0579616001d36cf"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 200406,
+      "sha256": "de9c63345fa5dc6b573f94fdb60ecba743d5817091e773e05fb07cd7d5fc2fd4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 208915,
+      "sha256": "cd5dfab131279be6637244d2f658caddf2d8bc74aabf494add8f0f55aa33456e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 171942,
+      "sha256": "eb10d86e280337178f0fcab94aaaa2234136ab8bb1a61ca4254ab22bc85f3200"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 164374,
+      "sha256": "2942989c3c263d028fe1bb5eafc4edb3e21ca4ab2b18b6378046327c449235a7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 194696,
+      "sha256": "e7992cf78bc93802a9353a352732c9940123a5d1d6d6e7ffbbb1de71940cc133"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 163767,
+      "sha256": "5cce176ebcfd6ef731f51297a7dd54f13e988f28e27628485707f7518b1898c8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 184070,
+      "sha256": "715ba7c491d8984dc6296852e0f00357ae32bceec308c6372ab3fb5a3b4850fc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 175189,
+      "sha256": "ba88dfb151e834c2b78dbd202aaa84ae4255b4f9ccbf390606daa320c2425939"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 166026,
+      "sha256": "4c49a3931dd71f90a6297aee976d1ce8ed130063fd9264f0295900de6b59c720"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 185868,
+      "sha256": "bc0fcc749ee8512e45de7b6c4d7c3ec13213de119620ebb158e7b5c46d16f7d7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 200715,
+      "sha256": "f790860bf3af6529d6077ca664d6d53dcec4cddd48cbffb10b5bd9a1c6c984e4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 209055,
+      "sha256": "ec59eec800021fc38a8e9143435612bb8a146b28a9e7d5337147a06eb99e9b16"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 170086,
+      "sha256": "ee51201c45267f3d6de09c255aa4472f9b146008a56a71f2ff78cc80974a93f8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 162681,
+      "sha256": "2cc6ba6bfd48a6115fd98b643dd5a62282b9023cca29739c5a071f752f89bcd1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-melee-q-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 185617,
+      "sha256": "014ba53d8ac466614dc8e44da36bd30f4ac90292108c21232a5eb03b26c47d13"
+    }
+  ],
+  "checks": {
+    "standard": ".cache/leona-sunlight-canonical-check-v4.log",
+    "focused": ".cache/leona-sunlight-focused-v6.log",
+    "e2eTypecheck": ".cache/leona-sunlight-e2e-typecheck-v1.log",
+    "chrome": ".cache/leona-sunlight-browser-v2-20261023/browser.log",
+    "fixtureEvidence": ".cache/leona-sunlight-browser-v2-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/evidence.json",
+    "production": ".cache/leona-sunlight-production-v2-20261023/production-browser.log",
+    "cohort": ".cache/leona-sunlight-normal-smoke-v2-20261023/independent-verification.log",
+    "checkpointComparison": ".cache/leona-sunlight-normal-smoke-v2-20261023/identity-and-null-field-comparison.json",
+    "priorIntegrity": ".cache/leona-sunlight-prior-integrity-v1.log"
+  },
+  "acceptance": {
+    "sunlightCoreImplemented": true,
+    "splitSourceAndKillCreditTested": true,
+    "delegatedExecutionCreditSaved": true,
+    "posthumousNeutralRecoveryTested": true,
+    "unsupportedFixtureSavePreserved": true,
+    "completeLeonaKit": false,
+    "nativeBehaviorVerified": false,
+    "productionRosterExpanded": false
+  },
+  "remaining": [
+    "W/E/R, support bots, player UI and complete source presentation.",
+    "Native multi-Leona, proc/pet/blocked-hit, death/aggro and item-order comparison.",
+    "Full-match Leona, hundred-seed full-roster, full browser/device/offline/performance gates."
+  ],
+  "retainedIterations": [
+    "Initial ID test incorrectly expected no damage-event allocation; corrected to require ordinary event IDs and no mark entity/projectile/RNG allocation.",
+    "3cb097 pre-aggro run passed 1520 unit tests, seven Chrome cases, production smoke and the first 72000-tick normal smoke. Frozen separately.",
+    "A new red regression proved posthumous Sunlight selected the caster corpse.",
+    "Posthumous fix exposed the existing companion return-order scenario; return-state canonicalization and idle-camp recovery fixed it.",
+    "The following full run passed 1522 tests but the lane-clock case hit its unchanged five-second limit.",
+    "Final standard command passes 1523 tests and three QA checks; no assertions, worker settings or limits weakened."
+  ],
+  "documentationCorrection": "Project tsconfig excludes e2e; earlier progress wording was corrected. This run records a separate explicit tsc command for e2e/leona-fixture-gate.spec.ts.",
+  "primaryRule": {
+    "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-21-notes/",
+    "retainedPin": ".cache/leona-sunlight-official-v1-20261023/pin.json"
+  },
+  "captureReview": {
+    "viewedFinalCaptures": 3,
+    "leonaPresentationOrNativeComparison": false
+  }
+}

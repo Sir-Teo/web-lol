@@ -31,17 +31,38 @@
       "id": "LEONA-Q-INTERACTIONS-001",
       "status": "partial-implementation",
       "reference": "Current named Q damage and stun are retained separately from the stale child damage coefficient.",
-      "localObservation": "Separate physical/magic payloads, basic-only critical scaling, shared shields/tenacity, no stun on wards/structures and no second damage on a corpse. Sunlight and ward-specific empowered-hit behavior remain absent.",
+      "localObservation": "Separate physical/magic payloads, basic-only critical scaling, shared shields/tenacity and Sunlight application/ally consumption are implemented. Ward-specific behavior and native interactions remain open.",
       "acceptance": "Complete Sunlight, ward/structure effects, spell shields, immunity/dodge/block, attribution and native interaction matrix.",
       "tests": "tests/leona-melee-q.test.ts"
     },
     {
       "id": "LEONA-PASSIVE-ATTRIBUTION-001",
-      "status": "published-rule-not-implemented",
+      "status": "published-rule-core-implemented-native-unmeasured",
       "referenceUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-21-notes/",
       "reference": "Riot includes Sunlight among damage enchantments whose caster owns damage effects while the buffed ally receives kill credit.",
-      "localObservation": "Sunlight payload arithmetic exists, but application, ally consumption and split attribution are not integrated.",
-      "acceptance": "Verify caster-side effects, ally kill credit, support contributions, lethal/shielded/blocked hits, multiple Leona ownership and saved futures. Do not substitute ordinary damage-source attribution."
+      "localObservation": "Leona owns proc damage/effects and an allied distinct champion receives kill/reward credit. Saved contributions retain delegated credit for later executions. Ordinary later damage replaces it.",
+      "acceptance": "Verify caster-side effects, ally kill credit, support contributions, lethal/shielded/blocked hits, multiple Leona ownership and saved futures. Do not substitute ordinary damage-source attribution.",
+      "tests": "tests/leona-sunlight.test.ts"
+    },
+    {
+      "id": "LEONA-PASSIVE-TRIGGERS-001",
+      "status": "explicit-local-policies-native-unmeasured",
+      "reference": "Frozen duration/damage and published ally-damage text do not specify every trigger, stacking or ordering detail.",
+      "localObservation": "Single target mark; last-caster refresh/replacement; current-level consumption; caster-death persistence; positive champion-owned damage except cleanup, including shield absorption; consumption before Scorchclaw; non-structure/non-ward enemies including monsters.",
+      "acceptance": "Native comparison for multiple Leona, pets/procs/summoners, spell shields/blocked hits, source death and item ordering.",
+      "tests": "tests/leona-sunlight.test.ts"
+    },
+    {
+      "id": "LEONA-PASSIVE-MONSTER-AGGRO-001",
+      "status": "local-invariant-fixed-native-ordering-unmeasured",
+      "reference": "Published proc ownership does not specify every monster-aggro interaction after source death.",
+      "localObservation": "Living damage owner is eligible for aggro; otherwise living delegated ally is used. Other posthumous damage preserves current aggro or starts idle-camp recovery. Returning monsters clear target and use a home move order. Scuttler preserves patrol and updates its recovery clock.",
+      "acceptance": "Native source/trigger ownership, posthumous hits, grouped camps and Scuttler comparison.",
+      "tests": [
+        "tests/leona-sunlight.test.ts",
+        "tests/companion-passives.test.ts",
+        "tests/scuttler.test.ts"
+      ]
     }
   ],
   "nativeBehaviorVerified": false,

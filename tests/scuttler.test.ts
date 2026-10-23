@@ -277,6 +277,24 @@ test('out-of-combat recovery starts on its deadline and resumes with the saved m
   expect(copy.snapshot()).toBe(w.snapshot());
 });
 
+test('posthumous damage preserves peaceful Scuttler patrol and restarts its recovery clock', () => {
+  const w = lane(),
+    u = crab(w);
+  const enemy = w.units.find((unit) => unit.kind === 'champion' && unit.team === 'red')!;
+  w.damage(enemy, w.hero, 99999, 'true');
+  const hp = u.hp;
+  w.damage(w.hero, u, 100, 'true', 'proc');
+  expect(u.hp).toBe(hp - 100);
+  expect(u.monster!.phase).toBe('idle');
+  expect(u.monster!.targetId).toBeNull();
+  expect(u.monster!.scuttle!.lastDamageTick).toBe(w.tick);
+  const copy = World.fromSnapshot(w.snapshot(), rift);
+  w.step(P.regenDelayTicks);
+  copy.step(P.regenDelayTicks);
+  expect(u.hp).toBeCloseTo(hp - 100 + (u.maxHp * P.regenFractionPerSecond) / 60);
+  expect(copy.snapshot()).toBe(w.snapshot());
+});
+
 test('grazing expires during crowd control without leaving an unrestorable checkpoint', () => {
   const w = lane(),
     u = crab(w);

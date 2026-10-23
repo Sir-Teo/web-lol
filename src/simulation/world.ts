@@ -134,8 +134,12 @@ import {
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
-import { LEONA_SPELLS } from '../content/leona-spells';
-import { leonaDaybreakValues, leonaSpellResources } from './leona-spell-values';
+import { LEONA_SPELLS, LEONA_SUNLIGHT } from '../content/leona-spells';
+import {
+  leonaDaybreakValues,
+  leonaSpellResources,
+  leonaSunlightDamage,
+} from './leona-spell-values';
 import { garenQLandingTick } from '../content/garen-q-presentation';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { damageAfterResistance } from './damage-math';
@@ -427,6 +431,7 @@ export class World {
       shields: [],
       scorchclawBurns: [],
       illumination: [],
+      sunlight: null,
       cinderBurn: null,
       garenEShreds: [],
       summonerHealReductionUntil: 0,
@@ -756,10 +761,19 @@ export class World {
       for (const member of this.monsterResetGroup(u)) {
         member.monster.phase = 'returning';
         member.monster.targetId = null;
+        member.sunlight = null;
         this.setOrder(member, { type: 'move', point: { ...member.monster.home } });
       }
     }
     if (monster.phase === 'returning') {
+      monster.targetId = null;
+      if (
+        u.order.type !== 'move' ||
+        u.order.point.x !== monster.home.x ||
+        u.order.point.y !== monster.home.y
+      )
+        this.setOrder(u, { type: 'move', point: { ...monster.home } });
+      u.sunlight = null;
       u.releaseTick = null;
       u.attackCycle = null;
       u.stunUntil = u.rootUntil = u.slowUntil = 0;
@@ -896,9 +910,15 @@ export class World {
     this.luxBeams = this.luxBeams.filter(
       (beam) => this.tick < beam.startTick + LUX_R.presentationSeconds * TICK_RATE
     );
-    for (const unit of this.units)
+    for (const unit of this.units) {
       if (unit.illumination.length)
         unit.illumination = unit.illumination.filter((mark) => mark.endTick > this.tick);
+      if (
+        unit.sunlight &&
+        (unit.sunlight.endTick <= this.tick || !this.championState(unit.sunlight.sourceId))
+      )
+        unit.sunlight = null;
+    }
     for (const unit of this.units)
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
@@ -1527,13 +1547,10 @@ export class World {
         !this.visible(source, u.team)
       )
         return false;
-      if (source.stunUntil > this.tick && source.attackCycle?.garenQRank === undefined)
+      const daybreak = source.champion === 'leona' && this.committedLeonaQ(source);
+      if (source.stunUntil > this.tick && source.attackCycle?.garenQRank === undefined && !daybreak)
         return false;
-      if (
-        distance(source, u) >
-        (source.champion === 'leona' ? this.attackRange(source) : source.range) + u.radius
-      )
-        return false;
+      if (!daybreak && distance(source, u) > source.range + u.radius) return false;
       const flight =
         source.missileSpeed > 0
           ? Math.ceil(Math.max(0, distance(source, u) - u.radius - 8) / (source.missileSpeed * DT))
@@ -2885,6 +2902,7 @@ export class World {
             if (daybreakRank !== undefined) {
               const daybreak = leonaDaybreakValues(daybreakRank, this.abilityPower(u));
               this.damage(u, target, daybreak.bonusMagicDamage, 'magic');
+              this.applySunlight(u, target);
               this.applyStun(target, Math.round(daybreak.stunSeconds * TICK_RATE));
               u.nextAttackTick = this.tick;
             }
@@ -4121,6 +4139,52 @@ export class World {
     if (mark) mark.endTick = endTick;
     else target.illumination.push({ sourceId: source.id, endTick });
   }
+  /** Shared by Leona's damaging spells. Single mark/last-caster replacement is
+   * the explicit local policy until native multi-Leona behavior is measured. */
+  applySunlight(source: Unit, target: Unit): boolean {
+    if (
+      this.winner ||
+      source.champion !== 'leona' ||
+      !this.championState(source.id) ||
+      !this.units.includes(target) ||
+      !this.alive(target) ||
+      !this.vulnerable(target) ||
+      source.team === target.team ||
+      isStructureKind(target.kind) ||
+      target.kind === 'ward' ||
+      (target.kind === 'monster' && target.monster.phase === 'returning')
+    )
+      return false;
+    const endTick = this.tick + Math.round(LEONA_SUNLIGHT.markSeconds * TICK_RATE);
+    if (!Number.isSafeInteger(endTick)) return false;
+    target.sunlight = { sourceId: source.id, startTick: this.tick, endTick };
+    return true;
+  }
+  private consumeSunlight(trigger: Unit, target: Unit): void {
+    const mark = target.sunlight;
+    if (!mark) return;
+    if (mark.endTick <= this.tick) {
+      target.sunlight = null;
+      return;
+    }
+    const source = this.unit(mark.sourceId),
+      owner = this.championState(mark.sourceId);
+    if (!source || !owner || source.champion !== 'leona') {
+      target.sunlight = null;
+      return;
+    }
+    if (
+      trigger.kind !== 'champion' ||
+      trigger.id === source.id ||
+      trigger.team !== source.team ||
+      trigger.team === target.team ||
+      !this.alive(target)
+    )
+      return;
+    // Retire before nested damage. Leona owns effects; the ally owns kill credit.
+    target.sunlight = null;
+    this.damage(source, target, leonaSunlightDamage(owner.level), 'magic', 'proc', trigger);
+  }
   /** Shared by actual melee release and the conservative, non-critical farm forecast. */
   private garenQBonusDamage(source: Unit, rank: number | undefined): number {
     return rank === undefined
@@ -4282,8 +4346,23 @@ export class World {
       | 'summoner'
       | 'companion'
       | 'proc'
-      | 'companion-passive' = 'direct'
+      | 'companion-passive' = 'direct',
+    creditSource?: Unit
   ): void {
+    // Delegation currently belongs only to Sunlight. Ordinary callers retain
+    // the existing source contract, including dead projectile owners.
+    if (
+      creditSource &&
+      (source.champion !== 'leona' ||
+        category !== 'proc' ||
+        creditSource.kind !== 'champion' ||
+        creditSource.id === source.id ||
+        creditSource.team !== source.team ||
+        creditSource.team === target.team ||
+        !this.championState(source.id) ||
+        !this.championState(creditSource.id))
+    )
+      return;
     if (
       this.winner ||
       target.kind === 'ward' ||
@@ -4357,17 +4436,35 @@ export class World {
     }
     if (healthLost > 0 && target.kind === 'monster' && source.team !== 'neutral') {
       if (category !== 'companion') noteCompanionCombat(this, source, target);
+      // A dead damage owner cannot become an attack target. Delegated damage
+      // can use its living triggering ally; otherwise preserve existing aggro.
+      const aggressor = this.alive(source)
+        ? source
+        : creditSource && this.alive(creditSource)
+          ? creditSource
+          : undefined;
       for (const member of this.monsterGroup(target)) {
         if (!this.alive(member) || !this.vulnerable(member) || member.monster.phase === 'returning')
           continue;
-        member.monster.phase = 'engaged';
-        member.monster.targetId = source.id;
-        member.monster.spawn = null;
         if (member.monster.scuttle) {
           member.monster.scuttle.lastDamageTick = this.tick;
-          member.monster.scuttle.fleeUntil = this.tick + SCUTTLER_POLICY.fleeTicks;
           member.monster.scuttle.grazeUntil = null;
           member.monster.scuttle.nextThinkTick = this.tick;
+        }
+        if (!aggressor) {
+          if (member.monster.phase === 'idle' && member.monster.species !== 'scuttler') {
+            member.monster.phase = 'returning';
+            member.monster.targetId = null;
+            member.sunlight = null;
+            this.setOrder(member, { type: 'move', point: { ...member.monster.home } });
+          }
+          continue;
+        }
+        member.monster.phase = 'engaged';
+        member.monster.targetId = aggressor.id;
+        member.monster.spawn = null;
+        if (member.monster.scuttle) {
+          member.monster.scuttle.fleeUntil = this.tick + SCUTTLER_POLICY.fleeTicks;
         }
       }
     }
@@ -4393,7 +4490,12 @@ export class World {
         // Order by actual damage processing, including multiple hits in one tick.
         // Refreshing in place loses which attacker most recently contributed.
         if (index !== -1) targetState.damageContributors.splice(index, 1);
-        targetState.damageContributors.push({ sourceId: source.id, lastDamageTick: this.tick });
+        const contribution: ChampionState['damageContributors'][number] = {
+          sourceId: source.id,
+          lastDamageTick: this.tick,
+        };
+        if (creditSource) contribution.creditSourceId = creditSource.id;
+        targetState.damageContributors.push(contribution);
       }
     }
     if (target.kind === 'champion' && source.kind !== 'monster')
@@ -4452,6 +4554,7 @@ export class World {
       target.shields = [];
       target.slows = [];
       target.illumination = [];
+      target.sunlight = null;
       target.cinderBurn = null;
       target.scorchclawBurns = [];
       target.releaseTick = null;
@@ -4513,6 +4616,7 @@ export class World {
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
+        for (const unit of this.units) unit.sunlight = null;
         advanceOracleVisuals(this);
       }
       if (targetState) {
@@ -4541,11 +4645,12 @@ export class World {
         .slice()
         .reverse()
         .find((entry) => this.tick - entry.lastDamageTick <= EXECUTION_CREDIT_SECONDS * TICK_RATE);
+      const credited = creditSource ?? source;
       const rewardSource =
-        this.championState(source.id) && source.team !== target.team
-          ? source
+        this.championState(credited.id) && credited.team !== target.team
+          ? credited
           : lastDamage
-            ? this.unit(lastDamage.sourceId)
+            ? this.unit(lastDamage.creditSourceId ?? lastDamage.sourceId)
             : undefined;
       const sourceState = rewardSource ? this.championState(rewardSource.id) : undefined;
       const transferringBlue = targetState?.blueBuff && targetState.blueBuff.endTick > this.tick;
@@ -4659,6 +4764,10 @@ export class World {
         for (const award of awards) this.gainExperience(award.amount, award.id);
       }
     }
+    // Positive damage includes shield absorption. Non-champion unit sources
+    // cannot trigger the mark; cleanup is not a combat hit.
+    if (target.sunlight && amount > 0 && Number.isFinite(amount) && category !== 'cleanup')
+      this.consumeSunlight(source, target);
     if (amount > 0) triggerScorchclaw(this, source, target, category);
   }
   gainExperience(amount: number, championId = this.player.id): void {
@@ -4733,6 +4842,7 @@ export class World {
     u.shields = [];
     u.scorchclawBurns = [];
     u.illumination = [];
+    u.sunlight = null;
     u.garenEShreds = [];
     u.aiRetreating = false;
     u.slowUntil = 0;

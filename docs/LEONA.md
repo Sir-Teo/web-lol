@@ -2,7 +2,7 @@
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 The canonical source package, payload calculations and a non-player development
-simulation fixture for melee attacks and Q are implemented. Leona's complete
+simulation fixture for melee attacks, Q and Sunlight are implemented. Leona's complete
 playable kit, player selection, bot policy and presentation remain required work.
 This partial fixture does not establish native behavior or roster acceptance.
 
@@ -100,16 +100,68 @@ attack-speed equivalence is certified. These policies require native comparison
 before player/production acceptance. They must not be mistaken for additional
 fields recovered from the character BIN.
 
-Schema 116 saves the empowerment and captured activation/rank/release clocks.
+Schema 116 introduced the empowerment and captured activation/rank/release clocks.
 It rejects foreign ownership, missing tuple members, changed durations,
 unlearned ranks, inconsistent release/cooldown clocks and invalid battlefield or
 player use. Tests compare restored futures before/after contact and across
 expiry, stun and recovery cancellation. No gameplay random sample is added by Q;
 ordinary critical rolls keep their existing place in the attack pipeline.
 
-Sunlight application/consumption is **not implemented yet**, including on Q.
-Ward-specific empowered-hit behavior and exact structure effects also remain
-open. The fixture therefore does not certify complete Q/passive behavior.
+Sunlight application/consumption is implemented below. Ward-specific empowered
+hit behavior, exact structure effects and native timing remain open. The fixture
+does not certify complete Q/passive behavior.
+
+## Sunlight development simulation
+
+Q's accepted magic hit applies/refreshes Sunlight on a living enemy. The shared
+application helper is ready for future W/E/R hits; those spells remain absent.
+Sunlight lasts the pinned 2.5 seconds and expires before new commands at its
+deadline. Leona's own damage cannot consume it. Positive allied champion-owned
+damage consumes it once, including shield absorption, and applies the source's
+32–151 magic payload at her current level. Consumption retires the mark before
+nested damage. No application entity, projectile or RNG roll is allocated; the
+bonus damage uses the existing damage-event ID path.
+
+Riot's [13.21 notes](https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-21-notes/)
+specify separate damage ownership and ally kill credit. Leona owns Sunlight's
+damage effects, including the implemented Doran's Blade healing path, while the
+triggering ally receives kill/gold/CS/buff rewards. Leona remains a damage
+contributor for assists. A delegated `creditSourceId` on the ordered contribution
+record also preserves the ally's credit for a later execution. Subsequent
+ordinary Leona damage replaces that delegation. Invalid/foreign delegation is
+rejected before damage; ordinary damage calls retain their existing behavior.
+
+**Local policies needing native comparison:** one target mark, refreshed or
+replaced by the latest caster; current-level damage sampled at consumption;
+continued eligibility after caster death; all positive champion-owned damage
+categories except cleanup can trigger, including proc/summoner/companion calls
+whose World source is the champion. Non-champion unit damage cannot trigger.
+Fully absorbed damage counts, and consumption precedes Scorchclaw processing.
+Minions and neutral monsters are eligible; wards and structures are excluded.
+These choices make the executable adapter explicit; they do not establish all
+native pet, proc, immunity, multi-Leona or ordering interactions.
+
+Target death, monster reset, owner removal, expiry and victory retire marks.
+Caster death retains an unexpired mark. Schema 117 saves a nullable target mark
+with source/start/end and the optional delegated damage credit. Validation
+checks caster identity/team, exact duration, live target/eligible kind, reset/
+terminal state and allied distinct credit ownership. Tests cover real attack
+projectiles, shield absorption, level changes, caster death, kills, farming,
+buff transfer, saved execution credit and restored futures. The browser fixture
+gate also preserves a save containing an active mark and delegated contribution.
+
+Posthumous damage cannot select a corpse as a neutral monster's attacker.
+Sunlight can use its living triggering ally when Leona is dead; other damage
+preserves existing aggro. An idle ordinary camp with no living damage source
+returns and recovers. Returning state clears its target and keeps a home-bound
+move order, including externally initiated recovery. Scuttler retains its
+special patrol/recovery behavior and records posthumous damage on its recovery
+clock. These paths have explicit saved-future regression checks; native aggro
+ordering still needs comparison.
+
+Garen's observed-attack forecast now respects committed Daybreak through stun
+and empowerment expiry, matching its implemented release semantics. It still
+requires a visible attacker; this does not certify native threat timing.
 
 Sunlight's playable-level damage is 32 through 151, in increments of seven.
 The 31-entry source table has a dummy level-zero entry of 25 and extended-level
@@ -157,7 +209,7 @@ Every row below still has required work, including the partially implemented Q.
 | W | Cast/expiry/explosion order; actual radius; resistance recomputation on stat changes; flat reduction order, cap, damage-type exclusions and shields; hit-based extension and its exact affected bonuses. |
 | E | Swept unique hits; last-champion selection; root recipients/timing; dash destination, terrain, target death, displacement and interrupts; Flash/cast overlap; no turret-aggro reset near walls. |
 | R | Windup and delayed impact; center stun versus outer slow boundaries; cast-range clamping; reveal; shields/CC immunity, death and interruption behavior. |
-| Sunlight | Ally-only consumption; refresh and ownership; repeated/multiple Leona interactions; minion/monster eligibility; contribution and kill-credit attribution; shields and blocked/zero damage. |
+| Sunlight | Native verification of refresh/multiple owners, proc/pet/blocked-hit eligibility, ordering, caster death, farming and attribution. The shared core and saved futures are implemented. |
 | Integration | Shared player/bot command validation; support-role decisions; HUD and input; strict saved states and restored futures; victory and respawn cleanup. |
 | Presentation | Prepared rig/animation import, conservative animated bounds, source effects/audio, visibility and ownership, load/dispose/context recovery, native comparison and full-match performance. |
 

@@ -91,6 +91,7 @@ import { GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
+import { LEONA_SUNLIGHT } from '../content/leona-spells';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL, statPrecision } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
@@ -110,7 +111,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 116;
+export const SNAPSHOT_VERSION = 117;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -374,6 +375,7 @@ const unit = z
       )
       .max(10000),
     illumination: z.array(z.strictObject({ sourceId: id, endTick: tick })).max(10000),
+    sunlight: z.strictObject({ sourceId: id, startTick: tick, endTick: tick }).nullable(),
     scorchclawBurns: z
       .array(
         z.strictObject({
@@ -593,7 +595,9 @@ const player: z.ZodType<PlayerState> = z
     }),
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
     assists: tick,
-    damageContributors: z.array(z.strictObject({ sourceId: id, lastDamageTick: tick })).max(10000),
+    damageContributors: z
+      .array(z.strictObject({ sourceId: id, lastDamageTick: tick, creditSourceId: id.optional() }))
+      .max(10000),
     supportContributors: z
       .array(z.strictObject({ sourceId: id, lastSupportTick: tick }))
       .max(10000),
@@ -1436,6 +1440,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       u.rootUntil !== 0 ||
       u.silenceUntil !== 0 ||
       u.illumination.length ||
+      u.sunlight !== null ||
       u.cinderBurn !== null ||
       u.garenEShreds.length ||
       u.radius !== WARD_SOURCE.radius ||
@@ -2473,6 +2478,24 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       scorchedBy.add(source.id);
     }
     const sources = new Set<number>();
+    if (target.sunlight) {
+      const mark = target.sunlight,
+        source = state.units.find((unit) => unit.id === mark.sourceId);
+      if (
+        !source ||
+        source.champion !== 'leona' ||
+        source.team === target.team ||
+        target.deadAt !== null ||
+        state.winner !== null ||
+        isStructureKind(target.kind) ||
+        target.kind === 'ward' ||
+        (target.kind === 'monster' && target.monster?.phase === 'returning') ||
+        mark.startTick > state.tick ||
+        mark.endTick <= state.tick ||
+        mark.endTick !== mark.startTick + Math.round(LEONA_SUNLIGHT.markSeconds * TICK_RATE)
+      )
+        throw new Error('Saved match contains invalid Sunlight ownership or timing.');
+    }
     for (const mark of target.illumination) {
       const source = state.units.find((unit) => unit.id === mark.sourceId);
       if (
@@ -2623,13 +2646,22 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     let previousDamageTick = -1;
     for (const contribution of owner.damageContributors) {
       const source = champions.find((u) => u.id === contribution.sourceId);
+      const credit =
+        contribution.creditSourceId === undefined
+          ? undefined
+          : champions.find((u) => u.id === contribution.creditSourceId);
       if (
         !source ||
         source.team === champion.team ||
         contributors.has(source.id) ||
         contribution.lastDamageTick < previousDamageTick ||
         contribution.lastDamageTick > state.tick ||
-        (champion.deadAt !== null && contribution.lastDamageTick > champion.deadAt)
+        (champion.deadAt !== null && contribution.lastDamageTick > champion.deadAt) ||
+        (contribution.creditSourceId !== undefined &&
+          (source.champion !== 'leona' ||
+            !credit ||
+            credit.id === source.id ||
+            credit.team !== source.team))
       )
         throw new Error('Saved match contains invalid damage contributions.');
       contributors.add(source.id);

@@ -4357,8 +4357,8 @@ W/E/R, support bots, UI and source presentation remain required work.
 Twelve new World tests cover resources, progression, reset/contact order,
 resistances, critical/rank sampling, controls, expiry, restored futures, rejected
 saves and cleanup. Canonical `npm run check` passes TypeScript, all 1,505 tests
-across 271 files and three Node QA tests with default limits. A final type check
-also includes the new browser fixture-gate case. Seven Chrome cases pass: six
+across 271 files and three Node QA tests with default limits. A final project type
+check also passes; Playwright executes the new browser fixture-gate case. Seven Chrome cases pass: six
 existing Garen particle/team-advance regressions and the new unsupported-save
 gate. Build and nested-host production smoke pass, retaining 32 recordings and
 no development hook; the existing large-chunk warning remains. Four selected
@@ -4382,3 +4382,59 @@ remain separate. Earlier Leona source and Garen evidence pass historical
 integrity audits. All owned runners drained before final documentation/commit.
 See [Leona](LEONA.md), its [open policy audit](reference/leona/combat-policy-audit.json)
 and the [verification ledger](reference/leona/melee-q-verification.json).
+
+## Sunlight ownership, ally credit and posthumous recovery — October 23, 2026
+
+Leona's development simulation now applies Sunlight from Q and exposes the
+shared application path for future W/E/R. A positive allied champion-owned hit
+consumes the pinned 2.5-second mark once and deals the current caster-level
+magic payload. Leona's own damage cannot consume it. Her damage effects remain
+hers, while kill/gold/CS/buff rewards belong to the triggering ally, following
+the published 13.21 ownership rule. Ordered damage contributions retain optional
+delegated credit for a later execution; subsequent ordinary damage replaces it.
+Schema 117 strictly validates mark clocks, source/team/target eligibility and
+delegated allied ownership. The native trigger, stacking and item-order matrix
+remains open; this is the explicit local adapter, not full champion acceptance.
+
+Tests cover shield absorption, zero/cleanup/non-champion damage, actual allied
+attack projectiles, source death, current-level sampling, refresh/replacement,
+kill/assist/farm/buff rewards, caster-side healing, saved execution credit and
+restored futures. Garen's visible-attack forecast recognizes committed Q through
+stun and empowerment expiry. Posthumous damage preserves living monster aggro
+or uses the living delegated ally; idle ordinary camps recover, returning state
+keeps its home order/cleared target, and Scuttler retains its separate patrol and
+recovery clock. These checks found and fixed the corpse-target and idle-return
+inconsistencies instead of relaxing validation.
+
+Eighty-one focused checks pass. The final unchanged `npm run check` passes
+TypeScript, 1,523 tests across 272 files and three Node QA checks. Seven Chrome
+cases pass, including the preserved unsupported fixture save containing both an
+active mark and delegated contribution. Build and nested-host production smoke
+pass with 32 recordings and no development hook; the existing large-chunk
+warning remains. Three final captures were viewed as local regression evidence,
+not Leona presentation/native comparison. A separate explicit TypeScript command
+checks the browser fixture-gate file; the prior progress note's broader wording
+has been corrected because the project tsconfig excludes e2e files.
+
+Final ten-minute seeds 8 and 38 pass independent verification for 72,000 ticks,
+twenty strict round trips and eighteen restored futures. All twenty checkpoints
+equal the previous normal-roster run after excluding only schema/ruleset identity
+and explicitly null unit Sunlight fields. These matches contain no Leona. No
+new hundred-seed, full-match Leona, full browser/device or six-character gate is
+claimed. The final ruleset is `27d7da…`.
+
+The first focused run's incorrect no-event-ID assumption is retained; marking
+allocates no entity, while bonus damage uses the normal damage-event ID path.
+The posthumous aggro regression first reproduced a corpse target. A subsequent
+full run exposed the existing companion scenario's invalid return order; the
+next full run had one five-second lane-clock timeout. Final standard limits,
+assertions and workers remain unchanged. Earlier source/build/run iterations
+remain frozen separately, including the pre-aggro `3cb097…` smoke and build.
+There are 229 final input files, 226 cohort inputs and 26 generated frontend
+files archived. All owned runners drained before final documentation/commit;
+the earlier Leona melee/Q evidence passes its historical integrity audit.
+
+W/E/R, support bots, player UI, full source presentation, native calibration and
+the broader project requirements remain open. See [Leona](LEONA.md), the
+[policy audit](reference/leona/combat-policy-audit.json) and the
+[verification ledger](reference/leona/sunlight-verification.json).

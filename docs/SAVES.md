@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **116** adds Leona's non-player development-fixture identity,
+Current schema **117** adds nullable Sunlight marks with source/start/end clocks
+and optional delegated ally credit on ordered damage contributions. Validation
+rejects foreign casters, friendly/ineligible/dead/reset targets, expired or
+changed durations, terminal marks and invalid same-team/distinct credit owners.
+Caster death can retain the target's unexpired mark; target death/reset/victory
+retires it. Credit survives restoration and a later execution without moving
+Leona's damage effects to the triggering ally. Native trigger/stacking/order
+policies remain open. Earlier schemas/fingerprints stay incompatible; see
+[Leona](LEONA.md).
+
+Schema **116** added Leona's non-player development-fixture identity,
 nullable Q empowerment and captured Q activation/rank/release clocks. Validation
 rejects missing tuple members, foreign ownership, unlearned ranks, altered
 window/release/cycle deadlines and mismatched pending/released attack state.

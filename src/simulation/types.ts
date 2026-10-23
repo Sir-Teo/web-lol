@@ -236,6 +236,7 @@ export interface UnitBase extends Vec2 {
     damagePerTick: number;
   }[];
   illumination: { sourceId: number; endTick: number }[];
+  sunlight: { sourceId: number; startTick: number; endTick: number } | null;
   cinderBurn: {
     sourceId: number;
     phaseTick: number;
@@ -470,7 +471,7 @@ export interface ChampionState {
   observedStats: Record<Team, { level: number; cs: number; inventory: (string | null)[] } | null>;
   revealContributors: { sourceId: number; lastRevealTick: number }[];
   assists: number;
-  damageContributors: { sourceId: number; lastDamageTick: number }[];
+  damageContributors: { sourceId: number; lastDamageTick: number; creditSourceId?: number }[];
   /** Allied Heal casters; support attribution is resolved when a victim dies. */
   supportContributors: { sourceId: number; lastSupportTick: number }[];
   id: number;
