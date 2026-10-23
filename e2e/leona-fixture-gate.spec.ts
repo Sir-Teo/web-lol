@@ -29,6 +29,10 @@ test('an incomplete Leona simulation save is preserved and rejected before brows
     fixture.applySunlight(leona, victim);
     fixture.damage(fixture.hero, victim, 1, 'physical');
     fixture.applySunlight(leona, marked);
+    fixture.gainExperience(380, leona.id);
+    fixture.learnSpell('e', leona.id);
+    fixture.enqueue({ type: 'cast', unit: leona.id, ability: 'e', point: { x: 900, y: 0 } });
+    fixture.step();
     const snapshot = fixture.snapshot();
     if (fixture.constructor.fromSnapshot(snapshot, fixture.battlefield).snapshot() !== snapshot)
       throw new Error('Leona simulation checkpoint does not round trip');

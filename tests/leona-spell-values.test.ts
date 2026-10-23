@@ -123,6 +123,8 @@ test('legacy child damage, retired-looking R on-hit fields and other-mode overri
   expect(LEONA_SPELLS.q.abilityPowerRatio).toBeCloseTo(0.3, 7);
   expect(LEONA_SPELLS.e).toMatchObject({
     displayRange: 875,
+    authoredCastSeconds: 0.25,
+    castCannotCancelWindup: true,
     missile: { speed: 2000, authoredWidth: 70, castRange: 900, projectToCastRange: true },
   });
   expect(LEONA_SPELLS.w).toMatchObject({ displayRange: 450, authoredCastRadius: 500 });

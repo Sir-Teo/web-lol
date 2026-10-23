@@ -197,7 +197,11 @@ def generate():
             require(spec['mMissileWidth'] == missile['mLineWidth'] == 70
                     and movement['mSpeed'] == missile['missileSpeed'] == 2000,
                     'E child missile dimensions changed')
-            spells[slot].update(rootSeconds=constant('RootDuration'), displayRange=display_range[0],
+            require(spell['mCastTime'] == 0.25 and spell['mCantCancelWhileWindingUp'],
+                    'E cast declarations changed')
+            spells[slot].update(authoredCastSeconds=spell['mCastTime'],
+                                castCannotCancelWindup=spell['mCantCancelWhileWindingUp'],
+                                rootSeconds=constant('RootDuration'), displayRange=display_range[0],
                                 missile=dict(speed=movement['mSpeed'], authoredWidth=spec['mMissileWidth'],
                                              castRange=missile['castRange'][0], projectToCastRange=True),
                                 cantCastWhileRooted=spell['cantCastWhileRooted'])

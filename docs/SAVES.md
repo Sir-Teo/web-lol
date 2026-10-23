@@ -1,6 +1,17 @@
 # Local match checkpoints
 
-Current schema **118** adds nullable Eclipse start/rank/detonation/end/phase.
+Current schema **119** adds nullable Leona E windup/dash fields and Zenith
+projectile cast/rank/unique-hit/last-champion metadata. Validation checks ownership,
+phase separation, rank, exact clocks, direction and current/previous flight
+geometry, remaining range, hit IDs and last-champion consistency. A launched
+flight may outlive its caster; death/victory/respawn clear incompatible owned
+phases. Saved futures cover terrain traversal, controls, Flash, Q overlap and
+neutral/structure exclusions. Browser loading preserves an active E windup save
+before rejecting the incomplete presentation. Local dash/collision/input rules
+remain unverified natively. Earlier schemas/fingerprints are incompatible; see
+[Leona](LEONA.md).
+
+Schema **118** added nullable Eclipse start/rank/detonation/end/phase.
 Validation rejects foreign/dead/unlearned/terminal ownership, altered durations,
 premature or expired phases and inconsistent extension clocks. Stored unit
 resistances exclude the buff; effective values recompute at use, including after

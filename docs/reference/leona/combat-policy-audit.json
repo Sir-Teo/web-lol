@@ -79,6 +79,22 @@
       "localObservation": "Stored stats exclude W; live bonuses subtract per-level-rounded base stats, avoiding self scaling and phantom bonus from float growth. Amplification then capped flat reduction then resistance/percentage mitigation then shields; true damage bypasses. Total armor is shredded afterward. Companion bonus scaling uses pre-shred totals.",
       "acceptance": "Native dynamic recalculation, negative/reduced bonus stats, amplification/flat/reduction/shield order, periodic/multi-hit effects and true damage comparison.",
       "tests": "tests/leona-eclipse.test.ts"
+    },
+    {
+      "id": "LEONA-E-FLIGHT-001",
+      "status": "data-backed-flight-local-collision-native-unmeasured",
+      "reference": "Root declares mCastTime=0.25 and uncancellable windup. Child missile declares speed 2000, width 70, projected range 900; tooltip selects last champion for root/dash.",
+      "localObservation": "Captured direction/rank/AP; release-tick movement; width-as-radius inclusive sweeps; distance/identity ordering; unique hits; no LOS requirement. Last champion is rooted only at full flight completion. Dead final target prevents pursuit without fallback.",
+      "acceptance": "Native width interpretation, hit/endpoint boundaries, root/dash dispatch timing, overlapping/moving targets, blocked/immune/hidden contacts, death and Flash-windup matrix.",
+      "tests": "tests/leona-zenith.test.ts"
+    },
+    {
+      "id": "LEONA-E-DASH-001",
+      "status": "explicit-provisional-movement-policy",
+      "reference": "Retained character data does not establish native dash speed, endpoint, homing or interruption rules. Missile speed is not dash speed evidence.",
+      "localObservation": "Provisional 2000-unit/s homing to near-side body contact, terrain traversal with reachable landing/interruption. Root/stun/Flash/target death end pursuit; orders buffer. Existing Daybreak can release without adding normal movement. Turret retaliation is retained.",
+      "acceptance": "Native speed/landing/homing, terrain/displacement and interrupt traces, Flash overlap, Q/W timing, buffered commands, turret attack clocks and aggro near walls.",
+      "tests": "tests/leona-zenith.test.ts"
     }
   ],
   "nativeBehaviorVerified": false,

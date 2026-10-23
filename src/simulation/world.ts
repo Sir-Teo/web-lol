@@ -139,6 +139,7 @@ import { LEONA_SPELLS, LEONA_SUNLIGHT } from '../content/leona-spells';
 import {
   leonaDaybreakValues,
   leonaEclipseValues,
+  leonaZenithValues,
   leonaSpellResources,
   leonaSunlightDamage,
 } from './leona-spell-values';
@@ -1037,6 +1038,8 @@ export class World {
         if (
           state &&
           !state.pendingCast &&
+          !state.leonaEWindup &&
+          !state.leonaDash &&
           !state.garenE &&
           !this.committedLeonaQ(u) &&
           u.silenceUntil <= this.tick
@@ -1085,6 +1088,21 @@ export class World {
         u.nextThink = this.tick + 18;
       }
       const state = this.championState(u.id);
+      if (state?.leonaEWindup) {
+        if (this.tick >= state.leonaEWindup.releaseTick) this.releaseZenith(u, state.leonaEWindup);
+        continue;
+      }
+      if (state?.leonaDash) {
+        if (this.committedLeonaQ(u)) this.advanceUnit(u, true);
+        if (state.leonaDash && this.alive(u)) this.advanceLeonaDash(u, state);
+        if (this.winner) {
+          this.advanceAttackVisuals();
+          this.advanceAnimationClocks();
+          this.advanceImpactVisuals();
+          return;
+        }
+        continue;
+      }
       if (state?.pendingCast) {
         const cast = state.pendingCast;
         if (this.tick < cast.releaseTick) continue;
@@ -2827,7 +2845,7 @@ export class World {
       attack.endReason = this.tick >= attack.endTick ? 'complete' : reason;
     }
   }
-  private advanceUnit(u: Unit): void {
+  private advanceUnit(u: Unit, attackOnly = false): void {
     if (u.kind === 'monster' && u.monster.species === 'scuttler') return;
     const state = this.championState(u.id);
     let target = u.attackTarget === null ? undefined : this.unit(u.attackTarget);
@@ -2978,7 +2996,7 @@ export class World {
         return;
       }
     }
-    if (u.stunUntil > this.tick) return;
+    if (attackOnly || u.stunUntil > this.tick) return;
     if (
       u.champion === 'leona' &&
       u.attackCycle?.leonaQRank !== undefined &&
@@ -3118,6 +3136,84 @@ export class World {
     if (u.champion !== 'leona') return u.range;
     const q = this.championState(u.id)?.leonaQ;
     return u.range + (q && this.tick < q.endTick ? LEONA_COMBAT_POLICY.empoweredRangeBonus : 0);
+  }
+  private releaseZenith(source: Unit, cast: NonNullable<ChampionState['leonaEWindup']>): void {
+    this.championState(source.id)!.leonaEWindup = null;
+    this.projectiles.push({
+      id: this.nextId++,
+      source: source.id,
+      team: source.team,
+      type: 'zenith',
+      x: source.x,
+      y: source.y,
+      previous: { x: source.x, y: source.y },
+      origin: { x: source.x, y: source.y },
+      launchTick: this.tick,
+      direction: { ...cast.direction },
+      target: null,
+      volleyId: null,
+      damage: cast.damage,
+      speed: LEONA_SPELLS.e.missile.speed,
+      radius: LEONA_COMBAT_POLICY.zenithRadius,
+      remaining: LEONA_SPELLS.e.missile.castRange,
+      zenith: { castTick: cast.startTick, rank: cast.rank, hits: [], lastChampionId: null },
+    });
+  }
+  private beginLeonaDash(source: Unit, flight: Projectile): void {
+    const target = this.unit(flight.zenith!.lastChampionId ?? -1);
+    if (!target || target.kind !== 'champion' || !this.alive(target) || !this.vulnerable(target))
+      return;
+    // The final champion is rooted even if the missile owner has since died or
+    // become unable to dash. A dead final champion never falls back to an earlier hit.
+    this.applyRoot(target, Math.round(LEONA_SPELLS.e.rootSeconds * TICK_RATE));
+    if (!this.alive(source) || source.rootUntil > this.tick || source.stunUntil > this.tick) return;
+    const owner = this.championState(source.id)!;
+    this.setOrder(source, { type: 'attack', target: target.id });
+    if (!this.committedLeonaQ(source)) {
+      source.releaseTick = null;
+      source.attackTarget = null;
+      source.attackCycle = null;
+    }
+    owner.leonaDash = {
+      castTick: flight.zenith!.castTick,
+      startTick: this.tick,
+      targetId: target.id,
+    };
+  }
+  private finishLeonaDash(source: Unit): void {
+    const state = this.championState(source.id);
+    if (!state?.leonaDash) return;
+    state.leonaDash = null;
+    const landing = this.battlefield.reachable(
+      source,
+      source.radius,
+      source.team === 'neutral' ? undefined : source.team
+    );
+    source.x = landing.x;
+    source.y = landing.y;
+    source.path = [];
+    source.pathTarget = source.pathDestination = null;
+    source.nextPathTick = this.tick;
+  }
+  private advanceLeonaDash(source: Unit, owner: ChampionState): void {
+    const target = this.unit(owner.leonaDash!.targetId);
+    if (
+      !target ||
+      !this.alive(target) ||
+      source.rootUntil > this.tick ||
+      source.stunUntil > this.tick
+    ) {
+      this.finishLeonaDash(source);
+      return;
+    }
+    const d = distance(source, target),
+      dir = direction(source, target);
+    const remaining = Math.max(0, d - source.radius - target.radius);
+    const step = Math.min(remaining, LEONA_COMBAT_POLICY.zenithDashSpeed * DT);
+    source.x += dir.x * step;
+    source.y += dir.y * step;
+    if (d > 0) source.facing = Math.atan2(dir.x, dir.y);
+    if (step >= remaining) this.finishLeonaDash(source);
   }
   private move(u: Unit, point: Vec2): void {
     if (!u.speed || u.rootUntil > this.tick) return;
@@ -3310,6 +3406,7 @@ export class World {
       !Number.isSafeInteger(this.tick + durationTicks)
     )
       return false;
+    if (target.champion === 'leona') this.finishLeonaDash(target);
     target.rootUntil = Math.max(
       target.rootUntil,
       this.tick + this.controlDurationTicks(target, durationTicks)
@@ -3329,6 +3426,7 @@ export class World {
       !Number.isSafeInteger(this.tick + durationTicks)
     )
       return false;
+    if (target.champion === 'leona') this.finishLeonaDash(target);
     target.stunUntil = Math.max(
       target.stunUntil,
       this.tick + this.controlDurationTicks(target, durationTicks)
@@ -3833,6 +3931,38 @@ export class World {
           this.emit('scout-arrival', p, { unit: p.source, team: p.team });
         }
         this.creditHawkshotReveals(unseen);
+        continue;
+      }
+      if (p.type === 'zenith') {
+        const hits = this.units
+          .flatMap((unit) => {
+            if (
+              !this.alive(unit) ||
+              !this.vulnerable(unit) ||
+              unit.team === p.team ||
+              isStructureKind(unit.kind) ||
+              unit.kind === 'ward' ||
+              (unit.kind === 'monster' && unit.monster.phase === 'returning') ||
+              p.zenith!.hits.includes(unit.id)
+            )
+              return [];
+            const t = sweepCircle(p, end, unit, p.radius + unit.radius);
+            return t === null ? [] : [{ unit, t }];
+          })
+          .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id);
+        for (const { unit } of hits) {
+          p.zenith!.hits.push(unit.id);
+          if (unit.kind === 'champion') p.zenith!.lastChampionId = unit.id;
+          if (source) {
+            this.damage(source, unit, p.damage, 'magic', 'area');
+            this.applySunlight(source, unit);
+          }
+        }
+        p.x = end.x;
+        p.y = end.y;
+        p.remaining = Math.max(0, p.remaining - travel);
+        if (p.remaining > 1e-8) survivors.push(p);
+        else if (source) this.beginLeonaDash(source, p);
         continue;
       }
       if (p.type === 'binding') {
@@ -4663,6 +4793,8 @@ export class World {
           state.castAnimation = null;
           state.leonaQ = null;
           state.leonaW = null;
+          state.leonaEWindup = null;
+          state.leonaDash = null;
         }
         this.projectiles.length = 0;
         this.pendingAttackProjectiles.length = 0;
@@ -4703,11 +4835,15 @@ export class World {
         targetState.garenQ = null;
         targetState.leonaQ = null;
         targetState.leonaW = null;
+        targetState.leonaEWindup = null;
+        targetState.leonaDash = null;
         finishGarenQPresentation(targetState, this.tick, 'death');
         this.finishGarenW(targetState, 'death');
         stopPerseveranceVisual(targetState, target, this.tick);
         targetState.garenPassiveReadyTick = 0;
       }
+      for (const owner of this.activeChampionStates())
+        if (owner.leonaDash?.targetId === target.id) this.finishLeonaDash(this.unit(owner.id)!);
       target.garenEShreds = [];
       const lastDamage = targetState?.damageContributors
         .slice()
@@ -4886,6 +5022,8 @@ export class World {
       state.garenPassiveReadyTick = 0;
       state.garenW = null;
       state.leonaW = null;
+      state.leonaEWindup = null;
+      state.leonaDash = null;
       state.damageContributors = [];
       state.supportContributors = [];
       state.revealContributors = [];
@@ -5060,7 +5198,7 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'leona' && (ability === 'e' || ability === 'r')) {
+    if (u.champion === 'leona' && ability === 'r') {
       this.emit('message', u, {
         text: 'That Leona spell is still in development',
         unit: u.id,
@@ -5135,7 +5273,11 @@ export class World {
     if (state.pendingCast && summoner !== 'heal' && !flashDuringFinalSpark) return;
     const spec = this.abilitySpec(ability, u.id);
     const fail = (text: string) => this.emit('message', u, { text, unit: u.id, team: u.team });
-    if (u.rootUntil > this.tick && spec.cantCastWhileRooted) {
+    if (
+      u.rootUntil > this.tick &&
+      (spec.cantCastWhileRooted ||
+        (u.champion === 'leona' && ability === 'e' && LEONA_SPELLS.e.cantCastWhileRooted))
+    ) {
       fail('Cannot cast that spell while rooted');
       return;
     }
@@ -5157,6 +5299,37 @@ export class World {
     }
     if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
+      return;
+    }
+    if (u.champion === 'leona' && ability === 'e') {
+      const dir = direction(u, point);
+      if (
+        (!dir.x && !dir.y) ||
+        this.committedLeonaQ(u) ||
+        state.leonaEWindup ||
+        state.leonaDash ||
+        this.projectiles.some((p) => p.type === 'zenith' && p.source === u.id)
+      )
+        return;
+      state.leonaEWindup = {
+        startTick: this.tick,
+        releaseTick: this.tick + LEONA_COMBAT_POLICY.zenithWindupTicks,
+        rank: state.spellRanks.e,
+        origin: { x: u.x, y: u.y },
+        direction: dir,
+        damage: leonaZenithValues(state.spellRanks.e, this.abilityPower(u)).magicDamage,
+      };
+      u.mana -= resources.mana;
+      state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      state.castAnimation = null;
+      if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
+      u.releaseTick = null;
+      u.attackTarget = null;
+      this.finishAttackPresentation(u, 'action');
+      u.attackCycle = null;
+      u.facing = Math.atan2(dir.x, dir.y);
+      this.emit('cast', u, { unit: u.id, champion: 'leona', text: 'e', team: u.team });
       return;
     }
     if (u.champion === 'leona' && ability === 'w') {
@@ -5431,6 +5604,7 @@ export class World {
       }
     }
     if (summoner === 'flash') {
+      state.leonaDash = null;
       const d = Math.min(spec.range, distance(u, point));
       const end = this.battlefield.reachable(
         { x: u.x + dir.x * d, y: u.y + dir.y * d },

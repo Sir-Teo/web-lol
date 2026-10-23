@@ -2,7 +2,7 @@
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 The canonical source package, payload calculations and a non-player development
-simulation fixture for melee attacks, Q, Sunlight and W are implemented. Leona's complete
+simulation fixture for melee attacks, Q, Sunlight, W and E are implemented. Leona's complete
 playable kit, player selection, bot policy and presentation remain required work.
 This partial fixture does not establish native behavior or roster acceptance.
 
@@ -70,7 +70,7 @@ The helpers do not schedule casts, apply shields/reduction or select targets.
 development practice battlefield. It creates Leona's own stats, mana and an
 unlearned kit. Constructor/player selection, ordinary Rift spawning and browser
 save loading reject this incomplete fixture. Missing presentation fails
-explicitly; it never substitutes an Ashe model or animation. E/R commands
+explicitly; it never substitutes an Ashe model or animation. R commands
 return a development message before entering any other champion's spell path.
 
 After learning Q, a World cast command validates mana, cooldown, silence and
@@ -114,7 +114,7 @@ does not certify complete Q/passive behavior.
 ## Sunlight development simulation
 
 Q's accepted magic hit applies/refreshes Sunlight on a living enemy. The shared
-application helper also serves W; E/R remain absent.
+application helper also serves W/E; R remains absent.
 Sunlight lasts the pinned 2.5 seconds and expires before new commands at its
 deadline. Leona's own damage cannot consume it. Positive allied champion-owned
 damage consumes it once, including shield absorption, and applies the source's
@@ -226,6 +226,60 @@ delegated credit. W remains a headless development simulation without source
 presentation, support bot integration or native acceptance. See the
 [Eclipse verification ledger](reference/leona/eclipse-verification.json).
 
+## Zenith Blade development simulation
+
+E now uses World commands, Leona's own resources, a captured fifteen-tick
+windup, and the shared projectile system. The export separately retains the
+root's explicit 0.25-second cast and uncancellable-windup flag. The child
+missile supplies fixed speed 2,000 and projected range 900; the display 875 and
+legacy speed/width remain separate source evidence. Payload rank/AP are captured
+at cast. Initial stun, silence, root, mana/cooldown and a zero direction reject
+the cast. An already committed Q cannot be replaced by E. Q/W can arm during an
+E windup, and Flash/Heal retain their shared rules. Recall cannot start during
+the windup or dash. Headless E state does not substitute a foreign animation.
+
+**Explicit local policies requiring native comparison:** the windup holds
+movement but accepts buffered orders; later control does not cancel release.
+Flash during windup changes the launch origin while preserving the cast's
+captured direction. The missile starts moving on its release tick. Width 70 is
+used as a collision radius. Swept contacts are inclusive, ordered by distance
+within each segment with identity ties, and each target can be damaged once.
+No visibility/line-of-sight requirement is imposed; allies, structures, wards,
+returning and protected monsters are excluded. Accepted hits use area magic
+damage and mark survivors with Sunlight. The missile keeps traveling through
+champions and minions to its full range.
+
+At flight completion, only the last champion struck is rooted for the source
+half-second through shared tenacity. A dead last champion prevents pursuit;
+there is no fallback to an earlier survivor. A launched missile can still deal
+damage/mark/root after source death, but cannot start a posthumous dash. A rooted
+or stunned living source also cannot start the dash. These death/ordering rules
+are executable local policies, not native measurements.
+
+The local homing dash moves at an explicitly provisional 2,000 units/second,
+unaffected by slows or silence, across terrain toward the target's current
+position. It stops at near-side body contact and resolves its landing through
+`reachable`. Root/stun interrupt and resolve a reachable stopping point; Flash
+cancels the dash through the existing reachable Flash path. Target death/removal
+ends pursuit. The initial dash issues an attack order; subsequent orders buffer
+through travel and resume after arrival. Ordinary attack windups are cancelled
+at dash startup, while an already captured Daybreak can complete through it.
+Its attack-only advancement cannot add ordinary walking to the dash step.
+No turret-retaliation identity or attack clock is reset by the dash. Native
+homing, landing, displacement, interrupt, input-buffer and aggro behavior remain
+required comparisons. No dash speed was recovered from the missile's speed.
+
+Schema 119 saves nullable E windup and dash ownership plus Zenith flight
+cast/rank/hit/last-champion metadata. Validation checks phase separation,
+identity/team/rank, exact release/flight/dash-start clocks, unit direction,
+current/previous positions, remaining range, hit uniqueness, known invalid IDs
+and last-champion consistency. Source death can retain a launched flight;
+death/victory/respawn clear incompatible owned phases. Tests compare restored
+futures during windup, flight, dash and interruption, including a real NavGrid
+wall and retained turret retaliation. Browser loading still preserves and
+rejects the incomplete Leona fixture, now with an active E windup in its save.
+See the [Zenith verification ledger](reference/leona/zenith-verification.json).
+
 ## Geometry, legacy data and mode boundaries
 
 | Source declarations | Treatment |
@@ -255,7 +309,7 @@ Every row below still has required work, including the partially implemented Q.
 | --- | --- |
 | Basic attacks and Q | Melee profile, source release timing and attack selection; reset and empowered window; range; separate physical/magic damage; stun/CC precedence; cancellation, target loss and consumption. |
 | W | Development command, dynamic defenses, burst/extension and saved futures are implemented. Native cast/expiry order, actual radius, reduction/extension semantics, immunity interactions and full presentation remain required. |
-| E | Swept unique hits; last-champion selection; root recipients/timing; dash destination, terrain, target death, displacement and interrupts; Flash/cast overlap; no turret-aggro reset near walls. |
+| E | Development windup, shared swept flight, last-champion root, homing dash, control/Flash handling, wall traversal and saved futures are implemented. Native collision/timing/dash/input/aggro interactions and source presentation remain required. |
 | R | Windup and delayed impact; center stun versus outer slow boundaries; cast-range clamping; reveal; shields/CC immunity, death and interruption behavior. |
 | Sunlight | Native verification of refresh/multiple owners, proc/pet/blocked-hit eligibility, ordering, caster death, farming and attribution. The shared core and saved futures are implemented. |
 | Integration | Shared player/bot command validation; support-role decisions; HUD and input; strict saved states and restored futures; victory and respawn cleanup. |

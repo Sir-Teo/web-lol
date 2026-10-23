@@ -8,6 +8,10 @@ export const LEONA_COMBAT_POLICY = {
   // Provisional geometry/scheduling; display radius differs from raw cast radius.
   eclipseRadius: LEONA_SPELLS.w.displayRange,
   eclipseDurationTicks: Math.round(LEONA_SPELLS.w.resistanceSeconds * 60),
+  zenithWindupTicks: Math.round(LEONA_SPELLS.e.authoredCastSeconds * 60),
+  // Width-as-radius, dash speed and near-edge landing require native calibration.
+  zenithRadius: LEONA_SPELLS.e.missile.authoredWidth,
+  zenithDashSpeed: 2000,
   attackWindowTicks: 6 * 60,
   empoweredRangeBonus: 50,
   ordinaryWindupTicks: Math.round(

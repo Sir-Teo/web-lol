@@ -106,6 +106,8 @@ export const LEONA_SPELLS = {
       210.0
     ],
     "abilityPowerRatio": 0.4000000059604645,
+    "authoredCastSeconds": 0.25,
+    "castCannotCancelWindup": true,
     "rootSeconds": 0.5,
     "displayRange": 875.0,
     "missile": {

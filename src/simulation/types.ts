@@ -309,7 +309,7 @@ export interface Projectile extends Vec2 {
   id: number;
   source: number;
   team: Faction;
-  type: 'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding' | 'prismatic';
+  type: 'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding' | 'prismatic' | 'zenith';
   prismatic?: {
     phase: 'out' | 'return';
     castTick: number;
@@ -318,6 +318,7 @@ export interface Projectile extends Vec2 {
     hitsReturn: number[];
     returnPoint?: Vec2;
   };
+  zenith?: { castTick: number; rank: number; hits: number[]; lastChampionId: number | null };
   bindingHits?: number[];
   bindingAudioVariant?: 0 | 1;
   previous: Vec2;
@@ -553,6 +554,15 @@ export interface ChampionState {
   } | null;
   /** Local reduced-hit feedback, coalesced per tick; independent of later W casts. */
   garenWDeflects: { tick: number; castTick: number }[];
+  leonaEWindup: {
+    startTick: number;
+    releaseTick: number;
+    rank: number;
+    origin: Vec2;
+    direction: Vec2;
+    damage: number;
+  } | null;
+  leonaDash: { castTick: number; startTick: number; targetId: number } | null;
   leonaW: {
     startTick: number;
     rank: number;

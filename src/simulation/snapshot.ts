@@ -91,7 +91,7 @@ import { GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
-import { LEONA_SUNLIGHT } from '../content/leona-spells';
+import { LEONA_SPELLS, LEONA_SUNLIGHT } from '../content/leona-spells';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL, statPrecision } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
@@ -111,7 +111,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 118;
+export const SNAPSHOT_VERSION = 119;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -726,6 +726,17 @@ const player: z.ZodType<PlayerState> = z
         defenseUntil: tick,
       })
       .nullable(),
+    leonaEWindup: z
+      .strictObject({
+        startTick: tick,
+        releaseTick: tick,
+        rank: z.number().int().min(1).max(5),
+        origin: point,
+        direction: point,
+        damage: nonnegative,
+      })
+      .nullable(),
+    leonaDash: z.strictObject({ castTick: tick, startTick: tick, targetId: id }).nullable(),
     leonaW: z
       .strictObject({
         startTick: tick,
@@ -837,7 +848,15 @@ const projectile: z.ZodType<Projectile> = z
     id,
     source: id,
     team: faction,
-    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot', 'binding', 'prismatic']),
+    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot', 'binding', 'prismatic', 'zenith']),
+    zenith: z
+      .strictObject({
+        castTick: tick,
+        rank: z.number().int().min(1).max(5),
+        hits: z.array(id).max(10000),
+        lastChampionId: id.nullable(),
+      })
+      .optional(),
     prismatic: z
       .strictObject({
         phase: z.enum(['out', 'return']),
@@ -866,6 +885,17 @@ const projectile: z.ZodType<Projectile> = z
     launchTick: tick.optional(),
     origin: point.optional(),
   })
+  .refine(
+    (p) =>
+      p.type === 'zenith'
+        ? p.zenith !== undefined &&
+          p.target === null &&
+          p.volleyId === null &&
+          p.origin !== undefined &&
+          p.launchTick !== undefined
+        : p.zenith === undefined,
+    'Invalid Zenith flight'
+  )
   .refine((p) => !p.critical || p.type === 'attack', 'Invalid critical projectile')
   .refine(
     (p) =>
@@ -2228,6 +2258,76 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       )
     )
       throw new Error('Saved match contains an invalid critical projectile source.');
+    if (projectile.type === 'zenith') {
+      const source = state.units.find((u) => u.id === projectile.source);
+      const owner = [state.player, ...state.otherChampions].find((o) => o.id === projectile.source);
+      const z = projectile.zenith!,
+        origin = projectile.origin!,
+        launch = projectile.launchTick!;
+      const total = LEONA_SPELLS.e.missile.castRange;
+      const travelled = ((state.tick - launch + 1) * LEONA_SPELLS.e.missile.speed) / TICK_RATE;
+      const expectedLast =
+        z.hits
+          .slice()
+          .reverse()
+          .find((hit) => state.units.some((u) => u.id === hit && u.kind === 'champion')) ?? null;
+      const last =
+        z.lastChampionId === null
+          ? null
+          : state.units.find((u) => u.id === z.lastChampionId && u.kind === 'champion');
+      if (
+        source?.champion !== 'leona' ||
+        source.team !== projectile.team ||
+        !owner ||
+        z.rank > owner.spellRanks.e ||
+        state.winner !== null ||
+        launch > state.tick ||
+        launch !== z.castTick + LEONA_COMBAT_POLICY.zenithWindupTicks ||
+        projectile.speed !== LEONA_SPELLS.e.missile.speed ||
+        projectile.radius !== LEONA_COMBAT_POLICY.zenithRadius ||
+        travelled >= total - 1e-8 ||
+        Math.abs(projectile.remaining - (total - travelled)) > 1e-6 ||
+        Math.abs(Math.hypot(projectile.direction.x, projectile.direction.y) - 1) > 1e-6 ||
+        Math.hypot(
+          projectile.x - origin.x - projectile.direction.x * travelled,
+          projectile.y - origin.y - projectile.direction.y * travelled
+        ) > 1e-6 ||
+        Math.hypot(
+          projectile.previous.x -
+            origin.x -
+            projectile.direction.x * (travelled - projectile.speed / TICK_RATE),
+          projectile.previous.y -
+            origin.y -
+            projectile.direction.y * (travelled - projectile.speed / TICK_RATE)
+        ) > 1e-6 ||
+        z.lastChampionId !== expectedLast ||
+        new Set(z.hits).size !== z.hits.length ||
+        z.hits.some(
+          (hit) =>
+            hit >= state.nextId ||
+            [
+              ...state.projectiles,
+              ...state.pendingAttackProjectiles,
+              ...state.luxBeams,
+              ...state.singularities,
+            ].some((p) => p.id === hit) ||
+            hit === source.id ||
+            state.units.some(
+              (u) =>
+                u.id === hit &&
+                (u.team === source.team || isStructureKind(u.kind) || u.kind === 'ward')
+            )
+        ) ||
+        (z.lastChampionId !== null &&
+          (!last || last.team === source.team || !z.hits.includes(last.id))) ||
+        state.projectiles.some(
+          (p) => p.id !== projectile.id && p.type === 'zenith' && p.source === source.id
+        ) ||
+        owner.leonaEWindup ||
+        owner.leonaDash
+      )
+        throw new Error('Saved match contains invalid Zenith flight.');
+    }
     const flight = projectile.prismatic;
     if (flight) {
       const source = state.units.find((u) => u.id === projectile.source);
@@ -2924,6 +3024,48 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid Courage presentation.');
     }
     const garenQ = owner.garenQ;
+    const zenith = owner.leonaEWindup;
+    if (
+      zenith &&
+      (champion.champion !== 'leona' ||
+        champion.deadAt !== null ||
+        state.winner !== null ||
+        zenith.rank > owner.spellRanks.e ||
+        zenith.startTick > state.tick ||
+        zenith.releaseTick <= state.tick ||
+        zenith.releaseTick !== zenith.startTick + LEONA_COMBAT_POLICY.zenithWindupTicks ||
+        Math.abs(Math.hypot(zenith.direction.x, zenith.direction.y) - 1) > 1e-6 ||
+        champion.releaseTick !== null ||
+        champion.attackCycle !== null ||
+        owner.pendingCast ||
+        owner.leonaDash ||
+        owner.recallEnd !== null)
+    )
+      throw new Error('Saved match contains invalid Zenith windup.');
+    const dash = owner.leonaDash;
+    if (dash) {
+      const target = champions.find((u) => u.id === dash.targetId);
+      const flightTicks = Math.ceil(
+        (LEONA_SPELLS.e.missile.castRange * TICK_RATE) / LEONA_SPELLS.e.missile.speed
+      );
+      if (
+        champion.champion !== 'leona' ||
+        champion.deadAt !== null ||
+        state.winner !== null ||
+        !owner.spellRanks.e ||
+        !target ||
+        target.team === champion.team ||
+        target.deadAt !== null ||
+        dash.startTick > state.tick ||
+        dash.startTick !==
+          dash.castTick + LEONA_COMBAT_POLICY.zenithWindupTicks + flightTicks - 1 ||
+        owner.pendingCast ||
+        owner.recallEnd !== null ||
+        ((champion.releaseTick !== null || champion.attackCycle !== null) &&
+          champion.attackCycle?.leonaQRank === undefined)
+      )
+        throw new Error('Saved match contains invalid Zenith dash.');
+    }
     const eclipse = owner.leonaW;
     if (
       eclipse &&
