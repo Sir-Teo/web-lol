@@ -1,6 +1,96 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 is used, and human selection supports Lux. Native effects/audio, matched calibration and full tactical/role AI remain unfinished. A first Lux combat policy now uses the spell; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3 and twenty static source particle layers are used, and human selection supports Lux. Complete effects/audio, matched native calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Static source particle adapter — October 23, 2026
+
+The temporary sphere and line perimeter have been replaced by selected static
+source layers: five emitter records for flight, five for each team field, and
+five for detonation. Two rate-two bursts produce six draws in flight and six
+in detonation; a field uses five. The perimeter is the authored 480-triangle
+`Lux_Base_E_Indicator` mesh with separate blue/red textures and source color
+curves. Its measured inner/outer corner radii at scale twelve are approximately
+302.697/366.644 units. The art has not been resized to the provisional gameplay
+radius; its outer decoration is not a collision boundary.
+
+The [complete pin](reference/lux-e-vfx.json) retains all six skin resource bindings,
+65 emitter definitions, 37 losslessly decoded textures and two source mesh
+identities from three skin-linked Riot BINs. The pinned patch manifest and archive
+chunks retain provenance; repeated extraction verifies the recorded source bytes.
+No naming cache is required. Unknown hashes remain explicit. The
+[coverage inventory](reference/lux-e-particle-coverage.json) identifies the twenty
+rendered records and all 45 deferred records. Moving motes/sparks/rays/spinners,
+distortion, remaining static layers, target-hit capture and source E audio are
+still required. This is not a completed E presentation.
+
+Static births begin on the accepted flight, arrival or detonation update. A
+stable phase/instance seed reconstructs source rotation, angular velocity and
+multiplier offsets without simulation randomness. Source lifetime color/scale,
+birth tint, uniform scaling, independent multiplier coordinates, locked-alpha UV
+mode, palette product, source blend modes 0/2/4 and separate alpha factors are
+retained. The shockwave includes its erosion texture and drive. Its feather
+widths of one and slice width 1.5 remain explicit external defaults, as in the
+existing particle adapter; the arithmetic has GPU checks but native E uniforms
+and sampler state remain unverified.
+
+The local attachment uses a source origin 100 units above terrain, the captured
+cast direction and the existing Ry/Rx/Rz arbitrary-quad convention. The authored
+perimeter is projected onto sampled terrain with a two-unit lift. Other quads
+keep their source rotation and offsets. Ground display-list flags preserve
+composition before ordinary world objects; billboard axes follow the camera.
+Origin height, palette-row conversion, projection, phase dispatch and immediate
+phase replacement remain local policies pending matched native captures.
+Emitter/particle linger fields are retained in the pin but do not yet create
+flight/field stop tails.
+
+Enemy effects require observed centers, and individual triangles require all
+three observed corners. Losing sight suppresses their draws without restarting
+their saved phase. Restoring a phase reconstructs identical position, index,
+color and multiplier buffers. Owned geometry/materials retire on phase changes
+or expiry; source images and the source mesh template remain session-owned.
+The renderer explicitly reads XYZ from Three.js interleaved attributes, preserving
+the indicator's face UVs rather than interpreting packed UV values as positions.
+
+The longest selected detonation layer lasts 0.7 seconds. Its conservative
+43-tick retained interval replaces the old eighteen-tick temporary burst. The
+existing zone fields still support exact continuation and terminal playback;
+schema 108's layout is unchanged, while the simulation fingerprint changes.
+No spell cost, cooldown, flight/zone timing, damage, slow, vision or bot policy
+was changed. Terminal cancellation removes active fields without inventing a
+detonation; accepted bursts finish on the separate result presentation clock.
+
+Eleven textures are used by these layers, including three already shared source
+images. The eight new runtime images total 168,500 bytes; the validated perimeter
+GLB adds 29,532 bytes. All 37 prepared images total 463,485 bytes; unused images
+are not requested by this adapter. Source-quality delivery/performance budgets
+remain open.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-lux-e-particles.py
+python3 tools/assets/export-lux-e-particles.py
+node tools/assets/convert-lux-e-indicator.mjs
+```
+
+The [verification ledger](reference/lux-e-source-verification.json) records source
+hashes, extraction/rebuild checks, unit/browser/GPU checks, production input and
+reviewed captures. Color-product and blend checks establish this local adapter's
+arithmetic; screenshots and source-data agreement do not certify native visual,
+timing, attachment, audio or full-match parity.
+
+All 1,360 unit tests across 250 files and 28 distinct targeted Chrome cases pass.
+The GPU case checks all twenty materials' raw products and framebuffer factors;
+gameplay cases cover phase restoration, source radii, enemy fog, disposal and
+frozen result playback. The first browser run's interleaved-attribute defect and
+GPU clear-color fixture correction remain recorded. Nested-path production smoke
+casts/recasts E with real input, loads only the eight selected new textures and
+source mesh, and keeps development hooks absent. Four captures were reviewed.
+
+Four fresh [match audits](reference/lux-e-source-match-audit.json) validate 780,762
+ticks and 220 exact checkpoint round trips. All recorded samples, winners and
+terminal ticks match the wave-clear baseline; all final checkpoints match after
+changing only the fingerprint. These four seeds are short of the 100-seed gate.
+Game/Three chunks are 767.79/658.75 KB, with the existing warning. Full Chrome,
+native comparison, browser performance and offline delivery remain unaccepted.
 
 ## Winning checkpoints and finite result playback — October 22, 2026
 
@@ -16,8 +106,8 @@ retain only their unexpired presentation tail. A winning checkpoint rejects an
 active E flight or zone; schema 108’s fields are unchanged, while the simulation
 fingerprint changes as usual.
 
-The result view now advances the existing temporary burst’s scale/fade on its
-presentation clock and disposes its sphere/ring geometry and materials at expiry.
+At `2feb4fd`, the result view advanced the temporary burst’s scale/fade on its
+presentation clock and disposed its sphere/ring geometry and materials at expiry.
 It does not advance simulation, damage, marks, slows, vision or the saved clock.
 Repeated samples and a fresh restoration reconstruct the same initial burst.
 Active flight/zone visuals are removed rather than inventing an explosion.
@@ -28,7 +118,7 @@ remain unfinished. [Verification](reference/match-end-lucent-verification.json)
 retains the original failed checkpoint, source hashes, phase regressions,
 browser export/disposal checks and fresh full-match diagnostics.
 
-Current checks include 1,340 unit tests across 248 files and 14 distinct targeted
+That milestone's checks included 1,340 unit tests across 248 files and 14 distinct targeted
 Chrome cases. Four fresh extended matches validate 836,115 ticks and 234 exact
 checkpoint round trips. Seed 719’s repaired winning state matches the original
 continuation except for ruleset identity and cancelled E state; it still exceeds
@@ -43,13 +133,13 @@ Arrival starts the five-second zone deadline. The 310 source effect value is pro
 
 Repeated E commands during windup or flight buffer detonation for arrival. Recast costs no mana, does not restart cooldown, and neither interrupts a current cast (including R) nor recall. Hard stun and death still block commands; root does not. There is no extra minimum recast interval in this adapter. Multiple commands and timeout cannot cause multiple detonations. Native recast/HUD fidelity remains unaccepted.
 
-An armed zone supplies unobstructed team vision at named radius 650. This adapter grants no flight vision or post-detonation sight. Damage is magic/area, ignores allies and structures, applies Illumination without consuming an existing mark, and follows shared shield/mitigation rules. Death during windup cancels E; death after release preserves flight, zone, timeout and effects. Explosion visuals persist for 0.3 seconds and never reapply gameplay.
+An armed zone supplies unobstructed team vision at named radius 650. This adapter grants no flight vision or post-detonation sight. Damage is magic/area, ignores allies and structures, applies Illumination without consuming an existing mark, and follows shared shield/mitigation rules. Death during windup cancels E; death after release preserves flight, zone, timeout and effects. Explosion visuals now retain the selected source layers for 43 ticks and never reapply gameplay.
 
 All timing/geometry choices above beyond explicit source fields and the supported post-detonation slow are provisional and require native comparison. In particular, lifetime measured from arrival, buffered windup recast, recast/recall/CC rules, circle boundaries, exit linger, source-death behavior and sight obstruction/tails are not established by the promotional clip.
 
 Snapshot 43 preserves windup recast requests and each instance's origin, endpoint, flight position, source/team, captured damage/slow, arrival/deadline and detonation tick. It validates transit position against fixed-speed elapsed travel, radius-independent cast range, source ownership, unique active owner and global identity, compatible windup payloads and active/retained lifetimes. Dead sources remain valid.
 
-The temporary presentation uses a small orb, a ground-following 64-segment perimeter and a brief fading burst. Static perimeter geometry is allocated once per instance and all geometry/materials are disposed on retirement. The inspected `artifacts/lux-e-zone.png` is a diagnostic fixture capture, not a native visual match. Cast events now carry champion identity so Lux E cannot play Ashe's Hawkshot source sample; Lux still uses temporary synthesized cast feedback.
+The original temporary presentation used a small orb, a ground-following 64-segment perimeter and a brief fading burst, before the source adapter above replaced them. Static perimeter geometry is allocated once per instance and all geometry/materials are disposed on retirement. The inspected `artifacts/lux-e-zone.png` is a diagnostic fixture capture, not a native visual match. Cast events now carry champion identity so Lux E cannot play Ashe's Hawkshot source sample; Lux still uses temporary synthesized cast feedback.
 
 Original E milestone validation: 566 source/simulation checks passed, including nine E cases spanning windup/flight/zone/burst saves, every resource rank, range/self cast, buffered/free recast, exit/reentry, timeout, R interaction, death, team vision and invalid persistence. Four focused Lux Chrome cases and eight audio cases passed, alongside production build and nested-path smoke. Those historical results did not repeat the full browser, full-match or performance suites; current result-boundary evidence is linked above.
 
@@ -82,7 +172,7 @@ The [official champion page](https://www.leagueoflegends.com/en-us/champions/lux
 
 Frame inspection shows the orb visibly separating around frames 15–18, gradual ground-ring appearance around 34–38, a ring at frame 169, and an explosion at 170. These are presentation observations. The camera moves during flight; no world coordinates, gameplay build or input log are supplied. The clip cannot distinguish manual detonation from automatic expiry, establish a units-per-second speed, choose between radius fields, or prove which callback starts the five-second lifetime. Do not calibrate simulation deadlines from the visible ring onset alone.
 
-The cached base-skin resolver identifies `Lux_Base_E_mis`, `Lux_Base_E_tar_aoe_green`, `Lux_Base_E_tar_aoe_red`, `Lux_Base_E_tar_aoe_sound`, `Lux_Base_E_tar_hit` and `Lux_Base_E_tar_nova` under `Characters/Lux/Skins/Skin0/Particles/`. These are the next presentation extraction targets. Ally/enemy ring choice, sustained sound, explosion and target hit effects must have distinct lifetimes; one generic projectile mesh is insufficient.
+The cached base-skin resolver identifies `Lux_Base_E_mis`, `Lux_Base_E_tar_aoe_green`, `Lux_Base_E_tar_aoe_red`, `Lux_Base_E_tar_aoe_sound`, `Lux_Base_E_tar_hit` and `Lux_Base_E_tar_nova` under `Characters/Lux/Skins/Skin0/Particles/`. These six resources are now pinned in the complete E particle record above; only the selected static layers are currently rendered. Ally/enemy ring choice, sustained sound, explosion and target hit effects must have distinct lifetimes; one generic projectile mesh is insufficient.
 
 ## Original integration contract and remaining audit
 
@@ -98,4 +188,4 @@ The cached base-skin resolver identifies `Lux_Base_E_mis`, `Lux_Base_E_tar_aoe_g
 
 Test every rank's resources and damage; range clamp and self cast; early, late and repeated recasts; expiry-versus-recast ordering; free recast at zero mana and while initial cooldown is active; leaving/re-entering the field; entering after it is created; overlap and weaker-slow restoration; shield absorption; Illumination; caster and target death; hidden enemies and brush; R interaction; saved windup, flight, armed zone and detonation request. Repeated full matches must retire every zone, particle and audio voice. Source-data agreement and local regression tests must remain distinct from native timing and geometry evidence.
 
-The core E lifecycle and supporting slow state are now implemented as described above. Next are source effects, Lux input/HUD, broader tactical/role AI and item builds, and native comparison. The broader full-match design and production gates remain unchanged.
+The core E lifecycle and supporting slow state are now implemented as described above. Remaining work includes the deferred source effects/audio, native input/HUD comparison, broader tactical/role AI and item builds, and native composition/timing calibration. The broader full-match design and production gates remain unchanged.

@@ -1,0 +1,310 @@
+{
+  "date": "2026-10-23",
+  "baseline": "2f99fad40ad833c3003a5cd65280f84455126c10",
+  "schema": 108,
+  "ruleset": "0d3734eb933554b6926b4ff70b7888d7a10a45a41a68ab7a10deb1d782068734",
+  "scope": "Twenty static source E emitter records across flight, both team fields and detonation, with source perimeter geometry, deterministic saved phase reconstruction, fog suppression, owned-resource retirement and finite frozen result playback. This is partial source presentation, not native composition/timing certification.",
+  "implementation": [
+    {
+      "path": "src/content/lux-e-policy.ts",
+      "sha256": "6eab69aee0bfedbccebd9c1ba1f55c63caca4623dcd9933f5b54f2a32785f78a"
+    },
+    {
+      "path": "src/content/lux-e-particle-timing.ts",
+      "sha256": "6b210c2afc9e2cf75ebd5a9aa097b5a1d60239cdd78ee7e5eb18277d25714658"
+    },
+    {
+      "path": "src/content/lux-e-particles.json",
+      "sha256": "d5571e778d735b2e85cae14f23504a5b221044affbeb65cf5c34dd93775a5601"
+    },
+    {
+      "path": "src/render/lux-e-particles.ts",
+      "sha256": "a5d4e93e2cba00c0da4a4ab0baff6789373562a0756670f6d51d3915c4740cec"
+    },
+    {
+      "path": "src/render/lux-e-source.ts",
+      "sha256": "dd75359fb9d68c526a7f0f5ec789dd71cf4f1059931bb5375e0f05e186c3b0ff"
+    },
+    {
+      "path": "src/render/lux-singularities.ts",
+      "sha256": "29225f6f8b581c88eb993674d99608ec4d0adeb926cda8f572443c457c3ade7c"
+    },
+    {
+      "path": "src/render/view.ts",
+      "sha256": "23b007f3e2975b7b4f47d24cb791c4b0a9bb27fc11f0d749d5b854f1a0ac9c75"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "309aeaa06901df49a1a4ba0f2d2d0188e75d056d44733c2a8eb150d7a41523a1"
+    },
+    {
+      "path": "tests/lux-e-particles.test.ts",
+      "sha256": "275f78428ed46f46914db0e810e1bf6399d6f6e6a0ad011b36c8d14b65a8eb37"
+    },
+    {
+      "path": "e2e/lux-e-source.spec.ts",
+      "sha256": "1d477cf21d7c14891cc08ed05b2716d291f2d7b36333f63721b46328d1bba234"
+    },
+    {
+      "path": "e2e/lux-e.spec.ts",
+      "sha256": "70667a9ceeed4141edc1a7b770e2953872319e3278948658b57eeb23bad377ef"
+    },
+    {
+      "path": "e2e/match-end-lucent.spec.ts",
+      "sha256": "1b9a667f8597b2a5aa4cb23f5809f216b76d131f5819bfb17e00489e1b9c54ac"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "24a717629aa749f04d68bffb4c42458d410bb0121938ba03341b526e919ccecd"
+    }
+  ],
+  "source": {
+    "completePin": {
+      "path": "docs/reference/lux-e-vfx.json",
+      "sha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4"
+    },
+    "coverage": {
+      "path": "docs/reference/lux-e-particle-coverage.json",
+      "sha256": "af3dacda8ce24358d0097e08a16f160bac577672da50af325bdd2ce410102363"
+    },
+    "resources": 6,
+    "emitterRecords": 65,
+    "rendered": 20,
+    "deferred": 45,
+    "sourceBins": 3,
+    "preparedTextures": 37,
+    "preparedPngBytes": 463485,
+    "runtimeTextures": 11,
+    "newRuntimeTextures": 8,
+    "newRuntimePngBytes": 168500,
+    "mesh": {
+      "path": "public/assets/models/lux-e-indicator.glb",
+      "sha256": "138062cb091396dd0160c357f6dbb6fcaf6a066451c89e95300ac41c5a456ccd"
+    },
+    "meshAudit": {
+      "path": "public/assets/models/lux-e-indicator.json",
+      "sha256": "ce49e7cc7c45b8ce279849e173139d7a16344ea51285912ca0393088f2ac0957"
+    },
+    "manifest": {
+      "path": "public/assets/reference-manifest.json",
+      "sha256": "6681f00ffdceb765cacc658cc7f89747c30f11b23c9db8a1c4b2537ced7a894d"
+    },
+    "commands": [
+      "PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/extract-lux-e-particles.py",
+      "python3 tools/assets/export-lux-e-particles.py",
+      "node tools/assets/convert-lux-e-indicator.mjs"
+    ],
+    "tools": [
+      {
+        "path": "tools/assets/extract-lux-e-particles.py",
+        "sha256": "53a226af6fae8cf0aee40e18eb898c6608c3fb23cb93073d4bfe75bd515d3010"
+      },
+      {
+        "path": "tools/assets/export-lux-e-particles.py",
+        "sha256": "9eb6115935a6da4f396f37dd47aa011b33026c61fedb264a3adc832e35f8e533"
+      },
+      {
+        "path": "tools/assets/decode-lux-e-indicator.py",
+        "sha256": "697463d8dcfc6c27fb0ef04da4b87c8b5a2795f3fc6bcdb01e5efe8bf17d6c81"
+      },
+      {
+        "path": "tools/assets/convert-lux-e-indicator.mjs",
+        "sha256": "bfcdf5f7a8222d1fa8f87ba82e7c611ddac77709de56a3286d2bc9f26f1fe29c"
+      }
+    ],
+    "repeatExtraction": {
+      "path": ".cache/lux-e-extract-final.log",
+      "sha256": "a1803989873ce78ba6a0277a38d1d1d3f682219e3a41b25b130d5e344b6aed1d"
+    },
+    "byteIdenticalRebuild": {
+      "path": ".cache/lux-e-rebuild.log",
+      "sha256": "611d48dda2f36fac64df84c4b5bb49027911a907198257920edbc3b735a5cb37"
+    }
+  },
+  "checks": {
+    "typescript": "passed via npm run test:production",
+    "unit": {
+      "passed": 1360,
+      "files": 250,
+      "newCases": 4,
+      "command": "npx vitest run --maxWorkers=1",
+      "log": {
+        "path": ".cache/lux-e-source-unit-final.log",
+        "sha256": "274488e1299bf84cc261c6a2d0e75aa987af51a2f1ef3c590b0f6c35cbe41e50"
+      }
+    },
+    "chrome": {
+      "distinctPassed": 28,
+      "newCases": 3,
+      "fullSuiteRepeated": false,
+      "commands": [
+        "npx playwright test e2e/lux-e-source.spec.ts e2e/lux-e.spec.ts e2e/match-end-lucent.spec.ts e2e/lux-wave-clear.spec.ts e2e/lux-bot.spec.ts",
+        "npx playwright test e2e/saves.spec.ts e2e/match-files.spec.ts e2e/recovery.spec.ts"
+      ],
+      "logs": [
+        {
+          "path": ".cache/lux-e-source-browser-final.log",
+          "sha256": "8ca89690a98e19b00d251c63a1709bde7e87ab935635020aeccb89408288c58e"
+        },
+        {
+          "path": ".cache/lux-e-source-regressions.log",
+          "sha256": "3476368314f10f91c79440a98dd1c143f4ef6db71d95ca36cec50c7dc7af7d73"
+        }
+      ],
+      "gpu": {
+        "materials": 20,
+        "rawProducts": true,
+        "separateFramebufferFactors": true,
+        "includes": [
+          "Palette color replacement",
+          "Locked unscrolled alpha",
+          "Independent multiplier",
+          "Source shockwave erosion",
+          "Blend modes 0/2/4 with separate alpha"
+        ],
+        "result": {
+          "path": "artifacts/lux-e-source-gpu.json",
+          "sha256": "31cd20f76c3bfad55043531bdcb7b720d92fb484728859702d56b08dbe434e32"
+        }
+      }
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 20,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png",
+      "command": "npm run test:production",
+      "log": {
+        "path": ".cache/lux-e-source-production.log",
+        "sha256": "a78e569807ecd94b7ad71e5280637226c602381dca7661a156364acb87adec08"
+      }
+    },
+    "headless": {
+      "audit": {
+        "path": "docs/reference/lux-e-source-match-audit.json",
+        "sha256": "77763261547ed86bc0c515b9c84c52bb11091195b45d803a23a038e012c225d6"
+      },
+      "checkedTicks": 780762,
+      "exactRoundTrips": 220,
+      "victories": 4,
+      "completedWithin60Minutes": 4,
+      "comparedSamples": 220,
+      "allFinalCheckpointsEqualExceptRuleset": true,
+      "roadmap100SeedGateMet": false
+    }
+  },
+  "initialFindings": {
+    "log": {
+      "path": ".cache/lux-e-source-browser.log",
+      "sha256": "bc1acd2c4f16c65995415b4514bc16a4ab72e0c3380964adc1f972637d00f2f3"
+    },
+    "passed": 8,
+    "failed": 2,
+    "findings": [
+      {
+        "cause": "The new renderer treated a GLTFLoader interleaved position/UV array as flat XYZ. The perimeter test exposed 2400 apparent corners instead of 1440; source coordinate reconstruction mixed UVs into positions.",
+        "repair": "Read source positions through getX/getY/getZ and measure actual attribute count. Browser checks now independently match source inner/outer radii 302.69735/366.64403 and 480 triangles.",
+        "trace": {
+          "path": ".cache/lux-e-source-initial-failures/lux-e-source-source-E-flig-22eac--and-retire-owned-resources/trace.zip",
+          "sha256": "7ae3d507f4873a6668dbeac3e440f029c27d43fc0f3e04fe4348c355e122ccb7"
+        }
+      },
+      {
+        "cause": "The GPU fixture used the default premultiplied clear color while its CPU blend expectation used straight color. All raw products passed; framebuffer expectations failed.",
+        "repair": "Use premultipliedAlpha:false as in the existing blend fixture, with unchanged product/blend assertions. The GPU imports the same optimized Three.js instance.",
+        "trace": {
+          "path": ".cache/lux-e-source-initial-failures/lux-e-source-all-twenty-so-2158c-separate-framebuffer-blends/trace.zip",
+          "sha256": "12d35ed02daa31eaa357190e8506b25f96e655cabf19db6d05800095e7a089c4"
+        }
+      }
+    ]
+  },
+  "diagnostics": {
+    "path": "artifacts/lux-e-source.json",
+    "sha256": "5f9739e59fb367e6fee760eb7c184b2a5bdbaccbaa8a7411404f1f0ce8df6a73"
+  },
+  "visualReview": [
+    {
+      "path": "artifacts/lux-e-source-flight.png",
+      "sha256": "5d0b5a6fbd1f1c2e13a06cc461d23b00e546685d8642da58dbd0669462a3a9a8",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/lux-e-source-armed.png",
+      "sha256": "84909c21fd51fd2f5a7343c91f25235c00adc200b71890e786a2bb3ae7fa21f8",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/lux-e-source-burst.png",
+      "sha256": "df3993be940b8e839b94e2a35a6d062222da278e48ee82806afaad47ae780ac5",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/production-lux-e-source.png",
+      "sha256": "94811f973c6322b35f3cd587d16bf8fbda6248d68bd7c0cea5f68e9e7aa45e28",
+      "reviewed": true
+    }
+  ],
+  "bundle": {
+    "gameChunkKb": 767.79,
+    "threeChunkKb": 658.75,
+    "largeChunkWarningRemains": true
+  },
+  "policies": {
+    "births": "Static burst begins on the accepted phase update; source-defined count and stateless random birth channels.",
+    "attachment": "Local source origin 100 units above terrain, captured cast frame, source arbitrary-quad rotations and camera-facing axes.",
+    "perimeter": "Exact authored XYZ/UV; source scale twelve, terrain-projected with two-unit lift. Not resized to the gameplay radius.",
+    "fog": "Enemy center must be observed; all three triangle corners must also be observed. Saved phase continues while hidden.",
+    "retention": "43 simulation ticks conservatively bound the longest selected 0.7-second burst. Terminal view uses its separate presentation clock.",
+    "materialDefaults": "Palette row mapping and erosion feather widths one/slice width1.5 remain explicit adapters. Native uniform defaults/samplers are not verified.",
+    "phaseStops": "Selected layers replace immediately at phase changes. Source linger fields are retained but flight/field stop tails are not yet rendered."
+  },
+  "limits": [
+    "Four seeds do not certify the 100-seed gate, natural human play, balance, full-match quality or native audiovisual/input parity.",
+    "Headless elapsed time and paused screenshots are not browser performance data.",
+    "The six complete champions, quests, epic objectives, complete team strategy, offline delivery and full-match browser/performance acceptance remain unfinished.",
+    "The 45 deferred emitter records include moving emitters, distortion, additional static layers, target-hit dispatch and source E audio. The complete E composition remains unfinished.",
+    "Source texture/mesh identity, local GPU math and screenshots do not prove native attachment, dispatch, composition, input timing or audio fidelity.",
+    "Schema108 fields, gameplay damage/resources/cooldowns, flight/zone clocks, slow, sight and bot policy remain unchanged; the presentation retention bound changes the fingerprint."
+  ]
+}

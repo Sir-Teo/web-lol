@@ -21,6 +21,14 @@ Strict history validation remains intact. The wave-clear/birth-history changes
 keep schema 108 while changing the simulation fingerprint. See the
 [wave-clear evidence](reference/lux-wave-clear-verification.json).
 
+The static source E layers reuse existing flight/arrival/detonation clocks. Their
+longest selected burst is 0.7 seconds, so the presentation-only retained interval
+is now 43 ticks rather than eighteen. Schema 108 fields are unchanged; the
+fingerprint changes. Winning cancellation still removes active E and retains only
+accepted unexpired bursts. Source geometry/color/multiplier buffers restore
+without replaying gameplay, and terminal presentation retires them independently
+of saved simulation. See [E source layers](LUX-E.md#static-source-particle-adapter--october-23-2026).
+
 Schema 107 introduced five-position assignments and bounded observed camp memory.
 Each 5v5 team has one of every role; junglers retain a route cursor, current home
 camp, quiet clock and at most six observed-empty records. Validation rejects

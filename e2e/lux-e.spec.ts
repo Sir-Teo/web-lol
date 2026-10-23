@@ -29,7 +29,7 @@ test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', as
       action,
       inFlight: flight.arrivalTick === null,
       visible: model.visible,
-      ringVisible: model.children[1].visible,
+      ringVisible: !!model.getObjectByName('Lucent ally 7 teamring_circle1'),
     };
   });
   expect(cast).toEqual({ action: 'spell3', inFlight: true, visible: true, ringVisible: false });
@@ -42,7 +42,7 @@ test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', as
       model = g.view.luxSingularities.models.get(zone.id);
     const target = w.units.find((u: any) => u.team === 'red');
     return {
-      ring: model.children[1].visible,
+      ring: !!model.getObjectByName('Lucent ally 7 teamring_circle1'),
       hp: target.hp,
       maxHp: target.maxHp,
       slow: w.slowFactor(target),
@@ -53,7 +53,7 @@ test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', as
   expect(armed.hp).toBe(armed.maxHp);
   expect(armed.slow).toBe(0.75);
   expect(armed.arrival).toBe(29);
-  await page.screenshot({ path: 'artifacts/lux-e-zone.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-source-zone.png' });
   const detonation = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world;
@@ -66,7 +66,7 @@ test('Lux E presents Spell3, flight, an armed slow field and recast cleanup', as
     g.view.render(w, 1, performance.now() / 1000);
     const hit = target.hp < target.maxHp;
     const marked = target.illumination.length === 1;
-    w.step(18);
+    w.step(43);
     g.view.render(w, 1, performance.now() / 1000);
     return {
       hit,

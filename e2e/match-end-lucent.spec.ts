@@ -39,6 +39,7 @@ for (const armed of [false, true]) {
         lux: lux.id,
         target: target.id,
         getDisposed: () => disposed,
+        ownedResources: model.children.length * 2,
       };
       return {
         arrived: zone.arrivalTick !== null,
@@ -72,6 +73,7 @@ for (const armed of [false, true]) {
         zones: w.singularities.length,
         models: g.view.luxSingularities.models.size,
         disposed: p.getDisposed(),
+        ownedResources: p.ownedResources,
         unharmed: target.hp === hp,
         marks: target.illumination.length,
         exact: restored.snapshot() === saved,
@@ -81,11 +83,12 @@ for (const armed of [false, true]) {
       winner: 'blue',
       zones: 0,
       models: 0,
-      disposed: 4,
       unharmed: true,
       marks: 0,
       exact: true,
     });
+    expect(result.ownedResources).toBeGreaterThan(0);
+    expect(result.disposed).toBe(result.ownedResources);
     await page.getByRole('heading', { name: 'Victory', exact: true }).waitFor();
     const [download] = await Promise.all([
       page.waitForEvent('download'),
@@ -146,17 +149,17 @@ test('an already-detonated E burst finishes and disposes after victory while the
       v.render(world, 1, start + age);
       const model = v.luxSingularities.models.get(zone.id);
       if (!model) return null;
-      const orb = model.children[0],
-        ring = model.children[1];
       return {
-        scale: orb.scale.x,
-        opacity: orb.material.opacity,
-        ring: ring.visible,
-        matrix: [...orb.matrix.elements],
+        layers: model.children.map((m: any) => ({
+          name: m.name,
+          positions: Array.from(m.geometry.getAttribute('position').array),
+          color: m.material.uniforms.particleColor.value.toArray(),
+        })),
       };
     };
     const before = sample(w, 0);
     const model = v.luxSingularities.models.get(zone.id);
+    const ownedResources = model.children.length * 2;
     let disposed = 0;
     for (const child of model.children) {
       child.geometry.addEventListener('dispose', () => disposed++);
@@ -164,7 +167,7 @@ test('an already-detonated E burst finishes and disposes after victory while the
     }
     const later = sample(w, 0.1);
     const repeated = sample(w, 0.1);
-    const expired = sample(w, 0.6);
+    const expired = sample(w, 0.8);
     const models = v.luxSingularities.models.size;
     const copy = w.constructor.fromSnapshot(saved, w.battlefield);
     const replayed = sample(copy, 1);
@@ -177,19 +180,19 @@ test('an already-detonated E burst finishes and disposes after victory while the
       expired,
       models,
       disposed,
+      ownedResources,
       replayed,
       unchanged: w.snapshot() === saved && copy.snapshot() === saved,
       hpUnchanged: target.hp === hp,
     };
   });
   expect(result.before).not.toBeNull();
-  expect(result.before!.ring).toBe(true);
-  expect(result.later!.scale).toBeGreaterThan(result.before!.scale);
-  expect(result.later!.opacity).toBeLessThan(result.before!.opacity);
+  expect(result.before!.layers.length).toBeGreaterThan(0);
+  expect(result.later).not.toEqual(result.before);
   expect(result.repeated).toEqual(result.later);
   expect(result.expired).toBeNull();
   expect(result.models).toBe(0);
-  expect(result.disposed).toBe(4);
+  expect(result.disposed).toBe(result.ownedResources);
   expect(result.replayed).toEqual(result.before);
   expect(result.unchanged).toBe(true);
   expect(result.hpUnchanged).toBe(true);

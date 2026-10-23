@@ -1,12 +1,12 @@
 # Development status
 
-Last updated: October 22, 2026 (America/New_York).
+Last updated: October 23, 2026 (America/New_York).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,356 source/simulation/geometry checks and 31 targeted Chrome cases for wave clearing, combat, role/team decisions, checkpoints and result playback/export. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,360 source/simulation/geometry checks and 28 targeted Chrome cases for E source layers, GPU products/blends, wave clearing, saves, file transfer, graphics recovery and result playback/export. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -21,7 +21,43 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-Lux now [clears observed minion groups with E](LUX-BOTS.md#observed-e-wave-clearing--october-22-2026)
+Lux E now uses [twenty static source layers](LUX-E.md#static-source-particle-adapter--october-23-2026)
+in place of its temporary sphere/line presentation. Flight flashes/glows,
+allied/enemy fields, an authored 480-triangle perimeter with team textures and
+detonation layers reconstruct from saved phase clocks. The complete pin retains
+six resources, 65 emitters, 37 textures and two mesh identities. The coverage
+inventory explicitly defers 45 records: moving emitters, distortion, additional
+layers, target-hit capture and source E audio remain open.
+
+Four new unit cases cover source identities, deterministic seeks, team variants
+and saved continuation through the longer visual tail. The selected 0.7-second
+burst needs a conservative **43-tick** retained interval. Schema 108 fields are
+unchanged; the fingerprint changes. Spell damage, costs, cooldowns, flight/zone
+timing, slow, sight and bot decisions are unchanged. The first browser pass
+caught an interleaved-position/UV read in the new renderer; the repair preserves
+XYZ and verifies source-measured radii. A GPU fixture's premultiplied clear color
+was also corrected. All twenty materials pass raw-product and separate RGB/alpha
+blend checks, including palette product, locked alpha and erosion. Attachment,
+defaults and matched native composition remain unverified.
+
+All **1,360 unit tests across 250 files**, **28 distinct targeted Chrome cases**
+and nested-path production smoke pass. Production casts/recasts E through normal
+input and requests only its eight new runtime images and source mesh, without
+development hooks. Four captures were visually reviewed, including the actual
+production Rift field. New runtime images add **168,500 bytes** and the mesh
+**29,532 bytes**. Game/Three chunks are **767.79/658.75 KB**; the size warning
+remains. Full Chrome, performance, offline and native comparison gates remain
+unaccepted. See the [source-layer ledger](reference/lux-e-source-verification.json).
+
+Four fresh frozen-build matches check **780,762 ticks** and **220 exact saved
+round trips**, with all four victories within one hour. Every recorded sample,
+winner and terminal tick matches `2f99fad`, and all four complete terminal
+checkpoints are identical except for the expected fingerprint. This supports
+gameplay neutrality for these seeds, not the 100-seed gate or a native/full-match
+acceptance claim. The [source-layer match audit](reference/lux-e-source-match-audit.json)
+retains reports, checkpoint hashes and baseline comparisons.
+
+At `2f99fad`, Lux gained [observed minion-group E decisions](LUX-BOTS.md#observed-e-wave-clearing--october-22-2026)
 through normal queued casts and free armed recasts. Ordinary placement preserves
 mana for combat, yields ready basic last hits and avoids nearly dead or already
 claimed farm. Supports leave nearby carry farm except for observed pressure at

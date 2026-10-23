@@ -266,6 +266,272 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3364.png",
       "sha256": "e4361d1e905557df0b4eebc224665f3fab43ac6106f4ec3536bd785d593b26ec",
       "bytes": 5368
+    },
+    {
+      "path": "/assets/effects/lux-illumination-diana_base_r_glow.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/diana_base_r_glow.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f",
+      "bytes": 39400
+    },
+    {
+      "path": "/assets/effects/lux-r-diana_skin11_r_glow.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/diana_skin11_r_glow.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f",
+      "bytes": 39400
+    },
+    {
+      "path": "/assets/effects/lux-hit-flame_trail_gradient.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/flame_trail_gradient.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "bb81b41ececb203f908b94b34fce9cd47cf252432210524b6ae3dbad7f98877a",
+      "bytes": 3566
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_circle_normal.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_circle_normal.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "774081ee05a4b4ed887ed78967236caee104e01f1a10890898fb74723dcbf92f",
+      "bytes": 11486
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_distort.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_distort.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "cc27e89b201e548f544cd4844d9b0b27e5e4c5b615e92b78a36aa60ec603aa5e",
+      "bytes": 5196
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_distort_rgba.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_distort_rgba.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "c95e5e618bf8e4904df4dff475a1b414adc0f914c89b937b73b2b09f8622c886",
+      "bytes": 126
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_flame_ring.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "54910db2c3d7597d0048c4915312b9078185a358f328ac4c1540b66abab236f3",
+      "bytes": 16496
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_flare.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_flare.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "824c7cb647eb8ceb839bc28810599a811f59284b037bd98ef6e71231eeafd4ca",
+      "bytes": 10041
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_flash.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_flash.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "c61a3a3c986b1bdfbf667ed70e275d4cf4f52270261b2cd945facde9b338ce69",
+      "bytes": 17352
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_glow.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_glow.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "e79baf8b8238e1d3bbf93d01f03fe6570dceb091172811de92aa982d28049899",
+      "bytes": 12659
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_indicator_blue.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "7cbf7483e93565fd5006ac8c7da3c829c6df4f38c4cd63acf4c1d3e729c60bd9",
+      "bytes": 406
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_indicator_red.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "72a505121e0975aeedf832e93bcdbadcc07939e63e2c8835323fe844d15924fe",
+      "bytes": 325
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_mote.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_mote.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "7bc487eb3bece376a141ff810194783e1c1319fc1b00e05c64858554282e0e25",
+      "bytes": 7381
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_e_small_mote.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_small_mote.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "f92a19554b18edc87a509aa238ee49104be1ed2016b2a3398c8b683370eabbd7",
+      "bytes": 1695
+    },
+    {
+      "path": "/assets/effects/lux-binding-target-lux_base_light_sparks.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_light_sparks.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "1ef4e7cac79665be8b79ce50d2f3401e30851df5eaab5ff2521cd4b536037784",
+      "bytes": 8917
+    },
+    {
+      "path": "/assets/effects/lux-illumination-lux_base_p_rainbowray.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_p_rainbowray.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "53cc40c8a4667eeec03910f0205c613b7787488ba0749ce96ca70b29c5a4d88d",
+      "bytes": 12951
+    },
+    {
+      "path": "/assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_r_rainbowmult.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "5dac684daf04d9667f40197e9e85b7e98b423075acd1237de9cc49b2b6e43a93",
+      "bytes": 220
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_ring_00_erosion.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "cfc642e98f322ff44394731b8b830386db2498ef769bf60b2c30c1ef6874c209",
+      "bytes": 103401
+    },
+    {
+      "path": "/assets/effects/lux-hit-lux_base_starfilter_01.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_starfilter_01.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "0e18403a369df6a1bfcca493394254e7caee6dcc6e275c249be7ede21d7ce41d",
+      "bytes": 18719
+    },
+    {
+      "path": "/assets/effects/lux-e-lux_base_w_glow.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_w_glow.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "e9af9ca15a95d39131a28a09a8a23681aa66402d52e80ee2efa918ba743f418d",
+      "bytes": 22588
+    },
+    {
+      "path": "/assets/effects/lux-r-lux_base_z_bokeh_dots_4x4.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_z_bokeh_dots_4x4.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "150e8ccc789df20d45a589e2dfebe2fb3950d3ccfcfc10b332e0eb7c7cbecaae",
+      "bytes": 8711
+    },
+    {
+      "path": "/assets/effects/lux-e-sphere_e_01.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/sphere_e_01.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "0b916a62ec44f9588fde7c177a252084f87f6fb67df614ae301f58ad78674826",
+      "bytes": 15283
+    },
+    {
+      "path": "/assets/effects/lux-e-color_lux_e_shield.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/skin15/particles/color_lux_e_shield.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "6de303da8c739c73cea6554da13b40ad92973494dafab72d94c841d60d6562c8",
+      "bytes": 1779
+    },
+    {
+      "path": "/assets/effects/lux-e-aura_self.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/particles/aura_self.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "cc27e89b201e548f544cd4844d9b0b27e5e4c5b615e92b78a36aa60ec603aa5e",
+      "bytes": 5196
+    },
+    {
+      "path": "/assets/effects/lux-e-color-hold.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/particles/color-hold.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "38fb43fbd4b078237a94650903231de41f9ac8ed0c2550b3581cd41b6e9ff501",
+      "bytes": 79
+    },
+    {
+      "path": "/assets/effects/lux-hit-color-rampdown.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/particles/color-rampdown.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2",
+      "bytes": 168
+    },
+    {
+      "path": "/assets/effects/lux-e-color-rampdown32.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/particles/color-rampdown32.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "4da63593de3e58c92cb245614205b9346b11d0c1b2fea456cebd054a4fb0c744",
+      "bytes": 133
+    },
+    {
+      "path": "/assets/effects/lux-e-distort-shockwave.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/particles/distort-shockwave.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "066b54203e6736710d0837ff4bc457a73f1105745419df29822331c03b460d68",
+      "bytes": 21694
+    },
+    {
+      "path": "/assets/effects/lux-e-rainbowflash.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/particles/rainbowflash.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "d87f0825a4922e3159726596905a27c3c79bf64f50fafae4ef0ae7c0614f4d65",
+      "bytes": 9209
+    },
+    {
+      "path": "/assets/effects/lux-e-alpha_12.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/alpha_12.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "e7221f8e0c6c163efb68206440565b2403d6ebbf231518b27461c53513717e14",
+      "bytes": 236
+    },
+    {
+      "path": "/assets/effects/lux-e-black.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/black.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "87a21984814bc66d131e588fc3f3f93e6bf9dc509a8555a07e4830227b08457e",
+      "bytes": 78
+    },
+    {
+      "path": "/assets/effects/lux-e-color-hit-mana.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/color-hit-mana.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "6d40c0cfdbc1e851e009a8dfd0a4d0e8e3d3103b8541ff4eabf74395c971b9a9",
+      "bytes": 152
+    },
+    {
+      "path": "/assets/effects/lux-e-color-rampup32.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/color-rampup32.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "386655042d90effc430c7de704962784a301f889d672e4337bcecdca7804b652",
+      "bytes": 231
+    },
+    {
+      "path": "/assets/effects/lux-e-distort-pinch_2.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/distort-pinch_2.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "04f81783304f50979ae8cca6d428af38d91e02bf7c45ab6e00cdcb2740c68c0a",
+      "bytes": 33351
+    },
+    {
+      "path": "/assets/effects/lux-e-flare-rainbow_orange_03.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/flare-rainbow_orange_03.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "e413108b913504e6655a5d1dbcdae0cb2799898e38239a128965553dc2a2b29a",
+      "bytes": 4577
+    },
+    {
+      "path": "/assets/effects/lux-hit-hiteffect.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/hiteffect.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "8352c442d9dec3a9ea5dbf131ee140cdd82765e12cdb5bc8b730832c1a67a723",
+      "bytes": 22555
+    },
+    {
+      "path": "/assets/effects/lux-e-rainbowhalo.png",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/shared/particles/rainbowhalo.tex",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "ff8005ff5d8a1ac3ea014727c6ac2c6617997bc5eb1d9c330f041f00bdcf2dcc",
+      "bytes": 7728
+    },
+    {
+      "path": "/assets/models/lux-e-indicator.glb",
+      "source": "Riot 16.18.8175716 Lux.wad.client: assets/characters/lux/skins/base/particles/lux_base_e_indicator.scb",
+      "provenance": "docs/reference/lux-e-vfx.json",
+      "sha256": "138062cb091396dd0160c357f6dbb6fcaf6a066451c89e95300ac41c5a456ccd",
+      "bytes": 29532
     }
   ]
 }

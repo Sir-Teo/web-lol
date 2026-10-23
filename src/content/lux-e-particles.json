@@ -1,0 +1,3798 @@
+[
+  {
+    "role": "flight",
+    "record": "Lux_E_mis",
+    "index": 2,
+    "name": "Core_Glow",
+    "count": 1,
+    "life": 1.0,
+    "size": {
+      "value": [
+        35.0,
+        65.0,
+        20.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            0.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.6499999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": false,
+    "primitive": "camera",
+    "local": true,
+    "passOrder": 5,
+    "blend": 4,
+    "misc": 0,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "row": 0.15
+    },
+    "erosion": null
+  },
+  {
+    "role": "flight",
+    "record": "Lux_E_mis",
+    "index": 3,
+    "name": "Core_Glow1",
+    "count": 1,
+    "life": 1.0,
+    "size": {
+      "value": [
+        100.0,
+        100.0,
+        50.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            0.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.36899399757385254
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": false,
+    "primitive": "camera",
+    "local": true,
+    "passOrder": -10,
+    "blend": 2,
+    "misc": 0,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "row": 1.05
+    },
+    "erosion": null
+  },
+  {
+    "role": "flight",
+    "record": "Lux_E_mis",
+    "index": 4,
+    "name": "LaunchFlash",
+    "count": 2,
+    "life": 1.0,
+    "size": {
+      "value": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        60.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        50.0,
+        20.0,
+        20.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.33333298563957214,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.33333298563957214,
+          1.0,
+          0.3098039925098419
+        ],
+        [
+          0.0,
+          0.1542481780052185,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": false,
+    "primitive": "camera",
+    "local": true,
+    "passOrder": 2,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flare.png",
+    "lookup": "",
+    "uvMode": 2,
+    "uvOffset": {
+      "value": [
+        1.0,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "flight",
+    "record": "Lux_E_mis",
+    "index": 6,
+    "name": "Temp_GroundGlow",
+    "count": 1,
+    "life": 1.0,
+    "size": {
+      "value": [
+        120.0,
+        120.0,
+        210.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.7019609808921814,
+          1.0,
+          0.103382907807827
+        ],
+        [
+          1.0,
+          0.7019609808921814,
+          1.0,
+          0.2610059976577759
+        ],
+        [
+          1.0,
+          0.7019609808921814,
+          1.0,
+          0.2610059976577759
+        ],
+        [
+          1.0,
+          0.7019609808921814,
+          1.0,
+          0.15660360455513
+        ],
+        [
+          1.0,
+          0.7019609808921814,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": false,
+    "primitive": "camera",
+    "local": false,
+    "passOrder": -5,
+    "blend": 4,
+    "misc": 0,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "row": 0.95
+    },
+    "erosion": null
+  },
+  {
+    "role": "flight",
+    "record": "Lux_E_mis",
+    "index": 8,
+    "name": "Temp_GroundGlow1",
+    "count": 1,
+    "life": 1.0,
+    "size": {
+      "value": [
+        400.0,
+        400.0,
+        160.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0,
+          2.0
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        1.0,
+        1.0,
+        0.39000535011291504
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.07999999821186066,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.06999313086271286
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          1.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          1.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "quad",
+    "local": false,
+    "passOrder": -99,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-illumination-diana_base_r_glow.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0.10000000149011612,
+          1.0
+        ],
+        [
+          0.10000000149011612,
+          1.0
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          -0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        1.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "ally",
+    "record": "Lux_E_tar_aoe_green",
+    "index": 2,
+    "name": "LaunchFlash",
+    "count": 1,
+    "life": 5.400000095367432,
+    "size": {
+      "value": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        60.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        50.0,
+        20.0,
+        20.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.8899999856948853,
+        0.9300000071525574,
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.10000000149011612,
+          0.10000000149011612,
+          1.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.9176470637321472,
+        0.7960784435272217,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.05000000074505806,
+        0.5,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.6599984765052795
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7900053262710571
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.4352940022945404,
+          0.4627450108528137,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": true,
+    "primitive": "camera",
+    "local": true,
+    "passOrder": 5,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flare.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "ally",
+    "record": "Lux_E_tar_aoe_green",
+    "index": 3,
+    "name": "Temp_GroundGlow",
+    "count": 1,
+    "life": 5.300000190734863,
+    "size": {
+      "value": [
+        450.0,
+        450.0,
+        450.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            90.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          0.6313729882240295,
+          1.0,
+          0.9568629860877991,
+          0.0
+        ],
+        [
+          0.6313729882240295,
+          1.0,
+          0.9568629860877991,
+          0.10980399698019028
+        ],
+        [
+          0.6313729882240295,
+          1.0,
+          0.9568629860877991,
+          0.1450980007648468
+        ],
+        [
+          0.6313729882240295,
+          1.0,
+          0.9568629860877991,
+          0.49799299240112305
+        ],
+        [
+          0.6313729882240295,
+          1.0,
+          0.9568629860877991,
+          0.24710500240325928
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": true,
+    "primitive": "quad",
+    "local": false,
+    "passOrder": -5,
+    "blend": 0,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "row": 0.95
+    },
+    "erosion": null
+  },
+  {
+    "role": "ally",
+    "record": "Lux_E_tar_aoe_green",
+    "index": 4,
+    "name": "Temp_GroundGlow1",
+    "count": 1,
+    "life": 5.400000095367432,
+    "size": {
+      "value": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            90.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      25.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.9200000166893005,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.7450980544090271,
+        0.5215686559677124,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.39200401306152344
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.3136032223701477
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "camera",
+    "local": false,
+    "passOrder": -2,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "ally",
+    "record": "Lux_E_tar_aoe_green",
+    "index": 7,
+    "name": "teamring_circle1",
+    "count": 1,
+    "life": 6.0,
+    "size": {
+      "value": [
+        12.0,
+        0.0,
+        12.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      -100.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.05000000074505806,
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.6000000238418579,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6000000238418579,
+          1.0,
+          0.3000076413154602
+        ],
+        [
+          0.0,
+          0.6000000238418579,
+          1.0,
+          0.3000076413154602
+        ],
+        [
+          0.0,
+          0.0,
+          0.49803900718688965,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "mesh",
+    "local": true,
+    "passOrder": 0,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "ally",
+    "record": "Lux_E_tar_aoe_green",
+    "index": 8,
+    "name": "Temp_GroundGlow2",
+    "count": 1,
+    "life": 5.5,
+    "size": {
+      "value": [
+        250.0,
+        100.0,
+        160.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      0.0,
+      -120.0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          2.0,
+          2.0,
+          2.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        1.0,
+        1.0,
+        0.14999619126319885
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.07999999821186066,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.06999313086271286
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          1.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          1.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "quad",
+    "local": true,
+    "passOrder": -99,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-illumination-diana_base_r_glow.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0.10000000149011612,
+          1.0
+        ],
+        [
+          0.10000000149011612,
+          1.0
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          -0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        1.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "enemy",
+    "record": "Lux_E_tar_aoe_red",
+    "index": 4,
+    "name": "LaunchFlash",
+    "count": 1,
+    "life": 5.400000095367432,
+    "size": {
+      "value": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        60.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        50.0,
+        20.0,
+        20.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.8899999856948853,
+        0.9300000071525574,
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.10000000149011612,
+          0.10000000149011612,
+          1.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.3490196168422699,
+        0.3490196168422699,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.05000000074505806,
+        0.5,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.6599984765052795
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7900053262710571
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.4352940022945404,
+          0.4627450108528137,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": true,
+    "primitive": "camera",
+    "local": true,
+    "passOrder": 5,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flare.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "enemy",
+    "record": "Lux_E_tar_aoe_red",
+    "index": 8,
+    "name": "Temp_GroundGlow",
+    "count": 1,
+    "life": 5.300000190734863,
+    "size": {
+      "value": [
+        450.0,
+        450.0,
+        450.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            90.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.7058823704719543,
+          0.7058823704719543,
+          0.0
+        ],
+        [
+          1.0,
+          0.7058823704719543,
+          0.7058823704719543,
+          0.10980399698019028
+        ],
+        [
+          1.0,
+          0.7058823704719543,
+          0.7058823704719543,
+          0.1450980007648468
+        ],
+        [
+          1.0,
+          0.7058823704719543,
+          0.7058823704719543,
+          0.49799299240112305
+        ],
+        [
+          1.0,
+          0.7058823704719543,
+          0.7058823704719543,
+          0.24710500240325928
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": true,
+    "primitive": "quad",
+    "local": false,
+    "passOrder": -5,
+    "blend": 0,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "row": 0.95
+    },
+    "erosion": null
+  },
+  {
+    "role": "enemy",
+    "record": "Lux_E_tar_aoe_red",
+    "index": 9,
+    "name": "Temp_GroundGlow1",
+    "count": 1,
+    "life": 5.400000095367432,
+    "size": {
+      "value": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            90.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      25.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.9200000166893005,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.13725490868091583,
+        0.13725490868091583,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.39200401306152344
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.3136032223701477
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "camera",
+    "local": false,
+    "passOrder": -2,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "enemy",
+    "record": "Lux_E_tar_aoe_red",
+    "index": 10,
+    "name": "Temp_GroundGlow2",
+    "count": 1,
+    "life": 5.5,
+    "size": {
+      "value": [
+        250.0,
+        100.0,
+        160.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      0.0,
+      -120.0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          2.0,
+          2.0,
+          2.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.25882354378700256,
+        0.25882354378700256,
+        0.14901961386203766
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.07999999821186066,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.06999313086271286
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          1.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          1.0
+        ],
+        [
+          1.0,
+          0.9100022912025452,
+          0.7300068736076355,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "quad",
+    "local": true,
+    "passOrder": -99,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-illumination-diana_base_r_glow.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0.10000000149011612,
+          1.0
+        ],
+        [
+          0.10000000149011612,
+          1.0
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          -0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        1.0,
+        1.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "enemy",
+    "record": "Lux_E_tar_aoe_red",
+    "index": 16,
+    "name": "teamring_circle",
+    "count": 1,
+    "life": 6.0,
+    "size": {
+      "value": [
+        12.0,
+        0.0,
+        12.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      -100.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.05000000074505806,
+        0.949999988079071,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.6000000238418579
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.6000000238418579
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "mesh",
+    "local": true,
+    "passOrder": 0,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_indicator_red.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "burst",
+    "record": "Lux_E_tar_nova",
+    "index": 1,
+    "name": "CenterFlare",
+    "count": 1,
+    "life": 0.5,
+    "size": {
+      "value": [
+        500.0,
+        500.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        1.0,
+        90.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      -100.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.3803921639919281,
+        0.9490196108818054,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.6189969778060913
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.6189969778060913
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": false,
+    "primitive": "quad",
+    "local": true,
+    "passOrder": -2,
+    "blend": 4,
+    "misc": 0,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "row": 0.15
+    },
+    "erosion": null
+  },
+  {
+    "role": "burst",
+    "record": "Lux_E_tar_nova",
+    "index": 2,
+    "name": "Flame_Shockwave",
+    "count": 2,
+    "life": 0.4000000059604645,
+    "size": {
+      "value": [
+        340.0,
+        300.0,
+        300.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        0.0,
+        90.0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      -100.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.25,
+        0.6000000238418579,
+        1.0
+      ],
+      "values": [
+        [
+          0.5,
+          0.5,
+          0.0
+        ],
+        [
+          1.25,
+          1.25,
+          0.0
+        ],
+        [
+          1.5,
+          1.5,
+          0.0
+        ],
+        [
+          1.600000023841858,
+          1.600000023841858,
+          0.0
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.7799954414367676,
+        0.5000076293945312,
+        0.7100023031234741
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.9607843160629272,
+          0.9607843160629272,
+          0.9607843160629272,
+          1.0
+        ],
+        [
+          1.0,
+          0.9058823585510254,
+          0.7921568751335144,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": false,
+    "primitive": "quad",
+    "local": true,
+    "passOrder": 0,
+    "blend": 4,
+    "misc": 0,
+    "texture": "assets/effects/lux-e-sphere_e_01.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "assets/effects/lux-e-lux_base_e_flame_ring.png",
+    "multScale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.699999988079071,
+          0.699999988079071
+        ],
+        [
+          0.8500000238418579,
+          0.8500000238418579
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": {
+      "texture": "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "drive": {
+        "times": [
+          0.0,
+          0.10000000149011612,
+          0.5,
+          1.0
+        ],
+        "values": [
+          [
+            0.0
+          ],
+          [
+            0.5
+          ],
+          [
+            0.8500000238418579
+          ],
+          [
+            1.0
+          ]
+        ]
+      },
+      "mix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "role": "burst",
+    "record": "Lux_E_tar_nova",
+    "index": 3,
+    "name": "Temp_GroundGlow",
+    "count": 1,
+    "life": 0.5,
+    "size": {
+      "value": [
+        450.0,
+        450.0,
+        450.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0
+          ],
+          "values": [
+            90.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      -100.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          0.75,
+          0.75,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.15000000596046448,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.3960939943790436
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.3058980107307434
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "quad",
+    "local": false,
+    "passOrder": -5,
+    "blend": 2,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_flash.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "row": 0.95
+    },
+    "erosion": null
+  },
+  {
+    "role": "burst",
+    "record": "Lux_E_tar_nova",
+    "index": 9,
+    "name": "CenterFlare2",
+    "count": 1,
+    "life": 0.699999988079071,
+    "size": {
+      "value": [
+        430.0,
+        430.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        1.0,
+        90.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      -100.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        1.0
+      ],
+      "values": [
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.149999976158142,
+          1.149999976158142,
+          1.149999976158142
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.9600061178207397,
+        0.7600061297416687,
+        0.4099946618080139
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.6000000238418579
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "quad",
+    "local": true,
+    "passOrder": 5,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_distort.png",
+    "lookup": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  },
+  {
+    "role": "burst",
+    "record": "Lux_E_tar_nova",
+    "index": 10,
+    "name": "CenterFlare3",
+    "count": 1,
+    "life": 0.4000000059604645,
+    "size": {
+      "value": [
+        400.0,
+        400.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        90.0,
+        1.0,
+        90.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      -100.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        1.0
+      ],
+      "values": [
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.149999976158142,
+          1.149999976158142,
+          1.149999976158142
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        1.0,
+        0.9607843160629272,
+        0.7607843279838562,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.029999999329447746,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.6000000238418579
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "ground": true,
+    "primitive": "quad",
+    "local": true,
+    "passOrder": 6,
+    "blend": 4,
+    "misc": 1,
+    "texture": "assets/effects/lux-e-lux_base_e_distort.png",
+    "lookup": "",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
+  }
+]

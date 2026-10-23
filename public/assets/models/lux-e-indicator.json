@@ -1,0 +1,41 @@
+{
+  "source": {
+    "path": "assets/characters/lux/skins/base/particles/lux_base_e_indicator.scb",
+    "wadPathHash": "843155c0fcce22a5",
+    "sha256": "aa6c1420fd9db6b9285bedc41dabaec7a52632a98851769d6a05695397f53231",
+    "bytes": 52032
+  },
+  "output": {
+    "path": "assets/models/lux-e-indicator.glb",
+    "bytes": 29532,
+    "sha256": "138062cb091396dd0160c357f6dbb6fcaf6a066451c89e95300ac41c5a456ccd"
+  },
+  "unitScale": 0.01,
+  "vertices": 320,
+  "triangles": 480,
+  "flags": 2,
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "headerBounds": [
+    -30.552797317504883,
+    0,
+    -30.553667068481445,
+    61.105594635009766,
+    0,
+    61.105594635009766
+  ],
+  "materials": [
+    "lambert1"
+  ],
+  "positionFloat32Sha256": "f187e2990ca851dc449cd80f105861c199ad2f37c86149c84d9b358ecbe500cf",
+  "uvFloat32Sha256": "112036e032d07f0f3d67c09b923f300bfb4e11028ce615e9cdfe70cac6618352",
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  },
+  "note": "Source winding, coordinates and face-corner UVs retained; no emitter transform, radius fit, axis reflection or pivot offset baked in."
+}

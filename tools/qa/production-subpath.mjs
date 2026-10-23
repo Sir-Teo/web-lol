@@ -73,6 +73,7 @@ try {
     scheduledRaptorRequests = [],
     scheduledKrugRequests = [],
     scheduledScuttlerRequests = [],
+    lucentSourceAssets = new Set(),
     recordings = new Set();
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {
@@ -107,6 +108,11 @@ try {
     if (response.status() >= 400) failed.push(`${response.status()} ${response.url()}`);
     if (response.ok() && /\/assets\/audio\/.*\.wav$/.test(response.url()))
       recordings.add(response.url());
+    if (
+      response.ok() &&
+      /\/assets\/(?:effects\/lux-e-[^/]+\.png|models\/lux-e-indicator\.glb)$/.test(response.url())
+    )
+      lucentSourceAssets.add(new URL(response.url()).pathname.replace(prefix, ''));
   });
   await page.goto(`${base}map.html`);
   await page.locator('#status').waitFor({ state: 'hidden', timeout: 60000 });
@@ -252,6 +258,30 @@ try {
     preparedCompanionRequests.every((url) => url.endsWith('/sru-jungle-companions-skin2-base.glb'))
   );
   const roleCompanionRequests = preparedCompanionRequests.length;
+  // The normal restart supplies a fresh level-one skill point. Exercise E through
+  // actual production input without development hooks or granting experience.
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
+  await page.keyboard.press('Control+e');
+  await page.mouse.move(980, 470);
+  await page.keyboard.down('e');
+  await page.keyboard.up('e');
+  await page.waitForFunction(
+    () => document.querySelector('[data-ability="e"] .cooldown-text')?.textContent === 'RECAST'
+  );
+  await page.waitForTimeout(1800);
+  await page.screenshot({ path: 'artifacts/production-lux-e-source.png' });
+  await page.locator('[data-ability="e"]').click();
+  await page.waitForFunction(
+    () => Number(document.querySelector('[data-ability="e"] .cooldown-text')?.textContent) > 0
+  );
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert(lucentSourceAssets.has('assets/models/lux-e-indicator.glb'));
+  assert.equal(
+    [...lucentSourceAssets].filter((p) => p.endsWith('.png')).length,
+    8,
+    'Only the eight new selected E textures should load; prepared distortion/mote assets remain unused'
+  );
+  await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   await Promise.all([
     page.waitForEvent('load'),
@@ -400,6 +430,8 @@ try {
       practiceScheduledRigs: new Set(practiceRigs).size,
       realHawkshotCast: true,
       realLuxBindingCast: true,
+      realLuxSingularityCastAndRecast: true,
+      lucentSourceAssets: [...lucentSourceAssets].sort(),
       luxLaneRestart: true,
       selectedSmiteLoadoutAndRestart: true,
       companionPurchaseAndRestore: true,

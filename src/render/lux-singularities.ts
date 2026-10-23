@@ -1,16 +1,19 @@
 import * as THREE from 'three';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { TICK_RATE } from '../content/rules';
-import { SCALE } from './terrain';
+import { LuxESource } from './lux-e-source';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 
-/** Temporary readable lifecycle view; native E particle extraction remains pending. */
+/** Source static layers reconstructed from the saved gameplay phase. Moving
+ * emitters, distortion, hit attachment and native dispatch remain separate work. */
 export class LuxSingularities {
   models = new Map<number, THREE.Group>();
+  private sources = new Map<number, LuxESource>();
   constructor(
     private scene: THREE.Scene,
-    private ground: (p: Vec2) => number
+    private ground: (p: Vec2) => number,
+    private camera: () => THREE.Camera
   ) {}
   update(world: World, alpha: number, terminalAge = 0): void {
     const tick = world.tick - 1 + alpha + (world.winner ? terminalAge * TICK_RATE : 0);
@@ -22,64 +25,37 @@ export class LuxSingularities {
       )
         continue;
       active.add(zone.id);
-      let group = this.models.get(zone.id);
-      if (!group) {
-        group = new THREE.Group();
-        const color = zone.team === 'blue' ? 0x8adbff : 0xff818d;
-        const orb = new THREE.Mesh(
-          new THREE.SphereGeometry(0.16, 12, 8),
-          new THREE.MeshBasicMaterial({ color, transparent: true })
-        );
-        const ring = new THREE.LineLoop(
-          new THREE.BufferGeometry(),
-          new THREE.LineBasicMaterial({ color, transparent: true })
-        );
-        const positions = new Float32Array(64 * 3);
-        for (let i = 0; i < 64; i++) {
-          const angle = (i / 64) * Math.PI * 2;
-          const p = {
-            x: zone.point.x + Math.cos(angle) * LUX_E_POLICY.radius,
-            y: zone.point.y + Math.sin(angle) * LUX_E_POLICY.radius,
-          };
-          positions.set([p.x * SCALE, this.ground(p) + 0.12, p.y * SCALE], i * 3);
-        }
-        ring.geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        ring.geometry.computeBoundingSphere();
-        group.add(orb, ring);
-        this.models.set(zone.id, group);
-        this.scene.add(group);
+      let source = this.sources.get(zone.id);
+      if (!source) {
+        source = new LuxESource(this.camera(), this.ground);
+        this.sources.set(zone.id, source);
+        this.models.set(zone.id, source.root);
+        this.scene.add(source.root);
       }
-      group.visible = zone.team === 'blue' || world.pointVisible(zone);
+      source.root.visible = zone.team === 'blue' || world.pointVisible(zone);
+      const burst = zone.detonatedTick !== null && tick >= zone.detonatedTick;
+      const armed = zone.arrivalTick !== null && tick >= zone.arrivalTick;
+      const role = burst ? 'burst' : armed ? (zone.team === 'blue' ? 'ally' : 'enemy') : 'flight';
+      const start = burst ? zone.detonatedTick! : armed ? zone.arrivalTick! : zone.launchTick;
       const point = {
         x: zone.previous.x + (zone.x - zone.previous.x) * alpha,
         y: zone.previous.y + (zone.y - zone.previous.y) * alpha,
       };
-      const orb = group.children[0] as THREE.Mesh<THREE.SphereGeometry, THREE.MeshBasicMaterial>;
-      const ring = group.children[1] as THREE.LineLoop<
-        THREE.BufferGeometry,
-        THREE.LineBasicMaterial
-      >;
-      const burst =
-        zone.detonatedTick === null
-          ? 0
-          : Math.max(
-              0,
-              (tick - zone.detonatedTick) / (LUX_E_POLICY.presentationSeconds * TICK_RATE)
-            );
-      orb.position.set(point.x * SCALE, this.ground(point) + 0.7, point.y * SCALE);
-      orb.scale.setScalar(zone.detonatedTick === null ? 1 : 1 + burst * 5);
-      orb.material.opacity = 1 - burst;
-      ring.visible = zone.arrivalTick !== null;
-      ring.material.opacity = 1 - burst;
+      source.draw(
+        world,
+        role,
+        zone.id ^ Math.imul(start, 0x9e3779b9),
+        (tick - start) / TICK_RATE,
+        point,
+        zone.origin,
+        zone.point,
+        zone.team
+      );
     }
-    for (const [id, group] of this.models)
+    for (const [id, source] of this.sources)
       if (!active.has(id)) {
-        this.scene.remove(group);
-        for (const child of group.children) {
-          const drawable = child as THREE.Mesh<THREE.BufferGeometry, THREE.Material>;
-          drawable.geometry.dispose();
-          drawable.material.dispose();
-        }
+        source.dispose();
+        this.sources.delete(id);
         this.models.delete(id);
       }
   }

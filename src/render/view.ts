@@ -77,7 +77,11 @@ import { unitBarHeight } from './unit-bar-height';
 export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
-  luxSingularities = new LuxSingularities(this.scene, (p) => this.ground(p));
+  luxSingularities = new LuxSingularities(
+    this.scene,
+    (p) => this.ground(p),
+    () => this.camera
+  );
   luxAttackCrescents = new LuxAttackCrescents(this.scene, (p) => this.ground(p));
   luxAttackTrails = new LuxAttackTrails(this.scene, (p) => this.ground(p));
   luxAttackHoops = new LuxAttackHoops(this.scene, (p) => this.ground(p));

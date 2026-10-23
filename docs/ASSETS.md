@@ -172,3 +172,16 @@ The compact champion HUD uses the five named League stat textures `scalead`, `sc
 The DOM interface uses local Beaufort for LOL (medium/bold) and Spiegel (regular/semibold/bold) OpenType files from CommunityDragon 16.18 `game/assets/ux/fonts/`. The pinned game font definitions explicitly reference Beaufort Bold and Spiegel Regular/Bold; file URLs and digests cover all five shipped faces. `reference/hud-fonts.json` retains the relevant definitions and `tools/assets/verify-hud-fonts.py` validates them and the 560,480 bytes of unmodified font files.
 
 CSS maps the existing regular/medium body styles to Spiegel Regular, semibold to Spiegel Semibold, and bold to Spiegel Bold; medium headings use Beaufort Medium and heavier headings use Beaufort Bold. `font-display: swap` preserves loading readability. This is an English interface font pass, not a complete localization font pack or verified native typography geometry. The former Cinzel and Barlow Condensed dependencies were removed.
+
+## Lux E static source layers — October 23, 2026
+
+The six base E resources now retain complete frozen BIN definitions, 37 losslessly
+decoded textures and two mesh identities in [the E source pin](reference/lux-e-vfx.json).
+Twenty static emitter records drive flight, team fields and detonation. The authored
+480-triangle perimeter preserves exact source XYZ/UV data through a validated GLB.
+Eleven selected textures include eight new runtime images (168,500 bytes); the mesh
+adds 29,532 bytes. The other prepared assets are not loaded by this adapter.
+[Coverage, rebuild commands and remaining native calibration](LUX-E.md#static-source-particle-adapter--october-23-2026)
+retain the 45 deferred emitter records, explicit attachment/default policies and
+source-audio/distortion/moving-particle work. Source packaging and GPU arithmetic
+do not establish native visual parity or full-match delivery/performance acceptance.

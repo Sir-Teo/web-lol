@@ -1,5 +1,6 @@
 import { selectableChampion } from './content/champion-profiles';
 import { loadLuxIlluminationTriggerTextures } from './render/lux-illumination-triggers';
+import { loadLuxESource } from './render/lux-e-source';
 import { loadLuxIlluminationTextures } from './render/lux-illumination';
 import { loadLuxGroundWarningTextures } from './render/lux-ground-warnings';
 import { loadLuxGroundChargeTextures } from './render/lux-ground-charge';
@@ -236,6 +237,7 @@ async function boot(): Promise<void> {
     loadLuxImpactTextures(),
     loadLuxIlluminationTextures(),
     loadLuxIlluminationTriggerTextures(),
+    loadLuxESource(),
     loadLuxTrailTextures(),
     loadLuxCrescentAssets(),
     loadHawkshot(),
