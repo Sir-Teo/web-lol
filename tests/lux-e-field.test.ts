@@ -1,4 +1,5 @@
 import { expect, test, vi } from 'vitest';
+import { luxESlashTemplates } from './helpers/lux-e-slash';
 import * as THREE from 'three';
 import profiles from '../src/content/lux-e-field.json';
 import pin from '../docs/reference/lux-e-vfx.json';
@@ -9,8 +10,8 @@ import { LUX_E_FIELD_BIRTHS, luxEFieldParticles } from '../src/render/lux-e-fiel
 import { LuxEFieldCloud } from '../src/render/lux-e-field';
 
 test('all field primitive records preserve their source types, single bursts and raw constant anomalous curves', () => {
-  expect(profiles).toHaveLength(15);
-  expect(profiles.filter((p) => p.primitive === 'ray')).toHaveLength(3);
+  expect(profiles).toHaveLength(20);
+  expect(profiles.filter((p) => p.primitive === 'ray')).toHaveLength(4);
   expect(profiles.filter((p) => p.primitive === 'quad')).toHaveLength(6);
   expect(profiles.filter((p) => p.single)).toHaveLength(2);
   expect(profiles.filter((p) => p.single).map((p) => p.name)).toEqual([
@@ -77,7 +78,7 @@ test('field rays retain full source width and length along their reflected trans
       .flatMap((p) => [p.texture, p.lookup, p.mult, p.palette?.texture ?? ''])
       .map((p) => [p, texture])
   );
-  const cloud = new LuxEFieldCloud('ally', textures),
+  const cloud = new LuxEFieldCloud('ally', textures, luxESlashTemplates()),
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
   camera.position.set(8, 12, 10);
   camera.lookAt(0, 0, 0);
@@ -124,7 +125,7 @@ test('ground-glow quads follow transformed source corners and sampled terrain ra
       .flatMap((p) => [p.texture, p.lookup, p.mult, p.palette?.texture ?? ''])
       .map((p) => [p, texture])
   );
-  const cloud = new LuxEFieldCloud('ally', textures),
+  const cloud = new LuxEFieldCloud('ally', textures, luxESlashTemplates()),
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000),
     ground = (p: { x: number; y: number }) => (p.x + p.y) / 1000;
   camera.position.set(8, 12, 10);
@@ -172,8 +173,8 @@ test('four field streams retain animated source values, independent team tint an
   expect(profiles[1].atlas).toEqual({ grid: [2, 2], frames: 4, random: true });
   expect(profiles[1].palette?.row).toBe(0.25);
   expect(profiles[1].birthColor.values).not.toEqual(profiles[3].birthColor.values);
-  expect(coverage.rendered).toBe(49);
-  expect(coverage.inventory.filter((x) => x.status === 'deferred')).toHaveLength(16);
+  expect(coverage.rendered).toBe(55);
+  expect(coverage.inventory.filter((x) => x.status === 'deferred')).toHaveLength(9);
 });
 test('animated rate budgets keep exact crossings and agree with the existing constant scheduler', () => {
   for (const rate of [0, 0.1, 15, 25, 140]) {

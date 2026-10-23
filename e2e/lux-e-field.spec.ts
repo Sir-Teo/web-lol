@@ -81,10 +81,10 @@ test('an armed field restores all wave/spark buffer bytes and pixels after actua
   expect(before.restored).toBe(true);
   expect(before.seek).toBe(true);
   expect(before.fieldAge).toBe(2.5);
-  expect(before.layers).toHaveLength(8);
+  expect(before.layers).toHaveLength(10);
   expect(before.layers.filter((m: any) => m.count > 0)).toHaveLength(7);
   await page.screenshot({
-    path: 'artifacts/lux-e-glows-armed.png',
+    path: 'artifacts/lux-e-missile-armed.png',
     style: '.modal-backdrop { visibility: hidden !important; }',
   });
   await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextLoss());
@@ -140,7 +140,7 @@ test('an armed field restores all wave/spark buffer bytes and pixels after actua
   expect(after.retiredField).toBe(true);
   expect(errors).toEqual([]);
   writeFileSync(
-    'artifacts/lux-e-glows-recovery.json',
+    'artifacts/lux-e-missile-recovery.json',
     JSON.stringify({ before, after }, null, 2) + '\n'
   );
 });
@@ -190,7 +190,7 @@ test('enemy field waves and sparks filter triangles at fog boundaries and return
     };
   });
   expect(Object.values(result).every(Boolean)).toBe(true);
-  writeFileSync('artifacts/lux-e-glows-fog.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync('artifacts/lux-e-missile-fog.json', JSON.stringify(result, null, 2) + '\n');
 });
 
 test('field glow/ray/motion batches match separate particle draws and each source layer contributes pixels', async ({
@@ -204,6 +204,16 @@ test('field glow/ray/motion batches match separate particle draws and each sourc
     const { LuxEFieldCloud } = await import('/src/render/lux-e-field.ts');
     const { loadLuxParticleTextures } = await import('/src/render/lux-particle-textures.ts');
     const profiles = (await import('/src/content/lux-e-field.json')).default;
+    const { GLTFLoader } = await import('/node_modules/three/examples/jsm/loaders/GLTFLoader.js');
+    const gltf = await new GLTFLoader().loadAsync('/assets/models/lux-e-slash.glb');
+    let template: any;
+    gltf.scene.traverse((o: any) => {
+      if (o.isMesh) {
+        template = o.geometry;
+        o.material.dispose();
+      }
+    });
+    const templates = new Map([['assets/models/lux-e-slash.glb', template]]);
     const g = (window as any).__GAME__,
       w = g.world;
     g.setPaused(true);
@@ -231,17 +241,19 @@ test('field glow/ray/motion batches match separate particle draws and each sourc
       return { pixels, calls: renderer.info.render.calls };
     };
     const comparisons = [];
-    for (const role of ['ally', 'enemy'] as const) {
-      const cloud = new LuxEFieldCloud(role, textures);
+    for (const role of ['ally', 'enemy', 'flight'] as const) {
+      const cloud = new LuxEFieldCloud(role, textures, templates);
       scene.add(...cloud.meshes);
-      for (const age of [0.25, 1, 2.5, 4.0, 4.8]) {
+      for (const age of role === 'flight'
+        ? [0.05, 0.1, 0.25, 0.5, 0.8]
+        : [0.25, 1, 2.5, 4.0, 4.8]) {
         cloud.draw(
           w,
           91,
           age,
           { x: 0, y: 0 },
           { x: 0, y: 0 },
-          { x: 1, y: 0 },
+          { x: 1100, y: 0 },
           'blue',
           camera,
           () => 0
@@ -256,7 +268,10 @@ test('field glow/ray/motion batches match separate particle draws and each sourc
               geometry.setAttribute(
                 name,
                 new THREE.BufferAttribute(
-                  attribute.array.slice(slot * 6 * size, (slot + 1) * 6 * size),
+                  attribute.array.slice(
+                    slot * batch.userData.particleVertexCount * size,
+                    (slot + 1) * batch.userData.particleVertexCount * size
+                  ),
                   size
                 )
               );
@@ -277,7 +292,7 @@ test('field glow/ray/motion batches match separate particle draws and each sourc
           if (delta) different++;
         }
         const contributions = [];
-        if (age === 1)
+        if (age === (role === 'flight' ? 0.25 : 1))
           for (const batch of cloud.meshes) {
             batch.visible = false;
             const without = render(scene);
@@ -308,25 +323,220 @@ test('field glow/ray/motion batches match separate particle draws and each sourc
       cloud.dispose();
     }
     target.dispose();
+    template.dispose();
     renderer.setRenderTarget(savedTarget);
     return comparisons;
   });
   expect(
-    result.every((r: any) => r.batchCalls <= (r.role === 'ally' ? 8 : 7) && r.maxDelta <= 1)
+    result.every(
+      (r: any) =>
+        r.batchCalls <= (r.role === 'ally' ? 10 : r.role === 'enemy' ? 7 : 3) && r.maxDelta <= 1
+    )
   ).toBe(true);
   const main = result.find((r: any) => r.age === 1)!;
-  expect(main.batchCalls).toBe(8);
+  expect(main.batchCalls).toBe(10);
   expect(main.separateCalls).toBeGreaterThan(10);
-  expect(main.contributions).toHaveLength(8);
+  expect(main.contributions).toHaveLength(10);
   expect(main.contributions.every((r: any) => r.differentBytes > 0)).toBe(true);
   expect(
     result
-      .filter((r: any) => r.age === 1)
+      .filter((r: any) => r.contributions.length)
       .every(
         (r: any) =>
-          r.contributions.length === (r.role === 'ally' ? 8 : 7) &&
+          r.contributions.length === (r.role === 'ally' ? 10 : r.role === 'enemy' ? 7 : 3) &&
           r.contributions.every((c: any) => c.differentBytes > 0)
       )
   ).toBe(true);
-  writeFileSync('artifacts/lux-e-glows-batches.json', JSON.stringify(result, null, 2) + '\n');
+  writeFileSync('artifacts/lux-e-missile-batches.json', JSON.stringify(result, null, 2) + '\n');
+});
+
+test('a moving missile restores mesh, motes and rays after graphics loss and releases them on arrival', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const before = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.pendingSpawns = [];
+    Object.assign(w.hero, { x: -300, y: -300, previous: { x: -300, y: -300 } });
+    w.setOrder(w.hero, { type: 'idle' });
+    const lux = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'lux'),
+      target = w.spawn('dummy', 'red', { x: 1100, y: 0 });
+    target.hp = target.maxHp = 5000;
+    w.enqueue({ type: 'cast', unit: lux.id, ability: 'e', point: target });
+    w.step(35);
+    v.center = { x: 400, y: 0 };
+    v.zoom = 0.55;
+    v.render(w, 1, v.previousElapsed);
+    g.hud.update(60);
+    const zone = w.singularities[0],
+      capture = () =>
+        v.luxSingularities.models.get(zone.id).children.map((m: any) => ({
+          name: m.name,
+          attributes: Object.fromEntries(
+            Object.entries(m.geometry.attributes).map(([key, a]: any) => [key, Array.from(a.array)])
+          ),
+          index: Array.from(m.geometry.index.array),
+          count: m.geometry.drawRange.count,
+          live: m.userData.liveParticles,
+        }));
+    const saved = w.snapshot(),
+      data = JSON.stringify(capture()),
+      copy = w.constructor.fromSnapshot(saved, w.battlefield);
+    v.render(copy, 1, v.previousElapsed);
+    const restored = JSON.stringify(capture()) === data;
+    const stale = w.constructor.fromSnapshot(saved, w.battlefield);
+    stale.step(120);
+    v.render(stale, 1, v.previousElapsed);
+    v.render(w, 1, v.previousElapsed);
+    const seek = JSON.stringify(capture()) === data;
+    const gl = v.renderer.getContext(),
+      pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+    gl.readPixels(
+      0,
+      0,
+      gl.drawingBufferWidth,
+      gl.drawingBufferHeight,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      pixels
+    );
+    (window as any).__E_FIELD__ = {
+      id: zone.id,
+      lux: lux.id,
+      target: target.id,
+      capture,
+      data,
+      saved,
+      pixels,
+    };
+    return {
+      restored,
+      seek,
+      flightAge: (w.tick - zone.launchTick) / 60,
+      layers: capture()
+        .filter((m: any) => m.live !== undefined)
+        .map((m: any) => ({ name: m.name, count: m.count, live: m.live })),
+    };
+  });
+  expect(before.restored).toBe(true);
+  expect(before.seek).toBe(true);
+  expect(before.flightAge).toBeCloseTo(19 / 60, 10);
+  expect(before.layers).toHaveLength(3);
+  expect(before.layers.filter((m: any) => m.count > 0)).toHaveLength(3);
+  await page.screenshot({
+    path: 'artifacts/lux-e-missile-flight-recovery.png',
+    style: '.modal-backdrop { visibility: hidden !important; }',
+  });
+  await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextLoss());
+  await expect(page.getByRole('heading', { name: 'Restoring the battlefield' })).toBeVisible();
+  await page.evaluate(() => (window as any).__GAME__.view.renderer.forceContextRestore());
+  await expect(page.getByRole('heading', { name: 'Game paused' })).toBeVisible();
+  const after = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view,
+      s = (window as any).__E_FIELD__;
+    v.render(w, 1, v.previousElapsed);
+    const gl = v.renderer.getContext(),
+      pixels = new Uint8Array(s.pixels.length);
+    gl.readPixels(
+      0,
+      0,
+      gl.drawingBufferWidth,
+      gl.drawingBufferHeight,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      pixels
+    );
+    const buffers = JSON.stringify(s.capture()) === s.data,
+      snapshot = w.snapshot() === s.saved;
+    const different = pixels.reduce(
+      (n: number, x: number, i: number) => n + Number(x !== s.pixels[i]),
+      0
+    );
+    const model = v.luxSingularities.models.get(s.id),
+      resources = model.children.length * 2;
+    let disposed = 0;
+    for (const m of model.children) {
+      m.geometry.addEventListener('dispose', () => disposed++);
+      m.material.addEventListener('dispose', () => disposed++);
+    }
+    w.step(60);
+    v.render(w, 1, v.previousElapsed);
+    return {
+      buffers,
+      snapshot,
+      different,
+      resources,
+      disposed,
+      retiredField: !model.children.some((m: any) => m.name.includes('Lucent flight')),
+    };
+  });
+  expect(after.buffers).toBe(true);
+  expect(after.snapshot).toBe(true);
+  expect(after.different).toBe(0);
+  expect(after.disposed).toBe(after.resources);
+  expect(after.retiredField).toBe(true);
+  expect(errors).toEqual([]);
+  writeFileSync(
+    'artifacts/lux-e-missile-flight-recovery.json',
+    JSON.stringify({ before, after }, null, 2) + '\n'
+  );
+});
+
+test('enemy missile mesh, motes and rays hide under fog and restore at their continuing saved phase', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.pendingSpawns = [];
+    const lux = w.spawn('champion', 'red', { x: 0, y: 0 }, 'lux');
+    w.enqueue({ type: 'cast', unit: lux.id, ability: 'e', point: { x: 1100, y: 0 } });
+    w.step(35);
+    let seen = true;
+    w.pointVisible = () => seen;
+    v.render(w, 1, v.previousElapsed);
+    const model = v.luxSingularities.models.get(w.singularities[0].id),
+      fields = () => model.children.filter((m: any) => m.userData.fieldProfileIndex !== undefined);
+    const capture = () =>
+      fields().map((m: any) => Array.from(m.geometry.getAttribute('position').array));
+    const before = JSON.stringify(capture());
+    seen = false;
+    v.render(w, 1, v.previousElapsed);
+    const hidden = !model.visible && fields().every((m: any) => m.geometry.drawRange.count === 0);
+    w.step(10);
+    seen = true;
+    v.render(w, 1, v.previousElapsed);
+    const continued = JSON.stringify(capture());
+    const saved = w.snapshot();
+    const copy = w.constructor.fromSnapshot(saved, w.battlefield);
+    copy.pointVisible = () => true;
+    v.render(copy, 1, v.previousElapsed);
+    return {
+      hidden,
+      changed: continued !== before,
+      visible: model.visible,
+      triangles: fields().every((m: any) => m.geometry.drawRange.count > 0),
+      restored: continued === JSON.stringify(capture()),
+    };
+  });
+  expect(Object.values(result).every(Boolean)).toBe(true);
+  writeFileSync('artifacts/lux-e-missile-flight-fog.json', JSON.stringify(result, null, 2) + '\n');
 });

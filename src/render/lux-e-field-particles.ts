@@ -1,5 +1,6 @@
 import { Euler, Vector3 } from 'three';
 import profiles from '../content/lux-e-field.json';
+import { LUX_E_SOURCE } from '../content/lux-e';
 import { emitterBirthTicks, sampleEmitterValue } from './particle-emitter-value';
 import { luxHoopChance } from './lux-hoop-particles';
 import { luxEBurstTravel } from './lux-e-burst-particles';
@@ -11,9 +12,26 @@ import { accumulateParticleCurve, type ParticleCurve } from './particle-curves';
 export const LUX_E_FIELD_BIRTHS = profiles.map((p) =>
   p.single
     ? Array.from({ length: Math.max(1, Math.trunc(p.rate.values[0][0])) }, () => 0)
-    : emitterBirthTicks(p.rate, p.emitterLife)
+    : emitterBirthTicks({ ...p.rate, probabilities: null }, p.emitterLife)
 );
-export function luxEFieldParticles(role: 'ally' | 'enemy', seed: number, seconds: number) {
+/** The missile takes its first movement step on the launch tick. This is the
+ * saved linear trajectory in cast-local source units, independent of render order. */
+export function luxEFlightOrigin(distance: number, seconds: number) {
+  return new Vector3(
+    0,
+    0,
+    Math.min(distance, Math.max(0, (seconds + 1 / 60) * LUX_E_SOURCE.movementSpeed))
+  );
+}
+/** The pinned reader samples emitter rate curves without birth probability tables.
+ * Birth tables remain in the profiles and still apply to particle properties.
+ * movingOrigin must return source-frame coordinates, including the next tick. */
+export function luxEFieldParticles(
+  role: 'ally' | 'enemy' | 'flight',
+  seed: number,
+  seconds: number,
+  movingOrigin?: (seconds: number) => Vector3
+) {
   if (!Number.isFinite(seconds) || seconds < 0) return [];
   return profiles.flatMap((p, profileIndex) => {
     if (p.role !== role) return [];
@@ -47,6 +65,20 @@ export function luxEFieldParticles(role: 'ally' | 'enemy', seed: number, seconds
       const phase = age / life,
         velocity = new Vector3(...sample(p.velocity)),
         offset = new Vector3(...sample(p.offset));
+      if (p.sphereRadius) {
+        // Match the pinned reader's naive radius and two full-angle turns. The
+        // indexed random channels are local; native PRNG ordering is unverified.
+        const radius = luxHoopChance(emitterSeed ^ 0x3c6ef372, ordinal) * p.sphereRadius,
+          yaw = luxHoopChance(emitterSeed ^ 0x1bf5a9d3, ordinal) * Math.PI * 2,
+          roll = luxHoopChance(emitterSeed ^ 0x6a09e667, ordinal) * Math.PI * 2;
+        offset
+          .set(radius, 0, 0)
+          .applyAxisAngle(new Vector3(0, 1, 0), yaw)
+          .applyAxisAngle(new Vector3(0, 0, 1), roll);
+        velocity
+          .applyAxisAngle(new Vector3(0, 1, 0), yaw)
+          .applyAxisAngle(new Vector3(0, 0, 1), roll);
+      }
       for (let i = 0; i < p.shapeAngles.length; i++) {
         const axis = new Vector3(...p.shapeAxes[i]).normalize(),
           angle = (sample(p.shapeAngles[i])[0] * Math.PI) / 180;
@@ -56,12 +88,41 @@ export function luxEFieldParticles(role: 'ally' | 'enemy', seed: number, seconds
       const motion = luxEBurstTravel(velocity.toArray(), [0, 0, 0], sample(p.drag), age);
       const orbit = sample(p.orbit).map((v) => v * age),
         rotation = new Euler(orbit[0], orbit[1], orbit[2], 'YXZ');
+      const binding = new Vector3(),
+        parentTravel = new Vector3();
+      if (movingOrigin) {
+        // Selected moving records have constant bind weights. Partial attachment
+        // accumulates parent translation before orbiting about the current origin.
+        const weight = sample(p.bind)[0],
+          next = Math.floor(seconds * 60) + 1;
+        binding
+          .copy(movingOrigin(birthSeconds))
+          .sub(movingOrigin(seconds))
+          .multiplyScalar(1 - weight);
+        parentTravel
+          .copy(movingOrigin(next / 60))
+          .sub(movingOrigin((next - 1) / 60))
+          .multiplyScalar(60 * weight);
+      }
+      const acceleration = sampleEmitterValue(
+        { ...p.worldAcceleration, probabilities: null },
+        seconds / p.emitterLife,
+        0.5
+      );
       const position = offset
           .add(new Vector3(...sample(p.position)))
           .add(new Vector3(...motion.position))
+          .add(binding)
           .applyEuler(rotation)
+          // Pinned reader adds this IntegratedValue sample after orbit. Native
+          // integration semantics remain an explicit comparison gap.
+          .addScaledVector(new Vector3(...acceleration), age * life)
           .toArray(),
-        travel = new Vector3(...motion.travel).applyEuler(rotation).toArray();
+        travel = new Vector3(...motion.travel)
+          .applyEuler(rotation)
+          .add(parentTravel)
+          .addScaledVector(new Vector3(...acceleration), life)
+          .toArray();
       const lifetime = (v: Parameters<typeof sampleEmitterValue>[0]) =>
         sampleEmitterValue(v, phase, chance);
       const scale = sample(p.size).map((v, axis) => v * lifetime(p.scale)[axis]);

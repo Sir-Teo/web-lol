@@ -1,0 +1,524 @@
+{
+  "date": "2026-10-23",
+  "baseline": "c08b46b2ae2dd0c7e85076f839d84634f3d5b2ed",
+  "schema": 109,
+  "ruleset": "29da1e237bfcaf0cfc6b63b0f480f5c289f6269d1c69e8997dfe3f40858c98f2",
+  "scope": "Source spinner mesh and motes in flight and early ally field, true missile rays, base-skin nova flash, partial moving attachment, and skin-keyword filtering. Six additional rendered records; no new saved fields.",
+  "source": {
+    "renderedEmitterRecords": 55,
+    "filteredEmitterRecords": 1,
+    "deferredEmitterRecords": 9,
+    "staticRecords": 32,
+    "detonationBatches": 3,
+    "fieldAndFlightBatches": 20,
+    "maximumDynamicDraws": {
+      "ally": 10,
+      "enemy": 7,
+      "flight": 3
+    },
+    "mesh": {
+      "sourceVertices": 119,
+      "triangles": 192,
+      "expandedCorners": 576,
+      "bytes": 12296
+    },
+    "textureCount": 25,
+    "textureBytes": 363670,
+    "requestedEPrefixedImages": 16,
+    "newImageFiles": 0
+  },
+  "checks": {
+    "unit": {
+      "files": 254,
+      "tests": 1392,
+      "command": "npx vitest run --maxWorkers=4",
+      "initialUnrestrictedRun": "Four unrelated 5-second timeouts under unrestricted workers; all passed in the bounded-worker reruns. Original failure log retained at .cache/lux-e-missile-units.log."
+    },
+    "chrome": {
+      "cases": 21,
+      "scope": "Focused E geometry/material, audio, saves, moving/armed context loss, flight/field fog, arrival/recast disposal and frozen victory. Full browser suite not repeated.",
+      "batchFrames": 15,
+      "maximumRGBAChannelDelta": 1,
+      "contributions": [
+        {
+          "role": "ally",
+          "contributions": [
+            {
+              "name": "Lucent ally field motion 5 WaveRight",
+              "differentBytes": 3434
+            },
+            {
+              "name": "Lucent ally field motion 6 sparks",
+              "differentBytes": 79
+            },
+            {
+              "name": "Lucent ally field motion 9 rays1",
+              "differentBytes": 1838
+            },
+            {
+              "name": "Lucent ally field motion 12 END_Beam_ROTATING",
+              "differentBytes": 291
+            },
+            {
+              "name": "Lucent ally field motion 13 Glow1",
+              "differentBytes": 19369
+            },
+            {
+              "name": "Lucent ally field motion 14 Glow_Center",
+              "differentBytes": 4759
+            },
+            {
+              "name": "Lucent ally field motion 15 Glow_Center1",
+              "differentBytes": 732
+            },
+            {
+              "name": "Lucent ally field motion 24 rays2",
+              "differentBytes": 5326
+            },
+            {
+              "name": "Lucent ally field motion 20 Spinners",
+              "differentBytes": 238
+            },
+            {
+              "name": "Lucent ally field motion 22 motes",
+              "differentBytes": 18
+            }
+          ]
+        },
+        {
+          "role": "enemy",
+          "contributions": [
+            {
+              "name": "Lucent enemy field motion 11 WaveRight",
+              "differentBytes": 4353
+            },
+            {
+              "name": "Lucent enemy field motion 15 sparks",
+              "differentBytes": 140
+            },
+            {
+              "name": "Lucent enemy field motion 0 END_Beam_ROTATING",
+              "differentBytes": 349
+            },
+            {
+              "name": "Lucent enemy field motion 1 Glow",
+              "differentBytes": 19375
+            },
+            {
+              "name": "Lucent enemy field motion 2 Glow_Center",
+              "differentBytes": 6906
+            },
+            {
+              "name": "Lucent enemy field motion 3 Glow_Center1",
+              "differentBytes": 872
+            },
+            {
+              "name": "Lucent enemy field motion 14 rays",
+              "differentBytes": 2656
+            }
+          ]
+        },
+        {
+          "role": "flight",
+          "contributions": [
+            {
+              "name": "Lucent flight field motion 5 Spinners",
+              "differentBytes": 511
+            },
+            {
+              "name": "Lucent flight field motion 7 motes",
+              "differentBytes": 285
+            },
+            {
+              "name": "Lucent flight field motion 9 rays",
+              "differentBytes": 3486
+            }
+          ]
+        }
+      ],
+      "realGraphicsLossDifferentBytes": 0,
+      "retiredResources": {
+        "matureField": 36,
+        "flight": 18
+      }
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/lux-e-missile-production-subpath.png"
+    },
+    "diagnosticMatches": {
+      "checkedTicks": 780762,
+      "exactRoundTrips": 220,
+      "victories": 4,
+      "allRecordedSamplesEqual": true,
+      "allFinalCheckpointsEqualExceptRuleset": true
+    }
+  },
+  "legacy": {
+    "staticProfiles": 31,
+    "staticProfileValuesAndIndicesUnchanged": true,
+    "dynamicProfiles": 15,
+    "fullSamplerSnapshots": 24,
+    "fullSamplerSha256": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df"
+  },
+  "policies": {
+    "reading": "See lux-e-missile-reading.json for pinned source interpretation, primary file hashes/URLs and the unresolved Flex and integration terms.",
+    "batching": "Fixed source-mesh corner stride, independent tint/lookup/atlas attributes and corner-wise fog. Expired or hidden empty batches are invisible and issue no draws.",
+    "motion": "Indexed sphere sampling, .95 partial binding reconstructed from the saved straight trajectory, world-Y term after orbit. Native calibration remains open.",
+    "ownership": "Source templates and images remain session-owned; each flight/field/burst owns and disposes its draw geometry/material. Flight batches retire at arrival.",
+    "ruleset": "All three E profile JSON files participate in the strict fingerprint. Save schema remains 109; full diagnostic checkpoints match the previous revision after changing only ruleset."
+  },
+  "captures": "Flight, early field and real Rift production captures were visually reviewed. Paused fixture captures and isolated batch counts do not measure FPS.",
+  "files": [
+    {
+      "path": "docs/reference/lux-e-vfx.json",
+      "sha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4"
+    },
+    {
+      "path": "docs/reference/lux-e-particle-coverage.json",
+      "sha256": "e08a925c0a3cabb3b5685c1c7f95c0098c13bbd87ee29469e6d5cb49fa95b306"
+    },
+    {
+      "path": "docs/reference/lux-e-missile-reading.json",
+      "sha256": "b7ee6c9c6859fcfd6674be496cc5a3516500d1364dfdc992a0741a11a59b8049"
+    },
+    {
+      "path": "docs/reference/lux-e-missile-match-audit.json",
+      "sha256": "8316ce37d9896eea508470a8f20df02b6980e9bd50c6c5258de11fd96256dbdf"
+    },
+    {
+      "path": "docs/LUX-E.md",
+      "sha256": "6fcf26328e4880e443dc0fb68e560b400093ea81144012378bb2ea3b838eaa73"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "edcf59a1cc36203023a91791da04f9edf3e9c86c288ab625ff9e156444cdda68"
+    },
+    {
+      "path": "src/content/lux-e-field.json",
+      "sha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931"
+    },
+    {
+      "path": "src/content/lux-e-particles.json",
+      "sha256": "8ba71a78243ac022e1cb2a880ed619b88a436cfc57b7ad1447364f9d392abb7a"
+    },
+    {
+      "path": "src/content/lux-e-burst.json",
+      "sha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e"
+    },
+    {
+      "path": "src/content/lux-e-particle-timing.ts",
+      "sha256": "98afe6c1b4ef560f25d7996652efbb95582ed66a5da4fb985d38fddb82910202"
+    },
+    {
+      "path": "src/render/lux-e-field-particles.ts",
+      "sha256": "486dd1287fb98708853760fdb8f49d51e023cd6dd691013bf19f3c53c81cff7a"
+    },
+    {
+      "path": "src/render/lux-e-field.ts",
+      "sha256": "674d7f1c2dbb6b4d3b8763baaea87233b5990e619377411a684719b4f6b03c75"
+    },
+    {
+      "path": "src/render/lux-e-source.ts",
+      "sha256": "58882ef52e37d5d27773f979f7c1c822cafe0415643ee7f3f2891f503d267cdd"
+    },
+    {
+      "path": "src/render/lux-singularities.ts",
+      "sha256": "27b8beabc1086866ed59c02a289692f59a9e1156ac7e2120c2e3c31df89a23d1"
+    },
+    {
+      "path": "src/render/particle-emitter-value.ts",
+      "sha256": "56c7b760c43314c711d23d191a589864070f82991a128299c10946cbfebd65cd"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": "src/render/particle-atlas.ts",
+      "sha256": "7a58d581ca058ba26867c1fa304701d7c4ac94fdbb0a6c55c39925c7870e7f30"
+    },
+    {
+      "path": "tools/assets/lux_e_field.py",
+      "sha256": "008aa6f7add4439e7b9efef186a05ecbca7ae732592c9a004cd67f42cc5ad134"
+    },
+    {
+      "path": "tools/assets/export-lux-e-particles.py",
+      "sha256": "02b9b04214c11756f656cbf20a33e529be4c4147fe380c46cf1f67a65682e181"
+    },
+    {
+      "path": "tools/assets/decode-lux-e-slash.py",
+      "sha256": "d52aa1d06a2d0c71bab2eae1f4abfc3ba516ebcd14f867aad96cb1fa50dc2bd5"
+    },
+    {
+      "path": "tools/assets/convert-lux-e-slash.mjs",
+      "sha256": "597b025c08c3258fe24ddf896bec4533c8186da0b092b3fb1e49840642274e1a"
+    },
+    {
+      "path": "public/assets/models/lux-e-slash.json",
+      "sha256": "b14bcd01d42171c6da9e873c0f3ebd031f89c4e0665f133b981bba025a753a73"
+    },
+    {
+      "path": "tests/lux-e-missile.test.ts",
+      "sha256": "eb83e2aff8f2168abbdcf7b5ed709fff1bb2625b1b3059371575379831b2b98f"
+    },
+    {
+      "path": "tests/helpers/lux-e-slash.ts",
+      "sha256": "1f1976eedb63fd1c5d51aa4f503279f2ef18274a0c2ee710a7db2b8a2a51a06f"
+    },
+    {
+      "path": "tests/lux-e-field.test.ts",
+      "sha256": "d25921badab30c5fd502919f6c577dcbb3c552da56a868e6f812efefe503dc38"
+    },
+    {
+      "path": "e2e/lux-e-field.spec.ts",
+      "sha256": "82bbb16fd7ea7474a93f1ea08903177c4a1ffdbc0263698e060c3dae5ddf6882"
+    },
+    {
+      "path": "e2e/lux-e-source.spec.ts",
+      "sha256": "823600ed5fbad2ea555cdfcfc292961369f600265afbb1b52e4355eced00e622"
+    },
+    {
+      "path": "e2e/lux-e-burst.spec.ts",
+      "sha256": "da01ef241edb09d1c723ef15cbbf1ec30798b8693294f2fc9ea15e6a54e38138"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "d9deb7b08f6031e543003c4695d6ddc230856fd9f8e8228b77636f57b090c70a"
+    },
+    {
+      "path": "tools/qa/verify-lux-e-missile.mjs",
+      "sha256": "68e9b2b44e7449d2ca3ed23fb009d3f5b5b6ee0720fa5007e55a4038ce2398d9"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "sha256": "2cccbc29549ccbdf4547e024271f2ef8f00902d8e24ee1c5ea8523ef7acebd24"
+    },
+    {
+      "path": ".cache/lux-e-missile-baseline/original.json",
+      "sha256": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df"
+    },
+    {
+      "path": ".cache/lux-e-missile-baseline/static.json",
+      "sha256": "b69608566a724dca7caf9a8103fc8fa74be80cb617a7e2140512dc99a60ef661"
+    },
+    {
+      "path": ".cache/lux-e-missile-unit-current.log",
+      "sha256": "8d75ba7e257f7e668e7792ce8acbcd08613128a7f149cb4a950a92496964506c"
+    },
+    {
+      "path": ".cache/lux-e-missile-browser.log",
+      "sha256": "5296bafb9a03ce7eaa9f7fcee69e061aadbd2ce91d93fa05c2cada8ec22e9003"
+    },
+    {
+      "path": ".cache/lux-e-missile-production.log",
+      "sha256": "8c92ee9770923d0de8238c3b7c574baff54cb7b115b8f9d0000cb0bb656f4646"
+    },
+    {
+      "path": "artifacts/lux-e-missile-batches.json",
+      "sha256": "40491d11da38df15bbab111b924985e88d11d00682a51ff90cc85eb899d1d8d4"
+    },
+    {
+      "path": "artifacts/lux-e-missile-recovery.json",
+      "sha256": "a8c4e6bc84608c724cef41017852fc6f6bafa846d908e17835eae502d4963215"
+    },
+    {
+      "path": "artifacts/lux-e-missile-fog.json",
+      "sha256": "f89e875add54398125c8f91f3430c070aebbda447cd7c3365ef025f877570005"
+    },
+    {
+      "path": "artifacts/lux-e-missile-flight-recovery.json",
+      "sha256": "fa1c74ec5ad2a7ef8a988cd5a1f0abb78dfba4b3bfe4512669633825fd592de0"
+    },
+    {
+      "path": "artifacts/lux-e-missile-flight-fog.json",
+      "sha256": "f89e875add54398125c8f91f3430c070aebbda447cd7c3365ef025f877570005"
+    },
+    {
+      "path": "artifacts/lux-e-missile-source.json",
+      "sha256": "4cd3426d5f13d033eefe71fd5c3dad657fba28efc2ce305384187ac9f71ce921"
+    },
+    {
+      "path": "artifacts/lux-e-missile-source-flight.png",
+      "sha256": "6bdf787afe7f0783df574ceef3c7fedd404986eeb2d9108acc478006617cd715"
+    },
+    {
+      "path": "artifacts/lux-e-missile-early.png",
+      "sha256": "43fbe1c72bb0e9567b538c1429ad77f264617205aa3b62acc7f2c5d46ed2b378"
+    },
+    {
+      "path": "artifacts/lux-e-missile-armed.png",
+      "sha256": "ee2b80718f40e205c8554bbc0c0b085d9acb8ac0706c51c7fb7627e814a8cf62"
+    },
+    {
+      "path": "artifacts/lux-e-missile-production-lux-e-source.png",
+      "sha256": "41c4d3cee38339568c3b99a6b39f53db8fc59cf9cc24599ad3a1fe313df29318"
+    }
+  ],
+  "assets": [
+    {
+      "path": "public/assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+      "sha256": "5dac684daf04d9667f40197e9e85b7e98b423075acd1237de9cc49b2b6e43a93"
+    },
+    {
+      "path": "public/assets/effects/lux-binding-target-lux_base_light_sparks.png",
+      "sha256": "1ef4e7cac79665be8b79ce50d2f3401e30851df5eaab5ff2521cd4b536037784"
+    },
+    {
+      "path": "public/assets/effects/lux-e-color-hold.png",
+      "sha256": "38fb43fbd4b078237a94650903231de41f9ac8ed0c2550b3581cd41b6e9ff501"
+    },
+    {
+      "path": "public/assets/effects/lux-e-color_lux_e_shield.png",
+      "sha256": "6de303da8c739c73cea6554da13b40ad92973494dafab72d94c841d60d6562c8"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_distort.png",
+      "sha256": "cc27e89b201e548f544cd4844d9b0b27e5e4c5b615e92b78a36aa60ec603aa5e"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "sha256": "54910db2c3d7597d0048c4915312b9078185a358f328ac4c1540b66abab236f3"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flare.png",
+      "sha256": "824c7cb647eb8ceb839bc28810599a811f59284b037bd98ef6e71231eeafd4ca"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_flash.png",
+      "sha256": "c61a3a3c986b1bdfbf667ed70e275d4cf4f52270261b2cd945facde9b338ce69"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_glow.png",
+      "sha256": "e79baf8b8238e1d3bbf93d01f03fe6570dceb091172811de92aa982d28049899"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "sha256": "7cbf7483e93565fd5006ac8c7da3c829c6df4f38c4cd63acf4c1d3e729c60bd9"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "sha256": "72a505121e0975aeedf832e93bcdbadcc07939e63e2c8835323fe844d15924fe"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_mote.png",
+      "sha256": "7bc487eb3bece376a141ff810194783e1c1319fc1b00e05c64858554282e0e25"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_e_small_mote.png",
+      "sha256": "f92a19554b18edc87a509aa238ee49104be1ed2016b2a3398c8b683370eabbd7"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "sha256": "cfc642e98f322ff44394731b8b830386db2498ef769bf60b2c30c1ef6874c209"
+    },
+    {
+      "path": "public/assets/effects/lux-e-lux_base_w_glow.png",
+      "sha256": "e9af9ca15a95d39131a28a09a8a23681aa66402d52e80ee2efa918ba743f418d"
+    },
+    {
+      "path": "public/assets/effects/lux-e-rainbowflash.png",
+      "sha256": "d87f0825a4922e3159726596905a27c3c79bf64f50fafae4ef0ae7c0614f4d65"
+    },
+    {
+      "path": "public/assets/effects/lux-e-rainbowhalo.png",
+      "sha256": "ff8005ff5d8a1ac3ea014727c6ac2c6617997bc5eb1d9c330f041f00bdcf2dcc"
+    },
+    {
+      "path": "public/assets/effects/lux-e-sphere_e_01.png",
+      "sha256": "0b916a62ec44f9588fde7c177a252084f87f6fb67df614ae301f58ad78674826"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-color-rampdown.png",
+      "sha256": "21f5dd38ecabb0af29900e6f4478c870efa1cb33138c9b4ec3f0b6fafce22bc2"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-flame_trail_gradient.png",
+      "sha256": "bb81b41ececb203f908b94b34fce9cd47cf252432210524b6ae3dbad7f98877a"
+    },
+    {
+      "path": "public/assets/effects/lux-hit-lux_base_starfilter_01.png",
+      "sha256": "0e18403a369df6a1bfcca493394254e7caee6dcc6e275c249be7ede21d7ce41d"
+    },
+    {
+      "path": "public/assets/effects/lux-illumination-diana_base_r_glow.png",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f"
+    },
+    {
+      "path": "public/assets/effects/lux-illumination-lux_base_p_rainbowray.png",
+      "sha256": "53cc40c8a4667eeec03910f0205c613b7787488ba0749ce96ca70b29c5a4d88d"
+    },
+    {
+      "path": "public/assets/effects/lux-r-diana_skin11_r_glow.png",
+      "sha256": "791db5fd68c56a626176d17c636b642a80b8e8e939ec38feef7cd8a35dcb863f"
+    },
+    {
+      "path": "public/assets/effects/lux-r-lux_base_z_bokeh_dots_4x4.png",
+      "sha256": "150e8ccc789df20d45a589e2dfebe2fb3950d3ccfcfc10b332e0eb7c7cbecaae"
+    },
+    {
+      "path": "public/assets/models/lux-e-slash.glb",
+      "sha256": "b751e04390eefde55a1a9503606773144abfc80134135ccd22a429fe98ad0031"
+    },
+    {
+      "path": "public/assets/models/lux-e-indicator.glb",
+      "sha256": "138062cb091396dd0160c357f6dbb6fcaf6a066451c89e95300ac41c5a456ccd"
+    }
+  ],
+  "limits": [
+    "Four diagnostic seeds do not meet the 100-seed gate or certify balance, natural human play, full-match browser performance or native parity.",
+    "Native bound-object Flex size, origin height, dispatch/stop/linger, random ordering/correlation and integrated motion units remain unverified. The reading ledger distinguishes source fields, external reconstruction and local policies.",
+    "Seven distortion emitters, target-hit attachment and nonvisual source sound binding remain deferred. The six-champion roster, quests, epics, complete strategy, offline and full-match browser/performance certification remain unfinished."
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "sourcePinSha256": "ce87ad00e08b9fa8fb6eece540abc56dcb3bcca495b8edc1815b6698a1cd00c4",
-  "profileSha256": "580e67a7e7c7816d17a0e7354460082e380c832cd06bab6ae17b2af643ea52db",
+  "profileSha256": "8ba71a78243ac022e1cb2a880ed619b88a436cfc57b7ad1447364f9d392abb7a",
   "burstProfileSha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e",
-  "fieldProfileSha256": "f737da62d7c5c087c0e59f504d6b4ccf14495a9e4ff28cfe5420230d5c5e9d4a",
-  "rendered": 49,
+  "fieldProfileSha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931",
+  "rendered": 55,
   "inventory": [
     {
       "record": "Lux_E_tar_aoe_sound",
@@ -30,8 +30,17 @@
       "record": "Lux_E_mis",
       "index": 1,
       "name": "glow",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "filtered for base skin",
+      "reason": "Required SteelLegionLux keyword is absent for the supported base skin.",
+      "filtering": {
+        "required": [
+          "SteelLegionLux"
+        ],
+        "excluded": [],
+        "included": [],
+        "keywords": [],
+        "enabled": false
+      }
     },
     {
       "record": "Lux_E_mis",
@@ -58,8 +67,8 @@
       "record": "Lux_E_mis",
       "index": 5,
       "name": "Spinners",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_mis",
@@ -72,8 +81,8 @@
       "record": "Lux_E_mis",
       "index": 7,
       "name": "motes",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_mis",
@@ -86,22 +95,40 @@
       "record": "Lux_E_mis",
       "index": 9,
       "name": "rays",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 0,
       "name": "distort-char",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "filtering": {
+        "required": [],
+        "excluded": [
+          "SteelLegionLux"
+        ],
+        "included": [],
+        "keywords": [],
+        "enabled": true
+      }
     },
     {
       "record": "Lux_E_tar_aoe_green",
       "index": 1,
       "name": "distort",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "filtering": {
+        "required": [],
+        "excluded": [
+          "SteelLegionLux"
+        ],
+        "included": [],
+        "keywords": [],
+        "enabled": true
+      }
     },
     {
       "record": "Lux_E_tar_aoe_green",
@@ -233,8 +260,8 @@
       "record": "Lux_E_tar_aoe_green",
       "index": 20,
       "name": "Spinners",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
@@ -247,8 +274,8 @@
       "record": "Lux_E_tar_aoe_green",
       "index": 22,
       "name": "motes",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered field motion batch",
+      "reason": null
     },
     {
       "record": "Lux_E_tar_aoe_green",
@@ -353,14 +380,32 @@
       "index": 12,
       "name": "distort",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "filtering": {
+        "required": [],
+        "excluded": [
+          "SteelLegionLux"
+        ],
+        "included": [],
+        "keywords": [],
+        "enabled": true
+      }
     },
     {
       "record": "Lux_E_tar_aoe_red",
       "index": 13,
       "name": "distort1",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "filtering": {
+        "required": [],
+        "excluded": [
+          "SteelLegionLux"
+        ],
+        "included": [],
+        "keywords": [],
+        "enabled": true
+      }
     },
     {
       "record": "Lux_E_tar_aoe_red",
@@ -388,7 +433,16 @@
       "index": 0,
       "name": "distort",
       "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller.",
+      "filtering": {
+        "required": [],
+        "excluded": [
+          "SteelLegionLux"
+        ],
+        "included": [],
+        "keywords": [],
+        "enabled": true
+      }
     },
     {
       "record": "Lux_E_tar_nova",
@@ -429,8 +483,17 @@
       "record": "Lux_E_tar_nova",
       "index": 6,
       "name": "flash",
-      "status": "deferred",
-      "reason": "Separate moving-particle, distortion, additional-layer or target-hit integration remains required; the nonvisual sound emitter binding is not certified by the separate E audio controller."
+      "status": "rendered static layer",
+      "reason": null,
+      "filtering": {
+        "required": [],
+        "excluded": [
+          "SteelLegionLux"
+        ],
+        "included": [],
+        "keywords": [],
+        "enabled": true
+      }
     },
     {
       "record": "Lux_E_tar_nova",
@@ -462,7 +525,7 @@
     }
   ],
   "limits": [
-    "Thirty-one static layers, three detonation motion batches and fifteen field motion/glow/ray batches. Remaining field/flight motion, distortion and target hit capture remain open; E source audio is implemented separately.",
+    "Thirty-two static layers, three detonation batches and twenty field/flight batches; one source record is filtered for the base skin. Remaining field/flight motion, distortion and target hit capture remain open; E source audio is implemented separately.",
     "Birth dispatch, palette row conversion, emitter origin/height, source-frame attachment, ground projection, stop behavior and composition remain local adapters pending native comparison."
   ]
 }

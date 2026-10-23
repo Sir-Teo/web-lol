@@ -13,7 +13,12 @@ import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 
 let assets:
-  { textures: ReadonlyMap<string, THREE.Texture>; indicator: THREE.BufferGeometry } | undefined;
+  | {
+      textures: ReadonlyMap<string, THREE.Texture>;
+      indicator: THREE.BufferGeometry;
+      templates: ReadonlyMap<string, THREE.BufferGeometry>;
+    }
+  | undefined;
 let pending: Promise<void> | undefined;
 export function loadLuxESource(): Promise<void> {
   if (assets) return Promise.resolve();
@@ -33,25 +38,34 @@ export function loadLuxESource(): Promise<void> {
         .filter(Boolean)
     );
     paths.push(...burstProfiles.flatMap((p) => [p.texture, p.lookup]).filter(Boolean));
-    const [textures, gltf] = await Promise.allSettled([
+    const meshPaths = ['assets/models/lux-e-indicator.glb', 'assets/models/lux-e-slash.glb'];
+    const [textures, ...models] = await Promise.allSettled([
       loadLuxParticleTextures(paths),
-      new GLTFLoader().loadAsync(import.meta.env.BASE_URL + 'assets/models/lux-e-indicator.glb'),
+      ...meshPaths.map((path) => new GLTFLoader().loadAsync(import.meta.env.BASE_URL + path)),
     ]);
-    const candidates: THREE.BufferGeometry[] = [];
-    if (gltf.status === 'fulfilled')
-      gltf.value.scene.traverse((o) => {
-        if (o instanceof THREE.Mesh) {
-          candidates.push(o.geometry);
-          for (const m of Array.isArray(o.material) ? o.material : [o.material]) m.dispose();
-        }
-      });
-    if (textures.status === 'rejected' || gltf.status === 'rejected' || candidates.length !== 1) {
-      candidates.forEach((g) => g.dispose());
+    const geometries = models.map((result) => {
+      const candidates: THREE.BufferGeometry[] = [];
+      if (result.status === 'fulfilled')
+        result.value.scene.traverse((o) => {
+          if (o instanceof THREE.Mesh) {
+            candidates.push(o.geometry);
+            for (const m of Array.isArray(o.material) ? o.material : [o.material]) m.dispose();
+          }
+        });
+      return candidates;
+    });
+    const failed = [textures, ...models].find((r) => r.status === 'rejected');
+    if (textures.status === 'rejected' || failed || geometries.some((g) => g.length !== 1)) {
+      geometries.flat().forEach((g) => g.dispose());
       if (textures.status === 'rejected') throw textures.reason;
-      if (gltf.status === 'rejected') throw gltf.reason;
-      throw Error('Expected one source E indicator geometry');
+      if (failed?.status === 'rejected') throw failed.reason;
+      throw Error('Expected one geometry per source E model');
     }
-    assets = { textures: textures.value, indicator: candidates[0] };
+    assets = {
+      textures: textures.value as ReadonlyMap<string, THREE.Texture>,
+      indicator: geometries[0][0],
+      templates: new Map(meshPaths.map((path, i) => [path, geometries[i][0]])),
+    };
   })().catch((error) => {
     pending = undefined;
     throw error;
@@ -155,6 +169,7 @@ export class LuxESource {
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   private burst: LuxEBurstCloud | undefined;
   private field: LuxEFieldCloud | undefined;
+  private flight: LuxEFieldCloud | undefined;
   constructor(
     private camera: THREE.Camera,
     private ground: (p: Vec2) => number
@@ -180,7 +195,7 @@ export class LuxESource {
     if (role === 'ally' || role === 'enemy') {
       if (this.field?.role !== role) {
         this.field?.dispose();
-        this.field = new LuxEFieldCloud(role, assets.textures);
+        this.field = new LuxEFieldCloud(role, assets.textures, assets.templates);
         this.root.add(...this.field.meshes);
       }
       this.field.draw(world, seed, age, at, origin, target, team, this.camera, this.ground);
@@ -189,6 +204,16 @@ export class LuxESource {
       this.field = undefined;
     }
 
+    if (role === 'flight') {
+      if (!this.flight) {
+        this.flight = new LuxEFieldCloud('flight', assets.textures, assets.templates);
+        this.root.add(...this.flight.meshes);
+      }
+      this.flight.draw(world, seed, age, at, origin, target, team, this.camera, this.ground);
+    } else if (this.flight) {
+      this.flight.dispose();
+      this.flight = undefined;
+    }
     if (role === 'burst') {
       if (!this.burst) {
         this.burst = new LuxEBurstCloud(assets.textures);
@@ -316,6 +341,8 @@ export class LuxESource {
       }
   }
   dispose() {
+    this.flight?.dispose();
+    this.flight = undefined;
     this.field?.dispose();
     this.field = undefined;
     this.burst?.dispose();

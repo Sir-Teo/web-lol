@@ -1,6 +1,68 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, thirty-one static source particle layers, three moving detonation batches and fifteen field batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, thirty-two static source particle layers, three moving detonation batches and twenty field/flight batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Missile spinners, motes and rays — October 23, 2026
+
+E now uses the source spinner mesh, sphere motes and true rays during flight,
+plus the matching spinner/mote records in the early ally field. The base nova
+flash is also selected. The full 65-record inventory has **55 rendered records,
+one base-skin exclusion and nine deferred records**. Missile glow 1 requires
+`SteelLegionLux`; nova flash 6 excludes that keyword and therefore applies to the
+supported base skin. The seven distortion records, target-hit attachment and
+nonvisual sound binding remain deferred. Finite E event audio is separate.
+
+The pinned slash SCB converts to a validated 12,296-byte GLB: 119 source vertices,
+192 triangles and 576 expanded face corners, with source XYZ, winding and face
+UVs preserved. The runtime applies its three-dimensional source scale and Euler
+rotation, reflected world-X frame and authored random 2×2 atlas cell. It does not
+flatten this mesh onto terrain. Source templates and images remain shared;
+each cast owns its batch geometry/materials. Flight batches retire on arrival,
+and empty batches issue no draws. Dynamic draw limits are three in flight,
+ten for the early ally field and seven for the enemy field; static draws are
+additional.
+
+The [pinned reading ledger](reference/lux-e-missile-reading.json) separates
+external reconstruction from native evidence. Motes retain their rate probability
+table, while the reader's base-curve rate path yields nine births over the
+0.6-second emission period. Sphere sampling preserves the reader's naive radius
+and two independent full-angle rotations, with local indexed random channels.
+The 0.95 bind weight reconstructs partial attachment from the saved straight
+missile trajectory before orbital motion. Its world-Y term is added after orbit,
+following the fetched reader implementation. No new saved fields are required.
+
+The spinner's bound-object `FlexShapeDefinition` scalar is retained, but the
+native object-size input is unknown and the fetched reader omits it. The local
+adapter keeps the source Y offset of five rather than inventing an object size.
+Native integration, RNG ordering, origin height, dispatch and stop/linger remain
+uncalibrated. Source linger values do not create speculative 10.5-second tails.
+The nova flash retains its authored lifetime slightly above 0.1 seconds.
+
+All 31 prior static profiles retain their complete values and indices. Twenty-four
+full sampler snapshots for the original fifteen dynamic streams remain identical.
+TypeScript, all **1,392 unit checks across 254 files**, **21 targeted Chrome cases**
+and nested-path production validation pass. Fifteen isolated batch frames stay
+within one RGBA channel value of separate particle draws; all twenty dynamic
+emitter records contribute pixels in the sampled probes. Moving and armed context
+recovery restore identical buffers and framebuffer bytes. Arrival disposes all
+18 then-owned flight resources; recast disposes all 36 mature-field resources.
+Flight and field fog, saved phases and frozen victory cleanup are checked.
+These are local integration checks, not native or full-match FPS certification.
+
+Production requests both source meshes and sixteen selected E-prefixed images;
+no image files were added. Game/Three chunks are **874.30/658.75 KB**, and the
+build-size warning remains. Fixture flight/field and real Rift production captures
+were visually reviewed. The [verification ledger](reference/lux-e-missile-verification.json)
+and [match audit](reference/lux-e-missile-match-audit.json) retain the current
+source, runtime and diagnostic evidence. Run `node tools/qa/verify-lux-e-missile.mjs`
+to check retained hashes and comparisons.
+
+Four fresh normal-rules diagnostic matches checked **780,762 ticks** and **220
+exact checkpoint round trips**. Every winner, end tick and sample matches
+`c08b46b`; every complete final checkpoint matches after changing only the ruleset
+fingerprint. The four-seed check does not meet the 100-seed or full-match browser
+gates. The stateless flight origin is also tested against actual saved simulation
+positions and fractional render interpolation for three different cast directions.
 
 ## Field glows, rotating quads and source rays — October 23, 2026
 

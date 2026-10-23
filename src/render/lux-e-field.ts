@@ -1,7 +1,7 @@
 import { writeRayQuad } from './ray-quad';
 import * as THREE from 'three';
 import profiles from '../content/lux-e-field.json';
-import { LUX_E_FIELD_BIRTHS, luxEFieldParticles } from './lux-e-field-particles';
+import { LUX_E_FIELD_BIRTHS, luxEFieldParticles, luxEFlightOrigin } from './lux-e-field-particles';
 import { groundEffectMaterial, setGroundRenderStage } from './ground-display-list';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { particleAtlasUv } from './particle-atlas';
@@ -104,13 +104,19 @@ export class LuxEFieldCloud {
   private eye = new THREE.Vector3();
   private rotation = new THREE.Euler(0, 0, 0, 'YXZ');
   private frame = new THREE.Matrix3();
+  private size = new THREE.Vector3();
   constructor(
-    readonly role: 'ally' | 'enemy',
-    textures: ReadonlyMap<string, THREE.Texture>
+    readonly role: 'ally' | 'enemy' | 'flight',
+    textures: ReadonlyMap<string, THREE.Texture>,
+    private templates: ReadonlyMap<string, THREE.BufferGeometry> = new Map()
   ) {
     for (const [i, p] of profiles.entries()) {
       if (p.role !== role) continue;
       const capacity = Math.max(1, LUX_E_FIELD_BIRTHS[i].length);
+      const template = p.mesh ? templates.get(p.mesh) : undefined;
+      if (p.mesh && !template) throw Error(`Missing Lucent mesh ${p.mesh}`);
+      const stride = template?.getAttribute('position').count ?? 6;
+      if (stride % 3 || template?.index) throw Error('Expected expanded source triangle corners');
       const geometry = new THREE.BufferGeometry();
       for (const [name, size] of [
         ['position', 3],
@@ -122,11 +128,11 @@ export class LuxEFieldCloud {
       ] as const)
         geometry.setAttribute(
           name,
-          new THREE.BufferAttribute(new Float32Array(capacity * 6 * size), size).setUsage(
+          new THREE.BufferAttribute(new Float32Array(capacity * stride * size), size).setUsage(
             THREE.DynamicDrawUsage
           )
         );
-      geometry.setIndex(new THREE.BufferAttribute(new Uint16Array(capacity * 6), 1));
+      geometry.setIndex(new THREE.BufferAttribute(new Uint16Array(capacity * stride), 1));
       geometry.setDrawRange(0, 0);
       const mesh = new THREE.Mesh(geometry, createLuxEFieldMaterial(i, textures));
       mesh.name = mesh.material.name;
@@ -135,6 +141,7 @@ export class LuxEFieldCloud {
       mesh.userData.fieldProfileIndex = i;
       if (p.ground) setGroundRenderStage(mesh, 'ground');
       mesh.userData.capacity = capacity;
+      mesh.userData.particleVertexCount = stride;
       this.meshes.push(mesh);
     }
   }
@@ -156,7 +163,12 @@ export class LuxEFieldCloud {
     const length = Math.hypot(target.x - origin.x, target.y - origin.y),
       fx = length ? (target.x - origin.x) / length : 0,
       fy = length ? (target.y - origin.y) / length : 1;
-    const particles = luxEFieldParticles(this.role, seed, age);
+    const particles = luxEFieldParticles(
+      this.role,
+      seed,
+      age,
+      this.role === 'flight' ? (seconds) => luxEFlightOrigin(length, seconds) : undefined
+    );
     for (const mesh of this.meshes) {
       const profileIndex = mesh.userData.fieldProfileIndex,
         p = profiles[profileIndex],
@@ -198,7 +210,8 @@ export class LuxEFieldCloud {
         }
         dx /= d;
         dy /= d;
-        const first = slot * 6;
+        const stride = mesh.userData.particleVertexCount,
+          first = slot * stride;
         this.sourcePosition.fromArray(q.position);
         this.rotation.set(
           ...(q.rotation.map((v) => (v * Math.PI) / 180) as [number, number, number]),
@@ -233,8 +246,36 @@ export class LuxEFieldCloud {
             this.eye
           );
         }
-        corners.forEach(([cx, cy], corner) => {
-          if (p.primitive === 'quad') {
+        const template = p.mesh ? this.templates.get(p.mesh) : undefined;
+        this.size.fromArray(q.scale);
+        for (let corner = 0; corner < stride; corner++) {
+          const [cx, cy] = corners[corner % 6];
+          if (p.primitive === 'mesh') {
+            this.vertex
+              .fromBufferAttribute(template!.getAttribute('position'), corner)
+              .multiplyScalar(100)
+              .multiply(this.size)
+              .applyEuler(this.rotation)
+              .add(this.sourcePosition)
+              .applyMatrix3(this.frame);
+            position.setXYZ(
+              first + corner,
+              (at.x + this.vertex.x) * 0.01,
+              ground(at) + 1 + this.vertex.y * 0.01,
+              (at.y + this.vertex.z) * 0.01
+            );
+            const sourceUv = template!.getAttribute('uv');
+            uv.setXY(
+              first + corner,
+              ...particleAtlasUv(
+                p.atlas.grid[0],
+                p.atlas.grid[1],
+                q.frame,
+                sourceUv.getX(corner),
+                sourceUv.getY(corner)
+              )
+            );
+          } else if (p.primitive === 'quad') {
             this.vertex
               .set(cx * q.scale[0], cy * q.scale[1], 0)
               .applyEuler(this.rotation)
@@ -279,8 +320,8 @@ export class LuxEFieldCloud {
           multScale.setXY(first + corner, ...(q.multScale as [number, number]));
           tint.setXYZW(first + corner, ...(q.color as [number, number, number, number]));
           lookup.setXY(first + corner, ...q.lookup);
-        });
-        for (let tri = 0; tri < 6; tri += 3)
+        }
+        for (let tri = 0; tri < stride; tri += 3)
           if (
             team === 'blue' ||
             [0, 1, 2].every((j) =>
@@ -293,6 +334,7 @@ export class LuxEFieldCloud {
             for (let j = 0; j < 3; j++) index.setX(count++, first + tri + j);
       });
       g.setDrawRange(0, count);
+      mesh.visible = count > 0;
       index.needsUpdate = true;
       for (const a of Object.values(g.attributes)) a.needsUpdate = true;
       mesh.userData.liveParticles = selected.length;

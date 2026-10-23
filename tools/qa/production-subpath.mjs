@@ -110,7 +110,9 @@ try {
       recordings.add(response.url());
     if (
       response.ok() &&
-      /\/assets\/(?:effects\/lux-e-[^/]+\.png|models\/lux-e-indicator\.glb)$/.test(response.url())
+      /\/assets\/(?:effects\/lux-e-[^/]+\.png|models\/lux-e-(?:indicator|slash)\.glb)$/.test(
+        response.url()
+      )
     )
       lucentSourceAssets.add(new URL(response.url()).pathname.replace(prefix, ''));
   });
@@ -173,7 +175,7 @@ try {
   await page.waitForTimeout(700);
   assert.equal(await page.locator('[data-ability="e"] .ability-charges').textContent(), '1');
   await mkdir('artifacts', { recursive: true });
-  await page.screenshot({ path: 'artifacts/production-subpath.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-subpath.png' });
   assert.equal(
     preparedCompanionRequests.length,
     0,
@@ -227,9 +229,9 @@ try {
     return icons.length >= 30 && icons.every((img) => img.complete && img.naturalWidth > 0);
   });
   const roleScoreboardIcons = await page.locator('.scoreboard-row img').count();
-  await page.screenshot({ path: 'artifacts/production-role-match.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-role-match.png' });
   await page.keyboard.up('Tab');
-  await page.screenshot({ path: 'artifacts/production-lux.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-lux.png' });
   await page.keyboard.press('Escape');
   await Promise.all([
     page.waitForEvent('load'),
@@ -269,19 +271,20 @@ try {
     () => document.querySelector('[data-ability="e"] .cooldown-text')?.textContent === 'RECAST'
   );
   await page.waitForTimeout(1800);
-  await page.screenshot({ path: 'artifacts/production-lux-e-source.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-lux-e-source.png' });
   await page.locator('[data-ability="e"]').click();
   await page.waitForFunction(
     () => Number(document.querySelector('[data-ability="e"] .cooldown-text')?.textContent) > 0
   );
   await page.waitForTimeout(150);
-  await page.screenshot({ path: 'artifacts/production-lux-e-moving-burst.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-lux-e-moving-burst.png' });
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert(lucentSourceAssets.has('assets/models/lux-e-indicator.glb'));
+  assert(lucentSourceAssets.has('assets/models/lux-e-slash.glb'));
   assert.equal(
     [...lucentSourceAssets].filter((p) => p.endsWith('.png')).length,
-    14,
-    'Only the fourteen selected E textures should load; unused prepared distortion assets remain unloaded'
+    16,
+    'Only the sixteen selected E textures should load; unused prepared distortion assets remain unloaded'
   );
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
@@ -322,7 +325,7 @@ try {
   await page.keyboard.up('4');
   await page.locator('.unit-bar.blue.ward:not([hidden])').waitFor({ state: 'visible' });
   assert.equal(await page.locator('#trinket .trinket-charges').textContent(), '0');
-  await page.screenshot({ path: 'artifacts/production-ward.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-ward.png' });
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await page.waitForFunction(
@@ -346,7 +349,7 @@ try {
     )
   );
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
-  await page.screenshot({ path: 'artifacts/production-companion-purchase.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-companion-purchase.png' });
   assert.equal(oracleRigRequests.length, 0, 'Unequipped Oracle assets must not preload');
   assert.equal(oracleAudioRequests.length, 0, 'Unequipped Oracle audio must not preload');
   await page.keyboard.press('p');
@@ -377,7 +380,7 @@ try {
   assert.equal(await page.locator('.unit-bar.blue.ward:not([hidden])').count(), 1);
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
-  await page.screenshot({ path: 'artifacts/production-oracle.png' });
+  await page.screenshot({ path: 'artifacts/lux-e-missile-production-oracle.png' });
   assert(oracleRigRequests.length >= 8);
   assert.equal(new Set(oracleAudioRequests).size, 3);
   assert(
@@ -458,7 +461,7 @@ try {
       scheduledRaptorRequests: scheduledRaptorRequests.length,
       scheduledKrugRequests: scheduledKrugRequests.length,
       scheduledScuttlerRequests: scheduledScuttlerRequests.length,
-      screenshot: 'artifacts/production-subpath.png',
+      screenshot: 'artifacts/lux-e-missile-production-subpath.png',
     })
   );
 } finally {

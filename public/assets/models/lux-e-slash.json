@@ -1,0 +1,41 @@
+{
+  "source": {
+    "path": "assets/characters/lux/skins/base/particles/lux_base_slash.scb",
+    "wadPathHash": "2a285c75bfb8035f",
+    "sha256": "bf7a46c6fd57b223ff3e8e69b8aa6a1850a806709c1dcc3271baf02771dabfb8",
+    "bytes": 20820
+  },
+  "output": {
+    "path": "assets/models/lux-e-slash.glb",
+    "bytes": 12296,
+    "sha256": "b751e04390eefde55a1a9503606773144abfc80134135ccd22a429fe98ad0031"
+  },
+  "unitScale": 0.01,
+  "vertices": 119,
+  "triangles": 192,
+  "flags": 2,
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "headerBounds": [
+    -0.07099355012178421,
+    -5.923430919647217,
+    -86.51305389404297,
+    85.61377716064453,
+    18.626426696777344,
+    171.22747802734375
+  ],
+  "materials": [
+    "lambert1"
+  ],
+  "positionFloat32Sha256": "3c06b465ce02b2805932aa9b1f5e0fb28abc13630d72109ca95d02c378bb33db",
+  "uvFloat32Sha256": "8261c5a04846d1a4a8086aece2f321cee3155a0c116653e7085fb68e49957e01",
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  },
+  "note": "Source winding, coordinates and face-corner UVs retained; no emitter transform, radius fit, axis reflection or pivot offset baked in."
+}

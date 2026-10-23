@@ -16,28 +16,50 @@ def variable(v, default):
                        for t in d['probabilityTables']] if 'probabilityTables' in d else None)
 
 
+def base_filter(e):
+    f=e.get('{f50b1a41}',{})
+    if not f: return None
+    assert f['__type']=='{f4e37e07}'
+    assert set(f)<={'__type','{14435bb0}','{c178fac7}','{47cc1fe9}'}
+    required=f.get('{14435bb0}',[]); excluded=f.get('{c178fac7}',[]); included=f.get('{47cc1fe9}',[])
+    return dict(required=required,excluded=excluded,included=included,keywords=[],enabled=not required and not included)
+
+
 def export_field(pin, textures, inventory):
     result = []
     for role, record, indices in [('ally', 'Lux_E_tar_aoe_green', [5, 6]), ('enemy', 'Lux_E_tar_aoe_red', [11, 15]),
-       ('ally','Lux_E_tar_aoe_green',[9,12,13,14,15,24]),('enemy','Lux_E_tar_aoe_red',[0,1,2,3,14])]:
+       ('ally','Lux_E_tar_aoe_green',[9,12,13,14,15,24]),('enemy','Lux_E_tar_aoe_red',[0,1,2,3,14]),
+       ('flight','Lux_E_mis',[5,7,9]),('ally','Lux_E_tar_aoe_green',[20,22])]:
         for index in indices:
             e = pin['definitions'][record]['complexEmitterDefinitionData'][index]
-            allowed = set('rate particleLifetime particleLinger lifetime emitterName importance birthVelocity bindWeight SpawnShape EmitterPosition particleColorTexture birthColor Color colorLookUpTypeY miscRenderFlags isDirectionOriented isUniformScale isGroundLayer birthRotation0 birthRotationalVelocity0 isLocalOrientation directionVelocityScale birthScale0 scale0 texture __type birthOrbitalVelocity birthDrag pass isRandomStartFrame numFrames paletteDefinition texDiv primitive blendMode alphaRef isSingleParticle isRotationEnabled {712b01bd} uvRotation textureMult'.split())
+            allowed = set('rate particleLifetime particleLinger lifetime emitterName importance birthVelocity bindWeight SpawnShape EmitterPosition particleColorTexture birthColor Color colorLookUpTypeY miscRenderFlags isDirectionOriented isUniformScale isGroundLayer birthRotation0 birthRotationalVelocity0 isLocalOrientation directionVelocityScale birthScale0 scale0 texture __type birthOrbitalVelocity birthDrag pass isRandomStartFrame numFrames paletteDefinition texDiv primitive blendMode alphaRef isSingleParticle isRotationEnabled {712b01bd} uvRotation textureMult FlexShapeDefinition worldAcceleration disableBackfaceCull'.split())
             assert set(e) <= allowed, set(e)-allowed
             primitive=e.get('primitive',{}).get('__type','camera')
-            assert primitive in ['camera','VfxPrimitiveArbitraryQuad','VfxPrimitiveRay']
+            assert not e.get('bindWeight',{}).get('dynamics'), 'Moving attachment currently requires constant bind weight'
+            if primitive=='VfxPrimitiveMesh':
+                assert e['primitive']['mMesh']['mSimpleMeshName'].lower()=='assets/characters/lux/skins/base/particles/lux_base_slash.scb'
+                assert e.get('disableBackfaceCull') is True
+            assert primitive in ['camera','VfxPrimitiveArbitraryQuad','VfxPrimitiveRay','VfxPrimitiveMesh']
             assert e.get('alphaRef',0)==0 and not e.get('uvRotation',{}).get('dynamics')
             shape=e.get('SpawnShape',{})
-            assert shape.get('__type','') in ['','VfxShapeLegacy','{ee39916f}']
+            assert shape.get('__type','') in ['','VfxShapeLegacy','{ee39916f}','{3dbe415d}']
             mult=e.get('textureMult',{})
             assert set(mult) <= {'textureMult','{cd124686}','{22c3cf3e}','birthUVOffsetMult','__type'}
-            assert set(shape) <= {'emitOffset', 'emitRotationAxes', 'emitRotationAngles', '__type'}
+            assert set(shape) <= {'emitOffset', 'emitRotationAxes', 'emitRotationAngles', 'flags','radius','__type'}
+            sphere=shape.get('__type')=='{3dbe415d}'
+            if sphere: assert shape['flags']==1 and shape['radius']==40
+            flex=e.get('FlexShapeDefinition',{})
+            if flex: assert set(flex)=={'scaleEmitOffsetByBoundObjectSize','__type'} and flex['__type']=='VfxFlexShapeDefinitionData'
             palette=e.get('paletteDefinition')
             if palette:
                 assert not palette['paletteSelector'].get('dynamics') and not palette['palleteSrcMixColor'].get('dynamics')
             result.append(dict(role=role, record=record, index=index, name=e['emitterName'],
                 rate=variable(e['rate'],0), emitterLife=e['lifetime'], single=bool(e.get('isSingleParticle')),
-                primitive={'camera':'camera','VfxPrimitiveArbitraryQuad':'quad','VfxPrimitiveRay':'ray'}[primitive],
+                primitive={'camera':'camera','VfxPrimitiveArbitraryQuad':'quad','VfxPrimitiveRay':'ray','VfxPrimitiveMesh':'mesh'}[primitive],
+                mesh='assets/models/lux-e-slash.glb' if primitive=='VfxPrimitiveMesh' else '',
+                sphereRadius=shape.get('radius',0) if sphere else 0, sphereFlags=shape.get('flags') if sphere else None,
+                flexBoundSizeScaler=flex.get('scaleEmitOffsetByBoundObjectSize'),
+                bind=variable(e.get('bindWeight',{}),0), worldAcceleration=variable(e.get('worldAcceleration',{}),[0,0,0]),
                 rotationRate=variable(e.get('{712b01bd}',{}),[0,0,0]), uvRotation=e.get('uvRotation',{}).get('constantValue',0),
                 mult=textures[mult['textureMult'].lower()] if mult else '',
                 multScale=variable(mult.get('{cd124686}',{}),[1,1]),

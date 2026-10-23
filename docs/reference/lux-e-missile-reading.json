@@ -1,0 +1,57 @@
+{
+  "repository": "LeagueToolkit/ltk-manager",
+  "commit": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "scope": "Pinned external reconstruction used to interpret selected source records. It is not an authoritative native-client behavior capture.",
+  "files": [
+    {
+      "path": ".cache/lux-e-flight-readers/emit.ts",
+      "sha256": "df6ddf0643fbef2c62240edfd9700b4b67c655e818d15ba3c199180aa34192b6",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts"
+    },
+    {
+      "path": ".cache/lux-e-flight-readers/particleRead.ts",
+      "sha256": "950b83eb0e4378a2a858bc4211b838a3e348c2461d6ed903dc1c4ba9bf671268",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts"
+    },
+    {
+      "path": ".cache/lux-e-flight-readers/readMotion.ts",
+      "sha256": "658320f4da9d8f698d89a28af118c3623443923598c6f578f4b01a59c101087b",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readMotion.ts"
+    },
+    {
+      "path": ".cache/lux-e-flight-readers/readValue.ts",
+      "sha256": "f65630a8e1d04298949580e1ceef02828aa9fa1250cf2fa887b27e28c639688c",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readValue.ts"
+    },
+    {
+      "path": ".cache/lux-e-flight-readers/sampleCurve.ts",
+      "sha256": "3bf7398664b2ffa4fc87e7049103608b77152ac3263ee36e395f32449e150b63",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/sampleCurve.ts"
+    },
+    {
+      "path": ".cache/lux-e-flight-readers/spawnShape.ts",
+      "sha256": "6d1b3e2b1440cd8ee3483e25ee817625438f5304585e2573898c09e9ce67c284",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/spawnShape.ts"
+    }
+  ],
+  "readings": {
+    "filtering": {
+      "VfxEmitterFiltering": "f4e37e07",
+      "keywordsRequired": "14435bb0",
+      "keywordsExcluded": "c178fac7",
+      "keywordsIncluded": "47cc1fe9",
+      "policy": "Only the supported empty base-skin keyword set is evaluated. Missile glow 1 requires SteelLegionLux and is excluded; nova flash 6 excludes that keyword and is included."
+    },
+    "rate": "emit.ts calls sampleScalar, which samples the base curve without birth probability tables. Motes keep their raw rate probability table in the exported profile but schedule the base rate 15, producing nine births over 0.6000000238418579 seconds under the existing local scheduler.",
+    "sphere": "spawnShape.ts uses radius times one uniform draw, then independent full-turn Y and Z rotations for flags bit 1. The local adapter uses indexed salted random channels, not a certified native RNG sequence. It does not replace this with uniform volume or uniform polar sampling.",
+    "attachment": "Selected bind weights are constant. Partial attachment accumulates the constant weight times parent translation before orbit about the current system origin. Saved E origin, endpoint and launch tick reconstruct the straight trajectory, including its launch-tick movement step; no new saved fields are needed.",
+    "worldAcceleration": "particleRead.ts adds sampled worldAcceleration times age01 times lifetime squared after orbit. The local constant [0,5,0] record therefore adds Y=5*age*lifetime and direction velocity Y=5*lifetime. Despite IntegratedValue comments, the fetched readValue/sampleCurve implementation samples these raw values; this is a reconstruction interpretation, not verified native integration.",
+    "flex": "The spinner authors scaleEmitOffsetByBoundObjectSize=0.004999999888241291. The fetched reader does not apply FlexShapeDefinition. The adapter retains that raw scalar and the source Y offset 5 but cannot determine the native bound-object size. This unresolved term is not silently replaced with an invented caster radius.",
+    "mesh": "The pinned SCB slash is expanded into 576 triangle corners (119 source vertices, 192 triangles), retaining XYZ, winding and every original face UV at unit scale 0.01. Runtime applies source scale, Euler rotation, reflected world-X frame and 2x2 atlas cell without grounding the 3D mesh.",
+    "stop": "Flight batches retire at arrival, field batches at detonation/cancellation/victory. Source particleLinger values remain metadata; the adapter does not invent 10.5-second spinner persistence. Native stop/linger and phase restart rules remain uncalibrated."
+  },
+  "limits": [
+    "Native client captures, bound-object Flex size, origin height, spawn initialization, random ordering/correlation, integration units, exact source orientation and final composition remain unverified.",
+    "Seven distortion emitters, target-hit attachment and the nonvisual sound binding remain deferred. The separate finite E audio controller remains independently implemented."
+  ]
+}

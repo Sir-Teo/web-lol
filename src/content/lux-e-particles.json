@@ -5876,5 +5876,148 @@
     },
     "palette": null,
     "erosion": null
+  },
+  {
+    "role": "burst",
+    "record": "Lux_E_tar_nova",
+    "index": 6,
+    "name": "flash",
+    "count": 1,
+    "life": 0.10000000149011612,
+    "size": {
+      "value": [
+        600.0,
+        600.0,
+        600.0
+      ],
+      "probabilities": null
+    },
+    "rotation": {
+      "value": [
+        -90.0,
+        20.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "offset": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "birthColor": {
+      "value": [
+        0.8666666746139526,
+        1.0,
+        0.3803921639919281,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "ground": false,
+    "primitive": "quad",
+    "local": true,
+    "passOrder": 0,
+    "blend": 0,
+    "misc": 0,
+    "texture": "assets/effects/lux-e-rainbowflash.png",
+    "lookup": "assets/effects/lux-e-color-hold.png",
+    "uvMode": 0,
+    "uvOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "mult": "",
+    "multScale": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "multScroll": {
+      "times": [
+        0,
+        1
+      ],
+      "values": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "multOffset": {
+      "value": [
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "palette": null,
+    "erosion": null
   }
 ]
