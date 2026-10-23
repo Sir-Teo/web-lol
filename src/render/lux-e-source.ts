@@ -1,3 +1,5 @@
+import fieldProfiles from '../content/lux-e-field.json';
+import { LuxEFieldCloud } from './lux-e-field';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import profiles from '../content/lux-e-particles.json';
@@ -25,6 +27,11 @@ export function loadLuxESource(): Promise<void> {
         p.erosion?.texture ?? '',
       ])
       .filter(Boolean);
+    paths.push(
+      ...fieldProfiles
+        .flatMap((p) => [p.texture, p.lookup, p.palette?.texture ?? ''])
+        .filter(Boolean)
+    );
     paths.push(...burstProfiles.flatMap((p) => [p.texture, p.lookup]).filter(Boolean));
     const [textures, gltf] = await Promise.allSettled([
       loadLuxParticleTextures(paths),
@@ -147,6 +154,7 @@ export class LuxESource {
   private size = new THREE.Vector3();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   private burst: LuxEBurstCloud | undefined;
+  private field: LuxEFieldCloud | undefined;
   constructor(
     private camera: THREE.Camera,
     private ground: (p: Vec2) => number
@@ -169,6 +177,18 @@ export class LuxESource {
     const fx = d ? (target.x - origin.x) / d : 0,
       fy = d ? (target.y - origin.y) / d : 1;
     const active = new Set<string>();
+    if (role === 'ally' || role === 'enemy') {
+      if (this.field?.role !== role) {
+        this.field?.dispose();
+        this.field = new LuxEFieldCloud(role, assets.textures);
+        this.root.add(...this.field.meshes);
+      }
+      this.field.draw(world, seed, age, at, origin, target, team, this.camera, this.ground);
+    } else if (this.field) {
+      this.field.dispose();
+      this.field = undefined;
+    }
+
     if (role === 'burst') {
       if (!this.burst) {
         this.burst = new LuxEBurstCloud(assets.textures);
@@ -296,6 +316,8 @@ export class LuxESource {
       }
   }
   dispose() {
+    this.field?.dispose();
+    this.field = undefined;
     this.burst?.dispose();
     this.burst = undefined;
     this.root.removeFromParent();

@@ -91,7 +91,9 @@ test('source E flight, team perimeter and burst reconstruct exactly from saved p
     g.world.step(70);
   });
   const field = await sample('armed');
-  expect(field.layers).toHaveLength(5);
+  expect(field.layers).toHaveLength(7);
+  expect(field.layers.filter((m: any) => m.name.includes('field motion'))).toHaveLength(2);
+  expect(field.layers.filter((m: any) => !m.name.includes('field motion'))).toHaveLength(5);
   expect(field.restored && field.repeated && field.snapshotUnchanged).toBe(true);
   const perimeter = field.layers.find((m: any) => m.name.includes('teamring'))!;
   expect(perimeter.corners).toBe(1440);

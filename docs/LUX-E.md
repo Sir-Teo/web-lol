@@ -1,6 +1,63 @@
 # Lux Lucent Singularity: evidence and implementation contract
 
-E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, twenty static source particle layers and three moving detonation batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, twenty static source particle layers, three moving detonation batches and four continuous field streams are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
+
+## Continuous field waves and sparks — October 23, 2026
+
+Both source team fields now add the authored `WaveRight` stream and rising
+`sparks`, with two fixed-capacity draws per armed field. Their animated rate
+curves retain **126 wave births and 90 spark births** on the local 60 Hz grid.
+Birth lifetime, velocity, emission offset, emitter position, tint and size sample
+normalized emitter age; particle color and scale then sample each particle's own
+normalized age. These clocks are separate. Per-axis probability tables use the
+existing shared indexed birth chance. Seeded reverse seeks, saves and fog cannot
+advance simulation randomness or restart the effect.
+
+The deterministic rate adapter uses right-endpoint samples with compensated
+summation, including the existing charged first-update birth. Probabilistic
+rates are explicitly unsupported by this adapter. Shape axes/angles, source
+drag, orbital velocity, initial/angular rotation, direction stretch, team tint,
+source color lookup, the spark palette and its random 2×2 atlas remain retained.
+All four emitters are ground-list camera quads with their authored pass and depth
+policy. Nonlocal wave offsets stay in world axes; the spark stream uses the
+captured cast frame. Root height, shared probability correlation, normalized rate
+time, first dispatch, orbital radians and camera roll/direction composition are
+local conventions awaiting native comparison.
+
+The field wrapper uses the existing saved arrival clock. Detonation, cancellation
+or victory immediately retires both motion batches with the field's static
+layers. It does not expand source `particleLinger` into an invented 11.2-second
+post-field effect. Native stop/linger behavior remains unverified. Inactive GPU
+slots are zeroed, so reverse seeking and a fresh restoration retain identical
+buffer bytes as well as rendered primitives. Textures remain shared session
+resources when field geometry/materials retire.
+
+Coverage rises from 23 to **27 of 65 emitter records**, with 38 deferred. Remaining
+flight/field layers, rays, rotating beams, distortion and attached target-hit
+capture are still required. The nonvisual sound-emitter binding is not certified
+by the separate E audio controller. No new image files are needed: the source
+small mote image is already prepared, while spark/palette images are shared.
+All three runtime E profile JSON files now participate explicitly in the strict
+ruleset identity. Saved fields remain schema 109; no combat state changed.
+
+All 1,380 unit checks across 253 files and 19 targeted Chrome cases pass, along
+with nested-path production smoke. Ten isolated frames use two emitter draws per
+field; both team streams contribute pixels independently. The largest difference
+from separate particle draws is one RGBA channel value in one byte. The live
+armed-field graphics restoration matches every captured framebuffer byte; all
+fourteen field geometry/material resources retire at recast.
+
+Four fresh [normal-rules diagnostic matches](reference/lux-e-field-match-audit.json)
+check 780,762 ticks and 220 exact checkpoint round trips. Every recorded sample,
+winner and terminal tick matches `c8f85fe`. All complete saved states, including
+cosmetic audio history, match after changing only the fingerprint. The four
+victories remain within one hour; the 100-seed gate remains unmet.
+
+[The field verification ledger](reference/lux-e-field-verification.json) records
+source profiles, GPU/source checks, captures and diagnostic match comparisons.
+The complete browser suite, native composition, full-match performance and
+project-wide release gates remain open. Run `node tools/qa/verify-lux-e-field.mjs`
+from the repository root to check the retained local evidence references.
 
 ## Finite source audio — October 23, 2026
 

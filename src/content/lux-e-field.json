@@ -1,0 +1,1832 @@
+[
+  {
+    "role": "ally",
+    "record": "Lux_E_tar_aoe_green",
+    "index": 5,
+    "name": "WaveRight",
+    "rate": {
+      "times": [
+        0.0,
+        0.8500000238418579,
+        0.949999988079071
+      ],
+      "values": [
+        [
+          20.0
+        ],
+        [
+          40.0
+        ],
+        [
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "emitterLife": 4.599999904632568,
+    "life": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.699999988079071
+        ],
+        [
+          0.20999999344348907
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          40.0,
+          50.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.800000011920929,
+            1.5
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.800000011920929,
+            1.2000000476837158
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          -200.0,
+          50.0,
+          0.0
+        ],
+        [
+          -1200.0,
+          50.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.699999988079071
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "orbit": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "offset": {
+      "times": [
+        0.0,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          300.0,
+          0.0,
+          0.0
+        ],
+        [
+          300.0,
+          0.0,
+          0.0
+        ],
+        [
+          210.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          -126.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "shapeAngles": [
+      {
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              0.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "shapeAxes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000001192092896
+      ]
+    ],
+    "rotation": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "birthColor": {
+      "times": [
+        0.0,
+        0.25,
+        0.5,
+        0.800000011920929,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7100023031234741
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7100023031234741
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7100023031234741
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.4984265863895416
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5039624571800232
+        ]
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        0.4000000059604645,
+        0.6000000238418579,
+        0.800000011920929,
+        1.0
+      ],
+      "values": [
+        [
+          0.7960784435272217,
+          0.7568627595901489,
+          0.6666666865348816,
+          1.0
+        ],
+        [
+          0.7960784435272217,
+          0.7607843279838562,
+          0.6784313917160034,
+          1.0
+        ],
+        [
+          0.9254902005195618,
+          0.8745098114013672,
+          0.8274509906768799,
+          1.0
+        ],
+        [
+          0.9254902005195618,
+          0.886274516582489,
+          0.8627451062202454,
+          1.0
+        ],
+        [
+          1.0,
+          0.9882352948188782,
+          0.9843137264251709,
+          1.0
+        ],
+        [
+          0.9921568632125854,
+          0.9921568632125854,
+          0.9921568632125854,
+          1.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          0.4000000059604645,
+          0.15000000596046448,
+          0.10000000149011612
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.20000000298023224
+        ]
+      ],
+      "probabilities": null
+    },
+    "uniform": true,
+    "ground": true,
+    "local": false,
+    "direction": true,
+    "directionScale": 0.00279999990016222,
+    "directionMin": 1,
+    "passOrder": 0,
+    "blend": 0,
+    "depthTest": false,
+    "texture": "assets/effects/lux-e-lux_base_e_small_mote.png",
+    "lookup": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "random": false
+    },
+    "palette": null,
+    "sourceParticleLinger": null
+  },
+  {
+    "role": "ally",
+    "record": "Lux_E_tar_aoe_green",
+    "index": 6,
+    "name": "sparks",
+    "rate": {
+      "times": [
+        0.0,
+        0.75
+      ],
+      "values": [
+        [
+          6.25
+        ],
+        [
+          25.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "emitterLife": 5.0,
+    "life": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.2000000476837158
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          20.0,
+          20.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.5
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          300.0,
+          0.0
+        ],
+        [
+          0.0,
+          500.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      ],
+      "probabilities": null
+    },
+    "orbit": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "offset": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          25.0,
+          -25.0,
+          25.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "shapeAngles": [
+      {
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            45.0
+          ]
+        ],
+        "probabilities": null
+      }
+    ],
+    "shapeAxes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ]
+    ],
+    "rotation": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "birthColor": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5,
+          0.0
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "uniform": false,
+    "ground": true,
+    "local": true,
+    "direction": true,
+    "directionScale": 0,
+    "directionMin": 1,
+    "passOrder": 1,
+    "blend": 0,
+    "depthTest": false,
+    "texture": "assets/effects/lux-binding-target-lux_base_light_sparks.png",
+    "lookup": "",
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 4,
+      "random": true
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "row": 0.25
+    },
+    "sourceParticleLinger": 11.199999809265137
+  },
+  {
+    "role": "enemy",
+    "record": "Lux_E_tar_aoe_red",
+    "index": 11,
+    "name": "WaveRight",
+    "rate": {
+      "times": [
+        0.0,
+        0.8500000238418579,
+        0.949999988079071
+      ],
+      "values": [
+        [
+          20.0
+        ],
+        [
+          40.0
+        ],
+        [
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "emitterLife": 4.599999904632568,
+    "life": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.699999988079071
+        ],
+        [
+          0.20999999344348907
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          40.0,
+          50.0,
+          1.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.800000011920929,
+            1.5
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.800000011920929,
+            1.2000000476837158
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          -200.0,
+          50.0,
+          0.0
+        ],
+        [
+          -1200.0,
+          50.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            1.0,
+            0.699999988079071
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "orbit": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "offset": {
+      "times": [
+        0.0,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          300.0,
+          0.0,
+          0.0
+        ],
+        [
+          300.0,
+          0.0,
+          0.0
+        ],
+        [
+          210.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          -126.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "shapeAngles": [
+      {
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              0.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "shapeAxes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000001192092896
+      ]
+    ],
+    "rotation": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angular": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "birthColor": {
+      "times": [
+        0.0,
+        0.25,
+        0.5,
+        0.800000011920929,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7100023031234741
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7100023031234741
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.7100023031234741
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.4984265863895416
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.5039624571800232
+        ]
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        0.4000000059604645,
+        0.6000000238418579,
+        0.800000011920929,
+        1.0
+      ],
+      "values": [
+        [
+          0.7960784435272217,
+          0.7568627595901489,
+          0.6666666865348816,
+          1.0
+        ],
+        [
+          0.7960784435272217,
+          0.7607843279838562,
+          0.6784313917160034,
+          1.0
+        ],
+        [
+          0.9254902005195618,
+          0.8745098114013672,
+          0.8274509906768799,
+          1.0
+        ],
+        [
+          0.9254902005195618,
+          0.886274516582489,
+          0.8627451062202454,
+          1.0
+        ],
+        [
+          1.0,
+          0.9882352948188782,
+          0.9843137264251709,
+          1.0
+        ],
+        [
+          0.9921568632125854,
+          0.9921568632125854,
+          0.9921568632125854,
+          1.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          0.4000000059604645,
+          0.15000000596046448,
+          0.10000000149011612
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.20000000298023224
+        ]
+      ],
+      "probabilities": null
+    },
+    "uniform": true,
+    "ground": true,
+    "local": false,
+    "direction": true,
+    "directionScale": 0.00279999990016222,
+    "directionMin": 1,
+    "passOrder": 0,
+    "blend": 0,
+    "depthTest": false,
+    "texture": "assets/effects/lux-e-lux_base_e_small_mote.png",
+    "lookup": "assets/effects/lux-ba-lux_base_r_rainbowmult.png",
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "random": false
+    },
+    "palette": null,
+    "sourceParticleLinger": null
+  },
+  {
+    "role": "enemy",
+    "record": "Lux_E_tar_aoe_red",
+    "index": 15,
+    "name": "sparks",
+    "rate": {
+      "times": [
+        0.0,
+        0.75
+      ],
+      "values": [
+        [
+          6.25
+        ],
+        [
+          25.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "emitterLife": 5.0,
+    "life": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          1.2000000476837158
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "size": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          20.0,
+          20.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.5
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "velocity": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          300.0,
+          0.0
+        ],
+        [
+          0.0,
+          500.0,
+          0.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "drag": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0.6000000238418579,
+          0.6000000238418579,
+          0.6000000238418579
+        ]
+      ],
+      "probabilities": null
+    },
+    "orbit": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "offset": {
+      "times": [
+        0.0
+      ],
+      "values": [
+        [
+          25.0,
+          -25.0,
+          25.0
+        ]
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "position": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "shapeAngles": [
+      {
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            45.0
+          ]
+        ],
+        "probabilities": null
+      }
+    ],
+    "shapeAxes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ]
+    ],
+    "rotation": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "angular": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": null
+    },
+    "birthColor": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1.0,
+          0.7450980544090271,
+          0.7450980544090271,
+          1.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5,
+          0.0
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.0
+        ]
+      ],
+      "probabilities": null
+    },
+    "uniform": false,
+    "ground": true,
+    "local": true,
+    "direction": true,
+    "directionScale": 0,
+    "directionMin": 1,
+    "passOrder": 1,
+    "blend": 0,
+    "depthTest": false,
+    "texture": "assets/effects/lux-binding-target-lux_base_light_sparks.png",
+    "lookup": "",
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "atlas": {
+      "grid": [
+        2.0,
+        2.0
+      ],
+      "frames": 4,
+      "random": true
+    },
+    "palette": {
+      "texture": "assets/effects/lux-hit-flame_trail_gradient.png",
+      "mix": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "row": 0.25
+    },
+    "sourceParticleLinger": 11.199999809265137
+  }
+]

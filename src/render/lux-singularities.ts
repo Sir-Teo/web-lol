@@ -5,8 +5,8 @@ import { LuxESource } from './lux-e-source';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 
-/** Source static layers and detonation motion reconstruct from the saved phase.
- * Flight/field motion, distortion, hit attachment and native dispatch remain open. */
+/** Source static layers and field/detonation motion reconstruct from the saved phase.
+ * Remaining field/flight layers, distortion, hit attachment and native dispatch remain open. */
 export class LuxSingularities {
   models = new Map<number, THREE.Group>();
   private sources = new Map<number, LuxESource>();
