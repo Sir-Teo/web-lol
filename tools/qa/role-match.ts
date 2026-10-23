@@ -47,7 +47,8 @@ for (const seed of seeds) {
     destroyed = new Set<number>(),
     destruction = [];
   let checkedTicks = 0,
-    failure: string | null = null;
+    failure: string | null = null,
+    failureCause: { name: string; message: string } | null = null;
   try {
     for (let minute = 1; minute <= horizonMinutes && !w.winner; minute++) {
       for (let t = 0; t < 3600 && !w.winner; t++) {
@@ -144,6 +145,8 @@ for (const seed of seeds) {
     }
   } catch (error) {
     failure = error instanceof Error ? (error.stack ?? error.message) : String(error);
+    if (error instanceof Error && error.cause instanceof Error)
+      failureCause = { name: error.cause.name, message: error.cause.message };
   }
   let snapshotPath = `${folder}/${seed}.match.json`,
     snapshotHash: string | null = null;
@@ -185,6 +188,7 @@ for (const seed of seeds) {
     finalTick: w.tick,
     checkedTicks,
     failure,
+    failureCause,
     elapsedSeconds: (performance.now() - start) / 1000,
     snapshotPath,
     finalSnapshotSha256: snapshotHash,

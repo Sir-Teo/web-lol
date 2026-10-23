@@ -55,13 +55,15 @@ ruleset fingerprints remain incompatible.
 
 ## Verification and remaining work
 
-The [verification ledger](reference/bot-team-verification.json) records source
+The historical [verification ledger](reference/bot-team-verification.json) records source
 hashes, simulation tests, targeted Chrome checks, production smoke and reviewed
 captures. The [seeded audit](reference/bot-team-match-audit.json) retains normal
 full-match runs with the human carry automated for diagnostics. It checks every
 tick for finite positions and bounded health/mana, validates and round-trips
 minute checkpoints, and independently checks the defeated base at victory.
 An unfinished 60-minute horizon is retained without forcing a result.
+
+At `9adb40e`, those four runs recorded:
 
 | Seed | Outcome | Match clock |
 | --- | --- | --- |
@@ -107,8 +109,39 @@ An additional continuation of that retained seed reached Blue victory at
 cancels active E gameplay state and finishes existing burst visuals on a separate
 presentation clock. The one-hour completion gate still counts seed 719 as
 unfinished; extending diagnostics does not turn that horizon into a game rule.
-Current extended runs are recorded in the
+Those extended runs are recorded in the
 [late-match ledger](reference/late-role-match-audit.json).
+
+Lux's later [observed E wave-clear policy](LUX-BOTS.md#observed-e-wave-clearing--october-22-2026)
+adds local minion-group decisions after champion combat, with mana/last-hit
+restraint, ordinary support farm protection and an observed inhibitor/Nexus
+pressure exception. It changes neither shared job selection nor spell/economy
+rules. The [wave-clear audit](reference/lux-wave-match-audit.json) records fresh
+matches and compares them with the earlier extended runs. Four seeds remain
+insufficient for the roadmap's 100-seed gate or a general match-quality claim.
+
+| Seed | Wave-clear outcome | Match clock | Earlier extended run |
+| --- | --- | --- | --- |
+| 26018 | Red victory | 50:03.383 | Red, 57:31.783 |
+| 719 | Blue victory | 57:01.2 | Blue, 63:29.5 |
+| 1 | Blue victory | 53:07.1 | Red, 53:41.733 |
+| 927 | Red victory | 56:41.017 | Red, 57:32.233 |
+
+All four fresh runs pass terminal validation, 780,762 per-tick invariant checks
+and 220 exact minute/terminal checkpoint round trips. All four finish within an
+hour, compared with three in this earlier sample. No spell damage, cooldown,
+cost, economy or camp calendar was changed. These are four controlled QA seeds,
+with the human carry automated; the duration change is not a universal claim.
+
+The first wave-clear audit also exposed a missile released on the exact winning
+tick before a later melee hit. Its empty birth history lacked x/y/facing. Both
+Lux and Gromp now capture the actual release pose immediately; normal projectile
+advancement replaces it, and terminal cancellation preserves it. The original
+failed checkpoint, corrected frozen-build reproduction and post-repair sample
+comparisons are retained in the [wave-clear ledger](reference/lux-wave-clear-verification.json).
+All 219 recorded pre-repair samples and all four winners/ticks match the repaired
+runs. The failed seed-26018 terminal state matches after changing only the
+fingerprint and complete Lux birth history.
 
 The headless runner accepts `--minutes 80` for an extended diagnostic (1–120
 minutes; the default remains 60). Nondefault horizons write beneath

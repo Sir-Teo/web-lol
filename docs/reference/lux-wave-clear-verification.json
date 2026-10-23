@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-22",
+  "baseline": "2feb4fd0f51c85cddfe3fef26d6f73af89a1fbfc",
+  "schema": 108,
+  "ruleset": "d326a2300cfe7435d055ab970cef5c5a66b5159fe5fcdda555f6a3576fe84fbf",
+  "scope": "Local Lux E wave-clear decisions from visible observations, with paid casts/free armed recasts, copied aim, ordinary carry-farm restraint, observed base-defense exception and normal priority/resource/target validation. The first full-match audit also exposed and retained a same-release-tick winning-checkpoint failure.",
+  "implementation": [
+    {
+      "path": "src/content/lux-bot-policy.ts",
+      "sha256": "d2c2c74c8eddfc39de907baf23cab4ac2a03dfd5f4560cc5b26bfc96c1150e98"
+    },
+    {
+      "path": "src/simulation/lux-wave-clear.ts",
+      "sha256": "1623235bbb59f07fd3fde5d8314062fbee2bfccbb7a60471f36ce23fd7202f76"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "4f9d059cdb6dee05cec7ff1972edbbac086a2024c195f2215fd1fc569a13ebd8"
+    },
+    {
+      "path": "tests/lux-wave-clear.test.ts",
+      "sha256": "7426bc653cbbb7fc7a5bc066e93f3b893a1f34d77e3f47bdbb02cab10b524296"
+    },
+    {
+      "path": "tests/lux-attack-history.test.ts",
+      "sha256": "692a9e948c230647dded8c32f5c4919e26702cbbe83100201f3ef8ac0026c5f8"
+    },
+    {
+      "path": "tests/gromp-attack.test.ts",
+      "sha256": "5b921190e24b58aeb84aa0bf6eeee73668d87446ed509dfc7ab3171790bf0328"
+    },
+    {
+      "path": "e2e/lux-wave-clear.spec.ts",
+      "sha256": "ce49b5fd4d3eb3b2d660e0ff9c543b787509863f7ef6e779721874fdf8ae57ab"
+    },
+    {
+      "path": "e2e/lux-attack-history.spec.ts",
+      "sha256": "b437a12ee274c7ceb9e578d5322f2ae210476a6a3131999cbdf2a2e23ea00f91"
+    },
+    {
+      "path": "tools/qa/role-match.ts",
+      "sha256": "80d3af22857033cf2a15c87efcb869647b8449484fe5a127a4321211660c0a63"
+    }
+  ],
+  "retainedSpellProfiles": [
+    {
+      "path": "src/content/lux-e.ts",
+      "sha256": "74e7cad65a60590afcac1fcddf4bf0fa296fadc62bebc413e894c05dc91e7294"
+    },
+    {
+      "path": "src/content/lux-e-policy.ts",
+      "sha256": "861c9ea2fcb4b21baacf2ee66c801ae3a12c0b45010e429ec02a73300d426bd4"
+    }
+  ],
+  "checks": {
+    "typescript": "passed via npm run test:production build and npx tsc --noEmit",
+    "unit": {
+      "passed": 1356,
+      "files": 249,
+      "command": "npx vitest run --maxWorkers=1",
+      "log": {
+        "path": ".cache/lux-wave-final-unit.log",
+        "sha256": "23bfa54594c93ba9b24ce8a9f4a1928c414100acbd2e35a583b4b45f8d0a10e2"
+      },
+      "newWaveClearCases": 14,
+      "newBirthHistoryCases": 2,
+      "waveClearPreimage": {
+        "passed": 7,
+        "failed": 3,
+        "cases": 10,
+        "scope": "Initial development cases before World integration; both-team real casting and support defense failed. Additional priority/safety/queue checks were added afterward.",
+        "log": {
+          "path": ".cache/lux-wave-preimage.log",
+          "sha256": "63455342ede267af93830ed4ae9cb2aa0c5600793b08a219057d3a0857bee8dd"
+        }
+      },
+      "birthPreimage": {
+        "log": {
+          "path": ".cache/lux-wave-birth-preimage.log",
+          "sha256": "afb3378e4cce53a98fb754e95e363bcc5f1dc6b7d3c141f22596443e76dd15e7"
+        },
+        "scope": "The Gromp case reached the missing birth frame. The first Lux fixture was out of attack range (600); it was corrected to 500. A separate corrected Lux reproduction below runs the actual old frozen bundle and reaches the same missing x/y/facing validation failure.",
+        "correctedFrozenLuxSource": {
+          "path": ".cache/lux-wave-legacy-birth.mjs",
+          "sha256": "01dd0357aaae7575ecb2a9abbd3617156ca7e9156d1a9b238c04fe631eb94de3"
+        },
+        "correctedFrozenLuxResult": {
+          "path": ".cache/lux-wave-legacy-birth.json",
+          "sha256": "cd33dd8a7f1ff400bcb91edff028f978e3bb26754d9fdd8339c3b10df3643b0e"
+        },
+        "focusedFinalLog": {
+          "path": ".cache/lux-wave-birth-focused-final.log",
+          "sha256": "a52ae2e92a03fdebf76e904de6ae01907889914bcd9d702bd3f20dfbd2f2cc45"
+        }
+      }
+    },
+    "chrome": {
+      "distinctPassed": 31,
+      "newCases": 3,
+      "existingRegressions": 28,
+      "fullSuiteRepeated": false,
+      "command": "npx playwright test e2e/lux-wave-clear.spec.ts e2e/lux-bot.spec.ts e2e/lux-bot-last-hit.spec.ts e2e/bot-last-hit.spec.ts e2e/bot-tower-safety.spec.ts e2e/bot-recall.spec.ts e2e/role-jungle.spec.ts e2e/bot-team.spec.ts e2e/lane-match.spec.ts e2e/saves.spec.ts e2e/lux-attack-history.spec.ts e2e/gromp-attack.spec.ts e2e/lux-impact-terminal.spec.ts e2e/match-end-lucent.spec.ts",
+      "log": {
+        "path": ".cache/lux-wave-final-browser.log",
+        "sha256": "911c6ca6989c592e7888499fafffc6e72e11442f99c2950f816a92569c4bb3c6"
+      },
+      "coverage": [
+        "Actual 5v5 mid Lux queues a visible wave aim, UI saves/reloads it exactly, arms/recasts E, earns three caster kills and 42 gold through normal rewards, preserving human control.",
+        "Actual support preserves ordinary nearby carry farm and queues E against newly observed pressure at its own base.",
+        "Actual Lux missile release followed by a same-tick melee Nexus kill retains one complete frozen birth frame, restores exactly and downloads identical current-match JSON.",
+        "Existing Lux combat, marked/incoming-missile last hits, recalls, tower safety, role jobs, checkpoints, normal Lux/Gromp flight and saved histories, terminal impacts and E disposal."
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 20,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/production-subpath.png",
+      "command": "npm run test:production",
+      "log": {
+        "path": ".cache/lux-wave-final-production.log",
+        "sha256": "2c3c97785bfe6f995f8a70a18db5a4d57db13ff09bd7d6d8f26e68b160d4dedc"
+      }
+    },
+    "headless": {
+      "audit": {
+        "path": "docs/reference/lux-wave-match-audit.json",
+        "sha256": "cafae27c5512f2ba3899e8104f6026fe7baa00f16ecdb443be3d3963de457b2c"
+      },
+      "checkedTicks": 780762,
+      "validatedExactRoundTrips": 220,
+      "victories": 4,
+      "completedWithin60Minutes": 4,
+      "total": 4,
+      "beforeWaveClearCompletedWithin60Minutes": 3,
+      "birthRepairComparedSamples": 219,
+      "roadmap100SeedGateMet": false
+    }
+  },
+  "birthRepair": {
+    "trigger": "Seed 26018 released a Lux missile during the actor loop, then a later melee hit destroyed the Nexus before projectile advancement. The old empty birth history generated a frame with tick/trailDistance but missing x/y/facing.",
+    "repair": "Capture the actual projectile position/direction at Lux/Gromp release; replace that frame during normal same-tick projectile advancement, retaining it when victory cancels the projectile. No damage or timing change and no decoder weakening.",
+    "retainedFailure": {
+      "report": {
+        "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/26018.json",
+        "sha256": "95c4a7c2e8b115d2c85f37eb9dda894c4f546c31cc26126572ae293c68e54e20"
+      },
+      "checkpoint": {
+        "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/26018.match.json",
+        "sha256": "2bac9c336ff56810bce53c4f36d744dc8883c7d4e92fcc963701d3dbd00b6792"
+      },
+      "schemaIssues": {
+        "path": ".cache/lux-wave-26018-schema-issues.json",
+        "sha256": "6db6dee93b677bf7cc5414fd231a7da52a6d0c1229225369d3b9ca89c54b7a31"
+      },
+      "oldRunnerSource": {
+        "path": ".cache/lux-wave-first-audit-source.ts",
+        "sha256": "21a3e9eef9d392e909760934ed33b342719cc66b32dab5c3a41fe1674117d4b5"
+      },
+      "oldFrozenBundle": {
+        "path": ".cache/lux-wave-match-runner/role-match.js",
+        "sha256": "d460568bd2cd613d0d2e8a33b2a305207b20df8b2d4bb20c44b7ce65462a82be"
+      }
+    },
+    "failureCauseReporting": "The QA runner now retains Error.cause name/message as a separate diagnostic field. Success reports retain null.",
+    "gameplayComparison": "All recorded pre-repair minute/terminal samples and all four winners/ticks match fresh repaired runs. The failed seed-26018 terminal snapshot matches after changing only ruleset and Lux birth history."
+  },
+  "diagnostics": [
+    {
+      "path": "artifacts/lux-wave-clear.json",
+      "sha256": "5dec613f3f50f324541348bc8faedbb4127111a1063862aecb2dfd27f9d2c773"
+    },
+    {
+      "path": "artifacts/lux-wave-support.json",
+      "sha256": "613a676c291737048235a6847b3144faa702dc65659ecf7cc4581c0512db5d79"
+    }
+  ],
+  "visualReview": [
+    {
+      "path": "artifacts/lux-wave-zone.png",
+      "sha256": "ac0378aea94f605483661f8a9433a53de113dc8671841dc4e024a75ce669fa38",
+      "reviewed": true
+    },
+    {
+      "path": "artifacts/production-role-match.png",
+      "sha256": "f6d53690d2d3922e75d3226a9d548dc2f97531bed7765110c399e412745c3d9b",
+      "reviewed": true
+    }
+  ],
+  "size": {
+    "gameChunkKb": 735.06,
+    "threeChunkKb": 659.93,
+    "chunkWarningRemains": true
+  },
+  "limits": [
+    "Four seeds do not certify balance, natural human play, the roadmap 100-seed gate or a universal match-duration improvement.",
+    "Current-position circle coverage does not predict future movement, guaranteed spell hits, later aggro or enemy cooldowns.",
+    "The interim roster, six complete champions, quests, epic objectives, full team/wave strategy, native audiovisual/input parity, offline delivery and full-match performance remain unfinished.",
+    "All thresholds and the 24-candidate/eight-unit-margin geometry policy are authored tuning. The source-linked E range, provisional actual radius, damage, costs, cooldowns and economy/camp clocks are unchanged.",
+    "The shared launched-allied-missile exclusion estimates basic-attack arrival rather than a complete E landing forecast.",
+    "Schema 108 fields remain unchanged. Changed simulation fingerprints keep the existing same-build save restriction."
+  ]
+}

@@ -211,3 +211,38 @@ test('source first births, stop caps and frozen tails retain original lifetimes 
   expect(grompAttackFrame(e, 1000)).toEqual(grompAttackFrame(e, 110));
   expect(grompAttackFrame(e, 99)).toBeNull();
 });
+
+test('a melee victory on the Gromp release tick retains a complete cancelled birth frame', () => {
+  const w = createGrompEncounter(PRACTICE_FIXTURE),
+    gromp = w.units.find((u) => u.kind === 'monster')!;
+  Object.assign(gromp, { x: 210, y: 0, previous: { x: 210, y: 0 } });
+  w.damage(w.hero, gromp, 1, 'true');
+  for (let i = 0; i < 100 && gromp.releaseTick === null; i++) w.step();
+  const release = gromp.releaseTick!;
+  expect(release).toBeGreaterThan(w.tick);
+  const finisher = w.spawn('melee', 'blue', { x: -500, y: -500 });
+  const nexus = w.spawn('nexus', 'red', { x: -450, y: -500 });
+  nexus.hp = 1;
+  w.setOrder(finisher, { type: 'attack', target: nexus.id });
+  finisher.releaseTick = release;
+  finisher.attackTarget = nexus.id;
+  const hp = w.hero.hp;
+  w.step(release - w.tick);
+  expect(w.winner).toBe('blue');
+  expect(w.tick).toBe(release);
+  expect(w.projectiles).toEqual([]);
+  const v = w.grompAttackVisuals[0];
+  expect(v.stopTick).toBe(release);
+  expect(v.frames).toHaveLength(1);
+  expect(v.frames[0]).toEqual({
+    tick: release,
+    x: gromp.x,
+    y: gromp.y,
+    facing: Math.atan2(w.hero.x - gromp.x, w.hero.y - gromp.y),
+  });
+  expect(w.hero.hp).toBe(hp);
+  const saved = w.snapshot();
+  expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+  w.step(60);
+  expect(w.snapshot()).toBe(saved);
+});

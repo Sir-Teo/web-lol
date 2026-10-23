@@ -12,6 +12,15 @@ unexpired, already-detonated visual tail. Result playback retires the tail witho
 changing saved state. The field layout is unchanged; earlier simulation
 fingerprints remain incompatible. See [Lux E](LUX-E.md).
 
+Lux wave-clear decisions use the existing copied queued point and ordinary E
+state; they add no schema fields. Lux/Gromp targeted missiles now capture their
+actual birth position and direction at release, before any later actor can end
+the match on that same tick. Normal projectile advancement replaces that frame;
+winning cancellation retains one complete stopped frame without applying damage.
+Strict history validation remains intact. The wave-clear/birth-history changes
+keep schema 108 while changing the simulation fingerprint. See the
+[wave-clear evidence](reference/lux-wave-clear-verification.json).
+
 Schema 107 introduced five-position assignments and bounded observed camp memory.
 Each 5v5 team has one of every role; junglers retain a route cursor, current home
 camp, quiet clock and at most six observed-empty records. Validation rejects

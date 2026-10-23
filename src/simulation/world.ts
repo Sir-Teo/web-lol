@@ -101,6 +101,7 @@ import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { DEATHCAP_AP_AMPLIFICATION, LOST_CHAPTER } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
+import { luxWaveClear } from './lux-wave-clear';
 import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
@@ -1842,6 +1843,92 @@ export class World {
     if (!zone && ready('e') && distance(u, target) <= LUX_E.castRange) return cast('e', target);
     return false;
   }
+  private planLuxWaveClear(u: Unit): boolean {
+    if (u.champion !== 'lux' || u.silenceUntil > this.tick) return false;
+    const state = this.championState(u.id)!;
+    if (state.recallEnd !== null || this.threateningTower(u, u)) return false;
+    const zone = this.singularities.find((z) => z.sourceId === u.id && z.detonatedTick === null);
+    if (
+      zone
+        ? zone.arrivalTick === null || zone.detonateRequested
+        : state.pendingCast ||
+          state.spellRanks.e === 0 ||
+          this.abilityCooldownTicks('e', u.id) > 0 ||
+          u.mana < this.abilityResources('e', u.id).mana
+    )
+      return false;
+    const carry = this.supportCarry(u);
+    const bases = this.units.filter(
+      (s) => s.team === u.team && (s.kind === 'nexus' || s.kind === 'inhibitor') && this.alive(s)
+    );
+    const point = luxWaveClear({
+      actor: { x: u.x, y: u.y },
+      // Sight is checked before reading an opponent's position/health for policy.
+      minions: this.units
+        .filter(
+          (m) =>
+            isLaneMinionKind(m.kind) &&
+            m.team !== u.team &&
+            this.visible(m, u.team) &&
+            this.alive(m) &&
+            this.vulnerable(m)
+        )
+        .map((m) => ({
+          id: m.id,
+          x: m.x,
+          y: m.y,
+          radius: m.radius,
+          hp: m.hp,
+          magicResist: m.magicResist,
+          shield: this.shieldAmount(m),
+          claimed: this.incomingAttacksClaimMinion(u, m),
+          baseThreat: bases.some(
+            (s) => distance(s, m) <= LUX_BOT_POLICY.waveClear.baseThreatRadius + m.radius
+          ),
+          super: m.kind === 'super',
+        })),
+      damage:
+        zone?.damage ??
+        LUX_E.baseDamage[state.spellRanks.e - 1] + LUX_E.abilityPowerRatio * this.abilityPower(u),
+      mana: u.mana,
+      manaCost: this.abilityResources('e', u.id).mana,
+      reserve: Math.max(
+        u.maxMana * LUX_BOT_POLICY.waveClear.manaReserveFraction,
+        (['q', 'w'] as const).reduce(
+          (sum, a) => sum + (state.spellRanks[a] > 0 ? this.abilityResources(a, u.id).mana : 0),
+          0
+        )
+      ),
+      farmAllowed:
+        state.role !== 'jungle' &&
+        !(carry && distance(u, carry) <= JUNGLE_BOT_POLICY.supportFarmRadius),
+      lastHitReady: !zone && !!this.lastHitTarget(u),
+      zone: zone
+        ? {
+            x: zone.x,
+            y: zone.y,
+            arrived: zone.arrivalTick !== null,
+            requested: zone.detonateRequested,
+          }
+        : null,
+    });
+    if (!point) return false;
+    if (
+      this.threateningTower(u, u, true) &&
+      this.units.some(
+        (enemy) =>
+          enemy.kind === 'champion' &&
+          enemy.team !== u.team &&
+          this.visible(enemy, u.team) &&
+          this.alive(enemy) &&
+          this.vulnerable(enemy) &&
+          distance(enemy, point) <= LUX_E_POLICY.radius + enemy.radius
+      )
+    )
+      return false;
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point });
+    return true;
+  }
   private planCrystalArrow(u: Unit, purpose: 'finish' | 'peel'): boolean {
     if (u.champion !== 'ashe' || u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
@@ -2271,6 +2358,7 @@ export class World {
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;
     if (this.planLuxCombat(u, false)) return;
+    if (this.planLuxWaveClear(u)) return;
     this.planGarenQ(u, false);
     const carry = this.supportCarry(u);
     const leaveFarm = !!carry && distance(u, carry) <= JUNGLE_BOT_POLICY.supportFarmRadius;
@@ -2733,7 +2821,14 @@ export class World {
                   team: 'neutral',
                   launchTick: this.tick,
                   stopTick: null,
-                  frames: [],
+                  frames: [
+                    {
+                      tick: this.tick,
+                      x: projectile.x,
+                      y: projectile.y,
+                      facing: Math.atan2(projectile.direction.x, projectile.direction.y),
+                    },
+                  ],
                 });
               if (u.champion === 'lux')
                 this.luxAttackVisuals.push({
@@ -2743,7 +2838,15 @@ export class World {
                   team: u.team,
                   launchTick: this.tick,
                   stopTick: null,
-                  frames: [],
+                  frames: [
+                    {
+                      tick: this.tick,
+                      x: projectile.x,
+                      y: projectile.y,
+                      facing: Math.atan2(projectile.direction.x, projectile.direction.y),
+                      trailDistance: 0,
+                    },
+                  ],
                 });
             }
         }
@@ -3735,7 +3838,9 @@ export class World {
     for (const visual of this.grompAttackVisuals) {
       if (visual.stopTick !== null) continue;
       const previous = visual.frames.at(-1);
-      visual.frames.push(visualFrames.get(visual.id) ?? { ...previous!, tick: this.tick });
+      const frame = visualFrames.get(visual.id) ?? { ...previous!, tick: this.tick };
+      if (previous?.tick === this.tick) visual.frames[visual.frames.length - 1] = frame;
+      else visual.frames.push(frame);
       if (!survivingIds.has(visual.id)) visual.stopTick = this.tick;
       if (visual.frames.length > GROMP_ATTACK_PATH_FRAMES) visual.frames.shift();
     }
@@ -3766,7 +3871,9 @@ export class World {
         if (!anchor) throw new Error('Missing Lux trail emission anchor');
         trailDistance += Math.hypot(frame.x - anchor.x, frame.y - anchor.y);
       }
-      visual.frames.push({ ...frame, trailDistance });
+      const recorded = { ...frame, trailDistance };
+      if (previous?.tick === this.tick) visual.frames[visual.frames.length - 1] = recorded;
+      else visual.frames.push(recorded);
       if (visual.frames.length > LUX_ATTACK_PATH_FRAMES) visual.frames.shift();
     }
   }

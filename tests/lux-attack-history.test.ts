@@ -215,3 +215,43 @@ it('rejects absent, decreasing and spatially inconsistent odometers', () => {
     expect(() => World.fromSnapshot(JSON.stringify(saved), w.battlefield)).toThrow();
   }
 });
+
+it('retains the actual birth pose when a later melee hit wins on the Lux release tick', () => {
+  const w = new World(false, { ...PRACTICE_FIXTURE, initialUnits: [], lineOfSight: () => true });
+  w.nextWaveTick = Infinity;
+  const lux = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'lux');
+  const target = w.spawn('dummy', 'red', { x: 500, y: 0 });
+  target.hp = target.maxHp = 5000;
+  w.setOrder(lux, { type: 'attack', target: target.id });
+  w.step();
+  const release = lux.releaseTick!;
+  expect(release).toBeGreaterThan(w.tick);
+  target.x = 400;
+  target.y = 200;
+  const finisher = w.spawn('melee', 'blue', { x: -500, y: -500 });
+  const nexus = w.spawn('nexus', 'red', { x: -450, y: -500 });
+  nexus.hp = 1;
+  w.setOrder(finisher, { type: 'attack', target: nexus.id });
+  finisher.releaseTick = release;
+  finisher.attackTarget = nexus.id;
+  w.step(release - w.tick);
+  expect(w.winner).toBe('blue');
+  expect(w.tick).toBe(release);
+  expect(w.projectiles).toEqual([]);
+  const v = w.luxAttackVisuals[0];
+  expect(v.launchTick).toBe(release);
+  expect(v.stopTick).toBe(release);
+  expect(v.frames).toHaveLength(1);
+  expect(v.frames[0]).toMatchObject({
+    tick: release,
+    x: lux.x,
+    y: lux.y,
+    trailDistance: 0,
+  });
+  expect(v.frames[0].facing).toBeCloseTo(Math.atan2(target.x - lux.x, target.y - lux.y), 12);
+  expect(target.hp).toBe(5000);
+  const saved = w.snapshot();
+  expect(World.fromSnapshot(saved, w.battlefield).snapshot()).toBe(saved);
+  w.step(60);
+  expect(w.snapshot()).toBe(saved);
+});

@@ -1,0 +1,2411 @@
+{
+  "date": "2026-10-22",
+  "baseline": "2feb4fd0f51c85cddfe3fef26d6f73af89a1fbfc",
+  "schema": 108,
+  "ruleset": "d326a2300cfe7435d055ab970cef5c5a66b5159fe5fcdda555f6a3576fe84fbf",
+  "scope": "Four fresh normal-rules interim Ashe/Lux matches after observed E wave clearing and release-tick missile-history repair. The human carry is automated only in QA. An 80-minute diagnostic horizon is separate from the recorded 60-minute completion result.",
+  "runner": {
+    "source": {
+      "path": "tools/qa/role-match.ts",
+      "sha256": "80d3af22857033cf2a15c87efcb869647b8449484fe5a127a4321211660c0a63"
+    },
+    "frozenBundle": {
+      "path": ".cache/lux-wave-final-runner/role-match.js",
+      "sha256": "d9285fb32b0fdc13f701dfaebaf0f843ee1a4a7f419faa63c934411855bf6803"
+    },
+    "commands": [
+      "nice -n 10 node .cache/lux-wave-final-runner/role-match.js --minutes 80 26018",
+      "nice -n 10 node .cache/lux-wave-final-runner/role-match.js --minutes 80 719",
+      "nice -n 10 node .cache/lux-wave-final-runner/role-match.js --minutes 80 1",
+      "nice -n 10 node .cache/lux-wave-final-runner/role-match.js --minutes 80 927"
+    ]
+  },
+  "sampling": {
+    "everyTick": "Finite x/y/hp/maxHp/mana/maxMana and bounded health/mana, structure destruction, active team jobs, attacks/arrivals and river claims.",
+    "everyMinute": "Full snapshot validation and exact World.fromSnapshot round trip, also at terminal victory.",
+    "counters": "Assignment, attack and arrival counts are actor-ticks; they do not prove goal success or count E casts. Wall time is not browser performance."
+  },
+  "runs": [
+    {
+      "seed": 26018,
+      "ruleset": "d326a2300cfe7435d055ab970cef5c5a66b5159fe5fcdda555f6a3576fe84fbf",
+      "runtime": {
+        "node": "v26.8.2",
+        "v8": "14.6.202.34-node.28",
+        "platform": "darwin",
+        "arch": "arm64"
+      },
+      "outcome": "victory",
+      "winner": "red",
+      "tick": 180203,
+      "durationSeconds": 3003.383333333333,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 180203,
+      "validatedExactRoundTrips": 51,
+      "failure": null,
+      "failureCause": null,
+      "finalCheckpoint": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/26018.match.json",
+        "sha256": "51062fb523727289401050be8b5834a5d16e9559a9ea398ab0bd4b4b8163050e"
+      },
+      "canonicalStateSha256": "3987a19ee4dc0f3ce173af4aa4a26791a70ef5315bbc8286bb9fbc784201689f",
+      "fullReport": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/26018.json",
+        "sha256": "4457da3eb35a226ad659e2e50a250fd4e817b0cce52bf52acbe7169ce5d56853"
+      },
+      "victoryAssertions": {
+        "destroyedNexus": true,
+        "destroyedNexusTurrets": true,
+        "destroyedInhibitor": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/a0a447256024/horizon-80/26018.json",
+          "sha256": "6c6a110bed6155740c123254ade8284a52abc75695f4c1c87aa176408f09c353"
+        },
+        "baselineWinner": "red",
+        "baselineTick": 207107,
+        "baselineDurationSeconds": 3451.7833333333333,
+        "baselineCompletedWithin60Minutes": true,
+        "durationDeltaSeconds": -448.4
+      },
+      "birthRepairComparison": {
+        "beforeRepairReport": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/26018.json",
+          "sha256": "95c4a7c2e8b115d2c85f37eb9dda894c4f546c31cc26126572ae293c68e54e20"
+        },
+        "beforeRepairCheckpoint": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/26018.match.json",
+          "sha256": "2bac9c336ff56810bce53c4f36d744dc8883c7d4e92fcc963701d3dbd00b6792"
+        },
+        "beforeRepairFailure": "Error: Saved match is invalid or belongs to a different game version.\n    at decodeSnapshot (file:///Users/teodev/Developer/web-lol/.cache/lux-wave-match-runner/role-match.js:9934:29)\n    at World.fromSnapshot (file:///Users/teodev/Developer/web-lol/.cache/lux-wave-match-runner/role-match.js:14617:17)\n    at file:///Users/teodev/Developer/web-lol/.cache/lux-wave-match-runner/role-match.js:14814:14\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+        "recordedSamplesCompared": 50,
+        "recordedSamplesEqual": true,
+        "sameWinnerAndTick": true,
+        "sameCheckpointExceptRulesetAndLuxBirthHistory": true
+      },
+      "goalTicks": {
+        "defend": 166029,
+        "push": 72360,
+        "gank": 12180,
+        "river": 1920
+      },
+      "attackTicks": {
+        "defend": 0,
+        "push": 45616,
+        "gank": 2789,
+        "river": 1030
+      },
+      "arrivedTicks": {
+        "defend": 64531,
+        "push": 63989,
+        "gank": 5938,
+        "river": 1451
+      },
+      "riverClaims": {
+        "blue": 1,
+        "red": 4
+      },
+      "destruction": [
+        {
+          "tick": 82979,
+          "id": 16,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 96456,
+          "id": 21,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 99746,
+          "id": 14,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 101157,
+          "id": 11,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 104857,
+          "id": 20,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 129199,
+          "id": 9,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 137883,
+          "id": 10,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 150155,
+          "id": 15,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 152266,
+          "id": 17,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 160472,
+          "id": 12,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 164811,
+          "id": 18,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 169282,
+          "id": 6,
+          "team": "blue",
+          "role": "inhibitor-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 170384,
+          "id": 27,
+          "team": "blue",
+          "role": "inhibitor",
+          "lane": "bot"
+        },
+        {
+          "tick": 171292,
+          "id": 8,
+          "team": "blue",
+          "role": "inhibitor-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 172204,
+          "id": 28,
+          "team": "blue",
+          "role": "inhibitor",
+          "lane": "top"
+        },
+        {
+          "tick": 173453,
+          "id": 2,
+          "team": "blue",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 178288,
+          "id": 3,
+          "team": "blue",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 180203,
+          "id": 25,
+          "team": "blue",
+          "role": "nexus",
+          "lane": null
+        }
+      ],
+      "samples": [
+        {
+          "minute": 5,
+          "tick": 18000,
+          "winner": null,
+          "units": 105,
+          "down": 0,
+          "goalTicks": {
+            "defend": 5280,
+            "push": 4260,
+            "gank": 540,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 2404,
+            "gank": 0,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 10,
+          "tick": 36000,
+          "winner": null,
+          "units": 107,
+          "down": 0,
+          "goalTicks": {
+            "defend": 19200,
+            "push": 11580,
+            "gank": 2100,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 7495,
+            "gank": 307,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 15,
+          "tick": 54000,
+          "winner": null,
+          "units": 128,
+          "down": 0,
+          "goalTicks": {
+            "defend": 34920,
+            "push": 19110,
+            "gank": 3060,
+            "river": 780
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 12736,
+            "gank": 410,
+            "river": 660
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 20,
+          "tick": 72000,
+          "winner": null,
+          "units": 112,
+          "down": 0,
+          "goalTicks": {
+            "defend": 56220,
+            "push": 27720,
+            "gank": 3840,
+            "river": 780
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 17667,
+            "gank": 429,
+            "river": 660
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 25,
+          "tick": 90000,
+          "winner": null,
+          "units": 124,
+          "down": 1,
+          "goalTicks": {
+            "defend": 83100,
+            "push": 40470,
+            "gank": 5520,
+            "river": 780
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 26702,
+            "gank": 1072,
+            "river": 660
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 30,
+          "tick": 108000,
+          "winner": null,
+          "units": 132,
+          "down": 5,
+          "goalTicks": {
+            "defend": 98460,
+            "push": 50520,
+            "gank": 7200,
+            "river": 840
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 30941,
+            "gank": 1482,
+            "river": 697
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 1
+          }
+        },
+        {
+          "minute": 35,
+          "tick": 126000,
+          "winner": null,
+          "units": 127,
+          "down": 5,
+          "goalTicks": {
+            "defend": 111240,
+            "push": 53640,
+            "gank": 8700,
+            "river": 1260
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 32897,
+            "gank": 1914,
+            "river": 961
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 2
+          }
+        },
+        {
+          "minute": 40,
+          "tick": 144000,
+          "winner": null,
+          "units": 127,
+          "down": 7,
+          "goalTicks": {
+            "defend": 127320,
+            "push": 59400,
+            "gank": 9510,
+            "river": 1740
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 36107,
+            "gank": 2216,
+            "river": 993
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 3
+          }
+        },
+        {
+          "minute": 45,
+          "tick": 162000,
+          "winner": null,
+          "units": 120,
+          "down": 10,
+          "goalTicks": {
+            "defend": 143190,
+            "push": 64500,
+            "gank": 10980,
+            "river": 1920
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 39924,
+            "gank": 2614,
+            "river": 1030
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 4
+          }
+        },
+        {
+          "minute": 50,
+          "tick": 180000,
+          "winner": null,
+          "units": 129,
+          "down": 17,
+          "goalTicks": {
+            "defend": 165420,
+            "push": 72360,
+            "gank": 12180,
+            "river": 1920
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 45616,
+            "gank": 2789,
+            "river": 1030
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 4
+          }
+        },
+        {
+          "minute": 51,
+          "tick": 180203,
+          "winner": "red",
+          "units": 124,
+          "down": 18,
+          "goalTicks": {
+            "defend": 166029,
+            "push": 72360,
+            "gank": 12180,
+            "river": 1920
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 45616,
+            "gank": 2789,
+            "river": 1030
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 4
+          }
+        }
+      ],
+      "finalChampions": [
+        {
+          "id": 1,
+          "team": "blue",
+          "role": "carry",
+          "level": 18,
+          "cs": 216,
+          "kills": 11,
+          "deaths": 17,
+          "gold": 11754
+        },
+        {
+          "id": 32,
+          "team": "blue",
+          "role": "top",
+          "level": 18,
+          "cs": 216,
+          "kills": 6,
+          "deaths": 16,
+          "gold": 9688
+        },
+        {
+          "id": 33,
+          "team": "blue",
+          "role": "jungle",
+          "level": 18,
+          "cs": 266.2,
+          "kills": 10,
+          "deaths": 3,
+          "gold": 12564
+        },
+        {
+          "id": 34,
+          "team": "blue",
+          "role": "mid",
+          "level": 18,
+          "cs": 310,
+          "kills": 21,
+          "deaths": 16,
+          "gold": 15851
+        },
+        {
+          "id": 35,
+          "team": "blue",
+          "role": "support",
+          "level": 18,
+          "cs": 133,
+          "kills": 13,
+          "deaths": 15,
+          "gold": 8564
+        },
+        {
+          "id": 36,
+          "team": "red",
+          "role": "top",
+          "level": 18,
+          "cs": 241,
+          "kills": 15,
+          "deaths": 9,
+          "gold": 13691
+        },
+        {
+          "id": 37,
+          "team": "red",
+          "role": "jungle",
+          "level": 18,
+          "cs": 333,
+          "kills": 6,
+          "deaths": 4,
+          "gold": 12248
+        },
+        {
+          "id": 38,
+          "team": "red",
+          "role": "mid",
+          "level": 18,
+          "cs": 265,
+          "kills": 11,
+          "deaths": 21,
+          "gold": 10824
+        },
+        {
+          "id": 39,
+          "team": "red",
+          "role": "carry",
+          "level": 18,
+          "cs": 193,
+          "kills": 17,
+          "deaths": 13,
+          "gold": 14478
+        },
+        {
+          "id": 40,
+          "team": "red",
+          "role": "support",
+          "level": 18,
+          "cs": 146,
+          "kills": 17,
+          "deaths": 14,
+          "gold": 10253
+        }
+      ]
+    },
+    {
+      "seed": 719,
+      "ruleset": "d326a2300cfe7435d055ab970cef5c5a66b5159fe5fcdda555f6a3576fe84fbf",
+      "runtime": {
+        "node": "v26.8.2",
+        "v8": "14.6.202.34-node.28",
+        "platform": "darwin",
+        "arch": "arm64"
+      },
+      "outcome": "victory",
+      "winner": "blue",
+      "tick": 205272,
+      "durationSeconds": 3421.2,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 205272,
+      "validatedExactRoundTrips": 58,
+      "failure": null,
+      "failureCause": null,
+      "finalCheckpoint": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/719.match.json",
+        "sha256": "f7a01087913401b421925a8ad9fcb610beb17120204383eae49f1a27d242fb02"
+      },
+      "canonicalStateSha256": "b82bf36e8505cedf527a9ff768947dc65d3f2207240423567f79ee45fcb72be8",
+      "fullReport": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/719.json",
+        "sha256": "a7fa28c97ccbc18f8c142a5d43810c4a690332ae2d8042b13c60aebd10df126d"
+      },
+      "victoryAssertions": {
+        "destroyedNexus": true,
+        "destroyedNexusTurrets": true,
+        "destroyedInhibitor": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/a0a447256024/horizon-80/719.json",
+          "sha256": "abc6a54e4450fc9d523a3923486aa4e6939a5991bc61ef486f437d1cd174f589"
+        },
+        "baselineWinner": "blue",
+        "baselineTick": 228570,
+        "baselineDurationSeconds": 3809.5,
+        "baselineCompletedWithin60Minutes": false,
+        "durationDeltaSeconds": -388.3
+      },
+      "birthRepairComparison": {
+        "beforeRepairReport": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/719.json",
+          "sha256": "d6f6ffd187e0dc6333a4e736d28db1587117127b076c952808085d87411fe245"
+        },
+        "beforeRepairCheckpoint": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/719.match.json",
+          "sha256": "cdf576119789c0c85c96601a2eec8e630b2386088335cafb1f3a2f335897a3eb"
+        },
+        "beforeRepairFailure": null,
+        "recordedSamplesCompared": 58,
+        "recordedSamplesEqual": true,
+        "sameWinnerAndTick": true,
+        "sameCheckpointExceptRulesetAndLuxBirthHistory": null
+      },
+      "goalTicks": {
+        "defend": 190668,
+        "push": 73632,
+        "gank": 12480,
+        "river": 2520
+      },
+      "attackTicks": {
+        "defend": 0,
+        "push": 47542,
+        "gank": 2282,
+        "river": 1460
+      },
+      "arrivedTicks": {
+        "defend": 79381,
+        "push": 64588,
+        "gank": 5164,
+        "river": 2299
+      },
+      "riverClaims": {
+        "blue": 2,
+        "red": 1
+      },
+      "destruction": [
+        {
+          "tick": 89805,
+          "id": 14,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 101236,
+          "id": 21,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 101342,
+          "id": 15,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 103421,
+          "id": 20,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 104179,
+          "id": 10,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 110522,
+          "id": 16,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 119923,
+          "id": 23,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 136315,
+          "id": 13,
+          "team": "red",
+          "role": "inhibitor-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 143211,
+          "id": 22,
+          "team": "red",
+          "role": "inhibitor-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 152921,
+          "id": 11,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 155378,
+          "id": 29,
+          "team": "red",
+          "role": "inhibitor",
+          "lane": "top"
+        },
+        {
+          "tick": 156016,
+          "id": 9,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 161241,
+          "id": 18,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 166090,
+          "id": 5,
+          "team": "red",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 175884,
+          "id": 12,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 181607,
+          "id": 17,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 183063,
+          "id": 31,
+          "team": "red",
+          "role": "inhibitor",
+          "lane": "bot"
+        },
+        {
+          "tick": 204667,
+          "id": 4,
+          "team": "red",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 205272,
+          "id": 24,
+          "team": "red",
+          "role": "nexus",
+          "lane": null
+        }
+      ],
+      "samples": [
+        {
+          "minute": 5,
+          "tick": 18000,
+          "winner": null,
+          "units": 105,
+          "down": 0,
+          "goalTicks": {
+            "defend": 5280,
+            "push": 4260,
+            "gank": 540,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 2404,
+            "gank": 0,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 10,
+          "tick": 36000,
+          "winner": null,
+          "units": 101,
+          "down": 0,
+          "goalTicks": {
+            "defend": 17700,
+            "push": 10110,
+            "gank": 2340,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 6497,
+            "gank": 550,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 15,
+          "tick": 54000,
+          "winner": null,
+          "units": 117,
+          "down": 0,
+          "goalTicks": {
+            "defend": 32340,
+            "push": 17820,
+            "gank": 3960,
+            "river": 960
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 11083,
+            "gank": 1013,
+            "river": 703
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 20,
+          "tick": 72000,
+          "winner": null,
+          "units": 122,
+          "down": 0,
+          "goalTicks": {
+            "defend": 56340,
+            "push": 29520,
+            "gank": 4260,
+            "river": 960
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 17249,
+            "gank": 1013,
+            "river": 703
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 25,
+          "tick": 90000,
+          "winner": null,
+          "units": 108,
+          "down": 1,
+          "goalTicks": {
+            "defend": 84060,
+            "push": 42630,
+            "gank": 4620,
+            "river": 960
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 26297,
+            "gank": 1114,
+            "river": 703
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 30,
+          "tick": 108000,
+          "winner": null,
+          "units": 126,
+          "down": 5,
+          "goalTicks": {
+            "defend": 104700,
+            "push": 49680,
+            "gank": 5760,
+            "river": 1500
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 31084,
+            "gank": 1291,
+            "river": 938
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 35,
+          "tick": 126000,
+          "winner": null,
+          "units": 125,
+          "down": 7,
+          "goalTicks": {
+            "defend": 116040,
+            "push": 53220,
+            "gank": 6720,
+            "river": 1500
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 33833,
+            "gank": 1584,
+            "river": 938
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 1
+          }
+        },
+        {
+          "minute": 40,
+          "tick": 144000,
+          "winner": null,
+          "units": 120,
+          "down": 9,
+          "goalTicks": {
+            "defend": 132390,
+            "push": 59460,
+            "gank": 7500,
+            "river": 1860
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 38231,
+            "gank": 1603,
+            "river": 1166
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 1
+          }
+        },
+        {
+          "minute": 45,
+          "tick": 162000,
+          "winner": null,
+          "units": 127,
+          "down": 13,
+          "goalTicks": {
+            "defend": 147300,
+            "push": 66480,
+            "gank": 8700,
+            "river": 1860
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 43728,
+            "gank": 1622,
+            "river": 1166
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 1
+          }
+        },
+        {
+          "minute": 50,
+          "tick": 180000,
+          "winner": null,
+          "units": 108,
+          "down": 13,
+          "goalTicks": {
+            "defend": 165540,
+            "push": 68700,
+            "gank": 10740,
+            "river": 2520
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 44742,
+            "gank": 1946,
+            "river": 1460
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 1
+          }
+        },
+        {
+          "minute": 55,
+          "tick": 198000,
+          "winner": null,
+          "units": 138,
+          "down": 16,
+          "goalTicks": {
+            "defend": 175920,
+            "push": 71700,
+            "gank": 11580,
+            "river": 2520
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 46425,
+            "gank": 2030,
+            "river": 1460
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 1
+          }
+        },
+        {
+          "minute": 58,
+          "tick": 205272,
+          "winner": "blue",
+          "units": 127,
+          "down": 19,
+          "goalTicks": {
+            "defend": 190668,
+            "push": 73632,
+            "gank": 12480,
+            "river": 2520
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 47542,
+            "gank": 2282,
+            "river": 1460
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 1
+          }
+        }
+      ],
+      "finalChampions": [
+        {
+          "id": 1,
+          "team": "blue",
+          "role": "carry",
+          "level": 18,
+          "cs": 215,
+          "kills": 12,
+          "deaths": 15,
+          "gold": 13664
+        },
+        {
+          "id": 32,
+          "team": "blue",
+          "role": "top",
+          "level": 18,
+          "cs": 268,
+          "kills": 11,
+          "deaths": 15,
+          "gold": 15136
+        },
+        {
+          "id": 33,
+          "team": "blue",
+          "role": "jungle",
+          "level": 18,
+          "cs": 367,
+          "kills": 16,
+          "deaths": 2,
+          "gold": 17392
+        },
+        {
+          "id": 34,
+          "team": "blue",
+          "role": "mid",
+          "level": 18,
+          "cs": 361,
+          "kills": 18,
+          "deaths": 18,
+          "gold": 17115
+        },
+        {
+          "id": 35,
+          "team": "blue",
+          "role": "support",
+          "level": 18,
+          "cs": 139,
+          "kills": 22,
+          "deaths": 17,
+          "gold": 12244
+        },
+        {
+          "id": 36,
+          "team": "red",
+          "role": "top",
+          "level": 18,
+          "cs": 258,
+          "kills": 5,
+          "deaths": 18,
+          "gold": 11724
+        },
+        {
+          "id": 37,
+          "team": "red",
+          "role": "jungle",
+          "level": 18,
+          "cs": 327,
+          "kills": 16,
+          "deaths": 5,
+          "gold": 16980
+        },
+        {
+          "id": 38,
+          "team": "red",
+          "role": "mid",
+          "level": 18,
+          "cs": 317,
+          "kills": 14,
+          "deaths": 25,
+          "gold": 15303
+        },
+        {
+          "id": 39,
+          "team": "red",
+          "role": "carry",
+          "level": 18,
+          "cs": 219,
+          "kills": 10,
+          "deaths": 16,
+          "gold": 13176
+        },
+        {
+          "id": 40,
+          "team": "red",
+          "role": "support",
+          "level": 18,
+          "cs": 172,
+          "kills": 22,
+          "deaths": 16,
+          "gold": 14039
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "ruleset": "d326a2300cfe7435d055ab970cef5c5a66b5159fe5fcdda555f6a3576fe84fbf",
+      "runtime": {
+        "node": "v26.8.2",
+        "v8": "14.6.202.34-node.28",
+        "platform": "darwin",
+        "arch": "arm64"
+      },
+      "outcome": "victory",
+      "winner": "blue",
+      "tick": 191226,
+      "durationSeconds": 3187.1,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 191226,
+      "validatedExactRoundTrips": 54,
+      "failure": null,
+      "failureCause": null,
+      "finalCheckpoint": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/1.match.json",
+        "sha256": "2c27a178783df6188570dcf752c66d3544c5e55f163a7d7dd3ff37dd0a465ed6"
+      },
+      "canonicalStateSha256": "48bed2b91433071deb304b9b3f875cbccfc78bd4d764b07cc45a1698aef13297",
+      "fullReport": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/1.json",
+        "sha256": "ff9323dfe030d0bb50ee82795809c9eb2c48e6e3ee2f4f2428add67921b05ea8"
+      },
+      "victoryAssertions": {
+        "destroyedNexus": true,
+        "destroyedNexusTurrets": true,
+        "destroyedInhibitor": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/a0a447256024/horizon-80/1.json",
+          "sha256": "7b2d6678d85852cfba3df48d22ce73c0948409c15dd0bec9714aa2d6d18c4379"
+        },
+        "baselineWinner": "red",
+        "baselineTick": 193304,
+        "baselineDurationSeconds": 3221.733333333333,
+        "baselineCompletedWithin60Minutes": true,
+        "durationDeltaSeconds": -34.63333333333333
+      },
+      "birthRepairComparison": {
+        "beforeRepairReport": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/1.json",
+          "sha256": "ea2638edabb23e4b0a8cfe8b80b9ce8f6880a4bb0a5761d1b21f6b4b1f5a35d1"
+        },
+        "beforeRepairCheckpoint": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/1.match.json",
+          "sha256": "fe8506b0091215d95929fea3585ceb5bb8f097b6c16ce15b9cf44a9b1a7c2c1e"
+        },
+        "beforeRepairFailure": null,
+        "recordedSamplesCompared": 54,
+        "recordedSamplesEqual": true,
+        "sameWinnerAndTick": true,
+        "sameCheckpointExceptRulesetAndLuxBirthHistory": null
+      },
+      "goalTicks": {
+        "defend": 202464,
+        "push": 83100,
+        "gank": 10680,
+        "river": 1080
+      },
+      "attackTicks": {
+        "defend": 0,
+        "push": 53167,
+        "gank": 2525,
+        "river": 321
+      },
+      "arrivedTicks": {
+        "defend": 85389,
+        "push": 71471,
+        "gank": 4549,
+        "river": 932
+      },
+      "riverClaims": {
+        "blue": 2,
+        "red": 1
+      },
+      "destruction": [
+        {
+          "tick": 89109,
+          "id": 11,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 92304,
+          "id": 21,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 94717,
+          "id": 20,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 94782,
+          "id": 16,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 98055,
+          "id": 14,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 116845,
+          "id": 23,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 117659,
+          "id": 10,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 131721,
+          "id": 15,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 144440,
+          "id": 18,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 144550,
+          "id": 17,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 145007,
+          "id": 22,
+          "team": "red",
+          "role": "inhibitor-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 151247,
+          "id": 9,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 158904,
+          "id": 12,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 161701,
+          "id": 31,
+          "team": "red",
+          "role": "inhibitor",
+          "lane": "bot"
+        },
+        {
+          "tick": 163998,
+          "id": 13,
+          "team": "red",
+          "role": "inhibitor-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 165892,
+          "id": 19,
+          "team": "red",
+          "role": "inhibitor-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 167082,
+          "id": 30,
+          "team": "red",
+          "role": "inhibitor",
+          "lane": "mid"
+        },
+        {
+          "tick": 179358,
+          "id": 4,
+          "team": "red",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 187237,
+          "id": 29,
+          "team": "red",
+          "role": "inhibitor",
+          "lane": "top"
+        },
+        {
+          "tick": 190937,
+          "id": 5,
+          "team": "red",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 191226,
+          "id": 24,
+          "team": "red",
+          "role": "nexus",
+          "lane": null
+        }
+      ],
+      "samples": [
+        {
+          "minute": 5,
+          "tick": 18000,
+          "winner": null,
+          "units": 105,
+          "down": 0,
+          "goalTicks": {
+            "defend": 5280,
+            "push": 4260,
+            "gank": 540,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 2404,
+            "gank": 0,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 10,
+          "tick": 36000,
+          "winner": null,
+          "units": 110,
+          "down": 0,
+          "goalTicks": {
+            "defend": 14160,
+            "push": 8910,
+            "gank": 2820,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 5936,
+            "gank": 502,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 15,
+          "tick": 54000,
+          "winner": null,
+          "units": 127,
+          "down": 0,
+          "goalTicks": {
+            "defend": 28380,
+            "push": 13890,
+            "gank": 3360,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 9251,
+            "gank": 502,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 20,
+          "tick": 72000,
+          "winner": null,
+          "units": 132,
+          "down": 0,
+          "goalTicks": {
+            "defend": 56760,
+            "push": 27240,
+            "gank": 4440,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 18431,
+            "gank": 840,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 25,
+          "tick": 90000,
+          "winner": null,
+          "units": 116,
+          "down": 1,
+          "goalTicks": {
+            "defend": 85320,
+            "push": 40020,
+            "gank": 4800,
+            "river": 300
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 27095,
+            "gank": 840,
+            "river": 19
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 0
+          }
+        },
+        {
+          "minute": 30,
+          "tick": 108000,
+          "winner": null,
+          "units": 130,
+          "down": 5,
+          "goalTicks": {
+            "defend": 105840,
+            "push": 48000,
+            "gank": 6000,
+            "river": 480
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 32169,
+            "gank": 1121,
+            "river": 19
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 0
+          }
+        },
+        {
+          "minute": 35,
+          "tick": 126000,
+          "winner": null,
+          "units": 109,
+          "down": 7,
+          "goalTicks": {
+            "defend": 124020,
+            "push": 57900,
+            "gank": 7380,
+            "river": 900
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 39121,
+            "gank": 1273,
+            "river": 284
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 1
+          }
+        },
+        {
+          "minute": 40,
+          "tick": 144000,
+          "winner": null,
+          "units": 118,
+          "down": 8,
+          "goalTicks": {
+            "defend": 138270,
+            "push": 65190,
+            "gank": 7800,
+            "river": 900
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 43133,
+            "gank": 1587,
+            "river": 284
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 1
+          }
+        },
+        {
+          "minute": 45,
+          "tick": 162000,
+          "winner": null,
+          "units": 134,
+          "down": 14,
+          "goalTicks": {
+            "defend": 156180,
+            "push": 73260,
+            "gank": 9510,
+            "river": 900
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 48546,
+            "gank": 2210,
+            "river": 284
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 1
+          }
+        },
+        {
+          "minute": 50,
+          "tick": 180000,
+          "winner": null,
+          "units": 117,
+          "down": 17,
+          "goalTicks": {
+            "defend": 179610,
+            "push": 78660,
+            "gank": 10380,
+            "river": 1080
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 51795,
+            "gank": 2406,
+            "river": 321
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 1
+          }
+        },
+        {
+          "minute": 54,
+          "tick": 191226,
+          "winner": "blue",
+          "units": 123,
+          "down": 21,
+          "goalTicks": {
+            "defend": 202464,
+            "push": 83100,
+            "gank": 10680,
+            "river": 1080
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 53167,
+            "gank": 2525,
+            "river": 321
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 1
+          }
+        }
+      ],
+      "finalChampions": [
+        {
+          "id": 1,
+          "team": "blue",
+          "role": "carry",
+          "level": 18,
+          "cs": 194,
+          "kills": 12,
+          "deaths": 15,
+          "gold": 12342
+        },
+        {
+          "id": 32,
+          "team": "blue",
+          "role": "top",
+          "level": 18,
+          "cs": 272,
+          "kills": 8,
+          "deaths": 13,
+          "gold": 12747
+        },
+        {
+          "id": 33,
+          "team": "blue",
+          "role": "jungle",
+          "level": 18,
+          "cs": 318,
+          "kills": 9,
+          "deaths": 3,
+          "gold": 13719
+        },
+        {
+          "id": 34,
+          "team": "blue",
+          "role": "mid",
+          "level": 18,
+          "cs": 313,
+          "kills": 31,
+          "deaths": 15,
+          "gold": 20287
+        },
+        {
+          "id": 35,
+          "team": "blue",
+          "role": "support",
+          "level": 18,
+          "cs": 151,
+          "kills": 16,
+          "deaths": 16,
+          "gold": 11191
+        },
+        {
+          "id": 36,
+          "team": "red",
+          "role": "top",
+          "level": 18,
+          "cs": 211,
+          "kills": 10,
+          "deaths": 16,
+          "gold": 12375
+        },
+        {
+          "id": 37,
+          "team": "red",
+          "role": "jungle",
+          "level": 18,
+          "cs": 289.7,
+          "kills": 8,
+          "deaths": 11,
+          "gold": 12333
+        },
+        {
+          "id": 38,
+          "team": "red",
+          "role": "mid",
+          "level": 18,
+          "cs": 313,
+          "kills": 11,
+          "deaths": 22,
+          "gold": 13168
+        },
+        {
+          "id": 39,
+          "team": "red",
+          "role": "carry",
+          "level": 18,
+          "cs": 204,
+          "kills": 15,
+          "deaths": 15,
+          "gold": 14070
+        },
+        {
+          "id": 40,
+          "team": "red",
+          "role": "support",
+          "level": 18,
+          "cs": 157.8,
+          "kills": 18,
+          "deaths": 13,
+          "gold": 11006
+        }
+      ]
+    },
+    {
+      "seed": 927,
+      "ruleset": "d326a2300cfe7435d055ab970cef5c5a66b5159fe5fcdda555f6a3576fe84fbf",
+      "runtime": {
+        "node": "v26.8.2",
+        "v8": "14.6.202.34-node.28",
+        "platform": "darwin",
+        "arch": "arm64"
+      },
+      "outcome": "victory",
+      "winner": "red",
+      "tick": 204061,
+      "durationSeconds": 3401.016666666667,
+      "completedWithin60Minutes": true,
+      "checkedTicks": 204061,
+      "validatedExactRoundTrips": 57,
+      "failure": null,
+      "failureCause": null,
+      "finalCheckpoint": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/927.match.json",
+        "sha256": "190ea01040273a63f841d5697bb09ff504ebadb89c607f824a2d01e2f4c77d29"
+      },
+      "canonicalStateSha256": "84ba1c7a382e2fe17585d7a73a93c2c1e572ac98c874f5a825f8114dd87a6423",
+      "fullReport": {
+        "path": ".cache/role-match-audit/d326a2300cfe/horizon-80/927.json",
+        "sha256": "a5c191dde7732fb6d7d1e185290d8dc5337c79562841ef356f961c10df6b925d"
+      },
+      "victoryAssertions": {
+        "destroyedNexus": true,
+        "destroyedNexusTurrets": true,
+        "destroyedInhibitor": true
+      },
+      "comparison": {
+        "baselineReport": {
+          "path": ".cache/role-match-audit/a0a447256024/horizon-80/927.json",
+          "sha256": "42cff2bd93a74201dd6b27520febc650a49cdd4905b325958b5af5e427e0ef18"
+        },
+        "baselineWinner": "red",
+        "baselineTick": 207134,
+        "baselineDurationSeconds": 3452.233333333333,
+        "baselineCompletedWithin60Minutes": true,
+        "durationDeltaSeconds": -51.21666666666667
+      },
+      "birthRepairComparison": {
+        "beforeRepairReport": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/927.json",
+          "sha256": "9552a257612eb4ab08747a08b18a1a03a4d37529070f728b0395516566e88607"
+        },
+        "beforeRepairCheckpoint": {
+          "path": ".cache/role-match-audit/fd36386e55ed/horizon-80/927.match.json",
+          "sha256": "28ab1ac6f06f34c7434643c5acdec478c951c7e590daaf0b40c33acad9c9f443"
+        },
+        "beforeRepairFailure": null,
+        "recordedSamplesCompared": 57,
+        "recordedSamplesEqual": true,
+        "sameWinnerAndTick": true,
+        "sameCheckpointExceptRulesetAndLuxBirthHistory": null
+      },
+      "goalTicks": {
+        "defend": 190801,
+        "push": 89822,
+        "gank": 14580,
+        "river": 2580
+      },
+      "attackTicks": {
+        "defend": 0,
+        "push": 53918,
+        "gank": 2935,
+        "river": 1749
+      },
+      "arrivedTicks": {
+        "defend": 80367,
+        "push": 78263,
+        "gank": 7014,
+        "river": 2380
+      },
+      "riverClaims": {
+        "blue": 2,
+        "red": 2
+      },
+      "destruction": [
+        {
+          "tick": 85434,
+          "id": 20,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 88831,
+          "id": 15,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 96421,
+          "id": 11,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 100336,
+          "id": 14,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 108147,
+          "id": 16,
+          "team": "blue",
+          "role": "outer-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 114872,
+          "id": 21,
+          "team": "red",
+          "role": "outer-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 126214,
+          "id": 9,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 137757,
+          "id": 17,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 143665,
+          "id": 10,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 149937,
+          "id": 23,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 158867,
+          "id": 12,
+          "team": "blue",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 163039,
+          "id": 6,
+          "team": "blue",
+          "role": "inhibitor-turret",
+          "lane": "bot"
+        },
+        {
+          "tick": 165501,
+          "id": 27,
+          "team": "blue",
+          "role": "inhibitor",
+          "lane": "bot"
+        },
+        {
+          "tick": 170074,
+          "id": 8,
+          "team": "blue",
+          "role": "inhibitor-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 177415,
+          "id": 18,
+          "team": "red",
+          "role": "inner-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 178713,
+          "id": 13,
+          "team": "red",
+          "role": "inhibitor-turret",
+          "lane": "top"
+        },
+        {
+          "tick": 180096,
+          "id": 3,
+          "team": "blue",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 196168,
+          "id": 7,
+          "team": "blue",
+          "role": "inhibitor-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 200977,
+          "id": 29,
+          "team": "red",
+          "role": "inhibitor",
+          "lane": "top"
+        },
+        {
+          "tick": 202394,
+          "id": 2,
+          "team": "blue",
+          "role": "nexus-turret",
+          "lane": null
+        },
+        {
+          "tick": 203652,
+          "id": 19,
+          "team": "red",
+          "role": "inhibitor-turret",
+          "lane": "mid"
+        },
+        {
+          "tick": 204061,
+          "id": 25,
+          "team": "blue",
+          "role": "nexus",
+          "lane": null
+        }
+      ],
+      "samples": [
+        {
+          "minute": 5,
+          "tick": 18000,
+          "winner": null,
+          "units": 105,
+          "down": 0,
+          "goalTicks": {
+            "defend": 5280,
+            "push": 4260,
+            "gank": 540,
+            "river": 0
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 2404,
+            "gank": 0,
+            "river": 0
+          },
+          "riverClaims": {
+            "blue": 0,
+            "red": 0
+          }
+        },
+        {
+          "minute": 10,
+          "tick": 36000,
+          "winner": null,
+          "units": 106,
+          "down": 0,
+          "goalTicks": {
+            "defend": 19380,
+            "push": 12780,
+            "gank": 3000,
+            "river": 840
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 6566,
+            "gank": 833,
+            "river": 567
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 0
+          }
+        },
+        {
+          "minute": 15,
+          "tick": 54000,
+          "winner": null,
+          "units": 131,
+          "down": 0,
+          "goalTicks": {
+            "defend": 34140,
+            "push": 22110,
+            "gank": 4500,
+            "river": 1200
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 12870,
+            "gank": 1133,
+            "river": 867
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 0
+          }
+        },
+        {
+          "minute": 20,
+          "tick": 72000,
+          "winner": null,
+          "units": 122,
+          "down": 0,
+          "goalTicks": {
+            "defend": 59790,
+            "push": 33900,
+            "gank": 5760,
+            "river": 1200
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 21211,
+            "gank": 1359,
+            "river": 867
+          },
+          "riverClaims": {
+            "blue": 1,
+            "red": 0
+          }
+        },
+        {
+          "minute": 25,
+          "tick": 90000,
+          "winner": null,
+          "units": 116,
+          "down": 2,
+          "goalTicks": {
+            "defend": 88080,
+            "push": 43500,
+            "gank": 6600,
+            "river": 1560
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 26581,
+            "gank": 1431,
+            "river": 1162
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 0
+          }
+        },
+        {
+          "minute": 30,
+          "tick": 108000,
+          "winner": null,
+          "units": 109,
+          "down": 4,
+          "goalTicks": {
+            "defend": 102420,
+            "push": 48840,
+            "gank": 7680,
+            "river": 1860
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 29023,
+            "gank": 1673,
+            "river": 1202
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 0
+          }
+        },
+        {
+          "minute": 35,
+          "tick": 126000,
+          "winner": null,
+          "units": 101,
+          "down": 6,
+          "goalTicks": {
+            "defend": 115920,
+            "push": 57120,
+            "gank": 9960,
+            "river": 2580
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 34275,
+            "gank": 2059,
+            "river": 1749
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 2
+          }
+        },
+        {
+          "minute": 40,
+          "tick": 144000,
+          "winner": null,
+          "units": 121,
+          "down": 9,
+          "goalTicks": {
+            "defend": 134760,
+            "push": 64680,
+            "gank": 11280,
+            "river": 2580
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 38486,
+            "gank": 2294,
+            "river": 1749
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 2
+          }
+        },
+        {
+          "minute": 45,
+          "tick": 162000,
+          "winner": null,
+          "units": 111,
+          "down": 11,
+          "goalTicks": {
+            "defend": 151620,
+            "push": 72960,
+            "gank": 12660,
+            "river": 2580
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 42833,
+            "gank": 2576,
+            "river": 1749
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 2
+          }
+        },
+        {
+          "minute": 50,
+          "tick": 180000,
+          "winner": null,
+          "units": 135,
+          "down": 16,
+          "goalTicks": {
+            "defend": 165360,
+            "push": 76200,
+            "gank": 13980,
+            "river": 2580
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 44903,
+            "gank": 2837,
+            "river": 1749
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 2
+          }
+        },
+        {
+          "minute": 55,
+          "tick": 198000,
+          "winner": null,
+          "units": 107,
+          "down": 17,
+          "goalTicks": {
+            "defend": 185940,
+            "push": 79980,
+            "gank": 14580,
+            "river": 2580
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 47333,
+            "gank": 2935,
+            "river": 1749
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 2
+          }
+        },
+        {
+          "minute": 57,
+          "tick": 204061,
+          "winner": "red",
+          "units": 118,
+          "down": 22,
+          "goalTicks": {
+            "defend": 190801,
+            "push": 89822,
+            "gank": 14580,
+            "river": 2580
+          },
+          "attackTicks": {
+            "defend": 0,
+            "push": 53918,
+            "gank": 2935,
+            "river": 1749
+          },
+          "riverClaims": {
+            "blue": 2,
+            "red": 2
+          }
+        }
+      ],
+      "finalChampions": [
+        {
+          "id": 1,
+          "team": "blue",
+          "role": "carry",
+          "level": 18,
+          "cs": 204,
+          "kills": 8,
+          "deaths": 17,
+          "gold": 12270
+        },
+        {
+          "id": 32,
+          "team": "blue",
+          "role": "top",
+          "level": 18,
+          "cs": 299,
+          "kills": 17,
+          "deaths": 13,
+          "gold": 17256
+        },
+        {
+          "id": 33,
+          "team": "blue",
+          "role": "jungle",
+          "level": 18,
+          "cs": 362,
+          "kills": 13,
+          "deaths": 5,
+          "gold": 16544
+        },
+        {
+          "id": 34,
+          "team": "blue",
+          "role": "mid",
+          "level": 18,
+          "cs": 353,
+          "kills": 20,
+          "deaths": 18,
+          "gold": 17433
+        },
+        {
+          "id": 35,
+          "team": "blue",
+          "role": "support",
+          "level": 18,
+          "cs": 184.5,
+          "kills": 17,
+          "deaths": 14,
+          "gold": 12095
+        },
+        {
+          "id": 36,
+          "team": "red",
+          "role": "top",
+          "level": 18,
+          "cs": 266,
+          "kills": 8,
+          "deaths": 16,
+          "gold": 12722
+        },
+        {
+          "id": 37,
+          "team": "red",
+          "role": "jungle",
+          "level": 18,
+          "cs": 333,
+          "kills": 12,
+          "deaths": 6,
+          "gold": 15714
+        },
+        {
+          "id": 38,
+          "team": "red",
+          "role": "mid",
+          "level": 18,
+          "cs": 340,
+          "kills": 11,
+          "deaths": 24,
+          "gold": 14600
+        },
+        {
+          "id": 39,
+          "team": "red",
+          "role": "carry",
+          "level": 18,
+          "cs": 225,
+          "kills": 16,
+          "deaths": 15,
+          "gold": 15431
+        },
+        {
+          "id": 40,
+          "team": "red",
+          "role": "support",
+          "level": 18,
+          "cs": 162,
+          "kills": 20,
+          "deaths": 14,
+          "gold": 13545
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "checkedTicks": 780762,
+    "validatedExactRoundTrips": 220,
+    "victories": 4,
+    "completedWithin60Minutes": 4,
+    "total": 4,
+    "beforeWaveClearCompletedWithin60Minutes": 3,
+    "birthRepairComparedSamples": 219
+  },
+  "roadmap100SeedGateMet": false,
+  "limits": [
+    "Four seeds do not certify balance, natural human play, the roadmap 100-seed gate or a universal match-duration improvement.",
+    "Current-position circle coverage does not predict future movement, guaranteed spell hits, later aggro or enemy cooldowns.",
+    "The interim roster, six complete champions, quests, epic objectives, full team/wave strategy, native audiovisual/input parity, offline delivery and full-match performance remain unfinished."
+  ]
+}

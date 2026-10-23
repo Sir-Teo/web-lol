@@ -6,11 +6,11 @@ Last updated: October 22, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,340 source/simulation/geometry checks, the targeted result-boundary/file-transfer browser checks described below, and earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,356 source/simulation/geometry checks and 31 targeted Chrome cases for wave clearing, combat, role/team decisions, checkpoints and result playback/export. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
-- Ashe Q/W/E/R and Lux passive/Q/W/E/R have runtime foundations and targeted interaction checks. Lux has a local combat and purchase policy. Human selection and HUD now support Ashe and Lux; neither champion is certified complete in native effects, audio, timing or all interactions.
+- Ashe Q/W/E/R and Lux passive/Q/W/E/R have runtime foundations and targeted interaction checks. Lux has local combat, purchase and visible-wave E policies, including nearby carry-farm restraint and an observed base-pressure exception. Human selection and HUD now support Ashe and Lux; neither champion is certified complete in native effects, audio, timing or all interactions.
 - Shared team vision, brush and terrain occlusion, shields, independently owned slows, roots, AP, ability haste and timed mana restoration. The item catalog includes basic AD/defense components and mage recipes through Lost Chapter and Deathcap; complete builds, runes and advanced item effects remain unfinished.
 - DOM HUD, aiming/input, minimap, shop, scoreboard, menus, practice controls, local storage and source/synthesized audio paths. Browser tests cover these integration surfaces, including failure/recovery scenarios.
 - The interim 5v5 mode now assigns top, jungle, mid, bottom and support on each team, using six Ashe/four Lux across the match. A human Ashe takes bottom or Lux takes mid, with nine bots filling the other positions. Jungle bots buy companions, use Smite and clear home camps from visible observations; supports leave nearby carry farm, follow and ward brush. Shared jobs now add threatened-building defense, supported sieges and visible jungle ganks/Scuttlers with bounded last-seen memory. The default entry remains practice, with **Pause → New match** offering either mode. Complete team planning, quests, objectives and the six-champion roster remain unfinished; this is a foundation, not production completion.
@@ -21,8 +21,49 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
 
-The [Lucent result boundary](LUX-E.md#winning-checkpoints-and-finite-result-playback--october-22-2026)
-now cancels E windups, flights and armed zones on Nexus destruction without
+Lux now [clears observed minion groups with E](LUX-BOTS.md#observed-e-wave-clearing--october-22-2026)
+through normal queued casts and free armed recasts. Ordinary placement preserves
+mana for combat, yields ready basic last hits and avoids nearly dead or already
+claimed farm. Supports leave nearby carry farm except for observed pressure at
+their own inhibitor/Nexus. Champion combat, retreat, committed attacks, recall
+and tower safety retain priority. Copied aims survive saves without tracking
+targets under fog. Geometry thresholds are authored policy; spell rules, economy
+and camp clocks are unchanged.
+
+The first full-match wave-clear audit exposed another winning-save boundary:
+a Lux missile could release before a later melee hit won on that same tick,
+leaving an empty history with no position/facing. Lux and Gromp now capture the
+actual projectile birth pose at release. Normal advancement replaces that
+same-tick frame; cancellation retains it without applying damage. The original
+failed seed-26018 checkpoint and frozen bundle are preserved. Schema 108 fields
+and strict validation are unchanged; the simulation fingerprint changes.
+The headless runner also retains nested error-cause diagnostics.
+
+All **1,356 tests across 249 files** pass with one worker and unchanged limits.
+All **31 targeted Chrome cases** pass in one cohort, including real mid/support
+wave decisions, queued save/reload, normal rewards, missile flight and a
+same-release-tick frozen victory download. The full Chrome/performance suites
+were not repeated. Nested-path production smoke passes with 34 loaded scoreboard
+images and 20 source recordings. Game/Three chunks are **735.06/659.93 KB**; the
+existing size warning remains. The wave-zone and production scoreboard captures
+were visually reviewed. See the [wave-clear ledger](reference/lux-wave-clear-verification.json).
+
+Four fresh normal-rules diagnostics now finish within one hour: seed 26018 Red
+at **50:03.383**, 719 Blue at **57:01.2**, 1 Blue at **53:07.1** and 927 Red at
+**56:41.017**. They pass **780,762 tick checks** and **220 exact checkpoint round
+trips**, including every winning save. The history repair preserves all 219
+recorded samples and all four winners/ticks from the initial wave-clear audit;
+seed 26018's failed terminal state differs only in fingerprint and the repaired
+Lux birth history. Against the prior ruleset, these four seeds improve from
+three to four victories within an hour, with one changed winner. This small
+sample does not certify balance, general match quality or the 100-seed gate.
+The human carry is automated only in this QA harness. The
+[wave-clear audit](reference/lux-wave-match-audit.json) preserves full reports,
+checkpoints and comparisons; native visuals, the complete roster, quests,
+epic objectives, delivery/offline and full-match performance remain unfinished.
+
+At `2feb4fd`, the [Lucent result boundary](LUX-E.md#winning-checkpoints-and-finite-result-playback--october-22-2026)
+was repaired to cancel E windups, flights and armed zones on Nexus destruction without
 refunding committed resources or applying a late recast. Already-detonated
 bursts retain only their unexpired visual tail; the result view finishes and
 disposes that tail without advancing the saved simulation. Schema 108’s fields
@@ -49,7 +90,7 @@ recordings overall. Game/Three chunks are 730.64/659.93 KB; the existing chunk
 warning remains. The full Chrome/performance suites and native E effects/audio
 comparison remain unaccepted.
 
-Four fresh extended diagnostics now reach structurally valid victories with
+At that revision, four fresh extended diagnostics reached structurally valid victories with
 **836,115 checked ticks** and **234 exact checkpoint round trips**. Seed 719
 reaches the same Blue victory at **63:29.5**, and its terminal state matches the
 failed continuation after accounting only for the new fingerprint and cancelled

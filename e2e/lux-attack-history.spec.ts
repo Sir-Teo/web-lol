@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 
 test('browser checkpoints retain Lux homing history in flight and after impact', async ({
   page,
@@ -234,5 +235,81 @@ test('a winning melee hit preserves an unrelated Lux missile tail and a restorab
   expect(result.targetUnharmed).toBe(true);
   expect(result.exact).toBe(true);
   expect(result.tail).toBeGreaterThan(0);
+  expect(errors).toEqual([]);
+});
+
+test('a Lux missile released on the winning melee tick exports one complete frozen birth frame', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.nextWaveTick = Infinity;
+    w.pendingSpawns = [];
+    w.setOrder(w.hero, { type: 'idle' });
+    const lux = w.spawn('champion', 'blue', { x: w.hero.x + 80, y: w.hero.y }, 'lux');
+    const target = w.spawn('dummy', 'red', { x: lux.x + 300, y: lux.y });
+    target.hp = target.maxHp = 5000;
+    w.setOrder(lux, { type: 'attack', target: target.id });
+    w.step();
+    const release = lux.releaseTick;
+    if (release === null) throw Error('Expected an actual committed Lux windup');
+    target.x = lux.x + 250;
+    target.y = lux.y + 100;
+    const finisher = w.spawn('melee', 'blue', { x: w.hero.x - 200, y: w.hero.y });
+    const nexus = w.spawn('nexus', 'red', { x: w.hero.x - 150, y: w.hero.y });
+    nexus.hp = 1;
+    w.setOrder(finisher, { type: 'attack', target: nexus.id });
+    finisher.releaseTick = release;
+    finisher.attackTarget = nexus.id;
+    w.step(release - w.tick);
+    const v = w.luxAttackVisuals[0],
+      saved = w.snapshot(),
+      copy = w.constructor.fromSnapshot(saved, w.battlefield);
+    copy.step(600);
+    g.view.render(w, 1, g.view.previousElapsed);
+    g.hud.update(60);
+    return {
+      saved,
+      winner: w.winner,
+      tick: w.tick,
+      release,
+      launch: v.launchTick,
+      stop: v.stopTick,
+      frames: v.frames,
+      origin: v.origin,
+      heading: Math.atan2(target.x - lux.x, target.y - lux.y),
+      projectiles: w.projectiles.length,
+      targetHp: target.hp,
+      exact: copy.snapshot() === saved,
+    };
+  });
+  expect(result.winner).toBe('blue');
+  expect(result.tick).toBe(result.release);
+  expect(result.launch).toBe(result.release);
+  expect(result.stop).toBe(result.release);
+  expect(result.frames).toHaveLength(1);
+  expect(result.frames[0]).toMatchObject({
+    tick: result.release,
+    ...result.origin,
+    trailDistance: 0,
+  });
+  expect(result.frames[0].facing).toBeCloseTo(result.heading, 12);
+  expect(result.projectiles).toBe(0);
+  expect(result.targetHp).toBe(5000);
+  expect(result.exact).toBe(true);
+  await page.getByRole('heading', { name: 'Victory', exact: true }).waitFor();
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Download current match', exact: true }).click(),
+  ]);
+  expect(readFileSync((await download.path())!, 'utf8')).toBe(result.saved);
   expect(errors).toEqual([]);
 });
