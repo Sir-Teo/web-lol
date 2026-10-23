@@ -1,0 +1,99 @@
+{
+  "scope": "Static observations from canonical native Metal/AIR, checked through host-retargeted text. No native shader/game execution.",
+  "programs": {
+    "defaultQuad": {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal",
+      "index": 0,
+      "defines": [
+        {}
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.metallib",
+        "bytes": 3934,
+        "sha256": "3e1bd60c47ede0c0d3548c066b43555dbba8f30a6f3117f7eb8ab8b6cea2c02b"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.bc",
+        "bytes": 3672,
+        "offset": 258,
+        "sha256": "57c920f3f82592a2cd1afb29c966f9e327932a4a8e0fcecb6bff7f8c916b5b44"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.ll",
+        "sha256": "ea26d9050c19a19f0ed765ebd35dabd21982c844a81e828424922c96e4f6522c"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    "defaultMesh": {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 0,
+      "defines": [
+        {}
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.metallib",
+        "bytes": 3934,
+        "sha256": "5a5dcfe7e7f47de3c0f0441a12a073aac43f4ef769bf50cf9b5e3863e1601b42"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.bc",
+        "bytes": 3668,
+        "offset": 258,
+        "sha256": "80f3a3130cf2fda1a09e314b7363bd11326e24db2335eca9faaa84fbbe058f03"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.ll",
+        "sha256": "e69360d0dd981ecd004bc92912a8af753f0a43d0b5fec23bd160c0f99b2a6bc3"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    "quadVertex": {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal",
+      "index": 0,
+      "defines": [
+        {}
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.metallib",
+        "bytes": 4530,
+        "sha256": "cde73c750737eb937cedc6eb17a43df71bb8d9315557b0d52b06b5380e3a7c7b"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.bc",
+        "bytes": 4216,
+        "offset": 310,
+        "sha256": "809cbc42c45af82cfd30fd7f2a580344c69915572beb3837aa74b2df20cc75d2"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.ll",
+        "sha256": "d86b372b27f93bc5402ddd2f5d98145e8ab65b7f991bf32add7100e67c6c6beb"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  },
+  "findings": {
+    "quadInputs": "Native distortion_ps program 0: ramp sample %14 at TEXCOORD1.zw, normal %16 at TEXCOORD1.xy, tint TEXCOORD0, DistortionPower %21, base texture %30, back-buffer sample %29.",
+    "displacement": "%19=N.rg-0.5, %25=2*R.a, %26=%25*%19, %27=%26*DistortionPower, %28=nativeScreenUV+%27. No normal alpha, base alpha, tint alpha or aspect term occurs in this chain.",
+    "color": "%31=R*C, %32=%31*F, %33=%32*B, then %35=N.a*R.a replaces alpha in %36. RGB retains the four-way product.",
+    "alphaTest": "Quad program 1 computes alpha=N.a*R.a and discards when alpha-alphaRef < 0. Program 0 has no alpha-test define.",
+    "projection": "Quad VS program 0: %52=clip.xy/clip.w, %53=%52*0.5, %54=%53+0.5, %56=1-y. TEXCOORD2 is declared perspective-interpolated in the fragment metadata.",
+    "otherVariants": "Colorblind and masked variants were pinned and statically decoded but are not implemented in the new default/alpha-test material."
+  },
+  "external": {
+    "repository": "LeagueToolkit/ltk-manager",
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "path": "docs/plans/vfx-particle-renderer.md",
+    "url": "https://github.com/LeagueToolkit/ltk-manager/blob/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/docs/plans/vfx-particle-renderer.md",
+    "gitBlobSha1": "db5a9dbda985bb868552be21dcf0c2d7f0c4e111",
+    "localPath": ".cache/lux-e-distortion-research/reader.md",
+    "sha256": "0dec1227d324e927ca66c0e22b850fd8e8bc803285874e605bc2db468455d523",
+    "section": "2.25",
+    "comparison": "Its warp is explicitly inferred; normal-alpha displacement scaling, aspect correction and plain copied RGB differ from the native shader. Its unresolved mode/dispatch boundary remains unresolved here."
+  },
+  "limits": [
+    "The original Metal and AIR bitcode hashes are canonical; clang retargets textual IR to the host with LLVM passes disabled.",
+    "No native Metal shader or game client was executed. CPU mode mapping, render-phase dispatch, sampler state and source-to-DistortionPower conversion remain unknown.",
+    "Native shader-to-source-emitter binding and CPU mode dispatch are not established by an available shader variant or emitter name.",
+    "Clamp/no-mip is a resource name; linear filtering, WebGL Y conversion and canvas-copy staging are local integration policies."
+  ]
+}

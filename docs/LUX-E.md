@@ -2,6 +2,17 @@
 
 E now has a queued cast, flight, persistent zone, buffered free recast, area detonation, Illumination, independent slows, vision and saved continuation. Source Spell3, thirty-three static source particle layers, three moving detonation batches and twenty field/flight batches are used, and human selection supports Lux. Complete effects, matched native audio/visual calibration and full tactical/role AI remain unfinished. Lux's local policy also uses observed minion groups; see [LUX-BOTS.md](LUX-BOTS.md).
 
+## Native distortion prerequisite — October 23, 2026
+
+The separate native distortion shader tables are now pinned and their default
+fragment/alpha-test arithmetic is implemented with a canvas-copy display list.
+See [the native shader findings and component](PARTICLE-DISTORTION.md). This
+closes a rendering prerequisite, while **all seven E distortion records remain
+deferred**: their CPU mode-to-phase mapping and power conversion are unverified.
+The new display list is empty during ordinary gameplay. E coverage remains 56
+rendered records, one base-skin exclusion and eight deferred records; schema 110
+and its gameplay fingerprint are unchanged.
+
 ## Saved target-hit flashes — October 23, 2026
 
 The source `Lux_E_tar_hit` flash now attaches to each accepted explosion victim,

@@ -1,0 +1,507 @@
+{
+  "scope": "All four native particle distortion TOCs and all fifteen programs; static decoding only.",
+  "limits": [
+    "The original Metal and AIR bitcode hashes are canonical; clang retargets textual IR to the host with LLVM passes disabled.",
+    "No native Metal shader or game client was executed. CPU mode mapping, render-phase dispatch, sampler state and source-to-DistortionPower conversion remain unknown."
+  ],
+  "disassemblyCommand": [
+    "clang",
+    "-S",
+    "-emit-llvm",
+    "-Xclang",
+    "-disable-llvm-passes",
+    "INPUT.bc",
+    "-o",
+    "OUTPUT.ll"
+  ],
+  "provenance": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/ShaderCache.metal.wad.client",
+    "chunks": {
+      "45E944192F8380B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15109374,
+        "bytes": 51065,
+        "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+      },
+      "03E13763FA2EDAA6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 12497497,
+        "bytes": 158,
+        "sha256": "81a740565e904be05bb860ce9677b19bc272c48e32c0558024b436efdc93ab66"
+      },
+      "F9C6BAAF1044664C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D0B4F3B26781221C.bundle",
+        "offset": 570706,
+        "bytes": 68,
+        "sha256": "04839b12f97e7b5d2b7b4196fe6a91bdc3688ce76f7047e18f8281f66920e974"
+      },
+      "E49A1164FD352539": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 33965596,
+        "bytes": 221,
+        "sha256": "5e20633be9dbffef028e743bb44df305422dba060d0d3bcf4d241f81d0ee2715"
+      },
+      "E11F864109E9ABBD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1702BAADB0939B19.bundle",
+        "offset": 8776263,
+        "bytes": 96,
+        "sha256": "33607a4d4fb60663ab8f463bc2b9cecde7f25a4a09eb467186ae1c5e2a0e9abd"
+      },
+      "B04D1707C4D9CD3D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9336F6644B7D44D0.bundle",
+        "offset": 49943795,
+        "bytes": 7286,
+        "sha256": "2f5015fc46a6db7c765d1ae945b665f89b97ca51af7eecaade5b7338ee9e1508"
+      },
+      "DF636226DF602B6C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 3394060,
+        "bytes": 3864,
+        "sha256": "ad70f70d2fb302bfa6bfccce4b9adcadc186c7b72f21373aa641f973b6e9733e"
+      },
+      "114A6EE68DE36026": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BC83F0F7AC98DE26.bundle",
+        "offset": 48484907,
+        "bytes": 12333,
+        "sha256": "d42359724cf10c1f2b32a5da0ecd1f38802908486f4512946195c11b4ee47858"
+      },
+      "5FDB9F5ED93C5C69": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CF1DC8511AA5BC6F.bundle",
+        "offset": 38543978,
+        "bytes": 6569,
+        "sha256": "5bbbf9cc49b2e1633355030d1cc959cb7960b8c8aaa1a1ed4a0370b25b918fd5"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal",
+        "wadPathHash": "70a91830c9811422",
+        "sha256": "aa1304a1e2af5f9ab9ce25170b8af93b1cc7869ed041e854bd3f1b167a1f761e",
+        "bytes": 151
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal",
+        "wadPathHash": "d1cc6d7ea276ebf7",
+        "sha256": "54a5d83c407f4839229612bd7455aedbef23012efd02fc188308d17fe73aeb09",
+        "bytes": 64
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+        "wadPathHash": "a2bc9c4a4ff6792f",
+        "sha256": "50acf32d9f7c44bdbd028e4869faa4f7f54877a83edc2a1c89f6aecb9dd58880",
+        "bytes": 214
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal",
+        "wadPathHash": "1f3fc8bfe8585b9d",
+        "sha256": "c19cad1f4cbe8d19f6f41bd7dde44e09976bf032488828e776abcb35d9ec2136",
+        "bytes": 91
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal_0",
+        "wadPathHash": "0fa9976f1f4aa0b6",
+        "sha256": "299341fd05f2539b7d90bcf97b2c76d2d9e1f270666830df8f0aa2de75950ce7",
+        "bytes": 16440
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal_0",
+        "wadPathHash": "22b28f7b57a691ec",
+        "sha256": "7cd61215611233052fc41877dbdaf4e7eb14135cc306d03859d1881d82deca05",
+        "bytes": 4534
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal_0",
+        "wadPathHash": "3435401e55908fd1",
+        "sha256": "3834370e72956a608cbd31bc917ff07b4fb46a9718ed425a8ec8d867c63168f0",
+        "bytes": 34080
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal_0",
+        "wadPathHash": "75cbaa2591fb5683",
+        "sha256": "29afa031c05c62930af75d2f504d73af30030754c5f1a36566fa5ee13bd9386c",
+        "bytes": 10136
+      }
+    ]
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "programs": [
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal",
+      "index": 0,
+      "defines": [
+        {}
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.metallib",
+        "bytes": 3934,
+        "sha256": "3e1bd60c47ede0c0d3548c066b43555dbba8f30a6f3117f7eb8ab8b6cea2c02b"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.bc",
+        "bytes": 3672,
+        "offset": 258,
+        "sha256": "57c920f3f82592a2cd1afb29c966f9e327932a4a8e0fcecb6bff7f8c916b5b44"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.ll",
+        "sha256": "ea26d9050c19a19f0ed765ebd35dabd21982c844a81e828424922c96e4f6522c"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal",
+      "index": 1,
+      "defines": [
+        {
+          "ALPHA_TEST": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-1.metallib",
+        "bytes": 4062,
+        "sha256": "725357c7db5cd2b2a80849e2d081000238395d343165c85e578ac46bf2f7e8b9"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-1.bc",
+        "bytes": 3796,
+        "offset": 258,
+        "sha256": "3b5a498a34ee5dbc946e6306d04279f6342dc01465aed018b2af6f7767cf97bf"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-1.ll",
+        "sha256": "4c2dae3be1a03ae5a4c1a5249144bbfd33c38f6c24eee70dde272ea591eaf6a3"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal",
+      "index": 2,
+      "defines": [
+        {
+          "COLORPALETTE_COLORBLIND": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-2.metallib",
+        "bytes": 4142,
+        "sha256": "33574cf41438beb2a6fc35af340642ab233c4dc076aea53dc8a78cec78cd1b81"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-2.bc",
+        "bytes": 3884,
+        "offset": 258,
+        "sha256": "5e18eb557aee689d4c8291910ff0f668cb9ba5c7b59c49cff096509fdd1fef28"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-2.ll",
+        "sha256": "56a2e4dc53e426319fb5be7fb671449ec6139b29103759b5031503093690657d"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal",
+      "index": 3,
+      "defines": [
+        {
+          "ALPHA_TEST": "1",
+          "COLORPALETTE_COLORBLIND": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-3.metallib",
+        "bytes": 4286,
+        "sha256": "35df6bb482fc8a60f7a605e914630ced63adc33329af7f25785a91078adc5d9f"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-3.bc",
+        "bytes": 4020,
+        "offset": 258,
+        "sha256": "a14b10fa32e190a6cb908521c0f49485bfd656ebcbca4bace7008502aa7ba26f"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_ps.ps-metal-3.ll",
+        "sha256": "589e7042cf5c8bed70b61ff2bc655aea6ae8beb8bdedc62d7b22de03f6971b0f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal",
+      "index": 0,
+      "defines": [
+        {}
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.metallib",
+        "bytes": 4530,
+        "sha256": "cde73c750737eb937cedc6eb17a43df71bb8d9315557b0d52b06b5380e3a7c7b"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.bc",
+        "bytes": 4216,
+        "offset": 310,
+        "sha256": "809cbc42c45af82cfd30fd7f2a580344c69915572beb3837aa74b2df20cc75d2"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.ll",
+        "sha256": "d86b372b27f93bc5402ddd2f5d98145e8ab65b7f991bf32add7100e67c6c6beb"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 0,
+      "defines": [
+        {}
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.metallib",
+        "bytes": 3934,
+        "sha256": "5a5dcfe7e7f47de3c0f0441a12a073aac43f4ef769bf50cf9b5e3863e1601b42"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.bc",
+        "bytes": 3668,
+        "offset": 258,
+        "sha256": "80f3a3130cf2fda1a09e314b7363bd11326e24db2335eca9faaa84fbbe058f03"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.ll",
+        "sha256": "e69360d0dd981ecd004bc92912a8af753f0a43d0b5fec23bd160c0f99b2a6bc3"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 1,
+      "defines": [
+        {
+          "ALPHA_TEST": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.metallib",
+        "bytes": 4078,
+        "sha256": "17e9efd97862fe1dccbcbbe3c1bc46da631e3a8b7d8d5747424cdce8d311e200"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.bc",
+        "bytes": 3820,
+        "offset": 258,
+        "sha256": "4273310152c75b007f7300ce6022581aaac74b7e8f8a4d459584cbedef7c6b40"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.ll",
+        "sha256": "d2f66829f9112ff5dcd5fe7b791100d1717b60dcad6b224b887afe84f87e6b9f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 2,
+      "defines": [
+        {
+          "COLORPALETTE_COLORBLIND": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.metallib",
+        "bytes": 4158,
+        "sha256": "3f2094d526834db103e3d24310c8afac95395285312bf06c9d47256ea2404a06"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.bc",
+        "bytes": 3888,
+        "offset": 258,
+        "sha256": "0ddf85779e338138522d610e3423167672fb894571ba98ab5413a79cf9477184"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.ll",
+        "sha256": "655969fb47f2602495138b9e119dcd2ff510df759acdee9644fe2837bab73965"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 3,
+      "defines": [
+        {
+          "MASKED": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.metallib",
+        "bytes": 4190,
+        "sha256": "4d9977efd0deed637420a081d17d773ca7e614974c8a17fc3b561ca27dcfe8c5"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.bc",
+        "bytes": 3932,
+        "offset": 258,
+        "sha256": "d546f635552afcfa2bc641308d6b7d4667bacf7153a57a6eceba05b13e55b605"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.ll",
+        "sha256": "3133b00d2d0572908a024235c9a4d8d18ad42651bbe8fcbb46fd796149215af1"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 4,
+      "defines": [
+        {
+          "ALPHA_TEST": "1",
+          "COLORPALETTE_COLORBLIND": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.metallib",
+        "bytes": 4318,
+        "sha256": "19c46d5fa2a847801a75791ac076055a7a8d60a467fcea8860b7be01c286508e"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.bc",
+        "bytes": 4052,
+        "offset": 258,
+        "sha256": "f15ed7a214e2b0aae5361d41a8d75002f1271862f689b5a3d9ab4c6c4c62ebfa"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.ll",
+        "sha256": "5ae87d20e1a751d778cf031f62a6198df8cbf6e27f57e70eaba9738f760fbe52"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 5,
+      "defines": [
+        {
+          "ALPHA_TEST": "1",
+          "MASKED": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.metallib",
+        "bytes": 4350,
+        "sha256": "7e9f04a209da8d1abf148090d1dfae46362c2e331c8660f1040dc06fb0fc4fb1"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.bc",
+        "bytes": 4088,
+        "offset": 258,
+        "sha256": "8a7e245b641200f9adb4403bb4256e4e212aaa88ed0b030218004b4282f92b81"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.ll",
+        "sha256": "24beddcf4dc0a7191e29d24937f590c4f538f27f8b242050ba06ed4f0cc24b50"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 6,
+      "defines": [
+        {
+          "COLORPALETTE_COLORBLIND": "1",
+          "MASKED": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.metallib",
+        "bytes": 4430,
+        "sha256": "174f89925aabc16a463a34aa1d36e025264afa3e671dacc1e518797dff5f6ebf"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.bc",
+        "bytes": 4160,
+        "offset": 258,
+        "sha256": "c1c1011feb134de7514dc3db2ef73eeef41ad25509981bc52d23edd91679ec59"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.ll",
+        "sha256": "bbba14ae85398bd93c4f42435ec5324b361cd94170289e29e03b270878cf1805"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "index": 7,
+      "defines": [
+        {
+          "ALPHA_TEST": "1",
+          "COLORPALETTE_COLORBLIND": "1",
+          "MASKED": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.metallib",
+        "bytes": 4590,
+        "sha256": "a5db96a1e1159a46af7ee31b5f86d705392967790ee75d7b61202ebc4909526d"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.bc",
+        "bytes": 4332,
+        "offset": 258,
+        "sha256": "38f98e50d9e4a4718dcb7a39473d99348270c73ac084326e1cfe627af58c614d"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.ll",
+        "sha256": "84471bb62c1081b671909f8aae67b7e7bc4fc1c69b3536e8e3fa9bbbfb71902f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal",
+      "index": 0,
+      "defines": [
+        {}
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.metallib",
+        "bytes": 5024,
+        "sha256": "fff1592bf2ea574184b064d70d9bd08f16ba57181f4fe533a97974aa3ca08542"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.bc",
+        "bytes": 4720,
+        "offset": 292,
+        "sha256": "830c90328657b227195f9227030b732a32e192f9b865bf86b219b1ba363f4a8d"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.ll",
+        "sha256": "cf7088a336dba438dd0672d3479af65947cf28cd0180611c851bf1578e2da45f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal",
+      "index": 1,
+      "defines": [
+        {
+          "MASKED": "1"
+        }
+      ],
+      "metallib": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.metallib",
+        "bytes": 5104,
+        "sha256": "e7a7d9203db0e568806f81c99b73197aafd79327d905586781a3e5b07ab07b0d"
+      },
+      "bitcode": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.bc",
+        "bytes": 4812,
+        "offset": 292,
+        "sha256": "ac12588d4e9e862859099f4aea5d490a3690ce4787e3acd9e042db1d1aa48c3c"
+      },
+      "disassembly": {
+        "path": ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.ll",
+        "sha256": "7f81d61b724c8514858d902c2a55daaeee5621cd28b36c8fcb47273c784d7593"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  ]
+}

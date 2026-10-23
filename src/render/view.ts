@@ -1,3 +1,4 @@
+import { ParticleDistortionPass } from './particle-distortion-pass';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { RiverShrines } from './river-shrines';
 import { OwnedCompanions } from './owned-companions';
@@ -77,6 +78,7 @@ import { unitBarHeight } from './unit-bar-height';
 export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
+  readonly particleDistortion = new ParticleDistortionPass();
   luxSingularities = new LuxSingularities(
     this.scene,
     (p) => this.ground(p),
@@ -792,6 +794,7 @@ export class GameView {
     this.mapTextureResidency?.beginFrame();
     this.smoke.prepareDepth(this.renderer, this.camera);
     this.renderer.render(this.scene, this.camera);
+    this.particleDistortion.render(this.renderer, this.camera);
     this.mapTextureResidency?.endFrame();
     this.mapTexturePrefetch?.update(this.renderer, this.camera);
   }

@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,398 source/simulation/geometry checks and 25 targeted Chrome cases for E saved target flashes, missile/field geometry, source/burst layers, audio, saves, fog, graphics recovery and result playback/export. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,401 source/simulation/geometry checks and 29 targeted Chrome cases for the native distortion material/canvas-copy stage and adjacent E source, hit, field, burst, audio, saves, fog, graphics recovery and result playback/export. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,39 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+The [native distortion material and canvas-copy stage](PARTICLE-DISTORTION.md)
+now have a frozen pin for four native Metal tables and all fifteen programs.
+Static AIR readings establish ramp-alpha displacement, normal/ramp final alpha,
+the four-way RGB product and pre-divided perspective screen coordinates. This
+corrects important inferred behavior in the previously pinned external viewer.
+The implemented default/alpha-test material preserves those expressions and
+supports uniform or vertex lookup/tint. Colorblind/masked variants are pinned
+but not implemented.
+
+A caller-controlled display list now copies actual canvas bytes while retaining
+depth, physical viewport coordinates and renderer state. Empty/hidden lists do
+no GPU work and release their copy. Resize and actual graphics recovery recreate
+owned storage. Image review exposed a format mismatch on the game's opaque
+canvas; RGB8 storage and a real-view identity-copy test repair it. The original
+failure, capture and fixed evidence are retained. All 1,401 unit checks and 29
+focused Chrome cases pass; GPU arithmetic, perspective interpolation, depth,
+resize, raw color, ownership and context recovery are checked. Native execution,
+CPU mode/phase mapping, sampler setup and source-power conversion remain open.
+
+Production subpath validation passes with the existing seventeen E-prefixed
+images and no new image files. Game/Three chunks are 879.96/658.93 KB, with the
+size warning retained. The corrected opaque-canvas probe has byte-exact identity
+copy and recovery, zero GL error, and 25,821 changed bytes at nonzero power.
+
+The live E display list remains empty pending those bindings. All seven E
+distortion records remain deferred, so E coverage stays 56 rendered, one filtered
+and eight deferred records. Schema 110 and the simulation fingerprint are
+unchanged. The four previously verified normal-rules matches are reused as
+unchanged-simulation evidence; they were not rerun for this rendering prerequisite.
+The full roster, native composition, 100-seed, offline and full-match
+browser/performance gates remain open. See the
+[current ledger](reference/particle-distortion-verification.json).
 
 Lux E now adds [saved target-hit flashes](LUX-E.md#saved-target-hit-flashes--october-23-2026)
 for accepted explosion victims, including shielded and lethal contacts. Coverage

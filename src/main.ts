@@ -289,6 +289,7 @@ async function boot(): Promise<void> {
   view.renderer.domElement.addEventListener('webglcontextlost', (event) => {
     event.preventDefault();
     view.smoke.depth.dispose();
+    view.particleDistortion.dispose();
     graphicsGeneration++;
     cancelWarmup?.();
     hud.setGraphicsState('lost');

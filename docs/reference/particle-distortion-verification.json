@@ -1,0 +1,417 @@
+{
+  "date": "2026-10-23",
+  "baseline": "bc408cffa97192761878999782fd6208f6722df6",
+  "schema": 110,
+  "ruleset": "a8e00a7c5a84311aa8db203a6c27f48a9709f35da8ae7e6ae7a5b9a173174078",
+  "scope": "Native default/alpha-test particle-distortion fragment reconstruction and an explicit canvas-copy display list. No E distortion emitter is dispatched yet; mode-to-phase and source-power bindings remain unresolved.",
+  "source": {
+    "nativeTables": 4,
+    "nativePrograms": 15,
+    "ported": "Default quad/mesh fragment arithmetic and alpha-test, uniform/vertex lookup and tint, native quad pre-divided screen-UV interpolation.",
+    "renderedERecords": 56,
+    "filteredERecords": 1,
+    "deferredERecords": 8,
+    "liveEDistortionRecords": 0,
+    "newImageFiles": 0,
+    "rawProgramsShippedToBrowser": 0
+  },
+  "checks": {
+    "unit": {
+      "files": 256,
+      "tests": 1401,
+      "command": "npx vitest run --maxWorkers=4"
+    },
+    "chrome": {
+      "cases": 29,
+      "nativeArithmeticProbes": 12,
+      "maximumArithmeticByteDelta": 0,
+      "perspective": {
+        "maxDelta": 1,
+        "naiveWitness": 10.357828530469348,
+        "samples": 646
+      },
+      "viewportCopies": [
+        {
+          "ratio": 1,
+          "width": 80,
+          "height": 40,
+          "delta": 0,
+          "rect": [
+            0.125,
+            0.125,
+            0.75,
+            0.75
+          ]
+        },
+        {
+          "ratio": 2,
+          "width": 160,
+          "height": 80,
+          "delta": 0,
+          "rect": [
+            0.125,
+            0.125,
+            0.75,
+            0.75
+          ]
+        },
+        {
+          "ratio": 2,
+          "width": 120,
+          "height": 60,
+          "delta": 0,
+          "rect": [
+            0.16666666666666666,
+            0.16666666666666666,
+            0.6666666666666666,
+            0.6666666666666666
+          ]
+        }
+      ],
+      "realView": {
+        "before": {
+          "empty": true,
+          "allocated": true,
+          "error": 0,
+          "identityMaxDelta": 0,
+          "format": "RGB8",
+          "contribution": 25821
+        },
+        "after": {
+          "different": 0,
+          "recreated": true,
+          "empty": true,
+          "unchanged": true
+        }
+      },
+      "depth": {
+        "before": [
+          255,
+          0,
+          0,
+          255
+        ],
+        "kept": [
+          255,
+          0,
+          0,
+          255
+        ],
+        "through": [
+          219,
+          131,
+          102,
+          255
+        ]
+      },
+      "scope": "Four distortion tests plus 25 adjacent E source/hit/field/burst/audio/result cases. Full browser suite not repeated."
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/particle-distortion-production-subpath.png"
+    },
+    "build": {
+      "command": "npm run build",
+      "sizeWarningRemains": true
+    },
+    "simulation": {
+      "freshMatchesRun": false,
+      "reason": "No simulation/content files changed; strict fingerprint and schema remain unchanged. Reuse bc408cf normal-rules diagnostic evidence.",
+      "reusedCheckedTicks": 780762,
+      "reusedExactRoundTrips": 220,
+      "roadmap100SeedGateMet": false
+    }
+  },
+  "findings": {
+    "initialIntegrationFailure": "The first isolated GPU cases passed, while image review caught a dark rectangle in the actual opaque game canvas. A focused GL check reproduced error 1282 (invalid copy texture format combination).",
+    "repair": "Match framebuffer storage to the actual WebGL context: RGB8 when alpha=false, RGBA8 otherwise. The repaired real-view identity copy is byte-exact, reports GL error zero, produces visible warp pixels and survives context recovery exactly.",
+    "preservation": "Nine bc408cf evidence artifacts were frozen before regression execution, new outputs were archived under a unique prefix, and the original artifacts were restored and hash-verified. The prior hit verifier passed before updating current documentation."
+  },
+  "policies": {
+    "native": "Original Metal/AIR bytes are canonical; installed clang statically decodes with LLVM passes disabled and retargets only the textual module to the host. No native execution claim.",
+    "staging": "Copy the actual canvas and retain existing color/depth; the caller chooses the display list. No automatic E mode mapping.",
+    "samplers": "Copy uses clamped linear filtering, no mipmaps and raw color space. Complete native runtime sampler setup remains unknown.",
+    "ownership": "Empty/hidden lists allocate/copy/draw nothing and dispose prior storage; resize and real context loss recreate copies; geometry/material/images remain caller-owned.",
+    "color": "RGB=lookup.rgb*tint.rgb*copied.rgb*base.rgb; alpha=normal.a*lookup.a. Displacement uses lookup alpha, without normal alpha or aspect scaling.",
+    "coordinates": "Native divided screen coordinates interpolate perspectively; WebGL copy sampling reverses native top-left Y. Physical viewport rectangles handle pixel ratio and subviewports."
+  },
+  "files": [
+    {
+      "path": "docs/PARTICLE-DISTORTION.md",
+      "sha256": "2197b444c20f3fe9e5fed671e264b0f6688f56e6192c98e27b6343df33c7a923"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "30930cca692a15f59e0d0efb7ee716f0b987e84b8a1a891aa7fe26501e919f91"
+    },
+    {
+      "path": "docs/LUX-E.md",
+      "sha256": "5aa32976ef31f616fe041c2a0779fc0af60b293de8652ea1fa347d7fc3fbdf55"
+    },
+    {
+      "path": "docs/reference/particle-distortion-shaders.json",
+      "sha256": "d1eaaf2ebc4a8f0ba34c60028db9aff61f1beddd201c7ade14a63d2ee9517ca2"
+    },
+    {
+      "path": "docs/reference/particle-distortion-reading.json",
+      "sha256": "ce3453845e4610479d13f55ba4512e7b49b0c48d823f05ee66c8997e9a021122"
+    },
+    {
+      "path": "src/render/particle-distortion.ts",
+      "sha256": "cbef8d100de38f6eb3813f3e4d3faa574154a6735f8d8f9545ee6217e3ce1d1a"
+    },
+    {
+      "path": "src/render/particle-distortion-pass.ts",
+      "sha256": "9cf7a26218df65da3ae2546982fa228137fd6e225257a59832fcf5209df44a06"
+    },
+    {
+      "path": "src/render/view.ts",
+      "sha256": "d70fffbb032e7312bc0733004c9b8cdde54b3f15191d09f25951f527d3e7136d"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "f45784fc8275d35985bb1c2cd4acdef6ac9bdf6b85eb2680ba63d92fb7a9c15e"
+    },
+    {
+      "path": "tests/particle-distortion.test.ts",
+      "sha256": "df2b072a89f7458ef515156c514be7325d16524bc2a58694c6d305e9efd9bdec"
+    },
+    {
+      "path": "e2e/particle-distortion.spec.ts",
+      "sha256": "b319fbc233351449360fb40feafa68054f6a889b2291993430eefd0e18f61b20"
+    },
+    {
+      "path": "tools/assets/extract-particle-distortion-shaders.py",
+      "sha256": "8761dc97385a3709bf39d74d8671e911fd3d9ae926654690b177afb5448b3dad"
+    },
+    {
+      "path": "tools/qa/verify-particle-distortion.mjs",
+      "sha256": "e49b3de18006644e34676aa36de3ce4965139efd16c9a7b6bd3dc12fe0ebe24c"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "02e78b67e178ea78a4b8cfdcfd5fa73a9f90f0d172c39c21a49cfb87023bf287"
+    },
+    {
+      "path": ".cache/particle-distortion-production.mjs",
+      "sha256": "58e4d53dd8cc0ab095c2b635febc2a8f8f0f4a32508d540a730a020b20f2977c"
+    },
+    {
+      "path": ".cache/particle-distortion-unit-verified.log",
+      "sha256": "2cf2643339edd3bda65a256b1f93b0ceeb79d5b12a3c12bbd7f7023acd488a8a"
+    },
+    {
+      "path": ".cache/particle-distortion-browser-verified.log",
+      "sha256": "4e85e067a7a24231e62c02b3b40a649a06c6f051fec77298cf1cb687a5e62111"
+    },
+    {
+      "path": ".cache/particle-distortion-build-verified.log",
+      "sha256": "0acf724c423ffb1261665ee0db78cf41d43925894e22fb4dbd94fecd27bdfcd1"
+    },
+    {
+      "path": ".cache/particle-distortion-production-verified.log",
+      "sha256": "b6460514a1601bdd67fc020011ec06ac4cbf734bc88cdf30b01c13deec91cc0c"
+    },
+    {
+      "path": "artifacts/particle-distortion-gpu.json",
+      "sha256": "ae4592b7779fc4d11d4759a4fcc8a7205838a13697073ae9f2034ca03b3c1578"
+    },
+    {
+      "path": "artifacts/particle-distortion-copy.json",
+      "sha256": "4e558afeb0a19351a5473a6689f2864945b2d1666a259246a8d9aebabf7d414e"
+    },
+    {
+      "path": "artifacts/particle-distortion-recovery.json",
+      "sha256": "3e6b1bb51261f76c8949c3dfb80c827178dec4eed5e391f182aaed3163532e91"
+    },
+    {
+      "path": "artifacts/particle-distortion-depth.json",
+      "sha256": "a717c251a9ffc15d5ea7a741da8ac8789c73d7b773db542f7683a0117b9320cf"
+    },
+    {
+      "path": "artifacts/particle-distortion-integrated.png",
+      "sha256": "ccce6cd8a91a6741f3be62701af7693e2e66d3aaf451512099b3cfc01434bdab"
+    },
+    {
+      "path": "artifacts/particle-distortion-initial-dark-copy.png",
+      "sha256": "a407d24f580f653029d12fcfa777ba3214548f1d1e6e44d8787075bf55b12baa"
+    },
+    {
+      "path": ".cache/particle-distortion-debug.log",
+      "sha256": "28a1a5468188ce5131c25a2f6791422a624de7887d0a808ebd1f02fbfe8ca5f9"
+    },
+    {
+      "path": "artifacts/particle-distortion-production-lux-e-source.png",
+      "sha256": "bdb3c5bf52ac306ed5d0db94df58f5879207cbc6ff4a00d27652cb8aceaaaa54"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-recovery.json",
+      "sha256": "18605531f10cbf802a5c05e841f1a00ed0a4dd7640cb58977d3ca400478e080c"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-fog-seen.json",
+      "sha256": "9137c384a803a7c3db80ae532e2d5e578b6e6202bd6c2b67b491983e0f2fdc1f"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-fog-unseen.json",
+      "sha256": "68dd13fdf624e1d425226993964c2594b132b3f7f24d6d73e42f4a49699e4ce2"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-terminal.json",
+      "sha256": "ac431b92e16ed9b3c5dea292eb521c4e0ebdeb75dc11c86a8406684cd1845cd9"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-moving.png",
+      "sha256": "6377729735ab53f03749c26900aaa64d1227ffd84a461bd4946cd2bc7b0d08d1"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-source-source-gpu.json",
+      "sha256": "8554ff76ef2c8a17b6b0e6bff401a38f6e9e2c2075109eeaf53e61c78a1cfb9e"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-source-source.json",
+      "sha256": "4cd3426d5f13d033eefe71fd5c3dad657fba28efc2ce305384187ac9f71ce921"
+    },
+    {
+      "path": "artifacts/particle-distortion-regression-lux-e-hit-source-source-burst.png",
+      "sha256": "b4487c373672815e1e67ec7363086a069515f978cba11a2cf876e5778ba1b86d"
+    }
+  ],
+  "assets": [],
+  "reusedMatchEvidence": [
+    {
+      "path": "docs/reference/lux-e-hit-match-audit.json",
+      "sha256": "b1bb263cd4565d5f13eb65ccf0e770cc62c5d759d35762a6dc2769fd6c53fb33"
+    },
+    {
+      "path": "tools/qa/role-match.ts",
+      "sha256": "80d3af22857033cf2a15c87efcb869647b8449484fe5a127a4321211660c0a63"
+    },
+    {
+      "path": ".cache/lux-e-hit-runner/role-match.js",
+      "sha256": "ccd3bd16e7e228ca51a89a8b86f87e1b34fcc71fa846c730e9c16e8ce26e7e8c"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/26018.json",
+      "sha256": "8249bf221c17c6fb160c0ffece8397f9a4ab59c4d7cb09a0c646190a1047d8e6"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/26018.match.json",
+      "sha256": "aa059cb6bdeef4ef47050798d24b849031a1323c06303a0ebae6a08af7f23a47"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/26018.json",
+      "sha256": "76783ecbf86818a65c662ac3704c35f168f3ec82816b3d8f62f8644d56796d7a"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/26018.match.json",
+      "sha256": "92d57d4c27fed484e2f3ef3f83553d6c7da0c140846f5a72bf424ac2a0bd5e6f"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/719.json",
+      "sha256": "b925ff709ae34956e784c4667d5f9e2472756bbbfaa8f26397bd28e4487ed88f"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/719.match.json",
+      "sha256": "7114ba50e4dbc3cfddb9d102af85ce826799d17146a7b57abe6a427db7da7946"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/719.json",
+      "sha256": "142eaba2dafd44bb0f25849463924bab4ae64e45958114879603e2890710256e"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/719.match.json",
+      "sha256": "09bee37cc5584665c30050e8499f13ccff9fa8b45c333c58fb0082bb63417cb3"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/1.json",
+      "sha256": "b9851730d004586a885b0f4ea4e4cbed9b8693d94df8c2544606b2964a022890"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/1.match.json",
+      "sha256": "ffc7ae5656da7c6ff4fb6dc55c548e0e5999132aa1d87834b86952a2eab8a215"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/1.json",
+      "sha256": "894e9a6831d6cbf580c5ebe2d2c329e4202bc25ea4da6a6a0081fd48fcb7f3b0"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/1.match.json",
+      "sha256": "0b8155ba0916f311122db93c8af95a16c6ac82ffe47e18f59a8e12b9b7ecbc48"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/927.json",
+      "sha256": "39d4ea208b1a4823994597db85e2e7d4a8d5a390ee2551244a0eb36a74468cd9"
+    },
+    {
+      "path": ".cache/role-match-audit/a8e00a7c5a84/horizon-80/927.match.json",
+      "sha256": "cee21071b9416275ac053adb4df233fe5fb8c29da18b94411ff2d8ef87596844"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/927.json",
+      "sha256": "04a6b6e4baa81383fc03dcb18920f7778571b52482976cf6ccb58d463f31697d"
+    },
+    {
+      "path": ".cache/role-match-audit/29da1e237bfc/horizon-80/927.match.json",
+      "sha256": "4bac47803cb7f1dc1d8d5deffab3b16f1057a6297d0cf1b7f4e73d89f1d8b38d"
+    }
+  ],
+  "limits": [
+    "All seven E distortion emitters remain deferred; CPU mode/phase, framebuffer-copy timing and source-to-power conversion are unresolved.",
+    "Colorblind/masked variants and full native vertex/atlas/PushPull construction are pinned but not implemented by this material.",
+    "Raw GPU tests and screenshots are not native visual parity, native execution, full-match performance, full browser certification or the 100-seed gate.",
+    "The full six-character roster, quests/epics, offline delivery and broader production acceptance remain unfinished."
+  ]
+}
