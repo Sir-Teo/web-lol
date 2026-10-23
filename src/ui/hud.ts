@@ -1203,7 +1203,7 @@ export class Hud {
       shopBalance.textContent = balanceLabel;
     text('ad', Math.round(h.damage));
     text('armor', Math.round(w.effectiveArmor(h)));
-    text('mr', Math.round(h.magicResist));
+    text('mr', Math.round(w.effectiveMagicResist(h)));
     text('ap', Math.round(w.abilityPower()));
     text('ms', Math.round(statPrecision(w.movementSpeed(h))));
     text('as', ((60 / h.attackPeriod) * w.attackSpeedMultiplier(h, undefined)).toFixed(2));

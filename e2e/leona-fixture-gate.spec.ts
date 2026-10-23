@@ -19,6 +19,9 @@ test('an incomplete Leona simulation save is preserved and rejected before brows
     const fixture = new g.world.constructor(false, g.world.battlefield);
     const leona = fixture.spawn('champion', 'blue', { x: 0, y: 0 }, 'leona');
     fixture.learnSpell('q', leona.id);
+    fixture.gainExperience(280, leona.id);
+    fixture.learnSpell('w', leona.id);
+    fixture.enqueue({ type: 'cast', unit: leona.id, ability: 'w', point: leona });
     fixture.enqueue({ type: 'cast', unit: leona.id, ability: 'q', point: { x: 0, y: 0 } });
     fixture.step();
     const victim = fixture.spawn('champion', 'red', { x: 150, y: 0 }, 'lux');

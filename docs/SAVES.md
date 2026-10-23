@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **117** adds nullable Sunlight marks with source/start/end clocks
+Current schema **118** adds nullable Eclipse start/rank/detonation/end/phase.
+Validation rejects foreign/dead/unlearned/terminal ownership, altered durations,
+premature or expired phases and inconsistent extension clocks. Stored unit
+resistances exclude the buff; effective values recompute at use, including after
+restoration. Death/victory/respawn clear it. The separate browser fixture gate
+preserves a save with active W before rejecting its incomplete presentation.
+Native timing/collision/mitigation policies remain open; earlier schemas and
+fingerprints remain incompatible. See [Leona](LEONA.md).
+
+Schema **117** added nullable Sunlight marks with source/start/end clocks
 and optional delegated ally credit on ordered damage contributions. Validation
 rejects foreign casters, friendly/ineligible/dead/reset targets, expired or
 changed durations, terminal marks and invalid same-team/distinct credit owners.

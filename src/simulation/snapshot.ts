@@ -111,7 +111,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 117;
+export const SNAPSHOT_VERSION = 118;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -724,6 +724,15 @@ const player: z.ZodType<PlayerState> = z
         rank: z.number().int().min(1).max(5),
         upfrontUntil: tick,
         defenseUntil: tick,
+      })
+      .nullable(),
+    leonaW: z
+      .strictObject({
+        startTick: tick,
+        rank: z.number().int().min(1).max(5),
+        detonationTick: tick,
+        endTick: tick,
+        detonated: z.boolean(),
       })
       .nullable(),
     leonaQ: z
@@ -2915,6 +2924,22 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid Courage presentation.');
     }
     const garenQ = owner.garenQ;
+    const eclipse = owner.leonaW;
+    if (
+      eclipse &&
+      (champion.champion !== 'leona' ||
+        champion.deadAt !== null ||
+        state.winner !== null ||
+        eclipse.rank > owner.spellRanks.w ||
+        eclipse.startTick > state.tick ||
+        eclipse.endTick <= state.tick ||
+        eclipse.detonationTick !== eclipse.startTick + LEONA_COMBAT_POLICY.eclipseDurationTicks ||
+        (eclipse.detonated
+          ? eclipse.detonationTick > state.tick ||
+            eclipse.endTick !== eclipse.detonationTick + LEONA_COMBAT_POLICY.eclipseDurationTicks
+          : eclipse.detonationTick <= state.tick || eclipse.endTick !== eclipse.detonationTick))
+    )
+      throw new Error('Saved match contains invalid Eclipse state.');
     const daybreak = owner.leonaQ;
     if (
       daybreak &&

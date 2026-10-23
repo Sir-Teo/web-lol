@@ -133,10 +133,12 @@ import {
   GAREN_E_PRESENTATION_TAIL_TICKS,
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
+import { eclipseResistances, eclipseReducedRaw } from './leona-eclipse';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
 import { LEONA_SPELLS, LEONA_SUNLIGHT } from '../content/leona-spells';
 import {
   leonaDaybreakValues,
+  leonaEclipseValues,
   leonaSpellResources,
   leonaSunlightDamage,
 } from './leona-spell-values';
@@ -978,6 +980,7 @@ export class World {
       if (state.redBuff && this.tick >= state.redBuff.endTick) state.redBuff = null;
       rechargeChampion(state, this.tick);
       expireGarenQ(state, this.tick);
+      if (state.leonaW) this.advanceLeonaEclipse(state);
       if (state.garenW && this.tick >= state.garenW.defenseUntil)
         this.finishGarenW(state, 'expired');
       if (
@@ -1885,7 +1888,7 @@ export class World {
       const target = enemies.find(
         (enemy) =>
           distance(u, enemy) <= LUX_R.range &&
-          enemy.hp + this.shieldAmount(enemy) <= damageAfterResistance(raw, enemy.magicResist)
+          enemy.hp + this.shieldAmount(enemy) <= this.mitigatedDamage(enemy, raw, 'magic')
       );
       if (target) return cast('r', target);
     }
@@ -2019,7 +2022,7 @@ export class World {
       const d = distance(u, target);
       if (d > closest) continue;
       if (purpose === 'finish') {
-        if (target.hp + this.shieldAmount(target) > damageAfterResistance(raw, target.magicResist))
+        if (target.hp + this.shieldAmount(target) > this.mitigatedDamage(target, raw, 'magic'))
           continue;
       } else {
         // React to visible attacks on this bot, not hidden orders or intent.
@@ -4307,12 +4310,78 @@ export class World {
       0
     );
   }
-  /** Same named armor reduction does not stack across Garen owners. Stored
-   * armor remains untouched, so growth and item transactions cannot drift. */
+  /** Stored armor excludes temporary bonuses so purchases and growth cannot drift. */
+  armorWithBuffs(target: Unit): number {
+    return (
+      target.armor +
+      (target.champion === 'leona'
+        ? eclipseResistances(target, this.championState(target.id)!, this.tick).armor
+        : 0)
+    );
+  }
+  /** Same named armor reduction does not stack across Garen owners. */
   effectiveArmor(target: Unit): number {
-    return target.armor > 0 && target.garenEShreds.some((shred) => shred.endTick > this.tick)
-      ? target.armor * (1 - GAREN_E.armorReduction)
-      : target.armor;
+    const armor = this.armorWithBuffs(target);
+    return armor > 0 && target.garenEShreds.some((shred) => shred.endTick > this.tick)
+      ? armor * (1 - GAREN_E.armorReduction)
+      : armor;
+  }
+  effectiveMagicResist(target: Unit): number {
+    return (
+      target.magicResist +
+      (target.champion === 'leona'
+        ? eclipseResistances(target, this.championState(target.id)!, this.tick).magicResist
+        : 0)
+    );
+  }
+  /** Shared with observed spell forecasts; outgoing amplification precedes this. */
+  mitigatedDamage(target: Unit, raw: number, kind: 'physical' | 'magic' | 'true'): number {
+    if (kind === 'true') return raw;
+    const owner = this.championState(target.id);
+    if (target.champion === 'leona' && owner) raw = eclipseReducedRaw(raw, owner, this.tick);
+    const courage = owner?.garenW;
+    const reduction =
+      courage && this.tick < courage.defenseUntil
+        ? GAREN_W.damageReductionByRank[courage.rank - 1]
+        : 0;
+    return (
+      damageAfterResistance(
+        raw,
+        kind === 'physical' ? this.effectiveArmor(target) : this.effectiveMagicResist(target)
+      ) *
+      (1 - reduction)
+    );
+  }
+  private advanceLeonaEclipse(state: ChampionState): void {
+    const eclipse = state.leonaW!,
+      source = this.unit(state.id)!;
+    if (!this.alive(source) || this.winner) {
+      state.leonaW = null;
+      return;
+    }
+    if (!eclipse.detonated && this.tick >= eclipse.detonationTick) {
+      // Explicit local policy: one pre-command burst from the current position,
+      // inclusive edge overlap, no visibility/line-of-sight requirement.
+      const victims = this.units.filter(
+        (target) =>
+          target.team !== source.team &&
+          this.alive(target) &&
+          this.vulnerable(target) &&
+          !isStructureKind(target.kind) &&
+          target.kind !== 'ward' &&
+          !(target.kind === 'monster' && target.monster.phase === 'returning') &&
+          distance(source, target) <= LEONA_COMBAT_POLICY.eclipseRadius + target.radius
+      );
+      if (victims.length) {
+        eclipse.detonated = true;
+        eclipse.endTick = eclipse.detonationTick + LEONA_COMBAT_POLICY.eclipseDurationTicks;
+      } else state.leonaW = null;
+      const damage = leonaEclipseValues(eclipse.rank, this.abilityPower(source), 0, 0).magicDamage;
+      for (const victim of victims) {
+        this.damage(source, victim, damage, 'magic', 'area');
+        this.applySunlight(source, victim);
+      }
+    } else if (this.tick >= eclipse.endTick) state.leonaW = null;
   }
   /** Independent shield grants; ability-specific stacking belongs to the spell adapter. */
   applyShield(source: Unit, target: Unit, amount: number, durationTicks: number): void {
@@ -4371,19 +4440,16 @@ export class World {
       (target.kind === 'monster' && target.monster.phase === 'returning')
     )
       return;
-    const resistance =
-      kind === 'physical' ? this.effectiveArmor(target) : kind === 'magic' ? target.magicResist : 0;
     const courage = this.championState(target.id)?.garenW;
     const reduction =
       kind !== 'true' && courage && this.tick < courage.defenseUntil
         ? GAREN_W.damageReductionByRank[courage.rank - 1]
         : 0;
-    const amount =
-      damageAfterResistance(
-        raw * companionDamageMultiplier(this, source, target, category, kind),
-        resistance
-      ) *
-      (1 - reduction);
+    const amount = this.mitigatedDamage(
+      target,
+      raw * companionDamageMultiplier(this, source, target, category, kind),
+      kind
+    );
     // Local presentation policy: positive damage actually reduced by W emits
     // one reaction per victim/tick, including fully shielded and lethal hits.
     // True damage bypasses reduction. Native trigger/coalescing remain unverified.
@@ -4596,6 +4662,7 @@ export class World {
           state.pendingCast = null;
           state.castAnimation = null;
           state.leonaQ = null;
+          state.leonaW = null;
         }
         this.projectiles.length = 0;
         this.pendingAttackProjectiles.length = 0;
@@ -4635,6 +4702,7 @@ export class World {
         targetState.qUntil = 0;
         targetState.garenQ = null;
         targetState.leonaQ = null;
+        targetState.leonaW = null;
         finishGarenQPresentation(targetState, this.tick, 'death');
         this.finishGarenW(targetState, 'death');
         stopPerseveranceVisual(targetState, target, this.tick);
@@ -4817,6 +4885,7 @@ export class World {
     if (state) {
       state.garenPassiveReadyTick = 0;
       state.garenW = null;
+      state.leonaW = null;
       state.damageContributors = [];
       state.supportContributors = [];
       state.revealContributors = [];
@@ -4991,7 +5060,7 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'leona' && (ability === 'w' || ability === 'e' || ability === 'r')) {
+    if (u.champion === 'leona' && (ability === 'e' || ability === 'r')) {
       this.emit('message', u, {
         text: 'That Leona spell is still in development',
         unit: u.id,
@@ -5088,6 +5157,21 @@ export class World {
     }
     if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
+      return;
+    }
+    if (u.champion === 'leona' && ability === 'w') {
+      const detonationTick = this.tick + LEONA_COMBAT_POLICY.eclipseDurationTicks;
+      state.leonaW = {
+        startTick: this.tick,
+        rank: state.spellRanks.w,
+        detonationTick,
+        endTick: detonationTick,
+        detonated: false,
+      };
+      u.mana -= resources.mana;
+      state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      this.emit('cast', u, { unit: u.id, champion: 'leona', text: 'w', team: u.team });
       return;
     }
     if (u.champion === 'leona' && ability === 'q') {

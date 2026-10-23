@@ -63,6 +63,22 @@
         "tests/companion-passives.test.ts",
         "tests/scuttler.test.ts"
       ]
+    },
+    {
+      "id": "LEONA-W-SCHEDULING-001",
+      "status": "explicit-local-adapter-native-unmeasured",
+      "reference": "Frozen W ArmorMRDuration is three seconds; tooltip describes an explosion and resistance extension on hit. Authored instant cast timing is absent, and display range 450 differs from raw cast radius 500.",
+      "localObservation": "Instant cast preserves orders/windups. One pre-command burst after 180 ticks uses current position/AP and captured rank, inclusive 450-plus-target-radius overlap without vision/LOS. Eligible shielded/lethal hits extend both defenses 180 ticks; misses retire it. Death cancels; victory clears.",
+      "acceptance": "Native cast/input/expiry order, radius/hitbox and terrain/fog boundaries, shield/immunity eligibility, exact extension scope, death and displacement matrix.",
+      "tests": "tests/leona-eclipse.test.ts"
+    },
+    {
+      "id": "LEONA-W-DEFENSE-001",
+      "status": "source-formula-dynamic-adapter-native-unmeasured",
+      "reference": "Named flat reduction/max fraction, resistance base arrays and 20% other-bonus coefficients are exported. Tooltip formulas do not establish all runtime modifier ordering.",
+      "localObservation": "Stored stats exclude W; live bonuses subtract per-level-rounded base stats, avoiding self scaling and phantom bonus from float growth. Amplification then capped flat reduction then resistance/percentage mitigation then shields; true damage bypasses. Total armor is shredded afterward. Companion bonus scaling uses pre-shred totals.",
+      "acceptance": "Native dynamic recalculation, negative/reduced bonus stats, amplification/flat/reduction/shield order, periodic/multi-hit effects and true damage comparison.",
+      "tests": "tests/leona-eclipse.test.ts"
     }
   ],
   "nativeBehaviorVerified": false,

@@ -2,7 +2,7 @@
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 The canonical source package, payload calculations and a non-player development
-simulation fixture for melee attacks, Q and Sunlight are implemented. Leona's complete
+simulation fixture for melee attacks, Q, Sunlight and W are implemented. Leona's complete
 playable kit, player selection, bot policy and presentation remain required work.
 This partial fixture does not establish native behavior or roster acceptance.
 
@@ -70,7 +70,7 @@ The helpers do not schedule casts, apply shields/reduction or select targets.
 development practice battlefield. It creates Leona's own stats, mana and an
 unlearned kit. Constructor/player selection, ordinary Rift spawning and browser
 save loading reject this incomplete fixture. Missing presentation fails
-explicitly; it never substitutes an Ashe model or animation. W/E/R commands
+explicitly; it never substitutes an Ashe model or animation. E/R commands
 return a development message before entering any other champion's spell path.
 
 After learning Q, a World cast command validates mana, cooldown, silence and
@@ -114,7 +114,7 @@ does not certify complete Q/passive behavior.
 ## Sunlight development simulation
 
 Q's accepted magic hit applies/refreshes Sunlight on a living enemy. The shared
-application helper is ready for future W/E/R hits; those spells remain absent.
+application helper also serves W; E/R remain absent.
 Sunlight lasts the pinned 2.5 seconds and expires before new commands at its
 deadline. Leona's own damage cannot consume it. Positive allied champion-owned
 damage consumes it once, including shield absorption, and applies the source's
@@ -179,6 +179,53 @@ and mana regeneration remain per second; Data Dragon reports per five seconds.
 The basic attack has a cast-offset declaration, but omits Garen's explicit
 attack-speed timing coefficient. No coefficient or release tick is invented.
 
+## Eclipse development simulation
+
+W now accepts a learned World command with Leona's own mana and hasted cooldown.
+Its explicit local activation is instant, preserves orders and ordinary/committed
+Q windups, and cancels recall. Stun, silence, death, unlearned rank, insufficient
+mana and cooldown reject the cast; root alone does not. No other champion's
+spell, animation or projectile is dispatched.
+
+Stored armor/MR exclude Eclipse. Effective resistance queries add the captured
+rank's flat bonus plus 20% of other positive bonus resistance, recalculated at
+use. The base subtraction mirrors the simulation's per-level rounding: an
+unrounded aggregate had invented a one-millionth-point bonus at high levels.
+Equipment purchases/upgrades/sales and level growth cannot compound Eclipse or
+leave residue after expiry. Garen's armor reduction applies after the temporary
+armor bonus; companion scaling uses the total before that reduction. The shared
+HUD MR query and visible spell damage forecasts use the same effective defenses.
+
+**Explicit local policies requiring native comparison:** incoming amplification
+precedes the flat reduction; each non-true damage instance loses the smaller of
+its captured-rank flat amount and 50% of that instance, then passes through
+resistance/percentage mitigation and shields. True damage bypasses Eclipse.
+After 180 ticks, one burst resolves before commands from Leona's current position,
+sampling current AP but retaining cast rank. Collision uses the display radius
+450 plus each victim's radius, inclusively. The raw authored cast radius 500 is
+retained separately, not silently reinterpreted. No vision or line-of-sight test
+is required. Living, vulnerable enemies including minions/neutral monsters are
+eligible; structures, wards and returning/protected monsters are excluded.
+
+One or more eligible hits, including shielded or lethal hits, extends both the
+resistances and flat reduction by another 180 ticks. A miss retires the buff.
+Only one explosion is possible; surviving victims receive Sunlight. The pinned
+tooltip explicitly describes the resistance extension, while the exact affected
+bonuses, collision, immunity and tick/input ordering remain native audit items.
+Later crowd control does not cancel an armed burst. Flash before its deadline
+moves the origin; a same-deadline Flash executes after the burst. Death cancels
+an unburst W, and victory/respawn clear its state. Ordinary accepted damage uses
+the existing event IDs; no extra W projectile or random sample is introduced.
+
+Schema 118 saves nullable Eclipse start/rank/detonation/end/phase. It rejects
+foreign/dead/unlearned/terminal ownership, changed durations, premature or
+expired phase transitions and inconsistent extension clocks. Tests restore
+before and after detonation, expiry, Flash and neutral retaliation. The browser
+fixture gate now preserves a save containing active W as well as Sunlight and
+delegated credit. W remains a headless development simulation without source
+presentation, support bot integration or native acceptance. See the
+[Eclipse verification ledger](reference/leona/eclipse-verification.json).
+
 ## Geometry, legacy data and mode boundaries
 
 | Source declarations | Treatment |
@@ -193,8 +240,9 @@ attack-speed timing coefficient. No coefficient or release tick is invented.
 | R `cherry` AP override 1.0 | Retained in the audit; standard Rift payload uses 0.8. |
 
 Cast-frame, explicit cast-time, legacy cast-time and animation fields remain
-separate audit entries, including omitted values as null. No R impact delay,
-W instantaneous cast policy or E dash speed is inferred from unrelated fields.
+separate audit entries, including omitted values as null. No R impact delay or
+E dash speed is inferred from unrelated fields. W's instant local cast and burst
+geometry are explicit policies above.
 Q's provisional lifetime/range/recovery adapter is identified separately above.
 R's `mSpellRevealsChampion=false` does not by itself
 settle area vision or hit-reveal rules.
@@ -206,7 +254,7 @@ Every row below still has required work, including the partially implemented Q.
 | System | Required implementation and evidence |
 | --- | --- |
 | Basic attacks and Q | Melee profile, source release timing and attack selection; reset and empowered window; range; separate physical/magic damage; stun/CC precedence; cancellation, target loss and consumption. |
-| W | Cast/expiry/explosion order; actual radius; resistance recomputation on stat changes; flat reduction order, cap, damage-type exclusions and shields; hit-based extension and its exact affected bonuses. |
+| W | Development command, dynamic defenses, burst/extension and saved futures are implemented. Native cast/expiry order, actual radius, reduction/extension semantics, immunity interactions and full presentation remain required. |
 | E | Swept unique hits; last-champion selection; root recipients/timing; dash destination, terrain, target death, displacement and interrupts; Flash/cast overlap; no turret-aggro reset near walls. |
 | R | Windup and delayed impact; center stun versus outer slow boundaries; cast-range clamping; reveal; shields/CC immunity, death and interruption behavior. |
 | Sunlight | Native verification of refresh/multiple owners, proc/pet/blocked-hit eligibility, ordering, caster death, farming and attribution. The shared core and saved futures are implemented. |

@@ -72,8 +72,8 @@ export function companionDps(w: World, u: Unit): number {
     0.1 * Math.max(0, u.damage - b.damage - b.damageGrowth * g) +
     0.16 * w.abilityPower(u) +
     0.04 * Math.max(0, u.maxHp - b.hp - b.hpGrowth * g) +
-    0.25 * Math.max(0, u.armor - b.armor - b.armorGrowth * g) +
-    0.25 * Math.max(0, u.magicResist - b.magicResist - b.magicResistGrowth * g)
+    0.25 * Math.max(0, w.armorWithBuffs(u) - b.armor - b.armorGrowth * g) +
+    0.25 * Math.max(0, w.effectiveMagicResist(u) - b.magicResist - b.magicResistGrowth * g)
   );
 }
 export const companionHps = (level: number) => 6 + Math.max(0, level - 3) * 2;

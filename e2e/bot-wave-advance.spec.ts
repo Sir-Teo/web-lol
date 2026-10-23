@@ -86,7 +86,7 @@ test('a bot advances with an unseen-objective wave, restores the staged job and 
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
   const saved = await page.evaluate(() => (window as any).__GAME__.world.snapshot());
-  expect(JSON.parse(saved).version).toBe(117);
+  expect(JSON.parse(saved).version).toBe(118);
   await page.reload();
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });

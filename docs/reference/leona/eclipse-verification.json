@@ -1,0 +1,681 @@
+{
+  "date": "2026-10-23",
+  "scope": "Leona non-player development Eclipse command, dynamic defenses, burst/extension and saved phases. Local policies are not native or full-champion acceptance.",
+  "schema": 118,
+  "ruleset": "572c2ff9b34944ed31101a90efcc56641372d0a94a3dd50fdf54a543de6c035d",
+  "sourceBaseline": "24335eabd601410664ed5abe57b17139aea7eaa9",
+  "sourceArchive": ".cache/leona-eclipse-validation-v3-20261023/source-archive.json",
+  "frozenInputs": ".cache/leona-eclipse-validation-v3-20261023/frozen-inputs",
+  "earlierSourceArchives": [
+    {
+      "ledger": ".cache/leona-eclipse-validation-v1-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-eclipse-validation-v1-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-eclipse-validation-v2-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-eclipse-validation-v2-20261023/frozen-inputs"
+    }
+  ],
+  "cohortSourceArchive": ".cache/leona-eclipse-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+  "buildArchive": ".cache/leona-eclipse-validation-v3-20261023/generated-build-archive.json",
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 17912,
+      "sha256": "3cf688399f26fbc47cbea1a52b8fa5161f6f752639cac27aff7bea7990eebac0",
+      "archived": ".cache/leona-eclipse-validation-v3-20261023/review-inputs/docs/LEONA.md"
+    },
+    {
+      "file": "docs/SAVES.md",
+      "bytes": 47110,
+      "sha256": "af21a6f961ceb4eccb2694c5883e0b1be6706f134db740aa2c83eb54f93901fb",
+      "archived": ".cache/leona-eclipse-validation-v3-20261023/review-inputs/docs/SAVES.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 504790,
+      "sha256": "e1b185b64b5cb3c94d5a0826da4142cb035dbcea2c107de014e85925f4133038",
+      "archived": ".cache/leona-eclipse-validation-v3-20261023/review-inputs/docs/PROGRESS.md"
+    },
+    {
+      "file": "docs/reference/leona/combat-policy-audit.json",
+      "bytes": 7043,
+      "sha256": "6aa769600d13f36d2668c0081b9a2c5e240e1b1b5b7f1ce154cb12b333e3815c",
+      "archived": ".cache/leona-eclipse-validation-v3-20261023/review-inputs/docs/reference/leona/combat-policy-audit.json"
+    },
+    {
+      "file": "tools/qa/verify-leona-eclipse.mjs",
+      "bytes": 4166,
+      "sha256": "81314af0bb4203f0f8b95b0d5c28985ad871f43bb903ca962f0a79fc9c548806",
+      "archived": ".cache/leona-eclipse-validation-v3-20261023/review-inputs/tools/qa/verify-leona-eclipse.mjs"
+    }
+  ],
+  "checks": {
+    "standard": ".cache/leona-eclipse-canonical-check-v1.log",
+    "focused": ".cache/leona-eclipse-focused-v3.log",
+    "e2eTypecheck": ".cache/leona-eclipse-e2e-typecheck-v1.log",
+    "chrome": ".cache/leona-eclipse-browser-v1-20261023/browser.log",
+    "fixtureEvidence": ".cache/leona-eclipse-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/evidence.json",
+    "production": ".cache/leona-eclipse-production-v1-20261023/production-browser.log",
+    "cohort": ".cache/leona-eclipse-normal-smoke-v1-20261023/independent-verification.log",
+    "checkpointComparison": ".cache/leona-eclipse-normal-smoke-v1-20261023/identity-and-null-field-comparison.json",
+    "priorIntegrity": ".cache/leona-eclipse-prior-integrity-v1.log"
+  },
+  "reviewedCaptures": [
+    ".cache/leona-eclipse-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/rejected-simulation-save.png",
+    ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+    ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-subpath.png"
+  ],
+  "failures": [
+    {
+      "log": ".cache/leona-eclipse-focused-v1.log",
+      "sourceArchive": ".cache/leona-eclipse-validation-v1-20261023/source-archive.json",
+      "reason": "Unrounded aggregate level growth created a phantom one-millionth-point bonus armor. Per-level-rounded base subtraction fixes the implementation; original assertion retained and all-level regression added."
+    }
+  ],
+  "acceptance": {
+    "developmentEclipseImplemented": true,
+    "completeLeonaKit": false,
+    "nativeBehaviorVerified": false,
+    "productionRosterExpanded": false,
+    "hundredSeedGateRepeated": false,
+    "fullBrowserSuiteRepeated": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/browser.log",
+      "bytes": 1474,
+      "sha256": "02b261e5cfef5d61a00224c7ab2e0f8e76e581dd9f2cc749255a56ed8b588862"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.json",
+      "bytes": 968,
+      "sha256": "c13ef5d59b648ef6782d65cd61d7cd4a19deee5beccf63f379da78410cf10153"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.png",
+      "bytes": 1401676,
+      "sha256": "075936986ce16db9e21cccb49ac9904ef033cd983280e9a4af63adb67f2b49f9"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "6a44cfca2380b7a523b1245f37765e324a2c6d4ff07f8381f42a9e15246d7899"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33038,
+      "sha256": "d7a8530911dec5a78459eebcbea1c77573a3077c1808d6e7a8a2b964c599681c"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "aeff183feadd125fceb2a481f97e6963a1a65696f99905adfc9ffbd2a2674b89"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 807557,
+      "sha256": "c37280f299fdd441c59910cbfe9a775a55449debe79f1ea0a055ebde50707ebc"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33024,
+      "sha256": "73cec1e62279a14b20fb408bd24a93fa426f065d40586285ed8ceecd099eb1c4"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "e607137eaf7d05113e13248106305e4767ce245d622f7d1814e0cf9a6f04427a"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 814078,
+      "sha256": "787f7364d060f6d3ef1d96114fea4a13cf1db8ab5dbdf300afe747ed640ca2fe"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 48569,
+      "sha256": "40a92bb6d580f55a4cf9849a5a868094b58ffff6c00e06aa1ae616a494ae7d97"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 335,
+      "sha256": "c1394630587f8617527d75318de4780e10ffc8f3c8c144dcf4e36aee67291700"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 806247,
+      "sha256": "a0fce27eb9a4fa920ebd4cbaacd415630aa97cdeb8bebcfda271db62dc137802"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/evidence.json",
+      "bytes": 19834,
+      "sha256": "8768a1ddd86d8fb5bb74bb04ada20858745185d40967588a4d5ad723617ee20d"
+    },
+    {
+      "file": ".cache/leona-eclipse-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/rejected-simulation-save.png",
+      "bytes": 463366,
+      "sha256": "a06245be64e0ba15afb2e3ecd433f610bcc630c43c98af67d90e7b26c37987b7"
+    },
+    {
+      "file": ".cache/leona-eclipse-build-v1.log",
+      "bytes": 2427,
+      "sha256": "d023d6c4adbc8e90721cfab8e1a15eb5c1bcb7a1b0f12558287bca58bc63e2c0"
+    },
+    {
+      "file": ".cache/leona-eclipse-canonical-check-v1.log",
+      "bytes": 941,
+      "sha256": "d8c97f088ec4bbeda5a81ffe70d98ad370e04790fec8d6494b44ed5281e7243c"
+    },
+    {
+      "file": ".cache/leona-eclipse-compare-and-archive.mjs",
+      "bytes": 1999,
+      "sha256": "566247984ca5bf24f440b4c475670b031636be917e56daa8984d4961e346f5dd"
+    },
+    {
+      "file": ".cache/leona-eclipse-e2e-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-eclipse-focused-v1.log",
+      "bytes": 1366,
+      "sha256": "cd520b2bb2cf7d0406f17404af7aa3c97d39a48d05d72cd60628fd4c0387c8b6"
+    },
+    {
+      "file": ".cache/leona-eclipse-focused-v2.log",
+      "bytes": 438,
+      "sha256": "b1cbfeb4203c9e568d18070f7a076404a8173f007b89ea14685788908c2940ef"
+    },
+    {
+      "file": ".cache/leona-eclipse-focused-v3.log",
+      "bytes": 438,
+      "sha256": "0f3d0a289087ba92db6ce865df30845067b2e36fb8ac2f371bdc63070c928ca2"
+    },
+    {
+      "file": ".cache/leona-eclipse-freeze.mjs",
+      "bytes": 1214,
+      "sha256": "a0d0ec497771568179a244b193d17a3ece99d911ebd689031257b7165ec5bb42"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023-launch.log",
+      "bytes": 923,
+      "sha256": "1696a95c8ebeb90569d2ce2f36235e6add39bc27bb526e4ab63bf5f3cec7cd8e"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+      "bytes": 63161,
+      "sha256": "19b12da355a3d9b18110d2e78009ce44212f11b36139a4423d1783061834ec22"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/identity-and-null-field-comparison.json",
+      "bytes": 6151,
+      "sha256": "144f0aee09eefadee1c9df234ba58065d5c1e9e22a4ba159263d900304531ab7"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "43b402f682b480d9637be5aaa3b76d2947dafb81fa3f16f34acc0ef92bc5336b"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/maps/rift-nav.bin",
+      "bytes": 1925772,
+      "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/plan.json",
+      "bytes": 39159,
+      "sha256": "98d0a074f7f672564ef7b2027c9771dfb4c2a3dc86fd5f6171878a2feb14e0dd"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/runner/match-seed.js",
+      "bytes": 820342,
+      "sha256": "ab50512daae132a4b47b0fa5ee56c240869b04578fac83e1cbaa7ac20eb905dc"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seed-38.log",
+      "bytes": 273,
+      "sha256": "eb0efbb130db6f4ad923e0b3928d11ece24b93180586c6246c113cf889b003b5"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seed-8.log",
+      "bytes": 259,
+      "sha256": "b5d73f953626db28df4cabc54039ca2ed09efd78712117e192e2780ddfaa56f2"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 165604,
+      "sha256": "40fa99e4322abfe726a5bc0264157191e4e4705f1f898b166d483dd2ee712640"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186099,
+      "sha256": "c3d140e7d3b5ea617111068240a6d3a7fe9b769906cd917572e9a9c165316c45"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177058,
+      "sha256": "0a70384f99b767b28ab538231a686caae4a13c7a1e803cfa35fe4097bc91525e"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 167751,
+      "sha256": "cfd75bdef95394fedc636ec3bce9a61a120be2a9ecc43b268a04c3d02472272a"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187426,
+      "sha256": "a382c2bf33281131fd0ef659cccf95a729eff344e371ccefcc81bd36961f70ae"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202370,
+      "sha256": "6e0cf3e6c182ab58e459ba2fa7fc56998a9838e5f31471d851c2ac004b4ae718"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 210895,
+      "sha256": "fe71070f99602bafa73047c5bc2035b558ecf88485badc6b5a190080fbb12c9e"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 173730,
+      "sha256": "3ad84ba58773e857142918f612692bacc998a65126a98a31b3c67b30782e6df7"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166082,
+      "sha256": "b2d0cfca37214a8a04455751f4101c7ad41eb81a8005bdd1768112550da67479"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 196628,
+      "sha256": "f5623874622a0d28d580a77bc037da051a0a6b5d226aea915c5df23e8f318de6"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/final.match.json",
+      "bytes": 196628,
+      "sha256": "f5623874622a0d28d580a77bc037da051a0a6b5d226aea915c5df23e8f318de6"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/progress.json",
+      "bytes": 80,
+      "sha256": "a4b279d094f778270d599171e2d5a108d3d92916aac37ad0093c228da100dd3d"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/report.json",
+      "bytes": 51067,
+      "sha256": "5387a450e98b2fdb90702bcbbccc0e7089b0c0579fb13c5757d6a399c2b0e049"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 165603,
+      "sha256": "354534fc3c527986d2f1cd6fb12a18ae3d898746551fd57a1faba24dfe938b7b"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186098,
+      "sha256": "3f85343eb62a274acbf8a66a2c099de4bc73560a0f845f4533dd538532ca4fbd"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177057,
+      "sha256": "97930cc458044172c7e0fd7c71d3c3c9f035ab91f0c16ecf4edde7630aa7ca7a"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 167750,
+      "sha256": "ebf7b953aa281379f7d14372223b4aa65104794cb961300ac7dfef51a1b36727"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 187688,
+      "sha256": "57785306067ed2bf711603a574afe8381cb106789ecf94c188201bf86b2829cd"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 202679,
+      "sha256": "de1ce4d2812a929c6523b3f47146445c4478112f78f5936f8f62beda8bff7861"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211035,
+      "sha256": "5512e459205e6775eb2b3b2763aa851b986b8091caca747b0263030099f0c8a0"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 171858,
+      "sha256": "cb63996c93871491b9ed08f0223a92ecae8df866aa2376a6616e1820b87af82b"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164373,
+      "sha256": "c11592589152744990383143268d5b5dbc2c7481f51d68f7b2a466d83c244e78"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 187533,
+      "sha256": "06a132a022099bd7976ca2b30d2e0cee32d0acd95babbc91051a1ca57fc3f7e0"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/final.match.json",
+      "bytes": 187533,
+      "sha256": "06a132a022099bd7976ca2b30d2e0cee32d0acd95babbc91051a1ca57fc3f7e0"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/progress.json",
+      "bytes": 74,
+      "sha256": "489a251cacb8a3f9ee216e36e0ffdee168aaff8f3962a9736d931c51dc1db9e9"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/report.json",
+      "bytes": 51278,
+      "sha256": "c1ed12d6167f207accc89778f1937ae7f6c88c76c297e794581df9bb3e041401"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/status.json",
+      "bytes": 119963,
+      "sha256": "be7d28a737bd69c15db206eb7e6379bdbd343eeeab401f5e3cdc36385b3f630d"
+    },
+    {
+      "file": ".cache/leona-eclipse-normal-smoke-v1-20261023/summary.json",
+      "bytes": 119963,
+      "sha256": "be7d28a737bd69c15db206eb7e6379bdbd343eeeab401f5e3cdc36385b3f630d"
+    },
+    {
+      "file": ".cache/leona-eclipse-prior-integrity-v1.log",
+      "bytes": 288,
+      "sha256": "35749a86bb8d6372fb24e686bd16d49ba114487eee9ec5acee043cd5f08286d9"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/production-browser.log",
+      "bytes": 1802,
+      "sha256": "230beebf3e8f9199cf638e23cd1b00e2b208f42a7fef5d304c8a5236182ecd43"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811197,
+      "sha256": "54d82d749c4e80172c5a28618b490ede2dfa40e473c080fc10136ca410ff7882"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1833985,
+      "sha256": "d0df845c18749bb98214fe811031edad8ae5c6b0f7d3a0180da4fdaf542180c8"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1831575,
+      "sha256": "9ea9fc3642d8722b4018c9dff329b5ede0e9ee37a1e207a5472b933b202bcdd8"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1810301,
+      "sha256": "d517dd015856d775c5f4c7f9b5489417da2e9c8cf961f8c814882c8fae58c426"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1818034,
+      "sha256": "75080a56f85c69e61e4d888064dec7b73dcc14031106f9aff174e785a3bb8ff2"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346641,
+      "sha256": "522f4ba988c01b6cae14daa37b37c4d33fb17d7c40d8225f93d224558935cb21"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820212,
+      "sha256": "5439d9914d4f3aac30a96bcce7c9113ff18e1bb8ca452730156cd13439d1f069"
+    },
+    {
+      "file": ".cache/leona-eclipse-production-v1-20261023/run/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812725,
+      "sha256": "5c59e6d5d7407338d47217f1f6c482f9b269c73d216311b05662fba24955149d"
+    },
+    {
+      "file": ".cache/leona-eclipse-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-eclipse-validation-v1-20261023/source-archive.json",
+      "bytes": 38636,
+      "sha256": "b1e34525ad1e3a53424964413e0bfe9a1e4f9bf8e99092da2f905d55644427de"
+    },
+    {
+      "file": ".cache/leona-eclipse-validation-v2-20261023/source-archive.json",
+      "bytes": 38636,
+      "sha256": "f3f3696020cb87615d88723ad5ffcac9781e6b0b680f67d387262b78c4801ecb"
+    },
+    {
+      "file": ".cache/leona-eclipse-validation-v3-20261023/generated-build-archive.json",
+      "bytes": 5883,
+      "sha256": "79c98ee1d613c717e15b4f2235b32f19572e82cc70b0f94c2b68029de11973c1"
+    },
+    {
+      "file": ".cache/leona-eclipse-validation-v3-20261023/source-archive.json",
+      "bytes": 38636,
+      "sha256": "0af525af6bb8b925e2da881d28fc0c440df30ca210422f87d10bce6911511897"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 165604,
+      "sha256": "40fa99e4322abfe726a5bc0264157191e4e4705f1f898b166d483dd2ee712640"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186099,
+      "sha256": "c3d140e7d3b5ea617111068240a6d3a7fe9b769906cd917572e9a9c165316c45"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177058,
+      "sha256": "0a70384f99b767b28ab538231a686caae4a13c7a1e803cfa35fe4097bc91525e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 167751,
+      "sha256": "cfd75bdef95394fedc636ec3bce9a61a120be2a9ecc43b268a04c3d02472272a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187426,
+      "sha256": "a382c2bf33281131fd0ef659cccf95a729eff344e371ccefcc81bd36961f70ae"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202370,
+      "sha256": "6e0cf3e6c182ab58e459ba2fa7fc56998a9838e5f31471d851c2ac004b4ae718"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 210895,
+      "sha256": "fe71070f99602bafa73047c5bc2035b558ecf88485badc6b5a190080fbb12c9e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 173730,
+      "sha256": "3ad84ba58773e857142918f612692bacc998a65126a98a31b3c67b30782e6df7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166082,
+      "sha256": "b2d0cfca37214a8a04455751f4101c7ad41eb81a8005bdd1768112550da67479"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 196628,
+      "sha256": "f5623874622a0d28d580a77bc037da051a0a6b5d226aea915c5df23e8f318de6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 165603,
+      "sha256": "354534fc3c527986d2f1cd6fb12a18ae3d898746551fd57a1faba24dfe938b7b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186098,
+      "sha256": "3f85343eb62a274acbf8a66a2c099de4bc73560a0f845f4533dd538532ca4fbd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177057,
+      "sha256": "97930cc458044172c7e0fd7c71d3c3c9f035ab91f0c16ecf4edde7630aa7ca7a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 167750,
+      "sha256": "ebf7b953aa281379f7d14372223b4aa65104794cb961300ac7dfef51a1b36727"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 187688,
+      "sha256": "57785306067ed2bf711603a574afe8381cb106789ecf94c188201bf86b2829cd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 202679,
+      "sha256": "de1ce4d2812a929c6523b3f47146445c4478112f78f5936f8f62beda8bff7861"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211035,
+      "sha256": "5512e459205e6775eb2b3b2763aa851b986b8091caca747b0263030099f0c8a0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 171858,
+      "sha256": "cb63996c93871491b9ed08f0223a92ecae8df866aa2376a6616e1820b87af82b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164373,
+      "sha256": "c11592589152744990383143268d5b5dbc2c7481f51d68f7b2a466d83c244e78"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-eclipse-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 187533,
+      "sha256": "06a132a022099bd7976ca2b30d2e0cee32d0acd95babbc91051a1ca57fc3f7e0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/003600.match.json",
+      "bytes": 165464,
+      "sha256": "06b4f83a4de646e0c8ab8d334e50845c86d2cba8c9e5c738dd8a58f846e1030d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/007200.match.json",
+      "bytes": 185959,
+      "sha256": "bede4c43006224b86ce57ff802c9f913095f1d3da629cf66e1305fbdd4b51858"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/010800.match.json",
+      "bytes": 176918,
+      "sha256": "79fea9ea5fd7eaaf10c8c8b3c5da50ded278b0105a86dfd86342afc80d22235d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/014400.match.json",
+      "bytes": 167611,
+      "sha256": "2430858fad54c45aedcbdc3a23baf8dac4b8ab27e81684771808a3ba53efca35"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/018000.match.json",
+      "bytes": 187286,
+      "sha256": "1136af417913ef04334f903d47d8f149fdb6273d0365bb17a09e4c66086422e6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/021600.match.json",
+      "bytes": 202230,
+      "sha256": "e817953b0140e44421f4c62f4a90a430986db426174a838ce42da09472680f12"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/025200.match.json",
+      "bytes": 210755,
+      "sha256": "a5260aeaec5a07e4cfc82d01fb4972cc65761828add5e951f9b461e1e5ee535d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/028800.match.json",
+      "bytes": 173590,
+      "sha256": "2a7996f3c795303d8689a8f0ebe4c61205b62668e241b8be78c2d532101d39a7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/032400.match.json",
+      "bytes": 165942,
+      "sha256": "7e27932236f02ad145a67a6db40204048ceaa1bfa6a722a29c7fb6b2b39d7fe3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/38/036000.match.json",
+      "bytes": 196488,
+      "sha256": "cc9d93a204f325035f5eea22cabd09c72fff196c26331124783d969ac70bcbb2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/003600.match.json",
+      "bytes": 165463,
+      "sha256": "e09560e8f1531bdfafb157e678f138452a1fd4ccca4b8680db59eeda368b3160"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/007200.match.json",
+      "bytes": 185958,
+      "sha256": "9232b4574a697e3a7b6dad79203279b10a0eab2c522d4a80111c03f384a4b04c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/010800.match.json",
+      "bytes": 176917,
+      "sha256": "3a70a240c129eff0855ec1de9c077a14a85571918603e0bd26b8185ced1a92d1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/014400.match.json",
+      "bytes": 167610,
+      "sha256": "d37d05d02d947e563f72ff8948d274e55211d929b91dc04e21b3382de2387f1c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/018000.match.json",
+      "bytes": 187548,
+      "sha256": "4c2ebf9efb65fa17d653206b0e720c928d1bd1166bdf2e8d9909752d50194e71"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/021600.match.json",
+      "bytes": 202539,
+      "sha256": "c8fc6b651d372f156651b2acb84c96ad99e293662d1115ce7b845702b43ed893"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/025200.match.json",
+      "bytes": 210895,
+      "sha256": "d70a310d5de178db85cf127894558af6ed0d50c3d172a98b8e46daf0e2cd41a7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/028800.match.json",
+      "bytes": 171718,
+      "sha256": "f18b5eef83ec024fd33be2fa03b3cc46bf258258966c2f374894e5843c421e4b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/032400.match.json",
+      "bytes": 164233,
+      "sha256": "b79815e290b84ec5297acb50800f79d2293a8f36918db893cba04eff556d2aca"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-normal-smoke-v2-20261023/seeds/8/036000.match.json",
+      "bytes": 187393,
+      "sha256": "f3fcc64274967537b238f2666745d1c7dd0e1c4d9e96a578ebdf9785945f5a43"
+    }
+  ]
+}

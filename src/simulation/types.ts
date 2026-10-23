@@ -553,6 +553,13 @@ export interface ChampionState {
   } | null;
   /** Local reduced-hit feedback, coalesced per tick; independent of later W casts. */
   garenWDeflects: { tick: number; castTick: number }[];
+  leonaW: {
+    startTick: number;
+    rank: number;
+    detonationTick: number;
+    endTick: number;
+    detonated: boolean;
+  } | null;
   leonaQ: { startTick: number; rank: number; endTick: number } | null;
   garenQ: {
     startTick: number;

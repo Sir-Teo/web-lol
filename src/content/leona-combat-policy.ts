@@ -5,6 +5,9 @@ import { LEONA_SPELLS } from './leona-spells';
  * The six-second window, +50 range and 53-tick automatic recovery are explicit
  * provisional policies, not values extracted from the character BIN. */
 export const LEONA_COMBAT_POLICY = {
+  // Provisional geometry/scheduling; display radius differs from raw cast radius.
+  eclipseRadius: LEONA_SPELLS.w.displayRange,
+  eclipseDurationTicks: Math.round(LEONA_SPELLS.w.resistanceSeconds * 60),
   attackWindowTicks: 6 * 60,
   empoweredRangeBonus: 50,
   ordinaryWindupTicks: Math.round(
