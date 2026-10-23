@@ -106,3 +106,7 @@ The 30 censored cases, long durations, remaining champion kits, role quests and
 objectives, strategic objective conversion, native comparisons and full-match
 browser/offline/performance coverage remain required work. The next changes
 should address those gaps without changing pacing to force victories.
+
+The later [friendly-wave advancement](BOT-TEAM-STRATEGY.md#friendly-wave-advancement--october-23-2026)
+uses a separate schema-114 ruleset and matched four-seed pilots. Its results do
+not replace this baseline or the archived `3d05c1…` approach validation.

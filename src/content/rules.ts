@@ -15,6 +15,10 @@ export const crystalArrowDescription = (damage: number): string =>
 export const TICK_RATE = 60;
 export const DT = 1 / TICK_RATE;
 export const RECALL_DURATION_TICKS = 8 * TICK_RATE;
+export const STRUCTURE_RESPAWN_TICKS = {
+  inhibitor: 300 * TICK_RATE,
+  'nexus-turret': 180 * TICK_RATE,
+} as const;
 export const RULESET = 'practice-0.1';
 export const ABILITIES: Record<
   Ability,

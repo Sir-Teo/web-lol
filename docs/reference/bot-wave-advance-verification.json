@@ -1,0 +1,587 @@
+{
+  "date": "2026-10-23",
+  "sourceBeforeChanges": "d8b8c60",
+  "sourceWasUncommittedDuringRuns": true,
+  "schema": 114,
+  "ruleset": "18dae6840268ef2bcba28359ba4e25ba8b92fbce2741ec80b8a56b61522029ad",
+  "scope": "Friendly-wave-guided travel toward public structure placements before target vision, with ordinary-jungle progression guard and strict same-build saves.",
+  "implementation": [
+    {
+      "file": "src/content/bot-team-policy.ts",
+      "bytes": 499,
+      "sha256": "50626bd3f7f0e6ece81b57761fbdf587640a1f066f2828d910f09b7787cab079"
+    },
+    {
+      "file": "src/content/rules.ts",
+      "bytes": 7187,
+      "sha256": "5720c49e3955ea0f74dc6eae6ccc7fe45d092a78d23b14bc71e9b125dd111e3b"
+    },
+    {
+      "file": "src/simulation/bot-team.ts",
+      "bytes": 11486,
+      "sha256": "5b8a0f7724322d64ade57d80de80fa61e5b6c761f6f2edb7fd845ca31ed24184"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 125850,
+      "sha256": "2137e73e4f8fc6a6389414332279d9c208c35393ed658fd522f7f692900a11c6"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 219100,
+      "sha256": "40dc9d2763aeb35c415e98b63f9c319503b6515fcace1cce0a4ffbfd45a26183"
+    },
+    {
+      "file": "tests/bot-team-advance.test.ts",
+      "bytes": 13337,
+      "sha256": "462063d2d6814b33a02c9c70e1a4b4cfab435206023d45f411e5a4f5aea6e95a"
+    },
+    {
+      "file": "tests/bot-team.test.ts",
+      "bytes": 12903,
+      "sha256": "9d5b0f2542f646b933f41dab32dd6ac77d4a0537a312949e75a016f21c7a571d"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "2a871253c8a58df63c217961a04d185a06a09d4fd098479cb0667694934c4341"
+    },
+    {
+      "file": "e2e/bot-wave-advance.spec.ts",
+      "bytes": 5186,
+      "sha256": "43b96068f2277fac15e5242cdb8ff0e5a60e4ba2e674f52d716413bb65fbff9a"
+    }
+  ],
+  "validation": {
+    "canonicalCheck": {
+      "command": "npm run check",
+      "vitestPassed": 1474,
+      "files": 267,
+      "nodeQaPassed": 3,
+      "defaultTimeouts": true,
+      "log": ".cache/team-advance-refined-check-v2.log"
+    },
+    "focused": {
+      "passed": 31,
+      "files": 3
+    },
+    "chrome": {
+      "distinctPassed": 7,
+      "fullBrowserSuiteRepeated": false,
+      "waveAdvance": 1,
+      "existingRegressions": 6,
+      "uiSaveReloadExact": true,
+      "humanRetainsControl": true,
+      "topRoleAndLaneRetainedDuringMidRotation": true
+    },
+    "production": {
+      "nestedPath": "/nested/rift/",
+      "result": "passed",
+      "recordings": 32,
+      "developmentHook": false,
+      "screenshotScope": "Ashe practice frame; legacy filename is not Lux E native visual proof."
+    },
+    "currentPilot": {
+      "result": "passed",
+      "ruleset": "18dae6840268ef2bcba28359ba4e25ba8b92fbce2741ec80b8a56b61522029ad",
+      "seeds": 4,
+      "horizonTicks": 216000,
+      "victories": 4,
+      "unfinished": 0,
+      "checkedTicks": 629460,
+      "roundTrips": 176,
+      "futureChecks": 172,
+      "hundredSeedInvariantGate": false,
+      "roadmapMilestone4Complete": false
+    }
+  },
+  "pilots": [
+    {
+      "root": ".cache/team-advance-paired-pilot-20261023/old-3d05c1",
+      "ruleset": "3d05c177eca76fafd3c147dd46b8ce77552653ed20eb55f8b1ec0636c10c2350",
+      "victories": 1,
+      "unfinished": 3,
+      "checkedTicks": 815258,
+      "roundTrips": 227,
+      "futureChecks": 223,
+      "cases": [
+        {
+          "seed": 1,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 167258
+        },
+        {
+          "seed": 8,
+          "outcome": "unfinished",
+          "winner": null,
+          "finalTick": 216000
+        },
+        {
+          "seed": 38,
+          "outcome": "unfinished",
+          "winner": null,
+          "finalTick": 216000
+        },
+        {
+          "seed": 719,
+          "outcome": "unfinished",
+          "winner": null,
+          "finalTick": 216000
+        }
+      ]
+    },
+    {
+      "root": ".cache/team-advance-paired-pilot-20261023/new-adfa2d",
+      "ruleset": "adfa2d591c3a508195691cac6f495cdd5203d77145726ab20aaf372282420332",
+      "victories": 4,
+      "unfinished": 0,
+      "checkedTicks": 606510,
+      "roundTrips": 171,
+      "futureChecks": 167,
+      "cases": [
+        {
+          "seed": 1,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 134872
+        },
+        {
+          "seed": 8,
+          "outcome": "victory",
+          "winner": "blue",
+          "finalTick": 180352
+        },
+        {
+          "seed": 38,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 138771
+        },
+        {
+          "seed": 719,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 152515
+        }
+      ]
+    },
+    {
+      "root": ".cache/team-advance-refined-pilot-20261023",
+      "ruleset": "18dae6840268ef2bcba28359ba4e25ba8b92fbce2741ec80b8a56b61522029ad",
+      "victories": 4,
+      "unfinished": 0,
+      "checkedTicks": 629460,
+      "roundTrips": 176,
+      "futureChecks": 172,
+      "cases": [
+        {
+          "seed": 1,
+          "outcome": "victory",
+          "winner": "blue",
+          "finalTick": 150353
+        },
+        {
+          "seed": 8,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 186796
+        },
+        {
+          "seed": 38,
+          "outcome": "victory",
+          "winner": "red",
+          "finalTick": 154233
+        },
+        {
+          "seed": 719,
+          "outcome": "victory",
+          "winner": "blue",
+          "finalTick": 138078
+        }
+      ]
+    }
+  ],
+  "retainedFailuresAndLimitations": [
+    "The unrestricted ADFA prototype finished four seeds but delayed companion progression and reduced jungle levels/farming while increasing deaths. It was refined rather than accepted unchanged.",
+    "The first refined npm run check, concurrent with Chrome, timed out in lane-rules and rift-practice-jungle; both failures remain in the v1 log. The unchanged standard command was repeated after all other owners drained.",
+    "The original short controlled wave expired before the actor arrived. Its failed unit log and probe remain; the successful fixture uses a full early six-unit wave with normal health and zero minion damage to attribute tower damage.",
+    "A separate warm seed-8 continuation used an explicit diagnostic identity bridge and actually ended about 3.23 seconds later with ADFA than with the 3D05 baseline. It never rescored the original 100-seed horizon.",
+    "Four fixed seeds include selected problem cases. Outcomes do not establish general completion rate, duration, balance, human-play quality or native AI fidelity.",
+    "Death counts and final CS have unequal match durations; retained matched 10/20/30-minute snapshots and growth deadlines support narrower role-progression comparisons.",
+    "The old 100-seed result remains 70 victories/30 censored under 6466566; no current-ruleset 100-seed gate or complete six-character milestone is claimed.",
+    "Full roster kits, objectives, role quests, richer threat/path planning, native comparisons and full browser/offline/performance coverage remain required."
+  ],
+  "evidence": [
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/comparison-context.json",
+      "bytes": 1546,
+      "sha256": "45ccc1ae99128baed92af9f6fa0aec2cb806976ae437b4cbd6eeeb6181120cb9"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/completed-review-v1.json",
+      "bytes": 27679,
+      "sha256": "27e1329578ba2b1b63f731d3f92fdd30fcde78b629c80ab44d006f4bf928c75e"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/independent-verification-v1.log",
+      "bytes": 283,
+      "sha256": "0f9758b064c5d71646f72139f70385a0615c962c2fc6001eac3bd66b1a3e9f78"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/independent-verification-v1.log",
+      "bytes": 283,
+      "sha256": "a9a2b907f350bb53698d3c671e972a3ff780da49abe36c97605b7331e1d55dce"
+    },
+    {
+      "file": ".cache/team-advance-focused-tests.log",
+      "bytes": 1100,
+      "sha256": "af0fc0169157f058a2d507eb5b6a90a0d219763633640d9b346e85d7548294ef"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/completed-comparison-v2.json",
+      "bytes": 2875022,
+      "sha256": "a463cd9d322ffbd8524cbcebe1a238974492b91420ecef249ea6ab184eb19425"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/independent-verification.log",
+      "bytes": 283,
+      "sha256": "59c451bd2425b1651a132edc573b639dc8d5e6f3ae51fe083364556ca85508cf"
+    },
+    {
+      "file": ".cache/team-advance-refined-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/team-advance-refined-focused-v1.log",
+      "bytes": 183,
+      "sha256": "39fbc60662cc7c83c659b0cc8fca22fa00a95e7dcb473d6df9ddeb202af5692c"
+    },
+    {
+      "file": ".cache/team-advance-refined-check-v1.log",
+      "bytes": 2501,
+      "sha256": "e6da26dc7fbd6c58dd05cdc325ee738ea64436761b933b6b0ee98db63ef658b0"
+    },
+    {
+      "file": ".cache/team-advance-refined-check-v2.log",
+      "bytes": 945,
+      "sha256": "0be705bae5e005c9d4c8834a10ee7428e0a84c5678908b3563276ec8e93df3c1"
+    },
+    {
+      "file": ".cache/team-advance-refined-build-v1.log",
+      "bytes": 2350,
+      "sha256": "5976a27b1341597a4b693fe42a7d6f9b64a1e9757ce4e8d6edd095ce53b37ada"
+    },
+    {
+      "file": ".cache/team-advance-refined-browser-v1.log",
+      "bytes": 559,
+      "sha256": "047d178594efefdfacc6da6be166b15635be1a2db215c6863897ec8ae2c775fe"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/browser.log",
+      "bytes": 1339,
+      "sha256": "637ff2146e275cd3f0b00644f4fb1869acb63729ea50d4412008e2de35bc5aed"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/production-browser.log",
+      "bytes": 1802,
+      "sha256": "230beebf3e8f9199cf638e23cd1b00e2b208f42a7fef5d304c8a5236182ecd43"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/production-build-archive.json",
+      "bytes": 24287,
+      "sha256": "468a666e6abdda5965d5a906da74e53589e531e989df40a010a3953ad70f7b78"
+    },
+    {
+      "file": ".cache/team-advance-production-v1/production-build-archive.json",
+      "bytes": 23603,
+      "sha256": "d302c00ac72d8c9d738f2ed51fffeed6689a674eb704598db99fc4961193e52e"
+    },
+    {
+      "file": ".cache/review-team-advance-variants-v2.mjs",
+      "bytes": 4097,
+      "sha256": "634e6f9077779f1ece3b2a56744760e98d1db1dfdb14a8f40bb6b1e79d3889ed"
+    },
+    {
+      "file": ".cache/build-team-advance-ledger-v1.py",
+      "bytes": 6014,
+      "sha256": "a842c232fa1e7339e239a8af1d1b5894fa51c815e44d44dbf1aaaf7407870325"
+    },
+    {
+      "file": ".cache/team-advance-seed8-baseline-v1/observation.json",
+      "bytes": 25753,
+      "sha256": "a59d6451c9253c6b92f93fb0dfd670f675f2e4a144f1abe31f0de924af81c5bd"
+    },
+    {
+      "file": ".cache/team-advance-seed8-baseline-v1/bundle-pin.json",
+      "bytes": 58448,
+      "sha256": "5600947d7a0f1da7b31ae220a32a563741ea9123eb82850eaef65c66aee04d1d"
+    },
+    {
+      "file": ".cache/team-advance-seed8-baseline-v1/run.log",
+      "bytes": 353,
+      "sha256": "b4bd17b9c21017cb16fb60155b1fdc58002c03a66eafa6859958870db29eb438"
+    },
+    {
+      "file": ".cache/team-advance-seed8-baseline-v1/final.match.json",
+      "bytes": 218476,
+      "sha256": "3c2e1f7ed3a8a6895328a9b4975209df460793b6e977558b344b3acab3f252eb"
+    },
+    {
+      "file": ".cache/team-advance-seed8-baseline-v1/bridge.match.json",
+      "bytes": 239423,
+      "sha256": "fa9a22adda8ba730d46a9cb5eb78248299158305fd6387286d339eac0489f146"
+    },
+    {
+      "file": ".cache/team-advance-seed8-diagnostic-v1/observation.json",
+      "bytes": 51587,
+      "sha256": "f31c098b786774e52cfbbb06c3a0cf559fb0e1a6950b1d9fea084068b4d97d04"
+    },
+    {
+      "file": ".cache/team-advance-seed8-diagnostic-v1/bundle-pin.json",
+      "bytes": 31362,
+      "sha256": "38f25fdcb3d8ad380dbc19c4966382402c6c5c90a77bef719f8275ffc2ac9542"
+    },
+    {
+      "file": ".cache/team-advance-seed8-diagnostic-v1/run.log",
+      "bytes": 1314,
+      "sha256": "88a119a5b2a955cc31c27c82ac7401774f665641152ac5f7164d19351754b68d"
+    },
+    {
+      "file": ".cache/team-advance-seed8-diagnostic-v1/final.match.json",
+      "bytes": 206176,
+      "sha256": "efcbf869d93436294c5fea6bfd443521af7b31e24c9e3f43ceca0f9d2c2b04f7"
+    },
+    {
+      "file": ".cache/team-advance-seed8-diagnostic-v1/bridge.match.json",
+      "bytes": 239423,
+      "sha256": "78414966e4d94ec40c07ddacb56857815cd1b6c90f5fa77d17f31c51d2e78a16"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/summary.json",
+      "bytes": 1342389,
+      "sha256": "16abe93453b701a36409134fd651ba05e9146f2f59289909858cfbaa2db8cac1"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/plan.json",
+      "bytes": 37860,
+      "sha256": "9708cf146f75d5f33abc3f9d7ecd27d5f4d303740f4e2f8dfa61a24c6dbc63ae"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/frozen-source/archive-ledger.json",
+      "bytes": 106991,
+      "sha256": "8e95d742ca8d1f710011d1fd7f2109931acf865241dbcdfdf64d23ceb4c8500d"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/seeds/1/report.json",
+      "bytes": 237356,
+      "sha256": "2077146e93cf4f8374ed6da4dad46c6af026b150c5b556d2d3a9d4ca006d1852"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/seeds/8/report.json",
+      "bytes": 305000,
+      "sha256": "1d04574357030e70f7086a4325a4cbc6b2823bb0813275127960d44d295d982e"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/seeds/38/report.json",
+      "bytes": 303484,
+      "sha256": "7f951919af9f94e9972a430c78a53d41e04dcc706d3662aa9bb31562b25b99ee"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/old-3d05c1/seeds/719/report.json",
+      "bytes": 306155,
+      "sha256": "6ad24dad59fbcbc854cd6e80d4fb89946544373e30c0ce6cea25d5fb401829e4"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/summary.json",
+      "bytes": 1019269,
+      "sha256": "e5bd937ad8187ad39f4cc5ce65d4937a89e9e0bac034435bad19df75b697ee2c"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/plan.json",
+      "bytes": 37861,
+      "sha256": "faa0f83934da0513fb84fba0e2a77213439e116bd148f5b9501df0b040a52182"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/frozen-source/archive-ledger.json",
+      "bytes": 86406,
+      "sha256": "4f12bf67c3612beb28567e8f8d78d8797f43590a2e2f2e905932c4527f7c989b"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/seeds/1/report.json",
+      "bytes": 193110,
+      "sha256": "49646c4adfd1ad05477e139411f52e2caf4152db08948cfc9e7ccdddde8adaaa"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/seeds/8/report.json",
+      "bytes": 260286,
+      "sha256": "7ef930b06f9527373f6b7ef4e794fa745d65689ab3e13108efbc0e93320fd2fc"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/seeds/38/report.json",
+      "bytes": 199599,
+      "sha256": "00aaa560b0456eec5b9689d07b001fc2a333ec3f59f356ac9a1ab01e74f90463"
+    },
+    {
+      "file": ".cache/team-advance-paired-pilot-20261023/new-adfa2d/seeds/719/report.json",
+      "bytes": 221117,
+      "sha256": "145f2bcc47c0e58037116781299540cb82c64b3a299ff52284d5f9e9bd3e7733"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/summary.json",
+      "bytes": 1048018,
+      "sha256": "cc2a9efd801b7e30e5f99bddc717e50b139cbf961db5029d6e92a93201af4046"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/plan.json",
+      "bytes": 37821,
+      "sha256": "d24236ec388291ec9dc7b8709e1e61cdb4bcf001102033a1c934fcefb0303113"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/frozen-source/archive-ledger.json",
+      "bytes": 84028,
+      "sha256": "c1d80863280fd38664d9758431775e7886a963c2d46ce8e44c82fb4dafe57b73"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/1/report.json",
+      "bytes": 214356,
+      "sha256": "f5de55d6e5518dc5f2df0b9444df96ee29c15e376ad1cbc84d556729f50b68c3"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/8/report.json",
+      "bytes": 265865,
+      "sha256": "e602b4debe6d1e3ff7b0ec3df5ba8efefb3b9c8bbd9ca64969e1fb151ac2ad65"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/38/report.json",
+      "bytes": 219233,
+      "sha256": "3b154c4273f49b682d7c9b9c6c6173cf5f97d94a63fa7c2e82013a0bd6c0567b"
+    },
+    {
+      "file": ".cache/team-advance-refined-pilot-20261023/seeds/719/report.json",
+      "bytes": 199182,
+      "sha256": "6d899f90d50edf539af51e6956bca5944dfb8b179dc25938353cdee12c1ee815"
+    },
+    {
+      "file": ".cache/team-advance-refined-browser-v1/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/team-advance-refined-browser-v1/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.json",
+      "bytes": 968,
+      "sha256": "c13ef5d59b648ef6782d65cd61d7cd4a19deee5beccf63f379da78410cf10153"
+    },
+    {
+      "file": ".cache/team-advance-refined-browser-v1/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.png",
+      "bytes": 1401630,
+      "sha256": "fb36db8a7108f5421dc406fd06dfc024d297f5f9ffd7c5973d8c39711c1cee63"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/bot-team-river.json",
+      "bytes": 407,
+      "sha256": "7b38a48b1368c596a1dfd87f492ca84b4a4feb2ed4280ef21749115f76da2072"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/role-jungle-runtime.json",
+      "bytes": 2591,
+      "sha256": "b57b9fb851688d38eb1036576a9dad2272a09e8fc4bf6ce57a4df2d094ea43b5"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/bot-team-siege.json",
+      "bytes": 473,
+      "sha256": "bd21d081e34cd403c1bc05c0eb412225e986285342e5fd76deb3371a329f27b4"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/bot-team-defense.png",
+      "bytes": 1667967,
+      "sha256": "c2f3ca8a607cfb072294759ed7dbd06a299c3ab45b0d6dca6ad4b00d5213d9c5"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/browser-enemy-base-revealed.png",
+      "bytes": 1397351,
+      "sha256": "3c92e5b2c931946c0e0a2affe3b151147732a6e7864eed5454d0a807190ac6aa"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/match-roles-scoreboard.png",
+      "bytes": 1100537,
+      "sha256": "ad49bcd9eee2c5640cfb77b1439f12392aa1b6377a9e89c376f029a93bcc3795"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/bot-team-river.png",
+      "bytes": 1316227,
+      "sha256": "4e1095b35df6dd8d6a4a624ff1e31a71186e7936c2c066992e8fd0cbf2280e38"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/bot-team-defense.json",
+      "bytes": 376,
+      "sha256": "8740b4bd6a9f641d8390ac2f66a28ff4491b5168baa6bf130a95344ef68fabbb"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/bot-team-siege.png",
+      "bytes": 1394057,
+      "sha256": "4db3b9dfac77bb07374b9bca8f0a556841bf77428b2b7b975e5b1aedfed98cc4"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/browser-hidden-inhibitor-regrowth.png",
+      "bytes": 1236463,
+      "sha256": "4696d42bb9112e66626dfd9347aef1ff1f9d332ac215a8d9c38279d74ef04b02"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/browser-known-inhibitor-after-sight.png",
+      "bytes": 1238332,
+      "sha256": "88b199832a2df940cd21282495deb2b0ff94e103483a89e0754197df7ab42050"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/role-jungle-clear.png",
+      "bytes": 1457859,
+      "sha256": "f3276b61d4d497db5051f9061515e4092532e83411bdadd75739dca1b67c3469"
+    },
+    {
+      "file": ".cache/team-advance-refined-related-browser-v1/run/artifacts/browser-enemy-base-fog.png",
+      "bytes": 1343092,
+      "sha256": "2723a857ccf40e1e8dc64636cf71f6ac15108a557ef1616b5e1c081de94fc10f"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811866,
+      "sha256": "f05df40055576aa0d7107f8fa6dc39e68e8417c5bc29eb717882ad3094a44304"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1818118,
+      "sha256": "ca1a3b3872b5415a4de758715f733235d457a747935fdaf22802827123f1e6c4"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812784,
+      "sha256": "a919e263bc2462ecccd24655a7a2c5007b8c549ff4587694c547f4637cc774d4"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1831126,
+      "sha256": "4cb1d01d0b1c0fd726f085fa2fa1edc8480c99935e8498a3baa995a0ac909924"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820507,
+      "sha256": "03832eae0dc20b6c4e8a15e86146ebc525b3382b4e5dba71c475d05750e97d8b"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1806117,
+      "sha256": "d2b4978f543e0d1124dd42f8b8e9801c8caf13444dcde9e9b5912f73f7004b4f"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1347261,
+      "sha256": "8562a27d985bcf12245d1b58a05ff237c3dc3b841723952176e14ba1985b4207"
+    },
+    {
+      "file": ".cache/team-advance-refined-production-v1/run/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1834033,
+      "sha256": "025d3646f7002dcc38877413a4aeabcb3a38e7c41157138dc9d7a3723d516ce7"
+    }
+  ]
+}

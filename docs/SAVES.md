@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **113** adds ordered Garen basic-swing presentation records:
+Current schema **114** adds the `advance` team-job kind for travel guided by
+friendly waves and public structure placements before target vision. Its anchor
+must be an opposing structure and its actor must be AI-controlled. Existing
+point bounds, identity, unique assignment and issued/observed/expiry validation
+remain strict. Wave disappearance cancels the job at the next planning decision;
+an intervening checkpoint retains only its copied staging point. Companion
+completion is derived from the owner's existing state and adds no saved field.
+Earlier schemas and fingerprints remain incompatible; production imports have
+no identity bridge. See [team strategy](BOT-TEAM-STRATEGY.md).
+
+Schema **113** added ordered Garen basic-swing presentation records:
 captured start/release/end, ordinary/critical kind, target/team/rig, origin,
 creation audience, cancellation and a separate accepted contact with material,
 point and audience. Contacts capture before lethal damage removes vision.

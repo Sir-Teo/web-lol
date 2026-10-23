@@ -2,7 +2,8 @@ import { BOT_TEAM_POLICY as P } from '../content/bot-team-policy';
 import type { MatchRole } from '../content/bot-roles';
 import { direction, distance, type Vec2 } from './math';
 import { botCombatStrength, type Combatant } from './bot-disengage';
-export type TeamGoalKind = 'defend' | 'push' | 'gank' | 'river';
+import type { StructureState } from './types';
+export type TeamGoalKind = 'defend' | 'push' | 'gank' | 'river' | 'advance';
 export interface TeamGoal {
   unitId: number;
   kind: TeamGoalKind;
@@ -27,6 +28,7 @@ export interface TeamActor extends Combatant {
   controlled: boolean;
   available: boolean;
   clearing: boolean;
+  companionComplete: boolean;
   level: number;
 }
 export interface SeenChampion extends Combatant {
@@ -40,20 +42,41 @@ export interface SeenStructure extends Vec2 {
   range: number;
   attackable: boolean;
 }
+export interface KnownStructure extends Vec2 {
+  id: number;
+  kind: SeenStructure['kind'];
+  role: StructureState['role'];
+  lane: StructureState['lane'];
+  /** Public destruction knowledge, conservatively expired on the known calendar. */
+  knownDestroyed: boolean;
+}
+export interface TeamMinion extends Vec2 {
+  lane: StructureState['lane'];
+}
 export interface TeamObservation {
   tick: number;
   home: Vec2;
   actors: readonly TeamActor[];
-  minions: readonly Vec2[];
+  minions: readonly TeamMinion[];
   enemies: readonly SeenChampion[];
   enemyMinions: readonly Vec2[];
   ownStructures: readonly SeenStructure[];
   enemyStructures: readonly SeenStructure[];
+  /** Public map placements and remembered destruction; no hidden health or gates. */
+  knownStructures: readonly KnownStructure[];
   scuttlers: readonly (Vec2 & { id: number; hp: number; maxHp: number; attackable: boolean })[];
   /** Remembered intact tower placements, including towers currently under fog. */
   towers: readonly (Vec2 & { range: number })[];
   gone: ReadonlySet<number>;
 }
+const structureOrder: Record<StructureState['role'], number> = {
+  'outer-turret': 0,
+  'inner-turret': 1,
+  'inhibitor-turret': 2,
+  inhibitor: 3,
+  'nexus-turret': 4,
+  nexus: 5,
+};
 /** Inputs contain team knowledge only. No World, opponent orders/cooldowns,
  * hidden populations or actual neutral respawn schedules enter this policy. */
 export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): TeamGoal[] {
@@ -147,6 +170,84 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
       );
     }
   }
+  // Own wave positions and public map geometry can guide a rotation before the
+  // next structure is visible. Actual structure targeting still requires sight.
+  const lanes = [...new Set(o.minions.flatMap((m) => (m.lane === null ? [] : [m.lane])))].sort();
+  for (const lane of lanes) {
+    const objective = o.knownStructures
+      .filter((s) => !s.knownDestroyed && (s.lane === lane || s.lane === null))
+      .sort(
+        (a, b) =>
+          structureOrder[a.role] - structureOrder[b.role] ||
+          distance(a, o.home) - distance(b, o.home) ||
+          a.id - b.id
+      )[0];
+    if (!objective) continue;
+    const wave = o.minions.filter((m) => m.lane === lane);
+    const fronts = wave
+      .filter((m) => distance(m, objective) <= P.advance.structureRadius)
+      .sort((a, b) => distance(a, objective) - distance(b, objective) || a.x - b.x || a.y - b.y);
+    const front = fronts.find(
+      (m) =>
+        wave.filter((other) => distance(other, m) <= P.advance.waveClusterRadius).length >=
+        P.advance.minimumWaveUnits
+    );
+    if (!front) continue;
+    const cover = wave.filter((m) => distance(m, front) <= P.advance.waveClusterRadius);
+    const away = direction(front, o.home);
+    const point = {
+      x: front.x + away.x * P.advance.stagingDistance,
+      y: front.y + away.y * P.advance.stagingDistance,
+    };
+    if (
+      o.towers.some(
+        (t) =>
+          distance(t, point) < t.range + P.towerMargin &&
+          !o.minions.some((m) => distance(m, t) <= t.range + 100)
+      )
+    )
+      continue;
+    const hostile = o.enemies
+      .filter((e) => distance(e, front) < 1400)
+      .reduce((sum, e) => sum + botCombatStrength(e), 0);
+    for (const a of eligible) {
+      const radius =
+        objective.lane === null || objective.kind === 'inhibitor'
+          ? P.advance.baseJoinRadius
+          : P.advance.joinRadius;
+      if (
+        a.clearing ||
+        // Keep an unfinished jungler on its economy loop for ordinary towers.
+        // A public base-ending wave remains an opportunity for every role.
+        (a.role === 'jungle' &&
+          !a.companionComplete &&
+          objective.lane !== null &&
+          objective.kind !== 'inhibitor') ||
+        a.level < P.advance.minLevel ||
+        a.hp / a.maxHp < P.advance.minimumHpFraction ||
+        distance(a, point) > radius
+      )
+        continue;
+      const friendly =
+        botCombatStrength(a) +
+        o.actors
+          .filter(
+            (f) => f.id !== a.id && f.available && f.hp / f.maxHp > 0.4 && distance(f, front) < 1400
+          )
+          .reduce((sum, f) => sum + botCombatStrength(f), 0);
+      if (hostile > friendly * 0.85) continue;
+      offer(
+        a,
+        'advance',
+        objective.id,
+        point,
+        70 +
+          (objective.kind === 'nexus' ? 40 : objective.kind === 'inhibitor' ? 20 : 0) +
+          Math.min(cover.length, 6) * 2 -
+          distance(a, point) / 600
+      );
+    }
+  }
   for (const a of eligible.filter(
     (a) => a.role === 'jungle' && !a.clearing && a.hp / a.maxHp >= 0.45
   )) {
@@ -212,7 +313,10 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
     );
     const renewed = old && options.find((g) => g.kind === old.kind && g.targetId === old.targetId);
     const retained =
-      renewed ?? (old && !seen.has(old.targetId) && a.hp / a.maxHp >= 0.45 ? old : undefined);
+      renewed ??
+      (old && old.kind !== 'advance' && !seen.has(old.targetId) && a.hp / a.maxHp >= 0.45
+        ? old
+        : undefined);
     if (
       retained &&
       (!chosen || (chosen.kind !== 'defend' && chosen.score < retained.score * P.retargetRatio))

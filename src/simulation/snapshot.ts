@@ -109,7 +109,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 113;
+export const SNAPSHOT_VERSION = 114;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -889,7 +889,7 @@ const teamPlan = z.strictObject({
     .array(
       z.strictObject({
         unitId: id,
-        kind: z.enum(['defend', 'push', 'gank', 'river']),
+        kind: z.enum(['defend', 'push', 'gank', 'river', 'advance']),
         targetId: id,
         point,
         issuedTick: tick,
@@ -2549,7 +2549,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         const validTarget =
           g.kind === 'defend'
             ? !!target && target.team === team && !!target.structure
-            : g.kind === 'push'
+            : g.kind === 'push' || g.kind === 'advance'
               ? !!target && target.team !== team && !!target.structure
               : g.kind === 'gank'
                 ? !!target && target.team !== team && target.kind === 'champion'
@@ -2558,6 +2558,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         if (
           !actor ||
           actor.team !== team ||
+          (g.kind === 'advance' && !actor.ai) ||
           !validTarget ||
           g.issuedTick > g.observedTick ||
           g.observedTick > state.tick ||

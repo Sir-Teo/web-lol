@@ -171,6 +171,7 @@ import {
   ITEMS,
   ITEM_RECIPES,
   RECALL_DURATION_TICKS,
+  STRUCTURE_RESPAWN_TICKS,
   TICK_RATE,
 } from '../content/rules';
 import { ASHE } from '../content/ashe-progression';
@@ -2057,13 +2058,23 @@ export class World {
     this.enqueue({ type: 'cast', unit: u.id, ability: slot, point: aim });
     return true;
   }
+  private knownStructureDestroyedForPlans(u: Unit, team: Team): boolean {
+    const death = this.knownStructureDeathTick(u, team);
+    if (death === null) return false;
+    const role = u.structure?.role;
+    const delay =
+      role === 'inhibitor' || role === 'nexus-turret' ? STRUCTURE_RESPAWN_TICKS[role] : null;
+    // This is the public calendar derived from a known death. Never consult an
+    // unseen structure's current health or actual respawn deadline here.
+    return delay === null || this.tick < death + delay;
+  }
   private knownTeamTowers(team: Team) {
     return this.units.filter(
       (t) =>
         t.kind === 'turret' &&
         t.team !== team &&
         (t.structureKnowledge
-          ? t.structureKnowledge[team] === null
+          ? !this.knownStructureDestroyedForPlans(t, team)
           : this.visible(t, team) && this.alive(t))
     );
   }
@@ -2114,6 +2125,7 @@ export class World {
               controlled: u.ai,
               available: !u.aiRetreating && s.recallEnd === null,
               level: s.level,
+              companionComplete: companionStage(ownedCompanion(this, u.id)?.fed ?? 0) === 2,
               clearing:
                 !!target &&
                 target.kind === 'monster' &&
@@ -2124,7 +2136,14 @@ export class World {
           }),
         minions: this.units
           .filter((u) => u.team === team && isLaneMinionKind(u.kind) && this.alive(u))
-          .map((u) => ({ x: u.x, y: u.y })),
+          .map((u) => {
+            const lane = u.lane === null ? null : this.battlefield.lanes[u.lane]?.name;
+            return {
+              x: u.x,
+              y: u.y,
+              lane: lane === 'top' || lane === 'mid' || lane === 'bot' ? lane : null,
+            };
+          }),
         enemies,
         enemyMinions: seen
           .filter((u) => isLaneMinionKind(u.kind) && this.alive(u))
@@ -2133,6 +2152,17 @@ export class World {
           .filter((u) => u.team === team && !!u.structure && this.alive(u))
           .map(structure),
         enemyStructures: seen.filter((u) => !!u.structure && this.alive(u)).map(structure),
+        knownStructures: this.units
+          .filter((u) => u.team !== team && !!u.structure)
+          .map((u) => ({
+            id: u.id,
+            x: u.x,
+            y: u.y,
+            kind: u.kind as SeenStructure['kind'],
+            role: u.structure!.role,
+            lane: u.structure!.lane,
+            knownDestroyed: this.knownStructureDestroyedForPlans(u, team),
+          })),
         scuttlers: seen
           .filter((u) => u.kind === 'monster' && u.monster.species === 'scuttler' && this.alive(u))
           .map((u) => ({
@@ -4352,9 +4382,10 @@ export class World {
         target.respawnTick = this.tick + championDeathTicks(level, this.tick);
       }
       if (target.kind === 'dummy') target.respawnTick = this.tick + 3 * TICK_RATE;
-      if (target.kind === 'inhibitor') target.respawnTick = this.tick + 300 * TICK_RATE;
+      if (target.kind === 'inhibitor')
+        target.respawnTick = this.tick + STRUCTURE_RESPAWN_TICKS.inhibitor;
       if (target.structure?.role === 'nexus-turret')
-        target.respawnTick = this.tick + 180 * TICK_RATE;
+        target.respawnTick = this.tick + STRUCTURE_RESPAWN_TICKS['nexus-turret'];
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {

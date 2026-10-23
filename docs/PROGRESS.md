@@ -4216,3 +4216,35 @@ separate. Schema 113 remains strict; the new runtime/package fingerprint is
 from the completed old-ruleset corpus in `reference/normal-cohort-results.json`.
 The six-champion milestone and broader full-match/native/browser/performance
 requirements remain open; no new-ruleset 100-seed result is claimed.
+
+## Friendly-wave advancement with jungle progression — October 23, 2026
+
+Bots can now rotate behind a friendly wave toward the next public map structure
+before that structure becomes visible. Ordinary attacks still require sight and
+vulnerability. Wave disappearance cancels the job at the next planning decision;
+remembered respawning towers become hazards again on the public calendar.
+Schema 114 strictly validates the new `advance` job. Existing owner companion
+state controls unfinished-jungler eligibility without adding a saved field.
+
+The first prototype finished four fixed seeds but delayed jungle development.
+Its replacement preserves ordinary-tower farming until companion completion,
+while keeping visible pushes and base-ending opportunities. Four matched
+60-minute pilots now finish at 41:45.9, 51:53.3, 42:50.6 and 38:21.3 (seeds
+1, 8, 38 and 719); their pre-advance baseline had one victory and three censored
+horizons. Companion growth and matched-time farming recover substantially,
+although deaths and levels still expose combat-quality limits. This small,
+selected sample does not establish general completion rate or balance.
+
+Independent verification checks 629,460 ticks, 176 strict round trips and 172
+restored futures. Canonical `npm run check` passes TypeScript, 1,474 tests across
+267 files and three Node QA checks with default timeouts. Seven targeted Chrome
+cases, production build and nested-host smoke pass. The first concurrent unit
+run's two timeouts remain recorded; the unchanged standard command passes after
+other owners drain. Sources, builds, checkpoints, logs and captures remain
+separate from earlier evidence. See [team strategy](BOT-TEAM-STRATEGY.md) and
+the [verification ledger](reference/bot-wave-advance-verification.json).
+
+The original 100-seed corpus retains its older ruleset and 70/30 result. No new
+100-seed gate, complete six-character milestone or full-project completion is
+claimed. Remaining champion content, role quests/objectives, native comparison
+and full browser/offline/performance coverage remain required work.

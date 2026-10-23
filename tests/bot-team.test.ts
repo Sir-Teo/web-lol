@@ -23,6 +23,7 @@ const actor = (id = 1, role: TeamActor['role'] = 'jungle', x = 0): TeamActor => 
   controlled: true,
   available: true,
   clearing: false,
+  companionComplete: false,
   level: 4,
 });
 const structure = (id = 20, x = 1800, kind: SeenStructure['kind'] = 'turret'): SeenStructure => ({
@@ -44,6 +45,7 @@ const observed = (): TeamObservation => ({
   enemyMinions: [],
   ownStructures: [],
   enemyStructures: [],
+  knownStructures: [],
   scuttlers: [],
   towers: [],
   gone: new Set(),
@@ -66,7 +68,7 @@ test('teams defend a threatened base with available controlled responders while 
 test('a visible exposed structure with allied wave cover draws jungle help, while protection and an overwhelming visible defense cancel it', () => {
   const o = observed();
   o.enemyStructures = [structure(20, 1600)];
-  o.minions = [{ x: 1300, y: 0 }];
+  o.minions = [{ x: 1300, y: 0, lane: 'mid' }];
   expect(planTeam([], o)).toMatchObject([{ kind: 'push', point: { x: 700, y: 0 }, targetId: 20 }]);
   expect(planTeam([], { ...o, minions: [] })).toEqual([]);
   expect(
