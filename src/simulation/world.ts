@@ -152,6 +152,7 @@ import { hastedCooldownTicks, totalAbilityHaste } from './ability-haste';
 import { advanceBlueBuff, grantBlueBuff } from './blue-buff';
 import {
   advanceRedBuff,
+  advanceRedBuffClock,
   grantRedBuff,
   redBuffActive,
   cinderDamagePerTick,
@@ -3839,6 +3840,7 @@ export class World {
                 victim.team === p.team ||
                 !this.alive(victim) ||
                 isStructureKind(victim.kind) ||
+                victim.kind === 'ward' ||
                 distance(victim, contact) > ASHE_R.splashRadius
               )
                 continue;
@@ -4355,6 +4357,10 @@ export class World {
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
+          // Combat can finish the tick before post-combat restoration runs.
+          // Canonicalize its clocks without granting HP or mana after victory.
+          advanceRedBuffClock(state, this.tick);
+          if (state.enlighten && state.enlighten.endTick <= this.tick) state.enlighten = null;
           finishOracleVisual(state.trinket, this.tick, 'match-end');
           this.finishGarenE(state);
           this.finishGarenW(state, 'match-end');

@@ -1,0 +1,2707 @@
+{
+  "date": "2026-10-23",
+  "parent": "503754f",
+  "schema": 113,
+  "ruleset": "6466566e3a12e041128f2bafd34800b81ed798b61726c387cc7cfdc8b2003c57",
+  "failedCohort": ".cache/match-cohort/normal-100-6a6196f-20261023",
+  "validation": {
+    "sourceExecutions": 8,
+    "sourceFailures": 2,
+    "sourceUnexecuted": 92,
+    "oldGatePassed": false,
+    "unitChecks": 1457,
+    "unitFiles": 265,
+    "newCases": 5,
+    "chromeCases": 16,
+    "productionPrefix": "/nested/rift/",
+    "productionRecordings": 32,
+    "decoderUnchanged": true
+  },
+  "replays": [
+    {
+      "seed": 3,
+      "inputTick": 201600,
+      "repairedTick": 204912,
+      "winner": "blue",
+      "changes": [
+        {
+          "path": "otherChampions.1.redBuff.nextRegenTick",
+          "before": 204912,
+          "after": 204942
+        }
+      ],
+      "roundTripExact": true,
+      "futureTicks": 0,
+      "futureExact": true
+    },
+    {
+      "seed": 5,
+      "inputTick": 147600,
+      "repairedTick": 151200,
+      "winner": null,
+      "changes": [
+        {
+          "path": "units.60.slowUntil",
+          "before": 148701,
+          "after": 0
+        }
+      ],
+      "roundTripExact": true,
+      "futureTicks": 120,
+      "futureExact": true
+    }
+  ],
+  "scope": "Two observed save failures corrected without weakening decoding. Full 100-seed replacement still required; full project remains incomplete.",
+  "files": [
+    {
+      "file": ".cache/503754f-cohort-defects-browser-backup/manifest.json",
+      "bytes": 2221,
+      "sha256": "25b54f40838df8330f2644359d506b67d247c821e5c71e28466d4ca287d52d40"
+    },
+    {
+      "file": ".cache/cohort-defects-baseline.log",
+      "bytes": 4919,
+      "sha256": "7b13192d467be3b9290807d78c404882caad2c8b7b356d2715d8552a00618068"
+    },
+    {
+      "file": ".cache/cohort-defects-browser-initial.log",
+      "bytes": 694,
+      "sha256": "45b01b1c69e527d4f06d848631cd4efa8e19baa75ec50aaf759dcebf709bfa51"
+    },
+    {
+      "file": ".cache/cohort-defects-browser-outputs.json",
+      "bytes": 1133,
+      "sha256": "85d83bbf54e3bd8bc256e80283238cdf2c209b44d2434804fb5c517eff82d8cb"
+    },
+    {
+      "file": ".cache/cohort-defects-browser-regression.log",
+      "bytes": 2336,
+      "sha256": "c1a1b9ada77b87258c7b9923795cb54090156dbcdb3ac08480ad2109d9c6834f"
+    },
+    {
+      "file": ".cache/cohort-defects-build.log",
+      "bytes": 2350,
+      "sha256": "d2af2852c19f1278d549a07b322a9b140368b920622890b9ec8cd16968c867cc"
+    },
+    {
+      "file": ".cache/cohort-defects-focused.log",
+      "bytes": 438,
+      "sha256": "89e2f4e289555b3b830e522c60377132d75dfec02f6a55ccf0caa97517b2195f"
+    },
+    {
+      "file": ".cache/cohort-defects-production.log",
+      "bytes": 1807,
+      "sha256": "56025c0c19d99cf9ac81b26284bdd94f00377b5bc17e5a0e491fa61db73f596b"
+    },
+    {
+      "file": ".cache/cohort-defects-production.mjs",
+      "bytes": 21409,
+      "sha256": "6326ce4a138e4f2f34a3484454adf1148e7e08aaf9a4288da92607872fca6385"
+    },
+    {
+      "file": ".cache/cohort-defects-replay-6466566e3a12/replay-cohort-failures.js",
+      "bytes": 779721,
+      "sha256": "e61e40a25050666809dfbe634153fd40d5b351d761673e067c12114925eb4d9d"
+    },
+    {
+      "file": ".cache/cohort-defects-replay-evidence-6466566e3a12/replay-cohort-failures.js",
+      "bytes": 779912,
+      "sha256": "d552b5971f7565c66cd1a6148dc19a0878920de32676bd2e682a55129b0756b2"
+    },
+    {
+      "file": ".cache/cohort-defects-replay-verified.log",
+      "bytes": 1951,
+      "sha256": "d347b7edeeb489c153992231ad8ad8385a141071324c70d589fddc208932456f"
+    },
+    {
+      "file": ".cache/cohort-defects-replay.log",
+      "bytes": 1773,
+      "sha256": "2f82d3b4de8dea266c659903746d372282b50fff263ca40633e88437fff46ec6"
+    },
+    {
+      "file": ".cache/cohort-defects-reproduction.log",
+      "bytes": 4156,
+      "sha256": "3fd9e65ce0e4a7f8517df63b63cc4eba7c7b70ac15f04ea5858b0ffbab029aaa"
+    },
+    {
+      "file": ".cache/cohort-defects-tsc-verified.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/cohort-defects-unit.log",
+      "bytes": 403,
+      "sha256": "36b75025d4c8e6e3183709a1fa8078b21f25c3337096f6904d1a31a0ab2dab54"
+    },
+    {
+      "file": ".cache/match-cohort-anchor-compare.mjs",
+      "bytes": 2460,
+      "sha256": "8b8c51f1f6d9be9a1aa95a63034a9b987768cbea450a132a492731a961cf2d5b"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/anchor-comparison.json",
+      "bytes": 4134,
+      "sha256": "6bb12f542ad9b39d01388fe621a52d66cf5a070eb8dcd7ecbf8b9be775109163"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/plan.json",
+      "bytes": 38629,
+      "sha256": "98d547bad93476b764adb3d8ffbb34714b5a51c211d6cc0d87c7630fa3558e48"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/report.json",
+      "bytes": 275382,
+      "sha256": "d18df018ea18d6e7a8223be0cd3a3df9abec05dc849692940f5f66309fe6a740"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/report.json",
+      "bytes": 306773,
+      "sha256": "ade3712671f5df4f4c49c084412036b6bba0df1268a9344f8701644bc2c019c6"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/report.json",
+      "bytes": 259173,
+      "sha256": "d10ada41ff1613959bbca3ff93807e49fd38fd10f91171d0c6b4aaa2e7e2f88f"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/report.json",
+      "bytes": 286969,
+      "sha256": "d0c14810b45fdb9b3c1fa8093bbdcc960f663da9f7bf56a5c9d8bcc035804e57"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/report.json",
+      "bytes": 288661,
+      "sha256": "12995de3e8f56024e652598b19743a9ccdce57393de76ba9126c0c134b44a3aa"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/report.json",
+      "bytes": 209325,
+      "sha256": "6aa4b7f4fec7dfebc239ea04cd07ba3b235bc6882da80c1c64bd8e92fa6fcfa5"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/report.json",
+      "bytes": 294638,
+      "sha256": "43b427593a8c024d8ca0bf125f45032857cee45b3c9771707e43519ef4ea23ff"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/report.json",
+      "bytes": 289215,
+      "sha256": "aefa87a882c008eebf57f0812fb8c5d792f08c9003f9c38efe5aed1fb77d0ab8"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6a6196f-20261023/summary.json",
+      "bytes": 2575761,
+      "sha256": "1b15fe38e62577c2d4bb863ac2145cd0a905d48f9ffaed747019a5c056186a9a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/maps/rift-nav.bin",
+      "bytes": 1925772,
+      "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/runner/match-seed.js",
+      "bytes": 787979,
+      "sha256": "0bd846e108ca07ee97148489123e1fded21473a153807f340323098b38dd5209"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/003600.match.json",
+      "bytes": 163627,
+      "sha256": "07326d20480815a95c7d5c1966f8de39223f457320a4bd9e1da3867a617acbe3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/007200.match.json",
+      "bytes": 183930,
+      "sha256": "61cb0267097d01dcc0fdafa8e7d42719ac6fc24a0b78c1dc7d332e889f986f79"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/010800.match.json",
+      "bytes": 175049,
+      "sha256": "6f7f45810c50e9ce3e586b461d13a55ae256e3d33d686a45b65432d4dbcca8bc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/014400.match.json",
+      "bytes": 165886,
+      "sha256": "3cf0e8dfd5b915ddfd238849fc0854f025f330ca5726485c008ba31c748729fe"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/018000.match.json",
+      "bytes": 185466,
+      "sha256": "9ccdafdca01b00a871eff3f8635ea745436b3c6bc02d5d9723f7e24a39848d1a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/021600.match.json",
+      "bytes": 185753,
+      "sha256": "d97b0005406252607df24d3d7b0ce9104f6c08ab9f2d4dbf733f620b75352cd4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/025200.match.json",
+      "bytes": 183202,
+      "sha256": "854e21b24f53241ec809fba4c784089a33a099a8cc331e25e8eb59da99bc55f9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/028800.match.json",
+      "bytes": 175690,
+      "sha256": "18d181359701103c94cb074c7362a767692a63dec9f59525ce3f562f46f1eaad"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/032400.match.json",
+      "bytes": 173223,
+      "sha256": "b5557ebb0d4a7c6017319bb6f8ebc692e23f434f510fa403cc1b25f911453e95"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/036000.match.json",
+      "bytes": 173625,
+      "sha256": "67ea4768b54af813e25b88297d3c9dcadab081c2d9755da4cb7beb2ecf058f09"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/039600.match.json",
+      "bytes": 193545,
+      "sha256": "6f214478eebc1a460253d7c0f5bc0a7593e4c2d4ed7deec668e2010ddc0cf1e0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/043200.match.json",
+      "bytes": 190520,
+      "sha256": "e094688a6ab8c15c63231eac10b40cda5d474fc091b369e3108f8c3f88319597"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/046800.match.json",
+      "bytes": 179095,
+      "sha256": "1fc0dede39c90b84431f566752d46d34275881650774f05ad40f355c70f8c3fa"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/050400.match.json",
+      "bytes": 202523,
+      "sha256": "06a368b556238939d9968f919cbf1727227f3b8bcabc710cc76b1be92721ce2a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/054000.match.json",
+      "bytes": 215092,
+      "sha256": "9ff9c3e0ade81f42da746f4400ef50f58cfb9e6ce34f0d48ef17cca19f7ce280"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/057600.match.json",
+      "bytes": 183080,
+      "sha256": "2fd5031628c61ae96012309d6a5dde23cbd3be1ab8437b1b8b98b664bdf52407"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/061200.match.json",
+      "bytes": 235265,
+      "sha256": "94f710c9f60a10e9d0952237942402fae2efb758edb33879ed892753a3e036ca"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/064800.match.json",
+      "bytes": 184845,
+      "sha256": "dafac9b73dc18fca34473e1c7d286440bbaf7596269b3c3e1e4975fad9f2140b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/068400.match.json",
+      "bytes": 182036,
+      "sha256": "34d3b0cbd96bfe67c738e46aef772da9e9efac6ae8a9a9c83881765df61c3d9e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/072000.match.json",
+      "bytes": 208795,
+      "sha256": "64a7d1fa6b1ca64d3c8daff1110caf6d5dcf19ce439174d247b003636f5fa467"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/075600.match.json",
+      "bytes": 158398,
+      "sha256": "22cf2734c7404aa78fcd30cf42662c5fb681716e843a9ced4e522abfd3b313c4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/079200.match.json",
+      "bytes": 230389,
+      "sha256": "4e730211327e8d4e8bd83c08d6cb8d3a0101e5c09a12d2e324ee4af54d980230"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/082800.match.json",
+      "bytes": 186300,
+      "sha256": "644134a81c9e1c120a3df9f9e7704ddb92f51d48e4e173abf5fe2c6c6fb0a59d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/086400.match.json",
+      "bytes": 183103,
+      "sha256": "b3b005a567f798d4750047bc348da87b75ee01ac0a319e54a78da0a27cb8a971"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/090000.match.json",
+      "bytes": 184692,
+      "sha256": "19c3b7c099d948fe442c5a19ee3cbd7e52afc7148c4fb756f28917cabdf6fa59"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/093600.match.json",
+      "bytes": 205493,
+      "sha256": "ee0c218e6652b02aeb8660c89a22933fff11162d4f65e840e65304035d5390c5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/097200.match.json",
+      "bytes": 192904,
+      "sha256": "f32f3ccc900eb7ca75b7741db51161694c0730f92f586fbe50e61ab84d90122c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/100800.match.json",
+      "bytes": 173694,
+      "sha256": "37af5b6f668588b5320159719cae4df1e5264680c81d4ef05c92a77a62c33fab"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/104400.match.json",
+      "bytes": 166035,
+      "sha256": "0b5cd2be939de20d18a9350de776f19ca388915ead85767295b7faabecbf5646"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/108000.match.json",
+      "bytes": 210127,
+      "sha256": "54457044431f490f2ba99e32a07ea7756aa838fed0db56c4ffcb1b909989a4df"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/111600.match.json",
+      "bytes": 190116,
+      "sha256": "6ac0156e52e2f2e665956d1b58b49fda12e644e0575abd9e76c4f21a1a718982"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/115200.match.json",
+      "bytes": 202460,
+      "sha256": "1006cd9e739646c08aa157a39f4518f4a8c5f94d43d7e96793aa2a7e9e7e6360"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/118800.match.json",
+      "bytes": 224004,
+      "sha256": "a7cb72170ac3131fa75a556bb7acb1f399c42fb68b384fde3ce6f235aa4ea41c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/122400.match.json",
+      "bytes": 198500,
+      "sha256": "3df184120a16ff422a4d41852434aededdfe9ee05502b079f182c42962012641"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/126000.match.json",
+      "bytes": 177950,
+      "sha256": "00b382ada873524e07aeb01782059b2e071f5a04156933a2816a2b996f045b5f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/129600.match.json",
+      "bytes": 229089,
+      "sha256": "798168a7645264cefd8372aa1f9c74f8df09a51618175ef75ff36796d1b5f8f4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/133200.match.json",
+      "bytes": 198751,
+      "sha256": "10471384b1f04ad40c7d2b09231870f54166016151736f40b00f35d8fee74301"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/136800.match.json",
+      "bytes": 180185,
+      "sha256": "cbf997da81fc2e2c40cf132713ec940aa53e2907b884c006c2b61488ea292f46"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/140400.match.json",
+      "bytes": 214114,
+      "sha256": "8d60cd95e1d40eac65437fbb6bdcfcbfff99663c19d0629a8b4556b7b2ca4347"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/144000.match.json",
+      "bytes": 194311,
+      "sha256": "3e9754b9e5ef64cccb85f161f2a9abb3005646d57b59762fe3fef321a0e7b29c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/147600.match.json",
+      "bytes": 225396,
+      "sha256": "9b7cb15812c396b7e744d665e8f1e59495afc3df841f4295c07d603ea701a5ef"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/151200.match.json",
+      "bytes": 198554,
+      "sha256": "cbb9a330780a29ed38fc512f6a3f29a385477768ab70f14bd946742c7b7db915"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/154800.match.json",
+      "bytes": 174714,
+      "sha256": "4592429968760925940f76b7d5814e428bbe7664e1ccd3d952f362020de33779"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/158400.match.json",
+      "bytes": 207164,
+      "sha256": "b3cac28f7e431c7522cc51b859430c38a354771371addbb6b38c082ff09390c2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/162000.match.json",
+      "bytes": 229396,
+      "sha256": "a90e6462edcaad0e640300609076ab6a67a2f9458d26fa58b804da90418fbfc8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/165600.match.json",
+      "bytes": 209635,
+      "sha256": "186bb5af90507770af077121c7f9aed69b9760a4ddfb27293b2a8674dcd80fd6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/169200.match.json",
+      "bytes": 207701,
+      "sha256": "f0644c90587023550347bca8c010ffd9e52795c0328fac9c653df5e3d6d36bd7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/172800.match.json",
+      "bytes": 210058,
+      "sha256": "105542da40e0d5633d4b7bc21651cb25abc73b863e13c133eb350819a79a405d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/176400.match.json",
+      "bytes": 200465,
+      "sha256": "98861fb33ed14a7b3a6cde23b88714d60e14ed9e3ad42a651df4288646cdaf1c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/180000.match.json",
+      "bytes": 207835,
+      "sha256": "08b29ceefe569bc3393754c86c351f459ab0a210055304de79ee5db1435fa9d9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/183600.match.json",
+      "bytes": 223884,
+      "sha256": "05017b90758e1fe5e7c48e5f186df0d731e318ff0c494e2d64adb5ef166fb82d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/187200.match.json",
+      "bytes": 211001,
+      "sha256": "b4e006280ec6483502d989669916139a652e63d89d2b344786d57ad3eadb5a14"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/190800.match.json",
+      "bytes": 219841,
+      "sha256": "d3a66a566f6e4e5ffbfc0ba499a614ac3428ee3d8997381f7a0a43482290a6f1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/191226.match.json",
+      "bytes": 204371,
+      "sha256": "f8ebf664bb4ed420b8d19604756b91f05b3b4bf4996958ebf888685bb067e0d5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/1/final.match.json",
+      "bytes": 204371,
+      "sha256": "f8ebf664bb4ed420b8d19604756b91f05b3b4bf4996958ebf888685bb067e0d5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/003600.match.json",
+      "bytes": 163627,
+      "sha256": "57eeb1105d125e40a3889485b228814a2799a619afcf6433f85bfb9a16b22b6c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/007200.match.json",
+      "bytes": 183930,
+      "sha256": "305b61b85b73f67e36c5f2e075a88c772595ac637670215f2723d06823387d37"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/010800.match.json",
+      "bytes": 175049,
+      "sha256": "5ae6cf3e10d171f0041cc42631baaa2526a9646226a85e1e6df7eb87dae9974a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/014400.match.json",
+      "bytes": 165886,
+      "sha256": "3c7063baa7c945d07a8e86dc899cd9f09519ef3905e366d76d5362ddd9cdbd6c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/018000.match.json",
+      "bytes": 185728,
+      "sha256": "f8a6a7e71b06f3a82e6ddbb34e5f5b307536e271b3fb1ce36c9e0a31809a9c12"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/021600.match.json",
+      "bytes": 185978,
+      "sha256": "add1325be1c668becb3a28a62ff53d6dc31f3196866a63b4d8e9f679580c6955"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/025200.match.json",
+      "bytes": 209201,
+      "sha256": "eaa92918e7feb5172884998498a54d0177fcb73c35c210e42d25f7457abd8781"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/028800.match.json",
+      "bytes": 172871,
+      "sha256": "8ab112bdf932be8b89214459e453350527455e8a2d2f8dec5bfb8eb9df8a3b85"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/032400.match.json",
+      "bytes": 187393,
+      "sha256": "ae5243936ab516db9c0d11111201cfd6d6dd3310e93815fd22efe442d95996bc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/036000.match.json",
+      "bytes": 170390,
+      "sha256": "3d9b4beb656246988310d356b77bf27c34188b7e44bf6b29f2b04b76e4685d7b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/039600.match.json",
+      "bytes": 167473,
+      "sha256": "2493a678ebe5de1f092bc29d1732eaf1d35476b1d0e0ea8c15d680a35cb8e3e2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/043200.match.json",
+      "bytes": 178581,
+      "sha256": "8db1c42ce5fe0281563a72c7a3cd8e5b1b001ba044d4c4821355db2c9778deec"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/046800.match.json",
+      "bytes": 177866,
+      "sha256": "36e93b33a641df84c62576552cb002dad5e34f39e1b79f7eee3d106206ed8074"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/050400.match.json",
+      "bytes": 205165,
+      "sha256": "a4b61546572974b282dd6acd81c927d251b28a0fa1a16394bbc95cb923cead26"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/054000.match.json",
+      "bytes": 202724,
+      "sha256": "1bc063b79aa323489d0a2b4bbd1d9da535f09352ec7cf226c3de4b1ae7bf8165"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/057600.match.json",
+      "bytes": 167585,
+      "sha256": "b61eac0035771c1af76c05cbcb95f5a8d86c992e87b22f51f2bf6974d3567d0b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/061200.match.json",
+      "bytes": 211708,
+      "sha256": "23e75b6b49020256f51b823e7820a764c57b98e93a842a5611ac5bac8ab62731"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/064800.match.json",
+      "bytes": 195257,
+      "sha256": "6f75e8442b2022fec39b25def0b3629a23785957134bb41db538caa2bf23ea78"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/068400.match.json",
+      "bytes": 193847,
+      "sha256": "33c656439e7c63aa4aed6be802fbb1395d97b976844bc294c9310d01a1652f8c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/072000.match.json",
+      "bytes": 206772,
+      "sha256": "284318308b53dc85db067f2bef509c76f782f0c5b98066682821b476d5e18b45"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/075600.match.json",
+      "bytes": 222404,
+      "sha256": "f15483b78a47b36e83bf49f2571349b837e066edcff5ee14c87a059c2adee0e4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/079200.match.json",
+      "bytes": 190272,
+      "sha256": "bc3c4b566fa2bb61d4717b63a780d097b02fa34c5263bf524bbec7cc9e9eac96"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/082800.match.json",
+      "bytes": 189765,
+      "sha256": "7c2193dc92c38f094241fd47159300b40a560882384b66b88022233f43ac2634"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/086400.match.json",
+      "bytes": 149092,
+      "sha256": "2c6ccfddb5c37e79dd05cbdf6c2271a39f9cbef10a798a0ac505847f11b06fb1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/090000.match.json",
+      "bytes": 194324,
+      "sha256": "82ae689d003672f5ba7f5752ef3b86e29c1108530da224bf54b5a612efb5947f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/093600.match.json",
+      "bytes": 167279,
+      "sha256": "26190fc0138535ca0a948b7fb254d605b3255927c9173601e0921e6698c502c3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/097200.match.json",
+      "bytes": 214745,
+      "sha256": "ed6cb3a03771779c549028121d7d0651e038eebbef5597dff456245f8fdd97a1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/100800.match.json",
+      "bytes": 180533,
+      "sha256": "7db77c1937bd4161b077949aecd5665782e7642725be482163e88ac83184212c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/104400.match.json",
+      "bytes": 151194,
+      "sha256": "ba863c5872435aabcf14b463e007068c9faa96552456f0a62f0233006f8d214f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/108000.match.json",
+      "bytes": 190636,
+      "sha256": "61f98439fac5b7e0356f5f66c15536d73bdeddc8e194b3243026eb13b1905850"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/111600.match.json",
+      "bytes": 199704,
+      "sha256": "82742277c74b61d0e0b136cb6c8497da00bf90c93dd3ae4f96a9e07d93d4871e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/115200.match.json",
+      "bytes": 169255,
+      "sha256": "e55a5f4d3bbd20a088548924d95c6de116545f5a72f9eb67bd5b77fdb774e845"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/118800.match.json",
+      "bytes": 205874,
+      "sha256": "cf7acf6ab0761725bd4038e35859653d82f88b27c0f6a32833a61501f587bd60"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/122400.match.json",
+      "bytes": 216201,
+      "sha256": "545aecece344b55af1a701653dde62301b37e9eba52478a4e4711d9762b9d49f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/126000.match.json",
+      "bytes": 185633,
+      "sha256": "a91bffae37a1a3d770c6e782091281e85dc58f8f80175055986eb1a4dee914cc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/129600.match.json",
+      "bytes": 193119,
+      "sha256": "ce6d17bb1652a4eed83db925185bc7deecc6cac798754c6368c488993762b3c6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/133200.match.json",
+      "bytes": 202557,
+      "sha256": "194dd2bc17edd56a088eee98cc6b5478d50bec4bd9085e5f1c0a9af1228aebc4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/136800.match.json",
+      "bytes": 177245,
+      "sha256": "ebb5f6484b19c166a5d9ce8a28442f4835a65a8849ddb95f637582d907c7c7d8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/140400.match.json",
+      "bytes": 197941,
+      "sha256": "a4bec950f273e2d95fde084e8dc445fa036528b6e6ae396ebf4783ebdd2b44eb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/144000.match.json",
+      "bytes": 197859,
+      "sha256": "8469c3fa2ba321a12e9b80da7e611aa128f510755d9331ef3b0e1311f91af6b8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/147600.match.json",
+      "bytes": 202426,
+      "sha256": "698ad384c8fbbeee9591e0a55ac46261f69735ea4014e894e4fb224accf0ab85"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/151200.match.json",
+      "bytes": 219204,
+      "sha256": "d8a47af158d13553ecb3cf2efda23dd5a210f0b1f3150409d40d0ff4102b0c25"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/154800.match.json",
+      "bytes": 155657,
+      "sha256": "d3ba65070bcf6655b07ecd3983c1e56e22347b359d40ae4004e67aa3f91b1571"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/158400.match.json",
+      "bytes": 196026,
+      "sha256": "9ea295573832faf89fb7a141a3384c365da439404c04016b99aace65cfbd788f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/162000.match.json",
+      "bytes": 202009,
+      "sha256": "a76cb938995fe14cb028ddd6c6ceabd926a1b3b52e254edb0da52e55893ba0cc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/165600.match.json",
+      "bytes": 192875,
+      "sha256": "51fcf4a5171f7290801b045b440888d51522754ae9d9d4be91db11b712a99072"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/169200.match.json",
+      "bytes": 181890,
+      "sha256": "0f35b34a91ddcedf27b9262709206a483dd6b61a82a034aa7e5fce582d737557"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/172800.match.json",
+      "bytes": 207031,
+      "sha256": "ced5047f47552b76ccaee7b6ad3d32f98b323681c81be51acc0058c7d75fd8a9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/176400.match.json",
+      "bytes": 201078,
+      "sha256": "7e21dce87579eb3f61fc018831f4febc362d585c003eaa719ff6ab6dc2ddce74"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/180000.match.json",
+      "bytes": 191915,
+      "sha256": "a3482d1d39cb14a2aa43fa7fd8abd4ee18c279cbc5f4cc3fe9516bd11846e917"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/183600.match.json",
+      "bytes": 208143,
+      "sha256": "28cff773951b3c526465f87883ba23a2923d7c4837a7ef1f7268b55a8ffab788"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/187200.match.json",
+      "bytes": 239409,
+      "sha256": "7e6e834a864df172fda48deb9017a0bb741a115627cfcf2866947f91cc476e8d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/190800.match.json",
+      "bytes": 208429,
+      "sha256": "7836dc65387144415b08613a5a6c90e4d98f805927741f782c57d1bbae268149"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/194400.match.json",
+      "bytes": 226253,
+      "sha256": "05e0a0c62511996fe8c0e07abd9e0cfdf0d99764dacc43621c2a67cdf80d83e8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/198000.match.json",
+      "bytes": 194220,
+      "sha256": "144433c7d18dfdc97fe49206b99777150e84f18ef86deefd66fea7e3639ec130"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/201600.match.json",
+      "bytes": 181413,
+      "sha256": "f9504fca915443be5a295c63f152ce7778c8f3962146035b3c4dc61aac0bada9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/205200.match.json",
+      "bytes": 197756,
+      "sha256": "b998e902a1e2d6d6e17b25eca91ad42d6bf003571dc67156b9901849b85cc505"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/208800.match.json",
+      "bytes": 203183,
+      "sha256": "dd2aea0a61367f762bcaa212d7e917b4f16a31379032c0de536d6abbc50ae30c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/212400.match.json",
+      "bytes": 226061,
+      "sha256": "540b5f5d81406b0d96ae1de7397e217fe9119780e37af976bfbb311284de6cb5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/213253.match.json",
+      "bytes": 239511,
+      "sha256": "22dcf011db728162df74b400b7b9a44efa467af39b2584b05076dbbce1ee4f86"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/2/final.match.json",
+      "bytes": 239511,
+      "sha256": "22dcf011db728162df74b400b7b9a44efa467af39b2584b05076dbbce1ee4f86"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/003600.match.json",
+      "bytes": 163631,
+      "sha256": "0eed73aa4aa60da536a22d0232e8b155331cf9c7aa7ee6b8b4f0cf0097820695"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/007200.match.json",
+      "bytes": 183934,
+      "sha256": "c96614ed4ef59002aee88d88db4ddbb4ed99d995e4c5bc06027ea219b077cc13"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/010800.match.json",
+      "bytes": 175053,
+      "sha256": "9bc52f718307ffe4cad1a643ffe92926b2e775c0c4663cd067a18c03a37e902a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/014400.match.json",
+      "bytes": 165890,
+      "sha256": "1a893080554b6e756a51817eb6629909150855ec606c42a0dc30b437845f2221"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/018000.match.json",
+      "bytes": 185466,
+      "sha256": "7edbe4375ae355f94646a154c8443337677a7144307dc69e96d247a2807aadc3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/021600.match.json",
+      "bytes": 200528,
+      "sha256": "ccd53be56b446f31395698fdec966e77c43a410e28a7c4db3491549e21bc4128"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/025200.match.json",
+      "bytes": 209015,
+      "sha256": "5a4fecbd52f3e8cd9f52022c7edb64dc44d58abde7fa9ff340b0ef8deb6ce3de"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/028800.match.json",
+      "bytes": 172617,
+      "sha256": "19f854ab0429326359135664a9882ede94e965ea31521a8c75d9ba000b9f0fd3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/032400.match.json",
+      "bytes": 184642,
+      "sha256": "3a3bd475560659d46009e195952be7c82a84316f9412b2c3f0865dba12b8940d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/036000.match.json",
+      "bytes": 186643,
+      "sha256": "63942dfa5ecc5d80f9089416ad72873cbb91941db78a0d70bd4f58009374a026"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/039600.match.json",
+      "bytes": 182467,
+      "sha256": "213d7eb6224fc1ea5d8c11441c9ade909389769b97b02aed0989f0f841f64cbf"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/043200.match.json",
+      "bytes": 158299,
+      "sha256": "92b1255eb9032c84822b7ad0e9120cda90436f0c911ced215f58309db9b668d2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/046800.match.json",
+      "bytes": 154317,
+      "sha256": "8c4dd75fcca8a468aaf8754797a6c64bbe03c6b3d38945ce9fce9c6f1b887dea"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/050400.match.json",
+      "bytes": 169304,
+      "sha256": "30f735f7a1b25011258c5ebc5078f195c70f726bbeb6dd139e7338e88181a214"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/054000.match.json",
+      "bytes": 204582,
+      "sha256": "ce57297d27d77dcee4f37b7c41a3f08b866dd55f56d782236e529428003d3fd2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/057600.match.json",
+      "bytes": 199494,
+      "sha256": "2518bd714bdf30fa38782cb48441d41d6a01efad8a6997db31bfebd89e27c6d5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/061200.match.json",
+      "bytes": 214402,
+      "sha256": "896d734cbdaec060ed089c51ec614ed61c4c390e351aac3919009a8fe8a34b4a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/064800.match.json",
+      "bytes": 180724,
+      "sha256": "2ccd343e539f6746565486b5480dc57bf277550555638ec4cca28354607af5e4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/068400.match.json",
+      "bytes": 164012,
+      "sha256": "ebf64b8e8a9f8f42b594f6d0e9779c12a759c64e15964d815c1eb9163863cef8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/072000.match.json",
+      "bytes": 181558,
+      "sha256": "bedc0d7fee29389ccfaafb4b3a23bf54cdfae48d230ea861446b5bf97cb34293"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/075600.match.json",
+      "bytes": 187174,
+      "sha256": "cf99f21ea552cd7d7c0b9efae442552b8de56b2637db25aab000e0ba7f44aac4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/079200.match.json",
+      "bytes": 204464,
+      "sha256": "8e5b87cd022a0225c1f40a58b6a7705df2ce43e5752a797a09c2d57876e33b0f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/082800.match.json",
+      "bytes": 177558,
+      "sha256": "063b2b48efec158632f35bbcfba9b667826d5c6c3b4461e1e67e3d903ac474c9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/086400.match.json",
+      "bytes": 168703,
+      "sha256": "160c865bb32e6097c12f7f9158ef03c306111282d5c67df776dcb148186e7f16"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/090000.match.json",
+      "bytes": 198053,
+      "sha256": "14fe3784ef568af69740d26fcb9d5d6458e89364dc338f6379e7e766356f2255"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/093600.match.json",
+      "bytes": 224865,
+      "sha256": "b677da383690d26c76624cf490e34393c71ca2335c72516489144c641ffc3281"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/097200.match.json",
+      "bytes": 204451,
+      "sha256": "96eff1a354c6f78825608301a3a189cb4550be83ad5c1436697cf5ae489a396a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/100800.match.json",
+      "bytes": 166155,
+      "sha256": "68a75685cf5827e7fae43d0d0dc351536bbc141fd2f77f8ca994c137c73c593b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/104400.match.json",
+      "bytes": 154294,
+      "sha256": "39774c930dbd973213a792a3cfad161068eb4bc914bb78cf3a5c1b56e5e81c5c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/108000.match.json",
+      "bytes": 205754,
+      "sha256": "214bcb810134b44c8a1aa4a0caba05e029d936dbab094f3f0a0ad2f22a6c0474"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/111600.match.json",
+      "bytes": 199846,
+      "sha256": "ef0393c3bf55ef89327b78438687fc79702b364fad3fcf779de0050081f6917c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/115200.match.json",
+      "bytes": 191008,
+      "sha256": "95272aec2dd382960e56c607f34d341e6c44ece53dec109fbecc4bb936351e5d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/118800.match.json",
+      "bytes": 182995,
+      "sha256": "72a2a8875e99bf438c41bd1cfde6e23fe4ae7b052fffce30bcf6d33c103cfe6c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/122400.match.json",
+      "bytes": 184857,
+      "sha256": "1ab94bc122e8a6c1dd1fb236caf6f1f49fa272af8d3f0f9f7d6bf2c663f3507e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/126000.match.json",
+      "bytes": 204363,
+      "sha256": "e693676f49df81fe2c45fa097658d91573faec996d5101b41090930eec18e707"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/129600.match.json",
+      "bytes": 199288,
+      "sha256": "0ccd64fad691c306ba31023b68e1610f5e339d6ea670a9fd0ba69c5f71c74dd8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/133200.match.json",
+      "bytes": 192367,
+      "sha256": "9d498f21d9ad7df60e3bac7bddee6b01871ac9a72877148123410c5fa2b06a77"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/136800.match.json",
+      "bytes": 187099,
+      "sha256": "4fdcd6c1ebfe69eddf113f77306abee33a22b757cf0582343e482cf504eb4d36"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/140400.match.json",
+      "bytes": 215365,
+      "sha256": "4309fe78414eef39e523e9e7994028731d516f5ffeb41ada9952d54e41f376c3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/144000.match.json",
+      "bytes": 202354,
+      "sha256": "4fa62af5b217e9b36d726520a60d3fbee5b5bdb50fb2e49feddc7ac7893af77a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/147600.match.json",
+      "bytes": 208613,
+      "sha256": "4889a49abae3e36afd3903ecdeaf0c46ae0118ca0abce3e4973464edab766539"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/151200.match.json",
+      "bytes": 187180,
+      "sha256": "431c792598b4f8cbeaa3603f57ed9a5356d73cd03eb9b1b315d5230870d8ed3c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/154800.match.json",
+      "bytes": 202041,
+      "sha256": "929b15d8134f91dc466f13e8a2ce211db8590e859099e12ba39b4fca8ae20483"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/158400.match.json",
+      "bytes": 202886,
+      "sha256": "f51aa20b8ccfde469e0579b400e1a104beebe841be27a764a68d81bdf912e7f7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/162000.match.json",
+      "bytes": 191843,
+      "sha256": "696addfb286dd61333a160912ddb07c47f903dad14caf7e8ce5ced602b2b2ca4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/165600.match.json",
+      "bytes": 195938,
+      "sha256": "2491249d859e3248e68fc1f0869860b3b13cc53664df41a6257518ff37e1d683"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/169200.match.json",
+      "bytes": 213796,
+      "sha256": "6184982e7991f84079b03d241572a809978ff64656d8c5aea3bf6f0488dff8c6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/172800.match.json",
+      "bytes": 262510,
+      "sha256": "61b880e3d9b33e83e3e450f7f56d71fab25b054fd4438d35f2451fc92cd8146e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/176400.match.json",
+      "bytes": 295851,
+      "sha256": "0036d7713afb3ab264855cbb2668b2b1f3249caba5a87c8633afe955507ae828"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/180000.match.json",
+      "bytes": 213860,
+      "sha256": "94d9b1ac27c4b827ce53b5a8052b6b99947014c4a3e55bba672098d4b4f7e41a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/180203.match.json",
+      "bytes": 188011,
+      "sha256": "c6b3994c3808021935ba91bdbb485f07667697e4a286ff91091d413f7f6efea5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/26018/final.match.json",
+      "bytes": 188011,
+      "sha256": "c6b3994c3808021935ba91bdbb485f07667697e4a286ff91091d413f7f6efea5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/003600.match.json",
+      "bytes": 163627,
+      "sha256": "d82a045a880a3a239c40d29b8000b4c4cbf4cc26a4766a1f13353e5219e0b1c5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/007200.match.json",
+      "bytes": 183930,
+      "sha256": "1afee894f59b8b7316968e9e3620e5d80cd732370d0b81929662be42e98f5fc9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/010800.match.json",
+      "bytes": 175049,
+      "sha256": "e65d4826de0b9449b28c89dea5d9b35c33224606406d546d750f4d85b5bce2ee"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/014400.match.json",
+      "bytes": 165886,
+      "sha256": "6604df2a1ef8f69ae4bff1c30913c36e00bfb35568077fd0ca3edf4a1a440943"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/018000.match.json",
+      "bytes": 185466,
+      "sha256": "92654ddff3bd6fd4fa0d8bd63618bc4bc35a4c4609e1dec0305919aa03af0490"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/021600.match.json",
+      "bytes": 185898,
+      "sha256": "2886defa7b02599ff725459916277858d44f68f800a9ce6d057d0e953aa02dfa"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/025200.match.json",
+      "bytes": 187355,
+      "sha256": "572b68b3ef53dd6f88206cc9ce598cf5bd0ca0e8b270f7b6e1f49990671840c1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/028800.match.json",
+      "bytes": 169588,
+      "sha256": "e4e910da95b9a4ea5300e46fd608db2b6ac415495e5a4330f8372424c01323ed"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/032400.match.json",
+      "bytes": 167884,
+      "sha256": "bae2459854b7dc9f5163e301239078d21cb3d7aa793a5671cca2ecbdba1ee137"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/036000.match.json",
+      "bytes": 165957,
+      "sha256": "89f67bac4947bcfdff3bf8c718e1ac4c48f5cb58e3746d8ef348c5d7f417378b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/039600.match.json",
+      "bytes": 230302,
+      "sha256": "388eeef9822da8fe186d29e05d061392edd301096852108d61bb3ac849fdb7a5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/043200.match.json",
+      "bytes": 182494,
+      "sha256": "9acfba418e3b967aa87dfe0bbd1ddf84c139cc51d84da5d075cfb84019604116"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/046800.match.json",
+      "bytes": 173881,
+      "sha256": "9e6703e8f40a0917bd7cc6976f62ca4846f64012df8496ece332d59873503976"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/050400.match.json",
+      "bytes": 187501,
+      "sha256": "bc18661478a9c1a305493bf680d6966ff311afdc4839f99826133f5b996aa59f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/054000.match.json",
+      "bytes": 194812,
+      "sha256": "473c16b34b1fdd82e6d0a0bdb9ab2ed0d9bbd8ebc7218650de7ca236fb683bd7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/057600.match.json",
+      "bytes": 200542,
+      "sha256": "b6f54dd7551903684d3e0df7c11e5eb7636755ad11179d94687377636f4f5f22"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/061200.match.json",
+      "bytes": 206317,
+      "sha256": "687ca913700869f866a844a2ed2f4a0aac2bb5da76363033cfab3ccc80ae8492"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/064800.match.json",
+      "bytes": 190146,
+      "sha256": "4abf686462ddc3cb488d20e4a01e9f091f7184e3ac9b59c3419a0479482036f8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/068400.match.json",
+      "bytes": 195005,
+      "sha256": "44dc80cd96b6c0668b07b99c130ccd8a03662371db77837c394d9427dcd44914"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/072000.match.json",
+      "bytes": 198687,
+      "sha256": "200491e62c2ef8c36abe7314e1ac95963fc7f45e15991ee30d1018d050305088"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/075600.match.json",
+      "bytes": 153550,
+      "sha256": "275c10705681a7261cc1231b62844d053e2c61413b2080986753f1dafc20431a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/079200.match.json",
+      "bytes": 197724,
+      "sha256": "cb52db2e179fb086f4430b02ce54f582b1b0f17b02afb1b05baf493f5d344a2f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/082800.match.json",
+      "bytes": 183452,
+      "sha256": "b4d4cb172455e12626b11febec4f2ad358ebdaeee621d2340aba1f2d6a4c0427"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/086400.match.json",
+      "bytes": 152954,
+      "sha256": "0576ab111c56afe086275f67be7299decdfd40d6a24817415fcf3443969878df"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/090000.match.json",
+      "bytes": 187827,
+      "sha256": "41e44fb0645ca853626c2c8e14702818a6e49ccda9cc64de8e5fadfb9ace79ce"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/093600.match.json",
+      "bytes": 175807,
+      "sha256": "a7bb48ac3de3b4bfdb1f80556d8b140688060bb3ee88f53780edd95168b8e198"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/097200.match.json",
+      "bytes": 210917,
+      "sha256": "9cdce79b996874a0e64879cee13c2e8d6e71b1493073167228dda702d25ee433"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/100800.match.json",
+      "bytes": 171570,
+      "sha256": "9499fb299ea0f10ae3f2e947df732058c9f258604c15f19f2de5bdc1c860c6bd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/104400.match.json",
+      "bytes": 156450,
+      "sha256": "e489df0eebc1078555d78c5c1cc7827102f84b18fce11fc425348ad422ce0e4b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/108000.match.json",
+      "bytes": 188179,
+      "sha256": "aa37b8a40a66efeddf84ba37f775af8af065e5b9aa5cd313b5584160ca33c6ff"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/111600.match.json",
+      "bytes": 217626,
+      "sha256": "3159dbcc39cf78d37c008bdc292c7f90f863336d7ac1eca961c5878f2ca65998"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/115200.match.json",
+      "bytes": 193991,
+      "sha256": "ea4466c43bd0712396044f743a039aaec36bd73c48f8d7be2c15860842572849"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/118800.match.json",
+      "bytes": 195874,
+      "sha256": "e121a3ebac111174a6479c5ea42f3d07b35ead11cb02d78974c5f1a8dc4e15d3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/122400.match.json",
+      "bytes": 269926,
+      "sha256": "014cf1895eaab211ed8f007d3fe69e8cc00b71582b96adc3acba249e68073c1b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/126000.match.json",
+      "bytes": 198429,
+      "sha256": "46f998aaf7b742b70bbb8b775bc9677656f3c2bb9d7687833fb97b3b5e39075b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/129600.match.json",
+      "bytes": 198964,
+      "sha256": "00c2caa9eb506f4a0af2e89f51fc6180097cc1fdf2a0645615b1f794cf92e174"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/133200.match.json",
+      "bytes": 215364,
+      "sha256": "fc38291940d2d4834c4363e9de66b7ddc053c02441f80f22bed5bbb39916ab69"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/136800.match.json",
+      "bytes": 202277,
+      "sha256": "3fd2b59b6df8e90b48139afc436aca63efce204357c52b63aa46870cf3ad6174"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/140400.match.json",
+      "bytes": 236745,
+      "sha256": "1c3bf4de88150800d628ac15687140561f82d74f4f4456bf42a31a2dcb92179c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/144000.match.json",
+      "bytes": 189792,
+      "sha256": "8e0275fa672d10cd0f078d3b853ea54b41b46ffffb62d0d08dce20945db5c7c3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/147600.match.json",
+      "bytes": 204651,
+      "sha256": "28618afac1a41cd20da7d1710eb0627cf68b1ff12924453eff04be05d549c9dc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/151200.match.json",
+      "bytes": 199267,
+      "sha256": "4d11e242236b908a22bb25b32659c6e1e181a04bc46de5b437aec30120519826"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/154800.match.json",
+      "bytes": 207947,
+      "sha256": "51c2b41baaff045a3cefadd6c4dfa0187182d2df8442e1c13b2fdf368cf20ad6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/158400.match.json",
+      "bytes": 194706,
+      "sha256": "7dc4c443c8cbbdfd9e98824b8493cd3c5455cb588e7a9f7e3846e85cd7240806"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/162000.match.json",
+      "bytes": 193518,
+      "sha256": "701f794f1e2ae62a246454ff72092d80818809d9ace8840aa21c3218ceda8f9e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/165600.match.json",
+      "bytes": 242063,
+      "sha256": "e7ae2dcaba3f50ba88d5b53508ba628e7f42ea976177f162b55896e67f2d2c80"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/169200.match.json",
+      "bytes": 225951,
+      "sha256": "4227dc18c66f58b05bf62447afed9ab9b155a249d97bef7267ccd1a7a3db7384"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/172800.match.json",
+      "bytes": 212783,
+      "sha256": "2c49c89c033740cb0d4a8dc4fd0c49dc69858cb9f79f48abda8c320e26f05b34"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/176400.match.json",
+      "bytes": 207794,
+      "sha256": "a22f0d24d9f257ab09e356bbb5998cd8220a91fd77dc94eeab0b5a059c39b175"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/180000.match.json",
+      "bytes": 222856,
+      "sha256": "2ad4ef676875880fea5737b4f3136c5e784adbcb57c70c5e47855b005074857a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/183600.match.json",
+      "bytes": 229895,
+      "sha256": "9baa0eedb3f8e0abe9d67d56d6423611b5a2c4973bd4286c98b22a7068c30d0a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/187200.match.json",
+      "bytes": 204684,
+      "sha256": "ae1e394cf93c8e317bdef85fa5741a6d6e57fc8776d253b3c53be99ab01bb96a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/190800.match.json",
+      "bytes": 231403,
+      "sha256": "dceffd1e78bb75c8d6404d5d26efffa8f2f14369ec5a5e3ca55e6eab2196235c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/194400.match.json",
+      "bytes": 211878,
+      "sha256": "9ec526209b249be7192b4b9af982ffed87dd44d2a0779280751b4e43fb54160a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/198000.match.json",
+      "bytes": 227336,
+      "sha256": "6b4885074b0b7b12f67ef20b17568b4b59a933f4212f671b9ce08eaef933a1ac"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/201600.match.json",
+      "bytes": 215923,
+      "sha256": "ee8279e391b630c5179fcabca6b4931bdf4b0d83574dd14715fdde9364af4a25"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/3/final.match.json",
+      "bytes": 197563,
+      "sha256": "0d195a90461b05682a5ebbfc0d7c96b097d5f515c7c22beae89b4fe87aad041b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/003600.match.json",
+      "bytes": 163627,
+      "sha256": "ada8fce17f62a2b4a34713ad659f6b1a0b847524fff3e4c62f9120d03394d89b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/007200.match.json",
+      "bytes": 183930,
+      "sha256": "3b49b9f25bbeab019f2eee2b9f823fdaa13e8a776c39ccf2bed24c59526ee082"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/010800.match.json",
+      "bytes": 175049,
+      "sha256": "824c3a34ca7493e92cad2a457262180c45548269efa6541785a1d9668d662c88"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/014400.match.json",
+      "bytes": 165886,
+      "sha256": "e75756cb70c54a355d1143595fbfaf449cf0d8913ed7e24070276406ab992a8b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/018000.match.json",
+      "bytes": 185466,
+      "sha256": "727972c19c45f88993c51e39f86f79cee706ab52cf3e7bfd3abc93afe993a3d1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/021600.match.json",
+      "bytes": 200472,
+      "sha256": "43fcbb8767fad16e64666cb02aba586517c5bd9d45cca73e21fb0b92ff8d088e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/025200.match.json",
+      "bytes": 208978,
+      "sha256": "94827c55759a7e20e7991621b894e5f082a07e248c90deb3a9e3669a095ecc11"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/028800.match.json",
+      "bytes": 171890,
+      "sha256": "1552950f58a4a83791f413f55a75b876ebe9062891cb63d3f8bf1fbfeb6291b4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/032400.match.json",
+      "bytes": 185686,
+      "sha256": "5d3b283b6ddd4d6d7571596153e0c829fe0ed01564d8179374f8670a95c84dae"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/036000.match.json",
+      "bytes": 230657,
+      "sha256": "6154aabd2dc151bdb97e34984db5d1b839db7d216b8827b0e20842b448f5e7de"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/039600.match.json",
+      "bytes": 192656,
+      "sha256": "9224b6a33877b383c57fdbefa8c96fb56be3c3a2be5255785abf468b5c5d572a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/043200.match.json",
+      "bytes": 206348,
+      "sha256": "81145e229451d58e33acb2fac51bcc2e5bdf4edbfea3e75adb8443e2e8701436"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/046800.match.json",
+      "bytes": 160275,
+      "sha256": "c79018588881ed6c588faf56305964e4ffa09d77ba90760dfe36dd1d78e33637"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/050400.match.json",
+      "bytes": 177759,
+      "sha256": "bdd60d68c660676d32bf9b1cb56cb4ccbc90b7e382cb08343cdca5bf13937075"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/054000.match.json",
+      "bytes": 198362,
+      "sha256": "48f274d84b9fc6dce54c65513e1a9b4ae0e096993826a5198a21e844263b3d95"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/057600.match.json",
+      "bytes": 184767,
+      "sha256": "59b4187ce37e14142535a6f73cb7874d15eeb6e3488ecd926387a4633c1f40aa"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/061200.match.json",
+      "bytes": 267098,
+      "sha256": "d95aef0f8e0a66eae926337101ef7678bac9eda238362f54379dbe09896c80fb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/064800.match.json",
+      "bytes": 184358,
+      "sha256": "4839bb6e6d035205f00d156c349fc58ed5bc069d90d9df4c0952979799a538dd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/068400.match.json",
+      "bytes": 185464,
+      "sha256": "27d1ff5d8ff127f0d0e0ca0b43ab3186a722856d1160e68189ab87b6d4ba923f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/072000.match.json",
+      "bytes": 191775,
+      "sha256": "6b1be1b702d2659310d0c13d93c18690468bdaffc1d8786a5c294adea825610e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/075600.match.json",
+      "bytes": 172433,
+      "sha256": "ca64b51941504e5b3fe39184ae2b217741362bb00cb8c46117717c590bce85bd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/079200.match.json",
+      "bytes": 201581,
+      "sha256": "0c795d7b217e00a8ece22215a70b5a7e1194dbf3f6b3835bda3322d17d0499f8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/082800.match.json",
+      "bytes": 187062,
+      "sha256": "45d04a0165dc9ccd6df843a426831ab9d42886aad8ae9457e7411524a906ebba"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/086400.match.json",
+      "bytes": 182654,
+      "sha256": "fdf7640b6c5209ce43136ff643060774aa5cacb8c85172c2e9d89863acbe8d8d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/090000.match.json",
+      "bytes": 163885,
+      "sha256": "0686413fd838c8fc57231cf92f871a0a322095ebf9af3aec885ed0e256263485"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/093600.match.json",
+      "bytes": 145958,
+      "sha256": "a1f0ba465793376386291f9bd3e78a5a03205c9bdd68b31a7608b67b08e93dad"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/097200.match.json",
+      "bytes": 198962,
+      "sha256": "41cddbd09a39933428f22f04a9f6165a2095fecfe987918e916142f916094ae8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/100800.match.json",
+      "bytes": 176261,
+      "sha256": "b65e2ca37e42e8fc7e4f0ea57faaafbcc83a331a3aded7d37a5691230ad3c6e2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/104400.match.json",
+      "bytes": 223259,
+      "sha256": "7a7c65e192d6fb861f3605429ed93745489eb7f6aea0f4128170b403ee4491a1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/108000.match.json",
+      "bytes": 211434,
+      "sha256": "11d135282c91e0604c749808e0cd43ed45ac703af49994c40e91b092507e9fc0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/111600.match.json",
+      "bytes": 191905,
+      "sha256": "4fb9833c93bc2f17009b3067b033af2bfbea8d66780549ffabf13078556d09a3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/115200.match.json",
+      "bytes": 199493,
+      "sha256": "005fc25acaff530992590cf2816aeaf6ab4605a03d82f7eb2bde650c77b6214f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/118800.match.json",
+      "bytes": 223433,
+      "sha256": "cab8cb949d45f4cfb962cdd3a8f100c738ca7626ab97fca83e479ca7ab23b928"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/122400.match.json",
+      "bytes": 192039,
+      "sha256": "dd4f3e0bc2caec11d6fbdd60573073023147bce3ed49063b7ad2a04e616ccc58"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/126000.match.json",
+      "bytes": 193226,
+      "sha256": "8e9ef597df863ff60007383adfa966bb192f8cefcc58be03892a0958a2445371"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/129600.match.json",
+      "bytes": 195403,
+      "sha256": "c41e7b6c202804fb2a3248c8422dbdf785775dca53c6aba569bdd5ed117370a3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/133200.match.json",
+      "bytes": 200384,
+      "sha256": "238ef9db5e72141243cb01dd9228768b4b03d453a9050e203eb9264087650509"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/136800.match.json",
+      "bytes": 179745,
+      "sha256": "e68e4f3bfea173cb5049cff6deeac2ba5446d3b312f2bdfbaf9569bea7039cab"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/140400.match.json",
+      "bytes": 235131,
+      "sha256": "e32f823bcee14f75b63836b3611d1321f2842c00c76515805ff8393002ab3709"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/144000.match.json",
+      "bytes": 201683,
+      "sha256": "2cdd0b8c70ce1f56b98c11b1eb80b59e3c13bf464234aa3878c00db3cd641da1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/147600.match.json",
+      "bytes": 191493,
+      "sha256": "7c323c2ea4044c236b0c640aa6452f422e468dd29e3812f47c1c1ce7702a9c9f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/151200.match.json",
+      "bytes": 182763,
+      "sha256": "719b9aa7f3005feef78cec63d43de5fbfd8e377ee1a7a2d402ea04c098b34357"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/154800.match.json",
+      "bytes": 209911,
+      "sha256": "162065d4520c0beef4b2d0b1ce96bce6f60db89f1d19b1d2166811c636642cd4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/158400.match.json",
+      "bytes": 220294,
+      "sha256": "e69d2efcbe0e98d8e92bfa3036208020f6101500641a59e136538ff02ce1835d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/162000.match.json",
+      "bytes": 196047,
+      "sha256": "53211e7297828321930061b3d856e9863a8514f2f17a5602b22fd299b809ad73"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/165600.match.json",
+      "bytes": 211074,
+      "sha256": "31a232e6015f06d87b8f3cb479c7f8a8e146019b50af68915fdac005315e849a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/169200.match.json",
+      "bytes": 208010,
+      "sha256": "8aecf8d22461536c8ab907d42518f7bdfb4539514ff738cba92bf5c8f082e07e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/172800.match.json",
+      "bytes": 198700,
+      "sha256": "b54f99003387a51910622654915169ce0d5f4e2844cac4c569ddc7eacf8ce2aa"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/176400.match.json",
+      "bytes": 185462,
+      "sha256": "49980d23c2e3c9ca11c81e6bf2bea2b271c41bf9e56ec41f17ddce47b06c87a4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/180000.match.json",
+      "bytes": 205917,
+      "sha256": "8c93db51f3561cb6f9e4ea3388027775b7e2b0a7a8d0a86a321ec81e7bf40104"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/183600.match.json",
+      "bytes": 211798,
+      "sha256": "6413495cb172fe7582c5100e9594a110e0e59c637e3868a80655fde255362dc9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/187200.match.json",
+      "bytes": 176723,
+      "sha256": "97c4fa10cb2f1c86e4d4e9749a42367b1d9bcaed47e5ab597b835b989cad87e8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/190800.match.json",
+      "bytes": 191393,
+      "sha256": "ab52811881b778b1eea0abfe1258d17ce11529d44d4cdea019144da66a0e27fe"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/194400.match.json",
+      "bytes": 238592,
+      "sha256": "582ad9276fd625a273c4d75fe0a0890b2c6e4159a881f4c41239f4644e1dba98"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/198000.match.json",
+      "bytes": 199305,
+      "sha256": "404fefc491e5178f35e305c5e6304c1f88f4a8c660c9294eaf0208c18420b38b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/201600.match.json",
+      "bytes": 195955,
+      "sha256": "4cac32d5c142196f5b1678982ade7761dfcc91409dade47ec90f1c43ffec89ee"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/204991.match.json",
+      "bytes": 224155,
+      "sha256": "93ffc8b54a7de5298066abb49f5d4e93380b0a58cce232170d8b845dc277cd78"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/4/final.match.json",
+      "bytes": 224155,
+      "sha256": "93ffc8b54a7de5298066abb49f5d4e93380b0a58cce232170d8b845dc277cd78"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/003600.match.json",
+      "bytes": 163627,
+      "sha256": "e981641eee3d01c53d71e20cda2ce46ebcd3e10227831bb9a4870e8aca6ada7d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/007200.match.json",
+      "bytes": 183930,
+      "sha256": "d7104d3d1888d71a4a32132b6981ec61c36d5b0d0165a41feae9f7da919d3ed7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/010800.match.json",
+      "bytes": 175049,
+      "sha256": "ffdfaa1cba7414d59955855b5c5c4512b352878f7dbf5c16598d0a5e17fcf138"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/014400.match.json",
+      "bytes": 165886,
+      "sha256": "91df75ec1173b435a7ffd742315d5c8e785058d31d0b66459ea7fadc071b0361"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/018000.match.json",
+      "bytes": 185466,
+      "sha256": "5e3aa45fae461e1614c29736e1556115ef0f48d9b6535350d3bd7d7cf082bd1a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/021600.match.json",
+      "bytes": 200575,
+      "sha256": "371e8cffa36f78d290c4c3a516c9aea9c34ae1d6c13b2d95e020c67c7e631e52"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/025200.match.json",
+      "bytes": 208913,
+      "sha256": "a380dfb0a22d348cb217c7c3de9ca84a63f1c327d6cf8e447a5a5a09a2a6facb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/028800.match.json",
+      "bytes": 172604,
+      "sha256": "6fac27e0bb82d5be64c3db34f36cc8815170fac62507d5e28dd80786b8676eb4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/032400.match.json",
+      "bytes": 184487,
+      "sha256": "02134db60569c46c5a96470d25f8d35779eb45f5c2f354f8b56c64e8d0b96fbc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/036000.match.json",
+      "bytes": 185584,
+      "sha256": "f4451c8a49631e4552a4c2a03f5443479f58525426f545baaa6587e2d904799c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/039600.match.json",
+      "bytes": 184417,
+      "sha256": "8afadb578ee234dfe7bae072cf5e8f8b5c9fbc28129989d774b3df28423088bf"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/043200.match.json",
+      "bytes": 148326,
+      "sha256": "ad635b9ce22ee661aff24d2f31195f2c2e3280ee3e8b1c9439e5ad8d9ef2df08"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/046800.match.json",
+      "bytes": 162502,
+      "sha256": "bb5e0c64fbb2be5a043211577fdb918533784141c7d262d17c87f849c1a82abb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/050400.match.json",
+      "bytes": 167589,
+      "sha256": "6f7e77f29aacc64d98a383104cce76e8845a79809f7837ca16f1ffc47d078337"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/054000.match.json",
+      "bytes": 203797,
+      "sha256": "128e2e45b56c92dde3e58a75c6ba2e0b9ae4d69e70560ecfb2c92503ca7e7d9d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/057600.match.json",
+      "bytes": 168856,
+      "sha256": "d43b9b193ce6aa4e500e4fdf3fd40432bf18e4283a6d3fdf91ef4e7884a72f5e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/061200.match.json",
+      "bytes": 204747,
+      "sha256": "e82baaf30c3e84425c498fdc179c6d9f9940e1a8f67dc70586d9e967085832e5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/064800.match.json",
+      "bytes": 203291,
+      "sha256": "e42bdcaf55ad3bdd1af7ecc20aa17c4ffa310a32533677c3a3b203707beaa1e1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/068400.match.json",
+      "bytes": 197929,
+      "sha256": "60801f078e421ca6095898b97d4117749cb3994f022fe4eb936d30dae01076c2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/072000.match.json",
+      "bytes": 211985,
+      "sha256": "663cb02440e9ba1ca175c7bf54fa1db3815c78b2433bddc05f1700c7b51dcbef"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/075600.match.json",
+      "bytes": 192376,
+      "sha256": "e6651364c6dc43b201f00314a36abfbffddb876afacc72eef2f504f88fe53728"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/079200.match.json",
+      "bytes": 217045,
+      "sha256": "a47f0a421cade4c5a7dac88304c761c42d764ce318c9a747df66d1a136962462"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/082800.match.json",
+      "bytes": 165106,
+      "sha256": "d1a384499cc1b11e35c21b520d640b06d07c2881e7d913c9d95187862805ef06"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/086400.match.json",
+      "bytes": 171765,
+      "sha256": "dbc74023a1f33c97eb473a79454b46cd5c8254226b59a091f1068503e2874c19"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/090000.match.json",
+      "bytes": 184939,
+      "sha256": "47ed885eeb56c20780d0fb7cddfa28f267f0939242edc0b44e5583d78a2b0fa9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/093600.match.json",
+      "bytes": 178320,
+      "sha256": "4364b539a5f3d559c37391b08efae08d9e30c6c7b3bb5e1ae6544c40de3449f3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/097200.match.json",
+      "bytes": 196464,
+      "sha256": "3c3ff156e87a0dc1dd621fc0127235ec5c92a814cd5032312d10b122ed72ec72"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/100800.match.json",
+      "bytes": 227011,
+      "sha256": "2503dbbeb6f731100e8c75a28af577214996facd3c54e76b312185a684232de4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/104400.match.json",
+      "bytes": 207067,
+      "sha256": "aaa21d06fa64eea976b0b9aecf2e61f6f63e242bf674e63ca8a52add297f1ae1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/108000.match.json",
+      "bytes": 180215,
+      "sha256": "d279fad0af808e7dbedfe5ea8976a827b6171393159082da7f6842c90e4a9099"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/111600.match.json",
+      "bytes": 178086,
+      "sha256": "07ba9ba3ad76e500820efe629160692eeaaf68e81c8e8ae271a356ee69c26ce9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/115200.match.json",
+      "bytes": 191941,
+      "sha256": "dfd003eb0b065b2957eb78446d0f6afcd8cb4903bda3abfa077808030025aa43"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/118800.match.json",
+      "bytes": 185503,
+      "sha256": "4ec865eb483e960f57f11cc27a664058a11ba680c4c034b7f3669337b2948ded"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/122400.match.json",
+      "bytes": 186190,
+      "sha256": "c92a15736113e1ab213e994c50a6daa557795c312d02f1d8eefab0ba97b63499"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/126000.match.json",
+      "bytes": 184340,
+      "sha256": "0b00710c6bb5ef56e5a82f326c06882d8297bad989ca6f154b52fa551f725551"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/129600.match.json",
+      "bytes": 228394,
+      "sha256": "aed18f4e978194e62b7d64da2738bb07a257b21ced70dad6b1e3c315b132df0e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/133200.match.json",
+      "bytes": 200931,
+      "sha256": "d1d9d869d2dab7047042cbb20bbc2f83ab371a711bdca8e5b6ea43c9dd42e0a1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/136800.match.json",
+      "bytes": 205084,
+      "sha256": "faaf127e660e13801a2d59d30a5ecaf934f476484c00ce894b4f511d080bcaaf"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/140400.match.json",
+      "bytes": 191553,
+      "sha256": "78cea3cd57599d44057498434dac10bf3b7599efbfd1ba7ca1b2b66c2fbafc55"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/144000.match.json",
+      "bytes": 198911,
+      "sha256": "6254430db4a5196a87135c18b2d1ce9e5ca0c398f1ad203011f308a103fbf525"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/147600.match.json",
+      "bytes": 207437,
+      "sha256": "c191b5e0c262c3313df4cd54117da460072f47343cb8171af387f66eb7b4b554"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/5/final.match.json",
+      "bytes": 199073,
+      "sha256": "4b052dc4a3006ffa3570bf7d91c61736ab971d3750b9e034b9a6b7b290fdf9c7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/003600.match.json",
+      "bytes": 163629,
+      "sha256": "91ec2d9d21dffa2cd6edabfb54114a4e40e82f432fe57c424e28dbad805f3890"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/007200.match.json",
+      "bytes": 183932,
+      "sha256": "bf1f6a42d5ffd54510ca276d34cc8f6362aeb3b6c53cfb17602953d50941d1ce"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/010800.match.json",
+      "bytes": 175051,
+      "sha256": "7b2c3bde1c89a3990ad211c50cd61d90b41ba20d5eae85cb614449b530710b19"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/014400.match.json",
+      "bytes": 165888,
+      "sha256": "3cd122615f77661bcd55912d2f055fd940495b60449b84e09f25503139072bb6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/018000.match.json",
+      "bytes": 185466,
+      "sha256": "09fefdc588b6553ac67b6ca66303c219ef6120835a614f310d7a8330243bab56"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/021600.match.json",
+      "bytes": 186001,
+      "sha256": "63bd6a77ba9e1afe1752101e033ea695bd02e0884bbe3efd77f2fe61b3c967b0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/025200.match.json",
+      "bytes": 187355,
+      "sha256": "b6868fb4b48a4702bb83c507807211325a6c931b18e7be1d5e0af86b7360e215"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/028800.match.json",
+      "bytes": 169691,
+      "sha256": "4f8fe11bb54bc91d7b9ca358d2ac9520c3841f0420ff86c6a2d304c00d52e307"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/032400.match.json",
+      "bytes": 167848,
+      "sha256": "83976ff7025c07c5d985363d24f8ce2360849acd5d7649a479e6d29425ddf645"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/036000.match.json",
+      "bytes": 165947,
+      "sha256": "0a974aed8ba8799154c489c54551e972ba55bb8b26a0abcf791d325c173a6e3c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/039600.match.json",
+      "bytes": 224500,
+      "sha256": "e6230828d32b979c4fbf8a965e5fb305659539246f22216fab12fac2c7fb0727"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/043200.match.json",
+      "bytes": 188531,
+      "sha256": "180e7f1117411083deece4db673d2046992fc2988be138f9795d8311f3498fcb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/046800.match.json",
+      "bytes": 179696,
+      "sha256": "3241f79c59d84dddfb5b92a560ef2ef8908ce71efe459d619588c2d989478f87"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/050400.match.json",
+      "bytes": 173958,
+      "sha256": "ab42fa595b1cb7b16d0701866249e68c5ec0079c58a5e92cc66a62f3653348a2"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/054000.match.json",
+      "bytes": 187616,
+      "sha256": "90f79b699f29403bf82d97817402b0d9bb425ec78222676005e71b7ba73769dd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/057600.match.json",
+      "bytes": 173376,
+      "sha256": "a1eb5664604e1d15c04697f38a85f96cd64f53fe6958f2400b867efc74b04089"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/061200.match.json",
+      "bytes": 214069,
+      "sha256": "8f8d7e4a6ef6f087c50c93efa389cd19f5c08f3a1ba2ec33ac0d626983dfa280"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/064800.match.json",
+      "bytes": 214491,
+      "sha256": "715c78516c8c00d6f2610763154876fd61b0ea896146406f03140db9ad798c59"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/068400.match.json",
+      "bytes": 173513,
+      "sha256": "40616efc0e1312dbf17f3e4d6fb15466dcc1395e85c39dd82ef14a5d790c32e3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/072000.match.json",
+      "bytes": 197375,
+      "sha256": "2f2314920dcbaebe7d421e1867b7c7b83aae3b37b9857fb122f435fdb6a5fa4d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/075600.match.json",
+      "bytes": 175480,
+      "sha256": "933145c3b07f01fd3d0744f48c55ef0c00f26d13cbf5646558047b0a84902ded"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/079200.match.json",
+      "bytes": 230073,
+      "sha256": "a434a5c8afa905ad82efe954371ab28981478039c875b6aad1ff3a8c2b8d6236"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/082800.match.json",
+      "bytes": 174181,
+      "sha256": "1dd3d781309e68524efb72d9044a9a70ca50ad4a0f0d0bb9f5b7606850cb6c1d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/086400.match.json",
+      "bytes": 178805,
+      "sha256": "3f9dfd0d9b3435aa69db8df2f182e2dc29d3f51328a42bfaf8fb2de9c6eaa1d8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/090000.match.json",
+      "bytes": 182120,
+      "sha256": "2bbdeee3545b88e15ad70ce2eb0ccf2971e82b1d80407340b3ca73a3353ab237"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/093600.match.json",
+      "bytes": 176735,
+      "sha256": "27f594418c458263b1beb434b5fc284d8eff621f8a1a580a3ea3d9667a91958d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/097200.match.json",
+      "bytes": 212835,
+      "sha256": "4fb8e9d261502c5063bd835af748353ba10ff39b9de30f9625533ee4e6bf3128"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/100800.match.json",
+      "bytes": 180477,
+      "sha256": "d78068936a10ed56593929e5ec941fb16c883d21b01dcf009b7287616644b605"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/104400.match.json",
+      "bytes": 166886,
+      "sha256": "1cb3a1016ac43d172a086a29d13018fa237c0a4943e281a8fe8e53a45a53ccab"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/108000.match.json",
+      "bytes": 198230,
+      "sha256": "7b02783e01b7c79a83730e1d19943f2c1517b15d7d6cad10ea0aa33dfba8712f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/111600.match.json",
+      "bytes": 174743,
+      "sha256": "df33311fe666641e0ea39f88f6c44187ea86a5743657aa7b39dae84c749f8518"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/115200.match.json",
+      "bytes": 195004,
+      "sha256": "9d110e5ae22e49711561e1a2fd92a777aa84dc8f03a2f94d516249f0802d1d8c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/118800.match.json",
+      "bytes": 189776,
+      "sha256": "90224c8995c917e308c3708693561cf262f92b20dd9af07fa167d15bed89ca60"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/122400.match.json",
+      "bytes": 220241,
+      "sha256": "3b1d7b29d421493a0bdbc2b25d3450e8a8e29efdb4abcf8d285587dfe8bf1f98"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/126000.match.json",
+      "bytes": 206600,
+      "sha256": "2d266d98a03633ba6afb777db449b9751c29ae68597d6f67b316c8be5b4bea8e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/129600.match.json",
+      "bytes": 207973,
+      "sha256": "7c4655ba377313e8be4560842819a7c0a08cd20311f7e8abf7ad324a8d2339f7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/133200.match.json",
+      "bytes": 185815,
+      "sha256": "3a500ecbea6b7f85f290d439b6e4e943e1e81d117c4e75a553f5e3a86ee3d030"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/136800.match.json",
+      "bytes": 207767,
+      "sha256": "fe28ac83b4ed3a5cc1f656208b23784d5de78f4a51d1feeb880b377946a43fb7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/140400.match.json",
+      "bytes": 182534,
+      "sha256": "ec065a4ba900d362ebb1d0e17084992af28248580073390733fb207ce60da04c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/144000.match.json",
+      "bytes": 237719,
+      "sha256": "a79306db44e43a049af2e40dec0c360f6ba6b1addd34312f7e160cb042e39705"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/147600.match.json",
+      "bytes": 196704,
+      "sha256": "e7b2f1cc41756d097c870c55b58f50f90b44f96f102f210d453739fd4e95e88a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/151200.match.json",
+      "bytes": 206916,
+      "sha256": "ae61250dc89db1789ea63eccd2e742b39b82e7048aad6161202832d72ae2a4b8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/154800.match.json",
+      "bytes": 213944,
+      "sha256": "b7f62bf061b53171c1317423f1330cc9f93b81ec9c9ab5e30b757eedc32559cc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/158400.match.json",
+      "bytes": 230962,
+      "sha256": "d22985e512af3eb04d4bbc74b5fa246558746b53d4952773e8f298fb9b8ba36c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/162000.match.json",
+      "bytes": 204314,
+      "sha256": "87666acb88e2c1d282cc8fe73ae03068989bfa2f2474c9f5d9e1469de85350f5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/165600.match.json",
+      "bytes": 203719,
+      "sha256": "e44489d15fbfa6d06ada034756684c0e26b49e4981da1ff0aacba47bb45a4442"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/169200.match.json",
+      "bytes": 233200,
+      "sha256": "50935749cf7dd78ba44155086df4eac64c338a410788f4cc90e773e9bac45522"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/172800.match.json",
+      "bytes": 185511,
+      "sha256": "0d72012af56871d0fad4d7e1aacebc19687ef09e4bd9ff10b51731bba74821f6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/176400.match.json",
+      "bytes": 219929,
+      "sha256": "177266334f53f2d8f9f3c8d41d84dac616a378f7d9cd4b7baf60c47988e84877"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/180000.match.json",
+      "bytes": 176651,
+      "sha256": "3bc68fd5eb6aa25bf69723f8ea7c11b88ade20ae7e84fbdee0a11fd26716a618"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/183600.match.json",
+      "bytes": 207050,
+      "sha256": "be7e53e28012f453008e16f0c826b0db9d4f0538acbde3998fb4d1ffa2f2965d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/187200.match.json",
+      "bytes": 207755,
+      "sha256": "effbf719090013493565f9dd0eb54a043cd5adcc7918add28444f1b825f0af6f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/190800.match.json",
+      "bytes": 251264,
+      "sha256": "5c518946f539b1cc89866908d9d0bdceac67523586ce8208d1981a1a71d21755"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/194400.match.json",
+      "bytes": 191190,
+      "sha256": "8addf6f47ce8adb2ddb84bdc32adfcc99d0c9a5555cda384dbd54bd7c813e416"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/198000.match.json",
+      "bytes": 219519,
+      "sha256": "63255e7938fbf2875f1bb4c5ee8296003e4f6f3385f866b86b2fedec4ed1d448"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/201600.match.json",
+      "bytes": 210845,
+      "sha256": "b0a3833e1667a27682f70c6d02f240345b2543bd3941ce21d1fddffafa1be727"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/205200.match.json",
+      "bytes": 209205,
+      "sha256": "5a5bbceca1789d06a5657fd83c1cf27db5839a1629637bf2c9b0a1ee13875043"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/205272.match.json",
+      "bytes": 199376,
+      "sha256": "78bfa3eaf20e5c3f4328644856f7898fefb347ae01ad87d99615ef51b68d0083"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/719/final.match.json",
+      "bytes": 199376,
+      "sha256": "78bfa3eaf20e5c3f4328644856f7898fefb347ae01ad87d99615ef51b68d0083"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/003600.match.json",
+      "bytes": 163629,
+      "sha256": "f07b5b69c7b4052803e85549123ee7d7a3c38785a3ed9565d4978ce82e8966b3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/007200.match.json",
+      "bytes": 183932,
+      "sha256": "0b318fdfb4e7194f0f5695b26da36b53f61895f0398804fd33027372e7502e8b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/010800.match.json",
+      "bytes": 175051,
+      "sha256": "c8b31f72c8254d205023c33962bf7cbd06f52e9c6661d55d8717f7705bc1ebda"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/014400.match.json",
+      "bytes": 165888,
+      "sha256": "e37baf09110e3b65c2eb33f9377dfdfc9586f075f692b137dd44b18da0f01e89"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/018000.match.json",
+      "bytes": 185466,
+      "sha256": "b51044afb2980e4278d4b2a4d7513195845394d9a62ea436da9b44ae6dfdd2be"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/021600.match.json",
+      "bytes": 185898,
+      "sha256": "85dd64426a868857eb5ef664221b35dd07a394fdf2ca5fc60d1c4447d27486e1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/025200.match.json",
+      "bytes": 178761,
+      "sha256": "61fbd1a48961fe4a9b49fad6bc500a3f0b169d4be8fed4f58623b3f65a848a06"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/028800.match.json",
+      "bytes": 174204,
+      "sha256": "536abe49000bb7746ac66804ce313a555aae41e417a1cb1663c6298add2f0ffa"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/032400.match.json",
+      "bytes": 182105,
+      "sha256": "9afcaf33513c7e55cf729805b291494e111db2bf692f56852dd82609eb4f8919"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/036000.match.json",
+      "bytes": 172451,
+      "sha256": "2d2720116882811f38eb4c3f5c8d8ddeede09782d588922a104619181c41ff90"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/039600.match.json",
+      "bytes": 174894,
+      "sha256": "41418c11458dc19e45287f120a2f208eb264d2f6e68f5a6fcbe9dbdf63b081d9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/043200.match.json",
+      "bytes": 164676,
+      "sha256": "586542c90cba65d870e70a74ba388ab63e568824963b4ba3b34998f3b80cede9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/046800.match.json",
+      "bytes": 174463,
+      "sha256": "87a97668b993f425e1dd573dfc01e070affdee47f9892c2b33974c6d814403fa"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/050400.match.json",
+      "bytes": 169873,
+      "sha256": "6a4a1b7b7558645a99661c7d52c8037bbac7debce66322c8c98a60f08e8c8798"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/054000.match.json",
+      "bytes": 204186,
+      "sha256": "4a8fab01cf44978e3ce2c0fef52e3560613776084c565e4e14095228c89aa7cd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/057600.match.json",
+      "bytes": 169797,
+      "sha256": "1613e14ae690957a2b834d5035528329711403adfbec4021cd26bf6216e752e8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/061200.match.json",
+      "bytes": 207338,
+      "sha256": "3dce43c80abb5c2ab05e7d0e25068afaf5d97de8b6aed8a4eb7e98df7ed6b773"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/064800.match.json",
+      "bytes": 195560,
+      "sha256": "75d3b0360bb299c71b2ab0b61b6b3755fd83c18dfd8ae0904a02fe6015357ba3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/068400.match.json",
+      "bytes": 192659,
+      "sha256": "92f04a4cbd0886c719dfb5147a1e2a77256924a11aea91e1be47a62b91a0e8a1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/072000.match.json",
+      "bytes": 195760,
+      "sha256": "42e50e942094a1ed76772ceadd7601ada6fe5e16c677f148652b2f9160d4be40"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/075600.match.json",
+      "bytes": 151859,
+      "sha256": "429ba3d1eb802343ba4a511fad3ab49546606d7428ecc4d85de0c2aa6d9e3f12"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/079200.match.json",
+      "bytes": 210006,
+      "sha256": "0bac5a55cbfbc797f63b13a1fe3623bd06169c41d2dd0aeb719d416d00941c9d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/082800.match.json",
+      "bytes": 163280,
+      "sha256": "045dca2106e622e6c4948d5269dbe74e3dd46471bfbf02f5a88e714d2250c21f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/086400.match.json",
+      "bytes": 146719,
+      "sha256": "0fbd0be350c64055ce428a73f5edf62dd60146cb502a656b58df1018f940d541"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/090000.match.json",
+      "bytes": 183095,
+      "sha256": "b1fc3f4d382f4d9d9f965c38d1503004c043e67eb461625c66f77e469f8474f7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/093600.match.json",
+      "bytes": 149914,
+      "sha256": "3c8f3410935fe70773791b80ff45ff81b299bddb05543b007fd4223296d0d1a1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/097200.match.json",
+      "bytes": 185404,
+      "sha256": "41de9355657f1de0cebb5867d00397b5ec8cf5e06fa6358d0fab4d066b0e4ecc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/100800.match.json",
+      "bytes": 235640,
+      "sha256": "aab09b3e0e85791a1968a8c0d04ff23c21d213170c6762078d243a5cfd49286d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/104400.match.json",
+      "bytes": 165419,
+      "sha256": "af40e54d98b542020e43647fc4b84399b0b23402c60912db61a800c805148191"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/108000.match.json",
+      "bytes": 216356,
+      "sha256": "33e09bffd272a5a9d9f4565cf1ed02dca6f97eedf148428923a7e030bdfebb80"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/111600.match.json",
+      "bytes": 192968,
+      "sha256": "bc1858c7cb37094e5ebdfb865714f84888bdbe07afac705219006828b78037e0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/115200.match.json",
+      "bytes": 211327,
+      "sha256": "13e8fc998bf646cedf4fe91e6e066b3c8dc122657b09c17fd6d4bbbaaf7a5429"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/118800.match.json",
+      "bytes": 198424,
+      "sha256": "845256b71481fa52bdbb5c5df87faae6764247bbce2c0bcc8dee20ad6b7840d7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/122400.match.json",
+      "bytes": 190318,
+      "sha256": "7be9574627d304b4bc6aef0f17a66f7e539e94c1ab177e0089c42eec6cbf6c77"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/126000.match.json",
+      "bytes": 164176,
+      "sha256": "673c183f4d4a5455db6995288822efe64edc7cc3b9bdc54ac8853e2793fe54b8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/129600.match.json",
+      "bytes": 193216,
+      "sha256": "d35d994a333806c22c01263a966a5e1951e4fb91c04c2cf6d8560aa5b9ee029b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/133200.match.json",
+      "bytes": 290842,
+      "sha256": "bfd76f7f2d30e2d0e7060cb2587d36c359d7075b979c3bc435538ace030331c5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/136800.match.json",
+      "bytes": 215687,
+      "sha256": "7c4e5fb453dcd967c8467acf81cf63e20d5751665ca8cb42cd70cc0bccc90496"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/140400.match.json",
+      "bytes": 195153,
+      "sha256": "0a18a54205aa098e039bf036bbb27b17d905c454adaba8dababcede1ae9398cb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/144000.match.json",
+      "bytes": 195738,
+      "sha256": "a8add25cc0e8ad3bc612d59bcad7d157245c81439cb36afd299b970bffe49cb4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/147600.match.json",
+      "bytes": 209394,
+      "sha256": "1a731d03acac56f586b16349730dce658575e63255b3268a034dafeaf6529224"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/151200.match.json",
+      "bytes": 188533,
+      "sha256": "d0219b56d688b6d5654bdbb05c119f719349fd85dce3e4abc2027ab7ddef79d3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/154800.match.json",
+      "bytes": 200700,
+      "sha256": "200a6ec591235734b5e4264481888a9d10bf8151bfc4db6e4f637e11efdfafcc"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/158400.match.json",
+      "bytes": 232110,
+      "sha256": "dd929e768bed1f5174a10bfe8a81fcffdf175b092295822a2480922e358632cf"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/162000.match.json",
+      "bytes": 187803,
+      "sha256": "096552b19dda18d1d095f180e428e2e33676a546eb0c33490f7405ca4e077e9e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/165600.match.json",
+      "bytes": 193601,
+      "sha256": "ed39414e2f48641be23d10bbb3d473d8a142f34211cdcfd6e1ae59dc9e038ed1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/169200.match.json",
+      "bytes": 229325,
+      "sha256": "5722e8d212033e1359e56561d8339b27c10b48f1d915de26c2ce90127bc25b72"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/172800.match.json",
+      "bytes": 232361,
+      "sha256": "650618dc203661dfebe8f41e2aeb5b7df8ac2608af6b6b2af1af7d3f7e88cbbe"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/176400.match.json",
+      "bytes": 191202,
+      "sha256": "33529ecad816057ff4c6afb9709f571ec36eae48739b9f480c4d503d54068b63"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/180000.match.json",
+      "bytes": 256785,
+      "sha256": "3f39984ea047db0877aaf01ca28a7d902f0ba3f7f2a28f071c9c21fd2072fb4c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/183600.match.json",
+      "bytes": 251424,
+      "sha256": "0b9ce95a278c6e64333eb7643ca05fe4fe808c8751c8c5311fc7839510a9e2b5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/187200.match.json",
+      "bytes": 219691,
+      "sha256": "e7758c78c3fa6fdaf4ece56d6c826e7c2b895267e77a8a917ffb8f8a1100d137"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/190800.match.json",
+      "bytes": 212342,
+      "sha256": "e407f807b42a4b17d84b52edb64dc284aec19dd66beab1ded8834c1f2cb862f6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/194400.match.json",
+      "bytes": 202464,
+      "sha256": "7491f84f84e789a93620e768cf35e4a1e7890308a211236a62eecfeabee90205"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/198000.match.json",
+      "bytes": 172641,
+      "sha256": "b5191bbda0db0b31004317c0018f55f9a8ef06b0c70f61ee1cef6413062b4ed6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/201600.match.json",
+      "bytes": 214096,
+      "sha256": "6a35aa1804b62030d6cc64f82d40780084a723fe74b8e039b1442f69ac8f9ead"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/204061.match.json",
+      "bytes": 186677,
+      "sha256": "0fd75b822c09fb32a40af9c39f67579dd0b5ed30c6c3a7f0632620c4028202a4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/match-cohort/normal-100-6a6196f-20261023/seeds/927/final.match.json",
+      "bytes": 186677,
+      "sha256": "0fd75b822c09fb32a40af9c39f67579dd0b5ed30c6c3a7f0632620c4028202a4"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-companion-purchase.png",
+      "bytes": 1811850,
+      "sha256": "d0e686ecf6e354b2d25e4cabf1feb83227987340afc7ec08a6ffda9aa0bcf953"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-lux-e-moving-burst.png",
+      "bytes": 1831969,
+      "sha256": "8fd118e2189a82507a8f9797b7158e97fe27116ff88c5f0885ea0e37ce8223b9"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-lux-e-source.png",
+      "bytes": 1830224,
+      "sha256": "ddcc906b41b62f97aa6a6864039423087a6e4b184e787eb162c27cc320f89f91"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-lux.png",
+      "bytes": 1804656,
+      "sha256": "dd0df7d3316cea4aa567429513f0081ec4e2c2f48e3112000db018601b45de3f"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-oracle.png",
+      "bytes": 1817151,
+      "sha256": "b9ed7c18a5c6f009deae90617cc02fe2ed77c26f4b4c47518708edfd1926d966"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-role-match.png",
+      "bytes": 1346558,
+      "sha256": "d722b46bc15b2d47882a4d69ab9e9d73e2942e4a9adb361ae37495bdd6e9928a"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-subpath.png",
+      "bytes": 1820162,
+      "sha256": "59baed957ea8c08e8ce3818e9d97a22f675691a3288ecbd4ae7f50025c10cf6c"
+    },
+    {
+      "file": "artifacts/cohort-defects-production-ward.png",
+      "bytes": 1812759,
+      "sha256": "7d1328ae71dceae2d8585ce6e16fa8f7623506e1c41f53ee67b0e5a0406bb4f7"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-crest-of-cinders.png",
+      "bytes": 1396294,
+      "sha256": "85e1cd457e9d5d97f7d0b8725df7d7a582c670fa3281790f602df026e8b7ff38"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-match-file-graphics-loss.png",
+      "bytes": 194256,
+      "sha256": "a0959813b657a474088beeea13e18a7ecde9f2b07226652c299d350087694a5f"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-match-file-preview.png",
+      "bytes": 416637,
+      "sha256": "65ce08798b9fc38840bd97949860514516c1aca6451af941575abc9684c5a5d6"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-match-file-rejected.png",
+      "bytes": 479473,
+      "sha256": "b12d7969ecbcddd30ec5f1ca1f4836c1d37ebda8558ab99f592fcf8fa69b5478"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-match-import-failure-after-recovery.png",
+      "bytes": 474003,
+      "sha256": "dfd2b009b2f3abe28b0463d6455de8512f95ed0c1772e6f063de4f4882cb03c5"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-match-import-failure-before-recovery.png",
+      "bytes": 473973,
+      "sha256": "4944940271997d50032acdc980665efb221ca72e515b8319273635eed14f83d0"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-red-brambleback-combat.png",
+      "bytes": 1425628,
+      "sha256": "9fdb8d8e1581558df5910a868c60782900dffce89254fa286df7e9f1673f7ae4"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-red-brambleback-respawn.png",
+      "bytes": 1426051,
+      "sha256": "c542599c7d98395b859565c1e401c78e8ee50d1c44f50bd82d1f7350e428e503"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-enemy-cleared.png",
+      "bytes": 873143,
+      "sha256": "16757cf5b5565b595c34aaf094fcffaef8f90f190ca51d50ad996354a6cf7c35"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-enemy-first-hit.png",
+      "bytes": 892839,
+      "sha256": "d5c1e93fd4aa50c77d8a06f2041780b41ed5b765c86a036b42b67f4af565f748"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-practice-reset.png",
+      "bytes": 960523,
+      "sha256": "81def3d1ae7f6e61c6da933b8379521a797ed94f780b89d63d6f52021f43d678"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-rift-expired.png",
+      "bytes": 1284278,
+      "sha256": "2fe106cc0f7d7f347a28baa07af308b7204b0af83d5d00febade3d834cea7cc2"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-rift-guide.png",
+      "bytes": 1516817,
+      "sha256": "3a0921ff0c0d94945f4a836e568d0ed7d6c0e99c8118c85a4552f03c7e15a259"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-rift-input.json",
+      "bytes": 697,
+      "sha256": "6ee36ab0cff1dd6729fd349e0d1510e9128ca1a6b18b63e95f2d70233aadd21d"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-rift-placed.png",
+      "bytes": 1505850,
+      "sha256": "d19f0f80540ccd5d133bd6a21b198f703488f76868e3faefbdb706db68edfa9f"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-rift-sight.png",
+      "bytes": 1322735,
+      "sha256": "98aa092dc411dac7c2dce7af17a31f2a0760441a9b4a57fcbf59f46fa21e0c42"
+    },
+    {
+      "file": "artifacts/cohort-defects-regression-ward-rift-small-hud.png",
+      "bytes": 588692,
+      "sha256": "2491b08a697df97ec0eb0729e2f8ffddf50706007630844d54b39618f956ad9f"
+    },
+    {
+      "file": "artifacts/cohort-defects-replay-verified.json",
+      "bytes": 2415,
+      "sha256": "1e8db8a7a9d126933b4ad8c0d3d8755d8aea00c12c152bc4293bda9f1c7d58fe"
+    },
+    {
+      "file": "artifacts/cohort-defects-replay-verified.json.seed-3.match.json",
+      "bytes": 197563,
+      "sha256": "34cb7875e0cf10eece879f6ddaeffe47dcbdd1da18a9ee88f6aae1de789569c2"
+    },
+    {
+      "file": "artifacts/cohort-defects-replay-verified.json.seed-5.match.json",
+      "bytes": 199068,
+      "sha256": "6cb2044e80062f22ea47180014f4e5f7a65349a81e3620384dbbf10845c56c34"
+    },
+    {
+      "file": "artifacts/cohort-defects-replay.json",
+      "bytes": 2221,
+      "sha256": "1d8160a7d038b4027476bfe52ffacf823a6135ac5996ef25695badee4561bb6b"
+    },
+    {
+      "file": "artifacts/cohort-ward-reload.json",
+      "bytes": 156,
+      "sha256": "58e1be47e1da039c64a7c25be88f9b7b1d7ced19da8dbb81f80e40c7c8096053"
+    },
+    {
+      "file": "artifacts/cohort-ward-reload.png",
+      "bytes": 441434,
+      "sha256": "5fb84e08d763bdc7a27cb41db24335de069bd2a516723e09f173da9c260439ba"
+    },
+    {
+      "file": "artifacts/cohort-winning-file-import.json",
+      "bytes": 269,
+      "sha256": "c10875b128ef621a6e104b0817645d4e700f68acf4ad549694c6af59b9917b77"
+    },
+    {
+      "file": "artifacts/cohort-winning-file-import.png",
+      "bytes": 442867,
+      "sha256": "4e96e8c53b3664048f28063b9c655391dd816dcc1cfc1734d8722149ff151c48"
+    },
+    {
+      "file": "docs/MATCH-COHORT-FINDINGS.md",
+      "bytes": 5645,
+      "sha256": "38c459dd57da6191a0322befa11b12aa987dbdcf8d54e96bdf4d8068d3ea80e8"
+    },
+    {
+      "file": "docs/MATCH-COHORT.md",
+      "bytes": 4756,
+      "sha256": "54e5d8d2cbf0cb4db3e5d0a15df7d0a5c39a6e99711b51e1d00e5a248f941b57"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 483930,
+      "sha256": "bae6d3256ef69172c00a107643b9843b8a02f47415948969ce39288f07839446"
+    },
+    {
+      "file": "docs/SAVES.md",
+      "bytes": 43264,
+      "sha256": "5bc31b1ed93385c2e64c4ba0b4c483685977fde0774d054be7a344cfbd57ea6c"
+    },
+    {
+      "file": "e2e/cohort-save-regressions.spec.ts",
+      "bytes": 7592,
+      "sha256": "df294c56abaee9258bf43be0d245dcf3a53314be8e50ceb6baadd36f9813ff2c"
+    },
+    {
+      "file": "e2e/lux-flight-terminal.spec.ts",
+      "bytes": 4004,
+      "sha256": "2ced1dc2956d40a25e51bbd295f72c6708e375f163d0549c68a41ab770a15ff4"
+    },
+    {
+      "file": "e2e/match-files.spec.ts",
+      "bytes": 11279,
+      "sha256": "1e1802f872b9b91d8c3c3d01a9d0e5491ce39b6ca1a4fdbb45ce46fba1dbdadd"
+    },
+    {
+      "file": "e2e/red-brambleback.spec.ts",
+      "bytes": 10581,
+      "sha256": "23a755282d5c1681b9783c858f143f06262447c6f3259af98978d4fc93e5c430"
+    },
+    {
+      "file": "e2e/terminal-interpolation.spec.ts",
+      "bytes": 2656,
+      "sha256": "dc00e502fc1f0aec08618882c09309504715c9ad3fb224134737a8e11f539240"
+    },
+    {
+      "file": "e2e/warding-totem.spec.ts",
+      "bytes": 12046,
+      "sha256": "e8d27dae21575a68c1e76dfebe1a061fb733dc9f3570fd054bab8427b37eb6e7"
+    },
+    {
+      "file": "src/simulation/red-buff.ts",
+      "bytes": 2519,
+      "sha256": "9bc373b001085741ecd70e9ca57e41327680673597d7a15241e3342fd6143224"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 125766,
+      "sha256": "97b545ebdd2c1fba290a22a0d6594681a102d1158a4fe2469a01a15c21c9c15b"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 217670,
+      "sha256": "405b68b34b7169c16cab95e53a498707561a158776ed14e79356da90ccb7dd37"
+    },
+    {
+      "file": "tests/ashe-r-splash.test.ts",
+      "bytes": 2217,
+      "sha256": "008c44f7f54b38145c1c796a9d6763f29742c63d20598432348d8c168b3e1bda"
+    },
+    {
+      "file": "tests/ashe-r-ward-immunity.test.ts",
+      "bytes": 2264,
+      "sha256": "eab96d27d363b2d207743ccaf06cce1a65cf27f144478c56b972f29b8ccf93de"
+    },
+    {
+      "file": "tests/red-buff.test.ts",
+      "bytes": 12678,
+      "sha256": "42ac19144cf0d13be2ffceb3d3da387d8cd13151543965d84d0881f3422309f8"
+    },
+    {
+      "file": "tests/terminal-restoration-clocks.test.ts",
+      "bytes": 3459,
+      "sha256": "0c44b6ba466ad9bfa9b36cf07f090f478efbfba6edd8d920dd1a3c4d39f12586"
+    },
+    {
+      "file": "tests/warding-totem.test.ts",
+      "bytes": 11839,
+      "sha256": "4fa9966d9d3bd7e229241b018656159a6a933027367f3a879cb81a65222919d4"
+    },
+    {
+      "file": "tools/qa/match-cohort.mjs",
+      "bytes": 10022,
+      "sha256": "666f7e78d267ec73843f7f7c33992ad0ed705866d49ac3ecf63dd9dadce04b3b"
+    },
+    {
+      "file": "tools/qa/match-contract.ts",
+      "bytes": 3606,
+      "sha256": "e28509284bbc068248e9d5b1a60de3c25bcdcdb078db94ed5b3321bfaa762ae9"
+    },
+    {
+      "file": "tools/qa/match-seed.ts",
+      "bytes": 7551,
+      "sha256": "6459b8936f0e67f95f60446d3f75cd450ef01083fd1fdbb3e66f03c9ec700dda"
+    },
+    {
+      "file": "tools/qa/replay-cohort-failures.ts",
+      "bytes": 4541,
+      "sha256": "719e995b5d359ae4958c5e96bf2c305fcf2c555d00e825a2a02a339692af5467"
+    },
+    {
+      "file": "tools/qa/verify-cohort-save-corrections.mjs",
+      "bytes": 3242,
+      "sha256": "3421d9c22f5181d20397b24784f3bc5f2d4523ed31fab89445976898b06a60a6"
+    }
+  ]
+}

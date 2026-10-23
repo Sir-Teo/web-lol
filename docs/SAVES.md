@@ -274,6 +274,14 @@ Pausing releases held input and unfinished aiming gestures, but preserves comman
 
 The pause menu's **Save match** action writes one checkpoint per battlefield to this browser's IndexedDB storage. After the write completes, reloading the same build restores that match and leaves it paused. The camera recenters on the saved player; the welcome banner is omitted. **Restart practice** clears that battlefield's checkpoint before starting a new match. Manual file export/import is available through **Match files**. There is no automatic save or cross-device sync. Production builds now offer an explicit complete [offline game pack](OFFLINE-PACKS.md) through **Pause → Offline files**; a checkpoint alone does not cache assets.
 
+## Winning-boundary corrections
+
+Schema 113 now settles a due red-buff pulse clock without healing after victory,
+and expires a due Enlighten record without restoring mana after combat has
+ended. Crystal Arrow splash excludes wards before any legacy control fields are
+written. The strict fingerprint changes; malformed clocks and ward state remain
+rejected. See [the cohort findings](MATCH-COHORT-FINDINGS.md).
+
 ## Simulation format
 
 The current dependency audit keeps schema **113** and changes the strict ruleset

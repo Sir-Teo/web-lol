@@ -40,18 +40,23 @@ export function redBuffHealingPerSecond(state: ChampionState, maxHp: number, tic
     5
   );
 }
-/** No banked healing during death or lockout; resolve after combat each tick. */
-export function advanceRedBuff(state: ChampionState, unit: Unit, tick: number): void {
+/** Settle the pulse phase without restoring HP, including an interrupted winning tick. */
+export function advanceRedBuffClock(state: ChampionState, tick: number): boolean {
   const buff = state.redBuff;
-  if (!buff) return;
+  if (!buff) return false;
   if (tick >= buff.endTick) {
     state.redBuff = null;
-    return;
+    return false;
   }
-  if (tick < buff.nextRegenTick) return;
+  if (tick < buff.nextRegenTick) return false;
   buff.nextRegenTick =
     buff.startTick +
     (Math.floor((tick - buff.startTick) / RED_BUFF_REGEN_TICKS) + 1) * RED_BUFF_REGEN_TICKS;
+  return true;
+}
+/** No banked healing during death or lockout; resolve after combat each tick. */
+export function advanceRedBuff(state: ChampionState, unit: Unit, tick: number): void {
+  if (!advanceRedBuffClock(state, tick)) return;
   if (unit.deadAt === null && unit.hp > 0)
     unit.hp = Math.min(
       unit.maxHp,

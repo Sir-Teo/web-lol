@@ -71,3 +71,11 @@ interim roster. `roadmapMilestone4Complete` remains false: the complete roster,
 quests/objectives, role quality, browser/offline full-length matches, performance
 and native comparison requirements remain open. A completed 100-seed run must be
 repeated after relevant match-rule or roster changes.
+
+## First run and corrections
+
+The first frozen plan stopped after eight seeds: six passed and two exposed
+save-state failures. Its 92 queued seeds were not counted as executed. See
+[the findings and controlled replays](MATCH-COHORT-FINDINGS.md). A corrected
+cohort must restart with the complete seed population under the new fingerprint;
+old and new runs are not combined into a passing 100-seed result.
