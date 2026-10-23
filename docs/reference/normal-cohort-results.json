@@ -1,0 +1,1027 @@
+{
+  "format": 1,
+  "scope": "Completed original normal-rules baseline and subsequent canonical jungle approach correction. The baseline gate, isolated candidate and current smoke are different source identities.",
+  "baseline": {
+    "baseCommit": "5d06c6df9af12923200c7e3561a82cbb10996257",
+    "ruleset": "6466566e3a12e041128f2bafd34800b81ed798b61726c387cc7cfdc8b2003c57",
+    "schema": 113,
+    "roster": "six Ashe/four Lux; five roles per team",
+    "qaAutomatedHumanCarry": true,
+    "seeds": [
+      3,
+      5,
+      26018,
+      719,
+      1,
+      927,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      2147483647,
+      2147483648,
+      4294967295
+    ],
+    "horizonTicks": 216000,
+    "executed": 100,
+    "victories": 70,
+    "unfinished": 30,
+    "failures": 0,
+    "checkedTicks": 19960310,
+    "roundTrips": 5578,
+    "futureChecks": 5478,
+    "hundredSeedInvariantGate": true,
+    "roadmapMilestone4Complete": false,
+    "aggregate": {
+      "executed": 100,
+      "victories": 70,
+      "unfinished": 30,
+      "failures": 0,
+      "completionFraction": 0.7,
+      "blueVictories": 43,
+      "redVictories": 27,
+      "checkedTicks": 19960310,
+      "roundTrips": 5578,
+      "futureChecks": 5478,
+      "durations": {
+        "population": "Victories only; all unfinished cases are separately right-censored at 3600 seconds.",
+        "count": 70,
+        "min": 2428.366666666667,
+        "p10": 2826.4166666666665,
+        "median": 3239.766666666667,
+        "p90": 3471.5666666666666,
+        "max": 3597.3166666666666,
+        "mean": 3209.5976190476194,
+        "percentileMethod": "sorted sample at floor((count - 1) * p)",
+        "finishedBy40Minutes": 0
+      },
+      "censoredAtSeconds": 3600,
+      "unfinishedWithNoBuildingDestructionInFinal10Minutes": [],
+      "unfinishedWithNoAdditionalChampionDeathsInFinal10Minutes": [],
+      "unfinishedWithExposedNexusAtHorizon": [
+        8,
+        42,
+        54,
+        63
+      ],
+      "aliveStationarySampleCandidates": [
+        {
+          "seed": 38,
+          "id": 33,
+          "team": "blue",
+          "role": "jungle",
+          "fromTick": 205200,
+          "toTick": 216000,
+          "sampledSpanSeconds": 180,
+          "position": {
+            "x": -3895.4020490472894,
+            "y": -411.46513587784676
+          },
+          "allSavedSamplesAlive": true,
+          "csGain": 0,
+          "killsGain": 0,
+          "orderTypes": [
+            "idle"
+          ]
+        }
+      ]
+    },
+    "unfinishedSeeds": [
+      7,
+      8,
+      10,
+      15,
+      19,
+      21,
+      22,
+      26,
+      33,
+      36,
+      38,
+      42,
+      47,
+      50,
+      54,
+      57,
+      58,
+      61,
+      62,
+      63,
+      69,
+      75,
+      76,
+      80,
+      82,
+      89,
+      90,
+      91,
+      92,
+      93
+    ],
+    "independentVerification": "passed before source edits and again from frozen archived verifier",
+    "allOwnedCohortWorkersExited": true,
+    "sourceArchive": ".cache/match-cohort/normal-100-6466566-20261023/frozen-source/archive-ledger.json"
+  },
+  "current": {
+    "sourceBaseCommit": "5d06c6df9af12923200c7e3561a82cbb10996257",
+    "uncommittedAtValidation": true,
+    "ruleset": "3d05c177eca76fafd3c147dd46b8ce77552653ed20eb55f8b1ec0636c10c2350",
+    "schema": 113,
+    "changedFrozenSources": [
+      "package.json",
+      "src/simulation/bot-jungle.ts",
+      "src/simulation/world.ts"
+    ],
+    "newSavedFields": false,
+    "snapshotDecoderUnchangedFromBaseline": true,
+    "strictProductionImport": true,
+    "productionMigration": false,
+    "sourcePins": [
+      {
+        "file": "package.json",
+        "bytes": 1147,
+        "sha256": "12108b696b046919346d6c157339b37b20ff57c3b3c2448949af3d8a98d8b2b6"
+      },
+      {
+        "file": "src/simulation/bot-jungle.ts",
+        "bytes": 3577,
+        "sha256": "e8c7f635983416439409e910d64d7a2c4583d6f0cb0265e29f14163ee9d9655b"
+      },
+      {
+        "file": "src/simulation/world.ts",
+        "bytes": 217744,
+        "sha256": "b323e31904561e22682a44bfda689901cf99e2e5373a47bf385289bb7cbd0eba"
+      },
+      {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 125766,
+        "sha256": "97b545ebdd2c1fba290a22a0d6594681a102d1158a4fe2469a01a15c21c9c15b"
+      },
+      {
+        "file": "tests/bot-jungle.test.ts",
+        "bytes": 10511,
+        "sha256": "acc1351c1cfbb8001d43069a1420125b39002a7b786c27cac6c13c501164a82b"
+      },
+      {
+        "file": "tests/bot-jungle-brush.test.ts",
+        "bytes": 3049,
+        "sha256": "132a62d1a1dace19fcf5616488159331c0f5a350e6a1aa460a6bb1a3eb33fa04"
+      }
+    ],
+    "fullHundredSeedCorpus": false,
+    "normalFromZero": {
+      "seeds": [
+        3,
+        38
+      ],
+      "horizonTicks": 36000,
+      "checkedTicks": 72000,
+      "roundTrips": 20,
+      "futureChecks": 18,
+      "victories": 0,
+      "unfinished": 2,
+      "failures": 0,
+      "independentVerification": "passed",
+      "identityBridge": false,
+      "sourceArchive": ".cache/bot-jungle-canonical-validation-20261023/normal-from-zero-3d05c1/frozen-source/archive-ledger.json"
+    },
+    "comparisonWithIsolatedRuntimeCandidate": [
+      {
+        "seed": 3,
+        "checkpointStatesEqualExceptRuleset": 10,
+        "finalStateEqualExceptRuleset": true
+      },
+      {
+        "seed": 38,
+        "checkpointStatesEqualExceptRuleset": 10,
+        "finalStateEqualExceptRuleset": true
+      }
+    ],
+    "checkpointReplay": {
+      "sourceRuleset": "6466566e3a12e041128f2bafd34800b81ed798b61726c387cc7cfdc8b2003c57",
+      "currentRuleset": "3d05c177eca76fafd3c147dd46b8ce77552653ed20eb55f8b1ec0636c10c2350",
+      "identityBridgeFields": [
+        "ruleset"
+      ],
+      "diagnosticOnly": true,
+      "injectedCommands": 0,
+      "leftBrushTick": 205207,
+      "monsterDeathTick": 205331,
+      "csBefore": 374.6,
+      "csAfter": 378.6,
+      "matchedRestoreCheckpoints": 10,
+      "checkpointIntervalTicks": 60,
+      "strictFinalRoundTrip": true
+    },
+    "validation": {
+      "check": {
+        "command": "npm run check",
+        "exitCode": 0,
+        "typescript": "passed",
+        "vitestFiles": 266,
+        "vitestPassed": 1460,
+        "nodeQaPassed": 3,
+        "defaultTimeouts": true
+      },
+      "build": {
+        "command": "npm run build",
+        "exitCode": 0,
+        "existingLargeChunkWarning": true,
+        "generatedDeliverablesArchive": ".cache/bot-jungle-canonical-validation-20261023/production-build-archive.json"
+      },
+      "browser": {
+        "command": "node tools/qa/production-subpath.mjs (separate output working directory)",
+        "exitCode": 0,
+        "report": {
+          "result": "passed",
+          "prefix": "/nested/rift/",
+          "recordings": 32,
+          "mapNavigation": true,
+          "practiceScheduledRigs": 11,
+          "realHawkshotCast": true,
+          "realLuxBindingCast": true,
+          "realLuxSingularityCastAndRecast": true,
+          "lucentSourceAssets": [
+            "assets/effects/lux-e-color-hit-mana.png",
+            "assets/effects/lux-e-color-hold.png",
+            "assets/effects/lux-e-color_lux_e_shield.png",
+            "assets/effects/lux-e-lux_base_e_distort.png",
+            "assets/effects/lux-e-lux_base_e_flame_ring.png",
+            "assets/effects/lux-e-lux_base_e_flare.png",
+            "assets/effects/lux-e-lux_base_e_flash.png",
+            "assets/effects/lux-e-lux_base_e_glow.png",
+            "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+            "assets/effects/lux-e-lux_base_e_indicator_red.png",
+            "assets/effects/lux-e-lux_base_e_mote.png",
+            "assets/effects/lux-e-lux_base_e_small_mote.png",
+            "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+            "assets/effects/lux-e-lux_base_w_glow.png",
+            "assets/effects/lux-e-rainbowflash.png",
+            "assets/effects/lux-e-rainbowhalo.png",
+            "assets/effects/lux-e-sphere_e_01.png",
+            "assets/models/lux-e-indicator.glb",
+            "assets/models/lux-e-slash.glb"
+          ],
+          "luxLaneRestart": true,
+          "selectedSmiteLoadoutAndRestart": true,
+          "companionPurchaseAndRestore": true,
+          "companionPurchaseInPractice": true,
+          "realWardPlacementAndRestore": true,
+          "oraclePurchaseActivationAndRestore": true,
+          "oracleRigRequests": 8,
+          "oracleAudioRequests": 6,
+          "unrequestedOraclePreloads": 0,
+          "wardRigRequests": 7,
+          "unrequestedCompanionPreloads": 0,
+          "developmentHook": false,
+          "garenFixtureInProduction": false,
+          "junglePreviewRequests": 0,
+          "preparedCompanionRequests": 5,
+          "roleCompanionRequests": 2,
+          "roleScoreboardIcons": 34,
+          "scheduledGrompRequests": 119,
+          "scheduledBlueRequests": 7,
+          "scheduledRedRequests": 7,
+          "scheduledWolfRequests": 14,
+          "scheduledRaptorRequests": 14,
+          "scheduledKrugRequests": 21,
+          "scheduledScuttlerRequests": 7,
+          "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+        },
+        "captureReviewed": true,
+        "captureReading": "Ashe practice frame with map, dummy, HUD and minimap. Legacy capture filename does not certify a Lux hit reference.",
+        "nativeVisualOrFpsCertification": false,
+        "fullOfflinePackRetested": false
+      },
+      "ownedSessions": [
+        {
+          "id": 12452,
+          "kind": "canonical check",
+          "exitCode": 0
+        },
+        {
+          "id": 22441,
+          "kind": "canonical build",
+          "exitCode": 0
+        },
+        {
+          "id": 17982,
+          "kind": "canonical smoke",
+          "exitCode": 0
+        },
+        {
+          "id": 32247,
+          "kind": "production browser",
+          "exitCode": 0
+        },
+        {
+          "id": 23886,
+          "kind": "smoke verifier",
+          "exitCode": 0
+        },
+        {
+          "id": 57929,
+          "kind": "seed 38 replay",
+          "exitCode": 0
+        }
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/plan.json",
+      "bytes": 38629,
+      "sha256": "f848de44bc93006f04790a284b3348f1db1551e9726505bb61623aec2e3df350"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/summary.json",
+      "bytes": 33008801,
+      "sha256": "6de1fbb0078050fef9b5f935a1b66436a23763baf1adac5db3732a947e5f0579"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/final-verification.log",
+      "bytes": 290,
+      "sha256": "ebe0efdb9874e0a61fd30dadbcabd2568880570a9c03f258957b3c63deb68b68"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/completed-cohort-review.json",
+      "bytes": 483546,
+      "sha256": "fb7fa37e18c530f8081f36160188241f45c1d0986842b460f47b9e122db694af"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/completed-review.log",
+      "bytes": 1622,
+      "sha256": "302c8b98bdc5fcfddb1d244921dc230a0547a827e2876b56622d508bb615d433"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/frozen-source/archive-ledger.json",
+      "bytes": 85789,
+      "sha256": "6ec051fed04c8b54606eec85e1c29b7a429a17862c4dca0906baedb5067958e0"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/frozen-source/baseline-review-inputs.json",
+      "bytes": 248418,
+      "sha256": "0c9705f41aa12379d8b37e914091640abfe68a236421a6a8b5886da42c3afb7e"
+    },
+    {
+      "file": ".cache/match-cohort/normal-100-6466566-20261023/frozen-source/historical-verification.log",
+      "bytes": 290,
+      "sha256": "ebe0efdb9874e0a61fd30dadbcabd2568880570a9c03f258957b3c63deb68b68"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/check.log",
+      "bytes": 945,
+      "sha256": "b8066af6ae4950767ee12a6bd547df56332900457cd37983f4810e71c191bc2e"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/build.log",
+      "bytes": 2350,
+      "sha256": "6713f65c3ffadf35e1cb4356841ed5bb4d9cdea648ccd18d81a74908527e8e47"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-browser.log",
+      "bytes": 1802,
+      "sha256": "230beebf3e8f9199cf638e23cd1b00e2b208f42a7fef5d304c8a5236182ecd43"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-run/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1819978,
+      "sha256": "ae79f405532d23a0f42c4c760d8dfa093fb0b9e5aa3cd483387c6a1203829ff6"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/normal-from-zero.log",
+      "bytes": 903,
+      "sha256": "cf55246cf26121b018ea7ce9d41be4958174663556e30b51f49aaeeec14992f5"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/smoke-verification.log",
+      "bytes": 279,
+      "sha256": "83f77103d8c730204b50e3783ad1ff03d56d06038570cbc8fe073cc882422c13"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/seed38-replay-build.log",
+      "bytes": 383,
+      "sha256": "b8c2fbba83c485bce6f0b6563399944187fbfbd9543562ad0fff642d1bbbc38b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/seed38-replay/observation.json",
+      "bytes": 1868,
+      "sha256": "eb8729dfba473d3f27b74c34abb4ce5cf2be0588cbeb3b5e2caa1da8e137a13a"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/seed38-replay/bundle-pin.json",
+      "bytes": 38297,
+      "sha256": "b4eae930f7d3cb94005def3d0508495867ba3bdfd5e92c782279a8699907ae0c"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/normal-from-zero-3d05c1/plan.json",
+      "bytes": 37919,
+      "sha256": "cbd87e7352c066fb854802912bfb3c6cc98d92f6b3865a23a8b630d3e84945a2"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/normal-from-zero-3d05c1/summary.json",
+      "bytes": 120288,
+      "sha256": "37f2b56bd596560f9cabe86f04439f902538e0092620b71dc04de3c36556159a"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/normal-from-zero-3d05c1/frozen-source/archive-ledger.json",
+      "bytes": 91274,
+      "sha256": "ab02dde11b5c2b248ec26222d2072be5b11f169a9426664052573428af651719"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/normal-from-zero-3d05c1/seeds/3/report.json",
+      "bytes": 51370,
+      "sha256": "c69890c173909b9efe0e5ec11071e8fbf617366d41acb3843789c0da1f90b1f7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/normal-from-zero-3d05c1/seeds/38/report.json",
+      "bytes": 51309,
+      "sha256": "c51e6a645c76cd0d691afe9044b4cc38601b041c0f6e6386553fec8026e147c2"
+    },
+    {
+      "file": ".cache/bot-jungle-candidate-validation-20261023/candidate-acceptance-evidence.json",
+      "bytes": 8043,
+      "sha256": "41dc90d0453f7bb8bc53ee16334caf6e2aa35297ddd8f093bbd0949fa0162d9e"
+    },
+    {
+      "file": ".cache/bot-jungle-candidate-validation-20261023/full-verification-ledger.json",
+      "bytes": 55928,
+      "sha256": "2f5c72f713a1ecb90bbe7298caf0fdb947e92bc88caa39bce6577f8fd588ce66"
+    },
+    {
+      "file": ".cache/bot-jungle-candidate-validation-20261023/.cache/full-tests.log",
+      "bytes": 7844,
+      "sha256": "b150bababdb3b22090930a4d33da8233fd64613df6d39642ec1bd70c69834a6d"
+    },
+    {
+      "file": ".cache/bot-jungle-candidate-validation-20261023/.cache/full-tests-with-fixtures.log",
+      "bytes": 548,
+      "sha256": "f6716a0179a1da346ff6f92e0f1d24858dfc266dae7cdfac5b13ba696d37b58f"
+    },
+    {
+      "file": ".cache/analyze-completed-normal-cohort-20261023.mjs",
+      "bytes": 8204,
+      "sha256": "bc7eb2a1dcb0add7fd3ed813483b6176e99356f93c54827139199ccc18f5ce59"
+    },
+    {
+      "file": ".cache/archive-frozen-normal-cohort-sources-20261023.py",
+      "bytes": 2195,
+      "sha256": "2ea45a9e21711140e8b9b386875b200d799149ccf598d0e6894e8adb217c7df1"
+    },
+    {
+      "file": ".cache/archive-frozen-current-smoke-sources-20261023.py",
+      "bytes": 2208,
+      "sha256": "53b3b5d51364964cad0761fa512590af1a52245f2d62f33ef020f4d227ceaba1"
+    },
+    {
+      "file": ".cache/replay-seed38-canonical-20261023.ts",
+      "bytes": 4652,
+      "sha256": "305344496e154e5551f85c3f08c8e8ff406869e4a4ad6414b84553730e14964c"
+    },
+    {
+      "file": ".cache/build-replay-seed38-canonical-20261023.mjs",
+      "bytes": 1573,
+      "sha256": "7cdb1f43825d6a399845227ec797b956d97b054bfcece325449493b73146a401"
+    },
+    {
+      "file": ".cache/finalize-normal-cohort-record-20261023.mjs",
+      "bytes": 9486,
+      "sha256": "60d3c35f813252847328ab829b26d6e67822c79619023bde5c5a6bde0b8c1d08"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/game-tfUtYOuA.js",
+      "bytes": 901385,
+      "sha256": "2638daf7cdb6fbcfb592b2b1b705d48798cc2c1f3f5b00464b006086f826c5b1"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/map.html",
+      "bytes": 618,
+      "sha256": "82a29170e175a13d8b0c2e25d39114a901f42374faf204f03e54cd3046a26923"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/index.html",
+      "bytes": 999,
+      "sha256": "d4185de9de6860dbc7394a7ed4d4754abfe59a61e83270200968c3c71b5134e4"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/offline-pack.json",
+      "bytes": 112511,
+      "sha256": "0719eb82c3cb21c9d264af8b11acebc83709f9ba9163d5054111ee51c78c41f2"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/offline-worker.js",
+      "bytes": 115716,
+      "sha256": "9d20714a127e16dae247e07e8be01f4a47e14e46fbcbedfc98058d5f4de3d000"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-courage-Ds8sQhTU.js",
+      "bytes": 21867,
+      "sha256": "9cac34f7badab206047aca46370a0a886611cd840f023a88900d63be85e35ee6"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/gromp-death-B0B6Lh_M.js",
+      "bytes": 5395,
+      "sha256": "2e4aeeea7e83e6240badcde256d1668e74be4778ebc674984c22442f5d1518fb"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-decisive-strike-DGXieSv4.js",
+      "bytes": 55151,
+      "sha256": "88f21d5b0352a6eb0d354c0f3e46edef539b11814bc971e5fec90a036650f1c7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-q-DIITm-SR.js",
+      "bytes": 10787,
+      "sha256": "8939ab8840c897c6302a3412368cde1a21c2428295a07259660b0ae7d48f5d4c"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-w-DvvDxSjM.js",
+      "bytes": 8107,
+      "sha256": "14576c1aa42fe64570d6155a1118b28f8afdf68d4e6e220361cce07d75c67038"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-p-YQv8WId2.js",
+      "bytes": 5760,
+      "sha256": "d262ced3ceadd16a47d93bd09358642bd38fcd233779d2251c27f15f3142e00c"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/oracle-particles-DK-0pUBW.js",
+      "bytes": 55716,
+      "sha256": "22d54f0865d87a14a71e956eadd6c0351f61d113ef7029c315d6f136660c30a7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/gromp-death-particles-Dm-f2Uh_.js",
+      "bytes": 12929,
+      "sha256": "786150d07f3cb1aaabea14f47a3b0faeb8968e3d6c4b091cac5a9295348c98a3"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-justice-BmSNv1jm.js",
+      "bytes": 42381,
+      "sha256": "54cd816c75fbd99054540b0392e0c360f79e719ce3a886478cd8586223075af2"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/rift-assets-CtSIaAP4.js",
+      "bytes": 9106,
+      "sha256": "cb6321af24771e55534341586b3844105263efc40b4781daa7ccd8888fcc07a5"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-perseverance-BoK5kfKC.js",
+      "bytes": 3130,
+      "sha256": "24ebf42a295c1d7b8a44e4c383796318ac95fc605db92012017809bdddfff85b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-r-B8XrU1vX.js",
+      "bytes": 6727,
+      "sha256": "cbdfb2c689ccd5fbbbe17dd432a1b9b76212012a79be8ea40762072fc79d3af7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/map-e5wHmr_S.js",
+      "bytes": 3775,
+      "sha256": "e9181548efbc5c7c287210abaa0bd215b31f3ca438e815e6b84ced6e06e1b18f"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/oracle-BcyTjNXw.js",
+      "bytes": 5752,
+      "sha256": "1fbfda2cb035e0a425b401fbe4a291259696f1f180d5bb6d64b964ca697982e0"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/reference-manifest.json",
+      "bytes": 32406,
+      "sha256": "642cc36dcdee8b12b3cb2e135781f00f3b08b45d447e3c3e45eb190569fb58b8"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/three-xfu-9Guf.js",
+      "bytes": 658938,
+      "sha256": "69a258175d6aac087ffd76c18df94ce0b232290071821f6782e410b3018f60bc"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/garen-aa-C3GBU6KK.js",
+      "bytes": 31963,
+      "sha256": "c35ddbc3c23dccb858403a48fd57bafd22feb6f8dbb6edd2001fe56e0b7cb03b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/gromp-attack-6gfZcn7m.js",
+      "bytes": 12028,
+      "sha256": "3fe7afcebecd8e79bec5104a9bbcd00f95176662393cbf1d34d09b6afa936ff7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/particle-motion-DuIkwckH.js",
+      "bytes": 326,
+      "sha256": "866729bfb05a69047243ae7a92e8dfb153a5c62e32740ff380b905a266acfc9b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/maps/rift.json",
+      "bytes": 51885,
+      "sha256": "3fe157d7c0388f7e2d84dbe0e566263eb19d62d9cc33e7ad7445b7de89a368a7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/maps/rift-dxt.json",
+      "bytes": 65060,
+      "sha256": "d337f70da3a5631b42493c89cb4290bcb9dfd4acefc48ba05ca8bc99f2f9f0ad"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/maps/rift-geometry-gzip.json",
+      "bytes": 314,
+      "sha256": "d7ebc8050d61a001b96bb247ec9eee2fd83d2f5cf62b842f9c4e2f6e359e388a"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/blue-siege.json",
+      "bytes": 3325,
+      "sha256": "367e800668cadeb6d98cd67fc971e2fa7ee40254ef0e4a84d3dd6bf53d3e4111"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-w-shield.json",
+      "bytes": 1599,
+      "sha256": "31455f9185b32bc62af433530ffef81a29ecbf28e756215c089fcd5eda230cfa"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/oracle-lens-base.json",
+      "bytes": 9571,
+      "sha256": "79563e601f4f25a132ae4123860239c44994936a03c3a5ec69da1414bd67ba8a"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/oracle-lens-core-laser.json",
+      "bytes": 4811,
+      "sha256": "44d2f7a3e55920d42003872ad3f5121700f933dbac5b6a7c0b5d79351ee42cc1"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-r-sphere.json",
+      "bytes": 1281,
+      "sha256": "ed4fd540e0598435c7eac69b7edddc3bb2a06b9dac283070c762e583e03b639c"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/hawkshot-wind.json",
+      "bytes": 3042,
+      "sha256": "719c58b056af2f7754bc15f3d810f778b02e18e4599de913436640ebb25503dc"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-gromp-base.json",
+      "bytes": 22285,
+      "sha256": "2bc2de44c2afe1373bbe51f8bb88a5351ade7c0e1a92e8ff73f276e5ddfb684b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-q-jump.json",
+      "bytes": 1528,
+      "sha256": "52fdc99503518307f6c7e80862e566858262bd07fd979debf0756b2bbc61288b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-q-weapon-trail.json",
+      "bytes": 1611,
+      "sha256": "e4543d042578f1bbf55d9a750092f3e2a10b8274a23288855ef8f95891edd935"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/blue-turret.json",
+      "bytes": 3333,
+      "sha256": "9d069db1f33e5a0345835184d8677ccd88d398ae4470c3647e05c8d011eda6fe"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/red-caster.json",
+      "bytes": 3344,
+      "sha256": "56a09354ce710467610e1ac1fc719ec9b2c779f5d8930ffcef034fd78c903744"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-jungle-companions-skin0-base.json",
+      "bytes": 25326,
+      "sha256": "17f0b359f70222d6dd20a2cda0e7b7542a3551bdd21de8d1cd4e3b473bf183a2"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/blue-melee.json",
+      "bytes": 3315,
+      "sha256": "aeca9c288fa0088ca32c71ee5d8b2ebded1d14830149894b24b414cc401e32e2"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/blue-super.json",
+      "bytes": 4450,
+      "sha256": "d28589b240d0e54093e1c77afcdd8afc0d7b1c168dd825706a78b3f9be6aa5bf"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-krug-base.json",
+      "bytes": 13281,
+      "sha256": "69e45ffc80f557cd54c79f7538a1d1f783c859d56344b63b899952078265dd78"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/red-inhibitor.json",
+      "bytes": 5555,
+      "sha256": "c2cc1461586589959744c0fecac96374778400979c61b3b2b4c25d4175e98ec6"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/red-nexus.json",
+      "bytes": 4095,
+      "sha256": "60f722501e317400935cb58a670155787c2da03acfdb4a8c5d1a2fee59b1752f"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/lux-base.json",
+      "bytes": 10865,
+      "sha256": "55019f8d56c2f0c8f30a361020dccd1832a9020b9c75c26e9d78a2295634971f"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/blue-inhibitor.json",
+      "bytes": 4761,
+      "sha256": "3edfefa8689141e5a6b6dabcb1ee04144fccd79c24364c0d1d5ae64132e54290"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-r-praxis.json",
+      "bytes": 1195,
+      "sha256": "e8ff00c2463ebe738ee20da1812f00ca42a042b0a37b3d57f32ad0d963a46f76"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/oracle-lens-laser.json",
+      "bytes": 2046,
+      "sha256": "3a43ecf16f4d69e60dda3b7fd68487bababea59a960e7dd32e745cae72e68599"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-jungle-companions-skin1-base.json",
+      "bytes": 24926,
+      "sha256": "645021b06b869e820f80067bdf83f56a10e0d2e6147f4244830ffacaed0dd8d5"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sightward-base.json",
+      "bytes": 4506,
+      "sha256": "126fcb52f96e747ccfe3ff6254ad5a82b2af905c1e2973cba976fab7ca572414"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-crab-base.json",
+      "bytes": 10235,
+      "sha256": "8f3dba2339bb002f8b47e89297b807f0164675dbec86c290838b3d53c8ffa700"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-razorbeak-base.json",
+      "bytes": 21152,
+      "sha256": "c3360a11ab2d6256539182405d34fb9a5eb6d3e2820472e2e540ac3a5ecc37c1"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-q-impact.json",
+      "bytes": 1585,
+      "sha256": "ac1a260e3de94fa598605133a63083ba99390d1bfc38475ca4d4b54d04880417"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/ashe-base.json",
+      "bytes": 12003,
+      "sha256": "c713aaf81ee4ca04d38eac1b2058022e7321ff7e07c06294116ab8ecae40b020"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/hawkshot.json",
+      "bytes": 2896,
+      "sha256": "ab78dea3156087f095e421dabfd5db002be1bcc0ca80f42d853284f51356740c"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-murkwolf-base.json",
+      "bytes": 18617,
+      "sha256": "4e31d22335b66316ec997afcc9ebda59192ad525914e85293fab7578dfce74c4"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-q-sword-scroll.json",
+      "bytes": 1603,
+      "sha256": "5e263d384bcc6b1a605fe7bfb27c849355ed861136470794dfb4ef1fd50ec43d"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-razorbeakmini-base.json",
+      "bytes": 21507,
+      "sha256": "a30e9579ee08042fa9d7f39edf01e5d349f67c7f8126c9b327992f2cfdd3d7fe"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/lux-e-slash.json",
+      "bytes": 1149,
+      "sha256": "b14bcd01d42171c6da9e873c0f3ebd031f89c4e0665f133b981bba025a753a73"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-w-attached-placeholder.json",
+      "bytes": 1765,
+      "sha256": "233cdf8b44c3efdbf37b38ea8b5594526870b745ea54400944e4b41320d8ef96"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/red-siege.json",
+      "bytes": 3324,
+      "sha256": "e77525c228da7e002a8ce47936780a00d0d3776ee8f9eb4b1ae42ada41ee3a03"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/lux-e-indicator.json",
+      "bytes": 1126,
+      "sha256": "ce49e7cc7c45b8ce279849e173139d7a16344ea51285912ca0393088f2ac0957"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/red-melee.json",
+      "bytes": 3315,
+      "sha256": "8729d849821132982f7cc06c7fac01c51538f05984c2bd5d5c7f4491e3bb3ca3"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/red-turret.json",
+      "bytes": 4719,
+      "sha256": "9d0a618e9d304651684e114d55bd13cd7b2a58ea92100d8ce6f06697f81d1838"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/blue-caster.json",
+      "bytes": 3345,
+      "sha256": "d51c701b175c79da594bf23330a0be84cbe7ee6c975fb18ade433aac9f65c97b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-base.json",
+      "bytes": 17844,
+      "sha256": "770504fcba90893fa8c5e63298b7b503c42b28ea28d8182f55aa0f923f7a7e20"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-r-sword-plane.json",
+      "bytes": 1287,
+      "sha256": "319c95867b09d13ea2bc1000955e064f5d1a04dcffa2be0b881ac235548e17d7"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-jungle-companions-skin2-base.json",
+      "bytes": 25777,
+      "sha256": "2d8fc3e0147061dd7c96a88d1038c4af569e1b724c96b6fa619ae394e932a411"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-murkwolfmini-base.json",
+      "bytes": 19875,
+      "sha256": "c3b32d3fb9abc1a9567dc49ba2f23fc975dac25bf5515748cfd1b68004e2cbd6"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-spin.json",
+      "bytes": 1474,
+      "sha256": "19dde2eaef13ef4e8e7285a5fd3c84ede56737a0d84b50d6241f6df72dbed3bf"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/gromp-death-paper01.json",
+      "bytes": 2727,
+      "sha256": "5bad340324d1c096efdd5cd2061529fd1a0ce48280a94c0d3eeed8ee8b58c98b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/garen-r-halfdome.json",
+      "bytes": 1266,
+      "sha256": "9e93308878e4dd09876c981471701d56b69f183433a676a2db5bb6f27b7b773c"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/red-super.json",
+      "bytes": 4436,
+      "sha256": "0664e02e9fd9da98d4d9330a36d60a76e49cd002ce78548f0bbc76b23f770613"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-krugmini-base.json",
+      "bytes": 13064,
+      "sha256": "885bdf8d31a603b36511e645df13f14c4cbe669ba40e197cb40ba2464433fe85"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/ahri-base.json",
+      "bytes": 25427,
+      "sha256": "c6a42818e2b02c8e4f4e2db7a313beb439521934d083e4262b79210bef27eca4"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-krugminimini-base.json",
+      "bytes": 13096,
+      "sha256": "3cd0ac0f872ae9ad4b7b90183abf94e9e3da262a2d6821c00826acc44a7b8e69"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/oracle-lens-radar.json",
+      "bytes": 4422,
+      "sha256": "43d3073055cc6019e7fb134aab5414b6a95fe56273e3e29e920bb553fd1cc14c"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-red-base.json",
+      "bytes": 9581,
+      "sha256": "5fd4a95e4d2dd3664e216945f95dae6e0989eb90a2fb338cc3d72f72ec3d9d3a"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/sru-blue-base.json",
+      "bytes": 20069,
+      "sha256": "03f6ef203ab8d2e76471aa00045f7d917c2853ab8b0cb1298d8b1755a197616b"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/blue-nexus.json",
+      "bytes": 3506,
+      "sha256": "ace2dbdfb7126bacafd9ba2a2c6c1c4b11f22d240584cb861bf24153b9427b48"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build/assets/models/lux-basic-crescent.json",
+      "bytes": 1964,
+      "sha256": "72a426c508fb99cd4bc4d5fdcb092f53634498ca990e287e6621c6fcdbc74211"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/production-build-archive.json",
+      "bytes": 25623,
+      "sha256": "3c6e419f24eca19ad85ffbb681b5085f4bdefec2d4cadfdd8c9d1b07f8dd56cf"
+    },
+    {
+      "file": ".cache/bot-jungle-canonical-validation-20261023/normal-cohort-results-before-build-archive.json",
+      "bytes": 18454,
+      "sha256": "47d86c11e192ee0da319da326bc27701a7810d572b0cd0b2774e017f49de7e1d"
+    },
+    {
+      "file": ".cache/archive-production-evidence-20261023.py",
+      "bytes": 2156,
+      "sha256": "03df4cb3fb8ce2d1a52592dda43dbdbc04c905a6882138922dc52bb919e92baa"
+    }
+  ],
+  "limitations": [
+    "The 100-seed invariant flag belongs only to the frozen 6466566 baseline; it does not certify the current 3d05c1 ruleset.",
+    "Thirty original matches are right-censored at 60 minutes. Victory duration statistics are conditional on completion.",
+    "The fixed regression seeds do not establish population balance or human match duration.",
+    "Full offline analyst state and minute samples do not establish what bots knew, continuous motion, safe attacks or permanent stalemates.",
+    "The bot approach is a local policy; native monster sight, leash, presentation and complete gameplay fidelity remain unverified.",
+    "Six champion kits, role quests, objectives, strategic conversion, fresh full regression and full-match browser/offline/performance/native gates remain required."
+  ]
+}

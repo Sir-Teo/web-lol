@@ -10,6 +10,14 @@ and cancellation chronology, material/rig agreement, audiences and finite expiry
 Source cast/hit tails include authored pitch. Earlier schemas/fingerprints remain
 incompatible. See [basic-attack audio](GAREN-AA-AUDIO.md).
 
+The subsequent jungle approach and QA runner changes keep schema **113** and
+add no saved field. They change the conservative ruleset fingerprint to
+`3d05c177eca76fafd3c147dd46b8ce77552653ed20eb55f8b1ec0636c10c2350`.
+The completed `6466566…` baseline is retained with its original source for
+reproduction. Cross-ruleset identity bridges remain confined to diagnostics;
+production import has no migration or relaxed validation. See
+[the cohort results](NORMAL-COHORT-RESULTS.md).
+
 Schema **112** extended Garen recovery presentation retention for source
 audio. The existing interval fields remain ordered and strict. Stopped history
 expires at `max(startTick + 300, stopTick + 182)`: the exact onset recording

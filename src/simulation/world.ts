@@ -2213,6 +2213,7 @@ export class World {
               x: other.x,
               y: other.y,
               targetable: this.vulnerable(other) && other.monster!.phase !== 'returning',
+              lineOfSightToActor: this.battlefield.lineOfSight(other, u),
             },
           ]
         : [];

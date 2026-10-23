@@ -4185,3 +4185,34 @@ recordings and no Gromp module/asset requests. The complete browser suite was
 not repeated. Commands, source hashes, active/stopped GPU buffer checks, the
 close-range finding and captures are recorded in
 `reference/gromp-attack-verification.json`.
+
+## Completed 100-seed baseline and jungle brush approach — October 23, 2026
+
+The corrected normal-rules corpus completed all 100 fixed seeds under
+`5d06c6d` / `6466566…`: 70 victories, 30 unfinished at 60 minutes and zero
+invariant failures. Independent verification checked the retained evidence for
+19,960,310 simulation ticks, 5,578 strict round trips and 5,478 restored-future
+comparisons. All workers exited before source edits. All 223 frozen source,
+map and runner inputs, and baseline tests/documentation, are archived.
+
+Victory-only median duration was 53:59.8; the 30 unfinished cases remain
+right-censored. All 30 retained combat and building-destruction activity in
+the final ten minutes. Four had an exposed Nexus in full offline state, which
+must not be treated as information available to bots. Full results, limitations
+and source boundaries are documented in [the cohort report](NORMAL-COHORT-RESULTS.md).
+
+A passive seed 38 replay isolated a brush-boundary camp reset loop. Jungle
+planning now approaches the known camp location when terrain sight from its
+visible monster to the actor is blocked. This adds no saved state, hidden
+observations or new neutral targeting rule. The autonomous Rift regression and
+both planner orientations cover the approach, unavailable targets and strict
+saved continuation. The isolated checkpoint replay clears the monster without
+injected movement commands.
+
+Canonical `npm run check` passes TypeScript, all 1,460 tests across 266 files and
+three Node QA checks. Runner routing keeps Vitest, Node and Playwright suites
+separate. Schema 113 remains strict; the new runtime/package fingerprint is
+`3d05c1…`. Its canonical smoke and production evidence is recorded separately
+from the completed old-ruleset corpus in `reference/normal-cohort-results.json`.
+The six-champion milestone and broader full-match/native/browser/performance
+requirements remain open; no new-ruleset 100-seed result is claimed.

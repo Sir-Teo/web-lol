@@ -7,13 +7,14 @@
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "vitest run tests",
+    "test:watch": "vitest tests",
     "test:browser": "playwright test",
-    "check": "tsc --noEmit && vitest run",
+    "check": "tsc --noEmit && npm test && npm run test:qa",
     "assets:validate": "node tools/assets/validate-glb.mjs && node tools/assets/validate-map.mjs",
     "format": "prettier --write src tests e2e *.ts tools/assets/*.mjs",
-    "test:production": "npm run build && node tools/qa/production-subpath.mjs"
+    "test:production": "npm run build && node tools/qa/production-subpath.mjs",
+    "test:qa": "node --test tools/qa/*.test.mjs"
   },
   "dependencies": {
     "three": "0.186.0",

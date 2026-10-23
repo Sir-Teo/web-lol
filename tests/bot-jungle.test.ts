@@ -59,7 +59,15 @@ test('jungle targets require observed targetability, protect delayed children an
     tick: 6000,
     team: 'blue' as const,
     actor: { x: camp.point.x + 900, y: camp.point.y },
-    monsters: [{ id: 100, camp: camp.id as RiftCampId, ...camp.point, targetable: true }],
+    monsters: [
+      {
+        id: 100,
+        camp: camp.id as RiftCampId,
+        ...camp.point,
+        targetable: true,
+        lineOfSightToActor: true,
+      },
+    ],
     visibleHomes: new Set<RiftCampId>([camp.id as RiftCampId]),
   };
   expect(jungleDecision(state, observed)).toEqual({ type: 'move', point: camp.point });
@@ -221,3 +229,48 @@ test('unseen monster health and actual respawn clocks cannot alter a jungle scou
   expect(b.unit(id)!.order).toEqual(a.unit(id)!.order);
   expect(b.championState(id)!.jungle).toEqual(a.championState(id)!.jungle);
 });
+
+for (const team of ['blue', 'red'] as const)
+  test(`${team} approaches a visible camp instead of repeatedly attacking through a brush boundary`, () => {
+    const state = fresh(),
+      camp = jungleRoute(team)[0];
+    const monster = {
+      id: 100,
+      camp: camp.id as RiftCampId,
+      ...camp.point,
+      targetable: true,
+      lineOfSightToActor: false,
+    };
+    const observed = {
+      tick: 6000,
+      team,
+      actor: { x: camp.point.x + 200, y: camp.point.y },
+      monsters: [monster],
+      visibleHomes: new Set<RiftCampId>([camp.id as RiftCampId]),
+    };
+    expect(jungleDecision(state, observed)).toEqual({ type: 'move', point: camp.point });
+    expect(
+      jungleDecision(state, {
+        ...observed,
+        tick: 6018,
+        monsters: [{ ...monster, lineOfSightToActor: true }],
+      })
+    ).toEqual({ type: 'attack', target: monster.id });
+    expect(
+      jungleDecision(state, {
+        ...observed,
+        tick: 6036,
+        monsters: [{ ...monster, targetable: false }],
+      })
+    ).toEqual({ type: 'wait' });
+    expect(state.observations).toEqual([]);
+    const hidden = fresh();
+    expect(
+      jungleDecision(hidden, {
+        ...observed,
+        monsters: [],
+        visibleHomes: new Set<RiftCampId>(),
+      })
+    ).toEqual({ type: 'wait' });
+    expect(hidden.observations).toEqual([]);
+  });

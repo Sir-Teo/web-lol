@@ -79,3 +79,12 @@ save-state failures. Its 92 queued seeds were not counted as executed. See
 [the findings and controlled replays](MATCH-COHORT-FINDINGS.md). A corrected
 cohort must restart with the complete seed population under the new fingerprint;
 old and new runs are not combined into a passing 100-seed result.
+
+## Completed corrected baseline
+
+The corrected `6466566…` baseline completed all 100 seeds: 70 victories,
+30 unfinished horizons and zero invariant failures. Its independent verifier
+passed before later source edits, and its exact source inputs are archived.
+See [the complete results and bot approach correction](NORMAL-COHORT-RESULTS.md)
+for duration/censoring details, retained evidence and the distinction between
+that completed baseline and the subsequent runtime fingerprint.

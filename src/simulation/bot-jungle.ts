@@ -26,6 +26,8 @@ export interface ObservedCampMonster extends Vec2 {
   id: number;
   camp: RiftCampId;
   targetable: boolean;
+  /** Known terrain sight from this team-visible monster to the actor. */
+  lineOfSightToActor: boolean;
 }
 interface JungleObservation {
   tick: number;
@@ -67,7 +69,12 @@ export function jungleDecision(
   const target = monsters
     .filter((m) => m.targetable)
     .sort((a, b) => distance(observed.actor, a) - distance(observed.actor, b) || a.id - b.id)[0];
-  if (target) return { type: 'attack', target: target.id };
+  if (target) {
+    // Approach through navigation instead of repeatedly pulling from brush
+    // where the local monster controller immediately loses its attacker.
+    if (!target.lineOfSightToActor) return { type: 'move', point: camp.point };
+    return { type: 'attack', target: target.id };
+  }
   if (
     !monsters.length &&
     observed.tick >= camp.firstReadyTick &&
