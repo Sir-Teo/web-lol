@@ -1,9 +1,15 @@
+import { GAREN_P_ONSET_TICKS } from '../content/garen-p-audio-timing';
 import { GAREN_PASSIVE_TAIL_TICKS } from '../content/garen-passive-presentation';
 import type { ChampionState, Unit } from './types';
 
 /** Local dispatch: emit while alive, injured and ready. Stop births immediately
  * on interruption/full recovery/death/victory; already-born sparks finish their
  * authored lives at the saved stop point. No gameplay IDs or RNG are consumed. */
+export function perseveranceVisualExpiry(record: ChampionState['garenPassiveVisuals'][number]) {
+  return record.stopTick === null
+    ? Infinity
+    : Math.max(record.stopTick + GAREN_PASSIVE_TAIL_TICKS, record.startTick + GAREN_P_ONSET_TICKS);
+}
 export function stopPerseveranceVisual(state: ChampionState, unit: Unit, tick: number) {
   const active = state.garenPassiveVisuals.at(-1);
   if (!active || active.stopTick !== null) return;
@@ -12,7 +18,7 @@ export function stopPerseveranceVisual(state: ChampionState, unit: Unit, tick: n
 }
 export function advancePerseveranceVisual(state: ChampionState, unit: Unit, tick: number) {
   state.garenPassiveVisuals = state.garenPassiveVisuals.filter(
-    (r) => r.stopTick === null || tick < r.stopTick + GAREN_PASSIVE_TAIL_TICKS
+    (r) => tick < perseveranceVisualExpiry(r)
   );
   const emit =
     unit.champion === 'garen' &&
@@ -46,7 +52,7 @@ export function validatePerseveranceVisual(
         : r.point === null ||
           r.stopTick < r.startTick ||
           r.stopTick > tick ||
-          tick >= r.stopTick + GAREN_PASSIVE_TAIL_TICKS ||
+          tick >= perseveranceVisualExpiry(r) ||
           (unit.deadAt !== null && r.stopTick > unit.deadAt))
     )
       throw Error('Saved match contains invalid Perseverance presentation.');

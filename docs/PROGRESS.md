@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,407 source/simulation/geometry checks across 258 files and 22 targeted Chrome cases for Garen recovery sparks, player controls, passive recovery, selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,414 source/simulation/geometry checks across 259 files and 35 targeted Chrome cases for Garen passive audio, recovery particles, player controls and all four spell-audio adapters. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -20,6 +20,35 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+Garen's development fixture now adds [source Perseverance audio](GAREN-P-AUDIO.md):
+the five-second activation master and a quieter sustained recording, with separate
+source attenuation curves. The active sound declares an infinite child loop,
+500 ms fade-in and 1,000 ms stop fade. With no embedded region, it uses the full
+recording under the pinned reader's interpretation. Both decoded mono masters
+retain every float sample and original headroom; together they add 1,545,392 bytes.
+Native script dispatch, loop-boundary listening and bus/listener mix remain open.
+
+Schema **112** preserves onset audio after an immediate stop using the existing
+recovery intervals. History expires at `max(startTick + 300, stopTick + 182)`;
+particle lifetimes stay unchanged. Partial fade-in stops resume from their
+original level; current listener gain cannot replace fade ramps. Real reload,
+pause/mute, enemy fog and actual victory cleanup pass. Failed files remain silent
+without frame retries or a substitute passive cue. An explicit load retry reuses
+the successful decoded master and requests only the missing one. A delivery UI
+for pack failures/retry remains open. No World RNG or gameplay IDs are consumed.
+
+All 1,414 unit tests across 259 files, TypeScript and 35 focused Chrome cases pass.
+Both source recordings decode exactly in Chrome. The adjacent recovery batch
+still matches separate draws in thirteen sampled frames, and actual graphics
+recovery preserves all buffer/framebuffer bytes. The initial stop-before-start
+Web Audio error was repaired and its traces retained. The production roster
+remains Ashe/Lux; default startup skips the new recordings. Nested-path production
+validation passes with the existing 32 recordings, no development hook and the
+ordinary roster. Game/Three chunks are 884.65/658.93 KB; the size warning remains.
+The [ledger](reference/garen-p-audio-verification.json) retains the precise scope. Normal-rules match cohorts were not rerun. Complete six-character
+kits, native comparison, 100-seed, offline and full-match browser/performance gates
+remain open.
 
 Garen's development fixture now adds the source [Perseverance healing sparks](GAREN-PASSIVE-PARTICLES.md).
 The frozen base recovery emitter retains its six-per-second rate, randomized

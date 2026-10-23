@@ -1,3 +1,4 @@
+import { LazyGarenPerseveranceAudio } from './garen-p-lazy';
 import { LuxSingularityAudio } from './lux-e';
 import { luxEAudioStates } from './lux-e-state';
 import { LuxBindingFlightAudio } from './lux-binding-flight';
@@ -22,7 +23,7 @@ import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding, Illumination and Garen Q/W/E/R cues.
+/** Source Hawkshot, Light Binding, Illumination and Garen passive/Q/W/E/R cues.
  * Other cues retain synthesized feedback. */
 export class GameAudio {
   context: AudioContext | null = null;
@@ -31,6 +32,9 @@ export class GameAudio {
   private luxETerminalStart = 0;
   private luxETerminal = false;
   bindingFlight = new LuxBindingFlightAudio();
+  garenP = new LazyGarenPerseveranceAudio();
+  private garenPTerminalWorld?: World;
+  private garenPTerminalStart = 0;
   garenE = new GarenJudgmentAudio();
   garenR = new LazyGarenJusticeAudio();
   garenW = new LazyGarenCourageAudio();
@@ -90,7 +94,13 @@ export class GameAudio {
       this.bindingFlight.load(),
       this.luxE.load(),
       ...(garenPresent
-        ? [this.garenQ.load(), this.garenW.load(), this.garenE.load(), this.garenR.load()]
+        ? [
+            this.garenP.load(),
+            this.garenQ.load(),
+            this.garenW.load(),
+            this.garenE.load(),
+            this.garenR.load(),
+          ]
         : []),
     ]);
   }
@@ -276,6 +286,7 @@ export class GameAudio {
   private stopVoices(): void {
     this.bindingFlight.stop();
     this.luxE.stop();
+    this.garenP.stop();
     this.garenE.stop();
     this.garenR.stop();
     this.garenW.stop();
@@ -518,6 +529,37 @@ export class GameAudio {
   }
   updateGaren(world: World, listener = { x: 0, y: 0 }) {
     const garens = world.units.filter((u) => u.champion === 'garen');
+    if (garens.length && this.garenP.status === 'idle') void this.garenP.load();
+    const recovery = garens.flatMap((u) =>
+      world.championState(u.id)!.garenPassiveVisuals.map((r) => {
+        const at = r.point ?? u;
+        return {
+          ...r,
+          id: u.id,
+          x: at.x,
+          y: at.y,
+          visible:
+            u.team === world.hero.team ||
+            (world.visible(u, world.hero.team) && world.pointVisible(at, world.hero.team)),
+        };
+      })
+    );
+    let recoveryTick = world.tick;
+    if (!world.winner) this.garenPTerminalWorld = undefined;
+    else if (this.context) {
+      if (this.garenPTerminalWorld !== world) {
+        this.garenPTerminalWorld = world;
+        this.garenPTerminalStart = this.context.currentTime;
+      }
+      recoveryTick += Math.max(0, this.context.currentTime - this.garenPTerminalStart) * 60;
+    }
+    this.garenP.update(
+      this.context,
+      this.enabled && !this.paused,
+      recovery,
+      recoveryTick,
+      listener
+    );
     if (garens.length && this.garenQ.status === 'idle') void this.garenQ.load();
     const decisive = garens.flatMap((u) =>
       world.championState(u.id)!.garenQVisuals.map((r) => ({

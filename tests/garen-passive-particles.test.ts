@@ -74,7 +74,7 @@ test('recovery epochs preserve exact continuation, stop births on damage/full he
   unit.hp = unit.maxHp - 0.01;
   w.step();
   expect(state.garenPassiveVisuals.at(-1)?.stopTick).toBe(571);
-  w.step(GAREN_PASSIVE_TAIL_TICKS);
+  w.step(300);
   expect(state.garenPassiveVisuals).toEqual([]);
 });
 
@@ -139,11 +139,11 @@ test('saved recovery intervals reject foreign owners, overlapping clocks, malfor
       owner = bad.otherChampions.find((s: any) => s.id === unit.id);
     if (mode === 'duplicate') owner.garenPassiveVisuals.push({ ...owner.garenPassiveVisuals[0] });
     if (mode === 'foreign') bad.player.garenPassiveVisuals = owner.garenPassiveVisuals;
-    if (mode === 'old-schema') bad.version = 110;
+    if (mode === 'old-schema') bad.version = 111;
     if (mode === 'missing') delete owner.garenPassiveVisuals;
     expect(() => World.fromSnapshot(JSON.stringify(bad), w.battlefield)).toThrow();
   }
-  w.step(GAREN_PASSIVE_TAIL_TICKS);
+  w.step(300);
   const expired = JSON.parse(w.snapshot());
   expired.otherChampions.find((s: any) => s.id === unit.id).garenPassiveVisuals =
     good.otherChampions.find((s: any) => s.id === unit.id).garenPassiveVisuals;

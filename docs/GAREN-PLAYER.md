@@ -164,7 +164,8 @@ zoom, resizing and checkpoints. Native attachment/Flex sizing remains open; see
 
 
 [Perseverance recovery sparks](GAREN-PASSIVE-PARTICLES.md) now render the source
-healing emitter during recovery in this fixture. Schema 111 preserves emission
+healing emitter during recovery in this fixture. Schema 112 preserves emission
 intervals and stopped roots through saves, death and terminal playback. The
-separate boost trail, passive audio and native dispatch/composition comparison
-remain open; production selection stays Ashe/Lux.
+source recovery audio now follows those intervals with its authored fade-in/stop.
+The boost trail and native dispatch/composition comparison remain open; production
+selection stays Ashe/Lux.

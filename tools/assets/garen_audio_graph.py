@@ -12,7 +12,7 @@ sys.path.insert(0, '.tools/wwiser')
 from wwiser.wfnv import Fnv
 sha = lambda b: hashlib.sha256(b).hexdigest()
 def map_garen_audio(ability, expected_events):
-    assert ability in ['q', 'w', 'e', 'r']
+    assert ability in ['p', 'q', 'w', 'e', 'r']
     pin_path = Path('docs/reference/garen-audio-extraction.json')
     pin = json.loads(pin_path.read_text())
     subprocess.run([sys.executable, 'tools/assets/inspect-garen-audio.py'], check=True, stdout=subprocess.DEVNULL)
@@ -45,7 +45,7 @@ def map_garen_audio(ability, expected_events):
     reference = Path('docs/reference/garen-model.json')
     skin = json.loads(reference.read_text())['skin']['data']['Characters/Garen/Skins/Skin0']
     unit = next(u for u in skin['skinAudioProperties']['bankUnits'] if u['name'] == 'Garen_Base_SFX')
-    prefixes = [f'_Garen{ability.upper()}_'] + (['_GarenQAttack_'] if ability == 'q' else [])
+    prefixes = ['_GarenRecouperate1_'] if ability == 'p' else [f'_Garen{ability.upper()}_'] + (['_GarenQAttack_'] if ability == 'q' else [])
     names = sorted(n for n in unit['events'] if any(prefix in n for prefix in prefixes))
     assert len(names) == expected_events
     events, selected, media_ids = [], set(), set()

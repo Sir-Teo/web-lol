@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/bnnm/wwiser",
+  "revision": "71654ed1a2c4642894bd7e7ed79eba66986fb770",
+  "path": ".tools/wwiser/wwiser/generator/render/bnode_props.py",
+  "sha256": "e9bfe9a8f3e2ea223ea8f7dba29c8921fbd7d220e62acaab61ba59bc5d751305",
+  "interpretation": "Sound property Loop=0 means infinite; no media-region markers selects the whole decoded buffer. This is the pinned reader interpretation, not native runtime observation."
+}

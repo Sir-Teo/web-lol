@@ -71,7 +71,7 @@
   "nonvisual": [
     {
       "system": "Garen_Heal",
-      "reason": "Sound-only resource, audio graph/dispatch not reconstructed"
+      "reason": "Sound-only resource; activation graph implemented in Garen P audio, native dispatch unverified"
     }
   ]
 }

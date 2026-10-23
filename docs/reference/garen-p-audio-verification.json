@@ -1,0 +1,443 @@
+{
+  "date": "2026-10-23",
+  "baseline": "cd282298dde656c0961c7d19505c055aa1ba426a",
+  "schema": 112,
+  "ruleset": "3bc77adbcb3c8287b005422ad8c20300866ae8c0cebb7826a16d654ebe60f9b8",
+  "scope": "Source Garen passive onset and full-file active loop, authored transitions/attenuation, shared saved recovery clocks, real decoding, pause/mute/reload/fog/failure-retry and terminal drain. Garen remains in the development fixture; native listening/dispatch/mix and production acceptance remain open.",
+  "source": {
+    "events": 3,
+    "hierarchyNodes": 14,
+    "media": 2,
+    "masterBytes": 1545392,
+    "frames": [
+      {
+        "id": 111098527,
+        "frames": 220494,
+        "rate": 44100,
+        "channels": 1
+      },
+      {
+        "id": 433054605,
+        "frames": 165832,
+        "rate": 44100,
+        "channels": 1
+      }
+    ],
+    "onsetGainDb": -18,
+    "activeGainDb": -40,
+    "fadeInSeconds": 0.5,
+    "stopFadeSeconds": 1,
+    "attenuationIds": [
+      339248780,
+      947191947
+    ],
+    "embeddedLoopRegions": 0,
+    "activeSoundLoopProperty": 0,
+    "activePlayback": "Infinite whole-file loop under pinned reader interpretation",
+    "nativeOutputBus": 1259461568,
+    "nativeOutputBusResolved": false
+  },
+  "checks": {
+    "unit": {
+      "files": 259,
+      "tests": 1414,
+      "command": "npx vitest run --maxWorkers=4",
+      "log": ".cache/garen-p-audio-unit-verified.log"
+    },
+    "chrome": {
+      "cases": 35,
+      "log": ".cache/garen-p-audio-browser-regression.log",
+      "command": "npx playwright test e2e/garen-p-audio.spec.ts e2e/garen-passive-particles.spec.ts e2e/garen-player.spec.ts e2e/garen-passive.spec.ts e2e/garen-q-audio.spec.ts e2e/garen-w-audio.spec.ts e2e/garen-e-audio.spec.ts e2e/garen-r-audio.spec.ts --output artifacts/garen-p-audio-regression-results",
+      "scope": "Six new recovery-audio cases, existing passive/particle/player cases and all Q/W/E/R audio integrations. Full browser suite not repeated.",
+      "exactFloatDecodedMasters": 2,
+      "reloadOnsetOffsetSeconds": 3.1666666666666665,
+      "missingRequestAttemptsBeforeRetry": 1,
+      "explicitRetryRequests": 1,
+      "adjacentParticleBatchSamples": 13,
+      "adjacentParticleMaximumRGBADelta": 0,
+      "adjacentGraphicsRecoveryDifferentBytes": 0
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": "artifacts/garen-p-audio-production-subpath.png"
+    },
+    "build": {
+      "gameKB": 884.65,
+      "threeKB": 658.93,
+      "sizeWarning": true,
+      "command": "npm run build && node .cache/garen-p-audio-production.mjs"
+    }
+  },
+  "normalRulesMatches": {
+    "rerun": false,
+    "priorSchema": 110,
+    "priorAudit": "docs/reference/lux-e-hit-match-audit.json",
+    "scope": "Historical diagnostic matches do not certify the new audio/schema."
+  },
+  "policies": {
+    "dispatch": "Start both declared play actions at the saved injured/ready recovery interval. The VFX resource explicitly names only the onset event; native script dispatch remains unavailable.",
+    "retention": "No added snapshot fields. Schema 112 expires stopped intervals at max(start+300,stop+182), preserving the source onset without lengthening particle life.",
+    "envelope": "Linear source fade-in and stop ramps on a separate node from current listener gain. A stop during fade-in freezes the reached level and fades that level to zero.",
+    "loop": "Sound-level Loop=0 follows pinned wwiser; absent embedded region uses complete decoded frames. No normalization or loop expansion.",
+    "visibility": "Allied sound is known; enemies require current unit and saved-root visibility. Returning visibility seeks current phase, never an expired onset.",
+    "failure": "Partial success is cached. Frame updates never retry; an explicit load retries only a failed master and changes no match/settings state. No new retry UI is claimed.",
+    "terminal": "AudioContext time drains final phases with the world/tick frozen. Finished/stolen keys cannot restart until their history retires."
+  },
+  "findings": {
+    "scheduling": "Initial actual-browser test found stop scheduled before start when restoring a fade. Source now starts before scheduling stop; test double enforces that Web Audio precondition.",
+    "reloadProbe": "Initial reload probes required opening the pause menu and awaiting the asynchronous save-success toast. Storage behavior was unchanged.",
+    "captures": "The adjacent particle recovery capture was visually reviewed. No native audio capture or matched listening comparison was performed."
+  },
+  "limits": [
+    "Native passive script timing, loop seam listening, output bus/listener/mix and audiovisual parity are not established.",
+    "Monitoring gain, reached-level fade overlap, source attachment/privacy/caps and failure policy are local adapters.",
+    "A user-facing content-pack retry interface remains open.",
+    "Complete Garen/basic/voice content, six-character roster, full native comparisons, 100-seed, offline and full-match browser/performance gates remain open."
+  ],
+  "files": [
+    {
+      "path": "docs/GAREN-P-AUDIO.md",
+      "sha256": "5c0001b6d073fa8f6d68ce4614103327857efc3dafe4920728567a886181b31f"
+    },
+    {
+      "path": "docs/GAREN-PASSIVE.md",
+      "sha256": "36d6627820386a7922b9aa67ea2385de4c6d821ad8839b24bd3f2a4240a5601a"
+    },
+    {
+      "path": "docs/GAREN-PASSIVE-PARTICLES.md",
+      "sha256": "a5437d6fecf58b4ac38f53b7ec3a5125074408dccec55c143a852b3a2c6b588c"
+    },
+    {
+      "path": "docs/GAREN-PLAYER.md",
+      "sha256": "6622aae793349ae640b0f4fcd590bb643cd4da8d0f99d79e75ac4eb48e3b30ba"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "sha256": "4c692430b3a7f46fc3f0bdfa62e8e2ea058835e2121d2b5b33660248454796dd"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "c869f7466b05f744ab4070cac281033753a25c8c243f25190dccd1e5b7cd22f1"
+    },
+    {
+      "path": "docs/reference/garen-audio-extraction.json",
+      "sha256": "ccf2ccdd83fd15b5bd81683c3e64ab18806e00b48f4a5d09ecfd39afdebace00"
+    },
+    {
+      "path": "docs/reference/garen-model.json",
+      "sha256": "192a7d7b696ed983b6bf25564a688ea3ac35dfdb5ff5b2a89d5eca285125cf71"
+    },
+    {
+      "path": "docs/reference/garen-p-audio.json",
+      "sha256": "863fd39cc3276ee7f2a1624337d98764889efb04960a54e711aa3cc4255e1d2b"
+    },
+    {
+      "path": "docs/reference/garen-p-audio-decoded.json",
+      "sha256": "ee298ccbfff85bcb9a3ecfbb1c2a59a2c8a4987719449af09f0e05af289c54e0"
+    },
+    {
+      "path": "docs/reference/garen-p-audio-reading.json",
+      "sha256": "3dca102fe102aea5ef396bd4a5e539e53a47e0e43949682648fb9d4fe8ea69a0"
+    },
+    {
+      "path": "docs/reference/garen-passive-particles.json",
+      "sha256": "dd2a6ea4c5fbd092c3ae3be9ffdbaa3701583f73b1364bb00b749bc656897e54"
+    },
+    {
+      "path": "docs/reference/garen-passive-particles-decoded.json",
+      "sha256": "0dae3f8da5bf88d8fde9829edd660e2707dba8a5d7278a3e33f3fb1ac183387a"
+    },
+    {
+      "path": "src/audio/garen-p.ts",
+      "sha256": "19295a87fc0be05e69de25385a81d76598bdb9b78eb63baa5f93d3261d4dc8c0"
+    },
+    {
+      "path": "src/audio/garen-p-state.ts",
+      "sha256": "c758d3b36be3618403974cfe534c4ebd3b658caad2879023f9cef60c96e8d348"
+    },
+    {
+      "path": "src/audio/garen-p-lazy.ts",
+      "sha256": "a2b37f3e870a551014f06feac8bb3ce17f6008c8b1337bbe2cc0831a2e102a24"
+    },
+    {
+      "path": "src/audio/audio.ts",
+      "sha256": "a2dd28cab4f5b528dfa8dd2ecf88da33ec01d6a738a0018af9ae79aeeae71b92"
+    },
+    {
+      "path": "src/audio/wwise145-attenuation.ts",
+      "sha256": "27006c46bced5e66e6b8c3ba5b052b293b22d7f3965d5608086d406a14ca924c"
+    },
+    {
+      "path": "src/content/garen-p-audio.ts",
+      "sha256": "1cecac8cd2e261e3465ce48967ec362d0f1d7cb466b7e647143d6d4cf8612c7b"
+    },
+    {
+      "path": "src/content/garen-p-audio-timing.ts",
+      "sha256": "09c32d3063451f9d8ec961b814e9b6f27a0e375033d6312063ad151431409112"
+    },
+    {
+      "path": "src/content/garen-passive-presentation.ts",
+      "sha256": "bb93060e67a8bfc677a08ac47d1b20e41ef94272bb8729903dedd6d03ebcab5a"
+    },
+    {
+      "path": "src/simulation/garen-passive-visuals.ts",
+      "sha256": "c8337e2a0d31142808e32805ea49fe218d10acebfc262dbe2177eaa2f3d9f8eb"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "4465a6802ddd913a9c70b6c1c05571620f8b67fa03338919fa89e7c7e135324a"
+    },
+    {
+      "path": "src/render/garen-passive-particles.ts",
+      "sha256": "e41bc8e00abbb7eedb6fbca88bdb93c88ede241167dffe3c8a25dc054b31f9db"
+    },
+    {
+      "path": "src/render/garen-perseverance.ts",
+      "sha256": "67e414f18919be656952ac194ec199ea9f627782a1bee9186ae3ba713a7ae58d"
+    },
+    {
+      "path": "tests/garen-p-audio.test.ts",
+      "sha256": "e68a7a44ad87c09e9ec7d06109ffedfcb1e5fbb996a633790a3b7d4a15685792"
+    },
+    {
+      "path": "tests/garen-passive-particles.test.ts",
+      "sha256": "1c4b015b318f4fa34d24f36d887dfdcad941ec9042b4317e3fb194674d7fc8d3"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "sha256": "482d9bd7e6c2f602f2476673e94477818a1d5bb5d7dc334da98c2223b7b014db"
+    },
+    {
+      "path": "e2e/garen-p-audio.spec.ts",
+      "sha256": "fb8f4b12eb6e4fd59c3527883eb37762da1ef490f9f91402cb34fa2be8a26438"
+    },
+    {
+      "path": "e2e/garen-passive-particles.spec.ts",
+      "sha256": "6d0571d31332279297b65045061886e1201710218fdfe1cbcd0e17c8bec7b0bb"
+    },
+    {
+      "path": "e2e/garen-player.spec.ts",
+      "sha256": "8d162583794c23f2d66c272329d9bf89bde84b41ec4e3a73b61ac155ce9fdb09"
+    },
+    {
+      "path": "e2e/garen-passive.spec.ts",
+      "sha256": "9586a983f32c42862c0e88514837e5c1a0de66b53e0b3a1832b30ac9fc7f0502"
+    },
+    {
+      "path": "e2e/garen-q-audio.spec.ts",
+      "sha256": "4651e757ebe218e257109dfe5811124dc897df6ed8f4b53bd909651acf979fb4"
+    },
+    {
+      "path": "e2e/garen-w-audio.spec.ts",
+      "sha256": "d8665ed980953a0c499be450e7c2f6a394d690abea148d4a4ccc63e00d3da954"
+    },
+    {
+      "path": "e2e/garen-e-audio.spec.ts",
+      "sha256": "a6d966390e9c18de37450593d25d55edd931e4ea1d9ef4b281cb66a7c3487a79"
+    },
+    {
+      "path": "e2e/garen-r-audio.spec.ts",
+      "sha256": "791f7b0883d394ef1aaf618e15f0671631cc2d77a36143cc69362f297c3ad4d3"
+    },
+    {
+      "path": "tools/assets/garen_audio_graph.py",
+      "sha256": "61b42ae00f1c73b8ed3ad7f9018e1b5a2dd0b63e28f4ca9435838143b6241184"
+    },
+    {
+      "path": "tools/assets/garen_audio_decode.py",
+      "sha256": "70993078e19918dc264f9936eb622dd80bb5f73a6cd9ca5264ca8ab912d55a11"
+    },
+    {
+      "path": "tools/assets/map-garen-p-audio.py",
+      "sha256": "9b0120cbbe66b04075d9143050f13b6668314470799c8010bb2f67b0eacfc328"
+    },
+    {
+      "path": "tools/assets/decode-garen-p-audio.py",
+      "sha256": "a7d4897e0fc4e928209453c6e7b9e845d66d7079be138237cb64e96c22387be6"
+    },
+    {
+      "path": "tools/assets/export-garen-p-audio.py",
+      "sha256": "513b5267ef287fbbcfbf8c3b33d38c3994a4bd7acf05a2850a570c0c7c13468d"
+    },
+    {
+      "path": "tools/assets/export-garen-passive-particles.py",
+      "sha256": "2ea5d9d46a03b64b10afb671f2050c3b14828bcf4f7847e4c5c108687da2dc96"
+    },
+    {
+      "path": "tools/qa/verify-garen-p-audio.mjs",
+      "sha256": "c3c6a2bec6e605076ac0a72e966e90feed1d34a427378ae2b242a263b862374a"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "sha256": "02e78b67e178ea78a4b8cfdcfd5fa73a9f90f0d172c39c21a49cfb87023bf287"
+    },
+    {
+      "path": ".cache/garen-p-audio-production.mjs",
+      "sha256": "31b4b8518744a5ac4521f043611007cc4ad2c531ef3c3d50968dd79950372ccc"
+    },
+    {
+      "path": ".cache/garen-p-audio-unit-verified.log",
+      "sha256": "d0f87ad278678248b88528d02d13b6e3f31fa852ed067b8cf5b39ccbbc1681b6"
+    },
+    {
+      "path": ".cache/garen-p-audio-browser-regression.log",
+      "sha256": "1f8736005a0f4df269f551a461ab9b723533a8b619ffe89a20ee301ae5245cca"
+    },
+    {
+      "path": ".cache/garen-p-audio-production.log",
+      "sha256": "e83c86f392e862db1c962201697186f84e93690e96fd01418645c43d51a6755b"
+    },
+    {
+      "path": ".cache/garen-p-audio-build.log",
+      "sha256": "8fb14d17b9e0ca688f308ba43b9199db5c0226f562fc6dabe06302ffe9fbb2ab"
+    },
+    {
+      "path": ".cache/garen-p-audio-tsc-verified.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/garen-p-audio-map-verified.log",
+      "sha256": "2b066d3012bcc8d2ddd9d121b018eb3bde814ac3f5c3578c37c81293e3950a56"
+    },
+    {
+      "path": ".cache/garen-p-audio-decode-verified.log",
+      "sha256": "138483b728d786eb32d70c205b8f2b6d0c629d023a0cf68507f4f8cf8e1dad8a"
+    },
+    {
+      "path": ".cache/garen-p-audio-export-verified.log",
+      "sha256": "aa2984b8979f5af6f9a5a501e4f054807bdceb42433ab2fdaecd580e5b1035e8"
+    },
+    {
+      "path": ".cache/garen-p-audio-particle-export.log",
+      "sha256": "d037102e4b98a0ce4e2bb467d5b912040ba3ffd0ec36fd7e360c626eea4af41b"
+    },
+    {
+      "path": ".cache/garen-p-audio-browser-initial.log",
+      "sha256": "bc57b7e925c7e775d50f20b1629d3fda5a74331acd2b11a221ec188f06a5baa1"
+    },
+    {
+      "path": ".cache/garen-p-audio-browser-fixed.log",
+      "sha256": "5aaead9ddeb58ae280407dafb4c07b3df2270eac92ae240b1eb69400a2a45fe3"
+    },
+    {
+      "path": "artifacts/garen-p-audio-decoding.json",
+      "sha256": "3046bd010b4a0e7990bccb649511a4d0337016688a020ca3b3829aa67660135f"
+    },
+    {
+      "path": "artifacts/garen-p-audio-scheduling.json",
+      "sha256": "a572658aadf0d8a5f4604860937c9ac2361ecbf65182fbe441cc80b1ea210d5e"
+    },
+    {
+      "path": "artifacts/garen-p-audio-reload.json",
+      "sha256": "221ecb31df1245d1e8ebaedc32c68b44893d0fd4ae4a5469759b6fd578ec813b"
+    },
+    {
+      "path": "artifacts/garen-p-audio-fog.json",
+      "sha256": "c5ed76fa06babdbe1ec9bdfb58b045c87dcf77a884517e0d9de3c085656bd480"
+    },
+    {
+      "path": "artifacts/garen-p-audio-terminal.json",
+      "sha256": "18aa4ad15a077c9ad55efded189616b7e35a1e27c8b3112af386e5b9dffc941c"
+    },
+    {
+      "path": "artifacts/garen-p-audio-failure.json",
+      "sha256": "a194cfee3aa37488a0cdc1059d0d5cfa6e2153a28eef237eaaf2026f1ef40034"
+    },
+    {
+      "path": "artifacts/garen-p-audio-regression-garen-passive-source-recovery.json",
+      "sha256": "a1c64173200a775be4dd3f7ffe811eab044f7180e252a52cc2083571346630ed"
+    },
+    {
+      "path": "artifacts/garen-p-audio-regression-garen-passive-source-lifecycle.json",
+      "sha256": "5fc1dae306b1d0af062d06bf947794cd7a88d9f0d27a1ec3c1fcdd957cc8d606"
+    },
+    {
+      "path": "artifacts/garen-p-audio-regression-garen-passive-source-batch.json",
+      "sha256": "7282d82b78789f438137c37860db04e184fabd2aabd70211b87be1adc15979ab"
+    },
+    {
+      "path": "artifacts/garen-p-audio-regression-garen-passive-source-recovering.png",
+      "sha256": "9acc9db3dbd5f08f5b31b969df56ddc4b3d25567db87788f3149169aa46e5c16"
+    },
+    {
+      "path": "artifacts/garen-p-audio-production-subpath.png",
+      "sha256": "14fd0b9f62afd7d6f6281c97f87c3a014f6799551316a314650acf8767cb488a"
+    },
+    {
+      "path": "artifacts/garen-p-audio-production-lux-e-source.png",
+      "sha256": "84a0e64ca7a9b5950c461efa457ffd39e4a86777e3ada5151101743bf0a10d6f"
+    },
+    {
+      "path": "artifacts/garen-p-audio-initial-results/garen-p-audio-pause-mute-a-c7a07-rve-original-source-offsets/trace.zip",
+      "sha256": "a201b79e754e5a2c1b5e7b18987a463b33cf522d314b4c1b83677445a1671b9c"
+    },
+    {
+      "path": "artifacts/garen-p-audio-fixed-results/garen-p-audio-pause-mute-a-c7a07-rve-original-source-offsets/trace.zip",
+      "sha256": "0434d6bffe32858a348b50d916dfca3dd433346f7b8a2e71afd663a77eff3515"
+    },
+    {
+      "path": "artifacts/garen-p-audio-initial-results/garen-p-audio-actual-victo-0257b-le-saved-state-stays-frozen/trace.zip",
+      "sha256": "fff73ffe29c3ecd445872a28242bdacfd1ca302bab5154ae48d2fa6a35ec9b90"
+    },
+    {
+      "path": "public/assets/audio/garen-p-111098527.wav",
+      "sha256": "ca9b81234e8da173da315941beec5b8c5a1776e599734c3d70d50bf8f6ec814a"
+    },
+    {
+      "path": "public/assets/audio/garen-p-433054605.wav",
+      "sha256": "c6660e53a94a7390e994026d8ff57a5d5b266f3401aad23d32ea259c1f6ec65c"
+    }
+  ]
+}

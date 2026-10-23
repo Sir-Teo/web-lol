@@ -59,5 +59,5 @@ write(Path('docs/reference/garen-passive-particles-decoded.json'), dict(sourcePi
     rendered=[dict(system='Garen_P_Heal',index=0)],
     deferred=[dict(system='Garen_P_Boost',index=0,reason='Arbitrary trail; boost dispatch and bound-size input unverified')],
     filtered=[dict(system='Garen_P_Boost',index=1,reason='Explicit disabled source emitter')],
-    nonvisual=[dict(system='Garen_Heal',reason='Sound-only resource, audio graph/dispatch not reconstructed')]))
+    nonvisual=[dict(system='Garen_Heal',reason='Sound-only resource; activation graph implemented in Garen P audio, native dispatch unverified')]))
 print(json.dumps(dict(textures=len(textures),pngBytes=sum(t['bytes'] for t in textures),rendered=1,deferred=1,disabled=1)))

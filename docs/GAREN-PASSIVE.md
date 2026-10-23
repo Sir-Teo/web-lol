@@ -21,7 +21,7 @@ An independent `garenPassiveReadyTick` deadline is refreshed by positive enemy c
 
 This is the current supported-roster policy. The classic source and historical patch notes identify champion/turret/epic-monster interruption and distinguish minions, but the complete native event handler is not present in the BIN. Exact shield/event exceptions need native comparison. Epic monsters, hostile summoners beyond the current roster, pets and future ability contacts must be integrated when those systems exist.
 
-The timer belongs to Garen rather than the attacker, so a removed turret cannot make it disappear. Death clears it and stops healing; respawn restores readiness. These lifecycle choices are explicit adapter policies. No passive event or healing sound is emitted each tick. The development fixture now adds the source [recovery sparks](GAREN-PASSIVE-PARTICLES.md) and saved emission intervals. The source boost trail, passive buff icon, native audio and native comparison remain open.
+The timer belongs to Garen rather than the attacker, so a removed turret cannot make it disappear. Death clears it and stops healing; respawn restores readiness. These lifecycle choices are explicit adapter policies. No passive event or healing sound is emitted each tick. The development fixture now adds the source [recovery sparks](GAREN-PASSIVE-PARTICLES.md) and saved emission intervals. The [source recovery audio](GAREN-P-AUDIO.md) now adds activation and sustained phases. The source boost trail, passive buff icon and native comparison remain open.
 
 ## Checkpoints and verification
 

@@ -1,6 +1,14 @@
 # Local match checkpoints
 
-Current schema **111** adds ordered Garen passive visual intervals, each with a
+Current schema **112** extends Garen recovery presentation retention for source
+audio. The existing interval fields remain ordered and strict. Stopped history
+expires at `max(startTick + 300, stopTick + 182)`: the exact onset recording
+requires 300 ticks even if healing ends immediately, while particles keep their
+original lifetimes. Native event/bus/listening comparison remains open. Source
+keys use no World RNG or entity IDs. Earlier schemas/fingerprints are incompatible.
+See [recovery audio](GAREN-P-AUDIO.md).
+
+Schema **111** added ordered Garen passive visual intervals, each with a
 start tick, nullable stop tick and nullable copied stop point. Active intervals
 follow the current root; stopped sparks retain their root through death and
 terminal playback. Source maximum lifetime plus interpolation bounds retention

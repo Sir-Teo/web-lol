@@ -35,8 +35,9 @@ all these values without rounding source floats.
 
 The boost resource has one enabled arbitrary trail whose dispatch and bound-size
 input remain unresolved, plus one explicitly disabled trail. The `Garen_Heal`
-resource has a sound binding and no visual emitters. Audio graph/dispatch remain
-open; no new synthesized passive sound substitutes for them.
+resource has a sound binding and no visual emitters. The [recovery audio](GAREN-P-AUDIO.md)
+now maps that shared activation event and the separate active/stop actions. Native
+dispatch remains open; no synthesized passive sound substitutes for the masters.
 
 ## Saved lifecycle and rendering
 
@@ -49,9 +50,11 @@ follows interpolated Garen position while emission is active. Teleports follow
 that fully bound root. Native event dispatch and stop/linger behavior still need
 comparison, so these boundaries are explicit reconstruction policies.
 
-Schema 111 saves ordered start/stop clocks and the nullable stop point in
-`garenPassiveVisuals`. The source maximum life plus first-update/interpolation
-coverage bounds history to 182 ticks after stopping. Validation rejects foreign
+Schema 111 introduced ordered start/stop clocks and the nullable stop point in
+`garenPassiveVisuals`. Schema 112 retains history until the later of 182 ticks
+after stopping and 300 ticks after starting, preserving source onset audio even
+if healing stops immediately. Particle lifetimes and the 182-tick visual bound
+remain unchanged. Validation rejects foreign
 owners, future/reordered/overlapping clocks, invalid active/dead/terminal states,
 missing or malformed points and expired tails. Effect keys use champion/interval/
 birth ordinals, consuming no gameplay IDs or World RNG. Earlier schemas and
@@ -79,11 +82,12 @@ native runtime captures.
 
 ## Validation
 
-The [verification ledger](reference/garen-passive-particles-verification.json)
-records all file identities and commands. Run
-`node tools/qa/verify-garen-passive-particles.mjs`.
-All 1,407 unit tests across 258 files, TypeScript, 22 focused Chrome cases and
-nested-path production validation pass. Production retains 32 source recordings
+The [schema-111 ledger](reference/garen-passive-particles-verification.json)
+retains the particle increment at `cd28229`; its verifier applies to that frozen
+revision. The [audio ledger](reference/garen-p-audio-verification.json) records
+the current schema and adjacent particle regression evidence.
+At `cd28229`, all 1,407 unit tests across 258 files, TypeScript, 22 focused Chrome
+cases and nested-path production validation passed. Production retains 32 source recordings
 and no development hook or Garen selection. Game/Three chunks are
 883.34/658.93 KB; the size warning remains.
 
