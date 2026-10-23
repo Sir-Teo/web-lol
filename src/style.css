@@ -1951,3 +1951,6 @@ button {
     transparent 68%
   );
 }
+
+.offline-progress { width: 100%; height: 12px; accent-color: #c8aa6e; }
+.offline-size { color: #c8aa6e; }

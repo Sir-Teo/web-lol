@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,432 source/simulation/geometry/dependency checks across 261 files and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current validation includes 1,441 source/simulation/geometry/dependency/storage checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -21,6 +21,35 @@ The application opens on the imported source Rift. The separate `?scene=fixture`
 - Visual and performance acceptance remains open. Source assets and green behavioral tests do not establish pixel-authentic rendering. Earlier callback-delivery measurements do not establish missed frames; corrected cadence/GPU measurements are recorded below. Source texture transfer/storage targets remain exceeded, and full-match performance certification remains open.
 
 The game is **not production complete**. The full match, roster, native comparison, delivery/offline and performance requirements in the design and fidelity plan remain in scope. Detailed milestones below distinguish pinned source values from provisional runtime policies and record validation at each revision.
+
+Production now offers [versioned offline packs](OFFLINE-PACKS.md) through
+**Pause → Offline files**. The current full deployment contains 779 files and
+490,376,435 bytes, including prepared source-quality content beyond the selectable
+roster. Nothing downloads automatically. The build pins every file's size/SHA-256
+and the worker policy; explicit download, cancellation, rehash/repair, cross-version
+reuse and scoped removal are integrated with the paused menu. Completed files
+survive retry. Offline startup requires a fully verified pack; new workers wait
+for explicit reload and refuse activation with another game tab open. Cache
+removal preserves the exact IndexedDB checkpoint bytes and unrelated caches.
+Schema 113 and ruleset `6a6196f596e935bd1989d28352042f32774cf2496de0ef6be1b281d94f7945f1`
+remain unchanged.
+
+The production audit under `/nested/rift/` deliberately corrupts a file, cancels
+a later request, retries without re-downloading verified data, then disables the
+browser network. The cached game restores the saved tick, reloads through the
+real menu, starts Lux in 5v5, casts E and opens all five role rows. A separate tiny
+two-version deployment proves explicit offline handoff, other-tab refusal,
+missing-entry readiness revocation and scope-only deletion. There are 963 real
+service-worker responses and no production page errors. Nine new storage checks
+and the full 1,441-check suite pass. All 21 adjacent Chrome regressions pass across
+match transfer, mode/champion selection, Focus/arrow rendering and graphics recovery
+at the unchanged HUD revision; final storage-only fixes have fresh full-unit and
+production offline verification. The ready-pack panel and offline pause-menu capture
+are reviewed. The game/Three chunks are 901.16/658.93 kB, with the existing size
+warning. Delivery size, Firefox/Safari, storage persistence policy, full-match
+performance, complete roster, objectives/quests and native comparison remain open.
+No new normal-rules seed cohort was run. Detailed hashes and failure/repair scope
+are retained in the [offline ledger](reference/offline-pack-verification.json).
 
 The [save compatibility dependency audit](RULESET-DEPENDENCIES.md) now resolves
 runtime imports, re-exports and literal dynamic imports using project compiler

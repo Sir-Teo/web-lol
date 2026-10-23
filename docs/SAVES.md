@@ -272,7 +272,7 @@ Queued commands store only their declared payload fields. When a UI or simulatio
 
 Pausing releases held input and unfinished aiming gestures, but preserves commands already accepted into the simulation queue. This applies to manual pause, focus interruption, graphics recovery and the restored-match pause screen. Previously `setPaused` emptied that queue: a Heal clicked between fixed steps disappeared when opening Save, and loading an otherwise valid pending-command checkpoint also discarded its command. The browser regression now clicks Heal with simulation steps held, opens Pause, saves through the actual menu, reloads, checks exact frozen state through another blur event, then clicks Resume and compares the first resulting tick against uninterrupted continuation. The existing held-cast cancellation checks remain required. This repairs local checkpoint behavior; it does not assert native League pause policy.
 
-The pause menu's **Save match** action writes one checkpoint per battlefield to this browser's IndexedDB storage. After the write completes, reloading the same build restores that match and leaves it paused. The camera recenters on the saved player; the welcome banner is omitted. **Restart practice** clears that battlefield's checkpoint before starting a new match. Manual file export/import is available through **Match files**. There is no automatic save, cross-device sync, or offline asset cache yet.
+The pause menu's **Save match** action writes one checkpoint per battlefield to this browser's IndexedDB storage. After the write completes, reloading the same build restores that match and leaves it paused. The camera recenters on the saved player; the welcome banner is omitted. **Restart practice** clears that battlefield's checkpoint before starting a new match. Manual file export/import is available through **Match files**. There is no automatic save or cross-device sync. Production builds now offer an explicit complete [offline game pack](OFFLINE-PACKS.md) through **Pause → Offline files**; a checkpoint alone does not cache assets.
 
 ## Simulation format
 
@@ -290,7 +290,7 @@ The decoder uses a strict schema, rejects invalid resource bounds and identities
 
 ## Storage behavior
 
-Writes and deletions succeed only after the IndexedDB transaction completes. Failures keep the current match intact and report an error instead of claiming success. An unreadable or incompatible checkpoint is retained; the new match starts paused, and no checkpoint is overwritten until the player explicitly saves. Browser storage can still be cleared or evicted. A local checkpoint does not establish reload availability without network access to the game's assets. [IndexedDB transactions](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+Writes and deletions succeed only after the IndexedDB transaction completes. Failures keep the current match intact and report an error instead of claiming success. An unreadable or incompatible checkpoint is retained; the new match starts paused, and no checkpoint is overwritten until the player explicitly saves. Browser storage can still be cleared or evicted. A local checkpoint needs network access or a complete offline game pack to reload. Browser eviction can remove cached assets independently of the checkpoint. [IndexedDB transactions](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 
 ## Verification scope
 
