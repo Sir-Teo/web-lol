@@ -1,53 +1,144 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { relative, resolve, sep } from 'node:path';
+import ts from 'typescript';
 
-function sourceFiles(directory: string): string[] {
-  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    const file = `${directory}/${entry.name}`;
-    return entry.isDirectory() ? sourceFiles(file) : entry.name.endsWith('.ts') ? [file] : [];
-  });
-}
-export const rulesetFiles = [
-  ...sourceFiles('src/simulation'),
-  ...sourceFiles('src/content'),
-  'src/content/attack-sound-materials.json',
-  'src/content/garen-passive-particles.json',
-  'src/content/gromp.json',
-  'src/content/blue-sentinel.json',
-  'src/content/red-brambleback.json',
-  'src/content/wolf-camps.json',
-  'src/content/raptor-camps.json',
-  'src/content/krug-camps.json',
-  'src/content/scuttler.json',
-  'src/content/owned-companions.json',
-  'src/content/warding-totem.json',
-  'src/content/oracle-lens.json',
-  'src/content/oracle-presentation.json',
-  'src/content/lux-e-particles.json',
+const sourceRoots = ['src/simulation', 'src/content'];
+// Fetched Rift data and source presentation tables behind generated retention
+// constants have no direct module edge. Preserve their explicit compatibility pins.
+const pinnedData = [
+  'public/assets/maps/rift-layout.json',
+  'public/assets/maps/rift-nav.json',
+  'public/assets/maps/rift-nav.bin',
   'src/content/lux-e-burst.json',
   'src/content/lux-e-field.json',
   'src/content/gromp-death.json',
   'src/content/gromp-attack.json',
-  'src/content/rift-gromp-camps.json',
-  'public/assets/maps/rift-layout.json',
-  'public/assets/maps/rift-nav.json',
-  'public/assets/maps/rift-nav.bin',
-  'package.json',
-].sort();
-export function rulesetFingerprint(): string {
+];
+
+function sourceFiles(directory: string): string[] {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const file = resolve(directory, entry.name);
+    return entry.isDirectory() ? sourceFiles(file) : entry.name.endsWith('.ts') ? [file] : [];
+  });
+}
+
+function projectFile(root: string, file: string): string {
+  const name = relative(root, file);
+  if (name === '..' || name.startsWith(`..${sep}`))
+    throw new Error(`Ruleset dependency is outside the project: ${file}`);
+  return name.split(sep).join('/');
+}
+
+export function collectRulesetFiles(projectRoot = process.cwd()): string[] {
+  const root = resolve(projectRoot);
+  const files = new Set([
+    ...pinnedData,
+    'package.json',
+    'package-lock.json',
+    'tsconfig.json',
+    'tools/ruleset-fingerprint.ts',
+  ]);
+  const configFile = resolve(root, 'tsconfig.json');
+  const config = ts.readConfigFile(configFile, ts.sys.readFile);
+  if (config.error)
+    throw new Error(ts.flattenDiagnosticMessageText(config.error.messageText, '\n'));
+  const parsed = ts.parseJsonConfigFileContent(
+    config.config,
+    {
+      ...ts.sys,
+      readFile(file) {
+        files.add(projectFile(root, resolve(file)));
+        return ts.sys.readFile(file);
+      },
+    },
+    root
+  );
+  if (parsed.errors.length)
+    throw new Error(
+      parsed.errors.map((e) => ts.flattenDiagnosticMessageText(e.messageText, '\n')).join('\n')
+    );
+  const options = parsed.options;
+  const visited = new Set<string>();
+
+  function visit(file: string): void {
+    if (visited.has(file)) return;
+    visited.add(file);
+    files.add(projectFile(root, file));
+    const source = readFileSync(file, 'utf8');
+    if (file.endsWith('.json')) return;
+    // Follow emitted imports: type-only references never execute. This also
+    // handles mixed imports and type-only re-exports with the project's flags.
+    const emitted = ts.transpileModule(source, {
+      fileName: file,
+      compilerOptions: options,
+    }).outputText;
+    const ast = ts.createSourceFile(file, emitted, ts.ScriptTarget.Latest, true);
+
+    function dependency(specifier: string): void {
+      const resolved = ts.resolveModuleName(specifier, file, options, ts.sys).resolvedModule;
+      if (!resolved)
+        throw new Error(`Unresolved ruleset import in ${projectFile(root, file)}: ${specifier}`);
+      // Installed packages are represented by package declarations + lockfile.
+      if (resolved.isExternalLibraryImport) return;
+      if (!/\.(?:[cm]?[jt]sx?|json)$/.test(resolved.resolvedFileName))
+        throw new Error(`Unsupported ruleset import in ${projectFile(root, file)}: ${specifier}`);
+      visit(resolve(resolved.resolvedFileName));
+    }
+
+    function scan(node: ts.Node): void {
+      if ((ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) && node.moduleSpecifier) {
+        if (!ts.isStringLiteralLike(node.moduleSpecifier))
+          throw new Error(`Nonliteral ruleset import: ${file}`);
+        dependency(node.moduleSpecifier.text);
+      } else if (
+        ts.isCallExpression(node) &&
+        ts.isPropertyAccessExpression(node.expression) &&
+        ts.isMetaProperty(node.expression.expression) &&
+        ['glob', 'globEager'].includes(node.expression.name.text)
+      ) {
+        throw new Error(`Unsupported ruleset glob import in ${projectFile(root, file)}`);
+      } else if (
+        ts.isCallExpression(node) &&
+        (node.expression.kind === ts.SyntaxKind.ImportKeyword ||
+          (ts.isIdentifier(node.expression) && node.expression.text === 'require'))
+      ) {
+        const argument = node.arguments[0];
+        if (!argument || !ts.isStringLiteralLike(argument))
+          throw new Error(`Nonliteral ruleset import in ${projectFile(root, file)}`);
+        dependency(argument.text);
+      }
+      ts.forEachChild(node, scan);
+    }
+    scan(ast);
+  }
+
+  for (const directory of sourceRoots)
+    for (const file of sourceFiles(resolve(root, directory))) visit(file);
+  return [...files].sort();
+}
+
+export const rulesetFiles = collectRulesetFiles();
+
+export function rulesetFingerprint(projectRoot = process.cwd()): string {
   const hash = createHash('sha256');
-  for (const file of rulesetFiles)
-    hash.update(file).update('\0').update(readFileSync(file)).update('\0');
+  for (const file of collectRulesetFiles(projectRoot))
+    hash
+      .update(file)
+      .update('\0')
+      .update(readFileSync(resolve(projectRoot, file)))
+      .update('\0');
   return hash.digest('hex');
 }
+
 export const absoluteRulesetFiles = new Set(rulesetFiles.map((file) => resolve(file)));
 
 export function affectsRuleset(file: string): boolean {
+  const absolute = resolve(file);
   return (
-    absoluteRulesetFiles.has(file) ||
-    ['src/simulation', 'src/content'].some(
-      (directory) => file.startsWith(resolve(directory) + '/') && file.endsWith('.ts')
+    absoluteRulesetFiles.has(absolute) ||
+    sourceRoots.some(
+      (directory) => absolute.startsWith(resolve(directory) + sep) && absolute.endsWith('.ts')
     )
   );
 }

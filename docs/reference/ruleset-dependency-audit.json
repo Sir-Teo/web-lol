@@ -1,0 +1,1388 @@
+{
+  "date": "2026-10-23",
+  "schema": 113,
+  "ruleset": "6a6196f596e935bd1989d28352042f32774cf2496de0ef6be1b281d94f7945f1",
+  "prior": {
+    "commit": "062ae5d",
+    "files": 203,
+    "ruleset": "986b6995d2dcb0bd430f25d15d0b08f7261c50a3ff3dc19d64caffa6733bcaf1",
+    "policySha256": "2ef8e3f1b826413af8743fd09659686911692ae1d999ecca24b9f18fcf90eac7"
+  },
+  "added": [
+    "package-lock.json",
+    "src/content/champion-clip-durations.json",
+    "src/content/lux-attack-origin-2.json",
+    "src/content/lux-attack-origin.json",
+    "src/content/lux-ground-layers.json",
+    "src/content/mobile-clip-durations.json",
+    "src/content/structure-animation-profiles.json",
+    "src/render/mobile-pose.ts",
+    "src/render/recall-animation.ts",
+    "src/render/structure-pose.ts",
+    "tools/ruleset-fingerprint.ts",
+    "tsconfig.json"
+  ],
+  "removed": [],
+  "manifest": [
+    {
+      "file": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "file": "package.json",
+      "bytes": 1068,
+      "sha256": "2edf6a67bd8cf8a3d9aa0b09546f0978400d6704e46d18e4b71ae43b6b5a4ebd"
+    },
+    {
+      "file": "public/assets/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    },
+    {
+      "file": "public/assets/maps/rift-nav.bin",
+      "bytes": 1925772,
+      "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+    },
+    {
+      "file": "public/assets/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "file": "src/content/ambient-gold.ts",
+      "bytes": 209,
+      "sha256": "361910a3fb95c55fc868dd1da862f8ee39a62f8dd9679c7754a7e7250cf71d17"
+    },
+    {
+      "file": "src/content/ashe-arrow-glow.ts",
+      "bytes": 1695,
+      "sha256": "9fed28b4317667ee79bbd8bc554cea6c860a16a8010d972be7d1b493743352d6"
+    },
+    {
+      "file": "src/content/ashe-basic-arrow.ts",
+      "bytes": 151,
+      "sha256": "fbd8b2bf52eb126b848deb3bd6c250b272bac86d94169b764c9ab856889405ac"
+    },
+    {
+      "file": "src/content/ashe-casting.ts",
+      "bytes": 256,
+      "sha256": "834c872574cb42cdf62827f0db46c340d1c3fb64c0c17515b7a91f57abbff618"
+    },
+    {
+      "file": "src/content/ashe-e.ts",
+      "bytes": 367,
+      "sha256": "f79c57cf6e1e19b5fc520d359a1aa0fc286c9c9a14a8dd4b21a698f6bf87c0e7"
+    },
+    {
+      "file": "src/content/ashe-flurry-timing.ts",
+      "bytes": 124,
+      "sha256": "489d7ea27593a13742314fc04e1462d956ea3c8c744d18c839eaf6e8e33a6f1a"
+    },
+    {
+      "file": "src/content/ashe-passive.ts",
+      "bytes": 230,
+      "sha256": "5211ff65b85bf774a09f378e3660ef48802dd62534189dd9df0ad7e2496eb6bf"
+    },
+    {
+      "file": "src/content/ashe-progression.ts",
+      "bytes": 705,
+      "sha256": "13e0d277da364b80c0f7bff56a16a47029b47fc63124d783677b7c7d04a11d8c"
+    },
+    {
+      "file": "src/content/ashe-projectiles.ts",
+      "bytes": 109,
+      "sha256": "195dbd403ad3e1a95118467d88cf0def7c0f92fa29759ec11c8bcabc70e32767"
+    },
+    {
+      "file": "src/content/ashe-q.ts",
+      "bytes": 628,
+      "sha256": "8809e02584cde92e7cf0200624ebdd0874eed740580b2e34d8cf183cde680d64"
+    },
+    {
+      "file": "src/content/ashe-r.ts",
+      "bytes": 517,
+      "sha256": "faae626a895f20a84f89b515c39f7e4cd874767a8688a65b38aff7a8962c86bf"
+    },
+    {
+      "file": "src/content/ashe-selection.ts",
+      "bytes": 171,
+      "sha256": "6fdf61de6790ee23c9342b9b2b05ba48dcda9a9f613ada101e0228bb0e7ff84e"
+    },
+    {
+      "file": "src/content/ashe-skill-recommendation.ts",
+      "bytes": 223,
+      "sha256": "eaf1b5b02088e8981a02423d4b3f472bfc8cbcc7a2e0cf024758f1f4d00e1329"
+    },
+    {
+      "file": "src/content/ashe-spell-ranks.ts",
+      "bytes": 895,
+      "sha256": "6d1c4a81674bc1d78150f76bafba2f5d321c8ab934c90dcb65178bb0beb80bb7"
+    },
+    {
+      "file": "src/content/ashe-w.ts",
+      "bytes": 386,
+      "sha256": "2afc4d999c4fdc0aea27836f62393fa957245359f3e1486e821b8f8d9f6e5354"
+    },
+    {
+      "file": "src/content/assist-window.ts",
+      "bytes": 132,
+      "sha256": "ec11754e1b5ab31be4070ed2f89100053b36b8a986f13ea22db219b97307b680"
+    },
+    {
+      "file": "src/content/attack-sound-material.ts",
+      "bytes": 955,
+      "sha256": "f26590dd1f127f14937cbda825fed039ffe7b4da48a468b8c216c2028d7170ea"
+    },
+    {
+      "file": "src/content/attack-sound-materials.json",
+      "bytes": 804,
+      "sha256": "282f923e5ff3b0001c610cb321849b75f00c1c0085199e3a1d12dd42d2c5b05d"
+    },
+    {
+      "file": "src/content/blue-sentinel.json",
+      "bytes": 2444,
+      "sha256": "0e600a6c23f3e98c4e11122ddaadadcd3188820f47c29a32c7169c27e0c646f4"
+    },
+    {
+      "file": "src/content/bot-roles.ts",
+      "bytes": 576,
+      "sha256": "47c13f1d7eb2a0c2a04ed48c6f788ceaba9441c5a42af9d6d4d59cb81c770abb"
+    },
+    {
+      "file": "src/content/bot-team-policy.ts",
+      "bytes": 280,
+      "sha256": "00f8fe7e1e18119974c5c8fd51fc852d7f44732b4aa3b7885dcfaaa03aed2ee3"
+    },
+    {
+      "file": "src/content/cast-animation.ts",
+      "bytes": 1135,
+      "sha256": "808f6d091832cb6ca14f5b5f8b46e7ac7556ac31d30cbc8c7ff48e1e4478d049"
+    },
+    {
+      "file": "src/content/champion-clip-durations.json",
+      "bytes": 2982,
+      "sha256": "3bc72b53f75bca368ee0a0e109c674b9a16c46dbd04851a3c1c0e263369def5e"
+    },
+    {
+      "file": "src/content/champion-death-times.ts",
+      "bytes": 610,
+      "sha256": "514c01971e680d09686f643fb986ffc91cc18158aababc7d9945dd5aed8f4004"
+    },
+    {
+      "file": "src/content/champion-kill-gold.ts",
+      "bytes": 310,
+      "sha256": "a72ce5afd2e6ecfc404addb1b4e687a9d5c1ef703540bc02ce7af23bea2f2fb2"
+    },
+    {
+      "file": "src/content/champion-kill-xp.ts",
+      "bytes": 685,
+      "sha256": "f9afa4219b81d18d8a3622c1ec455c77bfee232a531ccbe0b285d6e9fd472a20"
+    },
+    {
+      "file": "src/content/champion-profiles.ts",
+      "bytes": 1176,
+      "sha256": "3aeae0bae87c96671a8cbc925390ed31901ca2292a1a02f3eef6cd89c658d892"
+    },
+    {
+      "file": "src/content/companion-items-policy.ts",
+      "bytes": 409,
+      "sha256": "8127ff50e08ec40778e2177ee0cb7516135383c03e4d44775fe6a69310dfa094"
+    },
+    {
+      "file": "src/content/companion-items.ts",
+      "bytes": 1229,
+      "sha256": "5b8134f49a94417007232edcdd355ec2494ac9273796e7598376538e1add4028"
+    },
+    {
+      "file": "src/content/companion-policy.ts",
+      "bytes": 2249,
+      "sha256": "da0ac7668f2270ffcfe0df06347c9e5d43b1c478fc8e147e99d21c576f5ce897"
+    },
+    {
+      "file": "src/content/crest-of-cinders.ts",
+      "bytes": 800,
+      "sha256": "e8bb941e5d73c42715f12256e6d4a0b074def4377875e244f2b64af6bfc92977"
+    },
+    {
+      "file": "src/content/crest-of-insight.ts",
+      "bytes": 520,
+      "sha256": "162d49b9739d04ef329f6d03f88d495be961f374583225fbdd46ebd3db74537c"
+    },
+    {
+      "file": "src/content/critical-attacks.ts",
+      "bytes": 222,
+      "sha256": "e34fba1bf5cd0cedce465991fbad7a058107293348046ee2b8880d1e810ffbea"
+    },
+    {
+      "file": "src/content/critical-items.ts",
+      "bytes": 766,
+      "sha256": "c33b73d0179c68153e03850ea0ab6c0d5f3debe831e855c91fbec973c5f2c841"
+    },
+    {
+      "file": "src/content/execution-credit.ts",
+      "bytes": 189,
+      "sha256": "adb447901d1c058bc85f4f54fa382bceada30df036887fe70dbed199e778c1fb"
+    },
+    {
+      "file": "src/content/garen-aa-audio-timing.ts",
+      "bytes": 147,
+      "sha256": "dd3fe3c72560fb5d23d96007ae7804f51ad063a4e5d38d864253006c93d54793"
+    },
+    {
+      "file": "src/content/garen-aa-audio.ts",
+      "bytes": 40722,
+      "sha256": "5df590cec5a583f12e3dd034ebbd679afd9d18f3e79106c0e043155e2abd98bd"
+    },
+    {
+      "file": "src/content/garen-attack-animation.ts",
+      "bytes": 541,
+      "sha256": "25e59c27f6952e780ab4157107991b78924395a6bab8f9c40296bc841aace489"
+    },
+    {
+      "file": "src/content/garen-e-audio.ts",
+      "bytes": 8882,
+      "sha256": "e997d85a9d999b1d6818fcd4b62f575b46e68f10e25b1d922bbc0234228dd8dc"
+    },
+    {
+      "file": "src/content/garen-e.ts",
+      "bytes": 711,
+      "sha256": "78ff32e8ae15d8de973fe47e803cad14ed95144626edd5f365ae61ddb66f63c7"
+    },
+    {
+      "file": "src/content/garen-p-audio-timing.ts",
+      "bytes": 194,
+      "sha256": "09c32d3063451f9d8ec961b814e9b6f27a0e375033d6312063ad151431409112"
+    },
+    {
+      "file": "src/content/garen-p-audio.ts",
+      "bytes": 3483,
+      "sha256": "1cecac8cd2e261e3465ce48967ec362d0f1d7cb466b7e647143d6d4cf8612c7b"
+    },
+    {
+      "file": "src/content/garen-passive-particles.json",
+      "bytes": 3303,
+      "sha256": "7a1e9f2eea4c6278550317bcc810f8a6be10cd54e7db316a653f7144e5db8d25"
+    },
+    {
+      "file": "src/content/garen-passive-presentation.ts",
+      "bytes": 459,
+      "sha256": "bb93060e67a8bfc677a08ac47d1b20e41ef94272bb8729903dedd6d03ebcab5a"
+    },
+    {
+      "file": "src/content/garen-passive.ts",
+      "bytes": 381,
+      "sha256": "d607e0a9ec258d144d226eb9674118af2b43c3bf6d8bf24d6a8a4ab3d0c8df4e"
+    },
+    {
+      "file": "src/content/garen-progression.ts",
+      "bytes": 799,
+      "sha256": "6e329d768a622eeb48589680686adf81860a1f46da0376ca7dcccd04c4bfa02c"
+    },
+    {
+      "file": "src/content/garen-q-audio-timing.ts",
+      "bytes": 173,
+      "sha256": "57a90b1d847ab707c2084803da5ee3e5e2846fb65996580c4f3dc4c0c09b2584"
+    },
+    {
+      "file": "src/content/garen-q-audio.ts",
+      "bytes": 9962,
+      "sha256": "b17d97abed067e79af4c19b41a39058f7eb246aaadf3f459c7787a053ecd9af3"
+    },
+    {
+      "file": "src/content/garen-q-presentation.ts",
+      "bytes": 443,
+      "sha256": "c6cf3e0d42c7662826e13624af5d179c48320bd00ac3c5c6f4d5cb833261b1bb"
+    },
+    {
+      "file": "src/content/garen-q.ts",
+      "bytes": 811,
+      "sha256": "82cd21f075d4259a7706ed2a8459febea7daee09bd1106ec8612a9e1701251a1"
+    },
+    {
+      "file": "src/content/garen-r-audio-timing.ts",
+      "bytes": 168,
+      "sha256": "6f8535b7c03389eb05a8cf665de2dc9a720844d67fe498c251e42ba8d8399682"
+    },
+    {
+      "file": "src/content/garen-r-audio.ts",
+      "bytes": 5597,
+      "sha256": "f57c98092687f513e2ac1525f807e163e588f8063c1c815a402f182ea372c621"
+    },
+    {
+      "file": "src/content/garen-r-policy.ts",
+      "bytes": 468,
+      "sha256": "b9b7e5804f03d9a6c8dded653a535206b452e665b39abb481f45c9e9902f3504"
+    },
+    {
+      "file": "src/content/garen-r-presentation.ts",
+      "bytes": 582,
+      "sha256": "a462dda5de188132d6c778e893dfc23d129369fbf69195fdd36aa50a214409ce"
+    },
+    {
+      "file": "src/content/garen-r.ts",
+      "bytes": 648,
+      "sha256": "6d6742456a37d104946c0dd10761c82573a588480d49b3d5df6e1ce37c64b9b6"
+    },
+    {
+      "file": "src/content/garen-w-audio-timing.ts",
+      "bytes": 183,
+      "sha256": "f458578b0e1a3976d3a6c71987be890e090096292781ea1165be41349740c646"
+    },
+    {
+      "file": "src/content/garen-w-audio.ts",
+      "bytes": 6452,
+      "sha256": "1d1a6a9e47e67fd499228e045515d66d41b60227f10bda5540550a0759d6d664"
+    },
+    {
+      "file": "src/content/garen-w-particle-timing.ts",
+      "bytes": 184,
+      "sha256": "f7aa75bfd8bf7ba6b8c0fb4e21b49cbb9c0ee17d2d9bdea985403140a6d8cefa"
+    },
+    {
+      "file": "src/content/garen-w-presentation.ts",
+      "bytes": 617,
+      "sha256": "cfb0f924156e31a4d503818ced9b1ae2e5a296f3e2fa452b3c5ea8954f793634"
+    },
+    {
+      "file": "src/content/garen-w.ts",
+      "bytes": 739,
+      "sha256": "178d9f366cc08a21612443665e662ac8cdc9de2cc8b6ddb66a33fa6c5ecd6af2"
+    },
+    {
+      "file": "src/content/gromp-attack-presentation.ts",
+      "bytes": 282,
+      "sha256": "171ba5f664bba586f9c14e79f248bbf3944f1964390609faec46f5f47e2f6679"
+    },
+    {
+      "file": "src/content/gromp-attack.json",
+      "bytes": 16101,
+      "sha256": "6d42ccb6a3e2b60076abd9a5112ffc8f59def01271c3468f128c00141ee345a8"
+    },
+    {
+      "file": "src/content/gromp-death-timing.ts",
+      "bytes": 164,
+      "sha256": "bec12acee17cd9527d61800d9335ef4b2c21ac8853e359dd17e8f547be740ad2"
+    },
+    {
+      "file": "src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "file": "src/content/gromp.json",
+      "bytes": 1650,
+      "sha256": "222f7c42a5f6c01b3113952eae8e5fd2b7c49902c6e0285f914ecbc0283b3aad"
+    },
+    {
+      "file": "src/content/gromp.ts",
+      "bytes": 903,
+      "sha256": "07d8e13c18e9a0480e96c91397949003fd8e1794e3b1edb03bc26652f89ac84e"
+    },
+    {
+      "file": "src/content/hawkshot-arrival-audio.ts",
+      "bytes": 317,
+      "sha256": "3c2a4e90de495ae0eceb9d2d01296300efd03fa1d95c36d976cd7e12f83a8f82"
+    },
+    {
+      "file": "src/content/hawkshot-arrival-glows.ts",
+      "bytes": 2290,
+      "sha256": "a7ed02df43e38db813e9b4c165095babf34a6d5dcf391f467ce1a5a31f915516"
+    },
+    {
+      "file": "src/content/hawkshot-arrival.ts",
+      "bytes": 705,
+      "sha256": "b554fd39244e0a9f294db8f5868be14e632b1fe6055b58a69c267d3315986ccb"
+    },
+    {
+      "file": "src/content/hawkshot-assist.ts",
+      "bytes": 208,
+      "sha256": "5ad8eb1de3786f96c34797db13fed88c1478d41ca4592f1ca7ab230131c5cbb1"
+    },
+    {
+      "file": "src/content/hawkshot-attenuation.ts",
+      "bytes": 911,
+      "sha256": "0a9b8131f4945a94fbb7ad5143458f0ea6a028715213b1ae19f5858f226b77dd"
+    },
+    {
+      "file": "src/content/hawkshot-cast-audio.ts",
+      "bytes": 729,
+      "sha256": "f1d3a03836c519c52d19cb7dea2d3bb8e913d30832e0031c3719d72b33e9a57d"
+    },
+    {
+      "file": "src/content/hawkshot-darkness.ts",
+      "bytes": 928,
+      "sha256": "ec9a686ec7c726dbe96a49ab98977c3a41fcff572d3116ae4c4f98a09ef47ff8"
+    },
+    {
+      "file": "src/content/hawkshot-dust.ts",
+      "bytes": 724,
+      "sha256": "66edad43e55f5c436450d2c360b700df8efd5d20eb867fe0a6f18822fee14366"
+    },
+    {
+      "file": "src/content/hawkshot-echo.ts",
+      "bytes": 373,
+      "sha256": "900146b5afd590a78c12f8edf9080af1d63692c7f62d8bf60cfcdee7103b748f"
+    },
+    {
+      "file": "src/content/hawkshot-flight-audio.ts",
+      "bytes": 944,
+      "sha256": "30fa5918aba459830728cd06270f226f7e786d44aa759ee2ad7ae17b7e9a87c3"
+    },
+    {
+      "file": "src/content/hawkshot-glow.ts",
+      "bytes": 957,
+      "sha256": "0aec98ff5c8c11fe3f8198e869be3594a13f10c355db6f070e4665ecfaea54af"
+    },
+    {
+      "file": "src/content/hawkshot-linger-audio.ts",
+      "bytes": 373,
+      "sha256": "8f3d7a84e81f42e556c32fd96137e09bb06bf495ffed1528068a77b06698d64f"
+    },
+    {
+      "file": "src/content/hawkshot-linger-aurora.ts",
+      "bytes": 745,
+      "sha256": "8042b88f7a5f3341bd0903f422f43c18b39ec22a1d20a8e0baa37383e379d9b8"
+    },
+    {
+      "file": "src/content/hawkshot-linger-timing.ts",
+      "bytes": 517,
+      "sha256": "cb29432f2d9f1681a0cc39d7cd1d78b330ecb64d90be042d4b4c6e3fa1e27719"
+    },
+    {
+      "file": "src/content/hawkshot-radial.ts",
+      "bytes": 797,
+      "sha256": "e41d4affd86d5888139925287911ebd66a5db10dab32450a2976324b515de878"
+    },
+    {
+      "file": "src/content/hawkshot-smoke.ts",
+      "bytes": 696,
+      "sha256": "212536b2db854e66b1e4b402ebba0674859f274a326277bd8eb08ddbe826efc4"
+    },
+    {
+      "file": "src/content/hawkshot-snow.ts",
+      "bytes": 2145,
+      "sha256": "c7fbc7954bab2506b3a8e6b6e79f9823be5f7c1784c992ee37e66149f400da7d"
+    },
+    {
+      "file": "src/content/hawkshot-sparkle.ts",
+      "bytes": 677,
+      "sha256": "fb2d3b95631292c473bfbaedc3e7946a2c75660355c908d33b4da50d4864f85a"
+    },
+    {
+      "file": "src/content/hawkshot-wind.ts",
+      "bytes": 1002,
+      "sha256": "594087a92c6f38b016f6bd382047b38d93c1500f1ba2ae9781c19c437947e9f3"
+    },
+    {
+      "file": "src/content/impact-target.ts",
+      "bytes": 473,
+      "sha256": "a1f7762ca408f617245346308497de8c04316f1e7c46ae1ae05349699bc80783"
+    },
+    {
+      "file": "src/content/krug-camps.json",
+      "bytes": 7765,
+      "sha256": "35e55accd59b01ffec1fde6fda8c467d011a3930fb9e0f220e8f98e352f6b59d"
+    },
+    {
+      "file": "src/content/lux-attack-animation.ts",
+      "bytes": 557,
+      "sha256": "d755f15abb76e49f5d4c66ca479aef5dbf9d097222c7b934a488d1f11e148ba1"
+    },
+    {
+      "file": "src/content/lux-attack-origin-2.json",
+      "bytes": 140473,
+      "sha256": "5380577b5dbe36e4e572ef1a0c20b8a73a142f1d3b4a56e17df0cd3154bab0d3"
+    },
+    {
+      "file": "src/content/lux-attack-origin.json",
+      "bytes": 181350,
+      "sha256": "40d053e462b2d034b49309ec1b518d7fcaf66ed9e697b61a6c9af99554d0be44"
+    },
+    {
+      "file": "src/content/lux-attack-origin.ts",
+      "bytes": 1133,
+      "sha256": "619973832edb10b9a2600901093f169c1dbd849ae6b48bae95fbb76adb72b87b"
+    },
+    {
+      "file": "src/content/lux-attack-presentation.ts",
+      "bytes": 654,
+      "sha256": "79908a8037d5e1369a9a493f5de0d0295b2846a6edd421424e496f98fb7c0cf0"
+    },
+    {
+      "file": "src/content/lux-basic-crescent.ts",
+      "bytes": 747,
+      "sha256": "6ba1e6e93a8ffd2750636ef412f4a3a9452834237f1291f8f392c522bcd2d361"
+    },
+    {
+      "file": "src/content/lux-basic-linger.ts",
+      "bytes": 1435,
+      "sha256": "9c5cb29d97602cebea987b31a7f1445fa1a5e4166b18e32abab80dae3316a0e4"
+    },
+    {
+      "file": "src/content/lux-basic-lookups.ts",
+      "bytes": 530,
+      "sha256": "0f17cc1588fb374b4a70d4d62bfdb3c4b846172cb0b596528ac1070dfca55ace"
+    },
+    {
+      "file": "src/content/lux-basic-trail.ts",
+      "bytes": 1782,
+      "sha256": "e6b5612fde83358c3b283b7cf569475d80c47113c59c8a761d5254bc734af9fc"
+    },
+    {
+      "file": "src/content/lux-beam-layers.ts",
+      "bytes": 33589,
+      "sha256": "17db2c0be52544644daaa574c28bd3dd45e0aa67cab011b741807b582ad0d15b"
+    },
+    {
+      "file": "src/content/lux-binding-attenuation.ts",
+      "bytes": 922,
+      "sha256": "ab3ac192b601874c961153569dc27ac58ad83827f60b396655e5084fbe88e589"
+    },
+    {
+      "file": "src/content/lux-binding-audio.ts",
+      "bytes": 15879,
+      "sha256": "9e64f46324acc5b4d0e3ca0b1adfd511a1761b939c631a9794391dbdd3c08668"
+    },
+    {
+      "file": "src/content/lux-binding-cast-audio.ts",
+      "bytes": 1752,
+      "sha256": "15bb84765e7157202427005b41277a1790e58a110798512c943be295b1caa114"
+    },
+    {
+      "file": "src/content/lux-binding-flight-audio.ts",
+      "bytes": 1396,
+      "sha256": "5a138a6fcb8757411f223c4b32364e8e4583f2a4f04fd2c2c026b854d523de35"
+    },
+    {
+      "file": "src/content/lux-binding-presentation.ts",
+      "bytes": 314,
+      "sha256": "58f0d354c6a6066824e332f90d2b02cc0df500e62906e86cc965c32ddfb53e15"
+    },
+    {
+      "file": "src/content/lux-binding-target-appearance.ts",
+      "bytes": 4373,
+      "sha256": "e5323c3bb99d98372418a164d691691be69edb95d459078cf763fc02153cf28b"
+    },
+    {
+      "file": "src/content/lux-binding-target-births.ts",
+      "bytes": 12462,
+      "sha256": "793cae6ff1ac6f02e95f83b0ad6dc22df5a41cb603a9b1b254a767667dca2daa"
+    },
+    {
+      "file": "src/content/lux-binding-target-lookups.ts",
+      "bytes": 2037,
+      "sha256": "926ae2bd52b8a7cb59ed05432d2a10938aaa5f17313f20e6234d7228646c9787"
+    },
+    {
+      "file": "src/content/lux-binding.ts",
+      "bytes": 419,
+      "sha256": "0557d8ff533203d385c13d0ecee83e7023708fbba2b29dae4358658d75670012"
+    },
+    {
+      "file": "src/content/lux-bot-policy.ts",
+      "bytes": 516,
+      "sha256": "d2c2c74c8eddfc39de907baf23cab4ac2a03dfd5f4560cc5b26bfc96c1150e98"
+    },
+    {
+      "file": "src/content/lux-e-audio-timing.ts",
+      "bytes": 175,
+      "sha256": "f6d36eb3b8ea9fe005923bb56f74af6d2bbdb26282aa141ccf3b554196d9035a"
+    },
+    {
+      "file": "src/content/lux-e-audio.ts",
+      "bytes": 8904,
+      "sha256": "6396faf0c300cb0d4440c4af38f40e7801393b8baf7fee04f6d23cd15cbeb9e0"
+    },
+    {
+      "file": "src/content/lux-e-burst.json",
+      "bytes": 14010,
+      "sha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e"
+    },
+    {
+      "file": "src/content/lux-e-field.json",
+      "bytes": 129231,
+      "sha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931"
+    },
+    {
+      "file": "src/content/lux-e-hit.ts",
+      "bytes": 368,
+      "sha256": "7c0351a61f427bc8862635d1c7762f2b33eb4ad340c425b67c0bfae02af27516"
+    },
+    {
+      "file": "src/content/lux-e-particle-timing.ts",
+      "bytes": 171,
+      "sha256": "98afe6c1b4ef560f25d7996652efbb95582ed66a5da4fb985d38fddb82910202"
+    },
+    {
+      "file": "src/content/lux-e-particles.json",
+      "bytes": 95330,
+      "sha256": "7548169b92397920e6f3840d5aa5022e311cbd220a79f4554dbdd5d1361be773"
+    },
+    {
+      "file": "src/content/lux-e-policy.ts",
+      "bytes": 334,
+      "sha256": "6eab69aee0bfedbccebd9c1ba1f55c63caca4623dcd9933f5b54f2a32785f78a"
+    },
+    {
+      "file": "src/content/lux-e.ts",
+      "bytes": 664,
+      "sha256": "74e7cad65a60590afcac1fcddf4bf0fa296fadc62bebc413e894c05dc91e7294"
+    },
+    {
+      "file": "src/content/lux-emission.ts",
+      "bytes": 693,
+      "sha256": "9199e12f2b0c8e012b3c8727f18ec3a708eda8510f98d562110306988c559c91"
+    },
+    {
+      "file": "src/content/lux-ground-charge.ts",
+      "bytes": 164,
+      "sha256": "52c4ea5c7404df7f60e4b523d0a36b5d8f573695a354afe7509532de0a11bc04"
+    },
+    {
+      "file": "src/content/lux-ground-layers.json",
+      "bytes": 50064,
+      "sha256": "ba3fff0333fbe113ecc6bb59bae24b8a892cb487a27d329571f496d3927963d5"
+    },
+    {
+      "file": "src/content/lux-ground-warnings.ts",
+      "bytes": 136,
+      "sha256": "63a5de65ca3c7a7b8bc102c8d91c15cf3d43b6028f3c048ecdb58c88df5bf373"
+    },
+    {
+      "file": "src/content/lux-illumination-attenuation.ts",
+      "bytes": 927,
+      "sha256": "628697f34bf2f8ca6b57ad70c1a8156bf41d2d61e279d8d74ca500edbf6bec87"
+    },
+    {
+      "file": "src/content/lux-illumination-audio.ts",
+      "bytes": 1395,
+      "sha256": "a60dc7179ea7865ed1e6c24468ea81bdfebf042aa60db1594cc5dc48b81940bf"
+    },
+    {
+      "file": "src/content/lux-illumination-presentation.ts",
+      "bytes": 205,
+      "sha256": "bf87a81e6be53faaab126f60631e80c4a960d4ce7e49a443421ff13ff8efc49b"
+    },
+    {
+      "file": "src/content/lux-illumination-trigger-vfx.ts",
+      "bytes": 14569,
+      "sha256": "2237f997be58f1a369ad7c75d0186602dfea9340dacb2ef7fdad665c5f60c9bc"
+    },
+    {
+      "file": "src/content/lux-illumination-vfx.ts",
+      "bytes": 5777,
+      "sha256": "9f1445fcdb4da8dfe1068ac57c970d0eb05df71dcef9807b893f6a7f899a78d1"
+    },
+    {
+      "file": "src/content/lux-illumination.ts",
+      "bytes": 352,
+      "sha256": "f5dce36c1bce90b015f553bc906889918e32accab81021e5f2fb783128bf80c4"
+    },
+    {
+      "file": "src/content/lux-impact-presentation.ts",
+      "bytes": 200,
+      "sha256": "8ab7dd5258dc4197e3ba5dc6f2248d7b89dae020c2af441239e79d054d7f0218"
+    },
+    {
+      "file": "src/content/lux-progression.ts",
+      "bytes": 598,
+      "sha256": "82c1727180aaa6b0667cbd567f0f8fed45cd28e84e8d13c139f9a3fbcb84ff71"
+    },
+    {
+      "file": "src/content/lux-r.ts",
+      "bytes": 720,
+      "sha256": "467818380998af78f12ab32f857be433130bae0eb935e54dda3a915403cb64b2"
+    },
+    {
+      "file": "src/content/lux-scorches.ts",
+      "bytes": 223,
+      "sha256": "2c69474daf8de5b01fc40de9a1c5f677817eada9501fc82d125b267fc1a3b483"
+    },
+    {
+      "file": "src/content/lux-w.ts",
+      "bytes": 581,
+      "sha256": "bdb17accbfbe429ae897208180680717aeaaca2126dd09ebd953786894ad0d64"
+    },
+    {
+      "file": "src/content/mage-items.ts",
+      "bytes": 2329,
+      "sha256": "b39910557a6c9a270dd1002cc876e40d5e4498e58140725ea82c5aaaf90ae2c8"
+    },
+    {
+      "file": "src/content/map.ts",
+      "bytes": 948,
+      "sha256": "cb0f7521d960280b87652d040893256099d0ea1a8415787a9b4f44ba2fc0e461"
+    },
+    {
+      "file": "src/content/minion-xp-sharing.ts",
+      "bytes": 180,
+      "sha256": "bc0afa5bd0663bbd21ba4b7c2ac674d522e049bb3864b4cba382ff045e3afcda"
+    },
+    {
+      "file": "src/content/mobile-clip-durations.json",
+      "bytes": 4361,
+      "sha256": "30c43547e319765c70fea7a7d1846faf73c04cb675bf95281f0b601665c98199"
+    },
+    {
+      "file": "src/content/mobile-clip-durations.ts",
+      "bytes": 2333,
+      "sha256": "d3fc65492416e27ea2f5972923029bb20c88e07b9403cd2bade8a4784adb99c6"
+    },
+    {
+      "file": "src/content/monsters.ts",
+      "bytes": 5310,
+      "sha256": "0a936e4b0f1d0ed4776874466d57a95dcac4d7ab6c7be7f18b8e6489010a2b7d"
+    },
+    {
+      "file": "src/content/omnivamp.ts",
+      "bytes": 250,
+      "sha256": "4e5cde6b9d61de4f8af83e06ea356efd1d7a77d49c7376bfa1b5444a0a769f68"
+    },
+    {
+      "file": "src/content/oracle-audio-timing.ts",
+      "bytes": 176,
+      "sha256": "4eea12e4051bb6845e6229e5bdd71edbebf43bb1d4bd28846736a7c256b3098c"
+    },
+    {
+      "file": "src/content/oracle-audio.ts",
+      "bytes": 3455,
+      "sha256": "839d6ebdfc0c49a5a7581279d652a1cc75ca94a37417f2d22be058333e23cca3"
+    },
+    {
+      "file": "src/content/oracle-lens.json",
+      "bytes": 1276,
+      "sha256": "b41e8c03d04ef82cbb25f9b3971443288e2e8114c86f437ba2a8a4f91f4e757b"
+    },
+    {
+      "file": "src/content/oracle-presentation.json",
+      "bytes": 273,
+      "sha256": "0d2c22034f940616ad198c4a5db7c0bb1e199b1b583d25dc3c76821681252425"
+    },
+    {
+      "file": "src/content/oracle-presentation.ts",
+      "bytes": 1467,
+      "sha256": "d06493b2324e5eb810950b8cee0747c5619d6480321e2a3aa07bad1df384fb85"
+    },
+    {
+      "file": "src/content/owned-companions.json",
+      "bytes": 10205,
+      "sha256": "fa2abd2d104dd1bccfa8de1c5fe1d228b83ec1279d39c6aa907752acceacd2e7"
+    },
+    {
+      "file": "src/content/practice-fixture.ts",
+      "bytes": 1414,
+      "sha256": "9abed808e847448645056784f15ed5f636fc4328fb0c7989ca2203836cbda125"
+    },
+    {
+      "file": "src/content/raptor-camps.json",
+      "bytes": 8136,
+      "sha256": "3f971e73a3fbd617e1f3f317c4173f544767174d820616ba0cbe39d16e203b52"
+    },
+    {
+      "file": "src/content/red-brambleback.json",
+      "bytes": 2453,
+      "sha256": "6d177684631dee4ce2427c0c103e52c0ca58f3e89edc55d4b11d9487f6da3f80"
+    },
+    {
+      "file": "src/content/rift-camps.ts",
+      "bytes": 5140,
+      "sha256": "b6234f2fb3ba9950f810e636cb6ea59c92e0000724366df241ad673a34cf4026"
+    },
+    {
+      "file": "src/content/rift-gromp-camps.json",
+      "bytes": 1308,
+      "sha256": "738d9dafa56067b0c55420de726a59714eadfbe1a47cb848841a3052a367255c"
+    },
+    {
+      "file": "src/content/rift-gromp-camps.ts",
+      "bytes": 422,
+      "sha256": "85a5948f8859d02d94351931611809a0c6d3d4cb83b593a4bb4df5f59e84f585"
+    },
+    {
+      "file": "src/content/rift.ts",
+      "bytes": 5340,
+      "sha256": "fd384bc0884f6bf04b5ad103a92f9549d2292b340fb16ec61f5bb3bea3e131d7"
+    },
+    {
+      "file": "src/content/rules.ts",
+      "bytes": 7069,
+      "sha256": "850c5af1da4e0fe7cf9eaf172a617ae456cdf9bb0ec377ebbf6da4b7aa14bd6d"
+    },
+    {
+      "file": "src/content/scuttler-policy.ts",
+      "bytes": 1136,
+      "sha256": "66ed9ca9335af1c619c59e6b5442feea1a2586cad76bb71923e39f749da1d5e3"
+    },
+    {
+      "file": "src/content/scuttler.json",
+      "bytes": 8442,
+      "sha256": "c812bae87a35b4ac6973b91dff7c79af2a3b593cdd57fa1612d71ab2a92f7f8b"
+    },
+    {
+      "file": "src/content/structure-animation-profiles.json",
+      "bytes": 2259,
+      "sha256": "f49bd98063955bb6b1b054ae9e2e6ba454f87072b0ae72db301ca9dfac8a3bc1"
+    },
+    {
+      "file": "src/content/structure-animation.ts",
+      "bytes": 695,
+      "sha256": "7f251ea57d1e45fbc3f06fde8cc32e70cde4b40ced2d9c1880b9fd84e6e4b826"
+    },
+    {
+      "file": "src/content/summoner-heal.ts",
+      "bytes": 439,
+      "sha256": "c4c9e8aa0026aca07a9454373bea0a7f506432c9d6ee0d945ae9a7d19479fe5d"
+    },
+    {
+      "file": "src/content/summoner-smite.ts",
+      "bytes": 1575,
+      "sha256": "ddde1f291c0441ca8eddc7589ed52c44acc4beafb774b9c461cc3e4783369bc5"
+    },
+    {
+      "file": "src/content/summoners.ts",
+      "bytes": 1071,
+      "sha256": "df04755d632a7e488d6f4b318be3f80fdf9a10543e17bc132105c79feacdf4fb"
+    },
+    {
+      "file": "src/content/trinkets.ts",
+      "bytes": 1455,
+      "sha256": "15450f96bfcd36a34d30f1097ceed1900635318a4c9588d342bf132788a451c9"
+    },
+    {
+      "file": "src/content/warding-totem.json",
+      "bytes": 971,
+      "sha256": "7e7c8b4cff54025658179035aa1735fb6581981a6a16ac51b4a0ed7e955928f4"
+    },
+    {
+      "file": "src/content/warding-totem.ts",
+      "bytes": 1167,
+      "sha256": "55b9f1f43315925b4b7a9be1b943218c1dfc323dc5d7256c6c9f35c34aa93f0a"
+    },
+    {
+      "file": "src/content/wolf-camps.json",
+      "bytes": 5774,
+      "sha256": "0c4dc129e6229f8029cde48b153baa908a0055c7181b3055ca64d09c2b55aa44"
+    },
+    {
+      "file": "src/render/mobile-pose.ts",
+      "bytes": 7329,
+      "sha256": "696cf641ad82a2d0951e6303802aca6c8330d95ae19bea6828029e50020247aa"
+    },
+    {
+      "file": "src/render/recall-animation.ts",
+      "bytes": 887,
+      "sha256": "32c1603005af22742863c1cd4b61c01cf812650618050e7341da82e601baeaa9"
+    },
+    {
+      "file": "src/render/structure-pose.ts",
+      "bytes": 1843,
+      "sha256": "9d57eac826ec037426f7a00369cfd34db71cd57917ded0900a44c94966fda188"
+    },
+    {
+      "file": "src/simulation/ability-haste.ts",
+      "bytes": 781,
+      "sha256": "adb995d00994f35ba7c6a1a49366672f56c049246d45277ff34ab76860aa5dd3"
+    },
+    {
+      "file": "src/simulation/animation-timeline.ts",
+      "bytes": 2697,
+      "sha256": "f28a7c8a5ea6c09dfb88f70120b3815783743fbdc902d4e9243182e7a9ea19d2"
+    },
+    {
+      "file": "src/simulation/ashe-spell-values.ts",
+      "bytes": 2189,
+      "sha256": "21a2fc907702d1e51013e34675df76fefb867b12a39b06a16530f8b965b8e52a"
+    },
+    {
+      "file": "src/simulation/battlefield.ts",
+      "bytes": 2513,
+      "sha256": "0c11c503601fb237a93645921ae8da06aa5534bf200ee89a8227d0c8aa180fb5"
+    },
+    {
+      "file": "src/simulation/blue-buff.ts",
+      "bytes": 1752,
+      "sha256": "00768ea7fc1a22e9a62109d33967b14b4ddfa4b04559c2a4dd6baf02f65aa092"
+    },
+    {
+      "file": "src/simulation/bot-disengage.ts",
+      "bytes": 2470,
+      "sha256": "fb3fee49ae5dbbd26a1255f38c9bf0aa9f3bafc29b8616dd3de891082d87d439"
+    },
+    {
+      "file": "src/simulation/bot-jungle.ts",
+      "bytes": 3232,
+      "sha256": "b3d8513aa05b86aead85545547302d5ec9b559512261b084098fbbe31fdbb715"
+    },
+    {
+      "file": "src/simulation/bot-team.ts",
+      "bytes": 7724,
+      "sha256": "841468ed241988ca4ea632b7544bcb9e0fc921c06234813e8049215fd261cec0"
+    },
+    {
+      "file": "src/simulation/champion-death.ts",
+      "bytes": 1035,
+      "sha256": "abff41b9101ce33390fe30ade440f22499e97fd4eb5806869cc6a8e242ccbd10"
+    },
+    {
+      "file": "src/simulation/champion-kill-experience.ts",
+      "bytes": 1306,
+      "sha256": "81e0c7a1f2beec20e70a35c6fe4395b571c3e66517a5509c58f6e4d91717345f"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3493,
+      "sha256": "6ea3291d70672a8d3871cc493e4da9521177a6930f94443f60320168eb9b7d73"
+    },
+    {
+      "file": "src/simulation/companion-passives.ts",
+      "bytes": 5975,
+      "sha256": "e826a05fad25543b8107198b2c05849125c4d4767a5b2c29e81f13a0b974cf27"
+    },
+    {
+      "file": "src/simulation/crystal-arrow.ts",
+      "bytes": 582,
+      "sha256": "bbfb34f3bebc184ca67231b4c95cfcc93faecc79b6f1c5848a805af7b920cd01"
+    },
+    {
+      "file": "src/simulation/damage-math.ts",
+      "bytes": 269,
+      "sha256": "c4c0915d1dd92e9ff8f3cdd45e2386337b0bd7ab6238cdc931da634833385c51"
+    },
+    {
+      "file": "src/simulation/garen-aa-presentation.ts",
+      "bytes": 4338,
+      "sha256": "57577ac4859c3340feae7e8cf2a753034c44eefb0faf88b6d65915a0792bba43"
+    },
+    {
+      "file": "src/simulation/garen-attack-timing.ts",
+      "bytes": 1848,
+      "sha256": "40ce742c3bf6a993d76f4a3fd70f40c804bc0311d160c558390b011b2c05b995"
+    },
+    {
+      "file": "src/simulation/garen-e.ts",
+      "bytes": 1519,
+      "sha256": "a58839f036147ed97c96299f03de97f7d16bc6b02082a3494f016c983084b9c7"
+    },
+    {
+      "file": "src/simulation/garen-passive-visuals.ts",
+      "bytes": 2602,
+      "sha256": "c8337e2a0d31142808e32805ea49fe218d10acebfc262dbe2177eaa2f3d9f8eb"
+    },
+    {
+      "file": "src/simulation/garen-r.ts",
+      "bytes": 455,
+      "sha256": "a960a2b59d904383c2bd607b26e66221dfb33da1fff4e5d8b30f9bf994d430ce"
+    },
+    {
+      "file": "src/simulation/gromp-encounter.ts",
+      "bytes": 658,
+      "sha256": "ce7738a2dfe303f279576b5927246d3c942c0bbf2dc1491501563db846925329"
+    },
+    {
+      "file": "src/simulation/lane-match.ts",
+      "bytes": 2791,
+      "sha256": "bf34c03f5ebda69cb59a914731c0b85d18ff0154485de0c3509dd7d01e8d9587"
+    },
+    {
+      "file": "src/simulation/lux-e-audio-validation.ts",
+      "bytes": 5328,
+      "sha256": "c547005258f5a358f93af4443d3fde51f25d157d1b8734fb9232f8effbd7d852"
+    },
+    {
+      "file": "src/simulation/lux-e-audio.ts",
+      "bytes": 2340,
+      "sha256": "25387c4141473227f68458da7f73d7b54f8666d7ba1c7225caf3913e32d6752c"
+    },
+    {
+      "file": "src/simulation/lux-e-hits-validation.ts",
+      "bytes": 2104,
+      "sha256": "1ec18fc2e4a489cd6c9b3edd79c971094c0682b8481127db50285c09c9800e03"
+    },
+    {
+      "file": "src/simulation/lux-e-hits.ts",
+      "bytes": 1725,
+      "sha256": "20fe14f1cc1313b82a931c1ce4315536bc9db7a84774425c531e313de9fac5f6"
+    },
+    {
+      "file": "src/simulation/lux-wave-clear.ts",
+      "bytes": 5416,
+      "sha256": "1623235bbb59f07fd3fde5d8314062fbee2bfccbb7a60471f36ce23fd7202f76"
+    },
+    {
+      "file": "src/simulation/math.ts",
+      "bytes": 1707,
+      "sha256": "62044b9f845e8d71a4581d26df96bab1398bfbcd33a8bfc1e7c9753d82f410bb"
+    },
+    {
+      "file": "src/simulation/navgrid.ts",
+      "bytes": 15447,
+      "sha256": "92a1f6da3733a5a2b48bba1541bd0c55ddce6bd57cd47362229124f923764005"
+    },
+    {
+      "file": "src/simulation/navigation.ts",
+      "bytes": 2358,
+      "sha256": "e36b9733cbefeaecf6d9c810c1441466f102401429dea1ff6a9055c5a432d8eb"
+    },
+    {
+      "file": "src/simulation/oracle-lens.ts",
+      "bytes": 2512,
+      "sha256": "861c3d6d81e4263515403afb58bd404218131205f32fd0496199bbf31a4458c9"
+    },
+    {
+      "file": "src/simulation/oracle-presentation.ts",
+      "bytes": 1455,
+      "sha256": "44cf512845983cef5cc69bdd69a25730525ccda97d4ee6b27432bc3ab153bf8b"
+    },
+    {
+      "file": "src/simulation/owned-companions.ts",
+      "bytes": 10927,
+      "sha256": "e176adef30957bfcff72e2d81921d5b6ac567bb96aea108f4073f5aa6fb38b51"
+    },
+    {
+      "file": "src/simulation/progression.ts",
+      "bytes": 430,
+      "sha256": "4918a38009c9c3a176aa882bcabf71d5d2338a4164128a8f2efd19297ef12345"
+    },
+    {
+      "file": "src/simulation/red-buff.ts",
+      "bytes": 2261,
+      "sha256": "71d3efbe443382aa12bbddd6fc3a02ebf7fe159a628abc99d08cb7ac08c04ddc"
+    },
+    {
+      "file": "src/simulation/scuttler.ts",
+      "bytes": 7438,
+      "sha256": "44be62aa030dd506319a6711d4e9df2aa499bbd3b15440c886c09a5f84509270"
+    },
+    {
+      "file": "src/simulation/smite.ts",
+      "bytes": 2073,
+      "sha256": "9c80c3851abf8a27717cfe510f667237369beaa20f61f3578d476246e6e41918"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 125766,
+      "sha256": "97b545ebdd2c1fba290a22a0d6594681a102d1158a4fe2469a01a15c21c9c15b"
+    },
+    {
+      "file": "src/simulation/trinkets.ts",
+      "bytes": 4607,
+      "sha256": "3ef3a9b3ef91b406fa70f7cc7591d87bcd13ba7610e2912cec3bd29296a58ed3"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 18507,
+      "sha256": "a48e0531838d80f4d4d7da8114a586d527fbe0afa583194789ffedc1ebdf0a1e"
+    },
+    {
+      "file": "src/simulation/vision.ts",
+      "bytes": 1354,
+      "sha256": "552bb9f6a6804df257e08b79bd3d27911dab45325f66358cdb75d66e831bdc6a"
+    },
+    {
+      "file": "src/simulation/wards.ts",
+      "bytes": 3389,
+      "sha256": "243621aa472e1e249c1564d3ad227276bbfc6de8bb2d9b06cf9ae3eacd775525"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 217304,
+      "sha256": "6c479ef8c270466d719b0ebdb6ad72641dea005c397b5ffb5b78417ed491f688"
+    },
+    {
+      "file": "tools/ruleset-fingerprint.ts",
+      "bytes": 5415,
+      "sha256": "623ab6402aeab28a056349688be9818c9f4d1c330600b23fc25350e5aef21514"
+    },
+    {
+      "file": "tsconfig.json",
+      "bytes": 522,
+      "sha256": "4055e05cf991ec8f34c5e21f91b801426d6bab1bccff02a2553c7d923e0e4c8b"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/062ae5d-ruleset-closure-browser-backup/manifest.json",
+      "bytes": 12609,
+      "sha256": "c993b5c6e4ebd902ad729532ce316b6d771d6eb72ed1db30287942b5dbba3945"
+    },
+    {
+      "file": ".cache/ruleset-closure-browser-output-list.json",
+      "bytes": 867,
+      "sha256": "1ad298ec1519b183f9f272c903c3f9b0b1261f0176d9cff7bda4886b2642da0a"
+    },
+    {
+      "file": ".cache/ruleset-closure-browser.log",
+      "bytes": 3529,
+      "sha256": "67bebcaf2c42e22660b615bc06d78f09ef6fd728aea4dc6b6e2b00ecbed247f2"
+    },
+    {
+      "file": ".cache/ruleset-closure-build.log",
+      "bytes": 2350,
+      "sha256": "d02bb5649dd5676de7809d2ca9976bc92d8bb83fff8a83405af80327bdf4fb51"
+    },
+    {
+      "file": ".cache/ruleset-closure-focused.log",
+      "bytes": 182,
+      "sha256": "8239f1dc68e923b714f5ca73019592c7e2126814a708d38fbbc206a9dd842f3f"
+    },
+    {
+      "file": ".cache/ruleset-closure-production.log",
+      "bytes": 1808,
+      "sha256": "9d62c3bfd7641ee175befba4cd261a6b45a9161ff0aa0e685d9b05ffb245c3f1"
+    },
+    {
+      "file": ".cache/ruleset-closure-production.mjs",
+      "bytes": 21418,
+      "sha256": "f8a508dc75c602f2cf92829c28b50dd5ce75d547b940f0461461397fa3e272d3"
+    },
+    {
+      "file": ".cache/ruleset-closure-unit-verified.log",
+      "bytes": 403,
+      "sha256": "d91fed8138f102ebad452bef4d660e9451755d8c979d174ccd5ff91386588158"
+    },
+    {
+      "file": ".cache/ruleset-closure-unit.log",
+      "bytes": 2705,
+      "sha256": "bb71e109865a4ff004a605afa236eadd6d4564855974061fe0f3bb7f8392280e"
+    },
+    {
+      "file": ".cache/ruleset-closure-watch-browser-verified2.json",
+      "bytes": 1112,
+      "sha256": "7dd3318f1aa1c4cd36306a62f1382324a74d033128f5c0b2d15d2b8d57c82b3d"
+    },
+    {
+      "file": ".cache/ruleset-closure-watch-server-verified.log",
+      "bytes": 276,
+      "sha256": "92f529f9c8db2f2ed08b57a573175583c891a7619dbf519e7acc7a575016a66c"
+    },
+    {
+      "file": ".cache/ruleset-closure-watch-server-verified2.log",
+      "bytes": 588,
+      "sha256": "640b39efeedc82ef419a13348462cca4fb21804b58f89148837a0e3e0f66bac8"
+    },
+    {
+      "file": ".cache/ruleset-closure-watch-server.log",
+      "bytes": 815,
+      "sha256": "79ac6709287cb8b8d4cacb84c5605bcb50293e0def72ee119729e14e102d6750"
+    },
+    {
+      "file": ".cache/ruleset-closure-watch-verified.log",
+      "bytes": 752,
+      "sha256": "2cf5bb7f788f76cec9aa7151f29f30afdf662f6fb160b9e965bcee364fabf2a1"
+    },
+    {
+      "file": ".cache/ruleset-closure-watch-verified2.log",
+      "bytes": 54,
+      "sha256": "d0d8600c42717e2a28785f95408ba845a112b778d3be6a23fb8c3c5494150b50"
+    },
+    {
+      "file": ".cache/ruleset-closure-watch.log",
+      "bytes": 833,
+      "sha256": "e615d258a0e832e116faba64db83776a1f31644c84eccd3212a85b928ddf8909"
+    },
+    {
+      "file": "artifacts/ruleset-closure-champion-selection-hover.png",
+      "bytes": 1158622,
+      "sha256": "c556f60f9a090b25c0a311aec8d214c7d9520a2838476de4f791eff50e4ef0d6"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-cancel.json",
+      "bytes": 397,
+      "sha256": "8236bd025e49e5c1baaec1622b09b5d72177d954e4942873bbbc6eba4e89042c"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-critical.json",
+      "bytes": 1218,
+      "sha256": "590987cf17b954c11b9ec11db5b0cdb9c175a794e5b53cc5118ec9edbe309312"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-decoding.json",
+      "bytes": 10179,
+      "sha256": "075e96e13b0ad36a5495cbeb35ac335e8f97d87ab20beeeb10349525d4114c2a"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-failure.json",
+      "bytes": 786,
+      "sha256": "6661ff5620112c504ed5a41ab4f4a72e4b2a60a81b691443d66efba1d318acc1"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-fog-lethal.json",
+      "bytes": 435,
+      "sha256": "3a446673d0c5f173d0d863645be1a506f215b603f4ebf4a10ddadd6957a3bf78"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-late-presence.json",
+      "bytes": 58,
+      "sha256": "993a38c80510b8fd5032d19db096812e1e9d2114652910e7bc2ea704de97da8c"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-materials.json",
+      "bytes": 4504,
+      "sha256": "ddd7a2d6251d035eca504f70468e531106ebe9e46dc17229e1a45e9bc9ecfde2"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-reload.json",
+      "bytes": 997,
+      "sha256": "28bccf59cae1ba402be2c0d3ef54e3fb20d3f8ecfa2e1a641e04c1e04a6763e1"
+    },
+    {
+      "file": "artifacts/ruleset-closure-garen-aa-source-swing.png",
+      "bytes": 840851,
+      "sha256": "c49c194bcc345a5a8be5d2da51b1fb37e8f5dd80bddc461636bd16672630d060"
+    },
+    {
+      "file": "artifacts/ruleset-closure-match-file-graphics-loss.png",
+      "bytes": 194326,
+      "sha256": "921d4dab1ef18ffae29c98e20d8f100f0c632d0eaf0fbf208ccd9c8b0c9df657"
+    },
+    {
+      "file": "artifacts/ruleset-closure-match-file-preview.png",
+      "bytes": 416442,
+      "sha256": "2dc9d176ec0bcfa6a69c3af5310e020214fc7d93f1d27af891d4c6e20986d78f"
+    },
+    {
+      "file": "artifacts/ruleset-closure-match-file-rejected.png",
+      "bytes": 479491,
+      "sha256": "4a9a4fb437d968f248a2097f0f5778896faceac912f6371f5aac71127cfad615"
+    },
+    {
+      "file": "artifacts/ruleset-closure-match-import-failure-after-recovery.png",
+      "bytes": 477535,
+      "sha256": "f7e6f4ea85d64941f97d207487618ecdc31f2c8017c976086875ff21435fedc8"
+    },
+    {
+      "file": "artifacts/ruleset-closure-match-import-failure-before-recovery.png",
+      "bytes": 477502,
+      "sha256": "5f6c717961a8fff31a7ff8579b09532bec7b8cac71d5d66499a4abc9fe0b8654"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-companion-purchase.png",
+      "bytes": 1811591,
+      "sha256": "928a56426989d7483f7fca38df449f20a753c9ae76f9b9ce94c697564fe6dc78"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-lux-e-moving-burst.png",
+      "bytes": 1832742,
+      "sha256": "edae9e0cbe25826f94f58b8346c36218882dc7ba64b1ba15658518a9b77c8c30"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-lux-e-source.png",
+      "bytes": 1829397,
+      "sha256": "5dd68263d1289abf9216fc288442f31027ba02d5d03ed13e98ce02f264ecd1d1"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-lux.png",
+      "bytes": 1804737,
+      "sha256": "07c33f9debfa7fbaef55468de2268c407778d00aa9b634018160ca9574b31ad6"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-oracle.png",
+      "bytes": 1817329,
+      "sha256": "f562add853cec1419894db110cc17f8ba4924ac9fecaabe6cac5d89d4a3852af"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-role-match.png",
+      "bytes": 1346669,
+      "sha256": "cce9c3824b943aa2f0a52b5ad0d204c945d7464f202cfe92107376a1d8f9b606"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-subpath.png",
+      "bytes": 1820311,
+      "sha256": "230cf7bbc2e9ae981244f614a8e4722045caac511f4ddeab14306b510f57e368"
+    },
+    {
+      "file": "artifacts/ruleset-closure-production-ward.png",
+      "bytes": 1812798,
+      "sha256": "f6f6f8ef9cc78a27b4c617eeb9c510e339e40d0bcf8f364d6e255e38097eab41"
+    },
+    {
+      "file": "artifacts/ruleset-closure-watch-verified2.json",
+      "bytes": 1248,
+      "sha256": "46bccd81bbcb17ea36c9c84836aa6a72e81f608258ae0c5c6eb0ef648879fdd3"
+    },
+    {
+      "file": "dist/assets/game-uMrvzadx.js",
+      "bytes": 890263,
+      "sha256": "4030ce8c7cc5e4570de8f041c14448d6437f53cd68891e2eccd2d03fe8eeee23"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 478194,
+      "sha256": "db7bb6834eb2a8037ba7ef5c6628b57cfb61cc046fe955e0fe2fd7095ae2b732"
+    },
+    {
+      "file": "docs/RULESET-DEPENDENCIES.md",
+      "bytes": 4393,
+      "sha256": "8d8d28edacc6cbda881fb2a8d27abe357556bb7cd6281813547680fbf7f983ff"
+    },
+    {
+      "file": "docs/SAVES.md",
+      "bytes": 42656,
+      "sha256": "80932534a302340017f3b09767314575a913357d94cf0c7487424d643ba79721"
+    },
+    {
+      "file": "e2e/champion-selection.spec.ts",
+      "bytes": 6079,
+      "sha256": "882d9f59242e8384e03ee9f01086fda98a4dcf0e2aee56789a9393f36a741437"
+    },
+    {
+      "file": "e2e/garen-aa-audio.spec.ts",
+      "bytes": 17713,
+      "sha256": "6ec4a878f9e1fe760e90ab78002f0639a2eb6ab3561233667e6ce959086f5229"
+    },
+    {
+      "file": "e2e/match-files.spec.ts",
+      "bytes": 11279,
+      "sha256": "1e1802f872b9b91d8c3c3d01a9d0e5491ce39b6ca1a4fdbb45ce46fba1dbdadd"
+    },
+    {
+      "file": "tests/ruleset-fingerprint.test.ts",
+      "bytes": 7905,
+      "sha256": "3c6cba39a41c61c4a78c8fd6336842fea87fa1f62131a4a1ce99c964b3eb6434"
+    },
+    {
+      "file": "tests/snapshot.test.ts",
+      "bytes": 5198,
+      "sha256": "1215bcd88f8741dab083ff53ea869946ce01204e68d9a2a01ee548304f596bb9"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 21364,
+      "sha256": "02e78b67e178ea78a4b8cfdcfd5fa73a9f90f0d172c39c21a49cfb87023bf287"
+    },
+    {
+      "file": "tools/qa/ruleset-watch.mjs",
+      "bytes": 6202,
+      "sha256": "3c8ab91a8c8513120710a0e1cca77258744f804b3dd26ff9e770c3a18d8b00c1"
+    },
+    {
+      "file": "tools/qa/verify-ruleset-closure.mjs",
+      "bytes": 2488,
+      "sha256": "0ee2337c2389700961109625d2bad860f4bd95a113165438d813fae0076b83bc"
+    },
+    {
+      "file": "vite.config.ts",
+      "bytes": 803,
+      "sha256": "0aae6034f2e836828518eff6659f13e87cf6f745579e5afa274db01b222694cb"
+    },
+    {
+      "file": "vitest.config.ts",
+      "bytes": 267,
+      "sha256": "900926482e910760100094a46c5046eba12ea184c518bcf48c0d2e23f7c4c3e2"
+    }
+  ],
+  "verification": {
+    "unitChecks": 1432,
+    "unitFiles": 261,
+    "focusedDependencyTests": 10,
+    "chromeCases": 17,
+    "isolatedWatchStages": 6,
+    "distinctWatchIdentities": 5,
+    "productionPrefix": "/nested/rift/",
+    "productionRecordings": 32,
+    "initialUnitResult": "Three existing cases exceeded the default 5-second test deadline; four-worker 60-second rerun passed all assertions.",
+    "compatibility": "Schema 113 unchanged; stricter fingerprint rejects checkpoints from earlier rulesets.",
+    "limits": "Module dependency closure and explicit fetched/generated-data pins only. Installed package files are represented by the lockfile. No new normal-match cohort or native visual comparison; broader replay/offline/roster/performance gates remain open."
+  }
+}
