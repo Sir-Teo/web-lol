@@ -4331,3 +4331,54 @@ and project goal remain open. See [Leona](LEONA.md) and its
 [verification ledger](reference/leona/verification.json). Recorded evidence can
 be checked with `node tools/qa/verify-leona-source.mjs`, or `--historical` after
 later implementation changes.
+
+## Leona melee and Q development simulation — October 23, 2026
+
+Leona can now spawn as a non-player development simulation unit with her own
+stats, regeneration, progression, mana and unlearned kit. Shared World commands
+execute Q activation/reset, captured-rank contact, separate physical/magic
+damage and stun. Critical damage affects the basic portion; shields and Courage
+tenacity use existing combat rules. A committed swing survives movement orders,
+later stun and empowerment expiry. Target loss preserves an unexpired buff;
+death/victory clean it up. Release clears the ordinary attack cooldown, allowing
+an explicit follow-up attack to bypass automatic recovery. Queued movement
+resumes after contact. Source attack-child timing/flags remain separate from
+legacy damage/timing fields.
+
+Schema 116 strictly saves the new identity, empowerment and captured attack
+clocks. Unsupported W/E/R commands stop before another champion's spell path.
+Player selection/Rift spawning remain disabled, and an incomplete fixture save
+is preserved and rejected before browser model loading. The six-second window,
++50 range, conventional basic windup and 53-tick automatic Q cycle are explicit
+provisional adapters. No native input/timing calibration is claimed. Sunlight is
+not applied yet, including on Q; complete Q/passive/ward/structure behavior,
+W/E/R, support bots, UI and source presentation remain required work.
+
+Twelve new World tests cover resources, progression, reset/contact order,
+resistances, critical/rank sampling, controls, expiry, restored futures, rejected
+saves and cleanup. Canonical `npm run check` passes TypeScript, all 1,505 tests
+across 271 files and three Node QA tests with default limits. A final type check
+also includes the new browser fixture-gate case. Seven Chrome cases pass: six
+existing Garen particle/team-advance regressions and the new unsupported-save
+gate. Build and nested-host production smoke pass, retaining 32 recordings and
+no development hook; the existing large-chunk warning remains. Four selected
+captures were viewed, without treating them as Leona/native evidence.
+
+Two ten-minute normal-roster smokes pass independent verification for 72,000
+ticks, twenty strict round trips and eighteen restored futures. All twenty
+minute checkpoints match the prior particle smoke after excluding only schema/
+ruleset identity and the new, explicitly null Leona owner field. These matches
+contain no Leona and do not establish her full-match or roster acceptance.
+The new ruleset is `adcc06…`; no current hundred-seed result is claimed.
+
+The first standard run hit four five-second timeouts; a later focused run still
+timed out on the long lane clock while passing the Leona/jungle cases. The
+unchanged standard command subsequently passed after owned runners drained.
+Leona-only guards avoid extra work in ordinary attack paths, but timing
+variation is not a causal performance result. No timeout, assertion or worker
+policy was weakened. Failed logs, the pre-guard source archive, 231 final input
+files, 226 cohort inputs, 26 generated frontend files, checkpoints and captures
+remain separate. Earlier Leona source and Garen evidence pass historical
+integrity audits. All owned runners drained before final documentation/commit.
+See [Leona](LEONA.md), its [open policy audit](reference/leona/combat-policy-audit.json)
+and the [verification ledger](reference/leona/melee-q-verification.json).

@@ -133,6 +133,9 @@ import {
   GAREN_E_PRESENTATION_TAIL_TICKS,
 } from './garen-e';
 import { GAREN_Q } from '../content/garen-q';
+import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
+import { LEONA_SPELLS } from '../content/leona-spells';
+import { leonaDaybreakValues, leonaSpellResources } from './leona-spell-values';
 import { garenQLandingTick } from '../content/garen-q-presentation';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { damageAfterResistance } from './damage-math';
@@ -279,8 +282,10 @@ export class World {
   constructor(
     populate = true,
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
-    playerChampion: 'ashe' | 'lux' | 'garen' = 'ashe'
+    playerChampion: import('./types').ChampionIdentity = 'ashe'
   ) {
+    if (playerChampion === 'leona')
+      throw new Error('Leona currently requires a non-player development simulation fixture.');
     if (playerChampion === 'garen' && battlefield.id !== 'practice-fixture')
       throw new Error('Garen player kit is available only in the development practice fixture.');
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
@@ -350,7 +355,7 @@ export class World {
     kind: UnitKind,
     team: Faction,
     point: Vec2,
-    identity: 'ashe' | 'lux' | 'garen' = 'ashe'
+    identity: import('./types').ChampionIdentity = 'ashe'
   ): UnitBase {
     const champion = kind === 'champion',
       turret = kind === 'turret',
@@ -437,8 +442,10 @@ export class World {
     kind: UnitKind,
     team: Team,
     point: Vec2,
-    identity: 'ashe' | 'lux' | 'garen' = 'ashe'
+    identity: import('./types').ChampionIdentity = 'ashe'
   ): TeamUnit {
+    if (identity === 'leona' && this.battlefield.id !== 'practice-fixture')
+      throw new Error('Leona simulation is available only in the development practice fixture.');
     if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
     if (kind === 'ward') throw new Error('Use a trinket placement to create a ward.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];
@@ -526,7 +533,7 @@ export class World {
     if (champion && identity !== 'ashe') {
       const own = this.championState(u.id)!;
       own.eCharges = 0;
-      if (identity === 'garen') {
+      if (identity === 'garen' || identity === 'leona') {
         own.spellRanks = { q: 0, w: 0, e: 0, r: 0 };
         own.skillPoints = 1;
       }
@@ -817,13 +824,26 @@ export class World {
   }
   setOrder(u: Unit, order: Order): void {
     u.order = order;
+    // Daybreak's released attack leaves no ordinary attack cooldown. An
+    // explicit attack order may skip its automatic animation recovery.
+    if (
+      u.releaseTick === null &&
+      u.champion === 'leona' &&
+      u.attackCycle?.leonaQRank !== undefined &&
+      order.type === 'attack'
+    )
+      u.attackCycle = null;
     const committedGarenQ =
       GAREN_Q.attackCannotCancelWindup &&
       !this.winner &&
       this.alive(u) &&
       u.releaseTick !== null &&
       u.attackCycle?.garenQRank !== undefined;
-    if (!committedGarenQ && (order.type !== 'attack' || order.target !== u.attackTarget)) {
+    if (
+      !committedGarenQ &&
+      !(u.champion === 'leona' && this.committedLeonaQ(u)) &&
+      (order.type !== 'attack' || order.target !== u.attackTarget)
+    ) {
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
@@ -883,6 +903,7 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
+      if (state.leonaQ && this.tick >= state.leonaQ.endTick) state.leonaQ = null;
       if (state.garenAAVisuals.length)
         state.garenAAVisuals = state.garenAAVisuals.filter((r) => this.tick < garenAttackExpiry(r));
       for (const r of state.garenQVisuals)
@@ -990,7 +1011,13 @@ export class World {
         this.cast(u, command.ability, command.point, command.targetId);
       else {
         const state = this.championState(u.id);
-        if (state && !state.pendingCast && !state.garenE && u.silenceUntil <= this.tick) {
+        if (
+          state &&
+          !state.pendingCast &&
+          !state.garenE &&
+          !this.committedLeonaQ(u) &&
+          u.silenceUntil <= this.tick
+        ) {
           this.setOrder(u, { type: 'idle' });
           state.recallEnd = this.tick + RECALL_DURATION_TICKS;
           this.emit('message', u, { text: 'Recalling…', unit: u.id, team: u.team });
@@ -1067,9 +1094,10 @@ export class World {
         // An already committed Decisive Strike completes while disabled. This
         // does not permit starting another attack or moving during the stun.
         if (
-          GAREN_Q.attackCanCastWhileDisabled &&
-          u.releaseTick !== null &&
-          u.attackCycle?.garenQRank !== undefined
+          (GAREN_Q.attackCanCastWhileDisabled &&
+            u.releaseTick !== null &&
+            u.attackCycle?.garenQRank !== undefined) ||
+          this.committedLeonaQ(u)
         ) {
           this.advanceUnit(u);
           if (this.winner) {
@@ -1501,7 +1529,11 @@ export class World {
         return false;
       if (source.stunUntil > this.tick && source.attackCycle?.garenQRank === undefined)
         return false;
-      if (distance(source, u) > source.range + u.radius) return false;
+      if (
+        distance(source, u) >
+        (source.champion === 'leona' ? this.attackRange(source) : source.range) + u.radius
+      )
+        return false;
       const flight =
         source.missileSpeed > 0
           ? Math.ceil(Math.max(0, distance(source, u) - u.radius - 8) / (source.missileSpeed * DT))
@@ -2825,6 +2857,13 @@ export class World {
             ? asheFocusFlurry(state.spellRanks.q, attackDamage)
             : [{ damage: attackDamage, appliesOnHit: true }];
           if (!u.missileSpeed) {
+            const daybreakRank = u.champion === 'leona' ? u.attackCycle?.leonaQRank : undefined;
+            if (
+              daybreakRank !== undefined &&
+              state &&
+              state.leonaQ?.startTick === u.attackCycle?.leonaQStartTick
+            )
+              state.leonaQ = null;
             const qRank = u.attackCycle?.garenQRank;
             // Initial Q adapter: only the ordinary attack portion rolls critical
             // damage; Q's native special critical multiplier remains unmapped.
@@ -2843,6 +2882,12 @@ export class World {
             if (u.champion === 'garen' && qRank === undefined && state)
               contactGarenAttack(state, u, target, this.tick, this);
             this.hitBasicAttack(u, target, payloads.reduce((sum, p) => sum + p.damage, 0) + qBonus);
+            if (daybreakRank !== undefined) {
+              const daybreak = leonaDaybreakValues(daybreakRank, this.abilityPower(u));
+              this.damage(u, target, daybreak.bonusMagicDamage, 'magic');
+              this.applyStun(target, Math.round(daybreak.stunSeconds * TICK_RATE));
+              u.nextAttackTick = this.tick;
+            }
             if (qRank !== undefined) {
               const duration = Math.round(GAREN_Q.silenceSeconds * TICK_RATE);
               if (this.applySilence(target, duration) && history)
@@ -2913,6 +2958,14 @@ export class World {
       }
     }
     if (u.stunUntil > this.tick) return;
+    if (
+      u.champion === 'leona' &&
+      u.attackCycle?.leonaQRank !== undefined &&
+      this.tick < u.attackCycle.endTick
+    ) {
+      if (u.order.type === 'move' || u.order.type === 'idle') u.attackCycle = null;
+      else return;
+    }
     if (u.order.type === 'attack') {
       const ordered = this.unit(u.order.target);
       target =
@@ -2930,7 +2983,10 @@ export class World {
       target = this.nearest(u, u.kind === 'turret' ? u.range : 650);
     else target = undefined;
     if (target) {
-      const inRange = distance(u, target) <= (state?.garenE ? 100 : u.range) + target.radius;
+      const inRange =
+        distance(u, target) <=
+        (state?.garenE ? 100 : u.champion === 'leona' ? this.attackRange(u) : u.range) +
+          target.radius;
       if (inRange) {
         u.facing = Math.atan2(target.x - u.x, target.y - u.y);
         if (state?.garenE) return;
@@ -2945,14 +3001,23 @@ export class World {
               ? state.garenQ.rank
               : undefined;
           const qTiming = garenQRank !== undefined ? garenQAttackTimingAtLevel(state!.level) : null;
+          const leonaQ =
+            u.champion === 'leona' && state?.leonaQ && this.tick < state.leonaQ.endTick
+              ? state.leonaQ
+              : null;
           u.attackTarget = target.id;
-          u.releaseTick = this.tick + (qTiming?.windupTicks ?? Math.round(u.windupTicks / speed));
-          u.nextAttackTick =
-            this.tick + (qTiming?.periodTicks ?? Math.round(u.attackPeriod / speed));
+          u.releaseTick =
+            this.tick +
+            (leonaQ
+              ? LEONA_COMBAT_POLICY.daybreakWindupTicks
+              : (qTiming?.windupTicks ?? Math.round(u.windupTicks / speed)));
+          u.nextAttackTick = leonaQ
+            ? u.releaseTick
+            : this.tick + (qTiming?.periodTicks ?? Math.round(u.attackPeriod / speed));
           if (state) state.castAnimation = null;
           u.attackCycle = {
             startTick: this.tick,
-            endTick: u.nextAttackTick,
+            endTick: leonaQ ? this.tick + LEONA_COMBAT_POLICY.daybreakCycleTicks : u.nextAttackTick,
             empowered: state !== undefined && this.tick < state.qUntil,
             ...(garenQRank !== undefined ? { garenQRank, garenQReleaseTick: u.releaseTick } : {}),
             ...(u.kind === 'champion' &&
@@ -2962,6 +3027,11 @@ export class World {
               ? { critical: true as const }
               : {}),
           };
+          if (leonaQ) {
+            u.attackCycle.leonaQRank = leonaQ.rank;
+            u.attackCycle.leonaQStartTick = leonaQ.startTick;
+            u.attackCycle.leonaQReleaseTick = u.releaseTick;
+          }
           if (u.champion === 'garen' && garenQRank === undefined && state)
             beginGarenAttack(state, u, target, this.tick, this);
           const history = state?.garenQVisuals.at(-1);
@@ -3011,6 +3081,22 @@ export class World {
         }
       }
     }
+  }
+  private committedLeonaQ(u: Unit): boolean {
+    return (
+      u.champion === 'leona' &&
+      LEONA_SPELLS.q.attackCannotCancelWindup &&
+      LEONA_SPELLS.q.attackCanReleaseWhileDisabled &&
+      !this.winner &&
+      this.alive(u) &&
+      u.releaseTick !== null &&
+      u.attackCycle?.leonaQRank !== undefined
+    );
+  }
+  attackRange(u: Unit): number {
+    if (u.champion !== 'leona') return u.range;
+    const q = this.championState(u.id)?.leonaQ;
+    return u.range + (q && this.tick < q.endTick ? LEONA_COMBAT_POLICY.empoweredRangeBonus : 0);
   }
   private move(u: Unit, point: Vec2): void {
     if (!u.speed || u.rootUntil > this.tick) return;
@@ -3207,6 +3293,27 @@ export class World {
       target.rootUntil,
       this.tick + this.controlDurationTicks(target, durationTicks)
     );
+    return true;
+  }
+  applyStun(target: Unit, durationTicks: number): boolean {
+    if (
+      this.winner ||
+      !this.units.includes(target) ||
+      !this.alive(target) ||
+      !this.vulnerable(target) ||
+      isStructureKind(target.kind) ||
+      target.kind === 'ward' ||
+      !Number.isSafeInteger(durationTicks) ||
+      durationTicks <= 0 ||
+      !Number.isSafeInteger(this.tick + durationTicks)
+    )
+      return false;
+    target.stunUntil = Math.max(
+      target.stunUntil,
+      this.tick + this.controlDurationTicks(target, durationTicks)
+    );
+    const owner = this.championState(target.id);
+    if (owner) owner.recallEnd = null;
     return true;
   }
   /** Silence blocks new spell actions without stopping movement/basic attacks.
@@ -4070,7 +4177,7 @@ export class World {
         target,
         'cinders',
         CREST_OF_CINDERS.slowDurationSeconds * TICK_RATE,
-        1 - cinderSlow(owner.level, source.champion === 'garen')
+        1 - cinderSlow(owner.level, source.champion === 'garen' || source.champion === 'leona')
       );
       const old = target.cinderBurn;
       const refreshing = old && old.endTick > this.tick;
@@ -4385,6 +4492,7 @@ export class World {
           this.cancelGarenRVisual(state);
           state.pendingCast = null;
           state.castAnimation = null;
+          state.leonaQ = null;
         }
         this.projectiles.length = 0;
         this.pendingAttackProjectiles.length = 0;
@@ -4422,6 +4530,7 @@ export class World {
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
         targetState.garenQ = null;
+        targetState.leonaQ = null;
         finishGarenQPresentation(targetState, this.tick, 'death');
         this.finishGarenW(targetState, 'death');
         stopPerseveranceVisual(targetState, target, this.tick);
@@ -4731,6 +4840,8 @@ export class World {
         cooldownSeconds: this.abilitySpec(ability, championId).cooldown,
       };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'leona')
+      return rank ? leonaSpellResources(ability, rank) : { mana: 0, cooldownSeconds: 0 };
     if (this.unit(championId)?.champion === 'garen')
       return {
         mana: 0,
@@ -4770,6 +4881,14 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    if (u.champion === 'leona' && (ability === 'w' || ability === 'e' || ability === 'r')) {
+      this.emit('message', u, {
+        text: 'That Leona spell is still in development',
+        unit: u.id,
+        team: u.team,
+      });
+      return;
+    }
     const summoner = this.summonerSpell(ability, u.id);
     if (summoner === 'smite') {
       const target = targetId === undefined ? undefined : this.unit(targetId);
@@ -4859,6 +4978,25 @@ export class World {
     }
     if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
+      return;
+    }
+    if (u.champion === 'leona' && ability === 'q') {
+      if (this.committedLeonaQ(u)) return;
+      state.leonaQ = {
+        startTick: this.tick,
+        rank: state.spellRanks.q,
+        endTick: this.tick + LEONA_COMBAT_POLICY.attackWindowTicks,
+      };
+      u.mana -= resources.mana;
+      state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      state.castAnimation = null;
+      u.releaseTick = null;
+      u.attackTarget = null;
+      this.finishAttackPresentation(u, 'action');
+      u.attackCycle = null;
+      u.nextAttackTick = this.tick;
+      this.emit('cast', u, { unit: u.id, champion: 'leona', text: 'q', team: u.team });
       return;
     }
     if (u.champion === 'garen' && ability === 'e') {

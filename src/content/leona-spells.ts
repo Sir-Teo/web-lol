@@ -25,7 +25,10 @@ export const LEONA_SPELLS = {
     ],
     "abilityPowerRatio": 0.30000001192092896,
     "stunSeconds": 1.0,
-    "resetsAttackTimer": true
+    "resetsAttackTimer": true,
+    "authoredAttackCastSeconds": 0.25,
+    "attackCanReleaseWhileDisabled": true,
+    "attackCannotCancelWindup": true
   },
   "w": {
     "rankCount": 5,

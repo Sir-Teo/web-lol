@@ -64,8 +64,9 @@ async function boot(): Promise<void> {
     companionQuery && Object.hasOwn(COMPANION_SOURCE.profiles, companionQuery)
       ? (companionQuery as CompanionKind)
       : null;
-  const freshPractice = (champion: 'ashe' | 'lux' | 'garen' = 'ashe') =>
-    grompEncounter
+  const freshPractice = (champion: import('./simulation/types').ChampionIdentity = 'ashe') => {
+    if (champion === 'leona') throw new Error('Leona player presentation is not integrated.');
+    return grompEncounter
       ? (() => {
           const next = createGrompEncounter(battlefield, champion);
           if (companionKind) {
@@ -75,12 +76,17 @@ async function boot(): Promise<void> {
           return next;
         })()
       : new World(true, battlefield, champion);
+  };
   let world = freshPractice(garenFixture ? 'garen' : 'ashe');
   let restored = false,
     saveNotice = '';
   try {
     const saved = await readMatch(battlefield.id);
     const candidate = saved ? World.fromSnapshot(saved, battlefield) : null;
+    if (candidate?.units.some((unit) => unit.champion === 'leona'))
+      throw new Error(
+        'Leona simulation fixtures require presentation integration before browser loading.'
+      );
     if (
       candidate &&
       (!garenFixture || candidate.hero.champion === 'garen') &&

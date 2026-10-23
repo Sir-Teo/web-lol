@@ -241,7 +241,15 @@
         210.0,
         210.0
       ],
-      "modeOverrides": {}
+      "modeOverrides": {},
+      "attackDeclaration": {
+        "record": "Characters/Leona/Spells/LeonaShieldOfDaybreakAbility/LeonaShieldOfDaybreakAttack",
+        "explicitCastTime": 0.25,
+        "legacyCastTime": 0.39000001549720764,
+        "legacyTotalTime": 1.559999942779541,
+        "canCastWhileDisabled": true,
+        "cannotCancelWindup": true
+      }
     },
     {
       "slot": "w",

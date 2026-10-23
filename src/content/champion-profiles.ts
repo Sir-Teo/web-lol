@@ -1,6 +1,8 @@
 import { ASHE } from './ashe-progression';
 import { GAREN } from './garen-progression';
 import { LUX } from './lux-progression';
+import { LEONA } from './leona-progression';
+import { LEONA_COMBAT_POLICY } from './leona-combat-policy';
 import { ASHE_ATTACK_PROJECTILE_SPEED } from './ashe-projectiles';
 
 /** Explicit supported stat profiles: no fallback to another champion's kit. */
@@ -16,6 +18,12 @@ export const CHAMPION_PROFILES = {
   },
   lux: { ...LUX, name: 'Lux' },
   garen: { ...GAREN, name: 'Garen', missileSpeed: 0 },
+  leona: {
+    ...LEONA,
+    name: 'Leona',
+    missileSpeed: 0,
+    windupTicks: LEONA_COMBAT_POLICY.ordinaryWindupTicks,
+  },
 } as const;
 
 export function championProfile(identity: keyof typeof CHAMPION_PROFILES) {
@@ -30,5 +38,6 @@ export function selectableChampion(
 ): 'ashe' | 'lux' {
   if (identity === undefined) return 'ashe';
   if (identity === 'garen') throw new Error('Garen player kit is still in development');
+  if (identity === 'leona') throw new Error('Leona player kit is still in development');
   return identity;
 }

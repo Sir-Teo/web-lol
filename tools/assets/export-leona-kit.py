@@ -153,6 +153,18 @@ def generate():
         if slot == 'q':
             require('Trait_AttackReset' in spell['mSpellTags'], 'Q reset declaration missing')
             spells[slot].update(stunSeconds=constant('StunDuration'), resetsAttackTimer=True)
+            attack_path = 'Characters/Leona/Spells/LeonaShieldOfDaybreakAbility/LeonaShieldOfDaybreakAttack'
+            attack = records[attack_path]['mSpell']
+            require(attack['mCastTime'] == 0.25 and attack['canCastWhileDisabled']
+                    and attack['mCantCancelWhileWindingUp'], 'Q attack declaration changed')
+            spells[slot].update(authoredAttackCastSeconds=attack['mCastTime'],
+                                attackCanReleaseWhileDisabled=attack['canCastWhileDisabled'],
+                                attackCannotCancelWindup=attack['mCantCancelWhileWindingUp'])
+            spell_audit[-1]['attackDeclaration'] = dict(record=attack_path,
+                explicitCastTime=attack['mCastTime'], legacyCastTime=attack['spellCastTime'],
+                legacyTotalTime=attack['spellTotalTime'],
+                canCastWhileDisabled=attack['canCastWhileDisabled'],
+                cannotCancelWindup=attack['mCantCancelWhileWindingUp'])
         if slot == 'w':
             for key, name in [('flatReductionByRank', 'FlatDamageReduction'),
                               ('baseDamageByRank', 'ExplosionBaseDamage'),

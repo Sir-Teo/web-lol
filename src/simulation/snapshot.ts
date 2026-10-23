@@ -90,6 +90,7 @@ import { GAREN_R_REVEAL_TICKS, GAREN_R_WINDUP_TICKS } from '../content/garen-r-p
 import { GAREN_R_PRESENTATION_TAIL_TICKS } from './garen-r';
 import { GAREN_PASSIVE } from '../content/garen-passive';
 import { garenQAttackTimingAtLevel } from './garen-attack-timing';
+import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
 import { HAWKSHOT_PRESENTATION_TAIL_SECONDS } from '../content/hawkshot-linger-timing';
 import { MAX_LEVEL, statPrecision } from './progression';
 import { LOST_CHAPTER } from '../content/mage-items';
@@ -109,7 +110,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 115;
+export const SNAPSHOT_VERSION = 116;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -200,7 +201,7 @@ const unit = z
     ward: z
       .strictObject({ ownerId: id, createdTick: tick, expireTick: tick, revealUntil: tick })
       .optional(),
-    champion: z.enum(['ashe', 'lux', 'garen']).optional(),
+    champion: z.enum(['ashe', 'lux', 'garen', 'leona']).optional(),
     team: faction,
     monster: z
       .strictObject({
@@ -297,8 +298,18 @@ const unit = z
         critical: z.literal(true).optional(),
         garenQRank: z.number().int().min(1).max(5).optional(),
         garenQReleaseTick: tick.optional(),
+        leonaQRank: z.number().int().min(1).max(5).optional(),
+        leonaQStartTick: tick.optional(),
+        leonaQReleaseTick: tick.optional(),
       })
       .refine((cycle) => cycle.endTick > cycle.startTick, 'Invalid attack cycle')
+      .refine(
+        (cycle) =>
+          [cycle.leonaQRank, cycle.leonaQStartTick, cycle.leonaQReleaseTick].filter(
+            (v) => v !== undefined
+          ).length === (cycle.leonaQRank === undefined ? 0 : 3),
+        'Incomplete Daybreak attack'
+      )
       .refine(
         (cycle) => (cycle.garenQRank !== undefined) === (cycle.garenQReleaseTick !== undefined),
         'Missing Decisive Strike release'
@@ -434,6 +445,10 @@ const unit = z
     'Invalid Decisive Strike attacker'
   )
   .refine((u) => !u.attackCycle?.critical || u.kind === 'champion', 'Invalid critical attacker')
+  .refine(
+    (u) => u.attackCycle?.leonaQRank === undefined || u.champion === 'leona',
+    'Invalid Daybreak attacker'
+  )
   .refine(
     (u) =>
       (u.kind === 'monster') === (u.team === 'neutral') && (u.kind === 'monster') === !!u.monster,
@@ -706,6 +721,9 @@ const player: z.ZodType<PlayerState> = z
         upfrontUntil: tick,
         defenseUntil: tick,
       })
+      .nullable(),
+    leonaQ: z
+      .strictObject({ startTick: tick, rank: z.number().int().min(1).max(5), endTick: tick })
       .nullable(),
     garenQ: z
       .strictObject({
@@ -1810,6 +1828,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   )
     throw new Error('Garen player kit is available only in the development practice fixture.');
   for (const unit of state.units) {
+    if (
+      unit.champion === 'leona' &&
+      (state.battlefield !== 'practice-fixture' || unit.id === state.player.id)
+    )
+      throw new Error('Leona currently requires a non-player development simulation fixture.');
     if (unit.kind === 'monster') {
       const spawn = unit.monster.spawn;
       const profile = MONSTERS[unit.monster.species];
@@ -2370,7 +2393,10 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           (slow.endTick - slow.startTick > CREST_OF_CINDERS.slowDurationSeconds * TICK_RATE ||
             slow.endMultiplier !== slow.startMultiplier ||
             !CREST_OF_CINDERS.slowTiers.some(
-              (t) => slow.startMultiplier === 1 - (source.champion === 'garen' ? t.melee : t.ranged)
+              (t) =>
+                slow.startMultiplier ===
+                1 -
+                  (source.champion === 'garen' || source.champion === 'leona' ? t.melee : t.ranged)
             ))) ||
         slows.has(key)
       )
@@ -2857,6 +2883,44 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid Courage presentation.');
     }
     const garenQ = owner.garenQ;
+    const daybreak = owner.leonaQ;
+    if (
+      daybreak &&
+      (champion.champion !== 'leona' ||
+        champion.deadAt !== null ||
+        state.winner !== null ||
+        daybreak.rank > owner.spellRanks.q ||
+        daybreak.startTick > state.tick ||
+        daybreak.endTick !== daybreak.startTick + LEONA_COMBAT_POLICY.attackWindowTicks ||
+        daybreak.endTick <= state.tick)
+    )
+      throw new Error('Saved match contains invalid Daybreak empowerment.');
+    const daybreakCycle = champion.attackCycle;
+    if (daybreakCycle?.leonaQRank !== undefined) {
+      const activation = daybreakCycle.leonaQStartTick!,
+        release = daybreakCycle.leonaQReleaseTick!;
+      if (
+        champion.deadAt !== null ||
+        state.winner !== null ||
+        daybreakCycle.leonaQRank > owner.spellRanks.q ||
+        activation > daybreakCycle.startTick ||
+        daybreakCycle.startTick >= activation + LEONA_COMBAT_POLICY.attackWindowTicks ||
+        release !== daybreakCycle.startTick + LEONA_COMBAT_POLICY.daybreakWindupTicks ||
+        daybreakCycle.endTick !==
+          daybreakCycle.startTick + LEONA_COMBAT_POLICY.daybreakCycleTicks ||
+        champion.nextAttackTick !== release ||
+        (champion.releaseTick === null
+          ? release > state.tick
+          : champion.releaseTick !== release ||
+            release <= state.tick ||
+            champion.attackTarget === null ||
+            (activation + LEONA_COMBAT_POLICY.attackWindowTicks > state.tick &&
+              (!daybreak ||
+                daybreak.startTick !== activation ||
+                daybreak.rank !== daybreakCycle.leonaQRank)))
+      )
+        throw new Error('Saved match contains invalid Daybreak captured attack.');
+    }
     let previousDeflectTick = -1;
     for (const reaction of owner.garenWDeflects) {
       if (

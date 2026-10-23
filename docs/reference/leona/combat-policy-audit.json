@@ -1,0 +1,50 @@
+{
+  "target": "PC Summoner's Rift 26.18 / Riot build 16.18.8175716",
+  "scope": "Explicit development simulation policies and remaining acceptance, not a native comparison result.",
+  "owner": "src/content/leona-combat-policy.ts",
+  "gaps": [
+    {
+      "id": "LEONA-AA-TIMING-001",
+      "status": "local-adapter-native-unmeasured",
+      "reference": "Character root declares 0.625 base AS, a -0.07083333283662796 cast offset and no explicit cast-offset AS coefficient.",
+      "localObservation": "Conventional (0.3 + offset) / AS calculation produces a 22-tick base windup; ordinary level/item scaling uses the shared combat path.",
+      "acceptance": "Measure native ordinary and critical release/recovery at multiple levels/attack speeds; compare cancellation and target loss.",
+      "tests": "tests/leona-melee-q.test.ts"
+    },
+    {
+      "id": "LEONA-Q-TIMING-001",
+      "status": "data-backed-declaration-local-scheduling-native-unmeasured",
+      "reference": "Q attack child explicitly declares mCastTime=0.25, canCastWhileDisabled=true and mCantCancelWhileWindingUp=true; legacy cast/total fields differ.",
+      "localObservation": "Fixed fifteen-tick windup, preserved committed swing, release reset and a provisional 53-tick automatic cycle. A fresh explicit attack order can bypass recovery.",
+      "acceptance": "Native cast-to-contact and automatic/manual follow-up traces, including attack speed, CC, Flash, displacement and fog/target loss.",
+      "tests": "tests/leona-melee-q.test.ts"
+    },
+    {
+      "id": "LEONA-Q-WINDOW-001",
+      "status": "explicit-provisional-policy",
+      "reference": "No Q empowerment lifetime or empowered bonus range is established by the retained character BIN. Its self-cast range is not an attack bonus.",
+      "localObservation": "Six-second empowerment and +50 attack range, including exact expiry before new commands. A previously committed hit survives expiry.",
+      "acceptance": "Controlled native activation/expiry and attack-range boundary captures before player/production acceptance.",
+      "tests": "tests/leona-melee-q.test.ts"
+    },
+    {
+      "id": "LEONA-Q-INTERACTIONS-001",
+      "status": "partial-implementation",
+      "reference": "Current named Q damage and stun are retained separately from the stale child damage coefficient.",
+      "localObservation": "Separate physical/magic payloads, basic-only critical scaling, shared shields/tenacity, no stun on wards/structures and no second damage on a corpse. Sunlight and ward-specific empowered-hit behavior remain absent.",
+      "acceptance": "Complete Sunlight, ward/structure effects, spell shields, immunity/dodge/block, attribution and native interaction matrix.",
+      "tests": "tests/leona-melee-q.test.ts"
+    },
+    {
+      "id": "LEONA-PASSIVE-ATTRIBUTION-001",
+      "status": "published-rule-not-implemented",
+      "referenceUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-21-notes/",
+      "reference": "Riot includes Sunlight among damage enchantments whose caster owns damage effects while the buffed ally receives kill credit.",
+      "localObservation": "Sunlight payload arithmetic exists, but application, ally consumption and split attribution are not integrated.",
+      "acceptance": "Verify caster-side effects, ally kill credit, support contributions, lethal/shielded/blocked hits, multiple Leona ownership and saved futures. Do not substitute ordinary damage-source attribution."
+    }
+  ],
+  "nativeBehaviorVerified": false,
+  "completeLeonaKit": false,
+  "productionRosterExpanded": false
+}

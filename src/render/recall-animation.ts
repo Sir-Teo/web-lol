@@ -1,10 +1,11 @@
 // Source sequence order is pinned in the champion model reference records.
 export const ASHE_RECALL_CLIPS = ['idle5', 'idle2'] as const;
 export function recallAnimationPose(
-  champion: 'ashe' | 'lux' | 'garen' | undefined,
+  champion: import('../simulation/types').ChampionIdentity | undefined,
   seconds: number,
   durations: Readonly<Record<string, number>>
 ) {
+  if (champion === 'leona') throw new Error('Leona recall presentation is not integrated');
   let time = Math.max(0, seconds);
   const clips =
     champion === 'garen'

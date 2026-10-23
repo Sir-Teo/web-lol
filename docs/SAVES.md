@@ -1,6 +1,17 @@
 # Local match checkpoints
 
-Current schema **115** extends Garen basic-swing presentation with bounded caster
+Current schema **116** adds Leona's non-player development-fixture identity,
+nullable Q empowerment and captured Q activation/rank/release clocks. Validation
+rejects missing tuple members, foreign ownership, unlearned ranks, altered
+window/release/cycle deadlines and mismatched pending/released attack state.
+Expiry can retire the buff while a previously committed Q finishes. Death and
+victory clear both state and attack. Player/Rift use is rejected; browser loading
+preserves the saved fixture and shows a notice before attempting model loading.
+The six-second window, extra range and recovery adapter remain provisional;
+Sunlight and the complete kit/presentation remain open. Earlier schemas and
+fingerprints remain incompatible. See [Leona](LEONA.md).
+
+Schema **115** extended Garen basic-swing presentation with bounded caster
 pose frames and independent pose-stop clocks/reasons. Confirmed impacts retain
 captured heading, radius, structure placement and up to 39 target pose/visibility
 frames. Each particle birth and bound attachment endpoint uses its recorded

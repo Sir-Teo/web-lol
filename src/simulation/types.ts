@@ -8,6 +8,7 @@ import type { RiverSide } from '../content/scuttler-policy';
 import type { RiftCampId } from '../content/rift-camps';
 import type { MonsterSpecies, MonsterSpawnClip } from '../content/monsters';
 export type Team = 'blue' | 'red';
+export type ChampionIdentity = 'ashe' | 'lux' | 'garen' | 'leona';
 export type Faction = Team | 'neutral';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
 export const isLaneMinionKind = (kind: UnitKind): kind is LaneMinionKind =>
@@ -144,7 +145,7 @@ export interface TrinketState {
 }
 export interface UnitBase extends Vec2 {
   ward?: WardState;
-  champion?: 'ashe' | 'lux' | 'garen';
+  champion?: ChampionIdentity;
   id: number;
   name: string;
   previous: Vec2;
@@ -193,6 +194,9 @@ export interface UnitBase extends Vec2 {
     critical?: true;
     garenQRank?: number;
     garenQReleaseTick?: number;
+    leonaQRank?: number;
+    leonaQStartTick?: number;
+    leonaQReleaseTick?: number;
   } | null;
   releaseTick: number | null;
   nextAttackTick: number;
@@ -406,7 +410,7 @@ export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */
   garenQStartTick?: number;
   garenAAStartTick?: number;
-  champion?: 'ashe' | 'lux' | 'garen';
+  champion?: ChampionIdentity;
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
   audience: Team[];
   id: number;
@@ -548,6 +552,7 @@ export interface ChampionState {
   } | null;
   /** Local reduced-hit feedback, coalesced per tick; independent of later W casts. */
   garenWDeflects: { tick: number; castTick: number }[];
+  leonaQ: { startTick: number; rank: number; endTick: number } | null;
   garenQ: {
     startTick: number;
     rank: number;

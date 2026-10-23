@@ -1,9 +1,10 @@
 # Leona implementation
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
-The canonical source package and payload calculations are implemented. Leona's
+The canonical source package, payload calculations and a non-player development
+simulation fixture for melee attacks and Q are implemented. Leona's complete
 playable kit, player selection, bot policy and presentation remain required work.
-Importing these definitions does not establish native behavior or roster acceptance.
+This partial fixture does not establish native behavior or roster acceptance.
 
 ## Retained source and reproducibility
 
@@ -63,6 +64,53 @@ bonus. Its formula references `ArmorBaseBonus` for both resistance calculations;
 the two named base arrays are equal and remain retained separately in the audit.
 The helpers do not schedule casts, apply shields/reduction or select targets.
 
+## Melee and Q development simulation
+
+`World.spawn('champion', team, point, 'leona')` is permitted only on the
+development practice battlefield. It creates Leona's own stats, mana and an
+unlearned kit. Constructor/player selection, ordinary Rift spawning and browser
+save loading reject this incomplete fixture. Missing presentation fails
+explicitly; it never substitutes an Ashe model or animation. W/E/R commands
+return a development message before entering any other champion's spell path.
+
+After learning Q, a World cast command validates mana, cooldown, silence and
+stun. Activation costs mana, starts a haste-adjusted cooldown, cancels recall and
+resets the ordinary attack timer. Existing roots and slows remain. The next
+valid attack captures its Q rank and activation tick. It deals the ordinary
+physical hit, then Q's separate magic payload and a one-second stun. Critical
+damage affects the physical portion only. Dead targets cannot take a second
+payload; structures/wards cannot be stunned. Shields, shared Courage tenacity,
+kill credit and target loss use the existing combat paths.
+
+An already committed Q can finish through movement orders, a later stun or
+empowerment expiry. Target loss cancels the attack and retains an unexpired
+empowerment. Death/victory clear the state. Q's release clears the ordinary
+attack cooldown: a fresh explicit attack order can start the next swing, while
+automatic attacks wait through recovery. A movement order queued during windup
+resumes after contact. Flash retains the committed swing through the shared
+order path; native displacement/contact behavior still needs comparison.
+
+The source attack child now exports its explicit 0.25-second cast and the
+uncancellable/disabled-release declarations separately from its legacy timing.
+`leona-combat-policy.ts` makes the remaining **provisional local policies**
+visible: a six-second empowerment, +50 attack range, the conventional basic
+windup calculation, fixed fifteen-tick Q windup and a 53-tick automatic cycle.
+The cycle is a local recovery adapter; no native recovery, input reset timing or
+attack-speed equivalence is certified. These policies require native comparison
+before player/production acceptance. They must not be mistaken for additional
+fields recovered from the character BIN.
+
+Schema 116 saves the empowerment and captured activation/rank/release clocks.
+It rejects foreign ownership, missing tuple members, changed durations,
+unlearned ranks, inconsistent release/cooldown clocks and invalid battlefield or
+player use. Tests compare restored futures before/after contact and across
+expiry, stun and recovery cancellation. No gameplay random sample is added by Q;
+ordinary critical rolls keep their existing place in the attack pipeline.
+
+Sunlight application/consumption is **not implemented yet**, including on Q.
+Ward-specific empowered-hit behavior and exact structure effects also remain
+open. The fixture therefore does not certify complete Q/passive behavior.
+
 Sunlight's playable-level damage is 32 through 151, in increments of seven.
 The 31-entry source table has a dummy level-zero entry of 25 and extended-level
 entries after level 18. Riot's [14.15 notes](https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-15-notes/)
@@ -94,13 +142,14 @@ attack-speed timing coefficient. No coefficient or release tick is invented.
 
 Cast-frame, explicit cast-time, legacy cast-time and animation fields remain
 separate audit entries, including omitted values as null. No R impact delay,
-W instantaneous cast policy, Q empowerment lifetime or E dash speed is inferred
-from unrelated fields. R's `mSpellRevealsChampion=false` does not by itself
+W instantaneous cast policy or E dash speed is inferred from unrelated fields.
+Q's provisional lifetime/range/recovery adapter is identified separately above.
+R's `mSpellRevealsChampion=false` does not by itself
 settle area vision or hit-reveal rules.
 
 ## Remaining executable acceptance
 
-Every row below remains open even though the arithmetic foundation is tested.
+Every row below still has required work, including the partially implemented Q.
 
 | System | Required implementation and evidence |
 | --- | --- |
