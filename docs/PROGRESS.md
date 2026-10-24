@@ -6039,3 +6039,36 @@ claimed. See [sampler scope](LEONA-R-NATIVE-SAMPLERS.md) and its
 Native Leona dispatch/defaults, weapon attachment frames, reflection normals,
 native frame acceptance, player/support and the full six-character match gates
 remain open. Nothing is pushed and the project goal remains active.
+
+
+## Native emitter constructors and registered fields — October 24, 2026
+
+The matching arm64 executable now ties source-named BIN type/field registrations
+to concrete constructor and generic material offsets. The emitter constructor
+installs the registered kind-zero CameraQuad at+60, an empty texture name at+98,
+and alphaRef five at+77. Both distortionDefinition pointers (+50/+e8) name the
+same child descriptor; its distortion FLOAT is at zero and normal-map STRING at
+eight. The two retained generic material callers upload that first float without
+unit conversion. The older non-kind-seven material hashes base+98 and binds
+slot0, aligning the constructor's empty name with the previously pinned generic
+zero-resource fallback, conditional on preserved defaults and selected route.
+
+Thirty-nine bounded LLVM word streams,22 native byte spans,six type registrations
+and seven fields pass the new standard-library offline verifier in ordinary and
+optimized Python. Every retained instruction word is compared with the matching
+slice and adjacent LC_FUNCTION_STARTS metadata. Type names are pinned dictionary
+hash matches corroborated by callbacks/layouts, not native Cstrings or collision
+proof. Altered-field-offset and altered-branch negative controls are rejected.
+The independent cache audit agrees. See [scope](LEONA-NATIVE-EMITTER-DEFAULTS.md)
+and [pin](reference/leona-native-emitter-defaults.json).
+
+Hopper has now quit its demo session; no relaunch or license workaround was used.
+This increment uses bounded Apple LLVM/file reads, explicitly not REA MCP Evidence.
+Earlier REA cleanup remains unconfirmed. No native game/shader/GPU execution,
+network fetch, runtime or asset change occurred. Missing-field preservation,
+polymorphic loading, post-load overrides and actual Activate material dispatch
+remain open; Activate stays excluded and local R stays41/44. Runtime schema126
+and ruleset591ddf38 are unchanged, with no new browser/production/cohort/performance
+run. Weapon frames, reflection inputs, native-frame acceptance, player/support
+and full six-character match work remain open. The goal stays active; nothing
+is pushed.

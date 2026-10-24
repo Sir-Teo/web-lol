@@ -1,6 +1,6 @@
 # Native particle binding observations
 
-The matching 16.18.8175716 Mac executable now supplies bounded static evidence for generic particle resource fallbacks, material descriptor fields and a conditional Metal backend. It does not establish that Leona's enabled, unnamed-base Activate record reaches these paths, its native default primitive, or the resulting native frame.
+The matching 16.18.8175716 Mac executable now supplies bounded static evidence for generic particle resource fallbacks, material descriptor fields and a conditional Metal backend. It does not establish that Leona's enabled, unnamed-base Activate record reaches these paths or the resulting native frame. The later [emitter-default reading](LEONA-NATIVE-EMITTER-DEFAULTS.md) identifies constructor defaults and registered field offsets.
 
 The durable pin is [leona-native-particle-bindings.json](reference/leona-native-particle-bindings.json). Its whole executable and arm64 slice identities are tied to [leona-native-matching.json](reference/leona-native-matching.json), which retains the official RMAN/chunk provenance. Full raw Hopper responses, exact installed REA 6.4.0 helper/package bytes and SDK headers are retained in `.cache/leona-native-particle-bindings-v1-20261024`. The package excludes bootstrap contents, capability/token, mutable stdin clients, process credentials and live sockets.
 
@@ -16,7 +16,7 @@ The manager initializer `101970ad4` supplies source word `0xffffffff` to the `+0
 
 Consequently, **if** Activate uses this generic path with a nil/empty slot-zero input and the resources initialize successfully, it selects the zero-word resource. That condition has not been connected to an actual Leona CPU callsite or BIN-loader/default-material decision.
 
-The newer generic material caller reads a pointer at definition `+0xe8`, loads its first float, and uploads `[scalar,0,0,0]` under `DistortionPower` at `1018c13b4–13dc`. There is no strength conversion in this caller; a null pointer skips the upload. The analogous older caller uses definition `+0x50`. Identifying either native field with a particular source BIN declaration remains conditional until definition construction/loading is traced. This is not evidence for changing local source strength units.
+The newer generic material caller reads a pointer at definition `+0xe8`, loads its first float, and uploads `[scalar,0,0,0]` under `DistortionPower` at `1018c13b4–13dc`. There is no strength conversion in this caller; a null pointer skips the upload. The analogous older caller uses definition `+0x50`. The later [field-registration reading](LEONA-NATIVE-EMITTER-DEFAULTS.md) ties both pointers to `distortionDefinition` and its child FLOAT `distortion` at zero; BIN loading and actual Leona overrides/dispatch remain unobserved. This is not evidence for changing local source strength units.
 
 The alpha setter at `1018c26cc–2718` enables `ALPHA_TEST` for a nonzero byte at definition `+0x11` and uploads that byte divided by 255 as `AlphaTestReferenceValue`. This setter does not establish a native default byte of five, the chosen Leona variant, or pixel-shader alpha-test ordering.
 
@@ -53,4 +53,4 @@ python3 tools/assets/verify-leona-native-particle-bindings.py --check
 
 The standard-library verifier reads hashes, Mach-O headers/section mappings, selected instruction bytes and ARM64 masks, branch targets, immutable pointer/value tables, slot-name/literal bytes and retained SDK enums. It does not connect to a bridge, import or execute provider helpers, run an analyzer/compiler, access the network, write outputs or execute the target. The earlier native-matching verifier remains responsible for the full official-CDN chunk reconstruction.
 
-Native Leona CPU dispatch, BIN field/default-primitive loading, full frame/render-state behavior, native GPU observation, SCB normal generation and ordinary reflection CPU bindings remain unresolved.
+Native Leona CPU dispatch, application of constructor defaults during BIN loading, full frame/render-state behavior, native GPU observation, SCB normal generation and ordinary reflection CPU bindings remain unresolved.

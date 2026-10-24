@@ -14,8 +14,8 @@ client's default resource.
 
 The retained native quad fragment samples the texture supplied to it and keeps
 product alpha through global remap. It has no missing-resource branch, so it
-cannot identify the CPU's unnamed resource binding. Native 16.18 primitive,
-resource, state and runtime override behavior remain unresolved by this reading.
+cannot identify the CPU's unnamed resource binding. That fragment reading does not resolve native primitive, resource, state or
+runtime overrides; the later constructor evidence is described below.
 
 Profile3 stays excluded locally, with no invented white or procedural texture.
 The two weapon quads still require an attachment frame; the integrated R total
@@ -31,3 +31,10 @@ The later [native CPU reading](LEONA-NATIVE-PARTICLE-BINDINGS.md) now identifies
 an empty-slot-zero fallback and its conditional transparent BGRA8 interpretation
 on the Metal backend. Connecting Activate's BIN/default-material loading and
 actual runtime dispatch to that path remains required.
+
+The later [native emitter-default reading](LEONA-NATIVE-EMITTER-DEFAULTS.md)
+identifies the registered emitter constructor's CameraQuad primitive, empty base
+name and alphaRef five, and connects the corresponding offsets to an older
+generic material consumer. Missing-field preservation and actual Activate
+dispatch remain open, so this strengthens the conditional resource explanation
+without adding visible coverage.

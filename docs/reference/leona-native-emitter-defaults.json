@@ -1,0 +1,1640 @@
+{
+  "formatVersion": 1,
+  "classification": "Ordinary bounded Apple LLVM disassembly plus original Mach-O bytes. NOT REA Evidence. No target, native shader or GPU execution.",
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "matchingNativePin": {
+    "path": "docs/reference/leona-native-matching.json",
+    "bytes": 23862,
+    "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+  },
+  "bindingPin": {
+    "path": "docs/reference/leona-native-particle-bindings.json",
+    "bytes": 49962,
+    "sha256": "7ff9d3be239b29b8dc49777f0541d93a5e626b206ea908dbbd5d110a640aca8b"
+  },
+  "sectionParser": {
+    "path": "tools/assets/verify-leona-native-particle-bindings.py",
+    "bytes": 13221,
+    "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+  },
+  "verifier": {
+    "path": "tools/assets/verify-leona-native-emitter-defaults.py",
+    "bytes": 8498,
+    "sha256": "ff2b633054ffe7d9735bdd270dccac51479ccd73c22d701ad1101639f330c024"
+  },
+  "target": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "thinSlice": {
+    "path": ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho",
+    "bytes": 39604256,
+    "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+  },
+  "sourcePin": {
+    "path": "docs/reference/leona-r-particles.json",
+    "bytes": 266001,
+    "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+  },
+  "textVmaddr": "0x100000000",
+  "functionStarts": {
+    "offset": 39006176,
+    "bytes": 233544,
+    "sha256": "499634e01a146b84c2c1fc7e3fe2e8bf973f6e66b222abe0d01bcf28bd5dfd04",
+    "count": 173303
+  },
+  "llvmRecords": [
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018c10b4.txt",
+      "bytes": 44084,
+      "sha256": "715d66c3b10c977728e22b1f19e86d4546f350dcf7fce528004a912faf63349f",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018c10b4",
+        "--stop-address=0x1018c1e24",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018c10b4",
+      "nextFunctionStart": "0x1018c1e24",
+      "instructions": 860,
+      "observedFirst": "0x1018c10b4",
+      "observedLast": "0x1018c1e20"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10192612c.txt",
+      "bytes": 784,
+      "sha256": "3d2000e1bb1ad2ad63f8ffbaefd9eaa4d1cfaf0f13e60bb1b27284202104e449",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10192612c",
+        "--stop-address=0x101926160",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10192612c",
+      "nextFunctionStart": "0x101926160",
+      "instructions": 13,
+      "observedFirst": "0x10192612c",
+      "observedLast": "0x10192615c"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101926190.txt",
+      "bytes": 540,
+      "sha256": "36ec5a69cd320c25ed9f7f0c2300349aa6ed33953180c21d8e3a5800039ea1b8",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101926190",
+        "--stop-address=0x1019261b0",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101926190",
+      "nextFunctionStart": "0x1019261b0",
+      "instructions": 8,
+      "observedFirst": "0x101926190",
+      "observedLast": "0x1019261ac"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018ae388.txt",
+      "bytes": 2902,
+      "sha256": "6145a9fb36d0971a6a2043cf42611c64a064e08fb7ae3efb103d1c5122989251",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018ae388",
+        "--stop-address=0x1018ae45c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018ae388",
+      "nextFunctionStart": "0x1018ae45c",
+      "instructions": 53,
+      "observedFirst": "0x1018ae388",
+      "observedLast": "0x1018ae458"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018c320c.txt",
+      "bytes": 27420,
+      "sha256": "e48ddcd44388b54910286c38c9c789e038d61eb980d1d44b322febf50094fc4f",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018c320c",
+        "--stop-address=0x1018c39d0",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018c320c",
+      "nextFunctionStart": "0x1018c39d0",
+      "instructions": 497,
+      "observedFirst": "0x1018c320c",
+      "observedLast": "0x1018c39cc"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018ac500.txt",
+      "bytes": 987,
+      "sha256": "123865df0de5a1003f87afadc2d7fc5eed6f994b167904e0dad3e8176b859b4a",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018ac500",
+        "--stop-address=0x1018ac540",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018ac500",
+      "nextFunctionStart": "0x1018ac540",
+      "instructions": 16,
+      "observedFirst": "0x1018ac500",
+      "observedLast": "0x1018ac53c"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10006c3e0.txt",
+      "bytes": 908,
+      "sha256": "3d00b5b8fc693a2e5f95b9e14fb7e78fc367c724025fbc9cc691b359d09c1402",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10006c3e0",
+        "--stop-address=0x10006c41c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10006c3e0",
+      "nextFunctionStart": "0x10006c41c",
+      "instructions": 15,
+      "observedFirst": "0x10006c3e0",
+      "observedLast": "0x10006c418"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10007e314.txt",
+      "bytes": 909,
+      "sha256": "8922e99984520031fa3fb16d51f47beaafe77875a301d60e934fcf2fa40c95b7",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10007e314",
+        "--stop-address=0x10007e350",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10007e314",
+      "nextFunctionStart": "0x10007e350",
+      "instructions": 15,
+      "observedFirst": "0x10007e314",
+      "observedLast": "0x10007e34c"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10169ebe8.txt",
+      "bytes": 1290,
+      "sha256": "1fe8dfe2e7538d56762ae0f7f9e89bf6f3c5cbdc16e545fd68e849885c9ec3c9",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10169ebe8",
+        "--stop-address=0x10169ec4c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10169ebe8",
+      "nextFunctionStart": "0x10169ec4c",
+      "instructions": 25,
+      "observedFirst": "0x10169ebe8",
+      "observedLast": "0x10169ec48"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10169ec4c.txt",
+      "bytes": 4475,
+      "sha256": "27901dd22f643012b8f519041fa27b995ec646c6234627e4c37c0afae4494af3",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10169ec4c",
+        "--stop-address=0x10169edc0",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10169ec4c",
+      "nextFunctionStart": "0x10169edc0",
+      "instructions": 93,
+      "observedFirst": "0x10169ec4c",
+      "observedLast": "0x10169edbc"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10188ee40.txt",
+      "bytes": 47948,
+      "sha256": "088f4fbbcc7db14ab19a54035b4bd004569704372e6d4b9467535a15cd9da8a0",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10188ee40",
+        "--stop-address=0x10188fc5c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10188ee40",
+      "nextFunctionStart": "0x10188fc5c",
+      "instructions": 903,
+      "observedFirst": "0x10188ee40",
+      "observedLast": "0x10188fc58"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101893400.txt",
+      "bytes": 11863,
+      "sha256": "a3e539a604036aae178df9f7a8dbdb8475ee68d36368b04dcd4302d4e021c8d5",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101893400",
+        "--stop-address=0x101893784",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101893400",
+      "nextFunctionStart": "0x101893784",
+      "instructions": 225,
+      "observedFirst": "0x101893400",
+      "observedLast": "0x101893780"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018befb0.txt",
+      "bytes": 5922,
+      "sha256": "33b099c9d0be6f33308a8fd4d8b035718cbb99763cc80cab5d80f1ef5379b2b7",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018befb0",
+        "--stop-address=0x1018bf16c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018befb0",
+      "nextFunctionStart": "0x1018bf16c",
+      "instructions": 111,
+      "observedFirst": "0x1018befb0",
+      "observedLast": "0x1018bf168"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101917da8.txt",
+      "bytes": 10671,
+      "sha256": "b242ebbbd90db488aceeb6829cd92c1325bb0d4230ccee24a78e9f7b940e681f",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101917da8",
+        "--stop-address=0x1019180d4",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101917da8",
+      "nextFunctionStart": "0x1019180d4",
+      "instructions": 203,
+      "observedFirst": "0x101917da8",
+      "observedLast": "0x1019180d0"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018ac82c.txt",
+      "bytes": 12864,
+      "sha256": "a0b22af87526debc7af217e8e03c680384753b06ee9f3fe4f53ee13ca425007f",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018ac82c",
+        "--stop-address=0x1018acc54",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018ac82c",
+      "nextFunctionStart": "0x1018acc54",
+      "instructions": 266,
+      "observedFirst": "0x1018ac82c",
+      "observedLast": "0x1018acc50"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fdd8.txt",
+      "bytes": 248,
+      "sha256": "1f9ff1120ffd3d8491f9f215e77314b6199b9f4add91e6e2516f3eb4a89ca7ab",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fdd8",
+        "--stop-address=0x10190fddc",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fdd8",
+      "nextFunctionStart": "0x10190fddc",
+      "instructions": 1,
+      "observedFirst": "0x10190fdd8",
+      "observedLast": "0x10190fdd8"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fddc.txt",
+      "bytes": 435,
+      "sha256": "bb21aa16df75c2c7b7cf1b746a0437f6b5f76f37d5b735db191b86a8da0f7128",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fddc",
+        "--stop-address=0x10190fdf0",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fddc",
+      "nextFunctionStart": "0x10190fdf0",
+      "instructions": 5,
+      "observedFirst": "0x10190fddc",
+      "observedLast": "0x10190fdec"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fdf0.txt",
+      "bytes": 323,
+      "sha256": "c5b38f5c509174efd6ebff99c22d9bc956e747fcd898d4f0dadbff92bb0b38ff",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fdf0",
+        "--stop-address=0x10190fdfc",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fdf0",
+      "nextFunctionStart": "0x10190fdfc",
+      "instructions": 3,
+      "observedFirst": "0x10190fdf0",
+      "observedLast": "0x10190fdf8"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fdfc.txt",
+      "bytes": 1171,
+      "sha256": "616b974b9735d9f52dd789399539b0b8c0aa101292f6a940e62d2d14ab188443",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fdfc",
+        "--stop-address=0x10190fe54",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fdfc",
+      "nextFunctionStart": "0x10190fe54",
+      "instructions": 22,
+      "observedFirst": "0x10190fdfc",
+      "observedLast": "0x10190fe50"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fe54.txt",
+      "bytes": 250,
+      "sha256": "dcc1f380b27b6f3fd2d02f250d90249e52fc2b2de8e18bc6c61c6015fe73df7e",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fe54",
+        "--stop-address=0x10190fe5c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fe54",
+      "nextFunctionStart": "0x10190fe5c",
+      "instructions": 2,
+      "observedFirst": "0x10190fe54",
+      "observedLast": "0x10190fe58"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fe5c.txt",
+      "bytes": 249,
+      "sha256": "f0629b0a1f938e441790cfcb6e0c3c44c447ebf4b003e2a4ec2b76c3e33c93eb",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fe5c",
+        "--stop-address=0x10190fe64",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fe5c",
+      "nextFunctionStart": "0x10190fe64",
+      "instructions": 2,
+      "observedFirst": "0x10190fe5c",
+      "observedLast": "0x10190fe60"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fe64.txt",
+      "bytes": 249,
+      "sha256": "c22671c864b921e50aeaba9a76dbf1b02f1d1b2126b958067164602848f2b7d0",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fe64",
+        "--stop-address=0x10190fe6c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fe64",
+      "nextFunctionStart": "0x10190fe6c",
+      "instructions": 2,
+      "observedFirst": "0x10190fe64",
+      "observedLast": "0x10190fe68"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10190fe6c.txt",
+      "bytes": 251,
+      "sha256": "696d6e3de8fb4c4bbf4ee566f260850a4139992af2eb045d332bc37447d565e4",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10190fe6c",
+        "--stop-address=0x10190fe74",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10190fe6c",
+      "nextFunctionStart": "0x10190fe74",
+      "instructions": 2,
+      "observedFirst": "0x10190fe6c",
+      "observedLast": "0x10190fe70"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018c10a8.txt",
+      "bytes": 286,
+      "sha256": "b6a8ddbbe0ca98ab7a89e7cf24ec5cc970d3f311c0b9397b26f15c32d9748986",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018c10a8",
+        "--stop-address=0x1018c10b4",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018c10a8",
+      "nextFunctionStart": "0x1018c10b4",
+      "instructions": 3,
+      "observedFirst": "0x1018c10a8",
+      "observedLast": "0x1018c10b0"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018aaf9c.txt",
+      "bytes": 54082,
+      "sha256": "bd3d28c98785587cd3d6decb01953dd5bf027ed234f191c96b0af2db2c680dc8",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018aaf9c",
+        "--stop-address=0x1018abee4",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018aaf9c",
+      "nextFunctionStart": "0x1018abee4",
+      "instructions": 978,
+      "observedFirst": "0x1018aaf9c",
+      "observedLast": "0x1018abee0"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018d7e08.txt",
+      "bytes": 3892,
+      "sha256": "b7ebb0438ce73b7f6620599bfd9d70a0e2f9d025df3cbd1f1e7411e44212323e",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018d7e08",
+        "--stop-address=0x1018d7f34",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018d7e08",
+      "nextFunctionStart": "0x1018d7f34",
+      "instructions": 75,
+      "observedFirst": "0x1018d7e08",
+      "observedLast": "0x1018d7f30"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101925434.txt",
+      "bytes": 929,
+      "sha256": "bc6dc53eaa9f6f97eb55205ac5f6af5ff673d7d888b218c9da6734ae185c3b8e",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101925434",
+        "--stop-address=0x101925474",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101925434",
+      "nextFunctionStart": "0x101925474",
+      "instructions": 16,
+      "observedFirst": "0x101925434",
+      "observedLast": "0x101925470"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101925474.txt",
+      "bytes": 540,
+      "sha256": "498768701a085f6631cd02e2c41b59daf56eb21cbb8c3905337284d2916f138f",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101925474",
+        "--stop-address=0x101925490",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101925474",
+      "nextFunctionStart": "0x101925490",
+      "instructions": 7,
+      "observedFirst": "0x101925474",
+      "observedLast": "0x10192548c"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101925490.txt",
+      "bytes": 248,
+      "sha256": "c117e0b50a6f5f2dae478d3cc9530b9374ee2e4fbd5c404389b576a6ece252f5",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101925490",
+        "--stop-address=0x101925494",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101925490",
+      "nextFunctionStart": "0x101925494",
+      "instructions": 1,
+      "observedFirst": "0x101925490",
+      "observedLast": "0x101925490"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101925494.txt",
+      "bytes": 248,
+      "sha256": "3b38fff7404904dc19bf2ffac36b334a7ac3da771aa09c97fb2595c5beea3275",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101925494",
+        "--stop-address=0x101925498",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101925494",
+      "nextFunctionStart": "0x101925498",
+      "instructions": 1,
+      "observedFirst": "0x101925494",
+      "observedLast": "0x101925494"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x101925498.txt",
+      "bytes": 1915,
+      "sha256": "839f7e08c3260d457ec422790ae136530b3e767e5aad05af90abe10f7fc6f9b2",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101925498",
+        "--stop-address=0x101925524",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101925498",
+      "nextFunctionStart": "0x101925524",
+      "instructions": 35,
+      "observedFirst": "0x101925498",
+      "observedLast": "0x101925520"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10193aadc.txt",
+      "bytes": 737,
+      "sha256": "1e049d49349d1bc1d1872802e1f92652224d40c1bbfad236bd5ea1142612c286",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10193aadc",
+        "--stop-address=0x10193ab0c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10193aadc",
+      "nextFunctionStart": "0x10193ab0c",
+      "instructions": 12,
+      "observedFirst": "0x10193aadc",
+      "observedLast": "0x10193ab08"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10193ab0c.txt",
+      "bytes": 392,
+      "sha256": "40b5578207a9de14495c5c654fcca915d878adfd62fb2c4af55174e318d349c6",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10193ab0c",
+        "--stop-address=0x10193ab20",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10193ab0c",
+      "nextFunctionStart": "0x10193ab20",
+      "instructions": 5,
+      "observedFirst": "0x10193ab0c",
+      "observedLast": "0x10193ab1c"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10193ab20.txt",
+      "bytes": 493,
+      "sha256": "43fec40fba6ae9b66da0e2fe8759d0df0c0f7f9b774a75c2984ecfb394d47011",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10193ab20",
+        "--stop-address=0x10193ab3c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10193ab20",
+      "nextFunctionStart": "0x10193ab3c",
+      "instructions": 7,
+      "observedFirst": "0x10193ab20",
+      "observedLast": "0x10193ab38"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10193ab3c.txt",
+      "bytes": 281,
+      "sha256": "c2f1d3e228c640ed889c9cbbd304a565832990e90d5ae962df4981d8def30ebc",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10193ab3c",
+        "--stop-address=0x10193ab48",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10193ab3c",
+      "nextFunctionStart": "0x10193ab48",
+      "instructions": 3,
+      "observedFirst": "0x10193ab3c",
+      "observedLast": "0x10193ab44"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10193ab48.txt",
+      "bytes": 288,
+      "sha256": "51f07a3ab45f9317438fec194c8a2c1f510a90a18a2c37ab3045ac19b9d12398",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10193ab48",
+        "--stop-address=0x10193ab54",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10193ab48",
+      "nextFunctionStart": "0x10193ab54",
+      "instructions": 3,
+      "observedFirst": "0x10193ab48",
+      "observedLast": "0x10193ab50"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10169e674.txt",
+      "bytes": 6900,
+      "sha256": "fa7fae2c324accf89767140d0871a29a83dc8a2fdff8570a666e7dee5299a50e",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10169e674",
+        "--stop-address=0x10169e888",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10169e674",
+      "nextFunctionStart": "0x10169e888",
+      "instructions": 133,
+      "observedFirst": "0x10169e674",
+      "observedLast": "0x10169e884"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x1018ac310.txt",
+      "bytes": 987,
+      "sha256": "5f69efd000a512c02a97a6dff4fb5b09daf1ddb7a37b4345dd567653a01e6a89",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018ac310",
+        "--stop-address=0x1018ac350",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018ac310",
+      "nextFunctionStart": "0x1018ac350",
+      "instructions": 16,
+      "observedFirst": "0x1018ac310",
+      "observedLast": "0x1018ac34c"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-0x10006a1b0.txt",
+      "bytes": 909,
+      "sha256": "2e98d7205cfa97cd17e56aa2a7266e177478ad626705b0899255c67500f9ce32",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10006a1b0",
+        "--stop-address=0x10006a1ec",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10006a1b0",
+      "nextFunctionStart": "0x10006a1ec",
+      "instructions": 15,
+      "observedFirst": "0x10006a1b0",
+      "observedLast": "0x10006a1e8"
+    }
+  ],
+  "retainedInputs": [
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/hashes.bintypes.txt",
+      "bytes": 127153,
+      "sha256": "543c7afc872b00d3bf1b82dc7056faf309b68b79d542e6272e6ae9c18c6b26fa"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/locate-functions.py",
+      "bytes": 2143,
+      "sha256": "a3ff2554ffab2de41fb5fea1a574de574356c7f3f1135ea32a3d5e6d421f3616"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/dump-selected.py",
+      "bytes": 1438,
+      "sha256": "2465598f53e1d46fc67d379652bc7f42493172d52ebaf7baa9dbb85efcd48783"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/function-starts-selected.json",
+      "bytes": 7115,
+      "sha256": "6bd600057f1c7c3f61b4a4b31483cb98996b7bcbb31f57ea44c606c443f681e0"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-selected-provenance.json",
+      "bytes": 24904,
+      "sha256": "89477a29d3ad4b59a2a975c2c17d2ade411f4c681c587134aa07dadc659d42bb"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/scan.py",
+      "bytes": 9309,
+      "sha256": "2a3e4804058da7b659a96419e51ec264ebdda014488b0e2d1f31a045057d94dd"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/findings.json",
+      "bytes": 61940,
+      "sha256": "f95f29f8778edf722723aeccaa7581509ff3154b98757f432dc0bed5e44a128a"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/retain-followup.py",
+      "bytes": 7352,
+      "sha256": "e3dd35e05ddb11cca5d050e1f1f712bc3ef6aef54bb65e170f318863daaf5edc"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/followup.json",
+      "bytes": 15782,
+      "sha256": "de47d2e81e92da0ec5e5682a37ad831587acbb420736e59468103c4e4fb3ca4f"
+    },
+    {
+      "path": ".cache/leona-native-emitter-defaults-v1-20261024/llvm-version.txt",
+      "bytes": 489,
+      "sha256": "4480136e4279bdce40f98483eacd8cf19d098fd32841187278297c745623b051"
+    }
+  ],
+  "instructionSpans": [
+    {
+      "name": "emitter-registration",
+      "address": "0x1018aafac",
+      "bytes": 80,
+      "hex": "f30300aa28008052e813007908018052e80300f9a2233d101f2003d563253d101f2003d504263d101f2003d5e5253d101f2003d5c6253d101f2003d541889c52a139a172078e8052a0cdf7971f0000f9",
+      "sha256": "ef6399bd01536e3170725ffc75feb95aff171c7156c7a40bc2549b485718d432"
+    },
+    {
+      "name": "camera-type-registration",
+      "address": "0x1018d7e08",
+      "bytes": 128,
+      "hex": "ff0301d1f65701a9f44f02a9fd7b03a9fdc30091f30300aaff13007908018052e80300f9826531101f2003d5c36631101f2003d5246731101f2003d5c56731101f2003d5e66731101f2003d5818e9752a1dbb27207038052051af7971f0000f9c86800d008010491081c00f915244e29a8060011297940923f01086be2020054",
+      "sha256": "dfbc2440b34c1b06b76e0430c79310534bcf3cfd6aaf97899024cc4efab7705e"
+    },
+    {
+      "name": "arbitrary-type-registration",
+      "address": "0x101945bec",
+      "bytes": 80,
+      "hex": "e20313aac5e81a94ff130079f70300f9b4e20e918222fa101f2003d5a323fa101f2003d50424fa101f2003d58524fa101f2003d5a624fa101f2003d5e00314aaa13f9052617da972070280528f62f597",
+      "sha256": "b5f140ef5f239ea9a4735131d676ea941794bbd4d628528da119e7c48b9d50ab"
+    },
+    {
+      "name": "planar-type-registration",
+      "address": "0x101945f4c",
+      "bytes": 80,
+      "hex": "eee71a94ff13007916018052f60300f9f54204912237fa101f2003d50339fa101f2003d56439fa101f2003d5a53afa101f2003d5c63afa101f2003d5e00315aaa1b58b528132bd7207068052b761f597",
+      "sha256": "1e9982a0c331e76fda3cefb6bb4641f26aeefa0385e190114e3bc0913685ea33"
+    },
+    {
+      "name": "emitter-default-camera-and-resource",
+      "address": "0x1018ac82c",
+      "bytes": 208,
+      "hex": "e923b96dfc6f01a9fa6702a9f85f03a9f65704a9f44f05a9fd7b06a9fd830191f30300aa085e00d01f2003d51b6140f91b7c00a91ff000b8e004000f003001bc48008052085c003900e4006ff40300aa808e813cf50300aaa08e833cf60300aac08e843cf70300aaff8e05f80080823c000380520c9bf7971f200039a85e00b008e13b91080000f908810591080800f9f90313aa3f8f06f820831ff83f1300792024000f20a300bc08a08052281f00793f7f01a908f6030f281300fd08f0a752282b00b9fa0319aa5b0f03f838030191",
+      "sha256": "478fffa0a482815a433ab2995f7c88267669914d35360721f588d011185958d9"
+    },
+    {
+      "name": "emitter-allocating-callback",
+      "address": "0x101925434",
+      "bytes": 104,
+      "hex": "f44fbea9fd7b01a9fd430091008e805223b8f597f30300aaf81cfe97e00313aafd7b41a9f44fc2a8c0035fd6f40300aae00313aabbb6f597e00314aa04691b94c00000b4fd7bbfa9fd030091a41efe97fd7bc1a8b3b6f517c0035fd6e71cfe179f1efe17f657bda9",
+      "sha256": "5031182b06758a53d4bfbc43210b4738774178db87b7834518aa467db6465f3f"
+    },
+    {
+      "name": "camera-factory-and-inplace-callbacks",
+      "address": "0x10193aadc",
+      "bytes": 120,
+      "hex": "fd7bbfa9fd030091000380527a62f5971f200039285a00f008e13b91080000f908810591080800f9fd7bc1a8c0035fd6800000b4080040f9010540f920001fd6c0035fd61f200039285a00f008e13b91080000f908810591080800f9c0035fd6080040f9010140f920001fd6080040f9011140f920001fd6",
+      "sha256": "77db81ed4162724669898439f8f474c3b98b0ef3a433c0255aff3d09388bc093"
+    },
+    {
+      "name": "type-descriptor-storage",
+      "address": "0x10169e69c",
+      "bytes": 56,
+      "hex": "1f0000f9010800b9020c01a9041402a9067c03a9072804a9094001390844013900e4006ff40300aa808e853c1f4801390080863c087300b0",
+      "sha256": "104cc66ec13214f972dcdab4707a085e05992f92332cdc01d19b5df82b2e68a7"
+    },
+    {
+      "name": "field-descriptor-storage",
+      "address": "0x10169ed2c",
+      "bytes": 104,
+      "hex": "080680524b0340b92c0340b9806fa89b0d034039ee024039af0040f9c80040f9ea0040f9a90240f9900240f9310240f90f0000f90b3001290e4000390d440039100c00f9eb0300aa7f0d02f8111400f9a80000b5e8030aaa6a0000b5e80309aa490000b4680100f9",
+      "sha256": "b43c59bb9ce53d6d5e039b2b4197be43ab7b349db16f120b7375978a5832f36a"
+    },
+    {
+      "name": "distortion-descriptor-initializer",
+      "address": "0x101941760",
+      "bytes": 300,
+      "hex": "546500b094023d91e00314aa419a8b5241daae7202018052030080d2040080d2af1ffd9740fbb5101f2003d5f335fff073020091e10314aae20313aadaf91a9495220291e00315aae2affd9700fcb5101f2003d5e10315aae20313aad2f91a9495420491e00315aa62b0fd97000cb6101f2003d5e10315aae20313aacaf91a9495620691e00315aacfb0fd97a019b6101f2003d5e10315aae20313aac2f91a9495820891e00315aa66b1fd97802cb6101f2003d5e10315aae20313aabaf91a9495a20a91e00315aabeb1fd978037b6101f2003d5e10315aae20313aab2f91a9495c20c91e00315aa2cb2fd974045b6101f2003d5e10315aae20313aaaaf91a9495e20e91e00315aa76b2fd97804eb6101f2003d5e10315aae20313aaa2f91a9494021191e00314aac0b2fd97",
+      "sha256": "d3af1faef7871b3e36d088ce531f1cdccd91faa4c7af4d33a67894fca70ee07f"
+    },
+    {
+      "name": "distortion-wrapper",
+      "address": "0x1018ac500",
+      "bytes": 64,
+      "hex": "ff0301d1fd7b03a9fdc30091ff7f00a9ff9301a9e56900f0a5000e91e30b00f94310805204008052060080d2070080d2aec9f797fd7b43a9ff030191c0035fd6",
+      "sha256": "4c25b0f4c2c4537691a9c80d5629b9c37448032ee348135f8e42a58be2437192"
+    },
+    {
+      "name": "old-distortion-field-consumer",
+      "address": "0x10188f168",
+      "bytes": 92,
+      "hex": "680a40f9092940f9c90200b4200140bde05300bdff2f00f9ff5700b9604240f9414f0090211c1f91e2430191660c0394680a40f9082940f900210091c3e3f79761020191e06700f9e2230391e00313aa63008052e40314aa90100094",
+      "sha256": "6125d4d8fa0e4dbf2efcad7995fd097efe10cb9b909eb4236ea78f3a84f97286"
+    },
+    {
+      "name": "new-distortion-field-consumer",
+      "address": "0x1018c13b4",
+      "bytes": 80,
+      "hex": "087740f9a80200b4000140bde08300bdff4700f9ff8700b9600240f9a14d00d0211c1f91e2030291d4430294087740f900210091321bf79701230891e01300f9e2830091e00318aa63008052e4031aaa",
+      "sha256": "3e4c761245bbefb1464c0b0750d05fc8a18dae2f914ab04a383430b9f790ecc0"
+    },
+    {
+      "name": "old-base-resource-call",
+      "address": "0x10188f62c",
+      "bytes": 40,
+      "hex": "680a40f9006102919fe2f79761c20091e02b00f9e2430191e00313aa03008052e40314aa6c0f0094",
+      "sha256": "0e1581b3320ee98c9882bcc7122e650f46edeb97bd95155108c48bf2d2e3ad00"
+    },
+    {
+      "name": "old-base-resource-fallback",
+      "address": "0x1018935cc",
+      "bytes": 156,
+      "hex": "c80240f9280200b4e96400d01f2003d5293142f91f0109eb80010054486300d0161d41f9c88e4af8880000b4091d40b929050011091d00b9e00f40f9e00200b45c6d039415000014486300d0161d41f955010034c80e4af8880000b4091d40b929050011091d00b9e00f40f9600100b4506d039409000014c88e4af8880000b4091d40b929050011091d00b9e00f40f9400000b4476d0394c80240f9",
+      "sha256": "5447ae36695eccc70974f0a0b9a26a99f03f02508ddcf9450929844dbc719c93"
+    },
+    {
+      "name": "VfxEmitterDefinitionData.primitive",
+      "address": "0x1018ab590",
+      "bytes": 24,
+      "hex": "c19e8252610fa072020c8052030080d2040080d25b030094",
+      "sha256": "5f3a5500940827b0ae8383bd789c60f2409c9bb29ea3fb0b8819ff50d2439dae"
+    },
+    {
+      "name": "VfxEmitterDefinitionData.texture",
+      "address": "0x1018abc3c",
+      "bytes": 24,
+      "hex": "811e8d52818ca77202138052030080d2040080d258f99e97",
+      "sha256": "c5e180f33284be5afe25fb6a6da3a980eddb86e82bbd377f82f26f9079207e97"
+    },
+    {
+      "name": "VfxEmitterDefinitionData.alphaRef",
+      "address": "0x1018ab6c4",
+      "bytes": 24,
+      "hex": "811e82526132b772e20e8052030080d2040080d242039f97",
+      "sha256": "96b9a53e2642afd0a6965c45a141528cfc634bd9f3eb42c00a75835646639ca9"
+    },
+    {
+      "name": "VfxEmitterDefinitionData.distortionDefinition",
+      "address": "0x1018ab7c0",
+      "bytes": 24,
+      "hex": "619b93520190b772020a8052030080d2040080d24b030094",
+      "sha256": "b236bd0af934095ae891eac7e17cb5d04c28c7052510f65980fa50e2013d036f"
+    },
+    {
+      "name": "VfxLegacyRenderComponent.distortionDefinition",
+      "address": "0x1018c3488",
+      "bytes": 24,
+      "hex": "619b93520190b772021d8052030080d2040080d219a4ff97",
+      "sha256": "777276e49f480c96902c84db2b8a89ad684692c2dd93ac4892b9f06453bcacdb"
+    },
+    {
+      "name": "VfxDistortionDefinitionData.distortion",
+      "address": "0x1018ae3e4",
+      "bytes": 24,
+      "hex": "41d59f52c18bb77202008052030080d2040080d2c73f9f97",
+      "sha256": "4d0f508c1bd6a909a69ff05ccb8cf27bbc5733e6ab70cf2e9df44833c910fd3b"
+    },
+    {
+      "name": "VfxDistortionDefinitionData.normalMapTexture",
+      "address": "0x1018ae41c",
+      "bytes": 24,
+      "hex": "e1aa9a5241cebc7202018052030080d2040080d260ef9e97",
+      "sha256": "31576b0e37452dae0ae80f29a72fbce70e62b6e6c881a2df3c32986d59bcf1ef"
+    }
+  ],
+  "typeRegistrations": [
+    {
+      "name": "VfxEmitterDefinitionData",
+      "hash": "0x09cde442",
+      "hashPair": [
+        "0x1018aafe8",
+        "0x1018aafec"
+      ],
+      "sizeInstruction": "0x1018aaff0",
+      "size": 1136,
+      "call": "0x1018aaff4",
+      "callbacks": [
+        {
+          "register": 2,
+          "instruction": "0x1018aafc0",
+          "target": "0x101925434"
+        },
+        {
+          "register": 3,
+          "instruction": "0x1018aafc8",
+          "target": "0x101925474"
+        },
+        {
+          "register": 4,
+          "instruction": "0x1018aafd0",
+          "target": "0x101925490"
+        },
+        {
+          "register": 5,
+          "instruction": "0x1018aafd8",
+          "target": "0x101925494"
+        },
+        {
+          "register": 6,
+          "instruction": "0x1018aafe0",
+          "target": "0x101925498"
+        }
+      ]
+    },
+    {
+      "name": "VfxPrimitiveCameraQuad",
+      "hash": "0x96ddbc74",
+      "hashPair": [
+        "0x1018d7e54",
+        "0x1018d7e58"
+      ],
+      "sizeInstruction": "0x1018d7e5c",
+      "size": 24,
+      "call": "0x1018d7e60",
+      "callbacks": [
+        {
+          "register": 2,
+          "instruction": "0x1018d7e2c",
+          "target": "0x10193aadc"
+        },
+        {
+          "register": 3,
+          "instruction": "0x1018d7e34",
+          "target": "0x10193ab0c"
+        },
+        {
+          "register": 4,
+          "instruction": "0x1018d7e3c",
+          "target": "0x10193ab20"
+        },
+        {
+          "register": 5,
+          "instruction": "0x1018d7e44",
+          "target": "0x10193ab3c"
+        },
+        {
+          "register": 6,
+          "instruction": "0x1018d7e4c",
+          "target": "0x10193ab48"
+        }
+      ]
+    },
+    {
+      "name": "VfxPrimitiveArbitraryQuad",
+      "hash": "0x4beb81fd",
+      "hashPair": [
+        "0x101945c2c",
+        "0x101945c30"
+      ],
+      "sizeInstruction": "0x101945c34",
+      "size": 16,
+      "call": "0x101945c38",
+      "callbacks": [
+        {
+          "register": 2,
+          "instruction": "0x101945c00",
+          "target": "0x10193a050"
+        },
+        {
+          "register": 3,
+          "instruction": "0x101945c08",
+          "target": "0x10193a07c"
+        },
+        {
+          "register": 4,
+          "instruction": "0x101945c10",
+          "target": "0x10193a090"
+        },
+        {
+          "register": 5,
+          "instruction": "0x101945c18",
+          "target": "0x10193a0a8"
+        },
+        {
+          "register": 6,
+          "instruction": "0x101945c20",
+          "target": "0x10193a0b4"
+        }
+      ]
+    },
+    {
+      "name": "VfxPrimitivePlanarProjection",
+      "hash": "0xe9945dad",
+      "hashPair": [
+        "0x101945f8c",
+        "0x101945f90"
+      ],
+      "sizeInstruction": "0x101945f94",
+      "size": 48,
+      "call": "0x101945f98",
+      "callbacks": [
+        {
+          "register": 2,
+          "instruction": "0x101945f60",
+          "target": "0x10193a644"
+        },
+        {
+          "register": 3,
+          "instruction": "0x101945f68",
+          "target": "0x10193a688"
+        },
+        {
+          "register": 4,
+          "instruction": "0x101945f70",
+          "target": "0x10193a69c"
+        },
+        {
+          "register": 5,
+          "instruction": "0x101945f78",
+          "target": "0x10193a6cc"
+        },
+        {
+          "register": 6,
+          "instruction": "0x101945f80",
+          "target": "0x10193a6d8"
+        }
+      ]
+    },
+    {
+      "name": "VfxDistortionDefinitionData",
+      "hash": "0x49d51b69",
+      "hashPair": [
+        "0x1018ae3cc",
+        "0x1018ae3d0"
+      ],
+      "sizeInstruction": "0x1018ae3d8",
+      "size": 24,
+      "call": "0x1018ae3dc",
+      "callbacks": [
+        {
+          "register": 2,
+          "instruction": "0x1018ae3ac",
+          "target": "0x10192612c"
+        },
+        {
+          "register": 3,
+          "instruction": "0x1018ae3b4",
+          "target": "0x101926160"
+        },
+        {
+          "register": 4,
+          "instruction": "0x1018ae3bc",
+          "target": "0x101926190"
+        },
+        {
+          "register": 5,
+          "instruction": "0x1018ae3c4",
+          "target": "0x1019261b0"
+        }
+      ]
+    },
+    {
+      "name": "VfxLegacyRenderComponent",
+      "hash": "0x2ffd9a47",
+      "hashPair": [
+        "0x1018c3254",
+        "0x1018c3258"
+      ],
+      "sizeInstruction": "0x1018c325c",
+      "size": 568,
+      "call": "0x1018c3260",
+      "callbacks": [
+        {
+          "register": 2,
+          "instruction": "0x1018c322c",
+          "target": "0x10192f3dc"
+        },
+        {
+          "register": 3,
+          "instruction": "0x1018c3234",
+          "target": "0x10192f584"
+        },
+        {
+          "register": 4,
+          "instruction": "0x1018c323c",
+          "target": "0x10192f598"
+        },
+        {
+          "register": 5,
+          "instruction": "0x1018c3244",
+          "target": "0x10192f59c"
+        },
+        {
+          "register": 6,
+          "instruction": "0x1018c324c",
+          "target": "0x10192f5a8"
+        }
+      ]
+    }
+  ],
+  "fieldRegistrations": [
+    {
+      "name": "primitive",
+      "parent": "VfxEmitterDefinitionData",
+      "hash": "0x7b14f6",
+      "hashPair": [
+        "0x1018ab590",
+        "0x1018ab594"
+      ],
+      "offsetInstruction": "0x1018ab598",
+      "offset": 96,
+      "call": "0x1018ab5a4",
+      "wrapper": "0x1018ac310"
+    },
+    {
+      "name": "texture",
+      "parent": "VfxEmitterDefinitionData",
+      "hash": "0x3c6468f4",
+      "hashPair": [
+        "0x1018abc3c",
+        "0x1018abc40"
+      ],
+      "offsetInstruction": "0x1018abc44",
+      "offset": 152,
+      "call": "0x1018abc50",
+      "wrapper": "0x10006a1b0"
+    },
+    {
+      "name": "alphaRef",
+      "parent": "VfxEmitterDefinitionData",
+      "hash": "0xb99310f4",
+      "hashPair": [
+        "0x1018ab6c4",
+        "0x1018ab6c8"
+      ],
+      "offsetInstruction": "0x1018ab6cc",
+      "offset": 119,
+      "call": "0x1018ab6d8",
+      "wrapper": "0x10006c3e0"
+    },
+    {
+      "name": "distortionDefinition",
+      "parent": "VfxEmitterDefinitionData",
+      "hash": "0xbc809cdb",
+      "hashPair": [
+        "0x1018ab7c0",
+        "0x1018ab7c4"
+      ],
+      "offsetInstruction": "0x1018ab7c8",
+      "offset": 80,
+      "call": "0x1018ab7d4",
+      "wrapper": "0x1018ac500"
+    },
+    {
+      "name": "distortionDefinition",
+      "parent": "VfxLegacyRenderComponent",
+      "hash": "0xbc809cdb",
+      "hashPair": [
+        "0x1018c3488",
+        "0x1018c348c"
+      ],
+      "offsetInstruction": "0x1018c3490",
+      "offset": 232,
+      "call": "0x1018c349c",
+      "wrapper": "0x1018ac500"
+    },
+    {
+      "name": "distortion",
+      "parent": "VfxDistortionDefinitionData",
+      "hash": "0xbc5efeaa",
+      "hashPair": [
+        "0x1018ae3e4",
+        "0x1018ae3e8"
+      ],
+      "offsetInstruction": "0x1018ae3ec",
+      "offset": 0,
+      "call": "0x1018ae3f8",
+      "wrapper": "0x10007e314"
+    },
+    {
+      "name": "normalMapTexture",
+      "parent": "VfxDistortionDefinitionData",
+      "hash": "0xe672d557",
+      "hashPair": [
+        "0x1018ae41c",
+        "0x1018ae420"
+      ],
+      "offsetInstruction": "0x1018ae424",
+      "offset": 8,
+      "call": "0x1018ae430",
+      "wrapper": "0x10006a1b0"
+    }
+  ],
+  "directBranches": [
+    {
+      "address": "0x101925444",
+      "target": "0x1016934d0",
+      "link": true
+    },
+    {
+      "address": "0x10192544c",
+      "target": "0x1018ac82c",
+      "link": true
+    },
+    {
+      "address": "0x101925490",
+      "target": "0x1018ac82c",
+      "link": false
+    },
+    {
+      "address": "0x1018ac8a0",
+      "target": "0x1016934d0",
+      "link": true
+    },
+    {
+      "address": "0x1018ac340",
+      "target": "0x10169ebe8",
+      "link": true
+    },
+    {
+      "address": "0x1018ac530",
+      "target": "0x10169ebe8",
+      "link": true
+    },
+    {
+      "address": "0x10006a1dc",
+      "target": "0x10169ebe8",
+      "link": true
+    },
+    {
+      "address": "0x10006c40c",
+      "target": "0x10169ebe8",
+      "link": true
+    },
+    {
+      "address": "0x10007e340",
+      "target": "0x10169ebe8",
+      "link": true
+    },
+    {
+      "address": "0x101941888",
+      "target": "0x1018ae388",
+      "link": true
+    },
+    {
+      "address": "0x10188f634",
+      "target": "0x1016880b0",
+      "link": true
+    },
+    {
+      "address": "0x10188f650",
+      "target": "0x101893400",
+      "link": true
+    },
+    {
+      "address": "0x101893588",
+      "target": "0x101893784",
+      "link": true
+    },
+    {
+      "address": "0x101893674",
+      "target": "0x10194bae8",
+      "link": true
+    }
+  ],
+  "exactWords": [
+    {
+      "address": "0x1018ac84c",
+      "word": "0xaa0003f3",
+      "meaning": "save emitter this as X19"
+    },
+    {
+      "address": "0x1018ac858",
+      "word": "0xf940611b",
+      "meaning": "load X27 empty-string constant pointer"
+    },
+    {
+      "address": "0x1018ac89c",
+      "word": "0x52800300",
+      "meaning": "allocate camera object size18"
+    },
+    {
+      "address": "0x1018ac8a4",
+      "word": "0x3900201f",
+      "meaning": "initialize camera kind byte to zero"
+    },
+    {
+      "address": "0x1018ac8a8",
+      "word": "0xb0005ea8",
+      "meaning": "camera vptr page"
+    },
+    {
+      "address": "0x1018ac8ac",
+      "word": "0x913be108",
+      "meaning": "camera vptr offsetef8"
+    },
+    {
+      "address": "0x1018ac8b0",
+      "word": "0xf9000008",
+      "meaning": "store camera vptr"
+    },
+    {
+      "address": "0x1018ac8b8",
+      "word": "0xf9000808",
+      "meaning": "store camera secondary pointer"
+    },
+    {
+      "address": "0x1018ac8bc",
+      "word": "0xaa1303f9",
+      "meaning": "copy this to X25"
+    },
+    {
+      "address": "0x1018ac8c0",
+      "word": "0xf8068f3f",
+      "meaning": "preindexed store at this+68 updates X25"
+    },
+    {
+      "address": "0x1018ac8c4",
+      "word": "0xf81f8320",
+      "meaning": "store camera pointer at this+60"
+    },
+    {
+      "address": "0x1018ac8d4",
+      "word": "0x5280a008",
+      "meaning": "alpha packed word500"
+    },
+    {
+      "address": "0x1018ac8d8",
+      "word": "0x79001f28",
+      "meaning": "store packed word at this+76"
+    },
+    {
+      "address": "0x1018ac8f0",
+      "word": "0xaa1903fa",
+      "meaning": "copy updated X25 to X26"
+    },
+    {
+      "address": "0x1018ac8f4",
+      "word": "0xf8030f5b",
+      "meaning": "store empty name at this+98"
+    },
+    {
+      "address": "0x10193aaf0",
+      "word": "0xf0005a28",
+      "meaning": "registered camera vptr page"
+    },
+    {
+      "address": "0x10193aaf4",
+      "word": "0x913be108",
+      "meaning": "registered camera vptr offset"
+    },
+    {
+      "address": "0x1018ac324",
+      "word": "0xb0006a25",
+      "meaning": "primitive descriptor page"
+    },
+    {
+      "address": "0x1018ac328",
+      "word": "0x910400a5",
+      "meaning": "primitive descriptor offset"
+    },
+    {
+      "address": "0x1018ac330",
+      "word": "0x52801043",
+      "meaning": "primitive BIN type82"
+    },
+    {
+      "address": "0x1018ac514",
+      "word": "0xf00069e5",
+      "meaning": "distortion child descriptor page"
+    },
+    {
+      "address": "0x1018ac518",
+      "word": "0x910e00a5",
+      "meaning": "distortion child descriptor offset380"
+    },
+    {
+      "address": "0x1018ac520",
+      "word": "0x52801043",
+      "meaning": "distortion BIN type82"
+    },
+    {
+      "address": "0x10006a1c8",
+      "word": "0x52800203",
+      "meaning": "texture BIN type10hex"
+    },
+    {
+      "address": "0x10006c3f8",
+      "word": "0x52800063",
+      "meaning": "alpha BIN U8type3"
+    },
+    {
+      "address": "0x10007e32c",
+      "word": "0x52800143",
+      "meaning": "distortion BIN float typeA"
+    },
+    {
+      "address": "0x101941760",
+      "word": "0xb0006554",
+      "meaning": "child initializer base page"
+    },
+    {
+      "address": "0x101941764",
+      "word": "0x913d0294",
+      "meaning": "child initializer base offsetf40"
+    },
+    {
+      "address": "0x101941880",
+      "word": "0x91110294",
+      "meaning": "child initializer add440"
+    },
+    {
+      "address": "0x101941884",
+      "word": "0xaa1403e0",
+      "meaning": "child descriptor to X0"
+    },
+    {
+      "address": "0x10188ee74",
+      "word": "0xf9400808",
+      "meaning": "load material definition D"
+    },
+    {
+      "address": "0x10188ee78",
+      "word": "0xf9403109",
+      "meaning": "load primitive at D+60"
+    },
+    {
+      "address": "0x10188ee7c",
+      "word": "0x39402138",
+      "meaning": "load primitive kind at+8"
+    },
+    {
+      "address": "0x10188f54c",
+      "word": "0x71001f1f",
+      "meaning": "compare kind to7"
+    },
+    {
+      "address": "0x10188f550",
+      "word": "0x540006e1",
+      "meaning": "non7 to base slot0 branch"
+    },
+    {
+      "address": "0x10188f62c",
+      "word": "0xf9400a68",
+      "meaning": "reload D"
+    },
+    {
+      "address": "0x10188f630",
+      "word": "0x91026100",
+      "meaning": "hash input address D+98"
+    },
+    {
+      "address": "0x10188f648",
+      "word": "0x52800003",
+      "meaning": "bind base slot0"
+    },
+    {
+      "address": "0x10188f16c",
+      "word": "0xf9402909",
+      "meaning": "old distortion pointer D+50"
+    },
+    {
+      "address": "0x10188f174",
+      "word": "0xbd400120",
+      "meaning": "old distortion first float"
+    },
+    {
+      "address": "0x10188f19c",
+      "word": "0xf9402908",
+      "meaning": "old distortion normal pointer D+50"
+    },
+    {
+      "address": "0x10188f1a0",
+      "word": "0x91002100",
+      "meaning": "old distortion normal name child+8"
+    },
+    {
+      "address": "0x10188f1b8",
+      "word": "0x52800063",
+      "meaning": "old distortion normal slot3"
+    },
+    {
+      "address": "0x1018c13b4",
+      "word": "0xf9407708",
+      "meaning": "new distortion pointer D+e8"
+    },
+    {
+      "address": "0x1018c13bc",
+      "word": "0xbd400100",
+      "meaning": "new distortion first float"
+    },
+    {
+      "address": "0x1018935d0",
+      "word": "0xb4000228",
+      "meaning": "nil input branch"
+    },
+    {
+      "address": "0x1018935dc",
+      "word": "0xf9423129",
+      "meaning": "load empty hash global"
+    },
+    {
+      "address": "0x1018935e0",
+      "word": "0xeb09011f",
+      "meaning": "compare input to empty hash"
+    },
+    {
+      "address": "0x1018935e4",
+      "word": "0x54000180",
+      "meaning": "empty branch"
+    },
+    {
+      "address": "0x10189361c",
+      "word": "0x34000155",
+      "meaning": "slot0 selects+a8"
+    },
+    {
+      "address": "0x101893644",
+      "word": "0xf84a8ec8",
+      "meaning": "load manager+a8 fallback"
+    }
+  ],
+  "visibleFamilies": 41,
+  "observed": [
+    "Emitter allocation/in-place initialization installs registered CameraQuad vptr, kind0, at definition+60; base string+98 is empty; alphaRef+77 defaults5.",
+    "BIN type/field hashes, sizes, offsets and callback addresses align exact constructor and generic material readers. Type names are hash dictionary/field-layout matches, not native literal names or collision-free authentication.",
+    "The distortionDefinition child descriptor registered at1025eb380 has FLOAT distortion at+0 and STRING normalMapTexture at+8; older/newer paths use registered pointers+50/+e8 and upload the first float without unit conversion.",
+    "Older generic material nonkind7 path hashes D+98 and binds slot0; its empty/nil fallback selects manager+a8. Conditional transparent Metal interpretation remains in prior binding pin."
+  ],
+  "remainingGates": [
+    "BIN absent-field preservation and post-load overrides are not traced.",
+    "Actual Activate instantiation, generic material route, selected backend and successful resource creation/upload are not observed.",
+    "No actual native Leona CPU draw, frame or GPU observation; no local visible coverage increase.",
+    "Two weapon quads still require their attachment frame."
+  ]
+}

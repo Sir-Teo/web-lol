@@ -453,3 +453,8 @@ Two weapon quads still need their attachment frame. The
 [matching native client](LEONA-NATIVE-MATCHING.md) are retained; actual Leona
 dispatch, source-loader defaults, native frames and the complete player/support
 and six-character match gates remain open.
+
+[Native emitter registration and defaults](LEONA-NATIVE-EMITTER-DEFAULTS.md)
+now identify constructor CameraQuad/empty-base/alphaRef-five defaults and the
+distortion scalar/normal-name offsets. Absent-field loading and actual Leona
+dispatch remain unobserved; local R coverage stays41/44.
