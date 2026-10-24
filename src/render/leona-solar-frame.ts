@@ -2,9 +2,10 @@ import { Quaternion, Vector3 } from 'three';
 import type { solarParticles } from './leona-solar-particles';
 export type SolarParticle = ReturnType<typeof solarParticles>[number];
 
-/** Explicit source-unit world placement after the caller applies birth/current
+/** Pinned65a7 reconstruction: explicit source-unit world placement after the caller applies birth/current
  * origin, bind and orientation routing. Orbit is about current draw origin;
- * authored world acceleration follows it unturned. No CPU attachment default. */
+ * authored world acceleration follows it unturned. Newer2adda composes orbit
+ * in a different frame; this does not claim current/native CPU attachment. */
 export function solarDrawPoint(
   particle: SolarParticle,
   integratedWorldPoint: readonly number[],

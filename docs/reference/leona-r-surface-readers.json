@@ -1,0 +1,205 @@
+{
+  "scope": "Pinned primary reconstruction routes; not native CPU code.",
+  "files": [
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/parsing/readSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readSurface.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 14569,
+      "sha256": "af6068c0a8247c97d3ebb52d5a6ad6b9cca110920a38bfcac9553fe13a138219"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/components/Quads.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Quads.tsx",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 11271,
+      "sha256": "0313f60079268e93ecf3be9f7165d98c6614f673a21282ecde1820883fce6069"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/components/drawPair.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/drawPair.tsx",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 6767,
+      "sha256": "a4c0629c52343de06c63a36246a710e94c370db3d96211bcd1c2d400cd3edd7f"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/shaders/quad.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/quad.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 18418,
+      "sha256": "4ed5856ce44e9d482bea18a924544149a820587fdec409616be3446832c3093f"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/drawKind.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/drawKind.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 12295,
+      "sha256": "c9f6a5fdc3090671e62eab2015af23f75574ef7cf937a446633a48f9aa7042ba"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/materials.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/materials.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 16071,
+      "sha256": "f2da84cb9cb98edfc25c42055765d4e7069365a6508395045b73745e0b9e1e6b"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/particleDraws.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/particleDraws.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 4377,
+      "sha256": "7244b79adf4d0ae598355458a0497bead40af4e4f7cee61774fd159f98ea57a5"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/uniforms.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/uniforms.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 14743,
+      "sha256": "64f5bf9e6ffb479f9898f9b184265df03f68689b994a1ddd7ac9bff263ab2236"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/blend.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/blend.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 5320,
+      "sha256": "2a9faf081ee3c27fdbbf0764ec42673eceb77b3b928992b9acaf407b572b52b8"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/readSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readSurface.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 13876,
+      "sha256": "7493b13c0f3fa6a8d9fc8efe6e2ac02d5d872f1f7db5f3a47722f1039e4148a2"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/drawKind.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/drawKind.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 6243,
+      "sha256": "64a3b3cd78d91251159da7ae5b1f354df5060aa2b9cf2c8be8a6c57351da0025"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/materials.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/materials.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 10227,
+      "sha256": "bc40cea052c3d0f13c5ab37bdc7e5900e638d8c89d19505046b25fa3b6569688"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/uniforms.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/uniforms.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 12955,
+      "sha256": "4f0dc1e18b7dcc8f05d8b67f642597c3184dc4bf13fb9c2c6d375885e2302e76"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/drawPair.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/drawPair.tsx",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 2307,
+      "sha256": "82ff428c6eccc1efceca7634aec2557bacd8b16728f4de9f7f5f389ff81ceefd"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/shaders/quad.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/quad.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 14829,
+      "sha256": "8daff79e4111a4ab9c9d73278c6b1c7cdbef16da36c804b9f6c6074f88ca0fb7"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/basis.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/basis.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 7994,
+      "sha256": "287aa8081d97e14aa25b5022e59894316d0a827baabe8a85280bf83fdcdc8ddb"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/particleRead.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 15674,
+      "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/65a7d2a/emit.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 8885,
+      "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/model/enums.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/enums.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 7910,
+      "sha256": "fdad53c133ef6c59162131d8b7e1763d8aa29594ba330a65e8372f493d8160fc"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/model/quality.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/quality.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 3101,
+      "sha256": "b5432e7d40a8706e825a07d4577b0887b22f0c030f85761418799eb3a5d3ab45"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/frame.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/frame.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 11844,
+      "sha256": "6a2aea0f7b198880d2a69092834d8812ad8d9d94595e859de22d86fd6d9d2242"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/hooks/useParticlePrograms.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/hooks/useParticlePrograms.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 14803,
+      "sha256": "a0be5791cba127a4107d54e093cc11b165b0df4128ac109733f0f80a5ee890b3"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/src/modules/workshop/bin/vfx/rendering/utils/particleProgram.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/particleProgram.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 16356,
+      "sha256": "45869c51b77a49e4e12b8fd4117b6c03048a3022e3a958108146e99e4b501679"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/docs/plans/vfx-particle-renderer.md",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/docs/plans/vfx-particle-renderer.md",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 232427,
+      "sha256": "31d7294422ea1d6285fd9586814ba244f6ca5f68b26edc95edcd01b17786c733"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/docs/plans/hexshade-vfx.md",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/docs/plans/hexshade-vfx.md",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 23533,
+      "sha256": "08d51b9694426c2ddb9434e03575688a8c387e8e7fced1ecbd469e85da947439"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/simulation/particleRead.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/particleRead.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 16101,
+      "sha256": "1c2ac421e97d350cc1758785bab1f841fb95064c31ac9b81ebe214447bb811ab"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/simulation/integrate.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/integrate.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 22084,
+      "sha256": "35e332547a4697558f93f4d5a91f295bcd6d8e9b299ccb8d7331ad873de96587"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/utils/basis.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/basis.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 10219,
+      "sha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e"
+    }
+  ],
+  "schema": 1,
+  "nativeCpuVerified": false,
+  "localOrbitalRevision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "phaseCandidateRevision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+}

@@ -28,6 +28,9 @@ export type SurfaceParticle = ReturnType<typeof eclipseParticles>[number] & {
   /** World-axis terms stay outside an attachment's orientation. */
   worldOffset?: readonly number[];
   worldTravel?: readonly number[];
+  /** Optional world-axis orbit about the current root, following the pinned
+   * 65a7 reader. This is separate from newer emitter-frame reconstruction. */
+  orbitTurn?: readonly number[];
 };
 type Particle = SurfaceParticle;
 export type SurfaceProfile = Pick<
@@ -36,13 +39,10 @@ export type SurfaceProfile = Pick<
   | 'role'
   | 'name'
   | 'mesh'
-  | 'texture'
   | 'lookup'
-  | 'multiplier'
   | 'erosion'
   | 'distortion'
   | 'soft'
-  | 'uv'
   | 'uvMode'
   | 'renderOrder'
   | 'miscRenderFlags'
@@ -57,7 +57,12 @@ export type SurfaceProfile = Pick<
   | 'blend'
   | 'depthBias'
   | 'alphaRef'
-> & { palette: { texture: string | null } | null };
+> & {
+  texture: string | null;
+  uv: { address: number };
+  multiplier: { texture: string; uv: { address: number } } | null;
+  palette: { texture: string | null } | null;
+};
 export interface SurfaceGroup {
   key: string;
   startTick: number;
@@ -101,6 +106,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   readonly depth = new SceneDepth();
   private sourceRotation = new THREE.Quaternion();
   private reflectedRotation = new THREE.Quaternion();
+  private orbitRotation = new THREE.Quaternion();
   private frameRotation = new THREE.Quaternion();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   private cameraRotation = new THREE.Quaternion();
@@ -117,6 +123,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
     const p = this.program.profiles[index],
       e = p.erosion,
       sourceGeometry = p.mesh ? assets.mesh(p.mesh) : undefined;
+    if (!p.texture) throw Error('Source surface requires an explicit base texture');
     const material = p.distortion
       ? createParticleDistortionMaterial({
           texture: assets.texture(p.texture, p.uv.address),
@@ -253,6 +260,25 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             this.ground(origin) + (p.worldOffset?.[1] ?? 0) * 0.01,
             (origin.y + (p.worldOffset?.[2] ?? 0)) * 0.01
           ).add(this.vector);
+          const orbit = p.orbitTurn?.some((v, i) => i < 3 && v !== 0);
+          if (orbit) {
+            const q = p.orbitTurn!,
+              center = new THREE.Vector3(now.x * 0.01, this.ground(now), now.y * 0.01),
+              acceleration = new THREE.Vector3(
+                -(p.worldOffset?.[0] ?? 0),
+                p.worldOffset?.[1] ?? 0,
+                p.worldOffset?.[2] ?? 0
+              ).multiplyScalar(0.01);
+            // S R S is the exact change of coordinates for the source-X mirror.
+            // Acceleration is added after orbit and never turned with the root.
+            this.orbitRotation.set(q[0], -q[1], -q[2], q[3]);
+            position
+              .sub(acceleration)
+              .sub(center)
+              .applyQuaternion(this.orbitRotation)
+              .add(center)
+              .add(acceleration);
+          }
           if (!world.pointVisible({ x: position.x * 100, y: position.z * 100 })) continue;
           const id = `${group.key}:${p.profileIndex}:${p.ordinal}`;
           active.add(id);
@@ -335,6 +361,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
                 this.vector.z += p.worldTravel[2];
                 stretch = Math.max(1, this.vector.length() * profile.directionVelocityScale);
               }
+              if (orbit) this.vector.applyQuaternion(this.orbitRotation);
               this.vector.applyQuaternion(this.cameraRotation.clone().invert());
               mesh.rotateZ(Math.atan2(-this.vector.x, this.vector.y));
             } else

@@ -1,0 +1,51 @@
+{
+  "scope": "Static comparison of two pinned primary reconstructions and previously frozen native shader inventory; no native CPU or runtime certification.",
+  "source": {
+    "path": "docs/reference/leona-r-particles.json",
+    "bytes": 266001,
+    "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+  },
+  "Rdefinitions": "Impact indices9 DistortFAST/12 DistortFAST1/15 DistortFAST2: ArbitraryQuad, alpha blend1, mode2, strength.07000000029802322/.15000000596046448/.10000000149011612; normal Leona_Base_R_Circle_normal.tex. No authored renderPhaseOverride/HUD/ground/custom material fields. miscRenderFlags1. Indices6/8 omit mode (external default1), strengths.02500000037252903/.014999999664723873.",
+  "reader65a7": {
+    "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "read": "readSurface.ts166-173,291-298 parses strength default0/mode default1/map.",
+    "route": "drawKind.ts71-72 distorts iff distortion block exists; mode is never consulted by retained material/uniform/shader routes. Shared geometry receives DISTORTS and screen copy layer. uniforms.ts285-299 binds only strength/map/frame/viewport.",
+    "shader": "shaders/quad.ts262-280: shown=mask*normal.a; push=(normal.rg*2-1)*strength*shown*[height/width,1]; screen clamp; copied RGB and shown alpha. This is inferred reconstruction and differs from frozen native fragment."
+  },
+  "reader2adda": {
+    "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+    "read": "engine/parsing/readSurface.ts retains distortion mode/default1.",
+    "route": "rendering/utils/drawKind.ts94-135: valid custom material suppresses automatic distortion; explicit renderPhaseOverride first; automatic HUD then ground precedence; then nonzero mode bits. enums.ts224 all=0x1/noCharacter=0x2. Mode2 => early/no-character only; mode1=>late/all only; mode3=>both. drawPhases89-93 disables distortion phases below Medium (quality.ts71-74). distorts191-194 depends on resulting phases.",
+    "layers": "rendering/utils/frame.ts48-71: early layer5, late layer1; drawLayersOf maps flags. This is a concrete external CPU route; not native16.18 execution proof.",
+    "technique": "src/modules/workshop/bin/vfx/rendering/utils/particleProgram.ts67-96 selects distortion pair for no mesh (actual R three); distortionMesh for mesh, distortionAttachedMesh for attachment. Only ALPHA_TEST define if alphaRef!=0; mode not a shader define. particleParams282 binds DistortionPower directly to authored strength. useParticlePrograms.ts55-62 calls readParticleProgram when preview shaders enabled; Quads.tsx102-106 documents handwritten material fallback until ready.",
+    "fragment": "rendering/shaders/quad.ts274-291 still has inferred aspect/normal-alpha push. Therefore its CPU selection cannot validate its handwritten warp arithmetic.",
+    "claims": "docs/plans/vfx-particle-renderer.md2366-2371 says render phases replace old2.25. Section2.52 attributes changes to static16.17client property read and says none checked in game. hexshade-vfx.md52-86 describes16.19DX11cache, not frozen16.18Metal. No local native binary/callsite/evidence IDs supplied for these claims."
+  },
+  "native": {
+    "pin": {
+      "path": "docs/reference/particle-distortion-shaders.json",
+      "bytes": 20709,
+      "sha256": "d1eaaf2ebc4a8f0ba34c60028db9aff61f1beddd201c7ade14a63d2ee9517ca2"
+    },
+    "readingPin": {
+      "path": "docs/reference/particle-distortion-reading.json",
+      "bytes": 5429,
+      "sha256": "ce3453845e4610479d13f55ba4512e7b49b0c48d823f05ee66c8997e9a021122"
+    },
+    "inventory": "All4TOCs/15programs retained in existing .cache/particle-distortion-shaders; every Metal/AIR/LLVM hash checked offline. QuadPS4 variants only ALPHA_TEST/COLORPALETTE_COLORBLIND;quadVS1;meshPS8 addsMASKED;meshVS2 addsMASKED. No distortionMode permutation.",
+    "arithmetic": "Default quad native displacement=(normal.rg-.5)*2*ramp.a*DistortionPower; normal alpha/base alpha/tint alpha/aspect absent from displacement. RGB=ramp*tint*backbuffer*base; alpha=normal.a*ramp.a. Existing native reading records exact SSA locations and hashes.",
+    "boundary": "Native TOC availability cannot identify CPU-selected draw phase, mode mapping, per-emitter technique, samplers, source-strength conversion or render phase capture; these remain unverified for16.18. External2adda provides a bounded reconstruction candidate, not native parity."
+  },
+  "orbital": {
+    "65a7": "particleRead.ts170-184/288-299: Ocurrent + R*(Pintegrated-Ocurrent) + unturned accelerationOffset. R=Ry(rateY*age)*Rx(rateX*age)*Rz(rateZ*age). No yaw conjugation; already emitter-oriented/integrated position rotates on world axes. Quads.tsx left-multiplies R to own basis.",
+    "2addaDifference": "engine/simulation/integrate.ts524-537: Q=P_local+(emitterSpace?EmitterPosition:0); if particleLocalOrientation Q=yaw*Q; Q=R*Q; Q=world.basis*Q+world.offset except HUD. drawnPlaceInto183-199: if !particleLocalOrientation Q=birthFrame*Q; add birth anchor+bound; then twice-integrated worldAcceleration*currentL\u00b2. Hence false: orbit occurs BEFORE birth-frame orientation; true: orbit AFTER current yaw but BEFORE definition transform. Cannot assert universal world-axis orbit across revisions.",
+    "directionDifference": "2adda integrate.ts536-537 computes drift from orbital placed position difference;carry559+ turns drift by birth frame if needed, adds bind travel. Thus newer travel includes orbital movement, unlike65a7. ownBasisInto239-268 composes spin/postRotate/localOrientation/orbit/worldTransform then direction for relevant primitive kinds.",
+    "mirror": "basis.ts185-191 at65a7 (same algebra): mirrored rotation S*R*S, S=diag(-1,1,1). For quaternion(x,y,z,w), equivalent q=(x,-y,-z,w), up to total sign. This is an algebraic inference valid for final change of coordinates; it does not justify moving R across birth/yaw/world factors."
+  },
+  "limits": [
+    "Pinned65a7 world-axis orbital ordering is retained as local policy;2adda has a different composition and direction model.",
+    "Mode2 routing has a concrete newer external candidate;16.18native CPU dispatch remains unverified.",
+    "No native client,shader orcompiler was run during this comparison."
+  ],
+  "localEvidenceOnly": []
+}

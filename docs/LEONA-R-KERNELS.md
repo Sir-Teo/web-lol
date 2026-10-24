@@ -103,3 +103,11 @@ stays unchanged; the ruleset includes both new attribute/frame modules. Source R
 renderer/material/terrain/attachment/distortion routing and native acceptance,
 Leona player/support and full six-character delivery remain open. Nothing is
 pushed; the full project goal stays active.
+
+## Subsequent source drawing
+
+The [saved-phase surface increment](LEONA-R-SURFACES.md) now draws 35 families.
+It retains this exact 65a7 orbital policy and documents the newer 2adda ordering
+difference. Newer distortion mode 2 has an explicit external early/no-character
+route; native 16.18 CPU dispatch and the new stage remain unverified/unimplemented.
+The counts and source archive above remain the historical sampling increment.

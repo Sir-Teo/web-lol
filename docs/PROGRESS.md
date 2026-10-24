@@ -5761,3 +5761,54 @@ CPU/material/listening/frame acceptance and player/support/full six-character
 match work remain open. See [scope](LEONA-R-KERNELS.md) and the
 [verification record](reference/leona/r-kernel-verification.json). Nothing is
 pushed; the full project goal stays active.
+
+## Solar Flare saved-phase source surfaces — October 24, 2026
+
+GameView now draws 35 of 44 enabled source families from saved cast, fixed area,
+actual impact and participant histories. The blue viewer selects exactly one
+team-relative area alias, yielding 30 families per cast across phases. Historical
+creation/birth audiences and current point vision stay separate. Finite delayed
+terminal births retire through display age without stepping the frozen World.
+The local cast stop follows actual release/cancellation; native callbacks and
+attachment/timing/state bindings remain unverified.
+
+The shared renderer gains an optional reflected world-axis orbit for R's two
+billboards. It follows pinned 65a7 placement about current origin, then unturned
+world acceleration; direction rotates before camera projection while raw stretch
+is preserved. W/E have no orbital input. Nullable texture/minimal sampler types
+accept complete R metadata without substituting a texture for missing Activate.
+Owned materials/ground/ray buffers retire; session source images/samplers/SCBs
+remain borrowed. R authors no soft particles and allocates no soft-depth target.
+
+The initial GPU probe exposed both weapon-glow quads below terrain under the
+provisional unit-root binding. Their authored Y=-90 offsets remain untouched;
+the complete four-family buff stays separate for explicit weapon/skin binding.
+The two planar families and three early distortion quads also remain separate.
+A copied E cleanup test incorrectly expected a soft target; the corrected check
+covers actual canvas-copy allocation/retirement. Empty zero-size ground births
+are captured as empty geometry. Initial diagnostics remain retained.
+
+An independent static REA question pins 28 exact primary reader files and checks
+45 already-frozen native Metal/AIR/LLVM streams across four TOCs/15 programs.
+Newer 2adda routes mode 2 to early/no-character and mode 1 to late/all, subject to
+precedence/quality. It also replaces 65a7's orbital ordering and direction travel.
+These revision differences stay explicit: the local 35-family surface path keeps
+65a7 orbit and mode 1 late-copy policy; no native 16.18 CPU phase proof is inferred,
+and the newer handwritten warp is not substituted for native shader arithmetic.
+No native client or Metal shader was executed in this increment.
+
+The full 1,849 unit cases/304 files plus three Node QA pass. Seven Chrome cases
+cover 35 families/30 per viewing side, localized pixels, exact Save/reload/context
+recovery at two phases, six hit/miss cycles with stable settled GPU memory and
+R/E kernels. Separate frozen W and E comparisons each preserve 63 frames with
+bytewise-identical pixels/source state. Fresh production passes 32 recordings
+without development hooks/Leona preload. The fresh 1,008-file pack contains
+513,235,759 bytes and passes all offline controls with 963 service-worker responses
+and no production errors. No new normal cohort/CPU benchmark is claimed.
+
+Schema 126 remains unchanged; ruleset cfa7ca3a identifies this stage. The remaining
+weapon/planar/early-distortion integrations, native CPU/material/frame gates,
+player Leona/support and full six-character match remain open. See
+[scope](LEONA-R-SURFACES.md) and the
+[verification record](reference/leona/r-surface-verification.json). Nothing is
+pushed; the full project goal stays active.
