@@ -1,0 +1,363 @@
+{
+  "schema": 1,
+  "scope": "Explicit UNLIT_DECAL shader inputs and synthetic GPU arithmetic; no R runtime/native acceptance",
+  "baselineCommit": "443cba6",
+  "ruleset": "0f7b3e3b7db7a36777db878a46f376efae271e0e7de097892e12870ff4f7ef55",
+  "snapshotSchema": 125,
+  "sourceArchive": ".cache/leona-r-decal-accepted-v1-20261024/source-archive.json",
+  "priorSourceArchive": ".cache/leona-r-source-accepted-v1-20261024/source-archive.json",
+  "checks": {
+    "standard": ".cache/leona-r-decal-validation-v2-20261024/check.log",
+    "unitFinal": ".cache/leona-r-decal-validation-v2-20261024/unit-final.log",
+    "browser": ".cache/leona-r-decal-validation-v2-20261024/browser.log",
+    "extraction": ".cache/leona-r-decal-validation-v2-20261024/extract-check.json",
+    "arithmetic": ".cache/leona-r-decal-validation-v2-20261024/browser/particle-decal-material-na-fa5d8-ive-exact-graphics-recovery/decal-arithmetic.json"
+  },
+  "native": [
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/external-records.json",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/external-records.json",
+      "bytes": 2322,
+      "sha256": "0820c0a0d65c1fbee457881e34de0133f61d17dd0da6b4c07796e18a2c40df32"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+      "bytes": 6398,
+      "sha256": "31ab63b6bdbe068a8d8b3f589c1ef1f4ac3e35f5ad9904695bf193c856b1286f"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal_0",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal_0",
+      "bytes": 420056,
+      "sha256": "20e27228330c5f8512b01e3f8cc2b02a8b488064e40b5497fc6997e96e2b0fc2"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal",
+      "bytes": 201,
+      "sha256": "acb3833f6bcadbfbba0acb8583e66366ed51551e8717b2a86b17a5f117567b3d"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal_0",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/native/assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal_0",
+      "bytes": 46104,
+      "sha256": "9190697623715ccbe843e147a94f83d56b052dc869715b60a979e200aa6c3fad"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/readers/components/Projections.tsx",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/readers/components/Projections.tsx",
+      "bytes": 5139,
+      "sha256": "7d29a8b7d8f71108cb8d30521b8cf378b56c6531ade8c9e3e49511244da207e2"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/readers/shaders/projection.ts",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/readers/shaders/projection.ts",
+      "bytes": 2425,
+      "sha256": "c0f8026f53a83e1f225e66a1d6300cc8f4e2b021412c85fbcef995e0e8deb0be"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/readers/state/stencil.ts",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/readers/state/stencil.ts",
+      "bytes": 3111,
+      "sha256": "c8268bcef493bc1f4ee4245bab55b3332bdc9ea9cf3517f9380c12a792420c96"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/readers/utils/projection.ts",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/readers/utils/projection.ts",
+      "bytes": 2230,
+      "sha256": "60d151e8ec8063954b0a4039dc79e1488b4e925612c67548c7dedd83ba7c48b9"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/readers/utils/stencil.ts",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/readers/utils/stencil.ts",
+      "bytes": 6025,
+      "sha256": "3da32a99e72d60440ee263cff679e1dfc5a6bec79861d12aa605d618b84efd09"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.bc",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.bc",
+      "bytes": 3300,
+      "sha256": "147d6480cdf4d8a429112c8a931a1b3bd5c481caa99ff3b1eac89a5701931dc9"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.ll",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.ll",
+      "bytes": 4903,
+      "sha256": "3586aa0ab1b22f17d4a77f478af050310dc3b341bd6647480569ed8a29ae1ea1"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.metallib",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.metallib",
+      "bytes": 3566,
+      "sha256": "36f5114e0330f1f7101d54b91f9df1c80ea8c889c5e25a98f4b43cca4f13a284"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.bc",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.bc",
+      "bytes": 3636,
+      "sha256": "5c6f696e77b59902167f8b63e18c3d3731c8eb04376e6df9640edce986a760a8"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.ll",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.ll",
+      "bytes": 6747,
+      "sha256": "e1f57e276e09ce854edee0bd8a2f5e73fdb70c4678507fa1f78d582a72d5c694"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.metallib",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.metallib",
+      "bytes": 3902,
+      "sha256": "cbce78f75539eede15ce252a90e4be4be32341961522b68991f0baa43d92612a"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.bc",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.bc",
+      "bytes": 3872,
+      "sha256": "f3b942727e5e07ff9c3f9ff7a174e5294809ce2e1cbcdfd53941ee3269d0431b"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.ll",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.ll",
+      "bytes": 8109,
+      "sha256": "ee5ac005b3d312207da25cae8f89e671814710f71dd9b84806a6284104859c54"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.metallib",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.metallib",
+      "bytes": 4142,
+      "sha256": "a81ffa8c9c4fa2d46bb11a4553591ade3b71818715d35689ca6d456a54e9b04c"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.bc",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.bc",
+      "bytes": 3532,
+      "sha256": "fd8652d201ded71a7d2a947306c42c581296e3df355127f0c2218d3767d463f9"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.ll",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.ll",
+      "bytes": 6266,
+      "sha256": "094fede5eab85152bd390f1909a4df3a3929702151f7e9ab7affd81cfdf91346"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.metallib",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.metallib",
+      "bytes": 3790,
+      "sha256": "9598db4239e9e55acd6ada02bdf8c6ac9defb172319cc20022e84cbaa80b64f2"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.bc",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.bc",
+      "bytes": 5220,
+      "sha256": "c696603042641b0c4a286e45a36977122014ac3ee51f657c80db8b3f8ed8232e"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.ll",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.ll",
+      "bytes": 16883,
+      "sha256": "b860dbe8df90c29618c58e817a45c114fe351f1149b7b2d3a2594bd0029fc08c"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.metallib",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.metallib",
+      "bytes": 5511,
+      "sha256": "b72e545b0c01778c9df2132a7412fd6de073f8760ad1c18fd6cd32f40403ff05"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.bc",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.bc",
+      "bytes": 5324,
+      "sha256": "6eb0b760f5e947916b1ac5b42cc1563bc2e9d12a346a3392e21ba2bb41ba571a"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.ll",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.ll",
+      "bytes": 17635,
+      "sha256": "f8bb63b3923b6b76f61001647292efa86fd71436e48ebd951ec5c08e81e9be61"
+    },
+    {
+      "file": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.metallib",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.metallib",
+      "bytes": 5607,
+      "sha256": "9d46f3fdbb543df74091717b97abdfa1dcfdabf4d0dfd49fa1d39d458883f832"
+    },
+    {
+      "file": ".cache/riot-reference/15FFF284E055CD61.chunk",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/riot-reference/15FFF284E055CD61.chunk",
+      "bytes": 209,
+      "sha256": "5e079324e95ceccb29a6ad4a206059daf00d25bef577d35a7982e9f2e053a6e6"
+    },
+    {
+      "file": ".cache/riot-reference/29CE6E781C3B6368.manifest",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/riot-reference/29CE6E781C3B6368.manifest",
+      "bytes": 16683525,
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    {
+      "file": ".cache/riot-reference/41DE9F088016D2B7.chunk",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/riot-reference/41DE9F088016D2B7.chunk",
+      "bytes": 60043,
+      "sha256": "0a8e08b61dfbccbb06f80e0631d8e9e27bcf5c011901e3f2c0de435c1c710cea"
+    },
+    {
+      "file": ".cache/riot-reference/45E944192F8380B7.chunk",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/riot-reference/45E944192F8380B7.chunk",
+      "bytes": 51065,
+      "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+    },
+    {
+      "file": ".cache/riot-reference/89E9D559AE0ED784.chunk",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/riot-reference/89E9D559AE0ED784.chunk",
+      "bytes": 13581,
+      "sha256": "f977a4154a79f5da5330fe5575bf4867c71b51abe8c91d68d4ca9007fd4ce8fc"
+    },
+    {
+      "file": ".cache/riot-reference/F53706C78415C5C1.chunk",
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/native-inputs/riot-reference/F53706C78415C5C1.chunk",
+      "bytes": 4682,
+      "sha256": "4c43f5575073d02f24678a4f34d0254d741ee0f3226d031567e708ebd12c7228"
+    }
+  ],
+  "generated": [],
+  "evidence": [
+    {
+      "archived": ".cache/leona-r-decal-accepted-v1-20261024/source-archive.json",
+      "bytes": 871936,
+      "sha256": "e611dace93c7ba85434dcfca809f8ee0b40ce2ae82f5c5320948f4c69dfbaf20"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/browser.log",
+      "bytes": 679,
+      "sha256": "ae28ca52174dd68c0076e7aa3fea9676472629a25d64078bed990defde228004"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/browser/particle-decal-material-na-fa5d8-ive-exact-graphics-recovery/decal-arithmetic.json",
+      "bytes": 140937,
+      "sha256": "3dac44cab1e3765b3878b65bd6ae63f8030426f044947f6ed458fec757e98928"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/extract-check.json",
+      "bytes": 106,
+      "sha256": "7c680984cd6a244e5b0505ac1ee0dc8fc869c23175ab01f174895c2e4630756d"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/extract-v2.log",
+      "bytes": 79,
+      "sha256": "c4d8436b258389933d2c1194ad92953d3bb57c4da942f580c72d74bf91120343"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/extract.log",
+      "bytes": 1223,
+      "sha256": "637e8690659f717312a652cdcee719c3cdfdacd2052c3b26c8f24a6347d72f97"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v1-20261024/unit.log",
+      "bytes": 191,
+      "sha256": "1b5c9d16386cfd5a1af0a2252712d2f54d8d5c5790c39c91db5b24c9a3ff1532"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v2-20261024/browser.log",
+      "bytes": 679,
+      "sha256": "65be8849f24d488bb9bed50ae8b6f1eb462ddecc875bbe0f9158775f9222eb16"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v2-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v2-20261024/browser/particle-decal-material-na-fa5d8-ive-exact-graphics-recovery/decal-arithmetic.json",
+      "bytes": 175945,
+      "sha256": "db24e60aafdfb7e43826dc46e163b2ae167958eedd8192733c6eb9a78214d65d"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v2-20261024/check.log",
+      "bytes": 1043,
+      "sha256": "4e84d58792649a83dfe83303fadeecc85cecc9c035ca7f84ef783495e4a3ebc4"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v2-20261024/extract-check.json",
+      "bytes": 106,
+      "sha256": "7c680984cd6a244e5b0505ac1ee0dc8fc869c23175ab01f174895c2e4630756d"
+    },
+    {
+      "archived": ".cache/leona-r-decal-validation-v2-20261024/unit-final.log",
+      "bytes": 191,
+      "sha256": "76b50fede81ec4fdcb2eb7e2ce237d2b5c7cdd27d13f4c3c227c4bf0318688b2"
+    },
+    {
+      "archived": ".cache/leona-r-projection-readers-v1-20261024/components/Projections.tsx",
+      "bytes": 5140,
+      "sha256": "5eb099069f7df52029e3a332334253ed6c18e8a2f8940c549576964fc13b7a30"
+    },
+    {
+      "archived": ".cache/leona-r-projection-readers-v1-20261024/shaders/projection.ts",
+      "bytes": 2426,
+      "sha256": "a5340f0b7ec930ace7e4d5588a55d9facaf557b3200ff309c46f13c06f00f5ac"
+    },
+    {
+      "archived": ".cache/leona-r-projection-readers-v1-20261024/state/stencil.ts",
+      "bytes": 3112,
+      "sha256": "d4a23075b4c952abd5be629a09a1bd70a93603934d73e01d3c9708c9efbe7c70"
+    },
+    {
+      "archived": ".cache/leona-r-projection-readers-v1-20261024/utils/projection.ts",
+      "bytes": 2231,
+      "sha256": "919afd5e1cbc3763b01d568eab9acba9903ef219b689ad35ac0f940dd5a5881d"
+    },
+    {
+      "archived": ".cache/leona-r-projection-readers-v1-20261024/utils/stencil.ts",
+      "bytes": 6026,
+      "sha256": "61a701e9febc966351ca7e06ffbb8db1f23ec147ea80319d6feabd996bb21efd"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/source-archive.json",
+      "bytes": 869634,
+      "sha256": "1e9c0c0c3e50829885561200f6117667f55dc3965ed9645bef739196d8cf3cb7"
+    },
+    {
+      "archived": ".cache/leona-r-unlit-decal-shaders-v1-20261024/check.py",
+      "bytes": 977,
+      "sha256": "b8bdb5d5a2275b6f84d2735a23f83bdbcf4e93074843cd5bac59476a93e0d5a2"
+    },
+    {
+      "archived": ".cache/leona-r-unlit-decal-shaders-v1-20261024/extract.py",
+      "bytes": 2899,
+      "sha256": "1759ceee0771106eb16c03b423bc7c1770b6ff2b0053e38c84bc3f67ea8b59c1"
+    },
+    {
+      "archived": ".cache/leona-r-unlit-decal-shaders-v1-20261024/findings.json",
+      "bytes": 3750,
+      "sha256": "dd007c1e537ccb040334632aea62f6b588919cba6b0d2ff43a04f8bb23aee779"
+    },
+    {
+      "archived": ".cache/leona-r-unlit-decal-shaders-v1-20261024/provenance.json",
+      "bytes": 9715,
+      "sha256": "6f8803360460aceb86b801af46ef333dbd0d646cf007e4efa16d03b5ee79d6a1"
+    }
+  ],
+  "acceptance": {
+    "explicitShaderArithmeticVerified": true,
+    "runtimeIntegrated": false,
+    "nativeRenderingVerified": false,
+    "nativeExecuted": false,
+    "fullProjectComplete": false
+  },
+  "limits": [
+    "Six static native selections; no native executable/Metal execution or R dispatch established.",
+    "Caller supplies receiving triangles, matrices, texture/sampler semantics and render states. No footprint, normal, missing resource or terrain selection generated.",
+    "Ten synthetic probes/640 exact RGBA8 samples, one float HDR sample and256-byte context recovery are not native reference frames.",
+    "Full1818 unit cases/300 files plus three QA; no fresh production/offline/normal-match/CPU acceptance."
+  ]
+}

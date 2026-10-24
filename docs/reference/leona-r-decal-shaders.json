@@ -1,0 +1,368 @@
+{
+  "scope": "Six static UNLIT_DECAL Metal/AIR permutations and exact primary reconstruction readers; no native client/Metal execution.",
+  "limits": [
+    "Selection does not establish R CPU dispatch, receiving terrain triangles, decal matrices, sampler or render-state bindings.",
+    "External flat-ground footprint and epsilon fading guard differ from observed native VS arithmetic; no reconstruction shortcut is treated as native.",
+    "Clang retargets textual IR to the host with LLVM passes disabled; original Metal/AIR bytes are preserved."
+  ],
+  "tocReader": "tools/assets/export-particle-shaders.py",
+  "tocReaderSha256": "fbb96dc9c57f155668ba0145fe4ceb273f9be7b22a55fed17ec336d3682f46d3",
+  "sourcePin": "docs/reference/particle-shaders.json",
+  "sourcePinSha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6",
+  "tables": [
+    {
+      "path": "assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal",
+      "stage": 0,
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MASKED": "1",
+        "MULT_PASS": "1"
+      },
+      "variantCount": 8,
+      "uniqueProgramCount": 8
+    },
+    {
+      "path": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+      "stage": 1,
+      "defines": {
+        "DISABLE_SHADOWS": "1",
+        "DISABLE_FOW": "1",
+        "MASKED": "1",
+        "LOW_QUALITY_MODE": "1",
+        "COLORPALETTE_COLORBLIND": "1",
+        "PALETTIZE_TEXTURES": "1",
+        "ALPHA_EROSION": "1",
+        "ALPHA_TEST": "1",
+        "MULT_PASS": "1"
+      },
+      "variantCount": 512,
+      "uniqueProgramCount": 128
+    }
+  ],
+  "selections": [
+    {
+      "table": "assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal",
+      "defines": {},
+      "definesHash": "ef46db3751d8e999",
+      "programId": 1,
+      "bundle": "assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal_0",
+      "index": 1,
+      "bundleProgramOffset": 5519,
+      "metallib": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.metallib",
+        "bytes": 5607,
+        "sha256": "9d46f3fdbb543df74091717b97abdfa1dcfdabf4d0dfd49fa1d39d458883f832"
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.bc",
+        "bytes": 5324,
+        "sha256": "6eb0b760f5e947916b1ac5b42cc1563bc2e9d12a346a3392e21ba2bb41ba571a",
+        "offset": 283
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-1.ll",
+        "bytes": 17635,
+        "sha256": "f8bb63b3923b6b76f61001647292efa86fd71436e48ebd951ec5c08e81e9be61"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "definesHash": "385f44a4ff47b22d",
+      "programId": 0,
+      "bundle": "assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal_0",
+      "index": 0,
+      "bundleProgramOffset": 4,
+      "metallib": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.metallib",
+        "bytes": 5511,
+        "sha256": "b72e545b0c01778c9df2132a7412fd6de073f8760ad1c18fd6cd32f40403ff05"
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.bc",
+        "bytes": 5220,
+        "sha256": "c696603042641b0c4a286e45a36977122014ac3ee51f657c80db8b3f8ed8232e",
+        "offset": 283
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_vs.vs-metal-0.ll",
+        "bytes": 16883,
+        "sha256": "b860dbe8df90c29618c58e817a45c114fe351f1149b7b2d3a2594bd0029fc08c"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+      "defines": {},
+      "definesHash": "ef46db3751d8e999",
+      "programId": 8,
+      "bundle": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal_0",
+      "index": 8,
+      "bundleProgramOffset": 29796,
+      "metallib": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.metallib",
+        "bytes": 3790,
+        "sha256": "9598db4239e9e55acd6ada02bdf8c6ac9defb172319cc20022e84cbaa80b64f2"
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.bc",
+        "bytes": 3532,
+        "sha256": "fd8652d201ded71a7d2a947306c42c581296e3df355127f0c2218d3767d463f9",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-8.ll",
+        "bytes": 6266,
+        "sha256": "094fede5eab85152bd390f1909a4df3a3929702151f7e9ab7affd81cfdf91346"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "definesHash": "385f44a4ff47b22d",
+      "programId": 0,
+      "bundle": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal_0",
+      "index": 0,
+      "bundleProgramOffset": 4,
+      "metallib": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.metallib",
+        "bytes": 3566,
+        "sha256": "36f5114e0330f1f7101d54b91f9df1c80ea8c889c5e25a98f4b43cca4f13a284"
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.bc",
+        "bytes": 3300,
+        "sha256": "147d6480cdf4d8a429112c8a931a1b3bd5c481caa99ff3b1eac89a5701931dc9",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-0.ll",
+        "bytes": 4903,
+        "sha256": "3586aa0ab1b22f17d4a77f478af050310dc3b341bd6647480569ed8a29ae1ea1"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "PALETTIZE_TEXTURES": "1"
+      },
+      "definesHash": "47ddc869926e245b",
+      "programId": 11,
+      "bundle": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal_0",
+      "index": 11,
+      "bundleProgramOffset": 41210,
+      "metallib": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.metallib",
+        "bytes": 3902,
+        "sha256": "cbce78f75539eede15ce252a90e4be4be32341961522b68991f0baa43d92612a"
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.bc",
+        "bytes": 3636,
+        "sha256": "5c6f696e77b59902167f8b63e18c3d3731c8eb04376e6df9640edce986a760a8",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-11.ll",
+        "bytes": 6747,
+        "sha256": "e1f57e276e09ce854edee0bd8a2f5e73fdb70c4678507fa1f78d582a72d5c694"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+      "defines": {
+        "PALETTIZE_TEXTURES": "1"
+      },
+      "definesHash": "be4660e655ff12fa",
+      "programId": 38,
+      "bundle": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal_0",
+      "index": 38,
+      "bundleProgramOffset": 150016,
+      "metallib": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.metallib",
+        "bytes": 4142,
+        "sha256": "a81ffa8c9c4fa2d46bb11a4553591ade3b71818715d35689ca6d456a54e9b04c"
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.bc",
+        "bytes": 3872,
+        "sha256": "f3b942727e5e07ff9c3f9ff7a174e5294809ce2e1cbcdfd53941ee3269d0431b",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-decal-shaders-v2-20261024/unlit_decal_ps.ps-metal-38.ll",
+        "bytes": 8109,
+        "sha256": "ee5ac005b3d312207da25cae8f89e671814710f71dd9b84806a6284104859c54"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  ],
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/ShaderCache.metal.wad.client",
+    "chunks": {
+      "45E944192F8380B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15109374,
+        "bytes": 51065,
+        "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+      },
+      "15FFF284E055CD61": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15972693,
+        "bytes": 209,
+        "sha256": "5e079324e95ceccb29a6ad4a206059daf00d25bef577d35a7982e9f2e053a6e6"
+      },
+      "F53706C78415C5C1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 11659854,
+        "bytes": 4682,
+        "sha256": "4c43f5575073d02f24678a4f34d0254d741ee0f3226d031567e708ebd12c7228"
+      },
+      "89E9D559AE0ED784": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 7734861,
+        "bytes": 13581,
+        "sha256": "f977a4154a79f5da5330fe5575bf4867c71b51abe8c91d68d4ca9007fd4ce8fc"
+      },
+      "41DE9F088016D2B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BC83F0F7AC98DE26.bundle",
+        "offset": 39221464,
+        "bytes": 60043,
+        "sha256": "0a8e08b61dfbccbb06f80e0631d8e9e27bcf5c011901e3f2c0de435c1c710cea"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal",
+        "wadPathHash": "231d30043400b870",
+        "sha256": "acb3833f6bcadbfbba0acb8583e66366ed51551e8717b2a86b17a5f117567b3d",
+        "bytes": 201
+      },
+      {
+        "path": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal",
+        "wadPathHash": "a28499822d4dedb1",
+        "sha256": "31ab63b6bdbe068a8d8b3f589c1ef1f4ac3e35f5ad9904695bf193c856b1286f",
+        "bytes": 6398
+      },
+      {
+        "path": "assets/shaders/hlsl/environment/unlit_decal_vs.vs-metal_0",
+        "wadPathHash": "1593009f9456b101",
+        "sha256": "9190697623715ccbe843e147a94f83d56b052dc869715b60a979e200aa6c3fad",
+        "bytes": 46104
+      },
+      {
+        "path": "assets/shaders/hlsl/environment/unlit_decal_ps.ps-metal_0",
+        "wadPathHash": "f61817fc1b66c52f",
+        "sha256": "20e27228330c5f8512b01e3f8cc2b02a8b488064e40b5497fc6997e96e2b0fc2",
+        "bytes": 420056
+      }
+    ]
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "disassemblyCommand": [
+    "clang",
+    "-S",
+    "-emit-llvm",
+    "-Xclang",
+    "-disable-llvm-passes",
+    "INPUT.bc",
+    "-o",
+    "OUTPUT.ll"
+  ],
+  "nativeExecuted": false,
+  "nativeRenderingVerified": false,
+  "externalReaders": [
+    {
+      "file": "components/Projections.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Projections.tsx",
+      "bytes": 5139,
+      "sha256": "7d29a8b7d8f71108cb8d30521b8cf378b56c6531ade8c9e3e49511244da207e2",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "path": ".cache/leona-r-decal-shaders-v2-20261024/readers/components/Projections.tsx"
+    },
+    {
+      "file": "shaders/projection.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/projection.ts",
+      "bytes": 2425,
+      "sha256": "c0f8026f53a83e1f225e66a1d6300cc8f4e2b021412c85fbcef995e0e8deb0be",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "path": ".cache/leona-r-decal-shaders-v2-20261024/readers/shaders/projection.ts"
+    },
+    {
+      "file": "utils/projection.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/projection.ts",
+      "bytes": 2230,
+      "sha256": "60d151e8ec8063954b0a4039dc79e1488b4e925612c67548c7dedd83ba7c48b9",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "path": ".cache/leona-r-decal-shaders-v2-20261024/readers/utils/projection.ts"
+    },
+    {
+      "file": "utils/stencil.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/stencil.ts",
+      "bytes": 6025,
+      "sha256": "3da32a99e72d60440ee263cff679e1dfc5a6bec79861d12aa605d618b84efd09",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "path": ".cache/leona-r-decal-shaders-v2-20261024/readers/utils/stencil.ts"
+    },
+    {
+      "file": "state/stencil.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/state/stencil.ts",
+      "bytes": 3111,
+      "sha256": "c8268bcef493bc1f4ee4245bab55b3332bdc9ea9cf3517f9380c12a792420c96",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "path": ".cache/leona-r-decal-shaders-v2-20261024/readers/state/stencil.ts"
+    }
+  ],
+  "observations": [
+    {
+      "id": "DECAL-VS-INPUTS",
+      "source": "unlit_decal_vs.vs-metal-0.ll:274-278",
+      "observation": "Input float3 ATTR0 location0; PerFrameVertexCB buffer1/560bytes; ParticleDecalVS buffer7/144bytes: WORLD_MATRIX@0, WORLD_TO_UV_MATRIX@64, PROJECTION_Y_RANGE@128."
+    },
+    {
+      "id": "DECAL-VS-POSITION-UV",
+      "source": "unlit_decal_vs.vs-metal-0.ll:26-123,150-235",
+      "observation": "Homogeneous input transforms by DECAL_WORLD_MATRIX. U=dot(world,UVstoredVector0); V=1-dot(world,UVstoredVector2); clip uses VIEW_PROJECTION_MATRIX, not mProj. No shader flatten-to-ground or sampling of terrain/depth; terrain triangle selection/world matrix setup are CPU unknowns."
+    },
+    {
+      "id": "DECAL-VS-FADE",
+      "source": "unlit_decal_vs.vs-metal-0.ll:124-145",
+      "observation": "gap=abs(world.y-Y_RANGE.x). Fade=1 if gap<=Y_RANGE.y, else1-(gap-Y_RANGE.y)/Y_RANGE.z. Vertex computed/interpolated. No epsilon guard or saturation in VS."
+    },
+    {
+      "id": "DECAL-PS-COLOR",
+      "source": "unlit_decal_ps.ps-metal-0.ll:10-30,64-69",
+      "observation": "L=sample(diffuse,UV)*sample(particleLookup,COLOR_UV.xy)*MODULATE_COLOR. Output.rgb=L.rgb, output.a=L.a*max(interpolatedFade,0). No global remap stage or RGB clamp in selected native code. DiffuseTex0/Smp0; lookupTex1/Smp1; LocalsFragment buffer16/32bytes: COLOR_UV@0,MODULATE_COLOR@16."
+    },
+    {
+      "id": "DECAL-PS-PALETTE",
+      "source": "unlit_decal_ps.ps-metal-11.ll:10-38,77-84",
+      "observation": "Base RGBA B -> palette at[clamp(dot(B,cPaletteSrcMixerMain),0,1),cPaletteSelectMain.x]+select.zw. Replace only B.rgb with palette.rgb; preserve B.a. Multiply lookup then MODULATE_COLOR; alpha-only max(fade,0). LocalsFragment16/64bytes: select@0,mixer@16,COLOR_UV@32,MODULATE_COLOR@48. PaletteTex0/Smp0,diffuseTex1/Smp1,lookupTex2/Smp2."
+    },
+    {
+      "id": "DECAL-FOW",
+      "source": "unlit_decal_vs.vs-metal-1.ll:237-243;unlit_decal_ps.ps-metal-8.ll:25-34",
+      "observation": "VS derives FOW UV from transformed world.xz*FOG_OF_WAR_PARAMS.xy+zw. Default PS multiplies RGB only by FOW sample alpha; height fade affects output alpha. Adds FOWTex0/Smp15; shifts diffuse and lookup textures to1/2, retains diffuse/lookup samplers0/1."
+    },
+    {
+      "id": "DECAL-FOW-PALETTE",
+      "source": "unlit_decal_ps.ps-metal-38.ll:10-53,95-104",
+      "observation": "Combined palette/FOW route preserves diffuse alpha, multiplies lookup/modulation, applies max(interpolated fade,0) to alpha and FOW alpha only to RGB. FOW/palette/diffuse/lookup textures0/1/2/3; palette/diffuse/lookup samplers0/1/2 and FOWsampler15."
+    }
+  ],
+  "externalBytePreservation": "Exact fetched UTF-8 response bytes; earlier newline-normalized discovery cache is separate."
+}

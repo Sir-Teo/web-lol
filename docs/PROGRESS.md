@@ -5626,3 +5626,29 @@ the full project goal stays active.
 The fresh 996-file offline pack also passes integrity, cancellation/retry,
 repair, saved/new-match boot, removal and atomic activation with 963
 service-worker responses and no production errors.
+
+## Solar Flare explicit-input decal arithmetic — October 24, 2026
+
+Six frozen UNLIT_DECAL VS/PS selections now preserve original Metal/AIR, TOCs,
+bundles and static LLVM text, plus five exact-revision primary reconstruction
+readers. Native position/UV matrices, vertex-computed unsaturated height fade,
+alpha-only fragment fade, untinted palette RGB replacement and RGB-only FOW
+are represented by an explicit-input material. No receiving terrain, footprint,
+normal, resource or CPU matrix default is invented; inspection render states and
+positive fading-distance restriction are local policies. No native target runs.
+
+The full 1,818 unit cases/300 files and three Node QA cases pass. One final Chrome
+case covers ten probes/640 exact RGBA8 samples, RGB above one on a float target,
+and byte-identical context recovery. Independent static review found no mismatch
+against all six selections. Initial extraction lacked chunk coverage in the older
+particle pin; corrected extraction checks the same frozen manifest and every
+existing overlap before recording new ranges. Exact external response bytes are
+kept separately from newline-normalized discovery copies.
+
+The material is unused by GameView. Native R dispatch, receiving triangles,
+matrices/samplers/stencil/blend state, retained R history, source drawing/audio
+and native frame acceptance remain open. Schema125/ruleset0f7b3e3b are unchanged.
+No new production/offline run or normal-match/CPU cohort is claimed for this
+building block. See [scope](LEONA-R-DECALS.md) and the
+[verification record](reference/leona/r-decal-verification.json). Nothing is pushed;
+the full project goal stays active.

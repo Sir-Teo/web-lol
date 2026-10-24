@@ -104,6 +104,11 @@ freezes source/evidence/generated files. Add `--historical` to the final verifie
 after later canonical changes. Schema 125 and ruleset 0f7b3e3b remain unchanged.
 The full project goal stays active.
 
+The subsequent [explicit-input decal material](LEONA-R-DECALS.md) verifies six
+UNLIT_DECAL selections and their GPU arithmetic. Native R CPU dispatch and
+receiving-triangle/matrix/state setup remain open; no projection is drawn in
+GameView yet. The delivery results above remain scoped to this source package.
+
 The fresh full offline pack passes integrity, cancellation/retry, repair,
 saved/new-match boot, scope removal and atomic two-version activation with
 963 service-worker responses and no production errors.
