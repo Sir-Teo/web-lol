@@ -1,0 +1,120 @@
+{
+  "scope": "Solar Flare enabled Activate record: authored omission versus unavailable named assets. Static source and already-retained external-reader/native-shader evidence; no native default-resource binding established.",
+  "source": {
+    "raw": "docs/reference/leona-r-particles.json",
+    "system": "Leona_R_buf",
+    "complexIndex": 3,
+    "compiled": "src/content/leona-r-particles.json",
+    "profileIndex": 3
+  },
+  "observation": "No primitive, base texture, custom material, mesh, children or disabled field is authored. particleColorTexture is an explicit empty string. Meaningful size/motion curves are present. No named missing resource exists to extract.",
+  "externalInference": "Pinned 65a7 reader defaults an omitted primitive to camera quad. Pinned 2adda texture loader supplies a zero RGBA unnamed base. Under that external resource policy and SrcAlpha/One blend the emitter contributes no visible pixels.",
+  "nativeBoundary": "The retained quad fragment samples its bound texture and preserves product alpha through remap. It contains no missing-resource branch. Actual 16.18 CPU omitted-primitive/resource/state binding and native visibility remain unresolved by this reading.",
+  "localPolicy": "Keep profile3 excluded. Do not invent a white/procedural base or label this an authored NonRenderable. The two unbound weapon quads remain separate; accepted integrated count is41/44.",
+  "primaryRevisions": [
+    "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+    "2adda384347dd43e76d6295d77fe1f13623b2808"
+  ],
+  "evidence": [
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/findings.json",
+      "bytes": 6333,
+      "sha256": "41439fde0b15a8dc07772a5acedaf3c8ce9339fcbbc971335489116423a378ce"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/provenance.json",
+      "bytes": 4816,
+      "sha256": "6545954cb8c8a5344c3e30162b00b4cb79770c2d556a2b57decfc7263c2ae211"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/source-activate.json",
+      "bytes": 11258,
+      "sha256": "cdb9005f1958c3c0852a8f21e0b40cb1024011521740c14db7509d4e8f35eb38"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/00-leona-r-particles.json",
+      "bytes": 266001,
+      "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e",
+      "origin": "docs/reference/leona-r-particles.json"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/01-leona-r-particles.json",
+      "bytes": 449969,
+      "sha256": "f9b646921579c813e4e1f79ecafe52c63cadbc8bf38892f2ea2e90e281e1c013",
+      "origin": "src/content/leona-r-particles.json"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/02-leona-model.json",
+      "bytes": 93535,
+      "sha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7",
+      "origin": "docs/reference/leona-model.json"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/03-leona-solar-surface-profiles.ts",
+      "bytes": 586,
+      "sha256": "8427408e6e0c29d8b929738edf4c7b1ffff7d6a002f7afab7e9d6edabeee50a8",
+      "origin": "src/render/leona-solar-surface-profiles.ts"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/04-particle-shaders.json",
+      "bytes": 19572,
+      "sha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6",
+      "origin": "docs/reference/particle-shaders.json"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/05-leona-e-trail-shader-reading.json",
+      "bytes": 17457,
+      "sha256": "7ab1d603749cd9baf67a59b68f11de80633478dcac5525fc1d847a4b84d4d3fb",
+      "origin": "docs/reference/leona-e-trail-shader-reading.json"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/06-readValue.ts",
+      "bytes": 12855,
+      "sha256": "f0d68f01959ba8cd8315399621f40556c77edfe2a4c7f6468f30094baa7718c4",
+      "origin": ".cache/leona-r-motion-readers-v1-20261024/readValue.ts"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/07-readVfxSystem.ts",
+      "bytes": 24051,
+      "sha256": "0d9ea0c6611b286354108b89d8bfc354cb66c972fef7bff56386b14fcbef8a50",
+      "origin": ".cache/leona-r-buff-binding-reading-v1-20261024/2adda38/engine/parsing/readVfxSystem.ts"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/08-useVfxTextures.ts",
+      "bytes": 10021,
+      "sha256": "fea7750b0c6c4c52d283552437724d76fde6afc533bbb3cfd0ddbf0acdfe2b6a",
+      "origin": ".cache/leona-r-buff-binding-reading-v1-20261024/2adda38/rendering/hooks/useVfxTextures.ts"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/09-particleProgram.ts",
+      "bytes": 16356,
+      "sha256": "45869c51b77a49e4e12b8fd4117b6c03048a3022e3a958108146e99e4b501679",
+      "origin": ".cache/leona-r-buff-binding-reading-v1-20261024/2adda38/rendering/utils/particleProgram.ts"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/10-drawKind.ts",
+      "bytes": 12295,
+      "sha256": "c9f6a5fdc3090671e62eab2015af23f75574ef7cf937a446633a48f9aa7042ba",
+      "origin": ".cache/leona-r-buff-binding-reading-v1-20261024/2adda38/rendering/utils/drawKind.ts"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/11-blend.ts",
+      "bytes": 5320,
+      "sha256": "2a9faf081ee3c27fdbbf0764ec42673eceb77b3b928992b9acaf407b572b52b8",
+      "origin": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/blend.ts"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/12-vfx-particle-renderer.md",
+      "bytes": 232427,
+      "sha256": "31d7294422ea1d6285fd9586814ba244f6ca5f68b26edc95edcd01b17786c733",
+      "origin": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/docs/plans/vfx-particle-renderer.md"
+    },
+    {
+      "path": ".cache/leona-r-activate-reading-v1-20261024/snapshots/13-quad_ps.ps-metal-0.ll",
+      "bytes": 5192,
+      "sha256": "b38ef38fb9072f3a4bf6123235d2f52a2bfdea921249e91f923f10df412a5f1a",
+      "origin": ".cache/leona-e-trail-reading-v1-20261024/quad_ps.ps-metal-0.ll"
+    }
+  ],
+  "nativeExecuted": false
+}

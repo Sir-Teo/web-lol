@@ -5957,3 +5957,35 @@ claimed. See [scope](LEONA-R-EARLY-DISTORTION.md) and the
 [verification record](reference/leona/r-early-distortion-verification.json).
 Remaining source/native acceptance, player Leona/support and full six-character
 match work remain open. Nothing is pushed; the full project goal stays active.
+
+## Matching 16.18 native artifact and Activate audit — October 24, 2026
+
+The earlier endpoint search now has a verified follow-up. A pinned historical
+third-party manifest index supplied an official Riot CDN candidate. Its retained
+RMAN, fourteen compressed ranges and five reconstructed files identify native
+16.18.8175716 independently through code/content metadata and the app plist.
+The 82,268,192-byte executable contains x86_64 and arm64 Mach-O images. Complete
+ordered Leona4,650/Metal5,824 chunk sequences match the original frozen assets.
+Only the executable and metadata/plist were retained; no client installation,
+game execution, shader execution, code-signature or native frame claim follows.
+
+The [matching-client pin](reference/leona-native-matching.json) and offline
+verifier check hashes, RMAN inventories/ranges, Zstandard reconstruction,
+metadata/plist and both architecture slices. Collector source was refetched at
+the exact pinned revision and compared byte for byte; it remains context rather
+than independent authentication of historical entries. Windows remains an
+unverified index candidate. See [scope](LEONA-NATIVE-MATCHING.md).
+
+The independent [Activate audit](LEONA-R-ACTIVATE.md) also distinguishes an
+omitted base image from a named missing asset. The enabled source record has
+meaningful size/motion, no authored primitive/base/custom material/mesh/children
+and an empty lookup name. External readers supply a default camera quad and a
+zero-RGBA unnamed base, yielding no visible contribution under their blend.
+The native fragment samples its supplied texture; that alone does not establish
+the CPU fallback. Seventeen retained source/reader/native-text files and exact
+raw/compiled correspondence pass the new offline audit. Profile3 stays excluded,
+both weapon frames remain open and integrated R remains41/44.
+
+These are static evidence/documentation increments. Runtime code, schema126 and
+ruleseta051ddc6 are unchanged; no production/browser/performance rerun is claimed.
+The overall project goal continues and nothing is pushed.

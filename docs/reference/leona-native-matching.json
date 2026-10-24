@@ -1,0 +1,555 @@
+{
+  "schema": 1,
+  "observedDate": "2026-10-24",
+  "scope": "Matching native Mac game-client artifact retained for static analysis; no native target executed. This adds evidence after the earlier bounded unsuccessful discovery.",
+  "matchingVersion": "16.18.8175716",
+  "matchingNativeManifestIdentified": true,
+  "nativeExecuted": false,
+  "nativeInstalled": false,
+  "fullClientRetained": false,
+  "collectorIndex": {
+    "repository": "https://github.com/Morilli/riot-manifests",
+    "revision": "ae19e16c9fabd5b686d45c9f66324d944f8dde2c",
+    "macos": {
+      "path": ".cache/leona-native-matching-v1-20261024/native-macos-index.txt",
+      "bytes": 85,
+      "sha256": "ddf4783bc5f88141d469dc7325da66c1423127e8daa3cd67dedb6321ddd9af97",
+      "gitBlobSha1": "4691a8b5f59c15964fb166379fd2a59b94d8ddd7",
+      "url": "https://raw.githubusercontent.com/Morilli/riot-manifests/ae19e16c9fabd5b686d45c9f66324d944f8dde2c/LoL/EUW1/macos/lol-game-client/16.18.8175716.txt"
+    },
+    "candidates": {
+      "path": ".cache/leona-native-matching-v1-20261024/index-candidates.json",
+      "bytes": 1491,
+      "sha256": "afba8325cd0606ecb7220acb05455bab7c34d1d42de76f7d0775173df9b69261"
+    },
+    "classification": "Third-party index supplies a candidate official CDN URL, not authoritative proof of version. macOS raw index Git blob matches retained directory row. code/content metadata, plist, RMAN and official-CDN chunk reconstruction independently establish retained artifact consistency.",
+    "collectorScript": {
+      "path": ".cache/leona-native-matching-v1-20261024/collector.py",
+      "bytes": 4501,
+      "sha256": "9d7640dc49a535fd046fb02fb0ada1a3663070924aefd6e51f0c4e488ba7156d",
+      "classification": "Exact collector source refetched at the pinned repository revision and compared byte for byte with retained collector.py. Context only; never executed by verifier. It shows PatchSieve artifact_type_id labels written into region/platform paths; it does not authenticate historical index claims.",
+      "url": "https://raw.githubusercontent.com/Morilli/riot-manifests/ae19e16c9fabd5b686d45c9f66324d944f8dde2c/LoL%20%2B%20TFT.py",
+      "gitBlobSha1": "a91a8e806afed70dce128bae51eac3ccde296129"
+    },
+    "windows": {
+      "path": ".cache/leona-native-matching-v1-20261024/native-windows-index.txt",
+      "bytes": 85,
+      "sha256": "42ea9e75615b93f50ca071873a370cbe7423c934f64c92cfa65534c2f943859f",
+      "classification": "Candidate URL only. Windows RMAN, executable and version metadata were not retained or verified by this task."
+    }
+  },
+  "officialManifest": {
+    "path": ".cache/leona-native-matching-v1-20261024/524F266AA13F85A9.manifest",
+    "bytes": 16778397,
+    "sha256": "a47010ec6b22299c3480ea9764f20674b05ddc4c8b4697bb70c483498273ffac",
+    "id": "524F266AA13F85A9",
+    "url": "https://lol.secure.dyn.riotcdn.net/channels/public/releases/524F266AA13F85A9.manifest",
+    "header": {
+      "version": [
+        2,
+        1
+      ],
+      "flags": 512,
+      "offset": 28,
+      "compressedBodyBytes": 16778113,
+      "manifestId": "524F266AA13F85A9",
+      "decodedBodyBytes": 26285128
+    },
+    "fileCount": 4069
+  },
+  "frozenAssetsManifest": {
+    "path": ".cache/riot-reference/29CE6E781C3B6368.manifest",
+    "bytes": 16683525,
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb",
+    "id": "29CE6E781C3B6368",
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "header": {
+      "version": [
+        2,
+        1
+      ],
+      "flags": 512,
+      "offset": 28,
+      "compressedBodyBytes": 16683241,
+      "manifestId": "29CE6E781C3B6368",
+      "decodedBodyBytes": 26168320
+    },
+    "fileCount": 4048
+  },
+  "readers": {
+    "repository": "https://github.com/CommunityDragon/CDTB",
+    "revision": "ba981db2a2c814a0d78e55f6483e0636b527850f",
+    "files": [
+      {
+        "path": ".tools/cdtb/cdtb/__init__.py",
+        "bytes": 52,
+        "sha256": "be6459509876854380a0704ab435a5c2028abac61f92d1e62fbf7267752246f2"
+      },
+      {
+        "path": ".tools/cdtb/cdtb/patcher.py",
+        "bytes": 24249,
+        "sha256": "9e538818c29c3f43b239d65e1f5474cfc937d5e8afaed7423b07b72bb22cadc6"
+      },
+      {
+        "path": ".tools/cdtb/cdtb/tools.py",
+        "bytes": 3725,
+        "sha256": "72dbd480621b1af930d33b76e9e7e19854a9f5e0eb2a49957e45ac5df590b982"
+      },
+      {
+        "path": ".tools/cdtb/cdtb/storage.py",
+        "bytes": 14834,
+        "sha256": "9708f7bcd973c672812325eba12e46cb2443f12f5c4126f3d637501fadc7c0ec"
+      }
+    ],
+    "runtime": ".tools/cdtb-venv/bin/python",
+    "zstandardDecoder": "pyzstd0.19.1 in existing runtime",
+    "classification": "Read-only RMAN parser and Zstandard decoder only; collector/extractor are never imported or executed."
+  },
+  "evidenceFiles": [
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/selected-metadata.json",
+      "bytes": 9616,
+      "sha256": "bb806c753e123caee3a94b526aac92f2fe2765d778036fde4a247a6a6bf8fd1e"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/macos-inventory.json",
+      "bytes": 481666,
+      "sha256": "66cc49c82e41d3e9d9ca5fb118d66f49532c6bb7e958739b5cf6d60fac844b08"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/index-candidates.json",
+      "bytes": 1491,
+      "sha256": "afba8325cd0606ecb7220acb05455bab7c34d1d42de76f7d0775173df9b69261"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/collector.py",
+      "bytes": 4501,
+      "sha256": "9d7640dc49a535fd046fb02fb0ada1a3663070924aefd6e51f0c4e488ba7156d"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/extract-selected.py",
+      "bytes": 2422,
+      "sha256": "1422977ee8863c21f6497b5d77ecb11fa2da7004d64775e98bf1b6eb0bdaf3cd"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/README.md",
+      "bytes": 235,
+      "sha256": "93f3b35002f9b3ae3b9a45468d952264f92af3812f1f4fec865ed87ec4cfb734"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/native-macos-index.txt",
+      "bytes": 85,
+      "sha256": "ddf4783bc5f88141d469dc7325da66c1423127e8daa3cd67dedb6321ddd9af97"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/native-windows-index.txt",
+      "bytes": 85,
+      "sha256": "42ea9e75615b93f50ca071873a370cbe7423c934f64c92cfa65534c2f943859f"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/metadata-extraction.log",
+      "bytes": 1935,
+      "sha256": "23d8ae08dfa995fcdce38020f1ee7d1a5029ee686c9a6fca8c3063d83fc11f43"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/native-extraction.log",
+      "bytes": 2084,
+      "sha256": "e4ed328d4e15b64cb4db9d03afdf6a40c9c7fe8cfcb9781245102c62b5eaf7a7"
+    }
+  ],
+  "inventory": {
+    "path": ".cache/leona-native-matching-v1-20261024/macos-inventory.json",
+    "bytes": 481666,
+    "sha256": "66cc49c82e41d3e9d9ca5fb118d66f49532c6bb7e958739b5cf6d60fac844b08"
+  },
+  "nativeRoot": ".cache/leona-native-matching-v1-20261024/native",
+  "selectedFiles": [
+    {
+      "name": "code-metadata.json",
+      "path": ".cache/leona-native-matching-v1-20261024/native/code-metadata.json",
+      "bytes": 68,
+      "sha256": "441e34c444e054a7b601071930eb21903e4348cb9af0ad1b94576530bcbee17f",
+      "chunks": [
+        "C8F1835EE65A9BC3"
+      ]
+    },
+    {
+      "name": "compat-version-metadata.json",
+      "path": ".cache/leona-native-matching-v1-20261024/native/compat-version-metadata.json",
+      "bytes": 105,
+      "sha256": "d78067b1f13f6491442e6374c67474050600412be157d21b171f10a572135d2f",
+      "chunks": [
+        "C66C5F045D44951D"
+      ]
+    },
+    {
+      "name": "content-metadata.json",
+      "path": ".cache/leona-native-matching-v1-20261024/native/content-metadata.json",
+      "bytes": 74,
+      "sha256": "89308d2e997e3f45bdd81fda7a844760660a4637ec7608c7ecf061952e5f5884",
+      "chunks": [
+        "529FC6A7D927B3D1"
+      ]
+    },
+    {
+      "name": "LeagueofLegends.app/Contents/Info.plist",
+      "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/Info.plist",
+      "bytes": 1574,
+      "sha256": "d751154e30965bda981f8425a47c3af0010d85bcbb4904d0b106e7394b73dd46",
+      "chunks": [
+        "1147F1F0AB9C3584"
+      ]
+    },
+    {
+      "name": "LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "bytes": 82268192,
+      "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+      "chunks": [
+        "2C11A00406D80732",
+        "35ACAF63790588AB",
+        "895C89713EB56C70",
+        "2C7EF50FD1467815",
+        "3CB8C7E495842A74",
+        "24309AF287FD3F99",
+        "756D905CF1299954",
+        "2D14C68B4E17D15E",
+        "A0842DDC25618E41",
+        "A17003B90F31CBAC"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/C8F1835EE65A9BC3.zst",
+      "id": "C8F1835EE65A9BC3",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/C120381CC2F40568.bundle",
+      "range": [
+        9523835,
+        9523906
+      ],
+      "bytes": 72,
+      "sha256": "9680ab840710149f2616ff6f4ae2e4ba5fe3e14952eed4d2c46730ce90a33034",
+      "decodedBytes": 68,
+      "decodedSha256": "441e34c444e054a7b601071930eb21903e4348cb9af0ad1b94576530bcbee17f"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/C66C5F045D44951D.zst",
+      "id": "C66C5F045D44951D",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/5A80E6403A8F834E.bundle",
+      "range": [
+        0,
+        101
+      ],
+      "bytes": 102,
+      "sha256": "8f210ea15b719a5eace98d64bbb5a01890cae3d40d10ce8af168f4468973d4f4",
+      "decodedBytes": 105,
+      "decodedSha256": "d78067b1f13f6491442e6374c67474050600412be157d21b171f10a572135d2f"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/529FC6A7D927B3D1.zst",
+      "id": "529FC6A7D927B3D1",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/39C5082DCC855C9C.bundle",
+      "range": [
+        32380167,
+        32380242
+      ],
+      "bytes": 76,
+      "sha256": "f3e4a7e844afd367df58d7aa4326accb2c781d49e7c72b67b3b928e733985b98",
+      "decodedBytes": 74,
+      "decodedSha256": "89308d2e997e3f45bdd81fda7a844760660a4637ec7608c7ecf061952e5f5884"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/1147F1F0AB9C3584.zst",
+      "id": "1147F1F0AB9C3584",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/DF7F1DB69C68E075.bundle",
+      "range": [
+        2237154,
+        2237786
+      ],
+      "bytes": 633,
+      "sha256": "5043c140fa661fc5c159b2d367e46f9461868d3c2a13ab52208c011a44cbc76f",
+      "decodedBytes": 1574,
+      "decodedSha256": "d751154e30965bda981f8425a47c3af0010d85bcbb4904d0b106e7394b73dd46"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/2C11A00406D80732.zst",
+      "id": "2C11A00406D80732",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/DF7F1DB69C68E075.bundle",
+      "range": [
+        2736164,
+        5145234
+      ],
+      "bytes": 2409071,
+      "sha256": "dda396c1b6c100a388dbb2853d22d3b1c51091df088b2b27ad0e0dcf0b731ba7",
+      "decodedBytes": 8388608,
+      "decodedSha256": "7f52a44267dfce5807e2679a514febc719aba8d1c71190bf6815ea65dae8d79a"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/35ACAF63790588AB.zst",
+      "id": "35ACAF63790588AB",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/DF7F1DB69C68E075.bundle",
+      "range": [
+        5145235,
+        7409334
+      ],
+      "bytes": 2264100,
+      "sha256": "4f9ba760dd0f72c5f4868a9c6e08157ecd0461f0623e490dd0ecdcc348099e3f",
+      "decodedBytes": 8388608,
+      "decodedSha256": "36c6e903143cc4660c85628491c294531d69e69509c7fb04a0b630dc229e6fa9"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/895C89713EB56C70.zst",
+      "id": "895C89713EB56C70",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/DF7F1DB69C68E075.bundle",
+      "range": [
+        7409335,
+        9521060
+      ],
+      "bytes": 2111726,
+      "sha256": "1a0489e65f1e12c20b4c5f1e3e3f9f0ebed4fea2d943c6edfd1e0f377baf0b6e",
+      "decodedBytes": 8388608,
+      "decodedSha256": "444781406522e36534f975d0ca05a448ab8a005792b6c09be529db8434f7a892"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/2C7EF50FD1467815.zst",
+      "id": "2C7EF50FD1467815",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/DF7F1DB69C68E075.bundle",
+      "range": [
+        9521061,
+        12527586
+      ],
+      "bytes": 3006526,
+      "sha256": "af8cc95f88dbcfac7a9309059852432cd33f8638bcfedf57b0ed75aa6d841a1f",
+      "decodedBytes": 8388608,
+      "decodedSha256": "e640351610c4bac5322f6a408a03b6907324a439e8399b5d24a9994aa706c32b"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/3CB8C7E495842A74.zst",
+      "id": "3CB8C7E495842A74",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/DF7F1DB69C68E075.bundle",
+      "range": [
+        12527587,
+        15463461
+      ],
+      "bytes": 2935875,
+      "sha256": "b3e4dd42f673968943c80ba93574355b7964c6e7c3015e76124b22a5ef6c94dc",
+      "decodedBytes": 8388608,
+      "decodedSha256": "1b60c894a0e98f8a1c4cad2826cbb524258c4238650f97c74cd0097c5565f07a"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/24309AF287FD3F99.zst",
+      "id": "24309AF287FD3F99",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/DF7F1DB69C68E075.bundle",
+      "range": [
+        15463462,
+        18040516
+      ],
+      "bytes": 2577055,
+      "sha256": "f12f4a80dc10c26698e2c7f694950c83138eb9729d960f33cd6e66f04b6f91d0",
+      "decodedBytes": 8388608,
+      "decodedSha256": "741d5e07e891838bf7acc00e9b85aa98e3533a9766095cabc8ddbe5e1e138e9d"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/756D905CF1299954.zst",
+      "id": "756D905CF1299954",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/C120381CC2F40568.bundle",
+      "range": [
+        0,
+        2200146
+      ],
+      "bytes": 2200147,
+      "sha256": "cf6faed1cf8d6b54ddeb331a8ada1db13057431f7e8eecad4ea411292e4bbcc3",
+      "decodedBytes": 8388608,
+      "decodedSha256": "30b173bf4df5040eb477c58de66d4e53aa275f49885b15e6e7ec569f4e899182"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/2D14C68B4E17D15E.zst",
+      "id": "2D14C68B4E17D15E",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/C120381CC2F40568.bundle",
+      "range": [
+        2200147,
+        4069313
+      ],
+      "bytes": 1869167,
+      "sha256": "e8bc0a25b2e1225cc8b259da0777522201a772ac34b9759de96d9127735d47e1",
+      "decodedBytes": 8388608,
+      "decodedSha256": "b133b2cccca59c386525334eb3248d31bef0d5f0e154b41f0adcac5ab9629930"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/A0842DDC25618E41.zst",
+      "id": "A0842DDC25618E41",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/C120381CC2F40568.bundle",
+      "range": [
+        4069314,
+        7039041
+      ],
+      "bytes": 2969728,
+      "sha256": "fdf28b7d1c3bbf59b8e91d205bca5365b453299e9dde931ac88ed0516c3847d4",
+      "decodedBytes": 8388608,
+      "decodedSha256": "87f9ddeb584ae4895a2b3770548a112f6a9c69bae3507b252f009918c8c33530"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/chunks/A17003B90F31CBAC.zst",
+      "id": "A17003B90F31CBAC",
+      "url": "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/C120381CC2F40568.bundle",
+      "range": [
+        7039042,
+        9425271
+      ],
+      "bytes": 2386230,
+      "sha256": "e5648afd12be9c7155e65a182a6416541e33c537f39e7879d9a0ba0f154e5154",
+      "decodedBytes": 6770720,
+      "decodedSha256": "b06aeb2bb0fb9a450eeeb3b437bf1981ef43faf572fa05bc1d4476c95e8627d9"
+    }
+  ],
+  "compressedChunkBytes": 24730508,
+  "chunkProvenance": "Each retained compressed range is pinned by SHA256 and decoded SHA256. Verifier checks URL bundle ID/range/encoded and decoded lengths against RMAN, decodes retained bytes offline and checks exact selected-file reconstruction. Recorded URLs are official public Riot CDN endpoints; no new request is made and HTTP response headers are not retained.",
+  "versions": {
+    "code-metadata.json": {
+      "version": "16.18.8175716+branch.releases-16-18.code.public"
+    },
+    "compat-version-metadata.json": {
+      "version": "16.18.8175716+branch.releases-16-18.code.public.content.release.anticheat.vanguard"
+    },
+    "content-metadata.json": {
+      "version": "16.18.8175716+branch.releases-16-18.content.release"
+    }
+  },
+  "plistName": "LeagueofLegends.app/Contents/Info.plist",
+  "plist": {
+    "CFBundleDevelopmentRegion": "en",
+    "CFBundleDisplayName": "LeagueofLegends",
+    "CFBundleExecutable": "LeagueofLegends",
+    "CFBundleIconFile": "lol.icns",
+    "CFBundleIdentifier": "com.riotgames.LeagueofLegends.GameClient",
+    "CFBundleInfoDictionaryVersion": "6.0",
+    "CFBundleLocalizations": [
+      "en"
+    ],
+    "CFBundleName": "LeagueofLegends",
+    "CFBundlePackageType": "APPL",
+    "CFBundleShortVersionString": "16.18.8175716",
+    "CFBundleSignature": "????",
+    "CFBundleVersion": "16.18.8175716",
+    "FileVersion": "16.18.817.5716",
+    "LSApplicationCategoryType": "public.app-category.games",
+    "LSMinimumSystemVersion": "10.7.5",
+    "LSUIElement": 0,
+    "NSHumanReadableCopyright": "\u00a9 2012 Riot Games Inc. All rights reserved.",
+    "NSMainNibFile": "MainMenu.nib",
+    "NSMicrophoneUsageDescription": "League of Legends needs access to the microphone for voice chat",
+    "UIBackgroundModes": [
+      "remote-notification"
+    ]
+  },
+  "executableName": "LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+  "macho": {
+    "magic": "CAFEBABE",
+    "format": "FAT32 big-endian / Mach-O64 little-endian",
+    "architectureCount": 2,
+    "architectures": [
+      {
+        "architecture": "x86_64",
+        "cpuType": 16777223,
+        "cpuSubtype": 3,
+        "offset": 16384,
+        "bytes": 42644576,
+        "alignPower": 14,
+        "magic": "FEEDFACF",
+        "fileType": 2,
+        "loadCommands": 45,
+        "loadCommandBytes": 5760,
+        "flags": 10518661,
+        "reserved": 0,
+        "sha256": "6dd6005cebcaabf43760aab4355afb9f8f557f693f81ae96ebd1a3b82f2afbb7"
+      },
+      {
+        "architecture": "arm64",
+        "cpuType": 16777228,
+        "cpuSubtype": 0,
+        "offset": 42663936,
+        "bytes": 39604256,
+        "alignPower": 14,
+        "magic": "FEEDFACF",
+        "fileType": 2,
+        "loadCommands": 45,
+        "loadCommandBytes": 5920,
+        "flags": 10518661,
+        "reserved": 0,
+        "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+      }
+    ]
+  },
+  "matchingContent": [
+    {
+      "name": "DATA/FINAL/Champions/Leona.wad.client",
+      "bytes": 146734953,
+      "chunkCount": 4650,
+      "sequenceSha256": "3d1b61b786190d802ab66118569ac1d5bc129d892d70845b3a6a574fddc3d02b",
+      "orderedChunkIdsAndDecodedSizesIdentical": true
+    },
+    {
+      "name": "DATA/FINAL/ShaderCache.metal.wad.client",
+      "bytes": 315068869,
+      "chunkCount": 5824,
+      "sequenceSha256": "50e5766214afd89741806f89f0cbd519fb7c68e9291aa773e68160250d8913d8",
+      "orderedChunkIdsAndDecodedSizesIdentical": true
+    }
+  ],
+  "sequenceEncoding": "SHA256 of UTF-8 json.dumps([{id:16-uppercase-hex,bytes:decoded-size},...],separators=(comma,colon)), object keys inserted id then bytes. Equality checks use the entire ordered sequence from both retained manifests, not only these digests.",
+  "manifestDifference": {
+    "addedFileNames": [
+      "DATA/FINAL/Bootstrap.macos.wad.client",
+      "LeagueofLegends.app/Contents/Frameworks/RPatch.framework/Info.plist",
+      "LeagueofLegends.app/Contents/Frameworks/RPatch.framework/PrivacyInfo.xcprivacy",
+      "LeagueofLegends.app/Contents/Frameworks/RPatch.framework/RPatch",
+      "LeagueofLegends.app/Contents/Frameworks/RPatch.framework/_CodeSignature/CodeResources",
+      "LeagueofLegends.app/Contents/Frameworks/RiotGamesApi.framework/Info.plist",
+      "LeagueofLegends.app/Contents/Frameworks/RiotGamesApi.framework/RiotGamesApi",
+      "LeagueofLegends.app/Contents/Frameworks/RiotGamesApi.framework/_CodeSignature/CodeResources",
+      "LeagueofLegends.app/Contents/Frameworks/RiotGamesApi.framework/libdiscord_partner_sdk.dylib",
+      "LeagueofLegends.app/Contents/Frameworks/RiotGamesApi.framework/libvivoxsdk.dylib",
+      "LeagueofLegends.app/Contents/Frameworks/mvg.framework/Info.plist",
+      "LeagueofLegends.app/Contents/Frameworks/mvg.framework/_CodeSignature/CodeResources",
+      "LeagueofLegends.app/Contents/Frameworks/mvg.framework/mvg",
+      "LeagueofLegends.app/Contents/Info.plist",
+      "LeagueofLegends.app/Contents/MacOS/LeagueCrashHandler",
+      "LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "LeagueofLegends.app/Contents/PkgInfo",
+      "LeagueofLegends.app/Contents/Resources/MainMenu.nib",
+      "LeagueofLegends.app/Contents/Resources/en.lproj/InfoPlist.strings",
+      "LeagueofLegends.app/Contents/Resources/lol.icns",
+      "LeagueofLegends.app/Contents/_CodeSignature/CodeResources",
+      "code-metadata.json"
+    ],
+    "removedFileNames": [
+      "DATA/FINAL/ShaderCache.dx11.wad.client"
+    ],
+    "classification": "Mac client RMAN adds app/framework paths and macOS bootstrap while omitting the assets RMAN DX11 shader archive. Only selected five metadata/plist/executable files were reconstructed; other native libraries/handlers were not downloaded."
+  },
+  "previousDiscovery": {
+    "record": {
+      "path": "docs/reference/leona-native-client-discovery.json",
+      "bytes": 4658,
+      "sha256": "394a9cf77c0afaa02c74be8cbae58361f9b8c4d423a09b511240928ba2fb6907"
+    },
+    "documentAtRead": {
+      "path": "docs/LEONA-NATIVE-CLIENT.md",
+      "bytes": 2445,
+      "sha256": "d8ae8cb04a4a9cc677368efc7c94e11c6a18f19f156ac4083886d05b87ac7022"
+    },
+    "classification": "Earlier evidence is an accurate bounded result at its discovery step; matching-manifest-unidentified statements are superseded by this new record. These background document hashes are contextual and not required by the offline verifier."
+  },
+  "limits": [
+    "No executable, app bundle, shader, loader, native process or analysis session was launched by extraction verification.",
+    "Static header checks establish universal Mach-O architecture/header/slice identity, not macOS code-signature validity, notarization or runtime acceptance.",
+    "Metadata and identical content chunk sequences match this retained game-client artifact to frozen Leona/Metal content; they do not prove native emitter dispatch, CPU bindings, normal generation or visual parity.",
+    "The third-party collector index is discovery context. Retained official-CDN manifest/chunk bytes and reconstructed metadata/plist supply matching evidence; transport authenticity/HTTP response status and current CDN availability are not reverified offline.",
+    "Chunk identity comparison covers ordered IDs and decoded sizes for full Leona and Metal WADs; it does not redownload/decode those full archives in this verifier.",
+    "Only the main universal game executable and four metadata/plist files are retained; this is not a complete client installation.",
+    "No Windows native artifact is claimed verified."
+  ],
+  "verifier": "tools/assets/verify-leona-native-matching.py",
+  "offlineCheck": ".tools/cdtb-venv/bin/python tools/assets/verify-leona-native-matching.py --check"
+}

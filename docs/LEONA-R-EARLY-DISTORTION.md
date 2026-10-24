@@ -4,7 +4,7 @@ R impact families 27/30/33 now use a separate early framebuffer capture. Their
 source geometry, timing, normals, lookup, tint and strengths remain unchanged.
 This adds three families to the prior 38, bringing the integrated total to 41 of
 44 enabled families across both area alternatives. Two weapon quads with no
-verified attachment frame and missing-texture Activate remain separate.
+verified attachment frame and [unnamed-base Activate](LEONA-R-ACTIVATE.md) remain separate.
 
 ## Observed phase contract
 

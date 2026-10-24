@@ -1,5 +1,10 @@
 # Matching native-client prerequisite
 
+This records the earlier bounded endpoint search. The later
+[matching-client follow-up](LEONA-NATIVE-MATCHING.md) now retains and verifies
+the 16.18 macOS native artifact, including identical Leona/Metal content chunks.
+The unsuccessful search below remains historical evidence.
+
 The pinned Leona assets are 16.18.8175716. The original RMAN
 `29CE6E781C3B6368` contains 4,048 files: WAD content plus two metadata files, with
 no native executable/library path. Its compressed `content-metadata.json` range
