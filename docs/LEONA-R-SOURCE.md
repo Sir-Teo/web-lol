@@ -113,6 +113,9 @@ GameView yet. The delivery results above remain scoped to this source package.
 and independent source/area/contact histories under schema 126. R source drawing,
 audio and native acceptance still require separate integration.
 
+[Complete source attribute sampling](LEONA-R-KERNELS.md) now covers all 44 enabled
+records with explicit field routes. Source drawing and native bindings remain open.
+
 The fresh full offline pack passes integrity, cancellation/retry, repair,
 saved/new-match boot, scope removal and atomic two-version activation with
 963 service-worker responses and no production errors.

@@ -107,6 +107,8 @@ const pinnedData = [
 // hashing only the entry file would miss a changed curve/motion helper.
 export const rulesetModuleRoots = [
   'src/render/leona-zenith-particles.ts',
+  'src/render/leona-solar-particles.ts',
+  'src/render/leona-solar-frame.ts',
   'src/render/leona-zenith-history.ts',
   'src/render/leona-zenith-trails.ts',
   'src/render/leona-eclipse-particles.ts',

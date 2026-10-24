@@ -120,8 +120,9 @@ export function zenithParticles(
         (v, i) =>
           v + spawn.getComponent(i) + motion.position[i] + acceleration[i] * accelerationReach
       );
-      // The pinned reconstruction adds this direction term alongside its
-      // age01*lifetime^2 displacement. It is not a second force integration.
+      // Local direction extension, separate from displacement integration.
+      // The pinned reader's comments describe this term, but its executable
+      // travel/basis path omits it; this E policy is not native certification.
       const travel = motion.travel.map((v, i) => v + acceleration[i] * life);
       const size = sample(p.size).map((v, i) => v * eclipseValue(p.scale, phase)[i]);
       if (p.uniform) size.fill(size[0]);

@@ -436,3 +436,10 @@ nine unchanged float masters. Saved accepted/area/impact facts, fog, reload,
 mute, fallback and terminal retirement are covered; native callsites, timing,
 shuffle/listener/bus and listening acceptance remain open. R source visual
 compilation/drawing is the next independent prerequisite.
+
+[Solar Flare source sampling](LEONA-R-KERNELS.md) now compiles all 44 enabled
+families, preserves nine disabled definitions, and provides seekable source
+attributes with explicit orbital placement/direction helpers. Cylinder, type-1
+linger, lookup/multiplier streams and externally zero noise are covered. Source
+GameView drawing, projection/attachment/distortion routing and native acceptance
+remain separate work.

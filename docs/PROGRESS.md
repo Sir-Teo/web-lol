@@ -5722,3 +5722,42 @@ remain open, together with player/support and the full six-character match.
 See [scope](LEONA-R-AUDIO.md) and the
 [verification record](reference/leona/r-audio-verification.json). Nothing is pushed;
 the full project goal stays active.
+
+## Solar Flare complete source attribute sampling — October 24, 2026
+
+All 44 enabled and nine disabled R records now retain complete field routes and
+six system declarations. Eighteen exact primary readers establish bounded
+external cylinder/orbital/linger/noise math. Bokeh samples signed uniform radius
+on its zero-height cylinder disk; orbital axes share one birth chance. Explicit
+helpers orbit already-integrated placement about the current origin, then add
+world acceleration unturned, and rotate a caller-provided direction separately.
+Raw travel/stretch remains independent. Axis-only noise resolves to zero under
+the pinned reconstruction defaults; no turbulence is invented. Native CPU
+semantics/defaults and shared PRNG remain unverified.
+
+Type-1 linger rewrites a resident particle's deadline after external stop and
+never revives a retired single. One focused boundary test caught floating
+subtraction keeping a particle at its exact deadline; the absolute deadline
+comparison fixes it, and the initial diagnostic remains retained. Lookup scale/
+offset, independent multiplier UV, attachment lock, missing texture, planar
+projection parameters, stencil reference without mode and distortion mode 2 all
+remain explicit. No primitive/resource/normal fallback is generated. A Zenith
+comment overstating the reader's acceleration/direction behavior was corrected;
+its existing local direction policy is unchanged and prior comparison bytes
+remain pinned.
+
+The full 1,842 unit cases/303 files plus three QA pass. Eight focused cases cover
+all families and independent scalar orbit arithmetic. Two Chrome cases cover
+720 R seeks, all 44 families, finite/repeatable attributes, exact World/RNG/ID
+preservation/restoration and the unchanged E kernel/trails. These are browser
+attribute checks, not native/GPU frame comparisons. Fresh production passes 32
+recordings without development hooks or Leona preload. The fresh 1,007-file
+pack contains 513,067,346 bytes and passes all offline controls with 963 service-
+worker responses and no production errors. No new normal cohort/CPU benchmark
+is claimed. Schema 126 stays unchanged; ruleset bb304f25 identifies this stage.
+
+Source R GameView drawing, terrain/attachment/distortion routing, native
+CPU/material/listening/frame acceptance and player/support/full six-character
+match work remain open. See [scope](LEONA-R-KERNELS.md) and the
+[verification record](reference/leona/r-kernel-verification.json). Nothing is
+pushed; the full project goal stays active.

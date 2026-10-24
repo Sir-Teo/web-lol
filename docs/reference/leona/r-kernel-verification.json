@@ -1,0 +1,599 @@
+{
+  "schema": 1,
+  "scope": "Complete44-family Solar Flare attribute sampling and explicit orbit inputs; source drawing/native CPU acceptance remain open",
+  "baselineCommit": "edd2546",
+  "ruleset": "bb304f254bf03c2013975458094ad3bdabe0b2b89b025544a5ca7354c2cab5c4",
+  "snapshotSchema": 126,
+  "sourceArchive": ".cache/leona-r-kernel-accepted-v1-20261024/source-archive.json",
+  "priorSourceArchive": ".cache/leona-r-audio-accepted-v1-20261024/source-archive.json",
+  "checks": {
+    "standard": ".cache/leona-r-kernel-validation-v1-20261024/check.log",
+    "e2eTypecheck": ".cache/leona-r-kernel-validation-v1-20261024/e2e-typecheck.log",
+    "browser": ".cache/leona-r-kernel-validation-v1-20261024/browser.log",
+    "export": ".cache/leona-r-kernel-validation-v1-20261024/export-final-check.json",
+    "attributes": ".cache/leona-r-kernel-validation-v1-20261024/browser/leona-solar-kernel-Chrome--9d4dc-nd-unchanged-saved-gameplay/solar-kernel.json",
+    "production": ".cache/leona-r-kernel-validation-v1-20261024/production.log",
+    "offline": "artifacts/offline-pack-leona-r-kernel-v1-20261024-production.json"
+  },
+  "pack": {
+    "id": "78d367032ba8c94a6389a1430552833c6762611f8a1c332eb3922745ded8f153",
+    "files": 1007,
+    "bytes": 513067346
+  },
+  "generated": [
+    {
+      "file": "dist/assets/finite-source-audio-B54Ut3el.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/finite-source-audio-B54Ut3el.js",
+      "bytes": 3096,
+      "sha256": "29d466837b30204cd080cb61ae3588dc192d9ea32feade5d0735b045866cb23b"
+    },
+    {
+      "file": "dist/assets/game-BZMpXSFq.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/game-BZMpXSFq.js",
+      "bytes": 1009747,
+      "sha256": "35c15d6fff2a2b2ad57e2d702b3d391a6b59f927cb25d510f653ea261007eae6"
+    },
+    {
+      "file": "dist/assets/game-DMLuJ5Rx.css",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": "dist/assets/garen-aa-BLdUtd8U.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-aa-BLdUtd8U.js",
+      "bytes": 31963,
+      "sha256": "8ba7e86002bc6f377164fd3859bc9df8deed77ea5600675c5329dab26047a050"
+    },
+    {
+      "file": "dist/assets/garen-basic-attacks-DDQIEf47.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-basic-attacks-DDQIEf47.js",
+      "bytes": 30580,
+      "sha256": "f6dd6973327ec9184844ddcc08f8f0cab0b1f03066af21f47905f57b30dae4ec"
+    },
+    {
+      "file": "dist/assets/garen-courage-C9udLkD8.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-courage-C9udLkD8.js",
+      "bytes": 21867,
+      "sha256": "33c7e2a66f305e32e1b66c0c788c44b3eb0127db7dfdb723dc1affb3d68d007f"
+    },
+    {
+      "file": "dist/assets/garen-decisive-strike-C3g0krF9.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-decisive-strike-C3g0krF9.js",
+      "bytes": 55146,
+      "sha256": "dc0a7d75c400be6109432874b3550387345ef736612b258c6bcf8729ef01c8b4"
+    },
+    {
+      "file": "dist/assets/garen-justice-UBkYwS-A.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-justice-UBkYwS-A.js",
+      "bytes": 42381,
+      "sha256": "9a9275849e9d02df8d82fa5d53acbdc5201065996bdab746418dd2636fee4b78"
+    },
+    {
+      "file": "dist/assets/garen-p-08aAZIct.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-p-08aAZIct.js",
+      "bytes": 5760,
+      "sha256": "d9c1d265233789362ac7a3f7d97e85f26f068a4dcd441a1b368623cf954327c6"
+    },
+    {
+      "file": "dist/assets/garen-perseverance-BAAcnlL5.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-perseverance-BAAcnlL5.js",
+      "bytes": 3130,
+      "sha256": "65d3f828d5d06f2adc286703ceab1be5aab5a7d709b56beba76f5d28a39f94d7"
+    },
+    {
+      "file": "dist/assets/garen-q-C-Yzuo7I.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-q-C-Yzuo7I.js",
+      "bytes": 10787,
+      "sha256": "224cffd266eb144e40c672ab3a0f73f2b9fa76a9d06873b36247a1fc5bf657f2"
+    },
+    {
+      "file": "dist/assets/garen-r-BlPE3lnY.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-r-BlPE3lnY.js",
+      "bytes": 6727,
+      "sha256": "f21d5aa3666242d273f798da0f1827292b97d4f67dd9b801582feea1e84ffb1b"
+    },
+    {
+      "file": "dist/assets/garen-w-a_M6QxGK.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/garen-w-a_M6QxGK.js",
+      "bytes": 8107,
+      "sha256": "cbf60ff3e0981b71b2629a3bddfd290f145ffed9ddaa1f7be470d31173a7302e"
+    },
+    {
+      "file": "dist/assets/gromp-attack-BeHIWiDb.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/gromp-attack-BeHIWiDb.js",
+      "bytes": 12028,
+      "sha256": "da038bab9f2c236b6968e91fd917918fe7bbcbe8ca984d8640c1136320095efe"
+    },
+    {
+      "file": "dist/assets/gromp-death-9qFMIuu9.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/gromp-death-9qFMIuu9.js",
+      "bytes": 5395,
+      "sha256": "0be3c01e86b1b05c84877fa616de86b335d2d1e377e1f043f2a7768848126f78"
+    },
+    {
+      "file": "dist/assets/gromp-death-particles-Vi-l44Re.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/gromp-death-particles-Vi-l44Re.js",
+      "bytes": 12929,
+      "sha256": "66c82ff5027e846d66d6d767d84c4f93c2709664f16b5f2e61c59c60092ff096"
+    },
+    {
+      "file": "dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/ground-walkability-mask-BRVRrShL.js",
+      "bytes": 528,
+      "sha256": "a212cb24fdb690aa96c78629abf9490711527cb30de95b3bcf0aa0441978079f"
+    },
+    {
+      "file": "dist/assets/leona-daybreak-BnCakiSM.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-daybreak-BnCakiSM.js",
+      "bytes": 31306,
+      "sha256": "8501afa21cb4f19713685f31deecf569699c5744de5aca09fe38984222d2bf0e"
+    },
+    {
+      "file": "dist/assets/leona-e-zSz5Uxv_.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-e-zSz5Uxv_.js",
+      "bytes": 14611,
+      "sha256": "4e47c4fecb5f7ed3b31b1ddc7950c6978a40d287feaa6f62749fdcaee19f5a32"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-history-b4N9TFpu.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-eclipse-history-b4N9TFpu.js",
+      "bytes": 139276,
+      "sha256": "33544b2c120310dc56b6334ba767a9c499a46fa8150bdfbdfdbc3396d6d62b2a"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skin-material-BY8oCnAe.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-eclipse-skin-material-BY8oCnAe.js",
+      "bytes": 3340,
+      "sha256": "18ef2e8634591f536b36bd41dcf491e5815f61adf360b8150d7b5c35c4333f26"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skins-ZzO-7zFE.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-eclipse-skins-ZzO-7zFE.js",
+      "bytes": 3115,
+      "sha256": "a20942d84c973486945746e98104776ceddc2aab2fa24018ec472a55d36371f3"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-surfaces-B9nKCWnY.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-eclipse-surfaces-B9nKCWnY.js",
+      "bytes": 2123,
+      "sha256": "a41a3ede7ac7f3708efc1b00800f17c4e2ca3b42819d2f5650b8b05e3f1e5c0e"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-values-DAy_hLXn.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-eclipse-values-DAy_hLXn.js",
+      "bytes": 881,
+      "sha256": "aef306f41f92687a2440fafd2def16edfd4fbdfb026934be9521db3fa7b9ce6f"
+    },
+    {
+      "file": "dist/assets/leona-r-D-b-mNf_.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-r-D-b-mNf_.js",
+      "bytes": 6841,
+      "sha256": "a82a93930e4d0f8e2c8913226ee71470b993fa55d646eed401bad8c37016785a"
+    },
+    {
+      "file": "dist/assets/leona-w-D6vfndz3.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-w-D6vfndz3.js",
+      "bytes": 11872,
+      "sha256": "0424232db508f043bfb9e5e046ceb5fee22ad5bf6528048e82172d4c863f9f54"
+    },
+    {
+      "file": "dist/assets/leona-zenith-history-BfdRWd-P.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-zenith-history-BfdRWd-P.js",
+      "bytes": 2070,
+      "sha256": "72403898acc9dc90ec05c5ffe87629ecce67efccff96894b00fb5b52904b90fe"
+    },
+    {
+      "file": "dist/assets/leona-zenith-particles-C3YLzjNv.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-zenith-particles-C3YLzjNv.js",
+      "bytes": 86851,
+      "sha256": "a4a9cd04f4d1a248ea45d870e2d560fc7b43074558d48d3d8033be6dd94a67d8"
+    },
+    {
+      "file": "dist/assets/leona-zenith-ribbons-B-BJQ-iA.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-zenith-ribbons-B-BJQ-iA.js",
+      "bytes": 8081,
+      "sha256": "51b26456bf218685f756426b3db0a2a36e47bb40b6eab811750e7f6f932e7bd5"
+    },
+    {
+      "file": "dist/assets/leona-zenith-skins-BVU_EkZh.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-zenith-skins-BVU_EkZh.js",
+      "bytes": 3486,
+      "sha256": "d614898029ad86d320b12cc101353abaae1e10986c859f20de2658394ed6c992"
+    },
+    {
+      "file": "dist/assets/leona-zenith-surfaces-lXPmSuVW.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/leona-zenith-surfaces-lXPmSuVW.js",
+      "bytes": 2714,
+      "sha256": "8463166963ce0d3132422311d46bb045c93b6fd7ba8560a253323b240088d95b"
+    },
+    {
+      "file": "dist/assets/map-DuHhjnGM.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/map-DuHhjnGM.js",
+      "bytes": 3775,
+      "sha256": "6df6fd85dbe85891923d77cfb957066203368bd027e78ddaa1733af3c719b915"
+    },
+    {
+      "file": "dist/assets/map-wSGUvK3C.css",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": "dist/assets/oracle-particles-Bzdq8IhP.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/oracle-particles-Bzdq8IhP.js",
+      "bytes": 55711,
+      "sha256": "fb1c58e31e94a332c3b6ffbcda3a218757033aded79ec1958ccf67a4e85d75f6"
+    },
+    {
+      "file": "dist/assets/oracle-z1WGXpXJ.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/oracle-z1WGXpXJ.js",
+      "bytes": 5752,
+      "sha256": "ee20a05fe8f395a0ea22303791cc3177cb227ec64bd781fcb99988ce9a83d236"
+    },
+    {
+      "file": "dist/assets/particle-motion-BIfAb-aK.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/particle-motion-BIfAb-aK.js",
+      "bytes": 326,
+      "sha256": "e8609242ca875c4a3f53148dc2f7771b293ad219663ef44503e5134af5c92b2f"
+    },
+    {
+      "file": "dist/assets/rift-assets-CcCthSeF.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/rift-assets-CcCthSeF.js",
+      "bytes": 9106,
+      "sha256": "5ac9e89f98db9cd6be1f423adbbff538fa64d05fe469d75e351545512d26987a"
+    },
+    {
+      "file": "dist/assets/source-particle-surfaces-BBKeQnsH.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/source-particle-surfaces-BBKeQnsH.js",
+      "bytes": 16119,
+      "sha256": "3f24cf9785e22c38605f6b2b1c7467dfaf707c62ac8340fb12abf338a2cca2b2"
+    },
+    {
+      "file": "dist/assets/sunlight-D_UcidiA.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/sunlight-D_UcidiA.js",
+      "bytes": 3784,
+      "sha256": "fd6c6619332b0391ba1d7a8cb5889404a40e1bd7ab0375ba8775f414b7c0b903"
+    },
+    {
+      "file": "dist/assets/three-gySAWiYA.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/assets/three-gySAWiYA.js",
+      "bytes": 661182,
+      "sha256": "907e103a7ec0bb3fce386135d2a30329d6b5df00f357162f7bdd9409291d8927"
+    },
+    {
+      "file": "dist/index.html",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/index.html",
+      "bytes": 999,
+      "sha256": "dc6f0a16caf239430ba09ae7020fe63ec064ed80bd1f23c1fc84f039248fb65c"
+    },
+    {
+      "file": "dist/map.html",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/map.html",
+      "bytes": 618,
+      "sha256": "5d370acb4f9143e19c1bf56d65a5df8a8f7baa7679001786914c10317aca89b0"
+    },
+    {
+      "file": "dist/offline-pack.json",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/offline-pack.json",
+      "bytes": 144866,
+      "sha256": "5b8a72faa59532ff1f7fc60cc268a5b6610740ce9ceb9faef767b827aebca92b"
+    },
+    {
+      "file": "dist/offline-worker.js",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-build/offline-worker.js",
+      "bytes": 148071,
+      "sha256": "f4fe48a84dd1b5a70789cd02d5f6a32288cd51ba80b4a115e248b90244dc5d57"
+    }
+  ],
+  "readers": [
+    {
+      "file": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/src/render/leona-zenith-particles.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/07e093ec2c54e087-leona-zenith-particles.ts",
+      "bytes": 7471,
+      "sha256": "07e093ec2c54e0879dbfce6a85cfbd2456052ef75a50999a3b098bddb82a31e8"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/Meshes.tsx",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/4b1ef0cb2988dfbe-Meshes.tsx",
+      "bytes": 11002,
+      "sha256": "4b1ef0cb2988dfbe50e5d40fe9dfe00c7bb2ae6bb384f86fd83e723b12f8c338"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/Quads.tsx",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/6984424775169b81-Quads.tsx",
+      "bytes": 9883,
+      "sha256": "6984424775169b81692541a16988d7d5e5080144607306efd94de4a5b9d3c0f8"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/Rng.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/6cc762c31b6a609b-Rng.ts",
+      "bytes": 1397,
+      "sha256": "6cc762c31b6a609b9c528e6f0fd92de7fe18b9406768182d2478f57ed3d4353f"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/basis.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/287aa8081d97e14a-basis.ts",
+      "bytes": 7994,
+      "sha256": "287aa8081d97e14aa25b5022e59894316d0a827baabe8a85280bf83fdcdc8ddb"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/drawKind.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/64a3b3cd78d91251-drawKind.ts",
+      "bytes": 6243,
+      "sha256": "64a3b3cd78d91251159da7ae5b1f354df5060aa2b9cf2c8be8a6c57351da0025"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/emit.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/35595a87e0ec6090-emit.ts",
+      "bytes": 8885,
+      "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/enums.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/229255a8ecd474ba-enums.ts",
+      "bytes": 4874,
+      "sha256": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/findings.json",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/e810abf653c30119-findings.json",
+      "bytes": 8692,
+      "sha256": "e810abf653c30119e1128532e535fafe0910ccdc5a521580001d216f52dc7803"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/forceFields.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/c67cd99bb0fdc0d3-forceFields.ts",
+      "bytes": 12419,
+      "sha256": "c67cd99bb0fdc0d33515f07c149ba7f3c8a0a75c6028d48357bd9a008d019065"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/integrate.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/4de5853807d9a036-integrate.ts",
+      "bytes": 21927,
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/particleRead.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/704210801ae59f36-particleRead.ts",
+      "bytes": 15674,
+      "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/provenance.json",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/0fd6d9585bdbe1df-provenance.json",
+      "bytes": 7541,
+      "sha256": "0fd6d9585bdbe1df71e8240b1e0e8ebe023002b15befc4dcfbada67af714e777"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/readMotion.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/5cda76779e25463c-readMotion.ts",
+      "bytes": 12535,
+      "sha256": "5cda76779e25463c3b7ebcb187aea094b4ec265658fb496e1dd94924ca37a3b5"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/readSurface.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/7493b13c0f3fa6a8-readSurface.ts",
+      "bytes": 13876,
+      "sha256": "7493b13c0f3fa6a8d9fc8efe6e2ac02d5d872f1f7db5f3a47722f1039e4148a2"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/readValue.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/f0d68f01959ba8cd-readValue.ts",
+      "bytes": 12855,
+      "sha256": "f0d68f01959ba8cd8315399621f40556c77edfe2a4c7f6468f30094baa7718c4"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/readVfxSystem.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/a5765fc5676e4f58-readVfxSystem.ts",
+      "bytes": 14468,
+      "sha256": "a5765fc5676e4f58d0ae156bad93bf5e84936fe181c8bfe47c503a37da52a844"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/sampleCurve.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/b3bf37eeca26278b-sampleCurve.ts",
+      "bytes": 4385,
+      "sha256": "b3bf37eeca26278b1ac4a2fa430dcc1fd2fd9838d2dd22ff04b82c4aa84a7643"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/shaders/quad.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/8daff79e4111a4ab-quad.ts",
+      "bytes": 14829,
+      "sha256": "8daff79e4111a4ab9c9d73278c6b1c7cdbef16da36c804b9f6c6074f88ca0fb7"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/source-selected.json",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/b8e3cfacdef648f9-source-selected.json",
+      "bytes": 40139,
+      "sha256": "b8e3cfacdef648f9f7571f45ff15940bf0c37f3c9ecd5a5ec566ed00441ba923"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/spawnShape.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/e7839cf92318311c-spawnShape.ts",
+      "bytes": 4604,
+      "sha256": "e7839cf92318311c68789b69cb7f78b2a974ba9e43b11536cf7f3567c2d2f2f8"
+    },
+    {
+      "file": ".cache/leona-r-motion-readers-v1-20261024/systemModel.ts",
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/reader-inputs/22476d4a0541b4f1-systemModel.ts",
+      "bytes": 4170,
+      "sha256": "22476d4a0541b4f13631be19c8e49cb1db9b5024a29ab6b0b5a0d8bcbedbfcfd"
+    }
+  ],
+  "evidence": [
+    {
+      "archived": ".cache/leona-r-audio-accepted-v1-20261024/source-archive.json",
+      "bytes": 881607,
+      "sha256": "f292971a0d0a1a2ae9dc30deb99414796a4bbc47dd1db16a2ea0172f7fbd7b5c"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811441,
+      "sha256": "de6e12994c90b1d7dde68b5b5c41a80ab1c0fd36e9caaedbc94e24b48e4a69a9"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832916,
+      "sha256": "e286dd1f71e985147093ee6e73d7944eeca923ba7fa3e4e870e2bb07e5d02d14"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829258,
+      "sha256": "fdd4f5832afe8f7146b0701a9a05b2bd28f386cb2df6744b50991762bbe47214"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1804885,
+      "sha256": "5962a1d451e854ff2c8019dfcdfc0e6448480536acd56da2fc84dcd49a5c021b"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1816988,
+      "sha256": "d9b5a8dafae4b717cf823845c9608eb30fe5c9421cb48ac52ae3fda08f47f099"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346649,
+      "sha256": "36ceca3ed106094c08a8d58e1431f3fd7c0ada817910a363d8efc6a1d829f220"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820088,
+      "sha256": "3ba0ac1d377849119c4af4d28d787a0f22357485a2e4526712cdf4a2f99be615"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812830,
+      "sha256": "322dfdfbff2eb3efa2c51cdc8ef146c4b5a34c030de5b1cf0f9b5813e0d3f909"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-accepted-v1-20261024/source-archive.json",
+      "bytes": 884757,
+      "sha256": "c008e019ca8f367ea06e7177b718b45fd168caa9e58bea14c2a7927a6abcb406"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-inventory-v1-20261024/compiled-probe.json",
+      "bytes": 448828,
+      "sha256": "9ae111e228a9498694fbb0d84d889cda1aaa756015b550e7ab603ac8f15129bb"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-inventory-v1-20261024/new-fields.json",
+      "bytes": 5519,
+      "sha256": "ca5aa790ba6bea11474e0077ed47fd4e67e3b7a15f4045c7300f76ddbd7b2daf"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/browser.log",
+      "bytes": 718,
+      "sha256": "9231ea6aaa626ec06cb7ff292a0ab747a3f12a1e084d9823ca55c3c8f872db01"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/browser/leona-solar-kernel-Chrome--9d4dc-nd-unchanged-saved-gameplay/solar-kernel.json",
+      "bytes": 83930,
+      "sha256": "4f9badc5ead21e78a4fab08f5f146e362bff1b94285ecbf6e76f1b31f93405a5"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/browser/leona-zenith-kernel-Chrome-bfd79-out-mutating-saved-gameplay/evidence.json",
+      "bytes": 3895277,
+      "sha256": "637628358d326e135f4394445fee8a0db24ff80ecc9c57f249da66e6e0a9a289"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/check.log",
+      "bytes": 1042,
+      "sha256": "cc5275c794cb0287f2f4da155ceb0cba926e095999ad02ef9c2f95557582f741"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/e2e-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/export-check-v2.json",
+      "bytes": 96,
+      "sha256": "223281b55eb90e7c4e0d559a2c3153088e4fef59584f527a25105f9c793465c4"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/export-check.json",
+      "bytes": 96,
+      "sha256": "223281b55eb90e7c4e0d559a2c3153088e4fef59584f527a25105f9c793465c4"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/export-final-check.json",
+      "bytes": 96,
+      "sha256": "223281b55eb90e7c4e0d559a2c3153088e4fef59584f527a25105f9c793465c4"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/export-v2.log",
+      "bytes": 96,
+      "sha256": "223281b55eb90e7c4e0d559a2c3153088e4fef59584f527a25105f9c793465c4"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/export.log",
+      "bytes": 96,
+      "sha256": "223281b55eb90e7c4e0d559a2c3153088e4fef59584f527a25105f9c793465c4"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/offline.log",
+      "bytes": 689,
+      "sha256": "da0153ecf7b14f41b9f242b4e605b4539f2a2a1dbb1b167c9225caa5f9e6b0ab"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/production.log",
+      "bytes": 6070,
+      "sha256": "cb2877192f5c911cfec0eb5159b7f40c1c0dd9be4e4dd34ed71e61382d49b5a6"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/unit-v2.log",
+      "bytes": 192,
+      "sha256": "99c17e501956cc2e02191924d4dd9b6ab11abcd54a1a17892317e554c85dbcdc"
+    },
+    {
+      "archived": ".cache/leona-r-kernel-validation-v1-20261024/unit.log",
+      "bytes": 2202,
+      "sha256": "e75883f78c2e179c4ccd17a0c31760f64c2ef6f74d95703bb389ed117e7f02a3"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-kernel-v1-20261024-lux-lanes.png",
+      "bytes": 476060,
+      "sha256": "a4f088e8af220292dbcaed6d27c7b8a9879522bf938e9a103f26a49d1f6e1cf3"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-kernel-v1-20261024-production.json",
+      "bytes": 650,
+      "sha256": "c39c37d1f85228d72149061f7cf195c724e558149492f2d2795d7dc59de1c37e"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-kernel-v1-20261024-ready.png",
+      "bytes": 531116,
+      "sha256": "acef47345612dc220377c341abe884a48372187c85448e877671bb7dbba7be60"
+    }
+  ],
+  "acceptance": {
+    "sourceAttributesSampleable": true,
+    "sourceRVisualsIntegrated": false,
+    "nativeCpuVerified": false,
+    "nativeFrameVerified": false,
+    "fullProjectComplete": false
+  },
+  "limits": [
+    "All44 enabled profiles, nine complete disabled records and six declarations retain explicit source fields; no primitive/resource/normal fallback generated.",
+    "Noise zeros, cylinder distribution, correlated cosmetic chance, type1 linger, fixed-grid updates and explicit orbit math follow bounded external reconstruction, not native CPU/PRNG/default certification.",
+    "Projection receiving triangles/matrices, attached-owner binding and distortionMode2 CPU/material routing remain unresolved; source R is not drawn in GameView.",
+    "Initial floating deadline overrun remains retained; corrected absolute deadline passes. Existing E direction extension is unchanged; its comment and frozen comparison provenance are clarified.",
+    "Full1842 unit cases/303 files plus three QA, two Chrome cases/720Rseeks,32production recordings and1007-file offline pack. No new normal cohort/CPU benchmark/native frame gate."
+  ]
+}

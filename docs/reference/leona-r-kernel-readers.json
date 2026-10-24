@@ -1,0 +1,199 @@
+{
+  "scope": "Static source declarations and pinned external reconstruction only. No native CPU behavior verified, no native game/Metal execution, no canonical edits.",
+  "source": {
+    "path": "docs/reference/leona-r-particles.json",
+    "bytes": 266001,
+    "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+  },
+  "inspectedDefinitions": 53,
+  "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "provenance": "provenance.json",
+  "sourceSnapshot": "source-selected.json",
+  "noise": {
+    "source": "Leona_R_hit_impact complex emitter indices24 motes_RAINBOW and25 Bokeh author only axisFraction=[1,1,1]; Position/frequency/radius/velocityDelta absent.",
+    "externalDefaults": "readMotion.ts309-314: zero3, zero, zero, zero respectively. Consequently these two noise fields produce no velocity change in this reconstruction.",
+    "prepare": "forceFields.ts119-173: center = placement origin + Position without rotating/scaling Position; values sampled at emitter phase.",
+    "clock": "forceFields.ts55-61: first owed1 even at frequency0; subsequently max(trunc(frequency*now)-trunc(frequency*last),0); update last if owed>0; cap impulse count256.",
+    "impulse": "forceFields.ts228-235: for each owed impulse within sphere, add normalized deterministic cube direction * velocityDelta * axisFraction; no dt factor. radius0 means only exact center, not unbounded (295-301).",
+    "order": "integrate.ts238-258: field origin=start-of-step system origin plus turned EmitterPosition only for emitterSpace. applyFields183-196 orders acceleration, attraction, noise, drag, orbital fields; newborn noise/orbital-field kicks also run at dt0.",
+    "limits": "External deterministic hash direction, epsilon1e-12, cap256 and xorshift32 are reconstruction policies, not proof of native PRNG/epsilon/step parity. No authored native default for omitted fields proven."
+  },
+  "orbital": {
+    "birth": "emit.ts76-82,116 and sampleCurve.ts71-117: one particle chance serves all channels and all birth values. Rates = authored per-axis rate*(2*chance-1). Values are radians/sec; correlated axes, no independent XYZ draws. Shape random calls use separate RNG draws.",
+    "spawn": "emit.ts85-99: P_birth = O_birth + F_birth*(shapeOffset + EmitterPosition + translationOverride). Shape turn rotates birthVelocity then F_birth rotates it; orbital rates stored without these transforms.",
+    "integrated": "integrate.ts488-495: position increment=velocityAfterFields*dt + bindWeight*originMoved + emitterSpaceShift; travel=increment/dt (or0). Birth orbital velocity is absent from this integration.",
+    "draw": "particleRead.ts170-184,288-299: R=Ry(orbitalY*age)*Rx(orbitalX*age)*Rz(orbitalZ*age); drawn=O_current+R*(P_integrated-O_current)+worldAcceleration(emitterPhase)*age01*currentLifetime^2. Euler conversion to degrees is only standingInto interface. Allzero rates skip orbit.",
+    "pivotOrder": "Orbit is around current draw-frame origin, after spawn+integrated motion+bind changes and before unturned worldAcceleration translation. Does not mutate pool.position or pool.travel. Changing current origin changes orbit pivot.",
+    "basis": "Quads.tsx236-238 left-composes R over particleBasisInto; Meshes.tsx167-170 premultiplies equivalent mirrored orbital rotation. particleRead.ts225-254 direction basis uses unrotated pool.travel before caller composition; stretch264-278 raw speed.",
+    "billboard": "shaders/quad.ts122-151: nondirected billboard uses roll, ignores own/orbital basis; directed billboard uses camera-projected orbited basisY, normalized or fallback[0,1], ignores roll. Both actual R noise/orbit emitters author isDirectionOriented1.",
+    "accelerationCaveat": "Executable primary code only adds worldAcceleration displacement in drawnPlaceInto; comments154-163 claim world velocity addition but raw travel/basis code does not implement it. Existing local Zenith travel addition acceleration*life is an explicit divergence from executable65a7 code."
+  },
+  "cylinder": {
+    "source": "Leona_R_hit_impact index25 Bokeh SpawnShape VfxShapeCylinder flags1 radius220; height/offset absent.",
+    "read": "readMotion.ts77-100: flags&0x1 means volume; absent radius/height default0; cylinder has no emitOffset reader.",
+    "sample": "spawnShape.ts85-91: x=(volume?uniform[-1,1]:1)*radius; y=uniform[0,1)*height; z=0; then Ry(uniform[0,2pi)). Spin matrix also rotates birthVelocity in emit.ts95-99.",
+    "distribution": "Bokeh has height0, signed uniform radial distance with uniform angle: disk in local XZ, center-biased per-unit-area density. Do not substitute sqrt(U) radius uniform-area disk. RNG for height still consumed at height0.",
+    "boundary": "Only flag bit0 decoded; other bits are ignored by external reader. No native sampler/PRNG parity proven."
+  },
+  "linger": {
+    "enum": "enums.ts106-110: maxLifetimeAfterEmitterDies0, fixedLifetimeAfterEmitterDies1, fixedLifetimeAfterEmitterStops2. readVfxSystem.ts257-260 defaults particleLinger0/emitterLinger0/type0/no linger block.",
+    "wait": "systemModel.ts79-102: stopWait=min((emitterLifetime??Infinity)+10,max(emitterLinger,0)); simple uses lifetime0. This is system/emitter age threshold, not elapsed since stop. lingerSeconds=min(baseParticleLifetime+10,max(particleLinger,0)); simple base0.",
+    "settle": "integrate.ts200-209 increments emitter age by dt then settles before integration/births. settle314-340: if stopped, finished iff age>stopWait; else only type2 and age>own emitter lifetime. First finished step sets finishedAt and lingerFrom=now for each resident particle.",
+    "rewrite": "Type0 L=min(oldL,lingerSeconds), an absolute lifetime cap; type1/type2 L=now-birthTime+lingerSeconds so deadline now+lingerSeconds. Type1 does not settle just on emitter lifetime. Existing dead particles do not resurrect. Integration retirement at age>=L follows settlement; zero linger retires same step.",
+    "appearance": "particleRead.ts365-373 computes linger progress; readMotion.ts184-212 only selected useLinger toggles override curves. Missing/unselected linger field falls through to original curve sampled against rewritten lifetime; lifetime rewrite can also change original curve phase/worldAcceleration offset.",
+    "Rcas": "Leona_R_cas index5 Ground_: base life.5, emitter life10.25,type1, missing particleLinger -> external0. Index6 Ground_1: base life.6000000238418579, emitter10.25,type1,linger.25. Only still-live residents at external stop settle: index5 immediate retirement; index6 new.25-second tail. No evidence these stay alive until own emitter end.",
+    "Rimpact": "motes base.800000011920929 times probability.5..2; Bokeh1.5 times probability.25..2. Linger10.699999809265137, omitted type -> max0: cannot extend these shorter natural lives.",
+    "localComparison": "src/render/leona-zenith-particles.ts existing sample life=min(naturalLife,cap) after settledAt implements type0 cap only; cannot apply unchanged to type1. Parent controls local policy."
+  },
+  "otherBoundaries": {
+    "mult": "readSurface.ts337-365 shares base flipbook fields where mult has no own field-name; scale defaults[1,1], rotation0, offsets/scroll/rotate0, center[.5,.5], flip/clamp false, wrap. This is not blanket inheritance of all base UV properties.",
+    "attached": "R_buf index0 Cas_WeaponGlow authors AttachedMesh/mLockMeshToAttachment1, bind1, birthScale1.00999999, sword mask base plus R_buf_Mult scroll[.2,.8]. readMesh201-218 requires named loadable mesh and does not implement attachment; drawKind147-153 classifies attachment separately and says viewport has no owner skin. Exact native attachment/bone palette CPU binding remains unresolved.",
+    "planar": "Use separate canonical leona-r-decal-shaders evidence. No noise/orbit interpretation establishes planar CPU terrain placement.",
+    "distortion": "Source distortion mode declarations retained in source-selected.json. Verified impact complex indices9/12/15 distortionDefinition.distortionMode2 with strengths.07000000029802322/.15000000596046448/.10000000149011612. Indices6/8 strengths.02500000037252903/.014999999664723873 omit mode. No fallback material/CPU route inferred."
+  },
+  "localComparisonPin": {
+    "path": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/src/render/leona-zenith-particles.ts",
+    "bytes": 7471,
+    "sha256": "07e093ec2c54e0879dbfce6a85cfbd2456052ef75a50999a3b098bddb82a31e8",
+    "sourcePath": "src/render/leona-zenith-particles.ts",
+    "revision": "edd2546",
+    "scope": "Frozen executable comparison; subsequent E comment correction preserves its local direction policy."
+  },
+  "nativeUnknowns": [
+    "Omitted field schema defaults",
+    "Random number stream and draw ordering",
+    "Native fieldNoise/linger CPU dispatch and timestep",
+    "CPU frame/attachment dispatch and bone palette binding",
+    "Native orbital basis and travel implementation; external code is a reconstruction"
+  ],
+  "files": [
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/forceFields.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/forceFields.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 12419,
+      "sha256": "c67cd99bb0fdc0d33515f07c149ba7f3c8a0a75c6028d48357bd9a008d019065"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/readMotion.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readMotion.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 12535,
+      "sha256": "5cda76779e25463c3b7ebcb187aea094b4ec265658fb496e1dd94924ca37a3b5"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/readValue.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readValue.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 12855,
+      "sha256": "f0d68f01959ba8cd8315399621f40556c77edfe2a4c7f6468f30094baa7718c4"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/sampleCurve.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/sampleCurve.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 4385,
+      "sha256": "b3bf37eeca26278b1ac4a2fa430dcc1fd2fd9838d2dd22ff04b82c4aa84a7643"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/emit.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 8885,
+      "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/integrate.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 21927,
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/particleRead.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 15674,
+      "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/systemModel.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/systemModel.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 4170,
+      "sha256": "22476d4a0541b4f13631be19c8e49cb1db9b5024a29ab6b0b5a0d8bcbedbfcfd"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/basis.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/basis.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 7994,
+      "sha256": "287aa8081d97e14aa25b5022e59894316d0a827baabe8a85280bf83fdcdc8ddb"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/enums.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/enums.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 4874,
+      "sha256": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/readSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readSurface.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 13876,
+      "sha256": "7493b13c0f3fa6a8d9fc8efe6e2ac02d5d872f1f7db5f3a47722f1039e4148a2"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/Rng.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/Rng.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 1397,
+      "sha256": "6cc762c31b6a609b9c528e6f0fd92de7fe18b9406768182d2478f57ed3d4353f"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/Quads.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/Quads.tsx",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 9883,
+      "sha256": "6984424775169b81692541a16988d7d5e5080144607306efd94de4a5b9d3c0f8"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/Meshes.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/Meshes.tsx",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 11002,
+      "sha256": "4b1ef0cb2988dfbe50e5d40fe9dfe00c7bb2ae6bb384f86fd83e723b12f8c338"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/drawKind.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/drawKind.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 6243,
+      "sha256": "64a3b3cd78d91251159da7ae5b1f354df5060aa2b9cf2c8be8a6c57351da0025"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/readVfxSystem.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readVfxSystem.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 14468,
+      "sha256": "a5765fc5676e4f58d0ae156bad93bf5e84936fe181c8bfe47c503a37da52a844"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/shaders/quad.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/shaders/quad.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 14829,
+      "sha256": "8daff79e4111a4ab9c9d73278c6b1c7cdbef16da36c804b9f6c6074f88ca0fb7"
+    },
+    {
+      "path": ".cache/leona-r-motion-readers-v1-20261024/spawnShape.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/spawnShape.ts",
+      "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+      "bytes": 4604,
+      "sha256": "e7839cf92318311c68789b69cb7f78b2a974ba9e43b11536cf7f3567c2d2f2f8"
+    }
+  ],
+  "provenanceSha256": "0fd6d9585bdbe1df71e8240b1e0e8ebe023002b15befc4dcfbada67af714e777",
+  "nativeCpuVerified": false
+}
