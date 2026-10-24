@@ -879,7 +879,8 @@ export class World {
     if (state) {
       state.trinket.order = null;
       state.recallEnd = null;
-      if (!state.pendingCast) state.castAnimation = null;
+      if (!state.pendingCast && !state.leonaEWindup && !(state.leonaR && !state.leonaR.released))
+        state.castAnimation = null;
     }
   }
   step(count = 1): void {
@@ -3070,6 +3071,8 @@ export class World {
               ? { critical: true as const }
               : {}),
           };
+          if (u.champion === 'leona' && !leonaQ && !u.attackCycle.critical && state?.leonaW)
+            u.attackCycle.leonaEclipse = true;
           if (leonaQ) {
             u.attackCycle.leonaQRank = leonaQ.rank;
             u.attackCycle.leonaQStartTick = leonaQ.startTick;
@@ -3785,9 +3788,11 @@ export class World {
         mobileAlive && Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
       if (moving) {
         const nominal =
-          (unit.kind === 'monster'
-            ? MONSTERS[unit.monster.species].stats.speed
-            : this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed) ?? 325;
+          (unit.champion === 'leona'
+            ? championProfile('leona').speed
+            : unit.kind === 'monster'
+              ? MONSTERS[unit.monster.species].stats.speed
+              : this.battlefield.unitStats?.[unit.kind]?.[unit.team]?.speed) ?? 325;
         const clock = unit.runClock ?? { startTick: this.tick, previous: 0, current: 0 };
         clock.previous = clock.current;
         clock.current += DT * (nominal > 0 ? this.movementSpeed(unit) / nominal : 1);
@@ -3797,6 +3802,9 @@ export class World {
         cast = state?.castAnimation;
       const casting =
         !!state?.garenE ||
+        !!state?.leonaEWindup ||
+        !!state?.leonaDash ||
+        !!(state?.leonaR && !state.leonaR.released) ||
         (!!cast &&
           !!unit.champion &&
           (this.tick - cast.startTick) / TICK_RATE <
@@ -5366,7 +5374,7 @@ export class World {
       u.mana -= resources.mana;
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;
-      state.castAnimation = null;
+      state.castAnimation = { ability: 'r', startTick: this.tick };
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
@@ -5398,7 +5406,7 @@ export class World {
       u.mana -= resources.mana;
       state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;
-      state.castAnimation = null;
+      state.castAnimation = { ability: 'e', startTick: this.tick };
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
@@ -5420,6 +5428,13 @@ export class World {
       u.mana -= resources.mana;
       state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;
+      if (
+        !state.leonaEWindup &&
+        !(state.leonaR && !state.leonaR.released) &&
+        !state.leonaDash &&
+        u.releaseTick === null
+      )
+        state.castAnimation = { ability: 'w', startTick: this.tick };
       this.emit('cast', u, { unit: u.id, champion: 'leona', text: 'w', team: u.team });
       return;
     }
@@ -5433,7 +5448,8 @@ export class World {
       u.mana -= resources.mana;
       state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;
-      state.castAnimation = null;
+      if (!state.leonaEWindup && !(state.leonaR && !state.leonaR.released))
+        state.castAnimation = null;
       u.releaseTick = null;
       u.attackTarget = null;
       this.finishAttackPresentation(u, 'action');
@@ -5634,7 +5650,12 @@ export class World {
     u.mana -= resources.mana;
     state.cooldowns[ability] = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
     if (!spec.preservesRecall) state.recallEnd = null;
-    if (summoner !== 'heal' && !flashDuringFinalSpark) state.castAnimation = null;
+    if (
+      summoner !== 'heal' &&
+      !flashDuringFinalSpark &&
+      !(summoner === 'flash' && (state.leonaEWindup || (state.leonaR && !state.leonaR.released)))
+    )
+      state.castAnimation = null;
     this.emit('cast', u, { unit: u.id, champion: u.champion, text: ability, team: u.team });
     if (ability === 'q') {
       state.qStacks = 0;

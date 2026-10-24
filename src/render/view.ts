@@ -884,6 +884,8 @@ export class GameView {
   private syncProjectiles(world: World, alpha: number): void {
     const active = new Set<number>();
     for (const p of world.projectiles) {
+      // The rig increment does not borrow a generic arrow for Leona's unimported E effect.
+      if (p.type === 'zenith') continue;
       if (p.type === 'attack' && world.unit(p.source)?.champion === 'lux') continue;
       if (p.type === 'attack' && world.grompAttackVisuals.some((v) => v.id === p.id)) continue;
       active.add(p.id);

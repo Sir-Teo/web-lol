@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 const io = new NodeIO().registerExtensions(ALL_EXTENSIONS),
   durations = {},
   sources = [];
-for (const champion of ['ashe', 'lux', 'garen']) {
+for (const champion of ['ashe', 'lux', 'garen', 'leona']) {
   const path = `public/assets/models/${champion}-base.glb`,
     raw = await readFile(path),
     meta = JSON.parse(await readFile(path.replace('.glb', '.json')));

@@ -1,3 +1,4 @@
+import { LEONA_REQUIRED_CLIPS } from '../content/leona-presentation';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { TargetPoseSampler } from './target-pose-sampler';
 import { MONSTERS, type MonsterSpecies } from '../content/monsters';
@@ -53,7 +54,8 @@ const referenceNames = [
   'red-inhibitor',
 ];
 export async function loadReferenceModels(
-  includeMonsters: boolean | readonly MonsterSpecies[] = false
+  includeMonsters: boolean | readonly MonsterSpecies[] = false,
+  includeLeona = false
 ): Promise<void> {
   const loader = new GLTFLoader();
   const species =
@@ -64,77 +66,83 @@ export async function loadReferenceModels(
         : includeMonsters;
   const monsterNames = [...new Set(species.map((s) => MONSTERS[s].rig))];
   await Promise.all(
-    [...referenceNames, ...monsterNames].map(async (name) => {
-      const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
-      const monster = Object.values(MONSTERS).find((p) => p.rig === name);
-      if (monster) {
-        gltf.animations = monsterClipAliases(gltf.animations, monster.clips, name);
-        gltf.scene.traverse((object) => {
-          if (object instanceof THREE.Mesh) {
-            const materials = Array.isArray(object.material) ? object.material : [object.material];
-            if (materials.some((material) => material.userData.defaultHidden))
-              object.visible = false;
-          }
-        });
-      }
-      for (const required of name === 'sightward-base'
-        ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
-        : /-(turret|nexus|inhibitor)$/.test(name)
-          ? ['idle1']
-          : name === 'ashe-base'
-            ? [
-                'idle1',
-                'run',
-                'attack1',
-                'crit',
-                'death',
-                'idle5',
-                'idle2',
-                'spell1',
-                'spell2',
-                'spell3',
-                'spell4',
-              ]
-            : name === 'lux-base'
+    [...referenceNames, ...monsterNames, ...(includeLeona ? ['leona-base'] : [])].map(
+      async (name) => {
+        const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
+        const monster = Object.values(MONSTERS).find((p) => p.rig === name);
+        if (monster) {
+          gltf.animations = monsterClipAliases(gltf.animations, monster.clips, name);
+          gltf.scene.traverse((object) => {
+            if (object instanceof THREE.Mesh) {
+              const materials = Array.isArray(object.material)
+                ? object.material
+                : [object.material];
+              if (materials.some((material) => material.userData.defaultHidden))
+                object.visible = false;
+            }
+          });
+        }
+        for (const required of name === 'sightward-base'
+          ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
+          : /-(turret|nexus|inhibitor)$/.test(name)
+            ? ['idle1']
+            : name === 'ashe-base'
               ? [
                   'idle1',
                   'run',
                   'attack1',
                   'crit',
-                  'attack2',
                   'death',
+                  'idle5',
+                  'idle2',
                   'spell1',
                   'spell2',
                   'spell3',
                   'spell4',
-                  'idle3',
-                  'entry_b4dcde19',
                 ]
-              : name === 'garen-base'
+              : name === 'lux-base'
                 ? [
-                    'idle1_base',
-                    'run_base',
+                    'idle1',
+                    'run',
                     'attack1',
-                    'attack2',
                     'crit',
-                    'spell1',
-                    'spell4_base',
-                    'spell3_0',
+                    'attack2',
                     'death',
-                    'recall',
+                    'spell1',
+                    'spell2',
+                    'spell3',
+                    'spell4',
+                    'idle3',
+                    'entry_b4dcde19',
                   ]
-                : name === 'sru-crab-base'
-                  ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
-                  : ['idle1', 'run', 'attack1', 'death'])
-        if (!gltf.animations.some((clip) => clip.name === required))
-          throw new Error(`${name} lacks required ${required} animation`);
-      if (/-(turret|nexus|inhibitor)$/.test(name))
-        prepareAnimationBounds(gltf.scene, gltf.animations);
-      references.set(name, {
-        scene: gltf.scene,
-        clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
-      });
-    })
+                : name === 'leona-base'
+                  ? LEONA_REQUIRED_CLIPS
+                  : name === 'garen-base'
+                    ? [
+                        'idle1_base',
+                        'run_base',
+                        'attack1',
+                        'attack2',
+                        'crit',
+                        'spell1',
+                        'spell4_base',
+                        'spell3_0',
+                        'death',
+                        'recall',
+                      ]
+                    : name === 'sru-crab-base'
+                      ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
+                      : ['idle1', 'run', 'attack1', 'death'])
+          if (!gltf.animations.some((clip) => clip.name === required))
+            throw new Error(`${name} lacks required ${required} animation`);
+        if (name === 'leona-base' || /-(turret|nexus|inhibitor)$/.test(name))
+          prepareAnimationBounds(gltf.scene, gltf.animations);
+        references.set(name, {
+          scene: gltf.scene,
+          clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
+        });
+      }
+    )
   );
 }
 /** Sampler owns a private skeleton; loaded geometry, materials and clips stay shared. */

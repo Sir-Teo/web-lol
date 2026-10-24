@@ -1,0 +1,350 @@
+{
+  "sourceQuaternionCorrections": [],
+  "animationKeyPolicy": "All converted source keys retained; no resampling or key simplification applied.",
+  "quaternionPolicy": "Research unit-rotation candidate; original source magnitude retained in corrections. Native playback/mesh comparison remains required.",
+  "referenceVersion": "16.18.8175716",
+  "status": "Development source rig. Key-preserving import; native shading, animation dispatch and full spell presentation remain open.",
+  "output": {
+    "path": "public/assets/models/leona-base.glb",
+    "bytes": 6253628,
+    "sha256": "5b845c3ba98ca15fdf61bb3eb549d54b858709c051c3c03f1cb26f76c890e5a9"
+  },
+  "definitionsSha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7",
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Champions/Leona.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_attack1.anm",
+      "wadPathHash": "70b904106d2305fa",
+      "sha256": "21f967d6c31c1243dbe6d44bc5d98b8492d447a4a24f49c2145a1f71f3b15e17",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_attack2.anm",
+      "wadPathHash": "3e47e61174a0d341",
+      "sha256": "9356bca1311333f35ec86435e1b7454445d72b2afd7ce42b4b956bb437b007de",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_attack3.anm",
+      "wadPathHash": "bdb2ce2d81561304",
+      "sha256": "2e44e809a8553bca69ae33f58fd12181edbe3fe51018de9139a0d363d63bc068",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_channel.anm",
+      "wadPathHash": "a67d6c461c2df337",
+      "sha256": "f468d25660abf49176c8a66c944b6ef9c93945b58b7d57ffdd01c6142fa51978",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_channel_windup.anm",
+      "wadPathHash": "721abb5112eafd87",
+      "sha256": "796d53ee5797a4708cfea631733e6a51b6f53fb921699c36987ab4e92496c99d",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_crit.anm",
+      "wadPathHash": "b7af69110ce0cbb1",
+      "sha256": "80780b727d8fa7fa40a1f4c05f50b81742f0f6b7936f22a6b241d416688917f1",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_dance.anm",
+      "wadPathHash": "43b353fca3565ae2",
+      "sha256": "c3b8fca727a5bf25fd60a05d6e8539571adfa90de42d19b9caa2c0af174bb763",
+      "bytes": 405984
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_death_60fps.anm",
+      "wadPathHash": "ed6011b6cdd8769b",
+      "sha256": "058d99c8b10d33abd4914fb293e4e872ce15aa92bf00eb6b69aadff02c9e87e9",
+      "bytes": 606748
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_idle1.anm",
+      "wadPathHash": "339ec7c822f4bd13",
+      "sha256": "80c306ffb5031505da4fed78f54aafbf1ef0ff51b02928b96337f4fa60dc68af",
+      "bytes": 449696
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_idle2_60fps.anm",
+      "wadPathHash": "3d3a20b08ef5f3b7",
+      "sha256": "103be33a5fba5567966e09212e5ced2197e17aa3022a52fbf1ca340ed01f57d7",
+      "bytes": 473036
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_idle3.anm",
+      "wadPathHash": "3b422f8470fb33a9",
+      "sha256": "028a70feb9738d4bc29dc794f3388da827b0364f86cd22f5ab6d755e05790afa",
+      "bytes": 385548
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_joke_60fps.anm",
+      "wadPathHash": "d03e127ff90697f4",
+      "sha256": "36ab2c3015466d1cf4e3f9a03b5acc6ac071354a035c8061244c1c36c462f4da",
+      "bytes": 72536
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_laugh.anm",
+      "wadPathHash": "a2e7d911cc61dd17",
+      "sha256": "9b1ba0823b87a47db2581a0cb368fcee07c9ffb038573713905c7a86a00fe590",
+      "bytes": 303704
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_run.anm",
+      "wadPathHash": "d6aa86117f1b1226",
+      "sha256": "efa49bb8ca4a4e6c55263ec2bdc0bff35df9825469a5bd9829ff4acc01cafe3d",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_spell1.anm",
+      "wadPathHash": "7c043dad7736d5a9",
+      "sha256": "280472c32a407fd26caf38a151bf673b9a0807f4eb7606c2bbf9f9d293ddc492",
+      "bytes": 64808
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_spell2.anm",
+      "wadPathHash": "d0f894348e52dc6c",
+      "sha256": "772d675b7210efdbaa3a6855c75dbd60bc117f43732238281381cad78bbb6c1d",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_spell2_attack.anm",
+      "wadPathHash": "f9868ebc9366f1b3",
+      "sha256": "d39a02ec9f9d9ec341b3fe38101e174e6545906f8bda22a77ef44802519c9333",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_spell2_idle.anm",
+      "wadPathHash": "a18e3416dd3b8bd2",
+      "sha256": "0e4672ed6200386bcb4cd9fefbc07f8f6f506655e50015bc786c5eb34a0cb149",
+      "bytes": 336884
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_spell2_run.anm",
+      "wadPathHash": "6b6a3856c988f2a2",
+      "sha256": "c24d7c3d39d0e0c5ff1fc203d4d7ecf11f6c915e630507da0aa396d16f051976",
+      "bytes": 89140
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_spell3.anm",
+      "wadPathHash": "3e21e161cb99bbfe",
+      "sha256": "bd2090b3e9b42b2cbbeec626946bbf4209a16d5421cb7c4a87ede91e624a3176",
+      "bytes": 78080
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_spell4.anm",
+      "wadPathHash": "ac76d855738163b9",
+      "sha256": "6d6070f24ebea019766a41378283adf3503fdad14e3704be735659b9d81cc221",
+      "bytes": 71444
+    },
+    {
+      "path": "assets/characters/leona/skins/base/animations/leona_taunt_60fps.anm",
+      "wadPathHash": "8aa5278488c58705",
+      "sha256": "22b98209821810627c61c721801b3cdc701188f14d1754fb5918a2f266a493dd",
+      "bytes": 211546
+    },
+    {
+      "path": "assets/characters/leona/skins/base/leona.skl",
+      "wadPathHash": "eccacf432054b9b7",
+      "sha256": "a5ee79aeb92f3648fdf363fde6112c9d05a4ab340c46cebd083e1baa48d8cb68",
+      "bytes": 10024
+    },
+    {
+      "path": "assets/characters/leona/skins/base/leona.skn",
+      "wadPathHash": "3ac2ebc833ffef0a",
+      "sha256": "390054c1d128e620be9c215f35f5206758882c81e6eba6385a3147e3ef098725",
+      "bytes": 394388
+    },
+    {
+      "path": "assets/characters/leona/skins/base/leona_base_cubemap.dds",
+      "wadPathHash": "3bc04322a6c006cd",
+      "sha256": "a192cf4e7bddc8b41983ad2f355338debdec831362415dcb5bf43488b098c119",
+      "bytes": 12416
+    },
+    {
+      "path": "assets/characters/leona/skins/base/leona_base_tx_cm.tex",
+      "wadPathHash": "12080bcdb02dfb0a",
+      "sha256": "d3f27d90a2ce0374e7be50473ff2ec201847a711a8e59c21efb9c0e6867f7696",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/leona/skins/base/leona_base_tx_gm.tex",
+      "wadPathHash": "7ee051e1d4874b19",
+      "sha256": "4e487922cbcd735cddc0fbdc60fc5d5e31546ceffb3116eaf4e8983284a096ac",
+      "bytes": 174788
+    },
+    {
+      "path": "data/characters/leona/animations/skin0.bin",
+      "wadPathHash": "69c256188278db22",
+      "sha256": "0697f2eaad38eaae9ad31d6478514225939253444a4d6038e813e9bf7c2c214f",
+      "bytes": 3408
+    },
+    {
+      "path": "data/characters/leona/skins/skin0.bin",
+      "wadPathHash": "8a4c7a0f7f10c5cb",
+      "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29",
+      "bytes": 16863
+    }
+  ],
+  "unitScale": 0.013700000047683717,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 1.3700000047683716,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "leona_base_mesh_lambert": "assets/characters/leona/skins/base/leona_base_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "attack1",
+      "state": "Attack1",
+      "source": "assets/characters/leona/skins/base/animations/leona_attack1.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/leona/skins/base/animations/leona_attack2.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "attack3",
+      "state": "Attack3",
+      "source": "assets/characters/leona/skins/base/animations/leona_attack3.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "channel",
+      "state": "Channel",
+      "source": "assets/characters/leona/skins/base/animations/leona_channel.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "channel_wndup",
+      "state": "Channel_Wndup",
+      "source": "assets/characters/leona/skins/base/animations/leona_channel_windup.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "crit",
+      "state": "Crit",
+      "source": "assets/characters/leona/skins/base/animations/leona_crit.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "dance",
+      "state": "Dance",
+      "source": "assets/characters/leona/skins/base/animations/leona_dance.anm",
+      "durationSeconds": 6.300000190734863
+    },
+    {
+      "name": "death",
+      "state": "Death",
+      "source": "assets/characters/leona/skins/base/animations/leona_death_60fps.anm",
+      "durationSeconds": 4.533333778381348
+    },
+    {
+      "name": "idle1",
+      "state": "Idle1",
+      "source": "assets/characters/leona/skins/base/animations/leona_idle1.anm",
+      "durationSeconds": 6.700000286102295
+    },
+    {
+      "name": "idle2",
+      "state": "Idle2",
+      "source": "assets/characters/leona/skins/base/animations/leona_idle2_60fps.anm",
+      "durationSeconds": 4.4666666984558105
+    },
+    {
+      "name": "idle3",
+      "state": "Idle3",
+      "source": "assets/characters/leona/skins/base/animations/leona_idle3.anm",
+      "durationSeconds": 5.733333587646484
+    },
+    {
+      "name": "joke",
+      "state": "Joke",
+      "source": "assets/characters/leona/skins/base/animations/leona_joke_60fps.anm",
+      "durationSeconds": 10.600000381469727
+    },
+    {
+      "name": "laugh",
+      "state": "Laugh",
+      "source": "assets/characters/leona/skins/base/animations/leona_laugh.anm",
+      "durationSeconds": 4.5
+    },
+    {
+      "name": "run",
+      "state": "Run",
+      "source": "assets/characters/leona/skins/base/animations/leona_run.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "spell1",
+      "state": "Spell1",
+      "source": "assets/characters/leona/skins/base/animations/leona_spell1.anm",
+      "durationSeconds": 0.8709677457809448
+    },
+    {
+      "name": "spell2",
+      "state": "Spell2",
+      "source": "assets/characters/leona/skins/base/animations/leona_spell2.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "spell2_idle",
+      "state": "Spell2_Idle",
+      "source": "assets/characters/leona/skins/base/animations/leona_spell2_idle.anm",
+      "durationSeconds": 5.000000476837158
+    },
+    {
+      "name": "spell2_attack",
+      "state": "Spell2_Attack",
+      "source": "assets/characters/leona/skins/base/animations/leona_spell2_attack.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "spell2_run",
+      "state": "Spell2_Run",
+      "source": "assets/characters/leona/skins/base/animations/leona_spell2_run.anm",
+      "durationSeconds": 1.2666667699813843
+    },
+    {
+      "name": "spell3",
+      "state": "Spell3",
+      "source": "assets/characters/leona/skins/base/animations/leona_spell3.anm",
+      "durationSeconds": 1.100000023841858
+    },
+    {
+      "name": "spell4",
+      "state": "Spell4",
+      "source": "assets/characters/leona/skins/base/animations/leona_spell4.anm",
+      "durationSeconds": 0.9677419066429138
+    },
+    {
+      "name": "taunt",
+      "state": "Taunt",
+      "source": "assets/characters/leona/skins/base/animations/leona_taunt_60fps.anm",
+      "durationSeconds": 6.933333873748779
+    },
+    {
+      "name": "entry_b4dcde19",
+      "state": "{b4dcde19}",
+      "source": "assets/characters/leona/skins/base/animations/leona_taunt_60fps.anm",
+      "durationSeconds": 6.933333873748779
+    }
+  ],
+  "triangles": 8634,
+  "bones": 81,
+  "importedCandidate": {
+    "file": ".cache/leona-model-research-20261023/browser-model-preserved-keys/leona-base.glb",
+    "bytes": 6253628,
+    "sha256": "5b845c3ba98ca15fdf61bb3eb549d54b858709c051c3c03f1cb26f76c890e5a9"
+  }
+}

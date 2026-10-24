@@ -194,6 +194,7 @@ export interface UnitBase extends Vec2 {
     critical?: true;
     garenQRank?: number;
     garenQReleaseTick?: number;
+    leonaEclipse?: true;
     leonaQRank?: number;
     leonaQStartTick?: number;
     leonaQReleaseTick?: number;

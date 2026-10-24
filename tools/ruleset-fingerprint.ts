@@ -10,6 +10,8 @@ const pinnedData = [
   'public/assets/maps/rift-layout.json',
   'public/assets/maps/rift-nav.json',
   'public/assets/maps/rift-nav.bin',
+  'public/assets/models/leona-base.glb',
+  'public/assets/models/leona-base.json',
   'src/content/lux-e-burst.json',
   'src/content/lux-e-field.json',
   'src/content/gromp-death.json',

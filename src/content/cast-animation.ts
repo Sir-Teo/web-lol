@@ -17,7 +17,6 @@ export function castAnimationName(
   return ASHE_CASTS[ability].animation;
 }
 export function castAnimationDuration(champion: ChampionIdentity, ability: 'q' | 'w' | 'e' | 'r') {
-  if (champion === 'leona') throw new Error('Leona presentation is not integrated');
   const value = (durations[champion] as Readonly<Record<string, number>>)[
     castAnimationName(champion, ability)
   ];

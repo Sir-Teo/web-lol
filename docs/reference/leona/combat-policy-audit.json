@@ -111,6 +111,18 @@
       "localObservation": "Pre-command impact, current positions, ID order, inclusive radius-plus-body overlap; center stun or outer slow; no LOS gate; no separate area vision. Shared shields/tenacity, source-owned Sunlight and ordinary neutral reset rules.",
       "acceptance": "Native boundaries/target sampling, area/hit/caster reveal, spell shields, immunity, CC and monster aggro comparison. Correct or complete vision before full acceptance.",
       "tests": "tests/leona-solar.test.ts"
+    },
+    {
+      "id": "LEONA-BODY-PRESENTATION-001",
+      "status": "source-rig-local-dispatch-native-unmeasured",
+      "reference": "Retained 81-bone rig, 23 clips, 608016 keys and normals. Source ordinary slots have weights 0.5/0.5/0; Recall declares {b4dcde19}, Idle3, Idle1.",
+      "localObservation": "NPC development browser uses own rig and saved clocks. Stateless two-slot swing choice, critical override, captured Eclipse swing, W idle/run, Q contact/recovery retiming, E/dash/R body playback and shared 80ms fades are local policies. Unlit source diffuse material; no native shader or spell-effect equivalence claimed.",
+      "acceptance": "Native graph dispatch, playback rates/locks, masks/blends, reflection/gloss/shading, full source spell VFX/audio, human controls, support AI and production roster acceptance remain required.",
+      "tests": [
+        "tests/leona-presentation.test.ts",
+        "e2e/leona-rig.spec.ts",
+        "e2e/leona-fixture-gate.spec.ts"
+      ]
     }
   ],
   "nativeBehaviorVerified": false,

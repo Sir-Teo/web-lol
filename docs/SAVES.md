@@ -1,6 +1,18 @@
 # Local match checkpoints
 
-Current schema **120** adds nullable Solar Flare origin/point, rank/damage,
+Current schema **121** adds Leona's own saved body animation timeline, spell
+cast clocks and an optional captured Eclipse attack variant. E/R windups require
+matching presentation clocks; Q/critical/foreign attackers cannot carry the
+Eclipse variant, and a captured variant requires learned W. Compatibility now
+pins the source GLB and sidecar as well as the clip tables and runtime modules.
+Development browser saves restore non-player Leona rigs, including active
+Q/W/E/R states; normal Rift spawning and human selection remain gated. The
+browser checks reconstruct private skeletons from saved poses and recover the
+same pixels after context loss. Native animation dispatch, shading and source
+spell effects/audio remain open. Older schemas/fingerprints are incompatible.
+See [Leona rig integration](LEONA-RIG.md).
+
+Schema **120** added nullable Solar Flare origin/point, rank/damage,
 start/release/impact clocks and released phase, plus the independent Solar Flare
 slow kind. Validation rejects foreign/unlearned/terminal ownership, changed
 clocks, phase/range errors, dead unreleased casts and incompatible pending
@@ -17,8 +29,8 @@ phase separation, rank, exact clocks, direction and current/previous flight
 geometry, remaining range, hit IDs and last-champion consistency. A launched
 flight may outlive its caster; death/victory/respawn clear incompatible owned
 phases. Saved futures cover terrain traversal, controls, Flash, Q overlap and
-neutral/structure exclusions. Browser loading preserves an active E windup save
-before rejecting the incomplete presentation. Local dash/collision/input rules
+neutral/structure exclusions. At that revision, browser loading preserved an active E windup save
+before rejecting the incomplete presentation; schema 121 now restores NPC rigs. Local dash/collision/input rules
 remain unverified natively. Earlier schemas/fingerprints are incompatible; see
 [Leona](LEONA.md).
 
@@ -26,8 +38,9 @@ Schema **118** added nullable Eclipse start/rank/detonation/end/phase.
 Validation rejects foreign/dead/unlearned/terminal ownership, altered durations,
 premature or expired phases and inconsistent extension clocks. Stored unit
 resistances exclude the buff; effective values recompute at use, including after
-restoration. Death/victory/respawn clear it. The separate browser fixture gate
-preserves a save with active W before rejecting its incomplete presentation.
+restoration. Death/victory/respawn clear it. The browser fixture gate at that revision
+preserved a save with active W before rejecting its incomplete presentation;
+schema 121 now restores NPC rigs.
 Native timing/collision/mitigation policies remain open; earlier schemas and
 fingerprints remain incompatible. See [Leona](LEONA.md).
 
@@ -46,8 +59,9 @@ nullable Q empowerment and captured Q activation/rank/release clocks. Validation
 rejects missing tuple members, foreign ownership, unlearned ranks, altered
 window/release/cycle deadlines and mismatched pending/released attack state.
 Expiry can retire the buff while a previously committed Q finishes. Death and
-victory clear both state and attack. Player/Rift use is rejected; browser loading
-preserves the saved fixture and shows a notice before attempting model loading.
+victory clear both state and attack. Player/Rift use is rejected. At that revision, browser loading
+preserved the saved fixture and showed a notice before attempting model loading;
+schema 121 now restores NPC rigs.
 The six-second window, extra range and recovery adapter remain provisional;
 Sunlight and the complete kit/presentation remain open. Earlier schemas and
 fingerprints remain incompatible. See [Leona](LEONA.md).

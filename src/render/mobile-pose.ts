@@ -1,3 +1,5 @@
+import { leonaAttackAnimation } from '../content/leona-presentation';
+import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
 import { garenAttackAnimation } from '../content/garen-attack-animation';
 import { recallAnimationPose } from './recall-animation';
 import { SCUTTLER_POLICY } from '../content/scuttler-policy';
@@ -74,6 +76,27 @@ export function mobilePose(
       (at - unit.monster.spawn.startTick) / TICK_RATE,
       true
     );
+  const leonaCycle = unit.champion === 'leona' ? unit.attackCycle : null;
+  const leonaMoving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
+  if (
+    leonaCycle?.leonaQReleaseTick !== undefined &&
+    tick < leonaCycle.endTick &&
+    (!leonaMoving || unit.releaseTick !== null)
+  ) {
+    const clip = 'spell1',
+      contact = LEONA_COMBAT_POLICY.daybreakWindupTicks / TICK_RATE;
+    const windup = (leonaCycle.leonaQReleaseTick - leonaCycle.startTick) / TICK_RATE;
+    const recovery = (leonaCycle.endTick - leonaCycle.leonaQReleaseTick) / TICK_RATE;
+    const age = Math.max(0, (at - leonaCycle.startTick) / TICK_RATE);
+    const rate = age < windup ? contact / windup : (duration(clip) - contact) / recovery;
+    return fixed(
+      'attack',
+      clip,
+      age < windup ? age * rate : contact + (age - windup) * rate,
+      false,
+      rate
+    );
+  }
   if (state?.garenE) {
     const spin = state.garenE,
       clip = GAREN_E.animationClip;
@@ -92,6 +115,8 @@ export function mobilePose(
       if (time < duration(clip)) return fixed('cast', clip, time, true, rate);
     } else if (age < duration(clip)) return fixed('cast', clip, age, true);
   }
+  if (unit.champion === 'leona' && state?.leonaDash)
+    return fixed('cast', 'spell3', (at - state.leonaDash.castTick) / TICK_RATE, true);
   if (state?.recallEnd != null) {
     const age = Math.max(0, (at - (state.recallEnd - RECALL_DURATION_TICKS)) / TICK_RATE);
     const pose = recallAnimationPose(unit.champion, age, durations);
@@ -125,33 +150,39 @@ export function mobilePose(
     const clip =
       cycle.garenQRank !== undefined
         ? 'spell1'
-        : unit.champion === 'garen'
-          ? garenAttackAnimation(unit.id, cycle.startTick, cycle.critical)
-          : unit.champion === 'lux'
-            ? cycle.critical
-              ? 'crit'
-              : luxAttackAnimation(unit.id, cycle.startTick)
-            : cycle.empowered
-              ? ASHE_Q.empoweredAttackAnimation
-              : cycle.critical
+        : unit.champion === 'leona'
+          ? leonaAttackAnimation(unit.id, cycle.startTick, cycle.critical, cycle.leonaEclipse)
+          : unit.champion === 'garen'
+            ? garenAttackAnimation(unit.id, cycle.startTick, cycle.critical)
+            : unit.champion === 'lux'
+              ? cycle.critical
                 ? 'crit'
-                : 'attack1';
+                : luxAttackAnimation(unit.id, cycle.startTick)
+              : cycle.empowered
+                ? ASHE_Q.empoweredAttackAnimation
+                : cycle.critical
+                  ? 'crit'
+                  : 'attack1';
     const rate = duration(clip) / ((cycle.endTick - cycle.startTick) / TICK_RATE),
       age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
     return { ...fixed('attack', clip, age * rate, false, rate), settled: age >= 0.08 };
   }
   const clip =
-      unit.champion === 'garen'
+      unit.champion === 'leona' && state?.leonaW
         ? moving
-          ? 'run_base'
-          : 'idle1_base'
-        : scuttler && unit.stunUntil > tick
-          ? 'stun'
-          : moving
-            ? scuttler && unit.monster!.phase === 'engaged'
-              ? 'flee'
-              : 'run'
-            : 'idle1',
+          ? 'spell2_run'
+          : 'spell2_idle'
+        : unit.champion === 'garen'
+          ? moving
+            ? 'run_base'
+            : 'idle1_base'
+          : scuttler && unit.stunUntil > tick
+            ? 'stun'
+            : moving
+              ? scuttler && unit.monster!.phase === 'engaged'
+                ? 'flee'
+                : 'run'
+              : 'idle1',
     clock = moving ? unit.runClock : unit.idleClock;
   const seconds = clock ? clock.previous + (clock.current - clock.previous) * alpha : 0,
     length = duration(clip);

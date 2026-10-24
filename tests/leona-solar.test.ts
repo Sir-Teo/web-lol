@@ -61,7 +61,7 @@ test('Solar Flare validates rank, mana, cooldown, silence and stun while allowin
   expect(f.state.leonaR).toEqual(flare);
   expect(f.leona.rootUntil).toBeGreaterThan(f.w.tick);
   expect(f.state.pendingCast).toBeNull();
-  expect(f.state.castAnimation).toBeNull();
+  expect(f.state.castAnimation).toEqual({ ability: 'r', startTick: f.state.leonaR!.startTick });
   expect(f.w.projectiles).toEqual([]);
   expect(() => f.restore()).not.toThrow();
 });

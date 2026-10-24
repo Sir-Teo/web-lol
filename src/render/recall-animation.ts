@@ -1,3 +1,4 @@
+import { LEONA_RECALL_CLIPS } from '../content/leona-presentation';
 // Source sequence order is pinned in the champion model reference records.
 export const ASHE_RECALL_CLIPS = ['idle5', 'idle2'] as const;
 export function recallAnimationPose(
@@ -5,14 +6,15 @@ export function recallAnimationPose(
   seconds: number,
   durations: Readonly<Record<string, number>>
 ) {
-  if (champion === 'leona') throw new Error('Leona recall presentation is not integrated');
   let time = Math.max(0, seconds);
   const clips =
-    champion === 'garen'
-      ? ['recall']
-      : champion === 'lux'
-        ? ['idle3', 'entry_b4dcde19']
-        : ASHE_RECALL_CLIPS;
+    champion === 'leona'
+      ? LEONA_RECALL_CLIPS
+      : champion === 'garen'
+        ? ['recall']
+        : champion === 'lux'
+          ? ['idle3', 'entry_b4dcde19']
+          : ASHE_RECALL_CLIPS;
   for (let i = 0; i < clips.length; i++) {
     const clip = clips[i],
       duration = durations[clip];

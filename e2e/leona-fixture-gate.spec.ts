@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 
-test('an incomplete Leona simulation save is preserved and rejected before browser model loading', async ({
+test('a Leona NPC save restores source rigs and active presentation without changing its saved bytes', async ({
   page,
 }, testInfo) => {
   test.setTimeout(120000);
@@ -12,6 +12,7 @@ test('an incomplete Leona simulation save is preserved and rejected before brows
   await page.goto('/?scene=fixture');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
+  expect(requests.filter((url) => /\/assets\/models\/leona-base\.glb/.test(url))).toEqual([]);
   const prepared = await page.evaluate(async () => {
     const g = (window as any).__GAME__;
     g.setPaused(true);
@@ -49,9 +50,7 @@ test('an incomplete Leona simulation save is preserved and rejected before brows
   await page.reload();
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
-  await expect(page.locator('#toast')).toHaveText(
-    'Leona simulation fixtures require presentation integration before browser loading.'
-  );
+  await page.evaluate(() => (window as any).__GAME__.setPaused(true));
   const result = await page.evaluate(async (key) => {
     const g = (window as any).__GAME__;
     const modulePath = '/src/storage/match-store.ts';
@@ -63,15 +62,29 @@ test('an incomplete Leona simulation save is preserved and rejected before brows
         .filter((u: any) => u.kind === 'champion')
         .map((u: any) => u.champion),
       pending: g.world.player.pendingCast,
+      leonaModels: g.world.units
+        .filter((u: any) => u.champion === 'leona')
+        .map((u: any) => ({
+          rig: g.view.models.get(u.id)?.referenceAsset,
+          action: g.view.models.get(u.id)?.actionName,
+          hasTimeline: u.animationTimeline !== null,
+        })),
     };
   }, prepared.key);
   expect(result.saved).toBe(prepared.snapshot);
   expect(result.champion).toBe('ashe');
-  expect(result.identities).not.toContain('leona');
+  expect(result.identities).toContain('leona');
+  expect(result.leonaModels).toHaveLength(2);
+  for (const model of result.leonaModels) {
+    expect(model.rig).toBe('leona-base');
+    expect(model.hasTimeline).toBe(true);
+  }
   expect(result.pending).toBeNull();
-  expect(requests.filter((url) => /\/assets\/.*leona/i.test(url))).toEqual([]);
+  expect(
+    requests.filter((url) => /\/assets\/models\/leona-base\.glb/.test(url)).length
+  ).toBeGreaterThan(0);
   expect(errors).toEqual([]);
-  await page.screenshot({ path: testInfo.outputPath('rejected-simulation-save.png') });
+  await page.screenshot({ path: testInfo.outputPath('restored-source-rigs.png') });
   writeFileSync(
     testInfo.outputPath('evidence.json'),
     JSON.stringify({ prepared, result, errors }, null, 2) + '\n'

@@ -54,6 +54,7 @@ async function boot(): Promise<void> {
   const fixture =
     import.meta.env.DEV && new URLSearchParams(location.search).get('scene') === 'fixture';
   const battlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
+  const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
   const grompEncounter =
     fixture && new URLSearchParams(location.search).get('encounter') === 'gromp';
@@ -75,7 +76,15 @@ async function boot(): Promise<void> {
           }
           return next;
         })()
-      : new World(true, battlefield, champion);
+      : (() => {
+          const next = new World(true, battlefield, champion);
+          if (leonaNpc) {
+            const npc = next.spawn('champion', 'blue', { x: -650, y: 350 }, 'leona');
+            next.gainExperience(2400, npc.id);
+            for (const ability of ['q', 'w', 'e', 'r'] as const) next.learnSpell(ability, npc.id);
+          }
+          return next;
+        })();
   };
   let world = freshPractice(garenFixture ? 'garen' : 'ashe');
   let restored = false,
@@ -83,13 +92,10 @@ async function boot(): Promise<void> {
   try {
     const saved = await readMatch(battlefield.id);
     const candidate = saved ? World.fromSnapshot(saved, battlefield) : null;
-    if (candidate?.units.some((unit) => unit.champion === 'leona'))
-      throw new Error(
-        'Leona simulation fixtures require presentation integration before browser loading.'
-      );
     if (
       candidate &&
       (!garenFixture || candidate.hero.champion === 'garen') &&
+      (!leonaNpc || candidate.units.some((u) => u.champion === 'leona')) &&
       candidate.encounter === (grompEncounter ? 'gromp' : null) &&
       (candidate.companions.find(
         (p) => p.ownerId === candidate.player.id && p.acquisition.kind === 'fixture'
@@ -226,7 +232,10 @@ async function boot(): Promise<void> {
     loadOwnedCompanions(world.companions.map((p) => p.kind)),
     loadInterfaceFonts(),
     audio.load(world.units.some((u) => u.champion === 'garen')),
-    loadReferenceModels(monsterSpecies),
+    loadReferenceModels(
+      monsterSpecies,
+      world.units.some((u) => u.champion === 'leona')
+    ),
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')

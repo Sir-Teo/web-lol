@@ -67,7 +67,10 @@ test('Zenith validates resources, silence, stun, root and direction without ente
     direction: { x: 1, y: 0 },
   });
   expect(f.state.pendingCast).toBeNull();
-  expect(f.state.castAnimation).toBeNull();
+  expect(f.state.castAnimation).toEqual({
+    ability: 'e',
+    startTick: f.state.leonaEWindup!.startTick,
+  });
   expect(f.state.eCharges).toBe(0);
   expect(f.state.eRechargeTick).toBeNull();
   expect(f.w.projectiles).toEqual([]);

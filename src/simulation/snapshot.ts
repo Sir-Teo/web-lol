@@ -111,7 +111,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 120;
+export const SNAPSHOT_VERSION = 121;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -299,6 +299,7 @@ const unit = z
         critical: z.literal(true).optional(),
         garenQRank: z.number().int().min(1).max(5).optional(),
         garenQReleaseTick: tick.optional(),
+        leonaEclipse: z.literal(true).optional(),
         leonaQRank: z.number().int().min(1).max(5).optional(),
         leonaQStartTick: tick.optional(),
         leonaQReleaseTick: tick.optional(),
@@ -448,6 +449,12 @@ const unit = z
     'Invalid Decisive Strike attacker'
   )
   .refine((u) => !u.attackCycle?.critical || u.kind === 'champion', 'Invalid critical attacker')
+  .refine(
+    (u) =>
+      !u.attackCycle?.leonaEclipse ||
+      (u.champion === 'leona' && !u.attackCycle.critical && u.attackCycle.leonaQRank === undefined),
+    'Invalid Eclipse attack clip'
+  )
   .refine(
     (u) => u.attackCycle?.leonaQRank === undefined || u.champion === 'leona',
     'Invalid Daybreak attacker'
@@ -2873,11 +2880,13 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     )
       throw new Error('Saved match contains invalid Enlighten restoration.');
     const compatibleCast = (ability: string) =>
-      champion.champion === 'lux'
-        ? ['q', 'w', 'e', 'r'].includes(ability)
-        : champion.champion === 'garen'
-          ? ability === 'r'
-          : champion.champion === 'ashe' && ability !== 'q';
+      champion.champion === 'leona'
+        ? ['w', 'e', 'r'].includes(ability)
+        : champion.champion === 'lux'
+          ? ['q', 'w', 'e', 'r'].includes(ability)
+          : champion.champion === 'garen'
+            ? ability === 'r'
+            : champion.champion === 'ashe' && ability !== 'q';
     const spin = owner.garenE;
     const visual = owner.garenEVisual;
     if (visual) {
@@ -3044,6 +3053,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid Courage presentation.');
     }
     const garenQ = owner.garenQ;
+    if (champion.attackCycle?.leonaEclipse && !owner.spellRanks.w)
+      throw new Error('Saved Eclipse attack lacks a learned W.');
     const flare = owner.leonaR;
     if (
       flare &&
@@ -3412,7 +3423,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
     if (
       cast &&
-      (!compatibleCast(cast.ability) ||
+      (champion.champion === 'leona' ||
+        !compatibleCast(cast.ability) ||
         cast.rank > owner.spellRanks[cast.ability] ||
         cast.startTick > state.tick ||
         cast.releaseTick <= state.tick ||
@@ -3422,6 +3434,15 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     )
       throw new Error('Saved match contains an invalid pending cast.');
     const animation = owner.castAnimation;
+    const leonaCast =
+      owner.leonaEWindup ?? (owner.leonaR && !owner.leonaR.released ? owner.leonaR : null);
+    if (
+      leonaCast &&
+      (!animation ||
+        animation.startTick !== leonaCast.startTick ||
+        animation.ability !== (owner.leonaEWindup ? 'e' : 'r'))
+    )
+      throw new Error('Saved Leona windup lacks its cast presentation.');
     if (
       (animation &&
         (!compatibleCast(animation.ability) ||
