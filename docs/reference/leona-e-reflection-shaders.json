@@ -1,0 +1,256 @@
+{
+  "scope": "Four static ordinary-mesh reflective Metal/AIR permutations; no native target or shader executed.",
+  "limits": [
+    "Selection does not establish native sword2 CPU dispatch or actual uniform/resource/sampler bindings.",
+    "Native SCB normal generation remains unresolved; no fallback normal or rendering parity is claimed.",
+    "Clang retargets textual IR to the host with LLVM passes disabled; original Metal/AIR bytes are preserved."
+  ],
+  "tocReader": "tools/assets/export-particle-shaders.py",
+  "tocReaderSha256": "fbb96dc9c57f155668ba0145fe4ceb273f9be7b22a55fed17ec336d3682f46d3",
+  "sourcePin": "docs/reference/particle-shaders.json",
+  "sourcePinSha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6",
+  "tables": [
+    {
+      "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "stage": 0,
+      "defines": {
+        "LOCAL_SPACE_UV": "1",
+        "SEPARATE_ALPHA_UV": "1",
+        "DISABLE_FOW": "1",
+        "USE_VERTEX_COLORS": "1",
+        "REFLECTIVE": "1",
+        "MASKED": "1",
+        "SCREEN_SPACE_UV": "1",
+        "MULT_PASS": "1"
+      },
+      "variantCount": 256,
+      "uniqueProgramCount": 192
+    },
+    {
+      "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "stage": 1,
+      "defines": {
+        "SEPARATE_ALPHA_UV": "1",
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1",
+        "MASKED": "1",
+        "SCREEN_SPACE_UV": "1",
+        "COLORPALETTE_COLORBLIND": "1",
+        "SOFT_PARTICLES": "1",
+        "PALETTIZE_TEXTURES": "1",
+        "ALPHA_EROSION": "1",
+        "ALPHA_TEST": "1",
+        "MULT_PASS": "1"
+      },
+      "variantCount": 2048,
+      "uniqueProgramCount": 2048
+    }
+  ],
+  "selections": [
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "REFLECTIVE": "1"
+      },
+      "definesHash": "fdbc724321555eaa",
+      "programId": 98,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 98,
+      "bundleProgramOffset": 570562,
+      "metallib": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-98.metallib",
+        "bytes": 5945,
+        "sha256": "5264eda939daf5536fea3c19f8851daf02df5365fd80771ca4598c59209e6f38"
+      },
+      "bitcode": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-98.bc",
+        "bytes": 5636,
+        "sha256": "090c902ef65cb8c54c0a42329591f6c683f22b1e514a5c0c48fdfd1844f942fd",
+        "offset": 301
+      },
+      "disassembly": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-98.ll",
+        "bytes": 17735,
+        "sha256": "92d19587525441592bda2df8864aad143aceef6b65198a372e221b27364995b0"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1"
+      },
+      "definesHash": "1a0a6bb29e09d759",
+      "programId": 33,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 33,
+      "bundleProgramOffset": 188540,
+      "metallib": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.metallib",
+        "bytes": 5785,
+        "sha256": "396edb76f948fc06da41ab4975f4697a4bdcb9621392fdfa4e3496ee3d0ab4e6"
+      },
+      "bitcode": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.bc",
+        "bytes": 5476,
+        "sha256": "d8bf6f6ff00df69698130ae02d5f0bac8a93ba4d348dba36f3f33bc02a7e73ae",
+        "offset": 301
+      },
+      "disassembly": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.ll",
+        "bytes": 16208,
+        "sha256": "23078973d40d0ea4349f407926a5bf51bf34dab44c527b242aeab89d2f19a5a7"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "REFLECTIVE": "1"
+      },
+      "definesHash": "fdbc724321555eaa",
+      "programId": 790,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+      "index": 90,
+      "bundleProgramOffset": 510856,
+      "metallib": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-790.metallib",
+        "bytes": 5982,
+        "sha256": "0b34bedc169608b001f808723590f6e788de0ac22202dcef909bd9eb4e0cf866"
+      },
+      "bitcode": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-790.bc",
+        "bytes": 5716,
+        "sha256": "122786e5177fe3f3e745cd5336c2f8af25059f083e76d23d6cfb16e26b9059c6",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-790.ll",
+        "bytes": 12815,
+        "sha256": "43f384e599b54e65a60c2d40b1734be9503f4a85a738d799dc30a212bb812b52"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1"
+      },
+      "definesHash": "1a0a6bb29e09d759",
+      "programId": 54,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "index": 54,
+      "bundleProgramOffset": 221952,
+      "metallib": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.metallib",
+        "bytes": 4286,
+        "sha256": "f79178c54b8fdf6e81f230ae0836204b64b6f48fee8271f1f39864a4b2dc4853"
+      },
+      "bitcode": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.bc",
+        "bytes": 4024,
+        "sha256": "581c8c05be1703d365ae481e7f4d02713852ac54dd6dbb9922dbcb4dd455014b",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.ll",
+        "bytes": 8506,
+        "sha256": "f4550d75fb9c6ae7235a0abd99130ece72ef65b41eeca388785558f40ff7eb8b"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  ],
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/ShaderCache.metal.wad.client",
+    "chunks": {
+      "45E944192F8380B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15109374,
+        "bytes": 51065,
+        "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+      },
+      "EDCB4CFEDFC5EDA2": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 21553583,
+        "bytes": 2536,
+        "sha256": "a7b0d21c0d4c2d1e923d998f07650f3285659199ed9324927ee6bacb58e641b3"
+      },
+      "33717C0D6AD50A25": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 835001,
+        "bytes": 19836,
+        "sha256": "a5cd0b2323650eb791b48a4ccaec55a2dc4675914924810a572ee7ee15f2107f"
+      },
+      "3ECADB6FB4772D3D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 43266510,
+        "bytes": 59987,
+        "sha256": "469d1e9e4b5ba6b5d231faabaa6803e950fd4c56787648fb7bd372f435cd6d10"
+      },
+      "1E20E9A696B2869B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 1073240,
+        "bytes": 52572,
+        "sha256": "d1a0616bc8922e3eaedc1eccc99fafd6a3aafeb24f2c0a561ac370f1774b8223"
+      },
+      "24B88C8DB26EC663": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9336F6644B7D44D0.bundle",
+        "offset": 44517139,
+        "bytes": 88299,
+        "sha256": "cbce2b00b27961ede11d6fcb29d0b16486c6b38a2e175eb511841be6bb5155c7"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+        "wadPathHash": "b248a9f2d4c6e24d",
+        "sha256": "ae5b370cd544af0d628ada594060fab0e75b92973c27d23e22abf2322c584543",
+        "bytes": 3295
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+        "wadPathHash": "eac13e189601d830",
+        "sha256": "5fbf5c0846d31ce52b32ac57e29e7778d847e5e86a8cd26f4caa5206a62ac599",
+        "bytes": 24873
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+        "wadPathHash": "5ccdc3d1f626137b",
+        "sha256": "0b47cdaf2a7a0d9489a2d521a04f06a864a3bf0ae771ff95b22b5a01e5cc73ad",
+        "bytes": 582465
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+        "wadPathHash": "76f231675a2e43df",
+        "sha256": "f11dab5e01ff4779842a87a7f44063de3093b8f66210508f93007994a1d3efc8",
+        "bytes": 423160
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+        "wadPathHash": "3c044c26cd7db80f",
+        "sha256": "4d527093f8a2bba1fb443f403aa944314b5bc21a78734a6987afc85cab6093cc",
+        "bytes": 571080
+      }
+    ]
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "disassemblyCommand": [
+    "clang",
+    "-S",
+    "-emit-llvm",
+    "-Xclang",
+    "-disable-llvm-passes",
+    "INPUT.bc",
+    "-o",
+    "OUTPUT.ll"
+  ],
+  "nativeExecuted": false,
+  "nativeRenderingVerified": false
+}

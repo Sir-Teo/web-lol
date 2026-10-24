@@ -169,3 +169,12 @@ records and retain all thirteen disabled declarations. Independent ribbon arrays
 and saved-phase sampling are verified. GameView drawing, material/attachment
 dispatch, source audio and native acceptance remain unfinished. This source
 package's original delivery evidence keeps its historical identity.
+
+## Subsequent reflective-mesh prerequisite — October 24, 2026
+
+[Ordinary-mesh reflection](LEONA-E-REFLECTION.md) now has four pinned native shader
+samples and an explicit-input material tested with synthetic geometry/resources.
+The sword's SCB has no normal stream. Native normal construction, uniform/resource
+bindings and variant dispatch remain unresolved; no normals are generated and
+GameView still does not draw E. The skin shader's alpha treatment cannot be
+substituted for the observed ordinary-mesh contract.

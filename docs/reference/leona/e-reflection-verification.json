@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "scope": "Ordinary reflective mesh shader prerequisite; synthetic WebGL input contract only",
+  "baselineCommit": "3ee851e",
+  "ruleset": "3f5f13befd26234c86d0603e8fcc4b3236eb6e43b1e4ebf5e47a968d46007653",
+  "snapshotSchema": 125,
+  "sourceArchive": ".cache/leona-e-reflection-accepted-v1-20261024/source-archive.json",
+  "shaderRoot": ".cache/leona-e-reflection-shaders-v1-20261024",
+  "standard": ".cache/leona-e-reflection-validation-v1-20261024/check.log",
+  "geometry": ".cache/leona-e-reflection-validation-v1-20261024/source-geometry.log",
+  "pixelChecks": [
+    [
+      ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-c9ad8-ource-lookup-and-tint-alpha/alpha-contract.json",
+      81
+    ],
+    [
+      ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-b7227--upper-world-matrix-normals/vertex-contract.json",
+      12
+    ],
+    [
+      ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-b1bca-after-reflection-evaluation/depth-push.json",
+      2
+    ],
+    [
+      ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-0c05f-d-context-recovery-is-exact/remap-uv-recovery.json",
+      5
+    ]
+  ],
+  "evidence": [
+    {
+      "archived": ".cache/leona-e-reflection-accepted-v1-20261024/source-archive.json",
+      "bytes": 837960,
+      "sha256": "28dad12512f088c4ad5085a9579b8ddb87a21f6d9e053e36e2968cdac888a8e9"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.bc",
+      "bytes": 4024,
+      "sha256": "581c8c05be1703d365ae481e7f4d02713852ac54dd6dbb9922dbcb4dd455014b"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.ll",
+      "bytes": 8506,
+      "sha256": "f4550d75fb9c6ae7235a0abd99130ece72ef65b41eeca388785558f40ff7eb8b"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.metallib",
+      "bytes": 4286,
+      "sha256": "f79178c54b8fdf6e81f230ae0836204b64b6f48fee8271f1f39864a4b2dc4853"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-790.bc",
+      "bytes": 5716,
+      "sha256": "122786e5177fe3f3e745cd5336c2f8af25059f083e76d23d6cfb16e26b9059c6"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-790.ll",
+      "bytes": 12815,
+      "sha256": "43f384e599b54e65a60c2d40b1734be9503f4a85a738d799dc30a212bb812b52"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-790.metallib",
+      "bytes": 5982,
+      "sha256": "0b34bedc169608b001f808723590f6e788de0ac22202dcef909bd9eb4e0cf866"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.bc",
+      "bytes": 5476,
+      "sha256": "d8bf6f6ff00df69698130ae02d5f0bac8a93ba4d348dba36f3f33bc02a7e73ae"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.ll",
+      "bytes": 16208,
+      "sha256": "23078973d40d0ea4349f407926a5bf51bf34dab44c527b242aeab89d2f19a5a7"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.metallib",
+      "bytes": 5785,
+      "sha256": "396edb76f948fc06da41ab4975f4697a4bdcb9621392fdfa4e3496ee3d0ab4e6"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-98.bc",
+      "bytes": 5636,
+      "sha256": "090c902ef65cb8c54c0a42329591f6c683f22b1e514a5c0c48fdfd1844f942fd"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-98.ll",
+      "bytes": 17735,
+      "sha256": "92d19587525441592bda2df8864aad143aceef6b65198a372e221b27364995b0"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-98.metallib",
+      "bytes": 5945,
+      "sha256": "5264eda939daf5536fea3c19f8851daf02df5365fd80771ca4598c59209e6f38"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "bytes": 24873,
+      "sha256": "5fbf5c0846d31ce52b32ac57e29e7778d847e5e86a8cd26f4caa5206a62ac599"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "bytes": 423160,
+      "sha256": "f11dab5e01ff4779842a87a7f44063de3093b8f66210508f93007994a1d3efc8"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+      "bytes": 571080,
+      "sha256": "4d527093f8a2bba1fb443f403aa944314b5bc21a78734a6987afc85cab6093cc"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "bytes": 3295,
+      "sha256": "ae5b370cd544af0d628ada594060fab0e75b92973c27d23e22abf2322c584543"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "bytes": 582465,
+      "sha256": "0b47cdaf2a7a0d9489a2d521a04f06a864a3bf0ae771ff95b22b5a01e5cc73ad"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v1-20261024/browser-v2.log",
+      "bytes": 1038,
+      "sha256": "9e1f79e5a790e40bf04883a96bfe2ba58f57bbdf0a9c4fe40647a209e1fed85a"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v1-20261024/browser.log",
+      "bytes": 8853,
+      "sha256": "d2f6199b2d9fd61a91c48f32023b6582d00a089c617b5460c7d777a1569e9afc"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v1-20261024/check.log",
+      "bytes": 1040,
+      "sha256": "b653970e40d0881449fc2c4609596059c3de32ad74b26447da3d84e8db09cf3d"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v1-20261024/shader-check.log",
+      "bytes": 106,
+      "sha256": "80409aaa0ed5a9b37178002f02b4fe418c6050bbd3cbb1396bdf66489bb43481"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v1-20261024/source-geometry.log",
+      "bytes": 197,
+      "sha256": "235fad428f390886349d51ec71d0a6e030192f3c018245eaf66a490ab8c2ba91"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-0c05f-d-context-recovery-is-exact/remap-uv-recovery.json",
+      "bytes": 1148,
+      "sha256": "3c46930dc8c2ad4dc286d522e1fe7892af7eb3c3554672e45c00969e7c220239"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-b1bca-after-reflection-evaluation/depth-push.json",
+      "bytes": 478,
+      "sha256": "df584ae6eee28d60936cff28047ac28df7ddff4a8dee5d92d53de8b2c47a7e7f"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-b7227--upper-world-matrix-normals/vertex-contract.json",
+      "bytes": 1993,
+      "sha256": "d07316d185f11b5aee18ea6e518747ca2a72391fca48274dbf4e88bee59837df"
+    },
+    {
+      "archived": ".cache/leona-e-reflection-validation-v2-20261024/browser/particle-mesh-reflection-m-c9ad8-ource-lookup-and-tint-alpha/alpha-contract.json",
+      "bytes": 13115,
+      "sha256": "1986e37cf6a83a35f30f72a16d5ad80e520633181d3df364496e4ed594633568"
+    }
+  ],
+  "acceptance": {
+    "gameViewIntegrated": false,
+    "nativeBindingsVerified": false,
+    "nativeNormalsVerified": false,
+    "nativeExecuted": false,
+    "nativeFrameVerified": false,
+    "sourceEAudioIntegrated": false,
+    "fullProjectComplete": false
+  },
+  "limits": [
+    "Four exploratory native permutations establish input/arithmetic observations, not sword2 CPU dispatch.",
+    "No normal stream is present in the preserved SCB/GLB; none generated.",
+    "Synthetic cube/lookup/remap/geometry supplied explicitly; 103 GPU samples, four Chrome cases, one-byte channel budget and exact recovery.",
+    "Initial browser run pixel assertions passed but missing favicon failed error assertions; fixture repaired.",
+    "No new build, delivery/offline, performance or native execution claim."
+  ]
+}

@@ -5414,3 +5414,26 @@ working ruleset `3f5f13befd26234c86d0603e8fcc4b3236eb6e43b1e4ebf5e47a968d4600765
 remain. See [kernel scope](LEONA-E-KERNELS.md) and its
 [evidence record](reference/leona/e-kernel-verification.json). Nothing is pushed;
 the full project goal remains active.
+
+## Zenith Blade reflective ordinary-mesh prerequisite — October 24, 2026
+
+Four frozen native Metal/AIR samples establish the reflective ordinary-mesh
+input/resource contract. It differs from the attached-skin material: cube RGB
+survives zero output alpha, while rim RGB uses fully tinted base/lookup alpha.
+Normals use the upper world matrix, with reflection and rim computed at vertices.
+The new material requires explicit resources/uniforms and matching nonzero normal
+streams. It generates no normals, borrows resources and has no GameView import.
+
+All 1,785 unit cases/294 files and three Node QA cases pass. Four Chrome cases
+check 103 synthetic GPU samples, including alpha products, cube directions,
+vertex interpolation, nonuniform scaling, remapping, UVs, depth displacement and
+exact context recovery. The initial pixel checks passed but the probe's missing
+favicon failed its error assertion; the fixture is corrected and both runs kept.
+The source package's four meshes/42 textures re-verify byte for byte. No native
+shader/client executes; no native frame, actual E binding, delivery/offline or
+performance claim is made. Schema 125 and ruleset 3f5f13be remain unchanged.
+
+Native normal construction, CPU bindings and dispatch remain unresolved, and E
+drawing/audio/player integration remains open. See [material scope](LEONA-E-REFLECTION.md)
+and its [verification record](reference/leona/e-reflection-verification.json).
+Nothing is pushed; the full project goal remains active.
