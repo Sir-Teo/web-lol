@@ -114,3 +114,8 @@ node tools/qa/verify-leona-w-skin-material.mjs
 
 Use `--historical` after canonical changes. W playback and native acceptance
 remain open.
+
+The subsequent [playback increment](LEONA-W-PLAYBACK.md) now draws these materials
+on private saved source poses during actual W initial/extended phases, including
+source birth counts and owned skeleton disposal. It does not complete the
+remaining W primitives or native dispatch/frame acceptance.

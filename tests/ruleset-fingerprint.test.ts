@@ -7,6 +7,7 @@ import {
   collectRulesetFiles,
   rulesetFiles,
   rulesetFingerprint,
+  rulesetModuleRoots,
 } from '../tools/ruleset-fingerprint';
 
 const temporary: string[] = [];
@@ -24,6 +25,7 @@ function fixture() {
   };
   // Give a tiny isolated project the same non-module compatibility pins.
   for (const file of rulesetFiles.filter((file) => !file.endsWith('.ts'))) put(file, '{}');
+  for (const file of rulesetModuleRoots) put(file, '// isolated presentation root\n');
   put('tools/ruleset-fingerprint.ts', '// fingerprint policy\n');
   put(
     'tsconfig.json',
@@ -138,16 +140,19 @@ test('follows runtime re-exports, side effects, literal dynamic imports, mixed i
   put('src/render/only-type.ts', "import './side-effect'; export type OnlyType = {};");
   put('src/render/side-effect.ts', 'console.log(1);');
   const files = collectRulesetFiles(root);
-  expect(files.filter((f) => f.startsWith('src/render/'))).toEqual([
-    'src/render/barrel.ts',
-    'src/render/data.json',
-    'src/render/later.ts',
-    'src/render/mixed.ts',
-    'src/render/only-type.ts',
-    'src/render/pose.ts',
-    'src/render/setup.ts',
-    'src/render/side-effect.ts',
-  ]);
+  expect(files.filter((f) => f.startsWith('src/render/'))).toEqual(
+    [
+      ...rulesetModuleRoots,
+      'src/render/barrel.ts',
+      'src/render/data.json',
+      'src/render/later.ts',
+      'src/render/mixed.ts',
+      'src/render/only-type.ts',
+      'src/render/pose.ts',
+      'src/render/setup.ts',
+      'src/render/side-effect.ts',
+    ].sort()
+  );
   expect(new Set(files).size).toBe(files.length);
 });
 
@@ -165,6 +170,23 @@ test('newly imported transitive data is discovered without adding a manual pin',
   expect(collectRulesetFiles(root)).toContain('src/render/new-data.json');
   put('src/render/new-data.json', '{"rate":2}');
   expect(rulesetFingerprint(root)).not.toBe(extended);
+});
+
+test('explicit Eclipse module roots include transitive kernels and fail closed on missing runtime imports', () => {
+  const { root, put } = fixture(),
+    baseline = rulesetFingerprint(root);
+  for (const entry of rulesetModuleRoots) expect(collectRulesetFiles(root)).toContain(entry);
+  put(rulesetModuleRoots[0], "import './curve-policy';");
+  put('src/render/curve-policy.ts', "import curve from './curve-data.json'; export default curve;");
+  put('src/render/curve-data.json', '{"rate":1}');
+  const changed = rulesetFingerprint(root);
+  expect(changed).not.toBe(baseline);
+  expect(collectRulesetFiles(root)).toContain('src/render/curve-policy.ts');
+  expect(collectRulesetFiles(root)).toContain('src/render/curve-data.json');
+  put('src/render/curve-data.json', '{"rate":2}');
+  expect(rulesetFingerprint(root)).not.toBe(changed);
+  rmSync(join(root, 'src/render/curve-policy.ts'));
+  expect(() => rulesetFingerprint(root)).toThrow(/ruleset import/);
 });
 
 test('compiler path aliases and extended config files join the dependency set', () => {

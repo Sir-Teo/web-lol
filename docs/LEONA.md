@@ -386,3 +386,9 @@ meshes. W playback, attached-skin materials and source audio still require integ
 The [Eclipse attached-skin material](LEONA-W-SKIN-MATERIAL.md) now has compiled
 shader arithmetic evidence and a posed source-rig diagnostic. Match-owned W
 playback remains unfinished.
+
+[Eclipse playback](LEONA-W-PLAYBACK.md) now adds strict saved W histories, a
+sampler for all thirty enabled emitters, and actual drawing of the four
+attached-character material descriptions. The remaining twenty-six enabled
+layers, source sound dispatch and native comparison remain unfinished. Player
+selection, support integration and the full kit gates remain open.

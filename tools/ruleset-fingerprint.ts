@@ -7,6 +7,57 @@ const sourceRoots = ['src/simulation', 'src/content'];
 // Fetched Rift data and source presentation tables behind generated retention
 // constants have no direct module edge. Preserve their explicit compatibility pins.
 const pinnedData = [
+  'src/content/leona-w-particles.json',
+  'docs/reference/leona-w-particles-decoded.json',
+  'docs/reference/leona-w-particle-profiles.json',
+  'public/assets/effects/alphaslice_mesh.png',
+  'public/assets/effects/aura_self.png',
+  'public/assets/effects/leona_base_ash.png',
+  'public/assets/effects/leona_base_blastring.png',
+  'public/assets/effects/leona_base_flare_1.png',
+  'public/assets/effects/leona_base_glow5.png',
+  'public/assets/effects/leona_base_mult_windblast.png',
+  'public/assets/effects/leona_base_r_buf_mult.png',
+  'public/assets/effects/leona_base_w_avatarmask.png',
+  'public/assets/effects/leona_base_w_avatarmask_erosion.png',
+  'public/assets/effects/leona_base_w_circle_normal.png',
+  'public/assets/effects/leona_base_w_decalbase.png',
+  'public/assets/effects/leona_base_w_glow.png',
+  'public/assets/effects/leona_base_w_mask02.png',
+  'public/assets/effects/leona_base_w_praxis.png',
+  'public/assets/effects/leona_base_w_praxiswaves_ruined.png',
+  'public/assets/effects/leona_base_w_rainbowray.png',
+  'public/assets/effects/leona_base_w_rainbowray01.png',
+  'public/assets/effects/leona_base_wisps2.png',
+  'public/assets/effects/leona_base_z_color-bellcurve.png',
+  'public/assets/effects/leona_base_z_color-brandblaze.png',
+  'public/assets/effects/leona_base_z_color-rampdown.png',
+  'public/assets/effects/leona_base_z_color-rampdown32.png',
+  'public/assets/effects/leona_base_z_color-solar-corona-reverse.png',
+  'public/assets/effects/leona_base_z_color-solar-corona.png',
+  'public/assets/effects/leona_base_z_color-wildcard.png',
+  'public/assets/effects/leona_base_z_eclipse-bead.png',
+  'public/assets/effects/leona_base_z_exploshaft-yellow.png',
+  'public/assets/effects/leona_base_z_gradient_01.png',
+  'public/assets/effects/leona_base_z_shockwavesolar.png',
+  'public/assets/effects/leona_base_z_solar-corona.png',
+  'public/assets/effects/leona_base_z_solar-wave3.png',
+  'public/assets/effects/leona_base_z_sundisc32.png',
+  'public/assets/effects/leona_w_tar_tornado_burstwind_erosion_v01.png',
+  'public/assets/effects/lux_skin07_w_distort_rgba_2.png',
+  'public/assets/effects/tft_crack_noise_mult.png',
+  'public/assets/models/leona-w-contact-cone.glb',
+  'public/assets/models/leona-w-contact-cone.json',
+  'public/assets/models/leona-w-praxis.glb',
+  'public/assets/models/leona-w-praxis.json',
+  'public/assets/models/leona-w-smoke-01.glb',
+  'public/assets/models/leona-w-smoke-01.json',
+  'public/assets/models/leona-w-smoke-02.glb',
+  'public/assets/models/leona-w-smoke-02.json',
+  'public/assets/models/leona-w-solar-flare.glb',
+  'public/assets/models/leona-w-solar-flare.json',
+  'public/assets/models/leona-w-shockwave.glb',
+  'public/assets/models/leona-w-shockwave.json',
   'public/assets/maps/rift-layout.json',
   'public/assets/maps/rift-nav.json',
   'public/assets/maps/rift-nav.bin',
@@ -47,6 +98,15 @@ const pinnedData = [
   'src/content/gromp-death.json',
   'src/content/gromp-attack.json',
   'src/content/garen-aa-particles.json',
+];
+
+// Seekable presentation kernels also determine the interpretation of saved
+// effect clocks. Traverse their runtime dependencies just like simulation roots;
+// hashing only the entry file would miss a changed curve/motion helper.
+export const rulesetModuleRoots = [
+  'src/render/leona-eclipse-particles.ts',
+  'src/render/leona-eclipse-values.ts',
+  'src/render/leona-eclipse-skin-material.ts',
 ];
 
 function sourceFiles(directory: string): string[] {
@@ -148,6 +208,7 @@ export function collectRulesetFiles(projectRoot = process.cwd()): string[] {
 
   for (const directory of sourceRoots)
     for (const file of sourceFiles(resolve(root, directory))) visit(file);
+  for (const file of rulesetModuleRoots) visit(resolve(root, file));
   return [...files].sort();
 }
 

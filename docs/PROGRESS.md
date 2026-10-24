@@ -4964,3 +4964,56 @@ audiences, stop/death/recast/victory, runtime retirement, source audio and nativ
 comparison remain required. E/R presentation, controls/support AI, complete kits,
 full roster/match/browser/offline/performance acceptance remain open. This agent
 did not push; the full goal stays active. See [skin material](LEONA-W-SKIN-MATERIAL.md).
+
+## Eclipse histories, emitter sampler and attached-character playback — October 23, 2026
+
+W now records activation/extension/stop clocks, pre-movement detonation origins,
+contact metadata, historical source/target poses and per-birth viewing audiences.
+Strict schema-124 decoding checks phase ownership, clocks, rigs, radii, death,
+recast, victory and frozen endpoints. A repository-only exporter compiles all
+30 enabled emitter families and preserves the other 20 declarations disabled.
+Its stateless sampler retains source probabilities, motion, box births,
+independent UV layers, color/linger and finite stop bounds. Negative lives,
+first updates and CPU stop/default semantics remain explicit local policies.
+
+The four attached-character material descriptions now draw the original animated
+Leona mesh during actual W playback, including authored duplicate births. Each
+particle samples a private saved skeleton and retires its material/bone texture;
+source geometry/images are shared. The initial and extension clocks remain
+independent. Saved walking poses match the live source actor, Save/reload keeps
+exact skin state, graphics recovery restores exact pixels, and death/victory
+freeze then drain private instances. Six repeated casts return to the same
+controlled GPU storage count. The other 26 enabled W families are sampled but
+**not yet rendered**; this does not complete Eclipse presentation.
+
+All **1,660 tests across 284 files**, TypeScript/build and three final Chrome
+cases pass. Three Node QA checks and twelve adjacent W/Q/rig/Sunlight Chrome
+cases pass on the preceding v6 identity; final v7 changes fingerprint traversal
+and its isolated fixtures and repeats W's three browser cases. The first broad
+unit run retains four fixture failures and five five-second timeouts while
+other validation overlapped. The final two-worker run changes no timeout and
+passes all cases. Explicit W module roots now traverse their runtime helpers,
+closing a shallow fingerprint gap without weakening save decoding.
+
+Two ten-minute normal seeds pass 72,000 checked ticks, twenty exact saves and
+eighteen following-minute comparisons. Twenty checkpoints match the preceding
+Q-stage smoke after normalizing only identity and the new empty W arrays. Both
+are unfinished at the smoke horizon; the full current 100-seed gate remains open.
+Production subpath smoke passes 32 recordings. A fresh real Chrome full offline
+pack audit passes saved-tick boot, new local Lux 5v5, integrity/cancel/retry/repair,
+version activation, multi-tab refusal and scope-only removal with 963 worker
+responses and zero production errors. The pack now has 879 files/499,219,179 bytes,
+ID `1ecb940787f9fc4eabf590ad1c6d32ffe9fc805acf1f01a383830ee743bc7131`.
+The optional W skin chunk is 146.18 kB (16.18 kB gzip); existing bundle warnings
+and full-match delivery/performance acceptance remain open.
+
+Current schema/ruleset: **124** /
+`a626cd285109ed77c22f6e9b927748087a20930aa9a29f5cea327f715f213898`.
+Final runtime evidence is frozen in
+`.cache/leona-w-playback-validation-v7-20261023` (1,470 inputs, twelve reader
+files, 29 generated build files). All earlier archives and failure evidence are
+preserved. See [Eclipse playback](LEONA-W-PLAYBACK.md) and its
+[ledger](reference/leona/w-playback-verification.json). Remaining W primitives,
+UV/soft/depth/distortion/palette stages, source audio, native comparison,
+E/R presentation, controls/support and full six-champion match acceptance remain
+required. This agent did not push; the full goal remains active.

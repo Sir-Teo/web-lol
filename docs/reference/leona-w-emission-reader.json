@@ -1,0 +1,78 @@
+{
+  "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "files": [
+    {
+      "name": "pool.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/pool.ts",
+      "bytes": 11769,
+      "sha256": "08b345f8e95b669ff51725764b5460c6a6b9227dfc3734e17d65723b4bbacae4"
+    },
+    {
+      "name": "sampleCurve.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/sampleCurve.ts",
+      "bytes": 4385,
+      "sha256": "b3bf37eeca26278b1ac4a2fa430dcc1fd2fd9838d2dd22ff04b82c4aa84a7643"
+    },
+    {
+      "name": "particleRead.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/particleRead.ts",
+      "bytes": 15674,
+      "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da"
+    },
+    {
+      "name": "emit.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/emit.ts",
+      "bytes": 8885,
+      "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62"
+    },
+    {
+      "name": "integrate.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts",
+      "bytes": 21927,
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+    },
+    {
+      "name": "systemModel.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/systemModel.ts",
+      "bytes": 4170,
+      "sha256": "22476d4a0541b4f13631be19c8e49cb1db9b5024a29ab6b0b5a0d8bcbedbfcfd"
+    },
+    {
+      "name": "readVfxSystem.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readVfxSystem.ts",
+      "bytes": 14468,
+      "sha256": "a5765fc5676e4f58d0ae156bad93bf5e84936fe181c8bfe47c503a37da52a844"
+    },
+    {
+      "name": "readValue.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readValue.ts",
+      "bytes": 12855,
+      "sha256": "f0d68f01959ba8cd8315399621f40556c77edfe2a4c7f6468f30094baa7718c4"
+    },
+    {
+      "name": "readMotion.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readMotion.ts",
+      "bytes": 12535,
+      "sha256": "5cda76779e25463c3b7ebcb187aea094b4ec265658fb496e1dd94924ca37a3b5"
+    },
+    {
+      "name": "readSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readSurface.ts",
+      "bytes": 13876,
+      "sha256": "7493b13c0f3fa6a8d9fc8efe6e2ac02d5d872f1f7db5f3a47722f1039e4148a2"
+    },
+    {
+      "name": "uvTransform.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/uvTransform.ts",
+      "bytes": 4858,
+      "sha256": "72373e2d9022b96a6d451c4a5f5110154c7d6500e0bce0ee2eb7ef2d88878b53"
+    },
+    {
+      "name": "enums.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/enums.ts",
+      "bytes": 4874,
+      "sha256": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0"
+    }
+  ],
+  "status": "External reconstruction semantics; native CPU update/default/PRNG behavior remains unmeasured."
+}

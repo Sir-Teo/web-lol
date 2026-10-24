@@ -1,0 +1,398 @@
+{
+  "date": "2026-10-23",
+  "scope": "Schema-124 W phase/contact/pose/audience histories; normalized and seekable sampling for all thirty enabled emitters; actual playback of four attached-character skin descriptions only. Twenty-six enabled primitive families, source audio, native CPU/frame comparison and the full project remain unfinished.",
+  "schema": 124,
+  "ruleset": "a626cd285109ed77c22f6e9b927748087a20930aa9a29f5cea327f715f213898",
+  "sourceBaseline": "f392d6568c5d3ffc7e1d288cab8256f06d17b19e",
+  "sourceArchive": ".cache/leona-w-playback-validation-v7-20261023/source-archive.json",
+  "earlierSourceArchives": [
+    ".cache/leona-w-playback-validation-v1-20261023/source-archive.json",
+    ".cache/leona-w-playback-validation-v2-20261023/source-archive.json",
+    ".cache/leona-w-playback-validation-v3-20261023/source-archive.json",
+    ".cache/leona-w-playback-validation-v4-20261023/source-archive.json",
+    ".cache/leona-w-playback-validation-v5-20261023/source-archive.json",
+    ".cache/leona-w-playback-validation-v6-20261023/source-archive.json"
+  ],
+  "buildArchive": ".cache/leona-w-playback-validation-v7-20261023/generated-build-archive.json",
+  "preservedArchives": [
+    ".cache/leona-w-playback-validation-v1-20261023/reader-archive.json",
+    ".cache/leona-w-playback-validation-v2-20261023/reader-archive.json",
+    ".cache/leona-w-playback-validation-v3-20261023/reader-archive.json",
+    ".cache/leona-w-playback-validation-v4-20261023/reader-archive.json",
+    ".cache/leona-w-playback-validation-v5-20261023/reader-archive.json",
+    ".cache/leona-w-playback-validation-v6-20261023/reader-archive.json",
+    ".cache/leona-w-playback-validation-v7-20261023/reader-archive.json",
+    ".cache/leona-w-playback-validation-v6-20261023/generated-build-archive.json",
+    ".cache/leona-w-playback-validation-v7-20261023/generated-build-archive.json",
+    ".cache/leona-w-playback-normal-smoke-v1-20261023/source-archive.json"
+  ],
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA-W-PLAYBACK.md",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/review-inputs/docs/LEONA-W-PLAYBACK.md",
+      "bytes": 8679,
+      "sha256": "a2b715a6cecd1d72e62c1286cd3375586af01f7e400838a6111a36d2050254da"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/review-inputs/docs/PROGRESS.md",
+      "bytes": 539825,
+      "sha256": "fd632d48ff1affd405ef152d67c0acfd876fa7005beb62b873653bb045a51d01"
+    },
+    {
+      "file": "docs/LEONA.md",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/review-inputs/docs/LEONA.md",
+      "bytes": 26768,
+      "sha256": "48d2dd23bdf31010b6660b5283b3be9400373334ed580ff385607f3289475417"
+    },
+    {
+      "file": "docs/LEONA-W-SOURCE.md",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/review-inputs/docs/LEONA-W-SOURCE.md",
+      "bytes": 5915,
+      "sha256": "5ef8ab4d49aeafce5b33169bf7da824af904b65b2f85118d6deaf4925d4e06e1"
+    },
+    {
+      "file": "docs/LEONA-W-SKIN-MATERIAL.md",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/review-inputs/docs/LEONA-W-SKIN-MATERIAL.md",
+      "bytes": 6476,
+      "sha256": "bb68ef8d556dc602b5c0c4b8a05fe19cdec6bba83e7f37c4bb4d4713b40c3f08"
+    },
+    {
+      "file": "docs/RULESET-DEPENDENCIES.md",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/review-inputs/docs/RULESET-DEPENDENCIES.md",
+      "bytes": 5132,
+      "sha256": "736cfbe3010c7e872192c2f4532ba5354c57b3cdcc43323917c9a474c289ae26"
+    },
+    {
+      "file": "tools/qa/verify-leona-w-playback.mjs",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/review-inputs/tools/qa/verify-leona-w-playback.mjs",
+      "bytes": 5856,
+      "sha256": "54defbd896120a56d414900ca083ebf4a29529123092ee9b789f92b3959d067d"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/unit.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/unit.log",
+      "bytes": 499,
+      "sha256": "03adbfb78b7f9e830d4d058b394a301bf2631d2344c7d269e566299ba887db2a"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/build.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/build.log",
+      "bytes": 2658,
+      "sha256": "0fec8b694f4f9606c86a629ad74e92a89fe2609c9fd7adf6cfa7fb6c5509fd5a"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/browser.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/browser.log",
+      "bytes": 848,
+      "sha256": "8ef8ca929fbad6f55481442751b30808c61132658a9ccc3aaa5363761571b0c9"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v6-20261023/browser.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v6-20261023/browser.log",
+      "bytes": 2244,
+      "sha256": "9412a706ef0dfdd2eb24d37a125e6e9cb7d5f7dd5ee007161bb4c642534a779f"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v6-20261023/node-qa.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v6-20261023/node-qa.log",
+      "bytes": 431,
+      "sha256": "c3a176471f9c851d83d43866e838b8fee38bdcf23c13f6b152fec59c4b7bd6e1"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v6-20261023/profile-export.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v6-20261023/profile-export.log",
+      "bytes": 97,
+      "sha256": "596aa669732d2c5be41ae582dc8bf048db9c4a84296cc6d8d528ac2dcd294e3a"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/skins.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/skins.json",
+      "bytes": 312937,
+      "sha256": "81e54011b074d320ca754fac3a5417c059609c9ee9500b357c54af156db6cc74"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-skin-f-bf8bc-urces-against-a-frozen-save/recovery-terminal.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-skin-f-bf8bc-urces-against-a-frozen-save/recovery-terminal.json",
+      "bytes": 39157,
+      "sha256": "f3bad9368a0488b354e678cfa9bec779a1b49a084f2336a2fdbb3718ff3f0f69"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-repeat-f7f2c--shared-GPU-storage-bounded/storage.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-repeat-f7f2c--shared-GPU-storage-bounded/storage.json",
+      "bytes": 680,
+      "sha256": "5b17692e55176d6ee26ae32dd6741806af400cd3b0954f25a36d346f091f8925"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/normal-verification.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/normal-verification.log",
+      "bytes": 279,
+      "sha256": "9a7b8dbaebe8bd736d86a34bab4e7e08efc2a22f97d812db32f7cfbbf61ac80e"
+    },
+    {
+      "file": ".cache/leona-w-playback-normal-smoke-v1-20261023/identity-and-empty-w-comparison.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-normal-smoke-v1-20261023/identity-and-empty-w-comparison.json",
+      "bytes": 9622,
+      "sha256": "abedda440609c627f01074458e3a266cdac1db44ed6039ec1a05ded45e04f7e9"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/production.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/production.log",
+      "bytes": 1879,
+      "sha256": "3dd36d00b7e4739443728219bb01966019e1caea726d742c846d02e4f83253a1"
+    },
+    {
+      "file": "artifacts/offline-pack-leona-w-playback-v1-20261023-production.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/artifacts/offline-pack-leona-w-playback-v1-20261023-production.json",
+      "bytes": 649,
+      "sha256": "f1fd7e809253b1b3af7124743c2255a296aed37e19427ada6b3478d83cfd2088"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/generated-build/offline-pack.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/generated-build/offline-pack.json",
+      "bytes": 126981,
+      "sha256": "30986f8102d899024148ce4b51ea5722a9e6a45654dfaae6c02161d138d09d52"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v2-20261023/focused.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v2-20261023/focused.log",
+      "bytes": 2096,
+      "sha256": "f0b6d86230637564a999bc7812e584c34e5b6e74e85aef2617326b7a1d5babcd"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v4-20261023/focused.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v4-20261023/focused.log",
+      "bytes": 1379,
+      "sha256": "836d64dabd864498663eaca452beba4d6ae08d9b237e259ec81b34b72e11f8f5"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v6-20261023/unit.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v6-20261023/unit.log",
+      "bytes": 7350,
+      "sha256": "c3adf11e659bbf0e8cd370213bb880954c2dc74a821ec6804c959b1412df7057"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/source-archive.json",
+      "bytes": 415141,
+      "sha256": "1eb253040cc8ab4cd1821f74dbd9e081c61e699b03d5a2be1fb6537b0a1c02be"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v1-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v1-20261023/source-archive.json",
+      "bytes": 98084,
+      "sha256": "ea8a49ad0ac1674474cfea13e96545e2a4dab203997bd585328cd87f0e74c15b"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v2-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v2-20261023/source-archive.json",
+      "bytes": 98667,
+      "sha256": "9bc47fd843a6e247a6c59e8c2169a94ae757fa69d78fa8c6ab57d6f5b55ee00b"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v3-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v3-20261023/source-archive.json",
+      "bytes": 99222,
+      "sha256": "906f34eb97d1298529358e2e91b87f3d198305588d78467af06d00732cb8ecf2"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v4-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v4-20261023/source-archive.json",
+      "bytes": 101724,
+      "sha256": "898e092094e9979c787db336ae3a8699a44ff42d09ffecfdea8d95133cc06819"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v5-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v5-20261023/source-archive.json",
+      "bytes": 102005,
+      "sha256": "aa91b3ec4d487cee80c7c4e2b42442d7e1bc79522b1451dffa495213436a05ff"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v6-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v6-20261023/source-archive.json",
+      "bytes": 415141,
+      "sha256": "67b0f13df664d6065fdca76c7ca49f6703efaa005dd301ba0836040b455a84d3"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v1-20261023/reader-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v1-20261023/reader-archive.json",
+      "bytes": 3475,
+      "sha256": "076a69b18e28dbd9910538986d6f50857cb8975ed380331b083f628f1697b7c7"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v2-20261023/reader-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v2-20261023/reader-archive.json",
+      "bytes": 3475,
+      "sha256": "2e4b67f90bce42eacb4514cd9f698e0ee36f90cf497373e9246fef3f5a29abcf"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v3-20261023/reader-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v3-20261023/reader-archive.json",
+      "bytes": 3475,
+      "sha256": "14317e007ef2c8e8a67e5e8a6c77e46c2b6423a32354948d74b4958409ce3012"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v4-20261023/reader-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v4-20261023/reader-archive.json",
+      "bytes": 3475,
+      "sha256": "93bed119dff6916a29b583f733088feecf3bc56fd67bc1e731f06c334ce9a2ab"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v5-20261023/reader-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v5-20261023/reader-archive.json",
+      "bytes": 3475,
+      "sha256": "3d49d43f28b35852e2df41f5e3bfb0b339b0a9166fbcde720e23b3d8afcf61c3"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v6-20261023/reader-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v6-20261023/reader-archive.json",
+      "bytes": 3475,
+      "sha256": "7c55b85860315eccdeba776ca876a7e1b5a39764915c01d71bb7a7d914054b69"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/reader-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/reader-archive.json",
+      "bytes": 3475,
+      "sha256": "39baa9a194810cd0ec801165c6935d85cd4df83b546dd95e9e89c400be646532"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v6-20261023/generated-build-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v6-20261023/generated-build-archive.json",
+      "bytes": 8084,
+      "sha256": "1f726e4425f7c3d1d9d97c30fe8aa1077089901dd15a0850aeb90bd2ecf6181b"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/generated-build-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/generated-build-archive.json",
+      "bytes": 8084,
+      "sha256": "0b4234721cf4c9017fb3de7af5302cec17c11d888dd1fd24a0c73d0f527f4bf7"
+    },
+    {
+      "file": ".cache/leona-w-playback-normal-smoke-v1-20261023/source-archive.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-normal-smoke-v1-20261023/source-archive.json",
+      "bytes": 94026,
+      "sha256": "781a15d2fdd2d1eaa816ceb264b84f0fa1c3ac73da01044be3dfe86e40607694"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/extended.png",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/extended.png",
+      "bytes": 887282,
+      "sha256": "20ccecbc3354cf569afff604ebe8172beffdba06aac53a555f27baac05a005d1"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/initial.png",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/initial.png",
+      "bytes": 752448,
+      "sha256": "f668b0b900ac7362318e3be8bce1d68d38c680a584643dc3da2d571a82a61df9"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/production-subpath.original.mjs",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/production-subpath.original.mjs",
+      "bytes": 21751,
+      "sha256": "fdc9d83a3f07c315e70545ca577660d4aed2df26715e888f0a2836f3e8b3e4fe"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/production-subpath.mjs",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/production-subpath.mjs",
+      "bytes": 22231,
+      "sha256": "bf9aa61ed6d17199b19e584c6ee53d9684d7d757daff3a7d68474526dc3a7133"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v7-20261023/compare-normal.mjs",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v7-20261023/compare-normal.mjs",
+      "bytes": 1373,
+      "sha256": "a5a5e5e4f120df2dd0885c05cdc09efa684cc840212a23fe90728d2eb74b310d"
+    },
+    {
+      "file": ".cache/leona-w-playback-normal-smoke-v1-20261023/plan.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-normal-smoke-v1-20261023/plan.json",
+      "bytes": 56745,
+      "sha256": "a86a37c88fb0c1e0f928e5775783c0642d6f4351665cc0aa7288e66954e6ee04"
+    },
+    {
+      "file": ".cache/leona-w-playback-normal-smoke-v1-20261023/summary.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-normal-smoke-v1-20261023/summary.json",
+      "bytes": 120033,
+      "sha256": "bbf834c35beb4456c7bef42b190f6dbf363cf896dbb262d3b77a2b6a73d78047"
+    },
+    {
+      "file": ".cache/leona-w-playback-normal-smoke-v1-20261023/seeds/8/report.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-normal-smoke-v1-20261023/seeds/8/report.json",
+      "bytes": 51317,
+      "sha256": "32b78a7faf8933855ed1018da8a525ed86850e388557291567f44a79e69b208e"
+    },
+    {
+      "file": ".cache/leona-w-playback-normal-smoke-v1-20261023/seeds/38/report.json",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-normal-smoke-v1-20261023/seeds/38/report.json",
+      "bytes": 51095,
+      "sha256": "a8f61041167d22fb93dfb6f3776c651c3c924e97780c2d540ef346d2574d5916"
+    },
+    {
+      "file": ".cache/leona-w-playback-validation-v4-20261023/typecheck.log",
+      "archived": ".cache/leona-w-playback-validation-v7-20261023/recorded-evidence/.cache/leona-w-playback-validation-v4-20261023/typecheck.log",
+      "bytes": 241,
+      "sha256": "0f7bfec7c627d37bcb3b54d851b8af1f78a806408f10faa63cdc3cd8efadd9a8"
+    }
+  ],
+  "checks": {
+    "unit": ".cache/leona-w-playback-validation-v7-20261023/unit.log",
+    "build": ".cache/leona-w-playback-validation-v7-20261023/build.log",
+    "browser": ".cache/leona-w-playback-validation-v7-20261023/browser.log",
+    "adjacentBrowser": ".cache/leona-w-playback-validation-v6-20261023/browser.log",
+    "nodeQa": ".cache/leona-w-playback-validation-v6-20261023/node-qa.log",
+    "export": ".cache/leona-w-playback-validation-v6-20261023/profile-export.log",
+    "skins": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/skins.json",
+    "recovery": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-skin-f-bf8bc-urces-against-a-frozen-save/recovery-terminal.json",
+    "storage": ".cache/leona-w-playback-validation-v7-20261023/browser/leona-eclipse-skins-repeat-f7f2c--shared-GPU-storage-bounded/storage.json",
+    "normalVerification": ".cache/leona-w-playback-validation-v7-20261023/normal-verification.log",
+    "normalComparison": ".cache/leona-w-playback-normal-smoke-v1-20261023/identity-and-empty-w-comparison.json",
+    "production": ".cache/leona-w-playback-validation-v7-20261023/production.log",
+    "offline": "artifacts/offline-pack-leona-w-playback-v1-20261023-production.json",
+    "manifest": ".cache/leona-w-playback-validation-v7-20261023/generated-build/offline-pack.json",
+    "failedFocused": ".cache/leona-w-playback-validation-v2-20261023/focused.log",
+    "failedSkinFixtures": ".cache/leona-w-playback-validation-v4-20261023/focused.log",
+    "failedFull": ".cache/leona-w-playback-validation-v6-20261023/unit.log"
+  },
+  "validation": {
+    "unit": {
+      "tests": 1660,
+      "files": 284,
+      "maxWorkers": 2,
+      "changedTimeouts": false
+    },
+    "browser": {
+      "final": 3,
+      "precedingIdentityAdjacent": 12
+    },
+    "nodeQa": 3,
+    "normal": {
+      "checkedTicks": 72000,
+      "roundTrips": 20,
+      "futureChecks": 18,
+      "futureTicks": 1080,
+      "unfinished": 2,
+      "hundredSeedGate": false
+    },
+    "productionRecordings": 32,
+    "offline": {
+      "files": 879,
+      "bytes": 499219179,
+      "id": "1ecb940787f9fc4eabf590ad1c6d32ffe9fc805acf1f01a383830ee743bc7131",
+      "serviceWorkerResponses": 963
+    },
+    "sourceMaterialsRendered": 4,
+    "sourceFamiliesSampled": 30,
+    "sourceFamiliesUndrawn": 26
+  },
+  "productionRunnerNote": "The canonical production-subpath runner is copied unchanged except its artifact destination literals, so prior screenshots remain intact. Both original and adjusted runner bytes are preserved.",
+  "acceptance": {
+    "completeWPlayback": false,
+    "nativeCpuVerified": false,
+    "nativeFramesVerified": false,
+    "sourceAudioIntegrated": false,
+    "fullMatchPerformance": false,
+    "fullGoalComplete": false
+  }
+}

@@ -103,3 +103,7 @@ packaging and delivery behavior; Eclipse runtime and native acceptance remain op
 The four attached-character records now have a separately verified
 [skin material and posed-rig inspection](LEONA-W-SKIN-MATERIAL.md). Full W
 particle scheduling and match rendering remain unfinished.
+
+The subsequent [playback increment](LEONA-W-PLAYBACK.md) records W phase/contact
+histories, samples all enabled emitters and draws the four attached-character
+material descriptions. The other 26 layers and full/native acceptance remain open.

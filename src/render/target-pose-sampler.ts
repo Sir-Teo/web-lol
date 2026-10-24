@@ -29,6 +29,14 @@ export class TargetPoseSampler {
     this.root = clone(reference);
     this.mixer = new THREE.AnimationMixer(this.root);
   }
+  /** A caller may render this private pose, replacing borrowed mesh materials.
+   * Keep placement on a parent so the reference root's authored transform survives.
+   * The sampler owns its cloned skeletons, including lazily allocated bone textures;
+   * callers retain ownership of replacement materials and parent containers. */
+  get renderRoot(): THREE.Object3D {
+    if (this.disposed) throw new Error('Target pose sampler has been disposed');
+    return this.root;
+  }
   sample(layers: readonly TargetPoseLayer[]) {
     if (this.disposed) throw new Error('Target pose sampler has been disposed');
     const seen = new Set<string>();
@@ -95,6 +103,12 @@ export class TargetPoseSampler {
     this.mixer.uncacheRoot(this.root);
     this.clips.clear();
     this.bones.clear();
+    const skeletons = new Set<THREE.Skeleton>();
+    this.root.traverse((node) => {
+      if (node instanceof THREE.SkinnedMesh) skeletons.add(node.skeleton);
+    });
+    for (const skeleton of skeletons) skeleton.dispose();
+    this.root.removeFromParent();
     this.root.clear();
     this.disposed = true;
   }

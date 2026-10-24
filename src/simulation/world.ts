@@ -1,4 +1,10 @@
 import {
+  advanceEclipseVisuals,
+  beginEclipseVisual,
+  captureEclipseDetonation,
+  finishEclipseVisual,
+} from './leona-w-visuals';
+import {
   advanceDaybreakVisuals,
   beginDaybreakVisual,
   contactDaybreakVisual,
@@ -3854,6 +3860,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceEclipseVisuals(this);
     advanceDaybreakVisuals(this);
     advanceSunlightVisuals(this);
     advanceGarenAttackPoses(this);
@@ -4565,6 +4572,7 @@ export class World {
     const eclipse = state.leonaW!,
       source = this.unit(state.id)!;
     if (!this.alive(source) || this.winner) {
+      finishEclipseVisual(state, this.tick, this.winner ? 'match-end' : 'death');
       state.leonaW = null;
       return;
     }
@@ -4581,6 +4589,7 @@ export class World {
           !(target.kind === 'monster' && target.monster.phase === 'returning') &&
           distance(source, target) <= LEONA_COMBAT_POLICY.eclipseRadius + target.radius
       );
+      captureEclipseDetonation(this, source, state, victims);
       if (victims.length) {
         eclipse.detonated = true;
         eclipse.endTick = eclipse.detonationTick + LEONA_COMBAT_POLICY.eclipseDurationTicks;
@@ -4590,7 +4599,10 @@ export class World {
         this.damage(source, victim, damage, 'magic', 'area');
         this.applySunlight(source, victim);
       }
-    } else if (this.tick >= eclipse.endTick) state.leonaW = null;
+    } else if (this.tick >= eclipse.endTick) {
+      finishEclipseVisual(state, this.tick, 'expired');
+      state.leonaW = null;
+    }
   }
   /** Independent shield grants; ability-specific stacking belongs to the spell adapter. */
   applyShield(source: Unit, target: Unit, amount: number, durationTicks: number): void {
@@ -4873,6 +4885,7 @@ export class World {
           state.castAnimation = null;
           state.leonaQ = null;
           state.leonaW = null;
+          finishEclipseVisual(state, this.tick, 'match-end');
           state.leonaEWindup = null;
           state.leonaDash = null;
           state.leonaR = null;
@@ -4916,6 +4929,7 @@ export class World {
         targetState.garenQ = null;
         targetState.leonaQ = null;
         targetState.leonaW = null;
+        finishEclipseVisual(targetState, this.tick, 'death');
         targetState.leonaEWindup = null;
         targetState.leonaDash = null;
         if (targetState.leonaR) {
@@ -5054,7 +5068,10 @@ export class World {
         for (const award of awards) this.gainExperience(award.amount, award.id);
       }
     }
-    if (target.hp <= 0) advanceDaybreakVisuals(this);
+    if (target.hp <= 0) {
+      advanceDaybreakVisuals(this);
+      advanceEclipseVisuals(this);
+    }
     // Positive damage includes shield absorption. Non-champion unit sources
     // cannot trigger the mark; cleanup is not a combat hit.
     if (target.sunlight && amount > 0 && Number.isFinite(amount) && category !== 'cleanup')
@@ -5442,6 +5459,7 @@ export class World {
     }
     if (u.champion === 'leona' && ability === 'w') {
       const detonationTick = this.tick + LEONA_COMBAT_POLICY.eclipseDurationTicks;
+      beginEclipseVisual(this, u, state);
       state.leonaW = {
         startTick: this.tick,
         rank: state.spellRanks.w,

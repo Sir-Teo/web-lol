@@ -104,13 +104,13 @@ test('instant local activation preserves ordinary and committed Daybreak attacks
 
 test('resistances recompute from equipment and level without self scaling or stored-stat residue', () => {
   const f = setup();
+  Object.assign(f.leona, f.w.battlefield.spawns.blue);
   f.learn();
   f.cast();
   expect(f.w.effectiveArmor(f.leona)).toBe(63);
   expect(f.w.effectiveMagicResist(f.leona)).toBe(52);
   expect(f.leona.armor).toBe(43);
   expect(f.leona.magicResist).toBe(32);
-  Object.assign(f.leona, f.w.battlefield.spawns.blue);
   f.state.gold = 5000;
   expect(f.w.buy('cloth', f.leona.id)).toBeNull();
   expect(f.w.buy('mantle', f.leona.id)).toBeNull();

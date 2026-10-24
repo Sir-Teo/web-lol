@@ -70,3 +70,15 @@ missing favicon is the sole recorded console resource error.
 The broader replay, 100-seed normal-match, offline, full-roster, performance and
 native visual-comparison gates remain open. Historical feature ledgers retain
 their original fingerprints and are not rewritten as current-revision results.
+
+## Eclipse presentation module roots — October 23, 2026
+
+Schema 124 adds saved Eclipse phases, poses and audiences. Source W profiles,
+asset pins and seekable sampler/material entry modules participate in the
+fingerprint. `rulesetModuleRoots` now traverses those entry modules' emitted
+imports rather than hashing only their entry bytes. Its isolated fixture checks
+a newly imported curve helper/data file and rejects a missing runtime import.
+Earlier failed fixture runs are retained; all 1,660 unit cases pass after this
+change. The current identity and full validation scope are recorded in
+[the Eclipse playback record](LEONA-W-PLAYBACK.md). Complete replay certification
+and arbitrary future fetched-resource coverage remain open.

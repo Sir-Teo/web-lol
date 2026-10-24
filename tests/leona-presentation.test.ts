@@ -104,15 +104,14 @@ test('W cast and idle/run stances use own clocks at base movement speed', () => 
 test('an ordinary Eclipse swing keeps its captured source clip through buff expiry', () => {
   const f = fixture();
   f.cast('w');
-  f.w.step(178);
+  f.w.step(358);
+  expect(f.state.leonaW?.detonated).toBe(true);
   f.w.setOrder(f.leona, { type: 'attack', target: f.target.id });
   f.w.step();
   expect(f.leona.attackCycle?.leonaEclipse).toBe(true);
   expect(f.pose().clip).toBe('spell2_attack');
   f.w.step();
-  expect(f.state.leonaW).not.toBeNull(); // The target extends Eclipse on its burst.
-  f.target.x = 2000;
-  f.state.leonaW = null; // Capture must remain independent of current buff ownership.
+  expect(f.state.leonaW).toBeNull();
   expect(f.pose().clip).toBe('spell2_attack');
   expect(() => f.restore()).not.toThrow();
 });

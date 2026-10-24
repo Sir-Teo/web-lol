@@ -95,6 +95,45 @@ it('reports missing bones and never disposes borrowed render resources', () => {
   material.dispose();
 });
 
+it('renders a private skeleton and retires its bone texture exactly once without touching borrowed data', () => {
+  const { root, joint, clips } = fixture(),
+    geometry = new THREE.BufferGeometry(),
+    material = new THREE.MeshBasicMaterial(),
+    mesh = new THREE.SkinnedMesh(geometry, material),
+    sourceSkeleton = new THREE.Skeleton([joint]);
+  root.add(mesh);
+  mesh.bind(sourceSkeleton);
+  sourceSkeleton.computeBoneTexture();
+  const sampler = new TargetPoseSampler(root, clips),
+    parent = new THREE.Group();
+  parent.add(sampler.renderRoot);
+  const copy = sampler.renderRoot.children.find(
+    (o) => o instanceof THREE.SkinnedMesh
+  ) as THREE.SkinnedMesh;
+  expect(copy.geometry).toBe(geometry);
+  expect(copy.material).toBe(material);
+  expect(copy.skeleton).not.toBe(sourceSkeleton);
+  expect(copy.skeleton.bones[0]).not.toBe(joint);
+  copy.skeleton.computeBoneTexture();
+  let privateDisposals = 0,
+    borrowedDisposals = 0;
+  copy.skeleton.boneTexture!.addEventListener('dispose', () => privateDisposals++);
+  for (const resource of [geometry, material, sourceSkeleton.boneTexture!])
+    resource.addEventListener('dispose', () => borrowedDisposals++);
+  sampler.sample([{ clip: 'move', time: 0.5, weight: 1 }]);
+  expect(copy.skeleton.bones[0].position.x).toBe(2);
+  expect(joint.position.x).toBe(0);
+  sampler.dispose();
+  sampler.dispose();
+  expect(parent.children).toHaveLength(0);
+  expect(privateDisposals).toBe(1);
+  expect(borrowedDisposals).toBe(0);
+  expect(() => sampler.renderRoot).toThrow('disposed');
+  sourceSkeleton.dispose();
+  geometry.dispose();
+  material.dispose();
+});
+
 it('selects an authored chest independently of Lux critical routing, preserving its complete matrix and case-folded uniqueness', () => {
   const { root, clips } = fixture(),
     s = new TargetPoseSampler(root, clips),
