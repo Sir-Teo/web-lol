@@ -1,0 +1,709 @@
+{
+  "format": 1,
+  "recordedAt": "2026-10-24T06:59:53.460Z",
+  "baselineCommit": "4f72a0b",
+  "scope": "Presentation-only label style/state caching; existing uncommitted Zenith kernels preserved.",
+  "schema": 125,
+  "ruleset": "982958c23a5e30418d2a752119a499c15f6f42ac161331de5e7bf70e65cc91c5",
+  "sourceArchive": ".cache/bar-energy-source-current-v2-20261024/source-archive.json",
+  "sourceInputs": 1591,
+  "labelBenchmark": {
+    "scope": "Isolated stationary-label synchronous JavaScript timing. Same 120-second ten-champion Rift state and shared initial model bar-height metadata; no scene render, alternating order, eight warmup pairs, 20 rounds of 100 updates per unit. Excludes renderer and physical power/heat.",
+    "baselineSHA256": "7d5309d06a0eb09d15e6189604603424caacea23eb396efadef209d1cc544404",
+    "currentSHA256": "b2bd12f4a4510dc10ab3c9b5e08f1139aed6ff10dda67e2ac5439db04e607ee8",
+    "units": 117,
+    "visibleLabels": 59,
+    "iterationsPerRound": 100,
+    "rounds": [
+      {
+        "baselineMS": 21.399999856948853,
+        "currentMS": 15.200000047683716
+      },
+      {
+        "baselineMS": 21.90000009536743,
+        "currentMS": 15.599999904632568
+      },
+      {
+        "baselineMS": 21,
+        "currentMS": 15.299999952316284
+      },
+      {
+        "baselineMS": 22.40000009536743,
+        "currentMS": 15.299999952316284
+      },
+      {
+        "baselineMS": 20.199999809265137,
+        "currentMS": 13.800000190734863
+      },
+      {
+        "baselineMS": 20,
+        "currentMS": 13.900000095367432
+      },
+      {
+        "baselineMS": 20.399999856948853,
+        "currentMS": 13.799999952316284
+      },
+      {
+        "baselineMS": 20.600000143051147,
+        "currentMS": 14
+      },
+      {
+        "baselineMS": 21.299999952316284,
+        "currentMS": 15.200000047683716
+      },
+      {
+        "baselineMS": 21.5,
+        "currentMS": 15.200000047683716
+      },
+      {
+        "baselineMS": 21.40000009536743,
+        "currentMS": 15.099999904632568
+      },
+      {
+        "baselineMS": 21.299999952316284,
+        "currentMS": 15.200000047683716
+      },
+      {
+        "baselineMS": 21.5,
+        "currentMS": 14.599999904632568
+      },
+      {
+        "baselineMS": 20.09999990463257,
+        "currentMS": 14.300000190734863
+      },
+      {
+        "baselineMS": 19.90000009536743,
+        "currentMS": 14
+      },
+      {
+        "baselineMS": 20.5,
+        "currentMS": 13.899999856948853
+      },
+      {
+        "baselineMS": 20.699999809265137,
+        "currentMS": 14
+      },
+      {
+        "baselineMS": 19.899999856948853,
+        "currentMS": 13.800000190734863
+      },
+      {
+        "baselineMS": 19.90000009536743,
+        "currentMS": 13.700000047683716
+      },
+      {
+        "baselineMS": 20.800000190734863,
+        "currentMS": 14.599999904632568
+      }
+    ],
+    "labelsEqual": true,
+    "snapshotEqual": true,
+    "baselineMedianMS": 20.75,
+    "currentMedianMS": 14.450000047683716,
+    "reductionPercent": 30.36144555333149,
+    "errors": []
+  },
+  "activeObservations": {
+    "baseline": {
+      "meanRenderMS": 6.380662980000617,
+      "taskCPUSeconds": 3.611135,
+      "wallSeconds": 6.2108980000484735,
+      "renders": 362
+    },
+    "current": {
+      "meanRenderMS": 6.730470913599072,
+      "taskCPUSeconds": 3.7916419999999995,
+      "wallSeconds": 6.215438999934122,
+      "renders": 361
+    },
+    "conclusion": "Whole-game sample is slower and noisy; no overall CPU improvement is claimed. Only isolated label timing and avoided style work support the accepted optimization."
+  },
+  "validation": {
+    "unitCases": 1771,
+    "unitFiles": 292,
+    "nodeQACases": 3,
+    "browserCases": 10,
+    "exactPixelPoseLabelSamples": 40,
+    "typecheck": true,
+    "build": true,
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-subpath.png"
+    },
+    "offlineRerun": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/bar-energy-source-current-v2-20261024/source-archive.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-source-current-v2-20261024/source-archive.json",
+      "bytes": 448045,
+      "sha256": "622297cdc892403225979598cdd7277d6c6ded3fd19a513f104559f6be28b0f9"
+    },
+    {
+      "file": ".cache/bar-energy-source-current-v2-20261024/native-archive.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-source-current-v2-20261024/native-archive.json",
+      "bytes": 17244,
+      "sha256": "c80ebf415d58e4748951391e52bae2534f4db409171681a7dd748bdfc13f2168"
+    },
+    {
+      "file": ".cache/bar-energy-source-current-v1-20261024/source-archive.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-source-current-v1-20261024/source-archive.json",
+      "bytes": 448045,
+      "sha256": "9efed944f4c13e89d29534ca16eedfb20c6bd0b448e08086de1c5e489e78fb46"
+    },
+    {
+      "file": ".cache/bar-energy-source-baseline-v1-20261024/source-archive.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-source-baseline-v1-20261024/source-archive.json",
+      "bytes": 449636,
+      "sha256": "904403a54c90d4136dc69e812f806dff91663fc7eee1f05c3d13a69c30c06e82"
+    },
+    {
+      "file": ".cache/bar-energy-baseline-v1-20261024/baseline-summary.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-baseline-v1-20261024/baseline-summary.json",
+      "bytes": 15304,
+      "sha256": "cb9b59df5a7dc8b953408964fa4ba81e12abf57a82bb74cb1df3afce776e7efe"
+    },
+    {
+      "file": ".cache/bar-energy-baseline-v1-20261024/baseline.cpuprofile",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-baseline-v1-20261024/baseline.cpuprofile",
+      "bytes": 301995,
+      "sha256": "b9b6666bd7b3caf5f0af95cc09c12a963ad0f08baff7c4e558390860c3c3303c"
+    },
+    {
+      "file": ".cache/bar-energy-baseline-v1-20261024/baseline.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-baseline-v1-20261024/baseline.json",
+      "bytes": 2848,
+      "sha256": "dead9a75231b9192931f7b007c71804000bf3bc928302df5839b0aaeb18f285b"
+    },
+    {
+      "file": ".cache/bar-energy-baseline-v1-20261024/benchmark.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-baseline-v1-20261024/benchmark.log",
+      "bytes": 1117,
+      "sha256": "f395f644eee4618a963fff62f3ba16ce3ef8d4d33f2994e89746b58230cb1f50"
+    },
+    {
+      "file": ".cache/bar-energy-baseline-v1-20261024/match.snapshot.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-baseline-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "63236682fc316d6041b40e535b84b332ee37e6c4db192ef00c9bc9c35247b828"
+    },
+    {
+      "file": ".cache/bar-energy-baseline-v1-20261024/mobile-animation.ts",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-baseline-v1-20261024/mobile-animation.ts",
+      "bytes": 1792,
+      "sha256": "ad5ac1073d3a02359bf93220b9e2d586ebf2cc1448c9449a334741009fd6c429"
+    },
+    {
+      "file": ".cache/bar-energy-baseline-v1-20261024/view.ts",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-baseline-v1-20261024/view.ts",
+      "bytes": 47292,
+      "sha256": "7d5309d06a0eb09d15e6189604603424caacea23eb396efadef209d1cc544404"
+    },
+    {
+      "file": ".cache/bar-energy-observation-v1-20261024/benchmark.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-observation-v1-20261024/benchmark.log",
+      "bytes": 1130,
+      "sha256": "4a768400fdd30f37d5e783cc8baa157f4688a939a1294f501caedcf241e2b349"
+    },
+    {
+      "file": ".cache/bar-energy-observation-v1-20261024/match.snapshot.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-observation-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "63236682fc316d6041b40e535b84b332ee37e6c4db192ef00c9bc9c35247b828"
+    },
+    {
+      "file": ".cache/bar-energy-observation-v1-20261024/optimized-summary.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-observation-v1-20261024/optimized-summary.json",
+      "bytes": 15564,
+      "sha256": "c53697ef8d76bc3fe7663ca231fc5d2d4e9a8b89b7692b42dc6e2fda04605cdd"
+    },
+    {
+      "file": ".cache/bar-energy-observation-v1-20261024/optimized.cpuprofile",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-observation-v1-20261024/optimized.cpuprofile",
+      "bytes": 295766,
+      "sha256": "6b95c23650ac729392ee33a730f8fc2de4ed10d5bcee76e20bdfc4f4ebb6a56b"
+    },
+    {
+      "file": ".cache/bar-energy-observation-v1-20261024/optimized.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-observation-v1-20261024/optimized.json",
+      "bytes": 2857,
+      "sha256": "bbe0eb53aa45ca2f239d35798a6b72be6fab155275e3ac565d2a226039a538d8"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/browser/.last-run.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/browser.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/browser.log",
+      "bytes": 1801,
+      "sha256": "70afb8d5bbb17f214615678720733a430dc33b4062156d6f20d94c6901467844"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/build.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/build.log",
+      "bytes": 3028,
+      "sha256": "01029dc18e131e65391f2d11051233a2a7f07999e0d61660095377e771cb3476"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/check.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/check.log",
+      "bytes": 1042,
+      "sha256": "728ff99ade1abe7685c3117d9de838f0ea376fe0bdd131c1e81ede4af9150993"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/comparison.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/comparison.log",
+      "bytes": 140,
+      "sha256": "2e87e40c1093c0225fb51fdec51e8b70e0cc3fbd6486aa19687df8b5c130cf52"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/integrity.log",
+      "archived": ".cache/bar-energy-review-v2-20261024/.cache/bar-energy-validation-v2-20261024/integrity.log",
+      "bytes": 682,
+      "sha256": "252abb06064ad41cc9691aac761e7371ab442c3c448a5a08193d9e66f62b22c3"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/label-microbenchmark-v2.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/label-microbenchmark-v2.json",
+      "bytes": 2444,
+      "sha256": "055e7e1537094ace10cc36aa1b0107e18484e7508ca4f5385bc800967f1a5c9c"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/label-microbenchmark-v2.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/label-microbenchmark-v2.log",
+      "bytes": 2444,
+      "sha256": "055e7e1537094ace10cc36aa1b0107e18484e7508ca4f5385bc800967f1a5c9c"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/label-microbenchmark-v3.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/label-microbenchmark-v3.json",
+      "bytes": 2422,
+      "sha256": "2e6899c359a169540b42ddb1ffca58fd31be87be8f297a2e6eae66dcead30fa9"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/label-microbenchmark-v3.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/label-microbenchmark-v3.log",
+      "bytes": 2422,
+      "sha256": "2e6899c359a169540b42ddb1ffca58fd31be87be8f297a2e6eae66dcead30fa9"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/label-microbenchmark.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/label-microbenchmark.log",
+      "bytes": 844,
+      "sha256": "4ef967db9cf7994b7b4a7bea48ecfb3bfc9818451466bb33a4922d3a6fea596f"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/pose-pixel-label-comparison.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/pose-pixel-label-comparison.json",
+      "bytes": 15810,
+      "sha256": "2cf1b7ba583e9144b7be4602d7134a8fb20cb144ad0a49a7b6960d6ca5138df2"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-companion-purchase.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811262,
+      "sha256": "cea6e0a8e2a11374a612f0f6ad57bc0d4d51cc18c3536da7b2fb21e3ad61b48f"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832873,
+      "sha256": "1888c5b9e45fd3e15c935c1dfa690340e50b05addde8965a432491e14a8ef3de"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-lux-e-source.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829067,
+      "sha256": "7756c7d71edf4455f46554c71829ade19f2241e6ee818e9129736fb6e4848268"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-lux.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-lux.png",
+      "bytes": 1804718,
+      "sha256": "bc95bd67055677103b28694d8c5fe08d99567f1a7c363067105f8fc73e99f004"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-oracle.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-oracle.png",
+      "bytes": 1816559,
+      "sha256": "d98d67820ea6386baf2b13bd9883e56fe436438b186a1cf03c54895a4d7cfbf9"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-role-match.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-role-match.png",
+      "bytes": 1346847,
+      "sha256": "a8def228863f9d4d74598cdb11a8a3be0916c7a21155b813d5099db6efc315f6"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-subpath.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-subpath.png",
+      "bytes": 1821285,
+      "sha256": "33fca371ebc0e2cd961329384b4bba69a1bb1efa40305e7578f8ebd43ab5377f"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-ward.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production-images/lux-e-hit-production-ward.png",
+      "bytes": 1813021,
+      "sha256": "2dd898dea7e4240dc0b3f7542d292eab68163ec67219ba7a59e9f6efc7d04bd1"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production.json",
+      "bytes": 1880,
+      "sha256": "d339557ffb291b0354115292492913521280aa056bd4d4f4a48d6184a61b4342"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/production.stderr.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v2-20261024/production.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v1-20261024/browser/.last-run.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v1-20261024/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "8acc7f9d2e8ed91e6b998ca30c69c26ccf639bb0be1cac6cbb114857932740db"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v1-20261024/browser/health-bar-updates-stable--45374-tick-stat-changes-stay-live/error-context.md",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v1-20261024/browser/health-bar-updates-stable--45374-tick-stat-changes-stay-live/error-context.md",
+      "bytes": 4125,
+      "sha256": "a8b51dcb7c0268d437b7a5291a4e24f25fde4bc0dc6822ac3e2f02aeff7dd0ea"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v1-20261024/browser/health-bar-updates-stable--45374-tick-stat-changes-stay-live/test-failed-1.png",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v1-20261024/browser/health-bar-updates-stable--45374-tick-stat-changes-stay-live/test-failed-1.png",
+      "bytes": 922801,
+      "sha256": "98238dd0855ae1bf52f7c163c5a75e8820001b3b40fa26fe9f0b5981d1ba8416"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v1-20261024/browser/health-bar-updates-stable--45374-tick-stat-changes-stay-live/trace.zip",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v1-20261024/browser/health-bar-updates-stable--45374-tick-stat-changes-stay-live/trace.zip",
+      "bytes": 33735335,
+      "sha256": "f760fbf580cf7a54f5361c0894c412415f1c9d2d522b3f44a10db3164e1d9885"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v1-20261024/browser.log",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-validation-v1-20261024/browser.log",
+      "bytes": 3505,
+      "sha256": "6f156b61748859b533cde63163705f019893eb9b200fc16e6fd5910a104cf7dd"
+    },
+    {
+      "file": ".cache/bar-energy-microbenchmark-v1.mjs",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-microbenchmark-v1.mjs",
+      "bytes": 3610,
+      "sha256": "95d4cf06abda258e752da6f8b700a1db288d50b585bb9240371eb18418cd8d6b"
+    },
+    {
+      "file": ".cache/bar-energy-microbenchmark-v2.mjs",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-microbenchmark-v2.mjs",
+      "bytes": 3691,
+      "sha256": "310bfa105e6a332d437e28f13524797d894ad221a130c619c24c498def6a7b23"
+    },
+    {
+      "file": ".cache/bar-energy-microbenchmark-v3.mjs",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-microbenchmark-v3.mjs",
+      "bytes": 3956,
+      "sha256": "c5e49a8edfe8f7467bf7a919c4171eb33c0b3826b810b7daf542aa9362e0e1b5"
+    },
+    {
+      "file": ".cache/bar-energy-production-v1.mjs",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-production-v1.mjs",
+      "bytes": 22192,
+      "sha256": "cd2370263fe39a90bad1da6aa22880806cf55939134e8715e80357c6fca16dd8"
+    },
+    {
+      "file": ".cache/bar-energy-finalize-v1.mjs",
+      "archived": ".cache/bar-energy-review-v1-20261024/.cache/bar-energy-finalize-v1.mjs",
+      "bytes": 10562,
+      "sha256": "9901c97463c78ff14db589ada60b3ee728c680fc251a4bbff9d36a84763088f4"
+    },
+    {
+      "file": "docs/CPU-HEALTH-BARS.md",
+      "archived": ".cache/bar-energy-review-v1-20261024/docs/CPU-HEALTH-BARS.md",
+      "bytes": 3593,
+      "sha256": "dd69623c11b6bccbd8f9d991a467c2cf0d37e1a39cf8ae5856497676b6316efa"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "archived": ".cache/bar-energy-review-v1-20261024/docs/PROGRESS.md",
+      "bytes": 558754,
+      "sha256": "a07977246a1f3ba8260109bcdff8c358c1e5fcbf3b202004196ea6d788952025"
+    },
+    {
+      "file": ".cache/bar-energy-validation-v2-20261024/initial-ledger.json",
+      "archived": ".cache/bar-energy-review-v2-20261024/.cache/bar-energy-validation-v2-20261024/initial-ledger.json",
+      "bytes": 31473,
+      "sha256": "1c2a96fd87a7a4b93b0ddb5ea5ce6886cc17297c5ce9e5c400dae5c733af5542"
+    },
+    {
+      "file": ".cache/bar-energy-finalize-repair-v1.py",
+      "archived": ".cache/bar-energy-review-v2-20261024/.cache/bar-energy-finalize-repair-v1.py",
+      "bytes": 1571,
+      "sha256": "3ff76db814296c68358cd1bd1f5906c0f7cef52ff4481b95b1a41be689429aa0"
+    }
+  ],
+  "generated": [
+    {
+      "file": "dist/assets/game-DMLuJ5Rx.css",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": "dist/assets/game-uAdUriu6.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/game-uAdUriu6.js",
+      "bytes": 986064,
+      "sha256": "4b8583ed9eb6738d6482252b94e8581af274a38fad4ee717728b36f39a5f14d8"
+    },
+    {
+      "file": "dist/assets/garen-aa-DUY1aEG4.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-aa-DUY1aEG4.js",
+      "bytes": 31963,
+      "sha256": "1b7818e5ec5a33f455b63aa07647c0ed7d4a91810e500e5fd0c57bb768135fa0"
+    },
+    {
+      "file": "dist/assets/garen-basic-attacks-h-zI3P4k.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-basic-attacks-h-zI3P4k.js",
+      "bytes": 30585,
+      "sha256": "4f22693e57548f03e19b578b06aa496278a77e3a8025593f800091c43bf89945"
+    },
+    {
+      "file": "dist/assets/garen-courage-BZcS0MiG.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-courage-BZcS0MiG.js",
+      "bytes": 21867,
+      "sha256": "3e3bb5883749ec5a732553aa8021aab6879b8bd9e45ebe0d21ffdce285b6e593"
+    },
+    {
+      "file": "dist/assets/garen-decisive-strike-DrSyKoNs.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-decisive-strike-DrSyKoNs.js",
+      "bytes": 55151,
+      "sha256": "f2bbdd716983a631a4ee220abbf6837e9b32cd14ee59756fb2a3b2c169ad86a5"
+    },
+    {
+      "file": "dist/assets/garen-justice-DLN1myOQ.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-justice-DLN1myOQ.js",
+      "bytes": 42386,
+      "sha256": "877eb3dd9c0f8691cc49725862034bb1da2a74051ae20c8030209e72d1b5584c"
+    },
+    {
+      "file": "dist/assets/garen-p-CuLIJk4s.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-p-CuLIJk4s.js",
+      "bytes": 5760,
+      "sha256": "3bac714f35aab997b8844ee517b8d1d56dca60ae1d24191e9c4d17ac262c2359"
+    },
+    {
+      "file": "dist/assets/garen-perseverance-B1aoE1le.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-perseverance-B1aoE1le.js",
+      "bytes": 3130,
+      "sha256": "0e8730ed5eed4148715c83ac3a82cea1b0f5bdfc553c65795f5f3a09f8e7a95b"
+    },
+    {
+      "file": "dist/assets/garen-q-1wOKGfQ3.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-q-1wOKGfQ3.js",
+      "bytes": 10787,
+      "sha256": "c7c481d1eee87d8a583bdd9667690f7afe8c2a61bb7f3c4bd5a2e895bcbe9e90"
+    },
+    {
+      "file": "dist/assets/garen-r-CfvXoiC4.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-r-CfvXoiC4.js",
+      "bytes": 6727,
+      "sha256": "e8a2e423b7c09eb745b3c969ef7533527dc0c8ef02973ea3990aefaf5fca6c68"
+    },
+    {
+      "file": "dist/assets/garen-w-CHQu4o4r.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/garen-w-CHQu4o4r.js",
+      "bytes": 8107,
+      "sha256": "b681410b743ee171eea902dcd92762a6636d592bafc42defbb61765ff8b70dbf"
+    },
+    {
+      "file": "dist/assets/gromp-attack-Cs0q2dFX.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/gromp-attack-Cs0q2dFX.js",
+      "bytes": 12028,
+      "sha256": "20c0d1cc6e933fedd6382b76c50f824d2a7e0651ec35ccdcbcc81e2a184a12f6"
+    },
+    {
+      "file": "dist/assets/gromp-death-BYiqy30j.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/gromp-death-BYiqy30j.js",
+      "bytes": 5395,
+      "sha256": "494c7af614fdb30b9d59eaea3b192d15ba033179a0dd044bcc67b5db267eeeeb"
+    },
+    {
+      "file": "dist/assets/gromp-death-particles-DrFGRf38.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/gromp-death-particles-DrFGRf38.js",
+      "bytes": 12929,
+      "sha256": "f174e93726f011741dec4b66f69ad5e8fefee67abed0ec92577eec655aa739e5"
+    },
+    {
+      "file": "dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "bytes": 528,
+      "sha256": "a212cb24fdb690aa96c78629abf9490711527cb30de95b3bcf0aa0441978079f"
+    },
+    {
+      "file": "dist/assets/leona-daybreak-CHNPnSV0.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/leona-daybreak-CHNPnSV0.js",
+      "bytes": 31306,
+      "sha256": "4d32194a9263d8f1853913ced296b44a6171e25b2e4a944d1a741f8991e66e67"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-history-D1DSQzq8.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/leona-eclipse-history-D1DSQzq8.js",
+      "bytes": 140036,
+      "sha256": "421bedc58481a30f03e5627cfb00fb5707d1e92a57375887d2a93eb436fc7c8e"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skins-C459LeoA.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/leona-eclipse-skins-C459LeoA.js",
+      "bytes": 6345,
+      "sha256": "b6a1781ca0cd97724e42bc4895216a5cd44ba091ac271a04a622ad88fc896304"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-surfaces-BEYWEnVD.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/leona-eclipse-surfaces-BEYWEnVD.js",
+      "bytes": 16933,
+      "sha256": "90ff855a39f8dfa64451bc49548c5f18133dce13e872de34948f9e7b86bd1c03"
+    },
+    {
+      "file": "dist/assets/leona-w-B-3gHAaZ.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/leona-w-B-3gHAaZ.js",
+      "bytes": 11872,
+      "sha256": "58b0db6e8099028a69abe98c10e917e939e683db3d04a5aa08a9088246e819c8"
+    },
+    {
+      "file": "dist/assets/map-e5wHmr_S.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/map-e5wHmr_S.js",
+      "bytes": 3775,
+      "sha256": "e9181548efbc5c7c287210abaa0bd215b31f3ca438e815e6b84ced6e06e1b18f"
+    },
+    {
+      "file": "dist/assets/map-wSGUvK3C.css",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": "dist/assets/oracle-DNMSE7JG.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/oracle-DNMSE7JG.js",
+      "bytes": 5752,
+      "sha256": "a9967dad085291a39e0569802bad58078720babc0c8b29feac5f74a661c07999"
+    },
+    {
+      "file": "dist/assets/oracle-particles-CP4rT0ff.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/oracle-particles-CP4rT0ff.js",
+      "bytes": 55711,
+      "sha256": "b28e818bee33f1178ce38e2442b4c3b4f7060b673f7d932da5bbd405669c683e"
+    },
+    {
+      "file": "dist/assets/particle-motion-Bt-Ac5m3.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/particle-motion-Bt-Ac5m3.js",
+      "bytes": 326,
+      "sha256": "775aad71b1192a846b40c5f695cc12c234e2e12393c005f9a0129bd7b576a193"
+    },
+    {
+      "file": "dist/assets/rift-assets-CtSIaAP4.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/rift-assets-CtSIaAP4.js",
+      "bytes": 9106,
+      "sha256": "cb6321af24771e55534341586b3844105263efc40b4781daa7ccd8888fcc07a5"
+    },
+    {
+      "file": "dist/assets/sunlight-Bu8S7G57.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/sunlight-Bu8S7G57.js",
+      "bytes": 3784,
+      "sha256": "268e8880aa016f9f1f7c823e1ecb11f24e8adc0bcabd066967a536cb7fc14308"
+    },
+    {
+      "file": "dist/assets/three-xfu-9Guf.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/assets/three-xfu-9Guf.js",
+      "bytes": 658938,
+      "sha256": "69a258175d6aac087ffd76c18df94ce0b232290071821f6782e410b3018f60bc"
+    },
+    {
+      "file": "dist/index.html",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/index.html",
+      "bytes": 999,
+      "sha256": "36113df4927553e4683fcbaf53427c4c5c6f7bb25fbc3bec9826fc113bba639e"
+    },
+    {
+      "file": "dist/map.html",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/map.html",
+      "bytes": 618,
+      "sha256": "82a29170e175a13d8b0c2e25d39114a901f42374faf204f03e54cd3046a26923"
+    },
+    {
+      "file": "dist/offline-pack.json",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/offline-pack.json",
+      "bytes": 135388,
+      "sha256": "dd04a914762acaf9dcb7489d3151bf42092ab1e67a68ef97ebeb4d01eb7db6f4"
+    },
+    {
+      "file": "dist/offline-worker.js",
+      "archived": ".cache/bar-energy-review-v1-20261024/dist/offline-worker.js",
+      "bytes": 138593,
+      "sha256": "7fa4cb461904c58d8c781a51aeb1154eb731b9d0287d714678c0a00ce0deb866"
+    }
+  ],
+  "limits": [
+    "Isolated stationary label CPU improvement; active-game sample was slower, so no overall CPU/temperature/power claim.",
+    "Full browser/full-match/device/native fidelity and bundle-size gates remain open.",
+    "Native/asset payloads unchanged. Existing failed evidence and deferred feature WIP retained."
+  ],
+  "projectGoalComplete": false,
+  "evidenceRepair": "The initial exporter sampled its own still-open output log as zero bytes. The original ledger and empty archive are retained. This ledger pins the completed log in review V2; all current evidence and archived copies are verified after exporter exit."
+}

@@ -156,6 +156,17 @@ export class GameView {
       shield: HTMLElement;
       mana: HTMLElement;
       status: HTMLElement;
+      smallMonster: boolean;
+      x?: number;
+      y?: number;
+      hp?: number;
+      capacity?: number;
+      shieldAmount?: number;
+      manaAmount?: number;
+      maxMana?: number;
+      protectedUnit?: boolean;
+      showName?: boolean;
+      statusText?: string;
     }
   >();
   mapTexture: THREE.CanvasTexture;
@@ -837,6 +848,7 @@ export class GameView {
         shield: bar.querySelector<HTMLElement>('.unit-shield')!,
         mana: bar.querySelector<HTMLElement>('.unit-mana i')!,
         status: bar.querySelector<HTMLElement>('.unit-status')!,
+        smallMonster: bar.classList.contains('small-monster'),
       });
     }
     const screen = this.screenPoint(
@@ -846,29 +858,54 @@ export class GameView {
     const hidden = !world.alive(u) || !visible || !screen.visible;
     if (bar.hidden !== hidden) bar.hidden = hidden;
     if (bar.hidden) return;
-    if (bar.classList.contains('small-monster'))
-      bar.classList.toggle('show-name', this.hovered === u.id || this.selected === u.id);
+    const parts = this.barParts.get(bar)!;
+    if (parts.smallMonster) {
+      const showName = this.hovered === u.id || this.selected === u.id;
+      if (parts.showName !== showName) {
+        bar.classList.toggle('show-name', showName);
+        parts.showName = showName;
+      }
+    }
     const shield = world.shieldAmount(u);
     const capacity = Math.max(u.maxHp, u.hp + shield);
-    if (u.kind === 'champion' && bar.dataset.maxHealth !== String(capacity)) {
+    const capacityChanged = parts.capacity !== capacity;
+    if (u.kind === 'champion' && capacityChanged) {
       // Health-based divisions; their pixel styling remains pending reference calibration.
       bar.style.setProperty('--health-hundred', `${10000 / Math.max(1, capacity)}%`);
       bar.style.setProperty('--health-thousand', `${100000 / Math.max(1, capacity)}%`);
       bar.dataset.maxHealth = String(capacity);
     }
-    bar.style.transform = `translate(${screen.x}px,${screen.y}px) translate(-50%,-100%)`;
-    const parts = this.barParts.get(bar)!;
-    parts.health.style.width = `${(u.hp / capacity) * 100}%`;
-    parts.shield.style.left = `${(u.hp / capacity) * 100}%`;
-    parts.shield.style.width = `${(shield / capacity) * 100}%`;
-    const shieldHidden = shield === 0;
-    if (parts.shield.hidden !== shieldHidden) parts.shield.hidden = shieldHidden;
-    const shieldTitle = `${Math.ceil(shield)} shield`;
-    if (parts.shield.title !== shieldTitle) parts.shield.title = shieldTitle;
-    parts.mana.style.width = `${(u.mana / (u.maxMana || 1)) * 100}%`;
+    if (parts.x !== screen.x || parts.y !== screen.y) {
+      bar.style.transform = `translate(${screen.x}px,${screen.y}px) translate(-50%,-100%)`;
+      parts.x = screen.x;
+      parts.y = screen.y;
+    }
+    if (parts.hp !== u.hp || capacityChanged) {
+      const width = `${(u.hp / capacity) * 100}%`;
+      parts.health.style.width = width;
+      parts.shield.style.left = width;
+      parts.hp = u.hp;
+    }
+    if (parts.shieldAmount !== shield || capacityChanged)
+      parts.shield.style.width = `${(shield / capacity) * 100}%`;
+    if (parts.shieldAmount !== shield) {
+      const shieldHidden = shield === 0;
+      if (parts.shield.hidden !== shieldHidden) parts.shield.hidden = shieldHidden;
+      const shieldTitle = `${Math.ceil(shield)} shield`;
+      if (parts.shield.title !== shieldTitle) parts.shield.title = shieldTitle;
+      parts.shieldAmount = shield;
+    }
+    parts.capacity = capacity;
+    if (parts.manaAmount !== u.mana || parts.maxMana !== u.maxMana) {
+      parts.mana.style.width = `${(u.mana / (u.maxMana || 1)) * 100}%`;
+      parts.manaAmount = u.mana;
+      parts.maxMana = u.maxMana;
+    }
     const protectedUnit = !world.vulnerable(u);
-    if (bar.classList.contains('invulnerable') !== protectedUnit)
+    if (parts.protectedUnit !== protectedUnit) {
       bar.classList.toggle('invulnerable', protectedUnit);
+      parts.protectedUnit = protectedUnit;
+    }
     const status =
       u.kind === 'ward' && wardDisabled(world, u)
         ? 'DISABLED'
@@ -889,7 +926,10 @@ export class GameView {
                     : u.illumination.some((mark) => mark.endTick > world.tick)
                       ? 'ILLUMINATED'
                       : '';
-    if (parts.status.textContent !== status) parts.status.textContent = status;
+    if (parts.statusText !== status) {
+      parts.status.textContent = status;
+      parts.statusText = status;
+    }
   }
   private syncProjectiles(world: World, alpha: number): void {
     const active = new Set<number>();

@@ -132,7 +132,8 @@ try {
           });
           bones.push([id, m.actionName, ...m.root.matrixWorld.elements, ...matrices]);
         }
-        return { hash: await hash(pixels), bones, pixels };
+        const labels = [...view.healthBars].map(([id, bar]) => [id, bar.outerHTML]);
+        return { hash: await hash(pixels), bones, pixels, labels };
       };
       // Both views begin the comparison on the same fog refresh boundary.
       v.lastFogTick = ref.lastFogTick = -100;
@@ -190,6 +191,7 @@ try {
             pixelsEqual: a.hash === b.hash,
             pixelDiff,
             bonesEqual: JSON.stringify(a.bones) === JSON.stringify(b.bones),
+            labelsEqual: JSON.stringify(a.labels) === JSON.stringify(b.labels),
             visibleModels: a.bones.length,
             referenceHash: a.hash,
             currentHash: b.hash,
@@ -235,14 +237,17 @@ try {
     JSON.stringify(
       {
         samples: result.samples.length,
-        failures: result.samples.filter((x) => !x.pixelsEqual || !x.bonesEqual),
+        failures: result.samples.filter((x) => !x.pixelsEqual || !x.bonesEqual || !x.labelsEqual),
         errors,
       },
       null,
       2
     )
   );
-  if (errors.length || result.samples.some((x) => !x.pixelsEqual || !x.bonesEqual))
+  if (
+    errors.length ||
+    result.samples.some((x) => !x.pixelsEqual || !x.bonesEqual || !x.labelsEqual)
+  )
     process.exitCode = 1;
 } finally {
   if (browser) await browser.close();

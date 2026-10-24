@@ -1,5 +1,77 @@
 import { expect, test } from '@playwright/test';
 
+test('stable labels skip style setters while camera and same-tick stat changes stay live', async ({
+  page,
+}) => {
+  await page.goto('/?scene=fixture');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const result = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    g.setPaused(true);
+    await new Promise(requestAnimationFrame);
+    await new Promise(requestAnimationFrame);
+    v.render(w, 1, w.time);
+    const writes: string[] = [];
+    const descriptors = new Map<HTMLElement, PropertyDescriptor | undefined>();
+    // Count actual DOM calls, even when the browser suppresses identical mutations.
+    for (const element of document.querySelectorAll<HTMLElement>(
+      '.world-labels div, .world-labels i, .world-labels span'
+    )) {
+      const style = element.style;
+      descriptors.set(element, Object.getOwnPropertyDescriptor(element, 'style'));
+      const proxy = new Proxy(style, {
+        get(target, key) {
+          const value = Reflect.get(target, key, target);
+          return typeof value === 'function' ? value.bind(target) : value;
+        },
+        set(target, key, value) {
+          if (['transform', 'width', 'left'].includes(String(key))) writes.push(String(key));
+          return Reflect.set(target, key, value, target);
+        },
+      });
+      Object.defineProperty(element, 'style', { configurable: true, get: () => proxy });
+    }
+    try {
+      for (let i = 0; i < 20; i++) v.render(w, 1, w.time);
+      const stableWrites = writes.splice(0);
+      const bar = v.healthBars.get(w.hero.id) as HTMLElement;
+      const beforeMove = bar.style.transform;
+      v.locked = false;
+      v.center.x += 100;
+      v.render(w, 1, w.time);
+      const cameraWrites = writes.splice(0);
+      const afterMove = bar.style.transform;
+      // No tick advance: presentation caches cannot key freshness on the clock.
+      w.hero.hp = w.hero.maxHp / 2;
+      w.hero.mana = w.hero.maxMana / 4;
+      w.hero.rootUntil = w.tick + 60;
+      v.render(w, 1, w.time);
+      const stats = {
+        health: bar.querySelector<HTMLElement>('.unit-hp i')!.style.width,
+        mana: bar.querySelector<HTMLElement>('.unit-mana i')!.style.width,
+        status: bar.querySelector('.unit-status')!.textContent,
+      };
+      writes.length = 0;
+      v.render(w, 1, w.time);
+      return { stableWrites, cameraWrites, beforeMove, afterMove, stats, settledWrites: writes };
+    } finally {
+      for (const [element, descriptor] of descriptors) {
+        if (descriptor) Object.defineProperty(element, 'style', descriptor);
+        else delete (element as any).style;
+      }
+    }
+  });
+  expect(result.stableWrites).toEqual([]);
+  expect(result.cameraWrites.length).toBeGreaterThan(0);
+  expect(result.cameraWrites.every((key) => key === 'transform')).toBe(true);
+  expect(result.afterMove).not.toBe(result.beforeMove);
+  expect(result.stats).toEqual({ health: '50%', mana: '25%', status: 'ROOTED' });
+  expect(result.settledWrites).toEqual([]);
+});
+
 test('unchanged world labels avoid DOM mutations and still reflect health and status changes', async ({
   page,
 }) => {

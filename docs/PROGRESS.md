@@ -5294,3 +5294,20 @@ See [frame vision/culling](CPU-VISION-CULLING.md) and its
 [evidence record](reference/vision-culling-verification.json). Existing Zenith
 kernel work is preserved. Full match/device/browser/native and bundle gates
 remain open; nothing is pushed and the project goal remains active.
+
+## Health-bar update CPU checkpoint — October 24, 2026
+
+Overhead labels now reuse unchanged style/status state while checking live values
+every render. The controlled 117-unit/59-visible-label benchmark reduces median
+label-update batch time from 20.75 to 14.45 ms (30.4%).
+The short whole-game sample was slower (6.38 to 6.73 ms mean render);
+no overall CPU, temperature or full-match performance improvement is claimed.
+
+TypeScript, all 1,771 unit cases/292 files, three Node QA cases and ten serial
+Chrome cases pass. Forty paired frames preserve every pixel, visible bone matrix
+and complete label markup. Production build/nested hosting passes 32 recordings;
+no fresh offline audit is claimed. Schema 125/ruleset remain unchanged.
+See [health-bar CPU work](CPU-HEALTH-BARS.md) and the
+[evidence record](reference/health-bar-cpu-verification.json). Existing Zenith
+work is preserved; feature work remains deferred, nothing is pushed, and the
+project goal remains active.
