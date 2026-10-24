@@ -174,6 +174,13 @@ export class LuxESource {
     private camera: THREE.Camera,
     private ground: (p: Vec2) => number
   ) {}
+  hide(): void {
+    this.root.visible = false;
+    // Retain owned buffers for reveal, without sampling particles or uploading
+    // invisible triangles. The next absolute draw restores every draw range.
+    for (const mesh of this.root.children)
+      if (mesh instanceof THREE.Mesh) mesh.geometry.setDrawRange(0, 0);
+  }
   draw(
     world: World,
     role: LuxERole,

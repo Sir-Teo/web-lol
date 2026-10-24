@@ -10,7 +10,11 @@ interface Envelope {
  * the rest pose. Unsupported rigs retain disabled culling instead of a guessed bound.
  * Compute once on the unplaced source scene; SkeletonUtils clones retain the sphere.
  */
-export function prepareAnimationBounds(scene: THREE.Object3D, clips: THREE.AnimationClip[]): void {
+export function prepareAnimationBounds(
+  scene: THREE.Object3D,
+  clips: THREE.AnimationClip[],
+  separateSortBounds = false
+): void {
   const meshes: THREE.SkinnedMesh[] = [];
   const local = new Map<THREE.Object3D, Envelope>();
   const animated = new Set<THREE.Object3D>();
@@ -20,6 +24,7 @@ export function prepareAnimationBounds(scene: THREE.Object3D, clips: THREE.Anima
     if (node instanceof THREE.SkinnedMesh) {
       node.frustumCulled = false;
       delete node.userData.animationBounds;
+      delete node.userData.animationSeparateCullBounds;
       meshes.push(node);
     }
     // Imported TRS nodes only. Arbitrary authored shear needs a different bound.
@@ -164,6 +169,50 @@ export function prepareAnimationBounds(scene: THREE.Object3D, clips: THREE.Anima
     if (!Number.isFinite(sphere.radius) || sphere.radius <= 0) continue;
     mesh.boundingSphere = sphere;
     mesh.userData.animationBounds = true;
+    if (separateSortBounds)
+      mesh.userData.animationSeparateCullBounds = {
+        center: sphere.center.toArray(),
+        radius: sphere.radius,
+      };
     mesh.frustumCulled = true;
   }
+}
+
+const cullingBounds = new WeakMap<THREE.SkinnedMesh, THREE.Sphere>();
+const worldSphere = new THREE.Sphere();
+
+/** Install on each cloned rig. Three also uses boundingSphere.center for depth
+ * sorting. Keep that sphere's original first-pose sampling and use the all-clip
+ * envelope only for camera/shadow rejection, preserving overlapping draw order. */
+export function configureAnimationCulling(root: THREE.Object3D): void {
+  root.traverse((node) => {
+    if (
+      !(node instanceof THREE.SkinnedMesh) ||
+      !node.userData.animationSeparateCullBounds ||
+      cullingBounds.has(node)
+    )
+      return;
+    const data = node.userData.animationSeparateCullBounds;
+    const sphere = new THREE.Sphere(new THREE.Vector3().fromArray(data.center), data.radius);
+    cullingBounds.set(node, sphere);
+    // Three 0.186 has a nullable sort sphere and this culling hook. The
+    // installed 0.183 declarations predate that runtime interface.
+    const mesh = node as unknown as {
+      boundingSphere: THREE.Sphere | null;
+      computeBoundingSphere: () => void;
+      matrixWorld: THREE.Matrix4;
+      intersectsFrustum: (frustum: THREE.Frustum) => boolean;
+    };
+    mesh.boundingSphere = null;
+    mesh.intersectsFrustum = (frustum) => {
+      // The original uncullable mesh also sampled this sphere on its first
+      // projection, including when outside the camera. Keep that timing intact.
+      if (mesh.boundingSphere === null) mesh.computeBoundingSphere();
+      return frustum.intersectsSphere(worldSphere.copy(sphere).applyMatrix4(mesh.matrixWorld));
+    };
+  });
+}
+
+export function animationCullingSphere(mesh: THREE.SkinnedMesh): THREE.Sphere | null {
+  return cullingBounds.get(mesh) ?? mesh.boundingSphere;
 }

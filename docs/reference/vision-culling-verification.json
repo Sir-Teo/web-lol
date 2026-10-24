@@ -1,0 +1,1297 @@
+{
+  "format": 1,
+  "date": "2026-10-24T06:43:37.790Z",
+  "scope": "Further CPU work after f9bf504, with pre-existing uncommitted Zenith kernels preserved. No new champion feature integrated.",
+  "schema": 125,
+  "ruleset": "982958c23a5e30418d2a752119a499c15f6f42ac161331de5e7bf70e65cc91c5",
+  "sourceArchive": ".cache/vision-energy-frozen-v8-20261024/source-archive.json",
+  "nativeArchive": ".cache/vision-energy-frozen-v8-20261024/native-archive.json",
+  "rigAssets": [
+    {
+      "file": "public/assets/models/ashe-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/ashe-base.glb",
+      "bytes": 3953864,
+      "sha256": "e45069db38b628d9113faa284bce54a5b1ddb7170e2b5029ad5994e1e81a46d5"
+    },
+    {
+      "file": "public/assets/models/ashe-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/ashe-base.json",
+      "bytes": 12003,
+      "sha256": "c713aaf81ee4ca04d38eac1b2058022e7321ff7e07c06294116ab8ecae40b020"
+    },
+    {
+      "file": "public/assets/models/lux-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/lux-base.glb",
+      "bytes": 3864360,
+      "sha256": "d063e8b7435eede85f1a8617c5bf6ff3571590cb19f22a314281fe2e43cb6bee"
+    },
+    {
+      "file": "public/assets/models/lux-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/lux-base.json",
+      "bytes": 10865,
+      "sha256": "55019f8d56c2f0c8f30a361020dccd1832a9020b9c75c26e9d78a2295634971f"
+    },
+    {
+      "file": "public/assets/models/garen-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/garen-base.glb",
+      "bytes": 2764444,
+      "sha256": "93fe5d8fcb2d9041ac501b6c658eeacba3b84149d9e9b381d21cbc29ff494575"
+    },
+    {
+      "file": "public/assets/models/garen-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/garen-base.json",
+      "bytes": 17844,
+      "sha256": "770504fcba90893fa8c5e63298b7b503c42b28ea28d8182f55aa0f923f7a7e20"
+    },
+    {
+      "file": "public/assets/models/leona-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/leona-base.glb",
+      "bytes": 6253628,
+      "sha256": "5b845c3ba98ca15fdf61bb3eb549d54b858709c051c3c03f1cb26f76c890e5a9"
+    },
+    {
+      "file": "public/assets/models/leona-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/leona-base.json",
+      "bytes": 13194,
+      "sha256": "e3a64ec2fe9d8a9e450050aa2e708079d62ea30e467d274b3c400ce45c45e7f4"
+    },
+    {
+      "file": "public/assets/models/sightward-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sightward-base.glb",
+      "bytes": 69572,
+      "sha256": "5f123f6f7e34f48e4b2e096d85e16297adf404f3a54cf8563f7e38ea573334b6"
+    },
+    {
+      "file": "public/assets/models/sightward-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sightward-base.json",
+      "bytes": 4506,
+      "sha256": "126fcb52f96e747ccfe3ff6254ad5a82b2af905c1e2973cba976fab7ca572414"
+    },
+    {
+      "file": "public/assets/models/blue-melee.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-melee.glb",
+      "bytes": 485488,
+      "sha256": "274fd87c0181db308592ca924eeac19659da61ce79307e904fb938ffed7cb98b"
+    },
+    {
+      "file": "public/assets/models/blue-melee.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-melee.json",
+      "bytes": 3315,
+      "sha256": "aeca9c288fa0088ca32c71ee5d8b2ebded1d14830149894b24b414cc401e32e2"
+    },
+    {
+      "file": "public/assets/models/blue-caster.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-caster.glb",
+      "bytes": 500496,
+      "sha256": "ff550b7d9b25224b0c721f65e622a3100425d627001e5966e0c677200f709ee5"
+    },
+    {
+      "file": "public/assets/models/blue-caster.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-caster.json",
+      "bytes": 3345,
+      "sha256": "d51c701b175c79da594bf23330a0be84cbe7ee6c975fb18ade433aac9f65c97b"
+    },
+    {
+      "file": "public/assets/models/blue-siege.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-siege.glb",
+      "bytes": 525748,
+      "sha256": "66a4f8679d695444725f6c02947d3e4075fc5a5e7232a06d0f010393c054f29c"
+    },
+    {
+      "file": "public/assets/models/blue-siege.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-siege.json",
+      "bytes": 3325,
+      "sha256": "367e800668cadeb6d98cd67fc971e2fa7ee40254ef0e4a84d3dd6bf53d3e4111"
+    },
+    {
+      "file": "public/assets/models/blue-super.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-super.glb",
+      "bytes": 739140,
+      "sha256": "0ad412436a18756a4e08f9ade8789192cbb5932cd97c04fe814d36cc867b859e"
+    },
+    {
+      "file": "public/assets/models/blue-super.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-super.json",
+      "bytes": 4450,
+      "sha256": "d28589b240d0e54093e1c77afcdd8afc0d7b1c168dd825706a78b3f9be6aa5bf"
+    },
+    {
+      "file": "public/assets/models/blue-turret.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-turret.glb",
+      "bytes": 1923476,
+      "sha256": "9d16305c0687e78bdbdfaccbc6c81269e4bbdfd02772ee7f1d5b43d12d360d4e"
+    },
+    {
+      "file": "public/assets/models/blue-turret.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-turret.json",
+      "bytes": 3333,
+      "sha256": "9d069db1f33e5a0345835184d8677ccd88d398ae4470c3647e05c8d011eda6fe"
+    },
+    {
+      "file": "public/assets/models/blue-nexus.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-nexus.glb",
+      "bytes": 2608616,
+      "sha256": "068f03acfca1ee2f8bcab30c2ec117a53f472b67cf6328a69f9e668ebcb02ae0"
+    },
+    {
+      "file": "public/assets/models/blue-nexus.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-nexus.json",
+      "bytes": 3506,
+      "sha256": "ace2dbdfb7126bacafd9ba2a2c6c1c4b11f22d240584cb861bf24153b9427b48"
+    },
+    {
+      "file": "public/assets/models/blue-inhibitor.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-inhibitor.glb",
+      "bytes": 1170516,
+      "sha256": "5fb43a919fa3d98548dc62c6234629bb4f56ede60b182429976283160ef4c95b"
+    },
+    {
+      "file": "public/assets/models/blue-inhibitor.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/blue-inhibitor.json",
+      "bytes": 4761,
+      "sha256": "3edfefa8689141e5a6b6dabcb1ee04144fccd79c24364c0d1d5ae64132e54290"
+    },
+    {
+      "file": "public/assets/models/red-melee.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-melee.glb",
+      "bytes": 424436,
+      "sha256": "ed2e1dc508ebb5d96e73904501e72599cdbe167b325840cb33d3211d1a37e536"
+    },
+    {
+      "file": "public/assets/models/red-melee.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-melee.json",
+      "bytes": 3315,
+      "sha256": "8729d849821132982f7cc06c7fac01c51538f05984c2bd5d5c7f4491e3bb3ca3"
+    },
+    {
+      "file": "public/assets/models/red-caster.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-caster.glb",
+      "bytes": 509788,
+      "sha256": "bddd62e8113229de501afa313f642a0163d7608f3002abf4b170e4ecd8b59178"
+    },
+    {
+      "file": "public/assets/models/red-caster.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-caster.json",
+      "bytes": 3344,
+      "sha256": "56a09354ce710467610e1ac1fc719ec9b2c779f5d8930ffcef034fd78c903744"
+    },
+    {
+      "file": "public/assets/models/red-siege.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-siege.glb",
+      "bytes": 516764,
+      "sha256": "9b21a8cbd9351f12ee40d513b001493616bb7b837e20cc78e72e57b65df390ff"
+    },
+    {
+      "file": "public/assets/models/red-siege.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-siege.json",
+      "bytes": 3324,
+      "sha256": "e77525c228da7e002a8ce47936780a00d0d3776ee8f9eb4b1ae42ada41ee3a03"
+    },
+    {
+      "file": "public/assets/models/red-super.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-super.glb",
+      "bytes": 730752,
+      "sha256": "d3fc25fd36ef7f53ed0b77c9d500e7d9035468bb7068d2e644a90529725b9c90"
+    },
+    {
+      "file": "public/assets/models/red-super.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-super.json",
+      "bytes": 4436,
+      "sha256": "0664e02e9fd9da98d4d9330a36d60a76e49cd002ce78548f0bbc76b23f770613"
+    },
+    {
+      "file": "public/assets/models/red-turret.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-turret.glb",
+      "bytes": 2843196,
+      "sha256": "a7febe0579fd49c2b213ed9fc16470f0daf011220af2e1340eda030c7a421e02"
+    },
+    {
+      "file": "public/assets/models/red-turret.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-turret.json",
+      "bytes": 4719,
+      "sha256": "9d0a618e9d304651684e114d55bd13cd7b2a58ea92100d8ce6f06697f81d1838"
+    },
+    {
+      "file": "public/assets/models/red-nexus.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-nexus.glb",
+      "bytes": 2650392,
+      "sha256": "d49216fd563b18e1a6cf3f7752416b2d4cd45ef45f1b38955971b52326341e08"
+    },
+    {
+      "file": "public/assets/models/red-nexus.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-nexus.json",
+      "bytes": 4095,
+      "sha256": "60f722501e317400935cb58a670155787c2da03acfdb4a8c5d1a2fee59b1752f"
+    },
+    {
+      "file": "public/assets/models/red-inhibitor.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-inhibitor.glb",
+      "bytes": 912440,
+      "sha256": "9eef6c5e808f0c948ee7e794800d123ffa884f0a0d244917cfe96c2758ea0373"
+    },
+    {
+      "file": "public/assets/models/red-inhibitor.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/red-inhibitor.json",
+      "bytes": 5555,
+      "sha256": "c2cc1461586589959744c0fecac96374778400979c61b3b2b4c25d4175e98ec6"
+    },
+    {
+      "file": "public/assets/models/sru-crab-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-crab-base.glb",
+      "bytes": 1099136,
+      "sha256": "d552dd415bba0bb02d4cd1f132f7633190ced4c87c13e3559462badde2a7990f"
+    },
+    {
+      "file": "public/assets/models/sru-crab-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-crab-base.json",
+      "bytes": 10235,
+      "sha256": "8f3dba2339bb002f8b47e89297b807f0164675dbec86c290838b3d53c8ffa700"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolf-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-murkwolf-base.glb",
+      "bytes": 1675600,
+      "sha256": "86477140cba0f0becf10859a2978b7f46068a99f2c7807d9b2c6366ada59014e"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolf-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-murkwolf-base.json",
+      "bytes": 18617,
+      "sha256": "4e31d22335b66316ec997afcc9ebda59192ad525914e85293fab7578dfce74c4"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolfmini-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-murkwolfmini-base.glb",
+      "bytes": 1969120,
+      "sha256": "1ed2a284671aff2084ca0a5ba508a25a67e9a9e8f392460f70439f335c4c1c40"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolfmini-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-murkwolfmini-base.json",
+      "bytes": 19875,
+      "sha256": "c3b32d3fb9abc1a9567dc49ba2f23fc975dac25bf5515748cfd1b68004e2cbd6"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeak-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-razorbeak-base.glb",
+      "bytes": 1697864,
+      "sha256": "8e6cd35cdf5d83fc7c609d135985abd9e71bb3b16203a2d1bc6af42f8d420eed"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeak-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-razorbeak-base.json",
+      "bytes": 21152,
+      "sha256": "c3360a11ab2d6256539182405d34fb9a5eb6d3e2820472e2e540ac3a5ecc37c1"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeakmini-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-razorbeakmini-base.glb",
+      "bytes": 1197732,
+      "sha256": "ce6bd2375c65295c8c1638b15523d63720bb26bf1f94b8dd3c7699c4a58b61e1"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeakmini-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-razorbeakmini-base.json",
+      "bytes": 21507,
+      "sha256": "a30e9579ee08042fa9d7f39edf01e5d349f67c7f8126c9b327992f2cfdd3d7fe"
+    },
+    {
+      "file": "public/assets/models/sru-krug-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-krug-base.glb",
+      "bytes": 1041660,
+      "sha256": "b02ffc8a014b54a9af69c7d5df5ba93d74fb5ca6514bf89b796583984bb49d0d"
+    },
+    {
+      "file": "public/assets/models/sru-krug-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-krug-base.json",
+      "bytes": 13281,
+      "sha256": "69e45ffc80f557cd54c79f7538a1d1f783c859d56344b63b899952078265dd78"
+    },
+    {
+      "file": "public/assets/models/sru-krugmini-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-krugmini-base.glb",
+      "bytes": 1042412,
+      "sha256": "d7463d4f361d55a57a80271b6718f70c30c21fd1beee265cdcfc7aa3e0d40f11"
+    },
+    {
+      "file": "public/assets/models/sru-krugmini-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-krugmini-base.json",
+      "bytes": 13064,
+      "sha256": "885bdf8d31a603b36511e645df13f14c4cbe669ba40e197cb40ba2464433fe85"
+    },
+    {
+      "file": "public/assets/models/sru-krugminimini-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-krugminimini-base.glb",
+      "bytes": 1040264,
+      "sha256": "e8be9260845b77406a66aa7801301de56349c0daa07855a74b1dfc0c948e7929"
+    },
+    {
+      "file": "public/assets/models/sru-krugminimini-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-krugminimini-base.json",
+      "bytes": 13096,
+      "sha256": "3cd0ac0f872ae9ad4b7b90183abf94e9e3da262a2d6821c00826acc44a7b8e69"
+    },
+    {
+      "file": "public/assets/models/sru-gromp-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-gromp-base.glb",
+      "bytes": 2111176,
+      "sha256": "b49e3fd2b7cd3820a429bbc2ff9b72dd19a8e68cbae55e4c7409dcdf39414af9"
+    },
+    {
+      "file": "public/assets/models/sru-gromp-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-gromp-base.json",
+      "bytes": 22285,
+      "sha256": "2bc2de44c2afe1373bbe51f8bb88a5351ade7c0e1a92e8ff73f276e5ddfb684b"
+    },
+    {
+      "file": "public/assets/models/sru-blue-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-blue-base.glb",
+      "bytes": 2400224,
+      "sha256": "965d1d125f3aec5e19178fc4f286b9b132ee17f8ad12a22b94f24003bf69604c"
+    },
+    {
+      "file": "public/assets/models/sru-blue-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-blue-base.json",
+      "bytes": 20069,
+      "sha256": "03f6ef203ab8d2e76471aa00045f7d917c2853ab8b0cb1298d8b1755a197616b"
+    },
+    {
+      "file": "public/assets/models/sru-red-base.glb",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-red-base.glb",
+      "bytes": 1969240,
+      "sha256": "e1f4ced318ae420f076b6b0122cfa4fbdb8b67c922dc730ac2de223d2e6d681a"
+    },
+    {
+      "file": "public/assets/models/sru-red-base.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/public/assets/models/sru-red-base.json",
+      "bytes": 9581,
+      "sha256": "5fd4a95e4d2dd3664e216945f95dae6e0989eb90a2fb338cc3d72f72ec3d9d3a"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/vision-energy-frozen-v8-20261024/source-archive.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-frozen-v8-20261024/source-archive.json",
+      "bytes": 440090,
+      "sha256": "6ccb0ab990033bf345f15281c021539a94f7ce5eb7887858e86e51c841d470e5"
+    },
+    {
+      "file": ".cache/vision-energy-frozen-v8-20261024/native-archive.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-frozen-v8-20261024/native-archive.json",
+      "bytes": 16994,
+      "sha256": "38a9be4c5e4b6a5bb2a63e9f6e051387f739e2409d3adda31d6d8bfc18d8ec3f"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/build.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/build.log",
+      "bytes": 3028,
+      "sha256": "e5f650f3b7eb825b4bdb1e6967ca309b029ae8d2dc1cf4f62d6528ca21113f14"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/unit.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/unit.log",
+      "bytes": 541,
+      "sha256": "3db84ca4560a907721244e5923ea2012dfc63d68d44f9e8db615cd87ef4a945a"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/qa.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/qa.log",
+      "bytes": 430,
+      "sha256": "6986d85080d70f6f45d36562894b9dcbb11ff8df2ddc4ee0cd28f6219db981fb"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/browser.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/browser.log",
+      "bytes": 5719,
+      "sha256": "c29f2a236e559bad21c4d4c154e5bb5e7e041002a98580e9e6bd70b39b0e1c14"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/browser/.last-run.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/pose-pixel-comparison.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/pose-pixel-comparison.json",
+      "bytes": 23686,
+      "sha256": "dd6e36fda8ab037fbc9d747aee965daed5a8644398e8c5aead4591214c33b7cc"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/pose-pixel-comparison.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/pose-pixel-comparison.log",
+      "bytes": 140,
+      "sha256": "9ac0572a4077c8ec5199bc6419e6dc8c8790fd1d3baf6e24d9b60bc3df32d4aa"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/rig-culling.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/rig-culling.json",
+      "bytes": 8030,
+      "sha256": "91dd507882508dbb8f37d2369efebba6ccc7963f36b77fb58103e7d024869fdb"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/rig-culling.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/rig-culling.log",
+      "bytes": 1307,
+      "sha256": "9b682f27c58746c663a6c78401b5d9dada38771ca85127c7649f7d4294f5be8b"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/optimized.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/optimized.json",
+      "bytes": 2859,
+      "sha256": "ed95c93df26ac09366af03a9b3b0c904e3cd909c967448f5f2f9ab418a13532f"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/optimized.cpuprofile",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/optimized.cpuprofile",
+      "bytes": 299268,
+      "sha256": "7e7642c4ab6d3b8e5244e43541e792841e22edf43f4a094d19b89e8e7a109caf"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/optimized-summary.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/optimized-summary.json",
+      "bytes": 15410,
+      "sha256": "68ee25f52d8380bfdf0a95a7369d9ccbd9ca8c685c1c69f7672bb78f466f4737"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production.json",
+      "bytes": 1881,
+      "sha256": "5679e2428a9e2665caec70742194476f9ab8b07c5df2e9fab3f19d715559a558"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production.mjs",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production.mjs",
+      "bytes": 22251,
+      "sha256": "e242502c40cbf06fc9bc4437dd8181694dde1e88c700affc0bd5489d6850fc10"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production.stderr.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/offline.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/offline.log",
+      "bytes": 687,
+      "sha256": "3098feaafb061eed05d7fb0914e36135ef6fe9dff02ec1df65fe637bde15d92f"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/finalize-evidence.mjs",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/finalize-evidence.mjs",
+      "bytes": 16373,
+      "sha256": "3e2fb98cf3c8c228db7808134be38056368339ec7062542d4c0c0241bbc85384"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/build-archive.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/build-archive.json",
+      "bytes": 8770,
+      "sha256": "374fe25bf582b84ab331064c659dadba77b5e80e90551ebc118098610c02b1d8"
+    },
+    {
+      "file": "artifacts/offline-pack-vision-energy-final-v2-20261024-production.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/artifacts/offline-pack-vision-energy-final-v2-20261024-production.json",
+      "bytes": 649,
+      "sha256": "1a262c04719eed7b0e3b4198ec6a49b287326b428d70d681793e5000e13269a6"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-companion-purchase.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811237,
+      "sha256": "af844fd9f8f9c3f69a0956edab8233a628c9787a4a1089d0e1689c10e00eb909"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832996,
+      "sha256": "b9cdc1d0587795ac9eecbcda7363fd56ba4053bd051e2851457d2243e853c389"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-lux-e-source.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1835155,
+      "sha256": "000ad8a9a55a2a335e39a11de1377f33677db0e946ec3cad9b99ddaec4ea8963"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-lux.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-lux.png",
+      "bytes": 1804666,
+      "sha256": "ea02f5ad163c3e82c25c0acf7f90f6cc69ba6134730a61854e2d1982adee7b0d"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-oracle.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-oracle.png",
+      "bytes": 1816759,
+      "sha256": "ff9d78b63f322a88a949f5fe3aa5be0ba99acf88c137eb86d4ab1fc991c5c1b4"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-role-match.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-role-match.png",
+      "bytes": 1346761,
+      "sha256": "83ff838e65d5ac504cadfb5dff998abc2aa87a4da70a27298ab1c516a8499c37"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-subpath.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-subpath.png",
+      "bytes": 1819843,
+      "sha256": "f6bcbebbae5653f8d89b2bcf6e8129e53a80dbc1e82f1dd2dc4fc26ae6400ef6"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-ward.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-ward.png",
+      "bytes": 1812844,
+      "sha256": "9486d046aed8b1de1c21d89b8a06fa20dd82944e776352be41c5aff81f367676"
+    },
+    {
+      "file": "artifacts/offline-pack-vision-energy-final-v2-20261024-lux-lanes.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/artifacts/offline-pack-vision-energy-final-v2-20261024-lux-lanes.png",
+      "bytes": 476366,
+      "sha256": "94655c90a7db98de9d05fe04ca2b2681ec9d9199fffe3393d756332f582b6bd0"
+    },
+    {
+      "file": "artifacts/offline-pack-vision-energy-final-v2-20261024-ready.png",
+      "archived": ".cache/vision-energy-review-v1-20261024/artifacts/offline-pack-vision-energy-final-v2-20261024-ready.png",
+      "bytes": 531277,
+      "sha256": "bbdbf7a7f72eaccdf13f916e49d225b4585bb6180e3c880b62e22bab58150a91"
+    },
+    {
+      "file": ".cache/vision-energy-baseline-v1-20261024/frozen/lux-singularities.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-baseline-v1-20261024/frozen/lux-singularities.ts",
+      "bytes": 3982,
+      "sha256": "96feed55dc31364fb108398534a38d90bf3bdcbf3248a9ee1c8375a9caf2fd64"
+    },
+    {
+      "file": ".cache/vision-energy-baseline-v1-20261024/frozen/main.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-baseline-v1-20261024/frozen/main.ts",
+      "bytes": 17462,
+      "sha256": "cc915063b36443b8785d687323fc57c680a3216d957dd927711f202d9bfec768"
+    },
+    {
+      "file": ".cache/vision-energy-baseline-v1-20261024/frozen/models.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-baseline-v1-20261024/frozen/models.ts",
+      "bytes": 10566,
+      "sha256": "ef23e4a1bea657e600e2897018bd550bdc299f27882751c84691b77b093eefe8"
+    },
+    {
+      "file": ".cache/vision-energy-baseline-v1-20261024/frozen/view.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-baseline-v1-20261024/frozen/view.ts",
+      "bytes": 47097,
+      "sha256": "2e2f04e95e1cc37d8dd3fc9fccf68b6e7661565ad44cfd3164ad5689a6d086c4"
+    },
+    {
+      "file": ".cache/vision-energy-baseline-v1-20261024/frozen/world.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-baseline-v1-20261024/frozen/world.ts",
+      "bytes": 245786,
+      "sha256": "72690ab20bfee5b228573cbda05b96030ace5dece482f0a19d058df83547dd9b"
+    },
+    {
+      "file": ".cache/vision-energy-baseline-v1-20261024/baseline.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-baseline-v1-20261024/baseline.json",
+      "bytes": 2337,
+      "sha256": "87527ffb300f6625497a1b640b813ed7f252ca45b1d0be4ddaa2b43fbbad4590"
+    },
+    {
+      "file": ".cache/vision-energy-baseline-v1-20261024/match.snapshot.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-baseline-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "a3b37ad64a6033dc2e9ffcdc760bb19dff71262a554e8c6e0428cd309606e6fc"
+    },
+    {
+      "file": ".cache/vision-energy-final-v1-20261024/world-equivalence.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-final-v1-20261024/world-equivalence.json",
+      "bytes": 9392,
+      "sha256": "024ca0424837e3d50af141de84afea771969b66f6c6005f362db25ced604fa8f"
+    },
+    {
+      "file": ".cache/vision-energy-final-v1-20261024/world-equivalence.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-final-v1-20261024/world-equivalence.log",
+      "bytes": 617,
+      "sha256": "4f1faab59e2713d62b9ee2a7e8a38cd97cf5acb8c9dffd83eeac51f429886d68"
+    },
+    {
+      "file": ".cache/vision-energy-final-v1-20261024/checkpoint-rebase.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-final-v1-20261024/checkpoint-rebase.json",
+      "bytes": 552,
+      "sha256": "1b01d10dbf8d4076b7dbf5cb1259dc25f1a9afe14d6e6c70a0d083ca86d37234"
+    },
+    {
+      "file": ".cache/vision-energy-compare-world-v1.mjs",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-compare-world-v1.mjs",
+      "bytes": 3983,
+      "sha256": "a374983063c1870be200908b938b444daa3d3ef7bd0f3f91bd29545a647134ec"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/unit.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/unit.log",
+      "bytes": 1068,
+      "sha256": "d924a06d2be92c55f970ffb6463e8c1626c447b264bcb97b81264f0e424ade22"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/input-reconstruction.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/input-reconstruction.json",
+      "bytes": 1758,
+      "sha256": "615cb93b627d45b97d4094c2fe15a36123bc46b7c41540463f567bcce81c30e7"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/main.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/main.ts",
+      "bytes": 17563,
+      "sha256": "80b5e249f0a7446f02c8219b5ad22bb82f39752e08e2043e0245d4177a5c52fc"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/render/lux-e-source.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/render/lux-e-source.ts",
+      "bytes": 14469,
+      "sha256": "e63dd95a073a39acbf5002b4868fb1493d38f4f223741795d14976e8e7bb7a26"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/render/lux-singularities.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/render/lux-singularities.ts",
+      "bytes": 4144,
+      "sha256": "c8787505a18ce4c6273045738f8d0b20eae7662cf28b7b4435c517515ecb9377"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/render/view.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/render/view.ts",
+      "bytes": 47292,
+      "sha256": "7d5309d06a0eb09d15e6189604603424caacea23eb396efadef209d1cc544404"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/simulation/world.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/reconstructed-inputs/src/simulation/world.ts",
+      "bytes": 246695,
+      "sha256": "b911f216ef8ead77d42f25a26d893cfd367e12e726b2932409bf6b175c2f6e3b"
+    },
+    {
+      "file": ".cache/vision-energy-validation-v1-20261024/reconstructed-inputs/tests/vision-snapshot.test.ts",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-v1-20261024/reconstructed-inputs/tests/vision-snapshot.test.ts",
+      "bytes": 4156,
+      "sha256": "96b2156728e8c836bfc049347d2f49f05ca186d741a0694abea5bced785e22c9"
+    },
+    {
+      "file": ".cache/vision-energy-observation-v1-20261024/optimized.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-observation-v1-20261024/optimized.log",
+      "bytes": 419,
+      "sha256": "b9c7109d03350854df41506565d76195bfb7d78ef4109ecb177d9a44ab51b773"
+    },
+    {
+      "file": ".cache/vision-energy-observation-v2-20261024/optimized.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-observation-v2-20261024/optimized.json",
+      "bytes": 2632,
+      "sha256": "6d6738b8665924e274cd51ea904d7c37b95958ef285226edec10c1733f64acda"
+    },
+    {
+      "file": ".cache/vision-energy-final-v1-20261024/optimized.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-final-v1-20261024/optimized.json",
+      "bytes": 2635,
+      "sha256": "2ea48f5fc969cb9cec18d31ad68a13313c46aeab70ddb751d49e2681c2227ba1"
+    },
+    {
+      "file": ".cache/vision-energy-culling-v1-20261024/optimized.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-culling-v1-20261024/optimized.json",
+      "bytes": 2643,
+      "sha256": "b00c309ffd79fbb0a64d6958fcf6ac4b2ff3b64c52b1d20a299b4bdb4bf9543b"
+    },
+    {
+      "file": ".cache/vision-energy-validation-final-v1-20261024/pose-pixel-comparison.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-final-v1-20261024/pose-pixel-comparison.json",
+      "bytes": 23585,
+      "sha256": "711324bc62a128776244a5afa09b07d4bc97faf613b8551bd796cf66aa019002"
+    },
+    {
+      "file": ".cache/vision-energy-validation-final-v1-20261024/pose-pixel-shared-materials-v1.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-validation-final-v1-20261024/pose-pixel-shared-materials-v1.json",
+      "bytes": 25854,
+      "sha256": "affae86c03d0ffa5ad460444b1e74c3c0fee4013648daafeb1eb149e2a99e2ad"
+    },
+    {
+      "file": ".cache/vision-energy-sort-fix-v2-20261024/pose-pixel-comparison.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-sort-fix-v2-20261024/pose-pixel-comparison.json",
+      "bytes": 23587,
+      "sha256": "2793e9cdb64ee1d3c02cfb7abc67c2d1d56421aac34309da559f88a864f1b92b"
+    },
+    {
+      "file": ".cache/vision-energy-sort-fix-v2-20261024/controlled-renderer-comparison.json",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-sort-fix-v2-20261024/controlled-renderer-comparison.json",
+      "bytes": 23619,
+      "sha256": "5e67899b4502170887f15733c8d3956986793df790387e4870dbf0e976201cce"
+    },
+    {
+      "file": ".cache/vision-energy-accepted-v1-20261024/build.log",
+      "archived": ".cache/vision-energy-review-v1-20261024/.cache/vision-energy-accepted-v1-20261024/build.log",
+      "bytes": 154,
+      "sha256": "ff5b4458c08edc8588437ac2e15ddf8056917d3dbb183b7982c9355983b935f0"
+    },
+    {
+      "file": "docs/CPU-VISION-CULLING.md",
+      "archived": ".cache/vision-energy-review-v1-20261024/docs/CPU-VISION-CULLING.md",
+      "bytes": 5517,
+      "sha256": "55a2476e988cd525379c03f0c910e98761d746b9eaf0fa0025218234a303eaae"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "archived": ".cache/vision-energy-review-v1-20261024/docs/PROGRESS.md",
+      "bytes": 557776,
+      "sha256": "de487ed126417873e2a591b59002e003bc041029a547173ac62cd1866a8982d4"
+    }
+  ],
+  "metrics": {
+    "baseline": {
+      "recordedAt": "2026-10-24T06:00:07.459Z",
+      "browser": "156.0.8078.47",
+      "platform": "darwin",
+      "cpu": "Apple M1",
+      "scope": "One headless Chrome, full Rift, exact 120-second ten-champion checkpoint, active CPU sampling separate from idle states; synthetic hidden retains RAF to test application guard. Renderer CPU does not measure heat, GPU, or total system energy.",
+      "snapshotSHA256": "a3b37ad64a6033dc2e9ffcdc760bb19dff71262a554e8c6e0428cd309606e6fc",
+      "sourceHashes": {
+        "src/main.ts": "cc915063b36443b8785d687323fc57c680a3216d957dd927711f202d9bfec768",
+        "src/render/view.ts": "2e2f04e95e1cc37d8dd3fc9fccf68b6e7661565ad44cfd3164ad5689a6d086c4",
+        "src/render/lux-illumination.ts": "c084a1fb5bca8d394f17db5e8f300261b711e516910a0ba8f47567f1e54dc367",
+        "src/render/models.ts": "ef23e4a1bea657e600e2897018bd550bdc299f27882751c84691b77b093eefe8",
+        "src/input/input.ts": "50a71c35521b643589e0f4677148247a27c36aeed69cde6c9643d90da0aa9c48",
+        "src/render/mobile-animation.ts": "ad5ac1073d3a02359bf93220b9e2d586ebf2cc1448c9449a334741009fd6c429",
+        "src/render/frame-pacer.ts": "451eacf8bbb3c6ec66c6ac0f0cf8a3d1d8da82530a4e241c9ca61ff45e4fb60e",
+        "tools/qa/benchmark-energy.mjs": "5246ac88d8ed68c76503731499b560ad134a5d336536a0f4b55ec87c519fd4d3"
+      },
+      "samples": [
+        {
+          "state": "active",
+          "renders": 345,
+          "renderMS": 3351.3999965190887,
+          "mixers": 27399,
+          "hud": 103,
+          "audio": 345,
+          "steps": 367,
+          "startTick": 7235,
+          "endTick": 7602,
+          "wallSeconds": 6.254863000009209,
+          "rendererTaskSeconds": 4.929581,
+          "rendererScriptSeconds": 4.214606000000001
+        },
+        {
+          "state": "paused",
+          "renders": 0,
+          "renderMS": 0,
+          "mixers": 0,
+          "hud": 0,
+          "audio": 0,
+          "steps": 0,
+          "startTick": 7603,
+          "endTick": 7603,
+          "wallSeconds": 6.0025300001725554,
+          "rendererTaskSeconds": 0.0076339999999994745,
+          "rendererScriptSeconds": 0.00015900000000002024
+        },
+        {
+          "state": "hidden",
+          "renders": 0,
+          "renderMS": 0,
+          "mixers": 0,
+          "hud": 0,
+          "audio": 0,
+          "steps": 0,
+          "startTick": 7603,
+          "endTick": 7603,
+          "wallSeconds": 6.000448999926448,
+          "rendererTaskSeconds": 0.0003530000000004918,
+          "rendererScriptSeconds": 0
+        }
+      ],
+      "errors": []
+    },
+    "final": {
+      "recordedAt": "2026-10-24T06:40:02.099Z",
+      "browser": "156.0.8078.47",
+      "platform": "darwin",
+      "cpu": "Apple M1",
+      "scope": "One headless Chrome, full Rift, exact 120-second ten-champion checkpoint, active CPU sampling separate from idle states; synthetic hidden retains RAF to test application guard. Renderer CPU does not measure heat, GPU, or total system energy.",
+      "snapshotSHA256": "63236682fc316d6041b40e535b84b332ee37e6c4db192ef00c9bc9c35247b828",
+      "sourceHashes": {
+        "src/main.ts": "80b5e249f0a7446f02c8219b5ad22bb82f39752e08e2043e0245d4177a5c52fc",
+        "src/render/view.ts": "7d5309d06a0eb09d15e6189604603424caacea23eb396efadef209d1cc544404",
+        "src/render/lux-illumination.ts": "c084a1fb5bca8d394f17db5e8f300261b711e516910a0ba8f47567f1e54dc367",
+        "src/render/models.ts": "0ec6c7f03890395843791c3890f8c3b207e42ca9e659ca612b358956ab9f749e",
+        "src/render/animation-bounds.ts": "211730cb4372e828f4bfc45cde179d49a34cf74fcfda10e2ff5c4ba003320daa",
+        "src/render/target-pose-sampler.ts": "02f68f89338464a90e6284f9b09235c16b6dd2e7915bbfd33de851fbf7808e20",
+        "src/input/input.ts": "50a71c35521b643589e0f4677148247a27c36aeed69cde6c9643d90da0aa9c48",
+        "src/render/mobile-animation.ts": "ad5ac1073d3a02359bf93220b9e2d586ebf2cc1448c9449a334741009fd6c429",
+        "src/render/frame-pacer.ts": "451eacf8bbb3c6ec66c6ac0f0cf8a3d1d8da82530a4e241c9ca61ff45e4fb60e",
+        "src/simulation/world.ts": "0235fe8ec9b5d7d32703897c29d3b4ba23a590fbef4749501d92b7b18781910e",
+        "src/render/lux-singularities.ts": "c8787505a18ce4c6273045738f8d0b20eae7662cf28b7b4435c517515ecb9377",
+        "src/render/lux-e-source.ts": "e63dd95a073a39acbf5002b4868fb1493d38f4f223741795d14976e8e7bb7a26",
+        "tools/qa/benchmark-energy.mjs": "61dc9a32b17f79509c52bad2725b3075ac897b2b6de6a3201e85eb75f0f11738"
+      },
+      "samples": [
+        {
+          "state": "active",
+          "renders": 359,
+          "renderMS": 2545.399999856949,
+          "mixers": 28504,
+          "hud": 102,
+          "audio": 359,
+          "steps": 367,
+          "startTick": 7236,
+          "endTick": 7603,
+          "wallSeconds": 6.2320809999946505,
+          "rendererTaskSeconds": 3.9650090000000002,
+          "rendererScriptSeconds": 3.300013
+        },
+        {
+          "state": "paused",
+          "renders": 0,
+          "renderMS": 0,
+          "mixers": 0,
+          "hud": 0,
+          "audio": 0,
+          "steps": 0,
+          "startTick": 7604,
+          "endTick": 7604,
+          "wallSeconds": 6.003344000084326,
+          "rendererTaskSeconds": 0.02134899999999984,
+          "rendererScriptSeconds": 0.00035199999999990794
+        },
+        {
+          "state": "hidden",
+          "renders": 0,
+          "renderMS": 0,
+          "mixers": 0,
+          "hud": 0,
+          "audio": 0,
+          "steps": 0,
+          "startTick": 7604,
+          "endTick": 7604,
+          "wallSeconds": 6.0030050000641495,
+          "rendererTaskSeconds": 0.0006500000000002615,
+          "rendererScriptSeconds": 0
+        }
+      ],
+      "errors": []
+    },
+    "reductions": {
+      "meanRenderPercent": 27.01150287480192,
+      "rendererCPUPerWallSecondPercent": 19.272987097734163
+    }
+  },
+  "validation": {
+    "typecheck": true,
+    "unitTests": 1771,
+    "unitFiles": 292,
+    "nodeQATests": 3,
+    "browserTests": 22,
+    "exactControlledPixelPoseSamples": 64,
+    "rigs": 30,
+    "sampledVertices": 12248667,
+    "exactCullingCameraPairs": 5,
+    "worldComparison": {
+      "result": "passed",
+      "originalWorldSHA256": "72690ab20bfee5b228573cbda05b96030ace5dece482f0a19d058df83547dd9b",
+      "currentWorldSHA256": "0235fe8ec9b5d7d32703897c29d3b4ba23a590fbef4749501d92b7b18781910e",
+      "originalRuleset": "9dc8977c24e239714f3f97409f8a6bde24b073be88c72b6a1ae63e64a16519d3",
+      "ruleset": "982958c23a5e30418d2a752119a499c15f6f42ac161331de5e7bf70e65cc91c5",
+      "changedCheckpointFields": [
+        "ruleset"
+      ],
+      "startTick": 7200,
+      "endTick": 10860,
+      "comparedTicks": 3600,
+      "restoredFutureTicks": 60,
+      "sourceLists": 732,
+      "unitQueries": 43716,
+      "checkpoints": [
+        {
+          "tick": 7200,
+          "units": 117,
+          "snapshotSHA256": "63236682fc316d6041b40e535b84b332ee37e6c4db192ef00c9bc9c35247b828"
+        },
+        {
+          "tick": 7260,
+          "units": 120,
+          "snapshotSHA256": "89e94be9577ddd64bf52aace8d5f48f968f23ee6eeb5dca91bacc8b542c42313"
+        },
+        {
+          "tick": 7320,
+          "units": 124,
+          "snapshotSHA256": "4cda3c363f9811364b80e6edc1786e06a61e9c2e42fa6acc67f517e6f60a12bd"
+        },
+        {
+          "tick": 7380,
+          "units": 129,
+          "snapshotSHA256": "15eb204660b2d9beaf8095aaf898ff9be0fc16e41c820a82be1921aaaae9e87d"
+        },
+        {
+          "tick": 7440,
+          "units": 139,
+          "snapshotSHA256": "8f3d16b59a80118b57ede94e4fc74b6b992c85a94f1e1c9b0e7b557264d02c22"
+        },
+        {
+          "tick": 7500,
+          "units": 138,
+          "snapshotSHA256": "a6e40019377fe3cd725ebe555148672324976452086dabe080e01254ac0b6a7b"
+        },
+        {
+          "tick": 7560,
+          "units": 138,
+          "snapshotSHA256": "2470116e5d6160ef3a4bce33df1f0726ed9e7b44768fb998ec2b1b6590dff965"
+        },
+        {
+          "tick": 7620,
+          "units": 136,
+          "snapshotSHA256": "e591f82cdf50f6ffd3104f926a320a27c5896c3c6982babc463224b674f9e1a2"
+        },
+        {
+          "tick": 7680,
+          "units": 136,
+          "snapshotSHA256": "52a1d4e9c282363937bb2a110697b1a2f0ab6e5bb5d77a94adfef1df801859c4"
+        },
+        {
+          "tick": 7740,
+          "units": 134,
+          "snapshotSHA256": "e98d734f193a4e5795bbae296549bd6c944958ecc6ee287cd669c0398210f7d9"
+        },
+        {
+          "tick": 7800,
+          "units": 132,
+          "snapshotSHA256": "1aa0b24da333b94e4ecb6b816224b5d5fa73ae33c9836f186daedd0aa465fccb"
+        },
+        {
+          "tick": 7860,
+          "units": 132,
+          "snapshotSHA256": "9c90a53525cb86c2e0464ddf726c356eb6d4dd6c212d6107b30709014b0529db"
+        },
+        {
+          "tick": 7920,
+          "units": 130,
+          "snapshotSHA256": "5ab4bef2bedd2617f2504a864c7dbd560bcba3a668bd288cb9e685bd8c308b89"
+        },
+        {
+          "tick": 7980,
+          "units": 130,
+          "snapshotSHA256": "ceb1887eae494172c43ee3607c8e4ff46d8823b447d0fe70d65a9c11949abf50"
+        },
+        {
+          "tick": 8040,
+          "units": 128,
+          "snapshotSHA256": "d4f748655260094a77fe956ddf0c0355f9be120296bad7d57c037c7c596cfde8"
+        },
+        {
+          "tick": 8100,
+          "units": 126,
+          "snapshotSHA256": "ce84ae4d3ba8d19fe4a660104105a63d581c12130df5d18277b26501fa4dd4ac"
+        },
+        {
+          "tick": 8160,
+          "units": 123,
+          "snapshotSHA256": "fc78ac873c2b386279d05ef546e01e0116c44061db11acd8671f507b0f669a50"
+        },
+        {
+          "tick": 8220,
+          "units": 123,
+          "snapshotSHA256": "701fa0b3c5f612bc8e4569acb83a264f1b4a76ba83ec1f895b71145297aaf982"
+        },
+        {
+          "tick": 8280,
+          "units": 121,
+          "snapshotSHA256": "2d14f7f2a218272e2074b35c05a19792a815e919dce673c2d3a303faa616576a"
+        },
+        {
+          "tick": 8340,
+          "units": 120,
+          "snapshotSHA256": "00837fbf92cbd743f992baeb13b5265d10f0e2de61f5f828f02c7d4d022f9752"
+        },
+        {
+          "tick": 8400,
+          "units": 119,
+          "snapshotSHA256": "40687126efb7bd7fb47ff57841f59d0c39c945e156e0e0ebbb31b63a78594f27"
+        },
+        {
+          "tick": 8460,
+          "units": 116,
+          "snapshotSHA256": "67ec040efe424ca55962fd3286a972fc1862f3e6823455a3f89331dd47f6521c"
+        },
+        {
+          "tick": 8520,
+          "units": 115,
+          "snapshotSHA256": "034f3711752edfa9c595eac29dfe2e7380c595bccf7eb3ce5fa0857206ffc8a9"
+        },
+        {
+          "tick": 8580,
+          "units": 115,
+          "snapshotSHA256": "14bf3fc87bace0ed92a8563823985ed62e0a94c1261f5444a165646ce9165ed5"
+        },
+        {
+          "tick": 8640,
+          "units": 114,
+          "snapshotSHA256": "6bc3ed2146a38ab1851983daaeda95e58edbe7efa8f16cd91cbe890e1d410489"
+        },
+        {
+          "tick": 8700,
+          "units": 113,
+          "snapshotSHA256": "8115ce349ed4fedb23e5b400d905a087abee877d39e4c71a8c74e96673570cd5"
+        },
+        {
+          "tick": 8760,
+          "units": 109,
+          "snapshotSHA256": "86070d4918ff5ff41b0b4e6b977ce78985059b176ed0fe3b1d3788cb9de6388b"
+        },
+        {
+          "tick": 8820,
+          "units": 109,
+          "snapshotSHA256": "8309e10df403f486a10bde5b8bbd2bebdbcf984190f3b3f5f5675a42ce230938"
+        },
+        {
+          "tick": 8880,
+          "units": 108,
+          "snapshotSHA256": "dd2c1a6b7d85ac8bb1f8f12f00f0e9d659cba678eb400bd8c84487298e2d2a6e"
+        },
+        {
+          "tick": 8940,
+          "units": 108,
+          "snapshotSHA256": "1944324da5a4f50600dc6d5685367d918f02ad81796d8fca0de2631247e33887"
+        },
+        {
+          "tick": 9000,
+          "units": 113,
+          "snapshotSHA256": "dfbf10b9f321c575cd0ffcee1f0fc4a4b8afc3a06cd9576d29d44b4a06fc7340"
+        },
+        {
+          "tick": 9060,
+          "units": 118,
+          "snapshotSHA256": "117341a41d92adbe811666d8de725245f7b4eb24334087c2c841e2fcc5f92f47"
+        },
+        {
+          "tick": 9120,
+          "units": 122,
+          "snapshotSHA256": "7d99f82f6334efc2eaff531140d1e95c5406839c44a81c87f4b13a982dedebc6"
+        },
+        {
+          "tick": 9180,
+          "units": 126,
+          "snapshotSHA256": "2f6340131f447cf472e51e2e76a3fb2dd264bb74ce5702505b9b2c1124d1a43d"
+        },
+        {
+          "tick": 9240,
+          "units": 134,
+          "snapshotSHA256": "c3ed8ac8dbfe7810988b6d6bd3cbedccdfa4b5067247fa26d02e0d16b2f6e19a"
+        },
+        {
+          "tick": 9300,
+          "units": 132,
+          "snapshotSHA256": "8306c652c4a885c63ea95964936dee3cb45501c4a47b69f5820ebc577e994ac1"
+        },
+        {
+          "tick": 9360,
+          "units": 131,
+          "snapshotSHA256": "02e97d2b6ffabd255e4151f34bb9fb37abc94ed1ecbf4360616a9ee134f62a83"
+        },
+        {
+          "tick": 9420,
+          "units": 129,
+          "snapshotSHA256": "25cc8986369e1187b8d57c35ddb0903714806695f2a32ef50255f9d0268bdcb0"
+        },
+        {
+          "tick": 9480,
+          "units": 127,
+          "snapshotSHA256": "d5c7c425e5797bb432e37f73c232fbe41df0cd425e5fdb0d296fbf8183f182bc"
+        },
+        {
+          "tick": 9540,
+          "units": 125,
+          "snapshotSHA256": "9f9881a4afb6e2eb6b02d1a484caf84914c077894a5249bacd8f3a57faff4efc"
+        },
+        {
+          "tick": 9600,
+          "units": 124,
+          "snapshotSHA256": "23fbfc5e993e3bd1b3f1be712b761eed82b0b8e04e3ee7521b3afad68b106724"
+        },
+        {
+          "tick": 9660,
+          "units": 122,
+          "snapshotSHA256": "5c555af2492c1dd694cee1c73d36eefb9c5ff4358948ac5ec8128195265800a2"
+        },
+        {
+          "tick": 9720,
+          "units": 120,
+          "snapshotSHA256": "94c1033f3042d23f40211c4986d748325eb3d40f4edc48bda6a3a9059b552f7b"
+        },
+        {
+          "tick": 9780,
+          "units": 118,
+          "snapshotSHA256": "396ded25a89078f1acb0f344bbe9411fa6b68be31267871f6d0ffa16871f7e85"
+        },
+        {
+          "tick": 9840,
+          "units": 115,
+          "snapshotSHA256": "327aac75f2a808c4f14a3e830d65935ec87d587ef665becd3a06bafc48e1c714"
+        },
+        {
+          "tick": 9900,
+          "units": 114,
+          "snapshotSHA256": "82d1dd8ba886397afb828e9ab40456d355b582088e93b0aec644e2b220649914"
+        },
+        {
+          "tick": 9960,
+          "units": 113,
+          "snapshotSHA256": "57a0aa81a700f8930d08c5a1575d418d81d47fcebce066b35d2a67b749e95ac4"
+        },
+        {
+          "tick": 10020,
+          "units": 111,
+          "snapshotSHA256": "b5441b039d7a90855fd785d6f152d4035f2eea3eada1d831ed3d940e49a16057"
+        },
+        {
+          "tick": 10080,
+          "units": 111,
+          "snapshotSHA256": "fc903523db26a43b17018370b56cc0774f831bf3760b80ee94f5074acdafa86c"
+        },
+        {
+          "tick": 10140,
+          "units": 110,
+          "snapshotSHA256": "a1b539b18a817a0c77c088b63eb8f7fa4aa74c2f523813877105583fbb87888d"
+        },
+        {
+          "tick": 10200,
+          "units": 110,
+          "snapshotSHA256": "e6a90df035fd2e9b1f30f167bf49637c4e5392c388e16265a459e18fb155711a"
+        },
+        {
+          "tick": 10260,
+          "units": 110,
+          "snapshotSHA256": "163f361e3d11887aa7370949e329401ee548acebfc0e315bf4284058e09c2580"
+        },
+        {
+          "tick": 10320,
+          "units": 107,
+          "snapshotSHA256": "32cdbeb706218cdbdbd4bc72887da45837a3335a3a090af89dcce79af6de25de"
+        },
+        {
+          "tick": 10380,
+          "units": 107,
+          "snapshotSHA256": "17f17155bd1114442c6b0061a5dc8e278ee4bf697a37e21fa43f0bd31eb0e880"
+        },
+        {
+          "tick": 10440,
+          "units": 106,
+          "snapshotSHA256": "a84f1a9bfb72797d27f9508c1720e01a4753f36fb371b17f56a9232b02d3b6bc"
+        },
+        {
+          "tick": 10500,
+          "units": 105,
+          "snapshotSHA256": "6caf12ddbb6a98f98a499df8fb069282936d2ec8c33b0c7eabfd73568793516e"
+        },
+        {
+          "tick": 10560,
+          "units": 105,
+          "snapshotSHA256": "dc0583e5ac9357ff658abbbbe0fa38420dd0f731313e412282691508120a7fbb"
+        },
+        {
+          "tick": 10620,
+          "units": 104,
+          "snapshotSHA256": "43db0e33350058c2a709aa0630256b1b0e822925a8252c59c8e3eda545cdf3e3"
+        },
+        {
+          "tick": 10680,
+          "units": 104,
+          "snapshotSHA256": "f1bcb6ddef4689928af4f28dab1b75cff10cbbe23b8d234ffe30fd24e7b8c906"
+        },
+        {
+          "tick": 10740,
+          "units": 103,
+          "snapshotSHA256": "4245f3c24cffa46df265779df9e54aa06001374cc9ba2d9809968f0128a2a11c"
+        },
+        {
+          "tick": 10800,
+          "units": 108,
+          "snapshotSHA256": "d71afbbb17e64a5b84d12e2251a0f58b10a2e4326beae9b376fe124133f0190d"
+        }
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": ".cache/vision-energy-accepted-v2-20261024/production-images/lux-e-hit-production-subpath.png"
+    },
+    "offline": {
+      "manifest": {
+        "id": "7670f44135a88c2b8a46a380c0c4cb7c6d1210b64a4ac4a0ab8db3bd27a24d5c",
+        "files": 939,
+        "bytes": 506612807
+      },
+      "checks": {
+        "integrityFailure": true,
+        "cancelRetainsVerified": true,
+        "retryWithoutRedownload": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 963,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    }
+  },
+  "limits": [
+    "Short instrumented observations; no temperature, whole-machine energy, pure GPU utilization or physical display cadence measurement.",
+    "Pixel acceptance uses shared untouched source assets and a baseline culling adapter. Independent loader-cache tiny-pixel diagnostics remain unaccepted.",
+    "Bounds add source-load preprocessing; full-match/device/browser/native and bundle-size gates remain open.",
+    "Strict ruleset changed; old saves are rejected. Header-only rebasing occurred only in comparison tooling."
+  ],
+  "projectGoalComplete": false
+}

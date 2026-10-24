@@ -1,7 +1,11 @@
 import { expect, test } from 'vitest';
 import * as THREE from 'three';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
-import { prepareAnimationBounds } from '../src/render/animation-bounds';
+import {
+  animationCullingSphere,
+  configureAnimationCulling,
+  prepareAnimationBounds,
+} from '../src/render/animation-bounds';
 
 function rig() {
   const scene = new THREE.Group();
@@ -71,3 +75,48 @@ for (const kind of ['smooth', 'mesh-animation', 'additive', 'morph', 'detached']
     expect(mesh.frustumCulled).toBe(false);
     expect(mesh.userData.animationBounds).toBeUndefined();
   });
+
+test('separate envelopes preserve the original first-pose sorting centre and clone independently', () => {
+  const { scene, clips } = rig();
+  const baseline = clone(scene);
+  prepareAnimationBounds(scene, clips, true);
+  const current = clone(scene);
+  configureAnimationCulling(current);
+  const originalMesh = baseline.getObjectByName('building') as THREE.SkinnedMesh;
+  const mesh = current.getObjectByName('building') as THREE.SkinnedMesh & {
+    intersectsFrustum: (f: THREE.Frustum) => boolean;
+  };
+  const mixers = [baseline, current].map((root) => {
+    const mixer = new THREE.AnimationMixer(root);
+    mixer.clipAction(clips[0]).play();
+    mixer.setTime(0.31);
+    root.updateMatrixWorld(true);
+    return mixer;
+  });
+  expect(mesh.boundingSphere).toBeNull();
+  originalMesh.computeBoundingSphere();
+  const frustum = new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4());
+  mesh.intersectsFrustum(frustum);
+  expect(mesh.boundingSphere!.center.toArray()).toEqual(
+    originalMesh.boundingSphere!.center.toArray()
+  );
+  const originalCenter = mesh.boundingSphere!.center.clone();
+  const bound = animationCullingSphere(mesh)!;
+  expect(bound).not.toBe(mesh.boundingSphere);
+  const another = clone(current);
+  configureAnimationCulling(another);
+  const anotherMesh = another.getObjectByName('building') as THREE.SkinnedMesh;
+  expect(animationCullingSphere(anotherMesh)).toEqual(bound);
+  expect(animationCullingSphere(anotherMesh)).not.toBe(bound);
+  const p = new THREE.Vector3();
+  for (let step = 0; step < 100; step++) {
+    mixers[1].setTime(step / 100);
+    current.updateMatrixWorld(true);
+    mesh.intersectsFrustum(frustum);
+    expect(mesh.boundingSphere!.center.toArray()).toEqual(originalCenter.toArray());
+    for (let i = 0; i < 2; i++) {
+      mesh.getVertexPosition(i, p);
+      expect(p.distanceTo(bound.center)).toBeLessThan(bound.radius);
+    }
+  }
+});

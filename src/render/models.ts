@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
 import { isStructureKind, type Unit } from '../simulation/types';
-import { prepareAnimationBounds } from './animation-bounds';
+import { configureAnimationCulling, prepareAnimationBounds } from './animation-bounds';
 import { removeConstantBoneTracks } from './constant-bone-tracks';
 import { monsterClipAliases } from './monster-clip-aliases';
 
@@ -135,8 +135,11 @@ export async function loadReferenceModels(
                       : ['idle1', 'run', 'attack1', 'death'])
           if (!gltf.animations.some((clip) => clip.name === required))
             throw new Error(`${name} lacks required ${required} animation`);
-        if (name === 'leona-base' || /-(turret|nexus|inhibitor)$/.test(name))
-          prepareAnimationBounds(gltf.scene, gltf.animations);
+        prepareAnimationBounds(
+          gltf.scene,
+          gltf.animations,
+          name !== 'leona-base' && !/-(turret|nexus|inhibitor)$/.test(name)
+        );
         references.set(name, {
           scene: gltf.scene,
           clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
@@ -201,6 +204,7 @@ export function makeModel(u: Unit): UnitModel {
     const root = new THREE.Group(),
       model = clone(reference.scene);
     root.add(model);
+    configureAnimationCulling(model);
     const submeshes: THREE.Object3D[] = [];
     const spawnSubmeshes: THREE.Object3D[] = [];
     let sharedSkeleton: THREE.Skeleton | undefined;

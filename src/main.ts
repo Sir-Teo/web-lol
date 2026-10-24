@@ -395,34 +395,36 @@ async function boot(): Promise<void> {
       }
       if (accumulator >= DT) accumulator = 0;
     }
-    view.render(world, paused ? 1 : accumulator / DT, elapsed);
-    input!.updateHover();
-    uiElapsed += dt;
-    if (uiElapsed >= 0.05 || paused) {
-      hud.update(fps);
-      uiElapsed = 0;
-    }
-    const audibleProjectiles = world.projectiles.filter((p) => world.projectileVisible(p));
-    const audibleScouts = world.scoutVisuals.filter(
-      (effect) => effect.team === 'blue' || world.pointVisible(effect, 'blue')
-    );
-    audio.updateBindingFlight(
-      audibleProjectiles,
-      world.bindingStops.filter((s) => s.team === 'blue' || world.pointVisible(s.point, 'blue')),
-      world.tick,
-      view.center
-    );
-    audio.updateFlight(audibleProjectiles, audibleScouts, world.tick);
-    audio.updateLinger(audibleScouts, world.tick);
-    audio.updateLuxE(world, view.center);
-    audio.updateOracle(world, view.center);
-    audio.updateGaren(world, view.center);
-    audio.updateLeona(world, view.center);
-    audio.update(
-      world.events.filter((event) => world.eventVisible(event)),
-      world.tick,
-      view.center
-    );
+    world.withVisionSnapshot(() => {
+      view.render(world, paused ? 1 : accumulator / DT, elapsed);
+      input!.updateHover();
+      uiElapsed += dt;
+      if (uiElapsed >= 0.05 || paused) {
+        hud.update(fps);
+        uiElapsed = 0;
+      }
+      const audibleProjectiles = world.projectiles.filter((p) => world.projectileVisible(p));
+      const audibleScouts = world.scoutVisuals.filter(
+        (effect) => effect.team === 'blue' || world.pointVisible(effect, 'blue')
+      );
+      audio.updateBindingFlight(
+        audibleProjectiles,
+        world.bindingStops.filter((s) => s.team === 'blue' || world.pointVisible(s.point, 'blue')),
+        world.tick,
+        view.center
+      );
+      audio.updateFlight(audibleProjectiles, audibleScouts, world.tick);
+      audio.updateLinger(audibleScouts, world.tick);
+      audio.updateLuxE(world, view.center);
+      audio.updateOracle(world, view.center);
+      audio.updateGaren(world, view.center);
+      audio.updateLeona(world, view.center);
+      audio.update(
+        world.events.filter((event) => world.eventVisible(event)),
+        world.tick,
+        view.center
+      );
+    });
     if (paused && !world.winner) stopLoop();
   };
   requestFrame = () => {

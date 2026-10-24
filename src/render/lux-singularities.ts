@@ -45,16 +45,18 @@ export class LuxSingularities {
         x: zone.previous.x + (zone.x - zone.previous.x) * alpha,
         y: zone.previous.y + (zone.y - zone.previous.y) * alpha,
       };
-      source.draw(
-        world,
-        role,
-        zone.id ^ Math.imul(start, 0x9e3779b9),
-        (tick - start) / TICK_RATE,
-        point,
-        zone.origin,
-        zone.point,
-        zone.team
-      );
+      if (source.root.visible)
+        source.draw(
+          world,
+          role,
+          zone.id ^ Math.imul(start, 0x9e3779b9),
+          (tick - start) / TICK_RATE,
+          point,
+          zone.origin,
+          zone.point,
+          zone.team
+        );
+      else source.hide();
     }
     const activeHits = new Set<string>();
     for (const zone of world.singularities)
@@ -74,18 +76,20 @@ export class LuxSingularities {
         source.root.visible =
           world.pointVisible(point) &&
           (hit.detachedTick !== null || !target || world.visible(target, 'blue'));
-        source.draw(
-          world,
-          'hit',
-          zone.id ^
-            Math.imul(hit.targetId, 0x85ebca6b) ^
-            Math.imul(zone.detonatedTick!, 0x9e3779b9),
-          age,
-          point,
-          zone.origin,
-          zone.point,
-          hit.targetTeam
-        );
+        if (source.root.visible)
+          source.draw(
+            world,
+            'hit',
+            zone.id ^
+              Math.imul(hit.targetId, 0x85ebca6b) ^
+              Math.imul(zone.detonatedTick!, 0x9e3779b9),
+            age,
+            point,
+            zone.origin,
+            zone.point,
+            hit.targetTeam
+          );
+        else source.hide();
         activeHits.add(key);
       }
     for (const [key, source] of this.hitSources)

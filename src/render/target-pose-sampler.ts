@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
 import luxBones from '../content/lux-hit-bones.json';
+import { configureAnimationCulling } from './animation-bounds';
 
 export interface TargetPoseLayer {
   clip: string;
@@ -27,6 +28,7 @@ export class TargetPoseSampler {
       this.clips.set(clip.name, clip);
     }
     this.root = clone(reference);
+    configureAnimationCulling(this.root);
     this.mixer = new THREE.AnimationMixer(this.root);
   }
   /** A caller may render this private pose, replacing borrowed mesh materials.

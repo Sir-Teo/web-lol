@@ -125,9 +125,14 @@ try {
     'src/render/view.ts',
     'src/render/lux-illumination.ts',
     'src/render/models.ts',
+    'src/render/animation-bounds.ts',
+    'src/render/target-pose-sampler.ts',
     'src/input/input.ts',
     'src/render/mobile-animation.ts',
     'src/render/frame-pacer.ts',
+    'src/simulation/world.ts',
+    'src/render/lux-singularities.ts',
+    'src/render/lux-e-source.ts',
     'tools/qa/benchmark-energy.mjs',
   ])
     sourceHashes[file] = createHash('sha256')

@@ -547,6 +547,9 @@ export class GameView {
     this.center.y += dy * dt * 1500 * this.zoom;
   }
   render(world: World, alpha: number, elapsed: number): void {
+    world.withVisionSnapshot(() => this.renderFrame(world, alpha, elapsed));
+  }
+  private renderFrame(world: World, alpha: number, elapsed: number): void {
     // No new simulation interval follows victory. A cycling accumulator alpha
     // would repeatedly rewind the last movement/pose beneath terminal playback.
     if (world.winner) alpha = 1;
@@ -593,7 +596,7 @@ export class GameView {
       if (!model.root.visible) {
         // Three propagates matrices through invisible children too. Retain the
         // rig in the model cache, outside the scene traversal until it is seen.
-        this.scene.remove(model.root);
+        if (model.root.parent === this.scene) this.scene.remove(model.root);
         const bar = this.healthBars.get(u.id);
         if (bar && !bar.hidden) bar.hidden = true;
         // The saved timeline supplies absolute pose/blend clocks on reveal.

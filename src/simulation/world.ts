@@ -293,6 +293,7 @@ export class World {
   random = new Random(26018);
   player: PlayerState;
   private championRecords = new Map<number, ChampionState>();
+  private visionSnapshotSources?: (readonly VisionSource[] | undefined)[];
   championState(id: number): ChampionState | undefined {
     if (!this.championRecords.has(id)) return undefined;
     if (!this.units.some((u) => u.id === id && u.kind === 'champion')) return undefined;
@@ -1406,64 +1407,71 @@ export class World {
       ? u.structureIdle.startTick
       : u.structureIdle.observedStartTicks[team];
   }
+  /** Reuse source lists during synchronous presentation reads. Callers must not
+   * mutate the match inside this scope; simulation queries outside stay fresh,
+   * including multiple changes within the same tick. Nested reads share the
+   * current scope and exceptions always release it. Nothing here is saved. */
+  withVisionSnapshot<T>(read: () => T): T {
+    const previous = this.visionSnapshotSources;
+    this.visionSnapshotSources ??= [];
+    try {
+      return read();
+    } finally {
+      this.visionSnapshotSources = previous;
+    }
+  }
   visionSources(
     team: Faction = 'blue',
     includeAttackReveals = true,
     includeHawkshots = true
-  ): VisionSource[] {
+  ): readonly VisionSource[] {
     if (team === 'neutral') return [];
-    const sources: VisionSource[] = this.units
-      .filter(
-        (u) => u.team === team && this.alive(u) && (u.kind !== 'ward' || !wardDisabled(this, u))
-      )
-      .map((u) => ({ x: u.x, y: u.y, radius: sightRadius(u) }));
+    const key =
+      (team === 'red' ? 4 : 0) + (includeAttackReveals ? 2 : 0) + (includeHawkshots ? 1 : 0);
+    const cached = this.visionSnapshotSources?.[key];
+    if (cached) return cached;
+    const sources: VisionSource[] = [];
+    for (const u of this.units)
+      if (u.team === team && this.alive(u) && (u.kind !== 'ward' || !wardDisabled(this, u)))
+        sources.push({ x: u.x, y: u.y, radius: sightRadius(u) });
     for (const shrine of this.scuttlers?.shrines ?? [])
       if (shrine.team === team && shrine.endTick > this.tick)
         sources.push({
           ...shrinePoint(shrine.river, this.battlefield),
           radius: SCUTTLER_POLICY.shrineSightRadius,
         });
-    sources.push(
-      ...this.visionAreas.filter(
-        (a) =>
-          a.team === team &&
-          a.endTick > this.tick &&
-          (includeAttackReveals || a.kind === 'scout') &&
-          (includeHawkshots || a.kind !== 'scout')
+    for (const a of this.visionAreas)
+      if (
+        a.team === team &&
+        a.endTick > this.tick &&
+        (includeAttackReveals || a.kind === 'scout') &&
+        (includeHawkshots || a.kind !== 'scout')
       )
-    );
-    sources.push(
-      ...this.projectiles
-        .filter((projectile) => projectile.team === team && projectile.type === 'ultimate')
-        .map((projectile) => ({ x: projectile.x, y: projectile.y, radius: ASHE_R.sightRadius }))
-    );
-    sources.push(
-      ...this.projectiles
-        .filter(
-          (projectile) =>
-            includeHawkshots && projectile.team === team && projectile.type === 'hawkshot'
-        )
-        // Radius remains provisional until reference geometry is verified.
-        .map((projectile) => ({
-          x: projectile.x,
-          y: projectile.y,
-          radius: 650,
-          unobstructed: true,
-        }))
-    );
-    sources.push(
-      ...this.singularities
-        .filter(
-          (z) =>
-            z.team === team &&
-            z.arrivalTick !== null &&
-            z.detonatedTick === null &&
-            z.endTick! > this.tick
-        )
-        .map((z) => ({ x: z.x, y: z.y, radius: LUX_E.visionRadius, unobstructed: true }))
-    );
+        sources.push(a);
+    for (const projectile of this.projectiles)
+      if (projectile.team === team && projectile.type === 'ultimate')
+        sources.push({ x: projectile.x, y: projectile.y, radius: ASHE_R.sightRadius });
+    if (includeHawkshots)
+      for (const projectile of this.projectiles)
+        if (projectile.team === team && projectile.type === 'hawkshot')
+          // Radius remains provisional until reference geometry is verified.
+          sources.push({
+            x: projectile.x,
+            y: projectile.y,
+            radius: 650,
+            unobstructed: true,
+          });
+    for (const z of this.singularities)
+      if (
+        z.team === team &&
+        z.arrivalTick !== null &&
+        z.detonatedTick === null &&
+        z.endTick! > this.tick
+      )
+        sources.push({ x: z.x, y: z.y, radius: LUX_E.visionRadius, unobstructed: true });
     if (team === 'blue' && this.reveal && this.reveal.endTick > this.tick)
       sources.push({ ...this.reveal.point, radius: 650, unobstructed: true });
+    if (this.visionSnapshotSources) this.visionSnapshotSources[key] = sources;
     return sources;
   }
   pointVisible(point: Vec2, team: Faction = 'blue'): boolean {

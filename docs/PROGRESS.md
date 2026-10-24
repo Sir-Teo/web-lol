@@ -5262,3 +5262,35 @@ See [CPU efficiency](CPU-EFFICIENCY.md) and its
 [evidence record](reference/cpu-efficiency-verification.json). Bundle-size,
 full-match/device/browser and native fidelity gates remain open. Nothing is
 pushed; the full project goal remains active.
+
+## Frame vision reuse and supported actor culling — October 24, 2026
+
+Performance work remains ahead of feature work. Read-only frame scopes reuse
+vision sources across rendering, HUD, hover and audio, with fresh simulation
+queries outside the scope and direct source-list construction. Hidden Lux E
+phases skip sampling, retain zero draw ranges and reconstruct on reveal.
+All 30 supported rigs now use conservative all-clip camera/shadow bounds, with
+separate original sorting spheres. Unknown rig forms retain disabled culling.
+
+The final short sample uses 19.3% less renderer CPU per wall second and
+27.0% less render time than a fresh post-first-optimization baseline
+(9.71 to 7.09 ms mean render). Paused/hidden renders remain zero. These
+are instrumented observations, not temperature or full-match certification.
+
+Build, 1,771 unit cases/292 files, three Node QA cases and 22 Chrome cases pass.
+Sixty-four controlled pixel/pose comparisons are exact. Thirty rigs pass
+12,248,667 sampled vertex checks and five camera/shadow pixel comparisons.
+The original/current simulation agrees through 3,600 ticks, 732 source lists,
+43,716 visibility queries and a strict restored 60-tick future.
+Production passes 32 recordings; offline passes 939 files/506,612,807 bytes
+and every control, with zero production errors. Pack ID:
+`7670f44135a88c2b8a46a380c0c4cb7c6d1210b64a4ac4a0ab8db3bd27a24d5c`.
+
+Source epoch V8 freezes 1,591 inputs. Prior failed fixtures, startup races,
+independent-cache pixel diagnostics and the type-interface repair are retained.
+Schema is 125; ruleset is `982958c23a5e30418d2a752119a499c15f6f42ac161331de5e7bf70e65cc91c5`.
+Old save hashes remain rejected; test header normalization is not a migration.
+See [frame vision/culling](CPU-VISION-CULLING.md) and its
+[evidence record](reference/vision-culling-verification.json). Existing Zenith
+kernel work is preserved. Full match/device/browser/native and bundle gates
+remain open; nothing is pushed and the project goal remains active.
