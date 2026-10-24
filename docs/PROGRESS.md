@@ -5593,3 +5593,36 @@ manifest/inventory and metadata are pinned in the
 [discovery record](reference/leona-native-client-discovery.json) and checked
 with the offline verifier. See [prerequisite scope](LEONA-NATIVE-CLIENT.md).
 Source work continues independently; the full project goal stays active.
+
+## Solar Flare source package — October 24, 2026
+
+All six standard Leona R source systems now retain 44 enabled and nine disabled
+records from four frozen BINs. All 45 authored dependencies are packaged as
+41 exact PNGs and four source SCBs. E cylinder/W smoke and 18 PNGs are reused
+byte for byte; 23 images and the R cast-funnel/praxis GLBs are new. Original
+positions/UV/BGRA/face RGB, source topology/bounds/pivots/materials survive, with
+no generated normals or pivot/winding changes. Both new GLBs total 40,540 bytes.
+
+TypeScript, 1,815 unit cases/299 files and three Node QA cases pass. Four source
+package unit cases cover all definitions/declarations/dependencies and exact
+shared resources. Independent Python raw-BIN/TEX/GLB-accessor verification and
+Node GLTF validation/attribute round trips pass. One fresh Chrome case hashes
+and draws all four actual meshes without GL error; source geometry inspection
+was reviewed. Fresh nested production passes 32 recordings without development
+hooks or unrequested Leona preload. The new manifest contains 996 files and
+510,449,057 bytes. No new normal-match cohort or CPU benchmark is claimed.
+
+R's planar projections, ground meshes/ray, linger type 1, stencil reference,
+noise/orbital motion, missing texture and attached-skin multiplier remain source
+declarations requiring supported bindings. StencilRef7 has no authored mode and
+does not establish a test/write. Current gameplay R retires at impact; retained
+phase/contact/target histories, source emissions/drawing/audio and native
+acceptance are still required. The source package performs no native execution.
+Schema 125 and ruleset 0f7b3e3b remain unchanged. See
+[source scope](LEONA-R-SOURCE.md) and the
+[verification record](reference/leona/r-source-verification.json). Nothing is pushed;
+the full project goal stays active.
+
+The fresh 996-file offline pack also passes integrity, cancellation/retry,
+repair, saved/new-match boot, removal and atomic activation with 963
+service-worker responses and no production errors.

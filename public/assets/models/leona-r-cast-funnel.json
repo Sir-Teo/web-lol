@@ -1,0 +1,59 @@
+{
+  "output": {
+    "path": "/assets/models/leona-r-cast-funnel.glb",
+    "bytes": 19316,
+    "sha256": "98df0e6aa2e271bfdfbe6481ff3de5d59f2ecd5a3d4fd03452ff50f0fdf19104"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_r_cas_funnel.scb",
+    "wadPathHash": "409e98064e76876d",
+    "sha256": "5248d76f6c30a959f01d870cfe327835b501d4eaa89aab091754f0deb5306998",
+    "bytes": 17832
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 90,
+  "triangles": 162,
+  "exportedCorners": 486,
+  "centralPoint": [
+    0,
+    0,
+    0
+  ],
+  "rawSourceBounds": [
+    -55.836795806884766,
+    0,
+    -76.39209747314453,
+    171.16905212402344,
+    542.134765625,
+    184.93374633789062
+  ],
+  "measuredMinMax": [
+    -55.836795806884766,
+    0,
+    -76.39209747314453,
+    115.3322525024414,
+    542.134765625,
+    108.5416488647461
+  ],
+  "sourceFlags": 2,
+  "sourceVertexColors": true,
+  "sourceFaceColors": false,
+  "materials": [
+    "lambert1"
+  ],
+  "sourceIndicesSha256": "ec64bb136ea6f69e0d9df59e1dbf40334500f8a0cd567f9a2c2c3562138afdd3",
+  "attributeSha256": {
+    "POSITION": "89287f365515694d104114c461bb76332ab2f5183852a3d772203cb9d4810eba",
+    "_SOURCE_POSITION": "9df1a2cf3fb325efcff97af17da1d314c62dba8e4fbf071f4788ba96739e9ad4",
+    "TEXCOORD_0": "c8485fe66111304bac5331dbe96e6e6265881de6c7675efe441e71c1f61210f8",
+    "_SOURCE_VERTEX_BGRA": "beb44c75ca7e36eea5b671dc9444d53e0a1f8625e053d3d097e143428013949a"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

@@ -1,0 +1,737 @@
+{
+  "schema": 1,
+  "scope": "All six Solar Flare source systems and authored assets prepared; runtime and native acceptance remain open",
+  "baselineCommit": "ecaa989",
+  "ruleset": "0f7b3e3b7db7a36777db878a46f376efae271e0e7de097892e12870ff4f7ef55",
+  "snapshotSchema": 125,
+  "sourceArchive": ".cache/leona-r-source-accepted-v1-20261024/source-archive.json",
+  "priorSourceArchive": ".cache/leona-e-audio-accepted-v1-20261024/source-archive.json",
+  "checks": {
+    "standard": ".cache/leona-r-source-validation-v1-20261024/check.log",
+    "browser": ".cache/leona-r-source-validation-v1-20261024/browser.log",
+    "extract": ".cache/leona-r-source-validation-v1-20261024/extract-check.log",
+    "decode": ".cache/leona-r-source-validation-v1-20261024/decode-check.log",
+    "convert": ".cache/leona-r-source-validation-v1-20261024/convert-check.json",
+    "geometry": ".cache/leona-r-source-validation-v1-20261024/browser/leona-r-source-all-four-So-f77d1-w-visible-source-wireframes/source-meshes.json",
+    "production": ".cache/leona-r-source-validation-v1-20261024/production.log",
+    "offline": "artifacts/offline-pack-leona-r-source-v1-20261024-production.json"
+  },
+  "native": [
+    {
+      "file": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin9.bin",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/15e5799a73dddb60.bin",
+      "bytes": 10249,
+      "sha256": "d85936463c682218a21ed0fa6cc9530f4b1b3bcfed8563f782d571f067ff9c77"
+    },
+    {
+      "file": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin9.bin",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/aea8db097256315a.bin",
+      "bytes": 48021,
+      "sha256": "551752d65678d84d12b57a894ef3e7af59ef7c1b237156f4232673b4708b5840"
+    },
+    {
+      "file": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin9.bin",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/6889e1c664c3717f.bin",
+      "bytes": 55027,
+      "sha256": "9d163c912fdbfb36fcaacc03dc38b02df8d035b0bc65a2611b0cfdefff267539"
+    },
+    {
+      "file": "data/characters/leona/skins/skin0.bin",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/8a4c7a0f7f10c5cb.bin",
+      "bytes": 16863,
+      "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/aura_self.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/e5a4f9aa9f8ea316.tex",
+      "bytes": 1404,
+      "sha256": "eaf7aa50c4351602edac5cfd5eae86953bd4474a921a2564415bd698a3db7398"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/color-hold.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/bda37725e0684f19.tex",
+      "bytes": 68,
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_ba_color-rampdown.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/3ac3ffe57f5d40b8.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_ba_flare-fire.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/1b3d8f76981e8956.tex",
+      "bytes": 43716,
+      "sha256": "9858122a9406cdda161cc070ae816eadf56fc99c9e4baebb7b2ba8ec8db4677b"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_ba_flash.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/de865a881f5f8127.tex",
+      "bytes": 10948,
+      "sha256": "28cb7fcf1a681a83c767844a1311b3a689a9d65376475e9ab6c8fff1b8086fe4"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_crystal_dissolve.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/a055616a5d464256.tex",
+      "bytes": 21884,
+      "sha256": "9055c7b91f4cdc98894cb1aa41a3456c495b7ab44bd768380f5b1c21d7edf7ec"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_distortionmask.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/0b0bedca1b548403.tex",
+      "bytes": 87420,
+      "sha256": "68ca009c83d0e0727daf9c700f68b902f4bdf554fcd9161f25c1531991b594ca"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_expo_cylinder.scb",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/40154aadce190363.scb",
+      "bytes": 4672,
+      "sha256": "25ada043a65ee7f137b35d87d8ee5a5de756a0128cefde106ce65d3760e05af0"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_flare_1.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/cbd616bde886e0e1.tex",
+      "bytes": 21884,
+      "sha256": "c688115d487f706c7eba42ad5bff628a2e163d3a796ffc603316312510b2b528"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_flicker_04.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/f0bb02e4c910e4d0.tex",
+      "bytes": 10948,
+      "sha256": "6f8fa4641f31fb9ab0fb5faa807f05ec70e8be1f94e921738a290ee3d823965b"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_ground_grey.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/5649bf856e4ae3cc.tex",
+      "bytes": 5500,
+      "sha256": "b446ac9bbe5e6e7509b9539139bba72776394bf8e330346561b1889ec441735f"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_bokeh_dots_4x4.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/55fca1b437c31fae.tex",
+      "bytes": 10948,
+      "sha256": "c7b2478580109da3a6f2367ab6bc5d5b6ba83b9b5092204cb9abdfd1c7788e4a"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_buf_mult.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/daf4ddc86ad284a5.tex",
+      "bytes": 87420,
+      "sha256": "226054b4c7cf023a66c8a46afa6a4212f2575ccbc36e7ae2fe5d7fc82409ac14"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_buf_swordglow.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/3d012f3651026d9c.tex",
+      "bytes": 10948,
+      "sha256": "323d4e2773c167f863aacab87960c89f9e8ea6ca0c40d2740251000c9ac8a61c"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_cas_funnel.scb",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/409e98064e76876d.scb",
+      "bytes": 17832,
+      "sha256": "5248d76f6c30a959f01d870cfe327835b501d4eaa89aab091754f0deb5306998"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_circle_normal.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/6c504f5ac2b21acd.tex",
+      "bytes": 5500,
+      "sha256": "4bff364891911700345c2fe503bc4b618fe32e254ea247af9748d1033d4d33eb"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_indicator_inside.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/2c7d330a516b603b.tex",
+      "bytes": 87420,
+      "sha256": "a29c69086c601827449973316000ab196b43ee1b4b7ea6f9650d29d08db8ba16"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_indicator_outside.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/59d3e98c8570277d.tex",
+      "bytes": 349564,
+      "sha256": "a95d0fd7f95d486620c1dd422420d6e1c5514f050af7c9fb95df9fb1fa5cbb89"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_mote.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/d81c0951e34829c0.tex",
+      "bytes": 10948,
+      "sha256": "938f91619f0bf2b08354fe26221628bb25e16ad1a9a298242189566623a74a94"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_praxis.scb",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/5322b4f0866d4dc9.scb",
+      "bytes": 19232,
+      "sha256": "7312a539bc14302cbf7835ea973147f7776b6bfbe2f1b0789e5a0cee5e53908c"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_praxis.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/8ccc1f59cd863095.tex",
+      "bytes": 87420,
+      "sha256": "316584d5b65ad1f31f5be22c0b7de1de148a90b6dbb3da70590a7bd97c75fbaa"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_rainbowmult.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/9d1f448092043ef5.tex",
+      "bytes": 276,
+      "sha256": "a91da116fd6036a7b312d296303964add824b0a5f1e66cdf92f645e7dc0dd9d2"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_tar_cylinder.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/6c7a31419ad528d1.tex",
+      "bytes": 87420,
+      "sha256": "58b51fd492016c945aef730896b2b95bc34b44800b02d5c5c548a6850e82fc3d"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_white.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/f11fbf0e7703bb29.tex",
+      "bytes": 68,
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_r_wispsmoke.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/68ad1fc338843277.tex",
+      "bytes": 87420,
+      "sha256": "ccbe0f652a2bb5228fa6b87b6fa95d611955dea39b091b869e082061e39a366c"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_sparks.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/f4fa5edc977adbac.tex",
+      "bytes": 10948,
+      "sha256": "02283067ddf584ff03470f8641ce633b440cc05aad5b621f68ce2dacfd0add64"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_swordmask.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/20009e8218eb2f0b.tex",
+      "bytes": 21884,
+      "sha256": "e5a56e90e3937ff49ee76bb149c17492abb321dc78596c6e5de4a29a7d78c0aa"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_w_decalbase.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/6f378344f3c9a97b.tex",
+      "bytes": 21884,
+      "sha256": "95499b1a0ab5cca4052af0e30ec2f54e4ea4310cf7d07094ac755519111dad74"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_w_glow.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/8fe2135a962f7d18.tex",
+      "bytes": 87420,
+      "sha256": "4133dfb41e2e226be1474fdc67163390e106866659b3235cf230b1c1e0146983"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_w_praxiswaves_ruined.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/6b121de45b30fec9.tex",
+      "bytes": 87420,
+      "sha256": "d69d8d8b64a0f0122f071ccbd92dd1391087ec4d742ffd78eccb8cc43ff084c1"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_w_releaseaoe_smoke_01.scb",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/8f4b1babd10b0008.scb",
+      "bytes": 78592,
+      "sha256": "06cdd4ae540025721541572f08f4fe8d8c784cb941f17eb0f4225462d14c5c0e"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_color-buildingflash.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/27638c40e46c6a71.tex",
+      "bytes": 2756,
+      "sha256": "c208ff061456ffd1a0645512fa21618075f5715aa9dbff36d9c39ea0d35f829d"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_color-hold.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/60bbd56ab2d83ab3.tex",
+      "bytes": 68,
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_color-incinerate.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/ab59171da3fe48c1.tex",
+      "bytes": 2756,
+      "sha256": "1285e002385056131aeeba50cf3f53ef0cf1e39527642326de629243f2f47b51"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_color-rampdown.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/c9b9d09001785725.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_color-wildcard.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/2de4e47ebfb4c952.tex",
+      "bytes": 2756,
+      "sha256": "1ce0717706654afee8eba13c56c845cee093e41edd849e5da76f1d2dba24676a"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_exploshaft-yellow.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/3bcfa1925cef21db.tex",
+      "bytes": 43716,
+      "sha256": "7cc8037685e82bd35bd3dd9dc42583105bd8fcbeb2c4503a9b0dd1b32da56af7"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_flare-sun.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/fa03e6f1efdc3e94.tex",
+      "bytes": 43716,
+      "sha256": "0dee04ae988c526c522b54c1da3fa4106f4b00a12c2763d05bd2b55b275cc71d"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_focused_sun.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/9c2804e1d4e8aa45.tex",
+      "bytes": 10948,
+      "sha256": "e45f5bc9fc8536b8f036de0783e9266cdbf2c93b5d94191a190e5b3ba105b056"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_nexus-blast.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/716835ed6da4137e.tex",
+      "bytes": 699076,
+      "sha256": "038c8eac4ba5058dcbce4bfae176261a7e1bfa45918df7a4a26efa5031b1d346"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_sowflash.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/d14709ca7be46594.tex",
+      "bytes": 10948,
+      "sha256": "e1f330188a0004a09d156cd53a4557172be534b3054be50d71cd5043e39752e1"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_sunfocus.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/5d1e743b05b95e67.tex",
+      "bytes": 43716,
+      "sha256": "a18669d0e518dfb6791bbb235893b80942cd335c6d5db1545355dc3b322b8077"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/leona_base_z_sunray2.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/f7c599c9ea55394e.tex",
+      "bytes": 21884,
+      "sha256": "44e205ddee646ffffe4c8a70a91b383d59fc7a87de38d0d9f145d6ea394226b4"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/lux_skin07_r_distort_rgba_2.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/dfa03d3195c048ce.tex",
+      "bytes": 5500,
+      "sha256": "4308d25b09ab436ac6c3df751428d6ec5832ba521cbfa3e73e9e620c56ca866f"
+    },
+    {
+      "file": "assets/characters/leona/skins/base/particles/tft_crack_noise_mult.tex",
+      "archived": ".cache/leona-r-particle-sources-v1-20261024/43694763cdb56168.tex",
+      "bytes": 87420,
+      "sha256": "bdcd22aa4078d220c7c0dd0ebae14bfb9a5d159abd6e23fb39b5005d728b2ca5"
+    }
+  ],
+  "pack": {
+    "id": "d632e3a094938e9484715a2e508dacef33a731eca761e355991fa71481a1db6a",
+    "files": 996,
+    "bytes": 510449057
+  },
+  "generated": [
+    {
+      "file": "dist/assets/game-BEM-aYLs.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/game-BEM-aYLs.js",
+      "bytes": 993530,
+      "sha256": "05cda350cf0eb41191407cc4e5cd073ee14dd41f544f44752f9d8a5c3faaa286"
+    },
+    {
+      "file": "dist/assets/game-DMLuJ5Rx.css",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": "dist/assets/garen-aa-0zuBL_GQ.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-aa-0zuBL_GQ.js",
+      "bytes": 31963,
+      "sha256": "03683ef5f4e17325bf7ba95e1747540c0f2824b4ac9612b2962d1a226c411de8"
+    },
+    {
+      "file": "dist/assets/garen-basic-attacks-DViKf030.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-basic-attacks-DViKf030.js",
+      "bytes": 30580,
+      "sha256": "746543609437f319038cb1b02772545cb009cf2776784f50d3fd916539ef63d3"
+    },
+    {
+      "file": "dist/assets/garen-courage-Dz3f62nN.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-courage-Dz3f62nN.js",
+      "bytes": 21867,
+      "sha256": "7a87b09ca5d169560f77526f75591380fa42b56877abb70bd31e2543d78cdc12"
+    },
+    {
+      "file": "dist/assets/garen-decisive-strike-o1c5cfH6.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-decisive-strike-o1c5cfH6.js",
+      "bytes": 55146,
+      "sha256": "6a35f948c0ee23013cea78ed85744b656a9e14cbb57e4476d99a86efee23bb3b"
+    },
+    {
+      "file": "dist/assets/garen-justice-CqI4EPC6.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-justice-CqI4EPC6.js",
+      "bytes": 42381,
+      "sha256": "dea13303c56ddc77ea5df0612c8fe32205eb4e6a5870887fde45b12fac3db63c"
+    },
+    {
+      "file": "dist/assets/garen-p-CHZerieK.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-p-CHZerieK.js",
+      "bytes": 5760,
+      "sha256": "0749ebba41e72b8c7c2cf40ebea5381d01289f6384663be58ab4dad501ed492f"
+    },
+    {
+      "file": "dist/assets/garen-perseverance-Bu7oLHWm.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-perseverance-Bu7oLHWm.js",
+      "bytes": 3130,
+      "sha256": "3738c3dc7bc7509a1531815d33e20b99af888c1854e1fb8f09c176a2d7b8b1d4"
+    },
+    {
+      "file": "dist/assets/garen-q-DEsilSHn.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-q-DEsilSHn.js",
+      "bytes": 10787,
+      "sha256": "a57e6fef11107690399ca2ab77723697c5ae1024f84e4924471a190b7c49317d"
+    },
+    {
+      "file": "dist/assets/garen-r-Bf_A5sRf.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-r-Bf_A5sRf.js",
+      "bytes": 6727,
+      "sha256": "abf110f376d477ffbec5d1cd0d33eafae8750a9b034cde30b17930ef1b2cfee6"
+    },
+    {
+      "file": "dist/assets/garen-w-DU5_cH-6.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/garen-w-DU5_cH-6.js",
+      "bytes": 8107,
+      "sha256": "3eb101cb9d63c00e21d8769e708cdd75d4702ef6a7c257e30c553df7c5e6609b"
+    },
+    {
+      "file": "dist/assets/gromp-attack-CQowh1Kj.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/gromp-attack-CQowh1Kj.js",
+      "bytes": 12028,
+      "sha256": "04c166fec23cebe2e731417190b252e7db96f539b21cf9e0541267de96214a20"
+    },
+    {
+      "file": "dist/assets/gromp-death-NwSYU70m.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/gromp-death-NwSYU70m.js",
+      "bytes": 5395,
+      "sha256": "736c9a4986507e036d0482dbd8449e993cd4a0c61c62da00565983ead36f5d29"
+    },
+    {
+      "file": "dist/assets/gromp-death-particles-BAky9FYk.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/gromp-death-particles-BAky9FYk.js",
+      "bytes": 12929,
+      "sha256": "b2c5d1c42020f9342d8f0085c520af0c2720c216941ac511a1d20b663b853028"
+    },
+    {
+      "file": "dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/ground-walkability-mask-BRVRrShL.js",
+      "bytes": 528,
+      "sha256": "a212cb24fdb690aa96c78629abf9490711527cb30de95b3bcf0aa0441978079f"
+    },
+    {
+      "file": "dist/assets/leona-daybreak-Rs5gzuJv.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-daybreak-Rs5gzuJv.js",
+      "bytes": 31306,
+      "sha256": "f8174140b08e5fa066400b93101998a1a520f298df4a4cec5be26f96e687664c"
+    },
+    {
+      "file": "dist/assets/leona-e-C07Z5CKe.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-e-C07Z5CKe.js",
+      "bytes": 17408,
+      "sha256": "c336aed4b8eb86f476afb0dc9361c62d14367c20b8483484cfeb008075335915"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-history-BpEr9_GV.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-eclipse-history-BpEr9_GV.js",
+      "bytes": 139276,
+      "sha256": "bec9177ff694fd391628badbbc97cf8bda62f9e9e1dfa4d959218c108d69914e"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skin-material-BY8oCnAe.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-eclipse-skin-material-BY8oCnAe.js",
+      "bytes": 3340,
+      "sha256": "18ef2e8634591f536b36bd41dcf491e5815f61adf360b8150d7b5c35c4333f26"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skins-D70V5a76.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-eclipse-skins-D70V5a76.js",
+      "bytes": 3115,
+      "sha256": "ba68de6a072d0d91b4895806b005211d79594c6519764cf01dfa8f1e1c47767d"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-surfaces-3IsWi5-b.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-eclipse-surfaces-3IsWi5-b.js",
+      "bytes": 2123,
+      "sha256": "89eda4bbdae0743a41fcb10992dda2f33c51bd9f1cabfe1725ebb05b918f34e8"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-values-BkWF5pQg.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-eclipse-values-BkWF5pQg.js",
+      "bytes": 881,
+      "sha256": "73cd99aea660a07ec84de8bf55d39e50778abae962f797fb2a2c932cc53c5cd3"
+    },
+    {
+      "file": "dist/assets/leona-w-CnJc5C6z.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-w-CnJc5C6z.js",
+      "bytes": 11872,
+      "sha256": "f42664c8e0670c7da90ed869d18aa669b2879bccb0518bdedba72ffd48d3c83f"
+    },
+    {
+      "file": "dist/assets/leona-zenith-history-BfdRWd-P.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-zenith-history-BfdRWd-P.js",
+      "bytes": 2070,
+      "sha256": "72403898acc9dc90ec05c5ffe87629ecce67efccff96894b00fb5b52904b90fe"
+    },
+    {
+      "file": "dist/assets/leona-zenith-particles-BJFRL-jJ.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-zenith-particles-BJFRL-jJ.js",
+      "bytes": 86851,
+      "sha256": "26731dffc13ab10418151ecc11ab57042ee0049eb52316504f7c854f99870ca5"
+    },
+    {
+      "file": "dist/assets/leona-zenith-ribbons-lxNWhW4x.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-zenith-ribbons-lxNWhW4x.js",
+      "bytes": 8081,
+      "sha256": "82678e45361f634c5b1dbcd881626ff43565b5430f1cdeb416f73e94dd63600b"
+    },
+    {
+      "file": "dist/assets/leona-zenith-skins-CfyLz53f.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-zenith-skins-CfyLz53f.js",
+      "bytes": 3486,
+      "sha256": "fe0afa6fef18447b83fbde4a8d6e7fa809126568ce1dfb3b3ba3436a396395da"
+    },
+    {
+      "file": "dist/assets/leona-zenith-surfaces-Cf_DOnOb.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/leona-zenith-surfaces-Cf_DOnOb.js",
+      "bytes": 2714,
+      "sha256": "0be0414863f62c854c2b5516aeeb8d1ed9fcd7bdb7a4e554c7d5abe68e132bc4"
+    },
+    {
+      "file": "dist/assets/map-DuHhjnGM.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/map-DuHhjnGM.js",
+      "bytes": 3775,
+      "sha256": "6df6fd85dbe85891923d77cfb957066203368bd027e78ddaa1733af3c719b915"
+    },
+    {
+      "file": "dist/assets/map-wSGUvK3C.css",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": "dist/assets/oracle-DmPB4Fqi.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/oracle-DmPB4Fqi.js",
+      "bytes": 5752,
+      "sha256": "5803df1877d2ee83e534caf08a1d172c661c667f752722de4e19ff91cca59217"
+    },
+    {
+      "file": "dist/assets/oracle-particles-Ci6keh2B.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/oracle-particles-Ci6keh2B.js",
+      "bytes": 55711,
+      "sha256": "42359c826fd2592418b4d790ee173e8a5b0f517801236c759e8ee2aeb908dbd1"
+    },
+    {
+      "file": "dist/assets/particle-motion-By9BJG0Q.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/particle-motion-By9BJG0Q.js",
+      "bytes": 326,
+      "sha256": "d1fb329750440d4feb193c9a606c6b6c081e758f6200f59707c5f47c04be9cf8"
+    },
+    {
+      "file": "dist/assets/rift-assets-CcCthSeF.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/rift-assets-CcCthSeF.js",
+      "bytes": 9106,
+      "sha256": "5ac9e89f98db9cd6be1f423adbbff538fa64d05fe469d75e351545512d26987a"
+    },
+    {
+      "file": "dist/assets/source-particle-surfaces-Br3M_wHe.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/source-particle-surfaces-Br3M_wHe.js",
+      "bytes": 16119,
+      "sha256": "57ceb992bd957475275fe9408ece4cf381ab242cae1c1bb79e7660f6bca71578"
+    },
+    {
+      "file": "dist/assets/sunlight-BNgrov28.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/sunlight-BNgrov28.js",
+      "bytes": 3784,
+      "sha256": "ddd283c68adcb1679e661e8c760e3f3ba37dcdf59b250f1100e920c240e3bb0b"
+    },
+    {
+      "file": "dist/assets/three-gySAWiYA.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/assets/three-gySAWiYA.js",
+      "bytes": 661182,
+      "sha256": "907e103a7ec0bb3fce386135d2a30329d6b5df00f357162f7bdd9409291d8927"
+    },
+    {
+      "file": "dist/index.html",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/index.html",
+      "bytes": 999,
+      "sha256": "777d377ac2209400c9aa1f12ab33fa66f711bceba63b0f956d1aa07716a4b3c1"
+    },
+    {
+      "file": "dist/map.html",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/map.html",
+      "bytes": 618,
+      "sha256": "5d370acb4f9143e19c1bf56d65a5df8a8f7baa7679001786914c10317aca89b0"
+    },
+    {
+      "file": "dist/offline-pack.json",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/offline-pack.json",
+      "bytes": 143367,
+      "sha256": "04543098dc4d3513a70632237a9a410e13f7506982d76e1a49caf14eec3aa7f8"
+    },
+    {
+      "file": "dist/offline-worker.js",
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-build/offline-worker.js",
+      "bytes": 146572,
+      "sha256": "c8c92651d293e107e77fefbe6fa8d90fa72f31d2cab6bda72b8bbc95e9eb68bb"
+    }
+  ],
+  "evidence": [
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/source-archive.json",
+      "bytes": 857205,
+      "sha256": "76ef80552918813392df602cce256e721da81c1b8055cb61a9c7be68c9b3f95b"
+    },
+    {
+      "archived": ".cache/leona-r-inventory-v1-20261024/inventory.json",
+      "bytes": 362316,
+      "sha256": "6c0a51926a34b82f724ce36a0c0c672e2628ee60f4190c25f8576ee9df78bd18"
+    },
+    {
+      "archived": ".cache/leona-r-inventory-v1-20261024/inventory.py",
+      "bytes": 5577,
+      "sha256": "84e7fb8d0ee4d653367049d4d01f2c260681afbf8b9f23b05bd0aa12a9391a91"
+    },
+    {
+      "archived": ".cache/leona-r-inventory-v1-20261024/pre-declaration-decoded.json",
+      "bytes": 81464,
+      "sha256": "444f8b429aeef858349c913de7c9dae5f3248c78726525e66eb4e99c02ef2f02"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811109,
+      "sha256": "c8c0f680f7d5085d9d4ad7857a8201310b6ab973632f490af9d407aeb680c710"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1833666,
+      "sha256": "b04f0bdfcc5f1b29e9be9f2095c7713745fa456c7f4023201c9e5c7366bbc7d4"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1831270,
+      "sha256": "b9f55e4a26eda126fde43cfd518c2d4ced8b2ac5e554f3e1a16ea106b4a27c3e"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1805625,
+      "sha256": "d0272567a26b88a00f71cc159a0e18d9fcfed93d353ae687bb489a1341b07d24"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1816815,
+      "sha256": "dafac765418e9309dba5f703331cdb2f5185f11bb494d481f7a358446ad27cb3"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346664,
+      "sha256": "ee62eccc179bdadd51b58fd4b22b83274790212a0a9dc663c3243a0596e3f51a"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820308,
+      "sha256": "6c942dd0e8606e3de4492653cf843dc052ac99e922beaffc24c87d4cd7a585f3"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812595,
+      "sha256": "629213d6f6aa337e3bc3b9cd2d74623d16c9a7e5a3e678fe3379ca4ac00ad55f"
+    },
+    {
+      "archived": ".cache/leona-r-source-accepted-v1-20261024/source-archive.json",
+      "bytes": 869634,
+      "sha256": "1e9c0c0c3e50829885561200f6117667f55dc3965ed9645bef739196d8cf3cb7"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/browser.log",
+      "bytes": 665,
+      "sha256": "3c568d02f22ef3d456b50d44e522818efa920f98be342442979736199cb421e4"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/browser/leona-r-source-all-four-So-f77d1-w-visible-source-wireframes/source-meshes.json",
+      "bytes": 3838,
+      "sha256": "b2dcbaf7d149bfaaf20d39a16186ccf62f1a6b08310538d9f6dfeffbc934383e"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/browser/leona-r-source-all-four-So-f77d1-w-visible-source-wireframes/source-wireframes.png",
+      "bytes": 40168,
+      "sha256": "fe1455d207b7ba8bdaf594be8c22559af701cd1faef50bf176267949ec32059a"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/check.log",
+      "bytes": 1042,
+      "sha256": "2db1e965ff4a34491445bf153d3c2567c3c8d73ef6b39cd7eae82664f20f39e0"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/convert-check.json",
+      "bytes": 174,
+      "sha256": "9eef6d43c28ed1c80f75205d7979ba2a2608884423730e941f011eced4c4cef9"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/decode-check.log",
+      "bytes": 196,
+      "sha256": "989039811bbeefc9ec969ab35b6f3dada9347666dff72ab89463ddd51c501f41"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/extract-check.log",
+      "bytes": 196,
+      "sha256": "989039811bbeefc9ec969ab35b6f3dada9347666dff72ab89463ddd51c501f41"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/offline.log",
+      "bytes": 687,
+      "sha256": "83f20bb4f6bc887d732820788b92fc256dee3bfe80683613ef415cdb1a04b256"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/production.log",
+      "bytes": 5820,
+      "sha256": "8a1ac64c3afd32aa6c10002d27c0de5fb88d53b9a7edddb4ea15524018746ce5"
+    },
+    {
+      "archived": ".cache/leona-r-source-validation-v1-20261024/unit.log",
+      "bytes": 192,
+      "sha256": "60aa0d6f97ba143f30117d2736f5e39c5a31fb99e9c66b993c5adc0fc7fd422a"
+    },
+    {
+      "archived": ".cache/leona-w-particle-readers/StaticMesh.cs",
+      "bytes": 10456,
+      "sha256": "eab04b1454081c56f86d93f568f804b812b8e3dbe44f99caea9efd2eff9272da"
+    },
+    {
+      "archived": ".cache/leona-w-particle-readers/StaticMeshFace.cs",
+      "bytes": 4021,
+      "sha256": "053418afb28e627ff0709975ef4d5b363e0e44508a6efba27c5243064fb45a37"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-source-v1-20261024-lux-lanes.png",
+      "bytes": 476383,
+      "sha256": "02c9dae6ab8ab654b2028a0f2fac3152b8dab27453fe7fc7f4ba0bb1a77838b7"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-source-v1-20261024-production.json",
+      "bytes": 649,
+      "sha256": "1588faff16790687115c1b7141b98e430a5e2f47d58ca936d726b07e5532a874"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-source-v1-20261024-ready.png",
+      "bytes": 531252,
+      "sha256": "d5e2392e3185f91489cec6178abd362f224181e5e6f3f1fd46cfda0f15ab9984"
+    }
+  ],
+  "acceptance": {
+    "sourcePackageReady": true,
+    "runtimeIntegrated": false,
+    "sourceRAudioIntegrated": false,
+    "nativeRenderingVerified": false,
+    "nativeExecuted": false,
+    "playerLeonaIntegrated": false,
+    "fullProjectComplete": false
+  },
+  "limits": [
+    "Six systems, 53 complete records (44 enabled/9 disabled), 41 PNGs and four raw-stream SCB packages.",
+    "Shared E cylinder, W smoke and 18 PNGs remain byte-identical. No normals, pivot/winding, missing texture or planar-projection fallback invented.",
+    "R compiler, supported projection/noise/ground-mesh/linger/attached-skin bindings, saved histories, drawing and source audio remain open.",
+    "Fresh full1815 unit cases/299 files plus three QA, one four-mesh Chrome case, independent source/accessor checks and Node validator/roundtrip.",
+    "Fresh production and full996-file offline pack; no new normal-match cohort or CPU benchmark."
+  ]
+}
