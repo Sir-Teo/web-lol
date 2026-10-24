@@ -12,6 +12,13 @@ import {
   type ZenithDashEnd,
 } from './leona-e-visuals';
 import {
+  advanceSolarVisuals,
+  beginSolarVisual,
+  releaseSolarVisual,
+  finishSolarVisual,
+  impactSolarVisual,
+} from './leona-r-visuals';
+import {
   advanceEclipseVisuals,
   beginEclipseVisual,
   captureEclipseDetonation,
@@ -3908,6 +3915,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceSolarVisuals(this);
     advanceZenithVisuals(this);
     advanceEclipseVisuals(this);
     advanceDaybreakVisuals(this);
@@ -4591,14 +4599,17 @@ export class World {
     const flare = state.leonaR!,
       source = this.unit(state.id)!;
     if (this.winner || (!this.alive(source) && this.tick < flare.releaseTick)) {
+      finishSolarVisual(state, this.tick, this.winner ? 'match-end' : 'death');
       state.leonaR = null;
       return;
     }
-    if (this.tick >= flare.releaseTick) flare.released = true;
+    if (this.tick >= flare.releaseTick && !flare.released) {
+      releaseSolarVisual(this, source, state);
+      flare.released = true;
+    }
     if (this.tick < flare.impactTick) return;
     // Retire before damage/CC callbacks. Capture geometry for every participant
     // before any hit can kill or displace another target.
-    state.leonaR = null;
     const victims = this.units
       .filter(
         (target) =>
@@ -4615,6 +4626,8 @@ export class World {
         center: distance(target, flare.point) <= LEONA_SPELLS.r.authoredInnerRadius + target.radius,
       }))
       .sort((a, b) => a.target.id - b.target.id);
+    impactSolarVisual(this, state, victims);
+    state.leonaR = null;
     const duration = Math.round(LEONA_SPELLS.r.crowdControlSeconds * TICK_RATE);
     for (const { target, center } of victims) {
       this.damage(source, target, flare.damage, 'magic', 'area');
@@ -4944,6 +4957,7 @@ export class World {
           stopZenithVisual(this, this.unit(state.id)!, 'match-end');
           state.leonaEWindup = null;
           state.leonaDash = null;
+          finishSolarVisual(state, this.tick, 'match-end');
           state.leonaR = null;
         }
         this.projectiles.length = 0;
@@ -4990,8 +5004,13 @@ export class World {
         targetState.leonaEWindup = null;
         targetState.leonaDash = null;
         if (targetState.leonaR) {
-          if (this.tick < targetState.leonaR.releaseTick) targetState.leonaR = null;
-          else targetState.leonaR.released = true;
+          if (this.tick < targetState.leonaR.releaseTick) {
+            finishSolarVisual(targetState, this.tick, 'death');
+            targetState.leonaR = null;
+          } else {
+            releaseSolarVisual(this, target, targetState);
+            targetState.leonaR.released = true;
+          }
         }
         finishDaybreakVisual(targetState, this.tick, 'death');
         finishGarenQPresentation(targetState, this.tick, 'death');
@@ -5127,6 +5146,7 @@ export class World {
       }
     }
     if (target.hp <= 0) {
+      advanceSolarVisuals(this);
       advanceZenithVisuals(this);
       advanceDaybreakVisuals(this);
       advanceEclipseVisuals(this);
@@ -5481,6 +5501,7 @@ export class World {
       this.finishAttackPresentation(u, 'action');
       u.attackCycle = null;
       if (dir.x || dir.y) u.facing = Math.atan2(dir.x, dir.y);
+      beginSolarVisual(this, u, state);
       this.emit('cast', u, { unit: u.id, champion: 'leona', text: 'r', team: u.team });
       return;
     }

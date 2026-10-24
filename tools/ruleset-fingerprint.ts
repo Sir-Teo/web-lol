@@ -8,6 +8,7 @@ const sourceRoots = ['src/simulation', 'src/content'];
 // constants have no direct module edge. Preserve their explicit compatibility pins.
 const pinnedData = [
   'docs/reference/leona-e-particles.json',
+  'docs/reference/leona-r-particles.json',
   'src/content/leona-w-particles.json',
   'docs/reference/leona-w-particles-decoded.json',
   'docs/reference/leona-w-particle-profiles.json',

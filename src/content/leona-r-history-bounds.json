@@ -1,0 +1,589 @@
+{
+  "sourcePinSha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e",
+  "scope": "Conservative local saved-history retention. Not native dispatch/default/update evidence.",
+  "localOmittedParticleLifetimeSeconds": 1,
+  "settlementTicks": 2,
+  "bounds": {
+    "buff": 722,
+    "cast": 698,
+    "contact": 132,
+    "area": 704,
+    "impact": 884,
+    "history": 884,
+    "sourceWindow": 885
+  },
+  "records": [
+    {
+      "system": "Leona_R_buf",
+      "index": 0,
+      "name": "Cas_WeaponGlow",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0,
+        "particleLinger": 11.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 722
+    },
+    {
+      "system": "Leona_R_buf",
+      "index": 1,
+      "name": "BeamswordGlow",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0,
+        "particleLinger": 11.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 722
+    },
+    {
+      "system": "Leona_R_buf",
+      "index": 2,
+      "name": "BeamswordGlow2",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0,
+        "particleLinger": 11.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 722
+    },
+    {
+      "system": "Leona_R_buf",
+      "index": 3,
+      "name": "Activate",
+      "particleLifeUpper": 0.6000000238418579,
+      "windows": {
+        "lifetime": 0.5,
+        "particleLinger": 10.600000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 705
+    },
+    {
+      "system": "Leona_R_cas",
+      "index": 3,
+      "name": "CenterFlare",
+      "particleLifeUpper": 0.20000000298023224,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.350000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.03999999910593033
+      },
+      "historyTicks": 698
+    },
+    {
+      "system": "Leona_R_cas",
+      "index": 4,
+      "name": "up_glow",
+      "particleLifeUpper": 0.6499999761581421,
+      "windows": {
+        "lifetime": 0.10000000149011612,
+        "particleLinger": 0.5,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 77
+    },
+    {
+      "system": "Leona_R_cas",
+      "index": 5,
+      "name": "Ground_",
+      "particleLifeUpper": 0.5,
+      "windows": {
+        "lifetime": 10.25,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 647
+    },
+    {
+      "system": "Leona_R_cas",
+      "index": 6,
+      "name": "Ground_1",
+      "particleLifeUpper": 0.6000000238418579,
+      "windows": {
+        "lifetime": 10.25,
+        "particleLinger": 0.25,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 669
+    },
+    {
+      "system": "Leona_R_tar",
+      "index": 1,
+      "name": "FlashCoreHot",
+      "particleLifeUpper": 0.15000000596046448,
+      "windows": {
+        "lifetime": 0.3499999940395355,
+        "particleLinger": 0,
+        "emitterLinger": 1.0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 92
+    },
+    {
+      "system": "Leona_R_tar",
+      "index": 2,
+      "name": "heart",
+      "particleLifeUpper": 0.20000000298023224,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 75
+    },
+    {
+      "system": "Leona_R_tar",
+      "index": 3,
+      "name": "Sparkles",
+      "particleLifeUpper": 0.75,
+      "windows": {
+        "lifetime": 0.30000001192092896,
+        "particleLinger": 1.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.10000000149011612
+      },
+      "historyTicks": 132
+    },
+    {
+      "system": "Leona_R_hit_aoe_green",
+      "index": 0,
+      "name": "FocusCone",
+      "particleLifeUpper": 0.699999988079071,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 104
+    },
+    {
+      "system": "Leona_R_hit_aoe_green",
+      "index": 1,
+      "name": "Focused_Sun",
+      "particleLifeUpper": 0.699999988079071,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 704
+    },
+    {
+      "system": "Leona_R_hit_aoe_green",
+      "index": 2,
+      "name": "ring1",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_aoe_green",
+      "index": 3,
+      "name": "ring2",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_aoe_green",
+      "index": 4,
+      "name": "ring3",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_aoe_green",
+      "index": 5,
+      "name": "ring4",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_aoe_red",
+      "index": 0,
+      "name": "FocusCone",
+      "particleLifeUpper": 0.699999988079071,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 104
+    },
+    {
+      "system": "Leona_R_hit_aoe_red",
+      "index": 1,
+      "name": "Focused_Sun",
+      "particleLifeUpper": 0.699999988079071,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 704
+    },
+    {
+      "system": "Leona_R_hit_aoe_red",
+      "index": 2,
+      "name": "ring",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_aoe_red",
+      "index": 3,
+      "name": "ring1",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_aoe_red",
+      "index": 4,
+      "name": "ring2",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_aoe_red",
+      "index": 5,
+      "name": "ring3",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 1,
+      "name": "FlashRays",
+      "particleLifeUpper": 0.9000000357627869,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 4.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.10000000149011612
+      },
+      "historyTicks": 363
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 6,
+      "name": "Distort",
+      "particleLifeUpper": 0.5,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.10000000149011612
+      },
+      "historyTicks": 99
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 7,
+      "name": "CenterFlare",
+      "particleLifeUpper": 0.20000000298023224,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.350000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.03999999910593033
+      },
+      "historyTicks": 698
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 8,
+      "name": "Distort1",
+      "particleLifeUpper": 0.30000001192092896,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.10000000149011612
+      },
+      "historyTicks": 87
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 9,
+      "name": "DistortFAST",
+      "particleLifeUpper": 0.18000000715255737,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 73
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 10,
+      "name": "EnergyRing_Out",
+      "particleLifeUpper": 0.6000000238418579,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.600000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 735
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 11,
+      "name": "EnergyRing_Out1",
+      "particleLifeUpper": 0.6000000238418579,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.600000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 735
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 12,
+      "name": "DistortFAST1",
+      "particleLifeUpper": 0.18000000715255737,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 73
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 13,
+      "name": "flash_LargeGroundGlow",
+      "particleLifeUpper": 0.30000001192092896,
+      "windows": {
+        "lifetime": 0.10000000149011612,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 27
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 14,
+      "name": "up_glow",
+      "particleLifeUpper": 0.4000000059604645,
+      "windows": {
+        "lifetime": 0.10000000149011612,
+        "particleLinger": 0.5,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 63
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 15,
+      "name": "DistortFAST2",
+      "particleLifeUpper": 0.18000000715255737,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 73
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 16,
+      "name": "Smoke_After",
+      "particleLifeUpper": 2.0,
+      "windows": {
+        "lifetime": 0.5,
+        "particleLinger": 2.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.15000000596046448
+      },
+      "historyTicks": 282
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 17,
+      "name": "up_glow1",
+      "particleLifeUpper": 0.4000000059604645,
+      "windows": {
+        "lifetime": 0.10000000149011612,
+        "particleLinger": 0.5,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 63
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 18,
+      "name": "flash_LargeGroundGlow1",
+      "particleLifeUpper": 0.30000001192092896,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.10000000149011612
+      },
+      "historyTicks": 87
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 19,
+      "name": "Temp_Mesh",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 11.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 782
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 20,
+      "name": "CenterFlare1",
+      "particleLifeUpper": 0.6499999761581421,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.350000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 723
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 21,
+      "name": "CenterFlare2",
+      "particleLifeUpper": 0.6499999761581421,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.350000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.03999999910593033
+      },
+      "historyTicks": 725
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 22,
+      "name": "CenterDarkCore",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.350000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.03999999910593033
+      },
+      "historyTicks": 746
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 23,
+      "name": "CenterHotCore1",
+      "particleLifeUpper": 2.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.350000381469727,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.03999999910593033
+      },
+      "historyTicks": 806
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 24,
+      "name": "motes_RAINBOW",
+      "particleLifeUpper": 1.600000023841858,
+      "windows": {
+        "lifetime": 0.18000000715255737,
+        "particleLinger": 10.699999809265137,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 751
+    },
+    {
+      "system": "Leona_R_hit_impact",
+      "index": 25,
+      "name": "Bokeh",
+      "particleLifeUpper": 3.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.699999809265137,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 884
+    }
+  ]
+}

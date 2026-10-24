@@ -1,6 +1,8 @@
 import { validateDaybreakVisuals } from './leona-q-visuals';
 import { validateEclipseVisuals } from './leona-w-visuals';
 import { validateZenithVisuals } from './leona-e-visual-validation';
+import { validateSolarVisuals } from './leona-r-visual-validation';
+import solarTiming from '../content/leona-r-history-bounds.json';
 import zenithTiming from '../content/leona-e-history-bounds.json';
 import eclipseTiming from '../content/leona-w-presentation.json';
 import {
@@ -121,7 +123,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 125;
+export const SNAPSHOT_VERSION = 126;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -781,6 +783,63 @@ const player: z.ZodType<PlayerState> = z
         damage: nonnegative,
       })
       .nullable(),
+    leonaRVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(3),
+          radius: z.number().positive(),
+          point,
+          castFrame: zenithRootFrame,
+          areaAudience: daybreakFrame.shape.audience,
+          release: zenithRootFrame.nullable(),
+          endTick: tick.nullable(),
+          endReason: z.enum(['impact', 'death', 'match-end']).nullable(),
+          death: z
+            .strictObject({
+              tick,
+              level: z.number().int().min(1).max(MAX_LEVEL),
+              respawnTick: tick,
+              frame: daybreakFrame,
+            })
+            .nullable(),
+          frames: z
+            .array(daybreakFrame.extend({ areaAudience: daybreakFrame.shape.audience }))
+            .min(1)
+            .max(solarTiming.bounds.sourceWindow),
+          impact: z
+            .strictObject({
+              tick,
+              audience: daybreakFrame.shape.audience,
+              contacts: z
+                .array(
+                  z.strictObject({
+                    targetId: id,
+                    targetKind: z.enum([
+                      'champion',
+                      'melee',
+                      'caster',
+                      'siege',
+                      'super',
+                      'dummy',
+                      'monster',
+                    ]),
+                    targetTeam: faction,
+                    targetRig: eclipseRig.nullable(),
+                    radius: z.number().positive(),
+                    center: z.boolean(),
+                    point,
+                    audience: daybreakFrame.shape.audience,
+                    detachedTick: tick.nullable(),
+                    frames: z.array(daybreakFrame).min(1).max(solarTiming.bounds.contact),
+                  })
+                )
+                .max(1000),
+            })
+            .nullable(),
+        })
+      )
+      .max(solarTiming.bounds.history + LEONA_COMBAT_POLICY.solarImpactTicks + 2),
     leonaEWindup: z
       .strictObject({
         startTick: tick,
@@ -3449,6 +3508,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateDaybreakVisuals(owner, champion, state);
     validateEclipseVisuals(owner, champion, state);
     validateZenithVisuals(owner, champion, state);
+    validateSolarVisuals(owner, champion, state);
     const daybreak = owner.leonaQ;
     if (
       daybreak &&

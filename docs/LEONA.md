@@ -419,3 +419,14 @@ endpoints through respawn. Schema 125 validates their phase/geometry/ownership
 consistency. Four browser phase saves/reloads preserve exact futures; source E
 materials/trails/skins/audio and native comparison remain required. This increment
 does not enable production Leona selection or complete the kit.
+
+Later Zenith increments now draw 18 visible families and play the six source SFX
+roles from saved phases. The reflection sword still needs explicit native inputs;
+native dispatch/bindings/frame acceptance remain open.
+
+[Solar Flare source assets](LEONA-R-SOURCE.md) retain all six systems and 44 enabled
+records. The [explicit decal arithmetic](LEONA-R-DECALS.md) is verified separately
+from native terrain/CPU binding. [Saved R histories](LEONA-R-HISTORY.md) now retain
+accepted/released/impact and posed source/contact facts under schema 126, including
+posthumous impact and fixed-area visibility. Source R drawing/audio, player/support
+integration, native acceptance and the full six-character match gates remain open.

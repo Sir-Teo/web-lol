@@ -591,6 +591,7 @@ export interface ChampionState {
   leonaQVisuals: import('./leona-q-visuals').DaybreakVisual[];
   leonaWVisuals: import('./leona-w-visuals').EclipseVisual[];
   leonaEVisuals: import('./leona-e-visuals').ZenithVisual[];
+  leonaRVisuals: import('./leona-r-visuals').SolarFlareVisual[];
   leonaQ: { startTick: number; rank: number; endTick: number } | null;
   garenQ: {
     startTick: number;

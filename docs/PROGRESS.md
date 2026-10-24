@@ -5652,3 +5652,38 @@ No new production/offline run or normal-match/CPU cohort is claimed for this
 building block. See [scope](LEONA-R-DECALS.md) and the
 [verification record](reference/leona/r-decal-verification.json). Nothing is pushed;
 the full project goal stays active.
+
+## Solar Flare saved phase and participant history — October 24, 2026
+
+Schema126 now retains accepted/released/impact facts independently of live R,
+which retires at impact. Cast/release anchors and the clamped ground point remain
+separate across Flash. Sorted contacts capture pre-damage identity/rig/radius,
+center/outer geometry and hit anchors, then retain independent posed tails.
+Pre-release death cancels; released R retains posthumous impact. First-death source
+poses freeze through respawn, while area visibility is recorded separately and
+no area vision is granted. Terminal winning saves stay frozen.
+
+Generated bounds hash the full frozen R source pin and cover all44 enabled
+records, probability extrema and positive lifetime/linger/delay windows. The
+884-tick retention and885-frame rolling source window are conservative local
+storage policies, not native dispatch/default/overlap claims. Strict validation
+binds live R and checks phase clocks, geometry, pose sequences and participants;
+self-consistent historical edits/deleted completed records cannot be authenticated.
+
+The full1,827 unit cases/301 files plus three Node QA cases pass. Nine focused
+history cases and existing Solar Flare gameplay expectations pass. Fourteen fresh
+Chrome cases cover three ordinary R phase saves/reloads, four E saves, source
+trails, Garen particles and bot saves. Fresh nested production passes32 recordings
+with no development hook or unrequested Leona preload. The fresh996-file offline
+pack contains510,463,898 bytes and passes all controls with963 service-worker
+responses and no production errors.
+
+Two ten-minute smoke seeds8/38 pass72,000 checked ticks,20 round trips and18
+future checks. All20 checkpoints match the prior frozen schema125 Zenith-history
+smoke after removing only version/ruleset and empty new R histories. This is not
+an immediate-parent rerun; both matches end unfinished at their horizon. The
+full100-seed gate and CPU benchmark remain open. Ruleset755819ef identifies this
+increment. Source R drawing/audio and native CPU/terrain/matrix/state/frame
+acceptance remain open. See [scope](LEONA-R-HISTORY.md) and the
+[verification record](reference/leona/r-history-verification.json). Nothing is
+pushed; the full project goal stays active.

@@ -109,6 +109,10 @@ UNLIT_DECAL selections and their GPU arithmetic. Native R CPU dispatch and
 receiving-triangle/matrix/state setup remain open; no projection is drawn in
 GameView yet. The delivery results above remain scoped to this source package.
 
+[Saved Solar Flare facts](LEONA-R-HISTORY.md) now retain accepted/released/impact
+and independent source/area/contact histories under schema 126. R source drawing,
+audio and native acceptance still require separate integration.
+
 The fresh full offline pack passes integrity, cancellation/retry, repair,
 saved/new-match boot, scope removal and atomic two-version activation with
 963 service-worker responses and no production errors.
