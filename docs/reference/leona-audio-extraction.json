@@ -1,0 +1,78 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Champions/Leona.wad.client",
+  "chunks": {
+    "BF8280CA780C3E12": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+      "offset": 3181145,
+      "bytes": 102094,
+      "sha256": "ef22ada7ce77a4443faf7e3a2018021ce1941f73260f34f472f0d668d6739db8"
+    },
+    "8A692CE4A69F0428": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3709791351CE0D4A.bundle",
+      "offset": 36598187,
+      "bytes": 55572,
+      "sha256": "8af3a772d6f063925d25eec01534517d81aa20d4dd55656a414efeb8e513a608"
+    },
+    "3EB8C0BF917DFC27": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+      "offset": 27083972,
+      "bytes": 194988,
+      "sha256": "0c5ebef31ab5c7d22bfdd536273c41dcef55b9ecb93131de7242b91db6b21287"
+    },
+    "37FC9920F484B873": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+      "offset": 27278960,
+      "bytes": 176156,
+      "sha256": "042fa8e76e662b3e42f1d55080832cfd921550a18762b5c24aeab81c699b2e7e"
+    },
+    "A36A0B7379C5F206": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+      "offset": 27455116,
+      "bytes": 138174,
+      "sha256": "7367f2daa29ee7474b8fcaf69a0bbebf6e48f8d16e814c5708e8272bfa166086"
+    },
+    "1CF7B0607E3B4729": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+      "offset": 27593290,
+      "bytes": 149439,
+      "sha256": "994ec002d6de543531ff60004876e47d4e2dcd3ff97985538addfad19607d660"
+    },
+    "655A6B24B459BC21": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+      "offset": 27742729,
+      "bytes": 153661,
+      "sha256": "82f72aedefebc86039fa367518835641c20f180d8663c9024191a1b67947d19b"
+    },
+    "C1D13A37A0934775": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+      "offset": 27896390,
+      "bytes": 171798,
+      "sha256": "fe4504d048867461038322fb352c2bd0d46ab718c610536709f359ca2bbae7a3"
+    },
+    "EBE99F1EF9AF7A15": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+      "offset": 16370179,
+      "bytes": 3810,
+      "sha256": "9f86588ac03262fb7c3548124ed3cc613b54b0af070cda31bc779cfea0f3a113"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_audio.bnk",
+      "wadPathHash": "6c131115c6c108b1",
+      "sha256": "4205360a0f1fb217191419233dcf7589dc92ad80c1735c4217eb3b3a9c119b88",
+      "bytes": 1015870
+    },
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_events.bnk",
+      "wadPathHash": "f21a9d268e24da68",
+      "sha256": "94211942d09f90f49279e8c0d6b70f75384314b9561572c6945ce7e61211ae57",
+      "bytes": 17539
+    }
+  ]
+}

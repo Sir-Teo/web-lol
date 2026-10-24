@@ -398,3 +398,8 @@ The [Eclipse surface increment](LEONA-W-SURFACES.md) now draws the remaining
 soft depth and distortion. All thirty enabled descriptions have renderer paths.
 Native bindings/dispatch/culling/attachment/frame acceptance and source audio
 remain open, along with the rest of Leona and the full match gates.
+
+[Eclipse source audio](LEONA-W-AUDIO.md) now plays all five finite SFX roles
+from eighteen unchanged float masters, including the authored onset and delayed
+stops. Saved phases, fog, readiness/fallback and terminal retirement are covered;
+native script/attachment/shuffle/listener/bus and listening acceptance remain open.

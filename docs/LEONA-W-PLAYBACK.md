@@ -90,8 +90,9 @@ runtime modules. Earlier saves are not migrated.
 The [surface increment](LEONA-W-SURFACES.md) adds the remaining primitives,
 material/depth/distortion routes and lifecycle/recovery/resource checks. Native
 CPU dispatch, attachment/culling/face-color semantics, missing palette/global
-bindings and frame comparisons remain unverified. Source sound dispatch,
-E/R presentation, player/support integration and the full six-champion match,
+bindings and frame comparisons remain unverified. The subsequent
+[source-audio increment](LEONA-W-AUDIO.md) implements local W dispatch; native
+sound/mix comparison, E/R presentation, player/support integration and the full six-champion match,
 browser, offline and performance gates remain required.
 
 ## Validation record

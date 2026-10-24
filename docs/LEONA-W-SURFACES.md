@@ -4,7 +4,8 @@ The remaining 26 enabled W families now have real renderer paths alongside the
 four attached-character descriptions. Both buff phases, successful and missed
 caster bursts and target contacts draw their retained textures and primitives.
 This is local reconstruction, not completed native presentation acceptance.
-Source audio, native dispatch/bindings/frame comparison and full-match performance
+The subsequent [source-audio increment](LEONA-W-AUDIO.md) adds all five finite
+SFX roles. Native dispatch/bindings/frame comparison and full-match performance
 remain open.
 
 ## Retained shader evidence

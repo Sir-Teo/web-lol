@@ -86,3 +86,8 @@ and arbitrary future fetched-resource coverage remain open.
 The subsequent [Eclipse surface material](LEONA-W-SURFACES.md) also joins the
 explicit traversed module roots. Schema 124 remains; its current ruleset is
 `67a9ea30c6ceb0ed42fe4ca72146b78f1b8c0f005271394332393ed59d6c7987`.
+
+The subsequent [Eclipse source-audio state kernel](LEONA-W-AUDIO.md) joins the
+traversed module roots. Its profile and phase interpretation affect same-build
+compatibility. Schema 124 remains; current ruleset is
+`d69c16c0407a5b436ef8cd078c989535ae38e72e9ed42778d60b77c9dacecdb2`.

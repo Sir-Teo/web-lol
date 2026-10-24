@@ -5073,3 +5073,57 @@ culling/attachment/frame comparison, source audio, E/R presentation, player/
 support integration, the current full cohort and the six-champion match/browser/
 offline/performance requirements remain open. This agent did not push; the goal
 remains active.
+
+
+## Eclipse source audio and saved finite phases — October 24, 2026
+
+The development Leona fixture now plays all five Eclipse SFX roles from eighteen
+unchanged source recordings. The frozen version-145 banks resolve seven declared
+events through forty selected/inherited nodes to eighteen WEMs. All original
+parameters and the unresolved output bus remain retained. The two stop actions
+have 500 ms delays, not fades; the first buff has a separate 5 ms fade-in. Buff
+recordings are finite, without authored loop metadata. Native callback/default/
+object/global scope, shuffle, attachment, listener/bus and listening calibration
+remain open; these are explicit local dispatch and mix choices.
+
+Schema-124 histories already cover every recording and stop delay. Cast/initial,
+successful extension, hit and whiff seek their saved ages. Hidden activation
+stays silent after reveal while a newly visible burst can start. One hit sound
+plays per caster detonation. Result tails use the audio clock without changing
+the winning save. Owned sources/gains retire, natural completions stay remembered
+at a frozen tick, and mute/reload restores the appropriate finite phase. Loading
+is conditional on Leona; failed/late files preserve one synthesized cast without
+a later duplicate or frame-driven retry.
+
+All **1,672 unit tests/286 files**, TypeScript/build and three Node QA cases pass.
+All **36 real Chrome cases** pass, including six new audio cases and neighboring
+source-audio, W surfaces/skins, Q, rig, Sunlight and shared depth checks. Chrome
+preserves all 1,687,015 decoded samples exactly, including float headroom. The
+18 WAVs total 6,748,852 bytes and reproduce unchanged. Two ten-minute normal
+seeds pass 72,000 checked ticks, twenty exact round trips and eighteen futures;
+twenty checkpoints match the previous surface build after ruleset-only identity
+normalization. Both are unfinished at the smoke horizon, not a full cohort gate.
+
+Production subpath passes 32 recordings with zero unrequested Leona preloads.
+The fresh full Chrome offline audit passes 901 files/506,000,253 bytes and 963
+worker responses with zero production errors. It includes integrity/cancel/
+retry/repair, saved-tick boot, new Lux 5v5, version activation, missing-entry
+revocation and scope-only removal. Pack ID is
+`38fd31d3a273bbd748751be648f80b691ddd98c74cc5574b7a14efc4b6055108`.
+There are 33 generated frontend files; the optional W audio chunk is 11.87 kB
+(4.71 kB gzip). Existing size warnings/full-match performance remain open.
+
+Current ruleset is
+`d69c16c0407a5b436ef8cd078c989535ae38e72e9ed42778d60b77c9dacecdb2`;
+schema 124 remains. The audio state kernel joins the traversed presentation roots.
+V4 freezes 1,514 inputs and 39 native/decoded files. Its only source change from
+V3's passing browser/normal run corrects an isolated fingerprint test's render-only
+expected roots. V3 preserves that failure plus four unit timeouts under concurrent
+load. After all runners drained, the full suite passed with original deadlines;
+no runtime code or timeout was changed. V1/V2 retain the early browser fixture
+failures, input snapshots, traces and successful repair evidence. See
+[Eclipse audio](LEONA-W-AUDIO.md) and its
+[ledger](reference/leona/w-audio-verification.json). Native fidelity, E/R and other
+missing presentation, player/support integration, the full current cohort and all
+six-champion match acceptance remain required. Nothing was pushed; the goal
+remains active.

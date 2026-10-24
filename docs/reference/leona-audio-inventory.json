@@ -1,0 +1,32 @@
+{
+  "extractionSha256": "4e7f472582ad48b5818746fccdafe784a6248388406975f8fef3cb5e37eb4fdb",
+  "parser": {
+    "repository": "https://github.com/bnnm/wwiser",
+    "revision": "71654ed1a2c4642894bd7e7ed79eba66986fb770"
+  },
+  "banks": [
+    {
+      "name": "leona_base_sfx_audio.bnk",
+      "version": 145,
+      "mediaCount": 91,
+      "soundObjects": 0,
+      "events": 0,
+      "playActions": 0,
+      "stopActions": 0,
+      "randomSequenceContainers": 0,
+      "attenuations": 0
+    },
+    {
+      "name": "leona_base_sfx_events.bnk",
+      "version": 145,
+      "mediaCount": 0,
+      "soundObjects": 102,
+      "events": 39,
+      "playActions": 35,
+      "stopActions": 5,
+      "randomSequenceContainers": 24,
+      "attenuations": 97
+    }
+  ],
+  "status": "Verified source-bank inventory; event graph, decoding and runtime playback are separate."
+}

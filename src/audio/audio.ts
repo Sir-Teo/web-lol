@@ -5,6 +5,7 @@ import { luxEAudioStates } from './lux-e-state';
 import { LuxBindingFlightAudio } from './lux-binding-flight';
 import { LazyGarenJusticeAudio } from './garen-r-lazy';
 import { LazyGarenCourageAudio } from './garen-w-lazy';
+import { LazyLeonaEclipseAudio } from './leona-w-lazy';
 import { LazyOracleAudio } from './oracle-lazy';
 import { LazyGarenDecisiveStrikeAudio } from './garen-q-lazy';
 import { GarenJudgmentAudio } from './garen-e';
@@ -40,6 +41,9 @@ export class GameAudio {
   garenE = new GarenJudgmentAudio();
   garenR = new LazyGarenJusticeAudio();
   garenW = new LazyGarenCourageAudio();
+  leonaW = new LazyLeonaEclipseAudio();
+  private leonaTerminalWorld?: World;
+  private leonaTerminalStart = 0;
   garenQ = new LazyGarenDecisiveStrikeAudio();
   oracle = new LazyOracleAudio();
   private oracleTerminalWorld?: World;
@@ -294,6 +298,7 @@ export class GameAudio {
     this.garenE.stop();
     this.garenR.stop();
     this.garenW.stop();
+    this.leonaW.stop();
     this.garenQ.stop();
     this.oracle.stop();
     for (const [voice, gain] of this.voices) {
@@ -531,6 +536,32 @@ export class GameAudio {
     }
     this.oracle.update(this.context, this.enabled && !this.paused, records, tick, listener);
   }
+  updateLeona(world: World, listener = { x: 0, y: 0 }) {
+    const leonas = world.units.filter((u) => u.champion === 'leona');
+    if (leonas.length && this.leonaW.status === 'idle') void this.leonaW.load();
+    const team = world.hero.team;
+    const records = leonas.flatMap((u) =>
+      world.championState(u.id)!.leonaWVisuals.map((r) => ({
+        ...r,
+        id: u.id,
+        castVisible:
+          r.frames[0].audience.includes(team) && world.pointVisible(r.frames.at(-1)!, team),
+        burstVisible:
+          !!r.detonation?.audience.includes(team) && world.pointVisible(r.detonation!.point, team),
+      }))
+    );
+    // Continue finite result sounds on the audio clock without changing saved ticks.
+    let tick = world.tick;
+    if (!world.winner) this.leonaTerminalWorld = undefined;
+    else if (this.context) {
+      if (this.leonaTerminalWorld !== world) {
+        this.leonaTerminalWorld = world;
+        this.leonaTerminalStart = this.context.currentTime;
+      }
+      tick += Math.max(0, this.context.currentTime - this.leonaTerminalStart) * 60;
+    }
+    this.leonaW.update(this.context, this.enabled && !this.paused, records, tick, listener);
+  }
   updateGaren(world: World, listener = { x: 0, y: 0 }) {
     const garens = world.units.filter((u) => u.champion === 'garen');
     if (garens.length && this.garenP.status === 'idle') void this.garenP.load();
@@ -689,7 +720,13 @@ export class GameAudio {
           }
         }
         if (event.type === 'cast') {
-          if (event.text === 'e' && event.champion === 'lux' && this.luxE.status === 'ready') {
+          if (event.text === 'w' && event.champion === 'leona' && this.leonaW.status === 'ready') {
+            // Saved Eclipse histories own all five finite source phases.
+          } else if (
+            event.text === 'e' &&
+            event.champion === 'lux' &&
+            this.luxE.status === 'ready'
+          ) {
             // Saved E dispatch history owns the finite source layers.
           } else if (
             event.text === 'q' &&
@@ -728,6 +765,8 @@ export class GameAudio {
           )
             this.bindingCast(event, tick, listener);
           else {
+            if (event.text === 'w' && event.champion === 'leona' && event.unit !== undefined)
+              this.leonaW.suppressCast(event.unit, event.tick);
             if (event.text === 'e' && event.champion === 'lux' && event.unit !== undefined)
               this.luxE.suppressCast(event.unit, event.tick);
             if (event.text === 'q' && event.champion === 'garen' && event.unit !== undefined)

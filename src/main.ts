@@ -243,6 +243,7 @@ async function boot(): Promise<void> {
           view.leonaDaybreak.load(),
           view.leonaEclipseSkins.load(),
           view.leonaEclipseSurfaces.load(),
+          audio.leonaW.load(),
         ]
       : []),
     loadGarenSpin(),
@@ -409,6 +410,7 @@ async function boot(): Promise<void> {
     audio.updateLuxE(world, view.center);
     audio.updateOracle(world, view.center);
     audio.updateGaren(world, view.center);
+    audio.updateLeona(world, view.center);
     audio.update(
       world.events.filter((event) => world.eventVisible(event)),
       world.tick,

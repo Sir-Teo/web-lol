@@ -142,7 +142,7 @@ test('follows runtime re-exports, side effects, literal dynamic imports, mixed i
   const files = collectRulesetFiles(root);
   expect(files.filter((f) => f.startsWith('src/render/'))).toEqual(
     [
-      ...rulesetModuleRoots,
+      ...rulesetModuleRoots.filter((file) => file.startsWith('src/render/')),
       'src/render/barrel.ts',
       'src/render/data.json',
       'src/render/later.ts',
