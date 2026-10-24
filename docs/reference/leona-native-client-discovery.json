@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "observedDate": "2026-10-24",
+  "scope": "Bounded official native-game-client discovery; no executable or native manifest downloaded and no target executed",
+  "targetContentVersion": "16.18.8175716+branch.releases-16-18.content.release",
+  "targetAssetsManifest": "29CE6E781C3B6368",
+  "targetAssetsFileCount": 4048,
+  "currentNativeManifestIds": {
+    "macos": "B0DE7A4FF23DB6B4",
+    "windows": "B499FB04B1158CF6"
+  },
+  "matchingNativeManifestIdentified": false,
+  "nativeExecuted": false,
+  "files": [
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/clientconfig.json",
+      "url": "https://clientconfig.rpg.riotgames.com/api/v1/config/public?namespace=keystone.products.league_of_legends.patchlines",
+      "status": 200,
+      "bytes": 93978,
+      "sha256": "0eea1453d3de266509f2c2aca0df2001fe72f90b06ed35630b9fea2b9dec6203"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/current-native-windows.json",
+      "url": "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/EUW1?q[artifact_type_id]=lol-game-client&q[platform]=windows&q[published]=true",
+      "status": 200,
+      "bytes": 942,
+      "sha256": "79280fae33a1da599ea4920f7ba98cb24e4f6d040de1586043bb2087c1c51ed9"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/current-native-macos.json",
+      "url": "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/EUW1?q[artifact_type_id]=lol-game-client&q[platform]=macos&q[published]=true",
+      "status": 200,
+      "bytes": 933,
+      "sha256": "f81a21ab8a52c76d263361872be0226eca33a78e7cfa5f29e96964f7d0e3ee05"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/historical-query-branch.json",
+      "url": "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/EUW1?q[artifact_type_id]=lol-game-client&q[platform]=macos&q[branch]=releases-16-18",
+      "status": 400,
+      "bytes": 117,
+      "sha256": "6fdbf52e77bd49abf46dcdb3b2c5883964d655bf17c9e5494f521068614fe957"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/historical-query-version.json",
+      "url": "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/EUW1?q[artifact_type_id]=lol-game-client&q[platform]=macos&q[version]=16.18.8175716",
+      "status": 400,
+      "bytes": 118,
+      "sha256": "a0ee3b3b3c3a4f42fde977e1061b202ce8d07cb1e1a57d6934a70c5b7460c230"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/historical-query-artifact_version_id.json",
+      "url": "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/EUW1?q[artifact_type_id]=lol-game-client&q[platform]=macos&q[artifact_version_id]=16.18.8175716%2Bbranch.releases-16-18.code.public.content.release.cpuarch.x8664.platform.macos",
+      "status": 400,
+      "bytes": 130,
+      "sha256": "51d6be8bdfadcf4a3a33f4ab549211b9fcb12b60d71ce55a414f2af841e7bd27"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/target-content-metadata.zst",
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/A27FDA4C66723C10.bundle",
+      "range": [
+        0,
+        75
+      ],
+      "bytes": 76,
+      "sha256": "f3e4a7e844afd367df58d7aa4326accb2c781d49e7c72b67b3b928e733985b98"
+    },
+    {
+      "path": ".cache/riot-reference/29CE6E781C3B6368.manifest",
+      "bytes": 16683525,
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/target-inventory.json",
+      "bytes": 397409,
+      "sha256": "dcdf187e2987efd82d386a704ba871599e1402948228adf843d632962a5fc1bf"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/target-content-metadata.json",
+      "bytes": 74,
+      "sha256": "89308d2e997e3f45bdd81fda7a844760660a4637ec7608c7ecf061952e5f5884"
+    },
+    {
+      "path": ".cache/leona-native-manifest-research-v1-20261024/patcher-reader.py",
+      "bytes": 24249,
+      "sha256": "9e538818c29c3f43b239d65e1f5474cfc937d5e8afaed7423b07b72bb22cadc6"
+    }
+  ],
+  "limits": [
+    "Current native responses identify 16.21.8298620, which does not match pinned 16.18.8175716 content.",
+    "This Sieve version-set endpoint rejects tested historical branch/version/artifact-version filters. That does not prove historical artifacts unavailable.",
+    "Native executable filenames and sizes remain unknown; installation roots are not executable identities.",
+    "CDTB get_latest_game_manifest lacks artifact_type_id; explicit lol-game-client comes from official clientconfig."
+  ]
+}

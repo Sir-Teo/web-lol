@@ -5575,3 +5575,21 @@ the full project goal stays active.
 Fresh full-pack offline validation passes integrity, cancellation/retry, repair,
 saved/new-match boot, scope removal and atomic two-version activation; 962
 service-worker responses were observed and production errors are empty.
+
+## Matching native-client discovery boundary — October 24, 2026
+
+A bounded official metadata audit distinguishes the pinned 16.18 content RMAN
+from the native game-client artifact. The original manifest contains 4,048 WAD/
+metadata files and no executable/library. CDTB's platform/published-only Sieve
+query omits `artifact_type_id`; official clientconfig supplies `lol-game-client`.
+The explicit route currently returns native 16.21.8298620 manifests for macOS
+and Windows, which do not match the frozen assets. Tested historical filters are
+rejected by this endpoint; this does not prove old artifacts unavailable.
+
+No current native manifest/executable was downloaded or target executed. Exact
+native executable path/size, matching 16.18 manifest identity, sword normals/CPU
+bindings and native frame acceptance remain open. Official responses, the source
+manifest/inventory and metadata are pinned in the
+[discovery record](reference/leona-native-client-discovery.json) and checked
+with the offline verifier. See [prerequisite scope](LEONA-NATIVE-CLIENT.md).
+Source work continues independently; the full project goal stays active.
