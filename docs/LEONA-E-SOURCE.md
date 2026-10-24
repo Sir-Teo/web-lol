@@ -178,3 +178,11 @@ The sword's SCB has no normal stream. Native normal construction, uniform/resour
 bindings and variant dispatch remain unresolved; no normals are generated and
 GameView still does not draw E. The skin shader's alpha treatment cannot be
 substituted for the observed ordinary-mesh contract.
+
+## Subsequent arrival-skin integration — October 24, 2026
+
+[The arrival skin](LEONA-E-SKINS.md) now draws its authored complete rig from saved
+poses, color and erosion. GameView includes this one enabled family, with lazy
+loading and private skeleton cleanup. The other E primitives and source audio
+remain unfinished. Fresh production/offline delivery evidence belongs to this
+arrival increment; earlier source-package audits keep their original identities.

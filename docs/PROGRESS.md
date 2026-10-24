@@ -5437,3 +5437,35 @@ Native normal construction, CPU bindings and dispatch remain unresolved, and E
 drawing/audio/player integration remains open. See [material scope](LEONA-E-REFLECTION.md)
 and its [verification record](reference/leona/e-reflection-verification.json).
 Nothing is pushed; the full project goal remains active.
+
+## Zenith Blade arrival-skin integration — October 24, 2026
+
+GameView now draws `Avatar_Burst`, the single E arrival attached-skin family,
+using the complete authored Leona GLB and private saved-pose skeleton. Its one
+birth, lifetime, color and erosion follow the prepared source kernel. Base and
+erosion share a decoded image but retain distinct repeat/mirrored samplers.
+Creation/birth/current visibility, saved reload, frozen death/terminal poses,
+graphics recovery and owned-resource expiry are covered. Missing authored rim is
+locally bound to zero; native skin CPU defaults and frame parity remain open.
+
+TypeScript, all 1,790 unit cases/295 files and three Node QA cases pass. Ten unique
+Chrome cases cover arrival pixels/reload/recovery/repeated-cast storage, all four
+E saved phases and the existing W skins. Fresh nested production delivery passes
+with 32 recordings, no development hook and no unrequested Leona preload. The
+fresh 942-file / 506,711,186-byte offline pack passes integrity, repair, saved and
+new match offline boot and atomic version activation; 963 service-worker responses
+were observed. No new normal-match cohort or CPU benchmark is claimed.
+
+The first browser fixture's root-scale expectation and a TypeScript test capture
+field were corrected; failed logs remain retained. The death unit fixture now
+keeps allied sight available after the caster dies. The other nineteen enabled
+E declarations, source E audio, sword normals/bindings, native comparison and
+Leona player/support integration remain open. Schema 125 and ruleset 3f5f13be
+remain unchanged. See [arrival scope](LEONA-E-SKINS.md) and its
+[evidence record](reference/leona/e-skin-verification.json). Nothing is pushed;
+the full project goal remains active.
+
+Pre-commit evidence review corrected the new skin visibility probe: a cleared
+drawing buffer had made the entire viewport differ. Both variants now redraw
+synchronously, and the source contribution must exceed 100 pixels while staying
+below ten percent of the viewport. The earlier record remains retained.

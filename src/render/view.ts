@@ -1,5 +1,6 @@
 import { LazyLeonaDaybreak } from './lazy-leona-daybreak';
 import { LazyLeonaEclipseSkins } from './lazy-leona-eclipse-skins';
+import { LazyLeonaZenithSkins } from './lazy-leona-zenith-skins';
 import { LazyLeonaEclipseSurfaces } from './lazy-leona-eclipse-surfaces';
 import { LazySunlight } from './lazy-sunlight';
 import { LazyGarenPerseverance } from './lazy-garen-perseverance';
@@ -114,6 +115,7 @@ export class GameView {
   );
   leonaDaybreak = new LazyLeonaDaybreak(this.scene, (p) => this.ground(p));
   leonaEclipseSkins = new LazyLeonaEclipseSkins(this.scene, (p) => this.ground(p));
+  leonaZenithSkins = new LazyLeonaZenithSkins(this.scene, (p) => this.ground(p));
   leonaEclipseSurfaces = new LazyLeonaEclipseSurfaces(
     this.scene,
     this.particleDistortion.scene,
@@ -759,6 +761,7 @@ export class GameView {
     this.luxImpacts.update(world, alpha, this.camera, terminalAge);
     this.leonaDaybreak.update(world, alpha, this.camera, terminalAge);
     this.leonaEclipseSkins.update(world, alpha, terminalAge);
+    this.leonaZenithSkins.update(world, alpha, terminalAge);
     this.leonaEclipseSurfaces.update(world, alpha, this.camera, terminalAge);
     this.sunlight.update(world, alpha, this.camera, this.models, terminalAge);
     this.luxIllumination.update(world, alpha, this.camera, this.models);
