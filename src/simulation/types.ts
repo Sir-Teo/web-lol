@@ -205,7 +205,14 @@ export interface UnitBase extends Vec2 {
   slows: {
     sourceId: number;
     kind:
-      'frost' | 'critical-frost' | 'crystal-arrow' | 'lucent' | 'cinders' | 'smite' | 'scorchclaw';
+      | 'frost'
+      | 'critical-frost'
+      | 'crystal-arrow'
+      | 'lucent'
+      | 'cinders'
+      | 'smite'
+      | 'scorchclaw'
+      | 'solar-flare';
     startTick: number;
     endTick: number;
     startMultiplier: number;
@@ -554,6 +561,16 @@ export interface ChampionState {
   } | null;
   /** Local reduced-hit feedback, coalesced per tick; independent of later W casts. */
   garenWDeflects: { tick: number; castTick: number }[];
+  leonaR: {
+    startTick: number;
+    releaseTick: number;
+    impactTick: number;
+    released: boolean;
+    rank: number;
+    origin: Vec2;
+    point: Vec2;
+    damage: number;
+  } | null;
   leonaEWindup: {
     startTick: number;
     releaseTick: number;

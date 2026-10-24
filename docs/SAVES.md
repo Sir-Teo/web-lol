@@ -1,6 +1,17 @@
 # Local match checkpoints
 
-Current schema **119** adds nullable Leona E windup/dash fields and Zenith
+Current schema **120** adds nullable Solar Flare origin/point, rank/damage,
+start/release/impact clocks and released phase, plus the independent Solar Flare
+slow kind. Validation rejects foreign/unlearned/terminal ownership, changed
+clocks, phase/range errors, dead unreleased casts and incompatible pending
+actions. A released flare may outlive its caster. Victory clears it; respawn
+cannot retain an unreleased phase. Slow validation checks Leona ownership,
+learned R, fixed strength and bounded duration. Saved futures cover both phases,
+posthumous control, Flash/E overlap, neutral recovery and separate slow expiry.
+Native timing, collision, reveal and immunity policies remain open; older
+schemas/fingerprints are incompatible. See [Leona](LEONA.md).
+
+Schema **119** added nullable Leona E windup/dash fields and Zenith
 projectile cast/rank/unique-hit/last-champion metadata. Validation checks ownership,
 phase separation, rank, exact clocks, direction and current/previous flight
 geometry, remaining range, hit IDs and last-champion consistency. A launched

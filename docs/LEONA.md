@@ -2,7 +2,7 @@
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 The canonical source package, payload calculations and a non-player development
-simulation fixture for melee attacks, Q, Sunlight, W and E are implemented. Leona's complete
+simulation fixture for melee attacks, Q, Sunlight, W, E and R are implemented. Leona's complete
 playable kit, player selection, bot policy and presentation remain required work.
 This partial fixture does not establish native behavior or roster acceptance.
 
@@ -70,8 +70,8 @@ The helpers do not schedule casts, apply shields/reduction or select targets.
 development practice battlefield. It creates Leona's own stats, mana and an
 unlearned kit. Constructor/player selection, ordinary Rift spawning and browser
 save loading reject this incomplete fixture. Missing presentation fails
-explicitly; it never substitutes an Ashe model or animation. R commands
-return a development message before entering any other champion's spell path.
+explicitly; it never substitutes an Ashe model or animation. All four spells
+have development command adapters; this does not certify a complete player kit.
 
 After learning Q, a World cast command validates mana, cooldown, silence and
 stun. Activation costs mana, starts a haste-adjusted cooldown, cancels recall and
@@ -114,7 +114,7 @@ does not certify complete Q/passive behavior.
 ## Sunlight development simulation
 
 Q's accepted magic hit applies/refreshes Sunlight on a living enemy. The shared
-application helper also serves W/E; R remains absent.
+application helper also serves W/E/R.
 Sunlight lasts the pinned 2.5 seconds and expires before new commands at its
 deadline. Leona's own damage cannot consume it. Positive allied champion-owned
 damage consumes it once, including shield absorption, and applies the source's
@@ -280,6 +280,59 @@ wall and retained turret retaliation. Browser loading still preserves and
 rejects the incomplete Leona fixture, now with an active E windup in its save.
 See the [Zenith verification ledger](reference/leona/zenith-verification.json).
 
+## Solar Flare development simulation
+
+R now uses a captured ground point, damage/rank/AP, mana and hasted cooldown.
+Targets beyond the source 1,200 range clamp from the cast origin; a self-centered
+point is valid. Fresh stun/silence, unlearned rank, insufficient mana and cooldown
+reject activation. Root alone permits it. Ordinary pending attacks are cancelled;
+a captured Daybreak cannot be replaced. Q/W can arm during the R windup, while E
+and recall wait for release. R can start during a released E flight or dash, and
+homing motion continues. R cannot replace E's own committed windup.
+
+The root's uncancellable-windup declaration is exported separately from its
+legacy 0.25-second timing; it has no explicit authored `mCastTime`. **Provisional
+local clocks:** fifteen ticks of normal-movement lock and impact 38 ticks after
+activation (0.625 seconds rounded upward to the fixed step). Neither the legacy
+cast field nor unrelated animation/particle timing certifies native impact.
+Later control does not cancel the committed windup. Flash changes the caster's
+position while the original ground point stays fixed. Death before release
+cancels R; death on/after the release boundary retains the committed impact,
+independently of which owner is advanced first. Released state can outlive the
+caster and is retired before damage callbacks; victory cancels all pending R.
+
+**Provisional collision/order policy:** one pre-command impact samples current
+victim positions and resolves participants in identity order. Inclusive body
+overlap uses authored inner radius 120 and outer radius 300. Center hits apply
+a 1.75-second stun; outer hits apply the 80% slow for 1.75 seconds. Both use the
+shared control-duration path, including Courage tenacity. Damage passes through
+magic resistance and shields; fully shielded surviving targets still receive
+control and Sunlight. Dead victims receive no retained mark/control. Slows are
+independent by caster, refresh through the existing slow path and expire before
+commands on their own deadlines.
+
+The impact does not require visibility/line of sight. Living vulnerable enemies,
+including minions and neutral monsters, are eligible; allies, structures, wards,
+returning and protected camps are excluded. A monster that cannot see its
+attacker can enter ordinary recovery on that same tick; a visible attacker keeps
+retaliation. R does not add a separate vision area in this adapter. The source's
+`mSpellRevealsChampion=false` does not establish all native area/hit reveal rules;
+those still require implementation or correction from native evidence. Spell
+shield/immunity interactions, exact boundaries, timing and input/CC/death order
+remain open. No legacy Incandescence/on-hit stacks, range or damage is enabled.
+No R projectile, extra application entity or gameplay random sample is created;
+ordinary cast/damage events retain their existing identity allocation.
+
+Schema 120 saves nullable origin/point, rank/damage, start/release/impact clocks
+and released phase, plus the independent Solar Flare slow kind. It rejects
+foreign/unlearned/terminal ownership, invalid clocks/phases/range, dead windups
+and incompatible pending actions. A dead released caster remains valid. Solar
+slows validate source identity/rank, fixed strength and bounded duration; strict
+saved futures cover both R phases, E overlap, Flash, posthumous control, neutral
+retaliation and separate slow deadlines. The browser fixture gate now preserves
+active R alongside the earlier development states before rejecting presentation.
+See the [Solar Flare verification ledger](reference/leona/solar-verification.json).
+
 ## Geometry, legacy data and mode boundaries
 
 | Source declarations | Treatment |
@@ -287,16 +340,16 @@ See the [Zenith verification ledger](reference/leona/zenith-verification.json).
 | W display range 450; raw cast radius 500 | Both retained distinctly. Actual explosion collision boundary remains to be established. |
 | E root display range 875, legacy speed 1,200 and line width 80 | Retained in the source audit. These do not override the child missile declaration. |
 | E child missile fixed speed 2,000, width 70, cast range 900; projects to cast range | Exported together as authored missile values. Whether width denotes collision radius and endpoint inclusivity remain behavior questions. |
-| R primary radius 120 and secondary radius 300 | Retained as authored inner/outer radii; collision tests and native impact timing remain open. |
+| R primary radius 120 and secondary radius 300 | Used with an explicit inclusive-body-overlap policy in the development adapter; native collision and impact timing remain open. |
 | Q root cast range 100 | A self-cast declaration, not evidence of an empowered attack-range increase. |
 | Q attack child old damage/AP fields | Retained in full source; current root named damage/calculation drives the Q payload. |
 | R on-hit damage/stacks/duration/range fields | Retained in source and audit, excluded from payload exports. The current frozen client tooltip describes the explosion and crowd control only. Active behavior must be established before adding any such effect. |
 | R `cherry` AP override 1.0 | Retained in the audit; standard Rift payload uses 0.8. |
 
 Cast-frame, explicit cast-time, legacy cast-time and animation fields remain
-separate audit entries, including omitted values as null. No R impact delay or
-E dash speed is inferred from unrelated fields. W's instant local cast and burst
-geometry are explicit policies above.
+separate audit entries, including omitted values as null. R's impact delay and
+E's dash speed are explicit local policies, not recovered values. W's instant
+local cast and burst geometry are also explicit policies above.
 Q's provisional lifetime/range/recovery adapter is identified separately above.
 R's `mSpellRevealsChampion=false` does not by itself
 settle area vision or hit-reveal rules.
@@ -310,11 +363,11 @@ Every row below still has required work, including the partially implemented Q.
 | Basic attacks and Q | Melee profile, source release timing and attack selection; reset and empowered window; range; separate physical/magic damage; stun/CC precedence; cancellation, target loss and consumption. |
 | W | Development command, dynamic defenses, burst/extension and saved futures are implemented. Native cast/expiry order, actual radius, reduction/extension semantics, immunity interactions and full presentation remain required. |
 | E | Development windup, shared swept flight, last-champion root, homing dash, control/Flash handling, wall traversal and saved futures are implemented. Native collision/timing/dash/input/aggro interactions and source presentation remain required. |
-| R | Windup and delayed impact; center stun versus outer slow boundaries; cast-range clamping; reveal; shields/CC immunity, death and interruption behavior. |
+| R | Development windup/delayed impact, cast clamp, differentiated control, overlap/death handling and saved futures are implemented. Native timing/geometry/reveal, spell shields/immunity, full interruption matrix and source presentation remain required. |
 | Sunlight | Native verification of refresh/multiple owners, proc/pet/blocked-hit eligibility, ordering, caster death, farming and attribution. The shared core and saved futures are implemented. |
 | Integration | Shared player/bot command validation; support-role decisions; HUD and input; strict saved states and restored futures; victory and respawn cleanup. |
 | Presentation | Prepared rig/animation import, conservative animated bounds, source effects/audio, visibility and ownership, load/dispose/context recovery, native comparison and full-match performance. |
 
-The future fixture must exercise these through World commands and strict saved
-states, including failures and timing boundaries. Production selection and the
+The browser/player integration must exercise these through World commands and
+strict saved states, including failures and timing boundaries. Production selection and the
 complete six-character milestone cannot pass from payload-only tests.

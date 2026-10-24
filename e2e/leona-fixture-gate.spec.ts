@@ -33,6 +33,11 @@ test('an incomplete Leona simulation save is preserved and rejected before brows
     fixture.learnSpell('e', leona.id);
     fixture.enqueue({ type: 'cast', unit: leona.id, ability: 'e', point: { x: 900, y: 0 } });
     fixture.step();
+    const flare = fixture.spawn('champion', 'blue', { x: -100, y: 0 }, 'leona');
+    fixture.gainExperience(2400, flare.id);
+    fixture.learnSpell('r', flare.id);
+    fixture.enqueue({ type: 'cast', unit: flare.id, ability: 'r', point: { x: 800, y: 0 } });
+    fixture.step();
     const snapshot = fixture.snapshot();
     if (fixture.constructor.fromSnapshot(snapshot, fixture.battlefield).snapshot() !== snapshot)
       throw new Error('Leona simulation checkpoint does not round trip');

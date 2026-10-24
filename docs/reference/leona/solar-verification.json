@@ -1,0 +1,706 @@
+{
+  "date": "2026-10-23",
+  "scope": "Leona non-player development Solar Flare command, delayed impact/control and saved phases. Local timing/collision/vision policies are not native or full-champion acceptance.",
+  "schema": 120,
+  "ruleset": "fe31adb2d9eca357494bddb647c33bb265ac4fe274ba464cdfe77d6fc31cdf37",
+  "sourceBaseline": "72d27b64e25bec40953acc894ba43057ba82f890",
+  "sourceArchive": ".cache/leona-solar-validation-v4-20261023/source-archive.json",
+  "frozenInputs": ".cache/leona-solar-validation-v4-20261023/frozen-inputs",
+  "earlierSourceArchives": [
+    {
+      "ledger": ".cache/leona-solar-validation-v1-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-solar-validation-v1-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-solar-validation-v2-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-solar-validation-v2-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-solar-validation-v3-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-solar-validation-v3-20261023/frozen-inputs"
+    }
+  ],
+  "cohortSourceArchive": ".cache/leona-solar-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+  "buildArchive": ".cache/leona-solar-validation-v4-20261023/generated-build-archive.json",
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 25390,
+      "sha256": "cc698ecef8cd3e1748945da61b75bc95065f989ff78ecbf72e7198ca698e7088",
+      "archived": ".cache/leona-solar-validation-v4-20261023/review-inputs/docs/LEONA.md"
+    },
+    {
+      "file": "docs/SAVES.md",
+      "bytes": 48581,
+      "sha256": "0dadb6bad088c433fb101ceff78ada76ee709123e7c2d4507a434198f0ce9dd8",
+      "archived": ".cache/leona-solar-validation-v4-20261023/review-inputs/docs/SAVES.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 513091,
+      "sha256": "8485150614e9c10736241a213cd29107fb2fc0ffe2d10c6c8880c1205e6eaf31",
+      "archived": ".cache/leona-solar-validation-v4-20261023/review-inputs/docs/PROGRESS.md"
+    },
+    {
+      "file": "docs/reference/leona/combat-policy-audit.json",
+      "bytes": 10199,
+      "sha256": "1bbb1a83f4ce11a21666df0c5dd30ce0423d9852aad402f64909bab63b2cbd90",
+      "archived": ".cache/leona-solar-validation-v4-20261023/review-inputs/docs/reference/leona/combat-policy-audit.json"
+    },
+    {
+      "file": "tools/qa/verify-leona-solar.mjs",
+      "bytes": 4446,
+      "sha256": "0d74c22be72548757a878123655d87f74185a0cff557aed85417e0121f554a60",
+      "archived": ".cache/leona-solar-validation-v4-20261023/review-inputs/tools/qa/verify-leona-solar.mjs"
+    }
+  ],
+  "checks": {
+    "standard": ".cache/leona-solar-canonical-check-v1.log",
+    "focused": ".cache/leona-solar-focused-v4.log",
+    "e2eTypecheck": ".cache/leona-solar-e2e-typecheck-v1.log",
+    "chrome": ".cache/leona-solar-browser-v1-20261023/browser.log",
+    "fixtureEvidence": ".cache/leona-solar-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/evidence.json",
+    "production": ".cache/leona-solar-production-v1-20261023/production-browser.log",
+    "cohort": ".cache/leona-solar-normal-smoke-v1-20261023/independent-verification.log",
+    "checkpointComparison": ".cache/leona-solar-normal-smoke-v1-20261023/identity-and-null-field-comparison.json",
+    "priorIntegrity": ".cache/leona-solar-prior-integrity-v1.log",
+    "export": ".cache/leona-solar-export-check-v1.log"
+  },
+  "reviewedCaptures": [
+    ".cache/leona-solar-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/rejected-simulation-save.png",
+    ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+    ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-subpath.png"
+  ],
+  "failures": [
+    {
+      "log": ".cache/leona-solar-focused-v1.log",
+      "sourceArchive": ".cache/leona-solar-validation-v1-20261023/source-archive.json",
+      "reason": "The unseen-neutral test expected retained aggro with all LOS disabled; the shared controller correctly entered recovery. Corrected the expectation and added a separate visible retaliation saved-future case."
+    },
+    {
+      "log": ".cache/leona-solar-focused-v3.log",
+      "sourceArchive": ".cache/leona-solar-validation-v3-20261023/source-archive.json",
+      "reason": "A second-caster slow was checked one tick before its impact; a no-cost cast check compared negative zero from rounded regeneration with positive zero. Test assumptions corrected; no runtime fix or performance result claimed."
+    }
+  ],
+  "acceptance": {
+    "developmentSolarImplemented": true,
+    "completeLeonaKit": false,
+    "nativeBehaviorVerified": false,
+    "productionRosterExpanded": false,
+    "hundredSeedGateRepeated": false,
+    "fullBrowserSuiteRepeated": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/browser.log",
+      "bytes": 1475,
+      "sha256": "5ac566c4a26bb5d776b844686b1613e66efe2b3fce04a7e4b0bac2b5e99de5c3"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.json",
+      "bytes": 968,
+      "sha256": "c13ef5d59b648ef6782d65cd61d7cd4a19deee5beccf63f379da78410cf10153"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.png",
+      "bytes": 1401371,
+      "sha256": "7e08dd6cd98d2b85959dadfc0ac3210ce574ee1ce0333bda00c54e357d92794e"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "7e9c39b74eb7ab774d38ae5419a3ccdc8d5bf63e607675cd0b4c830f260fdb22"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33034,
+      "sha256": "b2b2148539ad2b281f793c1f94b43d051010d5566ac546272f2030ac05bfcb6e"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "392101e592b0c3f18ed37ab26692621a6391d2a71987a4e3e2c7f1b5950203df"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 808075,
+      "sha256": "e439d10193d89e32082ece6907d8ef67a88c3c2cffc19802465ba288cf2c058f"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33028,
+      "sha256": "eacf6679ea606ffe127af120746357f3dc29635d401d066a768259bdc41b092c"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "58dfa47553aba53a597fd1d4be3b9833b7a60d34e1ec114954ac960559185420"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 813883,
+      "sha256": "98f66336ecd60bd44e868c3e68c29dafaf185d5031e4f4f8ef793fee83397561"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 48569,
+      "sha256": "40a92bb6d580f55a4cf9849a5a868094b58ffff6c00e06aa1ae616a494ae7d97"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 335,
+      "sha256": "c1394630587f8617527d75318de4780e10ffc8f3c8c144dcf4e36aee67291700"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 806302,
+      "sha256": "582c9b69e1c027fa33848386ca412e5d406facb0d4c80a2f591d902c4e997fad"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/evidence.json",
+      "bytes": 26240,
+      "sha256": "266bc5212f7e9b7f13db3372fae9d88f4c4a45de3526aa2578c7fe1acc045206"
+    },
+    {
+      "file": ".cache/leona-solar-browser-v1-20261023/results/leona-fixture-gate-an-inco-72886-efore-browser-model-loading/rejected-simulation-save.png",
+      "bytes": 463366,
+      "sha256": "a06245be64e0ba15afb2e3ecd433f610bcc630c43c98af67d90e7b26c37987b7"
+    },
+    {
+      "file": ".cache/leona-solar-build-v1.log",
+      "bytes": 2427,
+      "sha256": "1c03fcd64ce1358b01712f591331a08b4a5a1e07f904096f5f97d13f486af347"
+    },
+    {
+      "file": ".cache/leona-solar-canonical-check-v1.log",
+      "bytes": 944,
+      "sha256": "73008b0b5609c3d2accd268be250d8be95ce2146206214529582f2f96b7d7c8e"
+    },
+    {
+      "file": ".cache/leona-solar-compare-and-archive.mjs",
+      "bytes": 1995,
+      "sha256": "abc67f9319737cd5ff2e4a26ed7e390c06ca72f6913e2a90ed0274248fdad788"
+    },
+    {
+      "file": ".cache/leona-solar-e2e-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-solar-export-check-v1.log",
+      "bytes": 94,
+      "sha256": "ff50d3c02875e2ede2368c00cae5f446048cbb87d069bbe3a8692159a527529d"
+    },
+    {
+      "file": ".cache/leona-solar-focused-v1.log",
+      "bytes": 1340,
+      "sha256": "ac75909abcedb7b33fc243aa7b9aeedf58cb1197b1dfe2b989cf86d6db0ad79b"
+    },
+    {
+      "file": ".cache/leona-solar-focused-v2.log",
+      "bytes": 438,
+      "sha256": "b6490febc73d163d619f24fddd1acddbf26dfdcaa219ed394da7974582bf201a"
+    },
+    {
+      "file": ".cache/leona-solar-focused-v3.log",
+      "bytes": 2131,
+      "sha256": "8e26e37d6892e412872771b539085b311b8fc8400de847d278947cbde0d32f18"
+    },
+    {
+      "file": ".cache/leona-solar-focused-v4.log",
+      "bytes": 440,
+      "sha256": "26dea41d3a4429901cdb282c7f2f683ed968a89eee20793996ad75554efac6ed"
+    },
+    {
+      "file": ".cache/leona-solar-freeze.mjs",
+      "bytes": 1412,
+      "sha256": "2a76993c3490409013ca1b8a6a65f75cec87be3f2555f1aef16bc2a603dfd892"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023-launch.log",
+      "bytes": 765,
+      "sha256": "27033e8be58c12cbb6f9fda8801dd6b35dcc388a12e0b11da4841bd82935cb52"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+      "bytes": 62708,
+      "sha256": "cea4acc6221e9a55155aa6e6db43a7c2656bb677244f521fe5f0b5a05ee62906"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/identity-and-null-field-comparison.json",
+      "bytes": 6071,
+      "sha256": "559c3352eeecaae4ce96cdc92278e6131e54da9ed5328576923023b792586db2"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "58a5d842fffc2429b5b6002d265262c8e36ad2cc474f4c46f838424df46151c4"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/maps/rift-nav.bin",
+      "bytes": 1925772,
+      "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/plan.json",
+      "bytes": 39152,
+      "sha256": "ab757e416bf5c8e42c4c5105ca50e46d3d3880b718e2f41f5f0bf686127ea50c"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/runner/match-seed.js",
+      "bytes": 835776,
+      "sha256": "152d191b5b7307598f15d20f9e257c6c7ad7ce4f2da746ac153a144dd758edd3"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seed-38.log",
+      "bytes": 256,
+      "sha256": "b9c3bbe8b3daf1f1802908a756caaa5211183adf12f5ae782f1d73dc012aa55a"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seed-8.log",
+      "bytes": 253,
+      "sha256": "3f8ebc41c26d1040ad0bd657af6d374f9233bb44a1d912f17224cf36f96dd1f1"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 166114,
+      "sha256": "98e68afa2b12b9aa31faa885acdf38bf0fa2b3dff9be4050e6fb1ba07a9f595d"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186609,
+      "sha256": "747cba506933dafe3cbb2b9d999e19b2418f6ea67f73116f26b1097d15040354"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177568,
+      "sha256": "710c8a10aa84efe37a3395a6fcfd9a3001cba59ece70dd0c16d03feec7329dd5"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 168261,
+      "sha256": "4b85ce2ceb51be46150683756388a7686c1231ba7aeb05f5d90bfab2bb71fcb0"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187936,
+      "sha256": "3787e80891e95a73636c89e8fcbdb2e0dd49582a8577b14cf8e9a1a731853aad"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202880,
+      "sha256": "1592f86cc6b2499b4b88693f8bc9be81bd14597fefabcf60e0cb09468ac70338"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 211405,
+      "sha256": "10667f48c45cf4dfcfb7f201927074aa110656fe3a5ad999014d8065fafe7e35"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 174240,
+      "sha256": "c744cc458a45291af60c0d992041142b8bb03f52e5732da16c18b42cc2ee45bd"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166592,
+      "sha256": "692828f9e3df6e1580cea5d904d50432b0273cdbf56ec5c641b809a8cb485f97"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 197138,
+      "sha256": "e9b508464fa9974fd792605e401d76b13ee5802d9134d204074e44d1e6ea084a"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/final.match.json",
+      "bytes": 197138,
+      "sha256": "e9b508464fa9974fd792605e401d76b13ee5802d9134d204074e44d1e6ea084a"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/progress.json",
+      "bytes": 75,
+      "sha256": "f81720cdcfcdf6d650a2432868d84f6b965c538e0d016e78012a7c34a16c3eb9"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/38/report.json",
+      "bytes": 51040,
+      "sha256": "3d0574b797786561f58adebeb385c32b9232b4662582fa77c57393fc44be7545"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 166113,
+      "sha256": "3015d755f24536ed86453874319042f05659360ba0fd67bc3876d69a0eb2ac18"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186608,
+      "sha256": "b150a1daff12dafbf36769992306e4a1287843a6bbfc0bf9371040260c5001b6"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177567,
+      "sha256": "4055e4a416c274aa85245ed54864cee7a710d5606ec909e30ed19e912688d580"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 168260,
+      "sha256": "459a2cf695516d68c08897cb8ccec7cddc37a4499da59674ab10767bb37448bb"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 188198,
+      "sha256": "501c0efe16d6073c730974f1f2c3dd2c156fc318797a4dc51022e2c19af0875a"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 203189,
+      "sha256": "31182b8de6bf0fb67fe79132bcef68b56730d905b6d0f98ea985b02b3222aa83"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211545,
+      "sha256": "9d479763dc6359cb2269894f64dbac1ae3081356721fc77f33e19924c6dbd7af"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 172368,
+      "sha256": "7660bf232a713a68fe85d5460effc44945c48fa2d11a97472b9ad2a3a52551bf"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164883,
+      "sha256": "1842bbfdc2c3feb69c94404650446f631f1ded9293e96174e3b624f7d1151914"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 188043,
+      "sha256": "d80eb64e6a5411379f9f7d11e38b6f305c068ef794a0610e2b7f232c1a27d1ca"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/final.match.json",
+      "bytes": 188043,
+      "sha256": "d80eb64e6a5411379f9f7d11e38b6f305c068ef794a0610e2b7f232c1a27d1ca"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/progress.json",
+      "bytes": 74,
+      "sha256": "abbc43e1126a914dfa0d37d3c16cea8bb262416eb391747894d1331bed92a557"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/seeds/8/report.json",
+      "bytes": 51256,
+      "sha256": "cfc25b782c7c05a004f65c5f2e6fb6df3e8fac62e6ab9a5537e4ecd1eb1d6bc0"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/status.json",
+      "bytes": 119912,
+      "sha256": "69c5174b3ff085520aa656e3f6802f7e17cc3ce3f9507b6ade2aee5ff4758138"
+    },
+    {
+      "file": ".cache/leona-solar-normal-smoke-v1-20261023/summary.json",
+      "bytes": 119912,
+      "sha256": "69c5174b3ff085520aa656e3f6802f7e17cc3ce3f9507b6ade2aee5ff4758138"
+    },
+    {
+      "file": ".cache/leona-solar-prior-integrity-v1.log",
+      "bytes": 288,
+      "sha256": "be7d19bbafecd637b718ae15948d4c6be2389a288f121e41038ee4d8f0e90079"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/production-browser.log",
+      "bytes": 1802,
+      "sha256": "230beebf3e8f9199cf638e23cd1b00e2b208f42a7fef5d304c8a5236182ecd43"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811998,
+      "sha256": "81923a50e72b7486c51ca71d1df28bac55c09a4186c7389c6d0cf2432f94d658"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1833687,
+      "sha256": "337db0acf1e597fdcd1702cafd6e866551e182508b51616b81c5df70c553ccdb"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830023,
+      "sha256": "d2e80f40e41209215c68ebcea328018615a3c0ff23a93623c5fa42574907ea01"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1805910,
+      "sha256": "69d4f5dff0fda8b275f766dd1c978ceea84323afe8eb29e29acce9788ad9a30a"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1818098,
+      "sha256": "66a065c94cf611901de4b605e04a5c3f257efa836790b04b1e90fd1472fc0f87"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1347198,
+      "sha256": "09374b3ec62568cd6130d4d655f0063220f796de2e876df0bc37c7555d1bc35a"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820079,
+      "sha256": "b466d5860d7353cc7a8ec73cbb4c2e27161308a968d4da75b67b4783d9f25725"
+    },
+    {
+      "file": ".cache/leona-solar-production-v1-20261023/run/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812727,
+      "sha256": "d4f4c5000846fb4de42f535cb4eac5f0f33be297e7459f6001ecfa644fad71b1"
+    },
+    {
+      "file": ".cache/leona-solar-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-solar-validation-v1-20261023/source-archive.json",
+      "bytes": 39472,
+      "sha256": "30a64e94f4990e11fe28d26009a4c0d05b572ee4c462e9dc69e451a78ca3fddf"
+    },
+    {
+      "file": ".cache/leona-solar-validation-v2-20261023/source-archive.json",
+      "bytes": 39472,
+      "sha256": "30a64e94f4990e11fe28d26009a4c0d05b572ee4c462e9dc69e451a78ca3fddf"
+    },
+    {
+      "file": ".cache/leona-solar-validation-v3-20261023/source-archive.json",
+      "bytes": 39472,
+      "sha256": "ae7c6ab108245c1ffd54b629cd0deea446732f9de2525888f538e485a462c7a5"
+    },
+    {
+      "file": ".cache/leona-solar-validation-v4-20261023/generated-build-archive.json",
+      "bytes": 5831,
+      "sha256": "4c0f585708810886f7cbc4a39eff1c2c5d1baae68d7fd5db8bf4fd1d3d00a613"
+    },
+    {
+      "file": ".cache/leona-solar-validation-v4-20261023/source-archive.json",
+      "bytes": 39472,
+      "sha256": "0c29fdf2e12421000d2b0e52466726f08c9ddab863023dd5d912d379d3ed5ff7"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 166114,
+      "sha256": "98e68afa2b12b9aa31faa885acdf38bf0fa2b3dff9be4050e6fb1ba07a9f595d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186609,
+      "sha256": "747cba506933dafe3cbb2b9d999e19b2418f6ea67f73116f26b1097d15040354"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177568,
+      "sha256": "710c8a10aa84efe37a3395a6fcfd9a3001cba59ece70dd0c16d03feec7329dd5"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 168261,
+      "sha256": "4b85ce2ceb51be46150683756388a7686c1231ba7aeb05f5d90bfab2bb71fcb0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187936,
+      "sha256": "3787e80891e95a73636c89e8fcbdb2e0dd49582a8577b14cf8e9a1a731853aad"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202880,
+      "sha256": "1592f86cc6b2499b4b88693f8bc9be81bd14597fefabcf60e0cb09468ac70338"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 211405,
+      "sha256": "10667f48c45cf4dfcfb7f201927074aa110656fe3a5ad999014d8065fafe7e35"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 174240,
+      "sha256": "c744cc458a45291af60c0d992041142b8bb03f52e5732da16c18b42cc2ee45bd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166592,
+      "sha256": "692828f9e3df6e1580cea5d904d50432b0273cdbf56ec5c641b809a8cb485f97"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 197138,
+      "sha256": "e9b508464fa9974fd792605e401d76b13ee5802d9134d204074e44d1e6ea084a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 166113,
+      "sha256": "3015d755f24536ed86453874319042f05659360ba0fd67bc3876d69a0eb2ac18"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186608,
+      "sha256": "b150a1daff12dafbf36769992306e4a1287843a6bbfc0bf9371040260c5001b6"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177567,
+      "sha256": "4055e4a416c274aa85245ed54864cee7a710d5606ec909e30ed19e912688d580"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 168260,
+      "sha256": "459a2cf695516d68c08897cb8ccec7cddc37a4499da59674ab10767bb37448bb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 188198,
+      "sha256": "501c0efe16d6073c730974f1f2c3dd2c156fc318797a4dc51022e2c19af0875a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 203189,
+      "sha256": "31182b8de6bf0fb67fe79132bcef68b56730d905b6d0f98ea985b02b3222aa83"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211545,
+      "sha256": "9d479763dc6359cb2269894f64dbac1ae3081356721fc77f33e19924c6dbd7af"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 172368,
+      "sha256": "7660bf232a713a68fe85d5460effc44945c48fa2d11a97472b9ad2a3a52551bf"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164883,
+      "sha256": "1842bbfdc2c3feb69c94404650446f631f1ded9293e96174e3b624f7d1151914"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-solar-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 188043,
+      "sha256": "d80eb64e6a5411379f9f7d11e38b6f305c068ef794a0610e2b7f232c1a27d1ca"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 165974,
+      "sha256": "90554b9e6d0ffb7a4254be7fb1d84bb0208046cabb46ac27bf941199ecba0d27"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186469,
+      "sha256": "138aea84c348a1dfd635ff5423a8f7f188b64cb164355372ef1a6e9f0ee61d91"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177428,
+      "sha256": "3084eb3cc23bebdfd21803d61dd85470db6af84b7209a29aa3b507832354ddc9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 168121,
+      "sha256": "08336c10ae45fae1091c12d5c9a2976f743602df240d61b952388fe2dba2a9fd"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187796,
+      "sha256": "e951a5edc4cf26709466077d81bc3708ead992df645b0858508f94738d3cb1db"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202740,
+      "sha256": "0def0296917b22bfd0548a101043306a9633188463cab5224fde7e5c2654078c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 211265,
+      "sha256": "f61411dfe96c19fb48250912ec926773b07a765a4b1c26bdbd9167ab628fba09"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 174100,
+      "sha256": "11103ca713a13d66390347aeb0ddffebe33d269d582f0cab2fc83db32ffa884d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166452,
+      "sha256": "eab3384e463e67cc1a6e8c460cbf31b277f1202966bf9e7cf25e4aecdda258c0"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 196998,
+      "sha256": "82623192b0996b44bc5cc798f361e458a913788babed204d12c45cfa531611e1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 165973,
+      "sha256": "b0340c83b5121b8f48ae3e83f904b7baca04d2a03d9e0edfe978b7b3364deb20"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186468,
+      "sha256": "f4cea5b0fc0d25b5456074244b005dc67f6bf8b0da8be77fa76c98877c4997df"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177427,
+      "sha256": "a489072013c335be95ef62548b7d934663575c3a214b96e0104cef5fd4ae303e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 168120,
+      "sha256": "e497c819460f6e8457ce6ad33dfceace1ee19962ce319f6ad2ae23eafdc606c8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 188058,
+      "sha256": "187ee2a4018cc25c9da2da83d082173191f224196d9961d1bdd43efe8f6e5b4f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 203049,
+      "sha256": "49f918a8ed1335a29c64abbf4acce1ddc536d6082c57cd078278c931c410fe4f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211405,
+      "sha256": "681a661501e907544e2e06452bd2c7d623f32b55ca2202d0cdd63575cd457b98"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 172228,
+      "sha256": "33ff247e274977ae9f926c93726bf15ab2967f474e5c1d4481512239822a1de3"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164743,
+      "sha256": "f0a43e78f8e9bd0b8c873b109ea5dab614ab288261e6791a74f955e880ae4e7e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-zenith-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 187903,
+      "sha256": "2bc0158f3b0f06a359bdf3d0af52768e5b1fec3c1fb3a4cbcfa228e65c654268"
+    }
+  ]
+}

@@ -12,6 +12,10 @@ export const LEONA_COMBAT_POLICY = {
   // Width-as-radius, dash speed and near-edge landing require native calibration.
   zenithRadius: LEONA_SPELLS.e.missile.authoredWidth,
   zenithDashSpeed: 2000,
+  // Legacy cast timing is not an explicit mCastTime declaration. Both clocks
+  // are provisional; the 0.625s impact is rounded up to a fixed simulation tick.
+  solarWindupTicks: Math.round(LEONA_SPELLS.r.legacyCastSeconds * 60),
+  solarImpactTicks: Math.ceil(0.625 * 60),
   attackWindowTicks: 6 * 60,
   empoweredRangeBonus: 50,
   ordinaryWindupTicks: Math.round(

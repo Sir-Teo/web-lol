@@ -140,6 +140,7 @@ import {
   leonaDaybreakValues,
   leonaEclipseValues,
   leonaZenithValues,
+  leonaSolarFlareValues,
   leonaSpellResources,
   leonaSunlightDamage,
 } from './leona-spell-values';
@@ -982,6 +983,7 @@ export class World {
       rechargeChampion(state, this.tick);
       expireGarenQ(state, this.tick);
       if (state.leonaW) this.advanceLeonaEclipse(state);
+      if (state.leonaR) this.advanceLeonaSolarFlare(state);
       if (state.garenW && this.tick >= state.garenW.defenseUntil)
         this.finishGarenW(state, 'expired');
       if (
@@ -1040,6 +1042,7 @@ export class World {
           !state.pendingCast &&
           !state.leonaEWindup &&
           !state.leonaDash &&
+          !(state.leonaR && !state.leonaR.released) &&
           !state.garenE &&
           !this.committedLeonaQ(u) &&
           u.silenceUntil <= this.tick
@@ -1103,6 +1106,7 @@ export class World {
         }
         continue;
       }
+      if (state?.leonaR && !state.leonaR.released) continue;
       if (state?.pendingCast) {
         const cast = state.pendingCast;
         if (this.tick < cast.releaseTick) continue;
@@ -3336,7 +3340,11 @@ export class World {
       (kind !== 'cinders' &&
         kind !== 'smite' &&
         kind !== 'scorchclaw' &&
-        (kind === 'lucent' ? source.champion !== 'lux' : source.champion !== 'ashe')) ||
+        (kind === 'lucent'
+          ? source.champion !== 'lux'
+          : kind === 'solar-flare'
+            ? source.champion !== 'leona'
+            : source.champion !== 'ashe')) ||
       ![
         'frost',
         'critical-frost',
@@ -3345,7 +3353,13 @@ export class World {
         'cinders',
         'smite',
         'scorchclaw',
+        'solar-flare',
       ].includes(kind) ||
+      (kind === 'solar-flare' &&
+        (!this.championState(source.id)?.spellRanks.r ||
+          durationTicks !== Math.round(LEONA_SPELLS.r.crowdControlSeconds * TICK_RATE) ||
+          startMultiplier !== 1 - LEONA_SPELLS.r.slowFraction ||
+          endMultiplier !== startMultiplier)) ||
       (kind === 'scorchclaw' &&
         !this.companions.some(
           (p) =>
@@ -4482,6 +4496,42 @@ export class World {
       (1 - reduction)
     );
   }
+  private advanceLeonaSolarFlare(state: ChampionState): void {
+    const flare = state.leonaR!,
+      source = this.unit(state.id)!;
+    if (this.winner || (!this.alive(source) && this.tick < flare.releaseTick)) {
+      state.leonaR = null;
+      return;
+    }
+    if (this.tick >= flare.releaseTick) flare.released = true;
+    if (this.tick < flare.impactTick) return;
+    // Retire before damage/CC callbacks. Capture geometry for every participant
+    // before any hit can kill or displace another target.
+    state.leonaR = null;
+    const victims = this.units
+      .filter(
+        (target) =>
+          target.team !== source.team &&
+          this.alive(target) &&
+          this.vulnerable(target) &&
+          !isStructureKind(target.kind) &&
+          target.kind !== 'ward' &&
+          !(target.kind === 'monster' && target.monster.phase === 'returning') &&
+          distance(target, flare.point) <= LEONA_SPELLS.r.authoredOuterRadius + target.radius
+      )
+      .map((target) => ({
+        target,
+        center: distance(target, flare.point) <= LEONA_SPELLS.r.authoredInnerRadius + target.radius,
+      }))
+      .sort((a, b) => a.target.id - b.target.id);
+    const duration = Math.round(LEONA_SPELLS.r.crowdControlSeconds * TICK_RATE);
+    for (const { target, center } of victims) {
+      this.damage(source, target, flare.damage, 'magic', 'area');
+      this.applySunlight(source, target);
+      if (center) this.applyStun(target, duration);
+      else this.applySlow(source, target, 'solar-flare', duration, 1 - LEONA_SPELLS.r.slowFraction);
+    }
+  }
   private advanceLeonaEclipse(state: ChampionState): void {
     const eclipse = state.leonaW!,
       source = this.unit(state.id)!;
@@ -4795,6 +4845,7 @@ export class World {
           state.leonaW = null;
           state.leonaEWindup = null;
           state.leonaDash = null;
+          state.leonaR = null;
         }
         this.projectiles.length = 0;
         this.pendingAttackProjectiles.length = 0;
@@ -4837,6 +4888,10 @@ export class World {
         targetState.leonaW = null;
         targetState.leonaEWindup = null;
         targetState.leonaDash = null;
+        if (targetState.leonaR) {
+          if (this.tick < targetState.leonaR.releaseTick) targetState.leonaR = null;
+          else targetState.leonaR.released = true;
+        }
         finishGarenQPresentation(targetState, this.tick, 'death');
         this.finishGarenW(targetState, 'death');
         stopPerseveranceVisual(targetState, target, this.tick);
@@ -5024,6 +5079,7 @@ export class World {
       state.leonaW = null;
       state.leonaEWindup = null;
       state.leonaDash = null;
+      if (state.leonaR && !state.leonaR.released) state.leonaR = null;
       state.damageContributors = [];
       state.supportContributors = [];
       state.revealContributors = [];
@@ -5198,14 +5254,6 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'leona' && ability === 'r') {
-      this.emit('message', u, {
-        text: 'That Leona spell is still in development',
-        unit: u.id,
-        team: u.team,
-      });
-      return;
-    }
     const summoner = this.summonerSpell(ability, u.id);
     if (summoner === 'smite') {
       const target = targetId === undefined ? undefined : this.unit(targetId);
@@ -5301,12 +5349,40 @@ export class World {
       fail('Build 4 Focus with basic attacks');
       return;
     }
+    if (u.champion === 'leona' && ability === 'r') {
+      if (state.leonaR || state.leonaEWindup || this.committedLeonaQ(u)) return;
+      const dir = direction(u, point),
+        reach = Math.min(distance(u, point), LEONA_SPELLS.r.castRange);
+      state.leonaR = {
+        startTick: this.tick,
+        releaseTick: this.tick + LEONA_COMBAT_POLICY.solarWindupTicks,
+        impactTick: this.tick + LEONA_COMBAT_POLICY.solarImpactTicks,
+        released: false,
+        rank: state.spellRanks.r,
+        origin: { x: u.x, y: u.y },
+        point: { x: u.x + dir.x * reach, y: u.y + dir.y * reach },
+        damage: leonaSolarFlareValues(state.spellRanks.r, this.abilityPower(u)).magicDamage,
+      };
+      u.mana -= resources.mana;
+      state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      state.castAnimation = null;
+      if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
+      u.releaseTick = null;
+      u.attackTarget = null;
+      this.finishAttackPresentation(u, 'action');
+      u.attackCycle = null;
+      if (dir.x || dir.y) u.facing = Math.atan2(dir.x, dir.y);
+      this.emit('cast', u, { unit: u.id, champion: 'leona', text: 'r', team: u.team });
+      return;
+    }
     if (u.champion === 'leona' && ability === 'e') {
       const dir = direction(u, point);
       if (
         (!dir.x && !dir.y) ||
         this.committedLeonaQ(u) ||
         state.leonaEWindup ||
+        (state.leonaR && !state.leonaR.released) ||
         state.leonaDash ||
         this.projectiles.some((p) => p.type === 'zenith' && p.source === u.id)
       )

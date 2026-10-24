@@ -95,6 +95,22 @@
       "localObservation": "Provisional 2000-unit/s homing to near-side body contact, terrain traversal with reachable landing/interruption. Root/stun/Flash/target death end pursuit; orders buffer. Existing Daybreak can release without adding normal movement. Turret retaliation is retained.",
       "acceptance": "Native speed/landing/homing, terrain/displacement and interrupt traces, Flash overlap, Q/W timing, buffered commands, turret attack clocks and aggro near walls.",
       "tests": "tests/leona-zenith.test.ts"
+    },
+    {
+      "id": "LEONA-R-TIMING-001",
+      "status": "explicit-local-clocks-native-unmeasured",
+      "reference": "Root declares uncancellable windup and legacy spellCastTime=0.25 but no explicit mCastTime or impact delay. Named damage/CC/range values are exported; legacy on-hit and cherry fields remain excluded.",
+      "localObservation": "15-tick walking lock; fixed impact after 38 ticks (local 0.625s rounded up). Captured ground point/rank/AP, range clamp, Q/W and released E overlap. Death before release cancels; release-boundary/posthumous impacts persist.",
+      "acceptance": "Native cast-to-release/impact, interrupts, displacement/Flash, E/Q/W overlap, buffered input and death/respawn order before player acceptance.",
+      "tests": "tests/leona-solar.test.ts"
+    },
+    {
+      "id": "LEONA-R-COLLISION-VISION-001",
+      "status": "partial-adapter-native-unmeasured",
+      "reference": "Authored radii 120/300, 1.75-second control and 80% slow. mSpellRevealsChampion=false does not settle native area vision.",
+      "localObservation": "Pre-command impact, current positions, ID order, inclusive radius-plus-body overlap; center stun or outer slow; no LOS gate; no separate area vision. Shared shields/tenacity, source-owned Sunlight and ordinary neutral reset rules.",
+      "acceptance": "Native boundaries/target sampling, area/hit/caster reveal, spell shields, immunity, CC and monster aggro comparison. Correct or complete vision before full acceptance.",
+      "tests": "tests/leona-solar.test.ts"
     }
   ],
   "nativeBehaviorVerified": false,

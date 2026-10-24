@@ -206,11 +206,15 @@ def generate():
                                              castRange=missile['castRange'][0], projectToCastRange=True),
                                 cantCastWhileRooted=spell['cantCastWhileRooted'])
         if slot == 'r':
+            require(spell['spellCastTime'] == 0.25 and spell['mCantCancelWhileWindingUp'],
+                    'R cast declarations changed')
             require(calculations['ExplosionCalculatedDamage']['mFormulaParts'] == [
                 {'mDataValue': 'ExplosionBaseDamage', '__type': 'NamedDataValueCalculationPart'},
                 {'mDataValue': 'ExplosionAPRatio', '__type': 'StatByNamedDataValueCalculationPart'},
             ], 'R explosion calculation changed')
-            spells[slot].update(baseDamageByRank=by_rank('ExplosionBaseDamage'),
+            spells[slot].update(legacyCastSeconds=spell['spellCastTime'],
+                                castCannotCancelWindup=spell['mCantCancelWhileWindingUp'],
+                                baseDamageByRank=by_rank('ExplosionBaseDamage'),
                                 abilityPowerRatio=constant('ExplosionAPRatio'),
                                 slowFraction=constant('SlowPercent') / 100,
                                 crowdControlSeconds=constant('CCDuration'), castRange=spell['castRange'][0],

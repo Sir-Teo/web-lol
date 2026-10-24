@@ -130,6 +130,8 @@ export const LEONA_SPELLS = {
       75.0,
       60.0
     ],
+    "legacyCastSeconds": 0.25,
+    "castCannotCancelWindup": true,
     "baseDamageByRank": [
       150.0,
       225.0,

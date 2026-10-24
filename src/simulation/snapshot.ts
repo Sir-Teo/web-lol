@@ -111,7 +111,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 119;
+export const SNAPSHOT_VERSION = 120;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -336,6 +336,7 @@ const unit = z
               'critical-frost',
               'crystal-arrow',
               'lucent',
+              'solar-flare',
               'cinders',
               'smite',
               'scorchclaw',
@@ -724,6 +725,18 @@ const player: z.ZodType<PlayerState> = z
         rank: z.number().int().min(1).max(5),
         upfrontUntil: tick,
         defenseUntil: tick,
+      })
+      .nullable(),
+    leonaR: z
+      .strictObject({
+        startTick: tick,
+        releaseTick: tick,
+        impactTick: tick,
+        released: z.boolean(),
+        rank: z.number().int().min(1).max(3),
+        origin: point,
+        point,
+        damage: nonnegative,
       })
       .nullable(),
     leonaEWindup: z
@@ -2482,11 +2495,18 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         (slow.kind !== 'cinders' &&
           slow.kind !== 'smite' &&
           slow.kind !== 'scorchclaw' &&
-          source.champion !== (slow.kind === 'lucent' ? 'lux' : 'ashe')) ||
+          source.champion !==
+            (slow.kind === 'lucent' ? 'lux' : slow.kind === 'solar-flare' ? 'leona' : 'ashe')) ||
         target.deadAt !== null ||
         ['turret', 'inhibitor', 'nexus'].includes(target.kind) ||
         slow.startTick > state.tick ||
         slow.endTick <= state.tick ||
+        (slow.kind === 'solar-flare' &&
+          (![state.player, ...state.otherChampions].find((o) => o.id === source.id)?.spellRanks.r ||
+            slow.endTick - slow.startTick >
+              Math.round(LEONA_SPELLS.r.crowdControlSeconds * TICK_RATE) ||
+            slow.startMultiplier !== 1 - LEONA_SPELLS.r.slowFraction ||
+            slow.endMultiplier !== slow.startMultiplier)) ||
         (slow.kind === 'scorchclaw' &&
           (!state.companions.some(
             (p) =>
@@ -3024,6 +3044,28 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid Courage presentation.');
     }
     const garenQ = owner.garenQ;
+    const flare = owner.leonaR;
+    if (
+      flare &&
+      (champion.champion !== 'leona' ||
+        state.winner !== null ||
+        flare.rank > owner.spellRanks.r ||
+        flare.startTick > state.tick ||
+        flare.impactTick <= state.tick ||
+        flare.releaseTick !== flare.startTick + LEONA_COMBAT_POLICY.solarWindupTicks ||
+        flare.impactTick !== flare.startTick + LEONA_COMBAT_POLICY.solarImpactTicks ||
+        flare.released !== state.tick >= flare.releaseTick ||
+        Math.hypot(flare.point.x - flare.origin.x, flare.point.y - flare.origin.y) >
+          LEONA_SPELLS.r.castRange + 1e-6 ||
+        (!flare.released &&
+          (champion.deadAt !== null ||
+            owner.leonaEWindup ||
+            champion.releaseTick !== null ||
+            champion.attackCycle !== null ||
+            owner.recallEnd !== null)) ||
+        owner.pendingCast)
+    )
+      throw new Error('Saved match contains invalid Solar Flare state.');
     const zenith = owner.leonaEWindup;
     if (
       zenith &&

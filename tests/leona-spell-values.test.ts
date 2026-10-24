@@ -128,7 +128,12 @@ test('legacy child damage, retired-looking R on-hit fields and other-mode overri
     missile: { speed: 2000, authoredWidth: 70, castRange: 900, projectToCastRange: true },
   });
   expect(LEONA_SPELLS.w).toMatchObject({ displayRange: 450, authoredCastRadius: 500 });
-  expect(LEONA_SPELLS.r).toMatchObject({ authoredInnerRadius: 120, authoredOuterRadius: 300 });
+  expect(LEONA_SPELLS.r).toMatchObject({
+    authoredInnerRadius: 120,
+    authoredOuterRadius: 300,
+    legacyCastSeconds: 0.25,
+    castCannotCancelWindup: true,
+  });
 });
 
 test('progression preserves the AD conflict and converts AS growth and regeneration units once', () => {
