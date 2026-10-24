@@ -1,0 +1,512 @@
+{
+  "format": 1,
+  "date": "2026-10-24T05:56:06.027Z",
+  "scope": "CPU efficiency checkpoint within the unfinished full project; baseline includes preserved uncommitted Zenith kernel work. No simulation/content/public asset changed by this increment.",
+  "baselineCommit": "dc1265c08a76aa1dd2e1d0bf927698a24a8a8459",
+  "schema": 125,
+  "ruleset": "9dc8977c24e239714f3f97409f8a6bde24b073be88c72b6a1ae63e64a16519d3",
+  "sourceArchive": ".cache/energy-validation-v3-20261024/source-archive.json",
+  "nativeArchive": ".cache/energy-validation-v3-20261024/native-archive.json",
+  "evidence": [
+    {
+      "file": ".cache/energy-validation-v3-20261024/source-archive.json",
+      "bytes": 434517,
+      "sha256": "fd1e90530df8d2358da403a4df24b7061110d6c4f32abf70aff33a8eeba63935",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-validation-v3-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/energy-validation-v3-20261024/native-archive.json",
+      "bytes": 16844,
+      "sha256": "12339cff9279804b8dfc55b174d66829cf40f3368fe5e8d7082d0a93ef06f004",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-validation-v3-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/integrity.json",
+      "bytes": 1018,
+      "sha256": "311a49a7900750b99b40c16d9a9bdd65ddbf7a9d6879ab042e07a5f19691900e",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/integrity.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/generated-build-archive.json",
+      "bytes": 8539,
+      "sha256": "28eddbf5209d7550603757c34c7f03d253ca9575f96d1e535c54f4e634f1914f",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/generated-build-archive.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/finalize-evidence.mjs",
+      "bytes": 7471,
+      "sha256": "1277fbb0babaf3577df49a895ffd80b539a1050de6809011e48019920cefde3b",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/finalize-evidence.mjs"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/build.log",
+      "bytes": 3028,
+      "sha256": "cc66f03d080a09386746fc7702dc4f58161ad363270ad6217226ed3b9dbc6cb2",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/build.log"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/unit.log",
+      "bytes": 541,
+      "sha256": "3c66baabc09174e2d7f9cc66283460c1d0a6accc8f6836cd8fb5387fe3dd7ea6",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/unit.log"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/qa.log",
+      "bytes": 431,
+      "sha256": "885bce2880c8184ec27d2cb745b622098d79bbe8b521e0f029aa6bb409ed6f8c",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/qa.log"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/browser.log",
+      "bytes": 4167,
+      "sha256": "16dd9278fec6456d19435c9fbfa60dba7f0ade624d5baf038c13c9d8d916c5f4",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/browser.log"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production.json",
+      "bytes": 1865,
+      "sha256": "3c1fb86563e1301395e466191784c74bdd8057d7682c4ad03585f2eb2cbde191",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production.mjs",
+      "bytes": 22091,
+      "sha256": "ea596ed901ff09528b146e1f71e11d4a0c13b253e53ba3f3bab8bb9ad72059a8",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production.mjs"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production.stderr.log"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/offline.log",
+      "bytes": 687,
+      "sha256": "0226ad9feed4d986e2dba10fe21caee5995ab5ace99eb9149ee52d0d29595c68",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/offline.log"
+    },
+    {
+      "file": "artifacts/offline-pack-energy-v3-20261024-production.json",
+      "bytes": 649,
+      "sha256": "d8c044a5a5b5530acfe074a1ef11d85b5dd050002bea1a598098ca5c10b24427",
+      "archived": ".cache/energy-review-v3-20261024/artifacts/offline-pack-energy-v3-20261024-production.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/optimized.json",
+      "bytes": 2343,
+      "sha256": "b10a010382bcfaf5bcfae6a894ea8149476770cae647e32374919706b2f60e81",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/optimized.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/optimized.cpuprofile",
+      "bytes": 295587,
+      "sha256": "b513e5380f223a66f10a7850d5274a65ede473c292b76ada673c13da3ecf47e2",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/optimized.cpuprofile"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/optimized-summary.json",
+      "bytes": 15412,
+      "sha256": "729022dbdf05e03a4ce120964d1cd477792c8121f5d3d60a4ea5bdea7d91c2f0",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/optimized-summary.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/pose-pixel-comparison.json",
+      "bytes": 14541,
+      "sha256": "1f6e8857ea342dd06b8b50b3b5e12a5e9751ddf7ca8aa00d7e20825dd0347f58",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/pose-pixel-comparison.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/pose-pixel-comparison.log",
+      "bytes": 140,
+      "sha256": "f98e1a296a64849da520f872b4dfe572781db556166e2856caff7afce755b2f1",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/pose-pixel-comparison.log"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/browser/.last-run.json"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline.json",
+      "bytes": 2065,
+      "sha256": "6e13e207e9134d357d5488465e175955724d476c063a747e3c6221dd35a7e661",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline.json"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline.cpuprofile",
+      "bytes": 316881,
+      "sha256": "72c1f29907d0ff04f3ce3942292bc2194e79219c6e0111f5961cb23dcdbee33f",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline.cpuprofile"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline-summary.json",
+      "bytes": 15682,
+      "sha256": "320e6aa332e7da42a26aa784e437e282e2dd09618799924572d53154ed0ecaec",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline-summary.json"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "a3b37ad64a6033dc2e9ffcdc760bb19dff71262a554e8c6e0428cd309606e6fc",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/match.snapshot.json"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline-src/input.ts",
+      "bytes": 9386,
+      "sha256": "50a71c35521b643589e0f4677148247a27c36aeed69cde6c9643d90da0aa9c48",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline-src/input.ts"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline-src/lux-illumination.ts",
+      "bytes": 3101,
+      "sha256": "0c830bdfb272a781ea4a93d49607e036c0003c8b67110e0cc628ca96690add06",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline-src/lux-illumination.ts"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline-src/main.ts",
+      "bytes": 16521,
+      "sha256": "f4681874cf346462feea0979f595bba1883e6dc9847c389192926ba62e6fea50",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline-src/main.ts"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline-src/models.ts",
+      "bytes": 10566,
+      "sha256": "ef23e4a1bea657e600e2897018bd550bdc299f27882751c84691b77b093eefe8",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline-src/models.ts"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/baseline-src/view.ts",
+      "bytes": 47268,
+      "sha256": "8634288e5cbf89e4ec0206bc3228a22175eeb9b623c6acefb389af52db3d22a8",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/baseline-src/view.ts"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/browser-v1.log",
+      "bytes": 3380,
+      "sha256": "116e821749e6047ffe443eb6f8c20633465b0fb507c3f1dc1c1559cc39a62c10",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/browser-v1.log"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/pose-pixel-comparison-v1.json",
+      "bytes": 14378,
+      "sha256": "8f13683c73d73cbe941b08fc22c516f8f261be56f6f712215bef57a3f8f1baed",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/pose-pixel-comparison-v1.json"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/pose-pixel-comparison-v2.json",
+      "bytes": 14298,
+      "sha256": "c7e028e8d944d0aeefff0218d92decfdc9a3dfac951acdb7ee1bc6c9450829b1",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/pose-pixel-comparison-v2.json"
+    },
+    {
+      "file": ".cache/energy-v1-20261024/optimized.json",
+      "bytes": 2220,
+      "sha256": "3559292b6c4cafb1796196b78659592ece76dc5a72808896a021cf4551366966",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v1-20261024/optimized.json"
+    },
+    {
+      "file": ".cache/energy-v2-20261024/optimized.json",
+      "bytes": 2337,
+      "sha256": "1864dffe55de383ea963846f05438ab6fc921e8ec99ca08874fec65aab56a7a9",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v2-20261024/optimized.json"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811127,
+      "sha256": "e71ff6240823521d95d056e938d4a57756b69be1293a301944a4d07f7055b11f",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-companion-purchase.png"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832141,
+      "sha256": "eaa20fa1302a320110ef8edfcefe0d1d4c39e794cc49257865cf4733ecd88e5e",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829664,
+      "sha256": "9f2cff8af49ee1479236e7e468d02b7687b1d8945f9afcbe0fc93c49fc2e6ee4",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-lux-e-source.png"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-lux.png",
+      "bytes": 1804731,
+      "sha256": "c5385dd47bac6a0451d735f17db1f92aebce3171b65bd8b18ec2ba3d39a0ef24",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-lux.png"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-oracle.png",
+      "bytes": 1817163,
+      "sha256": "c3b14a255ca7cc7bcbf411fb73235fd62907d3e291647fd95d7d0c26dbdaac7f",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-oracle.png"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-role-match.png",
+      "bytes": 1346649,
+      "sha256": "36ceca3ed106094c08a8d58e1431f3fd7c0ada817910a363d8efc6a1d829f220",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-role-match.png"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-subpath.png",
+      "bytes": 1819988,
+      "sha256": "0ee4e4bf3db397aef44400666bd6c8607a913435ad99084cdd4cb8976f4d379c",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-subpath.png"
+    },
+    {
+      "file": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-ward.png",
+      "bytes": 1812940,
+      "sha256": "5a508d910107a4fca006d03c1a609e732f073a1f106bd36f33b78c771b15683a",
+      "archived": ".cache/energy-review-v3-20261024/.cache/energy-v3-20261024/production-images/lux-e-hit-production-ward.png"
+    },
+    {
+      "file": "artifacts/offline-pack-energy-v3-20261024-lux-lanes.png",
+      "bytes": 476434,
+      "sha256": "6e4292d2fa374c13378f71a756f76066bc52fc7d286105e3a6489ae87543353a",
+      "archived": ".cache/energy-review-v3-20261024/artifacts/offline-pack-energy-v3-20261024-lux-lanes.png"
+    },
+    {
+      "file": "artifacts/offline-pack-energy-v3-20261024-ready.png",
+      "bytes": 531370,
+      "sha256": "278280cbb793d491540da74be94182168d3a0cec9859748d0fe7b6122b2fcf6f",
+      "archived": ".cache/energy-review-v3-20261024/artifacts/offline-pack-energy-v3-20261024-ready.png"
+    },
+    {
+      "file": "docs/CPU-EFFICIENCY.md",
+      "bytes": 5332,
+      "sha256": "8aa40b43254f5e99baaaf53c364b1b1915d3149ab94927719528c771fd20b10b",
+      "archived": ".cache/energy-review-v3-20261024/docs/CPU-EFFICIENCY.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 555769,
+      "sha256": "97e5b6113560ea4a24a98cc398f37cf20242bbb33df5a00c98c979a9dd534921",
+      "archived": ".cache/energy-review-v3-20261024/docs/PROGRESS.md"
+    }
+  ],
+  "metrics": {
+    "baseline": {
+      "recordedAt": "2026-10-24T05:36:43.558Z",
+      "browser": "156.0.8078.47",
+      "platform": "darwin",
+      "cpu": "Apple M1",
+      "scope": "One headless Chrome, full Rift, exact 120-second ten-champion checkpoint, active CPU sampling separate from idle states; synthetic hidden retains RAF to test application guard. Renderer CPU does not measure heat, GPU, or total system energy.",
+      "snapshotSHA256": "a3b37ad64a6033dc2e9ffcdc760bb19dff71262a554e8c6e0428cd309606e6fc",
+      "sourceHashes": {
+        "src/main.ts": "f4681874cf346462feea0979f595bba1883e6dc9847c389192926ba62e6fea50",
+        "src/render/view.ts": "8634288e5cbf89e4ec0206bc3228a22175eeb9b623c6acefb389af52db3d22a8",
+        "src/render/models.ts": "ef23e4a1bea657e600e2897018bd550bdc299f27882751c84691b77b093eefe8",
+        "src/input/input.ts": "50a71c35521b643589e0f4677148247a27c36aeed69cde6c9643d90da0aa9c48",
+        "tools/qa/benchmark-energy.mjs": "23fb326bf13505cd08c343ae0a28ba40bfc0c3cd570c70c96b6510dfaf63596d"
+      },
+      "samples": [
+        {
+          "state": "active",
+          "renders": 317,
+          "renderMS": 4652.500000238419,
+          "mixers": 34987,
+          "hud": 101,
+          "audio": 317,
+          "steps": 369,
+          "startTick": 7236,
+          "endTick": 7605,
+          "wallSeconds": 6.27930699987337,
+          "rendererTaskSeconds": 6.105086,
+          "rendererScriptSeconds": 5.44425
+        },
+        {
+          "state": "paused",
+          "renders": 347,
+          "renderMS": 5913.6000010967255,
+          "mixers": 37476,
+          "hud": 108,
+          "audio": 347,
+          "steps": 0,
+          "startTick": 7607,
+          "endTick": 7607,
+          "wallSeconds": 6.19124300009571,
+          "rendererTaskSeconds": 6.041236999999999,
+          "rendererScriptSeconds": 5.883000999999999
+        },
+        {
+          "state": "hidden",
+          "renders": 358,
+          "renderMS": 5017.300003767014,
+          "mixers": 38664,
+          "hud": 106,
+          "audio": 358,
+          "steps": 0,
+          "startTick": 7607,
+          "endTick": 7607,
+          "wallSeconds": 6.00389500008896,
+          "rendererTaskSeconds": 5.259380999999999,
+          "rendererScriptSeconds": 5.123647999999999
+        }
+      ],
+      "errors": []
+    },
+    "final": {
+      "recordedAt": "2026-10-24T05:47:59.108Z",
+      "browser": "156.0.8078.47",
+      "platform": "darwin",
+      "cpu": "Apple M1",
+      "scope": "One headless Chrome, full Rift, exact 120-second ten-champion checkpoint, active CPU sampling separate from idle states; synthetic hidden retains RAF to test application guard. Renderer CPU does not measure heat, GPU, or total system energy.",
+      "snapshotSHA256": "a3b37ad64a6033dc2e9ffcdc760bb19dff71262a554e8c6e0428cd309606e6fc",
+      "sourceHashes": {
+        "src/main.ts": "cc915063b36443b8785d687323fc57c680a3216d957dd927711f202d9bfec768",
+        "src/render/view.ts": "2e2f04e95e1cc37d8dd3fc9fccf68b6e7661565ad44cfd3164ad5689a6d086c4",
+        "src/render/lux-illumination.ts": "c084a1fb5bca8d394f17db5e8f300261b711e516910a0ba8f47567f1e54dc367",
+        "src/render/models.ts": "ef23e4a1bea657e600e2897018bd550bdc299f27882751c84691b77b093eefe8",
+        "src/input/input.ts": "50a71c35521b643589e0f4677148247a27c36aeed69cde6c9643d90da0aa9c48",
+        "src/render/mobile-animation.ts": "ad5ac1073d3a02359bf93220b9e2d586ebf2cc1448c9449a334741009fd6c429",
+        "src/render/frame-pacer.ts": "451eacf8bbb3c6ec66c6ac0f0cf8a3d1d8da82530a4e241c9ca61ff45e4fb60e",
+        "tools/qa/benchmark-energy.mjs": "5246ac88d8ed68c76503731499b560ad134a5d336536a0f4b55ec87c519fd4d3"
+      },
+      "samples": [
+        {
+          "state": "active",
+          "renders": 322,
+          "renderMS": 4006.8000004291534,
+          "mixers": 25559,
+          "hud": 101,
+          "audio": 322,
+          "steps": 370,
+          "startTick": 7236,
+          "endTick": 7606,
+          "wallSeconds": 6.298082999885082,
+          "rendererTaskSeconds": 5.7059560000000005,
+          "rendererScriptSeconds": 4.942266999999999
+        },
+        {
+          "state": "paused",
+          "renders": 0,
+          "renderMS": 0,
+          "mixers": 0,
+          "hud": 0,
+          "audio": 0,
+          "steps": 0,
+          "startTick": 7608,
+          "endTick": 7608,
+          "wallSeconds": 6.003763000015169,
+          "rendererTaskSeconds": 0.02674500000000002,
+          "rendererScriptSeconds": 0.0001380000000006376
+        },
+        {
+          "state": "hidden",
+          "renders": 0,
+          "renderMS": 0,
+          "mixers": 0,
+          "hud": 0,
+          "audio": 0,
+          "steps": 0,
+          "startTick": 7608,
+          "endTick": 7608,
+          "wallSeconds": 6.003846999956295,
+          "rendererTaskSeconds": 0.0005410000000001247,
+          "rendererScriptSeconds": 0
+        }
+      ],
+      "errors": []
+    },
+    "pausedRendererCPUReductionPercent": 99.54346819516215,
+    "hiddenRendererCPUReductionPercent": 99.98971353615114,
+    "activeRendererCPUReductionPercent": 6.816296059213689,
+    "activeMeanRenderReductionPercent": 15.215849351617393
+  },
+  "validation": {
+    "typecheck": true,
+    "unitTests": 1765,
+    "unitFiles": 291,
+    "nodeQATests": 3,
+    "browserTests": 24,
+    "exactVisiblePoseAndFramebufferComparisons": 40,
+    "sourceAndArchivedIntegrity": true,
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": ".cache/energy-v3-20261024/production-images/lux-e-hit-production-subpath.png"
+    },
+    "offline": {
+      "manifest": {
+        "id": "0ed8d6d278bce1539191557327bff660de8f0658d069eb4d6702d4b4724caf8d",
+        "files": 939,
+        "bytes": 506611671
+      },
+      "checks": {
+        "integrityFailure": true,
+        "cancelRetainsVerified": true,
+        "retryWithoutRedownload": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 963,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    }
+  },
+  "limits": [
+    "Short instrumented CPU observations, concurrent unrelated browser profiling and variable system load; no physical heat, whole-machine energy, GPU utilization or display presentation measurement.",
+    "Full-match 60 FPS, broader browsers/devices, native fidelity and bundle-size gates remain open.",
+    "Victory retains its existing scheduled visual/audio tails; CPU reductions specifically establish non-terminal paused and hidden behavior."
+  ],
+  "projectGoalComplete": false
+}

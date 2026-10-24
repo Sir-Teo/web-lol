@@ -30,11 +30,11 @@ export class LuxIllumination {
     if (!textures) return;
     const active = new Set<string>();
     for (const target of world.units) {
+      const marks = target.illumination.filter((mark) => mark.endTick > world.tick);
+      if (!marks.length) continue;
       if (!world.alive(target) || !world.visible(target)) continue;
       const model = unitModels.get(target.id);
       if (!model?.root.visible) continue;
-      const marks = target.illumination.filter((mark) => mark.endTick > world.tick);
-      if (!marks.length) continue;
       if (!this.attachments.has(model)) this.attachments.set(model, luxHitBone(model.root, false));
       const attachment = this.attachments.get(model);
       if (attachment) attachment.getWorldPosition(this.center);

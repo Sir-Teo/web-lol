@@ -23,6 +23,7 @@ import { structureModelMatrix } from './structure-transform';
 import { structurePose } from './structure-pose';
 import { structureAnimationProfile } from '../content/structure-animation';
 import { advanceAnimationTimeline, animationLayers } from '../simulation/animation-timeline';
+import { applyMobileAnimation } from './mobile-animation';
 import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
 import { LazyGarenBasicAttacks } from './lazy-garen-basic-attacks';
@@ -584,10 +585,22 @@ export class GameView {
       const deathAge =
         u.deadAt === null ? 0 : Math.max(0, (world.tick - u.deadAt + alpha - 1) / 60) + terminalAge;
       const knownDestroyed = world.knownStructureDestroyed(u);
+      const visible = world.visible(u);
       model.root.visible =
         knownDestroyed !== null ||
-        (world.visible(u) &&
+        (visible &&
           (isStructureKind(u.kind) || u.deadAt === null || deathAge < deathDuration + 0.2));
+      if (!model.root.visible) {
+        // Three propagates matrices through invisible children too. Retain the
+        // rig in the model cache, outside the scene traversal until it is seen.
+        this.scene.remove(model.root);
+        const bar = this.healthBars.get(u.id);
+        if (bar && !bar.hidden) bar.hidden = true;
+        // The saved timeline supplies absolute pose/blend clocks on reveal.
+        // Hidden actors cannot cast shadows or supply visible buff attachments.
+        continue;
+      }
+      if (model.root.parent !== this.scene) this.scene.add(model.root);
       const x = lerp(u.previous.x, u.x, alpha),
         y = lerp(u.previous.y, u.y, alpha);
       if (!u.structureTransform) {
@@ -683,35 +696,12 @@ export class GameView {
         );
         const at = world.tick - 1 + alpha + (pose.kind === 'death' ? terminalAge * 60 : 0);
         const layers = animationLayers(timeline, at, model.clipDurations);
-        model.mixer.stopAllAction();
-        const primary = model.actions[pose.clip];
-        primary
-          .reset()
-          .setLoop(pose.loop ? THREE.LoopRepeat : THREE.LoopOnce, pose.loop ? Infinity : 1)
-          .setEffectiveWeight(0)
-          .play();
-        primary.time = pose.time;
-        primary.paused = true;
-        primary.clampWhenFinished = !pose.loop;
-        primary.timeScale = pose.kind === 'attack' ? pose.rate : 1;
-        for (const layer of layers) {
-          const action = model.actions[layer.clip];
-          action
-            .reset()
-            .setLoop(layer.loop ? THREE.LoopRepeat : THREE.LoopOnce, layer.loop ? Infinity : 1)
-            .setEffectiveWeight(layer.weight)
-            .play();
-          action.time = layer.time;
-          action.paused = true;
-          action.clampWhenFinished = !layer.loop;
-          action.timeScale = layer.rate;
-        }
+        applyMobileAnimation(model.mixer, model.actions, pose, layers);
         model.actionName = pose.clip;
         if (pose.kind === 'attack') model.animationAttackTick = u.attackCycle!.startTick;
-        model.mixer.update(0);
       }
 
-      this.updateBar(u, world, { x, y });
+      this.updateBar(u, world, { x, y }, visible);
     }
     for (const [id, model] of this.models)
       if (!present.has(id)) {
@@ -828,7 +818,7 @@ export class GameView {
     if (label.width <= 0 || label.height <= 0) return undefined;
     return { label, viewport: this.renderer.domElement.getBoundingClientRect() };
   }
-  private updateBar(u: Unit, world: World, p: Vec2): void {
+  private updateBar(u: Unit, world: World, p: Vec2, visible: boolean): void {
     let bar = this.healthBars.get(u.id);
     if (!bar) {
       bar = document.createElement('div');
@@ -850,7 +840,7 @@ export class GameView {
       u.structureTransform ? u : p,
       unitBarHeight(u, this.models.get(u.id))
     );
-    const hidden = !world.alive(u) || !world.visible(u) || !screen.visible;
+    const hidden = !world.alive(u) || !visible || !screen.visible;
     if (bar.hidden !== hidden) bar.hidden = hidden;
     if (bar.hidden) return;
     if (bar.classList.contains('small-monster'))

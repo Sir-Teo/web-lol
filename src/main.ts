@@ -24,6 +24,7 @@ import { loadOracleLens } from './render/oracle-lens';
 import { swapTrinket, trinketSwapError } from './simulation/trinkets';
 import { companionItemKind } from './content/companion-items-policy';
 import { GameView } from './render/view';
+import { FramePacer } from './render/frame-pacer';
 import { Hud } from './ui/hud';
 import { loadInterfaceFonts } from './ui/fonts';
 import { GameInput } from './input/input';
@@ -122,6 +123,7 @@ async function boot(): Promise<void> {
     previous = performance.now(),
     elapsed = 0;
   let input: GameInput | undefined;
+  let requestFrame = () => {};
   const setPaused = (value: boolean) => {
     paused = value || document.hidden || !!hud.graphicsState;
     hud.paused = paused;
@@ -131,6 +133,7 @@ async function boot(): Promise<void> {
     previous = performance.now();
     // Release unfinished gestures; accepted commands belong to the frozen match state.
     if (paused) input?.release();
+    requestFrame();
   };
   const hud = new Hud(host, world, view, {
     pause: setPaused,
@@ -288,6 +291,7 @@ async function boot(): Promise<void> {
   window.addEventListener('blur', pauseForInterruption);
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) pauseForInterruption();
+    else requestFrame();
   });
   if (document.hidden) pauseForInterruption();
   if (restored || saveNotice) {
@@ -356,11 +360,19 @@ async function boot(): Promise<void> {
     frameTime = 0,
     fps = 60,
     uiElapsed = 0;
-  view.renderer.setAnimationLoop(() => {
-    if (hud.graphicsState) {
+  const pacer = new FramePacer();
+  let loopRunning = false;
+  const stopLoop = () => {
+    view.renderer.setAnimationLoop(null);
+    loopRunning = false;
+  };
+  const frame = (timestamp: number) => {
+    if (document.hidden || hud.graphicsState) {
+      stopLoop();
       previous = performance.now();
       return;
     }
+    if (!pacer.ready(timestamp)) return;
     const now = performance.now(),
       dt = Math.min((now - previous) / 1000, 0.1);
     previous = now;
@@ -386,27 +398,22 @@ async function boot(): Promise<void> {
     view.render(world, paused ? 1 : accumulator / DT, elapsed);
     input!.updateHover();
     uiElapsed += dt;
-    if (uiElapsed >= 0.05) {
+    if (uiElapsed >= 0.05 || paused) {
       hud.update(fps);
       uiElapsed = 0;
     }
+    const audibleProjectiles = world.projectiles.filter((p) => world.projectileVisible(p));
+    const audibleScouts = world.scoutVisuals.filter(
+      (effect) => effect.team === 'blue' || world.pointVisible(effect, 'blue')
+    );
     audio.updateBindingFlight(
-      world.projectiles.filter((p) => world.projectileVisible(p)),
+      audibleProjectiles,
       world.bindingStops.filter((s) => s.team === 'blue' || world.pointVisible(s.point, 'blue')),
       world.tick,
       view.center
     );
-    audio.updateFlight(
-      world.projectiles.filter((p) => world.projectileVisible(p)),
-      world.scoutVisuals.filter((e) => e.team === 'blue' || world.pointVisible(e, 'blue')),
-      world.tick
-    );
-    audio.updateLinger(
-      world.scoutVisuals.filter(
-        (effect) => effect.team === 'blue' || world.pointVisible(effect, 'blue')
-      ),
-      world.tick
-    );
+    audio.updateFlight(audibleProjectiles, audibleScouts, world.tick);
+    audio.updateLinger(audibleScouts, world.tick);
     audio.updateLuxE(world, view.center);
     audio.updateOracle(world, view.center);
     audio.updateGaren(world, view.center);
@@ -416,7 +423,24 @@ async function boot(): Promise<void> {
       world.tick,
       view.center
     );
-  });
+    if (paused && !world.winner) stopLoop();
+  };
+  requestFrame = () => {
+    if (document.hidden || hud.graphicsState) {
+      if (loopRunning) stopLoop();
+      return;
+    }
+    if (loopRunning) return;
+    previous = performance.now();
+    pacer.reset();
+    loopRunning = true;
+    view.renderer.setAnimationLoop(frame);
+  };
+  // A paused frame is static. Paint once after an interaction or resize, then
+  // sleep again; menus and asynchronous DOM feedback retain their own events.
+  for (const event of ['resize', 'click', 'keydown', 'keyup', 'wheel'])
+    window.addEventListener(event, () => requestFrame());
+  requestFrame();
   if (import.meta.env.DEV) {
     Object.assign(window, {
       __GAME__: {

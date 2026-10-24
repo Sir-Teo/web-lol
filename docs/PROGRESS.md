@@ -5226,3 +5226,39 @@ See [Zenith histories](LEONA-E-HISTORY.md) and the
 materials/audio, native comparison, R presentation, complete player/support
 integration, all six champions and the full match/browser/performance gates remain
 required. Nothing is pushed; the full project goal remains active.
+
+## CPU efficiency and sleeping paused scenes — October 24, 2026
+
+Performance work takes priority over the next feature after the reported CPU heat.
+The render loop now sleeps while a non-terminal match is paused or hidden, wakes
+once for paused interaction/resize/recovery and requires explicit resume after
+visibility loss. Active presentation is bounded to 60 Hz without changing the
+fixed simulation clock. Stable ordered animation blends retain their bindings;
+hidden rigs retain their cached state outside scene traversal and reconstruct
+the current pose on reveal. Actor/bar visibility and audio filters avoid repeated
+queries. Empty Illumination marks no longer trigger vision queries. Vitest defaults
+to two workers, and browser/delivery checks run serially.
+
+An exact restored ten-champion Rift checkpoint shows zero paused/hidden renders,
+with normalized renderer task CPU down 99.54%/99.99%. The final instrumented active
+render mean is 12.44 ms versus 14.68 ms before; active renderer task CPU per wall
+second falls 6.8%. These short observations include variable concurrent system
+load and do not measure temperature or certify full-match performance. Another
+project's software-rendered browser profiling was observed and left alone.
+
+The production build, 1,765 unit cases/291 files, three Node QA cases and 24 Chrome
+cases pass. Forty frozen original/current comparisons match every framebuffer
+byte and visible bone matrix through blends, hidden/reveal, attack, death and
+respawn. Nested production hosting passes with 32 recordings; the fresh offline
+audit passes 939 files/506,611,671 bytes and all controls with zero errors. Pack ID
+is `0ed8d6d278bce1539191557327bff660de8f0658d069eb4d6702d4b4724caf8d`.
+
+Final validation freezes 1,588 inputs and preserves earlier failures, source and
+CPU observations. The prior uncommitted Zenith particle kernels are retained;
+no simulation, content or public asset changes belong to this performance work.
+Schema 125 and the in-progress ruleset
+`9dc8977c24e239714f3f97409f8a6bde24b073be88c72b6a1ae63e64a16519d3` remain unchanged.
+See [CPU efficiency](CPU-EFFICIENCY.md) and its
+[evidence record](reference/cpu-efficiency-verification.json). Bundle-size,
+full-match/device/browser and native fidelity gates remain open. Nothing is
+pushed; the full project goal remains active.
