@@ -1,0 +1,3123 @@
+[
+  {
+    "system": "Leona_Q_cas",
+    "role": "cast",
+    "index": 0,
+    "name": "outerring",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_z_lens-halo-sun.png",
+    "lookup": "assets/effects/leona_base_z_color-rampdown.png",
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": null,
+    "emitterLinger": 0,
+    "linger": 10.0,
+    "life": {
+      "value": [
+        1.0
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        130.0,
+        130.0,
+        130.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthScale0",
+      "emitterName",
+      "importance",
+      "isUniformScale",
+      "meshRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_cas",
+    "role": "cast",
+    "index": 1,
+    "name": "pinwheel-cw",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_z_pinwheel.png",
+    "lookup": "assets/effects/leona_base_z_color-bellramp.png",
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 2.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 10.0,
+    "emitterLinger": 0,
+    "linger": 0,
+    "life": {
+      "value": [
+        3
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        200.0,
+        200.0,
+        200.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spin": {
+      "value": [
+        30.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1.0,
+      0.10000000149011612
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthRotationalVelocity0",
+      "birthScale0",
+      "colorLookUpScales",
+      "colorLookUpTypeY",
+      "emitterName",
+      "importance",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleColorTexture",
+      "rate",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_cas",
+    "role": "cast",
+    "index": 2,
+    "name": "pinwheel-ccw",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_z_pinwheel.png",
+    "lookup": "assets/effects/leona_base_z_color-bellramp.png",
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 2.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 10.0,
+    "emitterLinger": 0,
+    "linger": 0,
+    "life": {
+      "value": [
+        3
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        200.0,
+        200.0,
+        200.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spin": {
+      "value": [
+        -30.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1.0,
+      0.10000000149011612
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthRotationalVelocity0",
+      "birthScale0",
+      "colorLookUpScales",
+      "colorLookUpTypeY",
+      "emitterName",
+      "importance",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleColorTexture",
+      "rate",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_cas",
+    "role": "cast",
+    "index": 3,
+    "name": "heart",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_z_flare-fire.png",
+    "lookup": "assets/effects/leona_base_z_color-bellcurve.png",
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 2.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": null,
+    "emitterLinger": 0,
+    "linger": 1.0,
+    "life": {
+      "value": [
+        3
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "emitterName",
+      "importance",
+      "isUniformScale",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleColorTexture",
+      "particleLinger",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_cas",
+    "role": "cast",
+    "index": 4,
+    "name": "heart-instant-on",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_z_flare-fire.png",
+    "lookup": "assets/effects/leona_base_z_color-rampdown.png",
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 2.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 0,
+    "life": {
+      "value": [
+        2.0
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "emitterName",
+      "importance",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_cas",
+    "role": "cast",
+    "index": 5,
+    "name": "glow",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_z_sowflash.png",
+    "lookup": null,
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 0,
+    "life": {
+      "value": [
+        6.0
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1.0,
+      0.5
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "colorLookUpScales",
+      "emitterName",
+      "importance",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleLifetime",
+      "rate",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 0,
+    "name": "flash",
+    "disabled": true,
+    "texture": "assets/effects/leona_base_z_shadow_step_12.png",
+    "lookup": null,
+    "kind": "quad",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 0.11999999731779099,
+    "emitterLinger": 0,
+    "linger": 10.0,
+    "life": {
+      "value": [
+        0.15000000596046448
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0.0,
+        80.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        408.0,
+        408.0,
+        408.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        -90.0,
+        45.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": false,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 0,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "EmitterPosition",
+      "__type",
+      "bindWeight",
+      "birthRotation0",
+      "birthScale0",
+      "disabled",
+      "emitterName",
+      "importance",
+      "isLocalOrientation",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 1,
+    "name": "nova",
+    "disabled": true,
+    "texture": "assets/effects/leona_base_z_ring_gold_04.png",
+    "lookup": "assets/effects/leona_base_z_color-rampdown.png",
+    "kind": "quad",
+    "ground": true,
+    "terrain": true,
+    "navmesh": false,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 10.0,
+    "life": {
+      "value": [
+        0.6000000238418579
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.5,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": 0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        220.0,
+        220.0,
+        220.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        -90.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": false,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 0,
+    "renderOrder": 0,
+    "miscRenderFlags": 3,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "disabled",
+      "emitterName",
+      "isFollowingTerrain",
+      "isGroundLayer",
+      "isLocalOrientation",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 2,
+    "name": "FlashCoreHot",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_q_flash_2.png",
+    "lookup": null,
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 2.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 0.3499999940395355,
+    "emitterLinger": 1.0,
+    "linger": 0,
+    "life": {
+      "value": [
+        0.15000000596046448
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0.0,
+        100.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        120.0,
+        250.0,
+        250.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.4000000059604645,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.5,
+          1.5,
+          1.5
+        ],
+        [
+          3.0,
+          3.0,
+          3.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1.0,
+        0.8705882430076599,
+        0.6470588445663452,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        0.8999999761581421,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.8549019694328308,
+          0.6196078658103943,
+          1.0
+        ],
+        [
+          1.0,
+          0.6392157077789307,
+          0.13333334028720856,
+          1.0
+        ],
+        [
+          1.0,
+          0.3490196168422699,
+          0.0470588244497776,
+          1.0
+        ],
+        [
+          1.0,
+          0.10980392247438431,
+          0.0313725508749485,
+          0.0
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "renderOrder": 1,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "Color",
+      "SpawnShape",
+      "__type",
+      "bindWeight",
+      "birthColor",
+      "birthScale0",
+      "blendMode",
+      "emitterLinger",
+      "emitterName",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "miscRenderFlags",
+      "particleLifetime",
+      "pass",
+      "rate",
+      "scale0",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 3,
+    "name": "Sparkles",
+    "disabled": false,
+    "texture": "assets/effects/base_brightspark_11.png",
+    "lookup": "assets/effects/leona_base_flicker_04.png",
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 10.0,
+    "single": true,
+    "delay": 0.10000000149011612,
+    "emitterLife": 0.30000001192092896,
+    "emitterLinger": 0,
+    "linger": 1.0,
+    "life": {
+      "value": [
+        0.5
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            0.8999999761581421,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0,
+            1.5
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": 0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0.0,
+        100.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        150.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "axes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000001192092896
+      ]
+    ],
+    "velocity": {
+      "value": [
+        300.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0.0,
+        200.0,
+        0.0
+      ],
+      "probabilities": []
+    },
+    "size": {
+      "value": [
+        100.0,
+        65.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            0.8999999761581421,
+            1.0
+          ],
+          "values": [
+            0.30000001192092896,
+            1.0,
+            2.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.10000000149011612,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            360.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "spin": {
+      "value": [
+        -300.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.8117647171020508,
+          0.364705890417099,
+          1.0
+        ],
+        [
+          1.0,
+          0.33725491166114807,
+          0.0313725508749485,
+          1.0
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      3
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "renderOrder": 5,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "SpawnShape",
+      "__type",
+      "birthDrag",
+      "birthRotation0",
+      "birthRotationalVelocity0",
+      "birthScale0",
+      "birthVelocity",
+      "blendMode",
+      "colorLookUpTypeY",
+      "emitterName",
+      "isRandomStartFrame",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "miscRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "rate",
+      "scale0",
+      "texture",
+      "timeBeforeFirstEmission",
+      "worldAcceleration"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 4,
+    "name": "ant_dark",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_q_dust.png",
+    "lookup": "assets/effects/leona_base_q_color-alphabend32.png",
+    "kind": "quad",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 0.5,
+    "life": {
+      "value": [
+        0.5
+      ],
+      "probabilities": null
+    },
+    "bind": 0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        149.99998474121094,
+        329.9999694824219,
+        329.9999694824219
+      ],
+      "probabilities": []
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.30000001192092896,
+        1.100000023841858
+      ],
+      "values": [
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.100000023841858,
+          1.100000023841858,
+          1.100000023841858
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        -90.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": false,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.42000457644462585,
+          0.3499961793422699,
+          0.25999847054481506,
+          0.6299992203712463
+        ],
+        [
+          0.42000457644462585,
+          0.3499961793422699,
+          0.25999847054481506,
+          0.6299992203712463
+        ],
+        [
+          0.42000457644462585,
+          0.3499961793422699,
+          0.25999847054481506,
+          0.0
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 1,
+    "keywords": [],
+    "explicitFields": [
+      "Color",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "blendMode",
+      "colorRenderFlags",
+      "emitterName",
+      "importance",
+      "isLocalOrientation",
+      "isSingleParticle",
+      "isUniformScale",
+      "lifetime",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleColorTexture",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture",
+      "useEmissionMeshNormalForBirth"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 5,
+    "name": "heart",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_sun_flare.png",
+    "lookup": null,
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 1.0,
+    "single": true,
+    "delay": 0,
+    "emitterLife": 1.0,
+    "emitterLinger": 0,
+    "linger": 0,
+    "life": {
+      "value": [
+        0.20000000298023224
+      ],
+      "probabilities": null
+    },
+    "bind": 1.0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0.0,
+        100.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        200.0,
+        100.0,
+        10.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    "uniform": false,
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1.0,
+        0.3686274588108063,
+        0.054901961237192154,
+        1.0
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "Color",
+      "SpawnShape",
+      "__type",
+      "bindWeight",
+      "birthColor",
+      "birthScale0",
+      "blendMode",
+      "emitterName",
+      "importance",
+      "isSingleParticle",
+      "lifetime",
+      "meshRenderFlags",
+      "miscRenderFlags",
+      "particleLifetime",
+      "rate",
+      "texture"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 6,
+    "name": "trigger_",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_q_stun_groundsigil.png",
+    "lookup": null,
+    "kind": "quad",
+    "ground": true,
+    "terrain": false,
+    "navmesh": true,
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 0.25,
+    "emitterLinger": 0,
+    "linger": 1.25,
+    "life": {
+      "value": [
+        1.25
+      ],
+      "probabilities": null
+    },
+    "bind": 0,
+    "boundScale": 0.0010000000474974513,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        100.0,
+        2.313999891281128,
+        2.313999891281128
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          1.5,
+          0.0,
+          0.0
+        ],
+        [
+          1.600000023841858,
+          1.5,
+          1.5
+        ],
+        [
+          1.600000023841858,
+          1.600000023841858,
+          1.600000023841858
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        90.0,
+        -90.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": false,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          0.1882352977991104,
+          0.09215701371431351,
+          0.03866636008024216,
+          0.0
+        ],
+        [
+          0.1882352977991104,
+          0.09803921729326248,
+          0.06666667014360428,
+          0.5490196347236633
+        ],
+        [
+          0.1882352977991104,
+          0.09803921729326248,
+          0.06666667014360428,
+          0.5490196347236633
+        ],
+        [
+          0.1033448725938797,
+          0.05382545292377472,
+          0.03660130873322487,
+          0.0
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 1,
+    "renderOrder": 0,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [
+      "BattlebunnyRiven",
+      "Season2Riven",
+      "RivenSkin05"
+    ],
+    "explicitFields": [
+      "Color",
+      "FlexShapeDefinition",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "blendMode",
+      "emitterName",
+      "filtering",
+      "importance",
+      "isGroundLayer",
+      "isLocalOrientation",
+      "isUniformScale",
+      "lifetime",
+      "miscRenderFlags",
+      "particleLifetime",
+      "particleLinger",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture",
+      "useNavmeshMask"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 7,
+    "name": "trigger_1",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_q_stun_groundsigil.png",
+    "lookup": null,
+    "kind": "quad",
+    "ground": true,
+    "terrain": false,
+    "navmesh": true,
+    "rate": 1.0,
+    "single": false,
+    "delay": 0,
+    "emitterLife": 0.25,
+    "emitterLinger": 0,
+    "linger": 0,
+    "life": {
+      "value": [
+        0.20000000298023224
+      ],
+      "probabilities": null
+    },
+    "bind": 0,
+    "boundScale": 0.0010000000474974513,
+    "position": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "angles": [],
+    "axes": [],
+    "velocity": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "size": {
+      "value": [
+        100.0,
+        2.313999891281128,
+        2.313999891281128
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.20000000298023224,
+        1.0
+      ],
+      "values": [
+        [
+          0.800000011920929,
+          0.0,
+          0.0
+        ],
+        [
+          1.5,
+          1.5,
+          1.5
+        ],
+        [
+          1.600000023841858,
+          1.600000023841858,
+          1.600000023841858
+        ]
+      ]
+    },
+    "uniform": true,
+    "rotation": {
+      "value": [
+        90.0,
+        -90.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": false,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20446735620498657,
+        0.3848797380924225,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.9333333373069763,
+          0.6666666865348816,
+          1.0
+        ],
+        [
+          1.0,
+          0.9019607901573181,
+          0.5411764979362488,
+          1.0
+        ],
+        [
+          1.0,
+          0.6117647290229797,
+          0.2235294133424759,
+          1.0
+        ],
+        [
+          1.0,
+          0.24705882370471954,
+          0.019607843831181526,
+          0.0
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "renderOrder": 10,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [
+      "BattlebunnyRiven",
+      "Season2Riven",
+      "RivenSkin05"
+    ],
+    "explicitFields": [
+      "Color",
+      "FlexShapeDefinition",
+      "__type",
+      "birthRotation0",
+      "birthScale0",
+      "blendMode",
+      "emitterName",
+      "filtering",
+      "importance",
+      "isGroundLayer",
+      "isLocalOrientation",
+      "isUniformScale",
+      "lifetime",
+      "miscRenderFlags",
+      "particleLifetime",
+      "pass",
+      "primitive",
+      "rate",
+      "scale0",
+      "texture",
+      "useNavmeshMask"
+    ]
+  },
+  {
+    "system": "Leona_Q_tar",
+    "role": "hit",
+    "index": 8,
+    "name": "SparksBurst",
+    "disabled": false,
+    "texture": "assets/effects/leona_base_q_stardust.png",
+    "lookup": null,
+    "kind": "billboard",
+    "ground": false,
+    "terrain": false,
+    "navmesh": false,
+    "rate": 50.0,
+    "single": false,
+    "delay": 0.07999999821186066,
+    "emitterLife": 0.10000000149011612,
+    "emitterLinger": 0,
+    "linger": 10.5,
+    "life": {
+      "value": [
+        0.4000000059604645
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.8999999761581421,
+            1.0
+          ],
+          "single": 1
+        }
+      ]
+    },
+    "bind": 0,
+    "boundScale": null,
+    "position": {
+      "value": [
+        0.0,
+        100.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "spawn": {
+      "value": [
+        150.0,
+        0.0,
+        0.0
+      ],
+      "probabilities": [
+        {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.20000000298023224,
+            1.0
+          ],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        },
+        {
+          "times": [],
+          "values": [],
+          "single": 1
+        }
+      ]
+    },
+    "angles": [
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      {
+        "value": [
+          1.0
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          }
+        ]
+      }
+    ],
+    "axes": [
+      [
+        0.0,
+        1.0000001192092896,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000001192092896
+      ]
+    ],
+    "velocity": {
+      "value": [
+        300.0,
+        1.0,
+        0.0
+      ],
+      "probabilities": null
+    },
+    "drag": {
+      "value": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "probabilities": null
+    },
+    "acceleration": {
+      "value": [
+        0.0,
+        200.0,
+        0.0
+      ],
+      "probabilities": []
+    },
+    "size": {
+      "value": [
+        50.0,
+        5.0,
+        9.0
+      ],
+      "probabilities": null
+    },
+    "scale": {
+      "times": [
+        0.0,
+        0.3499999940395355,
+        0.5,
+        1.0
+      ],
+      "values": [
+        [
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.800000011920929,
+          1.2000000476837158,
+          1.0
+        ],
+        [
+          0.6000000238418579,
+          0.5,
+          1.0
+        ],
+        [
+          0.10000000149011612,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "uniform": false,
+    "rotation": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "spin": {
+      "value": [
+        0,
+        0,
+        0
+      ],
+      "probabilities": null
+    },
+    "local": true,
+    "birthColor": {
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "probabilities": null
+    },
+    "color": {
+      "times": [
+        0.0,
+        0.20446735620498657,
+        0.3848797380924225,
+        0.5,
+        0.800000011920929
+      ],
+      "values": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.9333333373069763,
+          0.6666666865348816,
+          1.0
+        ],
+        [
+          1.0,
+          0.9019607901573181,
+          0.5411764979362488,
+          1.0
+        ],
+        [
+          1.0,
+          0.7490196228027344,
+          0.4588235318660736,
+          1.0
+        ],
+        [
+          0.3294117748737335,
+          0.25882354378700256,
+          0.09803921729326248,
+          0.0
+        ]
+      ]
+    },
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "lookupScales": [
+      1,
+      1
+    ],
+    "lookupOffsets": [
+      0,
+      0
+    ],
+    "blend": 4,
+    "renderOrder": 8,
+    "miscRenderFlags": 1,
+    "colorRenderFlags": 0,
+    "keywords": [],
+    "explicitFields": [
+      "Color",
+      "EmitterPosition",
+      "SpawnShape",
+      "__type",
+      "birthDrag",
+      "birthFrameRate",
+      "birthScale0",
+      "birthVelocity",
+      "blendMode",
+      "directionVelocityScale",
+      "emitterName",
+      "lifetime",
+      "miscRenderFlags",
+      "particleLifetime",
+      "particleLinger",
+      "pass",
+      "rate",
+      "scale0",
+      "texture",
+      "timeBeforeFirstEmission",
+      "worldAcceleration"
+    ]
+  }
+]

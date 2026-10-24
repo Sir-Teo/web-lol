@@ -134,6 +134,17 @@
         "tests/sunlight-presentation.test.ts",
         "e2e/sunlight.spec.ts"
       ]
+    },
+    {
+      "id": "LEONA-Q-PRESENTATION-001",
+      "status": "thirteen-enabled-source-families-local-adapter-native-unmeasured",
+      "reference": "Two frozen Q systems retain fifteen emitters and seventeen TEX dependencies. Two impact emitters are disabled. The active set has six shield and seven contact families, including delayed sparks, navigation-mask declarations and excluded sigil keywords.",
+      "localObservation": "Accepted activation records the source shield system. Confirmed empowered contact records a separate posed target history. Shield-mid/centre attachments, source-first-update convention, fixed cosmetic draws, stepped drag and draw-time acceleration are local reconstruction policies. Ground sigils project to height field and use a conservative walkability mask. Collision diameter supplies bound-size scaling. Type-zero stops cap lives. Saved ownership, rank, clocks, stop/death/recast phases, poses and audiences remain strict; no gameplay IDs/RNG consumed.",
+      "acceptance": "Native script dispatch/attachments, lifetime/defaults/stop behavior, bound-size and navigation-mask semantics, nonzero color-render flags, cadence/PRNG, framebuffer/shading and named source audio remain open.",
+      "tests": [
+        "tests/leona-q-presentation.test.ts",
+        "e2e/leona-q-particles.spec.ts"
+      ]
     }
   ],
   "nativeBehaviorVerified": false,

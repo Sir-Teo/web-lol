@@ -1,0 +1,2222 @@
+{
+  "resources": {
+    "Leona_Q_cas": {
+      "sourceBin": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3.bin",
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_Q_cas",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 10.0,
+            "emitterName": "outerring",
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_color-rampdown.tex",
+            "meshRenderFlags": 0,
+            "isUniformScale": 1,
+            "birthScale0": {
+              "constantValue": [
+                130.0,
+                130.0,
+                130.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_lens-halo-sun.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 10.0,
+            "emitterName": "pinwheel-cw",
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_color-bellramp.tex",
+            "meshRenderFlags": 0,
+            "colorLookUpTypeY": 3,
+            "colorLookUpScales": [
+              1.0,
+              0.10000000149011612
+            ],
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthRotationalVelocity0": {
+              "constantValue": [
+                30.0,
+                0.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                200.0,
+                200.0,
+                200.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_pinwheel.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 10.0,
+            "emitterName": "pinwheel-ccw",
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_color-bellramp.tex",
+            "meshRenderFlags": 0,
+            "colorLookUpTypeY": 3,
+            "colorLookUpScales": [
+              1.0,
+              0.10000000149011612
+            ],
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthRotationalVelocity0": {
+              "constantValue": [
+                -30.0,
+                0.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                200.0,
+                200.0,
+                200.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_pinwheel.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 1.0,
+            "emitterName": "heart",
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_color-bellcurve.tex",
+            "meshRenderFlags": 0,
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                10.0,
+                10.0,
+                10.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.2999999523162842,
+                    1.2999999523162842,
+                    1.2999999523162842
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_flare-Fire.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "heart-instant-on",
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_color-rampdown.tex",
+            "meshRenderFlags": 0,
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                10.0,
+                10.0,
+                10.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.2999999523162842,
+                    1.2999999523162842,
+                    1.2999999523162842
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_flare-Fire.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 6.0,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "glow",
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "meshRenderFlags": 0,
+            "colorLookUpScales": [
+              1.0,
+              0.5
+            ],
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                100.0,
+                100.0,
+                100.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_sowflash.tex",
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "Leona_Base_Q_cas",
+        "particlePath": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_Q_cas",
+        "objectPath": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_Q_cas",
+        "__type": "VfxSystemDefinitionData"
+      }
+    },
+    "Leona_Q_tar": {
+      "sourceBin": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin9.bin",
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_Q_tar",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.15000000596046448,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 10.0,
+            "lifetime": 0.11999999731779099,
+            "emitterName": "flash",
+            "disabled": true,
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                80.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "meshRenderFlags": 0,
+            "isUniformScale": 1,
+            "birthRotation0": {
+              "constantValue": [
+                -90.0,
+                45.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "isLocalOrientation": 0,
+            "birthScale0": {
+              "constantValue": [
+                408.0,
+                408.0,
+                408.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.5,
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_shadow_step_12.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.6000000238418579,
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.5,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  0.6000000238418579
+                ],
+                "__type": "VfxAnimatedFloatVariableData"
+              },
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 10.0,
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "nova",
+            "disabled": true,
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_color-rampdown.tex",
+            "meshRenderFlags": 0,
+            "miscRenderFlags": 3,
+            "isUniformScale": 1,
+            "isFollowingTerrain": 1,
+            "isGroundLayer": 1,
+            "birthRotation0": {
+              "constantValue": [
+                -90.0,
+                1.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    -90.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "isLocalOrientation": 0,
+            "birthScale0": {
+              "constantValue": [
+                220.0,
+                220.0,
+                220.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0,
+                  0.30000001192092896,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_ring_gold_04.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 2.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.15000000596046448,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 0.3499999940395355,
+            "isSingleParticle": 1,
+            "emitterLinger": 1.0,
+            "emitterName": "FlashCoreHot",
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "SpawnShape": {
+              "emitOffset": [
+                0.0,
+                100.0,
+                0.0
+              ],
+              "__type": "{ee39916f}"
+            },
+            "blendMode": 4,
+            "birthColor": {
+              "constantValue": [
+                1.0,
+                0.8705882430076599,
+                0.6470588445663452,
+                1.0
+              ],
+              "__type": "ValueColor"
+            },
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.30000001192092896,
+                  0.8999999761581421,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.8549019694328308,
+                    0.6196078658103943,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.6392157077789307,
+                    0.13333334028720856,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.3490196168422699,
+                    0.0470588244497776,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.10980392247438431,
+                    0.0313725508749485,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": 1,
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "birthScale0": {
+              "constantValue": [
+                120.0,
+                250.0,
+                250.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.4000000059604645,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    1.5,
+                    1.5,
+                    1.5
+                  ],
+                  [
+                    3.0,
+                    3.0,
+                    3.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Q_Flash_2.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "timeBeforeFirstEmission": 0.10000000149011612,
+            "rate": {
+              "constantValue": 10.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.5,
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      0.8999999761581421,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.20000000298023224,
+                      1.0,
+                      1.5
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  0.5
+                ],
+                "__type": "VfxAnimatedFloatVariableData"
+              },
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 1.0,
+            "lifetime": 0.30000001192092896,
+            "isSingleParticle": 1,
+            "emitterName": "Sparkles",
+            "birthVelocity": {
+              "constantValue": [
+                300.0,
+                1.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthDrag": {
+              "constantValue": [
+                5.0,
+                5.0,
+                5.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "worldAcceleration": {
+              "constantValue": [
+                0.0,
+                200.0,
+                0.0
+              ],
+              "dynamics": {
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    200.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "IntegratedValueVector3"
+            },
+            "SpawnShape": {
+              "emitOffset": {
+                "constantValue": [
+                  150.0,
+                  0.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.20000000298023224,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      150.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "emitRotationAngles": [
+                {
+                  "constantValue": 1.0,
+                  "dynamics": {
+                    "probabilityTables": [
+                      {
+                        "keyTimes": [
+                          0.0,
+                          1.0
+                        ],
+                        "keyValues": [
+                          0.0,
+                          360.0
+                        ],
+                        "__type": "VfxProbabilityTableData"
+                      }
+                    ],
+                    "times": [
+                      0.0
+                    ],
+                    "values": [
+                      1.0
+                    ],
+                    "__type": "VfxAnimatedFloatVariableData"
+                  },
+                  "__type": "ValueFloat"
+                },
+                {
+                  "constantValue": 1.0,
+                  "dynamics": {
+                    "probabilityTables": [
+                      {
+                        "keyTimes": [
+                          0.0,
+                          1.0
+                        ],
+                        "keyValues": [
+                          0.0,
+                          360.0
+                        ],
+                        "__type": "VfxProbabilityTableData"
+                      }
+                    ],
+                    "times": [
+                      0.0
+                    ],
+                    "values": [
+                      1.0
+                    ],
+                    "__type": "VfxAnimatedFloatVariableData"
+                  },
+                  "__type": "ValueFloat"
+                }
+              ],
+              "emitRotationAxes": [
+                [
+                  0.0,
+                  1.0000001192092896,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  1.0000001192092896
+                ]
+              ],
+              "__type": "VfxShapeLegacy"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                100.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Flicker_04.tex",
+            "blendMode": 4,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.8117647171020508,
+                    0.364705890417099,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.33725491166114807,
+                    0.0313725508749485,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": 5,
+            "colorLookUpTypeY": 3,
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "isRandomStartFrame": 1,
+            "birthRotation0": {
+              "constantValue": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      360.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "birthRotationalVelocity0": {
+              "constantValue": [
+                -300.0,
+                0.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                100.0,
+                65.0,
+                0.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      0.8999999761581421,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.30000001192092896,
+                      1.0,
+                      2.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    100.0,
+                    65.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.10000000149011612,
+                  0.20000000298023224,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.5,
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Base_BrightSpark_11.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.5,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 0.5,
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "ant_dark",
+            "importance": 3,
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "particleColorTexture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Q_color-alphabend32.tex",
+            "blendMode": 4,
+            "Color": {
+              "constantValue": [
+                0.42000457644462585,
+                0.3499961793422699,
+                0.25999847054481506,
+                0.6299992203712463
+              ],
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.20000000298023224,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.42000457644462585,
+                    0.3499961793422699,
+                    0.25999847054481506,
+                    0.6299992203712463
+                  ],
+                  [
+                    0.42000457644462585,
+                    0.3499961793422699,
+                    0.25999847054481506,
+                    0.6299992203712463
+                  ],
+                  [
+                    0.42000457644462585,
+                    0.3499961793422699,
+                    0.25999847054481506,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "meshRenderFlags": 0,
+            "colorRenderFlags": 1,
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "useEmissionMeshNormalForBirth": 0,
+            "birthRotation0": {
+              "constantValue": [
+                -90.0,
+                0.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "isLocalOrientation": 0,
+            "birthScale0": {
+              "constantValue": [
+                150.0,
+                330.0,
+                330.0
+              ],
+              "dynamics": {
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    149.99998474121094,
+                    329.9999694824219,
+                    329.9999694824219
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.30000001192092896,
+                  1.100000023841858
+                ],
+                "values": [
+                  [
+                    0.5,
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.100000023841858,
+                    1.100000023841858,
+                    1.100000023841858
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Q_Dust.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.20000000298023224,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "heart",
+            "importance": 3,
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "SpawnShape": {
+              "emitOffset": [
+                0.0,
+                100.0,
+                0.0
+              ],
+              "__type": "{ee39916f}"
+            },
+            "blendMode": 4,
+            "birthColor": {
+              "constantValue": [
+                1.0,
+                0.3686274588108063,
+                0.054901961237192154,
+                1.0
+              ],
+              "__type": "ValueColor"
+            },
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "meshRenderFlags": 0,
+            "miscRenderFlags": 1,
+            "birthScale0": {
+              "constantValue": [
+                200.0,
+                100.0,
+                10.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Sun_Flare.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 1.25,
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 1.25,
+            "lifetime": 0.25,
+            "emitterName": "trigger_",
+            "importance": 3,
+            "filtering": {
+              "keywordsExcluded": [
+                "BattlebunnyRiven",
+                "Season2Riven",
+                "RivenSkin05"
+              ],
+              "__type": "VfxEmitterFiltering"
+            },
+            "FlexShapeDefinition": {
+              "scaleBirthScaleByBoundObjectSize": 0.0010000000474974513,
+              "__type": "VfxFlexShapeDefinitionData"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "blendMode": 1,
+            "Color": {
+              "constantValue": [
+                0.1882352977991104,
+                0.09803921729326248,
+                0.06666667014360428,
+                0.5490196347236633
+              ],
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.1882352977991104,
+                    0.09215701371431351,
+                    0.03866636008024216,
+                    0.0
+                  ],
+                  [
+                    0.1882352977991104,
+                    0.09803921729326248,
+                    0.06666667014360428,
+                    0.5490196347236633
+                  ],
+                  [
+                    0.1882352977991104,
+                    0.09803921729326248,
+                    0.06666667014360428,
+                    0.5490196347236633
+                  ],
+                  [
+                    0.1033448725938797,
+                    0.05382545292377472,
+                    0.03660130873322487,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "isGroundLayer": 1,
+            "useNavmeshMask": 1,
+            "birthRotation0": {
+              "constantValue": [
+                90.0,
+                -90.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "isLocalOrientation": 0,
+            "birthScale0": {
+              "constantValue": [
+                100.0,
+                2.313999891281128,
+                2.313999891281128
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.20000000298023224,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.5,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    1.600000023841858,
+                    1.5,
+                    1.5
+                  ],
+                  [
+                    1.600000023841858,
+                    1.600000023841858,
+                    1.600000023841858
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Q_Stun_GroundSigil.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.20000000298023224,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 0.25,
+            "emitterName": "trigger_1",
+            "importance": 3,
+            "filtering": {
+              "keywordsExcluded": [
+                "BattlebunnyRiven",
+                "Season2Riven",
+                "RivenSkin05"
+              ],
+              "__type": "VfxEmitterFiltering"
+            },
+            "FlexShapeDefinition": {
+              "scaleBirthScaleByBoundObjectSize": 0.0010000000474974513,
+              "__type": "VfxFlexShapeDefinitionData"
+            },
+            "primitive": {
+              "__type": "VfxPrimitiveArbitraryQuad"
+            },
+            "blendMode": 4,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.20446735620498657,
+                  0.3848797380924225,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.9333333373069763,
+                    0.6666666865348816,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.9019607901573181,
+                    0.5411764979362488,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.6117647290229797,
+                    0.2235294133424759,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.24705882370471954,
+                    0.019607843831181526,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": 10,
+            "miscRenderFlags": 1,
+            "isUniformScale": 1,
+            "isGroundLayer": 1,
+            "useNavmeshMask": 1,
+            "birthRotation0": {
+              "constantValue": [
+                90.0,
+                -90.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "isLocalOrientation": 0,
+            "birthScale0": {
+              "constantValue": [
+                100.0,
+                2.313999891281128,
+                2.313999891281128
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.20000000298023224,
+                  1.0
+                ],
+                "values": [
+                  [
+                    0.800000011920929,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    1.5,
+                    1.5,
+                    1.5
+                  ],
+                  [
+                    1.600000023841858,
+                    1.600000023841858,
+                    1.600000023841858
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Q_Stun_GroundSigil.tex",
+            "__type": "VfxEmitterDefinitionData"
+          },
+          {
+            "timeBeforeFirstEmission": 0.07999999821186066,
+            "rate": {
+              "constantValue": 50.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.4000000059604645,
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.8999999761581421,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.4000000059604645,
+                  0.4000000059604645
+                ],
+                "__type": "VfxAnimatedFloatVariableData"
+              },
+              "__type": "ValueFloat"
+            },
+            "particleLinger": 10.5,
+            "lifetime": 0.10000000149011612,
+            "emitterName": "SparksBurst",
+            "birthVelocity": {
+              "constantValue": [
+                300.0,
+                1.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthDrag": {
+              "constantValue": [
+                5.0,
+                5.0,
+                5.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "worldAcceleration": {
+              "constantValue": [
+                0.0,
+                200.0,
+                0.0
+              ],
+              "dynamics": {
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    0.0,
+                    200.0,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "IntegratedValueVector3"
+            },
+            "SpawnShape": {
+              "emitOffset": {
+                "constantValue": [
+                  150.0,
+                  0.0,
+                  0.0
+                ],
+                "dynamics": {
+                  "probabilityTables": [
+                    {
+                      "keyTimes": [
+                        0.0,
+                        1.0
+                      ],
+                      "keyValues": [
+                        0.20000000298023224,
+                        1.0
+                      ],
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    },
+                    {
+                      "__type": "VfxProbabilityTableData"
+                    }
+                  ],
+                  "times": [
+                    0.0
+                  ],
+                  "values": [
+                    [
+                      150.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "__type": "VfxAnimatedVector3fVariableData"
+                },
+                "__type": "ValueVector3"
+              },
+              "emitRotationAngles": [
+                {
+                  "constantValue": 1.0,
+                  "dynamics": {
+                    "probabilityTables": [
+                      {
+                        "keyTimes": [
+                          0.0,
+                          1.0
+                        ],
+                        "keyValues": [
+                          0.0,
+                          360.0
+                        ],
+                        "__type": "VfxProbabilityTableData"
+                      }
+                    ],
+                    "times": [
+                      0.0
+                    ],
+                    "values": [
+                      1.0
+                    ],
+                    "__type": "VfxAnimatedFloatVariableData"
+                  },
+                  "__type": "ValueFloat"
+                },
+                {
+                  "constantValue": 1.0,
+                  "dynamics": {
+                    "probabilityTables": [
+                      {
+                        "keyTimes": [
+                          0.0,
+                          1.0
+                        ],
+                        "keyValues": [
+                          0.0,
+                          360.0
+                        ],
+                        "__type": "VfxProbabilityTableData"
+                      }
+                    ],
+                    "times": [
+                      0.0
+                    ],
+                    "values": [
+                      1.0
+                    ],
+                    "__type": "VfxAnimatedFloatVariableData"
+                  },
+                  "__type": "ValueFloat"
+                }
+              ],
+              "emitRotationAxes": [
+                [
+                  0.0,
+                  1.0000001192092896,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  1.0000001192092896
+                ]
+              ],
+              "__type": "VfxShapeLegacy"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                100.0,
+                0.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "blendMode": 4,
+            "Color": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.20446735620498657,
+                  0.3848797380924225,
+                  0.5,
+                  0.800000011920929
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.9333333373069763,
+                    0.6666666865348816,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.9019607901573181,
+                    0.5411764979362488,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    0.7490196228027344,
+                    0.4588235318660736,
+                    1.0
+                  ],
+                  [
+                    0.3294117748737335,
+                    0.25882354378700256,
+                    0.09803921729326248,
+                    0.0
+                  ]
+                ],
+                "__type": "VfxAnimatedColorVariableData"
+              },
+              "__type": "ValueColor"
+            },
+            "pass": 8,
+            "miscRenderFlags": 1,
+            "directionVelocityScale": 0.05000000074505806,
+            "birthScale0": {
+              "constantValue": [
+                50.0,
+                5.0,
+                9.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "scale0": {
+              "dynamics": {
+                "times": [
+                  0.0,
+                  0.3499999940395355,
+                  0.5,
+                  1.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    0.0,
+                    1.0
+                  ],
+                  [
+                    0.800000011920929,
+                    1.2000000476837158,
+                    1.0
+                  ],
+                  [
+                    0.6000000238418579,
+                    0.5,
+                    1.0
+                  ],
+                  [
+                    0.10000000149011612,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector3fVariableData"
+              },
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Q_Stardust.tex",
+            "birthFrameRate": {
+              "constantValue": 0.0,
+              "__type": "ValueFloat"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "Leona_Base_Q_tar",
+        "particlePath": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_Q_tar",
+        "soundOnCreateDefault": "Play_sfx_Leona_LeonaShieldOfDaybreakAttack_hit",
+        "flags": 198,
+        "objectPath": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_Q_tar",
+        "__type": "VfxSystemDefinitionData"
+      }
+    }
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Leona.wad.client",
+    "chunks": {
+      "BF8280CA780C3E12": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+        "offset": 3181145,
+        "bytes": 102094,
+        "sha256": "ef22ada7ce77a4443faf7e3a2018021ce1941f73260f34f472f0d668d6739db8"
+      },
+      "8A692CE4A69F0428": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3709791351CE0D4A.bundle",
+        "offset": 36598187,
+        "bytes": 55572,
+        "sha256": "8af3a772d6f063925d25eec01534517d81aa20d4dd55656a414efeb8e513a608"
+      },
+      "E097C084B480239C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+        "offset": 4477250,
+        "bytes": 732,
+        "sha256": "f56df5d00ebd11aa9207743cc4b413662880374afbf4df4ebdb32e0521009b6b"
+      },
+      "6A65CDAE5A2FA415": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+        "offset": 12162153,
+        "bytes": 6743,
+        "sha256": "19e4c87ce3e109bf24a7192334243450611cc2ce8dd1be234ccf6dc0a1e61f43"
+      },
+      "B08583F725A895E1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/754892F6659A0224.bundle",
+        "offset": 891942,
+        "bytes": 277,
+        "sha256": "df49aedf3a06989662376258d386e6ceabce34c1d67f434524bf2464264c9852"
+      },
+      "64F09381FC771421": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/AB3D748E716FD0A2.bundle",
+        "offset": 5637650,
+        "bytes": 7014,
+        "sha256": "d89c20f76b2e05889d52e6b5d5a2804adae98bb23e5ff8171c14b25c77d83566"
+      },
+      "F609EF3A3416BB0A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/AB3D748E716FD0A2.bundle",
+        "offset": 9078220,
+        "bytes": 1646,
+        "sha256": "1288565741cfd6eacdf4f02fe6fccb2a0127780201d7b1753ccfcd908f4202e7"
+      },
+      "DCC3C29681B9B0D4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/EA7731A864D75562.bundle",
+        "offset": 4743314,
+        "bytes": 43188,
+        "sha256": "3410dcb41ef83b0aec2cf314c6519ff0c4543d953084560d072800d4f0442b49"
+      },
+      "8E1235D48A8C66A7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D20F1B5E2CDDA253.bundle",
+        "offset": 14618126,
+        "bytes": 2233,
+        "sha256": "5d478c11994f73ef4ff3a899d431ffcc8c0ed09c4f28c54b864e4479a2703559"
+      },
+      "A9326E9F3726EB0F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DFFF40873788215.bundle",
+        "offset": 36336725,
+        "bytes": 1063,
+        "sha256": "983343dc3e424b1ef3677e194ad6c867a62f86608b9d1f7bd56db7c36f750b4f"
+      },
+      "9FFAB9752FEFE922": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FAAABC5E2D7EB734.bundle",
+        "offset": 26782073,
+        "bytes": 37963,
+        "sha256": "a2d9a61530ba8d2cf071aa05287f34f4782037b522993ed99dda08e70f82173d"
+      },
+      "181209678B55DCCD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/FAAABC5E2D7EB734.bundle",
+        "offset": 1560393,
+        "bytes": 42502,
+        "sha256": "c03e5399fa65e1d4d65dd343b6f43debe073201faa67b91295080801db0f786f"
+      },
+      "6E6D41D5A81A1752": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/18B263098BDB71CF.bundle",
+        "offset": 14882234,
+        "bytes": 370,
+        "sha256": "a9bc599a9884b27ede6e2fc5c6a3f10dd842167edc27ea7b584fc1e1d3288210"
+      },
+      "4EC4A029AC551F0D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/87D50F7F724AB3C5.bundle",
+        "offset": 14867330,
+        "bytes": 1620,
+        "sha256": "7de5ece710c8b264dab2d2359ce66b994b5dfe1a6bda9784fd667ab568c62d2d"
+      },
+      "3756931D8FC2CEEE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/18B263098BDB71CF.bundle",
+        "offset": 12006527,
+        "bytes": 227,
+        "sha256": "4994fa5de4926fab0ab1c000e6e0b7dedafbad3a853ce316653adfa02910d849"
+      },
+      "0E854892B821E33A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/10F7F7AF8A9590EA.bundle",
+        "offset": 20252964,
+        "bytes": 19584,
+        "sha256": "b470e1c84f8f699e109d85fe186e88814c5147ff16d7e1562f476d519a184f25"
+      },
+      "498ED053CE7025F1": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/80FBF0F8C7D6FF6B.bundle",
+        "offset": 30045903,
+        "bytes": 75554,
+        "sha256": "9d646c3d8d9beea7ff626027bcc1d0c3f9357747758d25890164faadad20d3a4"
+      },
+      "CC8192A804E18928": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D20F1B5E2CDDA253.bundle",
+        "offset": 1690692,
+        "bytes": 4429,
+        "sha256": "57fc1ece82e3588e5c6efd343502d88eb99b1b256862c8ee36bfe239d9ae998e"
+      },
+      "54C6663CE627D5FF": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D20F1B5E2CDDA253.bundle",
+        "offset": 1286119,
+        "bytes": 20152,
+        "sha256": "9b9c151dce1fbad1ece8d0dfd4948f8ed99ac4870eddd30b375ea8758b22f319"
+      },
+      "530BD29C9FF53FC6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+        "offset": 22470650,
+        "bytes": 4430,
+        "sha256": "e0d209aaea6034a995b4bf36ffd98b453f9e24046789bd02e0f21b64a8bbe386"
+      },
+      "8B22D481AB4A19FA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B1118B8491268EF0.bundle",
+        "offset": 26177516,
+        "bytes": 3778,
+        "sha256": "00c4271ded87a33e4007e075e501ab53bd96dc48768ee0eb462b1de5f6f2188b"
+      }
+    },
+    "files": [
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3.bin",
+        "wadPathHash": "223457ab6500b0e6",
+        "sha256": "c6721a060c3eb56e50bc78ce824fa9d46a9df45b2ac11ab3bea161cbadd9526e",
+        "bytes": 3396
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin9.bin",
+        "wadPathHash": "6889e1c664c3717f",
+        "sha256": "9d163c912fdbfb36fcaacc03dc38b02df8d035b0bc65a2611b0cfdefff267539",
+        "bytes": 55027
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/base_brightspark_11.tex",
+        "wadPathHash": "8e52f04129d348aa",
+        "sha256": "727596619af4fad054bfb082b8b8b36e7f3c0f2f68ac132a18390d08ef2390ee",
+        "bytes": 10948
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_flicker_04.tex",
+        "wadPathHash": "f0bb02e4c910e4d0",
+        "sha256": "6f8fa4641f31fb9ab0fb5faa807f05ec70e8be1f94e921738a290ee3d823965b",
+        "bytes": 10948
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_color-alphabend32.tex",
+        "wadPathHash": "e0df135bed859ea0",
+        "sha256": "c8a6b8149433f0ffc08caed9ce437ed8a753a9760c26fc59c7fafa464d93266c",
+        "bytes": 5500
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_dust.tex",
+        "wadPathHash": "47cfc4fd34d144c0",
+        "sha256": "328e18c69eeac95f9ef0ea89d12690c564c63db2bacf3ab806eb035508af3ca4",
+        "bytes": 87420
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_flash_2.tex",
+        "wadPathHash": "34e914841284e52a",
+        "sha256": "8072c6cb22a2d7148a636dad9119ec37452786f9b99c915054d5d96d7e0f88ad",
+        "bytes": 10948
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_stardust.tex",
+        "wadPathHash": "8ec8256464605c9d",
+        "sha256": "625b4d71a67001ca78bc97a1c630f06a2e060d1a6daa11c37d343ea2f6ffbd60",
+        "bytes": 2756
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_stun_groundsigil.tex",
+        "wadPathHash": "eb23d45858dfc2be",
+        "sha256": "88ff46614edf0be50684e5c4eedec421eaa0579775605fda037aaba52912f08c",
+        "bytes": 87420
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_sun_flare.tex",
+        "wadPathHash": "20027fbcd49f3a4f",
+        "sha256": "3d0464bd4332db1c8141c1031f7ce2da28383eaa1ae88e699148b22aad039302",
+        "bytes": 349556
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-bellcurve.tex",
+        "wadPathHash": "f144b4a9fa592b00",
+        "sha256": "15aa99c5555d17997d5498b987e586f65e6d12da86178571e43eaa98cd2f428d",
+        "bytes": 5500
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-bellramp.tex",
+        "wadPathHash": "165d9854d43713ec",
+        "sha256": "fe8884cd5e7e1777dd6d30373be4060db2ce569598d04a75070436926fb6c94b",
+        "bytes": 2756
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-rampdown.tex",
+        "wadPathHash": "c9b9d09001785725",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_flare-fire.tex",
+        "wadPathHash": "6c338d1739d1afff",
+        "sha256": "9858122a9406cdda161cc070ae816eadf56fc99c9e4baebb7b2ba8ec8db4677b",
+        "bytes": 43716
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_lens-halo-sun.tex",
+        "wadPathHash": "8dc30e5515b2dc94",
+        "sha256": "fe6d57aebfa7d3bd288f3be7123ee4ce3dd7ad9e0915a4a6051fa22b2e955803",
+        "bytes": 174788
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_pinwheel.tex",
+        "wadPathHash": "a3cc026b1e23775a",
+        "sha256": "bae70b7a3e3f53212b97f5f99609b86a48ecfe4ecaad7aef5fb6cfe6a3abbcc5",
+        "bytes": 43716
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_ring_gold_04.tex",
+        "wadPathHash": "393ce3bff8909ee5",
+        "sha256": "504e77372e7c9f5fd2f8f45cf617fe2853a5afecd7504b9ff420342a104922f3",
+        "bytes": 43716
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_shadow_step_12.tex",
+        "wadPathHash": "b1f5b1bd57e2437a",
+        "sha256": "95fce9a8d9a416107a63b0af009c5772d009e5c9eb1cb3bfc4fb3a9b0d51eba7",
+        "bytes": 10948
+      },
+      {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_sowflash.tex",
+        "wadPathHash": "d14709ca7be46594",
+        "sha256": "e1f330188a0004a09d156cd53a4557172be534b3054be50d71cd5043e39752e1",
+        "bytes": 10948
+      }
+    ]
+  }
+}

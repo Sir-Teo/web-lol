@@ -8,6 +8,8 @@ presentation matching remain required work. The [source rig integration](LEONA-R
 now renders non-player development fixtures and their saved body poses. The
 [Sunlight source presentation](LEONA-SUNLIGHT-VFX.md) now adds all nine mark and
 detonation emitters, with saved poses and audiences.
+[Daybreak source presentation](LEONA-Q-VFX.md) now adds six shield families and
+seven enabled contact families; two source impact emitters remain disabled as authored.
 This partial fixture does not establish native behavior or roster acceptance.
 
 ## Retained source and reproducibility

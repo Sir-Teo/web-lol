@@ -1,0 +1,247 @@
+{
+  "sourcePinSha256": "debf52e96a313ca62b88a07a0842d3bd74890c3decf50e4706f251a87f979939",
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/base_brightspark_11.tex",
+        "wadPathHash": "8e52f04129d348aa",
+        "sha256": "727596619af4fad054bfb082b8b8b36e7f3c0f2f68ac132a18390d08ef2390ee",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/base_brightspark_11.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 553,
+      "sha256": "5f4d8c2ef2c35b1cae5acf5d0f566652605c33ddedb50c8ac390ce67cb37affb",
+      "rgbaSha256": "cd0a351558fd70c9af2e55fd0e97d35329ca4196728f552b9e74c035d26178af"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_flicker_04.tex",
+        "wadPathHash": "f0bb02e4c910e4d0",
+        "sha256": "6f8fa4641f31fb9ab0fb5faa807f05ec70e8be1f94e921738a290ee3d823965b",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_flicker_04.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 13032,
+      "sha256": "0821de3a7d30b27d74caae1dc82cd4db4e09ff5186e47d394ed29f9833adc6bc",
+      "rgbaSha256": "d095d5f46fa87df40e8d893e93ebd52ee58dae4a3faa0f3fe6d5b10615c10434"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_color-alphabend32.tex",
+        "wadPathHash": "e0df135bed859ea0",
+        "sha256": "c8a6b8149433f0ffc08caed9ce437ed8a753a9760c26fc59c7fafa464d93266c",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/leona_base_q_color-alphabend32.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 1459,
+      "sha256": "79f2935b48a92ded3a7a505a76ead563f5322013cfd75765cfe2c990f03060f9",
+      "rgbaSha256": "20bde08df441a571394e518bdd8b0ba6d862462258a8098a0a125923e189f9a3"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_dust.tex",
+        "wadPathHash": "47cfc4fd34d144c0",
+        "sha256": "328e18c69eeac95f9ef0ea89d12690c564c63db2bacf3ab806eb035508af3ca4",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_q_dust.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 48380,
+      "sha256": "7cdabba6cd0f4000334ccf1b462c3d15b66b6e49624c8c5b9e9d6a3227c57507",
+      "rgbaSha256": "0a6e3712b14f8cd1c14558ee48fdf3194dedde605896d0c54cc6b100bd81a4c7"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_flash_2.tex",
+        "wadPathHash": "34e914841284e52a",
+        "sha256": "8072c6cb22a2d7148a636dad9119ec37452786f9b99c915054d5d96d7e0f88ad",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_q_flash_2.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 3973,
+      "sha256": "c9a0e556bbb0d5e1074f4a1ce1069a90b642749dbc8a53726664afa30bf0fe29",
+      "rgbaSha256": "a8b5c14eb2a03a39aa9f323f75490bff2b06b40ab4ece72fa46d2690b17f5ec6"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_stardust.tex",
+        "wadPathHash": "8ec8256464605c9d",
+        "sha256": "625b4d71a67001ca78bc97a1c630f06a2e060d1a6daa11c37d343ea2f6ffbd60",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_q_stardust.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 1697,
+      "sha256": "c8cdd0082e838ed152378fd604acb7eccf377b8af41abc60429810e4ffb59e3f",
+      "rgbaSha256": "4e3963e5b290f490d3de2d2df128e417b342c82c52fe90e6df7bbfd39fbaef93"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_q_stun_groundsigil.tex",
+        "wadPathHash": "eb23d45858dfc2be",
+        "sha256": "88ff46614edf0be50684e5c4eedec421eaa0579775605fda037aaba52912f08c",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_q_stun_groundsigil.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 48222,
+      "sha256": "f823c6b977edf851885c18a8e1f5fc2be83cf8f9ff611ec9f4e17e8088a0193e",
+      "rgbaSha256": "d607a3a300b20509abc3ef24d077b9204750760423b9837d1214685a9a89f6bc"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_sun_flare.tex",
+        "wadPathHash": "20027fbcd49f3a4f",
+        "sha256": "3d0464bd4332db1c8141c1031f7ce2da28383eaa1ae88e699148b22aad039302",
+        "bytes": 349556
+      },
+      "path": "public/assets/effects/leona_base_sun_flare.png",
+      "width": 1024,
+      "height": 512,
+      "bytes": 67693,
+      "sha256": "d76adcab8895a8350d03c47b990a968ae7462b1e36e3dc3b0a10bb4748721626",
+      "rgbaSha256": "308036c22869c5f5ce9c359975f3181ea96a2c77373053462189265dc3b04375"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-bellcurve.tex",
+        "wadPathHash": "f144b4a9fa592b00",
+        "sha256": "15aa99c5555d17997d5498b987e586f65e6d12da86178571e43eaa98cd2f428d",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/leona_base_z_color-bellcurve.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 402,
+      "sha256": "39846c14d90228cf20b8972a3aabc1f8eae3ecd470b904507bd18ba657345c41",
+      "rgbaSha256": "503e3fdac0736c59fc5bf77c077a968c6c8abaae5087bfe719700e4b615c950c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-bellramp.tex",
+        "wadPathHash": "165d9854d43713ec",
+        "sha256": "fe8884cd5e7e1777dd6d30373be4060db2ce569598d04a75070436926fb6c94b",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-bellramp.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2357,
+      "sha256": "de124c056b7e9b37930b02770a4d026c93502c16a247682e5df3f17ab2546795",
+      "rgbaSha256": "1c45d4291424ace67608a024606b77ba41fdeb9f2515ae3660733a8d3c05cef6"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-rampdown.tex",
+        "wadPathHash": "c9b9d09001785725",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-rampdown.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 277,
+      "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe",
+      "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_flare-fire.tex",
+        "wadPathHash": "6c338d1739d1afff",
+        "sha256": "9858122a9406cdda161cc070ae816eadf56fc99c9e4baebb7b2ba8ec8db4677b",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/leona_base_z_flare-fire.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 33579,
+      "sha256": "83b0bb90a6007aebfd1878c2049aaaf219d089c977da612d4a7564efcd41b485",
+      "rgbaSha256": "64fad0a973a2c2ab31882029634e50de0b47d6352305e00161743733e1f7fb9a"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_lens-halo-sun.tex",
+        "wadPathHash": "8dc30e5515b2dc94",
+        "sha256": "fe6d57aebfa7d3bd288f3be7123ee4ce3dd7ad9e0915a4a6051fa22b2e955803",
+        "bytes": 174788
+      },
+      "path": "public/assets/effects/leona_base_z_lens-halo-sun.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 162695,
+      "sha256": "c061eeaae62093bbe15e39e358fbc5bf64b70f8428b583bde378cdf67e9037fb",
+      "rgbaSha256": "32e4025fac361adfab000d8ae671a5bcf44b0e8c8908c02161f92f0fd7950d64"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_pinwheel.tex",
+        "wadPathHash": "a3cc026b1e23775a",
+        "sha256": "bae70b7a3e3f53212b97f5f99609b86a48ecfe4ecaad7aef5fb6cfe6a3abbcc5",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/leona_base_z_pinwheel.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 7071,
+      "sha256": "8d89e7392b31edf84f11ee06b827207e80537fc054014fe4af31c193e88a1615",
+      "rgbaSha256": "c0b0cb9a389edd10f79587f7fba150508535d926133d6dc83d6f6a9d15257184"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_ring_gold_04.tex",
+        "wadPathHash": "393ce3bff8909ee5",
+        "sha256": "504e77372e7c9f5fd2f8f45cf617fe2853a5afecd7504b9ff420342a104922f3",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/leona_base_z_ring_gold_04.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 45709,
+      "sha256": "f787a66abbdec2703870381a80b5011e883af52d9db4191902175ab0785b405e",
+      "rgbaSha256": "b4e6eef20772dbb2a3578a4b50915c37fdbd76fc76a1d0dddc52dd3e51ff530e"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_shadow_step_12.tex",
+        "wadPathHash": "b1f5b1bd57e2437a",
+        "sha256": "95fce9a8d9a416107a63b0af009c5772d009e5c9eb1cb3bfc4fb3a9b0d51eba7",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_z_shadow_step_12.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 10383,
+      "sha256": "0dc5f83f3ab81cd229d1e2ad1adffb92a4949e4ee13283a9aaddcb5d47ec41f3",
+      "rgbaSha256": "c35a8f751654e68b0ad6c91ba50a5e5de0a416a15e5f74315da324b9626bc51b"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_sowflash.tex",
+        "wadPathHash": "d14709ca7be46594",
+        "sha256": "e1f330188a0004a09d156cd53a4557172be534b3054be50d71cd5043e39752e1",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_z_sowflash.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 6202,
+      "sha256": "43b153d0ad96acea7b5944362e53ee3836a0972b9cab3ed3dce1d114c5cce84f",
+      "rgbaSha256": "4ff3cbb6671c391d63c69c86f72f77e16ccd2ed1ed7bca869c1ecba62f44d979"
+    }
+  ],
+  "decoder": {
+    "path": ".tools/cdtb/cdtb/export.py",
+    "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+  }
+}

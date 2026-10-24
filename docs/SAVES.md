@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **122** adds a separate Sunlight cosmetic serial and bounded
+Current schema **123** adds per-owner Daybreak presentation with captured
+activation/rank/stop reason, shield poses and a confirmed contact's rig/radius/
+transform, posed frames and creation/birth audiences. Active empowerment must
+have its matching visual. Validation checks clocks, phase labels, recast links,
+real death/detachment consistency and frozen endpoints/audiences. Cosmetic
+records consume neither gameplay IDs nor RNG. Caster tails retain 62 ticks;
+contact history retains 77 ticks, including a hit committed before empowerment
+expiry. Fingerprints pin the source profiles, all Q PNGs and decode metadata.
+Older schemas/fingerprints remain incompatible. See [Daybreak](LEONA-Q-VFX.md).
+
+Schema **122** added a separate Sunlight cosmetic serial and bounded
 source-owned detonation histories. Each history captures target rig/radius,
 posed frames, heading, placement, creation/birth audiences and detachment.
 Validation rejects invalid/duplicate serials, foreign owners, incompatible rigs,

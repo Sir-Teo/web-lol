@@ -1,3 +1,8 @@
+import { validateDaybreakVisuals } from './leona-q-visuals';
+import {
+  LEONA_Q_CAST_TAIL_TICKS,
+  LEONA_Q_HIT_HISTORY_TICKS,
+} from '../content/leona-q-presentation';
 import { SUNLIGHT_VISUAL_HISTORY_TICKS } from '../content/leona-sunlight-presentation';
 import { GAREN_AA_HIT_HISTORY_TICKS } from '../content/garen-aa-particle-timing';
 import { validAnimationTimeline } from './animation-timeline';
@@ -112,7 +117,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 122;
+export const SNAPSHOT_VERSION = 123;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -509,6 +514,16 @@ const inventorySchema = z
     (items) => items.filter((item) => item === 'infinity-edge').length <= 1,
     'Only one Infinity Edge is ownable'
   );
+const daybreakFrame = savedPoseFrame.extend({
+  audience: z
+    .array(team)
+    .max(2)
+    .refine((v) => new Set(v).size === v.length),
+});
+const daybreakRig = z.enum([
+  ...Object.keys(MOBILE_CLIP_DURATIONS),
+  ...Object.keys(STRUCTURE_ANIMATION_PROFILES),
+] as [ImpactRig, ...ImpactRig[]]);
 const player: z.ZodType<PlayerState> = z
   .strictObject({
     role: z.enum(MATCH_ROLES).nullable(),
@@ -767,6 +782,38 @@ const player: z.ZodType<PlayerState> = z
         detonated: z.boolean(),
       })
       .nullable(),
+    leonaQVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          stopTick: tick.nullable(),
+          endReason: z.enum(['consumed', 'expired', 'recast', 'death', 'match-end']).nullable(),
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(daybreakFrame)
+            .min(1)
+            .max(LEONA_COMBAT_POLICY.attackWindowTicks + LEONA_Q_CAST_TAIL_TICKS),
+          impact: z
+            .strictObject({
+              tick,
+              attackStartTick: tick,
+              targetId: id,
+              targetTeam: faction,
+              targetRig: daybreakRig.nullable(),
+              audience: z
+                .array(team)
+                .max(2)
+                .refine((v) => new Set(v).size === v.length),
+              targetTransform: z.array(z.number()).length(16).nullable(),
+              radius: z.number().positive(),
+              detachedTick: tick.nullable(),
+              frames: z.array(daybreakFrame).min(1).max(LEONA_Q_HIT_HISTORY_TICKS),
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
     leonaQ: z
       .strictObject({ startTick: tick, rank: z.number().int().min(1).max(5), endTick: tick })
       .nullable(),
@@ -3216,6 +3263,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
           : eclipse.detonationTick <= state.tick || eclipse.endTick !== eclipse.detonationTick))
     )
       throw new Error('Saved match contains invalid Eclipse state.');
+    validateDaybreakVisuals(owner, champion, state);
     const daybreak = owner.leonaQ;
     if (
       daybreak &&

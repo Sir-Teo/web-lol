@@ -1,4 +1,10 @@
 import {
+  advanceDaybreakVisuals,
+  beginDaybreakVisual,
+  contactDaybreakVisual,
+  finishDaybreakVisual,
+} from './leona-q-visuals';
+import {
   advanceSunlightVisuals,
   captureSunlightVisual,
   type SunlightVisual,
@@ -935,7 +941,10 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
-      if (state.leonaQ && this.tick >= state.leonaQ.endTick) state.leonaQ = null;
+      if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
+        finishDaybreakVisual(state, this.tick, 'expired');
+        state.leonaQ = null;
+      }
       if (state.garenAAVisuals.length)
         state.garenAAVisuals = state.garenAAVisuals.filter((r) => this.tick < garenAttackExpiry(r));
       for (const r of state.garenQVisuals)
@@ -2914,6 +2923,7 @@ export class World {
               state.leonaQ?.startTick === u.attackCycle?.leonaQStartTick
             )
               state.leonaQ = null;
+            if (daybreakRank !== undefined && state) contactDaybreakVisual(this, u, target, state);
             const qRank = u.attackCycle?.garenQRank;
             // Initial Q adapter: only the ordinary attack portion rolls critical
             // damage; Q's native special critical multiplier remains unmapped.
@@ -3844,6 +3854,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceDaybreakVisuals(this);
     advanceSunlightVisuals(this);
     advanceGarenAttackPoses(this);
     advanceLuxEHits(this);
@@ -4855,6 +4866,7 @@ export class World {
           this.finishGarenW(state, 'match-end');
           stopPerseveranceVisual(state, this.unit(state.id)!, this.tick);
           cancelGarenAttack(state, this.unit(state.id)!, this.tick, 'match-end');
+          finishDaybreakVisual(state, this.tick, 'match-end');
           finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
           state.pendingCast = null;
@@ -4910,6 +4922,7 @@ export class World {
           if (this.tick < targetState.leonaR.releaseTick) targetState.leonaR = null;
           else targetState.leonaR.released = true;
         }
+        finishDaybreakVisual(targetState, this.tick, 'death');
         finishGarenQPresentation(targetState, this.tick, 'death');
         this.finishGarenW(targetState, 'death');
         stopPerseveranceVisual(targetState, target, this.tick);
@@ -5041,6 +5054,7 @@ export class World {
         for (const award of awards) this.gainExperience(award.amount, award.id);
       }
     }
+    if (target.hp <= 0) advanceDaybreakVisuals(this);
     // Positive damage includes shield absorption. Non-champion unit sources
     // cannot trigger the mark; cleanup is not a combat hit.
     if (target.sunlight && amount > 0 && Number.isFinite(amount) && category !== 'cleanup')
@@ -5450,6 +5464,7 @@ export class World {
     }
     if (u.champion === 'leona' && ability === 'q') {
       if (this.committedLeonaQ(u)) return;
+      beginDaybreakVisual(this, u, state);
       state.leonaQ = {
         startTick: this.tick,
         rank: state.spellRanks.q,

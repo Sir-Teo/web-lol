@@ -588,6 +588,7 @@ export interface ChampionState {
     endTick: number;
     detonated: boolean;
   } | null;
+  leonaQVisuals: import('./leona-q-visuals').DaybreakVisual[];
   leonaQ: { startTick: number; rank: number; endTick: number } | null;
   garenQ: {
     startTick: number;

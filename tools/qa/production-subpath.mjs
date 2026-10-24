@@ -81,7 +81,9 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
-    if (/\/leona-base\.glb$|\/leona_base_z_[^/]+\.png$/.test(request.url()))
+    if (
+      /\/leona-base\.glb$|\/leona_base_[^/]+\.png$|\/base_brightspark_11\.png$/.test(request.url())
+    )
       leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
     if (/\/oracle-lens-[^/]+\.glb$/.test(request.url())) oracleRigRequests.push(request.url());
