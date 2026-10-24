@@ -1,0 +1,84 @@
+{
+  "scope": "Retained native16.18 shader observations, exact pinned external2adda reconstruction and explicit local adapter contract. Main binding audit reused cached inputs; separate yaw audit fetched exact pool.ts and executed ordinary JavaScript arithmetic. No nativeCPU verification, native target execution or Metal execution.",
+  "provenance": "leona-r-projection-readers.json",
+  "sourceSnapshot": ".cache/leona-r-projection-binding-reading-v1-20261024/source-focused-sun.json",
+  "source": {
+    "families": "Leona_R_hit_aoe_green/red complexEmitterDefinitionData index1 Focused_Sun; definitions identical. PlanarProjection mYRange500/mFading500; no authored receiver geometry, world matrix, worldToUv, triangle query, projector-center offset or depth reconstruction.",
+    "motion": "single particle,rate1,particleLife.699999988079071,emitterLife1,linger10,uniformScale1,birthScale500. Scale overlife[1,.15,.05] at[0,.30000001192092896,1]. Birth rotation[-90,1,0] with Y probability factor0..360;isLocalOrientation0. These remain source values, not a supplied native matrix.",
+    "material": "Base Leona_Base_Z_focused_sun.tex;particle lookup Leona_Base_Z_color-buildingflash.tex;lookupScales[.5,.5]. No palette/reflection/mult/uv transforms authored;meshRenderFlags0,miscRenderFlags1. No authored color/blend defaults are native CPU proof."
+  },
+  "nativeObserved": {
+    "pin": "docs/reference/leona-r-decal-shaders.json DECAL-VS-INPUTS/POSITION-UV/FADE and PS-COLOR/FOW observations; six exact selections all checked.",
+    "inputs": "Positionfloat3loc0;PerFrameVertexCB buffer1/560;ParticleDecalVS buffer7/144 WORLD_MATRIX@0,WORLD_TO_UV_MATRIX@64,Y_RANGE@128.",
+    "equations": "w=W*[position,1];u=dot(w,storedUVvector0);v=1-dot(w,storedUVvector2);clip=VIEW_PROJECTION_MATRIX*w. No divide by UVmapped.w. gap=abs(w.y-heightRange.x);vertexFade=gap<=heightRange.y?1:1-(gap-heightRange.y)/heightRange.z;interpolated fade affects alpha as max(fade,0). No shader-generated flattening or epsilon guard.",
+    "receivers": "VS transforms supplied mesh vertices and samples no terrain/depth. PS samples only diffuse,particleLookup and optionalFOW/palette in selected variants. There is no screen/depth world-position reconstruction. Availability of native shaders does not reveal caller geometry selection or CPU matrix construction.",
+    "color": "PS0 diffuse*lookup(COLOR_UV.xy)*MODULATE_COLOR;RGBunchanged,alpha*max(interpolatedFade,0). No global remap/RGBclamp. FOWvariant multipliesRGBonly byFOWalpha;palettevariants preserve diffusealpha. Native selection/renderstate/samplers for actualRunknown.",
+    "outside": "Selected VS/PS do not reject UVoutside[0,1] or clip full receiving triangles to footprint. Texture addressing/triangle-query/CPUclipping determine outside behavior; not established."
+  },
+  "externalObserved": {
+    "component": "readers/components/Projections.tsx51-59: flatground substitute, one footprint quad at GROUND_LEVEL, handwritten material ALWAYS; explicitly no translated game-shader route. Not actual receiving map triangles and not a screen/depth projection technique.",
+    "write": "Projections.tsx131-148 evaluates appearance,drawnPlaceInto,particleBasisInto,footprintInto,modulateInto,colorLookupInto. Geometry center stores engine-space draw position;footprint halfWidth/Height/turn separate.",
+    "footprint": "utils/projection.ts33-62 complex halfWidth=scale[0],halfHeight=scale[2],turn=matrixTurn(basis[0],basis[6]);matrixTurn=wrapPositive(atan2(-firstArg,secondArg))*180/pi-270. Use exact arrayindices; prose naming a firstrow is not a substitute for executable indexing. Simple uses scale[1] and rotationZ.",
+    "vertex": "shaders/projection.ts34-48 local=corner*2*halfExtents;offset=R2(turn)*local;engine=(Cx+offset.x,GROUND_LEVEL,Cz+offset.y);vUv=(corner.x+.5,.5-corner.y);final viewport mirror. It substitutes groundY and ignores centerY for geometry;centerY used only heightfade. epsilon max(fading,1e-6) is externalpolicy.",
+    "uv": "Projection component never calls uvTransformInto/uvRowsInto. materials.ts381-417 says texture spansfootprint once regardless emitterUVfields, then suppliesheightFade andcolorlookup. Ordinary particle layer affine transform/cell/flipbook rules in retaineduvTransform.ts are not this decal UVcontract.",
+    "fragmentDifferences": "External hand-written fragment addsalphaRefdiscard andnoFOW,uses sharedpalette/ramphelpers. Native selectedPS0 has no alpha-test operation. OVERLAYdepthbias/fixedgroundquad/epsilon are externalpreview policies.",
+    "externalNativeClaim": "Pinned plan lines2852-2884 claims static16.17.8057408 projector0x1412F8790/simple0x1412C4AC0/complexkind7branch0x1412F578D queries map triangles under footprint boundingbox then redrawsUNLIT_DECAL. It claims row-vectorUVmatrix T(-x,0,-z)*RotY(turn)*S(1/2w,1,1/2h)*T(.5,0,.5),height vector[particleY,mYRange,mFading],andno ordinaryUVtransform. These are primary external claims, not independently retainednative16.18CPUdisassembly/evidenceIDs."
+  },
+  "derivedExternalFlatMatrix": {
+    "classification": "Algebraic inference reproducing externalflatfootprint geometry; candidate construction only, not recovered16.18nativeCPUbinding.",
+    "variables": "C=(Cx,Cy,Cz),a=halfWidth,b=halfHeight,c=cos(turn),s=sin(turn);positive nonzero extents.",
+    "U": ".5+(c*(x-Cx)+s*(z-Cz))/(2*a)",
+    "preFlipV": ".5+(-s*(x-Cx)+c*(z-Cz))/(2*b)",
+    "row0": "[c/(2a),0,s/(2a),.5-(c*Cx+s*Cz)/(2a)]",
+    "row2": "[-s/(2b),0,c/(2b),.5+(s*Cx-c*Cz)/(2b)]",
+    "heightRange": "[Cy,500,500] only if allpositions are sourceworldunits. In localrenderunits uniformlyscaled.01,centerY/range/fade andfootprint scale all .01,so source500=>5. If worldcoordinates undergo reflection/translation, transform matrixandcenter consistently.",
+    "Rcurve": "External uniformhalfextents atbirth500,atphase.3 about75,end25 sourceunits;corresponding render.01extents5,.75,.25. This does not fix native emitter time/random/frame dispatch."
+  },
+  "localAdapterContract": {
+    "file": "src/render/particle-decal-material.ts",
+    "world": "Bindings.world is receivingtriangleLOCAL->callerWORLD;it is not automatically emittertransform. Preworldspace geometry takesidentity. Vertex shader ignoresThree modelMatrix,so receiver/object/parent transforms must be folded into suppliedworld once.",
+    "worldToUv": "Bindings.worldToUv operates on that SAME callerWORLD. Particle/projector placement belongs here. Its row0 producesU,row2 preflippedV;row1unused in selectednativeUV. No automatic scale/handedness or fallback matrix is generated.",
+    "height": "heightRange=[centerWorldY,fullOpacityRange,fadingDistance] in same callerunits;material excludesfading<=0 as explicitadapterdomain althoughnative dividesdirectly.",
+    "geometry": "Caller must supply actual finite complete indexed/nonindexed receivingtriangles. Adapter neither queriesterrain nor synthesizesfootprint/groundplane/normals. It samplesnodepth. Geometry/imagesborrowed;bindingmatricescopied.",
+    "state": "NoBlending/DoubleSide/depthTesttrue/depthWritefalse areinspectiondefaults. ActualRsource miscRenderFlags1 plus reconstructionblend/alphaRef defaults need separate callerpolicy;donot treatinspectionstateasnativeRdrawstate."
+  },
+  "localTerrainContext": {
+    "terrain": "src/render/terrain.ts6 SCALE=.01;buildTerrain creates a localflatPlaneGeometry rotated-Xpi/2 plus independentwater/obstacles. It does not identify nativeR receivingtriangles.",
+    "rift": "src/render/rift-assets.ts traverses importedmapmeshes,retainsvisibility/materialsourceorder. map-geometry-transport verifiesbyteidenticaldecompressedglTFbufferviews. No inspectedmoduleprovidesnativeprojectortriangleeligibility/clipping/matrixbindings.",
+    "boundary": "Receiving selected localmeshes viaexplicitadapter would be a local geometric reconstruction. A screen/depth decal technique is not implied or required by nativeunlit-decalshader and must not be substituted as native."
+  },
+  "unknownNativeCPU": [
+    "Actual16.18R selection ofunlit_decalpair/defines",
+    "receivereligibility/terrainBVH/trianglequery/clipping",
+    "worldmatrixconstruction andobject/instance transforms",
+    "worldToUVconstruction andsource-framehandedness/units",
+    "heightcenter selection onnonflat receivingterrain",
+    "samplerfilter/address/outside-footprint behavior",
+    "blend/depth/stencil/phase/defaultalphaRef andFOWresourcebindings"
+  ],
+  "nativeExecuted": false,
+  "compilerExecuted": false,
+  "yawAudit": {
+    "evaluate.mjs": {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/footprint-yaw/evaluate.mjs",
+      "sha256": "44e2dd1cf94b4a64c2cedcc2a1b2df419f7bc243af9bb65b8af8a1624517b2bc"
+    },
+    "results.json": {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/footprint-yaw/results.json",
+      "sha256": "77d2ef62f89bd9c84a100dd59410c8810d97857507830a5389587b0f9d9f22da"
+    },
+    "provenance.json": {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/footprint-yaw/provenance.json",
+      "sha256": "2dddf641854e3ecda1eed51b24131ed6bbe9aefae23504ea3e65d53dd89e8638"
+    }
+  },
+  "localIntegration": {
+    "families": [
+      12,
+      18
+    ],
+    "receiverPolicy": "Explicit terrain roots and visible static non-instanced/non-skinned/non-batched meshes. Fixture: opaque depth-writing alphaTest0. Rift: opaque depth-writing authored Ground_/HOL2026_Ground_/Earth_Order-or-Chaos_Gromp material names; all imported map materials use MASK0.30000001192092896, so alphaTest0 would reject all terrain. Other map vegetation/prop names excluded; terrain texture hole handling remains unverified. Actual world triangles, CPU XZ clipping and cell8 are local policies.",
+    "matrixPolicy": "Identity outer particle frame; source EulerYXZ basis indices0/6 mapped to Three0/2; footprint inverse plus explicit sourceX reflection; preworld geometry usesidentity. Source mYRange500/mFading500 become5/5renderunits. NativeCPU binding unknown.",
+    "renderPolicy": "Source blend0 interpreted asOne/One with tintRGB premultiplication;miscRenderFlags1 disablesdepthTest;depthWritefalse/DoubleSide/opaquegroundqueue/noStencil/noFOW. No transferred alphaRef,epsilon,depthbias orordinaryUVtransform."
+  }
+}

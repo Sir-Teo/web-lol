@@ -5860,3 +5860,49 @@ CPU benchmark is claimed. See [scope](LEONA-R-SKIN.md) and the
 [verification record](reference/leona/r-skin-verification.json). Remaining R
 bindings/native acceptance, player Leona/support and full six-character match
 work remain open. Nothing is pushed; the full project goal stays active.
+
+## Solar Flare planar receivers — October 24, 2026
+
+Both Focused_Sun area alternatives now draw on actual selected terrain triangles,
+with saved fixed placement, birth/current vision, source scale/rotation/lifetime
+and lookup. This adds two alternatives to the prior 36 families, for 38 of 44
+enabled across both area colors. Each projected particle owns geometry/material;
+images stay borrowed, buffers grow by required complete-triangle capacity and
+expiry retires owned resources. The receiver index is lazy and folds parent/map
+transforms once, preserving clipped terrain height without invented normals,
+a generated plane or screen-depth reconstruction.
+
+Exact external2adda footprint math uses row-major basis0/6 (Three0/2), preserving
+sampled yaw. Native16.18 UNLIT_DECAL position/UV/height/color arithmetic receives
+explicit identity-world geometry, footprint inverse and source height ranges.
+Actual native CPU receiver eligibility, clipping, matrix/state/resource bindings
+and frame parity remain unverified. Terrain roots, static classification, cells8,
+source-X reflection, ground-name selection and composition state are local
+policies. All imported map materials use alpha masking; named Ground_/HOL2026_
+Ground_/Earth Gromp patches remain eligible while foliage/props stay excluded.
+
+Full 1,874 unit cases/308 files plus three Node QA and 13 Chrome cases pass.
+The real Rift renderer probe uses a development fixture World, preserving the
+normal-match Leona gate. It indexes 2,967 ground triangles, considers 201 and draws
+99 clipped corners over varied actual heights without changing simulation state.
+Both color variants restore exact projector state, rig matrices and framebuffer
+at tick12; graphics recovery and six-cast cleanup pass with stable settled
+18 geometries/28 textures. Existing R surfaces, skin and 640 decal arithmetic
+samples pass. No new normal cohort or CPU benchmark is claimed.
+
+Retained initial diagnostics include instanced scenery selection, copied uniform
+name, stale unit-ID rigs after a test World replacement and empty Rift selection
+from an alphaTest0 filter. Paired images/bone matrices also located an intermittent
+full-frame restore difference in the eight-tick fixture fog cache: the test had
+teleported observers then rendered at tick7. The final controlled probe pauses
+before first RAF and captures at tick12 after fog refresh; no fog/runtime shader
+behavior was changed to hide the diagnostic.
+
+Fresh production passes 32 recordings without development hooks or unrequested
+Leona preload. The fresh 1,011-file pack contains 513,275,022 bytes and passes all
+offline controls with 963 service-worker responses and no production errors.
+Schema126 stays fixed; ruleset6f1e1711 includes the frame/receiver policy. See
+[scope](LEONA-R-PROJECTIONS.md) and the
+[verification record](reference/leona/r-projection-verification.json). Six source
+families/native acceptance, player Leona/support and full six-character match
+work remain open. Nothing is pushed; the full project goal stays active.

@@ -247,6 +247,7 @@ async function boot(): Promise<void> {
           view.leonaEclipseSkins.load(),
           view.leonaZenithSkins.load(),
           view.leonaSolarSkins.load(),
+          view.leonaSolarProjections.load(),
           view.leonaZenithSurfaces.load(),
           view.leonaSolarSurfaces.load(),
           view.leonaZenithTrails.load(),

@@ -106,3 +106,10 @@ npm run check
 npx playwright test e2e/leona-solar-skins.spec.ts e2e/particle-skin-mult-material.spec.ts
 node tools/qa/verify-leona-r-skin.mjs
 ```
+
+## Planar follow-up
+
+The later [planar receiver increment](LEONA-R-PROJECTIONS.md) integrates both
+Focused_Sun area alternatives, bringing the total to 38 of 44 enabled families.
+The attached-skin acceptance above remains a frozen historical stage; use
+`node tools/qa/verify-leona-r-skin.mjs --historical` after that follow-up.

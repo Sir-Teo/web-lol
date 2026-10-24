@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "files": [
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/components/Projections.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Projections.tsx",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 5139,
+      "sha256": "7d29a8b7d8f71108cb8d30521b8cf378b56c6531ade8c9e3e49511244da207e2"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/docs/vfx-particle-renderer.md",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/docs/plans/vfx-particle-renderer.md",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 232427,
+      "sha256": "31d7294422ea1d6285fd9586814ba244f6ca5f68b26edc95edcd01b17786c733"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/engine/readSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readSurface.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 14569,
+      "sha256": "af6068c0a8247c97d3ebb52d5a6ad6b9cca110920a38bfcac9553fe13a138219"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/shaders/projection.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/projection.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 2425,
+      "sha256": "c0f8026f53a83e1f225e66a1d6300cc8f4e2b021412c85fbcef995e0e8deb0be"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/state/stencil.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/state/stencil.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 3111,
+      "sha256": "c8268bcef493bc1f4ee4245bab55b3332bdc9ea9cf3517f9380c12a792420c96"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/utils/materials.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/materials.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 16071,
+      "sha256": "f2da84cb9cb98edfc25c42055765d4e7069365a6508395045b73745e0b9e1e6b"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/utils/projection.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/projection.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 2230,
+      "sha256": "60d151e8ec8063954b0a4039dc79e1488b4e925612c67548c7dedd83ba7c48b9"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/utils/stencil.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/stencil.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 6025,
+      "sha256": "3da32a99e72d60440ee263cff679e1dfc5a6bec79861d12aa605d618b84efd09"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/readers/utils/uvTransform.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/uvTransform.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 7924,
+      "sha256": "7d213bad1f7a4d443c0f136fedd21c433be8bc4b6822d2a2f410209efb370d0d"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/footprint-yaw/basis.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/basis.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 10219,
+      "sha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/footprint-yaw/particleRead.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/particleRead.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 16101,
+      "sha256": "1c2ac421e97d350cc1758785bab1f841fb95064c31ac9b81ebe214447bb811ab"
+    },
+    {
+      "path": ".cache/leona-r-projection-binding-reading-v1-20261024/footprint-yaw/pool.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/pool.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 15114,
+      "sha256": "ed2744cdc1114f4897c5af526b16181159515fbb401cd042e75567daccef5f49"
+    }
+  ],
+  "nativeExecuted": false
+}
