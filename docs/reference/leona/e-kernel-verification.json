@@ -1,0 +1,501 @@
+{
+  "format": 1,
+  "recordedAt": "2026-10-24T13:12:02.417Z",
+  "schema": 125,
+  "ruleset": "3f5f13befd26234c86d0603e8fcc4b3236eb6e43b1e4ebf5e47a968d46007653",
+  "scope": "Finalize unchanged source compiler/emission/history/trail kernels after CPU work. No GameView drawing, source audio, native acceptance or active-frame integration.",
+  "sourceArchive": ".cache/leona-e-kernel-resume-v1-20261024/source-archive.json",
+  "nativeArchive": ".cache/leona-e-kernel-validation-v4-20261024/native-archive.json",
+  "readerArchive": ".cache/leona-e-kernel-validation-v3-20261024/reader-archive.json",
+  "currentChecks": {
+    "standard": ".cache/paused-fixtures-validation-v1-20261024/check.log",
+    "export": ".cache/leona-e-kernel-resume-v1-20261024/export.log",
+    "ribbon": ".cache/leona-e-kernel-resume-v1-20261024/ribbon.log",
+    "browser": ".cache/leona-e-kernel-resume-v1-20261024/browser.log",
+    "phaseBrowser": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser.log",
+    "kernelEvidence": ".cache/leona-e-kernel-resume-v1-20261024/browser/leona-zenith-kernel-Chrome-bfd79-out-mutating-saved-gameplay/evidence.json",
+    "phaseEvidence": [
+      ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/evidence.json",
+      ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json",
+      ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json",
+      ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json"
+    ]
+  },
+  "currentValidation": {
+    "typecheck": true,
+    "unitCases": 1782,
+    "unitFiles": 293,
+    "nodeQACases": 3,
+    "kernelCases": 36,
+    "chromeCases": 5,
+    "gameplayOrRenderingSourceChangedDuringResume": false,
+    "allRuntimeInputsMatchAcceptedSourceArchive": ".cache/unit-vision-source-v2-20261024/manifest.json",
+    "acceptedGeneratedFilesMatch": true,
+    "freshNormalCohort": false,
+    "freshOfflineAudit": false,
+    "freshProductionAudit": false
+  },
+  "unchangedKernel": [
+    {
+      "file": "src/render/leona-zenith-particles.ts",
+      "sha256": "07e093ec2c54e0879dbfce6a85cfbd2456052ef75a50999a3b098bddb82a31e8",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/src/render/leona-zenith-particles.ts"
+    },
+    {
+      "file": "src/render/leona-zenith-history.ts",
+      "sha256": "9175200433c81dffa5080a347b711fefdcebd132d05bcd5d879c89c3b9b6a881",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/src/render/leona-zenith-history.ts"
+    },
+    {
+      "file": "src/render/leona-zenith-trails.ts",
+      "sha256": "e03e845239a9d5877ee078828eb871080de9a4b28b94b2118d3f40f3a92da915",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/src/render/leona-zenith-trails.ts"
+    },
+    {
+      "file": "src/content/leona-e-particles.json",
+      "sha256": "e193280f3236b5fc3652ca208278f491128045fa5e66c8acd1bcbf3e05e06ea2",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/src/content/leona-e-particles.json"
+    },
+    {
+      "file": "tests/leona-zenith-particles.test.ts",
+      "sha256": "1ce51eb8be4a1de11490b059ba71be1419fb8deed93cae76601e246423854947",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/tests/leona-zenith-particles.test.ts"
+    },
+    {
+      "file": "tools/assets/export-leona-e-particles.py",
+      "sha256": "1f96e8dfc28cdb19d6d4a95ddf064c43e3c81cc16e1e34b9c7148951af327836",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/tools/assets/export-leona-e-particles.py"
+    },
+    {
+      "file": "tools/assets/export-leona-e-ribbon-samples.mjs",
+      "sha256": "30f10addbaecc68e6c07d878f8b6fe8738eb367b3d5f181b365d6c2696818166",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/tools/assets/export-leona-e-ribbon-samples.mjs"
+    },
+    {
+      "file": "docs/reference/leona-e-kernel-readers.json",
+      "sha256": "ea6dc239551656c41bf5eae4feb8e581389643bdb75350a65dcfe2562d9b1465",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/docs/reference/leona-e-kernel-readers.json"
+    },
+    {
+      "file": "docs/reference/leona-e-particle-profiles.json",
+      "sha256": "063913a01958b209543a32ae34f7694883a7bba97dcf06eeb83f366ae8ff632e",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/docs/reference/leona-e-particle-profiles.json"
+    },
+    {
+      "file": "docs/reference/leona-e-ribbon-samples.json",
+      "sha256": "f289383e418733638bc1936afd70c4f42b5220a140347833394ac2e7764b7c76",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/docs/reference/leona-e-ribbon-samples.json"
+    },
+    {
+      "file": "e2e/leona-zenith-kernel.spec.ts",
+      "sha256": "7dd530f4ce88be9fd03e3417ebbcddc4167e61f76dd19144ba3bea5ea6e43398",
+      "earlier": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/e2e/leona-zenith-kernel.spec.ts"
+    }
+  ],
+  "historicalEvidence": {
+    "ruleset": "9dc8977c24e239714f3f97409f8a6bde24b073be88c72b6a1ae63e64a16519d3",
+    "checks": {
+      "unit": ".cache/leona-e-kernel-validation-v4-20261024/unit.log",
+      "browser": ".cache/leona-e-kernel-validation-v3-20261024/browser.log",
+      "normalVerification": ".cache/leona-e-kernel-validation-v4-20261024/normal-verification.json",
+      "normalComparison": ".cache/leona-e-kernel-validation-v4-20261024/identity-only-comparison.json",
+      "deliveryInputComparison": ".cache/leona-e-kernel-validation-v4-20261024/delivery-input-comparison.json",
+      "production": ".cache/leona-e-kernel-validation-v3-20261024/production.json",
+      "offline": ".cache/leona-e-kernel-validation-v3-20261024/offline.log",
+      "buildArchive": ".cache/leona-e-kernel-validation-v3-20261024/generated-build-archive.json",
+      "sourceArchive": ".cache/leona-e-kernel-validation-v4-20261024/source-archive.json"
+    },
+    "unitCases": 1757,
+    "unitFiles": 289,
+    "chromeCases": 5,
+    "normalSmoke": {
+      "seeds": 2,
+      "checkedTicks": 72000,
+      "roundTrips": 20,
+      "futureChecks": 18
+    },
+    "scope": "Retained prior frozen validation only; no claim of current production/offline/cohort certification."
+  },
+  "acceptedBuild": [
+    {
+      "file": "dist/assets/game-BwLG1PJV.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/game-BwLG1PJV.js",
+      "bytes": 988777,
+      "sha256": "c7d09a7ca4a0aae473515db826db1635a4da87513fd135819210bb461bb9f202"
+    },
+    {
+      "file": "dist/assets/game-DMLuJ5Rx.css",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": "dist/assets/garen-aa-VeEi_Xp5.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-aa-VeEi_Xp5.js",
+      "bytes": 31963,
+      "sha256": "e2ccebd9f4dd7e6a2e709ae6d869f428c9039a00548d327fba9c1dbc7e0a15a4"
+    },
+    {
+      "file": "dist/assets/garen-basic-attacks-DcAR031h.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-basic-attacks-DcAR031h.js",
+      "bytes": 30580,
+      "sha256": "45f8900147791fbcc621e4ec44dd68bf99b43eb90ad12c7d7471751c3cfa8494"
+    },
+    {
+      "file": "dist/assets/garen-courage-CCZWwP9Z.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-courage-CCZWwP9Z.js",
+      "bytes": 21867,
+      "sha256": "675a816435d030a412586b7a6e8cd491e4926e66d76dbff080b546c01b6f9825"
+    },
+    {
+      "file": "dist/assets/garen-decisive-strike-ReuFvQg3.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-decisive-strike-ReuFvQg3.js",
+      "bytes": 55146,
+      "sha256": "15f3bff0471a07ef8e23765889dcfc2a5b2fa6c157e8696046cd868c131dc4d0"
+    },
+    {
+      "file": "dist/assets/garen-justice-BTwIKMe-.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-justice-BTwIKMe-.js",
+      "bytes": 42381,
+      "sha256": "840bee9430bc9789c1fb4c5c4e8dfeef016f1ed7969818e4a2a60d7e23f3564b"
+    },
+    {
+      "file": "dist/assets/garen-p-5xNhttV1.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-p-5xNhttV1.js",
+      "bytes": 5760,
+      "sha256": "ab4d8715c9fb2ed536dc61a00b625939d977a18cddec3a893876cf9df9721a10"
+    },
+    {
+      "file": "dist/assets/garen-perseverance-s1IDVxEO.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-perseverance-s1IDVxEO.js",
+      "bytes": 3130,
+      "sha256": "de510acffff3959307eb9088554decad7c610b1dce06c9d4bb82006d040bb4a4"
+    },
+    {
+      "file": "dist/assets/garen-q-Bh5ShA79.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-q-Bh5ShA79.js",
+      "bytes": 10787,
+      "sha256": "98d1f99f6721a8073ea05153780eddb70717ed7074da0ea774a3cc166d961b90"
+    },
+    {
+      "file": "dist/assets/garen-r-BgQK90bO.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-r-BgQK90bO.js",
+      "bytes": 6727,
+      "sha256": "b616b0d61f8c06838d6dc006fd4962bfeda1a3cee3984295d84d7dedf351b2d4"
+    },
+    {
+      "file": "dist/assets/garen-w-DDGSj46B.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/garen-w-DDGSj46B.js",
+      "bytes": 8107,
+      "sha256": "be8a50f127d3ed982d1ba620d2c8e64cf95488c614aba48e558d8e434ebccb86"
+    },
+    {
+      "file": "dist/assets/gromp-attack-BB4g98Nu.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/gromp-attack-BB4g98Nu.js",
+      "bytes": 12028,
+      "sha256": "2b4d6e55e18e850a4798748fb71eea9816fcdfb05295e66ec490e386db110ab2"
+    },
+    {
+      "file": "dist/assets/gromp-death-B8S-GACD.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/gromp-death-B8S-GACD.js",
+      "bytes": 5395,
+      "sha256": "82071e4cafa57c7e95099d07fbc46f198f4924055bf98b2a91f143fa75962e25"
+    },
+    {
+      "file": "dist/assets/gromp-death-particles-BS76z2uv.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/gromp-death-particles-BS76z2uv.js",
+      "bytes": 12929,
+      "sha256": "81c9332fc6ca47ad79f74138a135f311a78c7de0ad40550ca98d6e58cf9cc725"
+    },
+    {
+      "file": "dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "bytes": 528,
+      "sha256": "a212cb24fdb690aa96c78629abf9490711527cb30de95b3bcf0aa0441978079f"
+    },
+    {
+      "file": "dist/assets/leona-daybreak-yB_D1XAo.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/leona-daybreak-yB_D1XAo.js",
+      "bytes": 31306,
+      "sha256": "53c988827bc5f4ed4316d11866006b5039f378cb5a05f51e74f54562d002dda4"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-history-Bvp_NXJF.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/leona-eclipse-history-Bvp_NXJF.js",
+      "bytes": 140036,
+      "sha256": "7b6358647dc787956df45dd680ddde1a93b0cf84fdf01050ec338d7d4a3b9f4c"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skins-CKqWE9j7.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/leona-eclipse-skins-CKqWE9j7.js",
+      "bytes": 6345,
+      "sha256": "e52f2c7a57a1b96535ededbd6a602eaa077048412764a88a8044bbdfa81c7c3b"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-surfaces-h902AMVr.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/leona-eclipse-surfaces-h902AMVr.js",
+      "bytes": 16928,
+      "sha256": "43216ec13fc6282040e1e446e4517ac8362a3a004efcad13db715e2336fa7795"
+    },
+    {
+      "file": "dist/assets/leona-w-BWA92Jop.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/leona-w-BWA92Jop.js",
+      "bytes": 11872,
+      "sha256": "e0bd9d4e0a6fa9e2aacd2bdbe4f0aa6389402662c73dc5dc9784e33bd2d37d0e"
+    },
+    {
+      "file": "dist/assets/map-DuHhjnGM.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/map-DuHhjnGM.js",
+      "bytes": 3775,
+      "sha256": "6df6fd85dbe85891923d77cfb957066203368bd027e78ddaa1733af3c719b915"
+    },
+    {
+      "file": "dist/assets/map-wSGUvK3C.css",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": "dist/assets/oracle-64JPI9xI.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/oracle-64JPI9xI.js",
+      "bytes": 5752,
+      "sha256": "b1ffee1f0058429c932ba6b839c53655cd1f3c5de2f8a3dbedc88d213f208d91"
+    },
+    {
+      "file": "dist/assets/oracle-particles-8ZSxeBdC.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/oracle-particles-8ZSxeBdC.js",
+      "bytes": 55711,
+      "sha256": "4548d5f6fdef1643658ab17c71d1d653b4801e9d11a9e04eca3e526ddc9ef4a4"
+    },
+    {
+      "file": "dist/assets/particle-motion-CR8776NI.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/particle-motion-CR8776NI.js",
+      "bytes": 326,
+      "sha256": "4d84a203095dde6cd4164aa4e37472a6fb28057382b65ad07b6ade4226ad138e"
+    },
+    {
+      "file": "dist/assets/rift-assets-CcCthSeF.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/rift-assets-CcCthSeF.js",
+      "bytes": 9106,
+      "sha256": "5ac9e89f98db9cd6be1f423adbbff538fa64d05fe469d75e351545512d26987a"
+    },
+    {
+      "file": "dist/assets/sunlight-BCYScBCW.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/sunlight-BCYScBCW.js",
+      "bytes": 3784,
+      "sha256": "511583da5f0a16c74033519be9259b21656af072bfde90abecbcb7faa8d8be09"
+    },
+    {
+      "file": "dist/assets/three-gySAWiYA.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/assets/three-gySAWiYA.js",
+      "bytes": 661182,
+      "sha256": "907e103a7ec0bb3fce386135d2a30329d6b5df00f357162f7bdd9409291d8927"
+    },
+    {
+      "file": "dist/index.html",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/index.html",
+      "bytes": 999,
+      "sha256": "7e4bccc36de48eaacaaad7609645b8e40590317bfaff4f5e3c98d9220fc8b324"
+    },
+    {
+      "file": "dist/map.html",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/map.html",
+      "bytes": 618,
+      "sha256": "5d370acb4f9143e19c1bf56d65a5df8a8f7baa7679001786914c10317aca89b0"
+    },
+    {
+      "file": "dist/offline-pack.json",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/offline-pack.json",
+      "bytes": 135388,
+      "sha256": "f473c7e1e8bb204fe5800c6ae941a0982eadbaac2cbde2b2e2410f691d5949c9"
+    },
+    {
+      "file": "dist/offline-worker.js",
+      "archived": ".cache/unit-vision-review-v1-20261024/dist/offline-worker.js",
+      "bytes": 138593,
+      "sha256": "76547772f62c9e557bb5674af4bc22ce8f00e2eec38d01022f9b7b5117997a11"
+    }
+  ],
+  "acceptedDeliveryScope": "Generated files match the retained unit-visibility build exactly. Its production smoke belongs to that accepted build and is not a newly run kernel delivery audit.",
+  "evidence": [
+    {
+      "file": ".cache/leona-e-kernel-readers-v1-20261024/Trails.tsx",
+      "archived": ".cache/leona-e-kernel-readers-v1-20261024/Trails.tsx",
+      "bytes": 7854,
+      "sha256": "e94eeaed23fddc95b9cb6d20b82fcc2abb4714bd304545b83303127ad405003c"
+    },
+    {
+      "file": ".cache/leona-e-kernel-readers-v1-20261024/quality.ts",
+      "archived": ".cache/leona-e-kernel-readers-v1-20261024/quality.ts",
+      "bytes": 3101,
+      "sha256": "b5432e7d40a8706e825a07d4577b0887b22f0c030f85761418799eb3a5d3ab45"
+    },
+    {
+      "file": ".cache/leona-e-kernel-readers-v1-20261024/ribbon.ts",
+      "archived": ".cache/leona-e-kernel-readers-v1-20261024/ribbon.ts",
+      "bytes": 33103,
+      "sha256": "ada3d66b955dee7916f10e5b76417a9d7985bbbca337afcd551a7f30fa5cbe68"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-finalize-v1.mjs",
+      "archived": ".cache/leona-e-kernel-resume-finalize-v1.mjs",
+      "bytes": 7533,
+      "sha256": "7b96ba5a9c54133fbf71b85dd472de525ec5a9e6ce58f00f1264732625d5492c"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/browser.log",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/browser.log",
+      "bytes": 565,
+      "sha256": "029bfa8454c722d042778e3bcc6740b9d12931c7e7a1e567052aab6e4e844d23"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/browser/.last-run.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/browser/leona-zenith-kernel-Chrome-bfd79-out-mutating-saved-gameplay/evidence.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/browser/leona-zenith-kernel-Chrome-bfd79-out-mutating-saved-gameplay/evidence.json",
+      "bytes": 3895214,
+      "sha256": "286742c8e6b55abe1ed8c0523b3296c409a69309c4f5414ecfb1f11d570934fb"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/export.log",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/export.log",
+      "bytes": 97,
+      "sha256": "4e1f8582b6b5bc06eaee276691b19e07621d46f0bab8d53b38ce39a0b76401bf"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser.log",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser.log",
+      "bytes": 928,
+      "sha256": "e2716d04ac1b2f6c60dea29deab245140a6b81b826e52026f7f08228db9595da"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/.last-run.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/evidence.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/evidence.json",
+      "bytes": 444903,
+      "sha256": "52cac8ef04fc6d23c68c3e7063a8ff3222950a7ded5b9390caf3ec03b46b2965"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json",
+      "bytes": 261730,
+      "sha256": "1b51572814b4e5d11d2dc184e7c0e98816cfa3bab7577fc94244513166ea42cf"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json",
+      "bytes": 176102,
+      "sha256": "eac0f882db51668c897c80c9663a60c7ed91fa02709d7fec8a12dd8384f48591"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/phase-browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json",
+      "bytes": 142541,
+      "sha256": "79422ae59a31ccdb4ad903fb89986344f50abab3a8938ff8d56872eeeb324fd2"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/ribbon.log",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/ribbon.log",
+      "bytes": 137,
+      "sha256": "dae186e8fc3cf7bb233ea0174c113fbdd725f8b130e12c94f7c4b56604afa50a"
+    },
+    {
+      "file": ".cache/leona-e-kernel-resume-v1-20261024/source-archive.json",
+      "archived": ".cache/leona-e-kernel-resume-v1-20261024/source-archive.json",
+      "bytes": 450758,
+      "sha256": "c5aa68f7723eba9bcacf37dd84c54e14937b2640548eacae57cfa2aab3af9a98"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v3-20261024/browser.log",
+      "archived": ".cache/leona-e-kernel-validation-v3-20261024/browser.log",
+      "bytes": 1090,
+      "sha256": "bf0fb194f6b6c57cd7f07348c3a69fcfda941c42959f23c301a8bb4d701cccb4"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v3-20261024/generated-build-archive.json",
+      "archived": ".cache/leona-e-kernel-validation-v3-20261024/generated-build-archive.json",
+      "bytes": 9198,
+      "sha256": "a3995808f67866c9b2b02f428506c4d72bc6159e0086bbcfc4380e142c0abdb8"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v3-20261024/offline.log",
+      "archived": ".cache/leona-e-kernel-validation-v3-20261024/offline.log",
+      "bytes": 687,
+      "sha256": "0eb560f7289b610ee04fe46a494b54f697fa99b3ad6a25e2e1fc0778be988515"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v3-20261024/production.json",
+      "archived": ".cache/leona-e-kernel-validation-v3-20261024/production.json",
+      "bytes": 1877,
+      "sha256": "bc4a47a28b48d93704dabdab84e83a9c4b5fd6710313edd3a5dd4278b36936e1"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v4-20261024/delivery-input-comparison.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/delivery-input-comparison.json",
+      "bytes": 396,
+      "sha256": "8735b07ecb8c0c427b220af25d06d1968cb83724061f25276b6702e34d3d9aa6"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v4-20261024/identity-only-comparison.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/identity-only-comparison.json",
+      "bytes": 9610,
+      "sha256": "6365e0a36af9642be904787616a9d63d30dd66a6372a541f3cb2dcdf5c81b81b"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v4-20261024/normal-verification.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/normal-verification.json",
+      "bytes": 279,
+      "sha256": "f3a99a260bfdb2bddf8838af72434009711d45502f1409df8c9094cba364e3f9"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v4-20261024/source-archive.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/source-archive.json",
+      "bytes": 445315,
+      "sha256": "16039fa92c66d6f5295a8837d63cdfc5b8db8d1dfcf8a4fd48ec1528fb2221cc"
+    },
+    {
+      "file": ".cache/leona-e-kernel-validation-v4-20261024/unit.log",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/unit.log",
+      "bytes": 499,
+      "sha256": "2c1562b2525179fb2f94c50ecfa558a7dd14b4e8b7e560773e6b3b1dd3ac029e"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/check.log",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/check.log",
+      "bytes": 1042,
+      "sha256": "4cea95da19702640588bbad63349b4cd0cf2b7c23c59f1fba536196dac287716"
+    },
+    {
+      "file": "docs/reference/unit-vision-verification.json",
+      "archived": "docs/reference/unit-vision-verification.json",
+      "bytes": 33540,
+      "sha256": "8ffe56b21e8fbfd4c7155fa350fb27b9b304d9a926002a7b3106023d2765b8aa"
+    }
+  ],
+  "acceptance": {
+    "sourceSampler": true,
+    "sourceTrailGeometry": true,
+    "sourceFieldsRouted": true,
+    "viewDrawingIntegrated": false,
+    "sourceEAudioIntegrated": false,
+    "nativeBehaviorVerified": false,
+    "completeLeonaKit": false,
+    "hundredSeedInvariantGate": false,
+    "fullGoalComplete": false
+  },
+  "limits": [
+    "External reconstruction readers are not native execution; smoothing evidence comes from a 16.17 reader while local scheduling remains 60 Hz.",
+    "Material/mesh/skin/quad/billboard bindings, lifecycle/recovery/disposal, audio and native reference comparison remain required.",
+    "No source asset bytes changed. The source table and all kernels are unused by GameView; future integration must pin its actual fetched dependencies.",
+    "Earlier normal/production/offline evidence retains its original ruleset and archives; no compatibility migration or fresh cohort is implied."
+  ]
+}

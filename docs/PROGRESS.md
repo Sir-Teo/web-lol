@@ -5387,3 +5387,30 @@ See [the experiment and tradeoff](CPU-BONE-EULER.md) and its
 renderer, schema 125, working ruleset and assets remain unchanged. No candidate
 production, offline, complete-browser or normal-match audit is claimed. Deferred
 Zenith work is preserved, nothing is pushed, and the full project goal remains active.
+
+## Zenith Blade kernel preparation — October 24, 2026
+
+The deferred E compiler, saved-phase routing and particle/trail kernels are now
+reviewed for completion as a source-preparation increment. All twenty enabled
+records are compiled and all thirteen disabled records retained exactly. Unknown
+fields/types fail closed; ordinary compiler checks use only shipped inputs and
+create no private reader cache. Both arbitrary trails retain source widths,
+1,200/3,000-cm cutoffs, 805/1,100 tiling and full-path WAKE distance. Historical
+visibility splits ribbons before smoothing. Seven independent pinned-helper
+arrays verify geometry policies; target-patch native cadence remains unverified.
+
+The kernel sources match their earlier frozen validation byte for byte. Current
+TypeScript, all 1,782 unit cases/293 files and three Node QA cases pass. Five
+fresh Chrome cases verify every enabled family, both ribbons and real windup/
+flight/dash/arrival saves with exact restoration/following combat. The earlier
+two-seed ten-minute smoke, production and offline observations retain their
+original identities; no fresh normal cohort or offline run is claimed. Current
+generated production files match the retained accepted visibility build.
+
+GameView still does not import or draw E, and source E audio remains absent.
+Material/mesh/skin bindings, lifecycle/recovery/disposal, native comparison,
+player/support integration and the complete project remain open. Schema 125 and
+working ruleset `3f5f13befd26234c86d0603e8fcc4b3236eb6e43b1e4ebf5e47a968d46007653`
+remain. See [kernel scope](LEONA-E-KERNELS.md) and its
+[evidence record](reference/leona/e-kernel-verification.json). Nothing is pushed;
+the full project goal remains active.

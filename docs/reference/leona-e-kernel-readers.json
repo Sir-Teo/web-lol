@@ -1,0 +1,42 @@
+{
+  "scope": "Pinned external reconstruction, not an observed native client/effect execution.",
+  "ribbonRevision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "emissionRevision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "files": [
+    {
+      "path": ".cache/leona-e-kernel-readers-v1-20261024/ribbon.ts",
+      "bytes": 33103,
+      "sha256": "ada3d66b955dee7916f10e5b76417a9d7985bbbca337afcd551a7f30fa5cbe68",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/ribbon.ts"
+    },
+    {
+      "path": ".cache/leona-e-kernel-readers-v1-20261024/quality.ts",
+      "bytes": 3101,
+      "sha256": "b5432e7d40a8706e825a07d4577b0887b22f0c030f85761418799eb3a5d3ab45",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/quality.ts"
+    },
+    {
+      "path": ".cache/leona-e-kernel-readers-v1-20261024/Trails.tsx",
+      "bytes": 7854,
+      "sha256": "e94eeaed23fddc95b9cb6d20b82fcc2abb4714bd304545b83303127ad405003c",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Trails.tsx"
+    },
+    {
+      "path": "docs/reference/leona-w-emission-reader.json",
+      "bytes": 3871,
+      "sha256": "75efb37ca94b13668dc3aa8300580cee2639f375e73c4b030c4be668d8c7559a"
+    },
+    {
+      "path": "docs/reference/lux-e-missile-reading.json",
+      "bytes": 5116,
+      "sha256": "b7ee6c9c6859fcfd6674be496cc5a3516500d1364dfdc992a0741a11a59b8049"
+    }
+  ],
+  "readings": [
+    "Arbitrary trails expand along each particle standing local +X, not the path normal. Smoothing bisects this side with the previous raw side, without an inverse-dot width multiplier or invented miter cap.",
+    "Mode 1 walks newest to oldest; interior points box-filter up to a quality-selected reach on both sides. High/very-high reach is three. Preserve endpoints and duplicate fixed-update birth positions.",
+    "WAKE removes the first U even part; cutoff is tested against walked smoothed positions. The local fog adapter splits runs before smoothing, preserving hidden trajectory separators.",
+    "The external quality table describes a 16.17 client and uses 15/20/30 Hz. This increment retains the project 60 Hz local schedule; target-patch quality/cadence/default fidelity remains unverified.",
+    "The earlier pinned particleRead adds worldAcceleration * age01 * lifetime^2 to position and worldAcceleration * lifetime to direction."
+  ]
+}

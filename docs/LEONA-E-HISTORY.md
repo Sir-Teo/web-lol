@@ -125,3 +125,11 @@ policies still need native evidence. R presentation, complete player/support
 integration, the current full seeded cohort, all six champions and full-match
 browser/offline/performance/native acceptance remain required. The complete
 project goal remains active; nothing is pushed.
+
+## Subsequent kernel preparation — October 24, 2026
+
+The [emission/history/trail samplers](LEONA-E-KERNELS.md) now consume these saved
+phases, including historical birth audiences, detached poses and the complete
+flight odometer. The preceding history evidence remains revision-scoped. The
+source mesh/quad/billboard/trail/skin renderer and E audio remain unimplemented;
+kernel preparation does not establish native playback or complete the Leona kit.

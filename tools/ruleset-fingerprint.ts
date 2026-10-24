@@ -105,6 +105,9 @@ const pinnedData = [
 // effect clocks. Traverse their runtime dependencies just like simulation roots;
 // hashing only the entry file would miss a changed curve/motion helper.
 export const rulesetModuleRoots = [
+  'src/render/leona-zenith-particles.ts',
+  'src/render/leona-zenith-history.ts',
+  'src/render/leona-zenith-trails.ts',
   'src/render/leona-eclipse-particles.ts',
   'src/render/leona-eclipse-values.ts',
   'src/render/leona-eclipse-skin-material.ts',

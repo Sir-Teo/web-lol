@@ -161,3 +161,11 @@ all twenty enabled declarations and save the gameplay phase/contact/dash/arrival
 history required for later playback. This source-package audit remains historical
 schema-124 evidence; the new history increment uses schema 125. Source drawing,
 trails/materials/skin dispatch, audio and native acceptance remain unfinished.
+
+## Subsequent kernel preparation — October 24, 2026
+
+[Emission/history/trail kernels](LEONA-E-KERNELS.md) now compile all twenty enabled
+records and retain all thirteen disabled declarations. Independent ribbon arrays
+and saved-phase sampling are verified. GameView drawing, material/attachment
+dispatch, source audio and native acceptance remain unfinished. This source
+package's original delivery evidence keeps its historical identity.
