@@ -1,0 +1,59 @@
+{
+  "output": {
+    "path": "/assets/models/leona-e-sword.glb",
+    "bytes": 71756,
+    "sha256": "a5d4a3c4a82c7fb6d33f6113f7ba9facb13a1656f6c8a1e53e98694d4e4a3982"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_z_sword.scb",
+    "wadPathHash": "13b9c8c611b0d630",
+    "sha256": "dd03b9b8005bee1df65830c7a93c46c0233af28e05b129d7811133b2a65037f9",
+    "bytes": 74820
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 333,
+  "triangles": 648,
+  "exportedCorners": 1944,
+  "centralPoint": [
+    0,
+    79.79705047607422,
+    0
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -30.2406005859375,
+    10.407899856567383,
+    -2.8482000827789307,
+    30.2406005859375,
+    149.1862030029297,
+    2.8482000827789307
+  ],
+  "sourceFlags": 1,
+  "sourceVertexColors": false,
+  "sourceFaceColors": true,
+  "materials": [
+    ""
+  ],
+  "sourceIndicesSha256": "d3efc3a5898e2b1ad18cc08b645afd0a8f9b8ec04b7ba6b8fb320ff9b551bd03",
+  "attributeSha256": {
+    "POSITION": "cce9019ea82043de2f879e8b7f8d299141d6f602160c6235c244bfff226138d1",
+    "_SOURCE_POSITION": "d02666cef989c413e2a1a8308a70f1353f5892911f273f0ae7a98ae4b8d80cbf",
+    "TEXCOORD_0": "311f024dd2dc11c63fa1c49dc89530febe64e2784e154d4feada810260e7c97a",
+    "_SOURCE_FACE_RGB": "d1575943c8a4713d0cdfc917aff7903805fab6350d7fcdc2000ccd7839ccd134"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

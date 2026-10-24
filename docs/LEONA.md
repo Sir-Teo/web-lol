@@ -403,3 +403,10 @@ remain open, along with the rest of Leona and the full match gates.
 from eighteen unchanged float masters, including the authored onset and delayed
 stops. Saved phases, fog, readiness/fallback and terminal retirement are covered;
 native script/attachment/shuffle/listener/bus and listening acceptance remain open.
+
+
+[Zenith source preparation](LEONA-E-SOURCE.md) now retains all five E systems,
+thirty-three emitter records, forty-two textures and four SCBs, including the
+hashed dash override texture and disabled dependencies. The cone shares existing
+Eclipse bytes. Gameplay E histories, trails/materials, audio and native comparison
+remain required; this source package does not enable production Leona selection.

@@ -1,0 +1,1900 @@
+{
+  "sourcePinSha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83",
+  "modelPinSha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7",
+  "unitScale": 0.01,
+  "layoutReference": {
+    "repository": "https://github.com/LeagueToolkit/LeagueToolkit",
+    "revision": "76bf57bf4fd195343dec610bf0f912a06b910914",
+    "files": {
+      "StaticMesh.cs": "eab04b1454081c56f86d93f568f804b812b8e3dbe44f99caea9efd2eff9272da",
+      "StaticMeshFace.cs": "053418afb28e627ff0709975ef4d5b363e0e44508a6efba27c5243064fb45a37"
+    }
+  },
+  "texDecoder": {
+    "path": ".tools/cdtb/cdtb/export.py",
+    "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+  },
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/alphaslice_mesh.tex",
+        "wadPathHash": "9fd300f74d281da4",
+        "sha256": "1505f0083028d5abec986c646807fdbe0aef826e4c55923e5a9cc1383df8b2e8",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/alphaslice_mesh.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 16102,
+      "sha256": "63161cce3aaf827c67523ac35ed92b2981012662e0c8194c1dc5da6e65435679",
+      "rgbaSha256": "0d937bc4af13bed95fa3b256749824f6bfff978a0034d486276adc58d6c4b3c4"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/asc_prism_glow.tex",
+        "wadPathHash": "7cf72c95e22e031f",
+        "sha256": "899ade92e05607f5225374017bb19dd29b5cb37128d1be34820e6a37739b78ee",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/asc_prism_glow.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 36431,
+      "sha256": "bc98ef0543946d7ccdf3f1e7903b6a6a0bffd9a48d6899c2df460c1e0c025034",
+      "rgbaSha256": "963c6bb3a12476735cfae0b04862dc8d8cca22e72974b7c012d0eab6e9f1e38d"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/base_brightspark_11.tex",
+        "wadPathHash": "8e52f04129d348aa",
+        "sha256": "727596619af4fad054bfb082b8b8b36e7f3c0f2f68ac132a18390d08ef2390ee",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/base_brightspark_11.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 553,
+      "sha256": "5f4d8c2ef2c35b1cae5acf5d0f566652605c33ddedb50c8ac390ce67cb37affb",
+      "rgbaSha256": "cd0a351558fd70c9af2e55fd0e97d35329ca4196728f552b9e74c035d26178af"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/common_black.tex",
+        "wadPathHash": "2a3a2665ba8fa223",
+        "sha256": "2045ec159a292a51b46725ab2135ff9e76521870e97a54e22c62c36137f8a6aa",
+        "bytes": 36
+      },
+      "path": "public/assets/effects/common_black.png",
+      "width": 4,
+      "height": 4,
+      "bytes": 78,
+      "sha256": "e858c5d3f297e5a49c10271c46e016847930f48150e97c95fdad00df1d2bb6a3",
+      "rgbaSha256": "c28671310b68c91b5dd5f3c6bfcda6c4837f333875208df024be2b3df921c966"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_ball32_02.tex",
+        "wadPathHash": "bfd87699e4b91a48",
+        "sha256": "0976c09543b07b12fedbaad697c1bb82885289b48c16ba6428d5fa0ad9e54b1d",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_ball32_02.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 23194,
+      "sha256": "cb9642cd1e5ca7dca4eda27576e21405f4e3e2ef4157cf58d6f0d32d22249bf6",
+      "rgbaSha256": "94a89adf44b948d02be081c41ffe925540882018e3eff61e7c06e1d003926346"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_blastring.tex",
+        "wadPathHash": "9d41c9fae2848f36",
+        "sha256": "b2f66a5a83544ab46f1f46ac37453033fb4861c4707cf4a7a2763a9b2882fbff",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/leona_base_blastring.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 6718,
+      "sha256": "7f0ae23cbe6f32489c28c98c76992d16b63efa505fedb863c0721f32a89bbc57",
+      "rgbaSha256": "86796bb9f16c872fe69517ba43b81d47f5afb12d394624ed891248cd3b70b468"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_crystal_dissolve.tex",
+        "wadPathHash": "a055616a5d464256",
+        "sha256": "9055c7b91f4cdc98894cb1aa41a3456c495b7ab44bd768380f5b1c21d7edf7ec",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/leona_base_crystal_dissolve.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 16481,
+      "sha256": "ea103d0ce58688986290a38906b08c52983e9a400915ac68e99c4b0debf318fb",
+      "rgbaSha256": "3509a7f0c01cf856d9198dc8013543f44daf40e9b7c0e01a181360f7b32711eb"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_cubesmult2.tex",
+        "wadPathHash": "ff44cc465d84215a",
+        "sha256": "b6496bdd5b4cebff4edc7935954628c38f83c0b791f83aa0c0c1db1e51d9f2cd",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/leona_base_cubesmult2.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 20934,
+      "sha256": "47fa316bc065e565ca8143201b0048b52143d84fc71107a2d5bcff17b85e72a9",
+      "rgbaSha256": "04366436ccc76fb5dfff756df5f826738ecacf26a63079bf05e21936e3bb817a"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_blend_trailr.tex",
+        "wadPathHash": "6672656616dfe4c9",
+        "sha256": "bf53fbe9b6e915839bca07a2f79db95e44d536f75da786f2c7b3a632d98e4a2a",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_e_blend_trailr.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 9046,
+      "sha256": "40c574ad28a7542c4523faa255f5218967a52e84f6d2fe2b9a7ab258205842d1",
+      "rgbaSha256": "464a1c79923cf30ddb47a3f11b8991bd9c385704199706c79dcf2c95915dabcb"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_color-alphabend32.tex",
+        "wadPathHash": "58f21ba21d0eff47",
+        "sha256": "c8a6b8149433f0ffc08caed9ce437ed8a753a9760c26fc59c7fafa464d93266c",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/leona_base_e_color-alphabend32.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 1459,
+      "sha256": "79f2935b48a92ded3a7a505a76ead563f5322013cfd75765cfe2c990f03060f9",
+      "rgbaSha256": "20bde08df441a571394e518bdd8b0ba6d862462258a8098a0a125923e189f9a3"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_color-eyefade.tex",
+        "wadPathHash": "b2116648c4456374",
+        "sha256": "845dce75f1930a011506568a43c9d59886850750240002b49a7e9f4f6615e475",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_e_color-eyefade.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 267,
+      "sha256": "160f95195967eba462fbd3026483397aa63240d341488c9b651dbe2428ec89b3",
+      "rgbaSha256": "11541452063a49f4478fcff6e89f2ca66132d74e77170112106f0e298df5bcbd"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_dust.tex",
+        "wadPathHash": "d8b393cec4596ad7",
+        "sha256": "328e18c69eeac95f9ef0ea89d12690c564c63db2bacf3ab806eb035508af3ca4",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_e_dust.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 48380,
+      "sha256": "7cdabba6cd0f4000334ccf1b462c3d15b66b6e49624c8c5b9e9d6a3227c57507",
+      "rgbaSha256": "0a6e3712b14f8cd1c14558ee48fdf3194dedde605896d0c54cc6b100bd81a4c7"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_flash.tex",
+        "wadPathHash": "0c36a31a3320232a",
+        "sha256": "28cb7fcf1a681a83c767844a1311b3a689a9d65376475e9ab6c8fff1b8086fe4",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_e_flash.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 4373,
+      "sha256": "d9ce276e3eb56fb0edc01c109e39d5f71c97aea76c714752dd8e79aa59a50d2b",
+      "rgbaSha256": "3e7c0d296785d627938fe1ea7405e4ed8bb346a1efd199f80d1b7389a0ff73d1"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_groundsmoke02.tex",
+        "wadPathHash": "e5261578077d05e7",
+        "sha256": "0b630dda4a75692c833f5171fe92bebed0aa14537e9becd04610b98728b482d2",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_e_groundsmoke02.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 23168,
+      "sha256": "ff77ce5b63d9f06ea2db846688b2f88e914f4b33d1b5ce6f8d4324ae5b5ed50b",
+      "rgbaSha256": "68b0999aa7cb17636adf1f032b1cdbcb8f9b34288a4eb4bb1b935c9330240017"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_mis_core.tex",
+        "wadPathHash": "ee3e3225d4be92c3",
+        "sha256": "74c64cc3d53d8298fedddcefca584712bb3613281f64091a84e9b76d211d70b5",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/leona_base_e_mis_core.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 9371,
+      "sha256": "848408f623edc7cdfa1b4cdd8840e3574533ca6a86dd3967cb4be6fbdf5c79fa",
+      "rgbaSha256": "80ec566bef55d578e6ef48a50828d10ee659cf84499549e4cef8a7f8cb4ea6c2"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_mis_weapon.tex",
+        "wadPathHash": "43a6ba7b4790be17",
+        "sha256": "bd2d234fb18c746e15339dcd90399e2482535fb4ae53e47f07c88f1a24a66c1d",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/leona_base_e_mis_weapon.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 5373,
+      "sha256": "db44a3fd27365f90f63550b9125ed83298d4ffd9d71639ff6b0849d2fea34284",
+      "rgbaSha256": "ecaeff20a003972e0e3978e0ba82f60c7a218577d24cb35cb8eca0b924a93d2c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_sword.tex",
+        "wadPathHash": "b33dab87d0fd8e5a",
+        "sha256": "5404181050ebdd62591ecfc6a5249d136952fccb923ebcf6a5a42dddf80f8e1b",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_e_sword.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 11725,
+      "sha256": "42d1c2d58558f7ef979f2efc1e2ea19dd35b2dd6db8f1f14dfc45c96f302086c",
+      "rgbaSha256": "1a59d19c5ad13e6c6d11300eefa1078b0a3bfc56252a1ba2d99b3d32be6ce81a"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_sword_glow.tex",
+        "wadPathHash": "41ed5ecc39a58c13",
+        "sha256": "ae2021469df6f236fb5d529a736d0ea73d08e0c99032f05a00879e5c5424e90a",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_e_sword_glow.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 17124,
+      "sha256": "cb63709ba19652031e19551ede24144a1256891a0b6156fdd8eabf7666694679",
+      "rgbaSha256": "a10c4961a072b25f6b1563ecd28ebc604fb1eb475a9c3df66721a82ecebb63e1"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_tar_cylinder.tex",
+        "wadPathHash": "fbfc905b4a61c6cc",
+        "sha256": "77a11930c225b5ef17d496a7bbca8d076c88f7431f082ae596b4a26da7cd2148",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_e_tar_cylinder.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 37092,
+      "sha256": "6467fb2626367ba0ab128021e9f8cd1fa3e1eaf1ceafe6f1cb2bc44e0a882dab",
+      "rgbaSha256": "9dad83e1862287dc7a7aac027712a87658a7b697b1c3bd4cb1664c2fea21cb92"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_trail02.tex",
+        "wadPathHash": "4936aae59b5b980c",
+        "sha256": "69407c56a3e6c7dd7ef31069aee147b5a0cf2c3220abd7a6d4b16479a6c6459c",
+        "bytes": 21916
+      },
+      "path": "public/assets/effects/leona_base_e_trail02.png",
+      "width": 256,
+      "height": 64,
+      "bytes": 8766,
+      "sha256": "7235d89bbd311a83411faf7a8ae54cda3f074a35175d10eb8c43e1f22f2d50e5",
+      "rgbaSha256": "8821a24fb6e1781a3b0d85e22a5c979c0f9b6320496e700aa99d30c06db2b3b6"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_e_wisps.tex",
+        "wadPathHash": "1e55a362cf92fc06",
+        "sha256": "5c23ed44c76bb26457a1c1d9dc80c449e72f6dcee938877bb7f32724f04be38e",
+        "bytes": 87452
+      },
+      "path": "public/assets/effects/leona_base_e_wisps.png",
+      "width": 512,
+      "height": 128,
+      "bytes": 34436,
+      "sha256": "f0991be1c366ca6155a8e89b9e6f8d337fdb120020b3a1ee594d2ac349e5fa48",
+      "rgbaSha256": "15a19bba068fef6a4969003ea444d006b57d9704a112695779122e3ba9a0b92c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_flame_trail_gradient.tex",
+        "wadPathHash": "a5928d0c7c9ccace",
+        "sha256": "94684854a2f7cc03882fb6250f9d6db49a16873af66c163326a270787ba96881",
+        "bytes": 10964
+      },
+      "path": "public/assets/effects/leona_base_flame_trail_gradient.png",
+      "width": 256,
+      "height": 64,
+      "bytes": 3866,
+      "sha256": "ca54c82a8d8ed46b6e6ecdbca7d7bb2fd2aca99e41db3da1d291190f53987fd9",
+      "rgbaSha256": "368cd2421dd3213abc86cdf07c1ec7705de0dfa0825ac08656e0e73f0b2996ea"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_flicker_04.tex",
+        "wadPathHash": "f0bb02e4c910e4d0",
+        "sha256": "6f8fa4641f31fb9ab0fb5faa807f05ec70e8be1f94e921738a290ee3d823965b",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_flicker_04.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 13032,
+      "sha256": "0821de3a7d30b27d74caae1dc82cd4db4e09ff5186e47d394ed29f9833adc6bc",
+      "rgbaSha256": "d095d5f46fa87df40e8d893e93ebd52ee58dae4a3faa0f3fe6d5b10615c10434"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_glow.tex",
+        "wadPathHash": "104fe99a833ebb11",
+        "sha256": "d2b0455a61633c374d4153fca0eb7c3b19249b69f28995e07404dc6e9a4a00c2",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_glow.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 36076,
+      "sha256": "eb7d87cc5c70d52bcf8af162d3abaec121b311803acdf4e17fdac8e17f1a5c61",
+      "rgbaSha256": "7d1a5e316067684da757c7782ec6aeaf490b3dbe9ee5484f518aa26fd336694e"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_mult_windblast.tex",
+        "wadPathHash": "b95564ce675f3e05",
+        "sha256": "44be19398b59b8136b10d8f7cbc1f17008da2f89875d498b756809464b4e3f6a",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/leona_base_mult_windblast.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2431,
+      "sha256": "1681314837c12bf069a804f9bd4d8487fae777d76d34de776abacb21951726c7",
+      "rgbaSha256": "c2907d1922acb90d59ca5600dd183e3cbb84d4279927b858bd37433334eef879"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_r_bokeh_dots_4x4.tex",
+        "wadPathHash": "55fca1b437c31fae",
+        "sha256": "c7b2478580109da3a6f2367ab6bc5d5b6ba83b9b5092204cb9abdfd1c7788e4a",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_r_bokeh_dots_4x4.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 8711,
+      "sha256": "150e8ccc789df20d45a589e2dfebe2fb3950d3ccfcfc10b332e0eb7c7cbecaae",
+      "rgbaSha256": "14d042a22d9ac5a27aa5b28309a6d84438b0f88600475d5d6fd1ec1f45fcca6f"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_r_buf_mult.tex",
+        "wadPathHash": "daf4ddc86ad284a5",
+        "sha256": "226054b4c7cf023a66c8a46afa6a4212f2575ccbc36e7ae2fe5d7fc82409ac14",
+        "bytes": 87420
+      },
+      "path": "public/assets/effects/leona_base_r_buf_mult.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 60579,
+      "sha256": "64574bed6fc991c6beb34baf796c7da374948207cca097a8ba75e372640a1b8c",
+      "rgbaSha256": "82ecc3de79554e8110827bb75e6ea850a9661c2e30ddc4a530bd346b95f26d65"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_r_rainbowmult.tex",
+        "wadPathHash": "9d1f448092043ef5",
+        "sha256": "a91da116fd6036a7b312d296303964add824b0a5f1e66cdf92f645e7dc0dd9d2",
+        "bytes": 276
+      },
+      "path": "public/assets/effects/leona_base_r_rainbowmult.png",
+      "width": 64,
+      "height": 4,
+      "bytes": 220,
+      "sha256": "5dac684daf04d9667f40197e9e85b7e98b423075acd1237de9cc49b2b6e43a93",
+      "rgbaSha256": "8b098b58dc677cb16fa25b763857e05e8c62f4864a0b659b4bfa5fcb4c6e36a5"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_spark2.tex",
+        "wadPathHash": "6d820f7c396724d1",
+        "sha256": "50947bdc7a5218529f4e126ee1fa2f8f4fb361989045a59ff960cdcac4594c63",
+        "bytes": 21884
+      },
+      "path": "public/assets/effects/leona_base_spark2.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 12666,
+      "sha256": "341cc6d12b7744d3f5a74ca39d17f87dccae87ba65145ee8b6e04e87cc8895c0",
+      "rgbaSha256": "de3cd84032806adc7c0462298706a0e94fc49c4743009d4d897b6ea1e50ee050"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_sparks.tex",
+        "wadPathHash": "f4fa5edc977adbac",
+        "sha256": "02283067ddf584ff03470f8641ce633b440cc05aad5b621f68ce2dacfd0add64",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_sparks.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 4165,
+      "sha256": "b4c6975e24399efad5ec366747cfb5fc82f0bfc98db561adb1544c25fbb9047e",
+      "rgbaSha256": "70422b62f2d7fa3879dc0d82b0612005eb6c3bee449b853720335a954c9edf21"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-eyefade.tex",
+        "wadPathHash": "bade2df58b5006bd",
+        "sha256": "845dce75f1930a011506568a43c9d59886850750240002b49a7e9f4f6615e475",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-eyefade.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 267,
+      "sha256": "160f95195967eba462fbd3026483397aa63240d341488c9b651dbe2428ec89b3",
+      "rgbaSha256": "11541452063a49f4478fcff6e89f2ca66132d74e77170112106f0e298df5bcbd"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-firefade.tex",
+        "wadPathHash": "0e5f9e8225befc15",
+        "sha256": "c4cc38b25073863f562b055d44a6df1163d604f5c63b02f536d7a985c7475ff5",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-firefade.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2520,
+      "sha256": "99fd99afc6ec19ffd2dfe6e1ceb4221425b3034b952a3d21378ba4aa2b6a415c",
+      "rgbaSha256": "00a40190a9d3c12e33cb3f9e17e06f90e8e1b1c2e8b9d562db81ffaa3f5f3a28"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-hold.tex",
+        "wadPathHash": "60bbd56ab2d83ab3",
+        "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8",
+        "bytes": 68
+      },
+      "path": "public/assets/effects/leona_base_z_color-hold.png",
+      "width": 8,
+      "height": 8,
+      "bytes": 79,
+      "sha256": "38fb43fbd4b078237a94650903231de41f9ac8ed0c2550b3581cd41b6e9ff501",
+      "rgbaSha256": "3d6876a0146de8576eb2395a858de1213d1b92c65b779df3a331cfd5a4584546"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-rainbowbell.tex",
+        "wadPathHash": "f33630d35bca55d6",
+        "sha256": "a5e36a23f9fbd9c7fb202ba77a6c28fc3561cb9da8ac236046f063f4440fcdca",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-rainbowbell.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 3390,
+      "sha256": "fe9c480bfd04a90a065aecaf3d2c0f95b9522f87848f47bc520f476bfaab933d",
+      "rgbaSha256": "e4a227359306c6d646bd5557d1bb135f2141b812e918979cfe8e006714d9be8f"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-white32.tex",
+        "wadPathHash": "05c6ed22b580088f",
+        "sha256": "cf589f62041fec1401d8737e05736f60ba8fc54b56f2a5d72019712451039037",
+        "bytes": 124
+      },
+      "path": "public/assets/effects/leona_base_z_color-white32.png",
+      "width": 8,
+      "height": 8,
+      "bytes": 117,
+      "sha256": "184188683fa5dc7e2fe422801502b3eca0f9444a59490c0a47ff1412dcaafdc4",
+      "rgbaSha256": "fe46dbfdea169c785aa891c36772c8e6e445025634c7b5bc00a9950aa423c68e"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-wildcard.tex",
+        "wadPathHash": "2de4e47ebfb4c952",
+        "sha256": "1ce0717706654afee8eba13c56c845cee093e41edd849e5da76f1d2dba24676a",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-wildcard.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 244,
+      "sha256": "359367dcc90f6b1bf5374d2b85fffaf2365e80673981d7636fc3b5350818c858",
+      "rgbaSha256": "b97da9aeb55f38f99d1787be82c8418b49577a1472f3094a56e95ff08762ac6b"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_empty32.tex",
+        "wadPathHash": "97d68dc062eb5dfa",
+        "sha256": "ac6d42f0b5ac61622031265b2fb178a7aa795efcadcf4ca740a6608d2d00e9d5",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/leona_base_z_empty32.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 1204,
+      "sha256": "6e036a244721abc1fa32ff309ce656d582643bd2535e13915069a19f1264615d",
+      "rgbaSha256": "18a878720b892a9ed8eedf307c2d644f13a0a25c289ff9c3e7a2e873342b9fbb"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_exploshaft-yellow.tex",
+        "wadPathHash": "3bcfa1925cef21db",
+        "sha256": "7cc8037685e82bd35bd3dd9dc42583105bd8fcbeb2c4503a9b0dd1b32da56af7",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/leona_base_z_exploshaft-yellow.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 30022,
+      "sha256": "623ba5b1d009ce5fed7a635eea4816ae60c018a3ffa27137aed3c3ba8abc312a",
+      "rgbaSha256": "d66102e91ff0e71ec141a651a78c8ced34403e2fd3847da1432dabcde050ebf1"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_flare-sun.tex",
+        "wadPathHash": "fa03e6f1efdc3e94",
+        "sha256": "0dee04ae988c526c522b54c1da3fa4106f4b00a12c2763d05bd2b55b275cc71d",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/leona_base_z_flare-sun.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 23881,
+      "sha256": "72d118a94fb011404da9beba7a83e1d741f7c892fd4d2a7f454fc8bc51bddb87",
+      "rgbaSha256": "21140a44d77c8057b754a7b50a068c76d15cec95fafe01863384512815e9fb5c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_sunlight-ball.tex",
+        "wadPathHash": "23bd131bdb2c86f3",
+        "sha256": "3289c0e4308228ccd37f2a3b0b9cb2932f85621f26523afc5a6cdf7ab68213a9",
+        "bytes": 43716
+      },
+      "path": "public/assets/effects/leona_base_z_sunlight-ball.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 34650,
+      "sha256": "6b7ddd276abfe43843c8f77d1c36bb884bdca3033982f8a225bf3dab982df1d5",
+      "rgbaSha256": "eb3dab77f44cea911833dd4a9e62c0645b94c311df93801cccf48f0df92594c6"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_color-bellcurve4.tex",
+        "wadPathHash": "5721ded08f5e328a",
+        "sha256": "eda0d7f51d8ddf72e1d1e6a56793ef0a1e7f2225c8cc4316196e65e966574560",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_color-bellcurve4.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 410,
+      "sha256": "36595b8f04a5cf00421e9ee3bb7fb1d9efbf8b74e3a54ec02fd70258baa2705d",
+      "rgbaSha256": "b4e7d9c999dab3102dd50efed43fc65fe13b37374ee9d1af56fd51703ca765dd"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/skin09/particles/leona_base_z_color-hold.tex",
+        "wadPathHash": "85878b38e64b7f86",
+        "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8",
+        "bytes": 68
+      },
+      "path": "public/assets/effects/leona_base_z_color-hold.png",
+      "width": 8,
+      "height": 8,
+      "bytes": 79,
+      "sha256": "38fb43fbd4b078237a94650903231de41f9ac8ed0c2550b3581cd41b6e9ff501",
+      "rgbaSha256": "3d6876a0146de8576eb2395a858de1213d1b92c65b779df3a331cfd5a4584546"
+    }
+  ],
+  "meshes": [
+    {
+      "output": {
+        "path": "/assets/models/leona-e-contact-cylinder.glb",
+        "bytes": 5684,
+        "sha256": "6fefa3215863a0b0fc8976439d0c3757254f4f323facf7a2c7b58e33a9841952"
+      },
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_expo_cylinder.scb",
+        "wadPathHash": "40154aadce190363",
+        "sha256": "25ada043a65ee7f137b35d87d8ee5a5de756a0128cefde106ce65d3760e05af0",
+        "bytes": 4672
+      },
+      "sourceVersion": [
+        3,
+        2
+      ],
+      "sourceVertices": 40,
+      "triangles": 40,
+      "exportedCorners": 120,
+      "centralPoint": [
+        0,
+        0,
+        0
+      ],
+      "rawSourceBounds": [
+        -98.48860168457031,
+        0,
+        -98.48858642578125,
+        196.9771728515625,
+        139.49725341796875,
+        196.97720336914062
+      ],
+      "measuredMinMax": [
+        -98.48860168457031,
+        0,
+        -98.48858642578125,
+        98.48857879638672,
+        139.49725341796875,
+        98.4886245727539
+      ],
+      "sourceFlags": 2,
+      "sourceVertexColors": false,
+      "sourceFaceColors": false,
+      "materials": [
+        "lambert1"
+      ],
+      "sourceIndicesSha256": "10e62e4e1a6d9d816f0ec7a295c45ed80e0c7bf6566529f3fcecc3920c9873dc",
+      "attributeSha256": {
+        "POSITION": "9707595349e567934ef7989b2129e919991c0ee6990f1d9e36fcf354279384ba",
+        "_SOURCE_POSITION": "3044a4c5bb744bb4978098f92c30bf4d16a51888893025ec55c7577f6bf0aef3",
+        "TEXCOORD_0": "3bd34d12e7e8c14eab5f08a31077ac3e68aa0f2c90d23bff610c596b22be12c3"
+      },
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    {
+      "output": {
+        "path": "/assets/models/leona-w-contact-cone.glb",
+        "bytes": 39796,
+        "sha256": "f715e1c03ee469b883fb2f96577628f4bedefd0fa92e524f059cda43b02996bb"
+      },
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_sharp_mesh.scb",
+        "wadPathHash": "7004e0d9604abbde",
+        "sha256": "0ed57b949b8f3b3c94f53ee1f8fb1721145ee39e404812115c2789ec4d7a0f88",
+        "bytes": 38220
+      },
+      "sourceVersion": [
+        3,
+        2
+      ],
+      "sourceVertices": 183,
+      "triangles": 351,
+      "exportedCorners": 1053,
+      "centralPoint": [
+        0,
+        0,
+        0
+      ],
+      "rawSourceBounds": [
+        -0.3970503807067871,
+        -97.51384735107422,
+        -101.04430389404297,
+        151.9524383544922,
+        200.6145477294922,
+        202.08860778808594
+      ],
+      "measuredMinMax": [
+        -0.3970503807067871,
+        -97.51384735107422,
+        -101.04430389404297,
+        151.55538940429688,
+        103.10070037841797,
+        101.04430389404297
+      ],
+      "sourceFlags": 2,
+      "sourceVertexColors": true,
+      "sourceFaceColors": false,
+      "materials": [
+        "lambert1"
+      ],
+      "sourceIndicesSha256": "cacc33b43f37c83497406b4f67395cec4eb2cb6c7688d4a8e7d695fcc4230a65",
+      "attributeSha256": {
+        "POSITION": "5d6e2b3c182a87f7025d2a92c0e2a7d0ff5197a66957a35ac366fbd9abd874ef",
+        "_SOURCE_POSITION": "9af381bfcf808cf5af9e4ac94c22adb7c022117e6bb135b630dadfe6659b1678",
+        "TEXCOORD_0": "ea960a25a2b4676c259ffbf2607aeed9313e1721e4fdeea3b17ba0aa628748b6",
+        "_SOURCE_VERTEX_BGRA": "4b1bbf700e89b5ec1d5fe1526b8b53fac8be7db072a234fb179c18a1618e91fa"
+      },
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    {
+      "output": {
+        "path": "/assets/models/leona-e-sword.glb",
+        "bytes": 71756,
+        "sha256": "a5d4a3c4a82c7fb6d33f6113f7ba9facb13a1656f6c8a1e53e98694d4e4a3982"
+      },
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_sword.scb",
+        "wadPathHash": "13b9c8c611b0d630",
+        "sha256": "dd03b9b8005bee1df65830c7a93c46c0233af28e05b129d7811133b2a65037f9",
+        "bytes": 74820
+      },
+      "sourceVersion": [
+        3,
+        2
+      ],
+      "sourceVertices": 333,
+      "triangles": 648,
+      "exportedCorners": 1944,
+      "centralPoint": [
+        0,
+        79.79705047607422,
+        0
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -30.2406005859375,
+        10.407899856567383,
+        -2.8482000827789307,
+        30.2406005859375,
+        149.1862030029297,
+        2.8482000827789307
+      ],
+      "sourceFlags": 1,
+      "sourceVertexColors": false,
+      "sourceFaceColors": true,
+      "materials": [
+        ""
+      ],
+      "sourceIndicesSha256": "d3efc3a5898e2b1ad18cc08b645afd0a8f9b8ec04b7ba6b8fb320ff9b551bd03",
+      "attributeSha256": {
+        "POSITION": "cce9019ea82043de2f879e8b7f8d299141d6f602160c6235c244bfff226138d1",
+        "_SOURCE_POSITION": "d02666cef989c413e2a1a8308a70f1353f5892911f273f0ae7a98ae4b8d80cbf",
+        "TEXCOORD_0": "311f024dd2dc11c63fa1c49dc89530febe64e2784e154d4feada810260e7c97a",
+        "_SOURCE_FACE_RGB": "d1575943c8a4713d0cdfc917aff7903805fab6350d7fcdc2000ccd7839ccd134"
+      },
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    {
+      "output": {
+        "path": "/assets/models/leona-e-sword-inner.glb",
+        "bytes": 71780,
+        "sha256": "92e76a804632bbebb86a20ffada42efc27106773a5452d823946275285d19547"
+      },
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_sword_inner.scb",
+        "wadPathHash": "0f04ed2d4c63c0a6",
+        "sha256": "a963de5b851d3fb5026dc273c5b9f5fd3924794e2c69269d313ca7d496cca54a",
+        "bytes": 74820
+      },
+      "sourceVersion": [
+        3,
+        2
+      ],
+      "sourceVertices": 333,
+      "triangles": 648,
+      "exportedCorners": 1944,
+      "centralPoint": [
+        0,
+        79.79705047607422,
+        0
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -28.885000228881836,
+        11.763899803161621,
+        -1.492400050163269,
+        28.885000228881836,
+        147.8302001953125,
+        1.492400050163269
+      ],
+      "sourceFlags": 1,
+      "sourceVertexColors": false,
+      "sourceFaceColors": true,
+      "materials": [
+        ""
+      ],
+      "sourceIndicesSha256": "f056d5cd16a96c4a1e4855ddd575964012c415279fb77341ec31d9565f0015c2",
+      "attributeSha256": {
+        "POSITION": "e2acbb8b646b89b7ecc03d8745a511d06acb7ecd48edd0ee96aa25910d8a2437",
+        "_SOURCE_POSITION": "b334e6f358a18e936708588111fb9d7f93f1f10666f9675a5ff109e5d56201c6",
+        "TEXCOORD_0": "d2ff5dde9cda9573824570661abd0f28ce2bc7b9851232c45b18c52eeea731f5",
+        "_SOURCE_FACE_RGB": "d1575943c8a4713d0cdfc917aff7903805fab6350d7fcdc2000ccd7839ccd134"
+      },
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    }
+  ],
+  "systems": {
+    "Leona_E_ZB_sfx_01": {
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_E_ZB_sfx_01",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "empty",
+          "disabled": false,
+          "primitive": "billboard",
+          "definitionSha256": "1f43224ee64b8c07dc11c8572aaeaa2731b87f424f3ba5aba27091a1e4bd2c1a",
+          "explicitFields": [
+            "__type",
+            "emitterName",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "particleColorTexture",
+            "particleLinger",
+            "rate",
+            "texture"
+          ],
+          "playbackImplemented": false
+        }
+      ]
+    },
+    "Leona_E_tar": {
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_E_tar",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "rays",
+          "disabled": true,
+          "primitive": "VfxPrimitiveRay",
+          "definitionSha256": "525b11be149664614ba5bc347a2b1ae5c1fd29b2b0705bc89651eee0cb6b0bf1",
+          "explicitFields": [
+            "FlexShapeDefinition",
+            "SpawnShape",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "disabled",
+            "emitterName",
+            "importance",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 1,
+          "name": "FlashCoreHot",
+          "disabled": false,
+          "primitive": "billboard",
+          "definitionSha256": "ac6246c295d53cb632a8b1a2eafc9c10336a26b9df18a22efc61d4c0da9f67a4",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthScale0",
+            "blendMode",
+            "emitterLinger",
+            "emitterName",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "miscRenderFlags",
+            "particleLifetime",
+            "pass",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 2,
+          "name": "Sparkles",
+          "disabled": false,
+          "primitive": "billboard",
+          "definitionSha256": "26e18917609f132cbfdb67f1e95f269d027a8e48f7a666d5e6a96ce3180e8c5e",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "birthDrag",
+            "birthRotation0",
+            "birthRotationalVelocity0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "miscRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission",
+            "worldAcceleration"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 3,
+          "name": "up_glow",
+          "disabled": false,
+          "primitive": "VfxPrimitiveMesh",
+          "definitionSha256": "8f2f48b6b64b8b8fdddb00e92aa95090c4a8d66a75ad4e2f05cb27e2afcaf017",
+          "explicitFields": [
+            "Color",
+            "FlexShapeDefinition",
+            "__type",
+            "alphaErosionDefinition",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "birthUVOffset",
+            "blendMode",
+            "emitterName",
+            "importance",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "primitive",
+            "rate",
+            "scale0",
+            "texAddressModeBase",
+            "texDiv",
+            "texture",
+            "useEmissionMeshNormalForBirth",
+            "uvMode",
+            "uvScrollClamp"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 4,
+          "name": "ant_dark",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "12558eedc98171acfcce8b97a69a0a77eef99d35707ecb6449328d7363b21f33",
+          "explicitFields": [
+            "Color",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "colorRenderFlags",
+            "emitterName",
+            "importance",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "miscRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "useEmissionMeshNormalForBirth"
+          ],
+          "playbackImplemented": false
+        }
+      ]
+    },
+    "Leona_E_cas_arrive": {
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_E_cas_arrive",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "poofs1",
+          "disabled": true,
+          "primitive": "billboard",
+          "definitionSha256": "49c6d26217f4ddbebc734c024c8692bee2dababad6d303720ea01f80e039db12",
+          "explicitFields": [
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "colorLookUpTypeY",
+            "disabled",
+            "emitterName",
+            "fieldCollectionDefinition",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "pass",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 1,
+          "name": "poofs2",
+          "disabled": true,
+          "primitive": "billboard",
+          "definitionSha256": "bf5f77b884496a62a97dc8681bb59993742d01d5dbdde43266c4d2ce013812dc",
+          "explicitFields": [
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "colorLookUpTypeY",
+            "disabled",
+            "emitterName",
+            "fieldCollectionDefinition",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "pass",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 2,
+          "name": "Avatar_Burst",
+          "disabled": false,
+          "primitive": "VfxPrimitiveAttachedMesh",
+          "definitionSha256": "9d95649495c531c2433226d1c128121c18e5afa6aef24f969ffac14a4cf8a5f6",
+          "explicitFields": [
+            "Color",
+            "__type",
+            "alphaErosionDefinition",
+            "alphaRef",
+            "bindWeight",
+            "birthColor",
+            "blendMode",
+            "depthBiasFactors",
+            "disableBackfaceCull",
+            "emitterName",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "particleLinger",
+            "primitive",
+            "rate",
+            "texture"
+          ],
+          "playbackImplemented": false
+        }
+      ]
+    },
+    "Leona_E_mis_dash": {
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_E_mis_dash",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "Lightburst-horiz",
+          "disabled": true,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "dc94c9c9e2ebeab1f0dbe732245851e18f908099897206c994cd6608aca2d3c5",
+          "explicitFields": [
+            "EmitterPosition",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "disabled",
+            "emitterName",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 1,
+          "name": "Lightburst-vert",
+          "disabled": true,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "292487e092d611a419bc7abd128d2827e4db689ad1a827ee6c1f43d189484fa9",
+          "explicitFields": [
+            "EmitterPosition",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "disabled",
+            "emitterName",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 2,
+          "name": "Lightburst-horiz1",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "4c0499558da03e89abc705082a7db47304e3a2d717ea4aa82f1684705cebeb2c",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isLocalOrientation",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 3,
+          "name": "Lightburst-vert1",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "6335d9c4f1f322f8e4cc0294b0396e0267d0a700606072d1b90040136ac28e77",
+          "explicitFields": [
+            "EmitterPosition",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        }
+      ]
+    },
+    "Leona_E_mis_weapon": {
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_E_mis_weapon",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "sword",
+          "disabled": true,
+          "primitive": "VfxPrimitiveMesh",
+          "definitionSha256": "8315e0f530aab24cfa87ef08f819f99b9c7193f1401bf40d3c2d7042aa5ffa52",
+          "explicitFields": [
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotationalVelocity0",
+            "birthScale0",
+            "birthVelocity",
+            "colorLookUpScales",
+            "colorLookUpTypeX",
+            "disableBackfaceCull",
+            "disabled",
+            "emitterName",
+            "importance",
+            "isSingleParticle",
+            "particleColorTexture",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 1,
+          "name": "sword-inner",
+          "disabled": true,
+          "primitive": "VfxPrimitiveMesh",
+          "definitionSha256": "458e13ec321b6e5f137095c66760225343c20946f54ec5a6192d85d56ba123b6",
+          "explicitFields": [
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotationalVelocity0",
+            "birthVelocity",
+            "colorLookUpScales",
+            "colorLookUpTypeX",
+            "disableBackfaceCull",
+            "disabled",
+            "emitterName",
+            "importance",
+            "isSingleParticle",
+            "particleColorTexture",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 2,
+          "name": "trail",
+          "disabled": true,
+          "primitive": "VfxPrimitiveCameraTrail",
+          "definitionSha256": "e4d67751c193a84bb13f4345703fe5b431339a30b763f3bcafab1328673ac731",
+          "explicitFields": [
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "disabled",
+            "emitterName",
+            "importance",
+            "lifetime",
+            "particleColorTexture",
+            "particleLifetime",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 3,
+          "name": "Bullets",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "f1f3538f737a068ed44a80f47dde3c6b44312a7d0f7b1756c683672b49678ebe",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthColor",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterLinger",
+            "emitterName",
+            "importance",
+            "isRotationEnabled",
+            "isSingleParticle",
+            "lifetime",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "period",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeActiveDuringPeriod",
+            "timeBeforeFirstEmission"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 4,
+          "name": "Bullets1",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "75b2860565383bcf02aee6c763802766ce3bd0a47e40f33afde1c0ce17042dea",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthColor",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterLinger",
+            "emitterName",
+            "importance",
+            "isGroundLayer",
+            "isRotationEnabled",
+            "isSingleParticle",
+            "lifetime",
+            "miscRenderFlags",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "particleLinger",
+            "period",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeActiveDuringPeriod",
+            "timeBeforeFirstEmission"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 5,
+          "name": "GoodOne",
+          "disabled": true,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "d6d83d8e395780c6df0aa594ee3e22d9bce9550666eba7576d31202b84166591",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "alphaErosionDefinition",
+            "birthColor",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "disabled",
+            "emitterName",
+            "isGroundLayer",
+            "isRandomStartFrame",
+            "lifetime",
+            "numFrames",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "timeBeforeFirstEmission"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 6,
+          "name": "Sparks",
+          "disabled": false,
+          "primitive": "billboard",
+          "definitionSha256": "2083df9a3287352a8226de494e041ff00fdf51f7724806444a17d8d6bfcc4968",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "birthColor",
+            "birthDrag",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "isUniformScale",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "rate",
+            "scale0",
+            "texture",
+            "uvMode"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 7,
+          "name": "Kayn_Primay_Broken",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryTrail",
+          "definitionSha256": "7bf935a61915d11deabce3acbfb992165143a60e3b554e51d8ba5ba6301259ba",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthColor",
+            "birthScale0",
+            "birthUvScrollRate",
+            "blendMode",
+            "emitterName",
+            "lifetime",
+            "paletteDefinition",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 8,
+          "name": "Kayn_Primay_Broken1",
+          "disabled": true,
+          "primitive": "VfxPrimitiveArbitraryTrail",
+          "definitionSha256": "56ba52341417401309359561c7a608d04a5489a33a6999061331f63a0b1d2105",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthColor",
+            "birthScale0",
+            "blendMode",
+            "disabled",
+            "emitterName",
+            "lifetime",
+            "paletteDefinition",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 9,
+          "name": "Short_Alpha",
+          "disabled": true,
+          "primitive": "VfxPrimitiveArbitraryTrail",
+          "definitionSha256": "d3c9639e8a6ec6ed092471c82adbab39b1fef3d678702298f16d4b28c35b96b0",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthColor",
+            "birthScale0",
+            "birthUvScrollRate",
+            "blendMode",
+            "depthBiasFactors",
+            "disableBackfaceCull",
+            "disabled",
+            "emitterName",
+            "importance",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "rateByVelocityFunction",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 10,
+          "name": "GoodOne1",
+          "disabled": true,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "37d84e38910cc5eb62404a3e69d0f8977522e9a5d6531f4ea9cde43296385d02",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "alphaErosionDefinition",
+            "birthColor",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "disabled",
+            "emitterName",
+            "isGroundLayer",
+            "isRandomStartFrame",
+            "lifetime",
+            "numFrames",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "timeBeforeFirstEmission"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 11,
+          "name": "GroundGlow",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "4ae620ccc84bcbdf6aa56b8c55d4fc1d5545dea277b0fc26eebde1b919d81e18",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isGroundLayer",
+            "isSingleParticle",
+            "lifetime",
+            "miscRenderFlags",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeBeforeFirstEmission",
+            "useNavmeshMask"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 12,
+          "name": "BG",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "5c56d5813fdb548b29a4bde75c7398955562bc13b93e01bc3eababcc31d5dcfc",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "bindWeight",
+            "birthColor",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isGroundLayer",
+            "isSingleParticle",
+            "miscRenderFlags",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "pass",
+            "primitive",
+            "rate",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 13,
+          "name": "Trail1",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryTrail",
+          "definitionSha256": "6dfd8c3e6cdabc671264edeedb9fa18c6089e530ec757e5eed1eff6d5061be1e",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthColor",
+            "birthDrag",
+            "birthScale0",
+            "blendMode",
+            "depthBiasFactors",
+            "emitterName",
+            "lifetime",
+            "particleLifetime",
+            "particleLinger",
+            "particleUVScrollRate",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 14,
+          "name": "cone_add",
+          "disabled": false,
+          "primitive": "VfxPrimitiveMesh",
+          "definitionSha256": "a2a3a11861c7cb07b6fa622108c517d270358198ff47f82cab7690e208d35af0",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "alphaErosionDefinition",
+            "bindWeight",
+            "birthColor",
+            "birthDrag",
+            "birthRotation0",
+            "birthScale0",
+            "birthUVOffset",
+            "birthUvScrollRate",
+            "birthVelocity",
+            "blendMode",
+            "depthBiasFactors",
+            "disableBackfaceCull",
+            "emitterName",
+            "importance",
+            "isRotationEnabled",
+            "lifetime",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "softParticleParams",
+            "texture",
+            "textureMult"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 15,
+          "name": "Sparklies",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "53cfa3d4b8ab2016f3730c1e46d028f09679b039763067c827e09aa17e18423f",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "birthAcceleration",
+            "birthColor",
+            "birthDrag",
+            "birthRotation0",
+            "birthRotationalVelocity0",
+            "birthScale0",
+            "birthVelocity",
+            "disableBackfaceCull",
+            "emitterName",
+            "importance",
+            "isDirectionOriented",
+            "isRandomStartFrame",
+            "lifetime",
+            "numFrames",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 16,
+          "name": "sword1",
+          "disabled": true,
+          "primitive": "VfxPrimitiveMesh",
+          "definitionSha256": "92a01a9fc5b16f5f7bb03a7bdda04a50270f8440cc354b60a3140cb89e644d1e",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthScale0",
+            "colorLookUpTypeX",
+            "disableBackfaceCull",
+            "disabled",
+            "emitterName",
+            "importance",
+            "isSingleParticle",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "pass",
+            "primitive",
+            "rate",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 17,
+          "name": "Bokeh",
+          "disabled": false,
+          "primitive": "billboard",
+          "definitionSha256": "bc7c8b88a472f02c4f6352e84507768512d3222667839ce896fb6450603046c8",
+          "explicitFields": [
+            "Color",
+            "EmitterPosition",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "birthColor",
+            "birthDrag",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "isDirectionOriented",
+            "isRandomStartFrame",
+            "isUniformScale",
+            "lifetime",
+            "miscRenderFlags",
+            "numFrames",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "worldAcceleration"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 18,
+          "name": "sword2",
+          "disabled": false,
+          "primitive": "VfxPrimitiveMesh",
+          "definitionSha256": "9f61b4291a6a194a5de9943bd69574f00f9358f6da68e44ebb68a7d4b167544a",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthColor",
+            "birthScale0",
+            "colorLookUpTypeX",
+            "emitterName",
+            "importance",
+            "isSingleParticle",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "pass",
+            "primitive",
+            "rate",
+            "reflectionDefinition",
+            "texture"
+          ],
+          "playbackImplemented": false
+        },
+        {
+          "index": 19,
+          "name": "groundswordGlow",
+          "disabled": false,
+          "primitive": "VfxPrimitiveArbitraryQuad",
+          "definitionSha256": "fb3daedcc43fe6df6781806ab6abb72af64efdf795a1cb3cb490e60a2be8f88d",
+          "explicitFields": [
+            "Color",
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthColor",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterLinger",
+            "emitterName",
+            "importance",
+            "isRotationEnabled",
+            "isSingleParticle",
+            "lifetime",
+            "particleIsLocalOrientation",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "period",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture",
+            "timeActiveDuringPeriod",
+            "timeBeforeFirstEmission"
+          ],
+          "playbackImplemented": false
+        }
+      ]
+    }
+  },
+  "pathResolutions": [
+    {
+      "system": "Leona_E_mis_dash",
+      "field": "materialOverrideDefinitions[0].baseTexture",
+      "raw": "{97d68dc062eb5dfa}",
+      "path": "assets/characters/leona/skins/base/particles/leona_base_z_empty32.tex",
+      "wadPathHash": "97d68dc062eb5dfa",
+      "binType": "PATH (18)",
+      "method": "Retained hash-dictionary candidate; exact lowercase UTF-8 XXH64 and native field identity rechecked"
+    }
+  ],
+  "scope": {
+    "mode": "standard Summoner's Rift",
+    "excludedResources": [],
+    "soundOnlySystems": [
+      "Leona_E_ZB_sfx_01"
+    ],
+    "visualEmitterRecords": 19,
+    "totalEmitterRecords": 33,
+    "enabledEmitterRecords": 20,
+    "disabledEmitterRecords": 13
+  },
+  "acceptance": {
+    "runtimeIntegrated": false,
+    "nativeDispatchVerified": false,
+    "nativeRenderingVerified": false,
+    "completeLeonaKit": false
+  },
+  "status": "Complete source dependency packaging for all five standard-game Zenith systems, including the hashed material-override path. Nineteen visual emitters and one sound carrier remain unintegrated. Trails, reflected source mesh shading, attached skin, birth/period/atlas/UV/physics stages, native CPU dispatch and E sound playback remain open."
+}

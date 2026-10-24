@@ -1,0 +1,58 @@
+{
+  "output": {
+    "path": "/assets/models/leona-e-contact-cylinder.glb",
+    "bytes": 5684,
+    "sha256": "6fefa3215863a0b0fc8976439d0c3757254f4f323facf7a2c7b58e33a9841952"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_expo_cylinder.scb",
+    "wadPathHash": "40154aadce190363",
+    "sha256": "25ada043a65ee7f137b35d87d8ee5a5de756a0128cefde106ce65d3760e05af0",
+    "bytes": 4672
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 40,
+  "triangles": 40,
+  "exportedCorners": 120,
+  "centralPoint": [
+    0,
+    0,
+    0
+  ],
+  "rawSourceBounds": [
+    -98.48860168457031,
+    0,
+    -98.48858642578125,
+    196.9771728515625,
+    139.49725341796875,
+    196.97720336914062
+  ],
+  "measuredMinMax": [
+    -98.48860168457031,
+    0,
+    -98.48858642578125,
+    98.48857879638672,
+    139.49725341796875,
+    98.4886245727539
+  ],
+  "sourceFlags": 2,
+  "sourceVertexColors": false,
+  "sourceFaceColors": false,
+  "materials": [
+    "lambert1"
+  ],
+  "sourceIndicesSha256": "10e62e4e1a6d9d816f0ec7a295c45ed80e0c7bf6566529f3fcecc3920c9873dc",
+  "attributeSha256": {
+    "POSITION": "9707595349e567934ef7989b2129e919991c0ee6990f1d9e36fcf354279384ba",
+    "_SOURCE_POSITION": "3044a4c5bb744bb4978098f92c30bf4d16a51888893025ec55c7577f6bf0aef3",
+    "TEXCOORD_0": "3bd34d12e7e8c14eab5f08a31077ac3e68aa0f2c90d23bff610c596b22be12c3"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

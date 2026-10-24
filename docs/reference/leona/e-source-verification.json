@@ -1,0 +1,376 @@
+{
+  "date": "2026-10-24",
+  "scope": "Complete retained source dependency package for five Zenith systems, including all enabled/disabled records and the native hashed PATH texture. Actual browser attribute/triangle/wireframe inspection, independent source-byte checks and delivery verified. Runtime E effects, native dispatch/rendering/audio and full project remain unfinished.",
+  "schema": 124,
+  "ruleset": "d69c16c0407a5b436ef8cd078c989535ae38e72e9ed42778d60b77c9dacecdb2",
+  "sourceBaseline": "f8312a3d78816a95c408b0614e658dffd953e3ce",
+  "sourceArchive": ".cache/leona-e-source-validation-v3-20261024/source-archive.json",
+  "earlierSourceArchives": [
+    ".cache/leona-e-source-validation-v1-20261024/source-archive.json",
+    ".cache/leona-e-source-validation-v2-20261024/source-archive.json"
+  ],
+  "runtimeBaselineArchive": ".cache/leona-w-audio-validation-v4-20261024/source-archive.json",
+  "nativeArchive": ".cache/leona-e-source-validation-v3-20261024/native-archive.json",
+  "buildArchive": ".cache/leona-e-source-validation-v3-20261024/generated-build-archive.json",
+  "initialPin": ".cache/leona-e-particle-research-v1-20261024/initial-pin.json",
+  "preservedArchives": [
+    ".cache/leona-e-source-validation-v1-20261024/native-archive.json",
+    ".cache/leona-e-source-validation-v2-20261024/native-archive.json",
+    ".cache/leona-e-source-validation-v3-20261024/native-archive.json",
+    ".cache/leona-e-source-validation-v3-20261024/generated-build-archive.json",
+    ".cache/leona-e-source-review-v1-20261024/initial-native-archive.json",
+    ".cache/leona-e-source-review-v1-20261024/layout-archive.json"
+  ],
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA-E-SOURCE.md",
+      "bytes": 9067,
+      "sha256": "5a7e9ea728abf0456351ff7f062bdd6296de9257629cdccd4b1a191ae466526e",
+      "archived": ".cache/leona-e-source-review-v1-20261024/review-inputs/docs/LEONA-E-SOURCE.md"
+    },
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 27879,
+      "sha256": "698e47e0bf3f0f7ef4694454e346518dea7c83af96783d107d2d99ff2e480b52",
+      "archived": ".cache/leona-e-source-review-v1-20261024/review-inputs/docs/LEONA.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 550061,
+      "sha256": "6c4f96b52b05947a38f7dbc01f9d7f91196d799a4d49128e2eadb876fdd771a1",
+      "archived": ".cache/leona-e-source-review-v1-20261024/review-inputs/docs/PROGRESS.md"
+    },
+    {
+      "file": "tools/qa/verify-leona-e-source.mjs",
+      "bytes": 6883,
+      "sha256": "9007090c3d54ac45a59357c97cdd72e596725b51b75484df6344b3b139eaeaa3",
+      "archived": ".cache/leona-e-source-review-v1-20261024/review-inputs/tools/qa/verify-leona-e-source.mjs"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/leona-e-particle-conversion-v1-20261024.log",
+      "bytes": 175,
+      "sha256": "8dfe18f5db8f40a2306e1d498b028e4e28d9d7732253195f527c1c0bea02a3d9"
+    },
+    {
+      "file": ".cache/leona-e-particle-decoding-v1-20261024.log",
+      "bytes": 503,
+      "sha256": "efc2736dc2e66eb8342c8510c5898278efc2baf6c973572659c5e2f64a0d852c"
+    },
+    {
+      "file": ".cache/leona-e-particle-extraction-v1-20261024.log",
+      "bytes": 172,
+      "sha256": "86d81bba7514ecf0409542589ab48a20a91f438c15b849d6ad1cdebe1854a725"
+    },
+    {
+      "file": ".cache/leona-e-particle-extraction-v2-20261024.log",
+      "bytes": 172,
+      "sha256": "65743ee0a670ac5a35866cf4b574b032dbc214aa77a4af68162cb5abf54ecef2"
+    },
+    {
+      "file": ".cache/leona-e-particle-integrity-v1-20261024.log",
+      "bytes": 197,
+      "sha256": "235fad428f390886349d51ec71d0a6e030192f3c018245eaf66a490ab8c2ba91"
+    },
+    {
+      "file": ".cache/leona-e-particle-reproduction-v1-20261024.log",
+      "bytes": 174,
+      "sha256": "7f8233a513f5bb7315f1bfb0185fd3ed7fd1d55d9f8c95fbf4be57540bb29c2f"
+    },
+    {
+      "file": ".cache/leona-e-particle-research-v1-20261024/initial-extractor.py",
+      "bytes": 4138,
+      "sha256": "f7a10b5bfd0e72a89ff34b80c377bc66647ea045c22b629818d872ba72989ef9"
+    },
+    {
+      "file": ".cache/leona-e-particle-research-v1-20261024/initial-pin.json",
+      "bytes": 176206,
+      "sha256": "cf990d16d288103031267ae5cbf6c05f1463cb9fbcda8477be7e0a663468ec4f"
+    },
+    {
+      "file": ".cache/leona-e-source-review-v1-20261024/initial-native-archive.json",
+      "bytes": 16753,
+      "sha256": "f2456cbd8e214ae8e95e7ba454874246ff448c5cd6968ee475db36fb3e3957ee"
+    },
+    {
+      "file": ".cache/leona-e-source-review-v1-20261024/layout-archive.json",
+      "bytes": 635,
+      "sha256": "34843bc065a29adc36be2746dc156c24c5e18db6e731b828802a09bfb1d9b190"
+    },
+    {
+      "file": ".cache/leona-e-source-textures-v1-20261024.png",
+      "bytes": 59307,
+      "sha256": "b8ca6729b902ec255d8ac2f2f0fd265c5f687b43cc63d561f3f22017dfeb4058"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v1-20261024/browser.log",
+      "bytes": 531,
+      "sha256": "d823ffbbe719e7b9550daf7c0b3ee4937a742a6109af42112c456ffdc638d275"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v1-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "e22df5d0991eb28c09093b1e678b3fa8cd1fab48185d38e67cf79fb6e63ad5ea"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v1-20261024/focused.log",
+      "bytes": 192,
+      "sha256": "257f77fb869e295ba680a38d112314a2f04fc31abac5aa4bb0613073d95a51e3"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v1-20261024/native-archive.json",
+      "bytes": 17244,
+      "sha256": "05862c86b0094c27c08fcdf01cb2a6ff476c30c37c0b131cf2c6d79476aefdbb"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v1-20261024/source-archive.json",
+      "bytes": 439486,
+      "sha256": "9642c4ad368f149a13adea1b7bf1edbb8910c1196a00c729d5a8467da094a71e"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v1-20261024/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/browser.log",
+      "bytes": 2979,
+      "sha256": "e30135167b09d681b724880bf193d95d35e91d7c2c635c59296da2dfc576c692"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "5db54cbd8709dc416f625c5de62beb756d264a8c982160bfa9649b510c1c4f0e"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/error-context.md",
+      "bytes": 6065,
+      "sha256": "53c32e12ee0913e323b9c117ff720f366d4f5061f237aa96035b058ae2d18d15"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/source-meshes.json",
+      "bytes": 3195,
+      "sha256": "07db70fd5f01fc2ca3cbe5ea9a86d3c314f628966ca31e700a71661941578639"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/source-wireframes.png",
+      "bytes": 22865,
+      "sha256": "8ae9d5beb693c8ef444b79ed61d56019c4e4c8c322aef3cad1c030a750dad08a"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/test-failed-1.png",
+      "bytes": 22865,
+      "sha256": "8ae9d5beb693c8ef444b79ed61d56019c4e4c8c322aef3cad1c030a750dad08a"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/trace.zip",
+      "bytes": 216274,
+      "sha256": "c10cf5663be551e07c9df600e3de66c632378450f4a6ae7f4986725c4363e720"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/native-archive.json",
+      "bytes": 17244,
+      "sha256": "53a8443102bcf48e7e0d87439e85bf0a21795295be0dd5d144ffa75bce787e0e"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/source-archive.json",
+      "bytes": 439486,
+      "sha256": "a465f2978692aa01f8392cc4a86ca09a3b1704f35b39b2a317af98968a7fd545"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v2-20261024/wireframe-triage.json",
+      "bytes": 828,
+      "sha256": "95d51628d7987d8bea79a98a8f4952375c7fe0065e97529243ca00a9a59e5d99"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/browser.log",
+      "bytes": 662,
+      "sha256": "dd292bdf428c13a3a8d1cc923fdc00ee5f1bb6965ab44c32c00fb54bbda966bc"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/source-meshes.json",
+      "bytes": 3818,
+      "sha256": "441eae02900ccd99d75241472fa93a8af8d83c67105a3454f2caef69fc4fe6e2"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/source-wireframes.png",
+      "bytes": 39277,
+      "sha256": "61e96b1310d1b97208f43c0efe99aad62d41b43364c0c7ee24ffa12e28dcf6ed"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/build.log",
+      "bytes": 3028,
+      "sha256": "035aaf980705e602582e25220db708be0fd4744e7fc283944bd678f80983073d"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/current-normal-verification.log",
+      "bytes": 279,
+      "sha256": "2b88cbfb93490e3efe51aeb884ca718333f0754ed3cf248f06b18ec36a951b60"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/generated-build-archive.json",
+      "bytes": 9197,
+      "sha256": "a74f904bfd7bcd2dc834ef78ce486f5b0856311ea88d0000756e2aab16ffd537"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/generated-build/offline-pack.json",
+      "bytes": 135388,
+      "sha256": "d182ee820d91cafbacbb5b06dec2eac9e78e13326b6f0f6171026613a4e94c60"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/generated-differences.json",
+      "bytes": 285,
+      "sha256": "d5a0b4784158891da78220f9dcc5de8a358874e19e4d8a60e2f5925c0386c144"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/native-archive.json",
+      "bytes": 17244,
+      "sha256": "b69b139cbc06241782d40506103f7e1b34b98064a32bfd10b863cf9391f01726"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/node-qa.log",
+      "bytes": 430,
+      "sha256": "f8c71324f189c052fbb84241c672458f5e54e24199168e09d6f12ad96369942f"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/offline.log",
+      "bytes": 687,
+      "sha256": "f91a647cdab5bc3ad6921cacb79e10a9b6b582b53ab56f26cf0624e50914d5e7"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production-subpath.mjs",
+      "bytes": 22211,
+      "sha256": "9e070c883769fa7456a72de87c8027794042ca4d1bc9654308e265888b7f5ab2"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production-subpath.original.mjs",
+      "bytes": 21751,
+      "sha256": "fdc9d83a3f07c315e70545ca577660d4aed2df26715e888f0a2836f3e8b3e4fe"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production.log",
+      "bytes": 1877,
+      "sha256": "8eb262492aa3a3c7e0f127c87dbf6f7d7c012992d8f94da0db010853cba9c5d4"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811746,
+      "sha256": "9dcf41e64c4c47b72e9840b2df6ad4269c59180305a70ba309a993ce80d31760"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1833538,
+      "sha256": "e07241cf5b1d259e14a6943d0145e0464d821e2d1b2b7c5d76524988e4c65666"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830824,
+      "sha256": "302337cb215869d7e033e892003d3864560728b4a2fc30b9a3274f3c3d874a6c"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-lux.png",
+      "bytes": 1806384,
+      "sha256": "0b8302ca9a42581680b09672088566cc86b7cef48c969b9869b6bd5406cf5c57"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-oracle.png",
+      "bytes": 1818124,
+      "sha256": "8fea175e949fc8e438654d5a74b0c57c429241c29c4b2cdf478f5ed056ecebd7"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-role-match.png",
+      "bytes": 1346661,
+      "sha256": "8176dd41ebefd96a3a57239d545f87a5832c6939db6c59fdea99be56d4116d83"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-subpath.png",
+      "bytes": 1820786,
+      "sha256": "324c7ee667ac3b9c1b61d40dfedee8e072beff0224497d0bc954ac04558020f0"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/production/lux-e-hit-production-ward.png",
+      "bytes": 1807016,
+      "sha256": "d0e533cd2e906e7560b93910912fa7a5e1b2175cc214c21dece4acd7560f6957"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/reproduction.log",
+      "bytes": 174,
+      "sha256": "7f8233a513f5bb7315f1bfb0185fd3ed7fd1d55d9f8c95fbf4be57540bb29c2f"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/source-archive.json",
+      "bytes": 439486,
+      "sha256": "9a584a6e137fb5a252147a750bda46c449abc9bea1794764e7298f62a92d732c"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/source-verification.log",
+      "bytes": 197,
+      "sha256": "235fad428f390886349d51ec71d0a6e030192f3c018245eaf66a490ab8c2ba91"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-e-source-validation-v3-20261024/unit.log",
+      "bytes": 499,
+      "sha256": "567075bc63dacc58c43ca406fc5ce551685aee687c52dbdadb5dcfb37e8aeeef"
+    },
+    {
+      "file": "artifacts/offline-pack-leona-e-source-v1-20261024-production.json",
+      "bytes": 649,
+      "sha256": "08bc15a566a239e4f50ceaf6f0a85cf30f7c602d976a1b01d3e3f43c6da5e33c"
+    }
+  ],
+  "checks": {
+    "unit": ".cache/leona-e-source-validation-v3-20261024/unit.log",
+    "typecheck": ".cache/leona-e-source-validation-v3-20261024/typecheck.log",
+    "nodeQa": ".cache/leona-e-source-validation-v3-20261024/node-qa.log",
+    "browser": ".cache/leona-e-source-validation-v3-20261024/browser.log",
+    "build": ".cache/leona-e-source-validation-v3-20261024/build.log",
+    "nativeCheck": ".cache/leona-e-source-validation-v3-20261024/source-verification.log",
+    "reproduction": ".cache/leona-e-source-validation-v3-20261024/reproduction.log",
+    "meshes": ".cache/leona-e-source-validation-v3-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/source-meshes.json",
+    "currentNormal": ".cache/leona-e-source-validation-v3-20261024/current-normal-verification.log",
+    "production": ".cache/leona-e-source-validation-v3-20261024/production.log",
+    "offline": "artifacts/offline-pack-leona-e-source-v1-20261024-production.json",
+    "manifest": ".cache/leona-e-source-validation-v3-20261024/generated-build/offline-pack.json",
+    "failedDiscovery": ".cache/leona-e-source-validation-v1-20261024/browser.log",
+    "failedWireframe": ".cache/leona-e-source-validation-v2-20261024/browser.log",
+    "failedMeshes": ".cache/leona-e-source-validation-v2-20261024/browser/leona-e-source-all-four-Ze-335fe-w-visible-source-wireframes/source-meshes.json",
+    "generatedDifferences": ".cache/leona-e-source-validation-v3-20261024/generated-differences.json"
+  },
+  "offlinePackId": "1413135caaee42a83730c37334cefdfaffa4bd22ceaa6bf75c11d66c071ec37f",
+  "acceptance": {
+    "runtimeEIntegrated": false,
+    "nativeDispatchVerified": false,
+    "nativeRenderingVerified": false,
+    "sourceEAudioIntegrated": false,
+    "completeLeonaKit": false,
+    "hundredSeedInvariantGate": false,
+    "fullMatchPerformanceVerified": false,
+    "fullGoalComplete": false
+  },
+  "limits": [
+    "This is source preparation, not Zenith gameplay presentation. The current view still omits E rather than substituting a generic projectile.",
+    "One enabled black empty emitter in a sound-declaring system is classified as a sound carrier for the inventory; native dispatch/default behavior remains unverified.",
+    "All native flags/periods/trails/material overrides and disabled declarations are retained. Their runtime interpretation, E source sounds and saved phase/contact/dash/arrival history remain open.",
+    "The PATH resolution is tied to the original uint64 field and exact lower-UTF8 XXH64 candidate, not inferred from an unknown field name. The raw field spelling remains unchanged.",
+    "Initial 41-named-texture extraction is preserved with 49 original files. Final source includes the hashed override texture and fifty original files.",
+    "V1 browser discovery failed on the Node JSON import. V2 loaded exact arrays but inspection wireframe draws failed due to interleaved backing-array length in the installed Three helper. V3 tests original triangle draws and an exact QA position copy for wireframes. Runtime and assets were not changed for those harness repairs.",
+    "The prior two-seed normal smoke is revalidated against current unchanged runtime source. No new cohort or full hundred-seed gate is claimed.",
+    "Local cache archives are retained evidence, not Git/offline-pack payload. Native client/effect engine/shader was not executed."
+  ]
+}

@@ -5127,3 +5127,50 @@ failures, input snapshots, traces and successful repair evidence. See
 missing presentation, player/support integration, the full current cohort and all
 six-champion match acceptance remain required. Nothing was pushed; the goal
 remains active.
+
+
+## Zenith Blade complete source dependency preparation — October 24, 2026
+
+All five E systems are re-decoded from four frozen Riot BINs. All 33 emitter
+records remain: twenty enabled, thirteen disabled. The inventory classifies the
+black `empty` emitter's sound-declaring system as a sound carrier; nineteen
+other enabled records are visual. Native dispatch/defaults remain unverified.
+The dash's unresolved `{97d68dc062eb5dfa}` is confirmed as native PATH type 18.
+Its dictionary candidate recomputes to the exact WAD identity, yielding the
+missing `leona_base_z_empty32.tex` dependency. The initial 41-texture extraction
+is preserved; the final set has 42 textures and four SCBs (fifty source files).
+
+Full-resolution RGBA and original SCB face corners/positions/UVs/color streams
+are retained, with no invented normals or material/attachment interpretation.
+The cone is byte-identical to Eclipse's existing GLB and metadata. Three other
+GLBs plus thirty-two new PNGs and three metadata files add 593,364 bytes. Disabled
+sword/trail/smoke/ray/flare declarations and their dependencies remain preserved.
+The source still requires saved E clocks/history, trails, source materials,
+phase dispatch and audio integration; the game does not yet draw E.
+
+All **1,676 unit tests/287 files**, TypeScript/build and three Node QA cases pass.
+Four new source-package tests, independent native-byte/PNG/GLB checks, read-only
+reproduction and one real Chrome mesh case pass. Chrome hashes every loaded
+attribute and renders direct source triangles without WebGL errors. The reviewed
+wireframe uses an exact QA position copy: Three's helper incorrectly counts an
+interleaved backing array as positions. That failed inspection, the earlier JSON
+import failure, traces and all input snapshots remain preserved separately.
+
+No runtime source or ruleset changed: schema 124 and
+`d69c16c0407a5b436ef8cd078c989535ae38e72e9ed42778d60b77c9dacecdb2`
+remain. The prior two-seed/72,000-tick normal smoke verifies against current
+sources; no new cohort is claimed. All 31 application/frontend files are byte-
+identical to the preceding build; only offline metadata/worker change.
+Production nested hosting passes 32 recordings and zero Leona preloads. A fresh
+full Chrome offline audit passes 939 files/506,593,617 bytes, 963 worker responses,
+saved-tick boot, new local Lux 5v5 and integrity/repair/version/removal flows,
+with zero production errors. Pack ID:
+`1413135caaee42a83730c37334cefdfaffa4bd22ceaa6bf75c11d66c071ec37f`.
+
+V3 retains 1,561 inputs and fifty original source files; V1/V2 retain the earlier
+harness investigations. The initial incomplete extraction and two pinned layout
+readers are also preserved. See [Zenith source preparation](LEONA-E-SOURCE.md)
+and its [ledger](reference/leona/e-source-verification.json). This is source
+preparation, not E/native playback acceptance. The complete kit, player/support,
+full current cohort and six-champion match/browser/offline/performance gates
+remain required. Nothing was pushed; the full goal stays active.
