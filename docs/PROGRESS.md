@@ -6134,3 +6134,43 @@ No native target/shader execution or provider restart occurred. Reflection
 resources/uniform bindings, E draw dispatch, weapon frames, native acceptance,
 player/support and full roster work remain open. No new production/offline,
 cohort or performance run is claimed. The active goal continues; nothing is pushed.
+
+
+## Native reflection inputs and rim-only mesh shaders — October 24, 2026
+
+The matching native registration now identifies the64-byte reflection Data
+layout and all seven defaults. An independent source walk verifies sword2's
+owned STRUCT82 child: only fresnel FLOAT10 and fresnelColor VEC4_FLOAT13 are
+authored; five reflection properties are omitted. The generic reader preserves
+constructor values through its return. The separate Instance layout and live
+Leona conversion remain unresolved.
+
+Two CPU consumers agree on separate rim and reflection vectors. Source fresnel
+`.15` maps through float32 fused4.9*x+.1 to`.8350000381469727`; source RGB is
+uploaded without its authored zero alpha. Bounded initializer windows connect
+actual uniform Cstrings to old/new globals. Fresh Legacy component construction
+zeroes original reflection pointer+220. An empty identity leaves that pointer
+null, while generic slot10 fallback fills only the material descriptor. The
+ordinary selector tests the original pointer before adding REFLECTIVE. Empty
+loading does not clear reused nonnull pointers; the old layout's+58 fresh state
+and actual E draw remain unobserved.
+
+Four non-REFLECTIVE mesh Metal/AIR programs are extracted from already retained
+TOC/bundle files: VS20/PS740 and fog-disabled VS1/PS9. The latter pair computes
+per-vertex rim from the explicit normal stream, adds fully tinted alpha times
+that rim, and preserves output alpha; it needs no cube. Nine complete bounded
+native word streams, additional registration/name windows, original shader
+bytes, source ownership and float32 packing pass the standard-library verifier
+under normal/optimized Python. Four altered-evidence controls are rejected.
+The first FMA negative-control helper selected the wrong function and is fixed;
+its fixture failure remains retained. Earlier loader/normal/default/binding
+verifiers also pass. See [scope](LEONA-NATIVE-REFLECTION-INPUTS.md) and
+[pin](reference/leona-native-reflection-inputs.json).
+
+These are static file observations, not REA MCP Evidence or native execution.
+No provider restart, network fetch, GameView/asset change or native frame occurred.
+E stays18/20 and R41/44; schema126/ruleset591ddf38 and the last accepted
+production/offline pack remain unchanged. Runtime adapter/local integration,
+resource lifecycle, weapon frames, native acceptance, player/support and full
+roster work remain open. No fresh production/cohort/performance result is claimed.
+The goal continues; nothing is pushed.

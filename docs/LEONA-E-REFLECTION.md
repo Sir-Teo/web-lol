@@ -107,3 +107,11 @@ color comparison are pinned separately; existing GLBs and GameView remain
 unchanged. Actual E dispatch, reflection resources/uniforms and native frames
 remain gates. The unresolved-normal statements above describe this earlier
 shader-only stage.
+
+The later [native reflection-input reading](LEONA-NATIVE-REFLECTION-INPUTS.md)
+now identifies Data defaults and both CPU uniform consumers. Source fresnel
+`.15` maps to exponent `.8350000381469727`; its RGB is uploaded without reading
+the authored zero alpha. Separate non-REFLECTIVE VS1/PS9 programs implement a
+rim-only path with no cube. The generic selector tests the original resource
+pointer, separately from a material descriptor fallback. Actual E dispatch,
+resource lifecycle, local integration and native frames remain open.

@@ -457,9 +457,15 @@ and six-character match gates remain open.
 [Native emitter registration and defaults](LEONA-NATIVE-EMITTER-DEFAULTS.md)
 now identify constructor CameraQuad/empty-base/alphaRef-five defaults and the
 distortion scalar/normal-name offsets. Absent-field loading and actual Leona
-dispatch remain unobserved; local R coverage stays41/44.
+dispatch were separate gaps; the later [generic BIN loader](LEONA-NATIVE-BIN-LOADER.md)
+now traces omitted-field preservation through the identified reader's return.
+Actual Leona dispatch remains unobserved; local R coverage stays41/44.
 
 [Native generic SCB normals](LEONA-NATIVE-SCB-NORMALS.md) now provide a byte-
 checked normal-generation and vertex-binding prerequisite for the Zenith sword.
-Derived source streams remain separate from authored mesh inputs; actual
-reflection resources/uniforms, E dispatch and native frames remain open.
+Derived source streams remain separate from authored mesh inputs. The
+[native reflection-input reading](LEONA-NATIVE-REFLECTION-INPUTS.md) now ties
+sword2's two authored fields to constructor defaults, CPU uniform packing and a
+retained rim-only mesh shader path. Source fresnel maps to exponent
+`.8350000381469727`; its zero color alpha is not read by those uploads. Actual
+resource lifecycle/E dispatch, local integration and native frames remain open.

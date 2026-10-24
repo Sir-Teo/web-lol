@@ -53,4 +53,8 @@ python3 tools/assets/verify-leona-native-particle-bindings.py --check
 
 The standard-library verifier reads hashes, Mach-O headers/section mappings, selected instruction bytes and ARM64 masks, branch targets, immutable pointer/value tables, slot-name/literal bytes and retained SDK enums. It does not connect to a bridge, import or execute provider helpers, run an analyzer/compiler, access the network, write outputs or execute the target. The earlier native-matching verifier remains responsible for the full official-CDN chunk reconstruction.
 
-Native Leona CPU dispatch, application of constructor defaults during BIN loading, full frame/render-state behavior, native GPU observation, SCB normal generation and ordinary reflection CPU bindings remain unresolved.
+The later [generic BIN loader](LEONA-NATIVE-BIN-LOADER.md),
+[SCB normal reading](LEONA-NATIVE-SCB-NORMALS.md), and
+[reflection inputs](LEONA-NATIVE-REFLECTION-INPUTS.md) resolve bounded parts of
+those earlier gaps. Native Leona dispatch, full lifecycle/frame/render-state
+behavior and native GPU observation remain unresolved.
