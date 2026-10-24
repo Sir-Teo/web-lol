@@ -6072,3 +6072,33 @@ and ruleset591ddf38 are unchanged, with no new browser/production/cohort/perform
 run. Weapon frames, reflection inputs, native-frame acceptance, player/support
 and full six-character match work remain open. The goal stays active; nothing
 is pushed.
+
+
+## Native generic BIN loading and Activate omission — October 24, 2026
+
+The frozen R buff BIN now supplies exact wire evidence: LIST80 of STRUCT82,
+four elements, with Activate concrete09cde442 and18 fields. Primitive, texture
+and alphaRef are absent. A separate standard-library parser walks the containing
+entry and recursively verifies lengths, ownership, all field headers and the
+three omissions; the independent CDTB audit agrees.
+
+Five complete bounded LLVM word streams trace LIST dispatch through the STRUCT
+reader, registered default allocation and encoded-field-only loading. Per-field
+lookup dispatches only matching serialized hashes. Thus constructor CameraQuad,
+empty base and alphaRef five survive omission through this generic reader's
+return. An explicitly present STRUCT-null field would instead clear its pointer.
+The current source uses STRUCT, not the separately retained EMBEDDED route.
+
+Normal/optimized Python checks pass for the constructor package and new native
+words, function-start bounds, dispatch table and source BIN. Altered field-count
+and branch-target controls are rejected. See [loader scope](LEONA-NATIVE-BIN-LOADER.md)
+and [pin](reference/leona-native-bin-loader.json). These are ordinary static
+observations, not REA MCP Evidence or a runtime capture. No native target/shader
+execution or provider restart occurred.
+
+Actual live Leona entry/instantiation, later mutations, generic material dispatch
+and resource-upload success remain unobserved. Activate stays excluded and R
+stays41/44. Runtime/assets/schema126/ruleset591ddf38 remain unchanged, with no new
+browser, production, cohort or performance run. Weapon frames, reflection inputs,
+native frames, player/support and full roster work remain open. Work continues
+under the active goal; nothing is pushed.

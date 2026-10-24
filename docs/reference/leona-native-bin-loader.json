@@ -1,0 +1,573 @@
+{
+  "formatVersion": 1,
+  "classification": "Ordinary bounded LLVM/native file bytes and exact retained source BIN parsing; not REA Evidence. No native target/shader/GPU execution.",
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "verifier": {
+    "path": "tools/assets/verify-leona-native-bin-loader.py",
+    "bytes": 11677,
+    "sha256": "df104fcba60cfd2def6e6cb6a2329118f15f218b5db56901bab808630f01fe32"
+  },
+  "constructorPin": {
+    "path": "docs/reference/leona-native-emitter-defaults.json",
+    "bytes": 53698,
+    "sha256": "17bf7879489412c1f28b9a36a46fc15668cd40d7ad76ceb5e3a2d32893ea051e"
+  },
+  "constructorVerifier": {
+    "path": "tools/assets/verify-leona-native-emitter-defaults.py",
+    "bytes": 8498,
+    "sha256": "ff2b633054ffe7d9735bdd270dccac51479ccd73c22d701ad1101639f330c024"
+  },
+  "sourcePin": {
+    "path": "docs/reference/leona-r-particles.json",
+    "bytes": 266001,
+    "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+  },
+  "sourceBin": {
+    "path": ".cache/leona-native-bin-loader-v1-20261024/retained-8a4c7a0f7f10c5cb.bin",
+    "bytes": 16863,
+    "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+  },
+  "sourceWire": {
+    "virtualPath": "data/characters/leona/skins/skin0.bin",
+    "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf",
+    "binVersion": 3,
+    "listFieldHash": "868eb76a",
+    "listFieldWireType": 128,
+    "elementWireType": 130,
+    "elementCount": 4,
+    "listFieldHeader": {
+      "offset": 13791,
+      "bytes": 14,
+      "hex": "6ab78e868082570a000004000000",
+      "sha256": "9d0d520ba55319e50402710c0c577c33c5672d4776841a251d439b36aacc1729"
+    },
+    "activateElementIndex": 3,
+    "activateTypeHash": "09cde442",
+    "activateSerializedFieldCount": 18,
+    "activateElement": {
+      "offset": 15710,
+      "bytes": 738,
+      "hex": "42e4cd09da0200001200679c83ae83580030040b0000000100aa27b4b40a0000803f9426552a83580030040b0000000100aa27b4b40a9a99193f2cd43124850a019a992941eeab1252850a010000003f6b7fbd428701ceb8253d10080041637469766174658dab41fa83b632dc68a60000000200aa27b4b40c000000000000004000000000e77d03bc828011d8ac860000000300194708a780824e000000030000007ec9a6530200000000007ec9a6532e0000000200da51c340800a0c00000002000000000000000000803f82734be4800a0c000000020000000000803f6666a63f7ec9a653020000000000b5ee685d800a0800000001000000000000003b4c4734800c1000000001000000000000000000004000000000166340ca83580030040b0000000100aa27b4b40a0000803f11886eb5100000ab4e78fa0304b5b1742603034dd42bf00b0000803f0000003f3e325acd0b000000000000003fe8be6365030174b7dd3787019cff325983b632dc68130000000100aa27b4b40c00003443000000000000b4428470ebf083b632dc68e20000000200aa27b4b40c000048430000164300004842e77d03bc828011d8acc20000000300194708a780828a000000030000007ec9a6532e0000000200da51c340800a0c00000002000000000000000000803f82734be4800a0c000000020000000000803f3333b33f7ec9a6533e0000000200da51c340800a1400000004000000000000000000003f8941003f0000803f82734be4800a1400000004000000000080bf000080bf0000803f0000803f7ec9a653020000000000b5ee685d800a0800000001000000000000003b4c4734800c1000000001000000000048430000164300004842537ae1d483b632dc685d0000000100e77d03bc828011d8ac4e0000000200b5ee685d800a1000000003000000000000003333b33e0000803f3b4c4734800c28000000030000000000000000000000000000000000003f0000803f0000803f0000803f0000803f0000803f",
+      "sha256": "c5c5587e0d8ae900df9ba1df311c646a2b696217b1134d3a1679beb20df2df14"
+    },
+    "activateFieldHeaders": [
+      {
+        "hash": "ae839c67",
+        "wireType": 131,
+        "header": {
+          "offset": 15720,
+          "bytes": 5,
+          "hex": "679c83ae83",
+          "sha256": "edf04a7605e21467a1bccc9b6ace9dbbc0b976c6b21b41de619b681733b1b020"
+        }
+      },
+      {
+        "hash": "2a552694",
+        "wireType": 131,
+        "header": {
+          "offset": 15744,
+          "bytes": 5,
+          "hex": "9426552a83",
+          "sha256": "1ad099d1fdd245873480ec50cf20c7da7cc29595e897fcc596b225f1b835fb2c"
+        }
+      },
+      {
+        "hash": "2431d42c",
+        "wireType": 133,
+        "header": {
+          "offset": 15768,
+          "bytes": 5,
+          "hex": "2cd4312485",
+          "sha256": "2b9ddf78720c812bd54637a79b2eba758f6105146d3ae98dcc975465c0342b01"
+        }
+      },
+      {
+        "hash": "5212abee",
+        "wireType": 133,
+        "header": {
+          "offset": 15779,
+          "bytes": 5,
+          "hex": "eeab125285",
+          "sha256": "b5d294ceac54cfa0466f4c15e84a527bd90bfb8ef2bdd29ec64774669f82c3fc"
+        }
+      },
+      {
+        "hash": "42bd7f6b",
+        "wireType": 135,
+        "header": {
+          "offset": 15790,
+          "bytes": 5,
+          "hex": "6b7fbd4287",
+          "sha256": "be34177cd529510698da61406571c9979b3717797bebe94988455f8737f922ac"
+        }
+      },
+      {
+        "hash": "3d25b8ce",
+        "wireType": 16,
+        "header": {
+          "offset": 15796,
+          "bytes": 5,
+          "hex": "ceb8253d10",
+          "sha256": "9a84997faa5e6e782b00774ecb1788647faddc8314f19249ccea627fb3781ebd"
+        }
+      },
+      {
+        "hash": "fa41ab8d",
+        "wireType": 131,
+        "header": {
+          "offset": 15811,
+          "bytes": 5,
+          "hex": "8dab41fa83",
+          "sha256": "aeb62db49d5334e98d14411940b7d4c96219e1487b06bd17a35cc73082c6e8f6"
+        }
+      },
+      {
+        "hash": "ca406316",
+        "wireType": 131,
+        "header": {
+          "offset": 15990,
+          "bytes": 5,
+          "hex": "166340ca83",
+          "sha256": "a22e70d89b19dffe9e1fcb3252f336d4d2a44192ab0db9f7e5340e17028d4bcb"
+        }
+      },
+      {
+        "hash": "b56e8811",
+        "wireType": 16,
+        "header": {
+          "offset": 16014,
+          "bytes": 5,
+          "hex": "11886eb510",
+          "sha256": "3c1145d0b6d0ad4ed32f4e49df0a38e1a10d46ad7678aeb6570a4e9d4f0adc5c"
+        }
+      },
+      {
+        "hash": "fa784eab",
+        "wireType": 3,
+        "header": {
+          "offset": 16021,
+          "bytes": 5,
+          "hex": "ab4e78fa03",
+          "sha256": "f3f77ff1313eca51f8c2da752a73beff27df7a3a789c84fcae96fff91a6b634c"
+        }
+      },
+      {
+        "hash": "2674b1b5",
+        "wireType": 3,
+        "header": {
+          "offset": 16027,
+          "bytes": 5,
+          "hex": "b5b1742603",
+          "sha256": "1b4ba60401295552e7bcd55d6e809256a2c03fe2c1a0687da18b83f86b1474bc"
+        }
+      },
+      {
+        "hash": "f02bd44d",
+        "wireType": 11,
+        "header": {
+          "offset": 16033,
+          "bytes": 5,
+          "hex": "4dd42bf00b",
+          "sha256": "c006af866b0c33b0a12e59024a21f927dd7cd46c72a32fa002b84882d79cd3e9"
+        }
+      },
+      {
+        "hash": "cd5a323e",
+        "wireType": 11,
+        "header": {
+          "offset": 16046,
+          "bytes": 5,
+          "hex": "3e325acd0b",
+          "sha256": "65de7ac19dd7c5ad62d6f128fafe72872c3b3a877e6fa5842950b38ecaa648d8"
+        }
+      },
+      {
+        "hash": "6563bee8",
+        "wireType": 3,
+        "header": {
+          "offset": 16059,
+          "bytes": 5,
+          "hex": "e8be636503",
+          "sha256": "fb983a0e043185455a2e89fcdbac5827d1e4a288ba261858fef0860203d6b570"
+        }
+      },
+      {
+        "hash": "37ddb774",
+        "wireType": 135,
+        "header": {
+          "offset": 16065,
+          "bytes": 5,
+          "hex": "74b7dd3787",
+          "sha256": "6ebecba632c5b7c6ee0c0de80a049ee3f218bf479f7fe8a5c3548a03e1f65d95"
+        }
+      },
+      {
+        "hash": "5932ff9c",
+        "wireType": 131,
+        "header": {
+          "offset": 16071,
+          "bytes": 5,
+          "hex": "9cff325983",
+          "sha256": "7ff87cba7faacc17e25f190ac837674cad4a4d33d72adee022dc63f484d0ee1a"
+        }
+      },
+      {
+        "hash": "f0eb7084",
+        "wireType": 131,
+        "header": {
+          "offset": 16103,
+          "bytes": 5,
+          "hex": "8470ebf083",
+          "sha256": "9538feb37871b3fbd61aa43d7c0e709ae8bb14ec5e4b65af949b2f90a3071a95"
+        }
+      },
+      {
+        "hash": "d4e17a53",
+        "wireType": 131,
+        "header": {
+          "offset": 16342,
+          "bytes": 5,
+          "hex": "537ae1d483",
+          "sha256": "9f361051b6b1fc66a75bebd204788554ec241e6dc635328a650e643726c5f3fc"
+        }
+      }
+    ],
+    "absentFields": {
+      "primitive": "007b14f6",
+      "texture": "3c6468f4",
+      "alphaRef": "b99310f4"
+    }
+  },
+  "llvmRecords": [
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/llvm-0x1016a50fc.txt",
+      "bytes": 4168,
+      "sha256": "44fc10d2d4ab7cb144b9cbfbe2b02cde5e8fd3892679a0ba4742475bed6a27ae",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1016a50fc",
+        "--stop-address=0x1016a5264",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1016a50fc",
+      "nextFunctionStart": "0x1016a5264",
+      "instructions": 90,
+      "observedFirst": "0x1016a50fc",
+      "observedLast": "0x1016a5260"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/llvm-0x1016a5264.txt",
+      "bytes": 8919,
+      "sha256": "943c5756b457287e907f38f1c9adf50ed494fee23c009e26721b78c496851568",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1016a5264",
+        "--stop-address=0x1016a552c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1016a5264",
+      "nextFunctionStart": "0x1016a552c",
+      "instructions": 178,
+      "observedFirst": "0x1016a5264",
+      "observedLast": "0x1016a5528"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/llvm-0x1016a49bc.txt",
+      "bytes": 4810,
+      "sha256": "7eaf114914d3280fb027a87c64d7771cf472aeaaf9afa7314f78b582d0e32d5b",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1016a49bc",
+        "--stop-address=0x1016a4b34",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1016a49bc",
+      "nextFunctionStart": "0x1016a4b34",
+      "instructions": 94,
+      "observedFirst": "0x1016a49bc",
+      "observedLast": "0x1016a4b30"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/llvm-0x10169e414.txt",
+      "bytes": 6526,
+      "sha256": "cb7c50fb4fd08b503f40274d07fdd814326b1be11ccf0c7d41192738f9faa2f9",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10169e414",
+        "--stop-address=0x10169e62c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10169e414",
+      "nextFunctionStart": "0x10169e62c",
+      "instructions": 134,
+      "observedFirst": "0x10169e414",
+      "observedLast": "0x10169e628"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/llvm-0x1016a552c.txt",
+      "bytes": 6985,
+      "sha256": "09df27b9fe2637d44c3dbae817fe4e984ed3da33096002e62292f3d5fea0fa3d",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1016a552c",
+        "--stop-address=0x1016a575c",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1016a552c",
+      "nextFunctionStart": "0x1016a575c",
+      "instructions": 140,
+      "observedFirst": "0x1016a552c",
+      "observedLast": "0x1016a5758"
+    }
+  ],
+  "retainedInputs": [
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/retained-loader-followup.json",
+      "bytes": 22526,
+      "sha256": "f5fed8fd4ae488c60ac0442c9805c834840e78c7a5506dac5c077f6e43dcac68"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/retained-retain-loader.py",
+      "bytes": 10105,
+      "sha256": "b6b387378a95e30eb1daee78eb400f7a44eb20a11924a0d9f01e28c62df8f2a3"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/retained-llvm-version.txt",
+      "bytes": 489,
+      "sha256": "4480136e4279bdce40f98483eacd8cf19d098fd32841187278297c745623b051"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/locate-functions.py",
+      "bytes": 1707,
+      "sha256": "03afa2b61c7f9c2b5b1ba0363e9f29f4c7ba761b7669949b629e8e2c8cec2668"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/dump-selected.py",
+      "bytes": 1434,
+      "sha256": "33b784ff2271deefe74b5e0653a3d92fdc567b5b813117581bbe4eb091319f53"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/function-starts-selected.json",
+      "bytes": 1372,
+      "sha256": "84fb33a17a845de21eb27362ba127fc793d5c2f4a6c7eaff0696c191a46d9165"
+    },
+    {
+      "path": ".cache/leona-native-bin-loader-v1-20261024/llvm-selected-provenance.json",
+      "bytes": 3389,
+      "sha256": "2c25cfcb6cdf7b3235eb9454b3233c07be05d23df6557f6da64c8f2e02b16863"
+    }
+  ],
+  "instructionSpans": [
+    {
+      "address": "0x1016a50fc",
+      "bytes": 360,
+      "hex": "ff0302d1f85f04a9f65705a9f44f06a9fd7b07a9fdc30191f30303aaf70302aaf80301aaf40300aa600040f9080040f9080940f936008052e12300912200805200013fd6f5234039600240f9080040f9080940f9a1d300d18200805200013fd6600240f9080040f9080940f9e1e300918200805200013fd6e8464039080102511f150071c822c81a690480520801090a0499407a60000054f61240f902000014160080d2e80e40b91803088bc80240f9081940f9e00316aae10318aa00013fd6e23b40b9c80240f9080d40f9e00316aae10318aa00013fd6c9224039ea0240f9c80e40f9eaff00a9ff630039e9670039ffff02a9ff1300f9480000b4e81700f9e83b40b948020034170080d2c80240f9081140f9e00316aae10318aae20317aa00013fd6e10300aae3230091e00314aae20315aae40313aa78e4ff97f7060091e83b40b9ff0208eb23feff5420008052fd7b47a9f44f46a9f65745a9f85f44a9ff030291c0035fd6",
+      "sha256": "815ef5db30460964fe7ff4b1932adb62250226b7a8f960c03ae2d28ed2f925aa"
+    },
+    {
+      "address": "0x1016a5264",
+      "bytes": 712,
+      "hex": "ff0302d1fc6f02a9fa6703a9f85f04a9f65705a9f44f06a9fd7b07a9fdc30191f30303aaf60302aaf50301aaf40300aa590c40b9206879f8a00000b4c80240f9bf6a39f8080d40f900013fd6600240f9080040f9080940f9e14300918200805200013fd6fa1340b9fa0f0034600240f9080040f9080940f9e13300918200805200013fd6c87200d008e1169108c1bf38d87200d018831691880f003609434039170340f9080b40b9c9020034e10e088b0911c0daca0f8052490509cb1f010071e203899ae00317aa23008052a77a0094170340f9080b40b9080100341bf17dd3e08640f874e7ff977b2300f1a1ffff54170340f9080b40b9c97200d03fc11639c8090034e903082ae84e288b2afd41d3eb0e0a8b6c8540f88c0940b9ed032aaa29010d8b9f011a6b29318a9a7731979ae9feffb5ff0208eb00080054f70240f9e80a40b91f011a6b81070054c80240f9ff0208ebe0000054e90317aa291d40f93f0108eb241940faa1ffff54890400b4e80a40f900013fd6f80300aac20240f9e00317aae10318aab5e6ff97f60300aaa06a79f81f0016eb80000054400000b4d4b6ff97b66a39f8600240f9080040f9080940f9e17b00914200805200013fd6ff0b00f9e83f4079e804003415008052e4430091e00314aae10318aae20317aae30313aa5dfdff97b5060011e83f4079bf02086be3feff541b000014e90317aa03000014291d40f9890100b42b7140b9abffff342a3540f94b110b8b4c0140f99f0108eb60faff544a4100915f010beb63ffff54f4ffff17f40f40b9730240f9680240f9081540f9e00313aa00013fd60100148b680240f9081940f9e00313aa00013fd620008052fd7b47a9f44f46a9f65745a9f85f44a9fa6743a9fc6f42a9ff030291c0035fd6c07200d000e01691936a259440f0ff341f7f00a91f4300396067ffd000a03191c24afff042000091e10318aa7b6a2594c07200d000e016918a6a259476ffff17",
+      "sha256": "89d3dafed7f18dcf69b9468d426daecbf622218a310c679ef880fcf4d99cedee"
+    },
+    {
+      "address": "0x1016a49bc",
+      "bytes": 376,
+      "hex": "ff4301d1f85f01a9f65702a9f44f03a9fd7b04a9fd030191f60304aaf30303aaf70302aaf40301aaf50300aa600040f9080040f9080940f9e12300918200805200013fd6f80b40b9600240f9080040f9080940f9e13f00912200805200013fd6e23f4039c80240f9c80200b4f70500b409068052ea0317aa030000144a1d40f90a0200b44b6140b9abffff344c2d40f99f0108eb48ffff546b31a99b6bc100d17f0108ebc9feff54093940b93f01186b8100005403c10091c30200f92a000014570300b408068052e9f301b2695595f2ea2e40f9eb6240b9ec030aaa8b0100346d29a89b6c050b8b8eed7cd3ec030aaa8f0940b9ff01186ba00000548cc10091cec100f161ffff54ec030daa8c010acb8cfd44938c7d099b9f010bebc1010054f71e40f977fdffb5df0200f9e00302aae10313aa1100009420008052fd7b44a9f44f43a9f65742a9f85f41a9ff430191c0035fd6080680528329089bc30200f96afeffb4e00315aae10314aae40313aa3ae6ff97f1ffff17",
+      "sha256": "b00d5854aca323e8b5f2dccad651da47467b55f0137a28f4cc1e31c189e327eb"
+    },
+    {
+      "address": "0x10169e414",
+      "bytes": 536,
+      "hex": "ff8301d1f85f02a9f65703a9f44f04a9fd7b05a9fd430191e80302aa4a1c0013e38700a9694440395f0500712b0100543f01086b61030054e17f0091e2230091e3430091e00308aa241a0094180000143f01086b61020054080102511f1d007168020054f50303aaf40301aaf30300aa695400b029e11b918a0000102b6968384a090b8b40011fd6e00313aae10314aae20315aae30304aa141b009404000014e00308aae10304aa9e19009420008052fd7b45a9f44f44a9f65743a9f85f42a9ff830191c0035fd6e00313aae10314aae20315aae30304aa5e1b0094f4ffff17e00313aae10314aae20315aae30304aa0a1c0094eeffff17a80e40b99402088b800040f9080040f9080940f9e10314aa8200805200013fd6b60240f977264229e8060011297940923f01086b820600542905498b3f0108eb3881889a00ef7cd380d3ff97f50300aa691240b909010034680640f90911098bea0315aa0005c13c4005813c1f0109eba3ffff54681640b96800f837600640f98ad3ff97750600f9776202291f000014e10314aae20315aae30304aa6d1c0094c5ffff17e00313aae10314aae20315aae30304aaaa1c0094bfffff17800040f9080040f9080940f9e17f00912200805200013fd6e87f4039a94240391f010071e803891a0a0080124911895aaa0e40b98b6a6a386901090a2801082a886a2a38adffff17750640f9a812178b145900a9681240b908050011681200b9a6ffff17",
+      "sha256": "a328ecce87ac4acb98fe2b7539d61f9ce3d8418a91752834558621b3acb9d017"
+    },
+    {
+      "address": "0x1016a552c",
+      "bytes": 560,
+      "hex": "ffc301d1fa6702a9f85f03a9f65704a9f44f05a9fd7b06a9fd830191f30303aaf60302aaf50301aaf40300aa600040f9080040f9080940f9e14300918200805200013fd6f91340b9590c0034600240f9080040f9080940f9e13300918200805200013fd6c87200d008e1169108c1bf38d87200d018831691c80b003609434039170340f9080b40b9c9020034e10e088b0911c0daca0f8052490509cb1f010071e203899ae00317aa23008052fd790094170340f9080b40b9080100341af17dd3e08640f8cae6ff975a2300f1a1ffff54170340f9080b40b9c97200d03fc11639a8050034e903082ae84e288b2afd41d3eb0e0a8b6c8540f88c0940b9ed032aaa29010d8b9f01196b29318a9a7731979ae9feffb5ff0208ebe0030054e80240f9090940b93f01196b17019f9ac80240f9ff0208eb81030054d80e40b9600240f9080040f9080940f9e17b00914200805200013fd6ff0b00f9e83f4079a803003416008052b502188be4430091e00314aae10315aae20317aae30313aac5fcff97d6060011e83f4079df02086be3feff5410000014170080d2c80240f9ff0208ebc0fcff54f40f40b9730240f9680240f9081540f9e00313aa00013fd60100148b680240f9081940f9e00313aa00013fd620008052fd7b46a9f44f45a9f65744a9f85f43a9fa6742a9ffc30191c0035fd6c07200d000e01691076a259400f4ff341f7f00a91f4300396067ffd000a03191c24afff042000091e10318aaef692594c07200d000e01691fe69259494ffff17",
+      "sha256": "3224922db6136905216a2c56bfeffbafea2e27e9da0cbb0084eff9ad71050fa2"
+    },
+    {
+      "address": "0x10212b6f8",
+      "bytes": 8,
+      "hex": "000010161c40454b",
+      "sha256": "74df925c12c232cb377f28dc1941fb813d299f0693137c64b133c49c1d0ee236"
+    }
+  ],
+  "directBranches": [
+    {
+      "address": "0x1016a5448",
+      "target": "0x1016a49bc"
+    },
+    {
+      "address": "0x1016a4b2c",
+      "target": "0x10169e414"
+    },
+    {
+      "address": "0x10169e4ec",
+      "target": "0x1016a5264"
+    },
+    {
+      "address": "0x10169e504",
+      "target": "0x1016a552c"
+    },
+    {
+      "address": "0x1016a5234",
+      "target": "0x10169e414"
+    },
+    {
+      "address": "0x1016a56a8",
+      "target": "0x1016a49bc"
+    }
+  ],
+  "exactWords": [
+    {
+      "address": "0x1016a5294",
+      "word": "0xb9400c59",
+      "meaning": "registered fieldoffset"
+    },
+    {
+      "address": "0x1016a5298",
+      "word": "0xf8796820",
+      "meaning": "load existing pointer"
+    },
+    {
+      "address": "0x1016a52a4",
+      "word": "0xf8396abf",
+      "meaning": "clear present pointer"
+    },
+    {
+      "address": "0x1016a52c8",
+      "word": "0xb94013fa",
+      "meaning": "read encoded typehash"
+    },
+    {
+      "address": "0x1016a537c",
+      "word": "0xb940098c",
+      "meaning": "registry descriptor typehash+8"
+    },
+    {
+      "address": "0x1016a53d4",
+      "word": "0xf9400ae8",
+      "meaning": "registered allocation callback+10"
+    },
+    {
+      "address": "0x1016a53d8",
+      "word": "0xd63f0100",
+      "meaning": "invoke registered allocation callback"
+    },
+    {
+      "address": "0x1016a5408",
+      "word": "0xf8396ab6",
+      "meaning": "store newly created pointer"
+    },
+    {
+      "address": "0x1016a5428",
+      "word": "0x79403fe8",
+      "meaning": "encoded U16 fieldcount"
+    },
+    {
+      "address": "0x1016a5454",
+      "word": "0x6b0802bf",
+      "meaning": "compare encoded fieldcount"
+    },
+    {
+      "address": "0x1016a5458",
+      "word": "0x54fffee3",
+      "meaning": "loop only encoded fields"
+    },
+    {
+      "address": "0x1016a4a8c",
+      "word": "0xf9402eea",
+      "meaning": "registered fields vector"
+    },
+    {
+      "address": "0x1016a4a90",
+      "word": "0xb94062eb",
+      "meaning": "registered fields count"
+    },
+    {
+      "address": "0x1016a4aac",
+      "word": "0xb940098f",
+      "meaning": "load registered fieldhash"
+    },
+    {
+      "address": "0x1016a4ab8",
+      "word": "0x9100c18c",
+      "meaning": "48 byte field stride"
+    },
+    {
+      "address": "0x1016a4adc",
+      "word": "0xf9401ef7",
+      "meaning": "follow parent descriptor"
+    },
+    {
+      "address": "0x10169e438",
+      "word": "0x39404469",
+      "meaning": "registered BIN wire type"
+    },
+    {
+      "address": "0x10169e46c",
+      "word": "0x51020108",
+      "meaning": "complex dispatch index"
+    },
+    {
+      "address": "0x10169e490",
+      "word": "0x3868692b",
+      "meaning": "jump-table load"
+    },
+    {
+      "address": "0x1016a51d4",
+      "word": "0x394022c9",
+      "meaning": "propagate container element type"
+    },
+    {
+      "address": "0x1016a523c",
+      "word": "0xb9403be8",
+      "meaning": "encoded list count"
+    },
+    {
+      "address": "0x1016a5244",
+      "word": "0x54fffe23",
+      "meaning": "loop only encoded list count"
+    }
+  ],
+  "dispatchTable": {
+    "address": "0x10212b6f8",
+    "base": "0x10169e49c",
+    "values": [
+      0,
+      0,
+      16,
+      22,
+      28,
+      64,
+      69,
+      75
+    ]
+  },
+  "observed": [
+    "The frozen R buff emitter list is LIST80 of STRUCT82, with four objects. Activate is concrete09cde442, with18 encoded fields and no primitive/texture/alphaRef.",
+    "Generic LIST reader dispatches each encoded element through10169e414. STRUCT82 selects1016a5264, which resolves concrete typehash, calls descriptor allocation callback+10, then loads only encoded fieldcount.",
+    "Per-field reader1016a49bc looks up encoded fieldhash in48Bmetadata and dispatches only a match. Omitted registered fields have no per-field dispatch.",
+    "Within this identified generic loading chain, constructor CameraQuad+60, empty texture+98 and alphaRef5+77 survive omission through reader return. Explicit STRUCT null instead clears the pointer."
+  ],
+  "remainingGates": [
+    "Actual live Leona loader entry, object instantiation and material dispatch remain unobserved.",
+    "Post-load hooks and subsequent mutations are not fully traced.",
+    "Generic container resize virtual implementation is not decoded; STRUCT reader independently allocates concrete object through registered factory.",
+    "No native draw/frame/GPU evidence and no visible-family increase; Activate remains locally excluded."
+  ]
+}

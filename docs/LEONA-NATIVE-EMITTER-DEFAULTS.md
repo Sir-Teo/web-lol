@@ -2,9 +2,10 @@
 
 The matching 16.18.8175716 arm64 executable initializes a default emitter primitive
 as CameraQuad, its base texture name as an empty string, and its `alphaRef` byte
-as five. This establishes constructor behavior. It does not establish whether
-loading Leona's omitted fields preserves those defaults or which material path
-an actual Activate instance uses. Solar Flare remains at 41/44 visible families.
+as five. This establishes constructor behavior. The later
+[generic BIN-loader reading](LEONA-NATIVE-BIN-LOADER.md) shows omitted-field
+preservation through the identified reader's return. Actual Leona loading, later
+overrides and the selected material path remain unobserved. Solar Flare remains at 41/44 visible families.
 
 The [evidence pin](reference/leona-native-emitter-defaults.json) retains 39 bounded
 Apple LLVM word streams, 22 original-byte spans, six type registrations and seven
@@ -96,9 +97,10 @@ section parser. It invokes no analyzer, provider, bridge, compiler or target,
 uses no network, and writes no files. Negative controls reject an altered field
 offset and an altered direct-branch target.
 
-BIN absent-field preservation, polymorphic loading, post-load overrides, actual
-Activate instantiation/material dispatch, selected backend and resource upload
-success remain unobserved. Activate stays excluded locally. The two weapon quads
+The later [BIN-loader follow-up](LEONA-NATIVE-BIN-LOADER.md) establishes generic
+polymorphic allocation and absent-field preservation for the retained wire types.
+Actual Activate loading, post-load overrides, instantiation/material dispatch,
+selected backend and resource upload success remain unobserved. Activate stays excluded locally. The two weapon quads
 still require their attachment frame; native frames, reflection inputs and full
 player/support/roster acceptance remain open. Runtime code, assets, schema126 and
 ruleset `591ddf38f2020153fafd7cb802a936194de3c2296ae0022371047ed1453581c6`

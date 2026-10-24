@@ -38,3 +38,9 @@ name and alphaRef five, and connects the corresponding offsets to an older
 generic material consumer. Missing-field preservation and actual Activate
 dispatch remain open, so this strengthens the conditional resource explanation
 without adding visible coverage.
+
+The [native BIN-loader follow-up](LEONA-NATIVE-BIN-LOADER.md) now identifies the
+frozen record as LIST80/STRUCT82 and verifies all18 encoded Activate fields.
+The identified generic reader allocates its registered default constructor and
+preserves the three omitted fields through return. Actual live loading, later
+mutation and draw dispatch remain unobserved; exclusion and41/44 coverage remain.
