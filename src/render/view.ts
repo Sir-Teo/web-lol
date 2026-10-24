@@ -24,6 +24,7 @@ import { structurePose } from './structure-pose';
 import { structureAnimationProfile } from '../content/structure-animation';
 import { advanceAnimationTimeline, animationLayers } from '../simulation/animation-timeline';
 import { applyMobileAnimation } from './mobile-animation';
+import { RigPoseCulling } from './rig-pose-culling';
 import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
 import { LazyGarenBasicAttacks } from './lazy-garen-basic-attacks';
@@ -148,6 +149,8 @@ export class GameView {
   hovered: number | null = null;
   rangeVisible = false;
   models = new Map<number, UnitModel>();
+  private readonly rigPoseCulling = new RigPoseCulling();
+  private readonly sun: THREE.DirectionalLight;
   healthBars = new Map<number, HTMLDivElement>();
   private barParts = new WeakMap<
     HTMLDivElement,
@@ -238,6 +241,7 @@ export class GameView {
     else this.camera.far = 600;
     this.scene.add(new THREE.HemisphereLight(0xc5e0e0, 0x374c31, 2.1));
     const sun = new THREE.DirectionalLight(0xffecd0, 2.4);
+    this.sun = sun;
     sun.position.set(-20, 40, 18);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
@@ -577,6 +581,12 @@ export class GameView {
         y: lerp(world.hero.previous.y, world.hero.y, alpha),
       };
     this.positionCamera();
+    this.rigPoseCulling.beginFrame(
+      this.camera,
+      this.renderer.shadowMap.enabled && this.sun.visible && this.sun.castShadow
+        ? this.sun
+        : undefined
+    );
     const present = new Set<number>();
     for (const u of world.units) {
       present.add(u.id);
@@ -626,6 +636,16 @@ export class GameView {
             : -Math.min((world.tick - u.deadAt) / 20, Math.PI / 2);
         if (isStructureKind(u.kind)) model.root.scale.z = -1;
       }
+      const skipPose =
+        (isStructureKind(u.kind) ||
+          u.kind === 'melee' ||
+          u.kind === 'caster' ||
+          u.kind === 'siege' ||
+          u.kind === 'super') &&
+        !u.sunlight &&
+        u.illumination.length === 0 &&
+        this.rigPoseCulling.canSkip(model.root);
+      this.rigPoseCulling.setSleeping(model.root, skipPose);
       if (isStructureKind(u.kind) && model.mixer && model.actions) {
         const destroyed = knownDestroyed ?? u.deadAt !== null;
         const deathTick = world.knownStructureDeathTick(u);
@@ -656,7 +676,7 @@ export class GameView {
         action.setEffectiveWeight(1);
         action.time = pose.time;
         action.paused = true;
-        model.mixer.update(0);
+        if (!skipPose) model.mixer.update(0);
       }
       if (u.kind === 'ward' && model.mixer && model.actions) {
         const age = Math.max(0, (world.tick + alpha - 1 - (u.deadAt ?? u.ward!.createdTick)) / 60);
@@ -710,7 +730,7 @@ export class GameView {
         );
         const at = world.tick - 1 + alpha + (pose.kind === 'death' ? terminalAge * 60 : 0);
         const layers = animationLayers(timeline, at, model.clipDurations);
-        applyMobileAnimation(model.mixer, model.actions, pose, layers);
+        if (!skipPose) applyMobileAnimation(model.mixer, model.actions, pose, layers);
         model.actionName = pose.clip;
         if (pose.kind === 'attack') model.animationAttackTick = u.attackCycle!.startTick;
       }

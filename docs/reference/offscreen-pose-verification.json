@@ -1,0 +1,1051 @@
+{
+  "format": 1,
+  "recordedAt": "2026-10-24T07:23:36.085Z",
+  "baselineCommit": "aad478c",
+  "scope": "Conservative offscreen minion/structure pose and private-bone matrix sleeping; pre-existing Zenith WIP preserved.",
+  "schema": 125,
+  "ruleset": "982958c23a5e30418d2a752119a499c15f6f42ac161331de5e7bf70e65cc91c5",
+  "sourceInputs": 1594,
+  "sourceArchive": ".cache/pose-energy-source-current-v4-20261024/source-archive.json",
+  "metrics": {
+    "baseline": {
+      "state": "active",
+      "renders": 360,
+      "renderMS": 2430.8999989032745,
+      "mixers": 28583,
+      "hud": 102,
+      "audio": 360,
+      "steps": 367,
+      "startTick": 7236,
+      "endTick": 7603,
+      "wallSeconds": 6.231060000136495,
+      "rendererTaskSeconds": 3.798037,
+      "rendererScriptSeconds": 3.152529
+    },
+    "current": {
+      "state": "active",
+      "renders": 362,
+      "renderMS": 2202.800000667572,
+      "mixers": 17516,
+      "hud": 102,
+      "audio": 362,
+      "steps": 368,
+      "startTick": 7235,
+      "endTick": 7603,
+      "wallSeconds": 6.205719999969006,
+      "rendererTaskSeconds": 3.538615,
+      "rendererScriptSeconds": 2.91655
+    },
+    "reductions": {
+      "meanRenderPercent": 9.884000332948606,
+      "rendererCPUPerWallSecondPercent": 6.449981098819791,
+      "mixerUpdatesPerRenderPercent": 39.05738893979982
+    }
+  },
+  "validation": {
+    "typecheck": true,
+    "unitCases": 1777,
+    "unitFiles": 293,
+    "nodeQACases": 3,
+    "browserCases": 24,
+    "exactPixelPoseLabelSamples": 40,
+    "buildingVertices": 10231059,
+    "buildingRigs": 6,
+    "exactCameraShadowPairs": 14,
+    "build": true,
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 7,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 119,
+      "scheduledBlueRequests": 7,
+      "scheduledRedRequests": 7,
+      "scheduledWolfRequests": 14,
+      "scheduledRaptorRequests": 14,
+      "scheduledKrugRequests": 21,
+      "scheduledScuttlerRequests": 7,
+      "screenshot": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-subpath.png"
+    },
+    "offlineRerun": false,
+    "rigAssetFilesUnchanged": 60
+  },
+  "evidence": [
+    {
+      "file": "docs/reference/vision-culling-verification.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/docs/reference/vision-culling-verification.json",
+      "bytes": 57660,
+      "sha256": "205a6c05f97f3a8d85c7a7b6f209364597c5984ae2e3bb3aa8413e1204547967"
+    },
+    {
+      "file": "public/assets/models/ashe-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/ashe-base.glb",
+      "bytes": 3953864,
+      "sha256": "e45069db38b628d9113faa284bce54a5b1ddb7170e2b5029ad5994e1e81a46d5"
+    },
+    {
+      "file": "public/assets/models/ashe-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/ashe-base.json",
+      "bytes": 12003,
+      "sha256": "c713aaf81ee4ca04d38eac1b2058022e7321ff7e07c06294116ab8ecae40b020"
+    },
+    {
+      "file": "public/assets/models/lux-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/lux-base.glb",
+      "bytes": 3864360,
+      "sha256": "d063e8b7435eede85f1a8617c5bf6ff3571590cb19f22a314281fe2e43cb6bee"
+    },
+    {
+      "file": "public/assets/models/lux-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/lux-base.json",
+      "bytes": 10865,
+      "sha256": "55019f8d56c2f0c8f30a361020dccd1832a9020b9c75c26e9d78a2295634971f"
+    },
+    {
+      "file": "public/assets/models/garen-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/garen-base.glb",
+      "bytes": 2764444,
+      "sha256": "93fe5d8fcb2d9041ac501b6c658eeacba3b84149d9e9b381d21cbc29ff494575"
+    },
+    {
+      "file": "public/assets/models/garen-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/garen-base.json",
+      "bytes": 17844,
+      "sha256": "770504fcba90893fa8c5e63298b7b503c42b28ea28d8182f55aa0f923f7a7e20"
+    },
+    {
+      "file": "public/assets/models/leona-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/leona-base.glb",
+      "bytes": 6253628,
+      "sha256": "5b845c3ba98ca15fdf61bb3eb549d54b858709c051c3c03f1cb26f76c890e5a9"
+    },
+    {
+      "file": "public/assets/models/leona-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/leona-base.json",
+      "bytes": 13194,
+      "sha256": "e3a64ec2fe9d8a9e450050aa2e708079d62ea30e467d274b3c400ce45c45e7f4"
+    },
+    {
+      "file": "public/assets/models/sightward-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sightward-base.glb",
+      "bytes": 69572,
+      "sha256": "5f123f6f7e34f48e4b2e096d85e16297adf404f3a54cf8563f7e38ea573334b6"
+    },
+    {
+      "file": "public/assets/models/sightward-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sightward-base.json",
+      "bytes": 4506,
+      "sha256": "126fcb52f96e747ccfe3ff6254ad5a82b2af905c1e2973cba976fab7ca572414"
+    },
+    {
+      "file": "public/assets/models/blue-melee.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-melee.glb",
+      "bytes": 485488,
+      "sha256": "274fd87c0181db308592ca924eeac19659da61ce79307e904fb938ffed7cb98b"
+    },
+    {
+      "file": "public/assets/models/blue-melee.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-melee.json",
+      "bytes": 3315,
+      "sha256": "aeca9c288fa0088ca32c71ee5d8b2ebded1d14830149894b24b414cc401e32e2"
+    },
+    {
+      "file": "public/assets/models/blue-caster.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-caster.glb",
+      "bytes": 500496,
+      "sha256": "ff550b7d9b25224b0c721f65e622a3100425d627001e5966e0c677200f709ee5"
+    },
+    {
+      "file": "public/assets/models/blue-caster.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-caster.json",
+      "bytes": 3345,
+      "sha256": "d51c701b175c79da594bf23330a0be84cbe7ee6c975fb18ade433aac9f65c97b"
+    },
+    {
+      "file": "public/assets/models/blue-siege.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-siege.glb",
+      "bytes": 525748,
+      "sha256": "66a4f8679d695444725f6c02947d3e4075fc5a5e7232a06d0f010393c054f29c"
+    },
+    {
+      "file": "public/assets/models/blue-siege.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-siege.json",
+      "bytes": 3325,
+      "sha256": "367e800668cadeb6d98cd67fc971e2fa7ee40254ef0e4a84d3dd6bf53d3e4111"
+    },
+    {
+      "file": "public/assets/models/blue-super.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-super.glb",
+      "bytes": 739140,
+      "sha256": "0ad412436a18756a4e08f9ade8789192cbb5932cd97c04fe814d36cc867b859e"
+    },
+    {
+      "file": "public/assets/models/blue-super.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-super.json",
+      "bytes": 4450,
+      "sha256": "d28589b240d0e54093e1c77afcdd8afc0d7b1c168dd825706a78b3f9be6aa5bf"
+    },
+    {
+      "file": "public/assets/models/blue-turret.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-turret.glb",
+      "bytes": 1923476,
+      "sha256": "9d16305c0687e78bdbdfaccbc6c81269e4bbdfd02772ee7f1d5b43d12d360d4e"
+    },
+    {
+      "file": "public/assets/models/blue-turret.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-turret.json",
+      "bytes": 3333,
+      "sha256": "9d069db1f33e5a0345835184d8677ccd88d398ae4470c3647e05c8d011eda6fe"
+    },
+    {
+      "file": "public/assets/models/blue-nexus.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-nexus.glb",
+      "bytes": 2608616,
+      "sha256": "068f03acfca1ee2f8bcab30c2ec117a53f472b67cf6328a69f9e668ebcb02ae0"
+    },
+    {
+      "file": "public/assets/models/blue-nexus.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-nexus.json",
+      "bytes": 3506,
+      "sha256": "ace2dbdfb7126bacafd9ba2a2c6c1c4b11f22d240584cb861bf24153b9427b48"
+    },
+    {
+      "file": "public/assets/models/blue-inhibitor.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-inhibitor.glb",
+      "bytes": 1170516,
+      "sha256": "5fb43a919fa3d98548dc62c6234629bb4f56ede60b182429976283160ef4c95b"
+    },
+    {
+      "file": "public/assets/models/blue-inhibitor.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/blue-inhibitor.json",
+      "bytes": 4761,
+      "sha256": "3edfefa8689141e5a6b6dabcb1ee04144fccd79c24364c0d1d5ae64132e54290"
+    },
+    {
+      "file": "public/assets/models/red-melee.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-melee.glb",
+      "bytes": 424436,
+      "sha256": "ed2e1dc508ebb5d96e73904501e72599cdbe167b325840cb33d3211d1a37e536"
+    },
+    {
+      "file": "public/assets/models/red-melee.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-melee.json",
+      "bytes": 3315,
+      "sha256": "8729d849821132982f7cc06c7fac01c51538f05984c2bd5d5c7f4491e3bb3ca3"
+    },
+    {
+      "file": "public/assets/models/red-caster.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-caster.glb",
+      "bytes": 509788,
+      "sha256": "bddd62e8113229de501afa313f642a0163d7608f3002abf4b170e4ecd8b59178"
+    },
+    {
+      "file": "public/assets/models/red-caster.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-caster.json",
+      "bytes": 3344,
+      "sha256": "56a09354ce710467610e1ac1fc719ec9b2c779f5d8930ffcef034fd78c903744"
+    },
+    {
+      "file": "public/assets/models/red-siege.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-siege.glb",
+      "bytes": 516764,
+      "sha256": "9b21a8cbd9351f12ee40d513b001493616bb7b837e20cc78e72e57b65df390ff"
+    },
+    {
+      "file": "public/assets/models/red-siege.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-siege.json",
+      "bytes": 3324,
+      "sha256": "e77525c228da7e002a8ce47936780a00d0d3776ee8f9eb4b1ae42ada41ee3a03"
+    },
+    {
+      "file": "public/assets/models/red-super.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-super.glb",
+      "bytes": 730752,
+      "sha256": "d3fc25fd36ef7f53ed0b77c9d500e7d9035468bb7068d2e644a90529725b9c90"
+    },
+    {
+      "file": "public/assets/models/red-super.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-super.json",
+      "bytes": 4436,
+      "sha256": "0664e02e9fd9da98d4d9330a36d60a76e49cd002ce78548f0bbc76b23f770613"
+    },
+    {
+      "file": "public/assets/models/red-turret.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-turret.glb",
+      "bytes": 2843196,
+      "sha256": "a7febe0579fd49c2b213ed9fc16470f0daf011220af2e1340eda030c7a421e02"
+    },
+    {
+      "file": "public/assets/models/red-turret.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-turret.json",
+      "bytes": 4719,
+      "sha256": "9d0a618e9d304651684e114d55bd13cd7b2a58ea92100d8ce6f06697f81d1838"
+    },
+    {
+      "file": "public/assets/models/red-nexus.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-nexus.glb",
+      "bytes": 2650392,
+      "sha256": "d49216fd563b18e1a6cf3f7752416b2d4cd45ef45f1b38955971b52326341e08"
+    },
+    {
+      "file": "public/assets/models/red-nexus.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-nexus.json",
+      "bytes": 4095,
+      "sha256": "60f722501e317400935cb58a670155787c2da03acfdb4a8c5d1a2fee59b1752f"
+    },
+    {
+      "file": "public/assets/models/red-inhibitor.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-inhibitor.glb",
+      "bytes": 912440,
+      "sha256": "9eef6c5e808f0c948ee7e794800d123ffa884f0a0d244917cfe96c2758ea0373"
+    },
+    {
+      "file": "public/assets/models/red-inhibitor.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/red-inhibitor.json",
+      "bytes": 5555,
+      "sha256": "c2cc1461586589959744c0fecac96374778400979c61b3b2b4c25d4175e98ec6"
+    },
+    {
+      "file": "public/assets/models/sru-crab-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-crab-base.glb",
+      "bytes": 1099136,
+      "sha256": "d552dd415bba0bb02d4cd1f132f7633190ced4c87c13e3559462badde2a7990f"
+    },
+    {
+      "file": "public/assets/models/sru-crab-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-crab-base.json",
+      "bytes": 10235,
+      "sha256": "8f3dba2339bb002f8b47e89297b807f0164675dbec86c290838b3d53c8ffa700"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolf-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-murkwolf-base.glb",
+      "bytes": 1675600,
+      "sha256": "86477140cba0f0becf10859a2978b7f46068a99f2c7807d9b2c6366ada59014e"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolf-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-murkwolf-base.json",
+      "bytes": 18617,
+      "sha256": "4e31d22335b66316ec997afcc9ebda59192ad525914e85293fab7578dfce74c4"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolfmini-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-murkwolfmini-base.glb",
+      "bytes": 1969120,
+      "sha256": "1ed2a284671aff2084ca0a5ba508a25a67e9a9e8f392460f70439f335c4c1c40"
+    },
+    {
+      "file": "public/assets/models/sru-murkwolfmini-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-murkwolfmini-base.json",
+      "bytes": 19875,
+      "sha256": "c3b32d3fb9abc1a9567dc49ba2f23fc975dac25bf5515748cfd1b68004e2cbd6"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeak-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-razorbeak-base.glb",
+      "bytes": 1697864,
+      "sha256": "8e6cd35cdf5d83fc7c609d135985abd9e71bb3b16203a2d1bc6af42f8d420eed"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeak-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-razorbeak-base.json",
+      "bytes": 21152,
+      "sha256": "c3360a11ab2d6256539182405d34fb9a5eb6d3e2820472e2e540ac3a5ecc37c1"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeakmini-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-razorbeakmini-base.glb",
+      "bytes": 1197732,
+      "sha256": "ce6bd2375c65295c8c1638b15523d63720bb26bf1f94b8dd3c7699c4a58b61e1"
+    },
+    {
+      "file": "public/assets/models/sru-razorbeakmini-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-razorbeakmini-base.json",
+      "bytes": 21507,
+      "sha256": "a30e9579ee08042fa9d7f39edf01e5d349f67c7f8126c9b327992f2cfdd3d7fe"
+    },
+    {
+      "file": "public/assets/models/sru-krug-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-krug-base.glb",
+      "bytes": 1041660,
+      "sha256": "b02ffc8a014b54a9af69c7d5df5ba93d74fb5ca6514bf89b796583984bb49d0d"
+    },
+    {
+      "file": "public/assets/models/sru-krug-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-krug-base.json",
+      "bytes": 13281,
+      "sha256": "69e45ffc80f557cd54c79f7538a1d1f783c859d56344b63b899952078265dd78"
+    },
+    {
+      "file": "public/assets/models/sru-krugmini-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-krugmini-base.glb",
+      "bytes": 1042412,
+      "sha256": "d7463d4f361d55a57a80271b6718f70c30c21fd1beee265cdcfc7aa3e0d40f11"
+    },
+    {
+      "file": "public/assets/models/sru-krugmini-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-krugmini-base.json",
+      "bytes": 13064,
+      "sha256": "885bdf8d31a603b36511e645df13f14c4cbe669ba40e197cb40ba2464433fe85"
+    },
+    {
+      "file": "public/assets/models/sru-krugminimini-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-krugminimini-base.glb",
+      "bytes": 1040264,
+      "sha256": "e8be9260845b77406a66aa7801301de56349c0daa07855a74b1dfc0c948e7929"
+    },
+    {
+      "file": "public/assets/models/sru-krugminimini-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-krugminimini-base.json",
+      "bytes": 13096,
+      "sha256": "3cd0ac0f872ae9ad4b7b90183abf94e9e3da262a2d6821c00826acc44a7b8e69"
+    },
+    {
+      "file": "public/assets/models/sru-gromp-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-gromp-base.glb",
+      "bytes": 2111176,
+      "sha256": "b49e3fd2b7cd3820a429bbc2ff9b72dd19a8e68cbae55e4c7409dcdf39414af9"
+    },
+    {
+      "file": "public/assets/models/sru-gromp-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-gromp-base.json",
+      "bytes": 22285,
+      "sha256": "2bc2de44c2afe1373bbe51f8bb88a5351ade7c0e1a92e8ff73f276e5ddfb684b"
+    },
+    {
+      "file": "public/assets/models/sru-blue-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-blue-base.glb",
+      "bytes": 2400224,
+      "sha256": "965d1d125f3aec5e19178fc4f286b9b132ee17f8ad12a22b94f24003bf69604c"
+    },
+    {
+      "file": "public/assets/models/sru-blue-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-blue-base.json",
+      "bytes": 20069,
+      "sha256": "03f6ef203ab8d2e76471aa00045f7d917c2853ab8b0cb1298d8b1755a197616b"
+    },
+    {
+      "file": "public/assets/models/sru-red-base.glb",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-red-base.glb",
+      "bytes": 1969240,
+      "sha256": "e1f4ced318ae420f076b6b0122cfa4fbdb8b67c922dc730ac2de223d2e6d681a"
+    },
+    {
+      "file": "public/assets/models/sru-red-base.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/public/assets/models/sru-red-base.json",
+      "bytes": 9581,
+      "sha256": "5fd4a95e4d2dd3664e216945f95dae6e0989eb90a2fb338cc3d72f72ec3d9d3a"
+    },
+    {
+      "file": ".cache/pose-energy-source-current-v4-20261024/source-archive.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-source-current-v4-20261024/source-archive.json",
+      "bytes": 450463,
+      "sha256": "bef602b82530876784d950fec1456a7450835567fa004c138a65603d06efe474"
+    },
+    {
+      "file": ".cache/pose-energy-source-current-v4-20261024/native-archive.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-source-current-v4-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "ef9e2a6c66c5fa154bafbff826a76a964394d80e66157e54a4e28e83dc467e13"
+    },
+    {
+      "file": ".cache/pose-energy-source-baseline-v1-20261024/source-archive.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-source-baseline-v1-20261024/source-archive.json",
+      "bytes": 451227,
+      "sha256": "8a78bec7c1691de7339a74e70ee21be0c24457bf6aa65d50d63cae91facb84d5"
+    },
+    {
+      "file": ".cache/pose-energy-source-current-v1-20261024/source-archive.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-source-current-v1-20261024/source-archive.json",
+      "bytes": 450463,
+      "sha256": "3d4711284c71b56ac067cd7740ea9cac8b7b168cbd96c030a178dbb459cce125"
+    },
+    {
+      "file": ".cache/pose-energy-source-current-v2-20261024/source-archive.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-source-current-v2-20261024/source-archive.json",
+      "bytes": 450463,
+      "sha256": "d540376f43adae4c11b863963b3e7b3e2ecf024cc7a4ed0fe42f79f7bd8eede8"
+    },
+    {
+      "file": ".cache/pose-energy-source-current-v3-20261024/source-archive.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-source-current-v3-20261024/source-archive.json",
+      "bytes": 450463,
+      "sha256": "d45519ac1ae935b2532247cde31ea6acb927e34bca615cc54ff74591567838b0"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/baseline-summary.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/baseline-summary.json",
+      "bytes": 15491,
+      "sha256": "2c8e0a3d629a58406e42e9aa896d4d21a619d68e65a1dc7645fd83d6205324b5"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/baseline.cpuprofile",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/baseline.cpuprofile",
+      "bytes": 299794,
+      "sha256": "2f137657baa65b9e7519d91e4da7218981ee27f430dafad999b066debdcd2fd3"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/baseline.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/baseline.json",
+      "bytes": 2847,
+      "sha256": "cef9837dde0a276f5414c748f2dded9c0245f55ede3dfb8ddfb8aea639919d24"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/benchmark.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/benchmark.log",
+      "bytes": 1117,
+      "sha256": "3577bd918bb63324160c700ddfd700ccd047c3217eed864f115b59fc54074baa"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/eligibility-v2.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/eligibility-v2.log",
+      "bytes": 5878,
+      "sha256": "df1739ff877ffef0b25d04ed11261a6d65988adfcee8558be0bfd9ef03863331"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/eligibility.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/eligibility.json",
+      "bytes": 15823,
+      "sha256": "703d38729661e7efab9013cab450ced9e6880e540a1f22b4559a1e6f07915742"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/eligibility.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/eligibility.log",
+      "bytes": 338,
+      "sha256": "ab44cec06eb3ec2ea437f5feaee22c8e3105c3e647feb8f1798b513a438fe91a"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/match.snapshot.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "63236682fc316d6041b40e535b84b332ee37e6c4db192ef00c9bc9c35247b828"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/models.ts",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/models.ts",
+      "bytes": 10658,
+      "sha256": "0ec6c7f03890395843791c3890f8c3b207e42ca9e659ca612b358956ab9f749e"
+    },
+    {
+      "file": ".cache/pose-energy-baseline-v1-20261024/view.ts",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-baseline-v1-20261024/view.ts",
+      "bytes": 48360,
+      "sha256": "b2bd12f4a4510dc10ab3c9b5e08f1139aed6ff10dda67e2ac5439db04e607ee8"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v2-20261024/benchmark.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v2-20261024/benchmark.log",
+      "bytes": 1120,
+      "sha256": "701395669de6c1b227772ca88a9f1606543d73fb34ef01dae6b849d2917beffd"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v2-20261024/match.snapshot.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v2-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "63236682fc316d6041b40e535b84b332ee37e6c4db192ef00c9bc9c35247b828"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v2-20261024/optimized-summary.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v2-20261024/optimized-summary.json",
+      "bytes": 15417,
+      "sha256": "a6e0246b3b88daf9fc13f7c3792c36540fec514c217a351fae3ea150b36a0ab4"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v2-20261024/optimized.cpuprofile",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v2-20261024/optimized.cpuprofile",
+      "bytes": 298680,
+      "sha256": "41ba36079a724afe7e3868454ca5799e519fae85d16a8d18247ab1673cf03a4d"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v2-20261024/optimized.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v2-20261024/optimized.json",
+      "bytes": 2952,
+      "sha256": "fa578ef15724a58a8c7363312aeecc0cfac1686daf605eb301044f82ddd308de"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v1-20261024/benchmark.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v1-20261024/benchmark.log",
+      "bytes": 1131,
+      "sha256": "7854f88e71afa2fdcd122b6fea8f35219ff7a7b1573b15b64c2caefa7980d525"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v1-20261024/match.snapshot.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "63236682fc316d6041b40e535b84b332ee37e6c4db192ef00c9bc9c35247b828"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v1-20261024/optimized-summary.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v1-20261024/optimized-summary.json",
+      "bytes": 15446,
+      "sha256": "f094637d0fd4321cc653601a68b4a3aa3def8badce1973e4d26e1b1b08694428"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v1-20261024/optimized.cpuprofile",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v1-20261024/optimized.cpuprofile",
+      "bytes": 303587,
+      "sha256": "3f77efd6e3c27919363b32f3ad0d91b30484466bcd95288215d27eafceaf71fc"
+    },
+    {
+      "file": ".cache/pose-energy-observation-v1-20261024/optimized.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-observation-v1-20261024/optimized.json",
+      "bytes": 2963,
+      "sha256": "752fb342b82b6b014d342e75cdade090e71cab30b1cae699806c8e6bbf2b3900"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/browser/.last-run.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/browser.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/browser.log",
+      "bytes": 5896,
+      "sha256": "f615c9a615fe191fa143e2b4e5e80dd3df74cc7f31257ab90fc7c7539467340d"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/build.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/build.log",
+      "bytes": 3028,
+      "sha256": "94bbf3c4f61b957a8139d305ea5703f713e184ba732cdb8c23c651f609375125"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/check.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/check.log",
+      "bytes": 1041,
+      "sha256": "a27424e5f0cd7e117ab56cf09b53f7c5e806ff1a3b36175e489845bfd950b106"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/comparison.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/comparison.log",
+      "bytes": 140,
+      "sha256": "018da7b4c48bd64b4d1ea529b839a1fcb3258bcea9772bc97290c0caca6d24ff"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/pose-pixel-label-comparison.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/pose-pixel-label-comparison.json",
+      "bytes": 15811,
+      "sha256": "f46876573f8ef80410dfcf25ef688c34eed91ade6db4f36efed8043c54aa73d5"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-companion-purchase.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811352,
+      "sha256": "91a974083e517ed2ac32c2e1699e06dd87ba74bd4b73340559b186f641cc9ae2"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832997,
+      "sha256": "af0e6e77c764622a4e229b1def7477e41bd1964ef345a375cf01bdf6e153b6a6"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-lux-e-source.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1834501,
+      "sha256": "3af3bcb0d065efecec6622e00e770db130003b8b98dd47227f38e5e7e16efde9"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-lux.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-lux.png",
+      "bytes": 1804857,
+      "sha256": "abc5cd32ba74a3e0d2df5982aa8af26203f5e671a5d607a13862c21ce4a8fcb5"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-oracle.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-oracle.png",
+      "bytes": 1816559,
+      "sha256": "d98d67820ea6386baf2b13bd9883e56fe436438b186a1cf03c54895a4d7cfbf9"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-role-match.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-role-match.png",
+      "bytes": 1346614,
+      "sha256": "91dafdc64aea906e2ce6bbeef32b515caad287dfde09ac58245333c3fcb7cbf0"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-subpath.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-subpath.png",
+      "bytes": 1820173,
+      "sha256": "643e1db4f14907535720b4de7555c77af02fe7431532bf7d6b8d6cb593fb13ab"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-ward.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production-images/lux-e-hit-production-ward.png",
+      "bytes": 1812961,
+      "sha256": "3dc89d3b896905339c0961b987201314d32f9742b1694b9cbe40f642b89b6b72"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production.json",
+      "bytes": 1881,
+      "sha256": "c3b4159b5201d240ffa928f8d92d71d0c253d6a2bfeddfa751534eff25f3065c"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/production.stderr.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/production.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v4-20261024/unit.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v4-20261024/unit.log",
+      "bytes": 194,
+      "sha256": "bf32a1645d7a1e4d999041a9f688f941c00d9359ca72230a1dbfd17e041ed65c"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v1-20261024/unit.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v1-20261024/unit.log",
+      "bytes": 1002,
+      "sha256": "a45711e1c8955fa170a6bb4f13e1d661bb38bdad04a9fa2ab8effef96e0f8114"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v2-20261024/browser/.last-run.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v2-20261024/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "890dddb9b12f226a4c9249b55992d63ce4f649094175d29f1352f42be50b601d"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v2-20261024/browser/rig-pose-culling-offscreen-098f6-econstruct-on-camera-return/error-context.md",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v2-20261024/browser/rig-pose-culling-offscreen-098f6-econstruct-on-camera-return/error-context.md",
+      "bytes": 8859,
+      "sha256": "cd382d867a75998c939c5fdc60ddf77c545f001764ed4fb4c3069f01572162ec"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v2-20261024/browser/rig-pose-culling-offscreen-098f6-econstruct-on-camera-return/test-failed-1.png",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v2-20261024/browser/rig-pose-culling-offscreen-098f6-econstruct-on-camera-return/test-failed-1.png",
+      "bytes": 422465,
+      "sha256": "61677af39183b6626d3156c0e4dcdfbb8ef8f232fb5f53309e0b64f7021f6ab1"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v2-20261024/browser/rig-pose-culling-offscreen-098f6-econstruct-on-camera-return/trace.zip",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v2-20261024/browser/rig-pose-culling-offscreen-098f6-econstruct-on-camera-return/trace.zip",
+      "bytes": 33165036,
+      "sha256": "9f82d056b8f245916a80be725e598fc0d6e45665a9bc3b5d3204e6eaa1d11765"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v2-20261024/browser.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v2-20261024/browser.log",
+      "bytes": 3035,
+      "sha256": "029b145c38c91cc7371be7ec84364fb2b93dda2137019018fdaa4dbe2869255e"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v2-20261024/unit.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v2-20261024/unit.log",
+      "bytes": 194,
+      "sha256": "569af6a716d77240c7a47c797cde4b3b426b7e8587d77cdaafd842f76b90112c"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v3-20261024/browser/.last-run.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v3-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v3-20261024/browser.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v3-20261024/browser.log",
+      "bytes": 558,
+      "sha256": "0bab6308ab4a590a60624536666ec0a7753340b79d170d28aa3cbe691d540177"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v3-20261024/comparison.log",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v3-20261024/comparison.log",
+      "bytes": 140,
+      "sha256": "67e899185570b4d3d427adbbafb40cfb6bf785ce686216d95ea960a7adbfa363"
+    },
+    {
+      "file": ".cache/pose-energy-validation-v3-20261024/pose-pixel-label-comparison.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-validation-v3-20261024/pose-pixel-label-comparison.json",
+      "bytes": 15811,
+      "sha256": "bf8bf80b4ee6af42b635370348cfd9269226788b0042e4d3e289796c2b93efde"
+    },
+    {
+      "file": ".cache/pose-energy-audit-v1.mjs",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-audit-v1.mjs",
+      "bytes": 2726,
+      "sha256": "ca35c3ba755a2f6a6da17cda93f8e6c74a8e88a944b0137c5bd9bc3319632899"
+    },
+    {
+      "file": ".cache/pose-energy-audit-v2.mjs",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-audit-v2.mjs",
+      "bytes": 2762,
+      "sha256": "54f228c2bacfd994c049a1201967657fddea6d5d903d53743cc906b79e84d4e9"
+    },
+    {
+      "file": ".cache/pose-energy-production-v1.mjs",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-production-v1.mjs",
+      "bytes": 22201,
+      "sha256": "8b6bcdb257bc170c476ae30285e0e8c193d12d2a3c5a4a4bbad3c77533a685ba"
+    },
+    {
+      "file": ".cache/pose-energy-finalize-v1.mjs",
+      "archived": ".cache/pose-energy-review-v1-20261024/.cache/pose-energy-finalize-v1.mjs",
+      "bytes": 12671,
+      "sha256": "dce55fb395efeb7ece0ee0c834b920d5993ded10ae2c8ff65a4e18d2313adfed"
+    },
+    {
+      "file": "docs/CPU-OFFSCREEN-POSES.md",
+      "archived": ".cache/pose-energy-review-v1-20261024/docs/CPU-OFFSCREEN-POSES.md",
+      "bytes": 4793,
+      "sha256": "0e38d09c4653d016018bfdd854414fef48dacbc75192162b7ee9819804d43bcf"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "archived": ".cache/pose-energy-review-v1-20261024/docs/PROGRESS.md",
+      "bytes": 559953,
+      "sha256": "b230fa2863781aca631d5e1b6ec9edb0b315994e5631fc497947768fd6ac7035"
+    }
+  ],
+  "generated": [
+    {
+      "file": "dist/assets/game-DMLuJ5Rx.css",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": "dist/assets/game-DeQIgXyF.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/game-DeQIgXyF.js",
+      "bytes": 988629,
+      "sha256": "897c589cc2c70fd47117274b95c4562b304709cd499702ce69b5362b87f0dc9b"
+    },
+    {
+      "file": "dist/assets/garen-aa-Byz8BwRs.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-aa-Byz8BwRs.js",
+      "bytes": 31963,
+      "sha256": "f0929dc53772109c318245055c47ed5289cfc721ea45b6491ce75e69cd8599fd"
+    },
+    {
+      "file": "dist/assets/garen-basic-attacks-ZOfA9buE.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-basic-attacks-ZOfA9buE.js",
+      "bytes": 30580,
+      "sha256": "79e18d16f89851f29e56f11167c520b4bea6cbf519371d8e7a90d6d0c4953c22"
+    },
+    {
+      "file": "dist/assets/garen-courage-GAaxX-mh.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-courage-GAaxX-mh.js",
+      "bytes": 21867,
+      "sha256": "2ec8cdf1245ba5a09cd4aa6846a5437e84bc984df05ff987f19cbfe463caa77d"
+    },
+    {
+      "file": "dist/assets/garen-decisive-strike-BM88e9aX.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-decisive-strike-BM88e9aX.js",
+      "bytes": 55146,
+      "sha256": "341b58db55310d4dd1276cfe5128e043bbdb26de3f901ff75377a6697deb2d68"
+    },
+    {
+      "file": "dist/assets/garen-justice-DyNpG2Bu.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-justice-DyNpG2Bu.js",
+      "bytes": 42381,
+      "sha256": "4bd7eafc38217f7bb412c184b54b0fac504cbd000e68c5c45c7b146f27115cbb"
+    },
+    {
+      "file": "dist/assets/garen-p-8uvy1pnJ.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-p-8uvy1pnJ.js",
+      "bytes": 5760,
+      "sha256": "6975151f006fa0e1027b06ba19a9430bd13b323c3392124a25b73da16f2cac05"
+    },
+    {
+      "file": "dist/assets/garen-perseverance-Cw-mibbg.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-perseverance-Cw-mibbg.js",
+      "bytes": 3130,
+      "sha256": "ba6ab5d735090c90889f0ad3f6028f4d4344cce827ded6f1dad1f4738c7267a4"
+    },
+    {
+      "file": "dist/assets/garen-q-CNG1knEb.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-q-CNG1knEb.js",
+      "bytes": 10787,
+      "sha256": "5e95dbb9013cdbe9a70e204c0cf4442d888d3f1bc56760e08e5b5a90c8588068"
+    },
+    {
+      "file": "dist/assets/garen-r-CuL7foGS.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-r-CuL7foGS.js",
+      "bytes": 6727,
+      "sha256": "8e2cf5dc0f52956a03039dec0028660f7cc81dfe51c30925793c23ace811fcaa"
+    },
+    {
+      "file": "dist/assets/garen-w-Czcii8Ff.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/garen-w-Czcii8Ff.js",
+      "bytes": 8107,
+      "sha256": "0c1b99db8ef85bfac31f67fb2413d61ea21154107d50836c879be5038da41d5e"
+    },
+    {
+      "file": "dist/assets/gromp-attack-JjqCWtFv.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/gromp-attack-JjqCWtFv.js",
+      "bytes": 12028,
+      "sha256": "207e3f0ae8eb958a2171360124aad99d4eafd54311ef283eb419087cf78d1980"
+    },
+    {
+      "file": "dist/assets/gromp-death-BSwyQpm9.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/gromp-death-BSwyQpm9.js",
+      "bytes": 5395,
+      "sha256": "fecc166e0c959666fe5e6da93641a9a6403f8d1d085d636e9e8f54c1fe1d2205"
+    },
+    {
+      "file": "dist/assets/gromp-death-particles-CTvfH1Db.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/gromp-death-particles-CTvfH1Db.js",
+      "bytes": 12929,
+      "sha256": "82bfd5c9b6be4e0a9b23874a5e550108cfbd0b792bff9d47173f5a46f85ab063"
+    },
+    {
+      "file": "dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "bytes": 528,
+      "sha256": "a212cb24fdb690aa96c78629abf9490711527cb30de95b3bcf0aa0441978079f"
+    },
+    {
+      "file": "dist/assets/leona-daybreak-DtSs9Rf4.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/leona-daybreak-DtSs9Rf4.js",
+      "bytes": 31306,
+      "sha256": "e6cf069e7ee8c2943826756e235d76a01a4f9f5da2b67e624cb031040aa5505f"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-history-DmHHKTCg.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/leona-eclipse-history-DmHHKTCg.js",
+      "bytes": 140036,
+      "sha256": "696e675995c95ca79284028ed8e229d4bc6a7cada4222df19ffea81e4169fb92"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skins-DgbM74oI.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/leona-eclipse-skins-DgbM74oI.js",
+      "bytes": 6345,
+      "sha256": "0bcef36fc9556e3ddc8fe58ad606b8c72a55adedac36dcacf201a95c53c5ab95"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-surfaces-BbTQvDKc.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/leona-eclipse-surfaces-BbTQvDKc.js",
+      "bytes": 16928,
+      "sha256": "da567e06f172ce18ee1ca4ae74b2f622878a166416c7ed9e79a861d9ee2a0c47"
+    },
+    {
+      "file": "dist/assets/leona-w-DVNnbEuc.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/leona-w-DVNnbEuc.js",
+      "bytes": 11872,
+      "sha256": "835afb5b7620b424b144d88b03b8423dcbbfb5bd61aa992fb1a5487021c0e62d"
+    },
+    {
+      "file": "dist/assets/map-DuHhjnGM.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/map-DuHhjnGM.js",
+      "bytes": 3775,
+      "sha256": "6df6fd85dbe85891923d77cfb957066203368bd027e78ddaa1733af3c719b915"
+    },
+    {
+      "file": "dist/assets/map-wSGUvK3C.css",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": "dist/assets/oracle-M0eU-41L.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/oracle-M0eU-41L.js",
+      "bytes": 5752,
+      "sha256": "f37be3003a1cad5f9323b2df876d01d9b8bb25560267eb75213232a0d35c9ef5"
+    },
+    {
+      "file": "dist/assets/oracle-particles-D1-pb9wz.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/oracle-particles-D1-pb9wz.js",
+      "bytes": 55711,
+      "sha256": "c9d1ec7c06a76045728b77cc158cf6529bec9c77f545232454dcf65d3f064e07"
+    },
+    {
+      "file": "dist/assets/particle-motion-DqAfM8Ni.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/particle-motion-DqAfM8Ni.js",
+      "bytes": 326,
+      "sha256": "9a7e4b6565c66c7bc63c53b9804855823bc7055af306a187c191b896291d3f75"
+    },
+    {
+      "file": "dist/assets/rift-assets-CcCthSeF.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/rift-assets-CcCthSeF.js",
+      "bytes": 9106,
+      "sha256": "5ac9e89f98db9cd6be1f423adbbff538fa64d05fe469d75e351545512d26987a"
+    },
+    {
+      "file": "dist/assets/sunlight-DfxYPpXx.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/sunlight-DfxYPpXx.js",
+      "bytes": 3784,
+      "sha256": "9fba17547bf051cd7eb6d96d11b10374205f963ca7b71526c0827952825d3049"
+    },
+    {
+      "file": "dist/assets/three-gySAWiYA.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/assets/three-gySAWiYA.js",
+      "bytes": 661182,
+      "sha256": "907e103a7ec0bb3fce386135d2a30329d6b5df00f357162f7bdd9409291d8927"
+    },
+    {
+      "file": "dist/index.html",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/index.html",
+      "bytes": 999,
+      "sha256": "c61da0e3deb6a64c14bc34843782bc944857b50f1fe37893e3c83227a23e0f9c"
+    },
+    {
+      "file": "dist/map.html",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/map.html",
+      "bytes": 618,
+      "sha256": "5d370acb4f9143e19c1bf56d65a5df8a8f7baa7679001786914c10317aca89b0"
+    },
+    {
+      "file": "dist/offline-pack.json",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/offline-pack.json",
+      "bytes": 135388,
+      "sha256": "b48302ea207db23f38ab85e441237b7b6d9f28d3c26587290e6133dfa60e3417"
+    },
+    {
+      "file": "dist/offline-worker.js",
+      "archived": ".cache/pose-energy-review-v1-20261024/dist/offline-worker.js",
+      "bytes": 138593,
+      "sha256": "cb7631d753ff7640bbaee6b7c6b8965f2b84392aa751eab1ab340acd78713ce4"
+    }
+  ],
+  "limits": [
+    "Short profiled renderer observations; no physical heat, total energy, GPU-cost or full-match/device FPS certification.",
+    "Sleeping offscreen bones intentionally retain the last sampled pose; new live-bone attachments require a wake guard.",
+    "Champions, monsters, wards and unsupported rigs are excluded. GameView currently owns one directional shadow light.",
+    "Full browser/offline/native-fidelity and bundle-size gates remain open."
+  ],
+  "projectGoalComplete": false
+}

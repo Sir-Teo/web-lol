@@ -5311,3 +5311,22 @@ See [health-bar CPU work](CPU-HEALTH-BARS.md) and the
 [evidence record](reference/health-bar-cpu-verification.json). Existing Zenith
 work is preserved; feature work remains deferred, nothing is pushed, and the
 project goal remains active.
+
+## Offscreen pose CPU checkpoint — October 24, 2026
+
+Unmarked supported minions/structures outside both camera and directional-shadow
+views skip pose sampling and private-bone matrix work. First/sort samples, marks,
+shadow entry and camera return stay awake; absolute timelines reconstruct poses.
+The fresh saved-state observation reports 9.9% less mean render time
+(6.75 to 6.09 ms), 6.4% less renderer CPU per wall second and
+39.1% fewer mixer updates per render. These short profiled results do not
+certify temperature, whole-machine energy, GPU use or full-match/device FPS.
+
+All 1,777 unit cases/293 files, three Node QA cases and 24 serial Chrome cases
+pass. Forty strict original/current pixel/pose/label pairs, a sleeping/reentry
+comparison against fresh rigs, 10,231,059 sampled building vertices and 14 camera/
+shadow pairs pass. Production build/nested hosting passes 32 recordings. Schema
+125/ruleset and assets remain unchanged; no new offline/full-browser audit is
+claimed. See [offscreen poses](CPU-OFFSCREEN-POSES.md) and the
+[evidence record](reference/offscreen-pose-verification.json). Deferred Zenith
+work is preserved, nothing is pushed, and the project goal remains active.

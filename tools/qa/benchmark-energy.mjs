@@ -126,6 +126,7 @@ try {
     'src/render/lux-illumination.ts',
     'src/render/models.ts',
     'src/render/animation-bounds.ts',
+    'src/render/rig-pose-culling.ts',
     'src/render/target-pose-sampler.ts',
     'src/input/input.ts',
     'src/render/mobile-animation.ts',
