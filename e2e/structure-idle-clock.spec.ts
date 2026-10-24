@@ -28,12 +28,16 @@ test('all six structure rigs preserve idle phase through late renders, pause and
     page.evaluate(async (ids) => {
       const { structureAnimationProfile } = await import('/src/content/structure-animation.ts');
       const g = (window as any).__GAME__,
-        w = g.world;
+        w = g.world,
+        elapsed = g.view.previousElapsed + 10;
+      g.view.locked = false;
       const poses = [0, 0.5, 1].map((alpha) => {
-        g.view.render(w, alpha, g.view.previousElapsed + 10);
         return ids.map((id) => {
-          const u = w.unit(id),
-            model = g.view.models.get(id),
+          const u = w.unit(id);
+          // Offscreen poses may sleep; observe each rig before reading bones.
+          g.view.center = { x: u.x, y: u.y };
+          g.view.render(w, alpha, elapsed);
+          const model = g.view.models.get(id),
             action = model.actions.idle1;
           model.root.updateMatrixWorld(true);
           const bones: number[] = [];

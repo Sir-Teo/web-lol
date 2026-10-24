@@ -74,6 +74,8 @@ try {
     Object.fromEntries(
       (await cdp.send('Performance.getMetrics')).metrics.map((m) => [m.name, m.value])
     );
+  await cdp.send('HeapProfiler.collectGarbage');
+  const retainedHeap = await cdp.send('Runtime.getHeapUsage');
   const samples = [];
   for (const state of ['active', 'paused', 'hidden']) {
     await page.evaluate((state) => {
@@ -148,9 +150,10 @@ try {
         platform: platform(),
         cpu: cpus()[0].model,
         scope:
-          'One headless Chrome, full Rift, exact 120-second ten-champion checkpoint, active CPU sampling separate from idle states; synthetic hidden retains RAF to test application guard. Renderer CPU does not measure heat, GPU, or total system energy.',
+          'One headless Chrome, full Rift, exact 120-second ten-champion checkpoint, retained heap after explicit collection before active warmup, active CPU sampling separate from idle states; synthetic hidden retains RAF to test application guard. Renderer CPU does not measure heat, GPU, or total system energy.',
         snapshotSHA256: createHash('sha256').update(snapshot).digest('hex'),
         sourceHashes,
+        retainedHeap,
         samples,
         errors,
       },

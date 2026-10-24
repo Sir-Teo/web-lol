@@ -337,7 +337,7 @@ test('a later Garen loads one Courage resource set and reconstructs an already a
   await page.locator('#loading').waitFor({ state: 'detached' });
   expect(requests).toEqual([]);
   expect(modules).toEqual([]);
-  await page.evaluate(() => {
+  await page.evaluate(async () => {
     const g = (window as any).__GAME__,
       w = g.world;
     g.setPaused(true);
@@ -351,6 +351,9 @@ test('a later Garen loads one Courage resource set and reconstructs an already a
     w.step(40);
     w.damage(w.hero, u, 10, 'physical');
     w.step(2);
+    g.view.render(w, 1, g.view.previousElapsed);
+    // A manually paused fixture needs a draw after its pending lazy load.
+    await g.view.garenCourage.load();
     g.view.render(w, 1, g.view.previousElapsed);
   });
   await page.waitForFunction(() => (window as any).__GAME__.view.garenCourage.models.size > 0);

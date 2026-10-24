@@ -1,0 +1,885 @@
+{
+  "format": 1,
+  "recordedAt": "2026-10-24T13:00:02.551Z",
+  "decision": "rejected",
+  "acceptedApplicationCommit": "1b1c312",
+  "reason": "Controlled animation work was cheaper, but whole-game timing did not establish a consistent benefit; retained heap increased and the adapter depended on runtime layout. Static-bone freezing found no eligible source bones.",
+  "acceptedChanges": [
+    "Explicit lazy-load/draw settlement in a manually paused Garen fixture.",
+    "Bring structures into camera before clock-test bone reads.",
+    "Retained-heap reporting after explicit collection in the CPU observation tool."
+  ],
+  "schema": 125,
+  "ruleset": "3f5f13befd26234c86d0603e8fcc4b3236eb6e43b1e4ebf5e47a968d46007653",
+  "baseSourceArchive": ".cache/unit-vision-source-v2-20261024/manifest.json",
+  "candidateSources": [
+    {
+      "file": "src/render/models.ts",
+      "archived": ".cache/lazy-euler-rejected-v2-20261024/models.ts",
+      "bytes": 10749,
+      "sha256": "a1ac05e7805e10930b10426c4611e40806af50eab25e6248547f2fa22eb1c009"
+    },
+    {
+      "file": "src/render/target-pose-sampler.ts",
+      "archived": ".cache/lazy-euler-rejected-v2-20261024/target-pose-sampler.ts",
+      "bytes": 4877,
+      "sha256": "162e875284c08226390ccd19ddd95f0559a79cc751050d76de31079598b9d380"
+    },
+    {
+      "file": "src/render/lazy-bone-euler.ts",
+      "archived": ".cache/lazy-euler-rejected-v2-20261024/lazy-bone-euler.ts",
+      "bytes": 2887,
+      "sha256": "bc7df959f5bc54cd70e0b181efa3165f35dfd5b816128d4e0c27de4e4c176523"
+    },
+    {
+      "file": "tests/lazy-bone-euler.test.ts",
+      "archived": ".cache/lazy-euler-rejected-v2-20261024/lazy-bone-euler.test.ts",
+      "bytes": 5859,
+      "sha256": "5ec71d1765194b8e9be3c71d80b59e204b8c23da508568d6ad61b0e720401e81"
+    },
+    {
+      "file": "tools/qa/benchmark-energy.mjs",
+      "archived": ".cache/lazy-euler-rejected-v2-20261024/benchmark-energy.mjs",
+      "bytes": 6351,
+      "sha256": "9f6cd28962150be7d9fe797486beab614b89a7ae7f9344cd094e1c2db473ed46"
+    },
+    {
+      "file": "docs/CPU-BONE-EULER.md",
+      "archived": ".cache/lazy-euler-rejected-v2-20261024/CPU-BONE-EULER.md",
+      "bytes": 4519,
+      "sha256": "6332cb8c1ed5bc7421aeaf5c1399e090c35568034abb6530cc6b7cc21069e54c"
+    }
+  ],
+  "acceptedSources": [
+    {
+      "file": "src/render/models.ts",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/src/render/models.ts",
+      "bytes": 10658,
+      "sha256": "0ec6c7f03890395843791c3890f8c3b207e42ca9e659ca612b358956ab9f749e"
+    },
+    {
+      "file": "src/render/target-pose-sampler.ts",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/src/render/target-pose-sampler.ts",
+      "bytes": 4782,
+      "sha256": "02f68f89338464a90e6284f9b09235c16b6dd2e7915bbfd33de851fbf7808e20"
+    },
+    {
+      "file": "src/render/view.ts",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/src/render/view.ts",
+      "bytes": 49112,
+      "sha256": "7a5dffd224d26064e22a1fbf38fc82f3dae6f77b3072ee3db8c2505d1c8cdf0c"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/src/simulation/world.ts",
+      "bytes": 246959,
+      "sha256": "21680c12c12f8ec7aa1a9651a16fff00f50a4a67d2edfabcd48907a09bee0573"
+    },
+    {
+      "file": "e2e/garen-courage.spec.ts",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/e2e/garen-courage.spec.ts",
+      "bytes": 16806,
+      "sha256": "4f5aaa212f5ba49eb182bdc8dfd5b8ff1f39f4b925eee3f1121ec5e2b22da335"
+    },
+    {
+      "file": "e2e/structure-idle-clock.spec.ts",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/e2e/structure-idle-clock.spec.ts",
+      "bytes": 3267,
+      "sha256": "c9d945f6b273e663e84412904b8e32212f87b2154d5b58d265199d116dcb3f72"
+    },
+    {
+      "file": "tools/qa/benchmark-energy.mjs",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/tools/qa/benchmark-energy.mjs",
+      "bytes": 6376,
+      "sha256": "844d96a702197ce00035463747512fa63ae0514fc9552782fed6ad34521fdbe0"
+    },
+    {
+      "file": "tools/qa/verify-bone-euler-experiment.mjs",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/tools/qa/verify-bone-euler-experiment.mjs",
+      "bytes": 2402,
+      "sha256": "c5ecff8c51816c5b95760011fa416fa09cdf77c757aeb6d72bec5def59ed9d73"
+    },
+    {
+      "file": "docs/CPU-BONE-EULER.md",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/docs/CPU-BONE-EULER.md",
+      "bytes": 6160,
+      "sha256": "c24e6f54e38ffdd6608bc57b9ae9c0a1d885fa2857e495e71586cfae66c643ed"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/docs/PROGRESS.md",
+      "bytes": 563537,
+      "sha256": "0846da7d1a098c1b1792592fea5c334627c51b0320c12aea2a4d9b995b88879a"
+    },
+    {
+      "file": "node_modules/three/src/core/Object3D.js",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/node_modules/three/src/core/Object3D.js",
+      "bytes": 41659,
+      "sha256": "09ba0acdf6a5fed399fa6ce9c0d61f9e0c0e6551e2ae43a270c9878a734bdabc"
+    },
+    {
+      "file": "node_modules/three/src/math/Euler.js",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/node_modules/three/src/math/Euler.js",
+      "bytes": 9275,
+      "sha256": "33a964a95f6c87ccc65e5d049810f9133e0f1a574777a37a724c7c03b4adba22"
+    },
+    {
+      "file": "node_modules/three/src/math/Quaternion.js",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/node_modules/three/src/math/Quaternion.js",
+      "bytes": 20496,
+      "sha256": "6c18e09a14f2d2fa7813e23bb257b3a9df542c5f7ad605f79ab8a99fa3bd8497"
+    },
+    {
+      "file": "node_modules/three/src/animation/PropertyBinding.js",
+      "archived": ".cache/bone-euler-accepted-v1-20261024/node_modules/three/src/animation/PropertyBinding.js",
+      "bytes": 18237,
+      "sha256": "2130038f275f69a5be6e9654a44f65f239c5cceab71af1ac8e3490721733e81a"
+    }
+  ],
+  "removedCandidateFiles": [
+    "src/render/static-bone-matrices.ts",
+    "tests/static-bone-matrices.test.ts",
+    "src/render/lazy-bone-euler.ts",
+    "tests/lazy-bone-euler.test.ts"
+  ],
+  "candidateReconstruction": "All unchanged code/content inputs are in baseSourceArchive. candidateSources overrides the logical files listed there and adds the helper and nine tests. Candidate sources were retained after the 28-case browser run; the final animation/matrix/frame/unit epochs used the same application code.",
+  "evidenceStorage": "Raw artifacts are retained immutably at their existing .cache paths; archived equals file for those pins to avoid duplicating large traces/profiles. Accepted canonical inputs and runtime contract files have separate copies.",
+  "validation": {
+    "candidate": {
+      "typecheck": true,
+      "unitCases": 1791,
+      "unitFiles": 294,
+      "nodeQACases": 3,
+      "browserPassed": 26,
+      "browserFailed": 2,
+      "rigs": 30,
+      "bones": 1602,
+      "poseSamples": 3710,
+      "matrixScalars": 7420032,
+      "framePairs": 64,
+      "eagerBoneEulerDerivations": 429583,
+      "deferredBeforeRead": 0,
+      "productionRun": false
+    },
+    "baselineBrowser": {
+      "failed": 2,
+      "applicationIdenticalToAccepted": true
+    },
+    "repairedBrowser": {
+      "passed": 2,
+      "assertionsOrDeadlinesRelaxed": false
+    },
+    "accepted": {
+      "typecheck": true,
+      "unitCases": 1782,
+      "unitFiles": 293,
+      "nodeQACases": 3,
+      "allApplicationSourceFilesMatchBase": true
+    }
+  },
+  "metrics": {
+    "perBoneClosures": {
+      "baseline": {
+        "state": "active",
+        "renders": 362,
+        "renderMS": 2588.400000333786,
+        "mixers": 17516,
+        "hud": 101,
+        "audio": 362,
+        "steps": 369,
+        "startTick": 7236,
+        "endTick": 7605,
+        "wallSeconds": 6.200157999992371,
+        "rendererTaskSeconds": 3.9832880000000004,
+        "rendererScriptSeconds": 3.313949
+      },
+      "current": {
+        "state": "active",
+        "renders": 362,
+        "renderMS": 2474.500002384186,
+        "mixers": 17514,
+        "hud": 102,
+        "audio": 362,
+        "steps": 367,
+        "startTick": 7236,
+        "endTick": 7603,
+        "wallSeconds": 6.209865999873728,
+        "rendererTaskSeconds": 3.90051,
+        "rendererScriptSeconds": 3.212816
+      },
+      "baselineHeap": {
+        "usedSize": 71588380,
+        "totalSize": 73793536,
+        "embedderHeapUsedSize": 3019336,
+        "backingStorageSize": 466589680
+      },
+      "currentHeap": {
+        "usedSize": 76674680,
+        "totalSize": 78659584,
+        "embedderHeapUsedSize": 3021392,
+        "backingStorageSize": 466596807
+      },
+      "additionalHeapBytes": 5086300,
+      "meanRenderReductionPercent": 4.400401712830792,
+      "rendererCPUPerWallReductionPercent": 2.231215527795638
+    },
+    "sharedAccessors": {
+      "baseline": {
+        "state": "active",
+        "renders": 361,
+        "renderMS": 2172.800001859665,
+        "mixers": 17470,
+        "hud": 102,
+        "audio": 361,
+        "steps": 368,
+        "startTick": 7235,
+        "endTick": 7603,
+        "wallSeconds": 6.17120199999772,
+        "rendererTaskSeconds": 3.4846980000000003,
+        "rendererScriptSeconds": 2.8909279999999997
+      },
+      "current": {
+        "state": "active",
+        "renders": 360,
+        "renderMS": 2348.2000007629395,
+        "mixers": 17421,
+        "hud": 102,
+        "audio": 360,
+        "steps": 367,
+        "startTick": 7235,
+        "endTick": 7602,
+        "wallSeconds": 6.1882100000511855,
+        "rendererTaskSeconds": 3.734132,
+        "rendererScriptSeconds": 3.076367
+      },
+      "baselineHeap": {
+        "usedSize": 71592676,
+        "totalSize": 73793536,
+        "embedderHeapUsedSize": 3022352,
+        "backingStorageSize": 466589700
+      },
+      "currentHeap": {
+        "usedSize": 74824640,
+        "totalSize": 76972032,
+        "embedderHeapUsedSize": 3021592,
+        "backingStorageSize": 466598439
+      },
+      "additionalHeapBytes": 3231964,
+      "meanRenderReductionPercent": -8.372734560358364,
+      "rendererCPUPerWallReductionPercent": -6.863461806112703
+    },
+    "animationBatches": {
+      "recordedAt": "2026-10-24T12:43:48.100Z",
+      "browser": "156.0.8078.47",
+      "scope": "Alternating isolated imported-rig animation and matrix batches, two normal-blend actions, no rendering/GPU/temperature measurement.",
+      "models": 30,
+      "framesPerBatch": 60,
+      "alternatingPairs": 11,
+      "samples": [
+        {
+          "cached": true,
+          "ms": 39.60000014305115
+        },
+        {
+          "cached": false,
+          "ms": 39.39999985694885
+        },
+        {
+          "cached": false,
+          "ms": 39.80000019073486
+        },
+        {
+          "cached": true,
+          "ms": 36.09999990463257
+        },
+        {
+          "cached": true,
+          "ms": 37
+        },
+        {
+          "cached": false,
+          "ms": 39.299999952316284
+        },
+        {
+          "cached": false,
+          "ms": 40.200000047683716
+        },
+        {
+          "cached": true,
+          "ms": 36.90000009536743
+        },
+        {
+          "cached": true,
+          "ms": 36.59999990463257
+        },
+        {
+          "cached": false,
+          "ms": 39.09999990463257
+        },
+        {
+          "cached": false,
+          "ms": 38.5
+        },
+        {
+          "cached": true,
+          "ms": 40.90000009536743
+        },
+        {
+          "cached": true,
+          "ms": 49.700000047683716
+        },
+        {
+          "cached": false,
+          "ms": 44.89999985694885
+        },
+        {
+          "cached": false,
+          "ms": 41.60000014305115
+        },
+        {
+          "cached": true,
+          "ms": 36.39999985694885
+        },
+        {
+          "cached": true,
+          "ms": 39.200000047683716
+        },
+        {
+          "cached": false,
+          "ms": 43.40000009536743
+        },
+        {
+          "cached": false,
+          "ms": 42.5
+        },
+        {
+          "cached": true,
+          "ms": 39
+        },
+        {
+          "cached": true,
+          "ms": 35.200000047683716
+        },
+        {
+          "cached": false,
+          "ms": 43.39999985694885
+        }
+      ],
+      "comparedScalars": 27616,
+      "originalMedianMS": 40.200000047683716,
+      "currentMedianMS": 37,
+      "reductionPercent": 7.960199114149247,
+      "errors": []
+    }
+  },
+  "checks": {
+    "poses": ".cache/lazy-euler-validation-v2-20261024/all-rig-matrices.json",
+    "frames": ".cache/lazy-euler-validation-v2-20261024/pixels.json",
+    "candidateStandard": ".cache/lazy-euler-validation-v2-20261024/check.log",
+    "candidateBrowser": ".cache/lazy-euler-validation-v2-20261024/browser.log",
+    "baselineBrowser": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser.log",
+    "repairedBrowser": ".cache/paused-fixtures-validation-v1-20261024/repaired-browser.log",
+    "acceptedStandard": ".cache/paused-fixtures-validation-v1-20261024/check.log"
+  },
+  "evidence": [
+    {
+      "file": ".cache/bone-euler-finalize-v1.mjs",
+      "archived": ".cache/bone-euler-finalize-v1.mjs",
+      "bytes": 7339,
+      "sha256": "7ca2916e9fae3f17de1226f1375ffe236d27f2a93d5420877e3260348cfd9bda"
+    },
+    {
+      "file": ".cache/lazy-euler-audit-setup-v1.py",
+      "archived": ".cache/lazy-euler-audit-setup-v1.py",
+      "bytes": 2262,
+      "sha256": "2180cf2fdd13c3ed2071226f7eef04c3cc4efd07070c2f7957b19b42fc465d54"
+    },
+    {
+      "file": ".cache/lazy-euler-audit-v1.mjs",
+      "archived": ".cache/lazy-euler-audit-v1.mjs",
+      "bytes": 5906,
+      "sha256": "b303b5b832e8d243a6d33d7696e5b22fd079523603a786d159f533c29723f5b7"
+    },
+    {
+      "file": ".cache/lazy-euler-audit-v2.mjs",
+      "archived": ".cache/lazy-euler-audit-v2.mjs",
+      "bytes": 5906,
+      "sha256": "c2cc37922ae4e3b2e24fae8b8f3b3da7b2001f613052f02ca40d5d5cb6944554"
+    },
+    {
+      "file": ".cache/lazy-euler-baseline-v1-20261024/lux-singularities.ts",
+      "archived": ".cache/lazy-euler-baseline-v1-20261024/lux-singularities.ts",
+      "bytes": 4144,
+      "sha256": "c8787505a18ce4c6273045738f8d0b20eae7662cf28b7b4435c517515ecb9377"
+    },
+    {
+      "file": ".cache/lazy-euler-baseline-v1-20261024/match.snapshot.json",
+      "archived": ".cache/lazy-euler-baseline-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "626fc20b944bc20d7670f955077246f882dc0cae311871a978d96654b823e71c"
+    },
+    {
+      "file": ".cache/lazy-euler-baseline-v1-20261024/models.ts",
+      "archived": ".cache/lazy-euler-baseline-v1-20261024/models.ts",
+      "bytes": 10658,
+      "sha256": "0ec6c7f03890395843791c3890f8c3b207e42ca9e659ca612b358956ab9f749e"
+    },
+    {
+      "file": ".cache/lazy-euler-baseline-v1-20261024/target-pose-sampler.ts",
+      "archived": ".cache/lazy-euler-baseline-v1-20261024/target-pose-sampler.ts",
+      "bytes": 4782,
+      "sha256": "02f68f89338464a90e6284f9b09235c16b6dd2e7915bbfd33de851fbf7808e20"
+    },
+    {
+      "file": ".cache/lazy-euler-baseline-v1-20261024/view.ts",
+      "archived": ".cache/lazy-euler-baseline-v1-20261024/view.ts",
+      "bytes": 49112,
+      "sha256": "7a5dffd224d26064e22a1fbf38fc82f3dae6f77b3072ee3db8c2505d1c8cdf0c"
+    },
+    {
+      "file": ".cache/lazy-euler-micro-setup-v1.py",
+      "archived": ".cache/lazy-euler-micro-setup-v1.py",
+      "bytes": 3485,
+      "sha256": "7c2bbd292c9517c5eb9141b195afbf0d079334bb418bee54c8f0fde243ce84da"
+    },
+    {
+      "file": ".cache/lazy-euler-micro-v1.mjs",
+      "archived": ".cache/lazy-euler-micro-v1.mjs",
+      "bytes": 5221,
+      "sha256": "fd1c00d6e0f7b8bfb58756619fcad57cabd4fced366bc1247c2cc6e2fb1a0e5e"
+    },
+    {
+      "file": ".cache/lazy-euler-pixel-setup-v1.py",
+      "archived": ".cache/lazy-euler-pixel-setup-v1.py",
+      "bytes": 1516,
+      "sha256": "3ab51ce68a53166e60f755854df9bf0f331e150990afd3f5a0cc992260a41535"
+    },
+    {
+      "file": ".cache/lazy-euler-pixel-v1.mjs",
+      "archived": ".cache/lazy-euler-pixel-v1.mjs",
+      "bytes": 10441,
+      "sha256": "8f963120d8b6925c99955359a83f663c78c9474ef69f44f8368633377f768983"
+    },
+    {
+      "file": ".cache/lazy-euler-storage-v1-20261024/lazy-bone-euler.test.ts",
+      "archived": ".cache/lazy-euler-storage-v1-20261024/lazy-bone-euler.test.ts",
+      "bytes": 5859,
+      "sha256": "5ec71d1765194b8e9be3c71d80b59e204b8c23da508568d6ad61b0e720401e81"
+    },
+    {
+      "file": ".cache/lazy-euler-storage-v1-20261024/lazy-bone-euler.ts",
+      "archived": ".cache/lazy-euler-storage-v1-20261024/lazy-bone-euler.ts",
+      "bytes": 2275,
+      "sha256": "5bf4e4c0975fa7ebaf86ba0db862185f3cac89e2fac24d1f3d89edfd27152f53"
+    },
+    {
+      "file": ".cache/lazy-euler-unit-initial-v1-20261024/lazy-bone-euler.test.ts",
+      "archived": ".cache/lazy-euler-unit-initial-v1-20261024/lazy-bone-euler.test.ts",
+      "bytes": 5614,
+      "sha256": "7dc361cc6341e672d9664f8cdb61b0e60f87328aaa3831e80319dcf947d45201"
+    },
+    {
+      "file": ".cache/lazy-euler-unit-initial-v1-20261024/lazy-bone-euler.ts",
+      "archived": ".cache/lazy-euler-unit-initial-v1-20261024/lazy-bone-euler.ts",
+      "bytes": 2275,
+      "sha256": "5bf4e4c0975fa7ebaf86ba0db862185f3cac89e2fac24d1f3d89edfd27152f53"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v1-20261024/all-rig-matrices.json",
+      "archived": ".cache/lazy-euler-validation-v1-20261024/all-rig-matrices.json",
+      "bytes": 13213,
+      "sha256": "d77ad23e9e0e97a90cd63391c80c0deaeec84d715ff6a679fea1ed6dd34a8201"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v1-20261024/whole-game.log",
+      "archived": ".cache/lazy-euler-validation-v1-20261024/whole-game.log",
+      "bytes": 2356,
+      "sha256": "5f4534ddc2948f68bd18647c5e1d511a6a8590d4d60e9a8b312532d851350776"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v1.log",
+      "archived": ".cache/lazy-euler-validation-v1.log",
+      "bytes": 5591,
+      "sha256": "8d432c65c012b3aea578b219a2c4d81fd794ce8d248601a38a44f2f51618f0f1"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/all-rig-matrices.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/all-rig-matrices.json",
+      "bytes": 13213,
+      "sha256": "cb2a10724f1d63bbbcf3afe8128608bccafa6f0a6e38da2a91bc5e1dbc502706"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/animation-benchmark.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/animation-benchmark.json",
+      "bytes": 1850,
+      "sha256": "21d1fa051116d7d822e43af29d6e77c18463ce5a7c77693c3800084cc3cfb83f"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/animation-benchmark.log",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/animation-benchmark.log",
+      "bytes": 1312,
+      "sha256": "891ebe10ee59ea9b749fc35fd679a64a759d07784da6bba9b47d72d9a2d96626"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/audit.log",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/audit.log",
+      "bytes": 5591,
+      "sha256": "831a4a1e7dc2f8763bf79f4d8ac18e321c98d8625f5cfb2576905bc21e3d57e1"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser.log",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser.log",
+      "bytes": 13674,
+      "sha256": "b53b0b552c7a6eb9d56f0862098c98d85547723a5a5b63789d8c0dedef610afd"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/.last-run.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/.last-run.json",
+      "bytes": 145,
+      "sha256": "0c8b1ccd67bb9b137e71bd0ea33effcf54c851cc85a22955e88f009969d2fe6f"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/error-context.md",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/error-context.md",
+      "bytes": 11084,
+      "sha256": "cf720a53ad13f39907492eaed7bba563db50805c5597c1c602909a5ab1487112"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/test-failed-1.png",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/test-failed-1.png",
+      "bytes": 882754,
+      "sha256": "4f8929241a6ae3baa79099c8cddca76085a6917810f76bf2b6ab2756883b021d"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/trace.zip",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/trace.zip",
+      "bytes": 64880126,
+      "sha256": "e86e8079354f590e7b3e193a1a3f6442271d4e8d1b797bc9f821476a2d506556"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/extended.png",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/extended.png",
+      "bytes": 899649,
+      "sha256": "0c9b8f2acd255542f43b5d33aaa3dd713e15558c4c25266922e9a18481fe3f68"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/initial.png",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/initial.png",
+      "bytes": 810820,
+      "sha256": "87290a0cea4a18a7656472ffc0c15e0c139f93942437df1e5a1bea07042b0ec7"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/skins.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-all-fo-3f976-poses-through-both-W-phases/skins.json",
+      "bytes": 312937,
+      "sha256": "1a77f91620dfbce2d0849fbfa701b87658db0c4faab32753b8819bb147102aa3"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-repeat-f7f2c--shared-GPU-storage-bounded/storage.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-repeat-f7f2c--shared-GPU-storage-bounded/storage.json",
+      "bytes": 680,
+      "sha256": "255da7ceb31650defaf924e27f15b8ec37e7ab0ea127c452f8da178a235334c8"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-skin-f-bf8bc-urces-against-a-frozen-save/recovery-terminal.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/leona-eclipse-skins-skin-f-bf8bc-urces-against-a-frozen-save/recovery-terminal.json",
+      "bytes": 39289,
+      "sha256": "068709013a3b8d1a7f2ee2f4eae9695ee020ace073c6d3459de3979fdd1d7284"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/error-context.md",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/error-context.md",
+      "bytes": 12111,
+      "sha256": "172332d6675a58da403a1d29ddbb961b2a61ee93f03f1e1335b78883acda1697"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/test-failed-1.png",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/test-failed-1.png",
+      "bytes": 428322,
+      "sha256": "2a361c43ad497487d7a68f87859b1b13f0c29bd9c9e84ac2962a12a1ace32687"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/trace.zip",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/trace.zip",
+      "bytes": 188248762,
+      "sha256": "6f75f29bd3cf874af0899deea6188328b1eabf663bedf91edeaa3a02d3275685"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/check.log",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/check.log",
+      "bytes": 1042,
+      "sha256": "8a737afdf8b9122caeca1b8ef2df699e5bb39b7c774f585a661652cfda97ea35"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/pixels.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/pixels.json",
+      "bytes": 25408,
+      "sha256": "68d5d3315eefc884e14e5925ad1e85ad1dae832bd73d77421113b4f2ce77ddbb"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/pixels.log",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/pixels.log",
+      "bytes": 140,
+      "sha256": "f565d6cde0b9c222c1158f0ff431112f44e9218ec266c5ce4bcaefd95f041f09"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/runtime-contracts.json",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/runtime-contracts.json",
+      "bytes": 759,
+      "sha256": "b3a1cc6ca4d3d3c88f2969b8fb08bb4456a887d1b5cfb3b4b812f0b85558073b"
+    },
+    {
+      "file": ".cache/lazy-euler-validation-v2-20261024/whole-game.log",
+      "archived": ".cache/lazy-euler-validation-v2-20261024/whole-game.log",
+      "bytes": 2368,
+      "sha256": "f2585a44d6b353fe90e87fe36d5c817d21ebe7b65c244b3574c36d671a537096"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-setup-v1.py",
+      "archived": ".cache/lazy-euler-whole-game-setup-v1.py",
+      "bytes": 2219,
+      "sha256": "a71dcdbef9459bbe5b0f8cfb13b004fb5e716a177835f4f03f932be5c986fb85"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1-20261024/baseline/match.snapshot.json",
+      "archived": ".cache/lazy-euler-whole-game-v1-20261024/baseline/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "626fc20b944bc20d7670f955077246f882dc0cae311871a978d96654b823e71c"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1-20261024/baseline/observation.cpuprofile",
+      "archived": ".cache/lazy-euler-whole-game-v1-20261024/baseline/observation.cpuprofile",
+      "bytes": 271150,
+      "sha256": "d383520e8ad165d56164d8d3591bf6902599c013f9edf2783374f875b11788b4"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1-20261024/baseline/observation.json",
+      "archived": ".cache/lazy-euler-whole-game-v1-20261024/baseline/observation.json",
+      "bytes": 3219,
+      "sha256": "49ae316b8357d952ce6596dd1a28e9ce45eac77770671e0d6579b892059aad27"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1-20261024/current/match.snapshot.json",
+      "archived": ".cache/lazy-euler-whole-game-v1-20261024/current/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "626fc20b944bc20d7670f955077246f882dc0cae311871a978d96654b823e71c"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1-20261024/current/observation.cpuprofile",
+      "archived": ".cache/lazy-euler-whole-game-v1-20261024/current/observation.cpuprofile",
+      "bytes": 281311,
+      "sha256": "749d5ce9c8e6b3db1d4601316af87f2fb04efb07a4c6e8fd6d4ccc90aef7569d"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1-20261024/current/observation.json",
+      "archived": ".cache/lazy-euler-whole-game-v1-20261024/current/observation.json",
+      "bytes": 3210,
+      "sha256": "ed73d6caf139d89c592e230cd4d038da1c26a05259648baf0f98259ace087d6b"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1-20261024/served-source.json",
+      "archived": ".cache/lazy-euler-whole-game-v1-20261024/served-source.json",
+      "bytes": 915,
+      "sha256": "01060ae5493f0ad92b35df7595aabc132498733c1bd3995363ba9ed61a2b25ee"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v1.mjs",
+      "archived": ".cache/lazy-euler-whole-game-v1.mjs",
+      "bytes": 2563,
+      "sha256": "cfe2410f144423cb3e3450636888ec3eab36224a48a8e79fcb0ea219b4b30927"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/baseline/match.snapshot.json",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/baseline/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "626fc20b944bc20d7670f955077246f882dc0cae311871a978d96654b823e71c"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/baseline/observation.cpuprofile",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/baseline/observation.cpuprofile",
+      "bytes": 298454,
+      "sha256": "dd9480c79572bb714bff33cae45dfd584d1307f35fdf9c318f076017a021598d"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/baseline/observation.json",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/baseline/observation.json",
+      "bytes": 3229,
+      "sha256": "ed1266251c357d8c2dc2cc4c5abb8308295a925bdcf088de6cce904654571beb"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/baseline/summary.json",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/baseline/summary.json",
+      "bytes": 15535,
+      "sha256": "79235a9623637b800dd1a8d4da4bfd0d8e5d6ab61042ac1abe3bde54d9629efe"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/current/match.snapshot.json",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/current/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "626fc20b944bc20d7670f955077246f882dc0cae311871a978d96654b823e71c"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/current/observation.cpuprofile",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/current/observation.cpuprofile",
+      "bytes": 282897,
+      "sha256": "a41514fd67481776b7ee59dee310c01449f54be1e763bb8068d32664de681a72"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/current/observation.json",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/current/observation.json",
+      "bytes": 3212,
+      "sha256": "7c49e22c91d3ecee01e77d13ec9c3086d95fcc4a25f3fb28ca3d0dcae5a915d1"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/current/summary.json",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/current/summary.json",
+      "bytes": 15338,
+      "sha256": "3cb429ab021094a2fbe820d1ae42935d065cb3574117e3fde5b26ae4987c234d"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2-20261024/served-source.json",
+      "archived": ".cache/lazy-euler-whole-game-v2-20261024/served-source.json",
+      "bytes": 915,
+      "sha256": "01060ae5493f0ad92b35df7595aabc132498733c1bd3995363ba9ed61a2b25ee"
+    },
+    {
+      "file": ".cache/lazy-euler-whole-game-v2.mjs",
+      "archived": ".cache/lazy-euler-whole-game-v2.mjs",
+      "bytes": 2563,
+      "sha256": "1184c80f2a30c7d15874528355a591771ecc1ea27209bb45599f1da51d14a798"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser.log",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser.log",
+      "bytes": 9522,
+      "sha256": "033c9b7c9f5ed0c0b0ee4a2509693f8b6a7ee3875eba18891e227bc712e162bc"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/.last-run.json",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/.last-run.json",
+      "bytes": 145,
+      "sha256": "0c8b1ccd67bb9b137e71bd0ea33effcf54c851cc85a22955e88f009969d2fe6f"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/error-context.md",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/error-context.md",
+      "bytes": 11084,
+      "sha256": "191df9e2e0d1497f35ab123eb08084d3ef6558ea55484201ad2ea2673b739319"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/test-failed-1.png",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/test-failed-1.png",
+      "bytes": 882745,
+      "sha256": "98d99f9d10c6fa19be561510e1e0f2237d1f22ecfe2ad3be558d7fd1e1131eeb"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/trace.zip",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/garen-courage-a-later-Gare-d1436-ructs-an-already-accepted-W/trace.zip",
+      "bytes": 64399130,
+      "sha256": "ab78ae1eb12a1c16ee3dcad9d2ab47a08cee85c31a7f953a6208df632bc144a3"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/error-context.md",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/error-context.md",
+      "bytes": 12096,
+      "sha256": "584a484443cdb673c0698ee969bbd5c75fcb7e6a18b08bab338f94bf6f1eda3d"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/test-failed-1.png",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/test-failed-1.png",
+      "bytes": 428325,
+      "sha256": "87b6a0bbceba0fc1ace012bac6484b96f3a7af3653611ad308265f4de836502e"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/trace.zip",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/baseline-browser/structure-idle-clock-all-s-7a27c-rs-pause-and-browser-reload/trace.zip",
+      "bytes": 175438763,
+      "sha256": "a116f20ba28e2eef79fe822f8246a03931cbc8b9778d94d4bd29d49ec63a131d"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/check.log",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/check.log",
+      "bytes": 1042,
+      "sha256": "4cea95da19702640588bbad63349b4cd0cf2b7c23c59f1fba536196dac287716"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/repaired-browser.log",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/repaired-browser.log",
+      "bytes": 688,
+      "sha256": "85d5ecdef0cc5bb80547014b7200708f20942a3c33ef83ffd95ddf89cf75e026"
+    },
+    {
+      "file": ".cache/paused-fixtures-validation-v1-20261024/repaired-browser/.last-run.json",
+      "archived": ".cache/paused-fixtures-validation-v1-20261024/repaired-browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/static-bone-audit-v1.mjs",
+      "archived": ".cache/static-bone-audit-v1.mjs",
+      "bytes": 4730,
+      "sha256": "52de027c906d0d0d4aa490625cbbfff2904b8ff46200f47215a1607b527d8072"
+    },
+    {
+      "file": ".cache/static-bone-baseline-v1-20261024/match.snapshot.json",
+      "archived": ".cache/static-bone-baseline-v1-20261024/match.snapshot.json",
+      "bytes": 185667,
+      "sha256": "626fc20b944bc20d7670f955077246f882dc0cae311871a978d96654b823e71c"
+    },
+    {
+      "file": ".cache/static-bone-baseline-v1-20261024/models.ts",
+      "archived": ".cache/static-bone-baseline-v1-20261024/models.ts",
+      "bytes": 10658,
+      "sha256": "0ec6c7f03890395843791c3890f8c3b207e42ca9e659ca612b358956ab9f749e"
+    },
+    {
+      "file": ".cache/static-bone-baseline-v1-20261024/view.ts",
+      "archived": ".cache/static-bone-baseline-v1-20261024/view.ts",
+      "bytes": 49112,
+      "sha256": "7a5dffd224d26064e22a1fbf38fc82f3dae6f77b3072ee3db8c2505d1c8cdf0c"
+    },
+    {
+      "file": ".cache/static-bone-rejected-v1-20261024/models.ts",
+      "archived": ".cache/static-bone-rejected-v1-20261024/models.ts",
+      "bytes": 10779,
+      "sha256": "27ebf441db9e6f1cd4887c9895cbc6942a4d843d120a6474a17fa925cc8bc94e"
+    },
+    {
+      "file": ".cache/static-bone-rejected-v1-20261024/static-bone-matrices.test.ts",
+      "archived": ".cache/static-bone-rejected-v1-20261024/static-bone-matrices.test.ts",
+      "bytes": 5531,
+      "sha256": "7b6d87e5a87ce03883c18029164e4fed74a259b45d84fe89c8cfa84221de1db7"
+    },
+    {
+      "file": ".cache/static-bone-rejected-v1-20261024/static-bone-matrices.ts",
+      "archived": ".cache/static-bone-rejected-v1-20261024/static-bone-matrices.ts",
+      "bytes": 1433,
+      "sha256": "2d5fa049c75e833e322129af68caed9aff4390adfbfeece91757c4cf0cb88f02"
+    },
+    {
+      "file": ".cache/static-bone-validation-v1-20261024/all-rig-matrices.json",
+      "archived": ".cache/static-bone-validation-v1-20261024/all-rig-matrices.json",
+      "bytes": 6298,
+      "sha256": "733b2f869507fd4f2d682ed5c5965323ddf335ac5c5569f2610a2f5cbdf73a4b"
+    },
+    {
+      "file": ".cache/static-bone-validation-v1.log",
+      "archived": ".cache/static-bone-validation-v1.log",
+      "bytes": 4049,
+      "sha256": "7f0de32acc4d2723b40e32733b36bd8ea95a975ccf6ba2443692ada759748528"
+    },
+    {
+      "file": ".cache/unit-vision-source-v2-20261024/manifest.json",
+      "archived": ".cache/unit-vision-source-v2-20261024/manifest.json",
+      "bytes": 382904,
+      "sha256": "d33ed3f6ca38e0eb48f575c8051501f682b8e7b8954663431dd932c619c279de"
+    }
+  ],
+  "limits": [
+    "No whole-game, temperature, total-energy, GPU or full-match/device/browser improvement established.",
+    "Candidate correctness results are experimental evidence; the adapter and its nine tests were removed.",
+    "First targeted unit failures concerned fixture hierarchy/initial values and unrelated callback identities; initial sources are retained, while the original failed invocation exists in chat tool output rather than a raw disk log.",
+    "No candidate production, fresh offline, full browser or normal-match cohort audit. Previous accepted production evidence remains revision-scoped."
+  ],
+  "projectGoalComplete": false
+}

@@ -5360,3 +5360,30 @@ Schema 125 remains; current working ruleset is
 See [unit visibility](CPU-UNIT-VISION.md) and its
 [evidence record](reference/unit-vision-verification.json). Deferred Zenith work
 is preserved, nothing is pushed, and the full project goal remains active.
+
+## CPU experiments and paused fixtures — October 24, 2026
+
+Two additional CPU candidates were investigated and excluded from production.
+Static local-bone matrices found zero eligible bones across all 30 rigs. A
+transparent deferred-Euler adapter preserved 7,420,032 matrix values across
+3,710 source poses/blends and 64 complete frame/pose/Euler/label comparisons.
+Its alternating animation/matrix batches improved from 40.2 to 37.0 ms, but
+retained renderer heap grew about 3.2 MB and whole-game timings disagreed.
+The final pair was slower. That evidence did not justify shipping the adapter
+or its runtime-layout dependency. All candidate application code and nine
+experimental tests were removed; implementation and observations are archived.
+
+The candidate's 1,791 unit cases and three Node QA cases passed; 26 of 28 Chrome
+cases passed. Both browser failures independently reproduced on the accepted
+renderer. Their fixtures now settle a manually paused late-Garen load with one
+explicit draw and bring each inspected structure into camera before reading its
+pose. Both focused repairs pass without relaxed assertions or deadlines. The
+profiling tool also retains a post-collection JavaScript heap observation.
+Final accepted sources pass TypeScript, all 1,782 unit cases/293 files and three
+Node QA cases; the rejected adapter's nine tests are excluded from that count.
+
+See [the experiment and tradeoff](CPU-BONE-EULER.md) and its
+[evidence record](reference/bone-euler-experiment.json). The accepted application
+renderer, schema 125, working ruleset and assets remain unchanged. No candidate
+production, offline, complete-browser or normal-match audit is claimed. Deferred
+Zenith work is preserved, nothing is pushed, and the full project goal remains active.
