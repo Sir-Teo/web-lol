@@ -1,0 +1,875 @@
+{
+  "date": "2026-10-23",
+  "scope": "All nine Sunlight source emitters and twelve textures in the Leona NPC development browser, with saved poses/audiences. Local dispatch, attachment, bound-size, motion, native shader/audio and full champion acceptance remain separate.",
+  "schema": 122,
+  "ruleset": "118b012590500d445c1ad1498d53e9bf595fe8922a3b4b141940c500c7940b9e",
+  "sourceBaseline": "67afc58086ffdc8324bd377f735eb032fce8d44d",
+  "sourceArchive": ".cache/leona-sunlight-vfx-validation-v4-20261023/source-archive.json",
+  "frozenInputs": ".cache/leona-sunlight-vfx-validation-v4-20261023/frozen-inputs",
+  "unitSourceArchive": ".cache/leona-sunlight-vfx-validation-v3-20261023/source-archive.json",
+  "earlierSourceArchives": [
+    {
+      "ledger": ".cache/leona-sunlight-vfx-validation-v1-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-sunlight-vfx-validation-v1-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-sunlight-vfx-validation-v2-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-sunlight-vfx-validation-v2-20261023/frozen-inputs"
+    },
+    {
+      "ledger": ".cache/leona-sunlight-vfx-validation-v3-20261023/source-archive.json",
+      "frozenInputs": ".cache/leona-sunlight-vfx-validation-v3-20261023/frozen-inputs"
+    }
+  ],
+  "cohortSourceArchive": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+  "particleSourceArchive": ".cache/leona-sunlight-vfx-validation-v4-20261023/particle-source-archive.json",
+  "buildArchive": ".cache/leona-sunlight-vfx-validation-v4-20261023/generated-build-archive.json",
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 25797,
+      "sha256": "09731e78bb64859e5d023c74964cf96ae8e12957c0af03ff9312f1c5b8f43cd0",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/docs/LEONA.md"
+    },
+    {
+      "file": "docs/LEONA-SUNLIGHT-VFX.md",
+      "bytes": 5457,
+      "sha256": "2f5d9e002b699735c00640016f6d4aac53f2611f4a62040b1daae655c2e7db44",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/docs/LEONA-SUNLIGHT-VFX.md"
+    },
+    {
+      "file": "docs/SAVES.md",
+      "bytes": 50296,
+      "sha256": "ee29829b14afe89b443e2a5e226045c7039db0359036a1b251e311a48b659b7f",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/docs/SAVES.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 521778,
+      "sha256": "661728008ee7426b9371ececc7f072fc1322a1a677c0fae78e54f933da19e34f",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/docs/PROGRESS.md"
+    },
+    {
+      "file": "docs/reference/leona/combat-policy-audit.json",
+      "bytes": 12392,
+      "sha256": "86a3fb85b00752889568ef15fa4a162afa5c5f262e565f23827385479f51992b",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/docs/reference/leona/combat-policy-audit.json"
+    },
+    {
+      "file": "tools/qa/verify-leona-sunlight-vfx.mjs",
+      "bytes": 5763,
+      "sha256": "ab8bd879187f164823ae46626bfac89a6aa38c73ef4026361e42c1b736114c63",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/tools/qa/verify-leona-sunlight-vfx.mjs"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 21713,
+      "sha256": "c1a3d1a2c7d6f465e6c245f2b5c8135b63bca1033668502c7ddb6ebc58532655",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/tools/qa/production-subpath.mjs"
+    },
+    {
+      "file": "tools/assets/verify-leona-sunlight-particles.py",
+      "bytes": 3007,
+      "sha256": "5d0f2ba7b62f291e9a2f8d8bc374658f3ae8d0e47c663c412269d858a7c4401b",
+      "archived": ".cache/leona-sunlight-vfx-validation-v4-20261023/review-inputs-v2/tools/assets/verify-leona-sunlight-particles.py"
+    }
+  ],
+  "checks": {
+    "typecheck": ".cache/leona-sunlight-vfx-validation-v3-20261023/typecheck.log",
+    "e2eTypecheck": ".cache/leona-sunlight-vfx-validation-v4-20261023/e2e-types.log",
+    "standard": ".cache/leona-sunlight-vfx-validation-v3-20261023/tests.log",
+    "nodeQa": ".cache/leona-sunlight-vfx-validation-v3-20261023/node-qa.log",
+    "focused": ".cache/leona-sunlight-vfx-validation-v2-20261023/focused.log",
+    "chrome": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser.log",
+    "source": ".cache/leona-sunlight-vfx-validation-v4-20261023/source-verification.log",
+    "export": ".cache/leona-sunlight-vfx-validation-v3-20261023/export-check.log",
+    "build": ".cache/leona-sunlight-vfx-validation-v4-20261023/build.log",
+    "layers": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/layers.json",
+    "disposal": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/save-disposal.json",
+    "recovery": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-Sunlight-graphics-7b664-nnot-appear-on-later-reveal/recovery-visibility.json",
+    "terminal": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-a-lethal-Sunlight-0fe82-t-changing-the-winning-save/terminal.json",
+    "production": ".cache/leona-sunlight-vfx-validation-v4-20261023/production-browser.log",
+    "cohort": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/independent-verification.log",
+    "comparison": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/identity-and-empty-presentation-comparison.json",
+    "priorIntegrity": ".cache/leona-sunlight-vfx-validation-v4-20261023/prior-integrity.log"
+  },
+  "reviewedCaptures": [
+    ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/burst.png",
+    ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/marks.png",
+    ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-a-lethal-Sunlight-0fe82-t-changing-the-winning-save/lethal-burst.png"
+  ],
+  "failures": [
+    {
+      "log": ".cache/leona-sunlight-vfx-validation-v3-20261023/source-verification.log",
+      "reconstructedSource": ".cache/leona-sunlight-vfx-source-verifier-v1-reconstructed.py",
+      "sourceReconstruction": true,
+      "reason": "The initial verifier did not populate BIN path-hash labels and attempted to load an absent external naming dictionary. Fixed the read-only verifier by deriving its path label table from the existing pin. The first script version was not in the earlier archive; the labeled reconstruction reverses those mapping changes. Runtime/test/asset inputs were preserved; no particle or gameplay repair claimed."
+    }
+  ],
+  "acceptance": {
+    "developmentSunlightEmittersIntegrated": true,
+    "completeLeonaKit": false,
+    "nativeRenderingVerified": false,
+    "sourceAudioIntegrated": false,
+    "productionRosterExpanded": false,
+    "hundredSeedGateRepeated": false,
+    "fullBrowserSuiteRepeated": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/leona-discover-particles-20261023.py",
+      "bytes": 3620,
+      "sha256": "92bb1127e3b2596396fb004a5bb432dcb562fdebc1261d5fca6a34d78fbc3ab9"
+    },
+    {
+      "file": ".cache/leona-particle-discovery-v1.log",
+      "bytes": 2207,
+      "sha256": "57c302e78735c3b6ed3de826f798ece6b9ccd168f06ef3b811960ae685e278ea"
+    },
+    {
+      "file": ".cache/leona-particle-research-20261023/discovered.json",
+      "bytes": 959823,
+      "sha256": "5120050468438110a25fee3e6be7167dd4f2113fce5847590c52ef1a646e675d"
+    },
+    {
+      "file": ".cache/leona-sunlight-particle-extraction-v1.log",
+      "bytes": 128,
+      "sha256": "12b3137650f56c36c50bf122be38816c4fc8656ba15ce4f9e5d5e9494f5c1d47"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-compare-and-archive.mjs",
+      "bytes": 2072,
+      "sha256": "7d1c0860bfc473cbc743059f8a9344dd37d29cc188a04a9e27db454994603468"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-freeze.mjs",
+      "bytes": 2055,
+      "sha256": "d8cd1f54d361586de5cde722aab8060890286cf8efbb4b189c1f7f79b46956ad"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-integrity-v1.log",
+      "bytes": 764,
+      "sha256": "de156ccd3d36f59e79e722a78d0b367225d608b5c67668dde56a72517fc68dbe"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-ledger-v2.mjs",
+      "bytes": 5429,
+      "sha256": "e0d34d0921b03620818d1fb50c01d7e4ace527b732cf8d21975e7084b747d3dd"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-ledger.mjs",
+      "bytes": 5339,
+      "sha256": "c3496641b5efdff1e8880a87d41eb399103ec08b7ee0ab438f0f7ffe4c8e1948"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/frozen-source/archive-ledger.json",
+      "bytes": 70372,
+      "sha256": "7d947079a400fd46eefa115d0f236ec05d50b41ee355a5688ee3722b12c1c8e9"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/identity-and-empty-presentation-comparison.json",
+      "bytes": 6171,
+      "sha256": "2240ed4829b48f6c3a324989f8d3a94b5f0449f2e5eda0c94f9eccb99db7543f"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/independent-verification.log",
+      "bytes": 279,
+      "sha256": "0a271a05d3f28847afbcb98db84cc022c79254483bb80d68fe91180a5b7eda27"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/maps/rift-nav.bin",
+      "bytes": 1925772,
+      "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/plan.json",
+      "bytes": 42675,
+      "sha256": "358b652d5af4df2d5f48832b84a068243b37a03d1f76e41d14e5051ea6f82381"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/runner/match-seed.js",
+      "bytes": 858239,
+      "sha256": "5636741e1a242400c2af8af0aa249c268ec29ef88ef95d8e05b59ce4cb95d714"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seed-38.log",
+      "bytes": 257,
+      "sha256": "c549138d216c27a9a3c8a83bc6a80e839ae2ac41a5a69fb43e5550ef6603d1b9"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seed-8.log",
+      "bytes": 260,
+      "sha256": "daac564eee11221006122f342c09a92e7c9d4e2bb48fd6cec66ba5ebb264dce8"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 166158,
+      "sha256": "6180c0a3416d41062d2fd69401c9ba0de6eb63bbfdd819496e809196a6719a7a"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186653,
+      "sha256": "8f9b16b1c9a2e5bf644034f6e6aa6af4f1aa9527af393b80041401047caa6143"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177612,
+      "sha256": "db79d10b0204836e08766d840d5a6e3d7e051a245aa535e154d43d0cc3417255"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 168305,
+      "sha256": "bf832251e44dce0a636c7fecfb47cbcd887789eda47d9aabae71e1c57a69433e"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187980,
+      "sha256": "d62626522788c77b57ddbaf70f05eba3aa27e58b601e3e0491cd727a46c1af2b"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202924,
+      "sha256": "80707b8947d5dac6d626309a3a2fa1f7eed66448d62429411916a5d89150c478"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 211449,
+      "sha256": "77dae584d42c4d8840f543e0c2e47edf9975ea2e59f4c285fa0e2b09f62d224d"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 174284,
+      "sha256": "60cf077f88db11206e795f4e9e0169027350f85bff267c9580501ea2a4a9f6b9"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166636,
+      "sha256": "5cfa2b2990d5628098526aea5a54aeb2b3cd4fe242fe4e194d3ade01ecf796f8"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 197182,
+      "sha256": "a38b0235f3711351e84ec6faf3f5a9a32e02d21245d69bf6543732a74c6f3e91"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/final.match.json",
+      "bytes": 197182,
+      "sha256": "a38b0235f3711351e84ec6faf3f5a9a32e02d21245d69bf6543732a74c6f3e91"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/progress.json",
+      "bytes": 81,
+      "sha256": "16b359a1a1c2f23f6d450c957fff5f8e180125c789ad190e91d912c617f26b18"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/report.json",
+      "bytes": 51117,
+      "sha256": "ecfb1ce34616054f1f202089831490f65765bd21525c497066736a34c3b781a8"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 166157,
+      "sha256": "944a3fdfee1c49045cf30436738bddb0e8f3bb7336b6ad20a8b904222b202c36"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186652,
+      "sha256": "7db0b4e3b59b68d10d48fa2d412c50bf5e733ad0842319d2066cf6b8a5e651b4"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177611,
+      "sha256": "371b0ac8a2299ce3fa4cbdc2218392142ec32b377ba38eae099d16586f43b507"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 168304,
+      "sha256": "6fa00435a3edba8ab63f113b2e1ee5069dbaea0da5fd915e45ee6c0689c8383a"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 188242,
+      "sha256": "1f9f5a9bce3e9cdaf4c04ccf710aa5ad4929e76b266f1048d7985106ff2d592c"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 203233,
+      "sha256": "f6b9618bfd69b473d966a4eef6f69097c2add2f5a49e447cd1e56235cbfe73b4"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211589,
+      "sha256": "020b4c14f6e0fe23485752c225a9412f770b4d7c0f010af87292179dd98f0a8e"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 172412,
+      "sha256": "da5b4c1918c5a128dc49318b51477d336570555d3cb359e016cf4be1be3d92c4"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164927,
+      "sha256": "b7d997e7d48b45d7d6253d0ca688c430641087a9837234165dd0f9b8102b1275"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 188087,
+      "sha256": "6bef9155f0ee2b19ce8eadc6f29e71cd8f9bd09252cfa2d2691e217e67914816"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/final.match.json",
+      "bytes": 188087,
+      "sha256": "6bef9155f0ee2b19ce8eadc6f29e71cd8f9bd09252cfa2d2691e217e67914816"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/progress.json",
+      "bytes": 73,
+      "sha256": "447c8e4c528a569ded31554d842e26bf71dba53077ef940b98c951fcad67ebe1"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/report.json",
+      "bytes": 51339,
+      "sha256": "79852363c72967a14ff1024add31ec5c083b901b5f4a89c99ddfb0b1a2a01cd7"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/status.json",
+      "bytes": 120079,
+      "sha256": "dae923359cf2a2882c5a4f3fb92eea91524b5a0900ef32b020b8ec7c26d37642"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1-20261023/summary.json",
+      "bytes": 120079,
+      "sha256": "a49d4be57b04a87fcfb1944782256ec1340ed22abbb96ea6ed0122fcfee66ea7"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-normal-smoke-v1.log",
+      "bytes": 779,
+      "sha256": "5d1527db803288fc5435314eade9127546be6cfd806f7c21c5da834b5e0eb759"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-source-verifier-v1-reconstructed.py",
+      "bytes": 2854,
+      "sha256": "9efe9ff4ab1f092ef0ddb9607f02a63c6afdaa6cfcbf5c05e923bac04aeb545d"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v1-20261023/source-archive.json",
+      "bytes": 43024,
+      "sha256": "531e1e9f700ab458bd8f6468011ab749678c9128854a176745de8660eef88fea"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v1-20261023/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v2-20261023/focused.log",
+      "bytes": 194,
+      "sha256": "9eaa540ec820b5ff818099957bbde6b07536bbb20c1ff019f8ba0bff6142f2e1"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v2-20261023/source-archive.json",
+      "bytes": 45468,
+      "sha256": "3c2d2428242c6920158d350982455dff2017b6ff882b2f3e830b019b43808529"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v2-20261023/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/sunlight-Sunlight-graphics-7b664-nnot-appear-on-later-reveal/recovery-visibility.json",
+      "bytes": 26944,
+      "sha256": "8a7a733b1c70b88e8de623490f0c421b1f1529262f12c5511d41ce98b091c6b5"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/burst.png",
+      "bytes": 834569,
+      "sha256": "b879faaa816f8cbba17ec3523a3d7758ae45721dbc02fd12841ef25d3205897f"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/layers.json",
+      "bytes": 54036,
+      "sha256": "d56308c50be0c7ccbc54460d3924629fbcd9c0e77aabbbe280d1d8663774015a"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/marks.png",
+      "bytes": 816585,
+      "sha256": "ee718d0a175475eeca0fa4514ea68776ead9b5634d454cd0824680b9c91855d0"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/save-disposal.json",
+      "bytes": 15053,
+      "sha256": "b3d34402048b8caf3db225ba71335be03e687cf95f7a0fe5db59c64b8bd95c51"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/browser.log",
+      "bytes": 691,
+      "sha256": "5915c36cbb1cf0c6bac233ad6b8add8d384d5a20646c300e90cfc88141fef9ff"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/e2e-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/export-check.log",
+      "bytes": 189,
+      "sha256": "b3766c1427f67c7c3b93a74cf17729deef7d21bf202c1b8cf2b39b14158e885d"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/node-qa.log",
+      "bytes": 430,
+      "sha256": "d72a0cc7f0cdc896903a644f5775039c73ffbb43f57632d250cf23e082e82072"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/source-archive.json",
+      "bytes": 45623,
+      "sha256": "c8dcf5953eadfb883d373edefaf13272c7cbaf920ce54981723a5f9ab673c3f1"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/source-verification.log",
+      "bytes": 3209,
+      "sha256": "1aa0482935fbcf339765568ce001b5f082f90d597a50e3eaf1ffeed06e3f9e68"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/tests.log",
+      "bytes": 499,
+      "sha256": "9c5a4eeeca34f1df4f5d6ed70f8c8b73175ea161a83df6d27fbd472988492d41"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v3-20261023/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "0fd7a39ad8736bb8082792fe625c5a6572ea1ffef561c716b04726bce18ea688"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33031,
+      "sha256": "89bf949162074056bbb84ad55f93da4403b04ce140d3ef4ac07f2e77192d868f"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "de1febe810d34640369128fed2799ca298da4c0ecf50f400cfb82638987e0c63"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 808592,
+      "sha256": "ea999cabf6183965855e672495a28c417df365d336d0e1fefb93fa47ccc62812"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33015,
+      "sha256": "8b3fef1bac06c4978b7f944b1ba9b05612cb7420df939b3229e73cd8d0f12c72"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "2a20c157e802aae91091c925cd07ced32bc37208f60a9e7de6ab8aca92aac636"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 813945,
+      "sha256": "73d1531aa6c870dd59603f5b149ff5994e4ae5c4e3e7bba2a104d1b85bc66128"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 48591,
+      "sha256": "125743b7af318cf0ca0ad218114b05d15ffb2bb7c23d708ab8c96d103840147f"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 335,
+      "sha256": "248ec2de3f252b8e534f20edfc09a6090dc9de56f5880229716cfecde5f5af75"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 807036,
+      "sha256": "2f6051ec6388f57bb916d4581a61c372dc47ed2bdfa7f539526409f44f1e9ca9"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/evidence.json",
+      "bytes": 29598,
+      "sha256": "cbce8d0372b9747c174da6e443d5fe9c0b20e96d7321a2aedbea3e7a9fab5ffd"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/restored-source-rigs.png",
+      "bytes": 459158,
+      "sha256": "f64f143fe94bb15caf0ba342fcead7701a04d7e1d5c171d426ce16bf7296a034"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/leona-rig-Leona-source-act-e2031-ip-through-actual-rendering/actions.json",
+      "bytes": 581288,
+      "sha256": "89f7d7484a2022bffd46cb4ca4ce325ef3300f97f42f2e8eaa2b1245fa37358f"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/leona-rig-Leona-source-act-e2031-ip-through-actual-rendering/death.png",
+      "bytes": 751190,
+      "sha256": "754069c5d76e6e40815ade8d083dcc069f2280212a04588da1ebe2ab45f4d0a4"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/leona-rig-NPC-rig-pixels-s-b4248-sal-preserves-shared-assets/eclipse-idle.png",
+      "bytes": 783567,
+      "sha256": "0cb25a15ffd785ebf4bc44558bab9a5581e630df7d9ff4d604ff78ab0a83ab2c"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/leona-rig-NPC-rig-pixels-s-b4248-sal-preserves-shared-assets/recovery.json",
+      "bytes": 13618,
+      "sha256": "4c18e99758ef8d9257377f08cdb493e5f4ef6c372f42b9617694e1c189912ee8"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/leona-rig-all-23-raw-clips-35b59-and-fit-the-imported-bounds/vertices.json",
+      "bytes": 241,
+      "sha256": "53bc20f4b81e31d8a3bc757a6068b78052d7e23e328d8cc21394a0d267386589"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-Sunlight-graphics-7b664-nnot-appear-on-later-reveal/recovery-visibility.json",
+      "bytes": 26936,
+      "sha256": "20a4daf22199153c5be1adbf814f1f9d311a779a8911d7ca0bf9f46ac043286d"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-a-lethal-Sunlight-0fe82-t-changing-the-winning-save/lethal-burst.png",
+      "bytes": 817520,
+      "sha256": "91df4b92011894b5ce5c7e7f73209f7603ef736407c1ba9ec3c479a7bba7177b"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-a-lethal-Sunlight-0fe82-t-changing-the-winning-save/terminal.json",
+      "bytes": 215,
+      "sha256": "ef13e092097f22e3fe7d3f05fcb15f13abeb0f93ad012fb852312f8a839ebde8"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/burst.png",
+      "bytes": 834534,
+      "sha256": "9b3c9a58fec37fd332ee0adfd88e810d587c8265dd0b875365de6168194e9be6"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/layers.json",
+      "bytes": 54036,
+      "sha256": "d7218fd2a5d771e2fb1d83a3821cdf3b283a8d360f9318db923b6997bfca6cc3"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/marks.png",
+      "bytes": 816467,
+      "sha256": "c2725aca077fcf3ff51c30f22187c370f1d44e7d32964832d44a0063cda2b117"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser-results/sunlight-all-nine-Sunlight-ab9a4-t-disposing-borrowed-assets/save-disposal.json",
+      "bytes": 15055,
+      "sha256": "96aed96df471036bd33e53d4c168664f217ce9d86d83d85503f9efe24aaa2c95"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/browser.log",
+      "bytes": 2551,
+      "sha256": "7df56634e15167fe657040b23f1b99a7ec9cbcdf2e5adcecb3bef1e613e4240f"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/build.log",
+      "bytes": 2504,
+      "sha256": "b28e6462c7dad51281c1de4b0683bdfa26963c7d7113158bdc6b4a1ed4bc8f46"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/e2e-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/generated-build-archive.json",
+      "bytes": 6240,
+      "sha256": "2246777c4c325b1f3a4e1ea59b68f58aaa65f5488ada0ec292387b23cd940bf0"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/particle-source-archive.json",
+      "bytes": 4049,
+      "sha256": "0868409f819456d41167804893415a5ca043dd64fa37487ea0454c3e3447a157"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/prior-integrity.log",
+      "bytes": 313,
+      "sha256": "2f4d248e357bffda5495b14f0a29eacab469fc4da8638e2ac6fc2958411533a1"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production-browser.log",
+      "bytes": 1831,
+      "sha256": "385ef673dc6c634eaf3f76642c4da291ae24e8051fe20c9305109d973a0e84b5"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811717,
+      "sha256": "722be3cd4db687324daafd3773fe89550023ffe638014ec444a4b8c09f5df720"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1834325,
+      "sha256": "e2123cd16dd0ba30fafcca19d1b7450f414d5ae4bd416242f6cb062cd8d5697d"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1834556,
+      "sha256": "4f63b10090c66a042cf9b1816eeec27e214393ce37beb1576ebc6e93bee738a2"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1804155,
+      "sha256": "8d6a88bd204cd15d679c6712cebcda226a722016d7eb91f47ea63551f9769fbf"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1817566,
+      "sha256": "0f94ddee9659225e0d7fb7b2968a19d9ff22d3b3b51833614d8568cc086b05ec"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346608,
+      "sha256": "ccb11191b86bd0044aedcad8099b0e357b26d924d9b42e52c7f1a7c9bd3df497"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820076,
+      "sha256": "b0db380feab9fff4092646e5acf6676417a455a1daecf72cfcdf38e6954be8bd"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/production/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812765,
+      "sha256": "15e1d3ca0865bee46c96d6e9f6fe8d7deab05d670f52a77eb3a3c8d68f9affb3"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/source-archive.json",
+      "bytes": 45806,
+      "sha256": "c31efa58974be0b7acb55e490f0bc0b3571950f23b630d7f1db658d484451683"
+    },
+    {
+      "file": ".cache/leona-sunlight-vfx-validation-v4-20261023/source-verification.log",
+      "bytes": 124,
+      "sha256": "411952ec33670301fe9356d2f8b0e3ccf09f14876e1cd5f3db61a880fc6550e9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 166114,
+      "sha256": "25072ef4f7d06012f30255f209cca142bc62769b025aa8655aab1cce152a062a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186609,
+      "sha256": "0c0bef85accbc308aa95b7a74fe1f1668a4a686be640274d8660be405289ff22"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177568,
+      "sha256": "5e38b652a75b1d67968d49ae9611ac47641696cbc274e551310f010eaa5ebb89"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 168261,
+      "sha256": "a44433178a2d4123cc5b3061259cec47c862eeac790a76e214516f6b5355095f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187936,
+      "sha256": "4e4195e9186a32a8e31c790ccd206b205664b72c3e2acffbce8e665dd5bc0d1f"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202880,
+      "sha256": "c6a97033aff20d60834692bb0b14328db8a789ff1bfe35d1757a734d763f5e4b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 211405,
+      "sha256": "9f704f726f67d34d6be3651d69ecbe183703a4eb4af599c0fb38c0f4cf1f2a7c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 174240,
+      "sha256": "91947f04a0f6dd63dcf095b986ec73ee776a2790d9b8e23ea25bfd28ae5d1078"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166592,
+      "sha256": "ed294c6f7bb9026593ede938fffd86a5480c9ed32dbeb22d74f0f279320f0c7e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 197138,
+      "sha256": "c41f91686ac8593b95915fc53842867b4ab20c30e935dc1697ee039a4f208928"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 166113,
+      "sha256": "d5171582ed1485f51442b387f180fd15e5ee088b949abd85ab0037b31ce8ab7c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186608,
+      "sha256": "0e6b8e619faf1a3c5e76d19d90ff8ecb42bba35b944ecc9b66af7854cffb1aec"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177567,
+      "sha256": "bd2a70d10a3616577eea7d13bee6ca9f8fd2f94a44776d8df512c2e63aa5247c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 168260,
+      "sha256": "2f447cb348022c5e75a099ffc42694427f938cd0e50be88d37a586366e1a8ffe"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 188198,
+      "sha256": "0f94d04692c8535cd8a92c1c4779293e1c7f08a5c6a1d29786174b939b35d5eb"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 203189,
+      "sha256": "b1da327b3a1d274d44a6d48a20583b9592ba1e36d922e6f213f02fd12d89c985"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211545,
+      "sha256": "4e83a7a7fdf875869f5b8731c27778bb88175311c15473cc6721be8343ee68f1"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 172368,
+      "sha256": "62b4b9449916d8dbdd5f190c4f342c0877e1c42bdd24f84fe03707f7a8af9837"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164883,
+      "sha256": "1c5dc967de4ed62d866749e7f8cc690682fd8e3d75a8bcfd4a22bf4ab83f86df"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-rig-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 188043,
+      "sha256": "34814e3dab0b6b11f10f582437ec67cf83c2f6728ffacd609068d96a8a72b101"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/003600.match.json",
+      "bytes": 166158,
+      "sha256": "6180c0a3416d41062d2fd69401c9ba0de6eb63bbfdd819496e809196a6719a7a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/007200.match.json",
+      "bytes": 186653,
+      "sha256": "8f9b16b1c9a2e5bf644034f6e6aa6af4f1aa9527af393b80041401047caa6143"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/010800.match.json",
+      "bytes": 177612,
+      "sha256": "db79d10b0204836e08766d840d5a6e3d7e051a245aa535e154d43d0cc3417255"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/014400.match.json",
+      "bytes": 168305,
+      "sha256": "bf832251e44dce0a636c7fecfb47cbcd887789eda47d9aabae71e1c57a69433e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/018000.match.json",
+      "bytes": 187980,
+      "sha256": "d62626522788c77b57ddbaf70f05eba3aa27e58b601e3e0491cd727a46c1af2b"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/021600.match.json",
+      "bytes": 202924,
+      "sha256": "80707b8947d5dac6d626309a3a2fa1f7eed66448d62429411916a5d89150c478"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/025200.match.json",
+      "bytes": 211449,
+      "sha256": "77dae584d42c4d8840f543e0c2e47edf9975ea2e59f4c285fa0e2b09f62d224d"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/028800.match.json",
+      "bytes": 174284,
+      "sha256": "60cf077f88db11206e795f4e9e0169027350f85bff267c9580501ea2a4a9f6b9"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/032400.match.json",
+      "bytes": 166636,
+      "sha256": "5cfa2b2990d5628098526aea5a54aeb2b3cd4fe242fe4e194d3ade01ecf796f8"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/38/036000.match.json",
+      "bytes": 197182,
+      "sha256": "a38b0235f3711351e84ec6faf3f5a9a32e02d21245d69bf6543732a74c6f3e91"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/003600.match.json",
+      "bytes": 166157,
+      "sha256": "944a3fdfee1c49045cf30436738bddb0e8f3bb7336b6ad20a8b904222b202c36"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/007200.match.json",
+      "bytes": 186652,
+      "sha256": "7db0b4e3b59b68d10d48fa2d412c50bf5e733ad0842319d2066cf6b8a5e651b4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/010800.match.json",
+      "bytes": 177611,
+      "sha256": "371b0ac8a2299ce3fa4cbdc2218392142ec32b377ba38eae099d16586f43b507"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/014400.match.json",
+      "bytes": 168304,
+      "sha256": "6fa00435a3edba8ab63f113b2e1ee5069dbaea0da5fd915e45ee6c0689c8383a"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/018000.match.json",
+      "bytes": 188242,
+      "sha256": "1f9f5a9bce3e9cdaf4c04ccf710aa5ad4929e76b266f1048d7985106ff2d592c"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/021600.match.json",
+      "bytes": 203233,
+      "sha256": "f6b9618bfd69b473d966a4eef6f69097c2add2f5a49e447cd1e56235cbfe73b4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/025200.match.json",
+      "bytes": 211589,
+      "sha256": "020b4c14f6e0fe23485752c225a9412f770b4d7c0f010af87292179dd98f0a8e"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/028800.match.json",
+      "bytes": 172412,
+      "sha256": "da5b4c1918c5a128dc49318b51477d336570555d3cb359e016cf4be1be3d92c4"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/032400.match.json",
+      "bytes": 164927,
+      "sha256": "b7d997e7d48b45d7d6253d0ca688c430641087a9837234165dd0f9b8102b1275"
+    },
+    {
+      "file": "/Users/teodev/Developer/web-lol/.cache/leona-sunlight-vfx-normal-smoke-v1-20261023/seeds/8/036000.match.json",
+      "bytes": 188087,
+      "sha256": "6bef9155f0ee2b19ce8eadc6f29e71cd8f9bd09252cfa2d2691e217e67914816"
+    }
+  ]
+}

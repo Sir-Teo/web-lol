@@ -1,3 +1,4 @@
+import { SUNLIGHT_VISUAL_HISTORY_TICKS } from '../content/leona-sunlight-presentation';
 import { GAREN_AA_HIT_HISTORY_TICKS } from '../content/garen-aa-particle-timing';
 import { validAnimationTimeline } from './animation-timeline';
 import armorMaterials from '../content/attack-sound-materials.json';
@@ -111,7 +112,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 121;
+export const SNAPSHOT_VERSION = 122;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1213,6 +1214,29 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  nextSunlightVisual: id,
+  sunlightVisuals: z
+    .array(
+      luxTargetVisual(SUNLIGHT_VISUAL_HISTORY_TICKS).extend({
+        radius: z.number().positive(),
+        audience: z
+          .array(team)
+          .max(2)
+          .refine((v) => new Set(v).size === v.length),
+        frames: z
+          .array(
+            savedPoseFrame.extend({
+              audience: z
+                .array(team)
+                .max(2)
+                .refine((v) => new Set(v).size === v.length),
+            })
+          )
+          .min(1)
+          .max(SUNLIGHT_VISUAL_HISTORY_TICKS),
+      })
+    )
+    .max(10000),
   luxImpactVisuals: z.array(luxTargetVisual(LUX_IMPACT_HISTORY_TICKS)).max(10000),
   luxIlluminationVisuals: z
     .array(
@@ -1969,6 +1993,63 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     for (const clock of [unit.runClock, unit.idleClock])
       if (clock && (clock.startTick > state.tick || clock.previous > clock.current))
         throw new Error('Saved match contains an invalid animation clock.');
+  }
+  const sunlightIds = new Set<number>();
+  for (const v of state.sunlightVisuals) {
+    const source = state.units.find((u) => u.id === v.sourceId),
+      target = state.units.find((u) => u.id === v.targetId),
+      last = v.frames.at(-1)!;
+    const durations =
+      v.targetRig && Object.hasOwn(MOBILE_CLIP_DURATIONS, v.targetRig)
+        ? MOBILE_CLIP_DURATIONS[v.targetRig as keyof typeof MOBILE_CLIP_DURATIONS]
+        : undefined;
+    if (
+      sunlightIds.has(v.id) ||
+      v.id >= state.nextSunlightVisual ||
+      source?.champion !== 'leona' ||
+      source.team !== v.team ||
+      v.critical ||
+      v.targetTransform !== null ||
+      (v.targetRig !== null && !durations) ||
+      v.targetId >= state.nextId ||
+      (target &&
+        (target.team === v.team ||
+          isStructureKind(target.kind) ||
+          target.kind === 'ward' ||
+          impactTargetRig(target) !== v.targetRig ||
+          target.radius !== v.radius)) ||
+      v.startTick > state.tick ||
+      state.tick >= v.startTick + SUNLIGHT_VISUAL_HISTORY_TICKS ||
+      v.frames.length !== state.tick - v.startTick + 1 ||
+      (v.detachedTick !== null && (v.detachedTick < v.startTick || v.detachedTick > state.tick)) ||
+      (v.detachedTick === null &&
+        (!target ||
+          target.hp <= 0 ||
+          last.x !== target.x ||
+          last.y !== target.y ||
+          last.facing !== target.facing ||
+          JSON.stringify(last.animationTimeline) !== JSON.stringify(target.animationTimeline))) ||
+      v.frames.some(
+        (f, i) =>
+          f.tick !== v.startTick + i ||
+          f.structurePose !== null ||
+          !validAnimationTimeline(f.animationTimeline, durations, f.tick) ||
+          (f.animationTimeline !== null &&
+            (v.detachedTick === null || f.tick < v.detachedTick) &&
+            f.animationTimeline.tick !== f.tick) ||
+          (i > 0 &&
+            v.detachedTick !== null &&
+            f.tick > v.detachedTick &&
+            (f.x !== v.frames[i - 1].x ||
+              f.y !== v.frames[i - 1].y ||
+              f.facing !== v.frames[i - 1].facing ||
+              JSON.stringify(f.animationTimeline) !==
+                JSON.stringify(v.frames[i - 1].animationTimeline) ||
+              JSON.stringify(f.audience) !== JSON.stringify(v.frames[i - 1].audience)))
+      )
+    )
+      throw new Error('Saved match contains invalid Sunlight presentation.');
+    sunlightIds.add(v.id);
   }
   const impactIds = new Set<number>();
   for (const [visual, trigger] of [

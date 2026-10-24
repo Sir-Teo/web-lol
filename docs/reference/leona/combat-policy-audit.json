@@ -123,6 +123,17 @@
         "e2e/leona-rig.spec.ts",
         "e2e/leona-fixture-gate.spec.ts"
       ]
+    },
+    {
+      "id": "LEONA-PASSIVE-PRESENTATION-001",
+      "status": "all-source-emitters-local-adapter-native-unmeasured",
+      "reference": "Three frozen Sunlight systems, nine complete emitter definitions and twelve TEX dependencies. Normal/champion mark lives differ; hit uses six emitter families with authored drag, probability tables, bind weights and target-size offset coefficient.",
+      "localObservation": "Champion/ordinary mark selection; refresh restart and immediate mark removal. Accepted consumption dispatches an independent saved burst. Local first-update births, indexed cosmetic draws, fixed-step drag, centre-bone/root fallback and collision-diameter offset scaling. Creation/birth audiences and current particle sight gate rendering; death/removal freezes posed endpoints. Shared source quad/color-product renderer; terminal tails drain without simulation mutation.",
+      "acceptance": "Native dispatch, attachment/inheritance, bound-size input, refresh/tails, cadence/PRNG, framebuffer/shading, immunity/blocked-hit timing and named source audio remain open.",
+      "tests": [
+        "tests/sunlight-presentation.test.ts",
+        "e2e/sunlight.spec.ts"
+      ]
     }
   ],
   "nativeBehaviorVerified": false,

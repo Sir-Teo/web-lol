@@ -62,6 +62,7 @@ try {
     failed = [],
     outside = [],
     junglePreviewRequests = [],
+    leonaPreviewRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
     oracleRigRequests = [],
@@ -80,6 +81,8 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (/\/leona-base\.glb$|\/leona_base_z_[^/]+\.png$/.test(request.url()))
+      leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
     if (/\/oracle-lens-[^/]+\.glb$/.test(request.url())) oracleRigRequests.push(request.url());
     if (/\/oracle-\d+\.wav$/.test(request.url())) oracleAudioRequests.push(request.url());
@@ -426,6 +429,11 @@ try {
     scheduledScuttlerRequests.some((url) => url.endsWith('/sru-crab-base.glb')),
     'Rift matches must prepare the peaceful Scuttler rig before its calendar or shrine exists'
   );
+  assert.deepEqual(
+    leonaPreviewRequests,
+    [],
+    'Ordinary production worlds do not preload development Leona assets'
+  );
   console.log(
     JSON.stringify({
       result: 'passed',
@@ -451,6 +459,7 @@ try {
       developmentHook: false,
       garenFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
+      unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,
       roleCompanionRequests,
       roleScoreboardIcons,

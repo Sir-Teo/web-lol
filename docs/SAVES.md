@@ -1,6 +1,17 @@
 # Local match checkpoints
 
-Current schema **121** adds Leona's own saved body animation timeline, spell
+Current schema **122** adds a separate Sunlight cosmetic serial and bounded
+source-owned detonation histories. Each history captures target rig/radius,
+posed frames, heading, placement, creation/birth audiences and detachment.
+Validation rejects invalid/duplicate serials, foreign owners, incompatible rigs,
+changed target radius, frame/pose clocks and changed frozen endpoints/audiences.
+Cosmetic IDs consume neither gameplay identity nor RNG. Histories outlive a
+lethal proc, retire after 65 ticks and drain during result playback without
+changing the winning snapshot. Compatibility pins the twelve source PNGs,
+decode metadata and generated profiles. Older schemas/fingerprints remain
+incompatible. See [Sunlight source presentation](LEONA-SUNLIGHT-VFX.md).
+
+Schema **121** added Leona's own saved body animation timeline, spell
 cast clocks and an optional captured Eclipse attack variant. E/R windups require
 matching presentation clocks; Q/critical/foreign attackers cannot carry the
 Eclipse variant, and a captured variant requires learned W. Compatibility now

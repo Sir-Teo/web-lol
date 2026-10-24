@@ -237,6 +237,7 @@ async function boot(): Promise<void> {
       world.units.some((u) => u.champion === 'leona')
     ),
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
+    ...(world.units.some((u) => u.champion === 'leona') ? [view.sunlight.load()] : []),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')
       ? [

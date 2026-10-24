@@ -1,0 +1,177 @@
+{
+  "sourcePinSha256": "16b34c3ad13e42fbc0239bef2ab7a94aa540c5ef13f58d2a71047bb570aedcb6",
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-bellcurve.tex",
+        "wadPathHash": "f144b4a9fa592b00",
+        "sha256": "15aa99c5555d17997d5498b987e586f65e6d12da86178571e43eaa98cd2f428d",
+        "bytes": 5500
+      },
+      "path": "public/assets/effects/leona_base_z_color-bellcurve.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 402,
+      "sha256": "39846c14d90228cf20b8972a3aabc1f8eae3ecd470b904507bd18ba657345c41",
+      "rgbaSha256": "503e3fdac0736c59fc5bf77c077a968c6c8abaae5087bfe719700e4b615c950c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-eyefade.tex",
+        "wadPathHash": "bade2df58b5006bd",
+        "sha256": "845dce75f1930a011506568a43c9d59886850750240002b49a7e9f4f6615e475",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-eyefade.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 267,
+      "sha256": "160f95195967eba462fbd3026483397aa63240d341488c9b651dbe2428ec89b3",
+      "rgbaSha256": "11541452063a49f4478fcff6e89f2ca66132d74e77170112106f0e298df5bcbd"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-rampdown.tex",
+        "wadPathHash": "c9b9d09001785725",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color-rampdown.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 277,
+      "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe",
+      "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color-solar-corona-reverse.tex",
+        "wadPathHash": "ab0d0f096caccf25",
+        "sha256": "25674329b6afa4a7fcc100b847418cb0e1245753b1d9b1fd9794b30ef904af7d",
+        "bytes": 10948
+      },
+      "path": "public/assets/effects/leona_base_z_color-solar-corona-reverse.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 432,
+      "sha256": "e3622e73bc602dbbafb764255d772019ba8e0c5a26b2b859c02eac0c00e534fc",
+      "rgbaSha256": "c91517b2194b15979041a09d44596b40b5ca4b2b25cae0321271bb89b717ca56"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color_passive_rampdown.tex",
+        "wadPathHash": "01f3b4eb0d5e3fbd",
+        "sha256": "5df31e98732c8b982a50795790ef79bf53458e5c323418cac02df5ec2d3bff9e",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color_passive_rampdown.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 354,
+      "sha256": "629927a0a1148730a2b8b294d0418886867baa3d2f43949fc9e80e83e8ec825f",
+      "rgbaSha256": "fa9f03db8fb117b9c1eaea59d1705b88b2b3294c4085b6986b202d57b5c22b3c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_color_rampdown.tex",
+        "wadPathHash": "2026ec5d7d6dda9f",
+        "sha256": "0d70d35e63dd7078bca31bc12df7f2a43945fe3be4471c837c27ed5014dfe15a",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_color_rampdown.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 306,
+      "sha256": "08ed79201e5e22b085c70fde11727fa66f576407a2092e6ba129f717eff46317",
+      "rgbaSha256": "1275b26fc7e5c4ac1d031e433990bb0e27c98ea5869bcb934d96f09bcae27aba"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_flare_streak.tex",
+        "wadPathHash": "33f0236712fd6b09",
+        "sha256": "4d477ed0b9a658c5ba12c3f9af182ca88e542136423b924e767bf00d89aa63bf",
+        "bytes": 349556
+      },
+      "path": "public/assets/effects/leona_base_z_flare_streak.png",
+      "width": 1024,
+      "height": 512,
+      "bytes": 89128,
+      "sha256": "a64a9352f5d9a860b909577b1ed2ef136b5d3c3b423eabf0f7ba23c147750b69",
+      "rgbaSha256": "b355ff3e0f5288e0b84c2fda24571087a3fec2f159506d6df9650be00c289c4d"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_passive_flares_02.tex",
+        "wadPathHash": "4ad04f08540b2393",
+        "sha256": "868de201540b401f3c61f7dbe165927599530ce1df86a0c309b28000683cd2b1",
+        "bytes": 174788
+      },
+      "path": "public/assets/effects/leona_base_z_passive_flares_02.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 72078,
+      "sha256": "0610ed37a981c1027970cb5c39e4dfe92546c2fb6c3f47868b837863327a95bd",
+      "rgbaSha256": "afd3f26e9c9e0809b4e249ad3407438373f2e4a93122e5b31b4d588a1b9cf806"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_passive_flicker.tex",
+        "wadPathHash": "e592239d106fe567",
+        "sha256": "d2e5aca14686f7bbb76113399f991afa8ec8e055cb051b82782007751d1390c1",
+        "bytes": 2756
+      },
+      "path": "public/assets/effects/leona_base_z_passive_flicker.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2389,
+      "sha256": "539336b93bacf7d1206f307f984c9a2e6ccebd928a87b837b9c129c697fee4b4",
+      "rgbaSha256": "522321f7922d8d75354a07b1bd0d2a154b8ee25239bebbdd2aa1c6b4353a914c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_passive_rays.tex",
+        "wadPathHash": "2de22da718b8499e",
+        "sha256": "47026d9db7ec9e7192fdc47294f87d3a2ebcf0ba2bd18c0195d8943da4f17015",
+        "bytes": 174788
+      },
+      "path": "public/assets/effects/leona_base_z_passive_rays.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 25676,
+      "sha256": "7a817e8ffdb510e98c8e39c35fcab6c6a728688a60aee85dca700a4392efac0f",
+      "rgbaSha256": "0f94e4893cf752f451815fed5ad54840828aa59c22dc52398653f1ecbfe5375f"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_passive_ringflare.tex",
+        "wadPathHash": "8184d15aeb2bbd7a",
+        "sha256": "f9a78a06ea6d71cac0403c9aed24520ba8e2d21dc06395e03ae64f7d58e7c137",
+        "bytes": 174788
+      },
+      "path": "public/assets/effects/leona_base_z_passive_ringflare.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 110297,
+      "sha256": "5041346cbe1f742c79890b7302ee26bca3b3d46cba7b7b5cfa743341edf01e03",
+      "rgbaSha256": "3203411ac392b2b8518ce78988a88551817ca8a1c3f2024b7b0a83115b029317"
+    },
+    {
+      "source": {
+        "path": "assets/characters/leona/skins/base/particles/leona_base_z_solar_tag.tex",
+        "wadPathHash": "d10afe6dcb186521",
+        "sha256": "f2e098d43e09c4ca0a00097c913c7c464f30387205897566c27585626b2bc53e",
+        "bytes": 174788
+      },
+      "path": "public/assets/effects/leona_base_z_solar_tag.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 79884,
+      "sha256": "f872ff7845d70fa6f17481666c8c33be026c41f5363d57a1c9c130324c722299",
+      "rgbaSha256": "54c1bdc3fd71c5f6ad3201235b369f8aa1d58523f6e5cc0e636e713e75b95740"
+    }
+  ],
+  "decoder": {
+    "path": ".tools/cdtb/cdtb/export.py",
+    "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+  }
+}

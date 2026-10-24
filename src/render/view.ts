@@ -1,3 +1,4 @@
+import { LazySunlight } from './lazy-sunlight';
 import { LazyGarenPerseverance } from './lazy-garen-perseverance';
 import { ParticleDistortionPass } from './particle-distortion-pass';
 import { WARD_SOURCE } from '../content/warding-totem';
@@ -106,6 +107,7 @@ export class GameView {
     (p) => this.ground(p),
     (id) => this.overheadLabelBounds(id)
   );
+  sunlight = new LazySunlight(this.scene, (p) => this.ground(p));
   garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
   garenBasicAttacks = new LazyGarenBasicAttacks(this.scene, (p) => this.ground(p));
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
@@ -721,6 +723,7 @@ export class GameView {
     this.luxAttackTrails.update(world, alpha, terminalAge);
     this.luxAttackCrescents.update(world, alpha, terminalAge);
     this.luxImpacts.update(world, alpha, this.camera, terminalAge);
+    this.sunlight.update(world, alpha, this.camera, this.models, terminalAge);
     this.luxIllumination.update(world, alpha, this.camera, this.models);
     this.luxIlluminationTriggers.update(world, alpha, this.camera, terminalAge);
     this.luxSingularities.update(world, alpha, terminalAge);

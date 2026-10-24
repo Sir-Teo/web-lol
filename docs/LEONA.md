@@ -5,7 +5,9 @@ The canonical source package, payload calculations and a non-player development
 simulation fixture for melee attacks, Q, Sunlight, W, E and R are implemented. Leona's complete
 playable kit, player selection, bot policy, source spell effects/audio and native
 presentation matching remain required work. The [source rig integration](LEONA-RIG.md)
-now renders non-player development fixtures and their saved body poses.
+now renders non-player development fixtures and their saved body poses. The
+[Sunlight source presentation](LEONA-SUNLIGHT-VFX.md) now adds all nine mark and
+detonation emitters, with saved poses and audiences.
 This partial fixture does not establish native behavior or roster acceptance.
 
 ## Retained source and reproducibility

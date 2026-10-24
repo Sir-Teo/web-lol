@@ -1,4 +1,9 @@
 import {
+  advanceSunlightVisuals,
+  captureSunlightVisual,
+  type SunlightVisual,
+} from './sunlight-visuals';
+import {
   beginGarenAttack,
   contactGarenAttack,
   cancelGarenAttack,
@@ -252,6 +257,8 @@ export class World {
   grompAttackVisuals: GrompAttackVisual[] = [];
   luxImpactVisuals: LuxImpactVisual[] = [];
   luxIlluminationVisuals: LuxIlluminationVisual[] = [];
+  sunlightVisuals: SunlightVisual[] = [];
+  nextSunlightVisual = 1;
   singularities: Singularity[] = [];
   luxEAudio = newLuxEAudioHistory();
   pendingAttackProjectiles: Projectile[] = [];
@@ -3837,6 +3844,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceSunlightVisuals(this);
     advanceGarenAttackPoses(this);
     advanceLuxEHits(this);
     for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
@@ -4337,8 +4345,10 @@ export class World {
     )
       return;
     // Retire before nested damage. Leona owns effects; the ally owns kill credit.
+    captureSunlightVisual(this, source, target);
     target.sunlight = null;
     this.damage(source, target, leonaSunlightDamage(owner.level), 'magic', 'proc', trigger);
+    advanceSunlightVisuals(this);
   }
   /** Shared by actual melee release and the conservative, non-critical farm forecast. */
   private garenQBonusDamage(source: Unit, rank: number | undefined): number {
@@ -6083,6 +6093,8 @@ export class World {
       grompAttackVisuals: this.grompAttackVisuals,
       luxImpactVisuals: this.luxImpactVisuals,
       luxIlluminationVisuals: this.luxIlluminationVisuals,
+      sunlightVisuals: this.sunlightVisuals,
+      nextSunlightVisual: this.nextSunlightVisual,
       singularities: this.singularities,
       luxEAudio: this.luxEAudio,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
