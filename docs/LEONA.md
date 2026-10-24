@@ -430,3 +430,9 @@ from native terrain/CPU binding. [Saved R histories](LEONA-R-HISTORY.md) now ret
 accepted/released/impact and posed source/contact facts under schema 126, including
 posthumous impact and fixed-area visibility. Source R drawing/audio, player/support
 integration, native acceptance and the full six-character match gates remain open.
+
+[Solar Flare source SFX](LEONA-R-AUDIO.md) now adds all three finite roles from
+nine unchanged float masters. Saved accepted/area/impact facts, fog, reload,
+mute, fallback and terminal retirement are covered; native callsites, timing,
+shuffle/listener/bus and listening acceptance remain open. R source visual
+compilation/drawing is the next independent prerequisite.

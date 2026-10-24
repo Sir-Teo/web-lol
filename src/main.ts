@@ -251,6 +251,7 @@ async function boot(): Promise<void> {
           view.leonaEclipseSurfaces.load(),
           audio.leonaW.load(),
           audio.leonaE.load(),
+          audio.leonaR.load(),
         ]
       : []),
     loadGarenSpin(),

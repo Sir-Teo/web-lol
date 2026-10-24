@@ -96,3 +96,7 @@ source and delivery evidence. Later canonical changes require `--historical`.
 Source R drawing, source SFX, native CPU dispatch/terrain/matrix/state bindings,
 Leona player/support and full six-champion delivery remain open. Nothing is
 pushed; the full project goal stays active.
+
+The subsequent [R source SFX increment](LEONA-R-AUDIO.md) uses these saved facts
+for three finite local roles. The verification and ruleset above remain scoped
+to history acceptance; R source drawing/native acceptance are still separate.

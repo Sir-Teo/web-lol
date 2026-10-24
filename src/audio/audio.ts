@@ -7,6 +7,7 @@ import { LazyGarenJusticeAudio } from './garen-r-lazy';
 import { LazyGarenCourageAudio } from './garen-w-lazy';
 import { LazyLeonaEclipseAudio } from './leona-w-lazy';
 import { LazyLeonaZenithAudio } from './leona-e-lazy';
+import { LazyLeonaSolarAudio } from './leona-r-lazy';
 import { LazyOracleAudio } from './oracle-lazy';
 import { LazyGarenDecisiveStrikeAudio } from './garen-q-lazy';
 import { GarenJudgmentAudio } from './garen-e';
@@ -26,7 +27,7 @@ import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding, Illumination, Garen and Leona W/E SFX.
+/** Source Hawkshot, Light Binding, Illumination, Garen and Leona W/E/R SFX.
  * Other cues retain synthesized feedback. */
 export class GameAudio {
   context: AudioContext | null = null;
@@ -44,6 +45,7 @@ export class GameAudio {
   garenW = new LazyGarenCourageAudio();
   leonaW = new LazyLeonaEclipseAudio();
   leonaE = new LazyLeonaZenithAudio();
+  leonaR = new LazyLeonaSolarAudio();
   private leonaTerminalWorld?: World;
   private leonaTerminalStart = 0;
   garenQ = new LazyGarenDecisiveStrikeAudio();
@@ -302,6 +304,7 @@ export class GameAudio {
     this.garenW.stop();
     this.leonaW.stop();
     this.leonaE.stop();
+    this.leonaR.stop();
     this.garenQ.stop();
     this.oracle.stop();
     for (const [voice, gain] of this.voices) {
@@ -543,6 +546,7 @@ export class GameAudio {
     const leonas = world.units.filter((u) => u.champion === 'leona');
     if (leonas.length && this.leonaW.status === 'idle') void this.leonaW.load();
     if (leonas.length && this.leonaE.status === 'idle') void this.leonaE.load();
+    if (leonas.length && this.leonaR.status === 'idle') void this.leonaR.load();
     const team = world.hero.team;
     const records = leonas.flatMap((u) =>
       world.championState(u.id)!.leonaWVisuals.map((r) => ({
@@ -570,6 +574,17 @@ export class GameAudio {
       this.enabled && !this.paused,
       leonas.flatMap((u) =>
         world.championState(u.id)!.leonaEVisuals.map((r) => ({ ...r, id: u.id }))
+      ),
+      tick,
+      listener,
+      (point) => world.pointVisible(point, team),
+      team
+    );
+    this.leonaR.update(
+      this.context,
+      this.enabled && !this.paused,
+      leonas.flatMap((u) =>
+        world.championState(u.id)!.leonaRVisuals.map((r) => ({ ...r, id: u.id }))
       ),
       tick,
       listener,
@@ -744,6 +759,12 @@ export class GameAudio {
           ) {
             // Saved Zenith phase histories own the six finite source SFX roles.
           } else if (
+            event.text === 'r' &&
+            event.champion === 'leona' &&
+            this.leonaR.status === 'ready'
+          ) {
+            // Saved Solar Flare facts own the three finite source SFX roles.
+          } else if (
             event.text === 'e' &&
             event.champion === 'lux' &&
             this.luxE.status === 'ready'
@@ -790,6 +811,8 @@ export class GameAudio {
               this.leonaW.suppressCast(event.unit, event.tick);
             if (event.text === 'e' && event.champion === 'leona' && event.unit !== undefined)
               this.leonaE.suppressCast(event.unit, event.tick);
+            if (event.text === 'r' && event.champion === 'leona' && event.unit !== undefined)
+              this.leonaR.suppressCast(event.unit, event.tick);
             if (event.text === 'e' && event.champion === 'lux' && event.unit !== undefined)
               this.luxE.suppressCast(event.unit, event.tick);
             if (event.text === 'q' && event.champion === 'garen' && event.unit !== undefined)

@@ -5687,3 +5687,38 @@ increment. Source R drawing/audio and native CPU/terrain/matrix/state/frame
 acceptance remain open. See [scope](LEONA-R-HISTORY.md) and the
 [verification record](reference/leona/r-history-verification.json). Nothing is
 pushed; the full project goal stays active.
+
+## Solar Flare finite source SFX — October 24, 2026
+
+All three R SFX play events now retain their 20-node selected/inherited graph and
+nine exact WEM slices. Cast/area/impact gains are −7/−5/−1 dB, with authored caps 2/0/2
+and oldest-steal policy. Cap 0 and absent pitch/onset use explicit local defaults.
+No declared R stop or direct stop on the three targets/parent 2440 was found;
+global/external stops remain unknown. All nine float masters are unchanged mono
+44.1kHz, totaling 648,634 frames/2,594,932 bytes. One above-unity sample remains
+intact at peak 1.012442708015442. Independent cache/canonical decodes match exactly.
+
+Saved facts dispatch accepted cast plus one shared area cue, then one actual
+impact cue even on a miss. These are local choices, not recovered native
+callsites/timing. Separate creation/current vision gates, finite offsets,
+source-owned nodes, finished/stolen/fallback memory, mute/resume and terminal
+audio-clock retirement are covered. The controller is now shared with Zenith;
+E's source pitch and distinct delayed/faded stop behavior are preserved. R source
+profiles/controllers/masters stay unloaded during ordinary Ashe/Lux startup.
+
+The full 1,834 unit cases/302 files plus three QA pass. Fourteen unique Chrome cases
+pass across 13 initial successes, one corrected network-failure case and the final
+typed asset probe. All nine R and 21 E masters preserve every decoded float sample.
+An initial R test had a copied 21-file count despite correctly requesting nine;
+strict E2E checking also needed an explicitly spread union of variant tuples.
+Failures remain retained separately. Fresh production passes 32 recordings without
+Leona preloads/development hooks. The fresh 1,007-file offline pack contains
+513,067,346 bytes and passes all controls with 962 service-worker responses and
+no production errors. No new normal-match cohort or CPU benchmark is claimed.
+
+Schema 126 stays unchanged; ruleset 47ee7f45 identifies this increment. R source
+visual sampling/drawing and native dispatch/bindings/mix/listening/frame gates
+remain open, together with player/support and the full six-character match.
+See [scope](LEONA-R-AUDIO.md) and the
+[verification record](reference/leona/r-audio-verification.json). Nothing is pushed;
+the full project goal stays active.
