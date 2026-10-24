@@ -102,3 +102,11 @@ npm run check
 npx playwright test e2e/leona-solar-surfaces.spec.ts
 node tools/qa/verify-leona-r-surfaces.mjs
 ```
+
+## Subsequent attached-skin integration
+
+The [owner-skin increment](LEONA-R-SKIN.md) adds the single R attached-mesh family
+with independent multiplier UVs and saved private poses, bringing integration to
+36 enabled families across both area alternatives. The two unbound weapon quads,
+missing-texture Activate, planar receivers and early distortion remain separate.
+The 35-family counts and archive above remain the historical surface increment.

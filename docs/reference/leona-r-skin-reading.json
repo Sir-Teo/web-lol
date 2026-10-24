@@ -1,0 +1,67 @@
+{
+  "scope": "R buff static source/native shader/primary reconstruction reading. New Metal/AIR slices from frozen cached bundles; local clang produced textual LLVM with passes disabled. No native client/shader execution; CPU/frame acceptance remains open.",
+  "inputs": [
+    {
+      "path": "docs/reference/leona-r-particles.json",
+      "bytes": 266001,
+      "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+    },
+    {
+      "path": "docs/reference/leona-model.json",
+      "bytes": 93535,
+      "sha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7"
+    },
+    {
+      "path": "docs/reference/leona-w-skin-shaders.json",
+      "bytes": 16531,
+      "sha256": "22d114caa9f392f733949859d75e5b9c278688d821e7408096c0f47576ae1448"
+    },
+    {
+      "path": "docs/reference/particle-shaders.json",
+      "bytes": 19572,
+      "sha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6"
+    }
+  ],
+  "source": {
+    "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf in skin0.bin; exact four definitions in source-buf.json.",
+    "R0": "Cas_WeaponGlow: AttachedMesh/mMesh/mLockMeshToAttachment=true; no SKN/SKL/mesh path or submesh names. rate2,life1,linger11,bind1,birthScale[1.0099999904632568]*3,blend4. Base SwordMask.tex;mult R_buf_Mult.tex;mult birth scroll[.20000000298023224,.800000011920929]. No alphaRef/reflection/particleColorTexture/lookup authored.",
+    "R1R2": "BeamswordGlow/BeamswordGlow2: ArbitraryQuad,EmitterPosition[0,-90,0],bind1,particleIsLocalOrientation1. Rotations[180,0,90] and[180,90,90];scales[90,30,50]/[90,20,50]. Base R_Buf_SwordGlow.tex; mult R_buf_Mult.tex. Scroll[-.10000000149011612,1] and[.20000000298023224,.800000011920929];first additionally probabilistic birthUVOffsetMult[1,1] eachchannel0..1;lookupYbirthRandom/scales[1,.5]/offset[0,.5] authored but no lookup texture.",
+    "frame": "No bone/socket/attachment field in R_buf system definition or alias mapping. EmitterPosition/rotation are not a bone binding. Native spawn caller could supply a frame not present in these pins.",
+    "model": "leona-model.json124-126 explicitly binds ONLY idleParticlesEffects effectKey Leona_Idle_Sword to BUFFBONE_GLB_WEAPON_1; cannot transfer to R_buf. Spell4 atomic clip1916-1924 names leona_spell4.anm with no event map. Emote JointSnapEventData weapon->Weapon_World belongs to Joke/Laugh/Taunt, not R."
+  },
+  "external": {
+    "65a7": "readSurface201-218 requires a located named mesh pair/simple slot; block with only mLockMeshToAttachment supplies none. readVfxSystem never reads mLockMeshToAttachment or a generic R bone binding. Retained exact files under65a7d2a.",
+    "2adda": "AttachedMeshes.tsx84-95 explicitly draws owner character skin; no character=>none. Uses useCharacterSkin geometry,skeleton,ranges/hidden. skinOf296-306 detached-binds skeleton with identity;perparticle loops appearance+UVtint;scaleAboutParent252 writes only scale. Particle draw translation/orientation is unused on this path; mLockMeshToAttachment is not read.",
+    "scale": "attachedPlace.ts16-29 writes local matrix=S*inverse(parent.matrixWorld) so the detached world-bone skin gets scale about its parent origin with parent transform once. This is concrete external implementation, not proof of native attachment lock semantics.",
+    "materials": "particleProgram67-96 selects attachedMesh with MULT_PASS and USE_VERTEX_COLORS for R0; noREFLECTIVE. Existing attached fallback materials236-262 calls meshMaterial with own skinning vertex shader and both UV transforms. AttachedMeshes DRAWS60-61 disables particle lookup/fade. Primary binder writes per-slot tint/UVrows; textures loaded base+mult independently (useVfxTextures106-107).",
+    "mult": "readVfxSystem315-337 reads separate multTexture and multLayer; readSurface352-379 defaults omitted scale1,rotation0,birthOffset0,scroll0,center.5,wrap and shares base flipbook fields. uvTransformInto age*birthScroll at91-97; uvRowsInto176-212 produces independent affine rows for source UV. No mult multiplier is applied to position.",
+    "alphaDefault": "readVfxSystem457 normalizes authored alphaRef or external DEFAULT_ALPHA_REF by255. Parent compiled R0 uses5/255; this is absent in raw source and remains explicit local/reconstruction default.",
+    "blend": "External blend4 alphaAdd uses SrcAlpha/One, no premultiplyInto modification for4. Exact native blend-state CPU binding remains unverified."
+  },
+  "native": {
+    "selections": "native-selections.json: skinVS34(MULT_PASS),VS56(MULT_PASS+USE_VERTEX_COLORS),skinPS4(MULT_PASS,FOW),PS0(MULT_PASS+DISABLE_FOW),PS41(MULT_PASS+ALPHA_TEST,FOW),PS23(MULT_PASS+ALPHA_TEST+DISABLE_FOW),quadVS8/quadPS4(MULT_PASS). All from already cached16.18 TOCs/bundles, no network WAD extraction.",
+    "candidateBoundary": "TOC resolved exact define combinations, real programs and arithmetic, plus external CPU selection exist. Actual16.18 R0 CPU variant choice/attributes/uniforms/bone-palette dispatch are not established.",
+    "VS": "skinVS34 inputs positionfloat3loc0,weightsfloat4loc1,normalfloat3loc2,boneindicesuint4loc7,UVfloat2loc8. VS56 additionally vertexcolorfloat4loc3. Loop4 weighted position/normal rows from BONES[256] float3x4 atbuffer0/12288bytes. PerFrameVertexCB buffer1/560; LocalsVertex buffer9/144: vFresnel@0,vParticleUVTransform@16(48),vParticleUVTransformMult@64(48),kColorFactor@112(16),PARTICLE_DEPTH_PUSH_PULL@128. Base/mult UV each first2rows dot[u,v,1,0]. VS34 tint=kColorFactor;VS56 tint=vertexColor*kColorFactor. Bone-palette matrix construction/source attachment transform remains CPU unknown.",
+    "PS": "Let U=base(baseUV)*mult(multUV),T=U*tint;global remap D sampled at(dot(T.rgb,[.2126,.7152,.0722]),.5). selected=D.rgb ifD.a>0 elseT.rgb. RGB=clamp((selected+rimRGB*U.a)*(FOW.a ifenabled else1),0,1);outAlpha=T.a. No particle lookup texture/reflection cubemap/palette sample in these nonreflectiveMULT_PASS skin variants. Rim comes from VS via vFresnel;zero rim is a local neutral binding, not an observed source shader selection.",
+    "alphaTest": "skinPS41 SSA15-18 computes U,T;SSA23-28 discards iff T.a-alphaRef<0 (equality survives). Remap andFOW texture reads precede discard;remap selection/rim/FOW/clamp operations follow. Output alpha retains T.a, unaffected byremap/FOW/clamp. PS23 same minusFOW. AlphaRef in fragment buffer16/4bytes.",
+    "resourcesFow": "skinPS41: FOWtexture0,globalremaptexture1,basetexture2,multtexture3;sampler0base,1mult,15sharedClampNoMip. PS4 same minus alphaRefbuffer. PS23/0: globalremaptexture0,basetexture1,multtexture2. No particle lookup slot. Sampler names do not establish exact filter/address state.",
+    "quad": "quadVS8 requiresloc0position,loc3color,loc8float4UV/frame,loc9float2extraUV;PerFramebuffer1,Localsbuffer9(TEXTURE_INFO/TEXTURE_INFO_2/depthpush). quadPS4: base*TEXCOORD0tint*mult(TEXCOORD1.zw)*particleLookup(TEXCOORD1.zw),conditional globalremapRGB andFOWalphaRGB;alpha=preRemapProduct.a. This exact native variant shares lookup/mult coordinate; it does not establish CPU packed input assignment.",
+    "neutralPolicies": "NoFOW(PS0/23),identity globalremap via alpha0,andzero rim are explicit existing app policies when chosen. Particle lookup API may remain neutral but is unused by this skin shader path."
+  },
+  "conclusions": [
+    "AttachedMesh+multiplier has a concrete native skinVS/PS arithmetic candidate and external owner-skin renderer path; attachment lock/bone palette CPU binding remains unverified.",
+    "Two quads have no explicit weapon frame in inspected source/model/readers; do not select a bone from their names or move authoredY=-90.",
+    "Owner skin fallback in2adda is external policy; it does not recover native spawn frame for quads.",
+    "Missing-base Activate remains independent and unresolved."
+  ],
+  "provenance": "docs/reference/leona-r-skin-readers.json",
+  "nativeSelections": "docs/reference/leona-r-skin-shaders.json",
+  "sourceSnapshot": ".cache/leona-r-buff-binding-reading-v1-20261024/source-buf.json",
+  "modelBindingScan": ".cache/leona-r-buff-binding-reading-v1-20261024/model-binding-fields.json",
+  "localSkinMesh": {
+    "path": "public/assets/models/leona-base.glb",
+    "bytes": 6253628,
+    "sha256": "5b845c3ba98ca15fdf61bb3eb549d54b858709c051c3c03f1cb26f76c890e5a9"
+  },
+  "localVertexInput": "Prepared GLB has POSITION,NORMAL,TEXCOORD_0,JOINTS_0,WEIGHTS_0 and no COLOR_0. Local VS34 path uses no fabricated vertex color stream; VS56 is retained as a separate candidate."
+}

@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "scope": "Offline exact frozen cached bundles; static AIR textual decoding only. No native shader execution. CPU dispatch unverified.",
+  "nativeExecuted": false,
+  "nativeCpuVerified": false,
+  "nativeFrameVerified": false,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "tocReader": {
+    "path": "tools/assets/extract-leona-w-skin-shaders.py",
+    "bytes": 5947,
+    "sha256": "990b58bde9918e27e356ba5bb385e4f8bcae8342f03627c488c59dc19e5644d0"
+  },
+  "retainedExtractor": {
+    "path": ".cache/leona-r-buff-binding-reading-v1-20261024/native_select.py",
+    "bytes": 2687,
+    "sha256": "4225b56b4c32f0b831cd196549177cc2d455a7827726143a586cd4909e721b96"
+  },
+  "sourcePins": [
+    {
+      "path": "docs/reference/leona-w-skin-shaders.json",
+      "bytes": 16531,
+      "sha256": "22d114caa9f392f733949859d75e5b9c278688d821e7408096c0f47576ae1448"
+    },
+    {
+      "path": "docs/reference/particle-shaders.json",
+      "bytes": 19572,
+      "sha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6"
+    }
+  ],
+  "selections": [
+    {
+      "table": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "tableSha256": "e38b0f01bb7db3b833c9174570e15e510eb359e87f609d6ca8b453fc2c5f91a7",
+      "bundle": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "bundleSha256": "6bc394193026df46cab5d182b8b7e0e0e58f064211827039d223c4e938c48019",
+      "defines": {
+        "MULT_PASS": "1"
+      },
+      "programId": 4,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-4.metallib",
+        "sha256": "260265f11c8e8f8e9cdd0580a45b77e9657f2d9cd79d874af8ef24562a75667d",
+        "bytes": 3774
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-4.bc",
+        "sha256": "7267bb144b628a5d8550defbd1f6034ca037730640388e535eee5b1dad0d8b8d",
+        "bytes": 3508,
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-4.ll",
+        "sha256": "b395fef57f20381b73912e7ec6f7f8fbdfe41177ae08d880034414c7907d42cb",
+        "bytes": 6910
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "04dd012859553eab",
+      "bundleProgramOffset": 14716
+    },
+    {
+      "table": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "tableSha256": "e38b0f01bb7db3b833c9174570e15e510eb359e87f609d6ca8b453fc2c5f91a7",
+      "bundle": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "bundleSha256": "6bc394193026df46cab5d182b8b7e0e0e58f064211827039d223c4e938c48019",
+      "defines": {
+        "MULT_PASS": "1",
+        "DISABLE_FOW": "1"
+      },
+      "programId": 0,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-0.metallib",
+        "sha256": "1ca7d177da2d85e8d57fa755fbd46398fe9762fe7b177fda9de99015d12efe9a",
+        "bytes": 3646
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-0.bc",
+        "sha256": "f853855ed7581afedf77c5be36e455e83074f9f4837c3bb6df1378c6e9823751",
+        "bytes": 3388,
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-0.ll",
+        "sha256": "18351cd84166eee983a4b81e551c11707453a4cff2c573c174bd0c429ccf651d",
+        "bytes": 6145
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "d54a82a889d6c4ef",
+      "bundleProgramOffset": 4
+    },
+    {
+      "table": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "tableSha256": "883c94f561e86a7fefa5137979cceb76b1ca416e85fb96e60b4023afa859a6a7",
+      "bundle": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_0",
+      "bundleSha256": "2e476043d18dd7b927ed23e4b060ffef9616378fb24f7c43f0e43303d4406cba",
+      "defines": {
+        "MULT_PASS": "1"
+      },
+      "programId": 34,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_vs.vs-metal-34.metallib",
+        "sha256": "9b9b0dfa61f2d97a897728e4914f01fa9c5cd3799ad3f67c3eca7eadd8af9511",
+        "bytes": 5659
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_vs.vs-metal-34.bc",
+        "sha256": "a50f3f8a4751542e26668ab2d8ed25db456a7866fae360d0dc89cd4a583699ef",
+        "bytes": 5340,
+        "offset": 319
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_vs.vs-metal-34.ll",
+        "sha256": "ee54447559349d17427eab27e8f3ad11cafdb8ffe291ab43bee13c28adb414e5",
+        "bytes": 17058
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "04dd012859553eab",
+      "bundleProgramOffset": 190068
+    },
+    {
+      "table": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "tableSha256": "883c94f561e86a7fefa5137979cceb76b1ca416e85fb96e60b4023afa859a6a7",
+      "bundle": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_0",
+      "bundleSha256": "2e476043d18dd7b927ed23e4b060ffef9616378fb24f7c43f0e43303d4406cba",
+      "defines": {
+        "MULT_PASS": "1",
+        "USE_VERTEX_COLORS": "1"
+      },
+      "programId": 56,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_vs.vs-metal-56.metallib",
+        "sha256": "caa8ad79fd315c0a186b1db56dc6417fbe5c5f795a7e3d525da59015d10bca6d",
+        "bytes": 5716
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_vs.vs-metal-56.bc",
+        "sha256": "1e19413e0ab3eac6e7543f544967aac79430239353c0e7b3267d80303087c4d4",
+        "bytes": 5388,
+        "offset": 328
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_vs.vs-metal-56.ll",
+        "sha256": "4f71bc939045488b4b50fd7267d9ef16a757839135048da39816643e241d06fa",
+        "bytes": 17390
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "ef8519d8c8cce5e4",
+      "bundleProgramOffset": 315282
+    },
+    {
+      "table": ".cache/particle-shaders/assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "tableSha256": "0a3b5a75854e9e4197cdf7fa53c315e5b969bd37e5b1ac3436184cce5a6dce20",
+      "bundle": ".cache/particle-shaders/assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "bundleSha256": "ae8f612833cb5d751a31d38641c7e018d015a3f1ec67918a702a6618caaaee2f",
+      "defines": {
+        "MULT_PASS": "1"
+      },
+      "programId": 4,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/quad_ps.ps-metal-4.metallib",
+        "sha256": "a32d4625e98e8d298fe3c577904ce3c5723993cd6c4916b839c8e0d5a6aad5b9",
+        "bytes": 3726
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/quad_ps.ps-metal-4.bc",
+        "sha256": "7f5add3cb436f2da469f0cf873e7e08c7fd23dcca49af98a4732d77fe8596e47",
+        "bytes": 3460,
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/quad_ps.ps-metal-4.ll",
+        "sha256": "d01a286d153da7e2ebb5d8329f7d17803235507dd72688b9012a29bf5ab8c5a5",
+        "bytes": 6858
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "04dd012859553eab",
+      "bundleProgramOffset": 14396
+    },
+    {
+      "table": ".cache/particle-shaders/assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "tableSha256": "9bc26a17d5bdb16f08e32013d27741969e8f48e22c15709712b6e0b0e88a2fbc",
+      "bundle": ".cache/particle-shaders/assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "bundleSha256": "5a92f61dd00bd08d76acac588f232e0fa34385c44392b465e3d5a8fbba4aeb7b",
+      "defines": {
+        "MULT_PASS": "1"
+      },
+      "programId": 8,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/quad_vs.vs-metal-8.metallib",
+        "sha256": "bda27907a07f232da6a6f9a97bbb6e2c5a099763b823c1cca62ed266b73ab5b3",
+        "bytes": 4610
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/quad_vs.vs-metal-8.bc",
+        "sha256": "d28b9c9500826ebed9fa6f4193f0e8cc7ab402d24f33ca4deeee0b57d6ea759e",
+        "bytes": 4288,
+        "offset": 310
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/quad_vs.vs-metal-8.ll",
+        "sha256": "32d87f065c39d050dc4e41975b7e778c5d6f4997b588bf9ad2c77e9ba399cfeb",
+        "bytes": 10629
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "04dd012859553eab",
+      "bundleProgramOffset": 36388
+    },
+    {
+      "table": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "tableSha256": "e38b0f01bb7db3b833c9174570e15e510eb359e87f609d6ca8b453fc2c5f91a7",
+      "bundle": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "bundleSha256": "6bc394193026df46cab5d182b8b7e0e0e58f064211827039d223c4e938c48019",
+      "defines": {
+        "MULT_PASS": "1",
+        "ALPHA_TEST": "1"
+      },
+      "programId": 41,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-41.metallib",
+        "sha256": "93b65cfddd888f55f58da50b514b3db4107be90d1a60b18f5ec4abba86c8c550",
+        "bytes": 4206
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-41.bc",
+        "sha256": "a566190ca2bf9f74a21ac6817639b5d0d4427c65650e6ccb7614a132ee4f4627",
+        "bytes": 3948,
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-41.ll",
+        "sha256": "7b71b44a85ba900a3e086bc055f75fdcc589d050558b95718554aeb20c3bc530",
+        "bytes": 8081
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "dd5c9b30f27096d9",
+      "bundleProgramOffset": 164678
+    },
+    {
+      "table": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "tableSha256": "e38b0f01bb7db3b833c9174570e15e510eb359e87f609d6ca8b453fc2c5f91a7",
+      "bundle": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "bundleSha256": "6bc394193026df46cab5d182b8b7e0e0e58f064211827039d223c4e938c48019",
+      "defines": {
+        "MULT_PASS": "1",
+        "ALPHA_TEST": "1",
+        "DISABLE_FOW": "1"
+      },
+      "programId": 23,
+      "metallib": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-23.metallib",
+        "sha256": "3d100cb35bf99bdc3679c83a7bde8cfd5b14231488819dac27b1b97eab6dae9c",
+        "bytes": 4094
+      },
+      "bitcode": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-23.bc",
+        "sha256": "11e32404309c3ec3fe77e6692c27c94de736cd019dd98bc727d1a4613190ebb0",
+        "bytes": 3824,
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-r-buff-binding-reading-v1-20261024/particle_ps.ps-metal-23.ll",
+        "sha256": "408a5af43aac36b3a6e9da193a279cf819678554a4ec598385952d04838d11d5",
+        "bytes": 7316
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+      "definesHash": "fdaa244e3d05cc48",
+      "bundleProgramOffset": 89938
+    }
+  ]
+}

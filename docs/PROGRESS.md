@@ -5812,3 +5812,51 @@ player Leona/support and full six-character match remain open. See
 [scope](LEONA-R-SURFACES.md) and the
 [verification record](reference/leona/r-surface-verification.json). Nothing is
 pushed; the full project goal stays active.
+
+
+## Solar Flare attached owner skin — October 24, 2026
+
+The authored Cas_WeaponGlow overlays a private complete Leona rig from saved
+caster poses. Source sword mask, independent multiplier/birth-scroll/UV rows,
+scale 1.0099999904632568 and color/lifetime remain intact. Historical birth/current
+point vision, source death freeze and terminal retirement stay separate from
+live units. Each particle owns its skeleton/bone texture and material; source
+geometry/images/samplers/clips remain borrowed. Missing normals fail closed.
+This adds one family to the 35 supported surfaces, for 36 enabled families across
+both area alternatives. The remaining eight stay explicitly separate.
+
+Sixteen exact primary readers and eight native selections/24 Metal/AIR/LLVM
+streams establish bounded owner-skin/multiplier contracts. Cached 16.18 skin
+VS34/56 and PS0/4/23/41, plus quadVS8/PS4 candidates are retained. Skin base and
+multiplier samples combine before tint/alpha-test. Equality survives; remap
+preserves alpha; pre-tint product alpha carries rim. RGB saturates while alpha
+stays raw. These skin variants sample no particle lookup. Prepared Leona GLB has
+no COLOR_0, so the local VS34 contract uses authored position/normal/weights/
+indices/UV with no fabricated color stream. No native client/Metal execution is
+claimed; host clang textual decoding is explicit.
+
+NoFOW, zero rim, optional remap bypass, compiler-default 5/255 alpha reference,
+source blend 4 and saved owner-root/scale remain local policies. Native CPU
+selection, lock/bone-palette/default/sampler/state/frame parity stay open. The
+weapon idle bone binding does not belong to R; both below-ground arbitrary
+quads keep their authored offsets and await an explicit frame. Missing-base
+Activate, two planar receivers and three early distortion quads remain separate.
+
+The final full 1,858 unit cases/306 files plus three Node QA pass. Seventeen Chrome
+cases cover R skins and 35 surfaces, W/E skins and 84 product probes plus alpha/UV/
+float/context recovery. Ordinary Save/reload/graphics recovery preserve exact
+posed state and pixels; six R casts return to stable settled GPU storage. A copied
+uniform/birth expectation and implicit premultiplied-clear harness policy were
+corrected without runtime shader changes. The first full run hit an existing
+31-minute scheduler test's five-second wall-clock timeout; its isolated retry
+and final full rerun pass without a simulation/test-timeout change. All initial
+diagnostics remain retained.
+
+Fresh production passes 32 recordings without development hooks/Leona preload.
+The fresh 1,010-file pack contains 513,243,693 bytes and passes all offline controls
+with 963 service-worker responses and no production errors. Schema 126 stays fixed;
+ruleset 8de37836 includes the multiplier material root. No new normal cohort or
+CPU benchmark is claimed. See [scope](LEONA-R-SKIN.md) and the
+[verification record](reference/leona/r-skin-verification.json). Remaining R
+bindings/native acceptance, player Leona/support and full six-character match
+work remain open. Nothing is pushed; the full project goal stays active.
